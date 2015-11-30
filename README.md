@@ -1,3 +1,3 @@
 # Ant Mobile 
 
-An mobile UI design language and React-based implementation.
+A mobile UI design language and React-based implementation.
