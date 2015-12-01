@@ -1,7 +1,7 @@
 {
   "name": "@alipay/antm",
-  "version": "0.0.1",
-  "stableVersion": "0.10.3",
+  "version": "0.0.2",
+  "stableVersion": "0.0.2",
   "title": "Ant Mobile",
   "description": "基于React的AntUI",
   "homepage": "http://ant.design/",
@@ -28,8 +28,8 @@
   },
   "main": "lib/index",
   "files": [
-    "components",
-    "style"
+    "lib",
+    "style/components"
   ],
   "license": "MIT",
   "dependencies": {
