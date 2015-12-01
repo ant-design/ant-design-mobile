@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 列表项
-- type: 表单
+- type: 列表
 
 ---
 

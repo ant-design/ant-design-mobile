@@ -31,7 +31,7 @@ ReactDOM.render(
         onClick={function(){}}
       />
     </ListBody>
-    <ListFooter label="我是表尾"/>
+    <ListFooter content="我是表尾"/>
   </ListWrap>
   <ListWrap >
       <ListHeader label="我是表头"/>
@@ -53,7 +53,7 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter label="我是表尾,我改了样式,还右对齐" style={{color:"red"}} align="right"/>
+      <ListFooter onClick={function(e){alert('clickme')}} content="<a id='ddd'>我是链接</a>,我改了样式,还右对齐,快点我" style={{color:"red"}} align="right"/>
     </ListWrap>
   </div>
 , document.getElementById('components-listfooter-demo-basic'));

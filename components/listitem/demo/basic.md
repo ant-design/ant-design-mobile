@@ -50,7 +50,7 @@ ReactDOM.render(
         onClick={function(){}}
       />
     </ListBody>
-    <ListFooter label="我是表尾"/>
+    <ListFooter content="我是表尾"/>
   </ListWrap>
   <ListWrap >
       <ListHeader label="我是表头"/>
@@ -64,7 +64,7 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter label="我是表尾"/>
+      <ListFooter content="我是表尾"/>
     </ListWrap>
   </div>
 , document.getElementById('components-listitem-demo-basic'));

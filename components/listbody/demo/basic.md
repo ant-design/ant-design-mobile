@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
+import { ListWrap, ListBody, ListItem} from 'antm';
 
 ReactDOM.render(
   <div>
@@ -24,7 +24,6 @@ ReactDOM.render(
     </ListBody>
   </ListWrap>
   <ListWrap >
-      <ListHeader label="我是表头"/>
       <ListBody>
         <ListItem
           type="双行"
@@ -43,7 +42,6 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter label="我是表尾"/>
     </ListWrap>
   </div>
 , document.getElementById('components-listbody-demo-basic'));

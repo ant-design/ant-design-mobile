@@ -30,7 +30,7 @@ ReactDOM.render(
         onClick={function(){}}
       />
     </ListBody>
-    <ListFooter label="我是表尾"/>
+    <ListFooter content="我是表尾"/>
   </ListWrap>
 , document.getElementById('components-listwrap-demo-basic'));
 

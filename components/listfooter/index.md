@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 列表尾部
-- type: 表单
+- type: 列表
 
 ---
 
@@ -19,6 +19,7 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| label      | 列表尾部文案   | String        | 无
+| content      | 列表尾部文案   | String/dom片段        | 无
 | style      | 定制的样式       | Object           | 无
 | align      | 左对齐或者是右对齐   | String(left/right) | 无
+| onClick      | 点击事件   | Func |   无  |
