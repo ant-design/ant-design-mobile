@@ -45,25 +45,40 @@ $ npm install
 
 ```jsx
 import React from 'react';
-import { Datepicker, message } from 'antm';
+import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
 
 const App = React.createClass({
   getInitialState() {
     return {
-      date: ''
+
     };
   },
-  handleChange(value) {
-    message.info('您选择的日期是: ' + value.toString());
-    this.setState({
-      date: value
-    });
+  handleClick(e) {
+    console.log(e);
   },
   render() {
-    return <div style={{width: 400, margin: '100px auto'}}>
-      <Datepicker onSelect={this.handleChange} />
-      <div style={{marginTop: 20}}>当前日期：{this.state.date.toString()}</div>
-    </div>;
+    return <ListWrap >
+      <ListHeader label="我是表头"/>
+        <ListBody>
+         <ListItem
+           type="双行"
+           icon=""
+           content="我是内容"
+           extra="我是额外信息"
+           arrow="horizontal"
+           onClick={function(){}}
+         />
+         <ListItem
+           type="双行"
+           icon=""
+           content="我是内容22"
+           extra="我是额外信息"
+           arrow="horizontal"
+           onClick={this.handleClick}
+         />
+        </ListBody>
+        <ListFooter label="我是表尾"/>
+      </ListWrap>;
   }
 });
 
@@ -92,9 +107,7 @@ $ npm run build
 
 ## 兼容性
 
-Ant Design React 支持所有的现代浏览器和 IE8+。
-
-对于 IE8，需要提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
+Ant Mobile From Ant Design React 目前仅针对钱包容器环境。
 
 <div class="code-line-highlight"></div>
 
@@ -115,8 +128,6 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/index.css">
-    <!-- Polyfills -->
-    <script src="https://as.alipayobjects.com/??component/console-polyfill/0.2.2/index.js,component/es5-shim/4.1.14/es5-shim.min.js,component/es5-shim/4.1.14/es5-sham.min.js,component/html5shiv/3.7.2/html5shiv.min.js,g/component/media-match/2.0.2/media.match.min.js"></script>
   </head>
   <body>
   </body>
