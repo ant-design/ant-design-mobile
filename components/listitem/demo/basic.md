@@ -9,6 +9,10 @@
 ````jsx
 import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
 
+window.clickItem = function(e) {
+  console.log(e);
+};
+
 ReactDOM.render(
   <div>
   <ListWrap >
@@ -18,16 +22,31 @@ ReactDOM.render(
         type="双行"
         icon=""
         content="我是内容"
-        extra="我是额外信息"
-        arrow={true}
-        onClick={function(){}}
+        arrow="horizontal"
+        onClick={window.clickItem}
       />
       <ListItem
         type="双行"
         icon=""
         content="我是内容22"
         extra="我是额外信息"
-        arrow={true}
+        arrow="horizontal"
+        onClick={window.clickItem}
+      />
+      <ListItem
+        type="双行"
+        icon=""
+        content="我是内容22"
+        extra="我是额外信息"
+        arrow="placeholder"
+        onClick={window.clickItem}
+      />
+      <ListItem
+        type="双行"
+        icon=""
+        content="我是内容"
+        extra="我是额外信息"
+        arrow="vertical"
         onClick={function(){}}
       />
     </ListBody>
@@ -41,15 +60,7 @@ ReactDOM.render(
           icon=""
           content="我是内容"
           extra="我是额外信息"
-          arrow={true}
-          onClick={function(){}}
-        />
-        <ListItem
-          type="双行"
-          icon=""
-          content="我是内容22"
-          extra="我是额外信息"
-          arrow={true}
+          arrow="vertical"
           onClick={function(){}}
         />
       </ListBody>

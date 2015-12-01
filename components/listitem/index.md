@@ -18,5 +18,11 @@
 
 
 | 成员        | 说明           | 类型               | 默认值       |
-|-------------|----------------|--------------------|--------------|
-| offset      | 达到指定偏移量后触发   | Number | 0        |
+|------------|----------------|--------------------|--------------|
+| link       | 如果item需要跳转,则需要URL   | String |   无  |
+| arrow      | 箭头方向   | String（horizontal/vertical/无） |   无  |
+| type      | 箭头方向   | String（horizontal/vertical/无） |   无  |
+| icon      | 箭头方向   | String（horizontal/vertical/无） |   无  |
+| content      | 箭头方向   | String（horizontal/vertical/无） |   无  |
+| extra      | 箭头方向   | String（horizontal/vertical/无） |   无  |
+| onClick      | 箭头方向   | String（horizontal/vertical/无） |   无  |

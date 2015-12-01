@@ -1,15 +1,43 @@
 import React from 'react';
 const {PropTypes} = React;
 const ListItem = React.createClass({
+  getInitialState: function() {
+    return {
+      arrowStyle:{}
+    }
+  },
   propTypes: {
-    label: PropTypes.string,
+    content: PropTypes.string,
+    extra: PropTypes.string,
+    icon: PropTypes.string,
+    arrow: PropTypes.string,
+    onClick: PropTypes.func,
+  },
+  _createArrowMarkup: function () {
+    let arrow = this.props.arrow,
+      arrowDom;
+    if(arrow == "horizontal") {
+      arrowDom = '<div class="am-list-arrow"><span class="am-icon" data-am-mode="arrow-horizontal"></span></div>';
+    } else if(arrow == "vertical") {
+      arrowDom = '<div class="am-list-arrow"><span class="am-icon" data-am-mode="arrow-vertical"></span></div>';
+    } else if(!!arrow) {
+      arrowDom = '<div class="am-list-arrow"></div>';
+    } else {
+      arrowDom = "";
+    }
+    return {__html: arrowDom};
+  },
+  _handleClick: function(e) {
+    e.preventDefault();
+    this.props.onClick(e);
   },
   render: function(){
+    let link = this.props.link || 'javascript:void(0);';
     return (
-      <a href="#" className="am-list-item">
+      <a href={link} className="am-list-item" onClick={this._handleClick}>
         <div className="am-list-content">{this.props.content}</div>
         <div className="am-list-extra">{this.props.extra}</div>
-        <div className="am-list-arrow"><span className="am-icon" data-am-mode="arrow-horizontal"></span></div>
+        <div style={this.state.arrowStyle} dangerouslySetInnerHTML={this._createArrowMarkup()}/>
       </a>
     );
   }
