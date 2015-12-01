@@ -5,7 +5,6 @@ var pkg = require('./package');
 
 var entry = {};
 entry['index'] = './scripts/importCss.js';
-entry['web'] = './scripts/importWebCss.js';
 entry['demo'] = './scripts/demo.js';
 
 module.exports = {
