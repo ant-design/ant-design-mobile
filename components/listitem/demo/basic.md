@@ -20,6 +20,7 @@ ReactDOM.render(
     <ListBody>
       <ListItem
         type="双行"
+        link="http://www.baidu.com"
         icon=""
         content="我是内容"
         arrow="horizontal"

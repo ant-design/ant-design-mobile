@@ -19,10 +19,10 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| link       | 如果item需要跳转,则需要URL   | String |   无  |
-| arrow      | 箭头方向   | String（horizontal/vertical/无） |   无  |
-| type      | 箭头方向   | String（horizontal/vertical/无） |   无  |
-| icon      | 箭头方向   | String（horizontal/vertical/无） |   无  |
-| content      | 箭头方向   | String（horizontal/vertical/无） |   无  |
-| extra      | 箭头方向   | String（horizontal/vertical/无） |   无  |
-| onClick      | 箭头方向   | String（horizontal/vertical/无） |   无  |
+| link       | 如果item需要跳转,则需要URL  | String |   无  |
+| arrow      | 箭头方向        | String（horizontal/vertical/无） |   无  |
+| type       | 赞不支持        | String |   无  |
+| icon       | 缩略图,赞不支持  | imgsrc |   无  |
+| content    | 左边文案        | String |   无  |
+| extra      | 右边文案        | String |   无  |
+| onClick    | 箭头方向        | Function |   无  |
