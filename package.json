@@ -37,6 +37,9 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
+    "classnames": "~2.2.0",
+    "css-animation": "1.1.x",
+    "semver": "~5.0.3",
     "autoprefixer-loader": "^3.1.0",
     "babel": "^5.8.29",
     "babel-core": "^5.8.29",

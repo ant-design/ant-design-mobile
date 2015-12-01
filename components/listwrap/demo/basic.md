@@ -18,7 +18,7 @@ ReactDOM.render(
         icon=""
         content="我是内容"
         extra="我是额外信息"
-        arrow={true}
+        arrow="horizontal"
         onClick={function(){}}
       />
       <ListItem
@@ -26,7 +26,7 @@ ReactDOM.render(
         icon=""
         content="我是内容22"
         extra="我是额外信息"
-        arrow={true}
+        arrow="horizontal"
         onClick={function(){}}
       />
     </ListBody>
