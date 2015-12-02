@@ -8,6 +8,7 @@ const antm = {
   ListBody : require('./components/listbody'),
   ListFooter : require('./components/listfooter'),
   ListItem : require('./components/listitem'),
+  InputItem : require('./components/inputitem'),
 };
 
 antm.version = require('./package.json').version;
