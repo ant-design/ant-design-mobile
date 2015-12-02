@@ -2,20 +2,20 @@ import React from 'react';
 const {PropTypes} = React;
 const ListItem = React.createClass({
   propTypes: {
-    content: PropTypes.string,
-    extra: PropTypes.string,
-    icon: PropTypes.string,
-    arrow: PropTypes.string,
-    onClick: PropTypes.func,
-    didMount: PropTypes.func,
-    extraFormData: PropTypes.object
+    content       : PropTypes.string,
+    extra         : PropTypes.string,
+    icon          : PropTypes.string,
+    arrow         : PropTypes.string,
+    onClick       : PropTypes.func,
+    didMount      : PropTypes.func,
+    extraFormData : PropTypes.object
   },
   getInitialState: function() {
     return {
-      content:this.props.content||'',
-      extra:this.props.extra||'',
-      icon:this.props.icon||'',
-      extraFormData: this.props.extraFormData||{}
+      content       : this.props.content||'',
+      extra         : this.props.extra||'',
+      icon          : this.props.icon||'',
+      extraFormData : this.props.extraFormData||{}
     };
   },
   componentDidMount: function() {
