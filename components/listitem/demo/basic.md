@@ -16,10 +16,13 @@ window.clickItem = function(e) {
     extra:'434234'
   });
   this.setState({
-      extraFormData:{
-"pic1":"5555"
-      }
-    });
+    extraFormData:{
+      "pic1":"5555"
+    }
+  });
+  console.log(ReactDOM.findDOMNode(this));
+  console.log($(ReactDOM.findDOMNode(this)).find(".am-list-extra"));
+  $(ReactDOM.findDOMNode(this)).find(".am-list-extra").css("color","red");;
 };
 window.didMount = function() {
   console.log(this);
