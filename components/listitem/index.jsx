@@ -35,7 +35,7 @@ const ListItem = React.createClass({
   },
   _handleClick: function(e) {
     e.preventDefault();
-    this.props.onClick(e);
+    this.props.onClick.call(this,e);
   },
   render: function(){
     let link = this.props.link || 'javascript:void(0);';
