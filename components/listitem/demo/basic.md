@@ -12,9 +12,8 @@ import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
 window.clickItem = function(e) {
   console.log(e);
 };
-window.didMount = function(obj) {
-  alert(obj);
-  console.log(obj);
+window.didMount = function() {
+  console.log(this);
 };
 window.openurl = function(e) {
   console.log(e);

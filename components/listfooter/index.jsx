@@ -9,7 +9,7 @@ const ListFooter = React.createClass({
   },
   componentDidMount: function() {
     if(!!this.props.didMount) {
-      this.props.didMount(this);
+      this.props.didMount.call(this);
     }
   },
   _createFooterMarkup: function () {
@@ -17,7 +17,7 @@ const ListFooter = React.createClass({
   },
   _onFooterClick: function(e) {
     e.preventDefault();
-    this.props.onClick(e);
+    this.props.onClick.call(this,e);
   },
   render: function(){
     let align = this.props.align === 'right' ? 'am-ft-right' : '';

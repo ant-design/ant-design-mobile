@@ -6,7 +6,7 @@ const ListWarp = React.createClass({
   },
   componentDidMount: function() {
     if(!!this.props.didMount) {
-      this.props.didMount(this);
+      this.props.didMount.call(this);
     }
   },
   render: function(){
