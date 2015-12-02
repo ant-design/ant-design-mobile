@@ -1,11 +1,6 @@
 import React from 'react';
 const {PropTypes} = React;
 const ListItem = React.createClass({
-  getInitialState: function() {
-    return {
-      arrowStyle:{}
-    }
-  },
   propTypes: {
     content: PropTypes.string,
     extra: PropTypes.string,
@@ -13,6 +8,15 @@ const ListItem = React.createClass({
     arrow: PropTypes.string,
     onClick: PropTypes.func,
     didMount: PropTypes.func,
+    extraFormData: PropTypes.object
+  },
+  getInitialState: function() {
+    return {
+      content:this.props.content||'',
+      extra:this.props.extra||'',
+      icon:this.props.icon||'',
+      extraFormData: this.props.extraFormData||{}
+    };
   },
   componentDidMount: function() {
     if(!!this.props.didMount) {
@@ -39,13 +43,20 @@ const ListItem = React.createClass({
   },
   render: function(){
     let link = this.props.link || 'javascript:void(0);';
+    var extraFormData = this.state.extraFormData;
+    var extraFormDataArray = [];
+    for(var key in extraFormData) {
+      extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
+    }
     return (
       <a href={link} className="am-list-item" onClick={this._handleClick}>
-        <div className="am-list-content">{this.props.content}</div>
-        <div className="am-list-extra">{this.props.extra}</div>
-        <div style={this.state.arrowStyle} dangerouslySetInnerHTML={this._createArrowMarkup()}/>
+        <div className="am-list-content">{this.state.content}</div>
+        <div className="am-list-extra">{this.state.extra}</div>
+        {extraFormDataArray}
+        <div style={this.props.arrowStyle} dangerouslySetInnerHTML={this._createArrowMarkup()}/>
       </a>
     );
   }
 });
 module.exports = ListItem;
+

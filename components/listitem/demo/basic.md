@@ -11,6 +11,15 @@ import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
 
 window.clickItem = function(e) {
   console.log(e);
+  console.log(this);
+  this.setState({
+    extra:'434234'
+  });
+  this.setState({
+      extraFormData:{
+"pic1":"5555"
+      }
+    });
 };
 window.didMount = function() {
   console.log(this);
@@ -31,6 +40,7 @@ ReactDOM.render(
         content="我是内容"
         arrow="horizontal"
         onClick={window.openurl}
+        extraFormData={{"pic1":"22","pic2":"222"}}
       />
       <ListItem
         type="双行"
@@ -40,6 +50,7 @@ ReactDOM.render(
         arrow="horizontal"
         didMount={window.didMount}
         onClick={window.clickItem}
+        extraFormData={{"pic1":"22","pic2":"222"}}
       />
       <ListItem
         type="双行"
