@@ -4,7 +4,13 @@ const ListFooter = React.createClass({
   propTypes: {
     content: PropTypes.string,
     style: PropTypes.object,
-    align: PropTypes.string
+    align: PropTypes.string,
+    didMount: PropTypes.func,
+  },
+  componentDidMount: function() {
+    if(!!this.props.didMount) {
+      this.props.didMount(this);
+    }
   },
   _createFooterMarkup: function () {
     return {__html: this.props.content};

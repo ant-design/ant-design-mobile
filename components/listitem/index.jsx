@@ -12,6 +12,12 @@ const ListItem = React.createClass({
     icon: PropTypes.string,
     arrow: PropTypes.string,
     onClick: PropTypes.func,
+    didMount: PropTypes.func,
+  },
+  componentDidMount: function() {
+    if(!!this.props.didMount) {
+      this.props.didMount(this);
+    }
   },
   _createArrowMarkup: function () {
     let arrow = this.props.arrow,

@@ -25,4 +25,5 @@
 | icon       | 缩略图,赞不支持  | imgsrc |   无  |
 | content    | 左边文案        | String |   无  |
 | extra      | 右边文案        | String |   无  |
-| onClick    | 箭头方向        | Function |   无  |
+| onClick    | 点击事件的回调函数 | Function |   无  |
+| didMount   | 模块mount后立即执行的方法,参数是模块对象本身        | Function |   无  |

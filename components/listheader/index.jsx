@@ -4,6 +4,12 @@ const ListHeader = React.createClass({
   propTypes: {
     label: PropTypes.string,
     style: PropTypes.object,
+    didMount: PropTypes.func,
+  },
+  componentDidMount: function() {
+    if(!!this.props.didMount) {
+      this.props.didMount(this);
+    }
   },
   render: function(){
     return (
