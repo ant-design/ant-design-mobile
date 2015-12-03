@@ -10,6 +10,8 @@ const InputItem = React.createClass({
     onIconClick: PropTypes.func,
     didMount: PropTypes.func,
     onChange: PropTypes.func,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
     extraFormData: PropTypes.object
   },
   getDefaultProps() {
@@ -20,6 +22,10 @@ const InputItem = React.createClass({
       placeholder: '',
       icon: '',
       onChange(){
+      },
+      onBlur(){
+      },
+      onFocus(){
       },
       didMount(){
       },
@@ -47,6 +53,12 @@ const InputItem = React.createClass({
   _onInputChange(e) {
     const value = e.target.value;
     this.setValue(value, e);
+  },
+  _onInputBlur(e) {
+    this.props.onBlur.call(this, e);
+  },
+  _onInputFocus(e) {
+    this.props.onFocus.call(this, e);
   },
   _onIconClick(e) {
     this.props.onIconClick.call(this, e);
@@ -102,7 +114,9 @@ const InputItem = React.createClass({
                  name={this.props.name}
                  placeholder={this.props.placeholder}
                  value={this.state.value}
-                 onChange={this._onInputChange}/>
+                 onChange={this._onInputChange}
+                 onBlur={this._onInputBlur}
+                 onFocus={this._onInputFocus}/>
           {extraFormDataArray}
         </div>
         {clearDom}

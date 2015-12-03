@@ -53,8 +53,8 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter onClick={function(e){}} style={{color:'red'}} align="right">
-        <div><a id="ddd">我是链接</a>,我改了样式,还右对齐,快点我</div>
+      <ListFooter onClick={function(e){alert(111);}} style={{color:'red'}} align="right">
+        <a id="ddd">我是链接</a>,我改了样式,还右对齐,快点我
       </ListFooter>
     </ListWrap>
   </div>

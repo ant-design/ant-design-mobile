@@ -19,7 +19,9 @@ ReactDOM.render(
         defaultValue="dada22"
         placeholder="dadads"
         clear={true}
-        onChange={function(){}}
+        onChange={function(e){console.log('onChange');console.log(e)}}
+        onBlur={function(e){console.log('onBlur');console.log(e)}}
+        onFocus={function(e){console.log('onFocus');console.log(e)}}
         didMount={function(){}}
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
@@ -45,6 +47,7 @@ ReactDOM.render(
         name="yyy"
         defaultValue="dada22"
         placeholder="dadads"
+        clear={true}
         onChange={function(){}}
         didMount={function(){}}
         extraFormData={{'pic1':'22', 'pic2':'222'}}

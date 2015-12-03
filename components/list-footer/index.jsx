@@ -18,9 +18,6 @@ const ListFooter = React.createClass({
   componentDidMount() {
     this.props.didMount(this);
   },
-  _createFooterMarkup() {
-    return this.props.children;
-  },
   _onFooterClick(e) {
     e.preventDefault();
     this.props.onClick.call(this, e);
@@ -30,7 +27,7 @@ const ListFooter = React.createClass({
     align = 'am-list-footer ' + align;
     return (
       <div className={align} style={this.props.style} onClick={this._onFooterClick}>
-        {this._createFooterMarkup()}
+        {this.props.children}
       </div>
     );
   }
