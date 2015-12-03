@@ -1,5 +1,4 @@
-import React from 'react';
-const {PropTypes} = React;
+import React, {PropTypes} from 'react';
 const ListFooter = React.createClass({
   propTypes: {
     content: PropTypes.string,
