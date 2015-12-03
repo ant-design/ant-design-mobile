@@ -44,7 +44,7 @@ const ListItem = React.createClass({
     }
     return (
       <a href={link} className="am-list-item" onClick={this._handleClick}>
-        <div className="am-list-content">{this.props.children}</div>
+        <div className="am-list-content">{this.props.content}</div>
         <div className="am-list-extra">{this.props.extra}</div>
         {extraFormDataArray}
         <div style={this.props.arrowStyle}>

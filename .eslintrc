@@ -14,7 +14,8 @@
     "experimentalObjectRestSpread": true
   },
   "globals": {
-    "AlipayJSBridge": true
+    "AlipayJSBridge": true,
+    "$":true
   },
   "plugins": [
     "markdown-antd",

@@ -7,12 +7,12 @@
 ---
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
+import { ListWrap, ListHeader, ListFooter, ListBody, ListItem} from 'antm';
 
 ReactDOM.render(
   <div>
   <ListWrap >
-    <ListHeader label="我是表头" style={{color:"red"}}/>
+    <ListHeader label="我是表头" style={{color:'red'}}/>
     <ListBody>
       <ListItem
         type="双行"
@@ -53,7 +53,7 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter style={{color:"blue"}}>
+      <ListFooter style={{color:'blue'}}>
         我是表尾
       </ListFooter>
     </ListWrap>
