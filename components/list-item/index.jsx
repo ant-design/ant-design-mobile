@@ -12,7 +12,7 @@ const ListItem = React.createClass({
   },
   getDefaultProps() {
     return {
-      link: 'javascript:void(0);',
+      link: '#',
       onClick() {
       },
       didMount(){

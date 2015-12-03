@@ -19,9 +19,9 @@ ReactDOM.render(
         defaultValue="dada22"
         placeholder="dadads"
         clear={true}
-        onChange={function(e){console.log('onChange');console.log(e)}}
-        onBlur={function(e){console.log('onBlur');console.log(e)}}
-        onFocus={function(e){console.log('onFocus');console.log(e)}}
+        onChange={function(e){console.log('onChange'); console.log(e);}}
+        onBlur={function(e){console.log('onBlur'); console.log(e);}}
+        onFocus={function(e){console.log('onFocus'); console.log(e);}}
         didMount={function(){}}
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
@@ -66,22 +66,22 @@ ReactDOM.render(
   <ListWrap >
     <ListBody>
       <InputItem
-        label="我"
-        name="yyy"
+        label="我是相机"
+        name="camera"
         defaultValue=""
-        placeholder="dadads"
+        placeholder="camera"
         clear={true}
         icon="camera"
-        onIconClick={function(e){alert(111);}}
+        onIconClick={function(e){console.log(e);}}
         onChange={function(){}}
         didMount={function(){}}
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
-        label="我"
-        name="yyy"
+        label="列表"
+        name="list"
         defaultValue=""
-        placeholder="dadads"
+        placeholder="list"
         clear={true}
         icon="list"
         onChange={function(){}}
@@ -89,10 +89,10 @@ ReactDOM.render(
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
-        label="我"
-        name="yyy"
+        label="通讯录"
+        name="contacts-mobile"
         defaultValue=""
-        placeholder="dadads"
+        placeholder="contacts-mobile"
         clear={true}
         icon="contacts-mobile"
         onChange={function(){}}
@@ -100,10 +100,10 @@ ReactDOM.render(
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
-        label="我"
-        name="yyy"
+        label="bill"
+        name="bill"
         defaultValue=""
-        placeholder="dadads"
+        placeholder="bill"
         clear={true}
         icon="bill"
         onChange={function(){}}
@@ -111,10 +111,10 @@ ReactDOM.render(
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
-        label="我"
-        name="yyy"
+        label="支付宝通讯录"
+        name="contacts-alipay"
         defaultValue=""
-        placeholder="dadads"
+        placeholder="contacts-alipay"
         clear={true}
         icon="contacts-alipay"
         onChange={function(){}}
@@ -122,10 +122,10 @@ ReactDOM.render(
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
-        label="我"
-        name="yyy"
+        label="卡片"
+        name="cards"
         defaultValue=""
-        placeholder="dadads"
+        placeholder="cards"
         clear={true}
         icon="cards"
         onChange={function(){}}
@@ -133,10 +133,10 @@ ReactDOM.render(
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
-        label="我"
-        name="yyy"
+        label="日历"
+        name="calculator"
         defaultValue=""
-        placeholder="dadads"
+        placeholder="calculator"
         clear={true}
         icon="calculator"
         onChange={function(){}}
@@ -144,10 +144,10 @@ ReactDOM.render(
         extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
-        label="我"
-        name="yyy"
+        label="扫码"
+        name="scan"
         defaultValue=""
-        placeholder="dadads"
+        placeholder="scan"
         clear={true}
         icon="scan"
         onChange={function(){}}
