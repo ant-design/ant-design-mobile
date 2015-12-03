@@ -26,12 +26,9 @@ const InputItem = React.createClass({
     };
   },
   getInitialState() {
-    let value = this.props.defaultValue;
-    if (value in this.props) {
-      value = this.props.value;
-    }
     return {
-      value,
+      value:this.props.defaultValue,
+      extraFormData:this.props.extraFormData
     };
   },
   componentDidMount() {
@@ -62,7 +59,7 @@ const InputItem = React.createClass({
   },
 
   render(){
-    const extraFormData = this.props.extraFormData;
+    const extraFormData = this.state.extraFormData;
     const extraFormDataArray = [];
     for (const key in extraFormData) {
       extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
