@@ -4,7 +4,6 @@ const formUtil = {
   componentDidMount(){
     const self = this;
     self.initResumeEventMgr.call(self);
-
     self._childFormElements.forEach((item)=> {
       if (item.props.init) {
         item.props.init.call(self);
@@ -14,46 +13,6 @@ const formUtil = {
 
   componentWillUnmount() {
     document.removeEventListener('resume', this.onResume);
-  },
-
-  pushWindow(url, config){
-    const defaultPara = {
-      canPullDown: 'NO',
-      pullRefresh: 'NO',
-      showOptionMenu: 'NO',
-      showProgress: 'YES',
-      defaultTitle: '口碑商家',
-      ssoLoginEnabled: 'NO',
-      readTitle: true
-    };
-
-    //merge config
-    for (const key in config) {
-      defaultPara[key] = config[key];
-    }
-    AlipayJSBridge.call('pushWindow', {url: url, param: defaultPara});
-  },
-  registerResumeHandler(type, fn){
-    const self = this;
-    self.resumeEventMap[type] = fn;
-  },
-
-  onResume(e) {
-    const data = e.data;
-    if (typeof(data) !== 'undefined') {
-      const type = data.type;
-      const resumeEventMap = this.resumeEventMap;
-
-      if (resumeEventMap[type] && (typeof resumeEventMap[type] === 'function')) {
-        resumeEventMap[type].call(this, data);
-      }
-    }
-  },
-
-  initResumeEventMgr(){
-    const self = this;
-    self.resumeEventMap = {};
-    document.addEventListener('resume', this.onResume);
   },
 
   registerInput(item){

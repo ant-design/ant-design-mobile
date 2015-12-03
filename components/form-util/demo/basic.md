@@ -8,51 +8,13 @@
 
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem, FormUtil ,InputItem} from 'antm';
+import { ListWrap, ListHeader, ListFooter, ListBody,ListItem, FormUtil, WindowUtil ,InputItem } from 'antm';
 import Promise from 'promise';
-
-var windowUtil = {
-  pushWindow:function(url,config){
-    var defaultPara = {
-      canPullDown     : "NO",
-      pullRefresh     : "NO",
-      showOptionMenu  : "NO",
-      showProgress    : "YES",
-      defaultTitle    : "支付宝",
-      ssoLoginEnabled : "NO",
-      readTitle       : true
-    };
-
-    //merge config
-    for(var key in config){
-      defaultPara[key] = config[key];
-    }
-    AlipayJSBridge.call("pushWindow",{url : url, param : defaultPara});
-
-  },
-  registerResumeHandler : function(type, fn){
-    window._resumeEventMap[type] = fn;
-  },
-  initResumeEventMgr : function(){
-    window._resumeEventMap = {};
-    document.addEventListener('resume', function(e){
-      var data = e.data;
-      if (typeof(data) != "undefined") {
-        var type = data.type;
-        var _resumeEventMap = window._resumeEventMap;
-
-        if(_resumeEventMap[type] && (typeof _resumeEventMap[type] == "function")){
-          _resumeEventMap[type].call(window, data);
-        }
-      }
-    });
-  }
-}
 
 
 var licenceInput = {
   init:function(){
-    windowUtil.registerResumeHandler.call(this,"category",function(data){
+    WindowUtil.registerResumeHandler.call(this,"category",function(data){
       this.setState({
         extra : "已上传"
       });
@@ -69,13 +31,13 @@ var licenceInput = {
   },
   onClick:function(){
     console.log("on click");
-    windowUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
+    WindowUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
   }
 };
 
 var photoInput = {
   init:function(){
-    // windowUtil.registerResumeHandler("category",function(data){
+    // WindowUtil.registerResumeHandler("category",function(data){
     //   console.log(data);
     //   console.log("category");
     // });
@@ -88,13 +50,13 @@ var photoInput = {
     });
   },
   onClick:function(){
-    windowUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
+    WindowUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
   }
 };
 
 var businessFormUtil = {
   componentWillMount:function(argument) {
-    windowUtil.initResumeEventMgr();
+    WindowUtil.initResumeEventMgr();
   },
   dealSubmit : function(){
     var self = this;
@@ -146,7 +108,9 @@ var PageForm = React.createClass({
   }
 });
 
+debugger
+
 var formInstance = ReactDOM.render(
   <PageForm />
-, document.getElementById('components-formutil-demo-basic'));
+, document.getElementById('util-demo-basic'));
 ````

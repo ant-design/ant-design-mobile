@@ -9,7 +9,8 @@ const antm = {
   ListFooter : require('./components/list-footer'),
   ListItem : require('./components/list-item'),
   InputItem : require('./components/input-item'),
-  FormUtil : require('./components/form-util')
+  FormUtil : require('./components/form-util'),
+  WindowUtil : require('./components/form-util/window-util')
 };
 
 antm.version = require('./package.json').version;
