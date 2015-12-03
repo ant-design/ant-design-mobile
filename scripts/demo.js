@@ -17,6 +17,7 @@ window.React = React;
 window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
+window['promise'] = require('promise');
 
 window.BrowserDemo = React.createClass({
   render() {

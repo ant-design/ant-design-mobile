@@ -35,33 +35,14 @@ const InputItem = React.createClass({
     if(!!this.props.clear) {
       ReactDOM.findDOMNode(this).querySelector('.am-icon-clear').style.visibility = this.state.value.length>0?"visible":"hidden";
     }
-    this.props.onChange.call(this,e);
+    if(!!this.props.onChange) {
+      this.props.onChange.call(this,e);
+    }
   },
   _clearInput:function() {
     this.setState({
       value: ''
     });
-    /*clearTrigger.addEventListener('touchstart', function () {
-      clearInput.value = '';
-      clearInput.focus();
-      clearTrigger.style.visibility = 'hidden';
-    }, false);
-    clearTrigger.addEventListener('click', function () {
-      clearInput.value = '';
-      clearInput.focus();
-      clearTrigger.style.visibility = 'hidden';
-    }, false);
-    clearInput.addEventListener('focus', function () {
-      clearTrigger.style.visibility = (clearInput.value.length > 0) ? 'visible' : 'hidden';
-    }, false);
-    clearInput.addEventListener('input', function () {
-      clearTrigger.style.visibility = (clearInput.value.length > 0) ? 'visible' : 'hidden';
-    }, false);
-    clearInput.addEventListener('blur', function () {
-      setTimeout(function(){
-        clearTrigger.style.visibility = 'hidden';
-      },20);
-    }, false);*/
   },
 
   render: function(){

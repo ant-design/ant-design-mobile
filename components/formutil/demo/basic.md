@@ -8,7 +8,7 @@
 
 ````jsx
 import Promise from 'promise';
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from '@alipay/antm';
+import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
 // import formUtil from "antm.form";
 
 var formUtil = {
@@ -222,5 +222,5 @@ var PageForm = React.createClass({
 
 var formInstance = ReactDOM.render(
   <PageForm />
-, document.getElementById('react-content'));
+, document.getElementById('components-formutil-demo-basic'));
 ````

@@ -17,7 +17,9 @@ const ListFooter = React.createClass({
   },
   _onFooterClick: function(e) {
     e.preventDefault();
-    this.props.onClick.call(this,e);
+    if(!!this.props.onClick) {
+      this.props.onClick.call(this,e);
+    }
   },
   render: function(){
     let align = this.props.align === 'right' ? 'am-ft-right' : '';
