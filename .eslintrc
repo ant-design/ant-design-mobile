@@ -17,6 +17,7 @@
     "AlipayJSBridge": true
   },
   "plugins": [
+    "markdown-antd",
     "react",
     "babel"
   ],
