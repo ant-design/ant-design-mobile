@@ -1,9 +1,9 @@
+
 import Promise from 'promise';
 
 var formUtil = {
   componentDidMount:function(){
     var self = this;
-    self.initResumeEventMgr.call(self);
 
     self._childFormElements.forEach((item)=>{
       if(item.props.init){
@@ -11,43 +11,6 @@ var formUtil = {
       }
     });
   },
-  pushWindow:function(url,config){
-    var defaultPara = {
-      canPullDown     : "NO",
-      pullRefresh     : "NO",
-      showOptionMenu  : "NO",
-      showProgress    : "YES",
-      defaultTitle    : "口碑商家",
-      ssoLoginEnabled : "NO",
-      readTitle       : true
-    };
-
-    //merge config
-    for(var key in config){
-      defaultPara[key] = config[key];
-    }
-    AlipayJSBridge.call("pushWindow",{url : url, param : defaultPara});
-  },
-  registerResumeHandler : function(type, fn){
-    var self = this;
-    self.resumeEventMap[type] = fn;
-  },
-  initResumeEventMgr : function(){
-    var self = this;
-    self.resumeEventMap = {};
-    document.addEventListener('resume', function(e){
-      var data = e.data;
-      if (typeof(data) != "undefined") {
-        var type = data.type;
-        var resumeEventMap = self.resumeEventMap;
-
-        if(resumeEventMap[type] && (typeof resumeEventMap[type] == "function")){
-          resumeEventMap[type].call(self, data);
-        }
-      }
-    });
-  },
-
   registerInput:function(item){
     var self = this;
     this._childFormElements = this._childFormElements || [];

@@ -7,28 +7,18 @@
 ---
 
 ````jsx
+
+import { ListWrap, ListHeader, ListFooter, ListBody,ListItem,FormUtil} from 'antm';
 import Promise from 'promise';
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
-// import formUtil from "antm.form";
 
-var formUtil = {
-  componentDidMount:function(){
-    var self = this;
-    self.initResumeEventMgr.call(self);
-
-    self._childFormElements.forEach((item)=>{
-      if(item.props.init){
-        item.props.init.call(self);
-      }
-    });
-  },
+var windowUtil = {
   pushWindow:function(url,config){
     var defaultPara = {
       canPullDown     : "NO",
       pullRefresh     : "NO",
       showOptionMenu  : "NO",
       showProgress    : "YES",
-      defaultTitle    : "口碑商家",
+      defaultTitle    : "支付宝",
       ssoLoginEnabled : "NO",
       readTitle       : true
     };
@@ -37,94 +27,29 @@ var formUtil = {
     for(var key in config){
       defaultPara[key] = config[key];
     }
-    AlipayJSBridge.call("pushWindow",{url : url, param : defaultPara});
-  },
-  registerResumeHandler : function(type, fn){
-    var self = this;
-    self.resumeEventMap[type] = fn;
+    AlipayJSBridge.call("pushWindow",{url : url, param : defaultPara});windowUtil registerResumeHandler : function(type, fn){
+    window._resumeEventMap[type] = fn;
   },
   initResumeEventMgr : function(){
-    var self = this;
-    self.resumeEventMap = {};
+    window._resumeEventMap = {};
     document.addEventListener('resume', function(e){
       var data = e.data;
       if (typeof(data) != "undefined") {
         var type = data.type;
-        var resumeEventMap = self.resumeEventMap;
+        var _resumeEventMap = window._resumeEventMap;
 
-        if(resumeEventMap[type] && (typeof resumeEventMap[type] == "function")){
-          resumeEventMap[type].call(self, data);
+        if(_resumeEventMap[type] && (typeof _resumeEventMap[type] == "function")){
+          _resumeEventMap[type].call(window, data);
         }
       }
     });
-  },
-
-  registerInput:function(item){
-    var self = this;
-    this._childFormElements = this._childFormElements || [];
-    this._childFormElements.push(item);
-  },
-  collectData:function(){
-    var finalData = {};
-    var concatObj = function(objA, objB){
-      objA = objA || {};
-      objB = objB || {};
-      var result = {};
-      for(var key in objA){
-        result[key] = objA[key];
-      }
-      for(var key in objB){
-        result[key] = objB[key];
-      }
-      return result;
-    };
-
-    this._childFormElements.map(function(item){
-      if(item.state && item.state.extraFormData){
-        finalData = concatObj(finalData,item.state.extraFormData);
-      }
-      if(item.props && item.props.name){
-        var tmpObj = {};
-        tmpObj[item.props.name] = item.state.value;
-        finalData = concatObj(finalData,tmpObj);
-      }
-    });
-
-    return finalData;
-  },
-  startValidate:function(){
-    console.log("start validate");
-    var self = this;
-    return new Promise(function(fulfill,reject){
-      var promiseChain = Promise.resolve(true);
-      self._childFormElements.forEach((item)=>{
-        promiseChain = promiseChain.then(function(prev){
-          var validateResult = item.props.validate();
-          if(validateResult){
-            return true;
-          }else{
-            throw new Error("failed to resolve");
-          }
-        });
-      });
-
-      promiseChain = promiseChain.then(function(){
-        fulfill();
-      });
-
-      promiseChain.catch(function(e){
-        console.log(e);
-        reject();
-      });
-    });
   }
-};
+}
 
-//TODO : state - 请上传
-//link="http://www.baidu.com"
+var PageForm;
 var licenceInput = {
   init:function(){
-    formUtil.registerResumeHandler.call(this,"category",function(data){
+    windowUtil.registerResumeHandler.call(this,"category",function(data){
       this.setState({
         extra : "已上传"
       });
@@ -141,13 +66,13 @@ var licenceInput = {
   },
   onClick:function(){
     console.log("on click");
-    formUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
+    windowUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
   }
 };
 
 var photoInput = {
   init:function(){
-    // formUtil.registerResumeHandler("category",function(data){
+    // windowUtil.registerResumeHandler("category",function(data){
     //   console.log(data);
     //   console.log("category");
     // });
@@ -160,11 +85,15 @@ var photoInput = {
     });
   },
   onClick:function(){
-    formUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
+    windowUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
   }
 };
 
 var businessFormUtil = {
+  didMount:function(argument) {
+    console.log("new business form");
+    windowUtil.initResumeEventMgr();
+  },
   dealSubmit : function(){
     var self = this;
     self.startValidate.call(self)
@@ -184,13 +113,8 @@ var businessFormUtil = {
   }
 };
 
-// <Form>
-//  <Input didMount={this.registerInput} value="456" {...shopPhoneInput} />
-//  <Input didMount={this.registerInput} value="123" {...shopNameInput} />
-// </Form>
-
-var PageForm = React.createClass({
-  mixins : [formUtil, businessFormUtil],
+PageForm = React.createClass({
+  mixins : [FormUtil, businessFormUtil],
   render : function(){
     return (
       <div>
