@@ -6,14 +6,14 @@ const ListHeader = React.createClass({
     style: PropTypes.object,
     didMount: PropTypes.func,
   },
-  componentDidMount: function() {
+  componentDidMount() {
     if(!!this.props.didMount) {
       this.props.didMount(this);
     }
   },
-  render: function(){
+  render(){
     return (
-      <div className="am-list-header" style={this.props.style}>{this.props.label}</div>
+      <div className="am-list-header" style={this.props.style}>{this.props.children}</div>
     );
   }
 });

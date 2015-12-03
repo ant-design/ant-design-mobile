@@ -5,7 +5,6 @@ window.require = function(path) {
     throw 'There should not have modules here: ' + path;
   }
 };
-window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
 window.Clip = require('./clip');
 var antm = require('../index');

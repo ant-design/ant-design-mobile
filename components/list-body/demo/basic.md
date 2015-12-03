@@ -2,17 +2,16 @@
 
 - order: 0
 
-最简单的用法。
+列表主体内容的容器。
 
 ---
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
+import { ListWrap, ListBody, ListItem} from 'antm';
 
 ReactDOM.render(
   <div>
   <ListWrap >
-    <ListHeader label="我是表头" style={{color:"red"}}/>
     <ListBody>
       <ListItem
         type="双行"
@@ -22,19 +21,9 @@ ReactDOM.render(
         arrow="horizontal"
         onClick={function(){}}
       />
-      <ListItem
-        type="双行"
-        icon=""
-        content="我是内容22"
-        extra="我是额外信息"
-        arrow="horizontal"
-        onClick={function(){}}
-      />
     </ListBody>
-    <ListFooter content="我是表尾"/>
   </ListWrap>
   <ListWrap >
-      <ListHeader label="我是表头"/>
       <ListBody>
         <ListItem
           type="双行"
@@ -53,8 +42,7 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter content="我是表尾" style={{color:"blue"}}/>
     </ListWrap>
   </div>
-, document.getElementById('components-listheader-demo-basic'));
+, document.getElementById('components-list-body-demo-basic'));
 ````
