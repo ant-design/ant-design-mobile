@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
+import { ListWrap, ListHeader, ListFooter, ListBody, ListItem} from 'antm';
 
 ReactDOM.render(
   <form>
@@ -55,5 +55,4 @@ ReactDOM.render(
     </ListWrap>
   </form>
 , document.getElementById('components-list-wrap-demo-basic'));
-
 ````

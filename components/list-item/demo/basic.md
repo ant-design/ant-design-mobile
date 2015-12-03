@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
+import { ListWrap, ListHeader, ListFooter, ListBody, ListItem} from 'antm';
 
 window.clickItem = function(e) {
   console.log(e);
@@ -17,19 +17,19 @@ window.clickItem = function(e) {
   });
   this.setState({
     extraFormData:{
-      "pic1":"5555"
+      'pic1':'5555'
     }
   });
   console.log(ReactDOM.findDOMNode(this));
-  console.log($(ReactDOM.findDOMNode(this)).find(".am-list-extra"));
-  $(ReactDOM.findDOMNode(this)).find(".am-list-extra").css("color","red");;
+  console.log($(ReactDOM.findDOMNode(this)).find('.am-list-extra'));
+  $(ReactDOM.findDOMNode(this)).find('.am-list-extra').css('color', 'red');
 };
 window.didMount = function() {
   console.log(this);
 };
 window.openurl = function(e) {
   console.log(e);
-  window.location.href=e.target.href;
+  window.location.href = e.target.href;
 };
 ReactDOM.render(
   <div>
@@ -43,7 +43,7 @@ ReactDOM.render(
         content="我是内容"
         arrow="horizontal"
         onClick={window.openurl}
-        extraFormData={{"pic1":"22","pic2":"222"}}
+        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <ListItem
         type="双行"
@@ -53,7 +53,7 @@ ReactDOM.render(
         arrow="horizontal"
         didMount={window.didMount}
         onClick={window.clickItem}
-        extraFormData={{"pic1":"22","pic2":"222"}}
+        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <ListItem
         type="双行"

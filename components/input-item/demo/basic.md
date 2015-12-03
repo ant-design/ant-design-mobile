@@ -22,7 +22,7 @@ ReactDOM.render(
         icon="camera"
         onChange={function(){}}
         didMount={function(){}}
-        extraFormData={{"pic1":"22","pic2":"222"}}
+        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
         label="我是"
@@ -32,7 +32,7 @@ ReactDOM.render(
         clear={true}
         onChange={function(){}}
         didMount={function(){}}
-        extraFormData={{"pic1":"22","pic2":"222"}}
+        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
         label="我是内"
@@ -41,7 +41,7 @@ ReactDOM.render(
         placeholder="dadads"
         onChange={function(){}}
         didMount={function(){}}
-        extraFormData={{"pic1":"22","pic2":"222"}}
+        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
         label="我是内内"
@@ -50,7 +50,7 @@ ReactDOM.render(
         placeholder="dadads"
         onChange={function(){}}
         didMount={function(){}}
-        extraFormData={{"pic1":"22","pic2":"222"}}
+        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
         name="yyy"
@@ -58,7 +58,7 @@ ReactDOM.render(
         placeholder="dadads"
         onChange={function(){}}
         didMount={function(){}}
-        extraFormData={{"pic1":"22","pic2":"222"}}
+        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
         label="我是内内内内"
@@ -67,7 +67,7 @@ ReactDOM.render(
         placeholder="dadads"
         onChange={function(){}}
         didMount={function(){}}
-        extraFormData={{"pic1":"22","pic2":"222"}}
+        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
     </ListBody>
   </ListWrap>

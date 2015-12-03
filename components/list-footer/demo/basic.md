@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
+import { ListWrap, ListHeader, ListFooter, ListBody, ListItem} from 'antm';
 
 ReactDOM.render(
   <div>
@@ -53,8 +53,8 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter onClick={function(e){alert('clickme')}} style={{color:"red"}} align="right">
-        <div><a id='ddd'>我是链接</a>,我改了样式,还右对齐,快点我</div>
+      <ListFooter onClick={function(e){}} style={{color:'red'}} align="right">
+        <div><a id="ddd">我是链接</a>,我改了样式,还右对齐,快点我</div>
       </ListFooter>
     </ListWrap>
   </div>
