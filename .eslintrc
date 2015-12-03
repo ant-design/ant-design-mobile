@@ -1,5 +1,7 @@
 {
-  "extends": ["eslint-config-airbnb"],
+  "extends": [
+    "eslint-config-airbnb"
+  ],
   "env": {
     "browser": true,
     "node": true,
@@ -11,7 +13,11 @@
     "jsx": true,
     "experimentalObjectRestSpread": true
   },
+  "globals": {
+    "AlipayJSBridge": true
+  },
   "plugins": [
+    "markdown-antd",
     "react",
     "babel"
   ],
@@ -20,7 +26,12 @@
     "comma-dangle": 0,
     "func-names": 0,
     "guard-for-in": 0,
-    "one-var": [2, { "initialized": "never" }],
+    "one-var": [
+      2,
+      {
+        "initialized": "never"
+      }
+    ],
     "prefer-const": 0,
     "key-spacing": 0,
     "no-eq-null": 0,
@@ -28,11 +39,26 @@
     "no-param-reassign": 0,
     "no-this-before-super": 2,
     "no-undef": 2,
-    "no-unused-vars": [2, { "vars": "all", "args": "none" }],
+    "no-unused-vars": [
+      2,
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ],
     "babel/object-shorthand": 0,
     "react/jsx-boolean-value": 0,
     "react/jsx-no-duplicate-props": 2,
-    "react/prop-types": [2, { "ignore": [ "children", "className", "style" ] }],
+    "react/prop-types": [
+      2,
+      {
+        "ignore": [
+          "children",
+          "className",
+          "style"
+        ]
+      }
+    ],
     "react/sort-comp": 0,
     "react/wrap-multilines": 0,
     "react/no-multi-comp": 0,

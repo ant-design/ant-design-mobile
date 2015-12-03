@@ -89,5 +89,5 @@ ReactDOM.render(
       <ListFooter content="我是表尾"/>
     </ListWrap>
   </div>
-, document.getElementById('components-listitem-demo-basic'));
+, document.getElementById('components-list-item-demo-basic'));
 ````

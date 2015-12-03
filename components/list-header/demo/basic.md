@@ -12,7 +12,7 @@ import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
 ReactDOM.render(
   <div>
   <ListWrap >
-    <ListHeader label="我是表头"/>
+    <ListHeader label="我是表头" style={{color:"red"}}/>
     <ListBody>
       <ListItem
         type="双行"
@@ -34,7 +34,7 @@ ReactDOM.render(
     <ListFooter content="我是表尾"/>
   </ListWrap>
   <ListWrap >
-      <ListHeader label="我是表头"/>
+      <ListHeader>我是表头</ListHeader>
       <ListBody>
         <ListItem
           type="双行"
@@ -53,8 +53,10 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter onClick={function(e){alert('clickme')}} content="<a id='ddd'>我是链接</a>,我改了样式,还右对齐,快点我" style={{color:"red"}} align="right"/>
+      <ListFooter style={{color:"blue"}}>
+        我是表尾
+      </ListFooter>
     </ListWrap>
   </div>
-, document.getElementById('components-listfooter-demo-basic'));
+, document.getElementById('components-list-header-demo-basic'));
 ````

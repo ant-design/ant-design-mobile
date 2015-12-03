@@ -54,6 +54,6 @@ ReactDOM.render(
       </ListBody>
     </ListWrap>
   </form>
-, document.getElementById('components-listwrap-demo-basic'));
+, document.getElementById('components-list-wrap-demo-basic'));
 
 ````

@@ -4,12 +4,12 @@ const ListBody = React.createClass({
   propTypes: {
     didMount: PropTypes.func,
   },
-  componentDidMount: function() {
+  componentDidMount() {
     if(!!this.props.didMount) {
       this.props.didMount(this);
     }
   },
-  render: function(){
+  render(){
     return (
       <div className="am-list-body">
         {this.props.children}

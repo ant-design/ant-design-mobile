@@ -3,13 +3,13 @@ import React from 'react';
 require('./style/index.less');
 
 const antm = {
-  ListWrap: require('./components/listwrap'),
-  ListHeader : require('./components/listheader'),
-  ListBody : require('./components/listbody'),
-  ListFooter : require('./components/listfooter'),
-  ListItem : require('./components/listitem'),
-  InputItem : require('./components/inputitem'),
-  FormUtil : require('./components/formutil')
+  ListWrap: require('./components/list-wrap'),
+  ListHeader : require('./components/list-header'),
+  ListBody : require('./components/list-body'),
+  ListFooter : require('./components/list-footer'),
+  ListItem : require('./components/list-item'),
+  InputItem : require('./components/input-item'),
+  FormUtil : require('./components/form-util')
 };
 
 antm.version = require('./package.json').version;
