@@ -2,13 +2,13 @@
 
 - order: 0
 
-列表主体内容的容器。
+配合formUtil / WindowUtil, 演示一个典型的业务表单场景。
 
 ---
 
-````jsx
 
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem,FormUtil} from 'antm';
+````jsx
+import { ListWrap, ListHeader, ListFooter, ListBody,ListItem, FormUtil ,InputItem} from 'antm';
 import Promise from 'promise';
 
 var windowUtil = {
@@ -27,7 +27,10 @@ var windowUtil = {
     for(var key in config){
       defaultPara[key] = config[key];
     }
-    AlipayJSBridge.call("pushWindow",{url : url, param : defaultPara});windowUtil registerResumeHandler : function(type, fn){
+    AlipayJSBridge.call("pushWindow",{url : url, param : defaultPara});
+
+  },
+  registerResumeHandler : function(type, fn){
     window._resumeEventMap[type] = fn;
   },
   initResumeEventMgr : function(){
@@ -46,7 +49,7 @@ var windowUtil = {
   }
 }
 
-var PageForm;
+
 var licenceInput = {
   init:function(){
     windowUtil.registerResumeHandler.call(this,"category",function(data){
@@ -90,8 +93,7 @@ var photoInput = {
 };
 
 var businessFormUtil = {
-  didMount:function(argument) {
-    console.log("new business form");
+  componentWillMount:function(argument) {
     windowUtil.initResumeEventMgr();
   },
   dealSubmit : function(){
@@ -113,7 +115,7 @@ var businessFormUtil = {
   }
 };
 
-PageForm = React.createClass({
+var PageForm = React.createClass({
   mixins : [FormUtil, businessFormUtil],
   render : function(){
     return (
