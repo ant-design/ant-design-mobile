@@ -11,6 +11,8 @@ const ListItem = React.createClass({
   },
   getDefaultProps() {
     return {
+      onClick() {
+      },
       didMount(){
       }
     };
@@ -39,9 +41,7 @@ const ListItem = React.createClass({
   },
   _handleClick(e) {
     e.preventDefault();
-    if (!!this.props.onClick) {
-      this.props.onClick.call(this, e);
-    }
+    this.props.onClick.call(this, e);
   },
   render(){
     let link = this.props.link;

@@ -7,6 +7,7 @@ const InputItem = React.createClass({
     placeholder: PropTypes.string,
     clear: PropTypes.bool,
     icon: PropTypes.any,
+    onIconClick: PropTypes.func,
     didMount: PropTypes.func,
     onChange: PropTypes.func,
     extraFormData: PropTypes.object
@@ -21,6 +22,8 @@ const InputItem = React.createClass({
       onChange(){
       },
       didMount(){
+      },
+      onIconClick(){
       },
       extraFormData: {}
     };
@@ -43,17 +46,19 @@ const InputItem = React.createClass({
   },
   _onInputChange(e) {
     const value = e.target.value;
-    this.setValue(value);
+    this.setValue(value, e);
   },
-  setValue(value) {
+  _onIconClick(e) {
+    this.props.onIconClick.call(this, e);
+  },
+  setValue(value, e) {
     if (!('value' in this.props)) {
       this.setState({
         value,
       });
     }
-    this.props.onChange(value);
+    this.props.onChange.call(this, e);
   },
-
   _clearInput() {
     this.setValue('');
   },
@@ -87,7 +92,7 @@ const InputItem = React.createClass({
     let iconType = '';
     if (this.props.icon) {
       iconType = 'form-' + this.props.icon;
-      iconDom = (<div className="am-list-thumb"><i className="am-icon" data-am-mode={iconType}></i></div>);
+      iconDom = (<div className="am-list-thumb"><i className="am-icon" data-am-mode={iconType} onClick={this._onIconClick}></i></div>);
     }
     return (
       <div className={clearClass} onClick={this._handleClick}>

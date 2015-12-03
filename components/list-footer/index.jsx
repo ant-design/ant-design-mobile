@@ -6,10 +6,14 @@ const ListFooter = React.createClass({
     align: PropTypes.string,
     didMount: PropTypes.func,
   },
+  getDefaultProps() {
+    return {
+      didMount(){
+      }
+    };
+  },
   componentDidMount() {
-    if (!!this.props.didMount) {
-      this.props.didMount(this);
-    }
+    this.props.didMount(this);
   },
   _createFooterMarkup() {
     return this.props.children;

@@ -21,6 +21,8 @@
 | name    | input的name        | String |   无  |
 | defaultValue    | input的默认值        | String |   无  |
 | placeholder      | placeholder        | String |   无  |
+| icon      | 右边icon        | String('camera'、'list'、'contacts-mobile'、'bill'、'contacts-alipay'、'cards'、'calculator'、'scan') |   无  |
+| onIconClick      | 点击icon触发的事件        | String |   无  |
 | onClick    | 点击事件的回调函数 | Function |   无  |
 | didMount   | 模块mount后立即执行的方法,参数是模块对象本身        | Function |   无  |
 | extraFormData   | 列表项中需要的隐藏域        | Object |   无  |
