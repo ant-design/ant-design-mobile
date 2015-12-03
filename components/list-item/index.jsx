@@ -15,6 +15,11 @@ const ListItem = React.createClass({
       }
     };
   },
+  getInitialState() {
+    return {
+      extraFormData:this.props.extraFormData
+    };
+  },
   componentDidMount() {
     this.props.didMount(this);
   },
@@ -40,7 +45,7 @@ const ListItem = React.createClass({
   },
   render(){
     let link = this.props.link;
-    const extraFormData = this.props.extraFormData;
+    const extraFormData = this.state.extraFormData;
     const extraFormDataArray = [];
     for (const key in extraFormData) {
       extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
