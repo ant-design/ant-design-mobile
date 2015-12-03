@@ -1,13 +1,16 @@
-import React from 'react';
-const {PropTypes} = React;
+import React, {PropTypes} from 'react';
 const ListWarp = React.createClass({
   propTypes: {
     didMount: PropTypes.func,
   },
+  getDefaultProps() {
+    return {
+      didMount(){
+      }
+    };
+  },
   componentDidMount() {
-    if (!!this.props.didMount) {
-      this.props.didMount(this);
-    }
+    this.props.didMount(this);
   },
   render() {
     return (

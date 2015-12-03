@@ -19,7 +19,7 @@
 |------------|----------------|--------------------|--------------|
 | label    | 文案说明        | String |   无  |
 | name    | input的name        | String |   无  |
-| value    | input的默认值        | String |   无  |
+| defaultValue    | input的默认值        | String |   无  |
 | placeholder      | placeholder        | String |   无  |
 | onClick    | 点击事件的回调函数 | Function |   无  |
 | didMount   | 模块mount后立即执行的方法,参数是模块对象本身        | Function |   无  |

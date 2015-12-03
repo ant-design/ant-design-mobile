@@ -4,10 +4,14 @@ const ListBody = React.createClass({
   propTypes: {
     didMount: PropTypes.func,
   },
+  getDefaultProps() {
+    return {
+      didMount(){
+      }
+    };
+  },
   componentDidMount() {
-    if(!!this.props.didMount) {
-      this.props.didMount(this);
-    }
+    this.props.didMount(this);
   },
   render(){
     return (

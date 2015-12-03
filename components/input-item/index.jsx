@@ -1,5 +1,4 @@
-import React from 'react';
-const {PropTypes} = React;
+import React, {PropTypes} from 'react';
 const InputItem = React.createClass({
   propTypes: {
     label: PropTypes.string,
