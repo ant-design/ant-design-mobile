@@ -8,76 +8,90 @@
 
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem, FormUtil, WindowUtil ,InputItem } from 'antm';
+import { ListWrap, ListHeader, ListFooter, ListBody, ListItem, FormUtil, WindowUtil, InputItem } from 'antm';
 import Promise from 'promise';
 
-
-var licenceInput = {
-  init:function(){
-    WindowUtil.registerResumeHandler.call(this,"category",function(data){
+const licenceInput = {
+  init(){
+    WindowUtil.registerResumeHandler.call(this, 'category', function(data){
       this.setState({
-        extra : "已上传"
+        extra : '已上传'
       });
       console.log(data);
-      console.log("category");
+      console.log('category');
     });
   },
   extraFormData:{
-    extraA : "000",
-    extraB : "111"
+    extraA : '000',
+    extraB : '111'
   },
-  validate: function(){
+  validate(){
     return true;
   },
-  onClick:function(){
-    console.log("on click");
-    WindowUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
+  onClick(){
+    console.log('on click');
+    WindowUtil.pushWindow('http://crmhome.stable.alipay.net/shop/shopCate.h5');
   }
 };
 
-var photoInput = {
-  init:function(){
+const photoInput = {
+  init(){
     // WindowUtil.registerResumeHandler("category",function(data){
     //   console.log(data);
     //   console.log("category");
     // });
   },
-  validate: function(){
-    return new Promise(function(fulfill,reject){
+  validate(){
+    return new Promise(function(fulfill, reject){
       setTimeout(function(){
         fulfill(true);
-      },1000);
+      }, 1000);
     });
   },
-  onClick:function(){
-    WindowUtil.pushWindow("http://crmhome.stable.alipay.net/shop/shopCate.h5");
+  onClick(){
+    WindowUtil.pushWindow('http://crmhome.stable.alipay.net/shop/shopCate.h5');
   }
 };
 
-var businessFormUtil = {
-  componentWillMount:function(argument) {
+const shopAliasInput = {
+  init(){
+
+  },
+  validate(){
+    return true;
+  },
+  onChange(){
+    console.log('input changed');
+  },
+  extraFormData:{
+    'pic1':'22', 'pic2':'222'
+  }
+};
+
+const businessFormUtil = {
+  componentWillMount(argument) {
     WindowUtil.initResumeEventMgr();
   },
-  dealSubmit : function(){
-    var self = this;
+  dealSubmit(){
+    const self = this;
     self.startValidate.call(self)
       .then(function(){
-        console.log("passed validation");
+        console.log('passed validation');
         self.startUpload.call(self);
-      },function(e){
+      }, function(e){
         console.log(e);
-        console.log("failed in form validation");
-      })
+        console.log('failed in form validation');
+      });
   },
-  startUpload:function(){
-    var self = this;
-    var data = self.collectData();
+  startUpload(){
+    const self = this;
+    const data = self.collectData();
 
     console.log(data);
   }
 };
 
-var PageForm = React.createClass({
+const PageForm = React.createClass({
   mixins : [FormUtil, businessFormUtil],
   render : function(){
     return (
@@ -99,6 +113,16 @@ var PageForm = React.createClass({
             didMount={this.registerInput}
             {...photoInput}
           />
+          <InputItem
+            label="我"
+            name="yyy"
+            defaultValue=""
+            placeholder="dadads"
+            clear={true}
+            icon="camera"
+            didMount={this.registerInput}
+            {...shopAliasInput}
+          />
           </ListBody>
           <ListFooter content="我是表尾"/>
         </ListWrap>
@@ -108,9 +132,7 @@ var PageForm = React.createClass({
   }
 });
 
-debugger
-
-var formInstance = ReactDOM.render(
+ReactDOM.render(
   <PageForm />
 , document.getElementById('util-demo-basic'));
 ````

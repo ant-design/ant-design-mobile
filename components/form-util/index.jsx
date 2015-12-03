@@ -3,7 +3,6 @@ import Promise from 'promise';
 const formUtil = {
   componentDidMount(){
     const self = this;
-    self.initResumeEventMgr.call(self);
     self._childFormElements.forEach((item)=> {
       if (item.props.init) {
         item.props.init.call(self);
@@ -48,12 +47,12 @@ const formUtil = {
     return finalData;
   },
   startValidate(){
-    console.log('start validate');
     const self = this;
     return new Promise(function (fulfill, reject) {
       let promiseChain = Promise.resolve(true);
       self._childFormElements.forEach((item)=> {
         promiseChain = promiseChain.then(function (prev) {
+          if(!item.props.validate) return true;
           const validateResult = item.props.validate();
           if (validateResult) {
             return true;
@@ -68,7 +67,6 @@ const formUtil = {
       });
 
       promiseChain.catch(function (e) {
-        console.log(e);
         reject();
       });
     });

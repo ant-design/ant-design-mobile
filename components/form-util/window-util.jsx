@@ -1,21 +1,20 @@
 const windowUtil = {
-  pushWindow(url,config){
+  pushWindow(url, config){
     const defaultPara = {
-      canPullDown     : "NO",
-      pullRefresh     : "NO",
-      showOptionMenu  : "NO",
-      showProgress    : "YES",
-      defaultTitle    : "支付宝",
-      ssoLoginEnabled : "NO",
-      readTitle       : true
+      'canPullDown'     : 'NO',
+      'pullRefresh'     : 'NO',
+      'showOptionMenu'  : 'NO',
+      'showProgress'    : 'YES',
+      'defaultTitle'    : '支付宝',
+      'ssoLoginEnabled' : 'NO',
+      'readTitle'       : true
     };
 
     //merge config
     for(const key in config){
       defaultPara[key] = config[key];
     }
-    AlipayJSBridge.call("pushWindow",{url : url, param : defaultPara});
-
+    AlipayJSBridge.call('pushWindow', {url : url, param : defaultPara});
   },
   registerResumeHandler(type, fn){
     window._resumeEventMap[type] = fn;
@@ -33,10 +32,10 @@ const windowUtil = {
   },
   initResumeEventMgr : function(){
     const self = this;
-    self.resumeEventMap = {};
-    document.addEventListener('resume', this.onResume);
+    window._resumeEventMap = {};
+    document.addEventListener('resume', self.onResume);
   }
-}
+};
 
 module.exports = windowUtil;
 
