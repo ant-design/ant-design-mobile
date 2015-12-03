@@ -72,5 +72,5 @@ ReactDOM.render(
     </ListBody>
   </ListWrap>
   </div>
-, document.getElementById('components-inputitem-demo-basic'));
+, document.getElementById('components-input-item-demo-basic'));
 ````
