@@ -4,11 +4,14 @@ const ListFooter = React.createClass({
     content: PropTypes.string,
     style: PropTypes.object,
     align: PropTypes.string,
+    onClick: PropTypes.func,
     didMount: PropTypes.func,
   },
   getDefaultProps() {
     return {
       didMount(){
+      },
+      onClick(){
       }
     };
   },
@@ -20,9 +23,7 @@ const ListFooter = React.createClass({
   },
   _onFooterClick(e) {
     e.preventDefault();
-    if (!!this.props.onClick) {
-      this.props.onClick.call(this, e);
-    }
+    this.props.onClick.call(this, e);
   },
   render(){
     let align = this.props.align === 'right' ? 'am-ft-right' : '';

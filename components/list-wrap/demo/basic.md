@@ -20,7 +20,7 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter content="文本说明文本说明"/>
+      <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
     <ListWrap >
       <ListBody>
@@ -30,7 +30,7 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter content="文本说明文本说明"/>
+      <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
     <ListWrap >
       <ListHeader label="单行组合"/>

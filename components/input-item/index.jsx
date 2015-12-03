@@ -3,10 +3,10 @@ const InputItem = React.createClass({
   propTypes: {
     label: PropTypes.string,
     name: PropTypes.string,
-    defaultValue: PropTypes.any,
+    defaultValue: PropTypes.string,
     placeholder: PropTypes.string,
     clear: PropTypes.bool,
-    icon: PropTypes.any,
+    icon: PropTypes.string,
     onIconClick: PropTypes.func,
     didMount: PropTypes.func,
     onChange: PropTypes.func,

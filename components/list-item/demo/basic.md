@@ -49,7 +49,7 @@ ReactDOM.render(
         type="双行"
         icon=""
         content="我是内容22"
-        extra="我是额外信息"
+        extra="香右箭头"
         arrow="horizontal"
         didMount={window.didMount}
         onClick={window.clickItem}
@@ -59,20 +59,27 @@ ReactDOM.render(
         type="双行"
         icon=""
         content="我是内容22"
-        extra="我是额外信息"
-        arrow="placeholder"
+        extra="写点就有剪头坑位"
+        arrow="aaa"
+        onClick={window.clickItem}
+      />
+      <ListItem
+        type="双行"
+        icon=""
+        content="我是内容22"
+        extra="不写没有剪头坑位"
         onClick={window.clickItem}
       />
       <ListItem
         type="双行"
         icon=""
         content="我是内容"
-        extra="我是额外信息"
+        extra="向下箭头"
         arrow="vertical"
         onClick={function(){}}
       />
     </ListBody>
-    <ListFooter content="我是表尾"/>
+    <ListFooter>我是表尾</ListFooter>
   </ListWrap>
   <ListWrap >
       <ListHeader label="我是表头"/>
@@ -86,7 +93,7 @@ ReactDOM.render(
           onClick={function(){}}
         />
       </ListBody>
-      <ListFooter content="我是表尾"/>
+      <ListFooter>我是表尾</ListFooter>
     </ListWrap>
   </div>
 , document.getElementById('components-list-item-demo-basic'));
