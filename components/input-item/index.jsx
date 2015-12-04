@@ -1,6 +1,9 @@
 import React, {PropTypes} from 'react';
+function noop() {}
+
 const InputItem = React.createClass({
   propTypes: {
+    prefixCls: PropTypes.string,
     label: PropTypes.string,
     name: PropTypes.string,
     defaultValue: PropTypes.string,
@@ -16,28 +19,24 @@ const InputItem = React.createClass({
   },
   getDefaultProps() {
     return {
+      prefixCls: 'am',
       label: '',
       name: '',
       defaultValue: '',
       placeholder: '',
       icon: '',
-      onChange(){
-      },
-      onBlur(){
-      },
-      onFocus(){
-      },
-      didMount(){
-      },
-      onIconClick(){
-      },
+      onChange: noop,
+      onBlur: noop,
+      onFocus: noop,
+      didMount: noop,
+      onIconClick: noop,
       extraFormData: {}
     };
   },
   getInitialState() {
     return {
-      value:this.props.defaultValue,
-      extraFormData:this.props.extraFormData
+      value: this.props.defaultValue,
+      extraFormData: this.props.extraFormData
     };
   },
   componentDidMount() {
@@ -76,6 +75,7 @@ const InputItem = React.createClass({
   },
 
   render(){
+    let {prefixCls} = this.props;
     const extraFormData = this.state.extraFormData;
     const extraFormDataArray = [];
     for (const key in extraFormData) {
@@ -83,18 +83,18 @@ const InputItem = React.createClass({
     }
     let labelDom = '';
     if (this.props.label) {
-      labelDom = (<div className="am-list-label">{this.props.label}</div>);
+      labelDom = (<div className={prefixCls + '-list-label'}>{this.props.label}</div>);
     }
 
     let clearDom = '';
-    const clearClass = this.props.clear ? 'am-list-item am-input-autoclear' : 'am-list-item';
+    const clearClass = this.props.clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear' : prefixCls + '-list-item';
     if (!!this.props.clear) {
       if (this.state.value.length > 0) {
-        clearDom = (<div className="am-list-clear"><i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
-                                                      data-am-mode="clear" onClick={this._clearInput}
+        clearDom = (<div className={prefixCls + '-list-clear'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} style={{visibility: 'visible'}}
+                                                      data-mode="clear" onClick={this._clearInput}
                                                       onTouchStart={this._clearInput}></i></div>);
       } else {
-        clearDom = (<div className="am-list-clear"><i className="am-icon am-icon-clear" data-am-mode="clear"
+        clearDom = (<div className={prefixCls + '-list-clear'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} data-mode="clear"
                                                       onClick={this._clearInput} onTouchStart={this._clearInput}></i>
         </div>);
       }
@@ -104,12 +104,12 @@ const InputItem = React.createClass({
     let iconType = '';
     if (this.props.icon) {
       iconType = 'form-' + this.props.icon;
-      iconDom = (<div className="am-list-thumb"><i className="am-icon" data-am-mode={iconType} onClick={this._onIconClick}></i></div>);
+      iconDom = (<div className={prefixCls + '-list-thumb'}><i className={prefixCls + '-icon'} data-mode={iconType} onClick={this._onIconClick}></i></div>);
     }
     return (
       <div className={clearClass} onClick={this._handleClick}>
         {labelDom}
-        <div className="am-list-control">
+        <div className={prefixCls + '-list-control'}>
           <input type="text"
                  name={this.props.name}
                  placeholder={this.props.placeholder}

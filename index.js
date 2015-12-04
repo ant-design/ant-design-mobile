@@ -12,6 +12,7 @@ const antm = {
   CheckboxItem : require('./components/checkbox-item'),
   FormUtil     : require('./components/form-util'),
   WindowUtil   : require('./components/form-util/window-util')
+  SwitchItem   : require('./components/switch-item')
 };
 
 antm.version = require('./package.json').version;

@@ -1,21 +1,24 @@
-import React from 'react';
-const {PropTypes} = React;
+import React, {PropTypes} from 'react';
+function noop() {}
+
 const ListBody = React.createClass({
   propTypes: {
+    prefixCls: PropTypes.string,
     didMount: PropTypes.func,
   },
   getDefaultProps() {
     return {
-      didMount(){
-      }
+      prefixCls: 'am',
+      didMount: noop,
     };
   },
   componentDidMount() {
     this.props.didMount(this);
   },
   render(){
+    let {prefixCls} = this.props;
     return (
-      <div className="am-list-body">
+      <div className={prefixCls + '-list-body'}>
         {this.props.children}
       </div>
     );
