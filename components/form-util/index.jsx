@@ -53,7 +53,7 @@ const formUtil = {
       self._childFormElements.forEach((item)=> {
         promiseChain = promiseChain.then(function (prev) {
           if(!item.props.validate) return true;
-          const validateResult = item.props.validate();
+          const validateResult = item.props.validate.call(item);
           if (validateResult) {
             return true;
           } else {

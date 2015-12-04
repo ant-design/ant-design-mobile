@@ -21,7 +21,7 @@ const ListItem = React.createClass({
     };
   },
   componentDidMount() {
-    this.props.didMount(this);
+    this.props.didMount.call(this, this);
   },
   _createArrowMarkup() {
     let arrow = this.props.arrow;

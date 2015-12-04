@@ -58,7 +58,7 @@ const shopAliasInput = {
 
   },
   validate(){
-    return true;
+    return /^\d+$/.test(this.state.value);
   },
   onChange(){
     console.log('input changed');
@@ -114,10 +114,10 @@ const PageForm = React.createClass({
             {...photoInput}
           />
           <InputItem
-            label="我"
-            name="yyy"
+            label="店铺编号"
+            name="shopAlias"
             defaultValue=""
-            placeholder="dadads"
+            placeholder="number only"
             clear={true}
             icon="camera"
             didMount={this.registerInput}
