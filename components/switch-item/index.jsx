@@ -51,12 +51,11 @@ const SwitchItem = React.createClass({
         <div className={prefixCls + '-list-content'}>{this.props.label}</div>
         <div className={prefixCls + '-switch'}>
           <input type="checkbox" name={this.props.name} className={prefixCls + '-switch-checkbox'} checked={this.state.checked} onChange={this._onSwitchChange}/>
-          {extraFormDataArray}
           <label className={prefixCls + '-switch-label'}>
             <div className={prefixCls + '-switch-inner'}></div>
             <div className={prefixCls + '-switch-switch'}></div>
           </label>
-
+          {extraFormDataArray}
         </div>
 
       </div>
