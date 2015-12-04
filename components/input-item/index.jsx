@@ -3,12 +3,15 @@ const InputItem = React.createClass({
   propTypes: {
     label: PropTypes.string,
     name: PropTypes.string,
-    defaultValue: PropTypes.any,
+    defaultValue: PropTypes.string,
     placeholder: PropTypes.string,
     clear: PropTypes.bool,
-    icon: PropTypes.any,
+    icon: PropTypes.string,
+    onIconClick: PropTypes.func,
     didMount: PropTypes.func,
     onChange: PropTypes.func,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
     extraFormData: PropTypes.object
   },
   getDefaultProps() {
@@ -20,7 +23,13 @@ const InputItem = React.createClass({
       icon: '',
       onChange(){
       },
+      onBlur(){
+      },
+      onFocus(){
+      },
       didMount(){
+      },
+      onIconClick(){
       },
       extraFormData: {}
     };
@@ -43,17 +52,25 @@ const InputItem = React.createClass({
   },
   _onInputChange(e) {
     const value = e.target.value;
-    this.setValue(value);
+    this.setValue(value, e);
   },
-  setValue(value) {
+  _onInputBlur(e) {
+    this.props.onBlur.call(this, e);
+  },
+  _onInputFocus(e) {
+    this.props.onFocus.call(this, e);
+  },
+  _onIconClick(e) {
+    this.props.onIconClick.call(this, e);
+  },
+  setValue(value, e) {
     if (!('value' in this.props)) {
       this.setState({
         value,
       });
     }
-    this.props.onChange(value);
+    this.props.onChange.call(this, e);
   },
-
   _clearInput() {
     this.setValue('');
   },
@@ -87,7 +104,7 @@ const InputItem = React.createClass({
     let iconType = '';
     if (this.props.icon) {
       iconType = 'form-' + this.props.icon;
-      iconDom = (<div className="am-list-thumb"><i className="am-icon" data-am-mode={iconType}></i></div>);
+      iconDom = (<div className="am-list-thumb"><i className="am-icon" data-am-mode={iconType} onClick={this._onIconClick}></i></div>);
     }
     return (
       <div className={clearClass} onClick={this._handleClick}>
@@ -97,7 +114,9 @@ const InputItem = React.createClass({
                  name={this.props.name}
                  placeholder={this.props.placeholder}
                  value={this.state.value}
-                 onChange={this._onInputChange}/>
+                 onChange={this._onInputChange}
+                 onBlur={this._onInputBlur}
+                 onFocus={this._onInputFocus}/>
           {extraFormDataArray}
         </div>
         {clearDom}

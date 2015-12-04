@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 const ListItem = React.createClass({
   propTypes: {
+    link: PropTypes.string,
     content: PropTypes.string,
     extra: PropTypes.string,
     icon: PropTypes.string,
@@ -11,6 +12,9 @@ const ListItem = React.createClass({
   },
   getDefaultProps() {
     return {
+      link: '#',
+      onClick() {
+      },
       didMount(){
       }
     };
@@ -26,12 +30,17 @@ const ListItem = React.createClass({
   _createArrowMarkup() {
     let arrow = this.props.arrow;
     let arrowDom;
-    if (arrow === 'horizontal') {
-      arrowDom = <div className="am-list-arrow"><span className="am-icon" data-am-mode="arrow-horizontal"></span></div>;
-    } else if (arrow === 'vertical') {
-      arrowDom = <div className="am-list-arrow"><span className="am-icon" data-am-mode="arrow-vertical"></span></div>;
-    } else if (!!arrow) {
-      arrowDom = <div className="am-list-arrow"></div>;
+    /* arrow有值，则保留这个dom坑位 */
+    if (!!arrow) {
+      /* 当值是horizontal时,渲染水平箭头 */
+      if (arrow === 'horizontal') {
+        arrowDom = <div className="am-list-arrow"><span className="am-icon" data-am-mode="arrow-horizontal"></span></div>;
+      /* 当值是vertical时,渲染垂直箭头 */
+      } else if (arrow === 'vertical') {
+        arrowDom = <div className="am-list-arrow"><span className="am-icon" data-am-mode="arrow-vertical"></span></div>;
+      } else {
+        arrowDom = <div className="am-list-arrow"></div>;
+      }
     } else {
       arrowDom = null;
     }
@@ -39,9 +48,7 @@ const ListItem = React.createClass({
   },
   _handleClick(e) {
     e.preventDefault();
-    if (!!this.props.onClick) {
-      this.props.onClick.call(this, e);
-    }
+    this.props.onClick.call(this, e);
   },
   render(){
     let link = this.props.link;

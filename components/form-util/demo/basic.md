@@ -124,7 +124,7 @@ const PageForm = React.createClass({
             {...shopAliasInput}
           />
           </ListBody>
-          <ListFooter content="我是表尾"/>
+          <ListFooter>我是表尾</ListFooter>
         </ListWrap>
         <button ref="uploadBtn" onClick={this.dealSubmit}>DoIT</button>
       </div>

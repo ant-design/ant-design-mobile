@@ -16,7 +16,7 @@ const ListHeader = React.createClass({
   },
   render(){
     return (
-      <div className="am-list-header" style={this.props.style}>{this.props.children}</div>
+      <div className="am-list-header" style={this.props.style}>{this.props.label}</div>
     );
   }
 });

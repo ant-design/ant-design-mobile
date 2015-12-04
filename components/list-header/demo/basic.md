@@ -31,7 +31,7 @@ ReactDOM.render(
         onClick={function(){}}
       />
     </ListBody>
-    <ListFooter content="我是表尾"/>
+    <ListFooter>我是表尾</ListFooter>
   </ListWrap>
   <ListWrap >
       <ListHeader>我是表头</ListHeader>
