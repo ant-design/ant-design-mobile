@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+function noop() {}
+
 const InputItem = React.createClass({
   propTypes: {
     label: PropTypes.string,
@@ -21,23 +23,18 @@ const InputItem = React.createClass({
       defaultValue: '',
       placeholder: '',
       icon: '',
-      onChange(){
-      },
-      onBlur(){
-      },
-      onFocus(){
-      },
-      didMount(){
-      },
-      onIconClick(){
-      },
+      onChange: noop,
+      onBlur: noop,
+      onFocus: noop,
+      didMount: noop,
+      onIconClick: noop,
       extraFormData: {}
     };
   },
   getInitialState() {
     return {
-      value:this.props.defaultValue,
-      extraFormData:this.props.extraFormData
+      value: this.props.defaultValue,
+      extraFormData: this.props.extraFormData
     };
   },
   componentDidMount() {
