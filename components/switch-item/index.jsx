@@ -40,7 +40,7 @@ const SwitchItem = React.createClass({
     this.props.onChange.call(this, e);
   },
   render(){
-    let {prefixCls } = this.props;
+    let {prefixCls} = this.props;
     const extraFormData = this.state.extraFormData;
     const extraFormDataArray = [];
     for (const key in extraFormData) {

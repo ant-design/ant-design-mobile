@@ -1,6 +1,9 @@
 import React, {PropTypes} from 'react';
+function noop() {}
+
 const ListItem = React.createClass({
   propTypes: {
+    prefixCls: PropTypes.string,
     link: PropTypes.string,
     content: PropTypes.string,
     extra: PropTypes.string,
@@ -12,11 +15,10 @@ const ListItem = React.createClass({
   },
   getDefaultProps() {
     return {
+      prefixCls: 'am',
       link: '#',
-      onClick() {
-      },
-      didMount(){
-      }
+      onClick: noop,
+      didMount: noop
     };
   },
   getInitialState() {
@@ -28,18 +30,18 @@ const ListItem = React.createClass({
     this.props.didMount(this);
   },
   _createArrowMarkup() {
-    let arrow = this.props.arrow;
+    let {arrow, prefixCls} = this.props;
     let arrowDom;
     /* arrow有值，则保留这个dom坑位 */
     if (!!arrow) {
       /* 当值是horizontal时,渲染水平箭头 */
       if (arrow === 'horizontal') {
-        arrowDom = <div className="am-list-arrow"><span className="am-icon" data-am-mode="arrow-horizontal"></span></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon'} data-mode="arrow-horizontal"></span></div>;
       /* 当值是vertical时,渲染垂直箭头 */
       } else if (arrow === 'vertical') {
-        arrowDom = <div className="am-list-arrow"><span className="am-icon" data-am-mode="arrow-vertical"></span></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon'} data-mode="arrow-vertical"></span></div>;
       } else {
-        arrowDom = <div className="am-list-arrow"></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}></div>;
       }
     } else {
       arrowDom = null;
@@ -51,16 +53,16 @@ const ListItem = React.createClass({
     this.props.onClick.call(this, e);
   },
   render(){
-    let link = this.props.link;
+    let {link, prefixCls} = this.props;
     const extraFormData = this.state.extraFormData;
     const extraFormDataArray = [];
     for (const key in extraFormData) {
       extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
     }
     return (
-      <a href={link} className="am-list-item" onClick={this._handleClick}>
-        <div className="am-list-content">{this.props.content}</div>
-        <div className="am-list-extra">{this.props.extra}</div>
+      <a href={link} className={prefixCls + '-list-item'} onClick={this._handleClick}>
+        <div className={prefixCls + '-list-content'}>{this.props.content}</div>
+        <div className={prefixCls + '-list-extra'}>{this.props.extra}</div>
         {extraFormDataArray}
         <div style={this.props.arrowStyle}>
           {this._createArrowMarkup()}

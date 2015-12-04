@@ -1,12 +1,12 @@
 # Switch
 
 - category: Components
-- chinese: 文本输入（列表项）
+- chinese: 滑动开关
 - type: 表单
 
 ---
 
-表单页面中的文本输入时
+滑动开关
 
 ## 何时使用
 

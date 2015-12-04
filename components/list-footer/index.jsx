@@ -1,6 +1,9 @@
 import React, {PropTypes} from 'react';
+function noop() {}
+
 const ListFooter = React.createClass({
   propTypes: {
+    prefixCls: PropTypes.string,
     content: PropTypes.string,
     style: PropTypes.object,
     align: PropTypes.string,
@@ -9,11 +12,10 @@ const ListFooter = React.createClass({
   },
   getDefaultProps() {
     return {
+      prefixCls: 'am',
       align: 'left',
-      onClick(){
-      },
-      didMount(){
-      }
+      onClick: noop,
+      didMount: noop
     };
   },
   componentDidMount() {
@@ -24,7 +26,8 @@ const ListFooter = React.createClass({
     this.props.onClick.call(this, e);
   },
   render(){
-    let align = this.props.align === 'right' ? 'am-list-footer am-ft-right' : 'am-list-footer';
+    let {prefixCls} = this.props;
+    let align = this.props.align === 'right' ? prefixCls + '-list-footer ' + prefixCls + '-ft-right' : prefixCls + '-list-footer';
     return (
       <div className={align} style={this.props.style} onClick={this._onFooterClick}>
         {this.props.children}

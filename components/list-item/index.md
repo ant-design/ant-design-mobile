@@ -17,6 +17,7 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
+| prefixCls    | 默认class前缀        | String |   'am'  |
 | link       | 如果item需要跳转,则需要URL  | String |   无  |
 | arrow      | 箭头方向        | String（horizontal/vertical/无） |   无  |
 | type       | 赞不支持        | String |   无  |
