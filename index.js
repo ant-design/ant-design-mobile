@@ -11,7 +11,7 @@ const antm = {
   InputItem    : require('./components/input-item'),
   CheckboxItem : require('./components/checkbox-item'),
   FormUtil     : require('./components/form-util'),
-  WindowUtil   : require('./components/form-util/window-util')
+  WindowUtil   : require('./components/form-util/window-util'),
   SwitchItem   : require('./components/switch-item')
 };
 

@@ -8,7 +8,7 @@
 
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody, ListItem, FormUtil, WindowUtil, InputItem } from 'antm';
+import { ListWrap, ListHeader, ListFooter, ListBody, ListItem, FormUtil, WindowUtil, InputItem, CheckboxItem } from 'antm';
 import Promise from 'promise';
 
 const licenceInput = {
@@ -49,16 +49,28 @@ const photoInput = {
     });
   },
   onClick(){
-    WindowUtil.pushWindow('http://crmhome.stable.alipay.net/shop/shopCate.h5');
+    //TODO : 回复state.extra
+    this.setState({
+      extra : '已上传'
+    });
   }
 };
 
 const shopAliasInput = {
-  init(){
-
-  },
   validate(){
     return /^\d+$/.test(this.state.value);
+  },
+  onChange(){
+    console.log('input changed');
+  },
+  extraFormData:{
+    'pic1':'22', 'pic2':'222'
+  }
+};
+
+const couponCheckbox = {
+  validate(){
+    return this.state.value;
   },
   onChange(){
     console.log('input changed');
@@ -86,8 +98,7 @@ const businessFormUtil = {
   startUpload(){
     const self = this;
     const data = self.collectData();
-
-    console.log(data);
+    alert(JSON.stringify(data));
   }
 };
 
@@ -114,7 +125,7 @@ const PageForm = React.createClass({
             {...photoInput}
           />
           <InputItem
-            label="店铺编号"
+            label="店铺编号要输入数字"
             name="shopAlias"
             defaultValue=""
             placeholder="number only"
@@ -122,6 +133,14 @@ const PageForm = React.createClass({
             icon="camera"
             didMount={this.registerInput}
             {...shopAliasInput}
+          />
+          <CheckboxItem
+            label="打开这个开关才能提交"
+            name="useCoupon"
+            defaultValue={false}
+            onChange={function(e){console.log('switched'); console.log(e);}}
+            didMount={this.registerInput}
+            {...couponCheckbox}
           />
           </ListBody>
           <ListFooter>我是表尾</ListFooter>

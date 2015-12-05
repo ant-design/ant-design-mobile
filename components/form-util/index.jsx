@@ -3,6 +3,7 @@ import Promise from 'promise';
 const formUtil = {
   componentDidMount(){
     const self = this;
+    self._childFormElements = self._childFormElements || [];
     self._childFormElements.forEach((item)=> {
       if (item.props.init) {
         item.props.init.call(self);

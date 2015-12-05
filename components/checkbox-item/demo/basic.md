@@ -18,7 +18,6 @@ ReactDOM.render(
           defaultValue={false}
           onChange={function(e){console.log('onChange'); console.log(e);}}
           didMount={function(){}}
-          extraFormData={{'pic1':'22', 'pic2':'222'}}
         />
       </ListBody>
     </ListWrap>
