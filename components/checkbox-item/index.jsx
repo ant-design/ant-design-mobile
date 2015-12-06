@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+function noop() {}
 
 const InputItem = React.createClass({
   propTypes: {
@@ -6,6 +7,7 @@ const InputItem = React.createClass({
     name          : PropTypes.string,
     defaultValue  : PropTypes.bool,
     didMount      : PropTypes.func,
+    willUnmount   : PropTypes.func,
     onChange      : PropTypes.func,
     extraFormData : PropTypes.object
   },
@@ -14,9 +16,9 @@ const InputItem = React.createClass({
       label: '',
       name: '',
       defaultValue: '',
-      onChange(){},
-      didMount(){},
-      extraFormData: {}
+      onChange:noop,
+      didMount:noop,
+      extraFormData:noop
     };
   },
   getInitialState() {
@@ -27,6 +29,9 @@ const InputItem = React.createClass({
   },
   componentDidMount() {
     this.props.didMount(this);
+  },
+  componentWillUnmount(){
+    this.props.willUnmount(this);
   },
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {

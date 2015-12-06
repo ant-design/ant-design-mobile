@@ -11,6 +11,12 @@
 import { ListWrap, ListHeader, ListFooter, ListBody, ListItem, FormUtil, WindowUtil, InputItem, CheckboxItem } from 'antm';
 import Promise from 'promise';
 
+let pageFormInstance;
+
+function triggerChange(newValue){
+  pageFormInstance.setState({showCouponId : !newValue});
+}
+
 const licenceInput = {
   init(){
     WindowUtil.registerResumeHandler.call(this, 'category', function(data){
@@ -45,7 +51,7 @@ const photoInput = {
     return new Promise(function(fulfill, reject){
       setTimeout(function(){
         fulfill(true);
-      }, 1000);
+      }, 200);
     });
   },
   onClick(){
@@ -56,7 +62,16 @@ const photoInput = {
   }
 };
 
-const shopAliasInput = {
+const CouponIdInput = {
+  didMount(){
+    console.log('init event');
+  },
+  willUnmount(){
+    console.log('did unmount');
+  },
+  init(){
+
+  },
   validate(){
     return /^\d+$/.test(this.state.value);
   },
@@ -73,7 +88,7 @@ const couponCheckbox = {
     return this.state.value;
   },
   onChange(){
-    console.log('input changed');
+    triggerChange(this.state.value);
   },
   extraFormData:{
     'pic1':'22', 'pic2':'222'
@@ -104,43 +119,51 @@ const businessFormUtil = {
 
 const PageForm = React.createClass({
   mixins : [FormUtil, businessFormUtil],
-  render : function(){
+  getInitialState(){
+    return {
+      showCouponId : false
+    };
+  },
+  render(){
+    let couponIdInput = this.state.showCouponId ? (
+      <InputItem
+        ref="form_couponId"
+        label="优惠编号"
+        name="couponId"
+        defaultValue=""
+        placeholder="number only"
+        clear={true}
+        icon="camera"
+        {...CouponIdInput}
+      />
+    ) : null;
+
     return (
       <div>
         <ListWrap >
           <ListHeader label="证照补全"/>
           <ListBody>
+          <CheckboxItem
+            ref="form_couponSwitch"
+            label="使用优惠"
+            name="useCoupon"
+            defaultValue={false}
+            {...couponCheckbox}
+          />
+          {couponIdInput}
           <ListItem
+            ref="form_shopLicence"
             content="营业执照"
             extra="请上传"
             arrow="horizontal"
-            didMount={this.registerInput}
             {...licenceInput}
           />
           <ListItem
+            ref="form_shopPhoto"
             content="其他照片"
             extra="请上传"
             arrow="horizontal"
-            didMount={this.registerInput}
             {...photoInput}
-          />
-          <InputItem
-            label="店铺编号要输入数字"
-            name="shopAlias"
-            defaultValue=""
-            placeholder="number only"
-            clear={true}
-            icon="camera"
-            didMount={this.registerInput}
-            {...shopAliasInput}
-          />
-          <CheckboxItem
-            label="打开这个开关才能提交"
-            name="useCoupon"
-            defaultValue={false}
-            onChange={function(e){console.log('switched'); console.log(e);}}
-            didMount={this.registerInput}
-            {...couponCheckbox}
           />
           </ListBody>
           <ListFooter>我是表尾</ListFooter>
@@ -151,7 +174,7 @@ const PageForm = React.createClass({
   }
 });
 
-ReactDOM.render(
+pageFormInstance = ReactDOM.render(
   <PageForm />
 , document.getElementById('util-demo-basic'));
 ````

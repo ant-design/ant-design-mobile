@@ -11,6 +11,7 @@ const ListItem = React.createClass({
     arrow: PropTypes.string,
     onClick: PropTypes.func,
     didMount: PropTypes.func,
+    willUnmount:PropTypes.func,
     extraFormData: PropTypes.object
   },
   getDefaultProps() {
@@ -18,7 +19,8 @@ const ListItem = React.createClass({
       prefixCls: 'am',
       link: '#',
       onClick: noop,
-      didMount: noop
+      didMount: noop,
+      willUnmount:noop
     };
   },
   getInitialState() {
@@ -28,6 +30,9 @@ const ListItem = React.createClass({
   },
   componentDidMount() {
     this.props.didMount.call(this, this);
+  },
+  componentWillUnmount(){
+    this.props.willUnmount(this);
   },
   _createArrowMarkup() {
     let {arrow, prefixCls} = this.props;
