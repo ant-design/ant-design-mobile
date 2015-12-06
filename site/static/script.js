@@ -35,7 +35,8 @@ InstantClickChangeFns.push(function() {
   });
 
   // 移动 API 文档到演示下方
-  $('.markdown #api').nextAll().andSelf().appendTo('.api-container');
+  //$('.markdown #api').nextAll().andSelf().appendTo('.api-container');
+  $('.markdown h1').nextAll().andSelf().appendTo('.api-container');
 
   $('.nav-phone-icon').click(function() {
     $(this).prev().toggle();
