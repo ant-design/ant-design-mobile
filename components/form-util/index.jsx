@@ -3,20 +3,20 @@ import Promise from 'promise';
 const formUtil = {
   componentDidMount(){
     const self = this;
-    self._childFormElements.forEach((item)=> {
-      if (item.props.init) {
-        item.props.init.call(self);
-      }
-    });
-  },
 
+    for(let key in this.refs){
+      if(!self.isPartOfForm(key)) continue;
+      let item = this.refs[key];
+      if(item.props.init){
+        item.props.init.call(item);
+      }
+    }
+  },
+  isPartOfForm(key){
+    return (key.indexOf('form_') === 0);
+  },
   componentWillUnmount() {
     document.removeEventListener('resume', this.onResume);
-  },
-
-  registerInput(item){
-    this._childFormElements = this._childFormElements || [];
-    this._childFormElements.push(item);
   },
   collectData(){
     let finalData = {};
@@ -33,7 +33,10 @@ const formUtil = {
       return result;
     };
 
-    this._childFormElements.map(function (item) {
+    for(let key in this.refs){
+      if(!this.isPartOfForm(key)) continue;
+      let item = this.refs[key];
+
       if (item.state && item.state.extraFormData) {
         finalData = concatObj(finalData, item.state.extraFormData);
       }
@@ -42,7 +45,7 @@ const formUtil = {
         tmpObj[item.props.name] = item.state.value;
         finalData = concatObj(finalData, tmpObj);
       }
-    });
+    }
 
     return finalData;
   },
@@ -50,24 +53,37 @@ const formUtil = {
     const self = this;
     return new Promise(function (fulfill, reject) {
       let promiseChain = Promise.resolve(true);
-      self._childFormElements.forEach((item)=> {
-        promiseChain = promiseChain.then(function (prev) {
-          if(!item.props.validate) return true;
-          const validateResult = item.props.validate();
-          if (validateResult) {
-            return true;
+
+      function performNextValidate(item){
+        return function(prevPassed){
+          console.log('validation result :' + prevPassed);
+          if(!prevPassed){
+            return prevPassed;
           } else {
-            throw new Error('failed to resolve');
+            console.log('call validation:');
+            console.log(item);
+            return item.props.validate.call(item);
           }
-        });
+        };
+      }
+
+      for(let key in self.refs){
+        let item = self.refs[key];
+
+        if(!self.isPartOfForm(key) || !item.props.validate) continue;
+        promiseChain = promiseChain.then(performNextValidate(item));
+      }
+
+      promiseChain = promiseChain.then(function(result){
+        if(result){
+          fulfill(result);
+        } else {
+          reject(result);
+        }
       });
 
-      promiseChain = promiseChain.then(function () {
-        fulfill();
-      });
-
-      promiseChain.catch(function (e) {
-        reject();
+      promiseChain.catch((e)=>{
+        reject(e);
       });
     });
   }

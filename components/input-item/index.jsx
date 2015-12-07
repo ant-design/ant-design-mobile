@@ -12,6 +12,7 @@ const InputItem = React.createClass({
     icon: PropTypes.string,
     onIconClick: PropTypes.func,
     didMount: PropTypes.func,
+    willUnmount: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
@@ -29,6 +30,7 @@ const InputItem = React.createClass({
       onBlur: noop,
       onFocus: noop,
       didMount: noop,
+      willUnmount:noop,
       onIconClick: noop,
       extraFormData: {}
     };
@@ -41,6 +43,9 @@ const InputItem = React.createClass({
   },
   componentDidMount() {
     this.props.didMount(this);
+  },
+  componentWillUnmount(){
+    this.props.willUnmount(this);
   },
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {

@@ -3,15 +3,16 @@ import React from 'react';
 require('./style/index.less');
 
 const antm = {
-  ListWrap: require('./components/list-wrap'),
-  ListHeader : require('./components/list-header'),
-  ListBody : require('./components/list-body'),
-  ListFooter : require('./components/list-footer'),
-  ListItem : require('./components/list-item'),
-  InputItem : require('./components/input-item'),
-  SwitchItem : require('./components/switch-item'),
-  FormUtil : require('./components/form-util'),
-  WindowUtil : require('./components/form-util/window-util')
+  ListWrap     : require('./components/list-wrap'),
+  ListHeader   : require('./components/list-header'),
+  ListBody     : require('./components/list-body'),
+  ListFooter   : require('./components/list-footer'),
+  ListItem     : require('./components/list-item'),
+  InputItem    : require('./components/input-item'),
+  CheckboxItem : require('./components/checkbox-item'),
+  FormUtil     : require('./components/form-util'),
+  WindowUtil   : require('./components/form-util/window-util'),
+  SwitchItem   : require('./components/switch-item')
 };
 
 antm.version = require('./package.json').version;
