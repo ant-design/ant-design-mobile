@@ -29,15 +29,24 @@ const ListItem = React.createClass({
   componentDidMount() {
     this.props.didMount(this);
   },
-  _createArrowMarkup() {
-    let {arrow, prefixCls} = this.props;
+  _handleClick(e) {
+    e.preventDefault();
+    this.props.onClick.call(this, e);
+  },
+  render(){
+    let {link, prefixCls, arrow} = this.props;
+    const extraFormData = this.state.extraFormData;
+    const extraFormDataArray = [];
+    for (const key in extraFormData) {
+      extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
+    }
     let arrowDom;
     /* arrow有值，则保留这个dom坑位 */
     if (!!arrow) {
       /* 当值是horizontal时,渲染水平箭头 */
       if (arrow === 'horizontal') {
         arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon'} data-mode="arrow-horizontal"></span></div>;
-      /* 当值是vertical时,渲染垂直箭头 */
+        /* 当值是vertical时,渲染垂直箭头 */
       } else if (arrow === 'vertical') {
         arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon'} data-mode="arrow-vertical"></span></div>;
       } else {
@@ -46,27 +55,12 @@ const ListItem = React.createClass({
     } else {
       arrowDom = null;
     }
-    return arrowDom;
-  },
-  _handleClick(e) {
-    e.preventDefault();
-    this.props.onClick.call(this, e);
-  },
-  render(){
-    let {link, prefixCls} = this.props;
-    const extraFormData = this.state.extraFormData;
-    const extraFormDataArray = [];
-    for (const key in extraFormData) {
-      extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
-    }
     return (
       <a href={link} className={prefixCls + '-list-item'} onClick={this._handleClick}>
         <div className={prefixCls + '-list-content'}>{this.props.content}</div>
         <div className={prefixCls + '-list-extra'}>{this.props.extra}</div>
+        {arrowDom}
         {extraFormDataArray}
-        <div style={this.props.arrowStyle}>
-          {this._createArrowMarkup()}
-        </div>
       </a>
     );
   }
