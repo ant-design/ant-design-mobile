@@ -1,0 +1,130 @@
+@import "../base/mixins";
+
+/*开关*/
+.am-switch{
+    position: relative;
+    display: inline-block;
+    width: 51px;
+    vertical-align: -6px;
+    -webkit-user-select: none;
+    overflow: hidden;
+    .am-switch-checkbox {
+        position: absolute;
+        display:block;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 50px;
+        height: 30px;
+        overflow:hidden;
+        -webkit-appearance:none;
+        z-index: 2;
+    }
+
+    .am-switch-label {
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .am-switch-inner {
+        width: 200%;
+        margin-left: -100%;
+    }
+    .buildMe(@isRem) when (@isRem = false) {
+        .am-switch-inner:before,
+        .am-switch-inner:after,
+        .am-switch-switch{
+            background:url("image/switch/switch.png") no-repeat;
+            .backgroundSize(50px,auto);
+        }
+        .am-switch-inner:before,
+        .am-switch-inner:after {
+            float: left;
+            width: 50%;
+            height: 30px;
+            padding: 0;
+            line-height: 32px;
+            font-size: 12px;
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .am-switch-inner:before {
+            content: "";
+            color: white;
+            background-position:0 0;
+        }
+        .am-switch-inner:after {
+            content: "";
+            color: #666;
+            text-align: right;
+            background-position:0 -35px;
+        }
+        .am-switch-switch {
+            width:50px;
+            margin-left:0px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            -webkit-transform: translateX(0);
+            .transition(all 0.1s ease-in 0s);
+            background-position:0 -70px;
+        }
+    }
+    .buildMe(@isRem) when (@isRem = true) {
+        .am-switch-inner:before,
+        .am-switch-inner:after{
+            background-repeat: no-repeat;
+            .backgroundSize(50px,auto);
+        }
+        .am-switch-inner:before,
+        .am-switch-inner:after {
+            float: left;
+            width: 50%;
+            height: 30px;
+            padding: 0;
+            line-height: 32px;
+            font-size: 12px;
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .am-switch-inner:before {
+            content: "";
+            color: white;
+            background-image:url("image/switch/blue.png");
+        }
+        .am-switch-inner:after {
+            content: "";
+            color: #666;
+            text-align: right;
+            background-image:url("image/switch/gray.png");
+        }
+        .am-switch-switch {
+            width:50px;
+            height: 30px;
+            margin-left:0px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            -webkit-transform: translateX(0);
+            .transition(all 0.1s ease-in 0s);
+            background-repeat: no-repeat;
+            background-image:url("image/switch/white.png");
+            .backgroundSize(auto,30px);
+        }
+    }
+    .buildMe(@isRem);
+    .am-switch-checkbox:checked + .am-switch-label .am-switch-inner {
+        margin-left: 0;
+    }
+    .am-switch-checkbox:checked + .am-switch-label .am-switch-switch {
+        -webkit-transform: translateX(20px);
+    }
+}
+

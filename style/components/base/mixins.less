@@ -1,0 +1,121 @@
+//mixins中提供LESS方法
+
+@isRem: true;
+
+// 基准尺寸
+@base-width: 320px;
+@base-fontsize: 16px;
+
+//Remove or change the unit of a dimension
+//Example: unit(5, px)
+//Output: 5px
+//Example: unit(5em)
+//Output: 5
+// 基础单位
+@rem: unit(1/@base-fontsize,rem);
+//1px = 1/16rem = 0.0625rem
+
+.background(@start:#fff, @end:#000) {
+    background:@end;
+    background-image:-webkit-gradient(linear, left top, left bottom, from(@start), to(@end)); /* Saf4+, Chrome */
+    background-image:linear-gradient(@start, @end);
+}
+.border-1px(@color:#d2d2d2){
+    background:left bottom repeat-x;
+    background-image: -webkit-gradient(linear, left top, left bottom,color-stop(.5, transparent), color-stop(.5, @color), to(@color));
+    background-image: linear-gradient(left top, left bottom,color-stop(.5, transparent), color-stop(.5, @color), to(@color));
+    -webkit-background-size: 100% 1px;
+    background-size: 100% 1px;
+}
+.border-1px-top(@color:#d2d2d2){
+    background:left top repeat-x;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@color), color-stop(.5, @color),color-stop(.5, transparent));
+    background-image: linear-gradient(left top, left bottom, from(@color), color-stop(.5, @color),color-stop(.5, transparent));
+    -webkit-background-size: 100% 1px;
+    background-size: 100% 1px;
+}
+
+.border-1px-both(@color:#d2d2d2){
+    background-position:left top,left bottom;
+    background-repeat:repeat-x,repeat-x;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@color), color-stop(.5, @color),color-stop(.5, transparent)),-webkit-gradient(linear, left top, left bottom,color-stop(.5, transparent), color-stop(.5, @color), to(@color));
+    background-image: linear-gradient(left top, left bottom, from(@color), color-stop(.5, @color),color-stop(.5, transparent)),linear-gradient(left top, left bottom,color-stop(.5, transparent), color-stop(.5, @color), to(@color));
+    -webkit-background-size: 100% 1px,100% 1px;
+    background-size: 100% 1px,100% 1px;
+}
+
+
+.border-1px-scale(@color:#d2d2d2){
+    position:relative;
+    &:before{
+        content:"";
+        position: absolute;
+        bottom:-1px;
+        left:0px;
+        right:0px;
+        border-bottom:1px solid @color;
+        -webkit-transform:scaleY(.5);
+        -webkit-transform-origin:0 0;
+    }
+}
+
+.box-sizing(@sizing:border-box){
+    -webkit-box-sizing:@sizing;
+}
+.box-shadow(@value) {
+    -webkit-box-shadow:@value;
+}
+.box-shadow(@value1, @value2) {
+    -webkit-box-shadow:@value1, @value2;
+}
+
+.border-radius(@radius:0) {
+    border-top-left-radius:@radius;
+    border-top-right-radius:@radius;
+    border-bottom-left-radius:@radius;
+    border-bottom-right-radius:@radius;
+    -webkit-background-clip:padding-box;
+}
+
+.display-box() {
+    display:-webkit-box;
+    display:-webkit-flex;
+}
+
+.box-flex(@scale:1) {
+    -webkit-box-flex:@scale;
+    -webkit-flex:@scale;
+}
+.box-align(@align:center){
+    -webkit-box-align: @align;
+    -webkit-align-items: @align;
+}
+
+.transform(@value) {
+    -webkit-transform:@value;
+}
+
+.transition(@value) {
+    -webkit-transition: @value;
+}
+.float-clear(){
+    &:after{
+        visibility:hidden;
+        display:block;
+        font-size:0;
+        content:" ";
+        clear:both;
+        height:0;
+    }
+}
+.backgroundSize(@width,@height){
+    -webkit-background-size:@width @height;
+}
+
+ //-- 文字自动截取 --
+.ellipsis() {
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

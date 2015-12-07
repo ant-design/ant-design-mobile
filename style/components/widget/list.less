@@ -1,0 +1,400 @@
+@import "../base/mixins";
+
+.am-list{
+    .buildMe(@isRem) when (@isRem = false) {
+        padding:8px 0;
+        .am-list-header {
+            margin: 10px 15px 0;
+            padding-bottom: 8px;
+            font-size: 12px;
+            color: #a5a5a5;
+        }
+        .am-list-footer {
+            margin: 8px 15px;
+            font-size: 12px;
+            color: #999;
+        }
+    }
+    .buildMe(@isRem) when (@isRem = true) {
+        padding:8px 0;
+        .am-list-header {
+            padding: 10px 15px 0;
+            padding-bottom: 8px;
+            font-size: 12px;
+            color: #a5a5a5;
+            display: inline-block;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+        }
+        .am-list-footer {
+            padding: 8px 15px;
+            font-size: 12px;
+            color: #999;
+            display: inline-block;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+        }
+    }
+    .buildMe(@isRem);
+    .am-list-item{
+        font-size:16px;
+        color:#333;
+        &.am-list-top{
+            background-color:#d9eefc;
+        }
+        /*list左侧主内容*/
+        .am-list-content{
+            .box-flex(1);
+            min-width:60px;
+            .ellipsis();
+            &[am-mode~="right"]{
+                padding-right:auto;
+                padding-left:25px;
+            }
+            &[am-mode~="13px"]{
+                margin-top: 1px;
+                margin-bottom: 4px;
+            }
+        }
+        /*list左侧主内容多行时，title*/
+        .am-list-title{
+            color:#333;
+            line-height: 1.5em;
+            .ellipsis();
+        }
+        .am-list-new{
+            padding-left: 10px;
+            text-align: left;
+        }
+
+        /*list左侧主内容多行时，摘要*/
+        .am-list-brief{
+            color:#999;
+            font-size:13px;
+            line-height: 15px;
+            margin-top:2px;
+            .ellipsis();
+        }
+
+        /*list右补充内容*/
+        .am-list-extra{
+            .box-flex(1);
+            color:#999;
+            min-width:96px;
+            font-size:14px;
+            text-align:right;
+            .ellipsis();
+            &[am-mode~="text-right"]{
+                font-size: 14px;
+                line-height: 43px;
+            }
+
+        }
+        /*list右侧补充内容-颜色醒目*/
+        .am-list-key{
+            color:#336395;
+        }
+        /*list右侧箭头*/
+        .am-list-arrow{
+            margin-left:7px;
+            margin-right:-2px;
+            width:12px;
+        }
+        /*list左右图片显示*/
+        .am-list-thumb{
+            position: relative;
+            &[am-mode~='right']{
+                &:first-child{
+                    margin-right: 10px;
+                    margin-left: 29px;
+                }
+                &:last-child{
+                    margin-left: 10px;
+                }
+            }
+            &:first-child{
+                margin-right: 10px;
+            }
+            &:last-child{
+                margin-left: 10px;
+            }
+        }
+
+        .am-list-thumb-radius img{
+            .border-radius(4px);
+        }
+
+
+        img{
+            vertical-align:middle;
+        }
+
+    }
+    button,
+    a{
+        &.am-list-item:active{
+            background-color: #e4e4e4;
+        }
+    }
+
+    .am-list-item,
+    &[am-mode~="flat"] .am-list-item{
+        padding:9px 15px;
+        min-height:32px;
+        background:
+        -webkit-gradient(linear,left top, left bottom, from(#fff), color-stop(.5, #fff),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#fff), to(#fff)) bottom left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), color-stop(.5, #e5e5e5),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), to(#e5e5e5))  bottom left no-repeat,
+        #fff;
+        background:
+        -webkit-linear-gradient(90deg, #fff, #fff) top left no-repeat,
+        -webkit-linear-gradient(270deg, #fff, #fff) bottom left no-repeat,
+        -webkit-linear-gradient(90deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) top left no-repeat,
+        -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) bottom left no-repeat,
+        #fff;
+        background:
+        linear-gradient(0deg, #fff, #fff) top left no-repeat,
+        linear-gradient(180deg, #fff, #fff) bottom left no-repeat,
+        linear-gradient(0deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) top left no-repeat,
+        linear-gradient(180deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) bottom left no-repeat,
+        #fff;
+        -webkit-background-size:0px 0px,0px 0px,100% 1px,100% 1px;
+        color:#333;
+        vertical-align: middle;
+        margin-left:0;
+        margin-right:0;
+        margin-top:-1px;
+        text-align: left;
+        overflow: inherit;
+        .display-box;
+        .box-align;
+    }
+    &[am-mode~="chip"]{
+        .am-list-item{
+            -webkit-background-size:15px 1px,15px 1px,100% 1px,100% 1px;
+
+            &:first-child{
+                -webkit-background-size:0px 0px,15px 1px,100% 1px,100% 1px;
+            }
+            &:last-child{
+                -webkit-background-size:15px 1px,0px 0px,100% 1px,100% 1px;
+            }
+            &:first-child:last-child{
+                -webkit-background-size:0px 0px,0px 0px,100% 1px,100% 1px;
+            }
+            &.am-list-top{
+                position:relative;
+                z-index:2;
+                -webkit-background-size:0px 0px,0px 0px,100% 1px,100% 1px;
+                .am-list-icon{
+                    &:after{
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+    &[am-mode~="iconlist"]{
+        .am-list-item{
+            -webkit-background-size:52px 1px,52px 1px,100% 1px,100% 1px;
+            &:first-child{
+                -webkit-background-size:0px 0px,52px 1px,100% 1px,100% 1px;
+            }
+            &:last-child{
+                -webkit-background-size:52px 1px,0px 0px,100% 1px,100% 1px;
+            }
+            &:first-child:last-child{
+                -webkit-background-size:0px 0px,0px 0px,100% 1px,100% 1px;
+            }
+            .am-list-icon{
+                margin-right: 15px;
+                img{
+                    display:block;
+                    width:22px;
+                    height:22px;
+                }
+            }
+        }
+        &[am-mode~="icon29"]{
+            .am-list-item{
+                -webkit-background-size:59px 1px,59px 1px,100% 1px,100% 1px;
+                &:first-child{
+                    -webkit-background-size:0px 0px,59px 1px,100% 1px,100% 1px;
+                }
+                &:last-child{
+                    -webkit-background-size:59px 1px,0px 0px,100% 1px,100% 1px;
+                }
+                &:first-child:last-child{
+                    -webkit-background-size:0px 0px,0px 0px,100% 1px,100% 1px;
+                }
+                .am-list-icon{
+                    margin-right: 15px;
+                    img{
+                        display:block;
+                        width:29px;
+                        height:29px;
+                    }
+                }
+            }
+        }
+    }
+    &[am-mode~="am-main-list"]{
+        border-bottom: 1px solid #e5e5e5;
+        background:#fff;
+        padding:0px;
+        .am-main-list-item{
+            width:100%;
+            .am-main-list-title{
+                position: relative;
+                .am-main-content{
+                    padding:13px 0;
+                    margin-left:15px;
+                    font-size:16px;
+                    color:#333;
+                }
+                .am-main-arrow{
+                    position:absolute;
+                    top:20px;
+                    right:15px;
+                    width:12px;
+                    height: 12px;
+                }
+            }
+            &:last-child .am-main-content{
+                border:none;
+            }
+            .am-sub-list-item{
+                display: none;
+                background: #f9f9fa;
+                .am-sub-list-content{
+                    margin-left: 30px;
+                    padding: 13px 0;
+                    color:#666;
+                }
+            }
+            &[am-mode~="spread"]{
+                .am-sub-list-item{
+                    display: block;;
+                }
+            }
+        }
+    }
+
+    &[am-mode~="43px"] .am-list-item{
+        padding-top:6px;
+        padding-bottom:6px;
+    }
+    &[am-mode~="twoline"] .am-list-item{
+          padding-top:10px;
+          padding-bottom:10px;
+    }
+
+    .am-main-list-title {
+        background:
+        -webkit-gradient(linear,left top, left bottom, from(#fff), color-stop(.5, #fff),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#fff), to(#fff)) bottom left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), color-stop(.5, #e5e5e5),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), to(#e5e5e5))  bottom left no-repeat,
+        #fff;
+        background:
+        -webkit-linear-gradient(90deg, #fff, #fff) top left no-repeat,
+        -webkit-linear-gradient(270deg, #fff, #fff) bottom left no-repeat,
+        -webkit-linear-gradient(90deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) top left no-repeat,
+        -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) bottom left no-repeat,
+        #fff;
+        background:
+        linear-gradient(0deg, #fff, #fff) top left no-repeat,
+        linear-gradient(180deg, #fff, #fff) bottom left no-repeat,
+        linear-gradient(0deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) top left no-repeat,
+        linear-gradient(180deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) bottom left no-repeat,
+        #fff;
+        -webkit-background-size: 0px 0px, 0px 0px, 100% 1px, 100% 1px;
+        margin-top:-1px;
+    }
+    //下拉列表边框
+    &[am-mode~="chip"] .am-main-list-title{
+        -webkit-background-size: 15px 1px, 15px 1px, 100% 1px, 100% 1px;
+    }
+    &[am-mode~="chip"] .am-main-list-item{
+        &:first-child{
+            .am-main-list-title{
+                -webkit-background-size: 0px 0px, 15px 1px, 100% 1px, 100% 1px;
+            }
+        }
+        &:last-child{
+            .am-main-list-title{
+                -webkit-background-size: 15px 1px, 0px 0px, 100% 1px, 100% 1px;
+            }
+        }
+    }
+    &[am-mode~="am-main-list"] .am-sub-list-content{
+        background:
+        -webkit-gradient(linear,left top, left bottom, from(#fff), color-stop(.5, #fff),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#fff), to(#fff)) bottom left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), color-stop(.5, #e5e5e5),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), to(#e5e5e5))  bottom left no-repeat,
+        #f9f9fa;
+        background:
+        -webkit-linear-gradient(90deg, #fff, #fff) top left no-repeat,
+        -webkit-linear-gradient(270deg, #fff, #fff) bottom left no-repeat,
+        -webkit-linear-gradient(90deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) top left no-repeat,
+        -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) bottom left no-repeat,
+        #f9f9fa;
+        background:
+        linear-gradient(0deg, #fff, #fff) top left no-repeat,
+        linear-gradient(180deg, #fff, #fff) bottom left no-repeat,
+        linear-gradient(0deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) top left no-repeat,
+        linear-gradient(180deg, #e5e5e5, #e5e5e5,rgba(229,229,229,0)) bottom left no-repeat,
+        #f9f9fa;
+        -webkit-background-size:0px 0px,0px 0px,0px 0px,100% 1px;
+        &:last-child{
+            -webkit-background-size:0px 0px,0px 0px,0px 0px,100% 1px;
+        }
+    }
+}
+
+.am-icon{
+    &[am-mode*="arrow-"]{
+        display:block;
+        width:12px;
+        height:12px;
+        overflow:hidden;
+        &:before{
+            content:"";
+            display:block;
+            width:6px;
+            height:6px;
+            margin-left:0;
+            border:solid 2px rgba(199,199,204,90);
+            border-top:0 none;
+            border-left:0 none;
+        }
+    }
+    &[am-mode~="arrow-horizontal"]{
+        &:before{
+            margin-top:2px;
+            .transform(rotate(315deg));
+        }
+    }
+    &[am-mode~="arrow-vertical"]{
+        &:before{
+            margin-left:2px;
+            .transform(rotate(45deg));
+        }
+    }
+    &[am-mode~="arrow-vertical"]{
+        &[am-mode~="up"]{
+            &:before{
+                margin:2px 0px 0px 2px;
+                .transform(rotate(225deg));
+            }
+        }
+        &[am-mode~="down"]{
+            &:before{
+                margin-left:2px;
+                .transform(rotate(45deg));
+            }
+        }
+    }
+}

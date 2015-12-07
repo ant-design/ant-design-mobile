@@ -1,0 +1,19 @@
+@import "../base/mixins";
+/* flexbox */
+.am-flexbox {
+    text-align: left;
+    .display-box;
+    .box-align;
+    .am-flexbox-item {
+        .box-sizing();
+        .box-flex(1);
+        margin-left:8px;
+        min-width:20px;
+        &:first-child {
+            margin-left:0;
+        }
+    }
+    &[am-mode~="average"] .am-flexbox-item{
+        width:100%;
+    }
+}

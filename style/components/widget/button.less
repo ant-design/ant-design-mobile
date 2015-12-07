@@ -1,0 +1,234 @@
+@import "../base/mixins";
+.am-button{
+    &[type="button"],
+    &[type="submit"]{
+        outline:0 none;
+        -webkit-appearance:none;
+    }
+    display:inline-block;
+    width:100%;
+    padding:0 4px;
+    .box-sizing();
+    height:42px;
+    text-align:center;
+    font-size:18px;
+    line-height:42px;
+    .border-radius(4px);
+    &[am-mode~="43px"]{
+        height:43px;
+        line-height: 43px;
+        .border-radius(5px);
+    }
+    &[am-mode~="tiny"]{
+        height:24px;
+        font-size:13px;
+        line-height:25px;
+        .border-radius(3px);
+    }
+    &[am-mode~="little"]{
+        height:31px;
+        font-size:13px;
+        line-height:31px;
+        .border-radius(3px);
+    }
+    &[am-mode~="small"]{
+        height:36px;
+        font-size:13px;
+        line-height:36px;
+        .border-radius(3px);
+    }
+    &[am-mode~="middle"]{
+        height:40px;
+        font-size:16px;
+        line-height:40px;
+        .border-radius(3px);
+    }
+    &[am-mode~="inline"]{
+        width:auto;
+        padding-left:16px;
+        padding-right:16px;
+        .box-sizing(content-box);
+        &[am-mode~="tiny"]{
+            padding-left:10px;
+            padding-right:10px;
+        }
+    }
+    /* 蓝色按钮 */
+    &,&[am-mode~="blue"]{
+        border:0 none;
+        color:#fff;
+        background-color:#EF5927;
+        &:active,
+        &.hover{
+            color:#fff;
+            background-color:#D34400;
+        }
+    }
+    /* 红色按钮 */
+    &[am-mode~="red"]{
+        border:0 none;
+        background-color:#ec5050;
+        &:active,
+        &.hover{
+            background-color:#bd4040;
+        }
+    }
+    /* 黑色按钮 */
+    &[am-mode~="black"] {
+        border:0 none;
+        background-color:#717378;
+        color:#ccc;
+        &:active,
+        &.hover{
+            color:#999;
+            background-color:#54585f;
+        }
+    }
+    &[am-mode~="white"]{
+        border:1px solid #ddd;
+        color:#666;
+        background-color:#fff;
+        &:active,
+        &.hover{
+            color:#666;
+            border-color:#d8d8d8;
+            background-color:#f8f8f8;
+        }
+    }
+
+    &[am-mode~="disabled"]{
+        &:disabled{
+            border: 0 none;
+            //border-color:#ebebf0;
+            color:#d2d2d2;
+            &:active,
+            &.hover{
+                border: 0 none;
+                color:#d2d2d2;
+            }
+        }
+        &[am-mode~="43px"]{
+            height:43px;
+            line-height: 43px;
+            .border-radius(5px);
+        }
+    }
+    &[am-mode~="disabled"],
+    &[am-mode~="light"][am-mode~="disabled"],
+    &:disabled{
+        border-color:#ebebf0;
+        color:#e6e6e6;
+        background-color:#ebebf0;
+        &:active,
+        &.hover{
+            border-color:#ebebf0;
+            color:#e6e6e6;
+            background-color:#ebebf0;
+        }
+        &[am-mode~="43px"]{
+            height:43px;
+            line-height: 43px;
+            .border-radius(5px);
+        }
+    }
+    &[am-mode~="blue-disabled"]:disabled{
+        background-color:#3998ed;
+        color:#73baf8;
+        border:0 none;
+        &:active,
+        &.hover{
+            color:#73baf8;
+            background-color:#3998ed;
+        }
+    }
+    &[am-mode~="red-disabled"]:disabled{
+        background-color:#cb3636;
+        color:#ab2020;
+        border:0 none;
+        &:active,
+        &.hover{
+            color:#ab2020;
+            background-color:#cb3636;
+        }
+    }
+    &[am-mode~="light"]{
+        color:#0ae;
+        border:1px solid #0ae;
+        background-color:#fff;
+        &:active,
+        &.hover{
+            color:#fff;
+            background-color:#0ae;
+        }
+        &[am-mode~="red"]{
+            color:#ec5050;
+            border:0 none;
+            background-color:#fff;
+            &:active,
+            &.hover{
+                color:#fff;
+                background-color:#bd4040;
+            }
+        }
+        &[am-mode~="black"]{
+            color:#666;
+            border:0 none;
+            background-color:#fff;
+            &:active,
+            &.hover{
+                color: #666;
+                background-color:#f8f8f8;
+            }
+        }
+    }
+    &[am-mode~="flat"]{
+        font-size:16px;
+        .border-radius(0);
+        border:0px none;
+        background:
+        -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), color-stop(.5, #e5e5e5),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), to(#e5e5e5))  bottom left no-repeat,
+        #fff;
+        background:
+        -webkit-linear-gradient(90deg, #e5e5e5, #e5e5e5,rgba(229,229,229,100)) top left no-repeat,
+        -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5,rgba(229,229,229,100)) bottom left no-repeat,
+        #fff;
+        background:
+        linear-gradient(0deg, #e5e5e5, #e5e5e5,rgba(229,229,229,100)) top left no-repeat,
+        linear-gradient(180deg, #e5e5e5, #e5e5e5,rgba(229,229,229,100)) bottom left no-repeat,
+        #fff;
+        -webkit-background-size:100% 1px,100% 1px;
+        &:active,
+        &.hover{
+            background:
+            -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), color-stop(.5, #e5e5e5),color-stop(.5, transparent)) top left no-repeat,
+            -webkit-gradient(linear,left top, left bottom, from(#e5e5e5), to(#e5e5e5))  bottom left no-repeat,
+            #ededed;
+            background:
+            -webkit-linear-gradient(90deg, #e5e5e5, #e5e5e5,rgba(229,229,229,100)) top left no-repeat,
+            -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5,rgba(229,229,229,100)) bottom left no-repeat,
+            #ededed;
+            background:
+            linear-gradient(0deg, #e5e5e5, #e5e5e5,rgba(229,229,229,100)) top left no-repeat,
+            linear-gradient(180deg, #e5e5e5, #e5e5e5,rgba(229,229,229,100)) bottom left no-repeat,
+            #ededed;
+            -webkit-background-size:100% 1px,100% 1px;
+        }
+    }
+    &[am-mode~="warn"]{
+        color:#f4333c;
+        &:active,
+        &.hover{
+            color:#f4333c;
+        }
+    }
+    &[am-mode~="warn"]:disabled{
+        color:#d2d2d2;
+        .border-radius(0);
+        &:active,
+        &.hover{
+            .border-radius(0);
+            color:#d2d2d2;
+        }
+    }
+}

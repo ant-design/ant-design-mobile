@@ -1,0 +1,169 @@
+@import "../base/mixins";
+
+.am-list{
+    &.am-list-lb .am-list-item .am-list-label{
+        width:80px;
+    }
+    &.am-list-6lb .am-list-item .am-list-label{
+        width:102px;
+    }
+    &.am-list-5lb .am-list-item .am-list-label{
+        width:80px;
+    }
+    &.am-list-4lb .am-list-item .am-list-label{
+        width:70px;
+    }
+    &.am-list-3lb .am-list-item .am-list-label{
+        width:54px;
+    }
+    .am-list-item.am-list-item-error {
+        position:relative;
+        z-index:11;
+        background:
+        -webkit-gradient(linear,left top, left bottom, from(#fff), color-stop(.5, #fff),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#fff), to(#fff)) bottom left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#f00), color-stop(.5, #f00),color-stop(.5, transparent)) top left no-repeat,
+        -webkit-gradient(linear,left top, left bottom, from(#f00), to(#f00))  bottom left no-repeat,
+        #fffafa;
+        background:
+        -webkit-linear-gradient(90deg, #fff, #fff) top left no-repeat,
+        -webkit-linear-gradient(270deg, #fff, #fff) bottom left no-repeat,
+        -webkit-linear-gradient(90deg, #f00, #f00,rgba(255,0,0,0)) top left no-repeat,
+        -webkit-linear-gradient(270deg, #f00, #f00,rgba(255,0,0,0)) bottom left no-repeat,
+        #fff;
+        background:
+        linear-gradient(0deg, #fff, #fff) top left no-repeat,
+        linear-gradient(180deg, #fff, #fff) bottom left no-repeat,
+        linear-gradient(0deg, #f00, #f00,rgba(255,0,0,0)) top left no-repeat,
+        linear-gradient(180deg, #f00, #f00,rgba(255,0,0,0)) bottom left no-repeat,
+        #fff;
+    }
+
+
+    &[am-mode~="flat"] .am-list-item{
+        .am-list-label{
+            margin-right:15px;
+            text-align:left;
+            font-size:16px;
+            color:#333;
+        }
+        .am-list-button{
+            height:35px;
+            margin-right:-12px;
+            &:before{
+                content:'';
+                float:left;
+                margin-top:9px;
+                height:17px;
+                width:1px;
+                background:#e5e5e5;
+                overflow:hidden;
+            }
+            button,a{
+                float:left;
+                width:94px;
+                height:35px;
+                text-align:center;
+                padding:0;
+                color:#0ae;
+                &:disabled{
+                    color:#e6e6e6;
+                }
+            }
+            button{
+                outline:0 none;
+                border:0 none;
+                background:none;
+            }
+            .am-captcha-figure{
+                float:left;
+                width:48px;
+                margin:5px 0 0 5px;
+                height:25px;
+                vertical-align:top;
+                img{
+                    width:58px;
+                    height:25px;
+                    vertical-align:top;
+                }
+                button{
+                    width:48px;
+                    height:25px;
+                    vertical-align:top;
+                    line-height: 25px;
+                    color: #E6E6E6;
+                    font-size: 15px;
+                }
+            }
+            .am-captcha-refresh{
+                float:left;
+                width:41px;
+                height:35px;
+                text-indent:-9999px;
+                background-position:center 8px;
+            }
+
+        }
+    }
+    &[am-mode~="form"]{
+        .am-list-item{
+            input,
+            select,
+            textarea,
+            button{
+                font-size:15px;
+                -webkit-appearance: none;
+                width: 100%;
+                padding:0;
+                border:none;
+                background-color:transparent;
+            }
+            input{
+                color:#333;
+                padding-top:5px;
+                padding-bottom:5px;
+            }
+            textarea{
+                overflow:visible;
+                display:block;
+                resize:none;
+                word-break:break-all;
+                word-wrap:break-word;
+                line-height:normal;
+            }
+            ::-webkit-input-placeholder{
+                color:#ccc;
+                font-size: 15px;
+            }
+            .am-list-label{
+                font-size:16px;
+                margin-left:0px;
+                margin-right:15px;
+                color:#333;
+                text-align:left;
+                min-width: 64px;
+            }
+            .am-list-control {
+                .box-flex(1);
+            }
+            .am-list-clear{
+                width:24px;
+                .am-icon-clear{
+                    padding:2px;
+                }
+            }
+        }
+        .am-list-item[am-mode~="select"]{
+            select{
+                position:relative;
+                display:block;
+                width:100%;
+                height:100%;
+                z-index:2;
+            }
+        }
+    }
+}
+.am-input-autoclear .am-icon-clear{
+    visibility:hidden;
+}

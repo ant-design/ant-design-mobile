@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 function noop() {}
 
-const InputItem = React.createClass({
+const CheckItem = React.createClass({
   propTypes: {
     label         : PropTypes.string,
     name          : PropTypes.string,
@@ -18,7 +18,7 @@ const InputItem = React.createClass({
       defaultValue: '',
       onChange:noop,
       didMount:noop,
-      extraFormData:noop
+      extraFormData:{}
     };
   },
   getInitialState() {
@@ -118,4 +118,4 @@ const InputItem = React.createClass({
     // );
   }
 });
-module.exports = InputItem;
+module.exports = CheckItem;
