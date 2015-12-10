@@ -1,79 +1,93 @@
-@import "../base/mixins";
-
+@import '../base/mixins';
 
 html,
 body {
-    min-height:100%;
-}
-body{
-    -webkit-user-select:none;
-    user-select:none;
-}
-a,
-img {
-    -webkit-touch-callout:none;
-}
-body {
-    background-color:#f5f5f9;
-}
-body.am-bg-white {
-    background-color:#fff;
-}
-body, input, textarea, select, button {
-  font-size:16px;
-  line-height:1.5;
-  color:#333;
-  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
-}
-input{
-    line-height:normal;
-}
-a{
-  color: #0ae;
-  text-decoration:none;
+  min-height: 100%;
 }
 
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+a,
+img {
+  -webkit-touch-callout: none;
+}
+
+body {
+  background-color: #f5f5f9;
+}
+
+.am-bg-white {
+  background-color: #ffffff;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333333;
+  font-family: 'Helvetica Neue', Helvetica, STHeiTi, sans-serif;
+}
+
+input {
+  line-height: normal;
+}
+
+a {
+  color: #00aaee;
+  text-decoration: none;
+}
 
 .fn-clear {
   .float-clear();
 }
 
 .fn-hide {
-  display:none;
+  display: none;
 }
+
 .fn-left {
-  float:left;
+  float: left;
 }
+
 .fn-right {
-  float:right;
+  float: right;
 }
 
 .am-content {
-    margin-left: 10px;
-    margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
-.am-content h5{
-    margin:0;
-    padding:0;
-    font-weight:normal;
-    line-height:1.5;
+
+.am-content h5 {
+  margin: 0px;
+  padding: 0px;
+  font-weight: normal;
+  line-height: 1.5;
 }
+
 .am-fixed {
-  position:fixed!important;
-  top:0;
-  left:0;
-  right:0;
+  position: fixed !important;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   z-index: 99;
   width: 100%;
 }
 
 .am-fixed-bottom {
   top: inherit;
-  bottom:0;
+  bottom: 0px;
 }
-.user-select{
-    -webkit-user-select:auto;
-    user-select:auto;
+
+.user-select {
+  -webkit-user-select: auto;
+  user-select: auto;
 }
 
 

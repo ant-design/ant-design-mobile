@@ -35,6 +35,7 @@
   "dependencies": {
     "object-assign": "~4.0.1",
     "promise": "~7.0.4",
+    "react-textarea-autosize": "~3.2.0",
     "semver": "~5.0.3",
     "warning": "~2.1.0"
   },
@@ -70,6 +71,7 @@
     "react-addons-test-utils": "~0.14.2",
     "react-dom": "~0.14.2",
     "react-router": "~1.0.0",
+    "url-loader": "^0.5.7",
     "webpack": "^1.10.1",
     "webpack-babel-jest": "^1.0.0",
     "webpack-dev-middleware": "^1.2.0"

@@ -39,7 +39,7 @@ ReactDOM.render(
       <ListItem
         type="双行"
         link="http://www.baidu.com"
-        icon=""
+        icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
         content="我是内容"
         arrow="horizontal"
         onClick={window.openurl}
@@ -49,7 +49,7 @@ ReactDOM.render(
         type="双行"
         icon=""
         content="我是内容22"
-        extra="香右箭头"
+        extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}
         arrow="horizontal"
         didMount={window.didMount}
         onClick={window.clickItem}

@@ -3,18 +3,23 @@ function noop() {}
 
 const Button = React.createClass({
   propTypes: {
+    prefixCls: PropTypes.string,
     label         : PropTypes.string,
     type          : PropTypes.string,
+    mode          : PropTypes.string,
+    defaultDisabled: PropTypes.bool,
     didMount      : PropTypes.func,
-    disabled      : PropTypes.bool,
     willUnmount   : PropTypes.func,
     onClick       : PropTypes.func,
     extraFormData : PropTypes.object
   },
   getDefaultProps() {
     return {
+      prefixCls: 'am',
       label: '',
       type: 'button',
+      mode: 'blue',
+      defaultDisabled: false,
       onClick:noop,
       didMount:noop,
       willUnmount:noop,
@@ -23,6 +28,7 @@ const Button = React.createClass({
   },
   getInitialState() {
     return {
+      label:this.props.label,
       extraFormData:this.props.extraFormData
     };
   },
@@ -33,26 +39,27 @@ const Button = React.createClass({
     this.props.willUnmount(this);
   },
 
-  _handleChange(e){
-    const checked = e.target.checked;
-    this.setValue(checked, e);
+  _handleClick(e){
+    this.props.onClick(this);
   },
 
   render(){
-    let inputProp = {};
-    if(this.state.value){
-      inputProp.checked = 'checked';
+    let {prefixCls, mode, type, defaultDisabled} = this.props;
+    let modeClass = prefixCls + '-button-' + mode;
+    if(mode === 'warn') {
+      modeClass = modeClass + ' ' + prefixCls + '-button-flat';
     }
 
-    return (
-      <div className="am-list-item" data-mode="check">
-        <div className="am-list-content">{this.props.label}</div>
-        <div className="am-checkbox">
-          <input type="checkbox" name={this.props.name} onClick={this._handleClick} {...inputProp}/>
-          <span className="icon-check"></span>
-        </div>
-      </div>
-    );
+    let allClass = prefixCls + '-button ' + modeClass;
+    if(defaultDisabled === true) {
+      allClass = allClass + ' ' + prefixCls + '-button-disabled';
+    }
+
+    if(type === 'link') {
+      return (<a className={allClass} disabled={defaultDisabled} onClick={this._handleClick}>{this.state.label}</a>);
+    } else {
+      return (<button type="button" className={allClass} disabled={defaultDisabled} onClick={this._handleClick}>{this.state.label}</button>);
+    }
   }
 });
 module.exports = Button;

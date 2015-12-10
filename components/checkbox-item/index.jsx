@@ -61,7 +61,7 @@ const CheckItem = React.createClass({
     }
 
     return (
-      <div className="am-list-item" data-mode="check">
+      <div className="am-list-item am-list-item-check">
         <div className="am-list-content">{this.props.label}</div>
         <div className="am-checkbox">
           <input type="checkbox" name={this.props.name} onChange={this._handleChange} {...inputProp}/>

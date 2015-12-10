@@ -27,6 +27,7 @@ ReactDOM.render(
         <ListItem
           content="文本信息"
           extra="内容内容"
+          arrow="down"
           onClick={function(){}}
         />
       </ListBody>
@@ -37,6 +38,7 @@ ReactDOM.render(
       <ListBody>
         <ListItem
           content="文本信息"
+          arrow="up"
           extra="内容内容"
           onClick={function(){}}
         />

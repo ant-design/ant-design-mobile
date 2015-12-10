@@ -1,22 +1,19 @@
 /* -- base -- */
-body{
-  color:yellow;
-}
-/*
-@import "./base/mixins.less";
-@import "./base/reset.less";
-@import "./base/smooth.less";
-!* -- util -- *!
-@import "./util/flexbox.less";
-@import "./util/wingblank.less";
-@import "./util/whitespace.less";
-@import "./util/writing.less";
-!* -- widget --*!
-@import "./widget/button.less";
-@import "./widget/list.less";
-@import "./widget/form.less";
-@import "./widget/tab.less";
-@import "./widget/checkbox.less";
-!* -- icon --*!
-@import "icon/clear.less";
-*/
+@import './base/mixins';
+@import './base/reset';
+@import './base/smooth';
+/* -- util -- */
+@import './util/flexbox';
+@import './util/wingblank';
+@import './util/whitespace';
+@import './util/writing';
+/* -- widget --*/
+//@import './widget/button';
+@import './widget/list';
+@import './widget/form';
+@import './widget/checkbox';
+@import './widget/switch';
+@import './widget/button';
+/* -- icon --*/
+@import 'icon/clear';
+@import 'icon/form';

@@ -19,7 +19,7 @@
 |------------|----------------|--------------------|--------------|
 | prefixCls    | 默认class前缀        | String |   'am'  |
 | link       | 如果item需要跳转,则需要URL  | String |   无  |
-| arrow      | 箭头方向        | String（horizontal/vertical/无） |   无  |
+| arrow      | 箭头方向        | String（horizontal/up/down/无） |   无  |
 | type       | 赞不支持        | String |   无  |
 | icon       | 缩略图,赞不支持  | imgsrc |   无  |
 | content    | 左边文案        | String |   无  |

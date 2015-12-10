@@ -10,6 +10,9 @@ const antm = {
   ListItem     : require('./components/list-item'),
   InputItem    : require('./components/input-item'),
   CheckboxItem : require('./components/checkbox-item'),
+  TextareaItem : require('./components/textarea-item'),
+  SelectItem : require('./components/select-item'),
+  Button       : require('./components/button'),
   FormUtil     : require('./components/form-util'),
   WindowUtil   : require('./components/form-util/window-util'),
   SwitchItem   : require('./components/switch-item')

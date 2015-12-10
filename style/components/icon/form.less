@@ -1,103 +1,99 @@
-@import "../base/mixins";
+@import '../base/mixins';
 
-.am-icon{
-    &.am-mode-lock{
-        display:block;
-        width:18px;
-        height:18px;
-        overflow:hidden;
-        &:before{
-            content:'';
-            display:block;
-            width:100%;
-            height:100%;
-            background:url("image/list/lock.png") no-repeat;
-            .backgroundSize(18px,auto);
-        }
+.am-icon {
+  &.am-icon-lock {
+    display: block;
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("../image/list/lock.png") no-repeat;
+      .backgroundSize(18px, auto);
     }
+  }
 
-    .buildMe(@isRem) when (@isRem = false) {
-        &[am-mode*="form-"]{
-            display:block;
-            overflow:hidden;
-            width:24px;
-            height:24px;
-            &:before{
-                content:'';
-                display:block;
-                width:100%;
-                height:100%;
-                background:url("image/list/formlist.png") no-repeat;
-                .backgroundSize(191px,auto);
-            }
-        }
-        &[am-mode~="form-camera"]:before{
-            background-position:0 0;
-        }
-        &[am-mode~="form-list"]:before{
-            background-position:-24px 0;
-        }
-        &[am-mode~="form-contacts-mobile"]:before{
-            background-position:-48px 0;
-        }
-        &[am-mode~="form-bill"]:before{
-            background-position:-72px 0;
-        }
-        &[am-mode~="form-contacts-alipay"]:before{
-            background-position:-96px 0;
-        }
-        &[am-mode~="form-cards"]:before{
-            background-position:-120px 0;
-        }
-        &[am-mode~="form-calculator"]:before{
-            background-position:-144px 0;
-        }
-        &[am-mode~="form-scan"]:before{
-            background-position:-169px 0;
-        }
+  .buildMe(@isRem) when (@isRem = false) {
+    display: block;
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("../image/list/formlist.png") no-repeat;
+      .backgroundSize(191px, auto);
     }
-
-    .buildMe(@isRem) when (@isRem = true) {
-        &[am-mode*="form-"]{
-            display:block;
-            overflow:hidden;
-            width:25px;
-            height:25px;
-            &:before{
-                content:'';
-                display:block;
-                width:100%;
-                height:100%;
-                background-repeat: no-repeat;
-                background-position: left top;
-                .backgroundSize(24px,auto);
-            }
-        }
-        &[am-mode~="form-camera"]:before{
-            background-image:url("image/list/camera.png");
-        }
-        &[am-mode~="form-list"]:before{
-            background-image:url("image/list/list.png");
-        }
-        &[am-mode~="form-contacts-mobile"]:before{
-            background-image:url("image/list/contacts_mobile.png");
-        }
-        &[am-mode~="form-bill"]:before{
-            background-image:url("image/list/bill.png");
-        }
-        &[am-mode~="form-contacts-alipay"]:before{
-            background-image:url("image/list/contacts_alipay.png");
-        }
-        &[am-mode~="form-cards"]:before{
-            background-image:url("image/list/cards.png");
-        }
-        &[am-mode~="form-calculator"]:before{
-            background-image:url("image/list/calculator.png");
-        }
-        &[am-mode~="form-scan"]:before{
-            background-image:url("image/list/scan.png");
-        }
+    &.am-icon-form-camera:before {
+      background-position: 0 0px;
     }
+    &.am-icon-form-list:before {
+      background-position: -24px 0px;
+    }
+    &.am-icon-form-contacts-mobile:before {
+      background-position: -48px 0px;
+    }
+    &.am-icon-form-bill:before {
+      background-position: -72px 0px;
+    }
+    &.am-icon-form-contacts-alipay:before {
+      background-position: -96px 0px;
+    }
+    &.am-icon-form-cards:before {
+      background-position: -120px 0px;
+    }
+    &.am-icon-form-calculator:before {
+      background-position: -144px 0px;
+    }
+    &.am-icon-form-scan:before {
+      background-position: -169px 0px;
+    }
+  }
 
-    .buildMe(@isRem);
+  .buildMe(@isRem) when (@isRem = true) {
+    display: block;
+    overflow: hidden;
+    width: 25px;
+    height: 25px;
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: left top;
+      .backgroundSize(24px, auto);
+    }
+    &.am-icon-form-camera:before {
+      background-image: url("../image/list/camera.png");
+    }
+    &.am-icon-form-list:before {
+      background-image: url("../image/list/list.png");
+    }
+    &.am-icon-form-contacts-mobile:before {
+      background-image: url("../image/list/contacts_mobile.png");
+    }
+    &.am-icon-form-bill:before {
+      background-image: url("../image/list/bill.png");
+    }
+    &.am-icon-form-contacts-alipay:before {
+      background-image: url("../image/list/contacts_alipay.png");
+    }
+    &.am-icon-form-cards:before {
+      background-image: url("../image/list/cards.png");
+    }
+    &.am-icon-form-calculator:before {
+      background-image: url("../image/list/calculator.png");
+    }
+    &.am-icon-form-scan:before {
+      background-image: url("../image/list/scan.png");
+    }
+  }
+
+  .buildMe(@isRem);
 }

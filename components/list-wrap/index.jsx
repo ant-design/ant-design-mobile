@@ -19,7 +19,7 @@ const ListWarp = React.createClass({
   render() {
     let {prefixCls} = this.props;
     return (
-      <div data-mode="flat chip form 43px" className={prefixCls + '-list'} style={this.props.style}>
+      <div className={prefixCls + '-list am-list-flat am-list-chip am-list-form am-list-43'} style={this.props.style}>
         {this.props.children}
       </div>
     );

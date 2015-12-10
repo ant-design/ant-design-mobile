@@ -20,7 +20,11 @@ module.exports = {
   },
 
   module: {
-    loaders: [{
+    loaders: [
+    {test: /\.(png|jpg)$/,
+      loader: 'url-loader?limit=8192'
+    },
+    {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel'

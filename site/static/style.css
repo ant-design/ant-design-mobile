@@ -1756,7 +1756,7 @@ footer ul li > a {
   width: 320px;
   height: 568px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .code-box-meta {
