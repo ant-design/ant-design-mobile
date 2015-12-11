@@ -11,11 +11,38 @@
 import { ListWrap, ListHeader, ListFooter, ListBody, ListItem, FormUtil, WindowUtil, InputItem, CheckboxItem } from 'antm';
 import Promise from 'promise';
 
-let pageFormInstance;
 
-function triggerChange(newValue){
-  pageFormInstance.setState({showCouponId : !newValue});
-}
+const EventMgmt = function(){
+  let self = this;
+
+  self.queue = {};
+  self.fired = [];
+
+  return {
+    fire(event, param) {
+      let queue = self.queue[event];
+      if (typeof queue === 'undefined') {
+        return;
+      }
+
+      queue.map((func)=>{
+        func(param);
+      });
+    },
+    on(event, callback) {
+      if (typeof self.queue[event] === 'undefined') {
+        self.queue[event] = [];
+      }
+      self.queue[event].push(callback);
+    },
+    off(event){
+      self.queue[event] = [];
+    }
+  };
+};
+
+let pageFormInstance;
+let eventBus = new EventMgmt();
 
 const licenceInput = {
   init(){
@@ -88,7 +115,7 @@ const couponCheckbox = {
     return this.state.value;
   },
   onChange(){
-    triggerChange(this.state.value);
+    eventBus.fire('couponCheckUpdated', this.state.value);
   },
   extraFormData:{
     'pic1':'22', 'pic2':'222'
@@ -96,16 +123,23 @@ const couponCheckbox = {
 };
 
 const businessFormUtil = {
-  componentWillMount(argument) {
+  componentWillMount() {
     WindowUtil.initResumeEventMgr();
+
+    eventBus.on('couponCheckUpdated', (newCheckValue)=>{
+      pageFormInstance.setState({showCouponId : !newCheckValue});
+    });
+  },
+  componentWillUnmount(){
+    eventBus.off('couponCheckUpdated');
   },
   dealSubmit(){
     const self = this;
     self.startValidate.call(self)
-      .then(function(){
+      .then(()=>{
         console.log('passed validation');
         self.startUpload.call(self);
-      }, function(e){
+      }, (e)=>{
         console.log(e);
         console.log('failed in form validation');
       });
