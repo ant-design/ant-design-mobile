@@ -1,6 +1,6 @@
 # 员工详情
 
-- order: 1
+- order: 2
 
 最简单的用法。
 
@@ -47,6 +47,7 @@ ReactDOM.render(
       <ListItem
         content="账户名"
         extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
+        line={2}
         arrow="horizontal"
       />
     </ListBody>

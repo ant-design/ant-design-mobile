@@ -11,7 +11,7 @@ import { ListWrap, ListBody, ListFooter, InputItem, ListItem, Button} from 'antm
 
 ReactDOM.render(
   <div>
-  <ListWrap >
+  <ListWrap>
     <ListBody>
       <ListItem
         link="http://www.baidu.com"
@@ -36,7 +36,7 @@ ReactDOM.render(
       账户名：<span style={{'color':'red'}}>zhifubao@alipay.com#用户名</span>
     </ListFooter>
   </ListWrap>
-  <ListWrap >
+  <ListWrap>
       <ListBody>
         <InputItem
           label="员工手机"

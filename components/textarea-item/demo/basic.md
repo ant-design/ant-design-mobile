@@ -11,7 +11,7 @@ import { ListWrap, ListBody, TextareaItem} from 'antm';
 
 ReactDOM.render(
   <div>
-  <ListWrap >
+  <ListWrap>
     <ListBody>
       <TextareaItem
         label="我是"

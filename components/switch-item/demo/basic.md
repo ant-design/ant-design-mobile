@@ -10,7 +10,7 @@
 import { ListWrap, ListBody, SwitchItem} from 'antm';
 
 ReactDOM.render(
-  <ListWrap >
+  <ListWrap>
     <ListBody>
       <SwitchItem
         label="默认开"

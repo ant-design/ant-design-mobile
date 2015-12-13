@@ -9,6 +9,7 @@ const TextareaItem = React.createClass({
     defaultValue: PropTypes.string,
     placeholder: PropTypes.string,
     clear: PropTypes.bool,
+    rows: PropTypes.number,
     didMount: PropTypes.func,
     willUnmount: PropTypes.func,
     onChange: PropTypes.func,
@@ -24,6 +25,7 @@ const TextareaItem = React.createClass({
       defaultValue: '',
       placeholder: '',
       clear: false,
+      rows: 1,
       onChange: noop,
       onInput: noop,
       onBlur: noop,
@@ -36,6 +38,7 @@ const TextareaItem = React.createClass({
   getInitialState() {
     return {
       value: this.props.defaultValue,
+      rows: this.props.rows,
       extraFormData: this.props.extraFormData
     };
   },
@@ -87,7 +90,7 @@ const TextareaItem = React.createClass({
     }
 
     let clearDom = '';
-    const clearClass = this.props.clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear am-list-item-form' : prefixCls + '-list-item';
+    const clearClass = this.props.clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear ' + prefixCls + '-list-item-form' : prefixCls + '-list-item';
     if (!!this.props.clear) {
       if (this.state.value.length > 0) {
         clearDom = (<div className={prefixCls + '-list-clear'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} style={{visibility: 'visible'}}
@@ -106,7 +109,7 @@ const TextareaItem = React.createClass({
         {labelDom}
         <div className={prefixCls + '-list-control'}>
           <textarea name={this.props.name}
-            rows="1"
+            rows={this.state.rows}
             placeholder={this.props.placeholder}
             onChange={this._onChange}
             onInput={this._onInput}

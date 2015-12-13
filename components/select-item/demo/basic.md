@@ -11,7 +11,7 @@ import { ListWrap, ListBody, SelectItem} from 'antm';
 
 ReactDOM.render(
   <div>
-  <ListWrap >
+  <ListWrap>
     <ListBody>
       <SelectItem
         label="我是"

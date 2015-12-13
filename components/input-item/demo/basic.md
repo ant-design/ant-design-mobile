@@ -11,7 +11,7 @@ import { ListWrap, ListBody, InputItem} from 'antm';
 
 ReactDOM.render(
   <div>
-  <ListWrap >
+  <ListWrap>
     <ListBody>
       <InputItem
         label="我是"
@@ -63,7 +63,7 @@ ReactDOM.render(
       />
     </ListBody>
   </ListWrap>
-  <ListWrap >
+  <ListWrap>
     <ListBody>
       <InputItem
         label="我是相机"

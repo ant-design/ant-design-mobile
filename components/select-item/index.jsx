@@ -80,14 +80,14 @@ const SelectItem = React.createClass({
       dirctionStyle = {'direction' : 'rtl'};
     }
     return (
-      <div className="am-list-item am-list-item-select">
+      <div className={prefixCls + '-list-item ' + prefixCls + '-list-item-select'}>
         {labelDom}
         <div className={prefixCls + '-list-control'}>
           <select name={this.props.name} value={this.state.value} onChange={this._onChange} style={dirctionStyle}>
             {Options}
           </select>
         </div>
-        <div className="am-list-arrow"><span className="am-icon am-icon-arrow-vertical"></span></div>
+        <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical'}></span></div>
         {extraFormDataArray}
       </div>
     );

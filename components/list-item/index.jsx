@@ -5,9 +5,11 @@ const ListItem = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
     link: PropTypes.string,
+    line: PropTypes.number,
     content: PropTypes.any,
     extra: PropTypes.any,
     icon: PropTypes.string,
+    thumb: PropTypes.string,
     arrow: PropTypes.string,
     onClick: PropTypes.func,
     didMount: PropTypes.func,
@@ -17,7 +19,8 @@ const ListItem = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'am',
-      link: '#',
+      link: '',
+      line: 1,
       onClick: noop,
       didMount: noop,
       willUnmount:noop
@@ -40,16 +43,31 @@ const ListItem = React.createClass({
     this.props.onClick.call(this, e);
   },
   render(){
-    let {link, prefixCls, icon, arrow} = this.props;
-    let iconDom, arrowDom;
+    let {link, prefixCls, icon, thumb, arrow, line} = this.props;
+    let itemCls, iconDom, thumbDom, arrowDom;
     const extraFormData = this.state.extraFormData;
     const extraFormDataArray = [];
+
+    if(line === 2) {
+      itemCls = prefixCls + '-list-item ' + prefixCls + '-list-item-13';
+    } else {
+      itemCls = prefixCls + '-list-item';
+    }
+
     for (const key in extraFormData) {
       extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
     }
 
     if(icon) {
-      iconDom = <div className="am-list-icon"><img src={icon} width="22" height="22" alt=""/></div>;
+      iconDom = <div className={prefixCls + '-list-icon'}><img src={icon} width="29" height="29"/></div>;
+    }
+
+    if(thumb) {
+      if(line === 1) {
+        thumbDom = <div className={prefixCls + '-list-thumb'}><img src={thumb} width="32" height="32"/></div>;
+      } else {
+        thumbDom = <div className={prefixCls + '-list-thumb'}><img src={thumb} width="45" height="45"/></div>;
+      }
     }
 
     let extraDom = '';
@@ -61,27 +79,41 @@ const ListItem = React.createClass({
     if (!!arrow) {
       /* 当值是horizontal时,渲染水平箭头 */
       if (arrow === 'horizontal') {
-        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon am-icon-arrow-horizontal'}></span></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-horizontal'}></span></div>;
         /* 当值是vertical时,渲染垂直箭头 */
       } else if (arrow === 'down') {
-        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon am-icon-arrow-vertical'}></span></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical'}></span></div>;
       } else if (arrow === 'up') {
-        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon am-icon-arrow-vertical am-icon-arrow-vertical-up'}></span></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical ' + prefixCls + '-icon-arrow-vertical-up'}></span></div>;
       } else {
         arrowDom = <div className={prefixCls + '-list-arrow'}></div>;
       }
     } else {
       arrowDom = null;
     }
-    return (
-      <a href={link} className={prefixCls + '-list-item'} onClick={this._handleClick}>
-        {iconDom}
-        <div className={prefixCls + '-list-content'}>{this.props.content}</div>
-        {extraDom}
-        {arrowDom}
-        {extraFormDataArray}
-      </a>
-    );
+    if(!!link) {
+      return (
+        <a href={link} className={itemCls} onClick={this._handleClick}>
+          {iconDom}
+          {thumbDom}
+          <div className={prefixCls + '-list-content'}>{this.props.content}</div>
+          {extraDom}
+          {arrowDom}
+          {extraFormDataArray}
+        </a>
+      );
+    } else {
+      return (
+        <div className={itemCls} onClick={this._handleClick}>
+          {iconDom}
+          {thumbDom}
+          <div className={prefixCls + '-list-content'}>{this.props.content}</div>
+          {extraDom}
+          {arrowDom}
+          {extraFormDataArray}
+        </div>
+      );
+    }
   }
 });
 module.exports = ListItem;

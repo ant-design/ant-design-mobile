@@ -5,11 +5,15 @@ const ListWarp = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
+    isFormList: PropTypes.bool,
+    isIconList: PropTypes.bool,
     didMount: PropTypes.func,
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
+      isFormList: true,
+      isIconList: false,
       didMount: noop
     };
   },
@@ -17,9 +21,16 @@ const ListWarp = React.createClass({
     this.props.didMount(this);
   },
   render() {
-    let {prefixCls} = this.props;
+    let {prefixCls, isFormList, isIconList} = this.props;
+    let wrapCls = prefixCls + '-list ' + prefixCls + '-list-flat ' + prefixCls + '-list-chip ';
+    if(isFormList) {
+      wrapCls = wrapCls + prefixCls + '-list-form ';
+    }
+    if(isIconList) {
+      wrapCls = wrapCls + prefixCls + '-list-iconlist ';
+    }
     return (
-      <div className={prefixCls + '-list am-list-flat am-list-chip am-list-form am-list-43'} style={this.props.style}>
+      <div className={wrapCls} style={this.props.style}>
         {this.props.children}
       </div>
     );
