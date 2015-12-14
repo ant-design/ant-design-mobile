@@ -20,6 +20,16 @@ ReactDOM.render(
           didMount={function(){}}
         />
       </ListBody>
+      <ListBody>
+        <CheckboxItem
+          label="disabled"
+          name="yyy"
+          disabled={true}
+          defaultValue={true}
+          onChange={function(e){console.log('onChange'); console.log(e);}}
+          didMount={function(){}}
+        />
+      </ListBody>
     </ListWrap>
   </div>
 , document.getElementById('components-checkbox-item-demo-basic'));

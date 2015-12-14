@@ -6,11 +6,9 @@
 
 ---
 
-
 ````jsx
 import { ListWrap, ListHeader, ListFooter, ListBody, ListItem, FormUtil, WindowUtil, InputItem, CheckboxItem } from 'antm';
 import Promise from 'promise';
-
 
 const EventMgmt = function(){
   let self = this;
