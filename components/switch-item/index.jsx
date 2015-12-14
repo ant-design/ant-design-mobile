@@ -37,7 +37,7 @@ const SwitchItem = React.createClass({
     this.setState({
       checked: checked
     });
-    this.props.onChange.call(this, e);
+    this.props.onChange.call(this, checked);
   },
   render(){
     let {prefixCls} = this.props;
