@@ -68,7 +68,7 @@ ReactDOM.render(
         <ListItem
           icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
           extra="向下箭头"
-          arrow="vertical"
+          arrow="down"
           onClick={function(){}}
         >我有icon</ListItem>
         <ListItem

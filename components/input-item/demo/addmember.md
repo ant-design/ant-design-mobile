@@ -40,7 +40,7 @@ ReactDOM.render(
           label="退款权限"
           name="yyy"
           align="right"
-          defaultValue="0"
+          value="0"
           options={[{val:'0', txt:'请选择'}, {val:'1', txt:'不允许退款'}, {val:'2', txt:'可退门店所有交易'}, {val:'3', txt:'只可退自己收的'}]}
           onChange={function(e){console.log('onChange'); console.log(e);}}
         />
@@ -52,11 +52,7 @@ ReactDOM.render(
       <ListFooter onClick={function(e){console.log(e);}} style={{'textAlign':'center'}}>拥有退款权限的员工可在交易创建后3天内发起退款</ListFooter>
     </ListWrap>
     <div className="am-wingblank am-wingblank-10">
-      <Button
-        label="确认添加"
-        mode="blue"
-        type="link"
-      />
+      <Button mode="blue" type="link">确认添加</Button>
     </div>
   </div>
 , document.getElementById('components-input-item-demo-addmember'));

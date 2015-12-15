@@ -26,7 +26,6 @@ ReactDOM.render(
       <TextareaItem
         label="我是"
         name="yyy"
-        value=""
         placeholder="不带清除"
         clear={false}
         onChange={function(e){console.log('onChange'); console.log(e);}}

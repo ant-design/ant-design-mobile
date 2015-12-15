@@ -29,37 +29,22 @@ ReactDOM.render(
     <ListWrap>
       <ListHeader>单行列表</ListHeader>
       <ListBody>
-        <ListItem
-          arrow="up"
-          onClick={function(){}}
-        >我是额外信息</ListItem>
+        <ListItem arrow="up">我是额外信息</ListItem>
       </ListBody>
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
     <ListWrap>
       <ListBody>
-        <ListItem
-          onClick={function(){}}
-        >内容内容</ListItem>
+        <ListItem>内容内容</ListItem>
       </ListBody>
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
     <ListWrap>
     <ListHeader>单行组合</ListHeader>
       <ListBody>
-        <ListItem
-          extra="内容内容"
-          onClick={function(){}}
-        >文本信息</ListItem>
-        <ListItem
-          arrow="horizontal"
-          onClick={function(){}}
-        >文本内容</ListItem>
-        <ListItem
-          extra="内容内容"
-          arrow="horizontal"
-          onClick={function(){}}
-        >文本信息</ListItem>
+        <ListItem extra="内容内容" onClick={function(){}}>文本信息</ListItem>
+        <ListItem arrow="horizontal" onClick={function(){}}>文本内容</ListItem>
+        <ListItem extra="内容内容" arrow="horizontal">文本信息</ListItem>
       </ListBody>
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
@@ -74,19 +59,19 @@ ReactDOM.render(
       >我有thumb</ListItem>
       <ListItem
         thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        extra="写点就有剪头坑位"
+        extra="写点就有箭头坑位"
         arrow="aaa"
         onClick={window.clickItem}
       >我有thumb</ListItem>
       <ListItem
         icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        extra="不写没有剪头坑位"
+        extra="不写没有箭头坑位"
         onClick={window.clickItem}
       >我有icon</ListItem>
       <ListItem
         icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
         extra="向下箭头"
-        arrow="vertical"
+        arrow="down"
         onClick={function(){}}
       >我有icon</ListItem>
       <ListItem
@@ -103,10 +88,8 @@ ReactDOM.render(
     <ListHeader>我是表头</ListHeader>
     <ListBody>
       <ListItem
-        type="双行"
-        icon=""
         extra="我是额外信息"
-        arrow="vertical"
+        arrow="down"
         onClick={function(){}}
       >我是内容</ListItem>
     </ListBody>
