@@ -15,8 +15,7 @@ const InputItem = React.createClass({
     willUnmount: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
-    onFocus: PropTypes.func,
-    extraFormData: PropTypes.object
+    onFocus: PropTypes.func
   },
   getDefaultProps() {
     return {
@@ -31,14 +30,12 @@ const InputItem = React.createClass({
       onFocus: noop,
       didMount: noop,
       willUnmount:noop,
-      onIconClick: noop,
-      extraFormData: {}
+      onIconClick: noop
     };
   },
   getInitialState() {
     return {
-      value: this.props.defaultValue,
-      extraFormData: this.props.extraFormData
+      value: this.props.value || this.props.defaultValue
     };
   },
   componentDidMount() {
@@ -81,11 +78,6 @@ const InputItem = React.createClass({
 
   render(){
     let {prefixCls} = this.props;
-    const extraFormData = this.state.extraFormData;
-    const extraFormDataArray = [];
-    for (const key in extraFormData) {
-      extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
-    }
     let labelDom = '';
     if (this.props.label) {
       labelDom = (<div className={prefixCls + '-list-label'}>{this.props.label}</div>);
@@ -123,7 +115,6 @@ const InputItem = React.createClass({
                  onChange={this._onInputChange}
                  onBlur={this._onInputBlur}
                  onFocus={this._onInputFocus}/>
-          {extraFormDataArray}
         </div>
         {clearDom}
         {iconDom}
