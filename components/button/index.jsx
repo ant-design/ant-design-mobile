@@ -4,41 +4,20 @@ function noop() {}
 const Button = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
-    label         : PropTypes.string,
     type          : PropTypes.string,
     mode          : PropTypes.string,
     defaultDisabled: PropTypes.bool,
-    didMount      : PropTypes.func,
-    willUnmount   : PropTypes.func,
     onClick       : PropTypes.func,
-    extraFormData : PropTypes.object
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
-      label: '',
       type: 'button',
       mode: 'blue',
       defaultDisabled: false,
       onClick:noop,
-      didMount:noop,
-      willUnmount:noop,
-      extraFormData:{}
     };
   },
-  getInitialState() {
-    return {
-      label:this.props.label,
-      extraFormData:this.props.extraFormData
-    };
-  },
-  componentDidMount() {
-    this.props.didMount(this);
-  },
-  componentWillUnmount(){
-    this.props.willUnmount(this);
-  },
-
   _handleClick(e){
     this.props.onClick(this);
   },
@@ -56,9 +35,9 @@ const Button = React.createClass({
     }
 
     if(type === 'link') {
-      return (<a className={allClass} disabled={defaultDisabled} onClick={this._handleClick}>{this.state.label}</a>);
+      return (<a className={allClass} disabled={defaultDisabled} onClick={this._handleClick}>{this.props.children}</a>);
     } else {
-      return (<button type="button" className={allClass} disabled={defaultDisabled} onClick={this._handleClick}>{this.state.label}</button>);
+      return (<button type="button" className={allClass} disabled={defaultDisabled} onClick={this._handleClick}>{this.props.children}</button>);
     }
   }
 });
