@@ -15,16 +15,14 @@ ReactDOM.render(
     <ListBody>
       <ListItem
         link="http://www.baidu.com"
-        content="所属门店"
         extra="请选择"
         arrow="horizontal"
-      />
+      >所属门店</ListItem>
       <InputItem
-        label="员工姓名"
         name="yyy"
         clear={true}
         placeholder="真实姓名或昵称"
-      />
+      >员工姓名</InputItem>
     </ListBody>
     <ListFooter onClick={function(e){console.log(e);}}>
       账户名：<span style={{'color':'red'}}>zhifubao@alipay.com#001</span>
@@ -37,7 +35,7 @@ ReactDOM.render(
           name="yyy"
           clear={true}
           placeholder="请填写该员工的手机号码"
-        />
+        >所属门店</InputItem>
         <SelectItem
           label="退款权限"
           name="yyy"
@@ -48,9 +46,8 @@ ReactDOM.render(
         />
         <ListItem
           link="http://www.baidu.com"
-          content="其他权限"
           arrow="horizontal"
-        />
+        >其他权限</ListItem>
       </ListBody>
       <ListFooter onClick={function(e){console.log(e);}} style={{'textAlign':'center'}}>拥有退款权限的员工可在交易创建后3天内发起退款</ListFooter>
     </ListWrap>

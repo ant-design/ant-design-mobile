@@ -12,24 +12,22 @@ import { ListWrap, ListHeader, ListFooter, ListBody, ListItem} from 'antm';
 ReactDOM.render(
   <div>
   <ListWrap >
-    <ListHeader label="我是表头" style={{color:'red'}}/>
+    <ListHeader style={{color:'red'}}>我是表头</ListHeader>
     <ListBody>
       <ListItem
         type="双行"
         icon=""
-        content="我是内容"
         extra="我是额外信息"
         arrow="horizontal"
         onClick={function(){}}
-      />
+      >我是内容</ListItem>
       <ListItem
         type="双行"
         icon=""
-        content="我是内容22"
         extra="我是额外信息"
         arrow="horizontal"
         onClick={function(){}}
-      />
+      >我是内容22</ListItem>
     </ListBody>
     <ListFooter>我是表尾</ListFooter>
   </ListWrap>
@@ -39,19 +37,17 @@ ReactDOM.render(
         <ListItem
           type="双行"
           icon=""
-          content="我是内容"
           extra="我是额外信息"
           arrow="horizontal"
           onClick={function(){}}
-        />
+        >我是内容</ListItem>
         <ListItem
           type="双行"
           icon=""
-          content="我是内容22"
           extra="我是额外信息"
           arrow="horizontal"
           onClick={function(){}}
-        />
+        >我是内容22</ListItem>
       </ListBody>
       <ListFooter style={{color:'blue'}}>
         我是表尾

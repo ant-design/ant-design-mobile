@@ -4,15 +4,12 @@ function noop() {}
 const InputItem = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
-    label: PropTypes.string,
     name: PropTypes.string,
-    defaultValue: PropTypes.string,
+    value: PropTypes.string,
     placeholder: PropTypes.string,
     clear: PropTypes.bool,
     icon: PropTypes.string,
     onIconClick: PropTypes.func,
-    didMount: PropTypes.func,
-    willUnmount: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func
@@ -20,73 +17,44 @@ const InputItem = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'am',
-      label: '',
       name: '',
-      defaultValue: '',
+      value: '',
       placeholder: '',
       icon: '',
       onChange: noop,
       onBlur: noop,
       onFocus: noop,
-      didMount: noop,
-      willUnmount:noop,
       onIconClick: noop
     };
   },
-  getInitialState() {
-    return {
-      value: this.props.value || this.props.defaultValue
-    };
-  },
-  componentDidMount() {
-    this.props.didMount(this);
-  },
-  componentWillUnmount(){
-    this.props.willUnmount(this);
-  },
-  componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value
-      });
-    }
-  },
+
   _onInputChange(e) {
-    const value = e.target.value;
-    this.setValue(value, e);
+    this.props.onChange.call(this, e.target.value);
   },
   _onInputBlur(e) {
-    this.props.onBlur.call(this, e);
+    this.props.onBlur.call(this);
   },
   _onInputFocus(e) {
-    this.props.onFocus.call(this, e);
+    this.props.onFocus.call(this);
   },
   _onIconClick(e) {
-    this.props.onIconClick.call(this, e);
-  },
-  setValue(value, e) {
-    if (!('value' in this.props)) {
-      this.setState({
-        value,
-      });
-    }
-    this.props.onChange.call(this, e);
+    this.props.onIconClick.call(this);
   },
   _clearInput() {
-    this.setValue('');
+    this.props.onChange.call(this, '');
   },
 
   render(){
     let {prefixCls} = this.props;
     let labelDom = '';
-    if (this.props.label) {
-      labelDom = (<div className={prefixCls + '-list-label'}>{this.props.label}</div>);
+    if (this.props.children) {
+      labelDom = (<div className={prefixCls + '-list-label'}>{this.props.children}</div>);
     }
 
     let clearDom = '';
     const clearClass = this.props.clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear' : prefixCls + '-list-item';
     if (!!this.props.clear) {
-      if (this.state.value.length > 0) {
+      if (this.props.value.length > 0) {
         clearDom = (<div className={prefixCls + '-list-clear'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} style={{visibility: 'visible'}}
                                                       onClick={this._clearInput}
                                                       onTouchStart={this._clearInput}></i></div>);
@@ -111,7 +79,7 @@ const InputItem = React.createClass({
           <input type="text"
                  name={this.props.name}
                  placeholder={this.props.placeholder}
-                 value={this.state.value}
+                 value={this.props.value}
                  onChange={this._onInputChange}
                  onBlur={this._onInputBlur}
                  onFocus={this._onInputFocus}/>

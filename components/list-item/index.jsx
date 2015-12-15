@@ -6,15 +6,11 @@ const ListItem = React.createClass({
     prefixCls: PropTypes.string,
     link: PropTypes.string,
     line: PropTypes.number,
-    content: PropTypes.any,
     extra: PropTypes.any,
     icon: PropTypes.string,
     thumb: PropTypes.string,
     arrow: PropTypes.string,
     onClick: PropTypes.func,
-    didMount: PropTypes.func,
-    willUnmount:PropTypes.func,
-    extraFormData: PropTypes.object
   },
   getDefaultProps() {
     return {
@@ -22,21 +18,7 @@ const ListItem = React.createClass({
       link: '',
       line: 1,
       onClick: noop,
-      didMount: noop,
-      willUnmount:noop
     };
-  },
-  getInitialState() {
-    return {
-      extra: this.props.extra,
-      extraFormData:this.props.extraFormData
-    };
-  },
-  componentDidMount() {
-    this.props.didMount.call(this, this);
-  },
-  componentWillUnmount(){
-    this.props.willUnmount(this);
   },
   _handleClick(e) {
     e.preventDefault();
@@ -45,17 +27,11 @@ const ListItem = React.createClass({
   render(){
     let {link, prefixCls, icon, thumb, arrow, line} = this.props;
     let itemCls, iconDom, thumbDom, arrowDom;
-    const extraFormData = this.state.extraFormData;
-    const extraFormDataArray = [];
 
     if(line === 2) {
       itemCls = prefixCls + '-list-item ' + prefixCls + '-list-item-13';
     } else {
       itemCls = prefixCls + '-list-item';
-    }
-
-    for (const key in extraFormData) {
-      extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
     }
 
     if(icon) {
@@ -71,8 +47,8 @@ const ListItem = React.createClass({
     }
 
     let extraDom = '';
-    if(this.state.extra) {
-      extraDom = <div className={prefixCls + '-list-extra'}>{this.state.extra}</div>;
+    if(this.props.extra) {
+      extraDom = <div className={prefixCls + '-list-extra'}>{this.props.extra}</div>;
     }
 
     /* arrow有值，则保留这个dom坑位 */
@@ -96,10 +72,9 @@ const ListItem = React.createClass({
         <a href={link} className={itemCls} onClick={this._handleClick}>
           {iconDom}
           {thumbDom}
-          <div className={prefixCls + '-list-content'}>{this.props.content}</div>
+          <div className={prefixCls + '-list-content'}>{this.props.children}</div>
           {extraDom}
           {arrowDom}
-          {extraFormDataArray}
         </a>
       );
     } else {
@@ -107,10 +82,9 @@ const ListItem = React.createClass({
         <div className={itemCls} onClick={this._handleClick}>
           {iconDom}
           {thumbDom}
-          <div className={prefixCls + '-list-content'}>{this.props.content}</div>
+          <div className={prefixCls + '-list-content'}>{this.props.children}</div>
           {extraDom}
           {arrowDom}
-          {extraFormDataArray}
         </div>
       );
     }

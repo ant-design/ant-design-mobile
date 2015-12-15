@@ -13,22 +13,21 @@ ReactDOM.render(
     <ListWrap >
       <ListBody>
         <CheckboxItem
-          label="使用优惠"
           name="yyy"
-          defaultValue={false}
+          checked={false}
           onChange={function(e){console.log('onChange'); console.log(e);}}
-          didMount={function(){}}
-        />
-      </ListBody>
-      <ListBody>
+        >使用优惠</CheckboxItem>
         <CheckboxItem
-          label="disabled"
+          name="yyy"
+          checked={true}
+          onChange={function(e){console.log('onChange'); console.log(e);}}
+        >默认选择</CheckboxItem>
+        <CheckboxItem
           name="yyy"
           disabled={true}
-          defaultValue={true}
+          checked={true}
           onChange={function(e){console.log('onChange'); console.log(e);}}
-          didMount={function(){}}
-        />
+        >disabled</CheckboxItem>
       </ListBody>
     </ListWrap>
   </div>
