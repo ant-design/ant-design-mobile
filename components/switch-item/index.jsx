@@ -33,7 +33,7 @@ const SwitchItem = React.createClass({
     };
   },
   _onSwitchChange(e) {
-    const checked = !this.state.checked;
+    const checked = e.target.checked;
     this.setState({
       checked: checked
     });
