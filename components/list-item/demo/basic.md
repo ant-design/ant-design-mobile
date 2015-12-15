@@ -41,21 +41,17 @@ ReactDOM.render(
       <ListHeader label="单行列表"/>
       <ListBody>
         <ListItem
-          content="文本内容"
-          extra="我是额外信息"
           arrow="up"
           onClick={function(){}}
-        />
+        >我是额外信息</ListItem>
       </ListBody>
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
     <ListWrap>
       <ListBody>
         <ListItem
-          content="文本信息"
-          extra="内容内容"
           onClick={function(){}}
-        />
+        >内容内容</ListItem>
       </ListBody>
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
@@ -63,21 +59,18 @@ ReactDOM.render(
     <ListHeader label="单行组合"/>
       <ListBody>
         <ListItem
-          content="文本信息"
           extra="内容内容"
           onClick={function(){}}
-        />
+        >文本信息</ListItem>
         <ListItem
-          content="文本内容"
           arrow="horizontal"
           onClick={function(){}}
-        />
+        >文本内容</ListItem>
         <ListItem
-          content="文本信息"
           extra="内容内容"
           arrow="horizontal"
           onClick={function(){}}
-        />
+        >文本信息</ListItem>
       </ListBody>
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
@@ -87,40 +80,35 @@ ReactDOM.render(
       <ListItem
         link="http://www.baidu.com"
         thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        content="我有thumb"
         arrow="horizontal"
         onClick={window.openurl}
         extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >我有thumb</ListItem>
       <ListItem
         thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        content="我有thumb"
         extra="写点就有剪头坑位"
         arrow="aaa"
         onClick={window.clickItem}
-      />
+      >我有thumb</ListItem>
       <ListItem
         icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        content="我有icon"
         extra="不写没有剪头坑位"
         onClick={window.clickItem}
-      />
+      >我有icon</ListItem>
       <ListItem
         icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        content="我有icon"
         extra="向下箭头"
         arrow="vertical"
         onClick={function(){}}
-      />
+      >我有icon</ListItem>
       <ListItem
         icon=""
-        content="我是内容22"
         extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}
         arrow="horizontal"
         didMount={window.didMount}
         onClick={window.clickItem}
         extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >我是内容22</ListItem>
 
     </ListBody>
     <ListFooter>我是表尾</ListFooter>
@@ -131,11 +119,10 @@ ReactDOM.render(
       <ListItem
         type="双行"
         icon=""
-        content="我是内容"
         extra="我是额外信息"
         arrow="vertical"
         onClick={function(){}}
-      />
+      >我是内容</ListItem>
     </ListBody>
     <ListFooter>我是表尾</ListFooter>
   </ListWrap>

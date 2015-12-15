@@ -17,19 +17,17 @@ ReactDOM.render(
       <ListItem
         type="双行"
         icon=""
-        content="我是内容"
         extra="我是额外信息"
         arrow="horizontal"
         onClick={function(){}}
-      />
+      >我是内容</ListItem>
       <ListItem
         type="双行"
         icon=""
-        content="我是内容22"
         extra="我是额外信息"
         arrow="horizontal"
         onClick={function(){}}
-      />
+      >我是内容22</ListItem>
     </ListBody>
     <ListFooter>我是表尾</ListFooter>
   </ListWrap>
@@ -39,19 +37,17 @@ ReactDOM.render(
         <ListItem
           type="双行"
           icon=""
-          content="我是内容"
           extra="我是额外信息"
           arrow="horizontal"
           onClick={function(){}}
-        />
+        >我是内容</ListItem>
         <ListItem
           type="双行"
           icon=""
-          content="我是内容22"
           extra="我是额外信息"
           arrow="horizontal"
           onClick={function(){}}
-        />
+        >我是内容22</ListItem>
       </ListBody>
       <ListFooter onClick={function(e){console.log(e);}} style={{color:'red'}} align="right">
         <a id="ddd">我是链接</a>,我改了样式,还右对齐,快点我

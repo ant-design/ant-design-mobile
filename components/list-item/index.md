@@ -23,7 +23,6 @@
 | arrow      | 箭头方向        | String（horizontal/up/down/无） |   无  |
 | icon       | 缩略图  | imgsrc |   无  |
 | thumd       | 缩略图  | imgsrc |   无  |
-| content    | 左边内容        | String/HTML |   无  |
 | extra      | 右边内容        | String/HTML |   无  |
 | onClick    | 点击事件的回调函数 | Function |   无  |
 | didMount   | 模块mount后立即执行的方法,参数是模块对象本身        | Function |   无  |

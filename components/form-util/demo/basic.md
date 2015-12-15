@@ -185,18 +185,16 @@ const PageForm = React.createClass({
           {couponIdInput}
           <ListItem
             ref="form_shopLicence"
-            content="营业执照"
             extra="请上传"
             arrow="horizontal"
             {...licenceInput}
-          />
+          >营业执照</ListItem>
           <ListItem
             ref="form_shopPhoto"
-            content="其他照片"
             extra="请上传"
             arrow="horizontal"
             {...photoInput}
-          />
+          >其他照片</ListItem>
           </ListBody>
           <ListFooter>我是表尾</ListFooter>
         </ListWrap>

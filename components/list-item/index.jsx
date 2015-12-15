@@ -6,7 +6,6 @@ const ListItem = React.createClass({
     prefixCls: PropTypes.string,
     link: PropTypes.string,
     line: PropTypes.number,
-    content: PropTypes.any,
     extra: PropTypes.any,
     icon: PropTypes.string,
     thumb: PropTypes.string,
@@ -96,7 +95,7 @@ const ListItem = React.createClass({
         <a href={link} className={itemCls} onClick={this._handleClick}>
           {iconDom}
           {thumbDom}
-          <div className={prefixCls + '-list-content'}>{this.props.content}</div>
+          <div className={prefixCls + '-list-content'}>{this.props.children}</div>
           {extraDom}
           {arrowDom}
           {extraFormDataArray}
@@ -107,7 +106,7 @@ const ListItem = React.createClass({
         <div className={itemCls} onClick={this._handleClick}>
           {iconDom}
           {thumbDom}
-          <div className={prefixCls + '-list-content'}>{this.props.content}</div>
+          <div className={prefixCls + '-list-content'}>{this.props.children}</div>
           {extraDom}
           {arrowDom}
           {extraFormDataArray}
