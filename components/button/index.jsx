@@ -6,7 +6,7 @@ const Button = React.createClass({
     prefixCls: PropTypes.string,
     type          : PropTypes.string,
     mode          : PropTypes.string,
-    defaultDisabled: PropTypes.bool,
+    disabled      : PropTypes.bool,
     onClick       : PropTypes.func,
   },
   getDefaultProps() {
@@ -14,7 +14,7 @@ const Button = React.createClass({
       prefixCls: 'am',
       type: 'button',
       mode: 'blue',
-      defaultDisabled: false,
+      disabled: false,
       onClick:noop,
     };
   },
@@ -23,21 +23,21 @@ const Button = React.createClass({
   },
 
   render(){
-    let {prefixCls, mode, type, defaultDisabled} = this.props;
+    let {prefixCls, mode, type, disabled} = this.props;
     let modeClass = prefixCls + '-button-' + mode;
     if(mode === 'warn') {
       modeClass = modeClass + ' ' + prefixCls + '-button-flat';
     }
 
     let allClass = prefixCls + '-button ' + modeClass;
-    if(defaultDisabled === true) {
+    if(disabled === true) {
       allClass = allClass + ' ' + prefixCls + '-button-disabled';
     }
 
     if(type === 'link') {
-      return (<a className={allClass} disabled={defaultDisabled} onClick={this._handleClick}>{this.props.children}</a>);
+      return (<a className={allClass} disabled={disabled} onClick={this._handleClick}>{this.props.children}</a>);
     } else {
-      return (<button type="button" className={allClass} disabled={defaultDisabled} onClick={this._handleClick}>{this.props.children}</button>);
+      return (<button type="button" className={allClass} disabled={disabled} onClick={this._handleClick}>{this.props.children}</button>);
     }
   }
 });

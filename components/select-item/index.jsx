@@ -8,11 +8,8 @@ const SelectItem = React.createClass({
     name: PropTypes.string,
     align: PropTypes.string,
     options: PropTypes.array,
-    defaultValue: PropTypes.string,
-    didMount: PropTypes.func,
-    willUnmount: PropTypes.func,
+    value: PropTypes.string,
     onChange: PropTypes.func,
-    extraFormData: PropTypes.object
   },
   getDefaultProps() {
     return {
@@ -20,53 +17,16 @@ const SelectItem = React.createClass({
       label: '',
       name: '',
       align: 'left',
-      defaultValue: '',
+      value: '',
       options: [],
       onChange: noop,
-      didMount: noop,
-      willUnmount:noop,
-      extraFormData: {}
     };
-  },
-  getInitialState() {
-    return {
-      value: this.props.defaultValue,
-      extraFormData: this.props.extraFormData
-    };
-  },
-  componentDidMount() {
-    this.props.didMount(this);
-  },
-  componentWillUnmount(){
-    this.props.willUnmount(this);
-  },
-  componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
-      this.set({
-        value: nextProps.value
-      });
-    }
   },
   _onChange(e) {
-    const value = e.target.value;
-    this.setValue(value, e);
+    this.props.onChange.call(this, e.target.value);
   },
-  setValue(value, e) {
-    if (!('value' in this.props)) {
-      this.setState({
-        value,
-      });
-    }
-    this.props.onChange.call(this, e);
-  },
-
   render(){
     let {prefixCls, options, align} = this.props;
-    const extraFormData = this.state.extraFormData;
-    const extraFormDataArray = [];
-    for (const key in extraFormData) {
-      extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
-    }
     let labelDom = '';
     if (this.props.label) {
       labelDom = (<div className={prefixCls + '-list-label'}>{this.props.label}</div>);
@@ -83,12 +43,11 @@ const SelectItem = React.createClass({
       <div className={prefixCls + '-list-item ' + prefixCls + '-list-item-select'}>
         {labelDom}
         <div className={prefixCls + '-list-control'}>
-          <select name={this.props.name} value={this.state.value} onChange={this._onChange} style={dirctionStyle}>
+          <select name={this.props.name} value={this.props.value} onChange={this._onChange} style={dirctionStyle}>
             {Options}
           </select>
         </div>
         <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical'}></span></div>
-        {extraFormDataArray}
       </div>
     );
   }

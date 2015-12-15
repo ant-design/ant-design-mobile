@@ -14,17 +14,13 @@ ReactDOM.render(
     <ListBody>
       <SwitchItem
         name="yyy"
-        defaultChecked={true}
+        checked={true}
         onChange={function(e){console.log('onChange'); console.log(e);}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
       >默认开</SwitchItem>
       <SwitchItem
         name="yyy"
-        defaultChecked={false}
+        checked={false}
         onChange={function(e){console.log('onChange'); console.log(e);}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
       >默认关</SwitchItem>
     </ListBody>
   </ListWrap>

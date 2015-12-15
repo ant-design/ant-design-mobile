@@ -14,7 +14,6 @@ ReactDOM.render(
   <ListWrap>
     <ListBody>
       <InputItem
-        label="我是"
         name="yyy"
         defaultValue="dada22"
         placeholder="dadads"
@@ -22,51 +21,37 @@ ReactDOM.render(
         onChange={function(e){console.log('onChange'); console.log(e);}}
         onBlur={function(e){console.log('onBlur'); console.log(e);}}
         onFocus={function(e){console.log('onFocus'); console.log(e);}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >我是</InputItem>
       <InputItem
-        label="我是内"
         name="yyy"
         defaultValue="dada22"
         placeholder="dadads"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
       />
       <InputItem
-        label="我是内内"
         name="yyy"
         defaultValue="dada22"
         placeholder="dadads"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >我是内内</InputItem>
       <InputItem
         name="yyy"
         defaultValue="dada22"
         placeholder="dadads"
         clear={true}
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >所属门店</InputItem>
       <InputItem
-        label="我是内内内内"
         name="yyy"
         defaultValue="dada22"
         placeholder="dadads"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >我是内内内内</InputItem>
     </ListBody>
   </ListWrap>
   <ListWrap>
     <ListBody>
       <InputItem
-        label="我是相机"
         name="camera"
         defaultValue=""
         placeholder="camera"
@@ -74,86 +59,63 @@ ReactDOM.render(
         icon="camera"
         onIconClick={function(e){console.log(e);}}
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >我是相机</InputItem>
       <InputItem
-        label="列表"
         name="list"
         defaultValue=""
         placeholder="list"
         clear={true}
         icon="list"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >列表</InputItem>
       <InputItem
-        label="通讯录"
         name="contacts-mobile"
         defaultValue=""
         placeholder="contacts-mobile"
         clear={true}
         icon="contacts-mobile"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >通讯录</InputItem>
       <InputItem
-        label="bill"
         name="bill"
         defaultValue=""
         placeholder="bill"
         clear={true}
         icon="bill"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >bill</InputItem>
       <InputItem
-        label="支付宝通讯录"
         name="contacts-alipay"
         defaultValue=""
         placeholder="contacts-alipay"
         clear={true}
         icon="contacts-alipay"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >支付宝通讯录</InputItem>
       <InputItem
-        label="卡片"
         name="cards"
         defaultValue=""
         placeholder="cards"
         clear={true}
         icon="cards"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >卡片</InputItem>
       <InputItem
-        label="日历"
         name="calculator"
         defaultValue=""
         placeholder="calculator"
         clear={true}
         icon="calculator"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >日历</InputItem>
       <InputItem
-        label="扫码"
         name="scan"
         defaultValue=""
         placeholder="scan"
         clear={true}
         icon="scan"
         onChange={function(){}}
-        didMount={function(){}}
-        extraFormData={{'pic1':'22', 'pic2':'222'}}
-      />
+      >扫码</InputItem>
     </ListBody>
   </ListWrap>
   </div>

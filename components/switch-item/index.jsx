@@ -5,35 +5,18 @@ const SwitchItem = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
     name: PropTypes.string,
-    defaultChecked:PropTypes.bool,
+    checked:PropTypes.bool,
     onChange: PropTypes.func,
-    didMount: PropTypes.func,
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
-      defaultChecked: false,
+      checked: false,
       onChange: noop,
-      didMount: noop,
-    };
-  },
-  getInitialState() {
-    const props = this.props;
-    let checked = false;
-    if ('checked' in props) {
-      checked = props.checked;
-    } else {
-      checked = props.defaultChecked;
-    }
-    return {
-      checked: checked,
     };
   },
   _onSwitchChange(e) {
-    const checked = !this.state.checked;
-    this.setState({
-      checked: checked
-    });
+    const checked = e.target.checked;
     this.props.onChange.call(this, checked);
   },
   render(){
@@ -43,7 +26,7 @@ const SwitchItem = React.createClass({
       <div className={prefixCls + '-list-item'}>
         <div className={prefixCls + '-list-content'}>{this.props.children}</div>
         <div className={prefixCls + '-switch'}>
-          <input type="checkbox" name={this.props.name} className={prefixCls + '-switch-checkbox'} checked={this.state.checked} onChange={this._onSwitchChange}/>
+          <input type="checkbox" name={this.props.name} className={prefixCls + '-switch-checkbox'} checked={this.props.checked} onChange={this._onSwitchChange}/>
           <label className={prefixCls + '-switch-label'}>
             <div className={prefixCls + '-switch-inner'}></div>
             <div className={prefixCls + '-switch-switch'}></div>

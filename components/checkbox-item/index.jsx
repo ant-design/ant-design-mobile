@@ -3,59 +3,32 @@ function noop() {}
 
 const CheckItem = React.createClass({
   propTypes: {
-    label         : PropTypes.string,
     name          : PropTypes.string,
-    defaultValue  : PropTypes.bool,
-    willUnmount   : PropTypes.func,
+    checked         : PropTypes.bool,
     disabled      : PropTypes.bool,
     onChange      : PropTypes.func
   },
   getDefaultProps() {
     return {
-      label: '',
       name: '',
-      defaultValue: '',
+      checked: false,
+      disabled: false,
       onChange:noop
     };
   },
-  getInitialState() {
-    return {
-      value:this.props.defaultValue
-    };
-  },
-  componentWillUnmount(){
-    this.props.willUnmount(this);
-  },
-  componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
-      this.set({
-        value: nextProps.value
-      });
-    }
-  },
-  setValue(value, e) {
-    if (!('value' in this.props)) {
-      this.setState({
-        value,
-      });
-    }
-    this.props.onChange.call(this, e);
-  },
-
   _handleChange(e){
-    const checked = e.target.checked;
-    this.setValue(checked, e);
+    this.props.onChange.call(this, e.target.checked);
   },
 
   render(){
     let inputProp = {};
-    if(this.state.value){
+    if(this.props.checked){
       inputProp.checked = 'checked';
     }
 
     return (
       <div className="am-list-item am-list-item-check">
-        <div className="am-list-content">{this.props.label}</div>
+        <div className="am-list-content">{this.props.children}</div>
         <div className="am-checkbox">
           <input type="checkbox" {...(this.props.disabled ? {disabled:'disabled'} : '') } name={this.props.name} onChange={this._handleChange} {...inputProp}/>
           <span className="icon-check"></span>

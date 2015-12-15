@@ -25,5 +25,3 @@
 | thumd       | 缩略图  | imgsrc |   无  |
 | extra      | 右边内容        | String/HTML |   无  |
 | onClick    | 点击事件的回调函数 | Function |   无  |
-| didMount   | 模块mount后立即执行的方法,参数是模块对象本身        | Function |   无  |
-| extraFormData   | 列表项中需要的隐藏域        | Object |   无  |

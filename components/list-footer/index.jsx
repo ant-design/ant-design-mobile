@@ -8,18 +8,13 @@ const ListFooter = React.createClass({
     style: PropTypes.object,
     align: PropTypes.string,
     onClick: PropTypes.func,
-    didMount: PropTypes.func,
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
       align: 'left',
       onClick: noop,
-      didMount: noop
     };
-  },
-  componentDidMount() {
-    this.props.didMount(this);
   },
   _onFooterClick(e) {
     e.preventDefault();

@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-function noop() {}
 
 const ListWarp = React.createClass({
   propTypes: {
@@ -7,18 +6,13 @@ const ListWarp = React.createClass({
     style: PropTypes.object,
     isFormList: PropTypes.bool,
     isIconList: PropTypes.bool,
-    didMount: PropTypes.func,
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
       isFormList: true,
       isIconList: false,
-      didMount: noop
     };
-  },
-  componentDidMount() {
-    this.props.didMount(this);
   },
   render() {
     let {prefixCls, isFormList, isIconList} = this.props;

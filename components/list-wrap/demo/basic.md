@@ -53,7 +53,6 @@ ReactDOM.render(
           thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
           arrow="horizontal"
           onClick={window.openurl}
-          extraFormData={{'pic1':'22', 'pic2':'222'}}
         >我有thumb</ListItem>
         <ListItem
           thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
@@ -76,9 +75,7 @@ ReactDOM.render(
           icon=""
           extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}
           arrow="horizontal"
-          didMount={window.didMount}
           onClick={window.clickItem}
-          extraFormData={{'pic1':'22', 'pic2':'222'}}
         >我是内容22</ListItem>
       </ListBody>
     </ListWrap>
@@ -94,8 +91,6 @@ ReactDOM.render(
           onChange={function(e){console.log('onChange'); console.log(e);}}
           onBlur={function(e){console.log('onBlur'); console.log(e);}}
           onFocus={function(e){console.log('onFocus'); console.log(e);}}
-          didMount={function(){}}
-          extraFormData={{'pic1':'22', 'pic2':'222'}}
         />
         <InputItem
           label="我是内"
@@ -103,8 +98,6 @@ ReactDOM.render(
           defaultValue="dada22"
           placeholder="dadads"
           onChange={function(){}}
-          didMount={function(){}}
-          extraFormData={{'pic1':'22', 'pic2':'222'}}
         />
         <InputItem
           name="yyy"
@@ -112,8 +105,6 @@ ReactDOM.render(
           placeholder="dadads"
           clear={true}
           onChange={function(){}}
-          didMount={function(){}}
-          extraFormData={{'pic1':'22', 'pic2':'222'}}
         />
       </ListBody>
     </ListWrap>

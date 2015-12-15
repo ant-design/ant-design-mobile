@@ -6,23 +6,20 @@ const TextareaItem = React.createClass({
     prefixCls: PropTypes.string,
     label: PropTypes.string,
     name: PropTypes.string,
-    defaultValue: PropTypes.string,
+    value: PropTypes.string,
     placeholder: PropTypes.string,
     clear: PropTypes.bool,
     rows: PropTypes.number,
-    didMount: PropTypes.func,
-    willUnmount: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
-    extraFormData: PropTypes.object
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
       label: '',
       name: '',
-      defaultValue: '',
+      value: '',
       placeholder: '',
       clear: false,
       rows: 1,
@@ -30,60 +27,25 @@ const TextareaItem = React.createClass({
       onInput: noop,
       onBlur: noop,
       onFocus: noop,
-      didMount: noop,
-      willUnmount:noop,
-      extraFormData: {}
     };
-  },
-  getInitialState() {
-    return {
-      value: this.props.defaultValue,
-      rows: this.props.rows,
-      extraFormData: this.props.extraFormData
-    };
-  },
-  componentDidMount() {
-    this.props.didMount(this);
-  },
-  componentWillUnmount(){
-    this.props.willUnmount(this);
-  },
-  componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
-      this.set({
-        value: nextProps.value
-      });
-    }
   },
   _onChange(e) {
     const value = e.target.value;
-    this.setValue(value, e);
+    this.props.onChange.call(this, value);
   },
   _onBlur(e) {
-    this.props.onBlur.call(this, e);
+    this.props.onBlur.call(this);
   },
   _onFocus(e) {
-    this.props.onFocus.call(this, e);
-  },
-  setValue(value, e) {
-    if (!('value' in this.props)) {
-      this.setState({
-        value,
-      });
-    }
-    this.props.onChange.call(this, e);
+    const value = e.target.value;
+    this.props.onFocus.call(this, value);
   },
   _clearInput() {
-    this.setValue('');
+    this.props.onChange.call(this, '');
   },
 
   render(){
     let {prefixCls} = this.props;
-    const extraFormData = this.state.extraFormData;
-    const extraFormDataArray = [];
-    for (const key in extraFormData) {
-      extraFormDataArray.push((<input type="hidden" key={key} name={key} value={extraFormData[key]}/>));
-    }
     let labelDom = '';
     if (this.props.label) {
       labelDom = (<div className={prefixCls + '-list-label'}>{this.props.label}</div>);
@@ -92,7 +54,7 @@ const TextareaItem = React.createClass({
     let clearDom = '';
     const clearClass = this.props.clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear ' + prefixCls + '-list-item-form' : prefixCls + '-list-item';
     if (!!this.props.clear) {
-      if (this.state.value.length > 0) {
+      if (this.props.value.length > 0) {
         clearDom = (<div className={prefixCls + '-list-clear'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} style={{visibility: 'visible'}}
           onClick={this._clearInput}
           onTouchStart={this._clearInput}></i></div>);
@@ -109,17 +71,16 @@ const TextareaItem = React.createClass({
         {labelDom}
         <div className={prefixCls + '-list-control'}>
           <textarea name={this.props.name}
-            rows={this.state.rows}
+            rows={this.props.rows}
             placeholder={this.props.placeholder}
             onChange={this._onChange}
             onInput={this._onInput}
             onBlur={this._onBlur}
             onFocus={this._onFocus}
-            value={this.state.value}
+            value={this.props.value}
           />
         </div>
         {clearDom}
-        {extraFormDataArray}
       </div>
     );
   }

@@ -24,5 +24,3 @@
 | defaultValue    | input的默认值        | String |   无  |
 | options    | 下拉选项        | Array |   无  |
 | onChange    | input change事件触发的回调函数,参数是event对象 | Function |   无  |
-| didMount   | 模块mount后立即执行的方法,参数是react模块对象本身 | Function |   无  |
-| extraFormData   | 列表项中需要的隐藏域        | Object |   无  |
