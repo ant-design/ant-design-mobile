@@ -46,7 +46,7 @@ const InputItem = React.createClass({
   },
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      this.set({
+      this.setState({
         value: nextProps.value
       });
     }
