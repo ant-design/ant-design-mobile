@@ -12,7 +12,7 @@ import { ListWrap, ListHeader, ListFooter, ListBody, ListItem, InputItem} from '
 ReactDOM.render(
   <form>
     <ListWrap>
-      <ListHeader label="单行列表"/>
+      <ListHeader>单行列表</ListHeader>
       <ListBody>
         <ListItem
           arrow="horizontal"
@@ -46,7 +46,7 @@ ReactDOM.render(
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
     <ListWrap isIconList={true}>
-      <ListHeader label="带icon"/>
+      <ListHeader>带icon</ListHeader>
        <ListBody>
         <ListItem
           link="http://www.baidu.com"
@@ -83,7 +83,7 @@ ReactDOM.render(
       </ListBody>
     </ListWrap>
     <ListWrap>
-      <ListHeader label="form列表"/>
+      <ListHeader>form列表</ListHeader>
       <ListBody>
         <InputItem
           label="我是"

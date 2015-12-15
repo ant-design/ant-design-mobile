@@ -17,6 +17,5 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
-| label      | 列表头部的文案   | String            |          无
+| prefixCls   | 默认class前缀        | String |   'am'  |
 | style      | 定制的样式       | Object           | 无

@@ -38,7 +38,7 @@ window.openurl = function(e) {
 ReactDOM.render(
   <div>
     <ListWrap>
-      <ListHeader label="单行列表"/>
+      <ListHeader>单行列表</ListHeader>
       <ListBody>
         <ListItem
           arrow="up"
@@ -56,7 +56,7 @@ ReactDOM.render(
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
     <ListWrap>
-    <ListHeader label="单行组合"/>
+    <ListHeader>单行组合</ListHeader>
       <ListBody>
         <ListItem
           extra="内容内容"
@@ -75,7 +75,7 @@ ReactDOM.render(
       <ListFooter>文本说明文本说明</ListFooter>
     </ListWrap>
   <ListWrap isIconList={true}>
-    <ListHeader label="我是表头"/>
+    <ListHeader>我是表头</ListHeader>
     <ListBody>
       <ListItem
         link="http://www.baidu.com"
@@ -114,7 +114,7 @@ ReactDOM.render(
     <ListFooter>我是表尾</ListFooter>
   </ListWrap>
   <ListWrap >
-    <ListHeader label="我是表头"/>
+    <ListHeader>我是表头</ListHeader>
     <ListBody>
       <ListItem
         type="双行"

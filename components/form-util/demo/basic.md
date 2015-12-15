@@ -173,7 +173,7 @@ const PageForm = React.createClass({
     return (
       <div>
         <ListWrap >
-          <ListHeader label="证照补全"/>
+          <ListHeader>证照补全</ListHeader>
           <ListBody>
           <CheckboxItem
             ref="form_couponSwitch"

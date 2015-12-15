@@ -12,7 +12,7 @@ import { ListWrap, ListHeader, ListFooter, ListBody, ListItem} from 'antm';
 ReactDOM.render(
   <div>
   <ListWrap >
-    <ListHeader label="我是表头"/>
+    <ListHeader>我是表头</ListHeader>
     <ListBody>
       <ListItem
         type="双行"
@@ -32,7 +32,7 @@ ReactDOM.render(
     <ListFooter>我是表尾</ListFooter>
   </ListWrap>
   <ListWrap >
-      <ListHeader label="我是表头"/>
+      <ListHeader>我是表头</ListHeader>
       <ListBody>
         <ListItem
           type="双行"
