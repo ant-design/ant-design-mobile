@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody, ListItem} from 'antm';
+import { ListWrap, ListFooter, ListBody, ListItem} from 'antm';
 
 ReactDOM.render(
   <div>

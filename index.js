@@ -13,8 +13,6 @@ const antm = {
   TextareaItem : require('./components/textarea-item'),
   SelectItem : require('./components/select-item'),
   Button       : require('./components/button'),
-  FormUtil     : require('./components/form-util'),
-  WindowUtil   : require('./components/form-util/window-util'),
   SwitchItem   : require('./components/switch-item')
 };
 
