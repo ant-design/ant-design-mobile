@@ -4,6 +4,7 @@ function noop() {}
 const InputItem = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
+    style: PropTypes.object,
     name: PropTypes.string,
     value: PropTypes.string,
     placeholder: PropTypes.string,
@@ -73,7 +74,7 @@ const InputItem = React.createClass({
       iconDom = (<div className={prefixCls + '-list-thumb'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-' + iconType} onClick={this._onIconClick}></i></div>);
     }
     return (
-      <div className={clearClass} onClick={this._handleClick}>
+      <div className={clearClass} onClick={this._handleClick} style={this.props.style}>
         {labelDom}
         <div className={prefixCls + '-list-control'}>
           <input type="text"

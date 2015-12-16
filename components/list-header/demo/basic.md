@@ -12,18 +12,17 @@ import { ListWrap, ListHeader, ListFooter, ListBody, ListItem} from 'antm';
 ReactDOM.render(
   <div>
   <ListWrap >
-    <ListHeader style={{color:'red'}}>我是表头</ListHeader>
+    <ListHeader>列表头部</ListHeader>
     <ListBody>
-      <ListItem extra="我是额外信息" arrow="horizontal">我是内容</ListItem>
-      <ListItem>我是内容22</ListItem>
+      <ListItem extra="额外信息" arrow="horizontal">内容</ListItem>
+      <ListItem>内容</ListItem>
     </ListBody>
-    <ListFooter>我是表尾</ListFooter>
   </ListWrap>
   <ListWrap >
-      <ListHeader>我是表头</ListHeader>
+      <ListHeader style={{color:'red'}}>列表头部,传入样式</ListHeader>
       <ListBody>
-        <ListItem>我是内容</ListItem>
-        <ListItem>我是内容22</ListItem>
+        <ListItem>内容</ListItem>
+        <ListItem>内容</ListItem>
       </ListBody>
     </ListWrap>
   </div>
