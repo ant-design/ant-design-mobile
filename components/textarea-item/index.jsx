@@ -24,7 +24,6 @@ const TextareaItem = React.createClass({
       clear: false,
       rows: 1,
       onChange: noop,
-      onInput: noop,
       onBlur: noop,
       onFocus: noop,
     };
@@ -74,7 +73,6 @@ const TextareaItem = React.createClass({
             rows={this.props.rows}
             placeholder={this.props.placeholder}
             onChange={this._onChange}
-            onInput={this._onInput}
             onBlur={this._onBlur}
             onFocus={this._onFocus}
             value={this.props.value}

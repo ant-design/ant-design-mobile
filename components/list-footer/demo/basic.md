@@ -21,7 +21,7 @@ ReactDOM.render(
       <ListBody>
         <ListItem extra="额外信息" arrow="horizontal">内容</ListItem>
       </ListBody>
-      <ListFooter onClick={function(e){console.log(e); alert('点击了footer!');}} style={{color:'red'}} align="right">
+      <ListFooter onClick={function(e){console.log(e);}} style={{color:'red'}} align="right">
         <a id="ddd">超链接</a>,改了样式,右对齐,快点我
       </ListFooter>
     </ListWrap>

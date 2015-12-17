@@ -9,8 +9,7 @@
 ````jsx
 import { ListWrap, ListBody, ListFooter, InputItem, ListItem, Button} from 'antm';
 
-ReactDOM.render(
-  <div>
+ReactDOM.render(<div>
   <ListWrap>
     <ListBody>
       <ListItem
@@ -34,24 +33,24 @@ ReactDOM.render(
     </ListFooter>
   </ListWrap>
   <ListWrap>
-      <ListBody>
-        <InputItem
-          name="yyy"
-          clear={true}
-          placeholder="请填写该员工的手机号码"
-        >员工手机</InputItem>
-        <InputItem
-          name="yyy"
-          clear={true}
-          placeholder="选填"
-        >邮箱地址</InputItem>
-        <ListItem
-          link="http://www.baidu.com"
-          arrow="horizontal"
-        >员工权限</ListItem>
-      </ListBody>
-      <ListFooter onClick={function(e){console.log(e);}} style={{'textAlign':'center'}}>拥有退款权限的员工可在交易创建后3天内发起退款</ListFooter>
-    </ListWrap>
+    <ListBody>
+      <InputItem
+        name="yyy"
+        clear={true}
+        placeholder="请填写该员工的手机号码"
+      >员工手机</InputItem>
+      <InputItem
+        name="yyy"
+        clear={true}
+        placeholder="选填"
+      >邮箱地址</InputItem>
+      <ListItem
+        link="http://www.baidu.com"
+        arrow="horizontal"
+      >员工权限</ListItem>
+    </ListBody>
+    <ListFooter onClick={function(e){console.log(e);}} style={{'textAlign':'center'}}>拥有退款权限的员工可在交易创建后3天内发起退款</ListFooter>
+  </ListWrap>
     <div className="am-wingblank am-wingblank-10">
       <Button mode="blue" type="link">确认添加</Button>
     </div>
