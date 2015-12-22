@@ -38,7 +38,7 @@ const InputItem = React.createClass({
   _onInputFocus(e) {
     this.props.onFocus.call(this);
   },
-  _onIconClick(e) {
+  _onIconClick() {
     this.props.onIconClick.call(this);
   },
   _clearInput() {

@@ -1749,6 +1749,10 @@ footer ul li > a {
   width: 380px;
   height: 799px;
   padding: 117px 33px 0 32px;
+
+}
+.phone-content * {
+  box-sizing: content-box;
 }
 .code-box .code-box-demo {
   border-bottom: 1px solid #E9E9E9;

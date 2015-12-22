@@ -11,9 +11,11 @@ const antm = {
   InputItem    : require('./components/input-item'),
   CheckboxItem : require('./components/checkbox-item'),
   TextareaItem : require('./components/textarea-item'),
-  SelectItem : require('./components/select-item'),
+  SelectItem   : require('./components/select-item'),
   Button       : require('./components/button'),
-  Modal       : require('./components/modal'),
+  Modal        : require('./components/modal'),
+  Tab          : require('./components/tab'),
+  TabItem      : require('./components/tab-item'),
   SwitchItem   : require('./components/switch-item')
 };
 

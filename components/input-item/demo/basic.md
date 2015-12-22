@@ -25,35 +25,45 @@ let BasicInput = React.createClass({
               initialValue: 'dada22',
               valuePropName: 'value'
             })}
+            name="shop4"
             placeholder="dadads"
             clear={true}
             onBlur={function(e){console.log('onBlur'); console.log(e);}}
             onFocus={function(e){console.log('onFocus'); console.log(e);}}
           >我是</InputItem>
           <InputItem
-            name="yyy"
-            value="dada22"
+            {...getFieldProps('222', {
+              initialValue: 'dada22',
+              valuePropName: 'value'
+            })}
+            name="shop3"
+            clear={true}
             placeholder="dadads"
-            onChange={function(){}}
           />
           <InputItem
-            name="yyy"
-            value="dada22"
+            {...getFieldProps('3', {
+              initialValue: '222',
+              valuePropName: 'value'
+            })}
+            name="shop2"
             placeholder="dadads"
-            onChange={function(){}}
           >我是内内</InputItem>
           <InputItem
-            name="yyy"
-            value="dada22"
+            {...getFieldProps('4', {
+              initialValue: '222',
+              valuePropName: 'value'
+            })}
+            name="shop1"
             placeholder="dadads"
             clear={true}
-            onChange={function(){}}
           >所属门店</InputItem>
           <InputItem
-            name="yyy"
-            value="dada22"
+            {...getFieldProps('5', {
+              initialValue: '222',
+              valuePropName: 'value'
+            })}
+            name="shop"
             placeholder="dadads"
-            onChange={function(){}}
           >我是内内内内</InputItem>
         </ListBody>
       </ListWrap>
@@ -64,7 +74,7 @@ let BasicInput = React.createClass({
             placeholder="camera"
             clear={true}
             icon="camera"
-            onIconClick={function(e){console.log(e);}}
+            onIconClick={function(){console.log('点击了icon');}}
             onChange={function(){}}
           >我是相机</InputItem>
           <InputItem
