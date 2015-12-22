@@ -3,11 +3,11 @@ import ReactDom from 'react-dom';
 
 const Modal = React.createClass({
   propTypes: {
-    show: PropTypes.string
+    show: PropTypes.bool
   },
   getDefaultProps() {
     return {
-      show: 'none'
+      show: false
     };
   },
   updateContent(){

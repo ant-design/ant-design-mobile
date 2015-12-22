@@ -64,7 +64,7 @@ let ListSelector = React.createClass({
   getDefaultProps(){
     return {
       data  : [],
-      value : [],
+      value : {},
       onChange:noop
     };
   },
@@ -77,16 +77,22 @@ let ListSelector = React.createClass({
   componentWillUnmount(){
     window.globalHook = null;
   },
-  prepareSelector(){
+  openModal(){
     this.setState({open: true});
+  },
+  willReceiveProps(nextProps){
+    console.log(nextProps);
   },
   confirmSelector(){
     let value = this.props.form.getFieldsValue();
+    console.log('field value');
+    console.log(value);
+
     this.props.onChange(value);
     this.setState({open: false});
   },
   render(){
-    console.log(this.props.value);
+    // console.log(this.props.value);
     const inArray = function(arr, item){
       let result = false;
       arr.forEach((i)=>{
@@ -97,8 +103,14 @@ let ListSelector = React.createClass({
 
     const { getFieldProps } = this.props.form;
 
+    let selectedKey = [];
+    for(let key in this.props.value){
+      if(this.props.value[key]){
+        selectedKey.push(key);
+      }
+    }
     const renderData = this.props.data.map((data)=>{
-      if(inArray(Object.keys(this.props.value), data.id)){
+      if(inArray(selectedKey, data.id)){
         data.checked = true;
       } else{
         data.checked = false;
@@ -108,7 +120,9 @@ let ListSelector = React.createClass({
 
     let items = renderData.map((data)=>{
       return (
-        <CheckboxItem {...getFieldProps(data.id, {initialValue: data.checked}) } key={'selector_' + data.id}>
+        <CheckboxItem {...getFieldProps(data.id, {
+          valuePropName:'checked',
+          initialValue: data.checked}) } key={'selector_' + data.id}>
           {data.name}
         </CheckboxItem>
       );
@@ -125,7 +139,7 @@ let ListSelector = React.createClass({
         </Modal>
     );
 
-    const closeEl = React.cloneElement(this.props.children, {onClick: this.prepareSelector});
+    const closeEl = React.cloneElement(this.props.children, {onClick: this.openModal});
     return this.state.open ? openEl : closeEl;
   }
 });
