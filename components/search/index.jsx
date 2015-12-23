@@ -9,6 +9,8 @@ const Search = React.createClass({
     onChange: PropTypes.func,
     onClear: PropTypes.func,
     onCancel: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
   },
   getDefaultProps() {
     return {
@@ -17,7 +19,9 @@ const Search = React.createClass({
       onSubmit: noop,
       onChange: noop,
       onClear: noop,
-      onCancel: noop
+      onCancel: noop,
+      onFocus: noop,
+      onBlur: noop,
     };
   },
   getInitialState(){
@@ -62,7 +66,7 @@ const Search = React.createClass({
         <div className="am-search am-input-autoclear">
           <div className={inputClass}>
             <div className="am-search-icon"><i className="am-icon am-icon-search"/></div>
-            <input type="text" placeholder={this.props.placeholder} className="am-search-value" onChange={this._handleChange} value={this.state.value}/>
+            <input type="search" placeholder={this.props.placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={this.state.value}/>
             <div className="am-search-clear" onClick={this._handleClearClick}><i className="am-icon-clear am-icon am-icon-clear-tiny" style={clearStyle}></i></div>
           </div>
           <div className="am-search-button" style={cancelStyle}>
