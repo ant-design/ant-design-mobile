@@ -1,0 +1,115 @@
+@import "../base/mixins";
+
+/* 默认搜索bar */
+.am-search {
+  padding: 7px 8px;
+  .display-box;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d9d9e1), color-stop(.5, #d9d9e1), color-stop(.5, transparent)) bottom left no-repeat,
+  #efeff4;
+  background: -webkit-linear-gradient(270deg, #d9d9e1, #d9d9e1, rgba(217, 217, 225, 100)) bottom left no-repeat,
+  #efeff4;
+  background: linear-gradient(180deg, #d9d9e1, #d9d9e1, rgba(217, 217, 225, 100)) bottom left no-repeat,
+  #efeff4;
+  -webkit-background-size: 100% 1px;
+  button,
+  a {
+    width: 35px;
+    height: 29px;
+    text-align: center;
+    padding: 0;
+    color: #0ae;
+  }
+  button {
+    outline: 0 none;
+    border: 0 none;
+    background: none;
+  }
+  button:disabled {
+    outline: 0 none;
+    border: 0 none;
+    background: none;
+  }
+  .am-search-input {
+    width: 100%;
+    height: 29px;
+    margin: 0 auto;
+    line-height: 29px;
+    background-color: #fff;
+    .display-box;
+    .box-align;
+    .box-flex(1);
+    .border-radius(5px);
+    &.am-search-start {
+      //width: 304px ;
+      .am-search-icon {
+        width: 48%;
+      }
+      input {
+        width: 52%;
+      }
+    }
+    .am-search-icon {
+      width: auto;
+      padding-left: 5px;
+      display: block;
+      i {
+        margin-right: 8px;
+        float: right;
+      }
+    }
+    & input {
+      width: auto;
+      text-align: left;
+      -webkit-appearance: none;
+      display: block;
+      padding: 0;
+      height: 29px;
+      border: 0;
+      font-size: 15px;
+      .box-flex(1);
+    }
+
+    ::-webkit-input-placeholder {
+      font-size: 14px;
+      line-height: 18px;
+      color: #ccc;
+    }
+
+    .am-search-clear {
+      width: 24px;
+    }
+  }
+  .am-search-button {
+    width: 35px;
+    min-width: 35px;
+    height: 29px;
+    color: #0ae;
+    font-size: 17px;
+    margin-left: 10px;
+    text-align: center;
+    border: 0;
+    display: none;
+  }
+}
+
+.am-input-autoclear .am-icon-clear {
+  visibility: hidden;
+}
+
+.am-icon {
+  &.am-icon-search {
+    display: block;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("../image/search/search.png") no-repeat;
+      .backgroundSize(16px, auto);
+    }
+  }
+}
+

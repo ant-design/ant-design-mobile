@@ -58,26 +58,20 @@ const App = React.createClass({
   },
   render() {
     return <ListWrap >
-      <ListHeader label="我是表头"/>
+      <ListHeader>列表头部</ListHeader>
         <ListBody>
-         <ListItem
-           type="双行"
-           icon=""
-           content="我是内容"
-           extra="我是额外信息"
-           arrow="horizontal"
-           onClick={function(){}}
-         />
-         <ListItem
-           type="双行"
-           icon=""
-           content="我是内容22"
-           extra="我是额外信息"
-           arrow="horizontal"
-           onClick={this.handleClick}
-         />
+          <ListItem
+            extra="额外信息"
+            arrow="horizontal"
+            onClick={function(){}}
+          >我是内容</ListItem>
+          <ListItem
+            extra="额外信息"
+            arrow="horizontal"
+            onClick={this.handleClick}
+           >内容</ListItem>
         </ListBody>
-        <ListFooter label="我是表尾"/>
+        <ListFooter>列表尾部</ListFooter>
       </ListWrap>;
   }
 });
