@@ -25,7 +25,7 @@ const CheckItem = React.createClass({
     if(this.props.checked){
       inputProp.checked = 'checked';
     }
-    
+
     return (
       <div className="am-list-item am-list-item-check">
         <div className="am-list-content">{this.props.children}</div>
