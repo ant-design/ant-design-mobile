@@ -47,7 +47,7 @@ let ModalListItem = React.createClass({
               zj:true
             }
           })}
-        >             
+        >
           <ListItem extra="请选择" arrow="horizonal">所在地区</ListItem>
         </ListSelector>
     );
@@ -116,7 +116,7 @@ let ListSelector = React.createClass({
         data.checked = false;
       }
       return data;
-    });     
+    });
 
     let items = renderData.map((data)=>{
       return (
@@ -143,7 +143,7 @@ let ListSelector = React.createClass({
       onClick: this.openModal,
     };
     if(selectedItemNames.length){
-      extraProps.extra = selectedItemNames.join(',')
+      extraProps.extra = selectedItemNames.join(',');
     }
     const closeEl = React.cloneElement(this.props.children, extraProps);
     return this.state.open ? openEl : closeEl;
