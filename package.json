@@ -21,10 +21,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@gitlab.alipay-inc.com:iat/ant-mobile.git"
+    "url": "http://gitlab.alipay.net/ant-design/ant-mobile"
   },
   "bugs": {
-    "url": "http://gitlab.alipay-inc.com/iat/ant-mobile/issues"
+    "url": "http://gitlab.alipay.net/ant-design/ant-mobile/issues"
   },
   "main": "lib/index",
   "files": [
