@@ -7,52 +7,49 @@
 ````jsx
 import { Modal, ListWrap, ListHeader, CheckboxItem, ListFooter, ListBody, ListItem, Button} from 'antm';
 import { createForm } from 'rc-form';
+function noop(){}
 
 let App = React.createClass({
   render(props) {
     return (
       <div>
-        <ModalListItem form={this.props.form} />
+        <ListWrap>
+          <ListHeader>列表头部,没有附带说明</ListHeader>
+          <ListBody>
+            <ModalListItem form={this.props.form} />
+          </ListBody>
+          <ListFooter>列表尾部</ListFooter>
+        </ListWrap>
       </div>
     );
   }
 });
 App = createForm()(App);
 
-function noop(){}
-
 let ModalListItem = React.createClass({
-  getInitialState(){
-    return { show: false };
-  },
   render(){
     const { getFieldProps } = this.props.form;
     return (
-      <div>
-        <ListWrap>
-          <ListHeader>列表头部,没有附带说明</ListHeader>
-          <ListBody>
-            <ListSelector data={
-                [{
-                  name:'浙江',
-                  id:'zj'
-                }, {
-                  name:'上海',
-                  id:'sh'
-                }]
-              }
-              {...getFieldProps('region', {
-                initialValue:{
-                  zj:true
-                }
-              })}
-            >
-              <ListItem>Click</ListItem>
-            </ListSelector>
-          </ListBody>
-          <ListFooter>列表尾部</ListFooter>
-        </ListWrap>
-      </div>
+        <ListSelector data={
+            [{
+              name:'浙江',
+              id:'zj'
+            }, {
+              name:'上海',
+              id:'sh'
+            }, {
+              name:'名字很长很长很长的',
+              id:'shaa'
+            }]
+          }
+          {...getFieldProps('region', {
+            initialValue:{
+              zj:true
+            }
+          })}
+        >             
+          <ListItem extra="请选择" arrow="horizonal">所在地区</ListItem>
+        </ListSelector>
     );
   }
 });
@@ -103,12 +100,15 @@ let ListSelector = React.createClass({
 
     const { getFieldProps } = this.props.form;
 
-    let selectedKey = [];
-    for(let key in this.props.value){
-      if(this.props.value[key]){
-        selectedKey.push(key);
+    const selectedKey = [];
+    const selectedItemNames = [];
+    this.props.data.forEach((d)=>{
+      if(this.props.value[d.id]){
+        selectedItemNames.push(d.name);
+        selectedKey.push(d.id);
       }
-    }
+    });
+
     const renderData = this.props.data.map((data)=>{
       if(inArray(selectedKey, data.id)){
         data.checked = true;
@@ -116,7 +116,7 @@ let ListSelector = React.createClass({
         data.checked = false;
       }
       return data;
-    });
+    });     
 
     let items = renderData.map((data)=>{
       return (
@@ -129,17 +129,23 @@ let ListSelector = React.createClass({
     });
 
     const openEl = (
-        <Modal show={true}>
-          <ListWrap>
-            <ListBody>
-              {items}
-            </ListBody>
-          </ListWrap>
-          <Button mode="blue" onClick={this.confirmSelector}>确定</Button>
-        </Modal>
+      <Modal show={true}>
+        <ListWrap>
+          <ListBody>
+            {items}
+          </ListBody>
+        </ListWrap>
+        <Button mode="blue" onClick={this.confirmSelector}>确定</Button>
+      </Modal>
     );
 
-    const closeEl = React.cloneElement(this.props.children, {onClick: this.openModal});
+    const extraProps = {
+      onClick: this.openModal,
+    };
+    if(selectedItemNames.length){
+      extraProps.extra = selectedItemNames.join(',')
+    }
+    const closeEl = React.cloneElement(this.props.children, extraProps);
     return this.state.open ? openEl : closeEl;
   }
 });

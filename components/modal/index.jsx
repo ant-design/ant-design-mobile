@@ -14,12 +14,12 @@ const Modal = React.createClass({
     ReactDom.render(<div style={{
       display: (this.props.show ? 'block' : 'none'),
       overflowY:'scroll',
-      position:'absolute',
+      position:'fixed',
       left:'0',
       top:'0',
       width:'100%',
       height:'100%',
-      background:'#ABABAB',
+      background:'#F5F5F9',
       'zIndex':100}
     }>
       {this.props.children}
