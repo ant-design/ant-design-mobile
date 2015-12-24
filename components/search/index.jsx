@@ -7,7 +7,6 @@ const Search = React.createClass({
     placeholder: PropTypes.string,
     onSubmit: PropTypes.func,
     onChange: PropTypes.func,
-    onClear: PropTypes.func,
     onCancel: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
@@ -18,7 +17,6 @@ const Search = React.createClass({
       placeholder: '',
       onSubmit: noop,
       onChange: noop,
-      onClear: noop,
       onCancel: noop,
       onFocus: noop,
       onBlur: noop,
@@ -28,11 +26,6 @@ const Search = React.createClass({
     return {
       value :this.props.value
     };
-  },
-  _handleClearClick() {
-    this.setState({value: ''});
-    this.props.onChange.call(this, this.state.value);
-    this.props.onClear.call(this, this.state.value);
   },
   _handleChange(e) {
     let value = e.target.value;
@@ -50,24 +43,20 @@ const Search = React.createClass({
   },
   render() {
     let inputClass = '';
-    let clearStyle = {};
     let cancelStyle = {};
     if(this.state.value.length > 0) {
       inputClass = 'am-search-input';
-      clearStyle = {'visibility':'visible'};
       cancelStyle = {'display':'block'};
     } else {
       inputClass = 'am-search-input am-search-start';
-      clearStyle = {'visibility':'hidden'};
       cancelStyle = {'display':'none'};
     }
     return (
       <form onSubmit={this._handleSubmit}>
-        <div className="am-search am-input-autoclear">
+        <div className="am-search">
           <div className={inputClass}>
             <div className="am-search-icon"><i className="am-icon am-icon-search"/></div>
             <input type="search" placeholder={this.props.placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={this.state.value}/>
-            <div className="am-search-clear" onClick={this._handleClearClick}><i className="am-icon-clear am-icon am-icon-clear-tiny" style={clearStyle}></i></div>
           </div>
           <div className="am-search-button" style={cancelStyle}>
             <button type="button" disabled={this.state.value.length === 0} onClick={this._handleCancel}>取消</button>
