@@ -9,6 +9,7 @@ const antm = {
   ListFooter   : require('./components/list-footer'),
   ListItem     : require('./components/list-item'),
   ListPicker     : require('./components/list-picker'),
+  ListDatePicker : require('./components/list-date-picker'),
   InputItem    : require('./components/input-item'),
   CheckboxItem : require('./components/checkbox-item'),
   TextareaItem : require('./components/textarea-item'),
