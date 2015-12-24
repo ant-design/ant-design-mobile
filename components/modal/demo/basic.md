@@ -65,15 +65,11 @@ let ListSelector = React.createClass({
       onChange:noop
     };
   },
-  componentDidMount(){
-    window.globalHook = this.onFinish;
-  },
+  componentDidMount(){},
   onFinish() {
     this.props.onSelect(this.props.form.getFieldsValue());
   },
-  componentWillUnmount(){
-    window.globalHook = null;
-  },
+  componentWillUnmount(){},
   openModal(){
     this.setState({open: true});
   },
