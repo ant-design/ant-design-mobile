@@ -14,7 +14,7 @@ ReactDOM.render(
     <ListWrap>
       <ListHeader>列表头部,没有附带说明</ListHeader>
       <ListBody>
-        <ListPicker srcData={district.district} onChange={function(value){console.log("onChange",value);}} value={['220000', '220600', '220623']}>
+        <ListPicker srcData={district.district} onChange={function(value){console.log('onChange', value);}} value={['220000', '220600', '220623']}>
           <ListItem extra="请选择" arrow="horizonal">所在地区</ListItem>
         </ListPicker>
       </ListBody>
