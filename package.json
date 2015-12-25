@@ -1,7 +1,7 @@
 {
   "name": "@alipay/antm",
-  "version": "0.0.27",
-  "stableVersion": "0.0.27",
+  "version": "0.0.29",
+  "stableVersion": "0.0.29",
   "title": "Ant Mobile",
   "description": "基于React的AntUI",
   "homepage": "http://antui.alipay.net:8000/",
@@ -36,10 +36,11 @@
     "gregorian-calendar-format": "^4.0.4",
     "object-assign": "~4.0.1",
     "promise": "~7.0.4",
+    "react-router": "^1.0.2",
     "react-textarea-autosize": "~3.2.0",
     "rmc-date-picker": "~1.0.0",
     "rmc-modal": "^0.1.0",
-    "rmc-picker": "^1.0.0",
+    "rmc-picker": "^1.0.1",
     "semver": "~5.0.3",
     "warning": "~2.1.0"
   },
