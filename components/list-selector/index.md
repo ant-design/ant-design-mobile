@@ -1,7 +1,7 @@
-# Modal
+# List Selector
 
 - category: Components
-- chinese: Modal
+- chinese: 复层=>单选/多选
 - type: 表单
 
 ---

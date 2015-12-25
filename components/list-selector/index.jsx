@@ -1,50 +1,52 @@
-import React, {PropTypes} from 'react';
-import ReactDom from 'react-dom';
+import React, { PropTypes } from 'react';
+import ListWrap from '../list-wrap/index';
+import ListBody from '../list-body/index';
+import CheckboxItem from '../checkbox-item/index';
 
-const Modal = React.createClass({
+let ListSelector = React.createClass({
   propTypes: {
-    show: PropTypes.bool
+    value: PropTypes.array,
+    onChange: PropTypes.func,
+    type: PropTypes.string,
+    data: PropTypes.array,
   },
-  getDefaultProps() {
+  getDefaultProps(){
     return {
-      show: false
+      type: 'radio',
+      value: [],
+      data: [],
     };
   },
-  updateContent(){
-    ReactDom.render(<div style={{
-      display: (this.props.show ? 'block' : 'none'),
-      overflowY:'scroll',
-      position:'fixed',
-      left:'0',
-      top:'0',
-      width:'100%',
-      height:'100%',
-      background:'#F5F5F9',
-      'zIndex':100}
-    }>
-      {this.props.children}
-    </div>, this.div);
-  },
-  componentDidMount(){
-    this.div = document.createElement('div');
-    document.body.appendChild(this.div);
-    document.body.style.overflow = 'hidden';
-
-    this.updateContent();
-  },
-  componentDidUpdate(){
-    this.updateContent();
-  },
-  componentWillUnmount(){
-    document.body.style.overflow = '';
-    ReactDom.unmountComponentAtNode(this.div);
-    document.body.removeChild(this.div);
-
-    this.props.onDismiss();
+  _handleChange(id) {
+    if (this.props.type === 'radio') {
+      this.props.onChange([id]);
+    } else {
+      const selectedVal = this.props.value;
+      if (!selectedVal.includes(id)) {
+        selectedVal.push(id);
+      } else {
+        const index = selectedVal.indexOf(id);
+        selectedVal.splice(index, 1);
+      }
+      this.props.onChange(selectedVal);
+    }
   },
   render(){
-    return null;
+    const { value, data } = this.props;
+    const itemsDom = [];
+    data.forEach((el, idx) => {
+      let inputProp = {};
+      inputProp.checked = value.includes(el.id) ? true : false;
+      itemsDom.push(<CheckboxItem key={idx} {...inputProp} onChange={this._handleChange.bind(this, el.id)}>{el.name}</CheckboxItem>);
+    });
+    return (
+      <ListWrap>
+        <ListBody>
+          {itemsDom}
+        </ListBody>
+      </ListWrap>
+    );
   }
 });
 
-export default Modal;
+export default ListSelector;

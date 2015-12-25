@@ -1,11 +1,12 @@
+/* eslint no-console:0 */
+
 import 'rmc-picker/assets/index.css';
 import 'rmc-modal/assets/index.css';
 import 'rmc-modal/assets/simple.css';
-import Picker from 'rmc-picker';
+import Picker, {Item as PickerItem} from 'rmc-picker';
 import Modal from 'rmc-modal';
 import React, {PropTypes} from 'react';
-function noop(){}
-//i c n -> id, children, name
+function noop(){}//i c n -> id, children, name
 function convertData(arr){
   return arr.map((item)=>{
     if(item.c){
@@ -22,7 +23,7 @@ const ListPicker = React.createClass({
   propTypes: {
     selected : React.PropTypes.array,
     colcount : React.PropTypes.number,
-    onChange : PropTypes.func
+    onDestroy : PropTypes.func
   },
   getDefaultProps() {
     return {
@@ -30,7 +31,7 @@ const ListPicker = React.createClass({
       modalPrefixCls: 'rmc-modal',
       value         : [],
       srcData       : [],
-      onChange      : noop,
+      onDestroy     : noop,
       colcount      : 3
     };
   },
@@ -67,7 +68,6 @@ const ListPicker = React.createClass({
       newState.value = selectedResult;
     }
     return {
-      modalVisible       : false,
       value              : ifNeedInitSelectValue ? selectedResult : this.props.value,
       selectedName       : [],
       collectionToRender : collectResult,
@@ -96,49 +96,48 @@ const ListPicker = React.createClass({
     });
     return result;
   },
-  componentDidMount(){},
-  onDismiss() {
-    this.setVisibleState(false);
+  componentWillUnmount(){
+    this.props.onDestroy(this.state.value);
   },
-  onFinish() {
-    this.setVisibleState(false);
-    // findItemByValue
-    // debugger
-    this.state.value.forEach((item)=>{
+  onFinish(){
+    window.history.back();
+  },
+  onCancel(){
+    this.setState({
+      value : this.props.value
     });
-    this.props.onChange(this.state.value);
+    window.history.back();
   },
-  onValueChange(index, item) {
-    const currentRender = this.state.collectionToRender;
+  onValueChange(index, item, value) {
+    const currentRender = this.state.collectionToRender;//update renderCollection
     let nextRender = currentRender;
-    let levelData = convertData(item.children);
+    let levelData = convertData(this.findItemByValue(this.state.data, value).children);//  convertData(value.children);
     let levelIndex = index + 1;
-    let value = this.state.value;
-    value[index] = item.value;
+    let stateValue = this.state.value;
+    stateValue[index] = value;
     while(levelIndex <= currentRender.length - 1){
       nextRender[levelIndex] = levelData || [];
-      value[levelIndex] = levelData.length ? levelData[0].value : null;
+      stateValue[levelIndex] = levelData.length ? levelData[0].value : null;
       levelData = nextRender[levelIndex].length ? nextRender[levelIndex][0].children : [];
       ++levelIndex;
     }
     this.setState({
       collectionToRender : nextRender,
-      value              : value
-    });
-  },
-  setVisibleState(visible) {
-    this.setState({
-      modalVisible: visible,
+      value              : stateValue
     });
   },
   render() {
     const props = this.props;
     const pickers = [];
     for(let i = 0; i < this.state.collectionToRender.length; i++ ){
-      let collectionItem = this.state.collectionToRender[i];
+      let item = this.state.collectionToRender[i];
       pickers.push(
         <div key={'item' + i} className={`${props.modalPrefixCls}-item`}>
-          <Picker data={collectionItem} selectedValue={this.state.value[i]} onValueChange={this.onValueChange.bind(this, i)} />
+          <Picker selectedValue={this.state.value[i]} onValueChange={this.onValueChange.bind(this, i, item)} >
+            {item.map((it) => {
+              return <PickerItem key={it.value} value={it.value} label={it.name} />;
+            })}
+          </Picker>
         </div>
       );
     }
@@ -149,25 +148,18 @@ const ListPicker = React.createClass({
         selectItemNames.push(item.name);
       }
     });
-    const extraProps = {
-      onClick : this.setVisibleState.bind(this, true),
-      extra   : selectItemNames.length ? selectItemNames[selectItemNames.length - 1] : '请选择'
-    };
-    const childEl = React.cloneElement(this.props.children, extraProps);
+
     return (
-      <div>
-        <Modal visible={this.state.modalVisible} onDismiss={this.onDismiss}>
-          <div className={props.modalPrefixCls + '-header'}>
-            <div className={props.modalPrefixCls + '-item'} onClick={this.setVisibleState.bind(this, false)}>取消</div>
-            <div className={props.modalPrefixCls + '-item'}></div>
-            <div className={props.modalPrefixCls + '-item'} onClick={this.onFinish}>确认</div>
-          </div>
-          <div className={props.modalPrefixCls + '-content'}>
-            {pickers}
-          </div>
-        </Modal>
-        {childEl}
-      </div>
+      <Modal visible={true}>
+        <div className={props.modalPrefixCls + '-header'}>
+          <div className={props.modalPrefixCls + '-item'} onClick={this.onCancel}>取消</div>
+          <div className={props.modalPrefixCls + '-item'}></div>
+          <div className={props.modalPrefixCls + '-item'} onClick={this.onFinish}>确认</div>
+        </div>
+        <div className={props.modalPrefixCls + '-content'}>
+          {pickers}
+        </div>
+      </Modal>
     );
   },
 });

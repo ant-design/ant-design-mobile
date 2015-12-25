@@ -1,18 +1,14 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
 
 const Modal = React.createClass({
-  propTypes: {
-    show: PropTypes.bool
-  },
+  propTypes: {},
   getDefaultProps() {
-    return {
-      show: false
-    };
+    return {};
   },
   updateContent(){
     ReactDom.render(<div style={{
-      display: (this.props.show ? 'block' : 'none'),
+      display: 'block',
       overflowY:'scroll',
       position:'fixed',
       left:'0',
