@@ -26,12 +26,13 @@ let SearchExample = React.createClass({
             onChange={function(value){console.log(value);}}
             onClear={function(value){console.log('onClear');}}
             onCancel={function(value){console.log('onCancel');}}
+            showCancelButton={true}
           />
         </div>
         <div className="am-flexbox">
           <section className="am-flexbox-item">
           <Search
-            value="1111"
+            value=""
             placeholder="搜索"
             onSubmit={function(value){console.log('onSubmit' + value);}}
             onChange={function(value){console.log(value);}}
@@ -41,7 +42,6 @@ let SearchExample = React.createClass({
             onBlur={function(value){console.log('onBlur');}}
           />
           </section>
-          <span style={{'width':'40px'}}>筛选</span>
         </div>
       </div>
     );

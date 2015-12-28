@@ -10,6 +10,7 @@ const Search = React.createClass({
     onCancel: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
+    showCancelButton: PropTypes.bool,
   },
   getDefaultProps() {
     return {
@@ -20,6 +21,7 @@ const Search = React.createClass({
       onCancel: noop,
       onFocus: noop,
       onBlur: noop,
+      showCancelButton: false,
     };
   },
   getInitialState(){
@@ -51,6 +53,18 @@ const Search = React.createClass({
       inputClass = 'am-search-input am-search-start';
       cancelStyle = {'display':'none'};
     }
+
+    let cancelDom = null;
+
+    if(this.props.showCancelButton) {
+      cancelDom = (<div className="am-search-button" style={{display: 'block'}}>
+        <button type="button" onClick={this._handleCancel}>取消</button>
+      </div>);
+    } else {
+      cancelDom = (<div className="am-search-button" style={cancelStyle}>
+        <button type="button" disabled={this.state.value.length === 0} onClick={this._handleCancel}>取消</button>
+      </div>);
+    }
     return (
       <form onSubmit={this._handleSubmit}>
         <div className="am-search">
@@ -58,9 +72,7 @@ const Search = React.createClass({
             <div className="am-search-icon"><i className="am-icon am-icon-search"/></div>
             <input type="search" placeholder={this.props.placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={this.state.value}/>
           </div>
-          <div className="am-search-button" style={cancelStyle}>
-            <button type="button" disabled={this.state.value.length === 0} onClick={this._handleCancel}>取消</button>
-          </div>
+          {cancelDom}
         </div>
       </form>
     );
