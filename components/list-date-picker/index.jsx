@@ -25,55 +25,74 @@ const ListDatePicker = React.createClass({
   propTypes: {
     value: React.PropTypes.string,
     mode : React.PropTypes.string,
-    onDestroy : React.PropTypes.func
+    onChange : React.PropTypes.func
   },
   getDefaultProps() {
     return {
       value : null,
-      onDestroy      : noop,
+      onChange : noop,
       prefixCls: 'rmc-modal',
       modalPrefixCls: 'rmc-modal',
       mode: 'datetime',
-      locale: require('rmc-date-picker/lib/locale/zh_CN'),
+      locale: require('rmc-date-picker/lib/locale/zh_CN')
     };
   },
   getInitialState() {
     let initDate = null;
     if(this.props.value){
-      //TODO : 这里有点问题，format出来的结果不对 ref: https://www.npmjs.com/package/gregorian-calendar-format
+      console.log(this.props.value);
+      //TODO : 这里有点问题，parse出来的结果不对 ref: https://www.npmjs.com/package/gregorian-calendar-format
       // initDate = getFormatter(this.props.mode).parse(this.props.value,{locale : zhCn});
+      // console.log(initDate);
     }
     return {
       date: initDate,
-      modalVisible: false,
+      modalVisible: false
     };
+  },
+  setVisibleState(visible) {
+    this.setState({
+      modalVisible: visible,
+    });
   },
   componentWillUnmount(){
     this.props.onDestroy(getFormatter(this.props.mode).format(this.state.date));
   },
   onOk(){
-    window.history.back();
+    this.setVisibleState(false);
+    this.props.onChange(this.state.date);
   },
   onDateChange(date) {
     this.setState({date : date});
   },
-  onCancel(visible) {
-    //TODO
+  onCancel() {
+    this.setVisibleState(false);
   },
   render() {
     const props = this.props;
     const {date} = this.state;
 
+    let dateStr = this.state.date ? getFormatter(this.props.mode).format(this.state.date) : '请选择';
+
+    const extraProps = {
+      onClick : this.setVisibleState.bind(this, true),
+      extra   : dateStr
+    };
+    const childEl = React.cloneElement(this.props.children, extraProps);
+
     return (
-      <Modal visible={true}>
-        <div className={props.modalPrefixCls + '-header'}>
-          <div className={props.modalPrefixCls + '-item'} onClick={this.onCancel.bind(this, false)}>取消</div>
-          <div className={props.modalPrefixCls + '-item'}></div>
-          <div className={props.modalPrefixCls + '-item'} onClick={this.onOk}>完成</div>
-        </div>
-        <DatePicker date={date} className={props.modalPrefixCls + '-content'} prefixCls={props.prefixCls}
-                    mode={props.mode} locale={props.locale} onDateChange={this.onDateChange} />
-      </Modal>
+      <div>
+        <Modal visible={this.state.modalVisible}>
+          <div className={props.modalPrefixCls + '-header'}>
+            <div className={props.modalPrefixCls + '-item'} onClick={this.onCancel}>取消</div>
+            <div className={props.modalPrefixCls + '-item'}></div>
+            <div className={props.modalPrefixCls + '-item'} onClick={this.onOk}>完成</div>
+          </div>
+          <DatePicker date={date} className={props.modalPrefixCls + '-content'} prefixCls={props.prefixCls}
+                      mode={props.mode} locale={props.locale} onDateChange={this.onDateChange} />
+        </Modal>
+        {childEl}
+      </div>
     );
   },
 });

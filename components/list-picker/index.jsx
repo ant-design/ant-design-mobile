@@ -103,11 +103,9 @@ const ListPicker = React.createClass({
   },
   onFinish() {
     this.setVisibleState(false);
-    // this.state.value.forEach((item)=>{});
     this.props.onChange(this.state.value);
   },
   onValueChange(index, item, value) {
-    console.log(item);
     const currentRender = this.state.collectionToRender;//update renderCollection
     let nextRender = currentRender;
     let levelData = convertData(this.findItemByValue(this.state.data, value).children);//  convertData(value.children);
