@@ -1,7 +1,7 @@
 {
   "name": "@alipay/antm",
-  "version": "0.0.34",
-  "stableVersion": "0.0.34",
+  "version": "0.0.36",
+  "stableVersion": "0.0.36",
   "title": "Ant Mobile",
   "description": "基于React的AntUI",
   "homepage": "http://antui.alipay.net:8000/",
@@ -41,7 +41,7 @@
     "react-textarea-autosize": "~3.2.0",
     "rmc-date-picker": "~1.0.0",
     "rmc-modal": "^0.1.0",
-    "rmc-picker": "^1.0.3",
+    "rmc-picker": "1.0.2",
     "semver": "~5.0.3",
     "warning": "~2.1.0"
   },
