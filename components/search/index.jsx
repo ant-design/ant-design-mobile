@@ -11,6 +11,7 @@ const Search = React.createClass({
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     showCancelButton: PropTypes.bool,
+    disablSearch: PropTypes.bool,
   },
   getDefaultProps() {
     return {
@@ -22,6 +23,7 @@ const Search = React.createClass({
       onFocus: noop,
       onBlur: noop,
       showCancelButton: false,
+      disablSearch: false,
     };
   },
   getInitialState(){
@@ -46,6 +48,7 @@ const Search = React.createClass({
   render() {
     let inputClass = '';
     let cancelStyle = {};
+    let cancelDom = null;
     if(this.state.value.length > 0) {
       inputClass = 'am-search-input';
       cancelStyle = {'display':'block'};
@@ -53,8 +56,6 @@ const Search = React.createClass({
       inputClass = 'am-search-input am-search-start';
       cancelStyle = {'display':'none'};
     }
-
-    let cancelDom = null;
 
     if(this.props.showCancelButton) {
       cancelDom = (<div className="am-search-button" style={{display: 'block'}}>
@@ -70,7 +71,7 @@ const Search = React.createClass({
         <div className="am-search">
           <div className={inputClass}>
             <div className="am-search-icon"><i className="am-icon am-icon-search"/></div>
-            <input type="search" placeholder={this.props.placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={this.state.value}/>
+            <input type="search" disabled={this.props.disablSearch} placeholder={this.props.placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={this.state.value}/>
           </div>
           {cancelDom}
         </div>

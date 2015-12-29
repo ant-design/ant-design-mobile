@@ -28,6 +28,10 @@ let SearchExample = React.createClass({
             onCancel={function(value){console.log('onCancel');}}
             showCancelButton={true}
           />
+          <Search
+            placeholder="搜索输入框被禁用"
+            disablSearch={true}
+          />
         </div>
         <div className="am-flexbox">
           <section className="am-flexbox-item">
