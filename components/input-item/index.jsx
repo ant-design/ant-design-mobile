@@ -78,12 +78,12 @@ const InputItem = React.createClass({
         {labelDom}
         <div className={prefixCls + '-list-control'}>
           <input type="text"
-                 name={this.props.name}
-                 placeholder={this.props.placeholder}
-                 value={this.props.value}
-                 onChange={this._onInputChange}
-                 onBlur={this._onInputBlur}
-                 onFocus={this._onInputFocus}/>
+            name={this.props.name}
+            placeholder={this.props.placeholder}
+            value={this.props.value}
+            onChange={this._onInputChange}
+            onBlur={this._onInputBlur}
+            onFocus={this._onInputFocus}/>
         </div>
         {clearDom}
         {iconDom}

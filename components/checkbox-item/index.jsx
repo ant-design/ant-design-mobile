@@ -29,7 +29,7 @@ const CheckItem = React.createClass({
     return (
       <div className="am-list-item am-list-item-check">
         <div className="am-list-content">{this.props.children}</div>
-        <div className="am-checkbox">
+        <div className="am-checkbox am-checkbox-mini">
           <input type="checkbox" {...(this.props.disabled ? {disabled:'disabled'} : '') } name={this.props.name} onChange={this._handleChange} {...inputProp}/>
           <span className="icon-check"></span>
         </div>

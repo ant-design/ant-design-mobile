@@ -370,3 +370,34 @@
     }
   }
 }
+
+
+.am-list {
+  &.am-list-chip
+  .am-list-selected {
+    .am-list-item {
+      .am-list-content {
+        color: #00a9ed;
+        -webkit-box-flex: 4;
+        -webkit-flex: 4;
+      }
+      .am-list-extra {
+        position: relative;
+        width: 40px;
+        height: 20px;
+        span {
+          position: absolute;
+          top: -12px;
+          right: 0;
+          display: inline-block;
+          content: "";
+          width: 10px;
+          height: 30px;
+          border: 1px solid #00a9ed;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}

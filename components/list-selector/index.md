@@ -1,7 +1,7 @@
 # List Selector
 
 - category: Components
-- chinese: 复层=>单选/多选
+- chinese: 单选
 - type: 表单
 
 ---

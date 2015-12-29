@@ -6,7 +6,7 @@
 
 ````jsx
 
-import { ListWrap, ListHeader, Button, ListBody, ListItem, InputItem, ListSelector, Modal } from 'antm';
+import { ListWrap, ListHeader, ListBody, ListItem, ListSelector, Modal } from 'antm';
 import { createForm } from 'rc-form';
 import { Router, Route } from 'react-router';
 const PropTypes = React.PropTypes;
@@ -15,9 +15,7 @@ let ListSelectorExample = React.createClass({
   propTypes: {
     initialValue: PropTypes.array,
     form: PropTypes.object,
-  },
-  onClick() {
-    window.history.back();
+    onClick: PropTypes.func,
   },
   render(props) {
     const { getFieldProps } = this.props.form;
@@ -28,13 +26,8 @@ let ListSelectorExample = React.createClass({
           initialValue: this.props.initialValue,
         })}
         data={this.props.data}
-        type="multiple"
+        onClick={this.props.onClick}
         />
-        <div className="am-wingblank am-whitespace-10">
-          <Button
-            onClick={this.onClick}
-          >保存</Button>
-        </div>
       </Modal>
     );
   }
@@ -47,14 +40,25 @@ const ListSelectorPicker = React.createClass({
     onChange: PropTypes.func,
     value: PropTypes.array,
   },
+  getInitialState() {
+    return {
+      value: this.props.value,
+    };
+  },
   onClick() {
     window.location.hash = '/listselector';
   },
+  _handleClick(el) {
+    this.setState({
+      value: [el]
+    });
+  },
   render() {
-    const { value, childForm } = this.props;
+    const { childForm } = this.props;
+    const { value } = this.state;
     const valueEl = value.length > 0 ?
       <ListItem
-        extra={value.join(',')}
+        extra={value[0].name}
         arrow="horizontal"
         onClick={this.onClick}
       >选择城市</ListItem> :
@@ -69,6 +73,7 @@ const ListSelectorPicker = React.createClass({
         onDestroy: this.props.onChange,
         data: this.props.data,
         initialValue: value || {},
+        onClick: this._handleClick
       }) : null}
     </div>);
   },
@@ -85,13 +90,34 @@ let pageForm = React.createClass({
       initialValue: [],
       data: [{
         name:'浙江',
+        pinyin:'zhejiang',
+        py:'zj',
         id:'zj'
       }, {
         name:'上海',
+        pinyin:'shanghai',
+        py:'sh',
         id:'sh'
       }, {
-        name:'名字很长很长很长的',
-        id:'shaa'
+        name:'江苏',
+        pinyin:'jiangsu',
+        py:'js',
+        id:'js'
+      }, {
+        name:'福建',
+        pinyin:'fujian',
+        py:'fj',
+        id:'fj'
+      }, {
+        name:'山东',
+        pinyin:'shandong',
+        py:'sd',
+        id:'sd'
+      }, {
+        name:'安徽',
+        pinyin:'anhui',
+        py:'ah',
+        id:'ah'
       }]
     };
   },
@@ -102,18 +128,9 @@ let pageForm = React.createClass({
     const { getFieldProps } = this.props.form;
     return (
     <ListWrap>
-      <ListHeader>列表单选,多选</ListHeader>
+      <ListHeader>列表单选</ListHeader>
       <ListBody>
-        <InputItem
-          {...getFieldProps('rate', {
-            initialValue: '9',
-            valuePropName: 'value',
-          })}
-          name="rate"
-          placeholder="请填写"
-          clear={true}
-        >折扣大小</InputItem>
-        <ListSelectorPicker childForm={this.props.children} {...getFieldProps('period', {
+        <ListSelectorPicker childForm={this.props.children} {...getFieldProps('category', {
           initialValue: this.props.initialValue,
         })}
           data={this.props.data}
