@@ -127,6 +127,9 @@ let pageForm = React.createClass({
     this.setState({
       value:[value]
     });
+    setTimeout(function() {
+      window.history.back();
+    }, 500);
   },
   render() {
     return (

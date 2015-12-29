@@ -6,8 +6,6 @@ import Search from '../search/index';
 
 function noop() {}
 
-let timer;
-
 let ListSelector = React.createClass({
   propTypes: {
     value: PropTypes.array,
@@ -32,14 +30,10 @@ let ListSelector = React.createClass({
     };
   },
   _handleClick(el) {
-    this.props.onClick(el);
     this.setState({
       value: [el]
     });
-    clearTimeout(timer);
-    timer = setTimeout(function() {
-      window.history.back();
-    }, 300);
+    this.props.onClick(el);
   },
   _onSubmit(value) {
     this._handleSearch(value);
