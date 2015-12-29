@@ -27,6 +27,7 @@ let ListSelectorExample = React.createClass({
         })}
         data={this.props.data}
         onClick={this.props.onClick}
+        needSearch={this.props.needSearch}
         />
       </Modal>
     );
@@ -72,6 +73,7 @@ const ListSelectorPicker = React.createClass({
       {childForm ? React.cloneElement(childForm, {
         onDestroy: this.props.onChange,
         data: this.props.data,
+        needSearch: true,
         initialValue: value || {},
         onClick: this._handleClick
       }) : null}

@@ -14,12 +14,14 @@ let ListSelector = React.createClass({
     data: PropTypes.array,
     source: PropTypes.string,
     onClick: PropTypes.func,
+    needSearch: PropTypes.bool,
   },
   getDefaultProps(){
     return {
       value: [],
       data: [],
       onClick: noop,
+      needSearch: true
     };
   },
   getInitialState() {
@@ -91,16 +93,21 @@ let ListSelector = React.createClass({
         >{el.name}</ListItem>);
       }
     });
+
+    let searchDom = null;
+    if(this.props.needSearch) {
+      searchDom = (<Search
+        placeholder="请输入关键字"
+        onSubmit={this._onSubmit}
+        onChange={this._onChange}
+        onClear={this._onClear}
+        onCancel={this._onCancel}
+      />);
+    }
     return (
       <div>
-        <Search
-          placeholder="请输入关键字"
-          onSubmit={this._onSubmit}
-          onChange={this._onChange}
-          onClear={this._onClear}
-          onCancel={this._onCancel}
-        />
-        <ListWrap>
+        {searchDom}
+        <ListWrap style={{paddingTop:'0'}}>
           <ListBody>
             {itemsDom}
           </ListBody>
