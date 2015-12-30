@@ -63,17 +63,6 @@ ReactDOM.render(
         onClick={window.clickItem}
       >带thumb</ListItem>
       <ListItem
-        icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        extra="没有箭头坑位"
-        onClick={window.clickItem}
-      >带icon</ListItem>
-      <ListItem
-        icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        extra="向下箭头"
-        arrow="down"
-        onClick={function(){}}
-      >带icon</ListItem>
-      <ListItem
         icon=""
         extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}
         arrow="horizontal"
