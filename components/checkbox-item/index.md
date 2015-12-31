@@ -1,4 +1,4 @@
-# Checkbox
+# CheckboxItem
 
 - category: Components
 - chinese: Checkbox

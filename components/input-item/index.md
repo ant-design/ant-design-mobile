@@ -1,7 +1,7 @@
 # InputItem
 
 - category: Components
-- chinese: 文本输入（列表项）
+- chinese: 文本输入
 - type: 表单
 
 ---

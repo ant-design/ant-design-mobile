@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 function noop() {}
 
-const CheckItem = React.createClass({
+const CheckboxItem = React.createClass({
   propTypes: {
     name          : PropTypes.string,
     checked       : PropTypes.bool,
@@ -37,4 +37,4 @@ const CheckItem = React.createClass({
     );
   }
 });
-module.exports = CheckItem;
+module.exports = CheckboxItem;

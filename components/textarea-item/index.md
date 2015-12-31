@@ -1,7 +1,7 @@
 # TextareaItem
 
 - category: Components
-- chinese: 多行输入（列表项）
+- chinese: 多行输入
 - type: 表单
 
 ---
