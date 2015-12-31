@@ -1,4 +1,4 @@
-# Switch
+# SwitchItem
 
 - category: Components
 - chinese: 滑动开关

@@ -14,7 +14,6 @@ const antm = {
   Button       : require('./components/button'),
   Modal        : require('./components/modal'),
   Tab          : require('./components/tab'),
-  TabItem      : require('./components/tab-item'),
   PageResult   : require('./components/page-result'),
   Search       : require('./components/search'),
   SwitchItem   : require('./components/switch-item')

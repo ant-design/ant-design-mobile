@@ -7,37 +7,37 @@ Tab，`line`默认为1。
 ---
 
 ````jsx
-import {Tab, TabItem} from 'antm';
+import {Tab} from 'antm';
 let TabExample = React.createClass({
   getInitialState(){
     return { selectedTab: 'tab1' };
   },
   render() {
     return (<Tab>
-      <TabItem
+      <Tab.Item
         selected={this.state.selectedTab === 'tab1'}
         onClick={() => {
           this.setState({
             selectedTab: 'tab1',
           });
         }}
-      >选项1</TabItem>
-      <TabItem
+      >选项1</Tab.Item>
+      <Tab.Item
         selected={this.state.selectedTab === 'tab2'}
         onClick={() => {
           this.setState({
             selectedTab: 'tab2',
           });
         }}
-      >选项2</TabItem>
-      <TabItem
+      >选项2</Tab.Item>
+      <Tab.Item
         selected={this.state.selectedTab === 'tab3'}
         onClick={() => {
           this.setState({
             selectedTab: 'tab3',
           });
         }}
-      >选项3</TabItem>
+      >选项3</Tab.Item>
     </Tab>
     );
   }

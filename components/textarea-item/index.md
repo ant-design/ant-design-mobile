@@ -1,4 +1,4 @@
-# Textarea
+# TextareaItem
 
 - category: Components
 - chinese: 多行输入（列表项）
