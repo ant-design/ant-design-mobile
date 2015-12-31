@@ -3,18 +3,18 @@
 import 'rmc-picker/assets/index.css';
 import 'rmc-modal/assets/index.css';
 import 'rmc-modal/assets/simple.css';
-import Picker, {Item as PickerItem} from 'rmc-picker';
+import Picker from 'rmc-picker';
 import Modal from 'rmc-modal';
 import React, {PropTypes} from 'react';
 function noop() {
-}//i c n -> id, children, name
+}//i c n -> id, children, label
 function convertData(arr) {
   return arr.map((item)=> {
     if (item.c) {
       item.children = convertData(item.c);
     }
     return {
-      name: item.name || item.n,
+      label: item.label || item.n,
       value: item.value || item.i,
       children: item.children || item.c
     };
@@ -135,13 +135,10 @@ const ListPicker = React.createClass({
     const pickers = [];
     for (let i = 0; i < this.state.collectionToRender.length; i++) {
       let item = this.state.collectionToRender[i];
-      const items = item.map((it) => {
-        return <PickerItem key={it.value} value={it.value} label={it.name}/>;
-      });
       pickers.push(
         <div key={'item' + i} className={`${props.modalPrefixCls}-item`}>
           <Picker selectedValue={this.state.value[i]} onValueChange={this.onValueChange.bind(this, i, item)}>
-            {items}
+            {item}
           </Picker>
         </div>
       );
@@ -149,8 +146,8 @@ const ListPicker = React.createClass({
     const selectItemNames = [];
     this.state.value.forEach((v)=> {
       let item = this.findItemByValue(this.state.data, v);
-      if (item && item.name) {
-        selectItemNames.push(item.name);
+      if (item && item.label) {
+        selectItemNames.push(item.label);
       }
     });
     const extraProps = {

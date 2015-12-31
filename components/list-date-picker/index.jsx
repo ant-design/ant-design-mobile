@@ -9,13 +9,14 @@ import React from 'react';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
 // import zhCn from 'gregorian-calendar-format/lib/locale/zh_CN';
 
-function noop(){}
+function noop() {
+}
 
-function getFormatter(type){
+function getFormatter(type) {
   let formatter = new GregorianCalendarFormat('yyyy-MM-dd');
-  if(type === 'time'){
+  if (type === 'time') {
     formatter = new GregorianCalendarFormat('HH:MM');
-  } else if(type === 'datetime'){
+  } else if (type === 'datetime') {
     formatter = new GregorianCalendarFormat('yyyy-MM-dd HH:MM');
   }
   return formatter;
@@ -24,14 +25,13 @@ function getFormatter(type){
 const ListDatePicker = React.createClass({
   propTypes: {
     value: React.PropTypes.string,
-    mode : React.PropTypes.string,
-    onChange : React.PropTypes.func
+    mode: React.PropTypes.string,
+    onChange: React.PropTypes.func
   },
   getDefaultProps() {
     return {
-      value : null,
-      onChange : noop,
-      prefixCls: 'rmc-modal',
+      value: null,
+      onChange: noop,
       modalPrefixCls: 'rmc-modal',
       mode: 'datetime',
       locale: require('rmc-date-picker/lib/locale/zh_CN')
@@ -39,7 +39,7 @@ const ListDatePicker = React.createClass({
   },
   getInitialState() {
     let initDate = null;
-    if(this.props.value){
+    if (this.props.value) {
       console.log(this.props.value);
       //TODO : 这里有点问题，parse出来的结果不对 ref: https://www.npmjs.com/package/gregorian-calendar-format
       // initDate = getFormatter(this.props.mode).parse(this.props.value,{locale : zhCn});
@@ -63,7 +63,7 @@ const ListDatePicker = React.createClass({
     this.props.onChange(this.state.date);
   },
   onDateChange(date) {
-    this.setState({date : date});
+    this.setState({date: date});
   },
   onCancel() {
     this.setVisibleState(false);
@@ -75,22 +75,22 @@ const ListDatePicker = React.createClass({
     let dateStr = this.state.date ? getFormatter(this.props.mode).format(this.state.date) : '请选择';
 
     const extraProps = {
-      onClick : this.setVisibleState.bind(this, true),
-      extra   : dateStr
+      onClick: this.setVisibleState.bind(this, true),
+      extra: dateStr
     };
     const childEl = React.cloneElement(this.props.children, extraProps);
 
     return (
       <div>
-        <Modal visible={this.state.modalVisible}>
+        {this.state.modalVisible ? <Modal visible>
           <div className={props.modalPrefixCls + '-header'}>
             <div className={props.modalPrefixCls + '-item'} onClick={this.onCancel}>取消</div>
             <div className={props.modalPrefixCls + '-item'}></div>
             <div className={props.modalPrefixCls + '-item'} onClick={this.onOk}>完成</div>
           </div>
-          <DatePicker date={date} className={props.modalPrefixCls + '-content'} prefixCls={props.prefixCls}
-                      mode={props.mode} locale={props.locale} onDateChange={this.onDateChange} />
-        </Modal>
+          <DatePicker date={date} className={props.modalPrefixCls + '-content'}
+                      mode={props.mode} locale={props.locale} onDateChange={this.onDateChange}/>
+        </Modal> : null}
         {childEl}
       </div>
     );
