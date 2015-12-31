@@ -6,7 +6,7 @@
 
 ````jsx
 
-import { ListWrap, ListHeader, ListBody, ListItem, ListSelector, Modal } from 'antm';
+import { List, ListSelector, Modal } from 'antm';
 import { Router, Route } from 'react-router';
 const PropTypes = React.PropTypes;
 
@@ -84,16 +84,16 @@ const ListSelectorPicker = React.createClass({
   render() {
     const { childForm, value } = this.props;
     const valueEl = value.length > 0 ?
-      <ListItem
+      <List.Item
         extra={value[0].name}
         arrow="horizontal"
         onClick={this.onClick}
-      >选择城市</ListItem> :
-      <ListItem
+      >选择城市</List.Item> :
+      <List.Item
         extra="请选择"
         arrow="horizontal"
         onClick={this.onClick}
-      >选择城市</ListItem>;
+      >选择城市</List.Item>;
     return (<div>
       {valueEl}
       {childForm ? React.cloneElement(childForm, {
@@ -133,17 +133,17 @@ let pageForm = React.createClass({
   },
   render() {
     return (
-      <ListWrap>
-        <ListHeader>列表单选</ListHeader>
-        <ListBody>
+      <List>
+        <List.Header>列表单选</List.Header>
+        <List.Body>
           <ListSelectorPicker
             childForm={this.props.children}
             value={this.state.value}
             data={this.props.data}
             onChange={this.onChange}
           />
-        </ListBody>
-      </ListWrap>
+        </List.Body>
+      </List>
     );
   }
 });

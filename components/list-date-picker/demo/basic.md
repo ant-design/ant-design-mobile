@@ -6,18 +6,18 @@
 
 ````jsx
 
-import { ListDatePicker, ListItem, ListWrap, ListHeader, ListBody } from 'antm';
+import { ListDatePicker, List} from 'antm';
 
 ReactDOM.render(
   <div>
-    <ListWrap>
-      <ListHeader>店铺位置</ListHeader>
-      <ListBody>
+    <List>
+      <List.Header>店铺位置</List.Header>
+      <List.Body>
         <ListDatePicker mode="date" value="2015-11-11" onChange={function(date){ console.log(date); }} >
-          <ListItem extra="请选择" arrow="horizonal">所在地区</ListItem>
+          <List.Item extra="请选择" arrow="horizonal">所在地区</List.Item>
         </ListDatePicker>
-      </ListBody>
-    </ListWrap>
+      </List.Body>
+    </List>
   </div>
   , document.getElementById('components-list-date-picker-demo-basic'));
 ````

@@ -5,7 +5,7 @@
 ---
 
 ````jsx
-import { Modal, ListWrap, ListHeader, CheckboxItem, ListFooter, ListBody, ListItem, Button} from 'antm';
+import { Modal, List, CheckboxItem, Button} from 'antm';
 import { createForm } from 'rc-form';
 function noop(){}
 
@@ -13,13 +13,13 @@ let App = React.createClass({
   render(props) {
     return (
       <div>
-        <ListWrap>
-          <ListHeader>列表头部,没有附带说明</ListHeader>
-          <ListBody>
+        <List>
+          <List.Header>列表头部,没有附带说明</List.Header>
+          <List.Body>
             <ModalListItem form={this.props.form} />
-          </ListBody>
-          <ListFooter>列表尾部</ListFooter>
-        </ListWrap>
+          </List.Body>
+          <List.Footer>列表尾部</List.Footer>
+        </List>
       </div>
     );
   }
@@ -48,7 +48,7 @@ let ModalListItem = React.createClass({
             }
           })}
         >
-          <ListItem extra="请选择" arrow="horizonal">所在地区</ListItem>
+          <List.Item extra="请选择" arrow="horizonal">所在地区</List.Item>
         </ListSelector>
     );
   }
@@ -126,11 +126,11 @@ let ListSelector = React.createClass({
 
     const openEl = (
       <Modal show={true}>
-        <ListWrap>
-          <ListBody>
+        <List>
+          <List.Body>
             {items}
-          </ListBody>
-        </ListWrap>
+          </List.Body>
+        </List>
         <Button mode="blue" onClick={this.confirmSelector}>确定</Button>
       </Modal>
     );

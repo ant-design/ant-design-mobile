@@ -7,11 +7,11 @@
 ---
 
 ````jsx
-import { ListWrap, ListBody, SwitchItem} from 'antm';
+import { List, SwitchItem} from 'antm';
 
 ReactDOM.render(
-  <ListWrap>
-    <ListBody>
+  <List>
+    <List.Body>
       <SwitchItem
         name="yyy"
         checked={true}
@@ -22,7 +22,7 @@ ReactDOM.render(
         checked={false}
         onChange={function(e){console.log('onChange'); console.log(e);}}
       >默认关</SwitchItem>
-    </ListBody>
-  </ListWrap>
+    </List.Body>
+  </List>
 , document.getElementById('components-switch-item-demo-basic'));
 ````

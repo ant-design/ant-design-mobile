@@ -3,11 +3,7 @@ import React from 'react';
 require('./style/index.less');
 
 const antm = {
-  ListWrap     : require('./components/list-wrap'),
-  ListHeader   : require('./components/list-header'),
-  ListBody     : require('./components/list-body'),
-  ListFooter   : require('./components/list-footer'),
-  ListItem     : require('./components/list-item'),
+  List         : require('./components/list'),
   ListPicker     : require('./components/list-picker'),
   ListDatePicker : require('./components/list-date-picker'),
   ListSelector : require('./components/list-selector'),

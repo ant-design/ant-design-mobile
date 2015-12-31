@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { ListWrap, ListBody, InputItem} from 'antm';
+import { List, InputItem} from 'antm';
 import { createForm } from 'rc-form';
 
 let BasicInput = React.createClass({
@@ -18,8 +18,8 @@ let BasicInput = React.createClass({
     const {getFieldProps} = this.props.form;
 
     return (<div>
-      <ListWrap>
-        <ListBody>
+      <List>
+        <List.Body>
           <InputItem
             {...getFieldProps('yyy', {
               initialValue: 'dada22',
@@ -65,10 +65,10 @@ let BasicInput = React.createClass({
             name="shop"
             placeholder="dadads"
           >我是内内内内</InputItem>
-        </ListBody>
-      </ListWrap>
-      <ListWrap>
-        <ListBody>
+        </List.Body>
+      </List>
+      <List>
+        <List.Body>
           <InputItem
             name="camera"
             placeholder="camera"
@@ -126,8 +126,8 @@ let BasicInput = React.createClass({
             icon="scan"
             onChange={function(){}}
           >扫码</InputItem>
-        </ListBody>
-      </ListWrap>
+        </List.Body>
+      </List>
     </div>);
   }
 });

@@ -7,83 +7,82 @@
 ---
 
 ````jsx
-import { ListWrap, ListHeader, ListFooter, ListBody, ListItem, InputItem} from 'antm';
+import { List, InputItem} from 'antm';
 
 ReactDOM.render(
   <form>
-    <ListWrap>
-      <ListHeader>单行列表</ListHeader>
-      <ListBody>
-        <ListItem
+    <List>
+      <List.Header>单行列表</List.Header>
+      <List.Body>
+        <List.Item
           arrow="horizontal"
           onClick={function(){}}
-        >文本内容</ListItem>
-        <ListItem
+        >文本内容</List.Item>
+        <List.Item
           extra="内容内容"
           arrow="down"
           onClick={function(){}}
-        >文本信息</ListItem>
-        <ListItem
+        >文本信息</List.Item>
+        <List.Item
           arrow="up"
           extra="内容内容"
           onClick={function(){}}
-        >文本信息</ListItem>
-        <ListItem
+        >文本信息</List.Item>
+        <List.Item
           extra="内容内容"
           arrow="ss"
           onClick={function(){}}
-        >文本内容</ListItem>
-        <ListItem
+        >文本内容</List.Item>
+        <List.Item
           extra="内容内容"
           onClick={function(){}}
-        >文本内容</ListItem>
-        <ListItem
+        >文本内容</List.Item>
+        <List.Item
           extra="文本内容"
           arrow="horizontal"
           onClick={function(){}}
-        >文本信息</ListItem>
-      </ListBody>
-      <ListFooter>文本说明文本说明</ListFooter>
-    </ListWrap>
-    <ListWrap isIconList={true}>
-      <ListHeader>带icon</ListHeader>
-       <ListBody>
-        <ListItem
+        >文本信息</List.Item>
+      </List.Body>
+      <List.Footer onClick={function(e){console.log(e);}} style={{color:'red'}} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
+    </List>
+    <List isIconList={true}>
+      <List.Header>带icon</List.Header>
+       <List.Body>
+        <List.Item
           link="http://www.baidu.com"
           thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
           arrow="horizontal"
           onClick={window.openurl}
-        >我有thumb</ListItem>
-        <ListItem
+        >我有thumb</List.Item>
+        <List.Item
           thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
           extra="写点就有剪头坑位"
           arrow="aaa"
           onClick={window.clickItem}
-        >我有thumb</ListItem>
-        <ListItem
+        >我有thumb</List.Item>
+        <List.Item
           icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
           extra="不写没有剪头坑位"
           onClick={window.clickItem}
-        >我有icon</ListItem>
-        <ListItem
+        >我有icon</List.Item>
+        <List.Item
           icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
           extra="向下箭头"
           arrow="down"
           onClick={function(){}}
-        >我有icon</ListItem>
-        <ListItem
+        >我有icon</List.Item>
+        <List.Item
           icon=""
           extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}
           arrow="horizontal"
           onClick={window.clickItem}
-        >我是内容22</ListItem>
-      </ListBody>
-    </ListWrap>
-    <ListWrap>
-      <ListHeader>form列表</ListHeader>
-      <ListBody>
+        >我是内容22</List.Item>
+      </List.Body>
+    </List>
+    <List>
+      <List.Header>form列表</List.Header>
+      <List.Body>
         <InputItem
-          label="我是"
           name="yyy"
           defaultValue="dada22"
           placeholder="dadads"
@@ -91,14 +90,14 @@ ReactDOM.render(
           onChange={function(e){console.log('onChange'); console.log(e);}}
           onBlur={function(e){console.log('onBlur'); console.log(e);}}
           onFocus={function(e){console.log('onFocus'); console.log(e);}}
-        />
+        >我是</InputItem>
         <InputItem
-          label="我是内"
+          label=""
           name="yyy"
           defaultValue="dada22"
           placeholder="dadads"
           onChange={function(){}}
-        />
+        >我是内</InputItem>
         <InputItem
           name="yyy"
           defaultValue="dada22"
@@ -106,8 +105,8 @@ ReactDOM.render(
           clear={true}
           onChange={function(){}}
         />
-      </ListBody>
-    </ListWrap>
+      </List.Body>
+    </List>
   </form>
-, document.getElementById('components-list-wrap-demo-basic'));
+, document.getElementById('components-list-demo-basic'));
 ````

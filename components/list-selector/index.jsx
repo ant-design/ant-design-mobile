@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
-import ListWrap from '../list-wrap/index';
-import ListBody from '../list-body/index';
-import ListItem from '../list-item/index';
+import List from '../list/index';
 import Search from '../search/index';
 
 function noop() {}
@@ -75,16 +73,16 @@ let ListSelector = React.createClass({
     const itemsDom = [];
     data.forEach((el, idx) => {
       if(value.length > 0 && value[0].id === el.id) {
-        itemsDom.push(<div key={idx + 'div'} className="am-list-selected"><ListItem
+        itemsDom.push(<div key={idx + 'div'} className="am-list-selected"><List.Item
           key={idx}
           extra={<span></span>}
           onClick={this._handleClick.bind(this, el)}
-        >{el.name}</ListItem></div>);
+        >{el.name}</List.Item></div>);
       } else {
-        itemsDom.push(<ListItem
+        itemsDom.push(<List.Item
           key={idx}
           onClick={this._handleClick.bind(this, el)}
-        >{el.name}</ListItem>);
+        >{el.name}</List.Item>);
       }
     });
 
@@ -101,11 +99,11 @@ let ListSelector = React.createClass({
     return (
       <div>
         {searchDom}
-        <ListWrap style={{paddingTop:'0'}}>
-          <ListBody>
+        <List style={{paddingTop:'0'}}>
+          <List.Body>
             {itemsDom}
-          </ListBody>
-        </ListWrap>
+          </List.Body>
+        </List>
       </div>
     );
   }

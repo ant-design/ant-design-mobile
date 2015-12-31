@@ -7,12 +7,12 @@
 ---
 
 ````jsx
-import { ListWrap, ListBody, SelectItem} from 'antm';
+import { List, SelectItem} from 'antm';
 
 ReactDOM.render(
   <div>
-  <ListWrap>
-    <ListBody>
+  <List>
+    <List.Body>
       <SelectItem
         label="我是"
         name="yyy"
@@ -27,8 +27,8 @@ ReactDOM.render(
         options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
         onChange={function(e){console.log('onChange'); console.log(e);}}
       />
-    </ListBody>
-  </ListWrap>
+    </List.Body>
+  </List>
   </div>
 , document.getElementById('components-select-item-demo-basic'));
 ````

@@ -7,16 +7,16 @@
 ---
 
 ````jsx
-import { ListWrap, ListBody, ListFooter, InputItem, ListItem, Button} from 'antm';
+import { List, InputItem, Button} from 'antm';
 
 ReactDOM.render(<div>
-  <ListWrap>
-    <ListBody>
-      <ListItem
+  <List>
+    <List.Body>
+      <List.Item
         link="http://www.baidu.com"
         extra="请选择"
         arrow="horizontal"
-      >所属门店</ListItem>
+      >所属门店</List.Item>
       <InputItem
         name="yyy"
         clear={true}
@@ -27,13 +27,13 @@ ReactDOM.render(<div>
         clear={true}
         placeholder="用作账户名的后缀名"
       >用户名</InputItem>
-    </ListBody>
-    <ListFooter onClick={function(e){console.log(e);}}>
+    </List.Body>
+    <List.Footer onClick={function(e){console.log(e);}}>
       账户名：<span style={{'color':'red'}}>zhifubao@alipay.com#用户名</span>
-    </ListFooter>
-  </ListWrap>
-  <ListWrap>
-    <ListBody>
+    </List.Footer>
+  </List>
+  <List>
+    <List.Body>
       <InputItem
         name="yyy"
         clear={true}
@@ -44,13 +44,13 @@ ReactDOM.render(<div>
         clear={true}
         placeholder="选填"
       >邮箱地址</InputItem>
-      <ListItem
+      <List.Item
         link="http://www.baidu.com"
         arrow="horizontal"
-      >员工权限</ListItem>
-    </ListBody>
-    <ListFooter onClick={function(e){console.log(e);}} style={{'textAlign':'center'}}>拥有退款权限的员工可在交易创建后3天内发起退款</ListFooter>
-  </ListWrap>
+      >员工权限</List.Item>
+    </List.Body>
+    <List.Footer onClick={function(e){console.log(e);}} style={{'textAlign':'center'}}>拥有退款权限的员工可在交易创建后3天内发起退款</List.Footer>
+  </List>
     <div className="am-wingblank am-wingblank-10">
       <Button mode="blue" type="link">确认添加</Button>
     </div>

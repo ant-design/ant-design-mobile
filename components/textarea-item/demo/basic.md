@@ -7,12 +7,12 @@
 ---
 
 ````jsx
-import { ListWrap, ListBody, TextareaItem} from 'antm';
+import { List, TextareaItem} from 'antm';
 
 ReactDOM.render(
   <div>
-  <ListWrap>
-    <ListBody>
+  <List>
+    <List.Body>
       <TextareaItem
         label="我是"
         name="yyy"
@@ -32,8 +32,8 @@ ReactDOM.render(
         onBlur={function(){console.log('onBlur');}}
         onFocus={function(e){console.log('onFocus'); console.log(e);}}
       />
-    </ListBody>
-  </ListWrap>
+    </List.Body>
+  </List>
   </div>
 , document.getElementById('components-textarea-item-demo-basic'));
 ````

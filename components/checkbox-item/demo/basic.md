@@ -7,7 +7,7 @@ Checkbox
 ---
 
 ````jsx
-import { ListWrap, ListBody, CheckboxItem, Button} from 'antm';
+import { List, CheckboxItem, Button} from 'antm';
 import { createForm } from 'rc-form';
 
 let Test = React.createClass({
@@ -17,8 +17,8 @@ let Test = React.createClass({
   render() {
     const {getFieldProps} = this.props.form;
     return (<div>
-      <ListWrap >
-        <ListBody>
+      <List >
+        <List.Body>
           <CheckboxItem
             {...getFieldProps('f1', {
               initialValue: false,
@@ -38,8 +38,8 @@ let Test = React.createClass({
               valuePropName: 'checked'
             })}
           >disabled</CheckboxItem>
-        </ListBody>
-      </ListWrap>
+        </List.Body>
+      </List>
       <div className="am-wingblank am-wingblank-10">
         <Button
           mode="white"
