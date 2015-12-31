@@ -2,7 +2,6 @@
 import 'rmc-picker/assets/index.css';
 import 'rmc-date-picker/assets/index.css';
 import 'rmc-modal/assets/index.css';
-import 'rmc-modal/assets/simple.css';
 import DatePicker from 'rmc-date-picker';
 import Modal from 'rmc-modal';
 import React from 'react';
@@ -32,7 +31,6 @@ const ListDatePicker = React.createClass({
     return {
       value: null,
       onChange: noop,
-      modalPrefixCls: 'rmc-modal',
       mode: 'datetime',
       locale: require('rmc-date-picker/lib/locale/zh_CN')
     };
@@ -82,13 +80,15 @@ const ListDatePicker = React.createClass({
 
     return (
       <div>
-        {this.state.modalVisible ? <Modal visible>
-          <div className={props.modalPrefixCls + '-header'}>
-            <div className={props.modalPrefixCls + '-item'} onClick={this.onCancel}>取消</div>
-            <div className={props.modalPrefixCls + '-item'}></div>
-            <div className={props.modalPrefixCls + '-item'} onClick={this.onOk}>完成</div>
+        {this.state.modalVisible ? <Modal
+          style={{left: 0, bottom: 0}}
+          visible>
+          <div className={'am-picker-header'}>
+            <div className={'am-picker-item'} onClick={this.onCancel}>取消</div>
+            <div className={'am-picker-item'}></div>
+            <div className={'am-picker-item'} onClick={this.onOk}>完成</div>
           </div>
-          <DatePicker date={date} className={props.modalPrefixCls + '-content'}
+          <DatePicker date={date}
                       mode={props.mode} locale={props.locale} onDateChange={this.onDateChange}/>
         </Modal> : null}
         {childEl}

@@ -2,7 +2,6 @@
 
 import 'rmc-picker/assets/index.css';
 import 'rmc-modal/assets/index.css';
-import 'rmc-modal/assets/simple.css';
 import Picker from 'rmc-picker';
 import Modal from 'rmc-modal';
 import React, {PropTypes} from 'react';
@@ -28,8 +27,6 @@ const ListPicker = React.createClass({
   },
   getDefaultProps() {
     return {
-      prefixCls: 'rmc-picker',
-      modalPrefixCls: 'rmc-modal',
       value: [],
       srcData: [],
       onChange: noop,
@@ -131,12 +128,11 @@ const ListPicker = React.createClass({
     });
   },
   render() {
-    const props = this.props;
     const pickers = [];
     for (let i = 0; i < this.state.collectionToRender.length; i++) {
       let item = this.state.collectionToRender[i];
       pickers.push(
-        <div key={'item' + i} className={`${props.modalPrefixCls}-item`}>
+        <div key={'item' + i} className={'am-picker-item'}>
           <Picker selectedValue={this.state.value[i]} onValueChange={this.onValueChange.bind(this, i, item)}>
             {item}
           </Picker>
@@ -155,13 +151,15 @@ const ListPicker = React.createClass({
       extra: selectItemNames.length ? selectItemNames[selectItemNames.length - 1] : '请选择'
     };
     const childEl = React.cloneElement(this.props.children, extraProps);
-    const modal = this.state.modalVisible ? <Modal visible onDismiss={this.onDismiss}>
-      <div className={props.modalPrefixCls + '-header'}>
-        <div className={props.modalPrefixCls + '-item'} onClick={this.setVisibleState.bind(this, false)}>取消</div>
-        <div className={props.modalPrefixCls + '-item'}></div>
-        <div className={props.modalPrefixCls + '-item'} onClick={this.onFinish}>确认</div>
+    const modal = this.state.modalVisible ? <Modal visible
+                                                   style={{left: 0, bottom: 0}}
+                                                   onDismiss={this.onDismiss}>
+      <div className={'am-picker-header'}>
+        <div className={'am-picker-item'} onClick={this.setVisibleState.bind(this, false)}>取消</div>
+        <div className={'am-picker-item'}></div>
+        <div className={'am-picker-item'} onClick={this.onFinish}>确认</div>
       </div>
-      <div className={props.modalPrefixCls + '-content'}>
+      <div className={'am-picker-content'}>
         {pickers}
       </div>
     </Modal> : null;
