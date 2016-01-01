@@ -101,6 +101,7 @@ const Footer = React.createClass({
 const Item = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
+    extraCls: PropTypes.string,
     link: PropTypes.string,
     line: PropTypes.number,
     extra: PropTypes.any,
@@ -108,13 +109,16 @@ const Item = React.createClass({
     thumb: PropTypes.string,
     arrow: PropTypes.string,
     onClick: PropTypes.func,
+    modal: PropTypes.any
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
+      extraCls: '',
       link: '',
       line: 1,
       onClick: noop,
+      modal: null,
     };
   },
   _handleClick(e) {
@@ -122,7 +126,7 @@ const Item = React.createClass({
     this.props.onClick.call(this, e);
   },
   render(){
-    let {link, prefixCls, icon, thumb, arrow, line} = this.props;
+    let {link, prefixCls, extraCls, icon, thumb, arrow, line, modal } = this.props;
     let itemCls, iconDom, thumbDom, arrowDom;
 
     if(line === 2) {
@@ -130,6 +134,8 @@ const Item = React.createClass({
     } else {
       itemCls = prefixCls + '-list-item';
     }
+
+    itemCls = extraCls === '' ? itemCls : itemCls + ' ' + extraCls;
 
     if(icon) {
       iconDom = <div className={prefixCls + '-list-icon'}><img src={icon} width="29" height="29"/></div>;
@@ -172,6 +178,7 @@ const Item = React.createClass({
           <div className={prefixCls + '-list-content'}>{this.props.children}</div>
           {extraDom}
           {arrowDom}
+          {modal}
         </a>
       );
     } else {
@@ -182,6 +189,7 @@ const Item = React.createClass({
           <div className={prefixCls + '-list-content'}>{this.props.children}</div>
           {extraDom}
           {arrowDom}
+          {modal}
         </div>
       );
     }

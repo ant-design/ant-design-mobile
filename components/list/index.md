@@ -46,6 +46,7 @@ AntUI列表容器,其中会有列表头,列表尾,列表主体。
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | prefixCls    | 默认class前缀        | String |   'am'  |
+| extraCls    | 额外加入的class        | String |   ''  |
 | line       | 单行或者双行        | number |   1  |
 | link       | 如果item需要跳转,则需要URL  | String |   无  |
 | arrow      | 箭头方向        | String（horizontal/up/down/无） |   无  |
@@ -53,3 +54,4 @@ AntUI列表容器,其中会有列表头,列表尾,列表主体。
 | thumd       | 缩略图  | imgsrc |   无  |
 | extra      | 右边内容        | String/HTML |   无  |
 | onClick    | 点击事件的回调函数 | Function |   无  |
+| extraDom    | Item用于封装其它组件时需要填入的额外数据,用于渲染modal,一般不要使用 | any |   无  |
