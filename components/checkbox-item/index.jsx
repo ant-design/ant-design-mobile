@@ -3,13 +3,19 @@ function noop() {}
 
 const CheckboxItem = React.createClass({
   propTypes: {
+    prefixCls     : PropTypes.string,
+    style         : PropTypes.object,
+    mode          : PropTypes.string,
     name          : PropTypes.string,
     checked       : PropTypes.bool,
     disabled      : PropTypes.bool,
-    onChange      : PropTypes.func
+    onChange      : PropTypes.func,
+    extra         : PropTypes.any,
   },
   getDefaultProps() {
     return {
+      prefixCls: 'am',
+      mode: 'mini',
       name: '',
       checked: false,
       disabled: false,
@@ -21,20 +27,39 @@ const CheckboxItem = React.createClass({
   },
 
   render(){
+    const { prefixCls, style, mode, name, checked, disabled } = this.props;
+
     let inputProp = {};
-    if(this.props.checked){
+    if(checked){
       inputProp.checked = 'checked';
     }
 
-    return (
-      <div className="am-list-item am-list-item-check">
-        <div className="am-list-content">{this.props.children}</div>
-        <div className="am-checkbox am-checkbox-mini">
-          <input type="checkbox" {...(this.props.disabled ? {disabled:'disabled'} : '') } name={this.props.name} onChange={this._handleChange} {...inputProp}/>
+    let extraDom = '';
+    if(this.props.extra) {
+      extraDom = <div className={prefixCls + '-list-extra'}>{this.props.extra}</div>;
+    }
+
+
+    let renderDom = '';
+    if(mode === 'agree') {
+      renderDom = (<div>
+        <div className={ prefixCls + '-checkbox ' + prefixCls + '-checkbox-mini ' + prefixCls + '-checkbox-radio' } style={style}>
+          <input type="checkbox" id={'agree' + name} {...(disabled ? {disabled:'disabled'} : '') } name={name} onChange={this._handleChange} {...inputProp}/>
+          <span className="icon-check icon-check-right"></span>
+          <label className="am-ft-md" htmlFor={'agree' + name}>{this.props.children}</label>
+        </div>
+      </div>);
+    } else {
+      renderDom = (<div className={prefixCls + '-list-item ' + prefixCls + '-list-item-check'} style={style}>
+        <div className={prefixCls + '-list-content'}>{this.props.children}</div>
+        {extraDom}
+        <div className={prefixCls + '-checkbox ' + prefixCls + '-checkbox-mini'}>
+          <input type="checkbox" {...(disabled ? {disabled:'disabled'} : '') } name={name} onChange={this._handleChange} {...inputProp}/>
           <span className="icon-check"></span>
         </div>
-      </div>
-    );
+      </div>);
+    }
+    return renderDom;
   }
 });
 module.exports = CheckboxItem;
