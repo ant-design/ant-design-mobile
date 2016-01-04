@@ -42,8 +42,8 @@ const Search = React.createClass({
   },
   _handleCancel() {
     this.setState({value: ''});
-    this.props.onChange.call(this, this.state.value);
-    this.props.onCancel.call(this, this.state.value);
+    this.props.onChange.call(this, '');
+    this.props.onCancel.call(this, '');
   },
   render() {
     let inputClass = '';

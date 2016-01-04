@@ -25,7 +25,17 @@ let ListSelector = React.createClass({
       value: this.props.value,
       data: this.props.data,
       source: this.props.source,
+      searchKey: '',
     };
+  },
+  componentWillReceiveProps(nextProps) {
+    if(this.state.searchKey !== '') {
+      this._handleSearch(this.state.searchKey);
+    } else {
+      this.setState({
+        data: nextProps.data
+      });
+    }
   },
   _handleClick(el) {
     this.setState({
@@ -40,6 +50,9 @@ let ListSelector = React.createClass({
     this._handleSearch(value);
   },
   _handleSearch(value) {
+    this.setState({
+      searchKey: value
+    });
     let filterData = [];
     let data = this.props.data;
     let selectedvalue = this.state.value;
