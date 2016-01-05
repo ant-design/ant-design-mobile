@@ -80,7 +80,7 @@
     "webpack-dev-middleware": "^1.2.0"
   },
   "scripts": {
-    "babel": "babel components index.js --out-dir lib",
+    "babel": "babel components --out-dir lib",
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site dist",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",

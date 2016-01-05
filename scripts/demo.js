@@ -7,7 +7,7 @@ window.require = function(path) {
 };
 window.Clip = require('./clip');
 window['react-router'] = require('react-router');
-var antm = require('./antm');
+var antm = require('../index');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var semver = require('semver');

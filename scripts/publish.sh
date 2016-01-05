@@ -1,3 +1,5 @@
+rm -rf lib
+rm -rf dist
 npm run babel
 rm -rf dist
 webpack
