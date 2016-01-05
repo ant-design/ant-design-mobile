@@ -21,16 +21,18 @@ function convertData(arr) {
 }
 const ListPicker = React.createClass({
   propTypes: {
-    selected: React.PropTypes.array,
-    colcount: React.PropTypes.number,
-    onChange: PropTypes.func
+    selected: PropTypes.array,
+    colCount: PropTypes.number,
+    onChange: PropTypes.func,
+    modalVisible: PropTypes.bool,
+    onModalVisibleChange: PropTypes.func,
   },
   getDefaultProps() {
     return {
       value: [],
       srcData: [],
       onChange: noop,
-      colcount: 3
+      colCount: 3
     };
   },
   getInitialState() {
@@ -40,7 +42,7 @@ const ListPicker = React.createClass({
     let data = convertData(this.props.srcData);
     if (ifNeedInitSelectValue) {
       let currentCollectionA = data;
-      for (let i = 0; i < this.props.colcount; i++) {
+      for (let i = 0; i < this.props.colCount; i++) {
         if (currentCollectionA && currentCollectionA.length) {
           selectedResult.push(currentCollectionA[0].value);
           currentCollectionA = currentCollectionA[0].children || [];
@@ -52,7 +54,7 @@ const ListPicker = React.createClass({
     }
     //get render list
     let currentCollectionB = data;
-    for (let j = 0; j < this.props.colcount; j++) {
+    for (let j = 0; j < this.props.colCount; j++) {
       collectResult.push(currentCollectionB);
       let selectedFather = this.findItemInCollection(currentCollectionB, selectedResult[j]) || currentCollectionB[0] || {children: []};
       currentCollectionB = selectedFather.children;
@@ -72,6 +74,13 @@ const ListPicker = React.createClass({
       collectionToRender: collectResult,
       data: data
     };
+  },
+  componentWillReceiveProps(nextProps) {
+    if ('modalVisible' in nextProps) {
+      this.setState({
+        modalVisible: nextProps.modalVisible,
+      });
+    }
   },
   findItemInCollection(collection, value){
     let result = null;
@@ -97,11 +106,14 @@ const ListPicker = React.createClass({
   },
   componentDidMount(){
   },
-  onDismiss() {
+  hide() {
     this.setVisibleState(false);
   },
+  show() {
+    this.setVisibleState(true);
+  },
   onFinish() {
-    this.setVisibleState(false);
+    this.hide();
     this.props.onChange(this.state.value);
   },
   onValueChange(index, item, value) {
@@ -122,10 +134,13 @@ const ListPicker = React.createClass({
       value: stateValue
     });
   },
-  setVisibleState(visible) {
-    this.setState({
-      modalVisible: visible,
-    });
+  setVisibleState(modalVisible) {
+    if(!('modalVisible' in this.props)) {
+      this.setState({
+        modalVisible,
+      });
+    }
+    this.props.onModalVisibleChange(modalVisible);
   },
   render() {
     const pickers = [];
@@ -147,15 +162,15 @@ const ListPicker = React.createClass({
       }
     });
     const extraProps = {
-      onClick: this.setVisibleState.bind(this, true),
+      onClick: this.show,
       extra: selectItemNames.length ? selectItemNames[selectItemNames.length - 1] : '请选择'
     };
     const childEl = React.cloneElement(this.props.children, extraProps);
     const modal = this.state.modalVisible ? <Modal visible
                                                    style={{left: 0, bottom: 0}}
-                                                   onDismiss={this.onDismiss}>
+                                                   onDismiss={this.hide}>
       <div className={'am-picker-header'}>
-        <div className={'am-picker-item'} onClick={this.setVisibleState.bind(this, false)}>取消</div>
+        <div className={'am-picker-item'} onClick={this.hide}>取消</div>
         <div className={'am-picker-item'}></div>
         <div className={'am-picker-item'} onClick={this.onFinish}>确认</div>
       </div>
