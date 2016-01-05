@@ -7,9 +7,13 @@ import Modal from 'rmc-modal';
 import React, {PropTypes} from 'react';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
 import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
+import GregorianCalendar from 'gregorian-calendar';
 
 function noop() {
 }
+
+const now = new GregorianCalendar(zhCn);
+now.setTime(Date.now());
 
 function getFormatter(type) {
   let formatter;
@@ -42,12 +46,21 @@ const ListDatePicker = React.createClass({
   },
   getInitialState() {
     return {
-      date: null,
+      date: this.props.value && this.getFormatter().parse(this.props.value, {locale: zhCn}) || now,
       modalVisible: this.props.modalVisible || false,
     };
   },
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps && nextProps.value !== this.props.value) {
+      this.setState({
+        date: nextProps.value && this.getFormatter().parse(nextProps.value, {
+          locale: zhCn,
+        }) || now,
+      });
+    }
+  },
   setVisibleState(modalVisible) {
-    if(!('modalVisible' in this.props)) {
+    if (!('modalVisible' in this.props)) {
       this.setState({
         modalVisible,
       });
@@ -55,36 +68,27 @@ const ListDatePicker = React.createClass({
     this.props.onModalVisibleChange(modalVisible);
   },
   hide() {
+    this.pickerValue = null;
     this.setVisibleState(false);
   },
   show() {
     this.setVisibleState(true);
   },
+  getPickerValue() {
+    return this.pickerValue || this.state.date;
+  },
   componentWillUnmount(){
-    this.props.onDestroy(getFormatter(this.props.mode).format(this.state.date));
+    this.props.onDestroy(getFormatter(this.props.mode).format(this.getPickerValue()));
   },
   onOk(){
+    this.props.onChange(this.getFormatter().format(this.getPickerValue()));
     this.hide();
-    this.props.onChange(this.getFormatter().format(this.state.date));
   },
   onDateChange(date) {
-    this.setState({
-      date: date,
-    });
-  },
-  onCancel() {
-    this.hide();
+    this.pickerValue = date;
   },
   getFormatter() {
     return getFormatter(this.props.mode);
-  },
-  componentDidUpdate(preProps, prevState) {
-    /* eslint react/no-did-update-set-state:0 */
-    if(this.state.modalVisible && !prevState.modalVisible){
-      this.setState({
-        date: this.props.value && this.getFormatter().parse(this.props.value, {locale: zhCn}),
-      });
-    }
   },
   render() {
     const props = this.props;
@@ -105,12 +109,14 @@ const ListDatePicker = React.createClass({
           onDismiss={this.hide}
           visible>
           <div className={'am-picker-header'}>
-            <div className={'am-picker-item'} onClick={this.onCancel}>取消</div>
+            <div className={'am-picker-item'} onClick={this.hide}>取消</div>
             <div className={'am-picker-item'}></div>
             <div className={'am-picker-item'} onClick={this.onOk}>完成</div>
           </div>
-          <DatePicker date={date}
-                      mode={props.mode} locale={props.locale} onDateChange={this.onDateChange}/>
+          <DatePicker defaultDate={date}
+                      mode={props.mode}
+                      locale={props.locale}
+                      onDateChange={this.onDateChange}/>
         </Modal> : null}
         {childEl}
       </div>

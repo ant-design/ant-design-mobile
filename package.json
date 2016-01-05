@@ -40,9 +40,9 @@
     "promise": "~7.0.4",
     "react-router": "^1.0.2",
     "react-textarea-autosize": "~3.2.0",
-    "rmc-date-picker": "^1.2.0",
-    "rmc-modal": "^0.3.0",
-    "rmc-picker": "^2.1.0"
+    "rmc-date-picker": "^1.3.0",
+    "rmc-modal": "^0.4.0",
+    "rmc-picker": "^2.2.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
