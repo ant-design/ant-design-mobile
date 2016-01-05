@@ -17,7 +17,8 @@ ReactDOM.render(
         <List.Item
           arrow="horizontal"
           onClick={function(){}}
-        >文本内容</List.Item>
+          needActive={false}
+        >文本内容,无Active效果</List.Item>
         <List.Item
           extra="内容内容"
           arrow="down"

@@ -35,16 +35,64 @@
     position: relative;
     font-size: 16px;
     color: #333;
-    &.am-list-top {
-      background-color: #d9eefc;
-    }
+    padding: 6px 15px 6px 15px;
+    min-height: 32px;
+    background: #fff;
+    vertical-align: middle;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    overflow: hidden;
+    .display-box;
+    .box-align;
     /* 双行 */
     &.am-list-item-13 {
+      padding: 9px 15px;
       .am-list-content,
       .am-list-extra {
         margin-top: 1px;
         margin-bottom: 4px;
       }
+    }
+    /* list selector 选择的样式*/
+    &.am-list-selected {
+      .am-list-content {
+        color: #00a9ed;
+        -webkit-box-flex: 4;
+        -webkit-flex: 4;
+      }
+      .am-list-extra {
+        -webkit-box-flex: initial;
+        -webkit-flex: initial;
+        position: relative;
+        width: 30px;
+        min-width: 30px;
+        height: 20px;
+        span {
+          position: absolute;
+          top: -5px;
+          right: 8px;
+          display: inline-block;
+          content: "";
+          width: 10px;
+          height: 20px;
+          border: 2px solid #00a9ed;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+        }
+      }
+    }
+    &:after {
+      width: 100%;
+      height: 1px;
+      background-color: #e5e5e5;
+      bottom: 0;
+      content: "";
+      left: 15px;
+      position: absolute;
+    }
+    &.am-list-top {
+      background-color: #d9eefc;
     }
 
     /*list左侧主内容*/
@@ -138,29 +186,6 @@
     }
   }
 
-  .am-list-item,
-  &.am-list-flat .am-list-item {
-    padding: 6px 15px 6px 15px;
-    min-height: 32px;
-    background: #fff;
-    color: #333;
-    vertical-align: middle;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: left;
-    overflow: hidden;
-    .display-box;
-    .box-align;
-    &:after {
-      width: 100%;
-      height: 1px;
-      background-color: #e5e5e5;
-      bottom: 0;
-      content: "";
-      left: 15px;
-      position: absolute;
-    }
-  }
   &.am-list-chip {
     .am-list-item {
       &.am-list-top {
@@ -367,36 +392,6 @@
       &:before {
         margin-left: 2px;
         .transform(rotate(45deg));
-      }
-    }
-  }
-}
-
-
-.am-list {
-  &.am-list-chip {
-    .am-list-item.am-list-selected {
-      .am-list-content {
-        color: #00a9ed;
-        -webkit-box-flex: 4;
-        -webkit-flex: 4;
-      }
-      .am-list-extra {
-        position: relative;
-        width: 40px;
-        height: 20px;
-        span {
-          position: absolute;
-          top: -5px;
-          right: 8px;
-          display: inline-block;
-          content: "";
-          width: 10px;
-          height: 20px;
-          border: 1px solid #00a9ed;
-          border-width: 0 2px 2px 0;
-          -webkit-transform: rotate(45deg);
-        }
       }
     }
   }

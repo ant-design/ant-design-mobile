@@ -1,7 +1,7 @@
 {
   "name": "@alipay/antm",
-  "version": "0.0.50",
-  "stableVersion": "0.0.50",
+  "version": "0.0.53",
+  "stableVersion": "0.0.53",
   "title": "Ant Mobile",
   "description": "基于React的AntUI",
   "homepage": "http://antui.alipay.net:8000/",
@@ -33,6 +33,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "gregorian-calendar": "^4.1.0",
     "gregorian-calendar-format": "^4.0.4",
     "history": "^1.16.0",
     "object-assign": "~4.0.1",
