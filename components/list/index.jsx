@@ -5,22 +5,17 @@ const List = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
-    isFormList: PropTypes.bool,
     isIconList: PropTypes.bool,
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
-      isFormList: true,
       isIconList: false,
     };
   },
   render() {
-    let {prefixCls, isFormList, isIconList} = this.props;
-    let wrapCls = prefixCls + '-list ' + prefixCls + '-list-flat ' + prefixCls + '-list-chip ';
-    if(isFormList) {
-      wrapCls = wrapCls + prefixCls + '-list-form ';
-    }
+    let {prefixCls, isIconList} = this.props;
+    let wrapCls = prefixCls + '-list ' + prefixCls + '-list-flat ' + prefixCls + '-list-chip ' + prefixCls + '-list-form ';
     if(isIconList) {
       wrapCls = wrapCls + prefixCls + '-list-iconlist ';
     }
@@ -109,7 +104,6 @@ const Item = React.createClass({
     thumb: PropTypes.string,
     arrow: PropTypes.string,
     onClick: PropTypes.func,
-    modal: PropTypes.any
   },
   getDefaultProps() {
     return {
@@ -118,7 +112,6 @@ const Item = React.createClass({
       link: '',
       line: 1,
       onClick: noop,
-      modal: null,
     };
   },
   _handleClick(e) {
@@ -126,8 +119,8 @@ const Item = React.createClass({
     this.props.onClick.call(this, e);
   },
   render(){
-    let {link, prefixCls, extraCls, icon, thumb, arrow, line, modal } = this.props;
-    let itemCls, iconDom, thumbDom, arrowDom;
+    let {link, prefixCls, extraCls, thumb, arrow, line } = this.props;
+    let itemCls, thumbDom, arrowDom;
 
     if(line === 2) {
       itemCls = prefixCls + '-list-item ' + prefixCls + '-list-item-13';
@@ -136,10 +129,6 @@ const Item = React.createClass({
     }
 
     itemCls = extraCls === '' ? itemCls : itemCls + ' ' + extraCls;
-
-    if(icon) {
-      iconDom = <div className={prefixCls + '-list-icon'}><img src={icon} width="29" height="29"/></div>;
-    }
 
     if(thumb) {
       if(line === 1) {
@@ -170,29 +159,14 @@ const Item = React.createClass({
     } else {
       arrowDom = null;
     }
-    if(!!link) {
-      return (
-        <a href={link} className={itemCls} onClick={this._handleClick}>
-          {iconDom}
-          {thumbDom}
-          <div className={prefixCls + '-list-content'}>{this.props.children}</div>
-          {extraDom}
-          {arrowDom}
-          {modal}
-        </a>
-      );
-    } else {
-      return (
-        <div className={itemCls} onClick={this._handleClick}>
-          {iconDom}
-          {thumbDom}
-          <div className={prefixCls + '-list-content'}>{this.props.children}</div>
-          {extraDom}
-          {arrowDom}
-          {modal}
-        </div>
-      );
-    }
+    return (
+      <a href={link} className={itemCls} onClick={this._handleClick}>
+        {thumbDom}
+        <div className={prefixCls + '-list-content'}>{this.props.children}</div>
+        {extraDom}
+        {arrowDom}
+      </a>
+    );
   }
 });
 

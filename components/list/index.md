@@ -18,7 +18,6 @@ AntUI列表容器,其中会有列表头,列表尾,列表主体。
 |-------------|----------------|--------------------|--------------|
 | prefixCls    | 默认class前缀        | String |   'am'  |
 | style      | 定制的样式       | Object           | 无
-| isFormList      | 是否是FormList       | bool           | true
 | isIconList      | 是否是Iconlist       | bool           | false
 
 ### List.Header
@@ -50,8 +49,7 @@ AntUI列表容器,其中会有列表头,列表尾,列表主体。
 | line       | 单行或者双行        | number |   1  |
 | link       | 如果item需要跳转,则需要URL  | String |   无  |
 | arrow      | 箭头方向        | String（horizontal/up/down/无） |   无  |
-| icon       | 缩略图  | imgsrc |   无  |
-| thumd       | 缩略图  | imgsrc |   无  |
+| thumb       | 缩略图  | imgsrc |   无  |
 | extra      | 右边内容        | String/HTML |   无  |
 | onClick    | 点击事件的回调函数 | Function |   无  |
 | extraDom    | Item用于封装其它组件时需要填入的额外数据,用于渲染modal,一般不要使用 | any |   无  |
