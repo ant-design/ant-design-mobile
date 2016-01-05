@@ -187,7 +187,7 @@ const ListPicker = React.createClass({
       );
       modal = React.createElement(modalEl, {
         visible: true,
-        style: {left: 0, bottom: 0},
+        style: { left: 0, bottom: 0 },
         onUserDismissModal: this.hide,
       }, modalChild);
     }
