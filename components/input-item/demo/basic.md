@@ -34,6 +34,7 @@ let BasicInput = React.createClass({
           <InputItem
             value="xxx"
             mode="label"
+            error={true}
           >我是</InputItem>
           <InputItem
             {...getFieldProps('222', {
@@ -42,6 +43,7 @@ let BasicInput = React.createClass({
             })}
             name="shop3"
             clear={true}
+            error={true}
             placeholder="dadads"
           />
           <InputItem
@@ -66,6 +68,7 @@ let BasicInput = React.createClass({
               initialValue: '222',
               valuePropName: 'value'
             })}
+            error={true}
             name="shop"
             placeholder="dadads"
           >我是内内内内</InputItem>

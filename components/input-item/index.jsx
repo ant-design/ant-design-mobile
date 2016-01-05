@@ -14,7 +14,8 @@ const InputItem = React.createClass({
     onIconClick: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
-    onFocus: PropTypes.func
+    onFocus: PropTypes.func,
+    error: PropTypes.bool,
   },
   getDefaultProps() {
     return {
@@ -27,10 +28,10 @@ const InputItem = React.createClass({
       onChange: noop,
       onBlur: noop,
       onFocus: noop,
-      onIconClick: noop
+      onIconClick: noop,
+      error: false,
     };
   },
-
   _onInputChange(e) {
     this.props.onChange.call(this, e.target.value);
   },
@@ -48,12 +49,14 @@ const InputItem = React.createClass({
   },
 
   render(){
-    const {prefixCls, mode, name, value, placeholder, style, clear, children, icon } = this.props;
+    const {prefixCls, mode, name, value, placeholder, style, clear, children, icon, error } = this.props;
     let labelDom = '';
     if (children) {
       labelDom = (<div className={prefixCls + '-list-label'}>{children}</div>);
     }
-    const clearClass = clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear' : prefixCls + '-list-item';
+    let clearClass = clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear ' : prefixCls + '-list-item ';
+
+    clearClass = clearClass + (error ? prefixCls + '-list-item-error' : '');
 
     if(mode === 'label') {
       return (

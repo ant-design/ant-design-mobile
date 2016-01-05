@@ -26,4 +26,4 @@
 | onFocus    | input focus事件触发的回调函数,参数是event对象 | Function |   无  |
 | icon      | 右边icon        | String('camera'、'list'、'contacts-mobile'、'bill'、'contacts-alipay'、'cards'、'calculator'、'scan') |   无  |
 | onIconClick      | icon点击事件触发的回调函数,参数是event对象 | String |   无  |
-| type       | 赞不支持        | String |   无  |
+| error       | 报错样式        | bool |   false  |
