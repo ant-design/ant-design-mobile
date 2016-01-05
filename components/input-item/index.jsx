@@ -5,6 +5,7 @@ const InputItem = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
+    mode: PropTypes.string,
     name: PropTypes.string,
     value: PropTypes.string,
     placeholder: PropTypes.string,
@@ -18,6 +19,7 @@ const InputItem = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'am',
+      mode: 'text',
       name: '',
       value: '',
       placeholder: '',
@@ -46,49 +48,66 @@ const InputItem = React.createClass({
   },
 
   render(){
-    let {prefixCls} = this.props;
+    const {prefixCls, mode, name, value, placeholder, style, clear, children, icon } = this.props;
     let labelDom = '';
-    if (this.props.children) {
-      labelDom = (<div className={prefixCls + '-list-label'}>{this.props.children}</div>);
+    if (children) {
+      labelDom = (<div className={prefixCls + '-list-label'}>{children}</div>);
     }
+    const clearClass = clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear' : prefixCls + '-list-item';
 
-    let clearDom = '';
-    const clearClass = this.props.clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear' : prefixCls + '-list-item';
-    if (!!this.props.clear) {
-      if (this.props.value.length > 0) {
-        clearDom = (<div className={prefixCls + '-list-clear'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} style={{visibility: 'visible'}}
-                                                      onClick={this._clearInput}
-                                                      onTouchStart={this._clearInput}></i></div>);
-      } else {
-        clearDom = (<div className={prefixCls + '-list-clear'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'}
-                                                      onClick={this._clearInput}
-                                                      onTouchStart={this._clearInput}></i>
+    if(mode === 'label') {
+      return (
+        <div className={clearClass} style={style}>
+          {labelDom}
+          <div className={prefixCls + '-list-control'}>
+            <label>{value}</label>
+          </div>
+        </div>
+      );
+    } else {
+      let clearDom = '';
+      if (!!clear) {
+        if (value.length > 0) {
+          clearDom = (<div className={prefixCls + '-list-clear'}>
+            <i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} style={{visibility: 'visible'}}
+            onClick={this._clearInput}
+            onTouchStart={this._clearInput}/>
+          </div>);
+        } else {
+          clearDom = (<div className={prefixCls + '-list-clear'}>
+            <i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'}
+              onClick={this._clearInput}
+              onTouchStart={this._clearInput}/>
+          </div>);
+        }
+      }
+
+      let iconDom;
+      let iconType = '';
+      if (icon) {
+        iconType = 'form-' + icon;
+        iconDom = (<div className={prefixCls + '-list-thumb'}>
+          <i className={prefixCls + '-icon ' + prefixCls + '-icon-' + iconType} onClick={this._onIconClick}/>
         </div>);
       }
-    }
 
-    let iconDom;
-    let iconType = '';
-    if (this.props.icon) {
-      iconType = 'form-' + this.props.icon;
-      iconDom = (<div className={prefixCls + '-list-thumb'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-' + iconType} onClick={this._onIconClick}></i></div>);
-    }
-    return (
-      <div className={clearClass} onClick={this._handleClick} style={this.props.style}>
-        {labelDom}
-        <div className={prefixCls + '-list-control'}>
-          <input type="text"
-            name={this.props.name}
-            placeholder={this.props.placeholder}
-            value={this.props.value}
-            onChange={this._onInputChange}
-            onBlur={this._onInputBlur}
-            onFocus={this._onInputFocus}/>
+      return (
+        <div className={clearClass} style={style}>
+          {labelDom}
+          <div className={prefixCls + '-list-control'}>
+            <input type="text"
+              name={name}
+              placeholder={placeholder}
+              value={value}
+              onChange={this._onInputChange}
+              onBlur={this._onInputBlur}
+              onFocus={this._onInputFocus}/>
+          </div>
+          {clearDom}
+          {iconDom}
         </div>
-        {clearDom}
-        {iconDom}
-      </div>
-    );
+      );
+    }
   }
 });
 module.exports = InputItem;

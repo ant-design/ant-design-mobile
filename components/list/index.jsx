@@ -16,8 +16,8 @@ const List = React.createClass({
   },
   render() {
     let {prefixCls, isIconList} = this.props;
-    let wrapCls = prefixCls + '-list ' + prefixCls + '-list-flat ' + prefixCls + '-list-chip ' + prefixCls + '-list-form ';
-    if (isIconList) {
+    let wrapCls = prefixCls + '-list ' + prefixCls + '-list-chip ' + prefixCls + '-list-form ';
+    if(isIconList) {
       wrapCls = wrapCls + prefixCls + '-list-iconlist ';
     }
     return (
@@ -98,12 +98,12 @@ const Item = React.createClass({
   propTypes: {
     prefixCls: PropTypes.string,
     extraCls: PropTypes.string,
-    link: PropTypes.string,
     line: PropTypes.number,
     extra: PropTypes.any,
     icon: PropTypes.string,
     thumb: PropTypes.string,
     arrow: PropTypes.string,
+    needActive: PropTypes.bool,
     onClick: PropTypes.func,
   },
   getDefaultProps() {
@@ -113,14 +113,25 @@ const Item = React.createClass({
       link: '',
       line: 1,
       onClick: noop,
+      needActive: true
     };
   },
   _handleClick(e) {
     e.preventDefault();
     this.props.onClick.call(this, e);
   },
+  _handleTouchStart() {
+    if(this.props.needActive) {
+      this.refs.listitem.style.backgroundColor = '#e4e4e4';
+    }
+  },
+  _handleTouchEnd() {
+    if(this.props.needActive) {
+      this.refs.listitem.style.backgroundColor = '#fff';
+    }
+  },
   render(){
-    let {link, prefixCls, extraCls, thumb, arrow, line } = this.props;
+    let { prefixCls, extraCls, thumb, arrow, line } = this.props;
     let itemCls, thumbDom, arrowDom;
 
     if (line === 2) {
@@ -144,10 +155,12 @@ const Item = React.createClass({
       extraDom = <div className={prefixCls + '-list-extra'}>{this.props.extra}</div>;
     }
 
+    /* arrow有值，则保留这个dom坑位 */
     if (!!arrow) {
+      /* 当值是horizontal时,渲染水平箭头 */
       if (arrow === 'horizontal') {
-        arrowDom = <div className={prefixCls + '-list-arrow'}><span
-          className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-horizontal'}></span></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-horizontal'}></span></div>;
+        /* 当值是vertical时,渲染垂直箭头 */
       } else if (arrow === 'down') {
         arrowDom = <div className={prefixCls + '-list-arrow'}><span
           className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical'}></span></div>;
@@ -161,13 +174,14 @@ const Item = React.createClass({
     } else {
       arrowDom = null;
     }
+
     return (
-      <a href={link || '#'} className={itemCls} onClick={this._handleClick}>
+      <div className={itemCls} onClick={this._handleClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} ref="listitem">
         {thumbDom}
         <div className={prefixCls + '-list-content'}>{this.props.children}</div>
         {extraDom}
         {arrowDom}
-      </a>
+      </div>
     );
   }
 });
