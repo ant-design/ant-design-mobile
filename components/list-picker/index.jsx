@@ -25,14 +25,16 @@ const ListPicker = React.createClass({
     colCount: PropTypes.number,
     onChange: PropTypes.func,
     modalVisible: PropTypes.bool,
-    onModalVisibleChange: PropTypes.func,
+    // onModalVisibleChange: PropTypes.func,
+    modalEl : PropTypes.any
   },
   getDefaultProps() {
     return {
       value: [],
       srcData: [],
       onChange: noop,
-      colCount: 3
+      colCount: 3,
+      modalEl: Modal,
     };
   },
   getInitialState() {
@@ -76,11 +78,11 @@ const ListPicker = React.createClass({
     };
   },
   componentWillReceiveProps(nextProps) {
-    if ('modalVisible' in nextProps) {
-      this.setState({
-        modalVisible: nextProps.modalVisible,
-      });
-    }
+    // if ('modalVisible' in nextProps) {
+    this.setState({
+      modalVisible: nextProps.modalVisible,
+    });
+    // }
   },
   findItemInCollection(collection, value){
     let result = null;
@@ -135,12 +137,12 @@ const ListPicker = React.createClass({
     });
   },
   setVisibleState(modalVisible) {
-    if(!('modalVisible' in this.props)) {
-      this.setState({
-        modalVisible,
-      });
-    }
-    this.props.onModalVisibleChange(modalVisible);
+    // if(!('modalVisible' in this.props)) {
+    this.setState({
+      modalVisible,
+    });
+    // }
+    // this.props.onModalVisibleChange(modalVisible);
   },
   render() {
     const pickers = [];
@@ -166,18 +168,30 @@ const ListPicker = React.createClass({
       extra: selectItemNames.length ? selectItemNames[selectItemNames.length - 1] : '请选择'
     };
     const childEl = React.cloneElement(this.props.children, extraProps);
-    const modal = this.state.modalVisible ? <Modal visible
-                                                   style={{left: 0, bottom: 0}}
-                                                   onDismiss={this.hide}>
-      <div className={'am-picker-header'}>
-        <div className={'am-picker-item'} onClick={this.hide}>取消</div>
-        <div className={'am-picker-item'}></div>
-        <div className={'am-picker-item'} onClick={this.onFinish}>确认</div>
-      </div>
-      <div className={'am-picker-content'}>
-        {pickers}
-      </div>
-    </Modal> : null;
+    const modalEl = this.props.modalEl;
+    let modal;
+    if( !this.state.modalVisible ){
+      modal = null;
+    } else{
+      const modalChild = (
+        <div>
+          <div className={'am-picker-header'}>
+            <div className={'am-picker-item'} onClick={this.hide}>取消</div>
+            <div className={'am-picker-item'}></div>
+            <div className={'am-picker-item'} onClick={this.onFinish}>确认</div>
+          </div>
+          <div className={'am-picker-content'}>
+            {pickers}
+          </div>
+        </div>
+      );
+      modal = React.createElement(modalEl, {
+        visible: true,
+        style: {left: 0, bottom: 0},
+        onUserDismissModal: this.hide,
+      }, modalChild);
+    }
+
     return (
       <div>
         {modal}
