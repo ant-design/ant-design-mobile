@@ -98,7 +98,7 @@ const ListPicker = React.createClass({
     const pickerValue = this.getPickerValue().concat();
     pickerValue[index] = selectNameValue;
     for (let i = index + 1; i < pickerValue.length; i++) {
-      pickerValue[i] = getValue0(this.dataMap[pickerValue[i - 1]].children);
+      pickerValue[i] = getValue0(this.dataMap[pickerValue[i - 1]] && this.dataMap[pickerValue[i - 1]].children);
     }
     this.setState({
       pickerValue,
@@ -122,7 +122,7 @@ const ListPicker = React.createClass({
     if (this.props.value) {
       return this.props.value.map((v)=> {
         if (v) {
-          return this.dataMap[v].label;
+          return this.dataMap[v] && this.dataMap[v].label;
         }
         return '';
       }).filter(v=>!!v).join(',');
