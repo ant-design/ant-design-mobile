@@ -33,6 +33,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "gregorian-calendar": "^4.1.0",
     "gregorian-calendar-format": "^4.0.4",
     "history": "^1.16.0",
     "object-assign": "~4.0.1",

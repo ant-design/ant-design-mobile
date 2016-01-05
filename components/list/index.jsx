@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
-function noop() {}
+function noop() {
+}
 
 const List = React.createClass({
   propTypes: {
@@ -16,7 +17,7 @@ const List = React.createClass({
   render() {
     let {prefixCls, isIconList} = this.props;
     let wrapCls = prefixCls + '-list ' + prefixCls + '-list-flat ' + prefixCls + '-list-chip ' + prefixCls + '-list-form ';
-    if(isIconList) {
+    if (isIconList) {
       wrapCls = wrapCls + prefixCls + '-list-iconlist ';
     }
     return (
@@ -122,7 +123,7 @@ const Item = React.createClass({
     let {link, prefixCls, extraCls, thumb, arrow, line } = this.props;
     let itemCls, thumbDom, arrowDom;
 
-    if(line === 2) {
+    if (line === 2) {
       itemCls = prefixCls + '-list-item ' + prefixCls + '-list-item-13';
     } else {
       itemCls = prefixCls + '-list-item';
@@ -130,8 +131,8 @@ const Item = React.createClass({
 
     itemCls = extraCls === '' ? itemCls : itemCls + ' ' + extraCls;
 
-    if(thumb) {
-      if(line === 1) {
+    if (thumb) {
+      if (line === 1) {
         thumbDom = <div className={prefixCls + '-list-thumb'}><img src={thumb} width="32" height="32"/></div>;
       } else {
         thumbDom = <div className={prefixCls + '-list-thumb'}><img src={thumb} width="45" height="45"/></div>;
@@ -139,20 +140,21 @@ const Item = React.createClass({
     }
 
     let extraDom = '';
-    if(this.props.extra) {
+    if (this.props.extra) {
       extraDom = <div className={prefixCls + '-list-extra'}>{this.props.extra}</div>;
     }
 
-    /* arrow有值，则保留这个dom坑位 */
     if (!!arrow) {
-      /* 当值是horizontal时,渲染水平箭头 */
       if (arrow === 'horizontal') {
-        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-horizontal'}></span></div>;
-        /* 当值是vertical时,渲染垂直箭头 */
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span
+          className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-horizontal'}></span></div>;
       } else if (arrow === 'down') {
-        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical'}></span></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span
+          className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical'}></span></div>;
       } else if (arrow === 'up') {
-        arrowDom = <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical ' + prefixCls + '-icon-arrow-vertical-up'}></span></div>;
+        arrowDom = <div className={prefixCls + '-list-arrow'}><span
+          className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical ' + prefixCls + '-icon-arrow-vertical-up'}></span>
+        </div>;
       } else {
         arrowDom = <div className={prefixCls + '-list-arrow'}></div>;
       }
@@ -160,7 +162,7 @@ const Item = React.createClass({
       arrowDom = null;
     }
     return (
-      <a href={link} className={itemCls} onClick={this._handleClick}>
+      <a href={link || '#'} className={itemCls} onClick={this._handleClick}>
         {thumbDom}
         <div className={prefixCls + '-list-content'}>{this.props.children}</div>
         {extraDom}

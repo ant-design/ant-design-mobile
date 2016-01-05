@@ -21,7 +21,7 @@ function convertData(arr) {
 }
 const ListPicker = React.createClass({
   propTypes: {
-    selected: PropTypes.array,
+    value: PropTypes.array,
     colCount: PropTypes.number,
     onChange: PropTypes.func,
     modalVisible: PropTypes.bool,
@@ -31,13 +31,14 @@ const ListPicker = React.createClass({
     return {
       value: [],
       srcData: [],
+      onModalVisibleChange() {},
       onChange: noop,
       colCount: 3
     };
   },
   getInitialState() {
     const collectResult = [];
-    const selectedResult = this.props.value;
+    const selectedResult = this.props.value.concat();
     const ifNeedInitSelectValue = !selectedResult.length;
     let data = convertData(this.props.srcData);
     if (ifNeedInitSelectValue) {
@@ -68,8 +69,8 @@ const ListPicker = React.createClass({
       newState.value = selectedResult;
     }
     return {
-      modalVisible: false,
-      value: ifNeedInitSelectValue ? selectedResult : this.props.value,
+      modalVisible: this.props.modalVisible || false,
+      value: ifNeedInitSelectValue ? selectedResult : this.props.value.concat(),
       selectedName: [],
       collectionToRender: collectResult,
       data: data
@@ -104,8 +105,6 @@ const ListPicker = React.createClass({
     });
     return result;
   },
-  componentDidMount(){
-  },
   hide() {
     this.setVisibleState(false);
   },
@@ -114,7 +113,7 @@ const ListPicker = React.createClass({
   },
   onFinish() {
     this.hide();
-    this.props.onChange(this.state.value);
+    this.props.onChange(this.state.value.concat());
   },
   onValueChange(index, item, value) {
     const currentRender = this.state.collectionToRender;//update renderCollection
@@ -155,7 +154,8 @@ const ListPicker = React.createClass({
       );
     }
     const selectItemNames = [];
-    this.state.value.forEach((v)=> {
+
+    this.props.value.forEach((v)=> {
       let item = this.findItemByValue(this.state.data, v);
       if (item && item.label) {
         selectItemNames.push(item.label);
