@@ -33,6 +33,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "gregorian-calendar": "^4.1.0",
     "gregorian-calendar-format": "^4.0.4",
     "history": "^1.16.0",
     "object-assign": "~4.0.1",
@@ -41,9 +42,7 @@
     "react-textarea-autosize": "~3.2.0",
     "rmc-date-picker": "^1.2.0",
     "rmc-modal": "^0.3.0",
-    "rmc-picker": "^2.1.0",
-    "semver": "~5.0.3",
-    "warning": "~2.1.0"
+    "rmc-picker": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -82,7 +81,7 @@
     "webpack-dev-middleware": "^1.2.0"
   },
   "scripts": {
-    "babel": "babel components index.js --out-dir lib",
+    "babel": "babel components --out-dir lib",
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site dist",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",

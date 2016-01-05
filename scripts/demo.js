@@ -10,7 +10,6 @@ window['react-router'] = require('react-router');
 var antm = require('../index');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var semver = require('semver');
 window.antm = antm;
 window.React = React;
 window.ReactDOM = ReactDOM;
