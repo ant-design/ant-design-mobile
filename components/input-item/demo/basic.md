@@ -32,6 +32,10 @@ let BasicInput = React.createClass({
             onFocus={function(e){console.log('onFocus'); console.log(e);}}
           >我是</InputItem>
           <InputItem
+            value="xxx"
+            mode="label"
+          >我是</InputItem>
+          <InputItem
             {...getFieldProps('222', {
               initialValue: 'dada22',
               valuePropName: 'value'
