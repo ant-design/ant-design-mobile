@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import List from '../list/index';
-import Search from '../search/index';
+import SearchBar from '../search-bar/index';
 
 function noop() {}
 
@@ -102,7 +102,7 @@ let ListSelector = React.createClass({
 
     let searchDom = null;
     if(this.props.needSearch) {
-      searchDom = (<Search
+      searchDom = (<SearchBar
         placeholder="请输入关键字"
         onSubmit={this._onSubmit}
         onChange={this._onChange}

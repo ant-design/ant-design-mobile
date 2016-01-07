@@ -11,7 +11,8 @@ const antm = {
   ListPicker      : require('./components/list-picker'),
   ListDatePicker  : require('./components/list-date-picker'),
   ListSelector    : require('./components/list-selector'),
-  Search          : require('./components/search'),
+  SearchBar       : require('./components/search-bar'),
+  Process         : require('./components/process'),
   Tab             : require('./components/tab'),
   Modal           : require('./components/modal'),
   PageResult      : require('./components/page-result')

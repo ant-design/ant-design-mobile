@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 function noop() {}
 
-const Search = React.createClass({
+const SearchBar = React.createClass({
   propTypes: {
     value: PropTypes.string,
     placeholder: PropTypes.string,
@@ -79,4 +79,4 @@ const Search = React.createClass({
     );
   }
 });
-module.exports = Search;
+module.exports = SearchBar;

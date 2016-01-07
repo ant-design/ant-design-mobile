@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 结果页面
-- type:
+- type: 其它
 
 ---
 

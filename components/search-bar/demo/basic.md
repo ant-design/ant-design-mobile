@@ -5,13 +5,13 @@
 ---
 
 ````jsx
-import {Search} from 'antm';
-let SearchExample = React.createClass({
+import { SearchBar } from 'antm';
+let SearchBarExample = React.createClass({
   render() {
     return (
       <div>
         <div>
-          <Search
+          <SearchBar
             value="1111"
             placeholder="搜索"
             onSubmit={function(value){console.log('onSubmit' + value);}}
@@ -19,7 +19,7 @@ let SearchExample = React.createClass({
             onClear={function(value){console.log('onClear');}}
             onCancel={function(value){console.log('onCancel');}}
           />
-          <Search
+          <SearchBar
             value=""
             placeholder="搜索1"
             onSubmit={function(value){console.log('onSubmit' + value);}}
@@ -28,14 +28,14 @@ let SearchExample = React.createClass({
             onCancel={function(value){console.log('onCancel');}}
             showCancelButton={true}
           />
-          <Search
+          <SearchBar
             placeholder="搜索输入框被禁用"
             disablSearch={true}
           />
         </div>
         <div className="am-flexbox">
           <section className="am-flexbox-item">
-          <Search
+          <SearchBar
             value=""
             placeholder="搜索"
             onSubmit={function(value){console.log('onSubmit' + value);}}
@@ -52,5 +52,5 @@ let SearchExample = React.createClass({
   }
 });
 
-ReactDOM.render(<SearchExample />, document.getElementById('components-search-demo-basic'));
+ReactDOM.render(<SearchBarExample />, document.getElementById('components-search-bar-demo-basic'));
 ````

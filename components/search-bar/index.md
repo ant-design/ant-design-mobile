@@ -1,7 +1,7 @@
-# Search
+# SearchBar
 
 - category: Components
-- chinese: 搜索
+- chinese: 搜索栏
 - type: 表单
 
 ---

@@ -1,21 +1,20 @@
-# Tab
+# Process
 
 - category: Components
-- chinese: 选项卡
+- chinese: 支付流程
 - type: 其它
 
 ---
 
 列表项
 
-## 何时使用
+## 如何使用
 
-看demo就了然了吧
+每个流程需要可以三个参数,分别为type、title、brief
 
 ## API
 
-### Tab.Item
+### TabItem
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| selected    | 是否选择        | Bool |  false  |
-| onClick    |    点击回调函数     | Func |    ||
+| result    |    支付流程的配置     | Object |    |

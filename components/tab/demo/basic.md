@@ -7,7 +7,7 @@ Tab，`line`默认为1。
 ---
 
 ````jsx
-import {Tab} from 'antm';
+import { Tab } from 'antm';
 let TabExample = React.createClass({
   getInitialState(){
     return { selectedTab: 'tab1' };
