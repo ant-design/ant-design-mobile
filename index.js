@@ -13,6 +13,7 @@ const antm = {
   ListSelector    : require('./components/list-selector'),
   SearchBar       : require('./components/search-bar'),
   Process         : require('./components/process'),
+  TopNotice         : require('./components/top-notice'),
   Tab             : require('./components/tab'),
   Modal           : require('./components/modal'),
   PageResult      : require('./components/page-result')

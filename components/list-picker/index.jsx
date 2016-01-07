@@ -5,7 +5,7 @@ import 'rmc-modal/assets/index.css';
 import Picker from 'rmc-picker';
 import Modal from 'rmc-modal';
 import React, {PropTypes} from 'react';
-import {treeFilter} from '../utils/treeFilter.jsx';
+import {treeFilter} from '../utils/treeFilter';
 
 const emptyArray = [];
 

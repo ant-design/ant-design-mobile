@@ -19,7 +19,7 @@ let Test = React.createClass({
       <List>
         <List.Header>店铺位置</List.Header>
         <List.Body>
-          <ListPicker srcData={district.district} {...getFieldProps('district', {
+          <ListPicker data={district.district} {...getFieldProps('district', {
             //initialValue: ['340000', '340800', '340822']
           })}>
             <List.Item arrow="horizonal">所在地区</List.Item>

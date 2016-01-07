@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 选项卡
-- type: 其它
+- type:
 
 ---
 
