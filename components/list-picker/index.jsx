@@ -5,63 +5,40 @@ import 'rmc-modal/assets/index.css';
 import Picker from 'rmc-picker';
 import Modal from 'rmc-modal';
 import React, {PropTypes} from 'react';
+import {treeFilter} from '../utils/treeFilter.jsx';
 
 const emptyArray = [];
 
 function noop() {
 }
 
-function getValue0(items) {
-  return items && items[0] && items[0].value;
-}
-
-function loop(ds, fn) {
-  ds.forEach((d)=> {
-    fn(d);
-    if (d.c) {
-      loop(d.c, fn);
-    }
-  });
-}
-
 const ListPicker = React.createClass({
   propTypes: {
     value: PropTypes.array,
-    colCount: PropTypes.number,
+    cols: PropTypes.number,
     onChange: PropTypes.func,
     modalVisible: PropTypes.bool,
-    srcData: PropTypes.array,
+    data: PropTypes.array,
     onModalVisibleChange: PropTypes.func,
   },
   getDefaultProps() {
     return {
-      srcData: [],
+      data: [],
       onModalVisibleChange() {
       },
       onChange: noop,
-      colCount: 3
+      cols: 3
     };
   },
   getInitialState() {
-    const dataMap = {};
-
-    let data = this.props.srcData;
-
-    loop(data, (d)=> {
-      d.value = d.i;
-      d.label = d.n;
-      d.children = d.c;
-      dataMap[d.value] = d;
-    });
-
-    this.dataMap = dataMap;
+    let data = this.props.data;
 
     const value = [];
 
-    for (let i = 0; i < this.props.colCount; i++) {
+    for (let i = 0; i < this.props.cols; i++) {
       if (data && data.length) {
-        value[i] = data[0].value;
-        data = data[0].children;
+        value[i] = data[0].i;
+        data = data[0].c;
       } else {
         value[i] = undefined;
       }
@@ -97,8 +74,13 @@ const ListPicker = React.createClass({
   onValueChange(index, selectNameValue) {
     const pickerValue = this.getPickerValue().concat();
     pickerValue[index] = selectNameValue;
-    for (let i = index + 1; i < pickerValue.length; i++) {
-      pickerValue[i] = getValue0(this.dataMap[pickerValue[i - 1]] && this.dataMap[pickerValue[i - 1]].children);
+    const children = treeFilter(this.props.data, (c, level) => {
+      return level <= index && c.i === pickerValue[level];
+    });
+    let data = children[index];
+    for (let i = index + 1; data && data.children && data.children.length && i < pickerValue.length; i++) {
+      data = data.c[0];
+      pickerValue[i] = data.i;
     }
     this.setState({
       pickerValue,
@@ -118,29 +100,46 @@ const ListPicker = React.createClass({
   getPickerValue() {
     return this.state.pickerValue || this.getValue();
   },
-  getSel() {
-    if (this.props.value) {
-      return this.props.value.map((v)=> {
-        if (v) {
-          return this.dataMap[v] && this.dataMap[v].label;
-        }
-        return '';
-      }).filter(v=>!!v).join(',');
+  getColArray() {
+    const ret = [];
+    for (let i = 0; i < this.props.cols; i++) {
+      ret[i] = undefined;
     }
+    return ret;
+  },
+  getSel() {
+    const value = this.props.value || [];
+    const treeChildren = treeFilter(this.props.data, (c, level)=> {
+      return c.i === value[level];
+    }, {});
+    return treeChildren.map((v)=> {
+      return v.n;
+    }).join(',');
   },
   render() {
     let pickers = [];
     const value = this.getPickerValue();
 
     if (this.state.modalVisible) {
-      pickers = value.map((v, i) => {
-        const d = i === 0 ? this.props.srcData : this.dataMap[value[i - 1]] && this.dataMap[value[i - 1]].children;
+      const childrenTree = treeFilter(this.props.data, (c, level) => {
+        return c.i === value[level];
+      }).map(c => c.c);
+      childrenTree.length = this.props.cols - 1;
+      childrenTree.unshift(this.props.data);
+      pickers = (this.getColArray().map((v, i) => {
+        let d = childrenTree[i] || emptyArray;
+        d = d.map((item) => {
+          return {
+            label: item.n,
+            value: item.i,
+          };
+        });
         return (<div key={i} className={'am-picker-item'}>
-          <Picker defaultSelectedValue={v} onValueChange={this.onValueChange.bind(this, i)}>
-            {d || emptyArray}
+          <Picker selectedValue={value[i]} onValueChange={this.onValueChange.bind(this, i)}>
+            {d}
           </Picker>
         </div>);
-      });
+      }));
     }
 
     const extraProps = {
