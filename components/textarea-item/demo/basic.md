@@ -7,33 +7,69 @@
 ---
 
 ````jsx
-import { List, TextareaItem} from 'antm';
+import { List, TextareaItem } from 'antm';
+import { createForm } from 'rc-form';
 
-ReactDOM.render(
-  <div>
-  <List>
-    <List.Body>
-      <TextareaItem
-        label="我是"
-        name="yyy"
-        value="dada22东方朔放松放松东方朔放松放松冯绍峰放松放松放松放松放松放松放松放松\n放松放松方式"
-        placeholder="带清除"
-        clear={true}
-        onChange={function(e){console.log('onChange'); console.log(e);}}
-        onBlur={function(){console.log('onBlur'); }}
-        onFocus={function(e){console.log('onFocus'); console.log(e);}}
-      />
-      <TextareaItem
-        label="我是"
-        name="yyy"
-        placeholder="不带清除"
-        clear={false}
-        onChange={function(e){console.log('onChange'); console.log(e);}}
-        onBlur={function(){console.log('onBlur');}}
-        onFocus={function(e){console.log('onFocus'); console.log(e);}}
-      />
-    </List.Body>
-  </List>
-  </div>
-, document.getElementById('components-textarea-item-demo-basic'));
+let TextareaItemExample = React.createClass({
+  onClick() {
+    console.log(this.props.form.getFieldsValue());
+  },
+  render() {
+    const { getFieldProps } = this.props.form;
+    return (
+      <List>
+        <List.Body>
+          <TextareaItem
+            {...getFieldProps('note', {
+              initialValue: 'dada22东方朔放松放松东方朔放松放松冯绍峰放松放松放松放松放松放松放松放松',
+              valuePropName: 'value'
+            })}
+            label="备注说明"
+            name="yyy"
+            rows={5}
+            placeholder="带清除"
+            clear={true}
+            onBlur={function(){console.log('onBlur'); }}
+            onFocus={function(e){console.log('onFocus'); console.log(e);}}
+          />
+          <TextareaItem
+            {...getFieldProps('note2', {
+              initialValue: '',
+              valuePropName: 'value'
+            })}
+            label="备注说明"
+            name="yyy"
+            placeholder="请填写"
+            clear={false}
+            rows={5}
+            maxLength={100}
+            onBlur={function(){console.log('onBlur');}}
+            onFocus={function(e){console.log('onFocus'); console.log(e);}}
+          />
+          <TextareaItem
+            {...getFieldProps('note3', {
+              initialValue: '',
+              valuePropName: 'value'
+            })}
+            label="备注说明"
+            placeholder="请填写"
+          />
+          <TextareaItem
+            {...getFieldProps('note4', {
+              initialValue: '',
+              valuePropName: 'value'
+            })}
+            label="备注说明"
+            clear={true}
+            placeholder="请填写"
+          />
+        </List.Body>
+      </List>
+    );
+  }
+});
+
+TextareaItemExample = createForm()(TextareaItemExample);
+
+ReactDOM.render(<TextareaItemExample/>, document.getElementById('components-textarea-item-demo-basic'));
 ````
