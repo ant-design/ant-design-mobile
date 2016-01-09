@@ -9,54 +9,51 @@ Button
 ````jsx
 import { Button} from 'antm';
 ReactDOM.render(
-    <div>
-      <div className="am-whitespace am-whitespace-10"></div>
-      <div className="am-wingblank am-wingblank-10">
-        <Button
-          mode="blue"
-          type="link"
-          onClick={function(e){console.log('onChange'); console.log(e);}}
-        >蓝色43px按钮</Button>
-      </div>
-      <div className="am-whitespace am-whitespace-10"></div>
-      <div className="am-wingblank am-wingblank-10">
+  <div className="button-container">
+    <div className="am-whitespace am-whitespace-10"></div>
+    <div className="am-wingblank am-wingblank-10">
+      <Button onClick={function(e){console.log('onChange'); console.log(e);}}>主按钮</Button>
+    </div>
+    <div className="am-whitespace am-whitespace-10"></div>
+    <div className="am-wingblank am-wingblank-10">
+      <Button
+        disabled={true}
+        onClick={function(e){console.log('onChange'); console.log(e);}}
+      >不可点按钮</Button>
+    </div>
+    <div className="am-whitespace am-whitespace-20"></div>
+    <div className="am-wingblank am-wingblank-10">
       <Button
         mode="white"
-        type="submit"
         onClick={function(e){console.log('onChange'); console.log(e);}}
-      >白色43px按钮</Button>
-      </div>
-      <div className="am-whitespace am-whitespace-10"></div>
-      <div className="am-wingblank am-wingblank-10">
+      >次按钮</Button>
+    </div>
+    <div className="am-whitespace am-whitespace-20"></div>
+    <div className="am-wingblank am-wingblank-10">
       <Button
         mode="red"
-        type="link"
         onClick={function(e){console.log('onChange'); console.log(e);}}
-      >红色43px按钮</Button>
-      </div>
-      <div className="am-whitespace am-whitespace-10"></div>
-      <div className="am-wingblank am-wingblank-10">
+      >红色按钮</Button>
+    </div>
+    <div className="am-whitespace am-whitespace-20"></div>
+    <div className="am-wingblank am-wingblank-10">
       <Button
-        mode="blue"
-        defaultDisabled={true}
-        type="submit"
+        mode="light"
         onClick={function(e){console.log('onChange'); console.log(e);}}
-      >不可用点按钮</Button>
-      </div>
-      <div className="am-whitespace am-whitespace-10"></div>
+      >轻按钮</Button>
+    </div>
+    <div className="am-whitespace am-whitespace-20"></div>
+    <div className="am-whitespace am-whitespace-10"></div>
       <Button
         mode="warn"
-        type="submit"
         onClick={function(e){console.log('onChange'); console.log(e);}}
       >警示按钮</Button>
-      <div className="am-whitespace am-whitespace-10"></div>
+    <div className="am-whitespace am-whitespace-10"></div>
       <Button
-        defaultDisabled={true}
+        disabled={true}
         mode="warn"
-        type="submit"
         onClick={function(e){console.log('onChange'); console.log(e);}}
       >警示按钮不可点</Button>
-    </div>
-
+  </div>
 , document.getElementById('components-button-demo-basic'));
 ````

@@ -48,7 +48,7 @@ let ModalListItem = React.createClass({
             }
           })}
         >
-          <List.Item extra="请选择" arrow="horizonal">所在地区</List.Item>
+          <List.Item extra="请选择" arrow="horizontal">所在地区</List.Item>
         </ListSelector>
     );
   }

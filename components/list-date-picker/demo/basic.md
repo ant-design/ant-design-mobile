@@ -19,7 +19,7 @@ let Test = React.createClass({
           <ListDatePicker mode="date" { ...getFieldProps('date', {
             initialValue: '2015-11-11'
           })}>
-            <List.Item arrow="horizonal">时间</List.Item>
+            <List.Item arrow="horizontal">时间</List.Item>
           </ListDatePicker>
         </List.Body>
       </List>

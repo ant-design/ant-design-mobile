@@ -1754,6 +1754,9 @@ footer ul li > a {
 .phone-content * {
   box-sizing: content-box;
 }
+.button-container * {
+  box-sizing: border-box;
+}
 .code-box .code-box-demo {
   border-bottom: 1px solid #E9E9E9;
   background: #f5f5f9;

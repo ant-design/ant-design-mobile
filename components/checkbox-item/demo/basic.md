@@ -61,10 +61,7 @@ let Test = React.createClass({
         >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></CheckboxItem>
       <div className="am-whitespace am-whitespace-12"></div>
       <div className="am-wingblank am-wingblank-10">
-        <Button
-          mode="white"
-          type="submit"
-          onClick={this.onClick}
+        <Button onClick={this.onClick}
         >Submit</Button>
       </div>
     </div>);

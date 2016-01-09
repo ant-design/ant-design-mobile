@@ -22,7 +22,7 @@ let Test = React.createClass({
           <ListPicker data={district.district} {...getFieldProps('district', {
             //initialValue: ['340000', '340800', '340822']
           })}>
-            <List.Item arrow="horizonal">所在地区</List.Item>
+            <List.Item arrow="horizontal">所在地区</List.Item>
           </ListPicker>
         </List.Body>
       </List>

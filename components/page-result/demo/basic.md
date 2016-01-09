@@ -13,7 +13,7 @@ let PageResultExample = React.createClass({
     return (
       <PageResult
         imgUrl="https://t.alipayobjects.com/images/rmsweb/T1sFNgXodiXXXXXXXX.png"
-        title="主报错"
+        title="报错文案"
         brief="报错说明"
         buttonTxt="再试一次"
         buttonClick={function(){}}

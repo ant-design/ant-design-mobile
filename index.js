@@ -2,6 +2,7 @@ import './style/index.less';
 
 const antm = {
   List            : require('./components/list'),
+  Flex            : require('./components/flex'),
   InputItem       : require('./components/input-item'),
   CheckboxItem    : require('./components/checkbox-item'),
   TextareaItem    : require('./components/textarea-item'),

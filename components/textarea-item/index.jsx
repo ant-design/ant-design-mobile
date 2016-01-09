@@ -16,7 +16,6 @@ const TextareaItem = React.createClass({
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
-
   },
   getDefaultProps() {
     return {
@@ -35,11 +34,11 @@ const TextareaItem = React.createClass({
   },
   _onChange(e) {
     let value = e.target.value;
-    const { maxLength } = this.props;
+    const { maxLength, onChange } = this.props;
     if(maxLength > 0) {
       value = value.substring(0, maxLength);
     }
-    this.props.onChange.call(this, value);
+    onChange.call(this, value);
   },
   _onBlur(e) {
     this.props.onBlur.call(this);
@@ -53,22 +52,22 @@ const TextareaItem = React.createClass({
   },
 
   render(){
-    let {prefixCls, label, rows, maxLength } = this.props;
+    let {prefixCls, label, name, value, placeholder, clear, rows, maxLength } = this.props;
     let labelDom = '';
     let textareaStyle = {marginTop: '4px'};
     let alignSelfStyle = {alignSelf: 'stretch'};
     if (label) {
       if(rows === 1) {
-        labelDom = (<div className={prefixCls + '-list-label'}>{this.props.label}</div>);
+        labelDom = (<div className={prefixCls + '-list-label'}>{label}</div>);
       } else {
-        labelDom = (<div className={prefixCls + '-list-label'} style={rows > 1 ? alignSelfStyle : {}}>{this.props.label}</div>);
+        labelDom = (<div className={prefixCls + '-list-label'} style={rows > 1 ? alignSelfStyle : {}}>{label}</div>);
       }
     }
 
     let clearDom = '';
-    const clearClass = this.props.clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear ' + prefixCls + '-list-item-form' : prefixCls + '-list-item';
-    if (!!this.props.clear) {
-      if (this.props.value.length > 0) {
+    const clearClass = clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear ' + prefixCls + '-list-item-form' : prefixCls + '-list-item';
+    if (clear) {
+      if (value.length > 0) {
         clearDom = (<div className={prefixCls + '-list-clear'} style={rows > 1 ? alignSelfStyle : {}}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} style={{visibility: 'visible'}}
           onClick={this._clearInput}
           onTouchStart={this._clearInput}></i></div>);
@@ -82,20 +81,20 @@ const TextareaItem = React.createClass({
 
     let strNumDom = '';
     if (maxLength > 0) {
-      strNumDom = <span style={strNumStyle}>{maxLength - this.props.value.length}</span>;
+      strNumDom = <span style={strNumStyle}>{maxLength - value.length}</span>;
     }
 
     return (
       <div className={clearClass} onClick={this._handleClick}>
         {labelDom}
         <div className={prefixCls + '-list-control'}>
-          <textarea name={this.props.name}
-            rows={this.props.rows}
-            placeholder={this.props.placeholder}
+          <textarea name={name}
+            rows={rows}
+            placeholder={placeholder}
             onChange={this._onChange}
             onBlur={this._onBlur}
             onFocus={this._onFocus}
-            value={this.props.value}
+            value={value}
             style={rows > 1 ? textareaStyle : {}}
           />
         </div>

@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { List } from 'antm';
+import { List, Button } from 'antm';
 
 ReactDOM.render(
   <div>
@@ -28,7 +28,12 @@ ReactDOM.render(
       ><div className="am-list-title">运营</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></List.Item>
       <List.Item
         line={2}
-        extra={<a className="am-button am-button-tiny am-button-light am-button-inline">按钮</a>}
+        extra={<Button
+        mode="light"
+        size="tiny"
+        inline={true}
+        onClick={function(e){console.log('onChange'); console.log(e);}}
+      >按钮</Button>}
       ><div><div className="am-list-title">区域经理</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></div></List.Item>
       <List.Item line={2} arrow="down">
         <div><div className="am-list-title">客服经理</div><div className="am-list-brief">自定义权限</div></div>

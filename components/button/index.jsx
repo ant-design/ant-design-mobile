@@ -3,17 +3,19 @@ function noop() {}
 
 const Button = React.createClass({
   propTypes: {
-    prefixCls: PropTypes.string,
-    type          : PropTypes.string,
+    prefixCls     : PropTypes.string,
     mode          : PropTypes.string,
+    size          : PropTypes.string,
+    inline        : PropTypes.bool,
     disabled      : PropTypes.bool,
     onClick       : PropTypes.func,
   },
   getDefaultProps() {
     return {
       prefixCls: 'am',
-      type: 'button',
       mode: 'blue',
+      size: 'large',
+      inline: false,
       disabled: false,
       onClick:noop,
     };
@@ -23,22 +25,25 @@ const Button = React.createClass({
   },
 
   render(){
-    let {prefixCls, mode, type, disabled} = this.props;
-    let modeClass = prefixCls + '-button-' + mode;
+    let {prefixCls, mode, size, inline, disabled} = this.props;
+    let buttonClass = prefixCls + '-button-' + mode;
+
     if(mode === 'warn') {
-      modeClass = modeClass + ' ' + prefixCls + '-button-flat';
+      buttonClass = buttonClass + ' ' + prefixCls + '-button-flat';
     }
 
-    let allClass = prefixCls + '-button ' + modeClass;
-    if(disabled === true) {
+    buttonClass += ' ' + prefixCls + '-button-' + size;
+
+    if(inline) {
+      buttonClass += ' ' + prefixCls + '-button-inline';
+    }
+
+    let allClass = prefixCls + '-button ' + buttonClass;
+    if(disabled) {
       allClass = allClass + ' ' + prefixCls + '-button-disabled';
     }
 
-    if(type === 'link') {
-      return (<a className={allClass} disabled={disabled} onClick={this._handleClick}>{this.props.children}</a>);
-    } else {
-      return (<button type="button" className={allClass} disabled={disabled} onClick={this._handleClick}>{this.props.children}</button>);
-    }
+    return (<button type="button" className={allClass} disabled={disabled} onClick={this._handleClick}>{this.props.children}</button>);
   }
 });
 module.exports = Button;

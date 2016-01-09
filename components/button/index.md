@@ -17,8 +17,9 @@
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | prefixCls    | 默认class前缀        | String |   'am'  |
-| type       | 赞不支持        | String |   无  |
-| mode    | 按钮类型        | String |   无  |
-| defaultDisabled   | 模块mount后立即执行的方法,参数是react模块对象本身 | Function |   无  |
-| onClick     | input blur事件触发的回调函数,参数是event对象 | Function |   无  |
+| mode    | 按钮类型,`blue`、`white` 、 `red` 、`warn` 、`light`      | String |   `blue`  |
+| size       | 按钮大小，`large`、`middle`、`small`、`little`、`tiny`        | String |   `large`  |
+| inline       | 是否是行内按钮        | boolean |  false  |
+| disabled   | 是否不可用 | boolean |   false  |
+| onClick     | 点击按钮的回调函数 | Function |   无  |
 

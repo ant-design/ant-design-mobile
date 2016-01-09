@@ -1,25 +1,17 @@
 @import '../base/mixins';
 
 .am-button {
-  &[type='button'],
-  &[type='submit'] {
-    outline: 0px none;
-    -webkit-appearance: none;
-  }
+  outline: 0 none;
+  -webkit-appearance: none;
   display: inline-block;
   width: 100%;
   padding: 0 4px;
   .box-sizing();
-  height: 42px;
   text-align: center;
   font-size: 18px;
-  line-height: 42px;
-  .border-radius(4px);
-  &.am-button-43 {
-    height: 43px;
-    line-height: 43px;
-    .border-radius(5px);
-  }
+  height: 43px;
+  line-height: 43px;
+  .border-radius(6px);
   &.am-button-tiny {
     height: 24px;
     font-size: 13px;
@@ -55,11 +47,10 @@
     }
   }
   /* 蓝色按钮 */
-  &,
   &.am-button-blue {
-    border: 0px none;
+    border: 0 none;
     color: #ffffff;
-    background-color: #00aaee;
+    background-color: #0ae;
     &:active,
     &.hover {
       color: #ffffff;
@@ -77,17 +68,6 @@
       background-color: #bd4040;
     }
   }
-  /* 黑色按钮 */
-  &.am-button-black {
-    border: 0px none;
-    background-color: #717378;
-    color: #cccccc;
-    &:active,
-    &.hover {
-      color: #999999;
-      background-color: #54585f;
-    }
-  }
   &.am-button-white {
     border: 1px solid #dddddd;
     color: #666666;
@@ -99,22 +79,23 @@
       background-color: #f8f8f8;
     }
   }
+  &.am-button-warn {
+    color: #f4333c;
+    &:active,
+    &.hover {
+      color: #f4333c;
+    }
+  }
 
   &.am-button-disabled {
     &:disabled {
-      border: 0px none;
-      //border-color:#ebebf0;
+      border: 0 none;
       color: #d2d2d2;
       &:active,
       &.hover {
-        border: 0px none;
+        border: 0 none;
         color: #d2d2d2;
       }
-    }
-    &&.am-button-43 {
-      height: 43px;
-      line-height: 43px;
-      .border-radius(5px);
     }
   }
   &.am-button-disabled,
@@ -128,11 +109,6 @@
       border-color: #ebebf0;
       color: #e6e6e6;
       background-color: #ebebf0;
-    }
-    &.am-button-43 {
-      height: 43px;
-      line-height: 43px;
-      .border-radius(5px);
     }
   }
   &.am-button-blue-disabled:disabled {
@@ -156,32 +132,22 @@
     }
   }
   &.am-button-light {
-    color: #00aaee;
-    border: 1px solid #00aaee;
-    background-color: #ffffff;
+    color: #0ae;
+    border: 1px solid #0ae;
+    background-color: #fff;
     &:active,
     &.hover {
       color: #ffffff;
-      background-color: #00aaee;
+      background-color: #0ae;
     }
     &&.am-button-red {
       color: #ec5050;
       border: 0px none;
-      background-color: #ffffff;
+      background-color: #fff;
       &:active,
       &.hover {
-        color: #ffffff;
+        color: #fff;
         background-color: #bd4040;
-      }
-    }
-    &.am-button-black {
-      color: #666666;
-      border: 0px none;
-      background-color: #ffffff;
-      &:active,
-      &.hover {
-        color: #666666;
-        background-color: #f8f8f8;
       }
     }
   }
@@ -211,13 +177,6 @@
       linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 100)) bottom left no-repeat,
       #ededed;
       -webkit-background-size: 100% 1px, 100% 1px;
-    }
-  }
-  &.am-button-warn {
-    color: #f4333c;
-    &:active,
-    &.hover {
-      color: #f4333c;
     }
   }
   &.am-button-warn:disabled {
