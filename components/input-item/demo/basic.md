@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { List, InputItem} from 'antm';
+import { List, InputItem } from 'antm';
 import { createForm } from 'rc-form';
 
 let BasicInput = React.createClass({
