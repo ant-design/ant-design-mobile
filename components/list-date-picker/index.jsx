@@ -1,9 +1,10 @@
 /* eslint no-console:0 */
+
 import 'rmc-picker/assets/index.css';
 import 'rmc-date-picker/assets/index.css';
+import 'rmc-date-picker/assets/popup.css';
 import 'rmc-modal/assets/index.css';
-import DatePicker from 'rmc-date-picker';
-import Modal from 'rmc-modal';
+import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import React, {PropTypes} from 'react';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
 import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
@@ -59,6 +60,11 @@ const ListDatePicker = React.createClass({
       });
     }
   },
+  componentDidUpdate() {
+    if (!this.state.modalVisible) {
+      this.pickerValue = null;
+    }
+  },
   setVisibleState(modalVisible) {
     if (!('modalVisible' in this.props)) {
       this.setState({
@@ -68,57 +74,41 @@ const ListDatePicker = React.createClass({
     this.props.onModalVisibleChange(modalVisible);
   },
   hide() {
-    this.pickerValue = null;
     this.setVisibleState(false);
-  },
-  show() {
-    this.setVisibleState(true);
-  },
-  getPickerValue() {
-    return this.pickerValue || this.state.date;
   },
   componentWillUnmount(){
     this.props.onDestroy(getFormatter(this.props.mode).format(this.getPickerValue()));
   },
-  onOk(){
-    this.props.onChange(this.getFormatter().format(this.getPickerValue()));
+  onOk(v){
+    this.props.onChange(this.getFormatter().format(v));
     this.hide();
-  },
-  onDateChange(date) {
-    this.pickerValue = date;
   },
   getFormatter() {
     return getFormatter(this.props.mode);
   },
   render() {
-    const props = this.props;
-    const {date} = this.state;
-
+    const {date, modalVisible} = this.state;
+    const {mode, locale} = this.props;
     let dateStr = this.props.value ? this.props.value : '请选择';
 
     const extraProps = {
-      onClick: this.show,
       extra: dateStr
     };
+
     const childEl = React.cloneElement(this.props.children, extraProps);
 
     return (
       <div>
-        {this.state.modalVisible ? <Modal
-          style={{left: 0, bottom: 0}}
-          onDismiss={this.hide}
-          visible>
-          <div className={'am-picker-header'}>
-            <div className={'am-picker-item'} onClick={this.hide}>取消</div>
-            <div className={'am-picker-item'}></div>
-            <div className={'am-picker-item'} onClick={this.onOk}>完成</div>
-          </div>
-          <DatePicker defaultDate={date}
-                      mode={props.mode}
-                      locale={props.locale}
-                      onDateChange={this.onDateChange}/>
-        </Modal> : null}
-        {childEl}
+        <PopupDatePicker locale={locale}
+                         visible={modalVisible}
+                         mode={mode}
+                         okText="确定"
+                         dismissText="取消"
+                         style={{left: 0, bottom: 0}}
+                         onVisibleChange={this.setVisibleState}
+                         onOk={this.onOk} date={date}>
+          {childEl}
+        </PopupDatePicker>
       </div>
     );
   },
