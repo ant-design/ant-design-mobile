@@ -7,11 +7,11 @@ Button
 ---
 
 ````jsx
-import { Button, Flex, List } from 'antm';
+import { Button, Flex, List, WingBlank, WhiteSpace } from 'antm';
 ReactDOM.render(
   <div className="button-container">
-  <div className="am-whitespace am-whitespace-10"></div>
-    <div className="am-wingblank am-wingblank-10">
+  <WhiteSpace/>
+    <WingBlank>
       <Flex>
         <Flex.Item>
           <Button
@@ -26,9 +26,9 @@ ReactDOM.render(
           >large次按钮</Button>
         </Flex.Item>
       </Flex>
-    </div>
-    <div className="am-whitespace am-whitespace-10"></div>
-    <div className="am-wingblank am-wingblank-10">
+    </WingBlank>
+    <WhiteSpace/>
+    <WingBlank>
       <Flex>
         <Flex.Item>
           <Button
@@ -44,10 +44,10 @@ ReactDOM.render(
           >middle次按钮</Button>
         </Flex.Item>
       </Flex>
-    </div>
+    </WingBlank>
 
-    <div className="am-whitespace am-whitespace-10"></div>
-    <div className="am-wingblank am-wingblank-10">
+    <WhiteSpace/>
+    <WingBlank>
       <Flex>
         <Flex.Item>
           <Button
@@ -63,9 +63,9 @@ ReactDOM.render(
           >small次按钮</Button>
         </Flex.Item>
       </Flex>
-    </div>
-    <div className="am-whitespace am-whitespace-10"></div>
-    <div className="am-wingblank am-wingblank-10">
+    </WingBlank>
+    <WhiteSpace/>
+    <WingBlank>
       <Flex>
         <Flex.Item>
           <Button
@@ -81,9 +81,9 @@ ReactDOM.render(
           >little次按钮</Button>
         </Flex.Item>
       </Flex>
-    </div>
-    <div className="am-whitespace am-whitespace-10"></div>
-    <div className="am-wingblank am-wingblank-10">
+    </WingBlank>
+    <WhiteSpace/>
+    <WingBlank>
       <Flex>
         <Flex.Item>
           <Button
@@ -99,16 +99,16 @@ ReactDOM.render(
           >tiny次按钮</Button>
         </Flex.Item>
       </Flex>
-    </div>
-    <div className="am-whitespace am-whitespace-10"></div>
-    <div className="am-wingblank am-wingblank-10">
+    </WingBlank>
+    <WhiteSpace/>
+    <WingBlank>
       <Button
         mode="light"
         size="tiny"
         inline={true}
         onClick={function(e){console.log('onChange'); console.log(e);}}
       >行内按钮</Button>
-    </div>
+    </WingBlank>
     <List >
       <List.Body>
         <List.Item

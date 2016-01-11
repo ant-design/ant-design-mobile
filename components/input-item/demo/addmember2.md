@@ -7,13 +7,12 @@
 ---
 
 ````jsx
-import { List, InputItem, Button} from 'antm';
+import { List, InputItem, Button, WingBlank } from 'antm';
 
 ReactDOM.render(<div>
   <List>
     <List.Body>
       <List.Item
-        link="http://www.baidu.com"
         extra="请选择"
         arrow="horizontal"
       >所属门店</List.Item>
@@ -45,15 +44,14 @@ ReactDOM.render(<div>
         placeholder="选填"
       >邮箱地址</InputItem>
       <List.Item
-        link="http://www.baidu.com"
         arrow="horizontal"
       >员工权限</List.Item>
     </List.Body>
     <List.Footer onClick={function(e){console.log(e);}} style={{'textAlign':'center'}}>拥有退款权限的员工可在交易创建后3天内发起退款</List.Footer>
   </List>
-    <div className="am-wingblank am-wingblank-10">
-      <Button mode="blue" type="link">确认添加</Button>
-    </div>
-  </div>
+  <WingBlank>
+    <Button>确认添加</Button>
+  </WingBlank>
+</div>
 , document.getElementById('components-input-item-demo-addmember2'));
 ````

@@ -17,7 +17,6 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | label    | 文案说明        | String |   无  |
 | name    | switch的name        | String |   无  |
 | checked    | 是否默认选中        | Boolean |   false  |

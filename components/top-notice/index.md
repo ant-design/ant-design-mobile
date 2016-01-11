@@ -16,7 +16,6 @@
 ### TabItem
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | content    | 提示文案        | String |   ''  |
 | mode    | colse operation        | String |   ''  |
 | operationTxt    | 操作文案        | String |   ''  |

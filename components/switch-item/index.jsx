@@ -3,7 +3,6 @@ function noop() {}
 
 const SwitchItem = React.createClass({
   propTypes: {
-    prefixCls: PropTypes.string,
     name: PropTypes.string,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -11,7 +10,6 @@ const SwitchItem = React.createClass({
   },
   getDefaultProps() {
     return {
-      prefixCls: 'am',
       checked: false,
       disabled: false,
       onChange: noop,
@@ -22,16 +20,16 @@ const SwitchItem = React.createClass({
     this.props.onChange.call(this, checked);
   },
   render(){
-    let {prefixCls, name, checked, disabled} = this.props;
+    let { name, checked, disabled } = this.props;
 
     return (
-      <div className={prefixCls + '-list-item'}>
-        <div className={prefixCls + '-list-content'}>{this.props.children}</div>
-        <div className={prefixCls + '-switch'}>
-          <input type="checkbox" name={name} className={prefixCls + '-switch-checkbox'} {...(disabled ? {disabled:'disabled'} : '') } checked={checked} onChange={this._onSwitchChange}/>
-          <label className={prefixCls + '-switch-label'}>
-            <div className={prefixCls + '-switch-inner'}></div>
-            <div className={prefixCls + '-switch-switch'}></div>
+      <div className="am-list-item">
+        <div className="am-list-content">{this.props.children}</div>
+        <div className="am-switch">
+          <input type="checkbox" name={name} className="am-switch-checkbox" {...(disabled ? {disabled:'disabled'} : '') } checked={checked} onChange={this._onSwitchChange}/>
+          <label className="am-switch-label">
+            <div className="am-switch-inner"></div>
+            <div className="am-switch-switch"></div>
           </label>
         </div>
       </div>

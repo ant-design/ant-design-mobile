@@ -5,26 +5,28 @@
 ---
 
 ````jsx
-import { Flex, Button } from 'antm';
+import { Flex, Button, WingBlank, WhiteSpace } from 'antm';
 
 
-let TopNoticeExample = React.createClass({
+let FlexExample = React.createClass({
   render() {
     return (
-      <div className="am-wingblank am-wingblank-10 button-container">
-        <div className="am-whitespace am-whitespace-10"></div>
-        <Flex>
-          <Flex.Item>
-            <Button>主按钮</Button>
-          </Flex.Item>
-          <Flex.Item>
-            <Button mode="white">次按钮</Button>
-          </Flex.Item>
-        </Flex>
+      <div className="button-container">
+        <WhiteSpace/>
+        <WingBlank>
+          <Flex>
+            <Flex.Item>
+              <Button>主按钮</Button>
+            </Flex.Item>
+            <Flex.Item>
+              <Button mode="white">次按钮</Button>
+            </Flex.Item>
+          </Flex>
+        </WingBlank>
       </div>
     );
   }
 });
 
-ReactDOM.render(<TopNoticeExample />, document.getElementById('components-flex-demo-basic'));
+ReactDOM.render(<FlexExample />, document.getElementById('components-flex-demo-basic'));
 ````

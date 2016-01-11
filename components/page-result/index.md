@@ -17,7 +17,6 @@
 ### TabItem
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | imgUrl    | 插图URL        | string |    |
 | title    |    title文案     | string |    |
 | brief    |    brief文案     | string |    |

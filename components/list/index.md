@@ -16,26 +16,22 @@ AntUI列表容器,其中会有列表头,列表尾,列表主体。
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | style      | 定制的样式       | Object           | 无
 | isIconList      | 是否是Iconlist       | bool           | false
 
 ### List.Header
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|------------------|--------------|
-| prefixCls   | 默认class前缀        | String |   'am'  |
 | style      | 定制的样式       | Object           | 无
 
 ### List.Body
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 
 ### List.Footer
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | style      | 定制的样式       | Object           | 无
 | align      | 左对齐或者是右对齐   | String(left/right) | left
 | onClick      | 点击事件   | Func |   无  |
@@ -44,7 +40,6 @@ AntUI列表容器,其中会有列表头,列表尾,列表主体。
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | extraCls    | 额外加入的class        | String |   ''  |
 | line       | 单行或者双行        | number |   1  |
 | needActive  | 点击有active效果  | String |   true  |

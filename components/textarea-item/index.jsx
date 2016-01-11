@@ -5,7 +5,6 @@ const strNumStyle = {position: 'absolute', bottom: '8px', right: '15px', color: 
 
 const TextareaItem = React.createClass({
   propTypes: {
-    prefixCls: PropTypes.string,
     label: PropTypes.string,
     name: PropTypes.string,
     value: PropTypes.string,
@@ -19,7 +18,6 @@ const TextareaItem = React.createClass({
   },
   getDefaultProps() {
     return {
-      prefixCls: 'am',
       label: '',
       name: '',
       value: '',
@@ -52,29 +50,25 @@ const TextareaItem = React.createClass({
   },
 
   render(){
-    let {prefixCls, label, name, value, placeholder, clear, rows, maxLength } = this.props;
+    let { label, name, value, placeholder, clear, rows, maxLength } = this.props;
     let labelDom = '';
     let textareaStyle = {marginTop: '4px'};
     let alignSelfStyle = {alignSelf: 'stretch'};
     if (label) {
-      if(rows === 1) {
-        labelDom = (<div className={prefixCls + '-list-label'}>{label}</div>);
-      } else {
-        labelDom = (<div className={prefixCls + '-list-label'} style={rows > 1 ? alignSelfStyle : {}}>{label}</div>);
-      }
+      labelDom = (<div className="am-list-label" style={rows > 1 ? alignSelfStyle : {}}>{label}</div>);
     }
 
     let clearDom = '';
-    const clearClass = clear ? prefixCls + '-list-item ' + prefixCls + '-input-autoclear ' + prefixCls + '-list-item-form' : prefixCls + '-list-item';
+    const clearClass = clear ? 'am-list-item am-input-autoclear am-list-item-form' : 'am-list-item';
     if (clear) {
       if (value.length > 0) {
-        clearDom = (<div className={prefixCls + '-list-clear'} style={rows > 1 ? alignSelfStyle : {}}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'} style={{visibility: 'visible'}}
+        clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
           onClick={this._clearInput}
-          onTouchStart={this._clearInput}></i></div>);
+          onTouchStart={this._clearInput}/></div>);
       } else {
-        clearDom = (<div className={prefixCls + '-list-clear'}><i className={prefixCls + '-icon ' + prefixCls + '-icon-clear'}
+        clearDom = (<div className="am-list-clear"><i className="am-icon am-icon-clear"
           onClick={this._clearInput}
-          onTouchStart={this._clearInput}></i>
+          onTouchStart={this._clearInput}/>
         </div>);
       }
     }
@@ -87,7 +81,7 @@ const TextareaItem = React.createClass({
     return (
       <div className={clearClass} onClick={this._handleClick}>
         {labelDom}
-        <div className={prefixCls + '-list-control'}>
+        <div className="am-list-control">
           <textarea name={name}
             rows={rows}
             placeholder={placeholder}

@@ -16,7 +16,6 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    |         | String |   'am'  |
 | style    |         | Object |   无  |
 | mode    |  mini/agree       | String |   'mini'  |
 | name    |         | String |   无  |

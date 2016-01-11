@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { List, SwitchItem, Button } from 'antm';
+import { List, SwitchItem, Button, WingBlank, WhiteSpace } from 'antm';
 import { createForm } from 'rc-form';
 
 let SwitchItemExample = React.createClass({
@@ -43,11 +43,10 @@ let SwitchItemExample = React.createClass({
           >不可修改</SwitchItem>
         </List.Body>
       </List>
-      <div className="am-whitespace am-whitespace-12"></div>
-      <div className="am-wingblank am-wingblank-10">
-        <Button onClick={this.onClick}
-        >Submit</Button>
-      </div>
+      <WhiteSpace/>
+      <WingBlank>
+        <Button onClick={this.onClick}>确认添加</Button>
+      </WingBlank>
     </div>);
   }
 });

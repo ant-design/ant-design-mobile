@@ -16,7 +16,6 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | mode    | input类型,text,label        | String |   text  |
 | name    | input的name        | String |   无  |
 | value    | input的初始值        | String |   无  |

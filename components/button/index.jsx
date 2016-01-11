@@ -3,7 +3,6 @@ function noop() {}
 
 const Button = React.createClass({
   propTypes: {
-    prefixCls     : PropTypes.string,
     mode          : PropTypes.string,
     size          : PropTypes.string,
     inline        : PropTypes.bool,
@@ -12,7 +11,6 @@ const Button = React.createClass({
   },
   getDefaultProps() {
     return {
-      prefixCls: 'am',
       mode: 'blue',
       size: 'large',
       inline: false,
@@ -25,22 +23,22 @@ const Button = React.createClass({
   },
 
   render(){
-    let {prefixCls, mode, size, inline, disabled} = this.props;
-    let buttonClass = prefixCls + '-button-' + mode;
+    let { mode, size, inline, disabled} = this.props;
+    let buttonClass = 'am-button-' + mode;
 
     if(mode === 'warn') {
-      buttonClass = buttonClass + ' ' + prefixCls + '-button-flat';
+      buttonClass = buttonClass + ' am-button-flat';
     }
 
-    buttonClass += ' ' + prefixCls + '-button-' + size;
+    buttonClass += ' am-button-' + size;
 
     if(inline) {
-      buttonClass += ' ' + prefixCls + '-button-inline';
+      buttonClass += ' am-button-inline';
     }
 
-    let allClass = prefixCls + '-button ' + buttonClass;
+    let allClass = 'am-button ' + buttonClass;
     if(disabled) {
-      allClass = allClass + ' ' + prefixCls + '-button-disabled';
+      allClass = allClass + ' am-button-disabled';
     }
 
     return (<button type="button" className={allClass} disabled={disabled} onClick={this._handleClick}>{this.props.children}</button>);

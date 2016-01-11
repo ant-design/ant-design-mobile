@@ -3,7 +3,6 @@ function noop() {}
 
 const SelectItem = React.createClass({
   propTypes: {
-    prefixCls: PropTypes.string,
     label: PropTypes.string,
     name: PropTypes.string,
     align: PropTypes.string,
@@ -13,7 +12,6 @@ const SelectItem = React.createClass({
   },
   getDefaultProps() {
     return {
-      prefixCls: 'am',
       label: '',
       name: '',
       align: 'left',
@@ -26,10 +24,10 @@ const SelectItem = React.createClass({
     this.props.onChange.call(this, e.target.value);
   },
   render(){
-    let {prefixCls, options, align} = this.props;
+    let { options, align } = this.props;
     let labelDom = '';
     if (this.props.label) {
-      labelDom = (<div className={prefixCls + '-list-label'}>{this.props.label}</div>);
+      labelDom = (<div className="am-list-label">{this.props.label}</div>);
     }
     let Options = [];
     for (let i = 0, len = options.length; i < len; i++) {
@@ -40,14 +38,14 @@ const SelectItem = React.createClass({
       dirctionStyle = {'direction' : 'rtl'};
     }
     return (
-      <div className={prefixCls + '-list-item ' + prefixCls + '-list-item-select'}>
+      <div className="am-list-item am-list-item-select">
         {labelDom}
-        <div className={prefixCls + '-list-control'}>
+        <div className="am-list-control">
           <select name={this.props.name} value={this.props.value} onChange={this._onChange} style={dirctionStyle}>
             {Options}
           </select>
         </div>
-        <div className={prefixCls + '-list-arrow'}><span className={prefixCls + '-icon ' + prefixCls + '-icon-arrow-vertical'}></span></div>
+        <div className="am-list-arrow"><span className="am-icon am-icon-arrow-vertical"/></div>
       </div>
     );
   }

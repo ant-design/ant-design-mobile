@@ -7,7 +7,7 @@ Checkbox
 ---
 
 ````jsx
-import { List, CheckboxItem, Button} from 'antm';
+import { List, CheckboxItem, Button, WingBlank, WhiteSpace } from 'antm';
 import { createForm } from 'rc-form';
 
 let Test = React.createClass({
@@ -59,11 +59,11 @@ let Test = React.createClass({
         })}
         name="f5"
         >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></CheckboxItem>
-      <div className="am-whitespace am-whitespace-12"></div>
-      <div className="am-wingblank am-wingblank-10">
+      <WhiteSpace mode="12"/>
+      <WingBlank>
         <Button onClick={this.onClick}
         >Submit</Button>
-      </div>
+      </WingBlank>
     </div>);
   }
 });

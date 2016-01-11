@@ -3,7 +3,6 @@ function noop() {}
 
 const TopNotice = React.createClass({
   propTypes: {
-    prefixCls: PropTypes.string,
     content: PropTypes.string,
     mode: PropTypes.string,
     operationTxt: PropTypes.string,
@@ -11,7 +10,6 @@ const TopNotice = React.createClass({
   },
   getDefaultProps() {
     return {
-      prefixCls: 'am',
       content: '',
       needOperation: true,
       operationTxt: '',
@@ -19,22 +17,22 @@ const TopNotice = React.createClass({
     };
   },
   render() {
-    const { prefixCls, content, mode, operationTxt, onClick } = this.props;
+    const { content, mode, operationTxt, onClick } = this.props;
     let operationDom = '';
     switch(mode) {
     case 'close':
-      operationDom = <div className={prefixCls + '-top-notice-operation'} onClick={onClick}><a className={prefixCls + '-top-notice-close'}/></div>;
+      operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-close"/></div>;
       break;
     case 'operation':
-      operationDom = <div className={prefixCls + '-top-notice-operation'} onClick={onClick}><a className={prefixCls + '-top-notice-go'}>{operationTxt}</a></div>;
+      operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-go">{operationTxt}</a></div>;
       break;
     default:
       operationDom = '';
       break;
     }
     return (
-      <div className={prefixCls + '-top-notice'}>
-        <div className={prefixCls + '-top-notice-content'}>{content}</div>
+      <div className="am-top-notice">
+        <div className="am-top-notice-content">{content}</div>
         {operationDom}
       </div>
     );

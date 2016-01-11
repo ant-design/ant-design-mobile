@@ -16,7 +16,6 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | mode    | 按钮类型,`blue`、`white` 、 `red` 、`warn` 、`light`      | String |   `blue`  |
 | size       | 按钮大小，`large`、`middle`、`small`、`little`、`tiny`        | String |   `large`  |
 | inline       | 是否是行内按钮        | boolean |  false  |

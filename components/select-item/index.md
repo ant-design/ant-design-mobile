@@ -17,7 +17,6 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    | 默认class前缀        | String |   'am'  |
 | label    | 文案说明        | String |   无  |
 | align    | 对齐方式        | String |   left  |
 | name    | input的name        | String |   无  |

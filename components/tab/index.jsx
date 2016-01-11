@@ -2,18 +2,10 @@ import React, {PropTypes} from 'react';
 function noop() {}
 
 const Tab = React.createClass({
-  propTypes: {
-    prefixCls: PropTypes.string,
-  },
-  getDefaultProps() {
-    return {
-      prefixCls: 'am',
-    };
-  },
   render() {
-    const { prefixCls, children } = this.props;
+    const { children } = this.props;
     return (
-      <div className={prefixCls + '-tab'}>
+      <div className="am-tab">
         {children}
       </div>
     );
@@ -22,13 +14,11 @@ const Tab = React.createClass({
 
 const Item = React.createClass({
   propTypes: {
-    prefixCls: PropTypes.string,
     selected: PropTypes.bool,
     onClick: PropTypes.func,
   },
   getDefaultProps() {
     return {
-      prefixCls: 'am',
       selected: false,
       onClick: noop,
     };
@@ -37,14 +27,14 @@ const Item = React.createClass({
     this.props.onClick();
   },
   render() {
-    const { prefixCls, selected, children } = this.props;
+    const { selected, children } = this.props;
     if(selected) {
       return (
-        <div className={prefixCls + '-tab-item'} data-tab="selected" onClick={this._handleClick}>{children}</div>
+        <div className="am-tab-item" data-tab="selected" onClick={this._handleClick}>{children}</div>
       );
     } else {
       return (
-        <div className={prefixCls + '-tab-item'} onClick={this._handleClick}>{children}</div>
+        <div className="am-tab-item" onClick={this._handleClick}>{children}</div>
       );
     }
   }
