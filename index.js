@@ -3,6 +3,8 @@ import './style/index.less';
 const antm = {
   List            : require('./components/list'),
   Flex            : require('./components/flex'),
+  WingBlank       : require('./components/wing-blank'),
+  WhiteSpace      : require('./components/white-space'),
   InputItem       : require('./components/input-item'),
   CheckboxItem    : require('./components/checkbox-item'),
   TextareaItem    : require('./components/textarea-item'),
