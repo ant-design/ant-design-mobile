@@ -29,48 +29,22 @@
 
 - Designed as Ant Design.
 - 基于 React 的组件化开发模式。
-- 背靠 npm 生态圈。
-- 基于 webpack 的调试构建方案，支持 ES6。
+- 基于 npm + webpack + babel 的工作流，支持 ES2015。
 
 
 ## 示例
 
 ```jsx
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
-ReactDOM.render(<ListWrap >
-  <ListHeader label="我是表头"/>
-  <ListBody>
-    <ListItem
-      type="双行"
-      icon=""
-      content="我是内容"
-      extra="我是额外信息"
-      arrow="horizontal"
-      onClick={function(){}}
-    />
-    <ListItem
-      type="双行"
-      icon=""
-      content="我是内容22"
-      extra="我是额外信息"
-      arrow="horizontal"
-      onClick={function(){}}
-    />
-  </ListBody>
-  <ListFooter label="我是表尾"/>
-</ListWrap>, mountNode);
+import { Button } from 'antm';
+ReactDOM.render(<Button>按钮</Button>, mountNode);
 ```
-
-或者按需加载：
+引入样式：
 
 ```jsx
-import ListWrap from 'antm/lib/listwrap';
-ReactDOM.render(<ListWrap />, mountNode);
+import 'antm/lib/index.css';
 ```
 
-```jsx
-import 'antm/lib/index.css'; // 样式需要在入口处引用一次,这个考虑中,留个坑
-```
+按需加载可通过此写法 `import { Button } from 'antm/lib/button'`
 
 ## 版本
 

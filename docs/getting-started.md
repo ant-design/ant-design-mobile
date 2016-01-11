@@ -45,34 +45,34 @@ $ npm install
 
 ```jsx
 import React from 'react';
-import { ListWrap, ListHeader, ListFooter, ListBody,ListItem} from 'antm';
+import { List } from 'antm';
 
 const App = React.createClass({
   getInitialState() {
     return {
-
     };
   },
   handleClick(e) {
     console.log(e);
   },
   render() {
-    return <ListWrap >
-      <ListHeader>列表头部</ListHeader>
-        <ListBody>
-          <ListItem
-            extra="额外信息"
-            arrow="horizontal"
-            onClick={function(){}}
-          >我是内容</ListItem>
-          <ListItem
-            extra="额外信息"
-            arrow="horizontal"
-            onClick={this.handleClick}
-           >内容</ListItem>
-        </ListBody>
-        <ListFooter>列表尾部</ListFooter>
-      </ListWrap>;
+    return <List>
+    <List.Header>我是表头</List.Header>
+      <List.Body>
+        <List.Item
+          extra="我是额外信息"
+          arrow="horizontal"
+          onClick={this.handleClick}
+        >我是内容</List.Item>
+        <List.Item
+          line={2}
+          extra="我是额外信息"
+          arrow="horizontal"
+          onClick={this.handleClick}
+        >我是内容22</List.Item>
+      </List.Body>
+      <List.Footer>我是表尾</List.Footer>
+    </List>;
   }
 });
 

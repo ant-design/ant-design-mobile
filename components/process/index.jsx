@@ -13,17 +13,21 @@ const Process = React.createClass({
       let statusSubClas = '';
 
       switch(process.type) {
+      case 'done':
+        statusCls = 'am-process-item-result-pay';
+        statusSubClas = 'message-success';
+        break;
       case 'done_alipay':
         statusCls = 'am-process-item-result-pay';
         statusSubClas = 'message-pay';
         break;
+      case 'pending':
+        statusCls = 'am-process-item-result-pending';
+        statusSubClas = 'message-wait';
+        break;
       case 'pending_alipay':
         statusCls = 'am-process-item-result-unpay';
         statusSubClas = 'message-unpay';
-        break;
-      case 'done':
-        statusCls = 'am-process-item-result-pay';
-        statusSubClas = 'message-success';
         break;
       case 'fail':
         statusCls = 'am-process-item-result-fail';

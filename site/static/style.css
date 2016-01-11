@@ -7,6 +7,8 @@ html {
 html,
 body {
   height: 100%;
+  -webkit-user-select: initial !important;
+  user-select: initial !important;
 }
 
 body {

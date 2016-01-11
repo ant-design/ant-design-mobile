@@ -5,7 +5,7 @@
 ---
 
 ````jsx
-import { Process } from 'antm';
+import { Process, WhiteSpace } from 'antm';
 
 const result = [
   {
@@ -62,7 +62,7 @@ const result4 = [
     brief: '今天'
   },
   {
-    type: 'done',
+    type: 'pending',
     title: '01-27 星期三',
     brief: '开始计算收益'
   },
@@ -76,13 +76,13 @@ let ProcessExample = React.createClass({
   render() {
     return (
       <div>
-        <Process result={result}/>
-        <div className="am-whitespace am-whitespace-20"/>
-        <Process result={result2}/>
-        <div className="am-whitespace am-whitespace-20"/>
-        <Process result={result3}/>
-        <div className="am-whitespace am-whitespace-20"/>
         <Process result={result4}/>
+        <WhiteSpace mode="20"/>
+        <Process result={result}/>
+        <WhiteSpace mode="20"/>
+        <Process result={result2}/>
+        <WhiteSpace mode="20"/>
+        <Process result={result3}/>
       </div>
     );
   }
