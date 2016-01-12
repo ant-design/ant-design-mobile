@@ -32,6 +32,8 @@ const ListDatePicker = React.createClass({
   propTypes: {
     value: PropTypes.string,
     mode: PropTypes.string,
+    minDate: PropTypes.string,
+    maxDate: PropTypes.string,
     onChange: PropTypes.func,
     modalVisible: PropTypes.bool,
     onModalVisibleChange: PropTypes.func,
@@ -39,6 +41,8 @@ const ListDatePicker = React.createClass({
   getDefaultProps() {
     return {
       value: null,
+      minDate: null,
+      maxDate: null,
       onChange: noop,
       onModalVisibleChange: noop,
       mode: 'datetime',
@@ -48,6 +52,8 @@ const ListDatePicker = React.createClass({
   getInitialState() {
     return {
       date: this.props.value && this.getFormatter().parse(this.props.value, {locale: zhCn}) || now,
+      minDate: this.props.minDate && this.getFormatter().parse(this.props.minDate, {locale: zhCn}),
+      maxDate: this.props.maxDate && this.getFormatter().parse(this.props.maxDate, {locale: zhCn}),
       modalVisible: this.props.modalVisible || false,
     };
   },
@@ -57,6 +63,22 @@ const ListDatePicker = React.createClass({
         date: nextProps.value && this.getFormatter().parse(nextProps.value, {
           locale: zhCn,
         }) || now,
+      });
+    }
+
+    if ('minDate' in nextProps && nextProps.minDate !== this.props.minDate) {
+      this.setState({
+        minDate: nextProps.minDate && this.getFormatter().parse(nextProps.minDate, {
+          locale: zhCn,
+        }),
+      });
+    }
+
+    if ('maxDate' in nextProps && nextProps.maxDate !== this.props.maxDate) {
+      this.setState({
+        maxDate: nextProps.maxDate && this.getFormatter().parse(nextProps.maxDate, {
+          locale: zhCn,
+        }),
       });
     }
   },
@@ -87,7 +109,7 @@ const ListDatePicker = React.createClass({
     return getFormatter(this.props.mode);
   },
   render() {
-    const {date, modalVisible} = this.state;
+    const {date, minDate, maxDate, modalVisible} = this.state;
     const {mode, locale} = this.props;
     let dateStr = this.props.value ? this.props.value : '请选择';
 
@@ -106,7 +128,11 @@ const ListDatePicker = React.createClass({
                          dismissText="取消"
                          style={{left: 0, bottom: 0}}
                          onVisibleChange={this.setVisibleState}
-                         onOk={this.onOk} date={date}>
+                         onOk={this.onOk}
+                         date={date}
+                         minDate={minDate}
+                         maxDate={maxDate}
+        >
           {childEl}
         </PopupDatePicker>
       </div>
