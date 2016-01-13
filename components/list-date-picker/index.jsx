@@ -10,9 +10,6 @@ import GregorianCalendarFormat from 'gregorian-calendar-format';
 import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
 import GregorianCalendar from 'gregorian-calendar';
 
-function noop() {
-}
-
 const now = new GregorianCalendar(zhCn);
 now.setTime(Date.now());
 
@@ -35,16 +32,9 @@ const ListDatePicker = React.createClass({
     minDate: PropTypes.string,
     maxDate: PropTypes.string,
     onChange: PropTypes.func,
-    modalVisible: PropTypes.bool,
-    onModalVisibleChange: PropTypes.func,
   },
   getDefaultProps() {
     return {
-      value: null,
-      minDate: null,
-      maxDate: null,
-      onChange: noop,
-      onModalVisibleChange: noop,
       mode: 'datetime',
       locale: require('rmc-date-picker/lib/locale/zh_CN')
     };
@@ -54,7 +44,6 @@ const ListDatePicker = React.createClass({
       date: this.props.value && this.getFormatter().parse(this.props.value, {locale: zhCn}) || now,
       minDate: this.props.minDate && this.getFormatter().parse(this.props.minDate, {locale: zhCn}),
       maxDate: this.props.maxDate && this.getFormatter().parse(this.props.maxDate, {locale: zhCn}),
-      modalVisible: this.props.modalVisible || false,
     };
   },
   componentWillReceiveProps(nextProps) {
@@ -82,58 +71,30 @@ const ListDatePicker = React.createClass({
       });
     }
   },
-  componentDidUpdate() {
-    if (!this.state.modalVisible) {
-      this.pickerValue = null;
-    }
-  },
-  setVisibleState(modalVisible) {
-    if (!('modalVisible' in this.props)) {
-      this.setState({
-        modalVisible,
-      });
-    }
-    this.props.onModalVisibleChange(modalVisible);
-  },
-  hide() {
-    this.setVisibleState(false);
-  },
-  componentWillUnmount(){
-    this.props.onDestroy(getFormatter(this.props.mode).format(this.getPickerValue()));
-  },
-  onOk(v){
+  onChange(v){
     this.props.onChange(this.getFormatter().format(v));
-    this.hide();
   },
   getFormatter() {
     return getFormatter(this.props.mode);
   },
   render() {
-    const {date, minDate, maxDate, modalVisible} = this.state;
-    const {mode, locale} = this.props;
+    const {date, minDate, maxDate} = this.state;
     let dateStr = this.props.value ? this.props.value : '请选择';
-
     const extraProps = {
       extra: dateStr
     };
-
-    const childEl = React.cloneElement(this.props.children, extraProps);
-
     return (
       <div>
-        <PopupDatePicker locale={locale}
-                         visible={modalVisible}
-                         mode={mode}
-                         okText="确定"
-                         dismissText="取消"
-                         style={{left: 0, bottom: 0}}
-                         onVisibleChange={this.setVisibleState}
-                         onOk={this.onOk}
-                         date={date}
-                         minDate={minDate}
-                         maxDate={maxDate}
+        <PopupDatePicker {...this.props}
+          okText="确定"
+          dismissText="取消"
+          style={{left: 0, bottom: 0}}
+          onChange={this.onChange}
+          date={date}
+          minDate={minDate}
+          maxDate={maxDate}
         >
-          {childEl}
+          {React.cloneElement(this.props.children, extraProps)}
         </PopupDatePicker>
       </div>
     );

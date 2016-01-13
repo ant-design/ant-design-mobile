@@ -17,24 +17,24 @@ let Test = React.createClass({
         <List.Header>店铺位置</List.Header>
         <List.Body>
           <ListDatePicker mode="date" { ...getFieldProps('date', {
-              initialValue: ''
-            })}
+            initialValue: ''
+          })}
             minDate="2014-08-06"
             maxDate="2016-12-3"
           >
             <List.Item arrow="horizontal">日期</List.Item>
           </ListDatePicker>
           <ListDatePicker mode="time" { ...getFieldProps('time', {
-              initialValue: ''
-            })}
+            initialValue: ''
+          })}
             minDate="00:30"
             maxDate="22:00"
           >
             <List.Item arrow="horizontal">时间</List.Item>
           </ListDatePicker>
           <ListDatePicker mode="datetime" { ...getFieldProps('datetime', {
-              initialValue: ''
-            })}
+            initialValue: ''
+          })}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
           </ListDatePicker>
