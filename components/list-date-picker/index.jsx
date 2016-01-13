@@ -16,9 +16,9 @@ now.setTime(Date.now());
 function getFormatter(type) {
   let formatter;
   if (type === 'time') {
-    formatter = new GregorianCalendarFormat('HH:MM');
+    formatter = new GregorianCalendarFormat('HH:mm');
   } else if (type === 'datetime') {
-    formatter = new GregorianCalendarFormat('yyyy-MM-dd HH:MM');
+    formatter = new GregorianCalendarFormat('yyyy-MM-dd HH:mm');
   } else {
     formatter = new GregorianCalendarFormat('yyyy-MM-dd');
   }
