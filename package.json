@@ -33,9 +33,11 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "array-tree-filter": "^1.0.0",
     "gregorian-calendar": "^4.1.0",
     "gregorian-calendar-format": "^4.0.4",
-    "rmc-date-picker": "^1.6.0",
+    "rmc-cascader": "^0.2.0",
+    "rmc-date-picker": "^1.7.0",
     "rmc-modal": "^0.4.0",
     "rmc-picker": "^2.2.1"
   },
