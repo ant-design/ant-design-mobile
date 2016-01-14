@@ -39,6 +39,12 @@ let Test = React.createClass({
           })}>
             <List.Item arrow="horizontal">所在地区</List.Item>
           </ListPicker>
+          <ListPicker data={district} cols={2} {...getFieldProps('district2', {
+          })}
+
+          >
+            <List.Item arrow="horizontal">所在地区</List.Item>
+          </ListPicker>
         </List.Body>
       </List>
     </div>);

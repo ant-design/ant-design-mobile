@@ -2,6 +2,7 @@
 
 import 'rmc-cascader/assets/index.css';
 import 'rmc-cascader/assets/popup.css';
+import 'rmc-modal/assets/index.css';
 import React from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
