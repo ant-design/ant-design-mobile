@@ -87,6 +87,7 @@ const Item = React.createClass({
     arrow: PropTypes.string,
     needActive: PropTypes.bool,
     onClick: PropTypes.func,
+    error: PropTypes.bool,
   },
   getDefaultProps() {
     return {
@@ -94,7 +95,8 @@ const Item = React.createClass({
       link: '',
       line: 1,
       onClick: noop,
-      needActive: true
+      needActive: true,
+      error: false,
     };
   },
   _handleClick(e) {
@@ -112,7 +114,7 @@ const Item = React.createClass({
     }
   },
   render(){
-    let { extraCls, thumb, arrow, line } = this.props;
+    let { extraCls, thumb, arrow, line, error } = this.props;
     let itemCls, thumbDom, arrowDom;
 
     if (line === 2) {
@@ -121,7 +123,8 @@ const Item = React.createClass({
       itemCls = 'am-list-item';
     }
 
-    itemCls = extraCls === '' ? itemCls : itemCls + ' ' + extraCls;
+    itemCls = itemCls + (error ? ' am-list-item-error' : '');
+    itemCls = itemCls + ' ' + extraCls;
 
     if (thumb) {
       if (line === 1) {
@@ -159,7 +162,7 @@ const Item = React.createClass({
     }
 
     return (
-      <div className={itemCls} onClick={this._handleClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} ref="listitem">
+      <div className={itemCls} onClick={this._handleClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} onTouchCancel={this._handleTouchEnd} ref="listitem">
         {thumbDom}
         <div className="am-list-content">{this.props.children}</div>
         {extraDom}
