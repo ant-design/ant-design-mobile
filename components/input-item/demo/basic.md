@@ -28,6 +28,7 @@ let BasicInput = React.createClass({
             name="shop4"
             placeholder="dadads"
             clear={true}
+            maxLength={10}
             onBlur={function(e){console.log('onBlur'); console.log(e);}}
             onFocus={function(e){console.log('onFocus'); console.log(e);}}
           >我是</InputItem>

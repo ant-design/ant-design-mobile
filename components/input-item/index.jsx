@@ -9,6 +9,7 @@ const InputItem = React.createClass({
     value: PropTypes.string,
     placeholder: PropTypes.string,
     clear: PropTypes.bool,
+    maxLength: PropTypes.number,
     icon: PropTypes.string,
     onIconClick: PropTypes.func,
     onChange: PropTypes.func,
@@ -31,7 +32,12 @@ const InputItem = React.createClass({
     };
   },
   _onInputChange(e) {
-    this.props.onChange.call(this, e.target.value);
+    let value = e.target.value;
+    const { maxLength, onChange } = this.props;
+    if(maxLength > 0) {
+      value = value.substring(0, maxLength);
+    }
+    onChange.call(this, value);
   },
   _onInputBlur(e) {
     this.props.onBlur.call(this);

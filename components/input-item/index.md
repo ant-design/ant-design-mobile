@@ -20,6 +20,7 @@
 | name    | input的name        | String |   无  |
 | value    | input的初始值        | String |   无  |
 | placeholder      | placeholder        | String |   无  |
+| maxLength      |  最大长度      | number |   无  |
 | onChange    | input change事件触发的回调函数,参数是event对象 | Function |   无  |
 | onBlur     | input blur事件触发的回调函数,参数是event对象 | Function |   无  |
 | onFocus    | input focus事件触发的回调函数,参数是event对象 | Function |   无  |
