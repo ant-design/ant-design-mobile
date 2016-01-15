@@ -1,0 +1,39 @@
+@import "../base/mixins";
+.am-icon {
+  &.result-question,
+  &.result-success,
+  &.result-warn,
+  &.result-error,
+  &.result-fail,
+  &.result-info,
+  &.result-wait,
+  &.result-pay {
+    width: 61px;
+    height: 61px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    .backgroundSize(60px, auto);
+  }
+  &.result-question {
+    background-image: url("../image/result/question.png");
+  }
+  &.result-success {
+    background-image: url("../image/result/success.png");
+  }
+  &.result-warn {
+    background-image: url("../image/result/warn.png");
+  }
+  &.result-error,
+  &.result-fail {
+    background-image: url("../image/result/fail.png");
+  }
+  &.result-info {
+    background-image: url("../image/result/info.png");
+  }
+  &.result-wait {
+    background-image: url("../image/result/wait.png");
+  }
+  &.result-pay {
+    background-image: url("../image/result/pay.png");
+  }
+}
