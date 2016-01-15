@@ -16,6 +16,7 @@ const antm = {
   ListSelector    : require('./components/list-selector'),
   SearchBar       : require('./components/search-bar'),
   Process         : require('./components/process'),
+  Message         : require('./components/message'),
   TopNotice       : require('./components/top-notice'),
   Tab             : require('./components/tab'),
   SegmentedControl: require('./components/segmented-control'),
