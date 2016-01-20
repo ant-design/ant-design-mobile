@@ -16,13 +16,19 @@ let Test = React.createClass({
       <List>
         <List.Header>店铺位置</List.Header>
         <List.Body>
-          <ListDatePicker mode="date" { ...getFieldProps('date', {
+          <ListDatePicker mode="date" { ...getFieldProps('date1', {
             initialValue: ''
           })}
             minDate="2014-08-06"
             maxDate="2016-12-3"
           >
             <List.Item arrow="horizontal">日期</List.Item>
+          </ListDatePicker>
+          <ListDatePicker mode="time" { ...getFieldProps('time1', {
+            initialValue: ''
+          })}
+          >
+            <List.Item arrow="horizontal">时间,不限定上下限</List.Item>
           </ListDatePicker>
           <ListDatePicker mode="time" { ...getFieldProps('time', {
             initialValue: ''
