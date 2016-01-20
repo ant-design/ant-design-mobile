@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 支付流程
-- type:
+- type: 展示
 
 ---
 

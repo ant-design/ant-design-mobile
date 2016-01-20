@@ -13,12 +13,16 @@ let WhiteSpaceExample = React.createClass({
     return (
     <div className="button-container">
       <WhiteSpace/>
-      <WingBlank mode="10">
+      <WingBlank>
         <Button>上下留白10px</Button>
       </WingBlank>
-      <WhiteSpace mode="20"/>
+      <WhiteSpace mode={20}/>
       <WingBlank>
         <Button>上下留白20px</Button>
+      </WingBlank>
+      <WhiteSpace mode={40}/>
+      <WingBlank>
+        <Button>上下留白40px</Button>
       </WingBlank>
     </div>
     );

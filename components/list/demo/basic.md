@@ -50,7 +50,6 @@ ReactDOM.render(
       <List.Header>带icon</List.Header>
        <List.Body>
         <List.Item
-          link="http://www.baidu.com"
           thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
           arrow="horizontal"
           onClick={window.openurl}
@@ -61,17 +60,6 @@ ReactDOM.render(
           arrow="aaa"
           onClick={window.clickItem}
         >我有thumb</List.Item>
-        <List.Item
-          icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-          extra="不写没有剪头坑位"
-          onClick={window.clickItem}
-        >我有icon</List.Item>
-        <List.Item
-          icon="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-          extra="向下箭头"
-          arrow="down"
-          onClick={function(){}}
-        >我有icon</List.Item>
         <List.Item
           icon=""
           extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}

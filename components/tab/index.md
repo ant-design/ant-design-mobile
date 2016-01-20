@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 选项卡
-- type:
+- type: 导航
 
 ---
 
@@ -17,5 +17,5 @@
 ### Tab.Item
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| selected    | 是否选择        | Bool |  false  |
-| onClick    |    点击回调函数     | Func |    ||
+| selected    | 是否选中        | Bool |  false  |
+| onClick    |    点击回调函数     | Func |    |  |

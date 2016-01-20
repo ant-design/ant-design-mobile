@@ -4,6 +4,7 @@ function noop() {}
 const InputItem = React.createClass({
   propTypes: {
     style: PropTypes.object,
+    extraCls: PropTypes.string,
     mode: PropTypes.string,
     name: PropTypes.string,
     value: PropTypes.string,

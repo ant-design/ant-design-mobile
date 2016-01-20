@@ -3,14 +3,12 @@ import React, {PropTypes} from 'react';
 const Message = React.createClass({
   propTypes: {
     type: PropTypes.string,
-    mode: PropTypes.string,
     main: PropTypes.string,
     sub: PropTypes.string,
   },
   getDefaultProps() {
     return {
       type: 'success',
-      mode: '',
       main: '',
       sub: '',
     };

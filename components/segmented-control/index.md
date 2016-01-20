@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 选项卡2
-- type:
+- type: 导航
 
 ---
 
@@ -17,6 +17,6 @@
 ### Tab.Item
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| selectedIndex  | 是否选择        | number |  0  |
-| value  | 选项数据,元素是字符串        | array |  ''  |
+| selectedIndex  | 是否选中        | number |  0  |
+| value  | 选项数据,元素值是字符串        | array |  ''  |
 | onChange    |    回调函数     | Func |    ||

@@ -51,7 +51,6 @@ ReactDOM.render(
     <List.Header>列表头部</List.Header>
     <List.Body>
       <List.Item
-        link="http://www.baidu.com"
         thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
         arrow="horizontal"
         onClick={window.openurl}
