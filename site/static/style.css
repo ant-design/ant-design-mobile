@@ -1753,9 +1753,17 @@ footer ul li > a {
   padding: 117px 33px 0 32px;
 
 }
-.phone-content * {
+.phone-content *,
+.phone-content *:after,
+.phone-content *:before {
   box-sizing: content-box;
 }
+.am-modal *,
+.am-modal *:after,
+.am-modal *:before {
+  box-sizing: content-box;
+}
+.am-modal .am-wingblank *,
 .button-container * {
   box-sizing: border-box;
 }

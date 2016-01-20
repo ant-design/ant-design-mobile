@@ -11,13 +11,15 @@ import {PageResult} from 'antm';
 let PageResultExample = React.createClass({
   render() {
     return (
-      <PageResult
-        imgUrl="https://t.alipayobjects.com/images/rmsweb/T1sFNgXodiXXXXXXXX.png"
-        title="报错文案"
-        brief="报错说明"
-        buttonTxt="再试一次"
-        buttonClick={function(){}}
-      />
+      <div className="button-container">
+        <PageResult
+          imgUrl="https://t.alipayobjects.com/images/rmsweb/T1sFNgXodiXXXXXXXX.png"
+          title="报错文案"
+          brief="报错说明"
+          buttonTxt="再试一次"
+          buttonClick={function(){}}
+        />
+      </div>
     );
   }
 });

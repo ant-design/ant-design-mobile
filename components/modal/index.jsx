@@ -1,23 +1,17 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ReactDom from 'react-dom';
 
 const Modal = React.createClass({
-  propTypes: {},
+  propTypes: {
+    style: PropTypes.object
+  },
   getDefaultProps() {
-    return {};
+    return {
+      style: {}
+    };
   },
   updateContent(){
-    ReactDom.render(<div style={{
-      display: 'block',
-      overflowY:'scroll',
-      position:'fixed',
-      left:'0',
-      top:'0',
-      width:'100%',
-      height:'100%',
-      background:'#F5F5F9',
-      'zIndex':100}
-    }>
+    ReactDom.render(<div className="am-modal" style={this.props.style}>
       {this.props.children}
     </div>, this.div);
   },

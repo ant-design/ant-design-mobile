@@ -5,7 +5,7 @@
 ---
 
 ````jsx
-import { Modal, List, CheckboxItem, Button} from 'antm';
+import { Modal, List, CheckboxItem, Button, WhiteSpace, WingBlank } from 'antm';
 import { createForm } from 'rc-form';
 function noop(){}
 
@@ -131,7 +131,10 @@ let ListSelector = React.createClass({
             {items}
           </List.Body>
         </List>
-        <Button mode="blue" onClick={this.confirmSelector}>确定</Button>
+        <WhiteSpace/>
+        <WingBlank>
+          <Button onClick={this.confirmSelector}>确定</Button>
+        </WingBlank>
       </Modal>
     );
 
