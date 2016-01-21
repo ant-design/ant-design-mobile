@@ -12,4 +12,7 @@
 
 | 成员        | 说明           | 类型        |  可选值       | 默认值       |
 |------------|----------------|--------------------|--------------|
-| mode       | icon类型        | String |   `success`、`fail`、`loading`、`network` |  `loading` |
+| title       | 标题        | String |    |  '' |
+| time       | 时间        | String |    |  '' |
+| img       | 配图URL        | String |    |  '' |
+| onMoreClick       | 点击更多的回调函数        | func |    |  '' |
