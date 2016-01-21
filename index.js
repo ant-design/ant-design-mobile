@@ -23,6 +23,7 @@ const antm = {
   Tab             : require('./components/tab'),
   SegmentedControl: require('./components/segmented-control'),
   Modal           : require('./components/modal'),
+  Toast           : require('./components/toast'),
   PageResult      : require('./components/page-result')
 };
 

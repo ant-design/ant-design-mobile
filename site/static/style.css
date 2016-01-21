@@ -1767,6 +1767,16 @@ footer ul li > a {
 .button-container * {
   box-sizing: border-box;
 }
+
+.toast-container {
+  position: relative;
+  width: 320px;
+  height: 568px;
+}
+.toast-container .am-toast {
+  position: absolute;
+}
+
 .code-box .code-box-demo {
   border-bottom: 1px solid #E9E9E9;
   background: #f5f5f9;
