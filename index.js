@@ -25,6 +25,7 @@ const antm = {
   Modal           : require('./components/modal'),
   Toast           : require('./components/toast'),
   Article         : require('./components/article'),
+  Card            : require('./components/card'),
   PageResult      : require('./components/page-result')
 };
 
