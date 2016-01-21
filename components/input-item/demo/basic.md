@@ -33,8 +33,8 @@ let BasicInput = React.createClass({
             onFocus={function(e){console.log('onFocus'); console.log(e);}}
           >我是</InputItem>
           <InputItem
-            value="xxx"
-            mode="label"
+            value="不可编辑"
+            editable={false}
             error={true}
           >我是</InputItem>
           <InputItem

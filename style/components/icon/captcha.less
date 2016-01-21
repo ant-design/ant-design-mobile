@@ -1,0 +1,14 @@
+@import "../base/mixins";
+
+.am-icon {
+  &.am-captcha-refresh {
+    display: inline-block;
+    width: 17px;
+    height: 18px;
+    background: url('../image/captcha/refresh.png') no-repeat transparent;
+    .backgroundSize(17px, auto);
+    &:active {
+      .transform(rotate(180deg));
+    }
+  }
+}

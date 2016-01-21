@@ -1,7 +1,7 @@
 {
   "name": "@alipay/antm",
-  "version": "0.0.66",
-  "stableVersion": "0.0.66",
+  "version": "0.0.67",
+  "stableVersion": "0.0.67",
   "title": "Ant Mobile",
   "description": "基于React的AntUI",
   "homepage": "http://antui.alipay.net:8000/",

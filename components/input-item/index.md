@@ -16,9 +16,9 @@
 
 | 成员        | 说明           | 类型     |     可选值        | 默认值       |
 |------------|----------------|--------------------|--------------|
-| mode    | input类型,text,label        | String | `text`、`label` |   text  |
 | name    | input的name        | String | |  无  |
 | value    | input的初始值        | String | |  无  |
+| editable    | 输入框是否可输入        | bool | |  true  |
 | placeholder      | placeholder        | String |  | 无  |
 | maxLength      |  最大长度      | number | |  无  |
 | onChange    | input change事件触发的回调函数,参数是event对象 | Function | |  无  |

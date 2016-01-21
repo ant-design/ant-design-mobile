@@ -5,7 +5,7 @@ const InputItem = React.createClass({
   propTypes: {
     style: PropTypes.object,
     extraCls: PropTypes.string,
-    mode: PropTypes.string,
+    editable: PropTypes.bool,
     name: PropTypes.string,
     value: PropTypes.string,
     placeholder: PropTypes.string,
@@ -20,10 +20,10 @@ const InputItem = React.createClass({
   },
   getDefaultProps() {
     return {
-      mode: 'text',
       name: '',
       value: '',
       placeholder: '',
+      editable: true,
       icon: '',
       onChange: noop,
       onBlur: noop,
@@ -54,7 +54,7 @@ const InputItem = React.createClass({
   },
 
   render(){
-    const { mode, name, value, placeholder, style, clear, children, icon, error } = this.props;
+    const { name, editable, value, placeholder, style, clear, children, icon, error } = this.props;
     let labelDom = '';
     if (children) {
       labelDom = (<div className="am-list-label">{children}</div>);
@@ -63,18 +63,9 @@ const InputItem = React.createClass({
 
     clearClass = clearClass + (error ? 'am-list-item-error' : '');
 
-    if(mode === 'label') {
-      return (
-        <div className={clearClass} style={style}>
-          {labelDom}
-          <div className="am-list-control">
-            <label>{value}</label>
-          </div>
-        </div>
-      );
-    } else {
+    if(editable) {
       let clearDom = '';
-      if (!!clear) {
+      if (clear) {
         if (value.length > 0) {
           clearDom = (<div className="am-list-clear">
             <i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
@@ -83,7 +74,7 @@ const InputItem = React.createClass({
           </div>);
         } else {
           clearDom = (<div className="am-list-clear">
-            <i className="am-icon amicon-clear"
+            <i className="am-icon am-icon-clear"
               onClick={this._clearInput}
               onTouchStart={this._clearInput}/>
           </div>);
@@ -113,6 +104,15 @@ const InputItem = React.createClass({
           </div>
           {clearDom}
           {iconDom}
+        </div>
+      );
+    } else {
+      return (
+        <div className={clearClass} style={style}>
+          {labelDom}
+          <div className="am-list-control">
+            <label>{value}</label>
+          </div>
         </div>
       );
     }

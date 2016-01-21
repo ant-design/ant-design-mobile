@@ -10,6 +10,7 @@ const antm = {
   TextareaItem    : require('./components/textarea-item'),
   SelectItem      : require('./components/select-item'),
   SwitchItem      : require('./components/switch-item'),
+  CaptchaItem     : require('./components/captcha-item'),
   Button          : require('./components/button'),
   ListPicker      : require('./components/list-picker'),
   ListDatePicker  : require('./components/list-date-picker'),
