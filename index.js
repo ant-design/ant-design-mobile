@@ -24,6 +24,7 @@ const antm = {
   SegmentedControl: require('./components/segmented-control'),
   Modal           : require('./components/modal'),
   Toast           : require('./components/toast'),
+  Article         : require('./components/article'),
   PageResult      : require('./components/page-result')
 };
 

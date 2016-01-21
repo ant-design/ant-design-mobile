@@ -1,7 +1,7 @@
-# Toast
+# Article
 
 - category: Components
-- chinese: 轻提示
+- chinese: 常规文章
 - type: 展示
 
 ---

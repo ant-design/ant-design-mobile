@@ -8,7 +8,7 @@
 import { Toast } from 'antm';
 
 
-let MessageExample = React.createClass({
+let ToastExample = React.createClass({
   render() {
     return (
       <div className="toast-container">
@@ -18,5 +18,5 @@ let MessageExample = React.createClass({
   }
 });
 
-ReactDOM.render(<MessageExample />, document.getElementById('components-toast-demo-fail'));
+ReactDOM.render(<ToastExample />, document.getElementById('components-toast-demo-fail'));
 ````
