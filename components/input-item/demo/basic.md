@@ -2,7 +2,7 @@
 
 - order: 0
 
-列表主体内容的容器。
+输入框。
 
 ---
 
@@ -22,46 +22,42 @@ let BasicInput = React.createClass({
         <List.Body>
           <InputItem
             {...getFieldProps('yyy', {
-              initialValue: 'dada22',
+              initialValue: '输入框',
               valuePropName: 'value'
             })}
-            name="shop4"
-            placeholder="dadads"
+            placeholder="placeholder"
             clear={true}
             maxLength={10}
             onBlur={function(e){console.log('onBlur'); console.log(e);}}
             onFocus={function(e){console.log('onFocus'); console.log(e);}}
-          >我是</InputItem>
+          >Label</InputItem>
           <InputItem
             value="不可编辑"
             editable={false}
-            error={true}
-          >我是</InputItem>
+          >输入说明</InputItem>
           <InputItem
             {...getFieldProps('222', {
-              initialValue: 'dada22',
+              initialValue: '无Label',
               valuePropName: 'value'
             })}
-            name="shop3"
-            clear={true}
             error={true}
-            placeholder="dadads"
+            clear={true}
+            placeholder="placeholder"
           />
           <InputItem
             {...getFieldProps('3', {
               initialValue: '222',
               valuePropName: 'value'
             })}
-            name="shop2"
-            placeholder="dadads"
-          >我是内内</InputItem>
+            error={true}
+            placeholder="placeholder"
+          >输入说明</InputItem>
           <InputItem
             {...getFieldProps('4', {
               initialValue: '222',
               valuePropName: 'value'
             })}
-            name="shop1"
-            placeholder="dadads"
+            placeholder="placeholder"
             clear={true}
           >所属门店</InputItem>
           <InputItem
@@ -70,9 +66,8 @@ let BasicInput = React.createClass({
               valuePropName: 'value'
             })}
             error={true}
-            name="shop"
-            placeholder="dadads"
-          >我是内内内内</InputItem>
+            placeholder="placeholder"
+          >输入说明说明</InputItem>
         </List.Body>
       </List>
       <List>
@@ -82,57 +77,57 @@ let BasicInput = React.createClass({
             placeholder="camera"
             clear={true}
             icon="camera"
-            onIconClick={function(){console.log('点击了icon');}}
-            onChange={function(){}}
+            onIconClick={() => {console.log('点击了icon');}}
+            onChange={() => {}}
           >我是相机</InputItem>
           <InputItem
             name="list"
             placeholder="list"
             clear={true}
             icon="list"
-            onChange={function(){}}
+            onChange={() => {}}
           >列表</InputItem>
           <InputItem
             name="contacts-mobile"
             placeholder="contacts-mobile"
             clear={true}
             icon="contacts-mobile"
-            onChange={function(){}}
+            onChange={() => {}}
           >通讯录</InputItem>
           <InputItem
             name="bill"
             placeholder="bill"
             clear={true}
             icon="bill"
-            onChange={function(){}}
+            onChange={() => {}}
           >bill</InputItem>
           <InputItem
             name="contacts-alipay"
             placeholder="contacts-alipay"
             clear={true}
             icon="contacts-alipay"
-            onChange={function(){}}
+            onChange={() => {}}
           >支付宝通讯录</InputItem>
           <InputItem
             name="cards"
             placeholder="cards"
             clear={true}
             icon="cards"
-            onChange={function(){}}
+            onChange={() => {}}
           >卡片</InputItem>
           <InputItem
             name="calculator"
             placeholder="calculator"
             clear={true}
             icon="calculator"
-            onChange={function(){}}
+            onChange={() => {}}
           >日历</InputItem>
           <InputItem
             name="scan"
             placeholder="scan"
             clear={true}
             icon="scan"
-            onChange={function(){}}
+            onChange={() => {}}
           >扫码</InputItem>
         </List.Body>
       </List>

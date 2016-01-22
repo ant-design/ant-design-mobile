@@ -49,7 +49,8 @@ let Test = React.createClass({
           valuePropName: 'checked'
         })}
         name="f4"
-        >同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></CheckboxItem>
+        >同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
+      </CheckboxItem>
       <CheckboxItem
         disabled={true}
         mode="agree"
@@ -58,12 +59,14 @@ let Test = React.createClass({
           valuePropName: 'checked'
         })}
         name="f5"
-        >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a></CheckboxItem>
-      <WhiteSpace mode="12"/>
-      <WingBlank>
-        <Button onClick={this.onClick}
-        >Submit</Button>
-      </WingBlank>
+        >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
+      </CheckboxItem>
+      <WhiteSpace mode={12}/>
+      <div className="button-container">
+        <WingBlank>
+          <Button onClick={this.onClick}>Submit</Button>
+        </WingBlank>
+      </div>
     </div>);
   }
 });

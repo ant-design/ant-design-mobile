@@ -21,21 +21,21 @@ ReactDOM.render(
         onClick={(e) => {console.log('onChange'); console.log(e);}}
       >不可点按钮</Button>
     </WingBlank>
-    <WhiteSpace mode="20"/>
+    <WhiteSpace mode={20}/>
     <WingBlank>
       <Button
         mode="white"
         onClick={(e) => {console.log('onChange'); console.log(e);}}
       >次按钮</Button>
     </WingBlank>
-    <WhiteSpace mode="20"/>
+    <WhiteSpace mode={20}/>
     <WingBlank>
       <Button
         mode="red"
         onClick={(e) => {console.log('onChange'); console.log(e);}}
       >红色按钮</Button>
     </WingBlank>
-    <WhiteSpace mode="20"/>
+    <WhiteSpace mode={20}/>
     <WingBlank>
       <Button
         mode="light"

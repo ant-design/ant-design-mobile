@@ -2,12 +2,12 @@
 
 - order: 0
 
-列表主体内容的容器。
+下拉框
 
 ---
 
 ````jsx
-import { List, SelectItem, Button, WingBlank, WhiteSpace } from 'antm';
+import { List, SelectItem } from 'antm';
 import { createForm } from 'rc-form';
 
 let SelectItemExample = React.createClass({
@@ -16,7 +16,7 @@ let SelectItemExample = React.createClass({
   },
   render() {
     const {getFieldProps} = this.props.form;
-    return (<div>
+    return (<div >
       <List>
         <List.Body>
           <SelectItem
@@ -39,10 +39,6 @@ let SelectItemExample = React.createClass({
           />
         </List.Body>
       </List>
-      <WhiteSpace/>
-      <WingBlank>
-        <Button onClick={this.onClick}>确认添加</Button>
-      </WingBlank>
     </div>);
   }
 });

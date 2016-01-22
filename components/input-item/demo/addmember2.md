@@ -2,7 +2,7 @@
 
 - order: 2
 
-列表主体内容的容器。
+添加店长的表单例子。
 
 ---
 
@@ -27,7 +27,7 @@ ReactDOM.render(<div>
         placeholder="用作账户名的后缀名"
       >用户名</InputItem>
     </List.Body>
-    <List.Footer onClick={function(e){console.log(e);}}>
+    <List.Footer onClick={(e) => {console.log(e);}}>
       账户名：<span style={{'color':'red'}}>zhifubao@alipay.com#用户名</span>
     </List.Footer>
   </List>
@@ -47,11 +47,13 @@ ReactDOM.render(<div>
         arrow="horizontal"
       >员工权限</List.Item>
     </List.Body>
-    <List.Footer onClick={function(e){console.log(e);}} style={{'textAlign':'center'}}>拥有退款权限的员工可在交易创建后3天内发起退款</List.Footer>
+    <List.Footer onClick={(e) => {console.log(e);}}>拥有退款权限的员工可在交易创建后3天内发起退款</List.Footer>
   </List>
-  <WingBlank>
-    <Button>确认添加</Button>
-  </WingBlank>
+  <div className="button-container">
+    <WingBlank>
+      <Button>确认添加</Button>
+    </WingBlank>
+  </div>
 </div>
 , document.getElementById('components-input-item-demo-addmember2'));
 ````

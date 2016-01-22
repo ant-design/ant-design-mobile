@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { List, TextareaItem, Button, WingBlank, WhiteSpace } from 'antm';
+import { List, TextareaItem } from 'antm';
 import { createForm } from 'rc-form';
 
 let TextareaItemExample = React.createClass({
@@ -30,8 +30,8 @@ let TextareaItemExample = React.createClass({
               rows={5}
               placeholder="带清除"
               clear={true}
-              onBlur={function(){console.log('onBlur'); }}
-              onFocus={function(e){console.log('onFocus'); console.log(e);}}
+              onBlur={() => {console.log('onBlur'); }}
+              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
             <TextareaItem
               {...getFieldProps('note2', {
@@ -44,8 +44,8 @@ let TextareaItemExample = React.createClass({
               clear={false}
               rows={5}
               maxLength={100}
-              onBlur={function(){console.log('onBlur');}}
-              onFocus={function(e){console.log('onFocus'); console.log(e);}}
+              onBlur={() => {console.log('onBlur');}}
+              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
             <TextareaItem
               {...getFieldProps('note3', {
@@ -66,10 +66,6 @@ let TextareaItemExample = React.createClass({
             />
           </List.Body>
         </List>
-        <WhiteSpace/>
-        <WingBlank>
-          <Button onClick={this.onClick}>确认添加</Button>
-        </WingBlank>
       </div>
     );
   }

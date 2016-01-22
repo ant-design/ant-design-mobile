@@ -9,14 +9,14 @@
 ````jsx
 import { List } from 'antm';
 
-window.clickItem = function(e) {
+window.clickItem = (e) => {
   console.log(e);
   console.log(this);
   console.log(ReactDOM.findDOMNode(this));
   console.log($(ReactDOM.findDOMNode(this)).find('.am-list-extra'));
   $(ReactDOM.findDOMNode(this)).find('.am-list-extra').css('color', 'red');
 };
-window.openurl = function(e) {
+window.openurl = (e) => {
   e.preventDefault();
   let target = e.target;
   if(!$(target).hasClass('am-list-item')) {

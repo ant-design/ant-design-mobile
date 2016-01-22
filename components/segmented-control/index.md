@@ -1,4 +1,4 @@
-# 基本
+# SegmentedControl
 
 - category: Components
 - chinese: 选项卡2

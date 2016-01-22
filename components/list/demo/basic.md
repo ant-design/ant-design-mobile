@@ -16,35 +16,35 @@ ReactDOM.render(
       <List.Body>
         <List.Item
           arrow="horizontal"
-          onClick={function(){}}
+          onClick={() => {console.log('onClick');}}
           needActive={false}
         >文本内容,无Active效果</List.Item>
         <List.Item
           extra="内容内容"
           arrow="down"
-          onClick={function(){}}
+          onClick={() => {console.log('onClick');}}
         >文本信息</List.Item>
         <List.Item
           arrow="up"
           extra="内容内容"
-          onClick={function(){}}
+          onClick={() => {console.log('onClick');}}
         >文本信息</List.Item>
         <List.Item
           extra="内容内容"
           arrow="ss"
-          onClick={function(){}}
+          onClick={() => {console.log('onClick');}}
         >文本内容</List.Item>
         <List.Item
           extra="内容内容"
-          onClick={function(){}}
+          onClick={() => {console.log('onClick');}}
         >文本内容</List.Item>
         <List.Item
           extra="文本内容"
           arrow="horizontal"
-          onClick={function(){}}
+          onClick={() => {console.log('onClick');}}
         >文本信息</List.Item>
       </List.Body>
-      <List.Footer onClick={function(e){console.log(e);}} style={{color:'red'}} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
+      <List.Footer onClick={() => {console.log('onClick');}} style={{color:'red'}} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
     </List>
     <List isIconList={true}>
       <List.Header>带icon</List.Header>
@@ -76,23 +76,23 @@ ReactDOM.render(
           defaultValue="dada22"
           placeholder="dadads"
           clear={true}
-          onChange={function(e){console.log('onChange'); console.log(e);}}
-          onBlur={function(e){console.log('onBlur'); console.log(e);}}
-          onFocus={function(e){console.log('onFocus'); console.log(e);}}
+          onChange={(e) => {console.log('onChange'); console.log(e);}}
+          onBlur={(e) => {console.log('onBlur'); console.log(e);}}
+          onFocus={(e) => {console.log('onFocus'); console.log(e);}}
         >我是</InputItem>
         <InputItem
           label=""
           name="yyy"
           defaultValue="dada22"
           placeholder="dadads"
-          onChange={function(){}}
+          onChange={() => {console.log('onChange');}}
         >我是内</InputItem>
         <InputItem
           name="yyy"
           defaultValue="dada22"
           placeholder="dadads"
           clear={true}
-          onChange={function(){}}
+          onChange={() => {console.log('onChange');}}
         />
       </List.Body>
     </List>

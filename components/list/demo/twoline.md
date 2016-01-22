@@ -32,7 +32,7 @@ ReactDOM.render(
         mode="light"
         size="tiny"
         inline={true}
-        onClick={function(e){console.log('onChange'); console.log(e);}}
+        onClick={(e) => {console.log('onClick'); console.log(e);}}
       >按钮</Button>}
       ><div><div className="am-list-title">区域经理</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></div></List.Item>
       <List.Item line={2} arrow="down">
