@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 const Flex = React.createClass({
+  propTypes: {
+    align         : PropTypes.string,
+  },
+  getDefaultProps() {
+    return {
+      align: 'middle',
+    };
+  },
   render() {
+    const { align } = this.props;
+    const flexCls = 'am-flexbox am-flexbox-' + align;
     return (
-      <div className="am-flexbox">
+      <div className={flexCls}>
         {this.props.children}
       </div>
     );
