@@ -6,7 +6,7 @@
 ---
 
 ````jsx
-import { SegmentedControl } from 'antm';
+import { SegmentedControl, WhiteSpace } from 'antm';
 console.log(SegmentedControl);
 let SegmentedControlExample = React.createClass({
   getInitialState(){
@@ -24,19 +24,19 @@ let SegmentedControlExample = React.createClass({
         values={['切换一', '切换二']}
         onChange={this._onChange}
       />
-      <div className="am-whitespace am-whitespace-20"/>
+      <WhiteSpace mode={20}/>
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
         values={['切换一', '切换二', '切换三']}
         onChange={this._onChange}
       />
-      <div className="am-whitespace am-whitespace-20"/>
+      <WhiteSpace mode={20}/>
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
         values={['切换一', '切换二', '切换三']}
         onChange={this._onChange}
       />
-      <div className="am-whitespace am-whitespace-20"/>
+      <WhiteSpace mode={20}/>
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
         values={['切换一', '切换二', '切换三']}

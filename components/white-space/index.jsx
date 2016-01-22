@@ -2,11 +2,11 @@ import React, {PropTypes} from 'react';
 
 const WhiteSpace = React.createClass({
   propTypes: {
-    mode: PropTypes.string,
+    mode: PropTypes.number,
   },
   getDefaultProps() {
     return {
-      mode: '10'
+      mode: 10
     };
   },
   render() {

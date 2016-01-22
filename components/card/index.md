@@ -22,5 +22,5 @@
 |   subject    |  卡片项副标题            |    String    |        |   ''    |
 |   origin    |  卡片项内容来源            |    String    |        |   ''    |
 |   time    |  卡片项时间            |    String    |        |   ''    |
-|   onClick    |  点击整个卡片的回调,同时设置`onClick`和`onMoreClick`时,点击`更多`两个回调都会触发.            |    func    |        |   ''    |
-|   onMoreClick    |  点击`更多`的回调,只有设置了这个属性,才会出现`更多`的文案            |    func    |        |   ''    |
+|   onClick    |  点击整个卡片的回调,同时设置`onClick`和`onMoreClick`,点击`更多`时两个回调都会触发.            |    func    |        |      |
+|   onMoreClick    |  点击`更多`的回调,只有设置了这个属性,才会出现`更多`的文案            |    func    |        |      ||

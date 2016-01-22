@@ -3,21 +3,19 @@ function noop() {}
 
 const TopNotice = React.createClass({
   propTypes: {
-    content: PropTypes.string,
     mode: PropTypes.string,
     operationTxt: PropTypes.string,
     onClick: PropTypes.func,
   },
   getDefaultProps() {
     return {
-      content: '',
       needOperation: true,
       operationTxt: '',
       onClick: noop,
     };
   },
   render() {
-    const { content, mode, operationTxt, onClick } = this.props;
+    const { children, mode, operationTxt, onClick } = this.props;
     let operationDom = '';
     switch(mode) {
     case 'close':
@@ -32,7 +30,7 @@ const TopNotice = React.createClass({
     }
     return (
       <div className="am-top-notice">
-        <div className="am-top-notice-content">{content}</div>
+        <div className="am-top-notice-content">{children}</div>
         {operationDom}
       </div>
     );
