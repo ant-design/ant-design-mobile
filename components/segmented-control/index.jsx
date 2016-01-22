@@ -4,13 +4,13 @@ function noop() {}
 const SegmentedControl = React.createClass({
   propTypes: {
     selectedIndex: PropTypes.number,
-    value: PropTypes.array,
+    values: PropTypes.array,
     onChange: PropTypes.func,
   },
   getDefaultProps() {
     return {
       selectedIndex: 0,
-      value: [],
+      values: [],
       onChange: noop,
     };
   },
@@ -18,9 +18,9 @@ const SegmentedControl = React.createClass({
     this.props.onChange(index);
   },
   render() {
-    const { selectedIndex, value } = this.props;
+    const { selectedIndex, values } = this.props;
     let items = [];
-    value.map((el, idx) => {
+    values.map((el, idx) => {
       let itemCls = idx === selectedIndex ? 'am-segment-item am-segment-item-selected' : 'am-segment-item';
       items.push(<div className={itemCls} key={'item' + idx} onClick={this._handleClick.bind(this, idx)}>{el}</div>);
     });

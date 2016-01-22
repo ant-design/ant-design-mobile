@@ -2,7 +2,6 @@
 
 - order: 0
 
-SegmentedControl，
 
 ---
 
@@ -22,25 +21,25 @@ let SegmentedControlExample = React.createClass({
     return (<div>
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
-        value={['切换一', '切换二']}
+        values={['切换一', '切换二']}
         onChange={this._onChange}
       />
       <div className="am-whitespace am-whitespace-20"/>
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
-        value={['切换一', '切换二', '切换三']}
+        values={['切换一', '切换二', '切换三']}
         onChange={this._onChange}
       />
       <div className="am-whitespace am-whitespace-20"/>
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
-        value={['切换一', '切换二', '切换三']}
+        values={['切换一', '切换二', '切换三']}
         onChange={this._onChange}
       />
       <div className="am-whitespace am-whitespace-20"/>
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
-        value={['切换一', '切换二', '切换三']}
+        values={['切换一', '切换二', '切换三']}
         onChange={this._onChange}
       />
     </div>);
