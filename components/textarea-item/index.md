@@ -17,13 +17,13 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| label    | 文案说明        | String |   无  |
-| name    | textarea的name        | String |   无  |
-| value    | textarea的默认值        | String |   无  |
-| placeholder      | placeholder        | String |   无  |
-| clear      |         | bool |   无  |
-| rows      |         | bool |   无  |
-| maxLength      |  最大长度      | number |   无  |
-| onChange    | input change事件触发的回调函数,参数是event对象 | Function |   无  |
-| onBlur     | input blur事件触发的回调函数,参数是event对象 | Function |   无  |
-| onFocus    | input focus事件触发的回调函数,参数是event对象 | Function |   无  |
+| label    | 文案说明        | String |   ''  |
+| name    | textarea的name        | String |   ''  |
+| value    | textarea的默认值        | String |   ''  |
+| placeholder      | placeholder        | String |   ‘’  |
+| clear      |   是否带清除功能      | bool |   true  |
+| rows      |   显示几行      | number |   1  |
+| maxLength      |  最大长度      | number |     |
+| onChange    | input change事件触发的回调函数,参数是event对象 | Function |     |
+| onBlur     | input blur事件触发的回调函数,参数是event对象 | Function |     |
+| onFocus    | input focus事件触发的回调函数,参数是event对象 | Function |   |  |
