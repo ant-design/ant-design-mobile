@@ -2,7 +2,7 @@
 
 - order: 0
 
-Tab，`line`默认为1。
+Tab
 
 ---
 
