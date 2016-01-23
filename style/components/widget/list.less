@@ -56,6 +56,8 @@
     }
     /* list selector 选择的样式*/
     &.am-list-selected {
+      position: relative;
+      z-index: 11;
       .am-list-content {
         color: #00a9ed;
         -webkit-box-flex: 4;
@@ -80,6 +82,12 @@
           border-width: 0 2px 2px 0;
           -webkit-transform: rotate(45deg);
         }
+      }
+      &:after {
+        background-color: #00a9ed;
+      }
+      &:last-child:after {
+        left: 0;
       }
     }
     &:after {
