@@ -53,6 +53,7 @@ let TextareaItemExample = React.createClass({
                 valuePropName: 'value'
               })}
               label="备注说明"
+              error={true}
               placeholder="请填写"
             />
             <TextareaItem
@@ -62,6 +63,7 @@ let TextareaItemExample = React.createClass({
               })}
               label="备注说明"
               clear={true}
+              error={true}
               placeholder="请填写"
             />
           </List.Body>

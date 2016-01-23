@@ -25,5 +25,6 @@
 | rows      |   显示几行      | number |   1  |
 | maxLength      |  最大长度      | number |     |
 | onChange    | input change事件触发的回调函数,参数是event对象 | Function |     |
-| onBlur     | input blur事件触发的回调函数,参数是event对象 | Function |     |
-| onFocus    | input focus事件触发的回调函数,参数是event对象 | Function |   |  |
+| onBlur     | input blur事件触发的回调函数,参数是event对象 | Function | |
+| onFocus    | input focus事件触发的回调函数,参数是event对象 | Function |   |
+| error       | 报错样式        | bool |  false  |

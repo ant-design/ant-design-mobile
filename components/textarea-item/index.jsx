@@ -15,6 +15,7 @@ const TextareaItem = React.createClass({
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
+    error: PropTypes.bool,
   },
   getDefaultProps() {
     return {
@@ -28,6 +29,7 @@ const TextareaItem = React.createClass({
       onChange: noop,
       onBlur: noop,
       onFocus: noop,
+      error: false,
     };
   },
   _onChange(e) {
@@ -50,7 +52,7 @@ const TextareaItem = React.createClass({
   },
 
   render(){
-    let { label, name, value, placeholder, clear, rows, maxLength } = this.props;
+    let { label, name, value, placeholder, clear, rows, maxLength, error } = this.props;
     let labelDom = '';
     let textareaStyle = {marginTop: '4px'};
     let alignSelfStyle = {alignSelf: 'stretch'};
@@ -59,7 +61,8 @@ const TextareaItem = React.createClass({
     }
 
     let clearDom = '';
-    const clearClass = clear ? 'am-list-item am-input-autoclear am-list-item-form' : 'am-list-item';
+    let clearClass = clear ? 'am-list-item am-input-autoclear am-list-item-form' : 'am-list-item';
+    clearClass = clearClass + (error ? ' am-list-item-error' : '');
     if (clear) {
       if (value.length > 0) {
         clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{visibility: 'visible'}}

@@ -22,4 +22,5 @@
 | align    | 对齐方式        | String | `left`、`right` | `left`  |
 | value    | select的默认值        | String | |    |
 | options    | 下拉选项数组,元素是对象,格式是{`val`:'value',`txt`:'some'}        | Array | |    |
-| onChange    | input change事件触发的回调函数,参数是event对象 | Function | |    | |
+| onChange    | input change事件触发的回调函数,参数是event对象 | Function | |    |
+| error       | 报错样式        | bool | |  false  |
