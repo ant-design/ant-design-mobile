@@ -1,5 +1,6 @@
 before_deploy:
-  - rm -rf node_modules && node scripts/install.js && npm run just-deploy
+  - tnpm install && tnpm update
+  - tnpm run just-deploy
 options:
   branch: 'dev'
   dist: '_site'
