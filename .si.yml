@@ -1,6 +1,5 @@
 before_deploy:
-  - tnpm install nico
-  - node_modules/.bin/nico build
+  - rm -rf node_modules && node scripts/install.js && npm run just-deploy
 options:
   branch: 'dev'
   dist: '_site'
