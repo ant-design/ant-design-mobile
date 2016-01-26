@@ -2,5 +2,6 @@ before_deploy:
   - tnpm install nico
   - node_modules/.bin/nico build
 options:
+  branch: 'dev'
   dist: '_site'
 cname: 'antm.alipay.net'
