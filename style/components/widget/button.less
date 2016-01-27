@@ -124,13 +124,19 @@
   &.am-button-light.am-button-disabled,
   &:disabled {
     border-color: #ebebf0;
-    color: #e6e6e6;
+    color: #d2d2d2;
     background-color: #ebebf0;
+    &:after {
+      border: 0 none;
+    }
     &:active,
     &.hover {
       border-color: #ebebf0;
-      color: #e6e6e6;
+      color: #d2d2d2;
       background-color: #ebebf0;
+      &:after {
+        border: 0 none;
+      }
     }
   }
   &.am-button-blue-disabled:disabled {

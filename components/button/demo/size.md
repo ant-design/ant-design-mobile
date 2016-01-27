@@ -121,6 +121,17 @@ ReactDOM.render(
           >按钮</Button>}
         ><div><div className="am-list-title">区域经理</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></div>
         </List.Item>
+        <List.Item
+          line={2}
+          extra={<Button
+            mode="light"
+            size="tiny"
+            inline={true}
+            disabled={true}
+            onClick={(e) => {alert('点击了按钮'); console.log(e);}}
+          >按钮</Button>}
+        ><div><div className="am-list-title">区域经理</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></div>
+        </List.Item>
       </List.Body>
   </List>
   </div>

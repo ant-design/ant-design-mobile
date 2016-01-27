@@ -29,6 +29,14 @@ ReactDOM.render(
       >次按钮</Button>
     </WingBlank>
     <WhiteSpace mode={20}/>
+        <WingBlank>
+          <Button
+            mode="white"
+            disabled={true}
+            onClick={(e) => {console.log('onChange'); console.log(e);}}
+          >次按钮</Button>
+        </WingBlank>
+    <WhiteSpace mode={20}/>
     <WingBlank>
       <Button
         mode="red"
@@ -36,12 +44,28 @@ ReactDOM.render(
       >红色按钮</Button>
     </WingBlank>
     <WhiteSpace mode={20}/>
+        <WingBlank>
+          <Button
+            mode="red"
+            disabled={true}
+            onClick={(e) => {console.log('onChange'); console.log(e);}}
+          >红色按钮</Button>
+        </WingBlank>
+    <WhiteSpace mode={20}/>
     <WingBlank>
       <Button
         mode="light"
         onClick={(e) => {console.log('onChange'); console.log(e);}}
       >轻按钮</Button>
     </WingBlank>
+    <WhiteSpace mode={20}/>
+        <WingBlank>
+          <Button
+            mode="light"
+            disabled={true}
+            onClick={(e) => {console.log('onChange'); console.log(e);}}
+          >轻按钮</Button>
+        </WingBlank>
     <WhiteSpace mode={20}/>
     <Button
       mode="warn"
