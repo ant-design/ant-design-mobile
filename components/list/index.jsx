@@ -128,7 +128,7 @@ const Item = React.createClass({
 
     if (thumb) {
       if (line === 1) {
-        thumbDom = <div className="am-list-thumb"><img src={thumb} width="32" height="32"/></div>;
+        thumbDom = <div className="am-list-thumb"><img src={thumb} width="29" height="29"/></div>;
       } else {
         thumbDom = <div className="am-list-thumb"><img src={thumb} width="45" height="45"/></div>;
       }
