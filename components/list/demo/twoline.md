@@ -27,12 +27,13 @@ ReactDOM.render(
         line={2}
       ><div className="am-list-title">运营</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></List.Item>
       <List.Item
+        needActive={false}
         line={2}
         extra={<Button
         mode="light"
         size="tiny"
         inline={true}
-        onClick={(e) => {console.log('onClick'); console.log(e);}}
+        onClick={(e) => {alert(111);}}
       >按钮</Button>}
       ><div><div className="am-list-title">区域经理</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></div></List.Item>
       <List.Item line={2} arrow="down">

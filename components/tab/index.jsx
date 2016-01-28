@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import Tappable from 'react-tappable';
 function noop() {}
 
 const Tab = React.createClass({
@@ -31,11 +30,11 @@ const Item = React.createClass({
     const { selected, children } = this.props;
     if(selected) {
       return (
-        <Tappable className="am-tab-item" onTap={this._handleClick} data-tab="selected">{children}</Tappable>
-      );
+        <div className="am-tab-item" data-tab="selected" onClick={this._handleClick}>{children}</div>
+    );
     } else {
       return (
-        <Tappable className="am-tab-item" onTap={this._handleClick}>{children}</Tappable>
+        <div className="am-tab-item" onClick={this._handleClick}>{children}</div>
       );
     }
   }
