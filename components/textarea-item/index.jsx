@@ -38,13 +38,13 @@ const TextareaItem = React.createClass({
   },
   componentDidMount() {
     if(this.props.autoHeight) {
-      this.initialTextHeight = this.refs.textarea.getDOMNode().offsetHeight;
+      this.initialTextHeight = this.refs.textarea.offsetHeight;
       this.componentDidUpdate();
     }
   },
   componentDidUpdate() {
     if(this.props.autoHeight) {
-      let textareaDom = this.refs.textarea.getDOMNode();
+      let textareaDom = this.refs.textarea;
       textareaDom.style.height = '';
       textareaDom.style.height = Math.max(this.initialTextHeight, textareaDom.scrollHeight + 2) + 'px';
     }
