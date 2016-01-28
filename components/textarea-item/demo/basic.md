@@ -52,8 +52,9 @@ let TextareaItemExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              label="高度自适应"
               error={true}
+              autoHeight={true}
               placeholder="请填写"
             />
             <TextareaItem

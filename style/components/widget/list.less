@@ -27,19 +27,18 @@
       position: absolute;
       left: 0;
       width: 100%;
-      height: 1px;
+      height: 0;
+      border-top: 1px solid #d9d9d9;
       -webkit-transform: scaleY(.5);
       transform: scaleY(.5);
     }
     &:before {
       top: 0;
-      border-top: 1px solid #d9d9d9;
       -webkit-transform-origin: 0 0;
       transform-origin: 0 0;
     }
     &:after {
       bottom: 0;
-      border-bottom: 1px solid #d9d9d9;
       -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
     }
@@ -105,8 +104,8 @@
     }
     &:after {
       width: 100%;
-      height: 1px;
-      background-color: #e5e5e5;
+      height: 0;
+      border-bottom: 1px solid #e5e5e5;
       bottom: 0;
       content: "";
       left: 15px;

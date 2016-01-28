@@ -16,6 +16,7 @@ const TextareaItem = React.createClass({
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     error: PropTypes.bool,
+    autoHeight: PropTypes.bool,
   },
   getDefaultProps() {
     return {
@@ -30,7 +31,21 @@ const TextareaItem = React.createClass({
       onBlur: noop,
       onFocus: noop,
       error: false,
+      autoHeight: false,
     };
+  },
+  componentDidMount() {
+    if(this.props.autoHeight) {
+      this.initialTextHeight = this.refs.textarea.getDOMNode().offsetHeight;
+      this.componentDidUpdate();
+    }
+  },
+  componentDidUpdate() {
+    if(this.props.autoHeight) {
+      let textareaDom = this.refs.textarea.getDOMNode();
+      textareaDom.style.height = '';
+      textareaDom.style.height = Math.max(this.initialTextHeight, textareaDom.scrollHeight + 2) + 'px';
+    }
   },
   _onChange(e) {
     let value = e.target.value;
@@ -85,7 +100,9 @@ const TextareaItem = React.createClass({
       <div className={clearClass} onClick={this._handleClick}>
         {labelDom}
         <div className="am-list-control">
-          <textarea name={name}
+          <textarea
+            ref="textarea"
+            name={name}
             rows={rows}
             placeholder={placeholder}
             onChange={this._onChange}
