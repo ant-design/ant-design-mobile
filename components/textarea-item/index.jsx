@@ -92,7 +92,7 @@ const TextareaItem = React.createClass({
     }
 
     let strNumDom = '';
-    if (maxLength > 0) {
+    if (maxLength > 0 && rows > 1) {
       strNumDom = <span style={strNumStyle}>{maxLength - value.length}</span>;
     }
 
