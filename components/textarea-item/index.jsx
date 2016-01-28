@@ -17,6 +17,7 @@ const TextareaItem = React.createClass({
     onFocus: PropTypes.func,
     error: PropTypes.bool,
     autoHeight: PropTypes.bool,
+    editable: PropTypes.bool,
   },
   getDefaultProps() {
     return {
@@ -32,6 +33,7 @@ const TextareaItem = React.createClass({
       onFocus: noop,
       error: false,
       autoHeight: false,
+      editable: true,
     };
   },
   componentDidMount() {
@@ -67,7 +69,7 @@ const TextareaItem = React.createClass({
   },
 
   render(){
-    let { label, name, value, placeholder, clear, rows, maxLength, error } = this.props;
+    let { label, name, value, placeholder, clear, rows, maxLength, editable, error } = this.props;
     let labelDom = '';
     let textareaStyle = {marginTop: '4px'};
     let alignSelfStyle = {alignSelf: 'stretch'};
@@ -78,7 +80,7 @@ const TextareaItem = React.createClass({
     let clearDom = '';
     let clearClass = clear ? 'am-list-item am-input-autoclear am-list-item-form' : 'am-list-item';
     clearClass = clearClass + (error ? ' am-list-item-error' : '');
-    if (clear) {
+    if (clear && editable) {
       if (value.length > 0) {
         clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
           onClick={this._clearInput}
@@ -110,6 +112,7 @@ const TextareaItem = React.createClass({
             onFocus={this._onFocus}
             value={value}
             style={rows > 1 ? textareaStyle : {}}
+            readOnly={!editable}
           />
         </div>
         {clearDom}

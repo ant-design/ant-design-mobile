@@ -55,7 +55,8 @@ let TextareaItemExample = React.createClass({
               label="高度自适应"
               error={true}
               autoHeight={true}
-              maxLength={10}
+              maxLength={30}
+              clear={true}
               placeholder="高度自适应+最大长度"
             />
             <TextareaItem
@@ -67,6 +68,17 @@ let TextareaItemExample = React.createClass({
               clear={true}
               error={true}
               placeholder="请填写"
+            />
+            <TextareaItem
+              {...getFieldProps('note5', {
+                initialValue: '不可编辑',
+                valuePropName: 'value'
+              })}
+              label="备注说明"
+              clear={true}
+              error={true}
+              placeholder="不可编辑"
+              editable={false}
             />
           </List.Body>
         </List>
