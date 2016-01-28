@@ -29,4 +29,4 @@
 | onFocus    | input focus事件触发的回调函数,参数是event对象 | Function |   |
 | error       | 报错样式        | bool |  false  |
 | autoHeight       | 高度自适应, autoHeight和rows请二选一       | bool |  false  |
-| editable    | 输入框是否可输入        | bool | |  true  |
+| editable    | 输入框是否可输入        | bool |  true  |

@@ -41,10 +41,12 @@ const InputItem = React.createClass({
     onChange.call(this, value);
   },
   _onInputBlur(e) {
-    this.props.onBlur.call(this);
+    const value = e.target.value;
+    this.props.onBlur.call(this, value);
   },
   _onInputFocus(e) {
-    this.props.onFocus.call(this);
+    const value = e.target.value;
+    this.props.onFocus.call(this, value);
   },
   _onIconClick() {
     this.props.onIconClick.call(this);

@@ -58,7 +58,8 @@ const TextareaItem = React.createClass({
     onChange.call(this, value);
   },
   _onBlur(e) {
-    this.props.onBlur.call(this);
+    const value = e.target.value;
+    this.props.onBlur.call(this, value);
   },
   _onFocus(e) {
     const value = e.target.value;

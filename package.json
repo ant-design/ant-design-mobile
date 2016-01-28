@@ -1,7 +1,7 @@
 {
   "name": "@alipay/antm",
-  "version": "0.1.6",
-  "stableVersion": "0.1.6",
+  "version": "0.1.7",
+  "stableVersion": "0.1.7",
   "title": "Ant Mobile",
   "description": "基于React的AntUI",
   "homepage": "http://antui.alipay.net:8000/",
@@ -71,7 +71,7 @@
     "object-assign": "~4.0.1",
     "pre-commit": "1.x",
     "promise": "~7.0.4",
-    "rc-form": "^0.5.1",
+    "rc-form": "^0.10.x",
     "react": "~0.14.2",
     "react-addons-test-utils": "~0.14.2",
     "react-dom": "~0.14.2",

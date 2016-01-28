@@ -23,7 +23,8 @@ const SelectItem = React.createClass({
     };
   },
   _onChange(e) {
-    this.props.onChange.call(this, e.target.value);
+    const value = e.target.value;
+    this.props.onChange.call(this, value);
   },
   render(){
     let { options, align, error } = this.props;
