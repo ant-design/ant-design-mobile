@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import Tappable from 'react-tappable';
 function noop() {}
 
 const SegmentedControl = React.createClass({
@@ -22,7 +23,7 @@ const SegmentedControl = React.createClass({
     let items = [];
     values.map((el, idx) => {
       let itemCls = idx === selectedIndex ? 'am-segment-item am-segment-item-selected' : 'am-segment-item';
-      items.push(<div className={itemCls} key={'item' + idx} onClick={this._handleClick.bind(this, idx)}>{el}</div>);
+      items.push(<Tappable className={itemCls} key={'item' + idx} onTap={this._handleClick.bind(this, idx)}>{el}</Tappable>);
     });
     return (
       <div className="am-segment">

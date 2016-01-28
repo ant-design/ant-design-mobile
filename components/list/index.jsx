@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import Tappable from 'react-tappable';
 function noop() {
 }
 
@@ -103,18 +104,8 @@ const Item = React.createClass({
     e.preventDefault();
     this.props.onClick.call(this, e);
   },
-  _handleTouchStart() {
-    if(this.props.needActive) {
-      this.refs.listitem.style.backgroundColor = '#e4e4e4';
-    }
-  },
-  _handleTouchEnd() {
-    if(this.props.needActive) {
-      this.refs.listitem.style.backgroundColor = '#fff';
-    }
-  },
   render(){
-    let { extraCls, thumb, arrow, line, error } = this.props;
+    let { extraCls, thumb, arrow, line, error, needActive } = this.props;
     let itemCls, thumbDom, arrowDom;
 
     if (line === 2) {
@@ -124,6 +115,7 @@ const Item = React.createClass({
     }
 
     itemCls = itemCls + (error ? ' am-list-item-error' : '');
+    itemCls = itemCls + (!needActive ? ' am-list-item-allinactive' : '');
     itemCls = itemCls + ' ' + extraCls;
 
     if (thumb) {
@@ -162,12 +154,12 @@ const Item = React.createClass({
     }
 
     return (
-      <div className={itemCls} onClick={this._handleClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} onTouchCancel={this._handleTouchEnd} ref="listitem">
+      <Tappable className={itemCls} onTap={this._handleClick} classBase="am-list-item">
         {thumbDom}
         <div className="am-list-content">{this.props.children}</div>
         {extraDom}
         {arrowDom}
-      </div>
+      </Tappable>
     );
   }
 });
