@@ -11,6 +11,7 @@ const WingBlank = React.createClass({
   },
   render() {
     const { mode, children } = this.props;
+
     return (
       <div className={'am-wingblank am-wingblank-' + mode}>
         {children}

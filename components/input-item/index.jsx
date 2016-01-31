@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const InputItem = React.createClass({
   propTypes: {
     style: PropTypes.object,
-    extraCls: PropTypes.string,
     editable: PropTypes.bool,
     name: PropTypes.string,
     value: PropTypes.string,
@@ -56,14 +56,18 @@ const InputItem = React.createClass({
   },
 
   render(){
-    const { name, editable, value, placeholder, style, clear, children, icon, error } = this.props;
+    const { name, editable, value, placeholder, style, clear, children, icon, error, className } = this.props;
+    const wrapCls = classNames({
+      'am-list-item': true,
+      'am-input-autoclear': clear,
+      'am-list-item-error': error,
+      [className] : className
+    });
+
     let labelDom = '';
     if (children) {
       labelDom = (<div className="am-list-label">{children}</div>);
     }
-    let clearClass = clear ? 'am-list-item am-input-autoclear ' : 'am-list-item ';
-
-    clearClass = clearClass + (error ? 'am-list-item-error' : '');
 
     if(editable) {
       let clearDom = '';
@@ -93,7 +97,7 @@ const InputItem = React.createClass({
       }
 
       return (
-        <div className={clearClass} style={style}>
+        <div className={wrapCls} style={style}>
           {labelDom}
           <div className="am-list-control">
             <input type="text"
@@ -110,7 +114,7 @@ const InputItem = React.createClass({
       );
     } else {
       return (
-        <div className={clearClass} style={style}>
+        <div className={wrapCls} style={style}>
           {labelDom}
           <div className="am-list-control">
             <label>{value}</label>

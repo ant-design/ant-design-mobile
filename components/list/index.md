@@ -40,7 +40,6 @@ AntUI列表容器,其中会有列表头,列表尾,列表主体。
 
 | 成员        | 说明           | 类型        |  可选值     | 默认值       |
 |------------|----------------|--------------------|--------------|
-| extraCls    | 额外加入的class        | String | |  ''  |
 | line       | 单行或者双行        | number | `1`、`2` | 1  |
 | needActive  | 点击有active效果  | String |   `true`、`false` | `true` |
 | arrow      | 箭头方向,随便填一个字符串,则存在对应的dom,但是不显示        | String | `horizontal`、`up`、`down`、`any`、无 |   无  |

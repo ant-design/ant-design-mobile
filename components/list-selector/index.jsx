@@ -87,7 +87,7 @@ let ListSelector = React.createClass({
     data.forEach((el, idx) => {
       if(value.length > 0 && value[0].id === el.id) {
         itemsDom.push(<List.Item
-          extraCls="am-list-selected"
+          className="am-list-selected"
           key={idx}
           extra={<span></span>}
           onClick={this._handleClick.bind(this, el)}

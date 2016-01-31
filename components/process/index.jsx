@@ -1,11 +1,16 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 
 const Process = React.createClass({
   propTypes: {
     result: PropTypes.array,
   },
   render() {
-    const { result } = this.props;
+    const { result, className } = this.props;
+    const wrapCls = classNames({
+      'am-process': true,
+      [className] : className
+    });
     const resultLen = result.length;
     const processStep = [];
     result.map((process, i) => {
@@ -77,7 +82,7 @@ const Process = React.createClass({
         break;
       }
     });
-    return (<div className="am-process">{processStep}</div>);
+    return (<div className={wrapCls}>{processStep}</div>);
   }
 });
 module.exports = Process;

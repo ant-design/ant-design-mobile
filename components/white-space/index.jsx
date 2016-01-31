@@ -11,6 +11,7 @@ const WhiteSpace = React.createClass({
   },
   render() {
     const { mode } = this.props;
+
     return (
       <div className={'am-whitespace am-whitespace-' + mode}></div>
     );

@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const SwitchItem = React.createClass({
@@ -20,11 +21,15 @@ const SwitchItem = React.createClass({
     this.props.onChange.call(this, checked);
   },
   render(){
-    let { name, checked, disabled } = this.props;
+    let { name, checked, disabled, children, className } = this.props;
+    const wrapCls = classNames({
+      'am-list-item': true,
+      [className] : className
+    });
 
     return (
-      <div className="am-list-item">
-        <div className="am-list-content">{this.props.children}</div>
+      <div className={wrapCls}>
+        <div className="am-list-content">{children}</div>
         <div className="am-switch">
           <input type="checkbox" name={name} className="am-switch-checkbox" {...(disabled ? {disabled:'disabled'} : '') } checked={checked} onChange={this._onSwitchChange}/>
           <label className="am-switch-label">

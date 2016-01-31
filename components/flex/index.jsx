@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 
 const Flex = React.createClass({
   propTypes: {
-    align         : PropTypes.string,
+    align : PropTypes.string,
   },
   getDefaultProps() {
     return {
@@ -10,10 +11,18 @@ const Flex = React.createClass({
     };
   },
   render() {
-    const { align } = this.props;
-    const flexCls = 'am-flexbox am-flexbox-' + align;
+    let { align, className } = this.props;
+
+    const wrapCls = classNames({
+      'am-flexbox': true,
+      'am-flexbox-top': align === 'top',
+      'am-flexbox-middle': align === 'middle',
+      'am-flexbox-bottom': align === 'bottom',
+      [className] : className
+    });
+
     return (
-      <div className={flexCls}>
+      <div className={wrapCls}>
         {this.props.children}
       </div>
     );
@@ -22,9 +31,13 @@ const Flex = React.createClass({
 
 const Item = React.createClass({
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
+    const wrapCls = classNames({
+      'am-flexbox-item': true,
+      [className] : className
+    });
     return (
-      <div className="am-flexbox-item">{children}</div>
+      <div className={wrapCls}>{children}</div>
     );
   }
 });

@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const strNumStyle = {position: 'absolute', bottom: '8px', right: '15px', color: '#ccc', fontSize:'13px'};
@@ -70,17 +71,20 @@ const TextareaItem = React.createClass({
   },
 
   render(){
-    let { label, name, value, placeholder, clear, rows, maxLength, editable, error } = this.props;
-    let labelDom = '';
+    let { label, name, value, placeholder, clear, rows, maxLength, editable, error, className } = this.props;
+    const wrapCls = classNames({
+      'am-list-item': true,
+      'am-list-item-form': clear,
+      'am-input-autoclear': clear,
+      'am-list-item-error': error,
+      [className] : className
+    });
+
     let textareaStyle = {marginTop: '4px'};
     let alignSelfStyle = {alignSelf: 'stretch'};
-    if (label) {
-      labelDom = (<div className="am-list-label" style={rows > 1 ? alignSelfStyle : {}}>{label}</div>);
-    }
+    let labelDom = label ? (<div className="am-list-label" style={rows > 1 ? alignSelfStyle : {}}>{label}</div>) : null;
 
     let clearDom = '';
-    let clearClass = clear ? 'am-list-item am-input-autoclear am-list-item-form' : 'am-list-item';
-    clearClass = clearClass + (error ? ' am-list-item-error' : '');
     if (clear && editable) {
       if (value.length > 0) {
         clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
@@ -100,7 +104,7 @@ const TextareaItem = React.createClass({
     }
 
     return (
-      <div className={clearClass} onClick={this._handleClick}>
+      <div className={wrapCls} onClick={this._handleClick}>
         {labelDom}
         <div className="am-list-control">
           <textarea

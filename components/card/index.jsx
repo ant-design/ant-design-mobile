@@ -1,16 +1,21 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const Card = React.createClass({
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
+    const wrapCls = classNames({
+      'am-card': true,
+      [className] : className
+    });
+
     return (
-      <div className="am-card">
+      <div className={wrapCls}>
         {children}
       </div>
     );
   }
-
 });
 
 const Item = React.createClass({
@@ -34,7 +39,13 @@ const Item = React.createClass({
     };
   },
   render() {
-    const { title, subject, origin, time, children, onMoreClick, onClick } = this.props;
+    const { title, subject, origin, time, children, onMoreClick, onClick, className } = this.props;
+
+    const wrapCls = classNames({
+      'am-card-item': true,
+      [className] : className
+    });
+
     let titleDom = title ? (<div className="am-card-item-header">
       <h3 className="am-card-item-title">{title}</h3>
     </div>) : '';
@@ -46,7 +57,7 @@ const Item = React.createClass({
       <a onClick={onMoreClick} className="am-card-item-more">更多</a>
     </div>) : '';
     return (
-      <div className="am-card-item" onClick={onClick}>
+      <div className={wrapCls} onClick={onClick}>
         {titleDom}
         <div className="am-card-item-content">
           {subjectDom}

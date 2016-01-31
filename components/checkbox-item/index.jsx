@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const CheckboxItem = React.createClass({
@@ -25,35 +26,41 @@ const CheckboxItem = React.createClass({
   },
 
   render(){
-    const { style, mode, name, checked, disabled } = this.props;
+    const { style, mode, name, checked, disabled, extra, children, className } = this.props;
+
+    const wrapCls = classNames({
+      'am-list-item': mode !== 'agree',
+      'am-list-item-check': mode !== 'agree',
+
+      'am-checkbox': mode === 'agree',
+      'am-checkbox-mini': mode === 'agree',
+      'am-checkbox-radio': mode === 'agree',
+      [className] : className
+    });
 
     let inputProp = {};
     if(checked){
       inputProp.checked = 'checked';
     }
 
-    let extraDom = '';
-    if(this.props.extra) {
-      extraDom = <div className="am-list-extra">{this.props.extra}</div>;
-    }
-
+    let extraDom = extra ? <div className="am-list-extra">{extra}</div> : null;
 
     let renderDom = '';
     if(mode === 'agree') {
       renderDom = (<div>
-        <div className="am-checkbox am-checkbox-mini am-checkbox-radio" style={style}>
+        <div className={wrapCls} style={style}>
           <input type="checkbox" id={'agree' + name} {...(disabled ? {disabled:'disabled'} : '') } name={name} onChange={this._handleChange} {...inputProp}/>
-          <span className="icon-check icon-check-right"></span>
-          <label className="am-ft-md" htmlFor={'agree' + name}>{this.props.children}</label>
+          <span className="icon-check icon-check-right"/>
+          <label className="am-ft-md" htmlFor={'agree' + name}>{children}</label>
         </div>
       </div>);
     } else {
-      renderDom = (<div className="am-list-item am-list-item-check" style={style}>
-        <div className="am-list-content">{this.props.children}</div>
+      renderDom = (<div className={wrapCls} style={style}>
+        <div className="am-list-content">{children}</div>
         {extraDom}
         <div className="am-checkbox am-checkbox-mini">
           <input type="checkbox" {...(disabled ? {disabled:'disabled'} : '') } name={name} onChange={this._handleChange} {...inputProp}/>
-          <span className="icon-check"></span>
+          <span className="icon-check"/>
         </div>
       </div>);
     }

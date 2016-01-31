@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const SearchBar = React.createClass({
@@ -46,32 +47,31 @@ const SearchBar = React.createClass({
     this.props.onCancel.call(this, '');
   },
   render() {
-    let inputClass = '';
-    let cancelStyle = {};
-    let cancelDom = null;
-    if(this.state.value.length > 0) {
-      inputClass = 'am-search-input';
-      cancelStyle = {'display':'block'};
-    } else {
-      inputClass = 'am-search-input am-search-start';
-      cancelStyle = {'display':'none'};
-    }
+    const { className, showCancelButton, disablSearch, placeholder } = this.props;
+    const { value } = this.state;
 
-    if(this.props.showCancelButton) {
-      cancelDom = (<div className="am-search-button" style={{display: 'block'}}>
+    const wrapCls = classNames({
+      'am-search': true,
+      [className] : className
+    });
+    const inputClass = classNames({
+      'am-search-input': true,
+      'am-search-start': value.length > 0
+    });
+
+    let cancelStyle = value.length > 0 ? {'display':'block'} : {'display':'none'};
+    let cancelDom = showCancelButton ? (<div className="am-search-button" style={{display: 'block'}}>
         <button type="button" onClick={this._handleCancel}>取消</button>
+      </div>) : (<div className="am-search-button" style={cancelStyle}>
+        <button type="button" disabled={value.length === 0} onClick={this._handleCancel}>取消</button>
       </div>);
-    } else {
-      cancelDom = (<div className="am-search-button" style={cancelStyle}>
-        <button type="button" disabled={this.state.value.length === 0} onClick={this._handleCancel}>取消</button>
-      </div>);
-    }
+
     return (
       <form onSubmit={this._handleSubmit}>
-        <div className="am-search">
+        <div className={wrapCls}>
           <div className={inputClass}>
             <div className="am-search-icon"><i className="am-icon am-icon-search"/></div>
-            <input type="search" disabled={this.props.disablSearch} placeholder={this.props.placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={this.state.value}/>
+            <input type="search" disabled={disablSearch} placeholder={placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={value}/>
           </div>
           {cancelDom}
         </div>

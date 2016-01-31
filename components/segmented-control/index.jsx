@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const SegmentedControl = React.createClass({
@@ -18,14 +19,21 @@ const SegmentedControl = React.createClass({
     this.props.onChange(index);
   },
   render() {
-    const { selectedIndex, values } = this.props;
-    let items = [];
+    const { selectedIndex, values, className } = this.props;
+    const wrapCls = classNames({
+      'am-segment': true,
+      [className] : className
+    });
+    const items = [];
     values.map((el, idx) => {
-      let itemCls = idx === selectedIndex ? 'am-segment-item am-segment-item-selected' : 'am-segment-item';
+      const itemCls = classNames({
+        'am-segment-item': true,
+        'am-segment-item-selected': idx === selectedIndex,
+      });
       items.push(<div className={itemCls} key={'item' + idx} onClick={this._handleClick.bind(this, idx)}>{el}</div>);
     });
     return (
-      <div className="am-segment">
+      <div className={wrapCls}>
         {items}
       </div>
     );

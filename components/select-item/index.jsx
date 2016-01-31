@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const SelectItem = React.createClass({
@@ -27,25 +28,26 @@ const SelectItem = React.createClass({
     this.props.onChange.call(this, value);
   },
   render(){
-    let { options, align, error } = this.props;
-    let labelDom = '';
-    if (this.props.label) {
-      labelDom = (<div className="am-list-label">{this.props.label}</div>);
-    }
+    let { options, label, name, value, align, error, className } = this.props;
+    const wrapCls = classNames({
+      'am-list-item': true,
+      'am-list-item-select': true,
+      'am-list-item-error': error,
+      [className] : className
+    });
+
+    let labelDom = label ? (<div className="am-list-label">{label}</div>) : null;
+
     let Options = [];
     for (let i = 0, len = options.length; i < len; i++) {
       Options.push((<option value={options[i].val} key={options[i].val}>{options[i].txt}</option>));
     }
-    let dirctionStyle = {};
-    if(align === 'right') {
-      dirctionStyle = {'direction' : 'rtl'};
-    }
-    let itemClass = error ? 'am-list-item am-list-item-select am-list-item-error' : 'am-list-item am-list-item-select';
+    let dirctionStyle = align === 'right' ? {'direction' : 'rtl'} : {};
     return (
-      <div className={itemClass}>
+      <div className={wrapCls}>
         {labelDom}
         <div className="am-list-control">
-          <select name={this.props.name} value={this.props.value} onChange={this._onChange} style={dirctionStyle}>
+          <select name={name} value={value} onChange={this._onChange} style={dirctionStyle}>
             {Options}
           </select>
         </div>

@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const TopNotice = React.createClass({
@@ -15,7 +16,12 @@ const TopNotice = React.createClass({
     };
   },
   render() {
-    const { children, mode, operationTxt, onClick } = this.props;
+    const { children, mode, operationTxt, onClick, className } = this.props;
+    const wrapCls = classNames({
+      'am-top-notice': true,
+      [className] : className
+    });
+
     let operationDom = '';
     switch(mode) {
     case 'close':
@@ -29,7 +35,7 @@ const TopNotice = React.createClass({
       break;
     }
     return (
-      <div className="am-top-notice">
+      <div className={wrapCls}>
         <div className="am-top-notice-content">{children}</div>
         {operationDom}
       </div>

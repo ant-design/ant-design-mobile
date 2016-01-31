@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const Button = React.createClass({
@@ -23,25 +24,30 @@ const Button = React.createClass({
   },
 
   render(){
-    let { mode, size, inline, disabled} = this.props;
-    let buttonClass = 'am-button-' + mode;
+    let { mode, size, inline, disabled, className, ...others } = this.props;
+    const wrapCls = classNames({
+      'am-button': true,
+      'am-button-blue' : mode === 'blue',
+      'am-button-white' : mode === 'white',
+      'am-button-red' : mode === 'red',
+      'am-button-light' : mode === 'light',
+      'am-button-warn' : mode === 'warn',
 
-    if(mode === 'warn') {
-      buttonClass = buttonClass + ' am-button-flat';
-    }
+      'am-button-flat' : mode === 'warn',
 
-    buttonClass += ' am-button-' + size;
+      'am-button-large' : size === 'large',
+      'am-button-middle' : size === 'middle',
+      'am-button-small' : size === 'small',
+      'am-button-little' : size === 'little',
+      'am-button-tiny' : size === 'tiny',
 
-    if(inline) {
-      buttonClass += ' am-button-inline';
-    }
+      'am-button-inline' : inline,
+      'am-button-disabled' : disabled,
 
-    let allClass = 'am-button ' + buttonClass;
-    if(disabled) {
-      allClass = allClass + ' am-button-disabled';
-    }
+      [className] : className
+    });
 
-    return (<button type="button" className={allClass} disabled={disabled} onClick={this._handleClick}>{this.props.children}</button>);
+    return (<button {...others} className={wrapCls} disabled={disabled} onClick={this._handleClick}>{this.props.children}</button>);
   }
 });
 module.exports = Button;

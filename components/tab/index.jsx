@@ -1,11 +1,17 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const Tab = React.createClass({
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
+    const wrapCls = classNames({
+      'am-tab': true,
+      [className] : className
+    });
+
     return (
-      <div className="am-tab">
+      <div className={wrapCls}>
         {children}
       </div>
     );
@@ -27,16 +33,14 @@ const Item = React.createClass({
     this.props.onClick();
   },
   render() {
-    const { selected, children } = this.props;
-    if(selected) {
-      return (
-        <div className="am-tab-item" data-tab="selected" onClick={this._handleClick}>{children}</div>
-    );
-    } else {
-      return (
-        <div className="am-tab-item" onClick={this._handleClick}>{children}</div>
-      );
-    }
+    const { selected, children, className } = this.props;
+    const wrapCls = classNames({
+      'am-tab-item': true,
+      'am-tab-item-selected': selected,
+      [className] : className
+    });
+
+    return (<div className={wrapCls} onClick={this._handleClick}>{children}</div>);
   }
 });
 

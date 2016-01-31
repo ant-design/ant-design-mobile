@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 
 const Toast = React.createClass({
   propTypes: {
@@ -11,17 +12,25 @@ const Toast = React.createClass({
     };
   },
   render() {
-    const { mode, children } = this.props;
-    let toastClass = 'am-toast-icon am-icon am-toast-' + mode;
+    const { mode, children, className } = this.props;
+    const wrapCls = classNames({
+      'am-toast': true,
+      [className] : className
+    });
 
-    let iconStyle = {};
-    if(!children) {
-      iconStyle = {
-        marginTop: '20px'
-      };
-    }
+    let toastClass = classNames({
+      'am-toast-icon': true,
+      'am-icon': true,
+      'am-toast-loading': mode === 'loading',
+      'am-toast-success': mode === 'success',
+      'am-toast-fail': mode === 'fail',
+      'am-toast-network': mode === 'network',
+    });
+
+    let iconStyle = children ? { marginTop: '20px' } : {};
+
     return (
-      <div className="am-toast">
+      <div className={wrapCls}>
         <div className="am-toast-text">
           <span className={toastClass} style={iconStyle}/>{children}
         </div>

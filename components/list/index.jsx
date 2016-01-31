@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {
 }
 
@@ -13,11 +14,15 @@ const List = React.createClass({
     };
   },
   render() {
-    let { isIconList } = this.props;
-    let wrapCls = 'am-list am-list-chip am-list-form ';
-    if(isIconList) {
-      wrapCls = wrapCls + 'am-list-iconlist ';
-    }
+    let { isIconList, className } = this.props;
+    const wrapCls = classNames({
+      'am-list': true,
+      'am-list-chip': true,
+      'am-list-form': true,
+      'am-list-iconlist': isIconList,
+      [className] : className
+    });
+
     return (
       <div className={wrapCls} style={this.props.style}>
         {this.props.children}
@@ -35,16 +40,30 @@ const Header = React.createClass({
     };
   },
   render(){
+    let { style, children, className } = this.props;
+    const wrapCls = classNames({
+      'am-list-header': true,
+      [className] : className
+    });
+
     return (
-      <div className="am-list-header" style={this.props.style}>{this.props.children}</div>
+      <div className={wrapCls} style={style}>{children}</div>
     );
   }
 });
 const Body = React.createClass({
+  propTypes: {
+    style: PropTypes.object,
+  },
   render(){
+    let { style, children, className } = this.props;
+    const listBodyCls = classNames({
+      'am-list-body': true,
+      [className] : className
+    });
     return (
-      <div className="am-list-body">
-        {this.props.children}
+      <div className={listBodyCls} style={style}>
+        {children}
       </div>
     );
   }
@@ -68,10 +87,15 @@ const Footer = React.createClass({
     this.props.onClick.call(this, e);
   },
   render(){
-    let align = this.props.align === 'right' ? 'am-list-footer am-ft-right' : 'am-list-footer';
+    let { style, align, children, className } = this.props;
+    const wrapCls = classNames({
+      'am-list-footer': true,
+      'am-ft-right': align === 'right',
+      [className] : className
+    });
     return (
-      <div className={align} style={this.props.style} onClick={this._onFooterClick}>
-        {this.props.children}
+      <div className={wrapCls} style={style} onClick={this._onFooterClick}>
+        {children}
       </div>
     );
   }
@@ -79,7 +103,6 @@ const Footer = React.createClass({
 
 const Item = React.createClass({
   propTypes: {
-    extraCls: PropTypes.string,
     line: PropTypes.number,
     extra: PropTypes.any,
     icon: PropTypes.string,
@@ -88,10 +111,10 @@ const Item = React.createClass({
     needActive: PropTypes.bool,
     onClick: PropTypes.func,
     error: PropTypes.bool,
+    style: PropTypes.object,
   },
   getDefaultProps() {
     return {
-      extraCls: '',
       link: '',
       line: 1,
       onClick: noop,
@@ -114,17 +137,15 @@ const Item = React.createClass({
     }
   },
   render(){
-    let { extraCls, thumb, arrow, line, error } = this.props;
-    let itemCls, thumbDom, arrowDom;
+    let { style, thumb, arrow, line, error, children, extra, className } = this.props;
+    let thumbDom, arrowDom;
 
-    if (line === 2) {
-      itemCls = 'am-list-item am-list-item-13';
-    } else {
-      itemCls = 'am-list-item';
-    }
-
-    itemCls = itemCls + (error ? ' am-list-item-error' : '');
-    itemCls = itemCls + ' ' + extraCls;
+    const wrapCls = classNames({
+      'am-list-item': true,
+      'am-list-item-13': line === 2,
+      'am-list-item-error': error,
+      [className] : className
+    });
 
     if (thumb) {
       if (line === 1) {
@@ -134,37 +155,29 @@ const Item = React.createClass({
       }
     }
 
-    let extraDom = '';
-    if (this.props.extra) {
-      extraDom = <div className="am-list-extra">{this.props.extra}</div>;
-    }
+    let extraDom = extra ? <div className="am-list-extra">{extra}</div> : '';
 
     /* arrow有值，则保留这个dom坑位 */
     if (!!arrow) {
       /* 当值是horizontal时,渲染水平箭头 */
       if (arrow === 'horizontal') {
-        arrowDom = <div className="am-list-arrow">
-          <span className="am-icon am-icon-arrow-horizontal"/>
-        </div>;
+        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-horizontal"/></div>);
         /* 当值是vertical时,渲染垂直箭头 */
       } else if (arrow === 'down') {
-        arrowDom = <div className="am-list-arrow">
-          <span className="am-icon am-icon-arrow-vertical"/></div>;
+        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-vertical"/></div>);
       } else if (arrow === 'up') {
-        arrowDom = <div className="am-list-arrow">
-          <span className="am-icon am-icon-arrow-vertical am-icon-arrow-vertical-up"/>
-        </div>;
+        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-vertical am-icon-arrow-vertical-up"/></div>);
       } else {
-        arrowDom = <div className="am-list-arrow"/>;
+        arrowDom = (<div className="am-list-arrow"/>);
       }
     } else {
       arrowDom = null;
     }
 
     return (
-      <div className={itemCls} onClick={this._handleClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} onTouchCancel={this._handleTouchEnd} ref="listitem">
+      <div className={wrapCls} style={style} onClick={this._handleClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} onTouchCancel={this._handleTouchEnd} ref="listitem">
         {thumbDom}
-        <div className="am-list-content">{this.props.children}</div>
+        <div className="am-list-content">{children}</div>
         {extraDom}
         {arrowDom}
       </div>

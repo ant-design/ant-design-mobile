@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 
 const Message = React.createClass({
   propTypes: {
@@ -14,9 +15,14 @@ const Message = React.createClass({
     };
   },
   render() {
-    const { type, main, sub } = this.props;
+    const { type, main, sub, className } = this.props;
+    const wrapCls = classNames({
+      'am-message': true,
+      [className] : className
+    });
+
     return (
-      <div className="am-message">
+      <div className={wrapCls}>
         <div className={'am-message-icon am-icon message-' + type}></div>
         <div className={'am-message-main am-message-main-' + type}>{main}</div>
         <div className="am-message-sub">{sub}</div>

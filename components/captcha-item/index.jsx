@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const CaptchaItem = React.createClass({
@@ -49,15 +50,16 @@ const CaptchaItem = React.createClass({
     });
   },
   render() {
-    const { mode, status, onSend, value, children, placeholder, clear, tpl, pic, error } = this.props;
+    const { mode, status, onSend, value, children, placeholder, clear, tpl, pic, error, className } = this.props;
     const { seconds } = this.state;
-    let labelDom = '';
-    if (children) {
-      labelDom = (<div className="am-list-label">{children}</div>);
-    }
-    let clearClass = clear ? 'am-list-item am-input-autoclear ' : 'am-list-item ';
+    const wrapCls = classNames({
+      'am-list-item': true,
+      'am-input-autoclear': clear,
+      'am-list-item-error': error,
+      [className] : className
+    });
 
-    clearClass = clearClass + (error ? 'am-list-item-error' : '');
+    let labelDom = children ? (<div className="am-list-label">{children}</div>) : null;
 
     let clearDom = '';
     if (clear) {
@@ -121,7 +123,7 @@ const CaptchaItem = React.createClass({
     }
 
     return (
-      <div className={clearClass}>
+      <div className={wrapCls}>
         {labelDom}
         <div className="am-list-control">
           <input

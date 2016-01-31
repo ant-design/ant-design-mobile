@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 function noop() {}
 
 const Article = React.createClass({
@@ -18,7 +19,12 @@ const Article = React.createClass({
     };
   },
   render() {
-    const { title, time, img, onMoreClick, children } = this.props;
+    const { title, time, img, onMoreClick, children, className } = this.props;
+    const wrapCls = classNames({
+      'am-article': true,
+      [className] : className
+    });
+
     let titleDom = title ? <h2>{title}</h2> : '';
     let timeDom = time ? <time>{time}</time> : '';
     let imgDom = img ? <p><img src={img}/></p> : '';
@@ -26,7 +32,7 @@ const Article = React.createClass({
       <a onClick={onMoreClick} className="am-article-more">更多</a>
     </div>) : '';
     return (
-      <div className="am-article">
+      <div className={wrapCls}>
         {titleDom}
         {timeDom}
         {imgDom}
