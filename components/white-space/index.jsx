@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 
 const WhiteSpace = React.createClass({
   propTypes: {
@@ -10,10 +11,15 @@ const WhiteSpace = React.createClass({
     };
   },
   render() {
-    const { mode } = this.props;
+    const { mode, className } = this.props;
+    let wrapCls = classNames({
+      'am-whitespace': true,
+      [className] : className
+    });
+    wrapCls += ' am-whitespace-' + mode;
 
     return (
-      <div className={'am-whitespace am-whitespace-' + mode}></div>
+      <div className={wrapCls}/>
     );
   }
 });

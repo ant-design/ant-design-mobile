@@ -24,10 +24,10 @@ const Toast = React.createClass({
       'am-toast-loading': mode === 'loading',
       'am-toast-success': mode === 'success',
       'am-toast-fail': mode === 'fail',
-      'am-toast-network': mode === 'network',
+      'am-toast-network': mode === 'network'
     });
 
-    let iconStyle = children ? { marginTop: '20px' } : {};
+    let iconStyle = children ? {} : { marginTop: '20px' };
 
     return (
       <div className={wrapCls}>

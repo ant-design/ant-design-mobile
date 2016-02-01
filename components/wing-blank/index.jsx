@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 
 const WingBlank = React.createClass({
   propTypes: {
@@ -10,10 +11,15 @@ const WingBlank = React.createClass({
     };
   },
   render() {
-    const { mode, children } = this.props;
+    const { mode, children, className } = this.props;
+    let wrapCls = classNames({
+      'am-wingblank': true,
+      [className] : className
+    });
+    wrapCls += ' am-wingblank-' + mode;
 
     return (
-      <div className={'am-wingblank am-wingblank-' + mode}>
+      <div className={wrapCls}>
         {children}
       </div>
     );
