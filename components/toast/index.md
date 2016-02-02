@@ -12,4 +12,4 @@
 
 | 成员        | 说明           | 类型        |  可选值       | 默认值       |
 |------------|----------------|--------------------|--------------|
-| mode       | icon类型        | String |   `success`、`fail`、`loading`、`network` |  `loading` |
+| mode       | icon类型        | String |   `success`、`fail`、`loading`、`network`或不写 |  `` |

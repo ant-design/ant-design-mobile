@@ -1,6 +1,6 @@
-# 载入中
+# 失败提醒
 
-- order: 0
+- order: 4
 
 ---
 
@@ -12,11 +12,11 @@ let ToastExample = React.createClass({
   render() {
     return (
       <div className="toast-container">
-        <Toast mode="loading"/>
+        <Toast>咬我啊</Toast>
       </div>
     );
   }
 });
 
-ReactDOM.render(<ToastExample />, document.getElementById('components-toast-demo-loading'));
+ReactDOM.render(<ToastExample />, document.getElementById('components-toast-demo-basic'));
 ````

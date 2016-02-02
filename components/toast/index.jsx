@@ -8,7 +8,7 @@ const Toast = React.createClass({
   },
   getDefaultProps() {
     return {
-      mode: 'loading'
+      mode: ''
     };
   },
   render() {
@@ -27,12 +27,13 @@ const Toast = React.createClass({
       'am-toast-network': mode === 'network'
     });
 
-    let iconStyle = children ? {} : { marginTop: '20px' };
+    let iconDom = mode !== '' ? <span className={toastClass}/> : null;
 
     return (
       <div className={wrapCls}>
         <div className="am-toast-text">
-          <span className={toastClass} style={iconStyle}/>{children}
+          {iconDom}
+          {children}
         </div>
       </div>
     );
