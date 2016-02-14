@@ -4,19 +4,33 @@ import 'rmc-cascader/assets/index.css';
 import 'rmc-cascader/assets/popup.css';
 import 'rmc-modal/assets/index.css';
 import 'rmc-picker/assets/index.css';
-import React from 'react';
+import React, {PropTypes} from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
 
+function defaultFormat(values) {
+  return values.join(',');
+}
+
 const ListPicker = React.createClass({
+  propTypes: {
+    format: PropTypes.func,
+  },
+
+  getDefaultProps() {
+    return {
+      format: defaultFormat,
+    };
+  },
+
   getSel() {
     const value = this.props.value || [];
     const treeChildren = treeFilter(this.props.data, (c, level)=> {
       return c.i === value[level];
     });
-    return treeChildren.map((v)=> {
+    return this.props.format(treeChildren.map((v)=> {
       return v.n;
-    }).join(',');
+    }));
   },
   render() {
     const extraProps = {
