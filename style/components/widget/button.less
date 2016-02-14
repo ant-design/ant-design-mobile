@@ -27,31 +27,31 @@
     transform-origin: 0 0;
     .box-sizing();
   }
-  &.am-button-tiny {
+  &-tiny {
     height: 24px;
     font-size: 13px;
     line-height: 25px;
     .border-radius(3px);
   }
-  &.am-button-little {
+  &-little {
     height: 31px;
     font-size: 13px;
     line-height: 31px;
     .border-radius(3px);
   }
-  &.am-button-small {
+  &-small {
     height: 36px;
     font-size: 13px;
     line-height: 36px;
     .border-radius(3px);
   }
-  &.am-button-middle {
+  &-middle {
     height: 40px;
     font-size: 16px;
     line-height: 40px;
     .border-radius(3px);
   }
-  &.am-button-inline {
+  &-inline {
     width: auto;
     padding-left: 16px;
     padding-right: 16px;
@@ -64,7 +64,7 @@
     }
   }
   /* 蓝色按钮 */
-  &.am-button-blue {
+  &-blue {
     border: 0 none;
     color: #fff;
     background-color: #0ae;
@@ -75,7 +75,7 @@
     }
   }
   /* 红色按钮 */
-  &.am-button-red {
+  &-red {
     border: 0 none;
     color: #fff;
     background-color: #ec5050;
@@ -85,7 +85,7 @@
       background-color: #bd4040;
     }
   }
-  &.am-button-white {
+  &-white {
     border: 0 none;
     color: #666;
     background-color: #fff;
@@ -101,15 +101,14 @@
       }
     }
   }
-  &.am-button-warn {
+  &-warn {
     color: #f4333c;
     &:active,
     &.hover {
       color: #f4333c;
     }
   }
-
-  &.am-button-disabled {
+  &-disabled {
     &:disabled {
       border: 0 none;
       color: #d2d2d2;
@@ -120,8 +119,8 @@
       }
     }
   }
-  &.am-button-disabled,
-  &.am-button-light.am-button-disabled,
+  &-disabled,
+  &-light&-disabled,
   &:disabled {
     border-color: #ebebf0;
     color: #d2d2d2;
@@ -139,27 +138,7 @@
       }
     }
   }
-  &.am-button-blue-disabled:disabled {
-    background-color: #3998ed;
-    color: #73baf8;
-    border: 0 none;
-    &:active,
-    &.hover {
-      color: #73baf8;
-      background-color: #3998ed;
-    }
-  }
-  &.am-button-red-disabled:disabled {
-    background-color: #cb3636;
-    color: #ab2020;
-    border: 0 none;
-    &:active,
-    &.hover {
-      color: #ab2020;
-      background-color: #cb3636;
-    }
-  }
-  &.am-button-light {
+  &-light {
     color: #0ae;
     border: 0 none;
     background-color: #fff;
@@ -185,7 +164,7 @@
       }
     }
   }
-  &.am-button-flat {
+  &-flat {
     font-size: 16px;
     .border-radius(0);
     border: 0 none;
@@ -200,7 +179,7 @@
       background-color: #ededed;
     }
   }
-  &.am-button-warn:disabled {
+  &-warn:disabled {
     color: #d2d2d2;
     .border-radius(0);
     &:active,

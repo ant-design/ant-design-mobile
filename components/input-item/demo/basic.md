@@ -36,6 +36,10 @@ let BasicInput = React.createClass({
             editable={false}
           >输入说明</InputItem>
           <InputItem
+            value="不可编辑不可编辑不可编辑不可编辑不可编辑不可编辑"
+            editable={false}
+          >输入说明</InputItem>
+          <InputItem
             {...getFieldProps('222', {
               initialValue: '无Label',
               valuePropName: 'value'

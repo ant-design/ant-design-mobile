@@ -1,8 +1,7 @@
 @import '../base/mixins';
-@prefixCls: am-segment;
 
 /*SegmentedControl选项卡*/
-.@{prefixCls} {
+.am-segment {
   .display-box;
   background-color: #fff;
   height: 44px;
@@ -36,16 +35,16 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: 199%;
-      height: 198%;
+      width: 200%;
+      height: 200%;
       border-bottom: 1px solid #e5e5e5;
       -webkit-transform: scale(.5);
       transform: scale(.5);
       border-top: 1px solid #0ae;
       border-bottom: 1px solid #0ae;
       border-right: 1px solid #0ae;
-      -webkit-transform-origin: 0 0;
-      transform-origin: 0 0;
+      -webkit-transform-origin: -1px -1px;
+      transform-origin: -1px -1px;
     }
     &-selected {
       background: #0ae;
@@ -55,17 +54,18 @@
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
       &:after {
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
         border-left: 1px solid #0ae;
+
       }
     }
     &:last-child {
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
       &:after {
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
         border-right: 1px solid #0ae;
       }
     }

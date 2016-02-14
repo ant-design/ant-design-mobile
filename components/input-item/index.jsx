@@ -69,59 +69,50 @@ const InputItem = React.createClass({
       labelDom = (<div className="am-list-label">{children}</div>);
     }
 
-    if(editable) {
-      let clearDom = '';
-      if (clear) {
-        if (value.length > 0) {
-          clearDom = (<div className="am-list-clear">
-            <i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
+    let clearDom = '';
+    if (clear) {
+      if (value.length > 0) {
+        clearDom = (<div className="am-list-clear">
+          <i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
+          onClick={this._clearInput}
+          onTouchStart={this._clearInput}/>
+        </div>);
+      } else {
+        clearDom = (<div className="am-list-clear">
+          <i className="am-icon am-icon-clear"
             onClick={this._clearInput}
             onTouchStart={this._clearInput}/>
-          </div>);
-        } else {
-          clearDom = (<div className="am-list-clear">
-            <i className="am-icon am-icon-clear"
-              onClick={this._clearInput}
-              onTouchStart={this._clearInput}/>
-          </div>);
-        }
-      }
-
-      let iconDom;
-      let iconType = '';
-      if (icon) {
-        iconType = 'form-' + icon;
-        iconDom = (<div className="am-list-thumb">
-          <i className={'am-icon am-icon-' + iconType} onClick={this._onIconClick}/>
         </div>);
       }
-
-      return (
-        <div className={wrapCls} style={style}>
-          {labelDom}
-          <div className="am-list-control">
-            <input type="text"
-              name={name}
-              placeholder={placeholder}
-              value={value}
-              onChange={this._onInputChange}
-              onBlur={this._onInputBlur}
-              onFocus={this._onInputFocus}/>
-          </div>
-          {clearDom}
-          {iconDom}
-        </div>
-      );
-    } else {
-      return (
-        <div className={wrapCls} style={style}>
-          {labelDom}
-          <div className="am-list-control">
-            <label>{value}</label>
-          </div>
-        </div>
-      );
     }
+
+    let iconDom;
+    let iconType = '';
+    if (icon) {
+      iconType = 'form-' + icon;
+      iconDom = (<div className="am-list-thumb">
+        <i className={'am-icon am-icon-' + iconType} onClick={this._onIconClick}/>
+      </div>);
+    }
+
+    return (
+      <div className={wrapCls} style={style}>
+        {labelDom}
+        <div className="am-list-control">
+          <input
+            type="text"
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={this._onInputChange}
+            onBlur={this._onInputBlur}
+            onFocus={this._onInputFocus}
+            readOnly={!editable}/>
+        </div>
+        {clearDom}
+        {iconDom}
+      </div>
+    );
   }
 });
 module.exports = InputItem;
