@@ -1,4 +1,4 @@
-window.require = function(path) {
+window.require = function (path) {
   if (path in window) {
     return window[path];
   } else {
@@ -17,6 +17,7 @@ window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
 window['promise'] = require('promise');
 window['rc-form'] = require('rc-form');
+window.DISTRICT = require('./district');
 
 window.BrowserDemo = React.createClass({
   render() {
@@ -28,7 +29,7 @@ window.BrowserDemo = React.createClass({
             <div className="control minify"></div>
             <div className="control expand"></div>
           </div>
-          <input className="address-bar" defaultValue="http://www.example.com" />
+          <input className="address-bar" defaultValue="http://www.example.com"/>
         </header>
         <section className="window-content">
           {this.props.children}
