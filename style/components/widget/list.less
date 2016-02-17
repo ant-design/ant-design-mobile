@@ -2,7 +2,7 @@
 
 .am-list {
   padding: 8px 0;
-  .am-list-header {
+  & &-header {
     padding: 10px 15px 0;
     padding-bottom: 8px;
     font-size: 12px;
@@ -10,16 +10,14 @@
     display: inline-block;
     width: 100%;
     -webkit-box-sizing: border-box;
-
   }
-  .am-list-footer {
+  & &-footer {
     padding: 8px 15px;
     font-size: 12px;
     color: #999;
   }
-  .am-list-body {
+  & &-body {
     position: relative;
-    background: #fff;
     padding-top: 1px;
     &:before,
     &:after {
@@ -34,8 +32,8 @@
     &:before {
       top: 0;
       border-top: 1px solid #d9d9d9;
-      -webkit-transform-origin: 0 0;
-      transform-origin: 0 0;
+      -webkit-transform-origin: 0 1px;
+      transform-origin: 0 1px;
     }
     &:after {
       bottom: 0;
@@ -44,7 +42,7 @@
       transform-origin: 0 100%;
     }
   }
-  .am-list-item {
+  & &-item {
     position: relative;
     font-size: 16px;
     color: #333;
@@ -58,6 +56,8 @@
     overflow: hidden;
     .display-box;
     .box-align;
+    -webkit-transition: background-color 200ms;
+    transition: background-color 200ms;
     /* 双行 */
     &.am-list-item-13 {
       padding: 9px 15px;
@@ -375,8 +375,8 @@
 }
 
 .am-icon {
-  &.am-icon-arrow-horizontal,
-  &.am-icon-arrow-vertical {
+  &&-arrow-horizontal,
+  &&-arrow-vertical {
     display: block;
     width: 12px;
     height: 12px;
@@ -392,26 +392,24 @@
       border-left: 0 none;
     }
   }
-  &.am-icon-arrow-horizontal {
+  &&-arrow-horizontal {
     &:before {
       margin-top: 2px;
       .transform(rotate(315deg));
     }
   }
-  &.am-icon-arrow-vertical {
+  &&-arrow-vertical {
     &:before {
       margin-left: 2px;
       .transform(rotate(45deg));
     }
-  }
-  &.am-icon-arrow-vertical {
-    &.am-icon-arrow-vertical-up {
+    &&-arrow-vertical-up {
       &:before {
         margin: 4px 0 0 2px;
         .transform(rotate(225deg));
       }
     }
-    &am-icon-arrow-vertical-down {
+    &&-arrow-vertical-down {
       &:before {
         margin-left: 2px;
         .transform(rotate(45deg));

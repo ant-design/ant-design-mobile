@@ -1,11 +1,11 @@
-# Ant Design of React
+# Ant Mobile
 
 - category: 0
 - order: 0
 
 ---
 
-这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
+Ant Mobile是 AntUI 的 React 实现，开发和服务于蚂蚁大中台无线业务。
 
 <div class="pic-plus">
   <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
@@ -27,10 +27,9 @@
 
 ## 特性
 
-- Designed as Ant Design.
-- 基于 React 的组件化开发模式。
+- 基于AntUI（支付宝客户端）视觉规范。
+- 基于 React 的组件化开发模式,精心开发了AntUI样式规范包含的所有UI组件。复杂组件则由[React Component](http://react-component.github.io/badgeboard/)提供大力支持,在其基础上再进行封装,保证组件的高质量。
 - 基于 npm + webpack + babel 的工作流，支持 ES2015。
-
 
 ## 示例
 
@@ -44,21 +43,17 @@ ReactDOM.render(<Button>按钮</Button>, mountNode);
 import 'antm/lib/index.css';
 ```
 
-按需加载可通过此写法 `import { Button } from 'antm/lib/button'`
-
 ## 版本
 
-- 稳定版：[![npm package](http://img.shields.io/npm/v/antm.svg?style=flat-square)](https://www.npmjs.org/package/antm)
-- 开发版：[![](https://cnpmjs.org/badge/v/antm.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antm)
+- 稳定版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
+- 开发版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
 
 ## 浏览器支持
 
-钱包内容器
+ios & android4.0+
 
 ## 链接
 
-- [首页](http://ant.design/)
-- [文档和组件](http://ant.design/docs/introduce)
 - [构建调试工具](https://github.com/ant-design/antd-bin)
 - [React 模块](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
@@ -68,8 +63,6 @@ import 'antm/lib/index.css';
 
 - 蚂蚁金服
 
-> 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
+## 欢迎参与
 
-## 如何贡献
-
-我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或者给我们[提问](https://github.com/ant-design/ant-design/issues)。
+有任何建议或意见您可以进行发个issue [提问](http://gitlab.alipay-inc.com/react-ui/ant-mobile/issues)。
