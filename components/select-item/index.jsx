@@ -55,7 +55,7 @@ const SelectItem = React.createClass({
       arrowStyle = {
         position: ' absolute',
         right: '15px',
-        top: '18px'
+        top: '16px'
       };
     }
 
