@@ -18,7 +18,7 @@ const SwitchItem = React.createClass({
   },
   _onSwitchChange(e) {
     const checked = e.target.checked;
-    this.props.onChange.call(this, checked);
+    this.props.onChange(checked);
   },
   render(){
     let { name, checked, disabled, children, className } = this.props;

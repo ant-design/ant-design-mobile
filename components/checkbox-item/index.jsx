@@ -22,7 +22,7 @@ const CheckboxItem = React.createClass({
     };
   },
   _handleChange(e){
-    this.props.onChange.call(this, e.target.checked);
+    this.props.onChange(e.target.checked);
   },
 
   render(){

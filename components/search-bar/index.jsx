@@ -35,16 +35,16 @@ const SearchBar = React.createClass({
   _handleChange(e) {
     let value = e.target.value;
     this.setState({value: value});
-    this.props.onChange.call(this, value);
+    this.props.onChange(value);
   },
   _handleSubmit(e) {
     e.preventDefault();
-    this.props.onSubmit.call(this, this.state.value);
+    this.props.onSubmit(this.state.value);
   },
   _handleCancel() {
     this.setState({value: ''});
-    this.props.onChange.call(this, '');
-    this.props.onCancel.call(this, '');
+    this.props.onChange('');
+    this.props.onCancel('');
   },
   render() {
     const { className, showCancelButton, disablSearch, placeholder } = this.props;

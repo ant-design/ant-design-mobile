@@ -38,21 +38,21 @@ const InputItem = React.createClass({
     if(maxLength > 0) {
       value = value.substring(0, maxLength);
     }
-    onChange.call(this, value);
+    onChange(value);
   },
   _onInputBlur(e) {
     const value = e.target.value;
-    this.props.onBlur.call(this, value);
+    this.props.onBlur(value);
   },
   _onInputFocus(e) {
     const value = e.target.value;
-    this.props.onFocus.call(this, value);
+    this.props.onFocus(value);
   },
   _onIconClick() {
-    this.props.onIconClick.call(this);
+    this.props.onIconClick();
   },
   _clearInput() {
-    this.props.onChange.call(this, '');
+    this.props.onChange('');
   },
 
   render(){

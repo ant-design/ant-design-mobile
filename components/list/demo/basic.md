@@ -11,7 +11,7 @@ import { List, InputItem} from 'antm';
 
 const ListForm = React.createClass({
   onClick(a, b, c) {
-    console.log(a, b, c);
+    console.log('onClick');
   },
 
   render() {
@@ -21,35 +21,35 @@ const ListForm = React.createClass({
         <List.Body>
           <List.Item
             arrow="horizontal"
-            onClick={this.onClick.bind(this, 1, 2)}
+            onClick={this.onClick}
             needActive={false}
           >文本内容,无Active效果</List.Item>
           <List.Item
             extra="内容内容"
             arrow="down"
-            onClick={() => {console.log('onClick');}}
+            onClick={this.onClick}
           >文本信息</List.Item>
           <List.Item
             arrow="up"
             extra="内容内容"
-            onClick={() => {console.log('onClick');}}
+            onClick={this.onClick}
           >文本信息</List.Item>
           <List.Item
             extra="内容内容"
             arrow="ss"
-            onClick={() => {console.log('onClick');}}
+            onClick={this.onClick}
           >文本内容</List.Item>
           <List.Item
             extra="内容内容"
-            onClick={() => {console.log('onClick');}}
+            onClick={this.onClick}
           >文本内容</List.Item>
           <List.Item
             extra="文本内容"
             arrow="horizontal"
-            onClick={() => {console.log('onClick');}}
+            onClick={this.onClick}
           >文本信息</List.Item>
         </List.Body>
-        <List.Footer onClick={() => {console.log('onClick');}} style={{color:'red'}} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
+        <List.Footer onClick={this.onClick} style={{color:'red'}} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
       </List>
       <List isIconList={true}>
         <List.Header>带icon</List.Header>
