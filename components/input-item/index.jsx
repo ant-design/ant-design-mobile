@@ -17,6 +17,7 @@ const InputItem = React.createClass({
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     error: PropTypes.bool,
+    extra: PropTypes.string,
   },
   getDefaultProps() {
     return {
@@ -30,6 +31,7 @@ const InputItem = React.createClass({
       onFocus: noop,
       onIconClick: noop,
       error: false,
+      extra: ''
     };
   },
   _onInputChange(e) {
@@ -56,7 +58,7 @@ const InputItem = React.createClass({
   },
 
   render(){
-    const { name, editable, value, placeholder, style, clear, children, icon, error, className } = this.props;
+    const { name, editable, value, placeholder, style, clear, children, icon, error, className, extra } = this.props;
     const wrapCls = classNames({
       'am-list-item': true,
       'am-input-autoclear': clear,
@@ -95,6 +97,10 @@ const InputItem = React.createClass({
       </div>);
     }
 
+    let extraDom = extra !== '' ? (
+      <div className="am-list-extra am-input-extra">{extra}</div>
+    ) : null;
+
     return (
       <div className={wrapCls} style={style}>
         {labelDom}
@@ -111,6 +117,7 @@ const InputItem = React.createClass({
         </div>
         {clearDom}
         {iconDom}
+        {extraDom}
       </div>
     );
   }

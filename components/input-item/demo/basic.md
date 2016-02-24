@@ -66,6 +66,16 @@ let BasicInput = React.createClass({
           >所属门店</InputItem>
           <InputItem
             {...getFieldProps('5', {
+              initialValue: '8',
+              valuePropName: 'value'
+            })}
+            error={true}
+            placeholder="placeholder"
+            clear={true}
+            extra="折"
+          >带附加说明</InputItem>
+          <InputItem
+            {...getFieldProps('6', {
               initialValue: '222',
               valuePropName: 'value'
             })}
