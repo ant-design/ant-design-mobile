@@ -32,11 +32,15 @@ const ListDatePicker = React.createClass({
     minDate: PropTypes.string,
     maxDate: PropTypes.string,
     onChange: PropTypes.func,
+    format: PropTypes.func
   },
   getDefaultProps() {
     return {
       mode: 'datetime',
-      locale: require('rmc-date-picker/lib/locale/zh_CN')
+      locale: require('rmc-date-picker/lib/locale/zh_CN'),
+      format: (val) => {
+        return val;
+      }
     };
   },
   getInitialState() {
@@ -79,7 +83,7 @@ const ListDatePicker = React.createClass({
   },
   render() {
     const {date, minDate, maxDate} = this.state;
-    let dateStr = this.props.value ? this.props.value : '请选择';
+    let dateStr = this.props.value ? this.props.format(this.props.value) : '请选择';
     const extraProps = {
       extra: dateStr
     };

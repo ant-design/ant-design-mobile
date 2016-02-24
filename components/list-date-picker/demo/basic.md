@@ -44,6 +44,15 @@ let Test = React.createClass({
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
           </ListDatePicker>
+          <ListDatePicker
+            mode="datetime"
+            format={ (val) => { return '00000'; }}
+            { ...getFieldProps('customformat', {
+              initialValue: ''
+            })}
+          >
+            <List.Item arrow="horizontal">日期+时间</List.Item>
+          </ListDatePicker>
         </List.Body>
       </List>
     </div>);
