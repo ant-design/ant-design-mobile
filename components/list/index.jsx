@@ -20,6 +20,7 @@ const List = React.createClass({
       'am-list-chip': true,
       'am-list-form': true,
       'am-list-iconlist': isIconList,
+
       [className] : className
     });
 
@@ -112,6 +113,7 @@ const Item = React.createClass({
     onClick: PropTypes.func,
     error: PropTypes.bool,
     style: PropTypes.object,
+    align: PropTypes.string,
   },
   getDefaultProps() {
     return {
@@ -120,6 +122,7 @@ const Item = React.createClass({
       onClick: noop,
       needActive: true,
       error: false,
+      align: 'middle',
     };
   },
   _handleClick(e) {
@@ -137,13 +140,16 @@ const Item = React.createClass({
     }
   },
   render(){
-    let { style, thumb, arrow, line, error, children, extra, className } = this.props;
+    let { style, thumb, arrow, line, error, children, extra, className, align } = this.props;
     let thumbDom, arrowDom;
 
     const wrapCls = classNames({
       'am-list-item': true,
       'am-list-item-13': line === 2,
       'am-list-item-error': error,
+      'am-list-item-top': align === 'top',
+      'am-list-item-middle': align === 'middle',
+      'am-list-item-bottom': align === 'bottom',
       [className] : className
     });
 

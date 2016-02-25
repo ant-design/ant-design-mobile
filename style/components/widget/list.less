@@ -67,6 +67,15 @@
         margin-bottom: 4px;
       }
     }
+    &.am-list-item-top {
+      .box-align(flex-start);
+    }
+    &.am-list-item-middle {
+      .box-align(center);
+    }
+    &.am-list-item-bottom {
+      .box-align(flex-end);
+    }
     /* list selector 选择的样式*/
     &.am-list-selected {
       position: relative;
@@ -142,10 +151,10 @@
 
     /*list左侧主内容多行时，摘要*/
     .am-list-brief {
-      color: #999;
-      font-size: 13px;
+      color: #a5a5a5;
+      font-size: 12px;
       line-height: 15px;
-      margin-top: 2px;
+      margin-top: 8px;
       .ellipsis();
     }
 
@@ -166,6 +175,10 @@
     /*list右侧补充内容-颜色醒目*/
     .am-list-key {
       color: #336395;
+    }
+    .am-list-multiline {
+      white-space: normal;
+      word-break: break-all;
     }
     /*list右侧箭头*/
     .am-list-arrow {

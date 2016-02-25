@@ -47,3 +47,4 @@ AntUI列表容器,其中会有列表头,列表尾,列表主体。
 | extra      | 右边内容        | String/HTML | |  无  |
 | onClick    | 点击事件的回调函数 | Function |  | 无  |
 | extraDom    | Item用于封装其它组件时需要填入的额外数据,用于渲染modal,一般不要使用 | any | |  无  |
+| align    |    Flex 子元素垂直对齐     | String    | `top` `middle` `bottom` | `middle` |
