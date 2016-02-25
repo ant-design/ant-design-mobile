@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git filter-branch --env-filter '
+git filter-branch -f --env-filter '
 
 OLD_EMAIL="chengyu@taobao.com"
 CORRECT_NAME="chengyu"
@@ -16,4 +16,4 @@ then
     export GIT_AUTHOR_NAME="$CORRECT_NAME"
     export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
 fi
-' --tag-name-filter cat -- --branches --tags -f
+' --tag-name-filter cat -- --branches --tags
