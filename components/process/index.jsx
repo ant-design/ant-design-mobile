@@ -16,6 +16,7 @@ const Process = React.createClass({
     result.map((process, i) => {
       let statusCls = '';
       let statusSubClas = '';
+      let userIconStyle = {};
 
       switch(process.type) {
       case 'done':
@@ -42,11 +43,18 @@ const Process = React.createClass({
         break;
       }
 
+      if(process.icon){
+        userIconStyle = {
+          backgroundImage: 'url(' + process.icon + ')'
+        };
+        statusSubClas = 'message-pay';
+      }
+
       switch(i) {
       case 0:
         processStep.push(
           <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
-            <div className={'am-process-icon am-icon ' + statusSubClas}/>
+            <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
             <div className="am-process-content">
               <div className="am-process-main">{process.title}</div>
               <div className="am-process-brief">{process.brief}</div>
@@ -58,7 +66,7 @@ const Process = React.createClass({
       case resultLen - 1:
         processStep.push(
           <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
-            <div className={'am-process-icon am-icon ' + statusSubClas}/>
+            <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
             <div className="am-process-content">
               <div className="am-process-main">{process.title}</div>
               <div className="am-process-brief">{process.brief}</div>
@@ -70,7 +78,7 @@ const Process = React.createClass({
       default:
         processStep.push(
           <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
-            <div className={'am-process-icon am-icon ' + statusSubClas}/>
+            <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
             <div className="am-process-content">
               <div className="am-process-main">{process.title}</div>
               <div className="am-process-brief">{process.brief}</div>
