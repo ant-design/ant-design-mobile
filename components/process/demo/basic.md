@@ -89,6 +89,24 @@ const result4 = [
   }
 ];
 
+const result5 = [
+  {
+    icon: 'https://os.alipayobjects.com/rmsportal/TMrttaVzdrUmfts.png',
+    title: '指定icon',
+    brief: 'icon 50x50'
+  },
+  {
+    icon: 'https://os.alipayobjects.com/rmsportal/rZpLtoYsDtPrKAX.png',
+    title: '预计10分钟内到账',
+    brief: 'icon 50x50'
+  },
+  {
+    icon: 'https://os.alipayobjects.com/rmsportal/huyBDwmKjViVAVw.png',
+    title: '预计10分钟内到账',
+    brief: 'icon 50x50'
+  }
+];
+
 let ProcessExample = React.createClass({
   render() {
     return (
@@ -102,6 +120,8 @@ let ProcessExample = React.createClass({
         <Process result={result3}/>
         <WhiteSpace mode={20}/>
         <Process result={result4}/>
+        <WhiteSpace mode={20}/>
+        <Process result={result5}/>
       </div>
     );
   }
