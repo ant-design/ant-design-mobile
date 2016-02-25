@@ -33,7 +33,7 @@ const CaptchaItem = React.createClass({
     };
   },
   _clearInput() {
-    this.props.onChange.call(this, '');
+    this.props.onChange('');
   },
   _onInputChange(e) {
     let value = e.target.value;
@@ -41,7 +41,7 @@ const CaptchaItem = React.createClass({
     if(maxLength > 0) {
       value = value.substring(0, maxLength);
     }
-    onChange.call(this, value);
+    onChange(value);
   },
   reSend() {
     this.props.onSend();

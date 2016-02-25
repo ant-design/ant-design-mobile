@@ -25,7 +25,7 @@ const SelectItem = React.createClass({
   },
   _onChange(e) {
     const value = e.target.value;
-    this.props.onChange.call(this, value);
+    this.props.onChange(value);
   },
   render(){
     let { options, label, name, value, align, error, className } = this.props;

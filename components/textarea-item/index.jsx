@@ -56,18 +56,18 @@ const TextareaItem = React.createClass({
     if(maxLength > 0) {
       value = value.substring(0, maxLength);
     }
-    onChange.call(this, value);
+    onChange(value);
   },
   _onBlur(e) {
     const value = e.target.value;
-    this.props.onBlur.call(this, value);
+    this.props.onBlur(value);
   },
   _onFocus(e) {
     const value = e.target.value;
-    this.props.onFocus.call(this, value);
+    this.props.onFocus(value);
   },
   _clearInput() {
-    this.props.onChange.call(this, '');
+    this.props.onChange('');
   },
 
   render(){

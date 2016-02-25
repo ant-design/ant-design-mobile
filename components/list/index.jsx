@@ -84,7 +84,7 @@ const Footer = React.createClass({
   },
   _onFooterClick(e) {
     e.preventDefault();
-    this.props.onClick.call(this, e);
+    this.props.onClick(e);
   },
   render(){
     let { style, align, children, className } = this.props;
@@ -124,7 +124,7 @@ const Item = React.createClass({
   },
   _handleClick(e) {
     e.preventDefault();
-    this.props.onClick.call(this, e);
+    this.props.onClick(e);
   },
   _handleTouchStart() {
     if(this.props.needActive) {
