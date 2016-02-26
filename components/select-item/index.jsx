@@ -11,6 +11,7 @@ const SelectItem = React.createClass({
     value: PropTypes.string,
     onChange: PropTypes.func,
     error: PropTypes.bool,
+    arrow: PropTypes.string,
   },
   getDefaultProps() {
     return {
@@ -21,6 +22,7 @@ const SelectItem = React.createClass({
       options: [],
       onChange: noop,
       error: false,
+      arrow: 'horizontal'
     };
   },
   _onChange(e) {
@@ -28,12 +30,18 @@ const SelectItem = React.createClass({
     this.props.onChange(value);
   },
   render(){
-    let { options, label, name, value, align, error, className } = this.props;
+    let { options, label, name, value, align, error, className, arrow } = this.props;
     const wrapCls = classNames({
       'am-list-item': true,
       'am-list-item-select': true,
       'am-list-item-error': error,
       [className] : className
+    });
+
+    const arrowCls = classNames({
+      'am-icon': true,
+      'am-icon-arrow-vertical': arrow !== 'horizontal',
+      'am-icon-arrow-horizontal': arrow === 'horizontal',
     });
 
     let labelDom = label ? (<div className="am-list-label">{label}</div>) : null;
@@ -67,7 +75,7 @@ const SelectItem = React.createClass({
             {Options}
           </select>
         </div>
-        <div className="am-list-arrow" style={arrowStyle}><span className="am-icon am-icon-arrow-vertical"/></div>
+        <div className="am-list-arrow" style={arrowStyle}><span className={arrowCls}/></div>
       </div>
     );
   }
