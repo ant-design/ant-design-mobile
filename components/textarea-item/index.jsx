@@ -99,7 +99,7 @@ const TextareaItem = React.createClass({
 
     let clearDom = '';
     if (clear && editable) {
-      if (value.length > 0 && focus) {
+      if (value.length > 0) {
         clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{visibility: 'inherit'}}
           onClick={this._clearInput}
           onTouchStart={this._clearInput}/></div>);
