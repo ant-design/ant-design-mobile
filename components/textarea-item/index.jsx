@@ -37,6 +37,11 @@ const TextareaItem = React.createClass({
       editable: true,
     };
   },
+  getInitialState() {
+    return {
+      focus: false,
+    };
+  },
   componentDidMount() {
     if(this.props.autoHeight) {
       this.initialTextHeight = this.refs.textarea.offsetHeight;
@@ -59,10 +64,16 @@ const TextareaItem = React.createClass({
     onChange(value);
   },
   _onBlur(e) {
+    this.setState({
+      focus: false
+    });
     const value = e.target.value;
     this.props.onBlur(value);
   },
   _onFocus(e) {
+    this.setState({
+      focus: true
+    });
     const value = e.target.value;
     this.props.onFocus(value);
   },
@@ -72,11 +83,13 @@ const TextareaItem = React.createClass({
 
   render(){
     let { label, name, value, placeholder, clear, rows, maxLength, editable, error, className } = this.props;
+    const { focus } = this.state;
     const wrapCls = classNames({
       'am-list-item': true,
       'am-list-item-form': clear,
       'am-input-autoclear': clear,
       'am-list-item-error': error,
+      'am-list-item-focus': focus,
       [className] : className
     });
 
@@ -87,7 +100,7 @@ const TextareaItem = React.createClass({
     let clearDom = '';
     if (clear && editable) {
       if (value.length > 0) {
-        clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
+        clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{visibility: 'inherit'}}
           onClick={this._clearInput}
           onTouchStart={this._clearInput}/></div>);
       } else {

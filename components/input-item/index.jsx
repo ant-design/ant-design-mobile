@@ -34,6 +34,11 @@ const InputItem = React.createClass({
       extra: ''
     };
   },
+  getInitialState() {
+    return {
+      focus: false,
+    };
+  },
   _onInputChange(e) {
     let value = e.target.value;
     const { maxLength, onChange } = this.props;
@@ -43,10 +48,16 @@ const InputItem = React.createClass({
     onChange(value);
   },
   _onInputBlur(e) {
+    this.setState({
+      focus: false
+    });
     const value = e.target.value;
     this.props.onBlur(value);
   },
   _onInputFocus(e) {
+    this.setState({
+      focus: true
+    });
     const value = e.target.value;
     this.props.onFocus(value);
   },
@@ -59,10 +70,12 @@ const InputItem = React.createClass({
 
   render(){
     const { name, editable, value, placeholder, style, clear, children, icon, error, className, extra } = this.props;
+    const { focus } = this.state;
     const wrapCls = classNames({
       'am-list-item': true,
       'am-input-autoclear': clear,
       'am-list-item-error': error,
+      'am-list-item-focus': focus,
       [className] : className
     });
 
@@ -75,7 +88,7 @@ const InputItem = React.createClass({
     if (clear) {
       if (value.length > 0) {
         clearDom = (<div className="am-list-clear">
-          <i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
+          <i className="am-icon am-icon-clear" style={{visibility: 'inherit'}}
           onClick={this._clearInput}
           onTouchStart={this._clearInput}/>
         </div>);

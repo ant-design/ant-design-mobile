@@ -131,10 +131,17 @@
       .am-list-control {
         .box-flex(1);
       }
+
       .am-list-clear {
+        visibility: hidden;
         width: 24px;
         .am-icon-clear {
           padding: 2px;
+        }
+      }
+      &.am-list-item-focus {
+        .am-list-clear {
+          visibility: visible;
         }
       }
       .am-input-extra {
