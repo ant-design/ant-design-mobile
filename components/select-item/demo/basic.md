@@ -25,28 +25,43 @@ let SelectItemExample = React.createClass({
               valuePropName: 'value'
             })}
             label="下拉框"
-            name="select1"
             align="right"
             options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
           />
           <SelectItem
-            {...getFieldProps('select1', {
+            {...getFieldProps('select2', {
               initialValue: '2',
               valuePropName: 'value'
             })}
             label="下拉框"
-            name="select1"
+            align="right"
+            options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
+            arrow="down"
+          />
+          <SelectItem
+            {...getFieldProps('select3', {
+              initialValue: '2',
+              valuePropName: 'value'
+            })}
+            label="下拉框"
             align="right"
             options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
             error={true}
           />
           <SelectItem
-            {...getFieldProps('select2', {
+            {...getFieldProps('select4', {
               initialValue: '3',
               valuePropName: 'value'
             })}
-            name="select2"
             options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
+          />
+          <SelectItem
+            {...getFieldProps('select5', {
+              initialValue: '3',
+              valuePropName: 'value'
+            })}
+            options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
+            arrow="down"
           />
         </List.Body>
       </List>

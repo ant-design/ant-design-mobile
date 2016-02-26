@@ -64,9 +64,11 @@ const TextareaItem = React.createClass({
     onChange(value);
   },
   _onBlur(e) {
-    this.setState({
-      focus: false
-    });
+    setTimeout(() => {
+      this.setState({
+        focus: false
+      });
+    }, 500);
     const value = e.target.value;
     this.props.onBlur(value);
   },

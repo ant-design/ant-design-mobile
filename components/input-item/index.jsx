@@ -48,9 +48,11 @@ const InputItem = React.createClass({
     onChange(value);
   },
   _onInputBlur(e) {
-    this.setState({
-      focus: false
-    });
+    setTimeout(() => {
+      this.setState({
+        focus: false
+      });
+    }, 500);
     const value = e.target.value;
     this.props.onBlur(value);
   },
