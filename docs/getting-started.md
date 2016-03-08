@@ -50,7 +50,7 @@ $ tnpm install
 
 ```jsx
 import React from 'react';
-import { List } from 'antm';
+import { List } from '@alipay/antm';
 
 const App = React.createClass({
   handleClick(e) {
