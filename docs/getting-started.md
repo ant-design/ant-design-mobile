@@ -10,7 +10,7 @@ Ant Mobile 致力于提供给程序员**愉悦**的无线端开发体验。
 ## Demo演示
 
 [antm-demo](http://demo.antm.alipay.net)仓库为所有组件提供了demo演示,可以clone下来直接阅读源代码http://gitlab.alipay-inc.com/react-ui/antm-demo/ ,如遇到没有权限请联系@特木。
-比如入门的同学,请先看antm-demo的reademe.md文档
+比如入门的同学,请先看antm-demo的README.md文档
 <div class="pic-plus">
   <img width="150" src="https://os.alipayobjects.com/rmsportal/sWXtlkRDKtwAwRG.jpg">
 </div>
