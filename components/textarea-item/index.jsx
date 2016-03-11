@@ -65,9 +65,11 @@ const TextareaItem = React.createClass({
   },
   _onBlur(e) {
     setTimeout(() => {
-      this.setState({
-        focus: false
-      });
+      if(this.isMounted()) {
+        this.setState({
+          focus: false
+        });
+      }
     }, 500);
     const value = e.target.value;
     this.props.onBlur(value);
