@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './whitespace.less';
 
 const WhiteSpace = React.createClass({
   propTypes: {

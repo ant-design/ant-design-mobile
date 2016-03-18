@@ -1,5 +1,4 @@
-import './style/index.less';
-
+//import './style/index.less';
 const antm = {
   List            : require('./components/list'),
   Flex            : require('./components/flex'),

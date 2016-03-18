@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './top-notice.less';
 function noop() {}
 
 const TopNotice = React.createClass({

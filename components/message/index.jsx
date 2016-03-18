@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './message.less';
 
 const Message = React.createClass({
   propTypes: {

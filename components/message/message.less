@@ -1,4 +1,6 @@
-@import "../base/mixins";
+@import '../style/mixins';
+@import '../style/reset';
+@import '../style/smooth';
 
 .am-message {
   position: relative;
@@ -55,4 +57,47 @@
     min-height: 42px;
   }
 
+}
+
+.am-icon {
+  &.message-question,
+  &.message-success,
+  &.message-warn,
+  &.message-error,
+  &.message-fail,
+  &.message-info,
+  &.message-wait,
+  &.message-pay,
+  &.message-unpay {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    .backgroundSize(25px, auto);
+  }
+  &.message-question {
+    background-image: url("./image/question.png");
+  }
+  &.message-success {
+    background-image: url("./image/success.png");
+  }
+  &.message-warn {
+    background-image: url("./image/warn.png");
+  }
+  &.message-error,
+  &.message-fail {
+    background-image: url("./image/fail.png");
+  }
+  &.message-info {
+    background-image: url("./image/info.png");
+  }
+  &.message-wait {
+    background-image: url("./image/wait.png");
+  }
+  &.message-pay {
+    background-image: url("./image/pay.png");
+  }
+  &.message-unpay {
+    background-image: url("./image/unpay.png");
+  }
 }

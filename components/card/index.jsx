@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './card.less';
 function noop() {}
 
 const Card = React.createClass({

@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './switch.less';
 function noop() {}
 
 const SwitchItem = React.createClass({

@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import Button from '../button';
 import classNames from 'classnames';
+import './page-result-status.less';
 function noop() {}
 
 const PageResult = React.createClass({

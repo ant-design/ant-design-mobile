@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './article.less';
 function noop() {}
 
 const Article = React.createClass({

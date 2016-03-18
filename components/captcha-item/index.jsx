@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './captcha-item.less';
 function noop() {}
 
 const CaptchaItem = React.createClass({

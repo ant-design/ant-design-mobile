@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './segmented-control.less';
 function noop() {}
 
 const SegmentedControl = React.createClass({

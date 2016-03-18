@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './toast.less';
 
 const Toast = React.createClass({
   propTypes: {
