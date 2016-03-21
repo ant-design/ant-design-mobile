@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import './searchbar.less';
 function noop() {}
 
 const SearchBar = React.createClass({

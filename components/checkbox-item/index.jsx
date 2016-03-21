@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import './checkbox.less';
 function noop() {}
 
 const CheckboxItem = React.createClass({

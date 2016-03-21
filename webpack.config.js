@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 var pkg = require('./package');
+var autoprefixer = require('autoprefixer');
 
 var entry = {};
 entry['index'] = './scripts/importCss.js';
@@ -34,15 +35,17 @@ module.exports = {
     }, {
       test: /\.less$/,
       loader: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'autoprefixer-loader!' + 'less?sourceMap'
+        'css?sourceMap&-minimize!' + 'postcss-loader!' + 'less?sourceMap'
       )
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'autoprefixer-loader'
+        'css?sourceMap&-minimize!' + 'postcss-loader'
       )
     }]
   },
+
+  postcss: [autoprefixer],
 
   plugins: [
     new ExtractTextPlugin('[name].css')

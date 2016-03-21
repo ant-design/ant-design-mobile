@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import ReactDom from 'react-dom';
-import './modal.less';
 
 const Modal = React.createClass({
   propTypes: {

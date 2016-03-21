@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import './result.less';
 
 const Result = React.createClass({
   propTypes: {

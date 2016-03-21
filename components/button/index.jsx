@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import './button.less';
 function noop() {}
 
 const Button = React.createClass({

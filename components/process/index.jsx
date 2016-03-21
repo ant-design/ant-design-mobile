@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import './process.less';
 
 const Process = React.createClass({
   propTypes: {

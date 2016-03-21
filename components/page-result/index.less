@@ -1,0 +1,60 @@
+@import '../style/mixins';
+
+/*重置页面高度，让提示垂直居中*/
+html,
+body {
+  height: 100%;
+}
+
+.am-page-result {
+  text-align: center;
+  display: table;
+  width: 100%;
+  height: 100%;
+  .am-page-result-wrap {
+    margin-top: 24%;
+    .am-page-result-pic {
+      width: 135px;
+      height: 135px;
+      margin: 0 auto;
+      line-height: 135px;
+      background-size: 135px 135px;
+    }
+    .am-page-result-title,
+    .am-page-result-brief {
+      font-size: 16px;
+      line-height: 30px;
+      color: #999;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    .am-page-result-title {
+      margin-top: 24px;
+    }
+    .am-page-result-brief {
+      margin-top: 6px;
+    }
+    .am-page-result-button {
+      padding: 0 10px 15%;
+      margin-top: 39px;
+    }
+    &.am-page-result-wrap-no-button {
+      margin-top: 38%;
+    }
+    &am-page-result-wrap-combine-page {
+      margin-top: 15%;
+      .am-page-result-pic {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        line-height: 100px;
+      }
+      &.am-page-result-title {
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 16px;
+        color: #999;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import '../style/mixins';
+
+/*Tab选项卡*/
+.am-tab {
+  .display-box;
+  background-color: #ffffff;
+  height: 44px;
+  button {
+    padding: 0px;
+    border: 0px none;
+    outline: 0px none;
+    background: transparent;
+    -webkit-appearance: none;
+  }
+  .am-tab-item {
+    display: block;
+    .box-flex(1);
+    width: 100%;
+    height: 100%;
+    .box-sizing();
+    background: -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#e5e5e5)) bottom left no-repeat;
+    background: -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
+    background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
+    -webkit-background-size: 100% 1px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 44px;
+    color: #666666;
+    &.am-tab-item-selected {
+      background: none;
+      color: #00aaee;
+      border-bottom: 3px solid #00aaee;
+    }
+  }
+}

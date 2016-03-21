@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import './wingblank.less';
 
 const WingBlank = React.createClass({
   propTypes: {

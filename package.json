@@ -33,17 +33,18 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "classnames": "~2.2.1",
     "array-tree-filter": "^1.0.0",
+    "classnames": "~2.2.1",
     "gregorian-calendar": "^4.1.0",
     "gregorian-calendar-format": "^4.0.4",
+    "normalize.css": "^4.0.0",
     "rmc-cascader": "^0.3.1",
     "rmc-date-picker": "^1.8.0",
     "rmc-modal": "^0.4.0",
     "rmc-picker": "^2.2.1"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^3.1.0",
+    "autoprefixer": "^6.3.3",
     "babel": "^5.8.29",
     "babel-core": "^5.8.29",
     "babel-jest": "^5.3.0",
@@ -69,6 +70,7 @@
     "lodash": "^3.10.0",
     "nico-jsx": "~0.6.0",
     "object-assign": "~4.0.1",
+    "postcss-loader": "^0.8.2",
     "pre-commit": "1.x",
     "promise": "~7.0.4",
     "rc-form": "^0.10.x",

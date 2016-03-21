@@ -5,6 +5,37 @@ window.require = function (path) {
     throw 'There should not have modules here: ' + path;
   }
 };
+require('../components/style');
+require('../components/flex/style');
+require('../components/list/style');
+require('../components/white-space/style');
+require('../components/wing-blank/style');
+
+require('../components/button/style');
+require('../components/captcha-item/style');
+require('../components/checkbox-item/style');
+require('../components/input-item/style');
+require('../components/list-date-picker/style');
+require('../components/list-picker/style');
+require('../components/list-selector/style');
+require('../components/modal/style');
+require('../components/search-bar/style');
+require('../components/select-item/style');
+require('../components/switch-item/style');
+require('../components/textarea-item/style');
+
+require('../components/article/style');
+require('../components/card/style');
+require('../components/message/style');
+require('../components/page-result/style');
+require('../components/process/style');
+require('../components/result/style');
+require('../components/toast/style');
+require('../components/top-notice/style');
+
+require('../components/segmented-control/style');
+require('../components/tab/style');
+
 window.Clip = require('./clip');
 window['react-router'] = require('react-router');
 var antm = require('../index');
