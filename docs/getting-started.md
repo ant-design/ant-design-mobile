@@ -30,10 +30,10 @@ Ant Mobile 致力于提供给程序员**愉悦**的无线端开发体验。
 ### 1. 安装命令行工具
 
 ```bash
-$ tnpm install antd-init -g
+$ tnpm install @alipay/antm-init -g
 ```
 
-[更多使用说明](https://github.com/ant-design/antd-bin#使用说明)。
+antm-init基于antd-init 0.8.1版本开发,主要更换了脚手架模板,方便初始化基于Antd Mobile的项目,[更多使用参考antd-init说明](https://github.com/ant-design/antd-bin#使用说明)。
 
 ### 2. 创建一个项目
 
@@ -41,7 +41,7 @@ $ tnpm install antd-init -g
 
 ```bash
 $ mkdir antm-demo && cd antm-demo
-$ antd-init
+$ antm-init
 $ tnpm install
 ```
 
@@ -99,7 +99,7 @@ $ tnpm run build
 
 入口文件会构建到 `dist` 目录中，你可以自由部署到不同环境中进行引用。
 
-> 上述例子用于帮助你理解 Ant Mobile 的使用流程，并非真实的开发过程，你可以根据自己的项目开发流程进行接入。
+> 上述例子用于帮助你理解 Antd Mobile 的使用流程，并非真实的开发过程，你可以根据自己的项目开发流程进行接入。
 
 ## 兼容性
 
