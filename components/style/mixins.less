@@ -1,20 +1,5 @@
 //mixins中提供LESS方法
 
-@isRem: true;
-
-// 基准尺寸
-@base-width: 320px;
-@base-fontsize: 16px;
-
-//Remove or change the unit of a dimension
-//Example: unit(5, px)
-//Output: 5px
-//Example: unit(5em)
-//Output: 5
-// 基础单位
-@rem: unit(1/@base-fontsize, rem);
-//1px = 1/16rem = 0.0625rem
-
 .background(@start: #ffffff, @end: #000000) {
   background: @end;
   background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end)); /* Saf4+, Chrome */

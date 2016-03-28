@@ -1,18 +1,22 @@
 @import '../style/mixins';
+@import '../style/variables';
 
-.am-button {
+@button-prefix-cls: am-button;
+
+.@{button-prefix-cls} {
+  position: relative;
+  display: inline-block;
   outline: 0 none;
   -webkit-appearance: none;
-  display: inline-block;
   width: 100%;
-  padding: 0 4px;
+  padding: 0;
   .box-sizing();
   text-align: center;
-  font-size: 18px;
-  height: 43px;
-  line-height: 43px;
-  position: relative;
-  .border-radius(6px);
+  font-size: @font-size-6;
+  height: @margin-9;
+  line-height: @margin-9;
+  border: 0 none;
+  .border-radius(@radius-1);
   &:after {
     position: absolute;
     left: 0;
@@ -20,172 +24,90 @@
     width: 200%;
     height: 200%;
     content: " ";
-    .border-radius(12px);
+    .border-radius(@radius-1 * 2);
     -webkit-transform: scale(.5);
     transform: scale(.5);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
     .box-sizing();
   }
-  &-tiny {
-    height: 24px;
-    font-size: 13px;
-    line-height: 25px;
-    .border-radius(3px);
-  }
-  &-little {
-    height: 31px;
-    font-size: 13px;
-    line-height: 31px;
-    .border-radius(3px);
-  }
   &-small {
-    height: 36px;
-    font-size: 13px;
-    line-height: 36px;
-    .border-radius(3px);
+    font-size: @font-size-2;
+    padding: 0 @margin-3;
+    height: @margin-6;
+    line-height: @margin-6;
+    .border-radius(@radius-2);
   }
-  &-middle {
-    height: 40px;
-    font-size: 16px;
-    line-height: 40px;
-    .border-radius(3px);
-  }
-  &-inline {
-    width: auto;
-    padding-left: 16px;
-    padding-right: 16px;
-    .box-sizing(content-box);
-    &.am-button-tiny {
-      padding-left: 10px;
-      padding-right: 10px;
-      margin-right: 1px;
-      margin-bottom: 1px;
-    }
-  }
-  /* 蓝色按钮 */
-  &-blue {
-    border: 0 none;
-    color: #fff;
-    background-color: #0ae;
-    &:active,
-    &.hover {
-      color: #fff;
-      background-color: #0091cb;
-    }
-  }
-  /* 红色按钮 */
-  &-red {
-    border: 0 none;
-    color: #fff;
-    background-color: #ec5050;
-    &:active,
-    &.hover {
 
-      background-color: #bd4040;
+  /* 主按钮 */
+  &-primary {
+    color: @gray-1;
+    background-color: @brand-1-2;
+    &:active,
+    &.hover {
+      color: @gray-1;
+      background-color: @brand-1-1;
     }
   }
-  &-white {
-    border: 0 none;
-    color: #666;
-    background-color: #fff;
+  /* 次按钮 */
+  &-secondary {
+    color: @brand-1-2;
+    background-color: @gray-1;
     &:after {
-      border: 1px solid #ddd;
+      border: @border-width-1 @border-type-1 @brand-1-2;
     }
     &:active,
     &.hover {
-      color: #666;
-      background-color: #f8f8f8;
+      color: @gray-1;
+      background-color: @brand-1-2;
       &:after {
-        border: 1px solid #d8d8d8;
+        border: none;
       }
     }
   }
-  &-warn {
-    color: #f4333c;
+  /* 普通按钮 */
+  &-normal {
+    color: @gray-8;
+    background-color: @gray-1;
+    &:after {
+      border: @border-width-1 @border-type-1 @gray-4;
+    }
     &:active,
     &.hover {
-      color: #f4333c;
+      background-color: @gray-2;
+    }
+  }
+  /* 警示按钮 */
+  &-warning {
+    color: @function-error-2;
+    background-color: @gray-1;
+    &:after {
+      border: @border-width-1 @border-type-1 @gray-4;
+    }
+    &:active,
+    &.hover {
+      background-color: @gray-2;
     }
   }
   &-disabled {
     &:disabled {
-      border: 0 none;
-      color: #d2d2d2;
+      background-color: #f4f4f4;
+      color: #ccc;
+      &:after {
+        border: 1px solid #d9d9d9;
+      }
       &:active,
       &.hover {
-        border: 0 none;
-        color: #d2d2d2;
+        background-color: #f4f4f4;
+        color: #ccc;
+        &:after {
+          border: 1px solid #d9d9d9;
+        }
       }
     }
   }
-  &-disabled,
-  &-light&-disabled,
-  &:disabled {
-    border-color: #ebebf0;
-    color: #d2d2d2;
-    background-color: #ebebf0;
-    &:after {
-      border: 0 none;
-    }
-    &:active,
-    &.hover {
-      border-color: #ebebf0;
-      color: #d2d2d2;
-      background-color: #ebebf0;
-      &:after {
-        border: 0 none;
-      }
-    }
-  }
-  &-light {
-    color: #0ae;
-    border: 0 none;
-    background-color: #fff;
-    &:after {
-      border: 1px solid #0ae;
-    }
-    &:active,
-    &.hover {
-      color: #fff;
-      background-color: #0ae;
-      &:after {
-        border: 0 none;
-      }
-    }
-    &&.am-button-red {
-      color: #ec5050;
-      border: 0 none;
-      background-color: #fff;
-      &:active,
-      &.hover {
-        color: #fff;
-        background-color: #bd4040;
-      }
-    }
-  }
-  &-flat {
-    font-size: 16px;
-    .border-radius(0);
-    border: 0 none;
-    background-color: #fff;
-    &:after {
-      .border-radius(0);
-      border-top: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    &:active,
-    &.hover {
-      background-color: #ededed;
-    }
-  }
-  &-warn:disabled {
-    color: #d2d2d2;
-    .border-radius(0);
-    &:active,
-    &.hover {
-      .border-radius(0);
-      color: #d2d2d2;
-    }
+  &-inline {
+    width: auto;
+    padding: 0 @margin-4;
   }
 }

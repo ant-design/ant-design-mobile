@@ -1,1 +1,1 @@
-require('../style/components/amui.less');
+require('../style/index.less');

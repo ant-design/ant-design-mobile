@@ -12,71 +12,61 @@ ReactDOM.render(
   <div className="button-container">
     <WhiteSpace/>
     <WingBlank>
-      <Button onClick={(e) => {console.log('onChange'); console.log(e);}}>主按钮</Button>
+      <Button onClick={(e) => {console.log('onChange'); console.log(e);}}>primary按钮</Button>
     </WingBlank>
     <WhiteSpace/>
     <WingBlank>
       <Button
+        type="secondary"
+        onClick={(e) => {console.log('onChange'); console.log(e);}}
+      >secondary按钮</Button>
+    </WingBlank>
+    <WhiteSpace/>
+    <WingBlank>
+      <Button
+        type="normal"
+        onClick={(e) => {console.log('onChange'); console.log(e);}}
+      >normal按钮</Button>
+    </WingBlank>
+    <WhiteSpace/>
+    <WingBlank>
+      <Button
+        type="warning"
+        onClick={(e) => {console.log('onChange'); console.log(e);}}
+      >warning按钮</Button>
+    </WingBlank>
+
+    <WhiteSpace/>
+    <WingBlank>
+      <Button
+       disabled={true}
+       onClick={(e) => {console.log('onChange'); console.log(e);}}
+       >primary按钮</Button>
+    </WingBlank>
+    <WhiteSpace/>
+    <WingBlank>
+      <Button
+        type="secondary"
         disabled={true}
         onClick={(e) => {console.log('onChange'); console.log(e);}}
-      >不可点按钮</Button>
+      >secondary按钮</Button>
     </WingBlank>
-    <WhiteSpace mode={20}/>
-    <WingBlank>
-      <Button
-        mode="white"
-        onClick={(e) => {console.log('onChange'); console.log(e);}}
-      >次按钮</Button>
-    </WingBlank>
-    <WhiteSpace mode={20}/>
-        <WingBlank>
-          <Button
-            mode="white"
-            disabled={true}
-            onClick={(e) => {console.log('onChange'); console.log(e);}}
-          >次按钮</Button>
-        </WingBlank>
-    <WhiteSpace mode={20}/>
-    <WingBlank>
-      <Button
-        mode="red"
-        onClick={(e) => {console.log('onChange'); console.log(e);}}
-      >红色按钮</Button>
-    </WingBlank>
-    <WhiteSpace mode={20}/>
-        <WingBlank>
-          <Button
-            mode="red"
-            disabled={true}
-            onClick={(e) => {console.log('onChange'); console.log(e);}}
-          >红色按钮</Button>
-        </WingBlank>
-    <WhiteSpace mode={20}/>
-    <WingBlank>
-      <Button
-        mode="light"
-        onClick={(e) => {console.log('onChange'); console.log(e);}}
-      >轻按钮</Button>
-    </WingBlank>
-    <WhiteSpace mode={20}/>
-        <WingBlank>
-          <Button
-            mode="light"
-            disabled={true}
-            onClick={(e) => {console.log('onChange'); console.log(e);}}
-          >轻按钮</Button>
-        </WingBlank>
-    <WhiteSpace mode={20}/>
-    <Button
-      mode="warn"
-      onClick={(e) => {console.log('onChange'); console.log(e);}}
-    >警示按钮</Button>
     <WhiteSpace/>
-    <Button
-      disabled={true}
-      mode="warn"
-      onClick={(e) => {console.log('onChange'); console.log(e);}}
-    >警示按钮不可点</Button>
+    <WingBlank>
+      <Button
+        type="normal"
+        disabled={true}
+        onClick={(e) => {console.log('onChange'); console.log(e);}}
+      >normal按钮</Button>
+    </WingBlank>
+    <WhiteSpace/>
+    <WingBlank>
+      <Button
+        type="warning"
+        disabled={true}
+        onClick={(e) => {console.log('onChange'); console.log(e);}}
+      >warning按钮</Button>
+    </WingBlank>
   </div>
 , document.getElementById('components-button-demo-basic'));
 ````

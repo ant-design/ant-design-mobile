@@ -1764,7 +1764,9 @@ footer ul li > a {
   box-sizing: content-box;
 }
 .am-modal .am-wingblank *,
-.button-container * {
+.button-container *,
+.button-container *:before,
+.button-container *:after {
   box-sizing: border-box;
 }
 
