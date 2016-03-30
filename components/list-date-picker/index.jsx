@@ -8,6 +8,7 @@ import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import React, {PropTypes} from 'react';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
 import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
+// import en_US from 'gregorian-calendar/lib/locale/en_US';
 import GregorianCalendar from 'gregorian-calendar';
 
 const now = new GregorianCalendar(zhCn);
@@ -32,15 +33,21 @@ const ListDatePicker = React.createClass({
     minDate: PropTypes.string,
     maxDate: PropTypes.string,
     onChange: PropTypes.func,
-    format: PropTypes.func
+    format: PropTypes.func,
   },
   getDefaultProps() {
+    const defaultFormat = (val) => {
+      return val;
+    };
+
     return {
+      className: '',
       mode: 'datetime',
       locale: require('rmc-date-picker/lib/locale/zh_CN'),
-      format: (val) => {
-        return val;
-      }
+      format: defaultFormat,
+      extra: '请选择',
+      okText: '确定',
+      dismissText: '取消'
     };
   },
   getInitialState() {
@@ -83,15 +90,17 @@ const ListDatePicker = React.createClass({
   },
   render() {
     const {date, minDate, maxDate} = this.state;
-    let dateStr = this.props.value ? this.props.format(this.props.value) : '请选择';
+    const { format, extra, value, okText, dismissText } = this.props;
+    let dateStr = value ? format(value) : extra;
     const extraProps = {
       extra: dateStr
     };
     return (
       <div>
         <PopupDatePicker {...this.props}
-          okText="确定"
-          dismissText="取消"
+          locale={require('rmc-date-picker/lib/locale/zh_CN')}
+          okText={okText}
+          dismissText={dismissText}
           style={{left: 0, bottom: 0}}
           onChange={this.onChange}
           date={date}
