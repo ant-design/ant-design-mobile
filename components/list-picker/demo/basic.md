@@ -33,9 +33,10 @@ let Test = React.createClass({
       <List>
         <List.Header>店铺位置</List.Header>
         <List.Body>
-          <ListPicker data={district} {...getFieldProps('district', {
+          <ListPicker extra="请选择(可选)" data={district} {...getFieldProps('district', {
             //initialValue: ['340000', '340800', '340822']
-          })}>
+          })}
+          >
             <List.Item arrow="horizontal">所在地区</List.Item>
           </ListPicker>
           <ListPicker data={district} cols={2} {...getFieldProps('district2', {
@@ -44,7 +45,7 @@ let Test = React.createClass({
           >
             <List.Item arrow="horizontal">所在地区</List.Item>
           </ListPicker>
-          <ListPicker data={district} cols={2} {...getFieldProps('district2', {
+          <ListPicker data={district} cols={1} {...getFieldProps('district3', {
           })}
 
           >

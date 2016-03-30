@@ -10,6 +10,7 @@ let ListSelector = React.createClass({
     data: PropTypes.array,
     source: PropTypes.string,
     onClick: PropTypes.func,
+    onChange: PropTypes.func,
     needSearch: PropTypes.bool,
   },
   getDefaultProps(){
@@ -17,6 +18,7 @@ let ListSelector = React.createClass({
       value: [],
       data: [],
       onClick: noop,
+      onChange: noop,
       needSearch: true
     };
   },
@@ -42,6 +44,7 @@ let ListSelector = React.createClass({
       value: [el]
     });
     this.props.onClick(el);
+    this.props.onChange(el);
   },
   _onSubmit(value) {
     this._handleSearch(value);
