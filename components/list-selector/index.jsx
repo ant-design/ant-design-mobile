@@ -44,7 +44,6 @@ let ListSelector = React.createClass({
       value: [el]
     });
     this.props.onClick(el);
-    this.props.onChange(el);
   },
   _onSubmit(value) {
     this._handleSearch(value);

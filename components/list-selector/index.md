@@ -49,7 +49,7 @@ const SelectorData = [
 
 | 成员        | 说明           | 类型        |  可选值       | 默认值       |
 |------------|----------------|--------------------|--------------|
-| value    | 默认值        | Array |    |  |
-| data   | 数据源        | Array |    |  [] |
-| onClick  | 选中后的回调  | Function | |  无  |
+| value    | 默认值        | Object |    |  |
+| data   | 数据源        | Array |    |   |
+| onClick  | 选中后的回调  | Function(value) | |  无  |
 | needSearch    | 是否需要搜索功能        | Bollean | |  `true`  |
