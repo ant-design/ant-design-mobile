@@ -16,9 +16,13 @@ let Test = React.createClass({
       <List>
         <List.Header>店铺位置</List.Header>
         <List.Body>
-          <ListDatePicker mode="date" { ...getFieldProps('date1', {
-            initialValue: ''
-          })}
+          <ListDatePicker
+            className="am-date-picker"
+            mode="date"
+            extra="可选,小于结束日期"
+            { ...getFieldProps('date1', {
+              initialValue: '2015-08-06'
+            })}
             minDate="2014-08-06"
             maxDate="2016-12-3"
           >

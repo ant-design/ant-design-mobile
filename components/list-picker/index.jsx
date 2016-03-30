@@ -8,18 +8,23 @@ import React, {PropTypes} from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
 
-function defaultFormat(values) {
-  return values.join(',');
-}
-
 const ListPicker = React.createClass({
   propTypes: {
     format: PropTypes.func,
   },
 
   getDefaultProps() {
+    const defaultFormat = (values) => {
+      return values.join(',');
+    };
     return {
       format: defaultFormat,
+      style: {left:0, bottom:0},
+      cols: 3,
+      value: [],
+      extra: '请选择',
+      okText: '确定',
+      dismissText: '取消',
     };
   },
 
@@ -33,14 +38,18 @@ const ListPicker = React.createClass({
     }));
   },
   render() {
+    const { style, data, value, okText, dismissText, extra } = this.props;
     const extraProps = {
-      extra: this.getSel() || '请选择',
+      extra: this.getSel() || extra,
     };
     const childEl = React.cloneElement(this.props.children, extraProps);
+    console.log(this.props);
     return <PopupCascader
-      style={{left:0, bottom:0}}
-      dismissText="取消"
-      okText="确定"
+      style={style}
+      data={data}
+      value={value}
+      dismissText={dismissText}
+      okText={okText}
       {...this.props} >{childEl}</PopupCascader>;
   },
 });
