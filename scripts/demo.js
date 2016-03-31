@@ -5,7 +5,7 @@ window.require = function (path) {
     throw 'There should not have modules here: ' + path;
   }
 };
-require('../components/style');
+require('../style');
 require('../components/flex/style');
 require('../components/list/style');
 require('../components/white-space/style');
