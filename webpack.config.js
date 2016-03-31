@@ -7,6 +7,7 @@ var autoprefixer = require('autoprefixer');
 var entry = {};
 entry['index'] = './scripts/importCss.js';
 entry['demo'] = './scripts/demo.js';
+entry['mobile'] = './mobile/entry/index.jsx';
 
 module.exports = {
   entry: entry,

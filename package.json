@@ -33,6 +33,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "atool-build": "^0.6.5",
     "array-tree-filter": "^1.0.0",
     "classnames": "~2.2.1",
     "gregorian-calendar": "^4.1.0",
@@ -44,6 +45,11 @@
     "rmc-picker": "^2.2.1"
   },
   "devDependencies": {
+    "dora": "0.3.x",
+    "dora-plugin-webpack": "0.6.x",
+    "dora-plugin-hmr": "0.5.x",
+    "dora-plugin-livereload": "0.3.x",
+    "dora-plugin-proxy": "0.6.x",
     "autoprefixer": "^6.3.3",
     "babel": "^5.8.29",
     "babel-core": "^5.8.29",
@@ -84,6 +90,7 @@
     "webpack-dev-middleware": "^1.2.0"
   },
   "scripts": {
+    "dev": "dora -p 8001 --plugins webpack,hmr,proxy,livereload?enableJs=false",
     "babel": "babel components --out-dir lib",
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site dist",
