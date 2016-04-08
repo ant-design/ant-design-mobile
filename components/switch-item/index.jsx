@@ -30,16 +30,17 @@ const SwitchItem = React.createClass({
     return (
       <div className={wrapCls}>
         <div className="am-list-content">{children}</div>
-        <div className="am-switch">
+        <label className="am-switch">
           <input type="checkbox" name={name} className="am-switch-checkbox" {...(disabled ? {disabled:'disabled'} : '') } checked={checked} onChange={this._onSwitchChange}/>
-          <label className="am-switch-label">
-            <div className="am-switch-inner"></div>
-            <div className="am-switch-switch"></div>
-          </label>
-        </div>
+          <div className="checkbox"></div>
+        </label>
       </div>
     );
   }
 });
+/*<label className="am-switch-label">
+  <div className="am-switch-inner"></div>
+  <div className="am-switch-switch"></div>
+</label>*/
 
 module.exports = SwitchItem;

@@ -1,0 +1,129 @@
+@import './variables.less';
+.transition(@d) {
+  -webkit-transition-duration: @d;
+  transition-duration: @d;
+}
+.transform(@t) {
+  -webkit-transform: @t;
+  transform: @t;
+}
+.transform-origin(@to) {
+  -webkit-transform-origin: @to;
+  transform-origin: @to;
+}
+.hairline(@position, @color) when (@position = top) {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    height: 0;
+    width: 100%;
+    //background-color: @color;
+    border-bottom: 1px @border-type-1 @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(50% 50%);
+    html.pixel-ratio-2 & {
+      .transform(scaleY(0.5));
+    }
+    html.pixel-ratio-3 & {
+      .transform(scaleY(0.33));
+    }
+    html.pixel-ratio-4 & {
+      .transform(scaleY(0.25));
+    }
+  }
+}
+.hairline(@position, @color) when (@position = left) {
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    width: 1px;
+    height: 100%;
+    //background-color: @color;
+    border-bottom: 1px solid @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(0% 50%);
+    html.pixel-ratio-2 & {
+      .transform(scaleX(0.5));
+    }
+    html.pixel-ratio-3 & {
+      .transform(scaleX(0.33));
+    }
+  }
+}
+.hairline(@position, @color, @left:0) when (@position = bottom) {
+  &:after {
+    content: '';
+    position: absolute;
+    left: @left;
+    //left: calc(~"100% - 15px");
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 0;
+    width: 100%;
+    //background-color: @color;
+    border-bottom: 1px solid @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(50% 50%);
+    html.pixel-ratio-2 & {
+      .transform(scaleY(0.5));
+    }
+    html.pixel-ratio-3 & {
+      .transform(scaleY(0.33));
+    }
+    html.pixel-ratio-4 & {
+      .transform(scaleY(0.25));
+    }
+  }
+}
+.hairline(@position, @color) when (@position = right) {
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    width: 1px;
+    height: 100%;
+    background-color: @color;
+    display: block;
+    z-index: 15;
+    .transform-origin(100% 50%);
+    html.pixel-ratio-2 & {
+      .transform(scaleX(0.5));
+    }
+    html.pixel-ratio-3 & {
+      .transform(scaleX(0.33));
+    }
+  }
+}
+// For right and bottom
+.hairline-remove(@position) when not (@position = left) and not (@position = top) {
+  &:after {
+    display: none;
+  }
+}
+// For left and top
+.hairline-remove(@position) when not (@position = right) and not (@position = bottom) {
+  &:before {
+    display: none;
+  }
+}
+
+.align-self(@as) {
+  -ms-flex-item-align: @as;
+  -webkit-align-self: @as;
+  align-self: @as;
+}

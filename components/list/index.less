@@ -1,72 +1,40 @@
 @import '../../style/mixins';
+@import '../../style/_mixins';
+@import '../../style/variables';
 
 .am-list {
-  padding: 8px 0;
+  padding: @margin-7 0 @margin-2 0;
+  background-color: @neutral-3;
   & &-header {
-    padding: 10px 15px 0;
-    padding-bottom: 8px;
-    font-size: 12px;
-    color: #a5a5a5;
+    padding: 0 @margin-4 @margin-2 @margin-4;
+    font-size: @font-size-4;
+    color: @neutral-7;
     display: inline-block;
     width: 100%;
     -webkit-box-sizing: border-box;
   }
   & &-footer {
-    padding: 8px 15px;
-    font-size: 12px;
-    color: #999;
+    padding: @margin-2 @margin-4;
+    font-size: @font-size-2;
+    color: @neutral-7;
+    line-height: @line-height-2;
+    font-weight: @line-weight-1;
   }
   & &-body {
     position: relative;
-    padding-top: 1px;
-    &:before,
-    &:after {
-      content: " ";
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 0;
-      -webkit-transform: scaleY(.5);
-      transform: scaleY(.5);
-    }
-    &:before {
-      top: 0;
-      border-top: 1px solid #d9d9d9;
-      -webkit-transform-origin: 0 1px;
-      transform-origin: 0 1px;
-    }
-    &:after {
-      bottom: 0;
-      border-bottom: 1px solid #d9d9d9;
-      -webkit-transform-origin: 0 100%;
-      transform-origin: 0 100%;
-    }
+    .hairline(top, @neutral-5);
+    .hairline(bottom, @neutral-5);
   }
   & &-item {
     position: relative;
-    font-size: 16px;
-    color: #333;
-    padding: 6px 15px 6px 15px;
-    min-height: 32px;
+    padding: 10px @margin-4;
+    min-height: @margin-5;
     background: #fff;
     vertical-align: middle;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: left;
     overflow: hidden;
     .display-box;
     .box-align;
-    -webkit-transition: background-color 200ms;
-    transition: background-color 200ms;
-    /* 双行 */
-    &.am-list-item-13 {
-      padding: 9px 15px;
-      .am-list-content,
-      .am-list-extra {
-        margin-top: 1px;
-        margin-bottom: 4px;
-      }
-    }
+    .transition(background-color 200ms);
     &.am-list-item-top {
       .box-align(flex-start);
     }
@@ -106,75 +74,48 @@
         }
       }
       &:after {
-        background-color: #00a9ed;
+        border-bottom-color: #00a9ed;
       }
       &:last-child:after {
         left: 0;
       }
     }
-    &:after {
-      width: 100%;
-      height: 0;
-      border-bottom: 1px solid #e5e5e5;
-      bottom: 0;
-      content: "";
-      left: 15px;
-      position: absolute;
-      -webkit-transform: scaleY(.5);
-      transform: scaleY(.5);
-    }
-    &.am-list-top {
-      background-color: #d9eefc;
-    }
-
+    .hairline(bottom, @neutral-5, @margin-4);
+    /*&:last-child {
+      .hairline-remove(bottom);
+    }*/
     /*list左侧主内容*/
     .am-list-content {
       .box-flex(1);
+      color: @neutral-10;
+      font-size: @font-size-5;
+      font-weight: @line-weight-1;
+      line-height: @line-height-2;
       min-width: 60px;
       .ellipsis();
-      &.am-list-content-right {
-        padding-right: auto;
-        padding-left: 25px;
-      }
     }
-
-    /*list左侧主内容多行时，title*/
-    .am-list-title {
-      color: #333;
-      line-height: 1.5em;
-      .ellipsis();
-    }
-    .am-list-new {
-      padding-left: 10px;
-      text-align: left;
-    }
-
-    /*list左侧主内容多行时，摘要*/
-    .am-list-brief {
-      color: #a5a5a5;
-      font-size: 12px;
-      line-height: 15px;
-      margin-top: 8px;
-      .ellipsis();
-    }
-
     /*list右补充内容*/
     .am-list-extra {
       .box-flex(1);
-      color: #999;
+      color: @neutral-8;
+      font-size: @font-size-4;
+      font-weight: @font-weight-1;
+      line-height: @line-height-2;
       min-width: 96px;
-      font-size: 14px;
       text-align: right;
       .ellipsis();
-      &.am-list-extra-text-right {
-        font-size: 14px;
-        line-height: 43px;
+      .am-list-brief {
+        font-size: @font-size-2;
       }
-
     }
-    /*list右侧补充内容-颜色醒目*/
-    .am-list-key {
-      color: #336395;
+    /*list左侧主内容多行时，摘要*/
+    .am-list-brief {
+      color: @neutral-7;
+      font-size: @font-size-4;
+      line-height: @line-height-2;
+      font-weight: @line-weight-1;
+      margin-top: @margin-1;
+      .ellipsis();
     }
     .am-list-multiline {
       white-space: normal;
@@ -184,7 +125,7 @@
     .am-list-arrow {
       margin-left: 7px;
       margin-right: -2px;
-      width: 12px;
+      width: 16px;
     }
     /*list左右图片显示*/
     .am-list-thumb {
@@ -213,7 +154,6 @@
     img {
       vertical-align: middle;
     }
-
   }
   button,
   a {
@@ -236,171 +176,22 @@
       }
     }
   }
-  &.am-list-iconlist {
-    .am-list-item {
-      -webkit-background-size: 52px 1px, 52px 1px, 100% 1px, 100% 1px;
-      &:first-child {
-        -webkit-background-size: 0px 0px, 52px 1px, 100% 1px, 100% 1px;
-      }
-      &:last-child {
-        -webkit-background-size: 52px 1px, 0px 0px, 100% 1px, 100% 1px;
-      }
-      &:first-child:last-child {
-        -webkit-background-size: 0px 0px, 0px 0px, 100% 1px, 100% 1px;
-      }
-      .am-list-icon {
-        margin-right: 15px;
-        img {
-          display: block;
-          width: 22px;
-          height: 22px;
-        }
-      }
-      &:after {
-        margin-left: 41px;
-      }
-    }
-    &.am-list-icon29 {
-      .am-list-item {
-        -webkit-background-size: 59px 1px, 59px 1px, 100% 1px, 100% 1px;
-        &:first-child {
-          -webkit-background-size: 0px 0px, 59px 1px, 100% 1px, 100% 1px;
-        }
-        &:last-child {
-          -webkit-background-size: 59px 1px, 0px 0px, 100% 1px, 100% 1px;
-        }
-        &:first-child:last-child {
-          -webkit-background-size: 0px 0px, 0px 0px, 100% 1px, 100% 1px;
-        }
-        .am-list-icon {
-          margin-right: 15px;
-          img {
-            display: block;
-            width: 29px;
-            height: 29px;
-          }
-        }
-      }
-    }
-  }
-  &.am-main-list {
-    border-bottom: 1px solid #e5e5e5;
-    background: #fff;
-    padding: 0px;
-    .am-main-list-item {
-      width: 100%;
-      .am-main-list-title {
-        position: relative;
-        .am-main-content {
-          padding: 13px 0;
-          margin-left: 15px;
-          font-size: 16px;
-          color: #333;
-        }
-        .am-main-arrow {
-          position: absolute;
-          top: 20px;
-          right: 15px;
-          width: 12px;
-          height: 12px;
-        }
-      }
-      &:last-child .am-main-content {
-        border: 0;
-      }
-      .am-sub-list-item {
-        display: none;
-        background: #f9f9fa;
-        .am-sub-list-content {
-          margin-left: 30px;
-          padding: 13px 0;
-          color: #666;
-        }
-      }
-      &am-main-list-item-spread {
-        .am-sub-list-item {
-          display: block;
-        }
-      }
-    }
-  }
-  &.am-list-twoline .am-list-item {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  .am-main-list-title {
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #fff), color-stop(.5, transparent)) top left no-repeat,
-    -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) bottom left no-repeat,
-    -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), color-stop(.5, #e5e5e5), color-stop(.5, transparent)) top left no-repeat,
-    -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#e5e5e5)) bottom left no-repeat,
-    #fff;
-    background: -webkit-linear-gradient(90deg, #fff, #fff) top left no-repeat,
-    -webkit-linear-gradient(270deg, #fff, #fff) bottom left no-repeat,
-    -webkit-linear-gradient(90deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) top left no-repeat,
-    -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat,
-    #fff;
-    background: linear-gradient(0deg, #fff, #fff) top left no-repeat,
-    linear-gradient(180deg, #fff, #fff) bottom left no-repeat,
-    linear-gradient(0deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) top left no-repeat,
-    linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat,
-    #fff;
-    -webkit-background-size: 0px 0px, 0px 0px, 100% 1px, 100% 1px;
-    margin-top: -1px;
-  }
-  //下拉列表边框
-  &.am-list-chip .am-main-list-title {
-    -webkit-background-size: 15px 1px, 15px 1px, 100% 1px, 100% 1px;
-  }
-  &.am-list-chip .am-main-list-item {
-    &:first-child {
-      .am-main-list-title {
-        -webkit-background-size: 0px 0px, 15px 1px, 100% 1px, 100% 1px;
-      }
-    }
-    &:last-child {
-      .am-main-list-title {
-        -webkit-background-size: 15px 1px, 0px 0px, 100% 1px, 100% 1px;
-      }
-    }
-  }
-  &.am-main-list .am-sub-list-content {
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(.5, #fff), color-stop(.5, transparent)) top left no-repeat,
-    -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)) bottom left no-repeat,
-    -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), color-stop(.5, #e5e5e5), color-stop(.5, transparent)) top left no-repeat,
-    -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#e5e5e5)) bottom left no-repeat,
-    #f9f9fa;
-    background: -webkit-linear-gradient(90deg, #fff, #fff) top left no-repeat,
-    -webkit-linear-gradient(270deg, #fff, #fff) bottom left no-repeat,
-    -webkit-linear-gradient(90deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) top left no-repeat,
-    -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat,
-    #f9f9fa;
-    background: linear-gradient(0deg, #fff, #fff) top left no-repeat,
-    linear-gradient(180deg, #fff, #fff) bottom left no-repeat,
-    linear-gradient(0deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) top left no-repeat,
-    linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat,
-    #f9f9fa;
-    -webkit-background-size: 0px 0px, 0px 0px, 0px 0px, 100% 1px;
-    &:last-child {
-      -webkit-background-size: 0px 0px, 0px 0px, 0px 0px, 100% 1px;
-    }
-  }
 }
 
 .am-icon {
   &&-arrow-horizontal,
   &&-arrow-vertical {
     display: block;
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     overflow: hidden;
     &:before {
       content: "";
       display: block;
-      width: 6px;
-      height: 6px;
+      width: 9px;
+      height: 9px;
       margin-left: 0;
-      border: solid 2px rgba(199, 199, 204, 90);
+      border: solid 2px @neutral-7;
       border-top: 0 none;
       border-left: 0 none;
     }

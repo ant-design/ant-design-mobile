@@ -2,48 +2,59 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { List, InputItem } from '../../index.js';
+import { List, InputItem, Button } from '../../index.js';
 
 const ListExample = React.createClass({
   render() {
     return (
       <Page title="列表" subtitle="&lt;List&gt;&lt;List.Item /&gt;&lt;List.Item /&gt;&lt;/List&gt;">
         <List>
-          <List.Header>单行列表</List.Header>
+          <List.Header>列表标题</List.Header>
           <List.Body>
+            <List.Item extra="内容内容" needActive={false}>标题文字,无Active效果</List.Item>
+            <List.Item extra="内容内容" onClick={() => {console.log('onClick');}}>标题文字</List.Item>
+          </List.Body>
+        </List>
+        <List>
+          <List.Body>
+            <List.Item extra="内容内容" onClick={() => {console.log('onClick');}}>标题文字</List.Item>
+          </List.Body>
+        </List>
+        <List>
+          <List.Header>列表标题</List.Header>
+          <List.Body>
+            <List.Item extra="内容内容">标题文字</List.Item>
             <List.Item
-              arrow="horizontal"
-              onClick={() => {console.log('onClick');}}
-            >文本内容,无Active效果</List.Item>
-            <List.Item
-              extra="内容内容"
-              arrow="down"
-              onClick={() => {console.log('onClick');}}
-            >文本信息</List.Item>
-            <List.Item
-              arrow="up"
-              extra="内容内容"
-              onClick={() => {console.log('onClick');}}
-            >文本信息</List.Item>
-            <List.Item
-              extra="内容内容"
-              arrow="ss"
-              onClick={() => {console.log('onClick');}}
-            >文本内容</List.Item>
-            <List.Item
-              extra="内容内容"
-              onClick={() => {console.log('onClick');}}
-            >文本内容</List.Item>
-            <div>
-            <List.Item
-              extra="文本内容"
-              arrow="horizontal"
-              onClick={() => {console.log('onClick');}}
-            >文本信息</List.Item></div>
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              line={2}
+            ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
           </List.Body>
           <List.Footer onClick={() => {console.log('onClick');}} style={{ color:'red' }} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
         </List>
-        <List isIconList={true}>
+        <List>
+          <List.Header>箭头</List.Header>
+          <List.Body>
+            <List.Item extra="内容内容" arrow="horizontal">标题文字</List.Item>
+            <List.Item extra="内容内容" arrow="down">标题文字</List.Item>
+            <List.Item extra="内容内容" arrow="up">标题文字</List.Item>
+            <List.Item
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              line={2}
+              arrow="horizontal"
+            ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
+            <List.Item
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              line={2}
+              arrow="down"
+            ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
+            <List.Item
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              line={2}
+              arrow="up"
+            ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
+          </List.Body>
+        </List>
+        <List>
           <List.Header>带icon</List.Header>
           <List.Body>
             <List.Item
@@ -63,34 +74,50 @@ const ListExample = React.createClass({
               arrow="horizontal"
               onClick={window.clickItem}
             >我是内容22</List.Item>
+            <List.Item
+              thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
+              line={2}
+              arrow="horizontal"
+            ><div className="am-list-title">收银员</div><div className="am-list-brief">仅可进行收款、退款及查账操作</div></List.Item>
           </List.Body>
         </List>
-        <List>
-          <List.Header>form列表</List.Header>
+        <List >
+          <List.Header>对齐</List.Header>
           <List.Body>
-            <InputItem
-              name="yyy"
-              defaultValue="dada22"
-              placeholder="dadads"
-              clear={true}
-              onChange={(e) => {console.log('onChange'); console.log(e);}}
-              onBlur={(e) => {console.log('onBlur'); console.log(e);}}
-              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
-            >我是</InputItem>
-            <InputItem
-              label=""
-              name="yyy"
-              defaultValue="dada22"
-              placeholder="dadads"
-              onChange={() => {console.log('onChange');}}
-            >我是内</InputItem>
-            <InputItem
-              name="yyy"
-              defaultValue="dada22"
-              placeholder="dadads"
-              clear={true}
-              onChange={() => {console.log('onChange');}}
-            />
+            <List.Item
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              line={2}
+              arrow="horizontal"
+            >垂直居中对齐</List.Item>
+            <List.Item
+              extra="内容内容"
+              line={2}
+              arrow="horizontal"
+            ><div>垂直居中对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
+            <List.Item
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              line={2}
+              arrow="horizontal"
+              align="top"
+            >顶部对齐</List.Item>
+            <List.Item
+              extra="内容内容"
+              line={2}
+              arrow="horizontal"
+              align="top"
+            ><div>顶部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
+            <List.Item
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              line={2}
+              arrow="horizontal"
+              align="bottom"
+            >底部对齐</List.Item>
+            <List.Item
+              extra="内容内容"
+              line={2}
+              arrow="horizontal"
+              align="bottom"
+            ><div>底部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
           </List.Body>
         </List>
       </Page>
