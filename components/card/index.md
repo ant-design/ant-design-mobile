@@ -1,10 +1,11 @@
-# Card
-
-- category: Components
-- chinese: 卡片
-- type: 展示
-
 ---
+category: Components
+chinese: 卡片
+type: 展示
+english: Card
+---
+
+
 
 ## 如何使用
 

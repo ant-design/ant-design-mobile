@@ -1,10 +1,11 @@
-# WingBlank
-
-- category: Components
-- chinese: 两翼留白
-- type: 基本
-
 ---
+category: Components
+chinese: 两翼留白
+type: 基本
+english: WingBlank
+---
+
+
 
 列表项
 

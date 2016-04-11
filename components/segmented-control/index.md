@@ -1,10 +1,11 @@
-# SegmentedControl
-
-- category: Components
-- chinese: 选项卡2
-- type: 导航
-
 ---
+category: Components
+chinese: 选项卡2
+type: 导航
+english: SegmentedControl
+---
+
+
 
 选项卡2
 

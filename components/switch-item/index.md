@@ -1,10 +1,11 @@
-# SwitchItem
-
-- category: Components
-- chinese: 滑动开关
-- type: 表单
-
 ---
+category: Components
+chinese: 滑动开关
+type: 表单
+english: SwitchItem
+---
+
+
 
 滑动开关
 

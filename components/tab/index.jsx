@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
+import './index.less';
 function noop() {}
 
 const Tab = React.createClass({

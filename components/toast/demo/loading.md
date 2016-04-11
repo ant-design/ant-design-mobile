@@ -1,8 +1,9 @@
-# 载入中
-
-- order: 0
-
 ---
+order: 0
+title: 载入中
+---
+
+
 
 ````jsx
 import { Toast } from 'antm';

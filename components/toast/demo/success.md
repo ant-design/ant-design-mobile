@@ -1,8 +1,9 @@
-# 成功提醒
-
-- order: 1
-
 ---
+order: 1
+title: 成功提醒
+---
+
+
 
 ````jsx
 import { Toast } from 'antm';

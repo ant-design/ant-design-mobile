@@ -1,10 +1,11 @@
-# WhiteSpace
-
-- category: Components
-- chinese: 上下留白
-- type: 基本
-
 ---
+category: Components
+chinese: 上下留白
+type: 基本
+english: WhiteSpace
+---
+
+
 
 上下留白
 

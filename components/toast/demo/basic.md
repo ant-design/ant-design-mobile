@@ -1,8 +1,9 @@
-# 失败提醒
-
-- order: 4
-
 ---
+order: 4
+title: 失败提醒
+---
+
+
 
 ````jsx
 import { Toast } from 'antm';

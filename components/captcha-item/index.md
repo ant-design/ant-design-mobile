@@ -1,10 +1,11 @@
-# Captcha
-
-- category: Components
-- chinese: 校验码
-- type: 表单
-
 ---
+category: Components
+chinese: 校验码
+type: 表单
+english: Captcha
+---
+
+
 
 校验码
 

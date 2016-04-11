@@ -1,10 +1,11 @@
-# Tab
-
-- category: Components
-- chinese: 选项卡
-- type: 导航
-
 ---
+category: Components
+chinese: 选项卡
+type: 导航
+english: Tab
+---
+
+
 
 选项卡
 

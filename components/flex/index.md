@@ -1,10 +1,11 @@
-# Flex
-
-- category: Components
-- chinese: Flex布局
-- type: 基本
-
 ---
+category: Components
+chinese: Flex布局
+type: 基本
+english: Flex
+---
+
+
 
 Flex布局
 

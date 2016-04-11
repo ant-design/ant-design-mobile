@@ -1,10 +1,11 @@
-# Article
-
-- category: Components
-- chinese: 常规文章
-- type: 展示
-
 ---
+category: Components
+chinese: 常规文章
+type: 展示
+english: Article
+---
+
+
 
 ## 如何使用
 

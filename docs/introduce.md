@@ -1,8 +1,6 @@
-# Ant Mobile
-
-- category: 0
-- order: 0
-
+---
+order: 0
+chinese: Ant Mobile of React
 ---
 
 Ant Mobile是 AntUI 的 React 实现，开发和服务于蚂蚁大中台无线业务。
@@ -12,6 +10,7 @@ Ant Mobile是 AntUI 的 React 实现，开发和服务于蚂蚁大中台无线�
   <span>+</span>
   <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
 </div>
+
 <style>
 .pic-plus > * {
   display: inline-block!important;

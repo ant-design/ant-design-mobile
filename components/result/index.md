@@ -1,10 +1,11 @@
-# Result
-
-- category: Components
-- chinese: 页面提示
-- type: 展示
-
 ---
+category: Components
+chinese: 页面提示
+type: 展示
+english: Result
+---
+
+
 
 ## 如何使用
 

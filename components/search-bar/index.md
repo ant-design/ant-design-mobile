@@ -1,10 +1,11 @@
-# SearchBar
-
-- category: Components
-- chinese: 搜索栏
-- type: 表单
-
 ---
+category: Components
+chinese: 搜索栏
+type: 表单
+english: SearchBar
+---
+
+
 
 列表项
 

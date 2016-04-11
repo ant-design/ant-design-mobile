@@ -1,10 +1,11 @@
-# PageResult
-
-- category: Components
-- chinese: 结果页面
-- type: 展示
-
 ---
+category: Components
+chinese: 结果页面
+type: 展示
+english: PageResult
+---
+
+
 
 列表项
 

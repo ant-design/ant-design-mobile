@@ -1,8 +1,9 @@
-# Modal
-
-- order: 0
-
 ---
+order: 0
+title: Modal
+---
+
+
 
 ````jsx
 import { Modal, List, CheckboxItem, Button, WhiteSpace, WingBlank } from 'antm';

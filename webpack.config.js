@@ -1,56 +1,84 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var path = require('path');
-var pkg = require('./package');
-var autoprefixer = require('autoprefixer');
+const webpack = require('atool-build/lib/webpack');
 
-var entry = {};
-entry['index'] = './scripts/importCss.js';
-entry['demo'] = './scripts/demo.js';
-entry['mobile'] = './mobile/entry/index.jsx';
+module.exports = function(webpackConfig) {
+  if (process.env.ANTD === 'WEBSITE') {
+    webpackConfig.entry = {
+      index: './site/entry/index.jsx',
+    };
+    webpackConfig.resolve.root = process.cwd();
+    webpackConfig.resolve.alias = {
+      // antd: 'index',
+      // 'antm': ['./index.js'],
+      antm: process.cwd(),
+      Clip: 'scripts/clip.js',
+      DISTRICT: 'scripts/district.js',
+      BrowserDemo: 'site/component/BrowserDemo',
+    };
 
-module.exports = {
-  entry: entry,
+    const component = process.env.COMPONENT_STYLE;
 
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
+    if (component !== undefined) {
+      const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
+      babelConfig.plugins.push([
+        '@alipay/babel-plugin-antm',
+        {
+          style: true,
+          libDir: 'components',
+        }
+      ]);
 
-  output: {
-    path: path.join(process.cwd(), 'dist'),
-    filename: '[name].js'
-  },
+      webpackConfig.module.loaders.push({
+        test: new RegExp(`components/${component}/demo/.*\.md`),
+        loader: `babel?${JSON.stringify(babelConfig)}!antd-md`,
+      });
+    }
 
-  module: {
-    loaders: [
-    {test: /\.(png|jpg)$/,
-      loader: 'url-loader?limit=8192'
-    },
-    {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel'
-    }, {
-      test: /\.json$/,
-      loader: 'json-loader'
-    }, {
-      test: /\.less$/,
-      loader: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'postcss-loader!' + 'less?sourceMap'
-      )
-    }, {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'postcss-loader'
-      )
-    }]
-  },
+    const exclude = [/node_modules/];
+    if (component) {
+      exclude.push(new RegExp(`components/${component}/demo/.*\.md`));
+    }
+    webpackConfig.module.loaders.push({
+      test: /\.md$/,
+      exclude: exclude,
+      loader: `babel!antd-md`,
+    });
+  }
 
-  postcss: [autoprefixer],
+  if (process.env.ANTD === 'PRODUCTION') {
+    const entry = ['./style/index.less', './index.js'];
+    webpackConfig.entry = {
+      'antm.min': entry,
+    };
+    webpackConfig.externals = {
+      'react': {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      },
+      'react-dom': {
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom'
+      }
+    };
+    // webpackConfig.output.library = 'antd';
+    webpackConfig.output.libraryTarget = 'umd';
 
-  plugins: [
-    new ExtractTextPlugin('[name].css')
-  ],
+    const uncompressedWebpackConfig = Object.assign({}, webpackConfig);
+    uncompressedWebpackConfig.entry = {
+      antd: entry,
+    };
+    uncompressedWebpackConfig.plugins = webpackConfig.plugins.filter((plugin) => {
+      return !(plugin instanceof webpack.optimize.UglifyJsPlugin);
+    });
 
-  devtool: 'source-map'
+    return [
+      webpackConfig,
+      uncompressedWebpackConfig,
+    ];
+  }
+
+  return webpackConfig;
 };

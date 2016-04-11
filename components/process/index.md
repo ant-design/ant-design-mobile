@@ -1,10 +1,11 @@
-# Process
-
-- category: Components
-- chinese: 支付流程
-- type: 展示
-
 ---
+category: Components
+chinese: 支付流程
+type: 展示
+english: Process
+---
+
+
 
 列表项
 

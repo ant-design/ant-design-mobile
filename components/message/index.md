@@ -1,10 +1,11 @@
-# Message
-
-- category: Components
-- chinese: 信息提示
-- type: 展示
-
 ---
+category: Components
+chinese: 信息提示
+type: 展示
+english: Message
+---
+
+
 
 ## 如何使用
 

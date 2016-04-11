@@ -1,10 +1,11 @@
-# Toast
-
-- category: Components
-- chinese: 轻提示
-- type: 展示
-
 ---
+category: Components
+chinese: 轻提示
+type: 展示
+english: Toast
+---
+
+
 
 ## 如何使用
 

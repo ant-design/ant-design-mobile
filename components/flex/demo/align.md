@@ -1,8 +1,9 @@
-#  Flex对齐
-
-- order: 1
-
 ---
+order: 1
+title: Flex对齐
+---
+
+
 
 ````jsx
 import { Flex, Button, WingBlank, WhiteSpace } from 'antm';

@@ -1,10 +1,11 @@
-# TextareaItem
-
-- category: Components
-- chinese: 多行输入
-- type: 表单
-
 ---
+category: Components
+chinese: 多行输入
+type: 表单
+english: TextareaItem
+---
+
+
 
 表单页面中的文本输入时
 

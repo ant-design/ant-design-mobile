@@ -1,8 +1,6 @@
-# 快速上手
-
-- category: 1
-- order: 1
-
+---
+order: 1
+chinese: 快速上手
 ---
 
 Ant Mobile 致力于提供给程序员**愉悦**的无线端开发体验。

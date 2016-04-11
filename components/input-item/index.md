@@ -1,10 +1,11 @@
-# InputItem
-
-- category: Components
-- chinese: 文本输入
-- type: 表单
-
 ---
+category: Components
+chinese: 文本输入
+type: 表单
+english: InputItem
+---
+
+
 
 表单页面中的文本输入时
 

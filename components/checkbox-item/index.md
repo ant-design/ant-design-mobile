@@ -1,10 +1,11 @@
-# CheckboxItem
-
-- category: Components
-- chinese: Checkbox
-- type: 表单
-
 ---
+category: Components
+chinese: Checkbox
+type: 表单
+english: CheckboxItem
+---
+
+
 
 
 ## 何时使用

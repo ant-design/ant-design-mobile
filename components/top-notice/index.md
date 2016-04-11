@@ -1,10 +1,11 @@
-# TopNotice
-
-- category: Components
-- chinese: 顶部提示
-- type: 展示
-
 ---
+category: Components
+chinese: 顶部提示
+type: 展示
+english: TopNotice
+---
+
+
 
 列表项
 

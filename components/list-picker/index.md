@@ -1,10 +1,11 @@
-# List Picker
-
-- category: Components
-- chinese: 列表选择
-- type: 表单
-
 ---
+category: Components
+chinese: 列表选择
+type: 表单
+english: List Picker
+---
+
+
 
 ## 如何使用
 

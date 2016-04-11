@@ -1,10 +1,11 @@
-# SelectItem
-
-- category: Components
-- chinese: 下拉列表
-- type: 表单
-
 ---
+category: Components
+chinese: 下拉列表
+type: 表单
+english: SelectItem
+---
+
+
 
 表单页面中的文本输入时
 

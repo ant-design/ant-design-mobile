@@ -1,13 +1,14 @@
-# List Picker
-
-- order: 0
-
 ---
+order: 0
+title: List Picker
+---
+
+
 
 ````jsx
 import { ListPicker, List } from 'antm';
 
-const district = window.DISTRICT;
+import district from 'DISTRICT';
 
 function loop(tree, fn){
   tree.forEach((t)=>{

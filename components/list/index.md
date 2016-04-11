@@ -1,10 +1,11 @@
-# List
-
-- category: Components
-- chinese: 列表
-- type: 基本
-
 ---
+category: Components
+chinese: 列表
+type: 基本
+english: List
+---
+
+
 
 AntUI列表容器,其中会有列表头,列表尾,列表主体。
 
