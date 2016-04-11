@@ -5,7 +5,7 @@ import 'rmc-date-picker/assets/index.css';
 import 'rmc-date-picker/assets/popup.css';
 import 'rmc-modal/assets/index.css';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
 import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
 // import en_US from 'gregorian-calendar/lib/locale/en_US';

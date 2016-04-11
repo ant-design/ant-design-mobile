@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import Button from '../button';
 import classNames from 'classnames';
 import './index.less';

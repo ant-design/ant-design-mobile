@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import './index.less';
 function noop() {
@@ -21,8 +21,7 @@ const List = React.createClass({
       'am-list-chip': true,
       'am-list-form': true,
       'am-list-iconlist': isIconList,
-
-      [className] : className
+      [className]: className
     });
 
     return (

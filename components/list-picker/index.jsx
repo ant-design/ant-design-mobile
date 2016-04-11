@@ -4,7 +4,7 @@ import 'rmc-cascader/assets/index.css';
 import 'rmc-cascader/assets/popup.css';
 import 'rmc-modal/assets/index.css';
 import 'rmc-picker/assets/index.css';
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
 

@@ -3,7 +3,7 @@ const webpack = require('atool-build/lib/webpack');
 module.exports = function(webpackConfig) {
   if (process.env.ANTD === 'WEBSITE') {
     webpackConfig.entry = {
-      index: './site/entry/index.jsx',
+      index: './site/entry/index.jsx'
     };
     webpackConfig.resolve.root = process.cwd();
     webpackConfig.resolve.alias = {
@@ -42,6 +42,16 @@ module.exports = function(webpackConfig) {
       exclude: exclude,
       loader: `babel!antd-md`,
     });
+  }
+  if (process.env.ANTD === 'MOBILE') {
+    webpackConfig.entry = {
+      mobile: './mobile/entry/index.jsx'
+    };
+    webpackConfig.resolve.root = process.cwd();
+    webpackConfig.resolve.alias = {
+      antm: process.cwd(),
+      DISTRICT: 'scripts/district.js'
+    };
   }
 
   if (process.env.ANTD === 'PRODUCTION') {
