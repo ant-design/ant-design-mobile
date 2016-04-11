@@ -131,7 +131,7 @@ const Item = React.createClass({
   },
   _handleTouchStart() {
     if(this.props.needActive) {
-      this.refs.listitem.style.backgroundColor = '#e4e4e4';
+      this.refs.listitem.style.backgroundColor = '#d9d9d9';
     }
   },
   _handleTouchEnd() {
@@ -155,9 +155,9 @@ const Item = React.createClass({
 
     if (thumb) {
       if (line === 1) {
-        thumbDom = <div className="am-list-thumb"><img src={thumb} width="29" height="29"/></div>;
+        thumbDom = <div className="am-list-thumb"><img src={thumb}/></div>;
       } else {
-        thumbDom = <div className="am-list-thumb"><img src={thumb} width="45" height="45"/></div>;
+        thumbDom = <div className="am-list-thumb"><img src={thumb}/></div>;
       }
     }
 

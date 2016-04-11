@@ -29,7 +29,7 @@
     position: relative;
     padding: 10px @margin-4;
     min-height: @margin-5;
-    background: #fff;
+    background: @neutral-1;
     vertical-align: middle;
     overflow: hidden;
     .display-box;
@@ -44,42 +44,7 @@
     &.am-list-item-bottom {
       .box-align(flex-end);
     }
-    /* list selector 选择的样式*/
-    &.am-list-selected {
-      position: relative;
-      z-index: 11;
-      .am-list-content {
-        color: #00a9ed;
-        -webkit-box-flex: 4;
-        -webkit-flex: 4;
-      }
-      .am-list-extra {
-        -webkit-box-flex: initial;
-        -webkit-flex: initial;
-        position: relative;
-        width: 30px;
-        min-width: 30px;
-        height: 20px;
-        span {
-          position: absolute;
-          top: -5px;
-          right: 8px;
-          display: inline-block;
-          content: "";
-          width: 10px;
-          height: 20px;
-          border: 2px solid #00a9ed;
-          border-width: 0 2px 2px 0;
-          -webkit-transform: rotate(45deg);
-        }
-      }
-      &:after {
-        border-bottom-color: #00a9ed;
-      }
-      &:last-child:after {
-        left: 0;
-      }
-    }
+
     .hairline(bottom, @neutral-5, @margin-4);
     /*&:last-child {
       .hairline-remove(bottom);
@@ -130,27 +95,21 @@
     /*list左右图片显示*/
     .am-list-thumb {
       position: relative;
-      &.am-list-thumb-right {
-        &:first-child {
-          margin-right: 10px;
-          margin-left: 29px;
-        }
-        &:last-child {
-          margin-left: 10px;
-        }
-      }
       &:first-child {
-        margin-right: 10px;
+        margin-right: @margin-2;
       }
       &:last-child {
-        margin-left: 10px;
+        margin-left: @margin-2;
+      }
+      img {
+        width: @margin-6;
+        height: @margin-6;
       }
     }
 
     .am-list-thumb-radius img {
       .border-radius(4px);
     }
-
     img {
       vertical-align: middle;
     }
@@ -191,7 +150,7 @@
       width: 9px;
       height: 9px;
       margin-left: 0;
-      border: solid 2px @neutral-7;
+      border: solid 1px @neutral-7;
       border-top: 0 none;
       border-left: 0 none;
     }
