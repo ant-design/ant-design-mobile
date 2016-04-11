@@ -39,7 +39,23 @@
     .border-radius(@radius-2);
   }
 
-  /* 主按钮 */
+  // default
+  color: @gray-8;
+  background-color: @gray-1;
+  &:after {
+    border: @border-width-1 @border-type-1 @gray-4;
+  }
+  &:active,
+  &.hover {
+    background-color: @gray-2;
+  }
+
+  // ghost
+  &-ghost {
+
+  }
+
+
   &-primary {
     color: @gray-1;
     background-color: @brand-1-2;
@@ -48,35 +64,27 @@
       color: @gray-1;
       background-color: @brand-1-1;
     }
-  }
-  /* 次按钮 */
-  &-secondary {
-    color: @brand-1-2;
-    background-color: @gray-1;
-    &:after {
-      border: @border-width-1 @border-type-1 @brand-1-2;
-    }
-    &:active,
-    &.hover {
-      color: @gray-1;
-      background-color: @brand-1-2;
+
+    // ghost
+    &.@{button-prefix-cls}-ghost {
+      color: @brand-1-2;
+      background-color: @gray-1;
       &:after {
-        border: none;
+        border: @border-width-1 @border-type-1 @brand-1-2;
+      }
+      &:active,
+      &.hover {
+        color: @gray-1;
+        background-color: @brand-1-2;
+        &:after {
+          border: none;
+        }
       }
     }
+
   }
-  /* 普通按钮 */
-  &-normal {
-    color: @gray-8;
-    background-color: @gray-1;
-    &:after {
-      border: @border-width-1 @border-type-1 @gray-4;
-    }
-    &:active,
-    &.hover {
-      background-color: @gray-2;
-    }
-  }
+
+
   /* 警示按钮 */
   &-warning {
     color: @function-error-2;

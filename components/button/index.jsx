@@ -1,47 +1,60 @@
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 import './index.less';
 function noop() {}
 
 const Button = React.createClass({
   propTypes: {
-    type          : PropTypes.string,
-    size          : PropTypes.string,
-    inline        : PropTypes.bool,
-    disabled      : PropTypes.bool,
-    onClick       : PropTypes.func,
+    prefixCls: PropTypes.string,
+    type: PropTypes.string,
+    size: PropTypes.string,
+    ghost: PropTypes.bool,
+    inline: PropTypes.bool,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
+    htmlType: PropTypes.string,
   },
   getDefaultProps() {
     return {
-      type: 'primary',
+      prefixCls: 'am-button',
+      type: '',
       size: 'large',
+      ghost: false,
       inline: false,
       disabled: false,
-      onClick:noop,
+      onClick: noop,
+      htmlType: '',
     };
   },
-  _handleClick(e){
+  _handleClick() {
     this.props.onClick(this);
   },
 
-  render(){
-    let { type, size, inline, disabled, className, ...others } = this.props;
+  render() {
+    let { className, prefixCls, type, size, ghost, inline, disabled,
+      htmlType, ...others } = this.props;
+
     const wrapCls = classNames({
-      'am-button': true,
-      'am-button-primary' : type === 'primary',
-      'am-button-secondary' : type === 'secondary',
-      'am-button-normal' : type === 'normal',
-      'am-button-warning' : type === 'warning',
-
-      'am-button-large' : size === 'large',
-      'am-button-small' : size === 'small',
-
-      'am-button-inline' : inline,
-      'am-button-disabled' : disabled,
-      [className] : className
+      [className]: className,
+      [prefixCls]: true,
+      [`${prefixCls}-primary`]: type === 'primary',
+      [`${prefixCls}-ghost`]: ghost,
+      [`${prefixCls}-warning`]: type === 'warning',
+      [`${prefixCls}-large`]: size === 'large',
+      [`${prefixCls}-small`]: size === 'small',
+      [`${prefixCls}-inline`]: inline,
+      [`${prefixCls}-disabled`]: disabled,
     });
 
-    return (<button {...others} className={wrapCls} disabled={disabled} onClick={this._handleClick}>{this.props.children}</button>);
+    if (htmlType) {
+      others.type = htmlType;
+    }
+
+    return (<button {...others}
+      className={wrapCls}
+      disabled={disabled}
+      onClick={this._handleClick}
+      >{this.props.children}</button>);
   }
 });
 module.exports = Button;
