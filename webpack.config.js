@@ -45,7 +45,7 @@ module.exports = function(webpackConfig) {
   }
   if (process.env.ANTD === 'MOBILE') {
     webpackConfig.entry = {
-      mobile: './mobile/entry/index.jsx'
+      index: './mobile/entry/index.jsx'
     };
     webpackConfig.resolve.root = process.cwd();
     webpackConfig.resolve.alias = {
@@ -55,7 +55,7 @@ module.exports = function(webpackConfig) {
   }
 
   if (process.env.ANTD === 'PRODUCTION') {
-    const entry = ['./style/index.less', './index.js'];
+    const entry = ['./index.js'];
     webpackConfig.entry = {
       'antm.min': entry,
     };
@@ -73,12 +73,12 @@ module.exports = function(webpackConfig) {
         amd: 'react-dom'
       }
     };
-    // webpackConfig.output.library = 'antd';
+    webpackConfig.output.library = 'antm';
     webpackConfig.output.libraryTarget = 'umd';
 
     const uncompressedWebpackConfig = Object.assign({}, webpackConfig);
     uncompressedWebpackConfig.entry = {
-      antd: entry,
+      antm: entry,
     };
     uncompressedWebpackConfig.plugins = webpackConfig.plugins.filter((plugin) => {
       return !(plugin instanceof webpack.optimize.UglifyJsPlugin);
