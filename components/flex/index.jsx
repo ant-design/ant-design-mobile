@@ -19,7 +19,7 @@ const Flex = React.createClass({
       'am-flexbox-top': align === 'top',
       'am-flexbox-middle': align === 'middle',
       'am-flexbox-bottom': align === 'bottom',
-      [className] : className
+      [className]: className
     });
 
     return (
@@ -35,7 +35,7 @@ const Item = React.createClass({
     const { children, className } = this.props;
     const wrapCls = classNames({
       'am-flexbox-item': true,
-      [className] : className
+      [className]: className
     });
     return (
       <div className={wrapCls}>{children}</div>

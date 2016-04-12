@@ -1,173 +1,76 @@
 @import '../../style/mixins';
+@import '../../style/_mixins';
+@import '../../style/variables';
 
 .am-list {
-  &.am-list-lb .am-list-item .am-list-label {
-    width: 80px;
-  }
-  &.am-list-6lb .am-list-item .am-list-label {
-    width: 102px;
-  }
-  &.am-list-5lb .am-list-item .am-list-label {
-    width: 80px;
-  }
-  &.am-list-4lb .am-list-item .am-list-label {
-    width: 70px;
-  }
-  &.am-list-3lb .am-list-item .am-list-label {
-    width: 54px;
-  }
-  .am-list-item.am-list-item-error {
-    position: relative;
-    z-index: 11;
-    &:after {
-      width: 100%;
-      height: 0;
-      border-bottom: 1px solid red;
-      bottom: 0;
-      content: "";
-      left: 15px;
-      position: absolute;
-    }
-    &:last-child:after {
-      left: 0;
-    }
-  }
   .am-list-item {
-    .am-list-button {
-      height: 35px;
-      margin-right: -12px;
-      &:before {
-        content: '';
-        float: left;
-        margin-top: 9px;
-        height: 17px;
-        width: 1px;
-        background: #e5e5e5;
-        overflow: hidden;
-      }
-      button,
-      a {
-        float: left;
-        width: 94px;
-        height: 35px;
-        text-align: center;
-        padding: 0px;
-        color: #0ae;
-        &:disabled {
-          color: #e6e6e6;
-        }
-      }
-      button {
-        outline: 0px none;
-        border: 0px none;
-        background: none;
-      }
-      .am-captcha-figure {
-        float: left;
-        width: 48px;
-        margin: 5px 0px 0px 5px;
-        height: 25px;
-        vertical-align: top;
-        img {
-          width: 58px;
-          height: 25px;
-          vertical-align: top;
-        }
-        button {
-          width: 48px;
-          height: 25px;
-          vertical-align: top;
-          line-height: 25px;
-          color: #e6e6e6;
-          font-size: 15px;
-        }
-      }
-      .am-captcha-refresh {
-        float: left;
-        width: 41px;
-        height: 35px;
-        text-indent: -9999px;
-        background-position: center 8px;
-      }
+    .am-list-label {
+      font-size: @font-size-5;
+      margin-left: 0;
+      margin-right: @margin-4;
+      color: @neutral-10;
+      text-align: left;
+      min-width: 64px;
     }
-  }
-  &.am-list-form {
-    .am-list-item {
-      input,
-      select,
-      textarea {
-        font-size: 15px;
+    .am-list-control {
+      .box-flex(1);
+      input {
+        font-size: @font-size-5;
         -webkit-appearance: none;
         width: 100%;
         padding: 0px;
         border: 0px;
         background-color: transparent;
-      }
-      input {
-        color: #333;
+        color: @neutral-10;
         padding-top: 5px;
         padding-bottom: 5px;
         box-sizing: border-box;
         padding-left: 3px;
       }
-      textarea {
-        overflow: visible;
-        display: block;
-        resize: none;
-        word-break: break-all;
-        word-wrap: break-word;
-        line-height: normal;
-        margin-top: 3px;
-      }
       ::-webkit-input-placeholder {
-        color: #ccc;
-        font-size: 15px;
-      }
-      .am-list-label {
-        font-size: 16px;
-        margin-left: 0;
-        margin-right: 15px;
-        color: #333;
-        text-align: left;
-        min-width: 64px;
-      }
-      .am-list-control {
-        .box-flex(1);
-      }
-
-      .am-list-clear {
-        visibility: hidden;
-        width: 24px;
-        .am-icon-clear {
-          padding: 2px;
-        }
-      }
-      &.am-list-item-focus {
-        .am-list-clear {
-          visibility: visible;
-        }
-      }
-      .am-input-extra {
-        -webkit-box-flex: initial;
-        -webkit-flex: initial;
-        min-width: 0;
-        padding-right: 3px;
+        color: @neutral-6;
       }
     }
-    .am-list-item.am-list-item-select {
-      select {
-        position: relative;
-        display: block;
+    .am-list-clear {
+      visibility: hidden;
+      width: 24px;
+      .am-icon-clear {
+        padding: 2px;
+      }
+    }
+    &.am-input-autoclear {
+      .am-icon-clear {
+        visibility: hidden;
+      }
+    }
+    &.am-list-item-focus {
+      .am-list-clear {
+        visibility: visible;
+      }
+    }
+    .am-input-extra {
+      -webkit-box-flex: initial;
+      -webkit-flex: initial;
+      min-width: 0;
+      padding-right: 3px;
+    }
+    &.am-list-item-error {
+      position: relative;
+      z-index: 11;
+      &:after {
         width: 100%;
-        height: 100%;
-        z-index: 2;
+        height: 0;
+        border-bottom: 1px solid red;
+        bottom: 0;
+        content: "";
+        left: 15px;
+        position: absolute;
+      }
+      &:last-child:after {
+        left: 0;
       }
     }
   }
-}
-
-.am-input-autoclear .am-icon-clear {
-  visibility: hidden;
 }
 
 .am-icon {
@@ -193,5 +96,56 @@
         .backgroundSize(16px, auto);
       }
     }
+  }
+  &.am-icon-lock {
+    display: block;
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("./image/lock.png") no-repeat;
+      .backgroundSize(18px, auto);
+    }
+  }
+  display: block;
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: left top;
+    .backgroundSize(24px, auto);
+  }
+  &.am-icon-form-camera:before {
+    background-image: url("./image/camera.png");
+  }
+  &.am-icon-form-list:before {
+    background-image: url("./image/list.png");
+  }
+  &.am-icon-form-contacts-mobile:before {
+    background-image: url("./image/contacts_mobile.png");
+  }
+  &.am-icon-form-bill:before {
+    background-image: url("./image/bill.png");
+  }
+  &.am-icon-form-contacts-alipay:before {
+    background-image: url("./image/contacts_alipay.png");
+  }
+  &.am-icon-form-cards:before {
+    background-image: url("./image/cards.png");
+  }
+  &.am-icon-form-calculator:before {
+    background-image: url("./image/calculator.png");
+  }
+  &.am-icon-form-scan:before {
+    background-image: url("./image/scan.png");
   }
 }

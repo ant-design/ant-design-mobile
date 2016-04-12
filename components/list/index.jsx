@@ -7,20 +7,16 @@ function noop() {
 const List = React.createClass({
   propTypes: {
     style: PropTypes.object,
-    isIconList: PropTypes.bool,
   },
   getDefaultProps() {
     return {
-      isIconList: false,
+
     };
   },
   render() {
-    let { isIconList, className } = this.props;
+    let {  className } = this.props;
     const wrapCls = classNames({
       'am-list': true,
-      'am-list-chip': true,
-      'am-list-form': true,
-      'am-list-iconlist': isIconList,
       [className]: className
     });
 
@@ -44,7 +40,7 @@ const Header = React.createClass({
     let { style, children, className } = this.props;
     const wrapCls = classNames({
       'am-list-header': true,
-      [className] : className
+      [className]: className
     });
 
     return (
@@ -60,7 +56,7 @@ const Body = React.createClass({
     let { style, children, className } = this.props;
     const listBodyCls = classNames({
       'am-list-body': true,
-      [className] : className
+      [className]: className
     });
     return (
       <div className={listBodyCls} style={style}>
@@ -92,7 +88,7 @@ const Footer = React.createClass({
     const wrapCls = classNames({
       'am-list-footer': true,
       'am-ft-right': align === 'right',
-      [className] : className
+      [className]: className
     });
     return (
       <div className={wrapCls} style={style} onClick={this._onFooterClick}>
@@ -130,12 +126,12 @@ const Item = React.createClass({
     this.props.onClick(e);
   },
   _handleTouchStart() {
-    if(this.props.needActive) {
+    if (this.props.needActive) {
       this.refs.listitem.style.backgroundColor = '#d9d9d9';
     }
   },
   _handleTouchEnd() {
-    if(this.props.needActive) {
+    if (this.props.needActive) {
       this.refs.listitem.style.backgroundColor = '#fff';
     }
   },
@@ -150,7 +146,7 @@ const Item = React.createClass({
       'am-list-item-top': align === 'top',
       'am-list-item-middle': align === 'middle',
       'am-list-item-bottom': align === 'bottom',
-      [className] : className
+      [className]: className
     });
 
     if (thumb) {

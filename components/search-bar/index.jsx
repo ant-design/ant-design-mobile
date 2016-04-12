@@ -53,7 +53,7 @@ const SearchBar = React.createClass({
 
     const wrapCls = classNames({
       'am-search': true,
-      [className] : className
+      [className]: className
     });
     const inputClass = classNames({
       'am-search-input': true,

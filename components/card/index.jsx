@@ -8,7 +8,7 @@ const Card = React.createClass({
     const { children, className } = this.props;
     const wrapCls = classNames({
       'am-card': true,
-      [className] : className
+      [className]: className
     });
 
     return (
@@ -44,7 +44,7 @@ const Item = React.createClass({
 
     const wrapCls = classNames({
       'am-card-item': true,
-      [className] : className
+      [className]: className
     });
 
     let titleDom = title ? (<div className="am-card-item-header">

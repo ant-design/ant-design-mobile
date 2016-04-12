@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import '../list/style';
+import '../input-item/style';
 import './index.less';
 function noop() {}
 
@@ -36,7 +38,7 @@ const SelectItem = React.createClass({
       'am-list-item': true,
       'am-list-item-select': true,
       'am-list-item-error': error,
-      [className] : className
+      [className]: className
     });
 
     const arrowCls = classNames({
@@ -55,7 +57,7 @@ const SelectItem = React.createClass({
     // 2016.2 在align==right的时候，点击icon无法触发select，所以这里用style标签来修正
     let selectStyle = {};
     let arrowStyle = {};
-    if(align === 'right'){
+    if (align === 'right'){
       selectStyle = {
         direction: 'rtl',
         paddingRight: '15px',

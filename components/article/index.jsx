@@ -23,12 +23,12 @@ const Article = React.createClass({
     const { title, time, img, onMoreClick, children, className } = this.props;
     const wrapCls = classNames({
       'am-article': true,
-      [className] : className
+      [className]: className
     });
 
     let titleDom = title ? <h2>{title}</h2> : '';
     let timeDom = time ? <time>{time}</time> : '';
-    let imgDom = img ? <p><img src={img}/></p> : '';
+    let imgDom = img ? <p><img src={img} /></p> : '';
     let onMoreDom = onMoreClick !== noop ? (<div className="am-article-footer">
       <a onClick={onMoreClick} className="am-article-more">更多</a>
     </div>) : '';

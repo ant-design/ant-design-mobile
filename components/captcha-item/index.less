@@ -1,14 +1,71 @@
 @import '../../style/mixins';
+@import '../../style/_mixins';
+@import '../../style/variables';
 
-.am-icon {
-  &.am-captcha-refresh {
-    display: inline-block;
-    width: 17px;
-    height: 18px;
-    background: url('./image/refresh.png') no-repeat transparent;
-    .backgroundSize(17px, auto);
-    &:active {
-      .transform(rotate(180deg));
+.am-list-item {
+  .am-list-button {
+    height: 35px;
+    margin-right: -12px;
+    &:before {
+      content: '';
+      float: left;
+      margin-top: 9px;
+      height: 17px;
+      width: 1px;
+      background: #e5e5e5;
+      overflow: hidden;
+    }
+    button,
+    a {
+      float: left;
+      width: 94px;
+      height: 35px;
+      text-align: center;
+      padding: 0px;
+      color: #0ae;
+      &:disabled {
+        color: #e6e6e6;
+      }
+    }
+    button {
+      outline: 0px none;
+      border: 0px none;
+      background: none;
+    }
+    .am-captcha-figure {
+      float: left;
+      width: 58px;
+      margin: 5px 0px 0px 5px;
+      height: 25px;
+      vertical-align: top;
+      img {
+        width: 58px;
+        height: 25px;
+        vertical-align: top;
+      }
+      button {
+        width: 48px;
+        height: 25px;
+        vertical-align: top;
+        line-height: 25px;
+        color: #e6e6e6;
+        font-size: 15px;
+      }
+    }
+    .am-icon {
+      &.am-captcha-refresh {
+        float: left;
+        width: 31px;
+        height: 35px;
+        text-indent: -9999px;
+        background-position: center 8px;
+        display: inline-block;
+        background: url('./image/refresh.png') no-repeat center 8px transparent;
+        .backgroundSize(17px, auto);
+        &:active {
+          .transform(rotate(180deg));
+        }
+      }
     }
   }
 }

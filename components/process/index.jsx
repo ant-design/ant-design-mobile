@@ -10,7 +10,7 @@ const Process = React.createClass({
     const { result, className } = this.props;
     const wrapCls = classNames({
       'am-process': true,
-      [className] : className
+      [className]: className
     });
     const resultLen = result.length;
     const processStep = [];
@@ -20,31 +20,31 @@ const Process = React.createClass({
       let userIconStyle = {};
 
       switch(process.type) {
-      case 'done':
-        statusCls = 'am-process-item-result-pay';
-        statusSubClas = 'message-success';
-        break;
-      case 'done_alipay':
-        statusCls = 'am-process-item-result-pay';
-        statusSubClas = 'message-pay';
-        break;
-      case 'pending':
-        statusCls = 'am-process-item-result-pending';
-        statusSubClas = 'message-wait';
-        break;
-      case 'pending_alipay':
-        statusCls = 'am-process-item-result-unpay';
-        statusSubClas = 'message-unpay';
-        break;
-      case 'fail':
-        statusCls = 'am-process-item-result-fail';
-        statusSubClas = 'message-fail';
-        break;
-      default:
-        break;
+        case 'done':
+          statusCls = 'am-process-item-result-pay';
+          statusSubClas = 'message-success';
+          break;
+        case 'done_alipay':
+          statusCls = 'am-process-item-result-pay';
+          statusSubClas = 'message-pay';
+          break;
+        case 'pending':
+          statusCls = 'am-process-item-result-pending';
+          statusSubClas = 'message-wait';
+          break;
+        case 'pending_alipay':
+          statusCls = 'am-process-item-result-unpay';
+          statusSubClas = 'message-unpay';
+          break;
+        case 'fail':
+          statusCls = 'am-process-item-result-fail';
+          statusSubClas = 'message-fail';
+          break;
+        default:
+          break;
       }
 
-      if(process.icon){
+      if (process.icon){
         userIconStyle = {
           backgroundImage: 'url(' + process.icon + ')'
         };
@@ -52,43 +52,43 @@ const Process = React.createClass({
       }
 
       switch(i) {
-      case 0:
-        processStep.push(
-          <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
-            <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
-            <div className="am-process-content">
-              <div className="am-process-main">{process.title}</div>
-              <div className="am-process-brief">{process.brief}</div>
+        case 0:
+          processStep.push(
+            <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
+              <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
+              <div className="am-process-content">
+                <div className="am-process-main">{process.title}</div>
+                <div className="am-process-brief">{process.brief}</div>
+              </div>
+              <div className="am-process-down-border"/>
             </div>
-            <div className="am-process-down-border"/>
-          </div>
-        );
-        break;
-      case resultLen - 1:
-        processStep.push(
-          <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
-            <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
-            <div className="am-process-content">
-              <div className="am-process-main">{process.title}</div>
-              <div className="am-process-brief">{process.brief}</div>
+          );
+          break;
+        case resultLen - 1:
+          processStep.push(
+            <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
+              <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
+              <div className="am-process-content">
+                <div className="am-process-main">{process.title}</div>
+                <div className="am-process-brief">{process.brief}</div>
+              </div>
+              <div className="am-process-up-border"/>
             </div>
-            <div className="am-process-up-border"/>
-          </div>
-        );
-        break;
-      default:
-        processStep.push(
-          <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
-            <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
-            <div className="am-process-content">
-              <div className="am-process-main">{process.title}</div>
-              <div className="am-process-brief">{process.brief}</div>
+          );
+          break;
+        default:
+          processStep.push(
+            <div className={'am-process-item ' + statusCls} key={'processitem' + i}>
+              <div className={'am-process-icon am-icon ' + statusSubClas} style={userIconStyle}/>
+              <div className="am-process-content">
+                <div className="am-process-main">{process.title}</div>
+                <div className="am-process-brief">{process.brief}</div>
+              </div>
+              <div className="am-process-up-border"/>
+              <div className="am-process-down-border"/>
             </div>
-            <div className="am-process-up-border"/>
-            <div className="am-process-down-border"/>
-          </div>
-        );
-        break;
+          );
+          break;
       }
     });
     return (<div className={wrapCls}>{processStep}</div>);

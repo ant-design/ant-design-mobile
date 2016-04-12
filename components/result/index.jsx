@@ -23,7 +23,7 @@ const Result = React.createClass({
     const { type, main, sub, brief, className } = this.props;
     const wrapCls = classNames({
       'am-result': true,
-      [className] : className
+      [className]: className
     });
 
     return (

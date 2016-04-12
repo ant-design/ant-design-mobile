@@ -8,7 +8,7 @@ const Tab = React.createClass({
     const { children, className } = this.props;
     const wrapCls = classNames({
       'am-tab': true,
-      [className] : className
+      [className]: className
     });
 
     return (
@@ -38,7 +38,7 @@ const Item = React.createClass({
     const wrapCls = classNames({
       'am-tab-item': true,
       'am-tab-item-selected': selected,
-      [className] : className
+      [className]: className
     });
 
     return (<div className={wrapCls} onClick={this._handleClick}>{children}</div>);

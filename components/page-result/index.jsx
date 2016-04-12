@@ -27,7 +27,7 @@ const PageResult = React.createClass({
     let { imgUrl, title, brief, buttonTxt, buttonClick, buttonMode, className } = this.props;
     const wrapCls = classNames({
       'am-page-result': true,
-      [className] : className
+      [className]: className
     });
 
     let titleDom = title !== '' ? (<div className="am-page-result-title">{title}</div>) : null;
