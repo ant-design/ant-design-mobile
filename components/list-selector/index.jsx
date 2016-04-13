@@ -32,7 +32,7 @@ let ListSelector = React.createClass({
     };
   },
   componentWillReceiveProps(nextProps) {
-    if(this.state.searchKey !== '') {
+    if (this.state.searchKey !== '') {
       this._handleSearch(this.state.searchKey);
     } else {
       this.setState({
@@ -61,10 +61,10 @@ let ListSelector = React.createClass({
     let selectedvalue = this.state.value;
 
     data.map(el => {
-      if(el.id === selectedvalue[0]) {
+      if (el.id === selectedvalue[0]) {
         filterData.push(el);
       } else {
-        if(el.name.indexOf(value) > -1 || el.pinyin.indexOf(value) > -1 || el.py.indexOf(value) > -1 || el.id.indexOf(value) > -1) {
+        if (el.name.indexOf(value) > -1 || el.pinyin.indexOf(value) > -1 || el.py.indexOf(value) > -1 || el.id.indexOf(value) > -1) {
           filterData.push(el);
         }
       }
@@ -88,7 +88,7 @@ let ListSelector = React.createClass({
     const { value, data } = this.state;
     const itemsDom = [];
     data.forEach((el, idx) => {
-      if(value.length > 0 && value[0].id === el.id) {
+      if (value.length > 0 && value[0].id === el.id) {
         itemsDom.push(<List.Item
           className="am-list-selected"
           key={idx}
@@ -104,7 +104,7 @@ let ListSelector = React.createClass({
     });
 
     let searchDom = null;
-    if(this.props.needSearch) {
+    if (this.props.needSearch) {
       searchDom = (<SearchBar
         placeholder="请输入关键字"
         onSubmit={this._onSubmit}

@@ -18,7 +18,7 @@ const Message = React.createClass({
     const { type, main, sub, className } = this.props;
     const wrapCls = classNames({
       'am-message': true,
-      [className] : className
+      [className]: className
     });
 
     return (

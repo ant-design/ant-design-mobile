@@ -20,20 +20,20 @@ const TopNotice = React.createClass({
     const { children, mode, operationTxt, onClick, className } = this.props;
     const wrapCls = classNames({
       'am-top-notice': true,
-      [className] : className
+      [className]: className
     });
 
     let operationDom = '';
     switch(mode) {
-    case 'close':
-      operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-close"/></div>;
-      break;
-    case 'operation':
-      operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-go">{operationTxt}</a></div>;
-      break;
-    default:
-      operationDom = '';
-      break;
+      case 'close':
+        operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-close" /></div>;
+        break;
+      case 'operation':
+        operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-go">{operationTxt}</a></div>;
+        break;
+      default:
+        operationDom = '';
+        break;
     }
     return (
       <div className={wrapCls}>

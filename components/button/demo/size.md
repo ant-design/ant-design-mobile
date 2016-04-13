@@ -11,7 +11,7 @@ Button
 import { Button, Flex, List, WingBlank, WhiteSpace } from 'antm';
 ReactDOM.render(
   <div className="button-container">
-  <WhiteSpace/>
+  <WhiteSpace />
     <WingBlank>
       <Flex>
         <Flex.Item>
@@ -22,7 +22,7 @@ ReactDOM.render(
         </Flex.Item>
       </Flex>
     </WingBlank>
-    <WhiteSpace/>
+    <WhiteSpace />
     <WingBlank>
       <Flex>
         <Flex.Item>
@@ -33,7 +33,7 @@ ReactDOM.render(
         </Flex.Item>
       </Flex>
     </WingBlank>
-    <WhiteSpace/>
+    <WhiteSpace />
     <WingBlank>
       <Flex>
         <Flex.Item>

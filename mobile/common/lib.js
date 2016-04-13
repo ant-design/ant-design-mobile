@@ -1,6 +1,7 @@
 import '../../style/index.jsx';
 import '../../components/flex/style';
 import '../../components/list/style';
+import '../../components/collapse/style';
 import '../../components/white-space/style';
 import '../../components/wing-blank/style';
 

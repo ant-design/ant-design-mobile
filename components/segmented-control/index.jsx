@@ -23,7 +23,7 @@ const SegmentedControl = React.createClass({
     const { selectedIndex, values, className } = this.props;
     const wrapCls = classNames({
       'am-segment': true,
-      [className] : className
+      [className]: className
     });
     const items = [];
     values.map((el, idx) => {

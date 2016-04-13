@@ -1,11 +1,16 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import '../list/style';
 import './index.less';
 function noop() {}
 
 const InputItem = React.createClass({
   propTypes: {
     style: PropTypes.object,
+    type: PropTypes.bool,
+    size: PropTypes.string,
+    labelPosition: PropTypes.string,
+    textAlign: PropTypes.string,
     editable: PropTypes.bool,
     name: PropTypes.string,
     value: PropTypes.string,
@@ -43,14 +48,14 @@ const InputItem = React.createClass({
   _onInputChange(e) {
     let value = e.target.value;
     const { maxLength, onChange } = this.props;
-    if(maxLength > 0) {
+    if (maxLength > 0) {
       value = value.substring(0, maxLength);
     }
     onChange(value);
   },
   _onInputBlur(e) {
     setTimeout(() => {
-      if(this.isMounted()) {
+      if (this.isMounted()) {
         this.setState({
           focus: false
         });
@@ -81,7 +86,7 @@ const InputItem = React.createClass({
       'am-input-autoclear': clear,
       'am-list-item-error': error,
       'am-list-item-focus': focus,
-      [className] : className
+      [className]: className
     });
 
     let labelDom = '';
@@ -95,7 +100,7 @@ const InputItem = React.createClass({
         clearDom = (<div className="am-list-clear">
           <i className="am-icon am-icon-clear" style={{visibility: 'inherit'}}
           onClick={this._clearInput}
-          onTouchStart={this._clearInput}/>
+          onTouchStart={this._clearInput} />
         </div>);
       } else {
         clearDom = (<div className="am-list-clear">

@@ -4,6 +4,7 @@ import Page from '../common/Page';
 import Item from '../common/Item';
 import FlexExample from '../component/FlexExample';
 import ListExample from '../component/ListExample';
+import CollapseExample from '../component/CollapseExample';
 import ButtonExample from '../component/ButtonExample';
 import TabExample from '../component/TabExample';
 import SegmentedControlExample from '../component/SegmentedControlExample';
@@ -30,7 +31,7 @@ import ModalExample from '../component/ModalExample';
 import { ListSelectorExample, ListSelector2 } from '../component/ListSelectorExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 
 if((/iphone|ipad/i).test(navigator.userAgent)) {
   if ('addEventListener' in document) {
@@ -68,14 +69,22 @@ const App = React.createClass({
               </Flex.Item>
               <Flex.Item>
                 <Item
+                  logo="https://os.alipayobjects.com/rmsportal/wlNeoTpEKIpTcOW.png"
+                  title="折叠面板"
+                  subtitle="Collapse"
+                  arrow="horizontal" onClick={() => {location.hash = 'collapse';}}
+                />
+              </Flex.Item>
+            </Flex>
+            <Flex className="antm-demo-flex">
+              <Flex.Item>
+                <Item
                   logo="https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png"
                   title="上下留白"
                   subtitle="WhiteSpace"
                   onClick={() => {location.hash = 'whitespace';}}
                 />
               </Flex.Item>
-            </Flex>
-            <Flex className="antm-demo-flex">
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png"
@@ -84,7 +93,6 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'whitespace';}}
                 />
               </Flex.Item>
-              <Flex.Item/>
               <Flex.Item/>
             </Flex>
           </List.Body>
@@ -303,10 +311,11 @@ const App = React.createClass({
 });
 
 const pageRouter = (
-  <Router>
+  <Router history={hashHistory}>
     <Route path="/" component={App}/>
     <Route path="/flex" component={FlexExample}/>
     <Route path="/list" component={ListExample}/>
+    <Route path="/collapse" component={CollapseExample}/>
     <Route path="/button" component={ButtonExample}/>
     <Route path="/tab" component={TabExample}/>
     <Route path="/segmentedcontrol" component={SegmentedControlExample}/>

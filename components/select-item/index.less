@@ -1,1 +1,20 @@
 @import '../../style/mixins';
+@import '../../style/_mixins';
+@import '../../style/variables';
+
+.am-list-item {
+  &.am-list-item-select {
+    select {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      font-size: 15px;
+      -webkit-appearance: none;
+      padding: 0px;
+      border: 0px;
+      background-color: transparent;
+    }
+  }
+}

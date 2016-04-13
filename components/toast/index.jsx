@@ -16,7 +16,7 @@ const Toast = React.createClass({
     const { mode, children, className } = this.props;
     const wrapCls = classNames({
       'am-toast': true,
-      [className] : className
+      [className]: className
     });
 
     let toastClass = classNames({
@@ -28,7 +28,7 @@ const Toast = React.createClass({
       'am-toast-network': mode === 'network'
     });
 
-    let iconDom = mode !== '' ? <span className={toastClass}/> : null;
+    let iconDom = mode !== '' ? <span className={toastClass} /> : null;
 
     return (
       <div className={wrapCls}>

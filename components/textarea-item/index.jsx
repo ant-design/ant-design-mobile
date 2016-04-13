@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import '../list/style';
+import '../input-item/style';
 import './index.less';
 function noop() {}
 
-const strNumStyle = {position: 'absolute', bottom: '8px', right: '15px', color: '#ccc', fontSize:'13px'};
+const strNumStyle = { position: 'absolute', bottom: '8px', right: '15px', color: '#ccc', fontSize: '13px' };
 
 const TextareaItem = React.createClass({
   propTypes: {
@@ -44,13 +46,13 @@ const TextareaItem = React.createClass({
     };
   },
   componentDidMount() {
-    if(this.props.autoHeight) {
+    if (this.props.autoHeight) {
       this.initialTextHeight = this.refs.textarea.offsetHeight;
       this.componentDidUpdate();
     }
   },
   componentDidUpdate() {
-    if(this.props.autoHeight) {
+    if (this.props.autoHeight) {
       let textareaDom = this.refs.textarea;
       textareaDom.style.height = '';
       textareaDom.style.height = Math.max(this.initialTextHeight, textareaDom.scrollHeight + 2) + 'px';
@@ -59,14 +61,14 @@ const TextareaItem = React.createClass({
   _onChange(e) {
     let value = e.target.value;
     const { maxLength, onChange } = this.props;
-    if(maxLength > 0) {
+    if (maxLength > 0) {
       value = value.substring(0, maxLength);
     }
     onChange(value);
   },
   _onBlur(e) {
     setTimeout(() => {
-      if(this.isMounted()) {
+      if (this.isMounted()) {
         this.setState({
           focus: false
         });
@@ -95,7 +97,7 @@ const TextareaItem = React.createClass({
       'am-input-autoclear': clear,
       'am-list-item-error': error,
       'am-list-item-focus': focus,
-      [className] : className
+      [className]: className
     });
 
     let textareaStyle = {marginTop: '4px'};

@@ -30,10 +30,10 @@ const ListPicker = React.createClass({
 
   getSel() {
     const value = this.props.value || [];
-    const treeChildren = treeFilter(this.props.data, (c, level)=> {
+    const treeChildren = treeFilter(this.props.data, (c, level) => {
       return c.i === value[level];
     });
-    return this.props.format(treeChildren.map((v)=> {
+    return this.props.format(treeChildren.map((v) => {
       return v.n;
     }));
   },

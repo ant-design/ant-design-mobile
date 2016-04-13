@@ -36,22 +36,22 @@ const CheckboxItem = React.createClass({
       'am-checkbox': mode === 'agree',
       'am-checkbox-mini': mode === 'agree',
       'am-checkbox-radio': mode === 'agree',
-      [className] : className
+      [className]: className
     });
 
     let inputProp = {};
-    if(checked){
+    if (checked){
       inputProp.checked = 'checked';
     }
 
     let extraDom = extra ? <div className="am-list-extra">{extra}</div> : null;
 
     let renderDom = '';
-    if(mode === 'agree') {
+    if (mode === 'agree') {
       renderDom = (<div>
         <div className={wrapCls} style={style}>
-          <input type="checkbox" id={'agree' + name} {...(disabled ? {disabled:'disabled'} : '') } name={name} onChange={this._handleChange} {...inputProp}/>
-          <span className="icon-check icon-check-right"/>
+          <input type="checkbox" id={'agree' + name} {...(disabled ? {disabled:'disabled'} : '') } name={name} onChange={this._handleChange} {...inputProp} />
+          <span className="icon-check icon-check-right" />
           <label className="am-ft-md" htmlFor={'agree' + name}>{children}</label>
         </div>
       </div>);
@@ -60,8 +60,8 @@ const CheckboxItem = React.createClass({
         <div className="am-list-content">{children}</div>
         {extraDom}
         <div className="am-checkbox am-checkbox-mini">
-          <input type="checkbox" {...(disabled ? {disabled:'disabled'} : '') } name={name} onChange={this._handleChange} {...inputProp}/>
-          <span className="icon-check"/>
+          <input type="checkbox" {...(disabled ? {disabled:'disabled'} : '') } name={name} onChange={this._handleChange} {...inputProp} />
+          <span className="icon-check" />
         </div>
       </div>);
     }

@@ -38,6 +38,7 @@ let InputExample = React.createClass({
               error={true}
               clear={true}
               placeholder="placeholder"
+              extra="元"
             />
             <InputItem
               {...getFieldProps('3', {

@@ -49,6 +49,21 @@
     /*&:last-child {
       .hairline-remove(bottom);
     }*/
+    /*list左右图片显示*/
+    .am-list-thumb {
+      position: relative;
+      &:first-child {
+        margin-right: @margin-2;
+      }
+      &:last-child {
+        margin-left: @margin-2;
+      }
+      img {
+        width: @margin-6;
+        height: @margin-6;
+        vertical-align: middle;
+      }
+    }
     /*list左侧主内容*/
     .am-list-content {
       .box-flex(1);
@@ -82,54 +97,51 @@
       margin-top: @margin-1;
       .ellipsis();
     }
-    .am-list-multiline {
-      white-space: normal;
-      word-break: break-all;
-    }
     /*list右侧箭头*/
     .am-list-arrow {
       margin-left: 7px;
       margin-right: -2px;
       width: 16px;
-    }
-    /*list左右图片显示*/
-    .am-list-thumb {
-      position: relative;
-      &:first-child {
-        margin-right: @margin-2;
-      }
-      &:last-child {
-        margin-left: @margin-2;
-      }
-      img {
-        width: @margin-6;
-        height: @margin-6;
-      }
-    }
-
-    .am-list-thumb-radius img {
-      .border-radius(4px);
-    }
-    img {
-      vertical-align: middle;
-    }
-  }
-  button,
-  a {
-    &.am-list-item:active {
-      background-color: #e4e4e4;
-    }
-  }
-
-  &.am-list-chip {
-    .am-list-item {
-      &.am-list-top {
-        position: relative;
-        z-index: 2;
-        -webkit-background-size: 0px 0px, 0px 0px, 100% 1px, 100% 1px;
-        .am-list-icon {
-          &:after {
-            display: none;
+      .am-icon {
+        &.am-icon-arrow-horizontal,
+        &.am-icon-arrow-vertical {
+          display: block;
+          width: 16px;
+          height: 16px;
+          overflow: hidden;
+          &:before {
+            content: "";
+            display: block;
+            width: 9px;
+            height: 9px;
+            margin-left: 0;
+            border: solid 1px @neutral-7;
+            border-top: 0 none;
+            border-left: 0 none;
+          }
+        }
+        &.am-icon-arrow-horizontal {
+          &:before {
+            margin-top: 2px;
+            .transform(rotate(315deg));
+          }
+        }
+        &.am-icon-arrow-vertical {
+          &:before {
+            margin-left: 2px;
+            .transform(rotate(45deg));
+          }
+        }
+        &.am-icon-arrow-vertical-up {
+          &:before {
+            margin: 4px 0 0 2px;
+            .transform(rotate(225deg));
+          }
+        }
+        &.am-icon-arrow-vertical-down {
+          &:before {
+            margin-left: 2px;
+            .transform(rotate(45deg));
           }
         }
       }
@@ -137,100 +149,3 @@
   }
 }
 
-.am-icon {
-  &&-arrow-horizontal,
-  &&-arrow-vertical {
-    display: block;
-    width: 16px;
-    height: 16px;
-    overflow: hidden;
-    &:before {
-      content: "";
-      display: block;
-      width: 9px;
-      height: 9px;
-      margin-left: 0;
-      border: solid 1px @neutral-7;
-      border-top: 0 none;
-      border-left: 0 none;
-    }
-  }
-  &&-arrow-horizontal {
-    &:before {
-      margin-top: 2px;
-      .transform(rotate(315deg));
-    }
-  }
-  &&-arrow-vertical {
-    &:before {
-      margin-left: 2px;
-      .transform(rotate(45deg));
-    }
-    &&-arrow-vertical-up {
-      &:before {
-        margin: 4px 0 0 2px;
-        .transform(rotate(225deg));
-      }
-    }
-    &&-arrow-vertical-down {
-      &:before {
-        margin-left: 2px;
-        .transform(rotate(45deg));
-      }
-    }
-  }
-}
-
-.am-icon {
-  &.am-icon-lock {
-    display: block;
-    width: 18px;
-    height: 18px;
-    overflow: hidden;
-    &:before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: url("./image/lock.png") no-repeat;
-      .backgroundSize(18px, auto);
-    }
-  }
-  display: block;
-  overflow: hidden;
-  width: 25px;
-  height: 25px;
-  &:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: left top;
-    .backgroundSize(24px, auto);
-  }
-  &.am-icon-form-camera:before {
-    background-image: url("./image/camera.png");
-  }
-  &.am-icon-form-list:before {
-    background-image: url("./image/list.png");
-  }
-  &.am-icon-form-contacts-mobile:before {
-    background-image: url("./image/contacts_mobile.png");
-  }
-  &.am-icon-form-bill:before {
-    background-image: url("./image/bill.png");
-  }
-  &.am-icon-form-contacts-alipay:before {
-    background-image: url("./image/contacts_alipay.png");
-  }
-  &.am-icon-form-cards:before {
-    background-image: url("./image/cards.png");
-  }
-  &.am-icon-form-calculator:before {
-    background-image: url("./image/calculator.png");
-  }
-  &.am-icon-form-scan:before {
-    background-image: url("./image/scan.png");
-  }
-}

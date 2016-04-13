@@ -25,7 +25,7 @@ const SwitchItem = React.createClass({
     let { name, checked, disabled, children, className } = this.props;
     const wrapCls = classNames({
       'am-list-item': true,
-      [className] : className
+      [className]: className
     });
 
     return (

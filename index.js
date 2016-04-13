@@ -1,6 +1,7 @@
 // import './style/index.less';
 const antm = {
   List: require('./components/list'),
+  Collapse: require('./components/collapse'),
   Flex: require('./components/flex'),
   WingBlank: require('./components/wing-blank'),
   WhiteSpace: require('./components/white-space'),
