@@ -36,11 +36,19 @@ let CheckboxExample = React.createClass({
               })}
               name="f3"
             >disabled</CheckboxItem>
+            <CheckboxItem
+              disabled={true}
+              {...getFieldProps('f4', {
+                initialValue: true,
+                valuePropName: 'checked'
+              })}
+              name="f3"
+            >disabled</CheckboxItem>
           </List.Body>
         </List>
         <CheckboxItem
           mode="agree"
-          {...getFieldProps('f4', {
+          {...getFieldProps('f5', {
             initialValue: false,
             valuePropName: 'checked'
           })}
@@ -50,13 +58,14 @@ let CheckboxExample = React.createClass({
         <CheckboxItem
           disabled={true}
           mode="agree"
-          {...getFieldProps('f5', {
+          {...getFieldProps('f6', {
             initialValue: true,
             valuePropName: 'checked'
           })}
           name="f5"
         >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
         </CheckboxItem>
+
         <WhiteSpace mode={12}/>
         <div className="button-container">
           <WingBlank>
@@ -67,6 +76,7 @@ let CheckboxExample = React.createClass({
     );
   },
 });
+
 
 CheckboxExample = createForm()(CheckboxExample);
 

@@ -100,20 +100,20 @@ const TextareaItem = React.createClass({
       [className]: className
     });
 
-    let textareaStyle = {marginTop: '4px'};
-    let alignSelfStyle = {alignSelf: 'stretch'};
+    let textareaStyle = { marginTop: '4px' };
+    let alignSelfStyle = { alignSelf: 'stretch' };
     let labelDom = label ? (<div className="am-list-label" style={rows > 1 ? alignSelfStyle : {}}>{label}</div>) : null;
 
     let clearDom = '';
     if (clear && editable) {
       if (value.length > 0) {
-        clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{visibility: 'inherit'}}
+        clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{ visibility: 'inherit' }}
           onClick={this._clearInput}
-          onTouchStart={this._clearInput}/></div>);
+          onTouchStart={this._clearInput} /></div>);
       } else {
         clearDom = (<div className="am-list-clear"><i className="am-icon am-icon-clear"
           onClick={this._clearInput}
-          onTouchStart={this._clearInput}/>
+          onTouchStart={this._clearInput} />
         </div>);
       }
     }

@@ -24,7 +24,7 @@ const TopNotice = React.createClass({
     });
 
     let operationDom = '';
-    switch(mode) {
+    switch (mode) {
       case 'close':
         operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-close" /></div>;
         break;

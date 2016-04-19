@@ -3,7 +3,8 @@
 import React from 'react';
 import Page from '../common/Page';
 import { createForm } from 'rc-form';
-import { List, SwitchItem } from '../../index.js';
+// import { List, SwitchItem } from '../../index.js';
+import { List, SwitchItem } from 'antm';
 
 let SwitchExample = React.createClass({
   onClick() {
@@ -20,21 +21,25 @@ let SwitchExample = React.createClass({
                 initialValue: true,
                 valuePropName: 'checked',
               })}
-              name="yyy"
             >默认开</SwitchItem>
             <SwitchItem
               {...getFieldProps('2', {
                 initialValue: false,
                 valuePropName: 'checked'
               })}
-              name="2"
             >默认关</SwitchItem>
             <SwitchItem
               {...getFieldProps('3', {
                 initialValue: false,
                 valuePropName: 'checked'
               })}
-              name="2"
+              disabled={true}
+            >不可修改</SwitchItem>
+            <SwitchItem
+              {...getFieldProps('4', {
+                initialValue: true,
+                valuePropName: 'checked'
+              })}
               disabled={true}
             >不可修改</SwitchItem>
           </List.Body>

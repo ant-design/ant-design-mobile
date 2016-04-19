@@ -1,159 +1,84 @@
 @import '../../style/mixins';
+@import '../../style/_mixins';
+@import '../../style/variables';
 
-.am-checkbox {
-  display: inline-block;
+@checkboxWarpPrefixCls: am-checkbox;
+@checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
+
+.@{checkboxWarpPrefixCls} {
   position: relative;
-  line-height: 24px;
-  .icon-check {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5*@grid-1;
+  height: 5*@grid-1;
+  line-height: 5*@grid-1;
+  margin-left: @grid-2;
+  &-inner {
     position: absolute;
-    top: 50%;
-    margin-top: -14px;
-    width: 28px;
-    height: 28px;
-    border: 1px solid #d9d9d9;
+    right: 0;
+    width: 5*@grid-1;
+    height: 5*@grid-1;
+    border: 1px @border-type-1 @neutral-5;
+    .border-radius(5*@grid-1);
+    .box-sizing();
     .transform(rotate(0deg));
     &:after {
       position: absolute;
       display: none;
       top: 3px;
-      right: 8px;
+      right: 7px;
       z-index: 999;
-      width: 8px;
-      height: 15px;
-      border: solid 2px #b2b2b2;
-      border-width: 0px 2px 2px 0px;
+      width: 5px;
+      height: 12px;
+      border-style: @border-type-1;
+      border-width: 0 1px 1px 0;
       content: '\0020';
       .transform(rotate(45deg));
     }
   }
-  .icon-check,
-  &.am-checkbox-radio .icon-check {
-    .border-radius(14px);
-    .box-sizing();
-    &.icon-check-right {
-      position: absolute;
-      margin-left: 15px;
-      top: 12px;
-    }
-  }
-  input {
+  &-input {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     opacity: 0;
     width: 100%;
     height: 100%;
     z-index: 2;
-    border: 0px none;
+    border: 0 none;
     -webkit-appearance: none;
-    &:checked + .icon-check {
-      border-width: 0px;
-      background-color: #00aaee;
-    }
-    &:checked + .icon-check:after {
+  }
+}
+.@{checkboxWarpPrefixCls}-checked {
+  .@{checkboxInnerPrefixCls} {
+    border-width: 0px;
+    background-color: @brand-1;
+    &:after {
       display: block;
-      border-color: #ffffff;
-    }
-    &:disabled:checked + .icon-check {
-      background-color: #cccccc;
-    }
-
-    &:disabled:checked + .icon-check:after {
-      display: block;
-      border-color: #ffffff;
+      border-color: @neutral-1;
     }
   }
-  label {
-    display: inline-block;
-    margin-left: 16px;
-    font-size: 14px;
-    text-indent: 36px;
-    a {
-      position: relative;
-      z-index: 99;
-    }
-  }
-  &.am-checkbox-tiny {
-    .icon-check {
-      width: 20px;
-      height: 20px;
-      margin-right: 2px;
-      margin-top: -10px;
-      .border-radius(10px);
+}
+.@{checkboxWarpPrefixCls}-disabled {
+  &.@{checkboxWarpPrefixCls}-checked {
+    .@{checkboxInnerPrefixCls} {
+      background-color: @neutral-4;
       &:after {
-        top: 3px;
-        right: 6px;
-        width: 5px;
-        height: 10px;
-        border-width: 0px 2px 2px 0px;
+        display: block;
+        border-color: @neutral-5;
       }
     }
-    label {
-      text-indent: 28px;
-    }
-  }
-  &.am-checkbox-middle {
-    .icon-check {
-      width: 24px;
-      height: 24px;
-      margin-right: 2px;
-      margin-top: -12px;
-      .border-radius(12px);
-      &:after {
-        top: 3px;
-        right: 8px;
-        width: 6px;
-        height: 11px;
-        border-width: 0 2px 2px 0;
-      }
-    }
-    label {
-      text-indent: 28px;
-    }
-  }
-
-  &.am-checkbox-mini {
-    .icon-check {
-      width: 16px;
-      height: 16px;
-      margin-top: -8px;
-      margin-right: 4px;
-      .border-radius(8px);
-      &:after {
-        top: 2px;
-        right: 5px;
-        width: 4px;
-        height: 8px;
-        border-width: 0 2px 2px 0;
-      }
-    }
-    label {
-      text-indent: 24px;
-    }
-  }
-  &.am-checkbox-checkbox .icon-check {
-    .border-radius(4px);
   }
 }
 
-.am-list {
-  .am-list-item.am-list-item-check {
-    position: relative;
-    padding-right: 46px;
-    .am-checkbox {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0px;
-      left: 0px;
-      z-index: 1;
-      .icon-check {
-        right: 13px;
-        &.icon-check-left {
-          right: auto;
-          left: 10px;
-        }
-      }
+.@{checkboxWarpPrefixCls}-agree {
+  line-height: 24px;
+  label {
+    display: inline-block;
+    margin-left: @grid-1;
+    font-size: 14px;
+    a {
+      position: relative;
+      z-index: 99;
     }
   }
 }

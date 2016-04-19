@@ -18,7 +18,7 @@ english: CheckboxItem
 | 成员        | 说明           | 类型       |  string        | 默认值       |
 |------------|----------------|----------|----------|--------------|
 | style    |         | Object |   | 无  |
-| mode    |         | String |  `mini`、 `agree` |   'mini'  |
+| mode    |         | String |  `normal`、 `agree` |   'normal'  |
 | name    |         | String |   | 无  |
 | checked    |        | String |   | 无  |
 | disabled      |         | String | |  无  |
