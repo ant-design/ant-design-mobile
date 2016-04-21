@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Tab } from '../../index.js';
+import { Tab } from 'antm';
 
 const TabExample = React.createClass({
   getInitialState(){

@@ -3,7 +3,7 @@
 import React from 'react';
 import Page from '../common/Page';
 import { createForm } from 'rc-form';
-// import { List, SwitchItem } from '../../index.js';
+// import { List, SwitchItem } from 'antm';
 import { List, SwitchItem } from 'antm';
 
 let SwitchExample = React.createClass({

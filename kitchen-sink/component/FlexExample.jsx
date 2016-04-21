@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Flex, Button, WingBlank, WhiteSpace } from '../../index.js';
+import { Flex, Button, WingBlank, WhiteSpace } from 'antm';
 
 const FlexExample = React.createClass({
   render() {

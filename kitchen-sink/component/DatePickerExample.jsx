@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { List, ListDatePicker } from '../../index.js';
+import { List, ListDatePicker } from 'antm';
 import { createForm } from 'rc-form';
 
 let DatePickerExample = React.createClass({

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { Modal, List, CheckboxItem, Button, WhiteSpace, WingBlank } from '../../index.js';
+import { Modal, List, CheckboxItem, Button, WhiteSpace, WingBlank } from 'antm';
 import { createForm } from 'rc-form';
 
 function noop(){}

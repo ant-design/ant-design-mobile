@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
-import './index.less';
 function noop() {}
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { SegmentedControl, WhiteSpace } from '../../index.js';
+import { SegmentedControl, WhiteSpace } from 'antm';
 
 const SegmentedControlExample = React.createClass({
   getInitialState(){

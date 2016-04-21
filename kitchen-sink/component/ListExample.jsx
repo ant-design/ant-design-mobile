@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { List, InputItem, Button } from '../../index.js';
+import { List, InputItem, Button } from 'antm';
 
 const ListExample = React.createClass({
   render() {

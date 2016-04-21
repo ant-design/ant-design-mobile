@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { TopNotice, WhiteSpace } from '../../index.js';
+import { TopNotice, WhiteSpace } from 'antm';
 
 const TopNoticeExample = React.createClass({
   getInitialState() {

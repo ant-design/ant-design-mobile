@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { WingBlank, WhiteSpace, Button } from '../../index.js';
+import { WingBlank, WhiteSpace, Button } from 'antm';
 
 const WingBlankExample = React.createClass({
   render() {

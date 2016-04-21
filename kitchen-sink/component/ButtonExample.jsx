@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { Button, WingBlank, WhiteSpace, Flex, List } from '../../index.js';
+import { Button, WingBlank, WhiteSpace, Flex, List } from 'antm';
 
 const ButtonExample = React.createClass({
   render() {

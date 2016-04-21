@@ -2,7 +2,7 @@
 
 import React, { PropTypes } from 'react';
 import Page from '../common/Page';
-import { List, ListSelector, Modal } from '../../index.js';
+import { List, ListSelector, Modal } from 'antm';
 
 const SelectorData = [
   {
