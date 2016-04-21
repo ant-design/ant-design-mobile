@@ -9,17 +9,17 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  width: 5*@grid-1;
-  height: 5*@grid-1;
-  line-height: 5*@grid-1;
+  width: 5*@grid;
+  height: 5*@grid;
+  line-height: 5*@grid;
   margin-left: @grid-2;
   &-inner {
     position: absolute;
     right: 0;
-    width: 5*@grid-1;
-    height: 5*@grid-1;
+    width: 5*@grid;
+    height: 5*@grid;
     border: 1px @border-type-1 @neutral-5;
-    .border-radius(5*@grid-1);
+    .border-radius(5*@grid);
     .box-sizing();
     .transform(rotate(0deg));
     &:after {
@@ -74,7 +74,7 @@
   line-height: 24px;
   label {
     display: inline-block;
-    margin-left: @grid-1;
+    margin-left: @grid;
     font-size: 14px;
     a {
       position: relative;
