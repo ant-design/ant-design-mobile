@@ -80,6 +80,18 @@
     }
   }
 
+  &-warning {
+    color: @function-error-2;
+    background-color: @red-1;
+    &:after {
+      border: @border-width-1 @border-type-1 @red-4;
+    }
+    &:active,
+    &:hover {
+      background-color: @red-2;
+    }
+  }
+
   &-disabled {
     &:disabled {
       color: @neutral-6;
@@ -109,6 +121,11 @@
           }
         }
       }
+
+      &.@{buttonPrefixClass}-warning {
+        color: fade(@neutral-6, 60%);
+        background-color: fade(@neutral-3, 20%);
+      }
     }
   }
 
@@ -131,16 +148,4 @@
     margin-left: 0.5em;
   }
 
-  /* 警示按钮 */
-  &-warning {
-    color: @function-error-2;
-    background-color: @gray-1;
-    &:after {
-      border: @border-width-1 @border-type-1 @gray-4;
-    }
-    &:active,
-    &.hover {
-      background-color: @gray-2;
-    }
-  }
 }
