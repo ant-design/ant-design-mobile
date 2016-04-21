@@ -51,5 +51,5 @@ let SwitchItemExample = React.createClass({
 SwitchItemExample = createForm()(SwitchItemExample);
 
 
-ReactDOM.render(<SwitchItemExample />, document.getElementById('components-switch-item-demo-basic'));
+ReactDOM.render(<SwitchItemExample />, mountNode);
 
