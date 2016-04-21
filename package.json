@@ -46,7 +46,6 @@
     "rmc-picker": "^2.2.1"
   },
   "devDependencies": {
-    "@alipay/babel-plugin-antm": "^0.3.0",
     "antd": "^1.0.0-beta.0",
     "antd-md-loader": "^0.4.0",
     "atool-build": "^0.6.5",
