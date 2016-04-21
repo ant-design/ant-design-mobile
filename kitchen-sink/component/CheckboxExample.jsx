@@ -20,13 +20,15 @@ let CheckboxExample = React.createClass({
                 initialValue: false,
                 valuePropName: 'checked'
               })}
-              extra="额外信息"
+              extra="dada"
             >使用优惠</CheckboxItem>
             <CheckboxItem
               {...getFieldProps('f2', {
                 initialValue: true,
                 valuePropName: 'checked'
               })}
+              extra="dada"
+              arrow="up"
             >默认选择</CheckboxItem>
             <CheckboxItem
               disabled={true}

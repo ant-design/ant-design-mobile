@@ -12,7 +12,7 @@
   width: 5*@grid;
   height: 5*@grid;
   line-height: 5*@grid;
-  margin-left: @grid;
+  margin-left: 2*@grid;
   &-inner {
     position: absolute;
     right: 0;
@@ -59,12 +59,26 @@
   }
 }
 .@{checkboxWarpPrefixCls}-disabled {
+  .@{checkboxInnerPrefixCls} {
+    background-color: @neutral-4;
+  }
   &.@{checkboxWarpPrefixCls}-checked {
     .@{checkboxInnerPrefixCls} {
-      background-color: @neutral-4;
       &:after {
         display: block;
         border-color: @neutral-5;
+      }
+    }
+  }
+}
+.am-list {
+  .am-list-item {
+    &.am-list-item-check {
+      .hairline(bottom, @neutral-5, 11*@grid);
+      .am-list-thumb {
+        .@{checkboxWarpPrefixCls} {
+          margin-left: 0;
+        }
       }
     }
   }

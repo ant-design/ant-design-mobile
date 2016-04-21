@@ -80,7 +80,6 @@ const Footer = React.createClass({
     };
   },
   _onFooterClick(e) {
-    e.preventDefault();
     this.props.onClick(e);
   },
   render(){
@@ -103,7 +102,7 @@ const Item = React.createClass({
     line: PropTypes.number,
     extra: PropTypes.any,
     icon: PropTypes.string,
-    thumb: PropTypes.string,
+    thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
     arrow: PropTypes.string,
     needActive: PropTypes.bool,
     onClick: PropTypes.func,
@@ -122,7 +121,6 @@ const Item = React.createClass({
     };
   },
   _handleClick(e) {
-    e.preventDefault();
     this.props.onClick(e);
   },
   _handleTouchStart() {
@@ -150,10 +148,14 @@ const Item = React.createClass({
     });
 
     if (thumb) {
-      if (line === 1) {
-        thumbDom = <div className="am-list-thumb"><img src={thumb}/></div>;
+      if(typeof(thumb) === 'string') {
+        if (line === 1) {
+          thumbDom = <div className="am-list-thumb"><img src={thumb}/></div>;
+        } else {
+          thumbDom = <div className="am-list-thumb"><img src={thumb}/></div>;
+        }
       } else {
-        thumbDom = <div className="am-list-thumb"><img src={thumb}/></div>;
+        thumbDom = <div className="am-list-thumb">{thumb}</div>;
       }
     }
 
