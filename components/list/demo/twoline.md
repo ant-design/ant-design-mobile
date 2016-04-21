@@ -47,5 +47,5 @@ ReactDOM.render(
     </List.Body>
   </List>
   </div>
-, document.getElementById('components-list-demo-twoline'));
+, mountNode);
 ````

@@ -72,5 +72,5 @@ ReactDOM.render(
     <List.Footer>我是表尾</List.Footer>
   </List>
   </div>
-, document.getElementById('components-list-demo-basic2'));
+, mountNode);
 ````

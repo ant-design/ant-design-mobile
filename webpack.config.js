@@ -1,7 +1,7 @@
 const webpack = require('atool-build/lib/webpack');
 
 module.exports = function(webpackConfig) {
-  if (process.env.ANTD === 'WEBSITE') {
+  if (process.env.RUN_ENV === 'WEBSITE') {
     webpackConfig.entry = {
       'kitchen-sink':'./kitchen-sink/entry/index.jsx',
       index: './site/entry/index.jsx'
@@ -39,7 +39,7 @@ module.exports = function(webpackConfig) {
         loader: 'babel!antd-md',
       });
     }
-  } else if (process.env.ANTD === 'PRODUCTION') {
+  } else if (process.env.RUN_ENV === 'PRODUCTION') {
     const entry = ['./index.js'];
     webpackConfig.entry = {
       'antm.min': entry,

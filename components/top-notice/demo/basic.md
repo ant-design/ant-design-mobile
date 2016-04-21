@@ -41,5 +41,5 @@ let TopNoticeExample = React.createClass({
   }
 });
 
-ReactDOM.render(<TopNoticeExample />, document.getElementById('components-top-notice-demo-basic'));
+ReactDOM.render(<TopNoticeExample />, mountNode);
 ````

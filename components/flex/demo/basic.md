@@ -80,5 +80,5 @@ let FlexExample = React.createClass({
   }
 });
 
-ReactDOM.render(<FlexExample />, document.getElementById('components-flex-demo-basic'));
+ReactDOM.render(<FlexExample />, mountNode);
 ````

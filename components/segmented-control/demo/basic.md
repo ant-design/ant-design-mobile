@@ -46,5 +46,5 @@ let SegmentedControlExample = React.createClass({
   }
 });
 
-ReactDOM.render(<SegmentedControlExample />, document.getElementById('components-segmented-control-demo-basic'));
+ReactDOM.render(<SegmentedControlExample />, mountNode);
 ````

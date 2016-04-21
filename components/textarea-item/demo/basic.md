@@ -91,4 +91,3 @@ let TextareaItemExample = React.createClass({
 TextareaItemExample = createForm()(TextareaItemExample);
 
 ReactDOM.render(<TextareaItemExample />, document.getElementById('components-textarea-item-demo-basic'));
-````

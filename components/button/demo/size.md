@@ -58,5 +58,5 @@ ReactDOM.render(
       </List.Body>
   </List>
   </div>
-, document.getElementById('components-button-demo-size'));
+, mountNode);
 ````

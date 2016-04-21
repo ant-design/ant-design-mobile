@@ -74,5 +74,5 @@ let Test = React.createClass({
 
 Test = createForm()(Test);
 
-ReactDOM.render(<Test />, document.getElementById('components-checkbox-item-demo-basic'));
+ReactDOM.render(<Test />, mountNode);
 ````

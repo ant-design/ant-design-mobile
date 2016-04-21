@@ -30,5 +30,5 @@ let WingBlankExample = React.createClass({
   }
 });
 
-ReactDOM.render(<WingBlankExample />, document.getElementById('components-wing-blank-demo-basic'));
+ReactDOM.render(<WingBlankExample />, mountNode);
 ````

@@ -59,5 +59,5 @@ let MessageExample = React.createClass({
   }
 });
 
-ReactDOM.render(<MessageExample />, document.getElementById('components-message-demo-basic'));
+ReactDOM.render(<MessageExample />, mountNode);
 ````

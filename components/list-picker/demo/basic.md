@@ -60,5 +60,5 @@ let Test = React.createClass({
 
 Test = createForm()(Test);
 
-ReactDOM.render(<Test />, document.getElementById('components-list-picker-demo-basic'));
+ReactDOM.render(<Test />, mountNode);
 ````

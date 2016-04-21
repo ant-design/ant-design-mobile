@@ -106,5 +106,5 @@ const ListForm = React.createClass({
   },
 });
 
-ReactDOM.render(<ListForm />, document.getElementById('components-list-demo-basic'));
+ReactDOM.render(<ListForm />, mountNode);
 ````

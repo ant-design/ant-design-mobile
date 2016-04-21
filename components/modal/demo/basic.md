@@ -153,5 +153,5 @@ ListSelector = createForm()(ListSelector);
 
 ReactDOM.render(
   <App />
-, document.getElementById('components-modal-demo-basic'));
+, mountNode);
 ````

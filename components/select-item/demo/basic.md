@@ -73,4 +73,4 @@ let SelectItemExample = React.createClass({
 SelectItemExample = createForm()(SelectItemExample);
 
 ReactDOM.render(<SelectItemExample />, document.getElementById('components-select-item-demo-basic'));
-````
+

@@ -44,5 +44,5 @@ let TabExample = React.createClass({
   }
 });
 
-ReactDOM.render(<TabExample />, document.getElementById('components-tab-demo-basic'));
+ReactDOM.render(<TabExample />, mountNode);
 ````

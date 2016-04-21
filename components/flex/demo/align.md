@@ -63,5 +63,5 @@ let FlexExample = React.createClass({
   }
 });
 
-ReactDOM.render(<FlexExample />, document.getElementById('components-flex-demo-align'));
+ReactDOM.render(<FlexExample />, mountNode);
 ````

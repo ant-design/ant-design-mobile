@@ -44,5 +44,5 @@ let SearchBarExample = React.createClass({
   }
 });
 
-ReactDOM.render(<SearchBarExample />, document.getElementById('components-search-bar-demo-basic'));
+ReactDOM.render(<SearchBarExample />, mountNode);
 ````

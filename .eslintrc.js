@@ -46,7 +46,7 @@ const eslintrc = {
   }
 };
 
-if (process.env.ANTD === 'DEMO') {
+if (process.env.RUN_ENV === 'DEMO') {
   eslintrc.globals = {
     React: true,
     ReactDOM: true,

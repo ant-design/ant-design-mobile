@@ -26,5 +26,5 @@ let ArticleExample = React.createClass({
   }
 });
 
-ReactDOM.render(<ArticleExample />, document.getElementById('components-article-demo-basic'));
+ReactDOM.render(<ArticleExample />, mountNode);
 ````

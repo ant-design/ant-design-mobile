@@ -152,4 +152,3 @@ let BasicInput = React.createClass({
 
 BasicInput = createForm()(BasicInput);
 ReactDOM.render(<BasicInput />, document.getElementById('components-input-item-demo-basic'));
-````
