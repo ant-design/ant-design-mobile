@@ -30,5 +30,5 @@ let WhiteSpaceExample = React.createClass({
   }
 });
 
-ReactDOM.render(<WhiteSpaceExample />, document.getElementById('components-white-space-demo-basic'));
+ReactDOM.render(<WhiteSpaceExample />, mountNode);
 ````

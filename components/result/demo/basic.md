@@ -56,5 +56,5 @@ let ResultExample = React.createClass({
   }
 });
 
-ReactDOM.render(<ResultExample />, document.getElementById('components-result-demo-basic'));
+ReactDOM.render(<ResultExample />, mountNode);
 ````

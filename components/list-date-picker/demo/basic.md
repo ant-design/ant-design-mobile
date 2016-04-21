@@ -66,5 +66,5 @@ let Test = React.createClass({
 
 Test = createForm()(Test);
 
-ReactDOM.render(<Test />, document.getElementById('components-list-date-picker-demo-basic'));
+ReactDOM.render(<Test />, mountNode);
 ````

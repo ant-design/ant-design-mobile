@@ -105,5 +105,5 @@ let PageResultExample = React.createClass({
   }
 });
 
-ReactDOM.render(<PageResultExample />, document.getElementById('components-page-result-demo-basic'));
+ReactDOM.render(<PageResultExample />, mountNode);
 ````

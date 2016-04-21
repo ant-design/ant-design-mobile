@@ -56,5 +56,5 @@ ReactDOM.render(
     </WingBlank>
   </div>
   </div>
-, document.getElementById('components-input-item-demo-addmember'));
+, mountNode);
 ````

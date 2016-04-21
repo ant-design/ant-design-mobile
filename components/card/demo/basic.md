@@ -52,5 +52,5 @@ let CardExample = React.createClass({
   }
 });
 
-ReactDOM.render(<CardExample />, document.getElementById('components-card-demo-basic'));
+ReactDOM.render(<CardExample />, mountNode);
 ````

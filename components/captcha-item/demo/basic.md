@@ -123,5 +123,5 @@ let CaptchaExample = React.createClass({
 });
 CaptchaExample = createForm()(CaptchaExample);
 
-ReactDOM.render(<CaptchaExample />, document.getElementById('components-captcha-item-demo-basic'));
+ReactDOM.render(<CaptchaExample />, mountNode);
 ````

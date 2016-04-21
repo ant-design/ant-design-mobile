@@ -153,5 +153,5 @@ ReactDOM.render(<Router>
   <Route path="/" component={pageForm}>
     <Route path="/listselector" component={ListSelectorExample}/>
   </Route>
-</Router>, document.getElementById('components-list-selector-demo-basic'));
+</Router>, mountNode);
 ````

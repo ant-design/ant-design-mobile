@@ -128,5 +128,5 @@ let ProcessExample = React.createClass({
   }
 });
 
-ReactDOM.render(<ProcessExample />, document.getElementById('components-process-demo-basic'));
+ReactDOM.render(<ProcessExample />, mountNode);
 ````

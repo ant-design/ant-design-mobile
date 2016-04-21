@@ -19,5 +19,5 @@ let ToastExample = React.createClass({
   }
 });
 
-ReactDOM.render(<ToastExample />, document.getElementById('components-toast-demo-fail'));
+ReactDOM.render(<ToastExample />, mountNode);
 ````

@@ -57,5 +57,5 @@ ReactDOM.render(
       <Button type="warning" disabled>warning disabled 按钮</Button>
     </WingBlank>
   </div>
-, document.getElementById('components-button-demo-basic'));
+, mountNode);
 ````
