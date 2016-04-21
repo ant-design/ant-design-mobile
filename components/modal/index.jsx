@@ -10,27 +10,27 @@ const Modal = React.createClass({
       style: {}
     };
   },
-  updateContent(){
+  updateContent() {
     ReactDom.render(<div className="am-modal" style={this.props.style}>
       {this.props.children}
     </div>, this.div);
   },
-  componentDidMount(){
+  componentDidMount() {
     this.div = document.createElement('div');
     document.body.appendChild(this.div);
     document.body.style.overflow = 'hidden';
 
     this.updateContent();
   },
-  componentDidUpdate(){
+  componentDidUpdate() {
     this.updateContent();
   },
-  componentWillUnmount(){
+  componentWillUnmount() {
     document.body.style.overflow = '';
     ReactDom.unmountComponentAtNode(this.div);
     document.body.removeChild(this.div);
   },
-  render(){
+  render() {
     return null;
   }
 });

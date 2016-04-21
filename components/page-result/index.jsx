@@ -38,7 +38,7 @@ const PageResult = React.createClass({
     return (
       <div className={wrapCls}>
         <div className="am-page-result-wrap">
-          <div className="am-page-result-pic" style={{backgroundImage: 'url(' + imgUrl + ')'}}></div>
+          <div className="am-page-result-pic" style={{backgroundImage: `url(${imgUrl})`}}></div>
           {titleDom}
           {briefDom}
           {buttonDom}

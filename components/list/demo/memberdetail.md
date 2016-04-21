@@ -36,7 +36,7 @@ ReactDOM.render(
         arrow="horizontal"
       >文本信息</List.Item>
       <List.Item
-        extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}
+        extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29" />}
         arrow="horizontal"
       >员工二维码</List.Item>
       <List.Item

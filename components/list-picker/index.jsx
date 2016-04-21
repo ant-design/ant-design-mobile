@@ -19,7 +19,7 @@ const ListPicker = React.createClass({
     };
     return {
       format: defaultFormat,
-      style: {left:0, bottom:0},
+      style: {left: 0, bottom: 0},
       cols: 3,
       value: [],
       extra: '请选择',
@@ -44,13 +44,13 @@ const ListPicker = React.createClass({
     };
     const childEl = React.cloneElement(this.props.children, extraProps);
     console.log(this.props);
-    return <PopupCascader
+    return (<PopupCascader
       style={style}
       data={data}
       value={value}
       dismissText={dismissText}
       okText={okText}
-      {...this.props} >{childEl}</PopupCascader>;
+      {...this.props} >{childEl}</PopupCascader>);
   },
 });
 export default ListPicker;

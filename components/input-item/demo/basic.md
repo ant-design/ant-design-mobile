@@ -27,10 +27,10 @@ let BasicInput = React.createClass({
               valuePropName: 'value'
             })}
             placeholder="placeholder"
-            clear={true}
+            clear
             maxLength={10}
-            onBlur={function(e){console.log('onBlur'); console.log(e);}}
-            onFocus={function(e){console.log('onFocus'); console.log(e);}}
+            onBlur={function (e) {console.log('onBlur'); console.log(e);}}
+            onFocus={function (e) {console.log('onFocus'); console.log(e);}}
           >Label</InputItem>
           <InputItem
             value="不可编辑"
@@ -45,8 +45,8 @@ let BasicInput = React.createClass({
               initialValue: '无Label',
               valuePropName: 'value'
             })}
-            error={true}
-            clear={true}
+            error
+            clear
             placeholder="placeholder"
           />
           <InputItem
@@ -54,7 +54,7 @@ let BasicInput = React.createClass({
               initialValue: '222',
               valuePropName: 'value'
             })}
-            error={true}
+            error
             placeholder="placeholder"
           >输入说明</InputItem>
           <InputItem
@@ -63,16 +63,16 @@ let BasicInput = React.createClass({
               valuePropName: 'value'
             })}
             placeholder="placeholder"
-            clear={true}
+            clear
           >所属门店</InputItem>
           <InputItem
             {...getFieldProps('5', {
               initialValue: '8',
               valuePropName: 'value'
             })}
-            error={true}
+            error
             placeholder="placeholder"
-            clear={true}
+            clear
             extra="折"
           >带附加说明</InputItem>
           <InputItem
@@ -80,7 +80,7 @@ let BasicInput = React.createClass({
               initialValue: '222',
               valuePropName: 'value'
             })}
-            error={true}
+            error
             placeholder="placeholder"
           >输入说明说明</InputItem>
         </List.Body>
@@ -90,7 +90,7 @@ let BasicInput = React.createClass({
           <InputItem
             name="camera"
             placeholder="camera"
-            clear={true}
+            clear
             icon="camera"
             onIconClick={() => {console.log('点击了icon');}}
             onChange={() => {}}
@@ -98,49 +98,49 @@ let BasicInput = React.createClass({
           <InputItem
             name="list"
             placeholder="list"
-            clear={true}
+            clear
             icon="list"
             onChange={() => {}}
           >列表</InputItem>
           <InputItem
             name="contacts-mobile"
             placeholder="contacts-mobile"
-            clear={true}
+            clear
             icon="contacts-mobile"
             onChange={() => {}}
           >通讯录</InputItem>
           <InputItem
             name="bill"
             placeholder="bill"
-            clear={true}
+            clear
             icon="bill"
             onChange={() => {}}
           >bill</InputItem>
           <InputItem
             name="contacts-alipay"
             placeholder="contacts-alipay"
-            clear={true}
+            clear
             icon="contacts-alipay"
             onChange={() => {}}
           >支付宝通讯录</InputItem>
           <InputItem
             name="cards"
             placeholder="cards"
-            clear={true}
+            clear
             icon="cards"
             onChange={() => {}}
           >卡片</InputItem>
           <InputItem
             name="calculator"
             placeholder="calculator"
-            clear={true}
+            clear
             icon="calculator"
             onChange={() => {}}
           >日历</InputItem>
           <InputItem
             name="scan"
             placeholder="scan"
-            clear={true}
+            clear
             icon="scan"
             onChange={() => {}}
           >扫码</InputItem>
@@ -151,5 +151,5 @@ let BasicInput = React.createClass({
 });
 
 BasicInput = createForm()(BasicInput);
-ReactDOM.render(<BasicInput/>, document.getElementById('components-input-item-demo-basic'));
+ReactDOM.render(<BasicInput />, document.getElementById('components-input-item-demo-basic'));
 ````

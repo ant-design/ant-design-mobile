@@ -27,7 +27,7 @@ let SelectItemExample = React.createClass({
             })}
             label="下拉框"
             align="right"
-            options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
+            options={[{val: '1', txt: '文本内容1'}, {val: '2', txt: '文本内容2'}, {val: '3', txt: '文本内容3'}]}
           />
           <SelectItem
             {...getFieldProps('select2', {
@@ -36,7 +36,7 @@ let SelectItemExample = React.createClass({
             })}
             label="下拉框"
             align="right"
-            options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
+            options={[{val: '1', txt: '文本内容1'}, {val: '2', txt: '文本内容2'}, {val: '3', txt: '文本内容3'}]}
             arrow="down"
           />
           <SelectItem
@@ -46,22 +46,22 @@ let SelectItemExample = React.createClass({
             })}
             label="下拉框"
             align="right"
-            options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
-            error={true}
+            options={[{val: '1', txt: '文本内容1'}, {val: '2', txt: '文本内容2'}, {val: '3', txt: '文本内容3'}]}
+            error
           />
           <SelectItem
             {...getFieldProps('select4', {
               initialValue: '3',
               valuePropName: 'value'
             })}
-            options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
+            options={[{val: '1', txt: '文本内容1'}, {val: '2', txt: '文本内容2'}, {val: '3', txt: '文本内容3'}]}
           />
           <SelectItem
             {...getFieldProps('select5', {
               initialValue: '3',
               valuePropName: 'value'
             })}
-            options={[{val:'1', txt:'文本内容1'}, {val:'2', txt:'文本内容2'}, {val:'3', txt:'文本内容3'}]}
+            options={[{val: '1', txt: '文本内容1'}, {val: '2', txt: '文本内容2'}, {val: '3', txt: '文本内容3'}]}
             arrow="down"
           />
         </List.Body>
@@ -72,5 +72,5 @@ let SelectItemExample = React.createClass({
 
 SelectItemExample = createForm()(SelectItemExample);
 
-ReactDOM.render(<SelectItemExample/>, document.getElementById('components-select-item-demo-basic'));
+ReactDOM.render(<SelectItemExample />, document.getElementById('components-select-item-demo-basic'));
 ````

@@ -19,33 +19,33 @@ let ResultExample = React.createClass({
           sub="50.00元"
           brief="当前可用额度6,000.00元"
         />
-        <WhiteSpace/>
+        <WhiteSpace />
         <Result
           type="success"
           main="success-成功"
           brief="您的操作已经成功"
         />
-        <WhiteSpace/>
+        <WhiteSpace />
         <Result
           type="error"
           main="error-失败"
         />
-        <WhiteSpace/>
+        <WhiteSpace />
         <Result
           type="warn"
           main="warn-警告"
         />
-        <WhiteSpace/>
+        <WhiteSpace />
         <Result
           type="info"
           main="info-提示"
         />
-        <WhiteSpace/>
+        <WhiteSpace />
         <Result
           type="question"
           main="question-疑问"
         />
-        <WhiteSpace/>
+        <WhiteSpace />
         <Result
           type="wait"
           main="wait-等待"

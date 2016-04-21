@@ -27,13 +27,13 @@ const Collapse = React.createClass({
   getInitialState() {
     return {
       open: this.props.open
-    }
+    };
   },
   onChange() {
     if (this.props.openable) {
       this.setState({
         open: !this.state.open
-      })
+      });
     }
     this.props.onTitleClick();
   },
@@ -58,7 +58,7 @@ const Collapse = React.createClass({
     const contentArray = [];
 
     content.forEach((el, i) => {
-      contentArray.push(<List.Item key={i + 'content'} onClick={this.props.onContentClick.bind(this, i)}>{el}</List.Item>);
+      contentArray.push(<List.Item key={`${i}content`} onClick={this.props.onContentClick.bind(this, i)}>{el}</List.Item>);
     });
 
     return (

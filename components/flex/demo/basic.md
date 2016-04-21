@@ -13,7 +13,7 @@ let FlexExample = React.createClass({
   render() {
     return (
       <div className="button-container">
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -24,7 +24,7 @@ let FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -38,7 +38,7 @@ let FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -55,7 +55,7 @@ let FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>

@@ -36,6 +36,13 @@ const eslintrc = {
     'no-return-assign': 0,
     'max-len': 0,
     'consistent-return': 0,
+    'quote-props': 0,
+    'quotes': 0,
+    'react/jsx-no-bind': 0,
+    'object-curly-spacing': 0,
+    'react/no-multi-comp': 0,
+    'array-callback-return': 0,
+    'no-alert': 0,
   }
 };
 
@@ -44,6 +51,9 @@ if (process.env.ANTD === 'DEMO') {
     React: true,
     ReactDOM: true,
     mountNode: true,
+    AlipayJSBridge: true,
+    $: true,
+    dd: true
   };
 
   Object.assign(eslintrc.rules, {

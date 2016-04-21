@@ -55,7 +55,7 @@ const TextareaItem = React.createClass({
     if (this.props.autoHeight) {
       let textareaDom = this.refs.textarea;
       textareaDom.style.height = '';
-      textareaDom.style.height = Math.max(this.initialTextHeight, textareaDom.scrollHeight + 2) + 'px';
+      textareaDom.style.height = `${Math.max(this.initialTextHeight, textareaDom.scrollHeight + 2)}px`;
     }
   },
   _onChange(e) {
@@ -68,11 +68,9 @@ const TextareaItem = React.createClass({
   },
   _onBlur(e) {
     setTimeout(() => {
-      if (this.isMounted()) {
-        this.setState({
-          focus: false
-        });
-      }
+      this.setState({
+        focus: false
+      });
     }, 500);
     const value = e.target.value;
     this.props.onBlur(value);
@@ -88,7 +86,7 @@ const TextareaItem = React.createClass({
     this.props.onChange('');
   },
 
-  render(){
+  render() {
     let { label, name, value, placeholder, clear, rows, maxLength, editable, error, className } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({

@@ -30,7 +30,7 @@ let TextareaItemExample = React.createClass({
               name="yyy"
               rows={5}
               placeholder="带清除"
-              clear={true}
+              clear
               onBlur={() => {console.log('onBlur'); }}
               onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
@@ -54,10 +54,10 @@ let TextareaItemExample = React.createClass({
                 valuePropName: 'value'
               })}
               label="高度自适应"
-              error={true}
-              autoHeight={true}
+              error
+              autoHeight
               maxLength={30}
-              clear={true}
+              clear
               placeholder="高度自适应+最大长度"
             />
             <TextareaItem
@@ -66,8 +66,8 @@ let TextareaItemExample = React.createClass({
                 valuePropName: 'value'
               })}
               label="备注说明"
-              clear={true}
-              error={true}
+              clear
+              error
               placeholder="请填写"
             />
             <TextareaItem
@@ -76,8 +76,8 @@ let TextareaItemExample = React.createClass({
                 valuePropName: 'value'
               })}
               label="备注说明"
-              clear={true}
-              error={true}
+              clear
+              error
               placeholder="不可编辑"
               editable={false}
             />
@@ -90,5 +90,5 @@ let TextareaItemExample = React.createClass({
 
 TextareaItemExample = createForm()(TextareaItemExample);
 
-ReactDOM.render(<TextareaItemExample/>, document.getElementById('components-textarea-item-demo-basic'));
+ReactDOM.render(<TextareaItemExample />, document.getElementById('components-textarea-item-demo-basic'));
 ````

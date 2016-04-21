@@ -19,29 +19,29 @@ ReactDOM.render(<div>
       >所属门店</List.Item>
       <InputItem
         name="yyy"
-        clear={true}
+        clear
         placeholder="真实姓名或昵称"
       >员工姓名</InputItem>
       <InputItem
         name="yyy"
-        clear={true}
+        clear
         placeholder="用作账户名的后缀名"
       >用户名</InputItem>
     </List.Body>
     <List.Footer onClick={(e) => {console.log(e);}}>
-      账户名：<span style={{'color':'red'}}>zhifubao@alipay.com#用户名</span>
+      账户名：<span style={{'color': 'red'}}>zhifubao@alipay.com#用户名</span>
     </List.Footer>
   </List>
   <List>
     <List.Body>
       <InputItem
         name="yyy"
-        clear={true}
+        clear
         placeholder="请填写该员工的手机号码"
       >员工手机</InputItem>
       <InputItem
         name="yyy"
-        clear={true}
+        clear
         placeholder="选填"
       >邮箱地址</InputItem>
       <List.Item

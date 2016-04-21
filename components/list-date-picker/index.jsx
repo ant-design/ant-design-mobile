@@ -82,7 +82,7 @@ const ListDatePicker = React.createClass({
       });
     }
   },
-  onChange(v){
+  onChange(v) {
     this.props.onChange(this.getFormatter().format(v));
   },
   getFormatter() {

@@ -14,7 +14,7 @@ const List = React.createClass({
     };
   },
   render() {
-    let {  className } = this.props;
+    let { className } = this.props;
     const wrapCls = classNames({
       'am-list': true,
       [className]: className
@@ -36,7 +36,7 @@ const Header = React.createClass({
     return {
     };
   },
-  render(){
+  render() {
     let { style, children, className } = this.props;
     const wrapCls = classNames({
       'am-list-header': true,
@@ -52,7 +52,7 @@ const Body = React.createClass({
   propTypes: {
     style: PropTypes.object,
   },
-  render(){
+  render() {
     let { style, children, className } = this.props;
     const listBodyCls = classNames({
       'am-list-body': true,
@@ -82,7 +82,7 @@ const Footer = React.createClass({
   _onFooterClick(e) {
     this.props.onClick(e);
   },
-  render(){
+  render() {
     let { style, align, children, className } = this.props;
     const wrapCls = classNames({
       'am-list-footer': true,
@@ -133,9 +133,10 @@ const Item = React.createClass({
       this.refs.listitem.style.backgroundColor = '#fff';
     }
   },
-  render(){
+  render() {
     let { style, thumb, arrow, line, error, children, extra, className, align } = this.props;
-    let thumbDom, arrowDom;
+    let thumbDom;
+    let arrowDom;
 
     const wrapCls = classNames({
       'am-list-item': true,
@@ -148,11 +149,11 @@ const Item = React.createClass({
     });
 
     if (thumb) {
-      if(typeof(thumb) === 'string') {
+      if (typeof(thumb) === 'string') {
         if (line === 1) {
-          thumbDom = <div className="am-list-thumb"><img src={thumb}/></div>;
+          thumbDom = <div className="am-list-thumb"><img src={thumb} /></div>;
         } else {
-          thumbDom = <div className="am-list-thumb"><img src={thumb}/></div>;
+          thumbDom = <div className="am-list-thumb"><img src={thumb} /></div>;
         }
       } else {
         thumbDom = <div className="am-list-thumb">{thumb}</div>;
@@ -165,14 +166,14 @@ const Item = React.createClass({
     if (!!arrow) {
       /* 当值是horizontal时,渲染水平箭头 */
       if (arrow === 'horizontal') {
-        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-horizontal"/></div>);
+        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-horizontal" /></div>);
         /* 当值是vertical时,渲染垂直箭头 */
       } else if (arrow === 'down') {
-        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-vertical"/></div>);
+        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-vertical" /></div>);
       } else if (arrow === 'up') {
-        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-vertical am-icon-arrow-vertical-up"/></div>);
+        arrowDom = (<div className="am-list-arrow"><span className="am-icon am-icon-arrow-vertical am-icon-arrow-vertical-up" /></div>);
       } else {
-        arrowDom = (<div className="am-list-arrow"/>);
+        arrowDom = (<div className="am-list-arrow" />);
       }
     } else {
       arrowDom = null;

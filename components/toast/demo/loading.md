@@ -13,7 +13,7 @@ let ToastExample = React.createClass({
   render() {
     return (
       <div className="toast-container">
-        <Toast mode="loading"/>
+        <Toast mode="loading" />
       </div>
     );
   }

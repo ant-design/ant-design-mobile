@@ -11,7 +11,7 @@ title: 基本
 import { List, InputItem} from 'antm';
 
 const ListForm = React.createClass({
-  onClick(a, b, c) {
+  onClick() {
     console.log('onClick');
   },
 
@@ -50,9 +50,9 @@ const ListForm = React.createClass({
             onClick={this.onClick}
           >文本信息</List.Item>
         </List.Body>
-        <List.Footer onClick={this.onClick} style={{color:'red'}} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
+        <List.Footer onClick={this.onClick} style={{color: 'red'}} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
       </List>
-      <List isIconList={true}>
+      <List isIconList>
         <List.Header>带icon</List.Header>
          <List.Body>
           <List.Item
@@ -68,7 +68,7 @@ const ListForm = React.createClass({
           >我有thumb</List.Item>
           <List.Item
             icon=""
-            extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}
+            extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29" />}
             arrow="horizontal"
             onClick={window.clickItem}
           >我是内容22</List.Item>
@@ -81,7 +81,7 @@ const ListForm = React.createClass({
             name="yyy"
             defaultValue="dada22"
             placeholder="dadads"
-            clear={true}
+            clear
             onChange={(e) => {console.log('onChange'); console.log(e);}}
             onBlur={(e) => {console.log('onBlur'); console.log(e);}}
             onFocus={(e) => {console.log('onFocus'); console.log(e);}}
@@ -97,7 +97,7 @@ const ListForm = React.createClass({
             name="yyy"
             defaultValue="dada22"
             placeholder="dadads"
-            clear={true}
+            clear
             onChange={() => {console.log('onChange');}}
           />
         </List.Body>

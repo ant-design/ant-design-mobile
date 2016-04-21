@@ -112,17 +112,17 @@ let ProcessExample = React.createClass({
   render() {
     return (
       <div>
-        <Process result={result}/>
-        <WhiteSpace mode={20}/>
-        <Process result={result1}/>
-        <WhiteSpace mode={20}/>
-        <Process result={result2}/>
-        <WhiteSpace mode={20}/>
-        <Process result={result3}/>
-        <WhiteSpace mode={20}/>
-        <Process result={result4}/>
-        <WhiteSpace mode={20}/>
-        <Process result={result5}/>
+        <Process result={result} />
+        <WhiteSpace mode={20} />
+        <Process result={result1} />
+        <WhiteSpace mode={20} />
+        <Process result={result2} />
+        <WhiteSpace mode={20} />
+        <Process result={result3} />
+        <WhiteSpace mode={20} />
+        <Process result={result4} />
+        <WhiteSpace mode={20} />
+        <Process result={result5} />
       </div>
     );
   }

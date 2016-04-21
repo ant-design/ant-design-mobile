@@ -55,11 +55,9 @@ const InputItem = React.createClass({
   },
   _onInputBlur(e) {
     setTimeout(() => {
-      if (this.isMounted()) {
-        this.setState({
-          focus: false
-        });
-      }
+      this.setState({
+        focus: false
+      });
     }, 300);
     const value = e.target.value;
     this.props.onBlur(value);
@@ -78,7 +76,7 @@ const InputItem = React.createClass({
     this.props.onChange('');
   },
 
-  render(){
+  render() {
     const { name, editable, value, placeholder, style, clear, children, icon, error, className, extra } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
@@ -99,14 +97,14 @@ const InputItem = React.createClass({
       if (value.length > 0) {
         clearDom = (<div className="am-list-clear">
           <i className="am-icon am-icon-clear" style={{visibility: 'inherit'}}
-          onClick={this._clearInput}
-          onTouchStart={this._clearInput} />
+            onClick={this._clearInput}
+            onTouchStart={this._clearInput} />
         </div>);
       } else {
         clearDom = (<div className="am-list-clear">
           <i className="am-icon am-icon-clear"
             onClick={this._clearInput}
-            onTouchStart={this._clearInput}/>
+            onTouchStart={this._clearInput} />
         </div>);
       }
     }
@@ -114,9 +112,9 @@ const InputItem = React.createClass({
     let iconDom;
     let iconType = '';
     if (icon) {
-      iconType = 'form-' + icon;
+      iconType = `form-${icon}`;
       iconDom = (<div className="am-list-thumb">
-        <i className={'am-icon am-icon-' + iconType} onClick={this._onIconClick}/>
+        <i className={`am-icon am-icon-${iconType}`} onClick={this._onIconClick} />
       </div>);
     }
 
@@ -136,7 +134,7 @@ const InputItem = React.createClass({
             onChange={this._onInputChange}
             onBlur={this._onInputBlur}
             onFocus={this._onInputFocus}
-            readOnly={!editable}/>
+            readOnly={!editable} />
         </div>
         {clearDom}
         {iconDom}

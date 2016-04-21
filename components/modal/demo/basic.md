@@ -8,10 +8,10 @@ title: Modal
 ````jsx
 import { Modal, List, CheckboxItem, Button, WhiteSpace, WingBlank } from 'antm';
 import { createForm } from 'rc-form';
-function noop(){}
+function noop() {}
 
 let App = React.createClass({
-  render(props) {
+  render() {
     return (
       <div>
         <List>
@@ -28,24 +28,24 @@ let App = React.createClass({
 App = createForm()(App);
 
 let ModalListItem = React.createClass({
-  render(){
+  render() {
     const { getFieldProps } = this.props.form;
     return (
         <ListSelector data={
             [{
-              name:'浙江',
-              id:'zj'
+              name: '浙江',
+              id: 'zj'
             }, {
-              name:'上海',
-              id:'sh'
+              name: '上海',
+              id: 'sh'
             }, {
-              name:'名字很长很长很长的',
-              id:'shaa'
+              name: '名字很长很长很长的',
+              id: 'shaa'
             }]
           }
           {...getFieldProps('region', {
-            initialValue:{
-              zj:true
+            initialValue: {
+              zj: true
             }
           })}
         >
@@ -56,28 +56,28 @@ let ModalListItem = React.createClass({
 });
 
 let ListSelector = React.createClass({
-  getInitialState(){
-    return {open :false};
+  getInitialState() {
+    return {open: false};
   },
-  getDefaultProps(){
+  getDefaultProps() {
     return {
-      data  : [],
-      value : {},
-      onChange:noop
+      data: [],
+      value: {},
+      onChange: noop
     };
   },
-  componentDidMount(){},
+  componentDidMount() {},
   onFinish() {
     this.props.onSelect(this.props.form.getFieldsValue());
   },
-  componentWillUnmount(){},
-  openModal(){
+  componentWillUnmount() {},
+  openModal() {
     this.setState({open: true});
   },
-  willReceiveProps(nextProps){
+  willReceiveProps(nextProps) {
     console.log(nextProps);
   },
-  confirmSelector(){
+  confirmSelector() {
     let value = this.props.form.getFieldsValue();
     console.log('field value');
     console.log(value);
@@ -85,12 +85,12 @@ let ListSelector = React.createClass({
     this.props.onChange(value);
     this.setState({open: false});
   },
-  render(){
+  render() {
     // console.log(this.props.value);
-    const inArray = function(arr, item){
+    const inArray = function (arr, item) {
       let result = false;
-      arr.forEach((i)=>{
-        if(i === item) result = true;
+      arr.forEach((i) => {
+        if (i === item) result = true;
       });
       return result;
     };
@@ -99,40 +99,40 @@ let ListSelector = React.createClass({
 
     const selectedKey = [];
     const selectedItemNames = [];
-    this.props.data.forEach((d)=>{
-      if(this.props.value[d.id]){
+    this.props.data.forEach((d) => {
+      if (this.props.value[d.id]) {
         selectedItemNames.push(d.name);
         selectedKey.push(d.id);
       }
     });
 
-    const renderData = this.props.data.map((data)=>{
-      if(inArray(selectedKey, data.id)){
+    const renderData = this.props.data.map((data) => {
+      if (inArray(selectedKey, data.id)) {
         data.checked = true;
-      } else{
+      } else {
         data.checked = false;
       }
       return data;
     });
 
-    let items = renderData.map((data)=>{
+    let items = renderData.map((data) => {
       return (
         <CheckboxItem {...getFieldProps(data.id, {
-          valuePropName:'checked',
-          initialValue: data.checked}) } key={'selector_' + data.id}>
+          valuePropName: 'checked',
+          initialValue: data.checked}) } key={`selector_${data.id}`}>
           {data.name}
         </CheckboxItem>
       );
     });
 
     const openEl = (
-      <Modal show={true}>
+      <Modal show>
         <List>
           <List.Body>
             {items}
           </List.Body>
         </List>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Button onClick={this.confirmSelector}>确定</Button>
         </WingBlank>
@@ -142,7 +142,7 @@ let ListSelector = React.createClass({
     const extraProps = {
       onClick: this.openModal,
     };
-    if(selectedItemNames.length){
+    if (selectedItemNames.length) {
       extraProps.extra = selectedItemNames.join(',');
     }
     const closeEl = React.cloneElement(this.props.children, extraProps);

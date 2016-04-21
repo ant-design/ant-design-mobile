@@ -31,7 +31,7 @@ const SegmentedControl = React.createClass({
         'am-segment-item': true,
         'am-segment-item-selected': idx === selectedIndex,
       });
-      items.push(<div className={itemCls} key={'item' + idx} onClick={this._handleClick.bind(this, idx)}>{el}</div>);
+      items.push(<div className={itemCls} key={`item${idx}`} onClick={this._handleClick.bind(this, idx)}>{el}</div>);
     });
     return (
       <div className={wrapCls}>

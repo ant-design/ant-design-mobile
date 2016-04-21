@@ -10,7 +10,7 @@ Tab
 ````jsx
 import { Tab } from 'antm';
 let TabExample = React.createClass({
-  getInitialState(){
+  getInitialState() {
     return { selectedTab: 'tab1' };
   },
   render() {

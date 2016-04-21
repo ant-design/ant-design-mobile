@@ -20,7 +20,7 @@ const SwitchItem = React.createClass({
     const checked = e.target.checked;
     this.props.onChange(checked);
   },
-  render(){
+  render() {
     let { name, checked, disabled, children, className } = this.props;
     const wrapCls = classNames({
       'am-list-item': true,
@@ -31,16 +31,18 @@ const SwitchItem = React.createClass({
       <div className={wrapCls}>
         <div className="am-list-content">{children}</div>
         <label className="am-switch">
-          <input type="checkbox" name={name} className="am-switch-checkbox" {...(disabled ? {disabled:'disabled'} : '') } checked={checked} onChange={this._onSwitchChange}/>
+          <input type="checkbox" name={name} className="am-switch-checkbox" {...(disabled ? {disabled: 'disabled'} : '') } checked={checked} onChange={this._onSwitchChange} />
           <div className="checkbox"></div>
         </label>
       </div>
     );
   }
 });
-/*<label className="am-switch-label">
+/*
+<label className="am-switch-label">
   <div className="am-switch-inner"></div>
   <div className="am-switch-switch"></div>
-</label>*/
+</label>
+*/
 
 module.exports = SwitchItem;

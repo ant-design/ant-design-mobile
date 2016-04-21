@@ -20,7 +20,7 @@ let CaptchaExample = React.createClass({
     };
   },
   componentDidMount() {
-    setTimeout( () => {
+    setTimeout(() => {
       this.setState({
         status3: 'sent',
         status4: 'sent',
@@ -114,7 +114,7 @@ let CaptchaExample = React.createClass({
             maxLength={4}
             pic={this.state.pic}
             placeholder="输入右侧校验码"
-            error={true}
+            error
           >校验码</CaptchaItem>
         </List.Body>
       </List>

@@ -51,7 +51,7 @@ class Clip extends React.Component {
 
     let callbacks = this.propsWith(/^on/, true);
     Object.keys(callbacks).forEach(function (callback) {
-      this.clipboard.on(callback.toLowerCase(), this.props['on' + callback]);
+      this.clipboard.on(callback.toLowerCase(), this.props[`on${callback}`]);
     }, this);
   }
 

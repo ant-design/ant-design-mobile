@@ -30,7 +30,7 @@ const CaptchaItem = React.createClass({
       tpl: '秒后重发',
     };
   },
-  getInitialState(){
+  getInitialState() {
     return {
       seconds: this.props.seconds
     };
@@ -69,8 +69,8 @@ const CaptchaItem = React.createClass({
       if (value.length > 0) {
         clearDom = (<div className="am-list-clear">
           <i className="am-icon am-icon-clear" style={{visibility: 'visible'}}
-             onClick={this._clearInput}
-             onTouchStart={this._clearInput} />
+            onClick={this._clearInput}
+            onTouchStart={this._clearInput} />
         </div>);
       } else {
         clearDom = (<div className="am-list-clear">

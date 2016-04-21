@@ -32,7 +32,7 @@ const SelectItem = React.createClass({
     const value = e.target.value;
     this.props.onChange(value);
   },
-  render(){
+  render() {
     let { options, label, name, value, align, error, className, arrow } = this.props;
     const wrapCls = classNames({
       'am-list-item': true,
@@ -57,7 +57,7 @@ const SelectItem = React.createClass({
     // 2016.2 在align==right的时候，点击icon无法触发select，所以这里用style标签来修正
     let selectStyle = {};
     let arrowStyle = {};
-    if (align === 'right'){
+    if (align === 'right') {
       selectStyle = {
         direction: 'rtl',
         paddingRight: '15px',
@@ -78,7 +78,7 @@ const SelectItem = React.createClass({
             {Options}
           </select>
         </div>
-        <div className="am-list-arrow" style={arrowStyle}><span className={arrowCls}/></div>
+        <div className="am-list-arrow" style={arrowStyle}><span className={arrowCls} /></div>
       </div>
     );
   }

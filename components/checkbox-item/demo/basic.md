@@ -34,7 +34,7 @@ let Test = React.createClass({
             })}
           >默认选择</CheckboxItem>
           <CheckboxItem
-            disabled={true}
+            disabled
             {...getFieldProps('f3', {
               initialValue: false,
               valuePropName: 'checked'
@@ -53,7 +53,7 @@ let Test = React.createClass({
         >同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
       </CheckboxItem>
       <CheckboxItem
-        disabled={true}
+        disabled
         mode="agree"
         {...getFieldProps('f5', {
           initialValue: true,

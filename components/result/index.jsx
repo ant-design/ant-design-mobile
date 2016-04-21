@@ -28,8 +28,8 @@ const Result = React.createClass({
 
     return (
       <div className={wrapCls}>
-        <div className={'am-result-icon am-icon result-' + type}></div>
-        <div className={'am-result-main am-result-main-' + type}>{main}</div>
+        <div className={`am-result-icon am-icon result-${type}`}></div>
+        <div className={`am-result-main am-result-main-${type}`}>{main}</div>
         <div className="am-result-sub">{sub}</div>
         <div className="am-result-brief">{brief}</div>
       </div>

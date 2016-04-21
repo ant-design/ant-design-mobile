@@ -17,7 +17,7 @@ const WingBlank = React.createClass({
       'am-wingblank': true,
       [className]: className
     });
-    wrapCls += ' am-wingblank-' + mode;
+    wrapCls += ` am-wingblank-${mode}`;
 
     return (
       <div className={wrapCls}>

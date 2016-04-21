@@ -17,7 +17,7 @@ const WhiteSpace = React.createClass({
       'am-whitespace': true,
       [className]: className
     });
-    wrapCls += ' am-whitespace-' + mode;
+    wrapCls += ` am-whitespace-${mode}`;
 
     return (
       <div className={wrapCls} />

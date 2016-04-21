@@ -28,14 +28,14 @@ const SearchBar = React.createClass({
       disablSearch: false,
     };
   },
-  getInitialState(){
+  getInitialState() {
     return {
-      value :this.props.value
+      value: this.props.value
     };
   },
   _handleChange(e) {
     let value = e.target.value;
-    this.setState({value: value});
+    this.setState({value});
     this.props.onChange(value);
   },
   _handleSubmit(e) {
@@ -60,7 +60,7 @@ const SearchBar = React.createClass({
       'am-search-start': value.length > 0
     });
 
-    let cancelStyle = value.length > 0 ? {'display':'block'} : {'display':'none'};
+    let cancelStyle = value.length > 0 ? {'display': 'block'} : {'display': 'none'};
     let cancelDom = showCancelButton ? (<div className="am-search-button" style={{display: 'block'}}>
         <button type="button" onClick={this._handleCancel}>取消</button>
       </div>) : (<div className="am-search-button" style={cancelStyle}>
@@ -71,8 +71,8 @@ const SearchBar = React.createClass({
       <form onSubmit={this._handleSubmit}>
         <div className={wrapCls}>
           <div className={inputClass}>
-            <div className="am-search-icon"><i className="am-icon am-icon-search"/></div>
-            <input type="search" disabled={disablSearch} placeholder={placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={value}/>
+            <div className="am-search-icon"><i className="am-icon am-icon-search" /></div>
+            <input type="search" disabled={disablSearch} placeholder={placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={value} />
           </div>
           {cancelDom}
         </div>

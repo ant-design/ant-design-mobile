@@ -40,7 +40,7 @@ let SwitchItemExample = React.createClass({
               valuePropName: 'checked'
             })}
             name="2"
-            disabled={true}
+            disabled
           >不可修改</SwitchItem>
         </List.Body>
       </List>
@@ -51,5 +51,5 @@ let SwitchItemExample = React.createClass({
 SwitchItemExample = createForm()(SwitchItemExample);
 
 
-ReactDOM.render(<SwitchItemExample/>, document.getElementById('components-switch-item-demo-basic'));
+ReactDOM.render(<SwitchItemExample />, document.getElementById('components-switch-item-demo-basic'));
 ````

@@ -10,10 +10,10 @@ import { ListPicker, List } from 'antm';
 
 import district from 'site/data/district';
 
-function loop(tree, fn){
-  tree.forEach((t)=>{
+function loop(tree, fn) {
+  tree.forEach((t) => {
     fn(t);
-    if(t.c){
+    if (t.c) {
       loop(t.c, fn);
     }
   });
@@ -35,7 +35,7 @@ let Test = React.createClass({
         <List.Header>店铺位置</List.Header>
         <List.Body>
           <ListPicker extra="请选择(可选)" data={district} {...getFieldProps('district', {
-            //initialValue: ['340000', '340800', '340822']
+            // initialValue: ['340000', '340800', '340822']
           })}
           >
             <List.Item arrow="horizontal">所在地区</List.Item>

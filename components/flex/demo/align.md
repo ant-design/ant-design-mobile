@@ -13,7 +13,7 @@ let FlexExample = React.createClass({
   render() {
     return (
       <div className="button-container">
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           顶部对齐
           <Flex align="top">
@@ -28,7 +28,7 @@ let FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           居中对齐
           <Flex align="middle">
@@ -43,7 +43,7 @@ let FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           底部对齐
           <Flex align="bottom">

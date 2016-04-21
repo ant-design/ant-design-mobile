@@ -8,5 +8,10 @@
   "qualifyingElement": false,
   "duplicateProperty": false,
   "importPath": false,
-  "finalNewline": false
+  "finalNewline": false,
+  "hexNotation": false,
+  "spaceAroundComma": false,
+  "singleLinePerProperty": false,
+  "spaceAfterPropertyColon": false,
+  "spaceBeforeBrace": false
 }

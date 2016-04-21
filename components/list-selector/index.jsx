@@ -14,7 +14,7 @@ let ListSelector = React.createClass({
     onChange: PropTypes.func,
     needSearch: PropTypes.bool,
   },
-  getDefaultProps(){
+  getDefaultProps() {
     return {
       value: [],
       data: [],
@@ -74,17 +74,17 @@ let ListSelector = React.createClass({
       data: filterData
     });
   },
-  _onClear(value) {
+  _onClear() {
     this.setState({
       data: this.props.data
     });
   },
-  _onCancel(value) {
+  _onCancel() {
     this.setState({
       data: this.props.data
     });
   },
-  render(){
+  render() {
     const { value, data } = this.state;
     const itemsDom = [];
     data.forEach((el, idx) => {
@@ -116,7 +116,7 @@ let ListSelector = React.createClass({
     return (
       <div>
         {searchDom}
-        <List style={{paddingTop:'0'}}>
+        <List style={{ paddingTop: '0' }}>
           <List.Body>
             {itemsDom}
           </List.Body>

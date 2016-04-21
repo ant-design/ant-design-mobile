@@ -23,8 +23,8 @@ const Message = React.createClass({
 
     return (
       <div className={wrapCls}>
-        <div className={'am-message-icon am-icon message-' + type}></div>
-        <div className={'am-message-main am-message-main-' + type}>{main}</div>
+        <div className={`am-message-icon am-icon message-${type}`}></div>
+        <div className={`am-message-main am-message-main-${type}`}>{main}</div>
         <div className="am-message-sub">{sub}</div>
       </div>
     );

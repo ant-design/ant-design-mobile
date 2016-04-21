@@ -13,15 +13,15 @@ let WingBlankExample = React.createClass({
   render() {
     return (
     <div className="button-container">
-      <WhiteSpace/>
+      <WhiteSpace />
       <WingBlank>
         <Button>两翼留白10px</Button>
       </WingBlank>
-      <WhiteSpace/>
+      <WhiteSpace />
       <WingBlank mode={20}>
         <Button>两翼留白20px</Button>
       </WingBlank>
-      <WhiteSpace/>
+      <WhiteSpace />
       <WingBlank mode={30}>
         <Button>两翼留白30px</Button>
       </WingBlank>

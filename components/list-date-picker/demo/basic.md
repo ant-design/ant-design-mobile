@@ -51,7 +51,7 @@ let Test = React.createClass({
           </ListDatePicker>
           <ListDatePicker
             mode="datetime"
-            format={ (val) => { return '00000'; }}
+            format={ (val) => { return val; }}
             { ...getFieldProps('customformat', {
               initialValue: ''
             })}

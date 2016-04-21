@@ -13,35 +13,35 @@ const PropTypes = React.PropTypes;
 
 const SelectorData = [
   {
-    name:'浙江',
-    pinyin:'zhejiang',
-    py:'zj',
-    id:'zj'
+    name: '浙江',
+    pinyin: 'zhejiang',
+    py: 'zj',
+    id: 'zj'
   }, {
-    name:'上海',
-    pinyin:'shanghai',
-    py:'sh',
-    id:'sh'
+    name: '上海',
+    pinyin: 'shanghai',
+    py: 'sh',
+    id: 'sh'
   }, {
-    name:'江苏',
-    pinyin:'jiangsu',
-    py:'js',
-    id:'js'
+    name: '江苏',
+    pinyin: 'jiangsu',
+    py: 'js',
+    id: 'js'
   }, {
-    name:'福建',
-    pinyin:'fujian',
-    py:'fj',
-    id:'fj'
+    name: '福建',
+    pinyin: 'fujian',
+    py: 'fj',
+    id: 'fj'
   }, {
-    name:'山东',
-    pinyin:'shandong',
-    py:'sd',
-    id:'sd'
+    name: '山东',
+    pinyin: 'shandong',
+    py: 'sd',
+    id: 'sd'
   }, {
-    name:'安徽',
-    pinyin:'anhui',
-    py:'ah',
-    id:'ah'
+    name: '安徽',
+    pinyin: 'anhui',
+    py: 'ah',
+    id: 'ah'
   }];
 
 let ListSelectorExample = React.createClass({
@@ -51,7 +51,7 @@ let ListSelectorExample = React.createClass({
     onClick: PropTypes.func,
     needSearch: PropTypes.bool
   },
-  render(props) {
+  render() {
     return (
       <Modal>
         <ListSelector
@@ -126,7 +126,7 @@ let pageForm = React.createClass({
   onChange(value) {
     console.log(value);
     this.setState({
-      value:[value]
+      value: [value]
     });
     setTimeout(() => {
       window.history.back();
@@ -151,7 +151,7 @@ let pageForm = React.createClass({
 
 ReactDOM.render(<Router>
   <Route path="/" component={pageForm}>
-    <Route path="/listselector" component={ListSelectorExample}/>
+    <Route path="/listselector" component={ListSelectorExample} />
   </Route>
 </Router>, document.getElementById('components-list-selector-demo-basic'));
 ````

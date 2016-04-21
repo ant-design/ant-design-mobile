@@ -47,7 +47,7 @@ export default class CheckboxItem extends React.Component {
         </div>
       </div>);
     } else {
-      console.log({...this.props});
+      // console.log({...this.props});
       renderDom = (<List.Item
         extra={extra}
         thumb={<Checkbox

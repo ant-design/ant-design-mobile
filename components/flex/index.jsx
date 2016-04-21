@@ -4,7 +4,7 @@ import './index.less';
 
 const Flex = React.createClass({
   propTypes: {
-    align : PropTypes.string,
+    align: PropTypes.string,
   },
   getDefaultProps() {
     return {

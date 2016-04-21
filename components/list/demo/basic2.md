@@ -20,7 +20,7 @@ window.clickItem = (e) => {
 window.openurl = (e) => {
   e.preventDefault();
   let target = e.target;
-  if(!$(target).hasClass('am-list-item')) {
+  if (!$(target).hasClass('am-list-item')) {
     target = $(target).parents('.am-list-item')[0];
   }
   window.location.href = target.href;
@@ -48,7 +48,7 @@ ReactDOM.render(
       </List.Body>
       <List.Footer>文本说明</List.Footer>
     </List>
-  <List isIconList={true}>
+  <List isIconList>
     <List.Header>列表头部</List.Header>
     <List.Body>
       <List.Item
@@ -64,7 +64,7 @@ ReactDOM.render(
       >带thumb</List.Item>
       <List.Item
         icon=""
-        extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29"/>}
+        extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29" />}
         arrow="horizontal"
         onClick={window.clickItem}
       >扩展信息传入图片</List.Item>

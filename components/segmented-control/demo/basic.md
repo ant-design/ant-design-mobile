@@ -9,12 +9,12 @@ title: 基本
 import { SegmentedControl, WhiteSpace } from 'antm';
 console.log(SegmentedControl);
 let SegmentedControlExample = React.createClass({
-  getInitialState(){
+  getInitialState() {
     return { selectedIndex: 0 };
   },
   _onChange(index) {
     this.setState({
-      selectedIndex:index
+      selectedIndex: index
     });
   },
   render() {
@@ -24,19 +24,19 @@ let SegmentedControlExample = React.createClass({
         values={['切换一', '切换二']}
         onChange={this._onChange}
       />
-      <WhiteSpace mode={20}/>
+      <WhiteSpace mode={20} />
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
         values={['切换一', '切换二', '切换三']}
         onChange={this._onChange}
       />
-      <WhiteSpace mode={20}/>
+      <WhiteSpace mode={20} />
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
         values={['切换一', '切换二', '切换三']}
         onChange={this._onChange}
       />
-      <WhiteSpace mode={20}/>
+      <WhiteSpace mode={20} />
       <SegmentedControl
         selectedIndex={this.state.selectedIndex}
         values={['切换一', '切换二', '切换三']}
