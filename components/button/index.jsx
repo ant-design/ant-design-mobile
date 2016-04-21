@@ -1,38 +1,61 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './index.less';
+import Icon from '../icon';
 function noop() {}
 
-const Button = React.createClass({
-  propTypes: {
+const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
+const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
+function isString(str) {
+  return typeof str === 'string';
+}
+
+// Insert one space between two chinese characters automatically.
+function insertSpace(child) {
+  if (isString(child.type) && isTwoCNChar(child.props.children)) {
+    return React.cloneElement(child, {},
+                              child.props.children.split('').join(' '));
+  }
+  if (isString(child)) {
+    if (isTwoCNChar(child)) {
+      child = child.split('').join(' ');
+    }
+    return <span>{child}</span>;
+  }
+  return child;
+}
+
+export default class Button extends React.Component {
+  static propTypes = {
     prefixCls: PropTypes.string,
     type: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.oneOf(['large', 'small']),
+    htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
     ghost: PropTypes.bool,
     inline: PropTypes.bool,
     disabled: PropTypes.bool,
+    loading: PropTypes.bool,
+    icon: PropTypes.bool,
     onClick: PropTypes.func,
-    htmlType: PropTypes.string,
-  },
-  getDefaultProps() {
-    return {
-      prefixCls: 'am-button',
-      type: '',
-      size: 'large',
-      ghost: false,
-      inline: false,
-      disabled: false,
-      onClick: noop,
-      htmlType: '',
-    };
-  },
-  _handleClick() {
+  }
+  static defaultProps = {
+    prefixCls: 'am-button',
+    type: '',
+    size: 'large',
+    ghost: false,
+    inline: false,
+    disabled: false,
+    loading: false,
+    onClick: noop,
+    htmlType: '',
+  }
+
+  onClick = () => {
     this.props.onClick(this);
-  },
+  }
 
   render() {
-    let { className, prefixCls, type, size, ghost, inline, disabled,
-      htmlType, ...others } = this.props;
+    let { children, className, prefixCls, type, size, ghost, inline, disabled,
+      htmlType, icon, loading, ...others } = this.props;
 
     const wrapCls = classNames({
       [className]: className,
@@ -40,21 +63,21 @@ const Button = React.createClass({
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-ghost`]: ghost,
       [`${prefixCls}-warning`]: type === 'warning',
-      [`${prefixCls}-large`]: size === 'large',
       [`${prefixCls}-small`]: size === 'small',
+      [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
     });
 
-    if (htmlType) {
-      others.type = htmlType;
-    }
+    const iconType = loading ? 'loading' : icon;
+
+    const kids = React.Children.map(children, insertSpace);
 
     return (<button {...others}
+      type={htmlType || 'button'}
       className={wrapCls}
       disabled={disabled}
-      onClick={this._handleClick}
-      >{this.props.children}</button>);
+      onClick={this.onClick}
+      >{iconType ? <Icon type={iconType} /> : null}{kids}</button>);
   }
-});
-module.exports = Button;
+}

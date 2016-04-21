@@ -3,7 +3,7 @@
 import React from 'react';
 import Page from '../common/Page';
 import { createForm } from 'rc-form';
-import { List, SelectItem } from '../../index.js';
+import { List, SelectItem } from 'antm';
 
 let SelectExample = React.createClass({
   onClick() {

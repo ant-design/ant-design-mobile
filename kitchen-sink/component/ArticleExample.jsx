@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Article } from '../../index.js';
+import { Article } from 'antm';
 // import Article from '../../components/article/index.jsx';
 
 const ArticleExample = React.createClass({

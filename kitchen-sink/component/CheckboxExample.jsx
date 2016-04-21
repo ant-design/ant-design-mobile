@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { List, CheckboxItem, Button, WingBlank, WhiteSpace } from '../../index.js';
+import { List, CheckboxItem, Button, WingBlank, WhiteSpace } from 'antm';
 import { createForm } from 'rc-form';
 
 let CheckboxExample = React.createClass({

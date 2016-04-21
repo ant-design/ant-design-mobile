@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { SearchBar, WhiteSpace } from '../../index.js';
+import { SearchBar, WhiteSpace } from 'antm';
 
 let SearchBarExample = React.createClass({
   render() {

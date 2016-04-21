@@ -29,7 +29,11 @@ ReactDOM.render(
     </WingBlank>
     <WhiteSpace />
     <WingBlank>
-      <Button type="warning">warning按钮</Button>
+      <Button loading>loading 按钮</Button>
+    </WingBlank>
+    <WhiteSpace />
+    <WingBlank>
+      <Button type="warning">warning 按钮</Button>
     </WingBlank>
 
     <WhiteSpace />

@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { List, ListPicker } from '../../index.js';
+import { List, ListPicker } from 'antm';
 import { createForm } from 'rc-form';
 
 const district = [

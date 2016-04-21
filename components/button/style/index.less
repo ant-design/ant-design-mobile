@@ -1,0 +1,151 @@
+@import '../../../style/mixins';
+@import '../../../style/variables';
+@import '../../../style/iconfont';
+@buttonPrefixClass: am-button;
+
+.@{buttonPrefixClass} {
+  position: relative;
+  display: inline-block;
+  outline: 0 none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 0;
+  .box-sizing();
+  text-align: center;
+  font-size: @font-size-6;
+  height: @margin-9;
+  line-height: @margin-9;
+  border: 0 none;
+  .border-radius(@radius-2);
+  // 在 伪元素上放大再缩小，达到 1px border 效果
+  &:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 200%;
+    content: " ";
+    .border-radius(@radius-2 * 2);
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    .box-sizing();
+  }
+
+  // default
+  color: @neutral-8;
+  background-color: @neutral-1;
+  &:after {
+    border: @border-width-1 @border-type-1 @neutral-5;
+  }
+  &:active,
+  &:hover {
+    background-color: @neutral-2;
+  }
+  // ghost
+  &-ghost {
+    &:after {
+      border: @border-width-1 @border-type-1 @neutral-4;
+    }
+    &:active,
+    &:hover {
+      color: @brand-6;
+      background-color: fade(@neutral-3, 20%);
+    }
+  }
+
+  &-primary {
+    color: @neutral-1;
+    background-color: @brand-6;
+    &:after {
+      border: @border-width-1 @border-type-1 @brand-6;
+    }
+    &:active,
+    &:hover {
+      color: @neutral-1;
+      background-color: @brand-7;
+    }
+    &.@{buttonPrefixClass}-ghost {
+      color: @brand-6;
+      background-color: @neutral-1;
+      &:active,
+      &:hover {
+        color: @brand-7;
+        background-color: fade(@brand-3, 20%);
+        &:after {
+          border: @border-width-1 @border-type-1 @brand-7;
+        }
+      }
+    }
+  }
+
+  &-warning {
+    color: @function-error-2;
+    background-color: @red-1;
+    &:after {
+      border: @border-width-1 @border-type-1 @red-4;
+    }
+    &:active,
+    &:hover {
+      background-color: @red-2;
+    }
+  }
+
+  &-disabled {
+    &:disabled {
+      color: @neutral-6;
+      background-color: @neutral-3;
+      &:after {
+        border: @border-width-1 @border-type-1 @neutral-4;
+      }
+      &.@{buttonPrefixClass}-ghost {
+        color: fade(@neutral-6, 60%);
+        background-color: fade(@neutral-3, 20%);
+        &:after {
+          border: @border-width-1 @border-type-1 fade(@neutral-6, 60%);
+        }
+      }
+
+      &.@{buttonPrefixClass}-primary {
+        color: @neutral-1;
+        background-color: @brand-3;
+        &:after {
+          border: @border-width-1 @border-type-1 @brand-1;
+        }
+        &.@{buttonPrefixClass}-ghost {
+          color: fade(@brand-3, 60%);
+          background-color: fade(@brand-3, 20%);
+          &:after {
+            border: @border-width-1 @border-type-1 fade(@brand-3, 60%);
+          }
+        }
+      }
+
+      &.@{buttonPrefixClass}-warning {
+        color: fade(@neutral-6, 60%);
+        background-color: fade(@neutral-3, 20%);
+      }
+    }
+  }
+
+  &-small {
+    font-size: @font-size-3;
+    padding: 0 @margin-3;
+    height: @margin-6;
+    line-height: @margin-6;
+    .border-radius(@radius-2);
+  }
+
+  &-inline {
+    width: auto;
+    padding: 0 @margin-4;
+  }
+
+  // To ensure that a space will be placed between character and `Icon`.
+  > .@{iconfont-css-prefix} + span,
+  > span + .@{iconfont-css-prefix} {
+    margin-left: 0.5em;
+  }
+
+}

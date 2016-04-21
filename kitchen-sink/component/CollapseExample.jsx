@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { Collapse } from '../../index.js';
+import { Collapse } from 'antm';
 
 const CollapseExample = React.createClass({
   render() {

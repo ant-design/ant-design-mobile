@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { List, CaptchaItem } from '../../index.js';
+import { List, CaptchaItem } from 'antm';
 import { createForm } from 'rc-form';
 
 let CaptchaExample = React.createClass({

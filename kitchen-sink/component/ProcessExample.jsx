@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Process, WhiteSpace } from '../../index.js';
+import { Process, WhiteSpace } from 'antm';
 
 const result = [
   {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Card } from '../../index.js';
+import { Card } from 'antm';
 
 const CardExample = React.createClass({
   render() {

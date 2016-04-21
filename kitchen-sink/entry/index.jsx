@@ -1,4 +1,4 @@
-import { List, Flex } from '../../index.js';
+import { List, Flex } from 'antm';
 import '../common/lib';
 import Page from '../common/Page';
 import Item from '../common/Item';

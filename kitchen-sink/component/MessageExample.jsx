@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Message, WhiteSpace } from '../../index.js';
+import { Message, WhiteSpace } from 'antm';
 
 const MessageExample = React.createClass({
   render() {

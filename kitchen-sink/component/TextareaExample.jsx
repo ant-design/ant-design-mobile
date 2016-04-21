@@ -3,7 +3,7 @@
 import React from 'react';
 import Page from '../common/Page';
 import { createForm } from 'rc-form';
-import { List, TextareaItem } from '../../index.js';
+import { List, TextareaItem } from 'antm';
 
 let TextareaExample = React.createClass({
   onClick() {

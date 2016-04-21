@@ -8,7 +8,7 @@ title: List Picker
 ````jsx
 import { ListPicker, List } from 'antm';
 
-import district from 'DISTRICT';
+import district from 'site/data/district';
 
 function loop(tree, fn){
   tree.forEach((t)=>{

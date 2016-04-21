@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Toast } from '../../index.js';
+import { Toast } from 'antm';
 
 const ToastExample = React.createClass({
   getInitialState() {

@@ -4,9 +4,9 @@ import Clipboard from 'clipboard';
 let counter = 0;
 
 class Clip extends React.Component {
-  static propTypes: {
-     options: React.PropTypes.object,
-  }
+  static propTypes = {
+    options: React.PropTypes.object,
+  };
 
   /* Returns a object with all props that fulfill a certain naming pattern
    *
@@ -26,10 +26,10 @@ class Clip extends React.Component {
    * this.propsWith(on*, true); // returns {Bar: 2}
    * this.propsWith(data-*); // returns {data-foobar: 1, data-baz: 4}
    */
-  propsWith(regexp, remove=false) {
+  propsWith(regexp, remove = false) {
     let object = {};
 
-    Object.keys(this.props).forEach(function(key) {
+    Object.keys(this.props).forEach(function (key) {
       if (key.search(regexp) !== -1) {
         let objectKey = remove ? key.replace(regexp, '') : key;
         object[objectKey] = this.props[key];
@@ -50,7 +50,7 @@ class Clip extends React.Component {
     this.clipboard = new Clipboard(`#${this.id}`, options);
 
     let callbacks = this.propsWith(/^on/, true);
-    Object.keys(callbacks).forEach(function(callback) {
+    Object.keys(callbacks).forEach(function (callback) {
       this.clipboard.on(callback.toLowerCase(), this.props['on' + callback]);
     }, this);
   }

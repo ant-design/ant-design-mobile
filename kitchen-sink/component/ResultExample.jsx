@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Result, WhiteSpace } from '../../index.js';
+import { Result, WhiteSpace } from 'antm';
 
 const ResultExample = React.createClass({
   render() {
