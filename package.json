@@ -105,7 +105,7 @@
     "just-deploy": "npm run site && node scripts/deploy.js",
     "lint": "npm run srclint && npm run demolint && npm run lesshint",
     "srclint": "eslint components test site index.js --ext '.js,.jsx'",
-    "demolint": "eslint components/*/demo/*.md --ext '.md'",
+    "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint style/ components/",
     "pub": "sh ./scripts/publish.sh",
     "beta": "sh ./scripts/publish.sh --tag beta",
