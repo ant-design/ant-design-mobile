@@ -2,6 +2,6 @@ before_deploy:
   - tnpm install && tnpm update
   - tnpm run site
 options:
-  branch: 'master'
+  branch: 'deploy'
   dist: '_site'
 cname: 'beta.antm.alipay.net'
