@@ -1,15 +1,9 @@
 /* eslint no-console:0 */
-import './index.less';
-import 'rmc-picker/assets/index.css';
-import 'rmc-date-picker/assets/index.css';
-import 'rmc-date-picker/assets/popup.css';
-import 'rmc-modal/assets/index.css';
-import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import React, { PropTypes } from 'react';
+import PopupDatePicker from 'rmc-date-picker/lib/Popup';
+import GregorianCalendar from 'gregorian-calendar';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
 import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
-// import en_US from 'gregorian-calendar/lib/locale/en_US';
-import GregorianCalendar from 'gregorian-calendar';
 
 const now = new GregorianCalendar(zhCn);
 now.setTime(Date.now());
@@ -26,37 +20,42 @@ function getFormatter(type) {
   return formatter;
 }
 
-const ListDatePicker = React.createClass({
-  propTypes: {
+function getDefaultProps() {
+  const defaultFormat = (val) => {
+    return val;
+  };
+  return {
+    className: '',
+    mode: 'datetime',
+    locale: require('rmc-date-picker/lib/locale/zh_CN'),
+    format: defaultFormat,
+    extra: '请选择',
+    okText: '确定',
+    dismissText: '取消'
+  };
+}
+
+export default class ListDatePicker extends React.Component {
+  static propTypes = {
     value: PropTypes.string,
     mode: PropTypes.string,
     minDate: PropTypes.string,
     maxDate: PropTypes.string,
     onChange: PropTypes.func,
     format: PropTypes.func,
-  },
-  getDefaultProps() {
-    const defaultFormat = (val) => {
-      return val;
-    };
+  }
 
-    return {
-      className: '',
-      mode: 'datetime',
-      locale: require('rmc-date-picker/lib/locale/zh_CN'),
-      format: defaultFormat,
-      extra: '请选择',
-      okText: '确定',
-      dismissText: '取消'
-    };
-  },
-  getInitialState() {
-    return {
+  static defaultProps = getDefaultProps()
+
+  constructor(props) {
+    super(props);
+    this.state = {
       date: this.props.value && this.getFormatter().parse(this.props.value, { locale: zhCn }) || now,
       minDate: this.props.minDate && this.getFormatter().parse(this.props.minDate, { locale: zhCn }),
       maxDate: this.props.maxDate && this.getFormatter().parse(this.props.maxDate, { locale: zhCn }),
     };
-  },
+  }
+
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps && nextProps.value !== this.props.value) {
       this.setState({
@@ -81,19 +80,18 @@ const ListDatePicker = React.createClass({
         }),
       });
     }
-  },
-  onChange(v) {
+  }
+  onChange = (v) => {
     this.props.onChange(this.getFormatter().format(v));
-  },
-  getFormatter() {
+  }
+  getFormatter = () => {
     return getFormatter(this.props.mode);
-  },
+  }
   render() {
     const { date, minDate, maxDate } = this.state;
     const { format, extra, value, okText, dismissText } = this.props;
-    let dateStr = value ? format(value) : extra;
     const extraProps = {
-      extra: dateStr
+      extra: value ? format(value) : extra,
     };
     return (
       <div>
@@ -111,6 +109,5 @@ const ListDatePicker = React.createClass({
         </PopupDatePicker>
       </div>
     );
-  },
-});
-export default ListDatePicker;
+  }
+}
