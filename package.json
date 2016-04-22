@@ -101,7 +101,7 @@
     "copy-html": "cp ./index.html ./_site/index.html && cp ./kitchen-sink.html ./_site/kitchen-sink.html",
     "site": "npm run clean-build && RUN_ENV=WEBSITE atool-build --no-compress --devtool=#sourcemap -o ./_site && npm run copy-html",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
-    "just-deploy": "npm run site && node scripts/deploy.js",
+    "just-deploy": "npm run site",
     "lint": "npm run srclint && npm run demolint && npm run lesshint",
     "srclint": "eslint components test site index.js --ext '.js,.jsx'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
