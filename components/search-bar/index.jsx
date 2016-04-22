@@ -35,7 +35,7 @@ const SearchBar = React.createClass({
   },
   _handleChange(e) {
     let value = e.target.value;
-    this.setState({value});
+    this.setState({ value });
     this.props.onChange(value);
   },
   _handleSubmit(e) {
@@ -43,7 +43,7 @@ const SearchBar = React.createClass({
     this.props.onSubmit(this.state.value);
   },
   _handleCancel() {
-    this.setState({value: ''});
+    this.setState({ value: '' });
     this.props.onChange('');
     this.props.onCancel('');
   },
@@ -60,8 +60,8 @@ const SearchBar = React.createClass({
       'am-search-start': value.length > 0
     });
 
-    let cancelStyle = value.length > 0 ? {'display': 'block'} : {'display': 'none'};
-    let cancelDom = showCancelButton ? (<div className="am-search-button" style={{display: 'block'}}>
+    let cancelStyle = value.length > 0 ? { display: 'block' } : { display: 'none' };
+    let cancelDom = showCancelButton ? (<div className="am-search-button" style={{ display: 'block' }}>
         <button type="button" onClick={this._handleCancel}>取消</button>
       </div>) : (<div className="am-search-button" style={cancelStyle}>
         <button type="button" disabled={value.length === 0} onClick={this._handleCancel}>取消</button>

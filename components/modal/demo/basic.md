@@ -57,7 +57,7 @@ let ModalListItem = React.createClass({
 
 let ListSelector = React.createClass({
   getInitialState() {
-    return {open: false};
+    return { open: false };
   },
   getDefaultProps() {
     return {
@@ -72,7 +72,7 @@ let ListSelector = React.createClass({
   },
   componentWillUnmount() {},
   openModal() {
-    this.setState({open: true});
+    this.setState({ open: true });
   },
   willReceiveProps(nextProps) {
     console.log(nextProps);
@@ -83,7 +83,7 @@ let ListSelector = React.createClass({
     console.log(value);
 
     this.props.onChange(value);
-    this.setState({open: false});
+    this.setState({ open: false });
   },
   render() {
     // console.log(this.props.value);
@@ -119,7 +119,7 @@ let ListSelector = React.createClass({
       return (
         <CheckboxItem {...getFieldProps(data.id, {
           valuePropName: 'checked',
-          initialValue: data.checked}) } key={`selector_${data.id}`}>
+          initialValue: data.checked }) } key={`selector_${data.id}`}>
           {data.name}
         </CheckboxItem>
       );

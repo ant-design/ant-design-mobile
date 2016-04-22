@@ -29,7 +29,7 @@ ReactDOM.render(<div>
       >用户名</InputItem>
     </List.Body>
     <List.Footer onClick={(e) => {console.log(e);}}>
-      账户名：<span style={{'color': 'red'}}>zhifubao@alipay.com#用户名</span>
+      账户名：<span style={{ color: 'red' }}>zhifubao@alipay.com#用户名</span>
     </List.Footer>
   </List>
   <List>

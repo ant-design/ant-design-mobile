@@ -75,7 +75,7 @@ let CaptchaExample = React.createClass({
     }, 3000);
   },
   render() {
-    const {getFieldProps} = this.props.form;
+    const { getFieldProps } = this.props.form;
     return (
       <List>
         <List.Body>

@@ -19,7 +19,7 @@ const ListPicker = React.createClass({
     };
     return {
       format: defaultFormat,
-      style: {left: 0, bottom: 0},
+      style: { left: 0, bottom: 0 },
       cols: 3,
       value: [],
       extra: '请选择',

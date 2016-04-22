@@ -96,7 +96,7 @@ const InputItem = React.createClass({
     if (clear) {
       if (value.length > 0) {
         clearDom = (<div className="am-list-clear">
-          <i className="am-icon am-icon-clear" style={{visibility: 'inherit'}}
+          <i className="am-icon am-icon-clear" style={{ visibility: 'inherit' }}
             onClick={this._clearInput}
             onTouchStart={this._clearInput} />
         </div>);

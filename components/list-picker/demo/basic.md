@@ -25,11 +25,11 @@ loop(district, (d) => {
   d.children = d.c;
 });
 
-import {createForm} from 'rc-form';
+import { createForm } from 'rc-form';
 
 let Test = React.createClass({
   render() {
-    const {getFieldProps} = this.props.form;
+    const { getFieldProps } = this.props.form;
     return (<div>
       <List>
         <List.Header>店铺位置</List.Header>

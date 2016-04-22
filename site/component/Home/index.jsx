@@ -5,7 +5,7 @@ import * as utils from '../utils';
 
 class Home extends React.Component {
   componentWillMount() {
-    document.body.className += ` app-home`;
+    document.body.className += ' app-home';
   }
 
   componentDidMount() {
@@ -20,7 +20,7 @@ class Home extends React.Component {
     return (
       <div className="main-wrapper">
         <iframe
-          style={{width: 320, height: 548, display: 'block', margin: '100px auto'}}
+          style={{ width: 320, height: 548, display: 'block', margin: '100px auto' }}
           frameBorder="0"
           src="kitchen-sink.html"
         />

@@ -18,7 +18,7 @@ let TopNoticeExample = React.createClass({
   render() {
     const TopNotice1 = this.state.show ? (<TopNotice
       mode="close"
-      onClick={() => {this.setState({show: false});}}
+      onClick={() => {this.setState({ show: false });}}
     >国庆期间余额宝收益和转出到账时间</TopNotice>) : null;
     return (
       <div>
@@ -26,7 +26,7 @@ let TopNoticeExample = React.createClass({
         <WhiteSpace mode={20} />
         <TopNotice
           mode="operation"
-          onClick={() => {this.setState({show: true});}}
+          onClick={() => {this.setState({ show: true });}}
         >国庆期间余额宝收益和转出到账时间</TopNotice>
         <WhiteSpace mode={20} />
         <TopNotice

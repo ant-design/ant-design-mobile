@@ -16,7 +16,7 @@ let SwitchItemExample = React.createClass({
     console.log(this.props.form.getFieldsValue());
   },
   render() {
-    const {getFieldProps} = this.props.form;
+    const { getFieldProps } = this.props.form;
     return (<div>
       <List >
         <List.Body>

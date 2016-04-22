@@ -19,21 +19,21 @@ let PageResultExample = React.createClass({
           buttonTxt="重新加载"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/awwrfcIKXAKwGyx.png"
           title="系统繁忙"
           buttonTxt="重新加载"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/YUeWSaeIeRjuvQb.png"
           title="404"
           buttonTxt="重新加载"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/dlMevdYPbXUwgCQ.png"
           title="空白页"
@@ -41,7 +41,7 @@ let PageResultExample = React.createClass({
           buttonTxt="重新加载"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/SgCjcxAQTmmNUWi.png"
           title="加载错误"
@@ -49,7 +49,7 @@ let PageResultExample = React.createClass({
           buttonTxt="重新加载"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/XMUAssczvVftDHX.png"
           title="网络无法连接"
@@ -57,7 +57,7 @@ let PageResultExample = React.createClass({
           buttonTxt="刷新"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/MKXqtwNOLFmYmrY.png"
           title="内容为空"
@@ -65,7 +65,7 @@ let PageResultExample = React.createClass({
           buttonTxt="重新尝试"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <Tab>
           <Tab.Item>选项1</Tab.Item>
           <Tab.Item selected>选项2</Tab.Item>
@@ -78,7 +78,7 @@ let PageResultExample = React.createClass({
           buttonTxt="重新加载"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <Tab>
           <Tab.Item>选项1</Tab.Item>
           <Tab.Item selected>选项2</Tab.Item>
@@ -91,7 +91,7 @@ let PageResultExample = React.createClass({
           buttonTxt="重新尝试"
           buttonClick={() => {alert('点击了按钮');}}
         />
-        <div style={{backgroundColor: '#def'}}><WhiteSpace /></div>
+        <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/hbGTnqHwPdYGedk.png"
           title="我是插画页"

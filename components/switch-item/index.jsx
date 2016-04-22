@@ -31,7 +31,7 @@ const SwitchItem = React.createClass({
       <div className={wrapCls}>
         <div className="am-list-content">{children}</div>
         <label className="am-switch">
-          <input type="checkbox" name={name} className="am-switch-checkbox" {...(disabled ? {disabled: 'disabled'} : '') } checked={checked} onChange={this._onSwitchChange} />
+          <input type="checkbox" name={name} className="am-switch-checkbox" {...(disabled ? { disabled: 'disabled' } : '') } checked={checked} onChange={this._onSwitchChange} />
           <div className="checkbox"></div>
         </label>
       </div>

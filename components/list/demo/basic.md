@@ -8,7 +8,7 @@ title: 基本
 ---
 
 ````jsx
-import { List, InputItem} from 'antm';
+import { List, InputItem } from 'antm';
 
 const ListForm = React.createClass({
   onClick() {
@@ -50,7 +50,7 @@ const ListForm = React.createClass({
             onClick={this.onClick}
           >文本信息</List.Item>
         </List.Body>
-        <List.Footer onClick={this.onClick} style={{color: 'red'}} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
+        <List.Footer onClick={this.onClick} style={{ color: 'red' }} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
       </List>
       <List isIconList>
         <List.Header>带icon</List.Header>

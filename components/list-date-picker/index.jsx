@@ -52,9 +52,9 @@ const ListDatePicker = React.createClass({
   },
   getInitialState() {
     return {
-      date: this.props.value && this.getFormatter().parse(this.props.value, {locale: zhCn}) || now,
-      minDate: this.props.minDate && this.getFormatter().parse(this.props.minDate, {locale: zhCn}),
-      maxDate: this.props.maxDate && this.getFormatter().parse(this.props.maxDate, {locale: zhCn}),
+      date: this.props.value && this.getFormatter().parse(this.props.value, { locale: zhCn }) || now,
+      minDate: this.props.minDate && this.getFormatter().parse(this.props.minDate, { locale: zhCn }),
+      maxDate: this.props.maxDate && this.getFormatter().parse(this.props.maxDate, { locale: zhCn }),
     };
   },
   componentWillReceiveProps(nextProps) {
@@ -89,7 +89,7 @@ const ListDatePicker = React.createClass({
     return getFormatter(this.props.mode);
   },
   render() {
-    const {date, minDate, maxDate} = this.state;
+    const { date, minDate, maxDate } = this.state;
     const { format, extra, value, okText, dismissText } = this.props;
     let dateStr = value ? format(value) : extra;
     const extraProps = {
@@ -101,7 +101,7 @@ const ListDatePicker = React.createClass({
           locale={require('rmc-date-picker/lib/locale/zh_CN')}
           okText={okText}
           dismissText={dismissText}
-          style={{left: 0, bottom: 0}}
+          style={{ left: 0, bottom: 0 }}
           onChange={this.onChange}
           date={date}
           minDate={minDate}
