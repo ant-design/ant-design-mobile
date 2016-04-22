@@ -51,7 +51,7 @@
     "autoprefixer": "^6.3.3",
     "babel-cli": "^6.2.0",
     "babel-eslint": "^6.0.0",
-    "babel-plugin-antm": "^0.3.0",
+    "babel-plugin-antd": "^0.4.0",
     "clipboard": "^1.5.5",
     "dom-scroll-into-view": "^1.2.0",
     "dora": "^0.3.1",
