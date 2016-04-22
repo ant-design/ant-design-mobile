@@ -89,11 +89,3 @@ git pull
 ```
 
 更新自己主干结束本次需求开发。
-
-## 部署
-
-```
-npm run site
-```
-
-deploy contents inside _site

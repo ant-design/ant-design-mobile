@@ -1,6 +1,5 @@
 before_deploy:
-  - tnpm install && tnpm update
-  - tnpm run just-deploy
+  - tnpm run deploy
 options:
   branch: 'master'
   dist: '_site'
