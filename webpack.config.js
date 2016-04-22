@@ -25,7 +25,8 @@ module.exports = function(webpackConfig) {
     ]);
 
     const componentRegExp = component && new RegExp(`components/${component.toLowerCase()}/demo/.*\.md`);
-    
+    webpackConfig.module.loaders[0].query = babelConfig;
+    webpackConfig.module.loaders[1].query = babelConfig;
     webpackConfig.module.loaders.push({
       test: componentRegExp || /\.md$/,
       exclude: /node_modules/,
