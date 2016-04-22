@@ -46,7 +46,7 @@ export default class Button extends React.Component {
     disabled: false,
     loading: false,
     onClick: noop,
-    htmlType: '',
+    htmlType: 'button',
   }
 
   onClick = () => {

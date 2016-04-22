@@ -35,16 +35,16 @@ const FlexExample = React.createClass({
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button size="little">4列</Button>
+              <Button size="small">4列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="little">4列</Button>
+              <Button mode="white" size="small">4列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="little">4列</Button>
+              <Button size="small">4列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="little">4列</Button>
+              <Button mode="white" size="small">4列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -52,19 +52,19 @@ const FlexExample = React.createClass({
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button size="tiny">5列</Button>
+              <Button size="small">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="tiny">5列</Button>
+              <Button mode="white" size="small">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="tiny">5列</Button>
+              <Button size="small">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="tiny">5列</Button>
+              <Button mode="white" size="small">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="tiny">5列</Button>
+              <Button mode="white" size="small">5列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>

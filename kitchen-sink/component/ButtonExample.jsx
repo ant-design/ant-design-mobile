@@ -7,7 +7,7 @@ import { Button, WingBlank, WhiteSpace, Flex, List } from 'antm';
 const ButtonExample = React.createClass({
   render() {
     return (
-      <Page title="按钮" subtitle="&lt;Button size='tiny' onClick={() => {}}/&gt;">
+      <Page title="按钮" subtitle="&lt;Button size='small' onClick={() => {}}/&gt;">
         <WhiteSpace/>
         <WingBlank>
           <Button type="primary">primary按钮</Button>
@@ -43,10 +43,10 @@ const ButtonExample = React.createClass({
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button size="middle">primary 按钮</Button>
+              <Button size="small">primary 按钮</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="middle" disabled>primary 按钮</Button>
+              <Button size="small" disabled>primary 按钮</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -66,10 +66,10 @@ const ButtonExample = React.createClass({
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button size="little">primary 按钮</Button>
+              <Button size="small">primary 按钮</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="little" disabled>primary 按钮</Button>
+              <Button size="small" disabled>primary 按钮</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -77,10 +77,10 @@ const ButtonExample = React.createClass({
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button size="tiny">primary 按钮</Button>
+              <Button size="small">primary 按钮</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="tiny" disabled>primary 按钮</Button>
+              <Button size="small" disabled>primary 按钮</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -91,7 +91,7 @@ const ButtonExample = React.createClass({
         <List >
           <List.Body>
             <List.Item line={2} needActive={false}
-              extra={<Button size="tiny" inline>按钮</Button>}
+              extra={<Button size="small" inline>按钮</Button>}
             >
               <div className="am-list-title">区域经理</div>
               <div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div>
