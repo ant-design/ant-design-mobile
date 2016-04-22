@@ -7,7 +7,6 @@ title: 基本
 
 ````jsx
 import { SegmentedControl, WhiteSpace } from 'antm';
-console.log(SegmentedControl);
 let SegmentedControlExample = React.createClass({
   getInitialState() {
     return { selectedIndex: 0 };
