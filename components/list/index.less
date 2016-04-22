@@ -22,8 +22,8 @@
   }
   & &-body {
     position: relative;
-    .hairline(top, @neutral-5);
-    .hairline(bottom, @neutral-5);
+    .hairline-top(top, @neutral-5);
+    .hairline-bottom(bottom, @neutral-5);
   }
   & &-item {
     position: relative;
@@ -45,7 +45,7 @@
       .box-align(flex-end);
     }
 
-    .hairline(bottom, @neutral-5, @margin-4);
+    .hairline-bottom(bottom, @neutral-5, @margin-4);
     /*&:last-child {
       .hairline-remove(bottom);
     }*/

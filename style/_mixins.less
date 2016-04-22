@@ -11,7 +11,7 @@
   -webkit-transform-origin: @to;
   transform-origin: @to;
 }
-.hairline(@position, @color) when (@position = top) {
+.hairline-top(@position, @color) {
   &:before {
     content: '';
     position: absolute;
@@ -37,7 +37,7 @@
     }
   }
 }
-.hairline(@position, @color) when (@position = left) {
+.hairline-left(@position, @color) {
   &:before {
     content: '';
     position: absolute;
@@ -60,7 +60,7 @@
     }
   }
 }
-.hairline(@position, @color, @left:0) when (@position = bottom) {
+.hairline-bottom(@position, @color, @left:0) {
   &:after {
     content: '';
     position: absolute;
@@ -87,7 +87,7 @@
     }
   }
 }
-.hairline(@position, @color) when (@position = right) {
+.hairline-right(@position, @color) {
   &:after {
     content: '';
     position: absolute;
@@ -110,13 +110,13 @@
   }
 }
 // For right and bottom
-.hairline-remove(@position) when not (@position = left) and not (@position = top) {
+.hairline-remove-right-bottom {
   &:after {
     display: none;
   }
 }
 // For left and top
-.hairline-remove(@position) when not (@position = right) and not (@position = bottom) {
+.hairline-remove-left-top {
   &:before {
     display: none;
   }

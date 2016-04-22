@@ -13,5 +13,7 @@
   "spaceAroundComma": false,
   "singleLinePerProperty": false,
   "spaceAfterPropertyColon": false,
+  "spaceAroundOperator": false,
+  "borderZero": false,
   "spaceBeforeBrace": false
 }
