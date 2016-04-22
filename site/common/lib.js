@@ -1,5 +1,5 @@
 import 'antd/lib/index.css';
-import './styles/tomorrow.less';
+import './styles/highlight.less';
 import './styles/common.less';
 import './styles/markdown.less';
 import './styles/toc.less';
