@@ -31,8 +31,7 @@ ReactDOM.render(
         needActive={false}
         line={2}
         extra={<Button
-          mode="light"
-          size="tiny"
+          size="small"
           inline
           onClick={() => {alert(111);}}
           >按钮</Button>}

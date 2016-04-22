@@ -39,14 +39,12 @@ export default class Button extends React.Component {
   }
   static defaultProps = {
     prefixCls: 'am-button',
-    type: '',
     size: 'large',
     ghost: false,
     inline: false,
     disabled: false,
     loading: false,
     onClick: noop,
-    htmlType: 'button',
   }
 
   onClick = () => {

@@ -21,10 +21,10 @@ let FlexExample = React.createClass({
               <Button>3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="small">3列</Button>
+              <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="tiny">3列</Button>
+              <Button size="small">3列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -36,10 +36,10 @@ let FlexExample = React.createClass({
               <Button>3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="small">3列</Button>
+              <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="tiny">3列</Button>
+              <Button size="small">3列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -51,10 +51,10 @@ let FlexExample = React.createClass({
               <Button>3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="small">3列</Button>
+              <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="tiny">3列</Button>
+              <Button size="small">3列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>

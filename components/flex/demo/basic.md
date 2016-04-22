@@ -20,7 +20,7 @@ let FlexExample = React.createClass({
               <Button>2列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white">2列</Button>
+              <Button type="primary">2列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -31,7 +31,7 @@ let FlexExample = React.createClass({
               <Button size="small">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="small">3列</Button>
+              <Button type="primary" size="small">3列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button size="small">3列</Button>
@@ -42,16 +42,16 @@ let FlexExample = React.createClass({
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button size="little">4列</Button>
+              <Button>4列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="little">4列</Button>
+              <Button type="primary">4列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="little">4列</Button>
+              <Button>4列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="little">4列</Button>
+              <Button type="primary">4列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -59,19 +59,19 @@ let FlexExample = React.createClass({
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button size="tiny">5列</Button>
+              <Button size="small">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="tiny">5列</Button>
+              <Button type="primary">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="tiny">5列</Button>
+              <Button size="small">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="tiny">5列</Button>
+              <Button type="primary">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button mode="white" size="tiny">5列</Button>
+              <Button type="primary">5列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>

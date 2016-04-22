@@ -8,27 +8,27 @@ const ButtonExample = React.createClass({
   render() {
     return (
       <Page title="按钮" subtitle="&lt;Button size='small' onClick={() => {}}/&gt;">
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Button type="primary">primary按钮</Button>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Button type="primary" ghost>primary ghost 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={20}/>
+        <WhiteSpace mode={20} />
         <WingBlank>
           <Button>default 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={20}/>
+        <WhiteSpace mode={20} />
         <WingBlank>
           <Button ghost>default ghost 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={20}/>
+        <WhiteSpace mode={20} />
         <Button type="warning">warning按钮</Button>
-        <WhiteSpace/>
+        <WhiteSpace />
         <Button type="primary" disabled>primary 按钮</Button>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -39,7 +39,6 @@ const ButtonExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -50,8 +49,7 @@ const ButtonExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -62,7 +60,6 @@ const ButtonExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -73,7 +70,7 @@ const ButtonExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -84,7 +81,7 @@ const ButtonExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Button size="large" inline>inline 按钮</Button>
         </WingBlank>

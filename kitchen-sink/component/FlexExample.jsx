@@ -6,7 +6,7 @@ const FlexExample = React.createClass({
   render() {
     return (
       <Page title="Flex布局" subtitle="&lt;Flex&gt;&lt;Flex.Item /&gt;&lt;Flex.Item /&gt;&lt;/Flex&gt;">
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -17,7 +17,7 @@ const FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -31,7 +31,7 @@ const FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
@@ -48,7 +48,7 @@ const FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace/>
+        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
