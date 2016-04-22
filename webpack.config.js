@@ -17,9 +17,10 @@ module.exports = function(webpackConfig) {
     const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
     
     babelConfig.plugins.push([
-      'antm',
+      'antd',
       {
         style: true,
+        libraryName: 'antm',
         libDir: 'components',
       }
     ]);
