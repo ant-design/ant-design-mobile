@@ -1,8 +1,8 @@
-@import '../../style/mixins';
-@import '../../style/_mixins';
-@import '../../style/variables';
-
-.am-list {
+@import '../../../style/mixins';
+@import '../../../style/_mixins';
+@import '../../../style/variables';
+@listPrefixClass: am-list;
+.@{listPrefixClass} {
   padding: @margin-7 0 @margin-2 0;
   background-color: @neutral-3;
   & &-header {
@@ -35,13 +35,13 @@
     .display-box;
     .box-align;
     .transition(background-color 200ms);
-    &.am-list-item-top {
+    &.@{listPrefixClass}-item-top {
       .box-align(flex-start);
     }
-    &.am-list-item-middle {
+    &.@{listPrefixClass}-item-middle {
       .box-align(center);
     }
-    &.am-list-item-bottom {
+    &.@{listPrefixClass}-item-bottom {
       .box-align(flex-end);
     }
 
@@ -50,7 +50,7 @@
       .hairline-remove(bottom);
     }*/
     /*list左右图片显示*/
-    .am-list-thumb {
+    .@{listPrefixClass}-thumb {
       position: relative;
       &:first-child {
         margin-right: @margin-2;
@@ -65,7 +65,7 @@
       }
     }
     /*list左侧主内容*/
-    .am-list-content {
+    .@{listPrefixClass}-content {
       .box-flex(1);
       color: @neutral-10;
       font-size: @font-size-5;
@@ -75,7 +75,7 @@
       .ellipsis();
     }
     /*list右补充内容*/
-    .am-list-extra {
+    .@{listPrefixClass}-extra {
       .box-flex(1);
       color: @neutral-8;
       font-size: @font-size-4;
@@ -89,7 +89,7 @@
       }
     }
     /*list左侧主内容多行时，摘要*/
-    .am-list-brief {
+    .@{listPrefixClass}-brief {
       color: @neutral-7;
       font-size: @font-size-4;
       line-height: @line-height-2;
@@ -98,7 +98,7 @@
       .ellipsis();
     }
     /*list右侧箭头*/
-    .am-list-arrow {
+    .@{listPrefixClass}-arrow {
       margin-left: 7px;
       margin-right: -2px;
       width: 16px;
