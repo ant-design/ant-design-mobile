@@ -7,10 +7,14 @@ export default class ListBody extends React.Component {
     style: PropTypes.object,
   };
 
+  static defaultProps = {
+    prefixCls: 'am-list',
+  };
+
   render() {
-    let { style, children, className } = this.props;
+    let { style, children, className, prefixCls } = this.props;
     const listBodyCls = classNames({
-      'am-list-body': true,
+      [`${prefixCls}-body`]: true,
       [className]: className
     });
     return (

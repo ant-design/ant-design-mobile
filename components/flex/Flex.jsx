@@ -1,20 +1,26 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class List extends React.Component {
+export default class FlexItem extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
+    align: PropTypes.oneOf(['top', 'middle', 'bottom']),
   };
 
   static defaultProps = {
-    prefixCls: 'am-list',
+    prefixCls: 'am-flexbox',
+    align: 'middle',
   };
 
   render() {
-    let { style, children, className, prefixCls } = this.props;
+    let { align, className, children, prefixCls, style } = this.props;
+
     const wrapCls = classNames({
       [prefixCls]: true,
+      [`${prefixCls}-top`]: align === 'top',
+      [`${prefixCls}-middle`]: align === 'middle',
+      [`${prefixCls}-bottom`]: align === 'bottom',
       [className]: className
     });
 

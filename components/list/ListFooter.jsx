@@ -11,6 +11,7 @@ export default class ListFooter extends React.Component {
   };
 
   static defaultProps = {
+    prefixCls: 'am-list',
     align: 'left',
     onClick: noop,
   };
@@ -20,10 +21,10 @@ export default class ListFooter extends React.Component {
   };
 
   render() {
-    let { style, align, children, className } = this.props;
+    let { style, children, className, prefixCls, align } = this.props;
     const wrapCls = classNames({
-      'am-list-footer': true,
-      'am-ft-right': align === 'right',
+      [`${prefixCls}-footer`]: true,
+      [`${prefixCls}-right`]: align === 'right',
       [className]: className
     });
     return (

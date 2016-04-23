@@ -9,14 +9,18 @@ export default class ListHeader extends React.Component {
     onClick: PropTypes.func,
   };
 
+  static defaultProps = {
+    prefixCls: 'am-list',
+  };
+
   onClick = (e) => {
     this.props.onClick(e);
   };
 
   render() {
-    let { style, children, className } = this.props;
+    let { style, children, className, prefixCls } = this.props;
     const wrapCls = classNames({
-      'am-list-header': true,
+      [`${prefixCls}-header`]: true,
       [className]: className
     });
 
