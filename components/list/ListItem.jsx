@@ -22,6 +22,7 @@ export default class ListItem extends React.Component {
     link: '',
     line: 1,
     onClick: noop,
+    arrow: '',
     needActive: true,
     error: false,
     align: 'middle',
@@ -59,10 +60,9 @@ export default class ListItem extends React.Component {
     });
 
     const arrowCls = classNames({
-      ['am-icon']: true,
-      ['am-icon-arrow-horizontal']: arrow === 'horizontal',
-      ['am-icon-arrow-vertical']: arrow === 'down' || arrow === 'up',
-      ['am-icon-arrow-vertical-up']: arrow === 'up',
+      [`${prefixCls}-arrow-horizontal`]: arrow === 'horizontal',
+      [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
+      [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
 
     if (thumb) {
@@ -78,7 +78,7 @@ export default class ListItem extends React.Component {
       /* 当值是horizontal时,渲染水平箭头 */
       if (arrow === 'empty') {
         arrowDom = (<div className={`${prefixCls}-arrow`} />);
-      } else if (arrow === 'down') {
+      } else {
         arrowDom = (<div className={`${prefixCls}-arrow`}><span className={arrowCls} /></div>);
       }
     } else {

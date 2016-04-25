@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+function noop() {}
 
 export default class ListHeader extends React.Component {
   static propTypes = {
@@ -11,6 +12,7 @@ export default class ListHeader extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-list',
+    onClick: noop,
   };
 
   onClick = (e) => {

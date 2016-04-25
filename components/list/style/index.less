@@ -1,7 +1,8 @@
 @import '../../../style/mixins';
-@import '../../../style/_mixins';
 @import '../../../style/variables';
+
 @listPrefixClass: am-list;
+
 .@{listPrefixClass} {
   padding: @margin-7 0 @margin-2 0;
   background-color: @neutral-3;
@@ -18,7 +19,6 @@
     font-size: @font-size-2;
     color: @neutral-7;
     line-height: @line-height-2;
-    //font-weight: @line-weight-1;
   }
   & &-body {
     position: relative;
@@ -102,47 +102,45 @@
       margin-left: 7px;
       margin-right: -2px;
       width: 16px;
-      .am-icon {
-        &.am-icon-arrow-horizontal,
-        &.am-icon-arrow-vertical {
+      &-horizontal,
+      &-vertical {
+        display: block;
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+        &:before {
+          content: "";
           display: block;
-          width: 16px;
-          height: 16px;
-          overflow: hidden;
-          &:before {
-            content: "";
-            display: block;
-            width: 9px;
-            height: 9px;
-            margin-left: 0;
-            border: solid 1px @neutral-7;
-            border-top: 0 none;
-            border-left: 0 none;
-          }
+          width: 9px;
+          height: 9px;
+          margin-left: 0;
+          border: solid 1px @neutral-7;
+          border-top: 0 none;
+          border-left: 0 none;
         }
-        &.am-icon-arrow-horizontal {
-          &:before {
-            margin-top: 2px;
-            .transform(rotate(315deg));
-          }
+      }
+      &-horizontal {
+        &:before {
+          margin-top: 2px;
+          .transform(rotate(315deg));
         }
-        &.am-icon-arrow-vertical {
-          &:before {
-            margin-left: 2px;
-            .transform(rotate(45deg));
-          }
+      }
+      &-vertical {
+        &:before {
+          margin-left: 2px;
+          .transform(rotate(45deg));
         }
-        &.am-icon-arrow-vertical-up {
-          &:before {
-            margin: 4px 0 0 2px;
-            .transform(rotate(225deg));
-          }
+      }
+      &-vertical-up {
+        &:before {
+          margin: 4px 0 0 2px;
+          .transform(rotate(225deg));
         }
-        &.am-icon-arrow-vertical-down {
-          &:before {
-            margin-left: 2px;
-            .transform(rotate(45deg));
-          }
+      }
+      &-vertical-down {
+        &:before {
+          margin-left: 2px;
+          .transform(rotate(45deg));
         }
       }
     }
