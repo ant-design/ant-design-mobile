@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import '../list/style';
-import '../input-item/style';
-import './index.less';
+import './style';
 function noop() {}
 
 const strNumStyle = { position: 'absolute', bottom: '8px', right: '15px', color: '#ccc', fontSize: '13px' };
 
-const TextareaItem = React.createClass({
-  propTypes: {
+export default class TextareaItem extends React.Component {
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    style: PropTypes.object,
     label: PropTypes.string,
     name: PropTypes.string,
     value: PropTypes.string,
@@ -22,42 +22,43 @@ const TextareaItem = React.createClass({
     error: PropTypes.bool,
     autoHeight: PropTypes.bool,
     editable: PropTypes.bool,
-  },
-  getDefaultProps() {
-    return {
-      label: '',
-      name: '',
-      value: '',
-      placeholder: '',
-      clear: false,
-      rows: 1,
-      maxLength: 0,
-      onChange: noop,
-      onBlur: noop,
-      onFocus: noop,
-      error: false,
-      autoHeight: false,
-      editable: true,
-    };
-  },
+  };
+
+  static defaultProps = {
+    prefixCls: 'am-list',
+    label: '',
+    name: '',
+    value: '',
+    placeholder: '',
+    clear: false,
+    rows: 1,
+    maxLength: 0,
+    onChange: noop,
+    onBlur: noop,
+    onFocus: noop,
+    error: false,
+    autoHeight: false,
+    editable: true,
+  };
+
   getInitialState() {
     return {
       focus: false,
     };
-  },
+  }
   componentDidMount() {
     if (this.props.autoHeight) {
       this.initialTextHeight = this.refs.textarea.offsetHeight;
       this.componentDidUpdate();
     }
-  },
+  }
   componentDidUpdate() {
     if (this.props.autoHeight) {
       let textareaDom = this.refs.textarea;
       textareaDom.style.height = '';
       textareaDom.style.height = `${Math.max(this.initialTextHeight, textareaDom.scrollHeight + 2)}px`;
     }
-  },
+  }
   _onChange(e) {
     let value = e.target.value;
     const { maxLength, onChange } = this.props;
@@ -65,7 +66,7 @@ const TextareaItem = React.createClass({
       value = value.substring(0, maxLength);
     }
     onChange(value);
-  },
+  }
   _onBlur(e) {
     setTimeout(() => {
       this.setState({
@@ -74,18 +75,17 @@ const TextareaItem = React.createClass({
     }, 500);
     const value = e.target.value;
     this.props.onBlur(value);
-  },
+  }
   _onFocus(e) {
     this.setState({
       focus: true
     });
     const value = e.target.value;
     this.props.onFocus(value);
-  },
+  }
   _clearInput() {
     this.props.onChange('');
-  },
-
+  }
   render() {
     let { label, name, value, placeholder, clear, rows, maxLength, editable, error, className } = this.props;
     const { focus } = this.state;
@@ -143,5 +143,4 @@ const TextareaItem = React.createClass({
       </div>
     );
   }
-});
-module.exports = TextareaItem;
+}

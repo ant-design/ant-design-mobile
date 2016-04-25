@@ -4,6 +4,4 @@ if(pixelRatio >= 2) {
 }
 import 'normalize.css/normalize.css';
 import './index.less';
-// import './reset.less';
-// import './smooth.less';
 import './writing.less';

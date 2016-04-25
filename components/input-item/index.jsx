@@ -118,10 +118,6 @@ const InputItem = React.createClass({
       </div>);
     }
 
-    let extraDom = extra !== '' ? (
-      <div className="am-list-extra am-input-extra">{extra}</div>
-    ) : null;
-
     return (
       <div className={wrapCls} style={style}>
         {labelDom}
@@ -138,7 +134,7 @@ const InputItem = React.createClass({
         </div>
         {clearDom}
         {iconDom}
-        {extraDom}
+        {extra !== '' ? <div className="am-list-extra am-input-extra">{extra}</div> : null}
       </div>
     );
   }

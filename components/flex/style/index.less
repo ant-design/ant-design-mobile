@@ -1,26 +1,26 @@
-@import '../../style/mixins';
-
+@import '../../../style/mixins';
+@flexPrefixClass: am-flexbox;
 /* flexbox */
-.am-flexbox {
+.@{flexPrefixClass} {
   text-align: left;
   .display-box;
   .box-align;
-  &.am-flexbox-middle {
+  &&-middle {
     .box-align(center);
   }
-  &.am-flexbox-top {
+  &&-top {
     .box-align(flex-start);
   }
-  &.am-flexbox-bottom {
+  &&-bottom {
     .box-align(flex-end);
   }
-  &.am-flexbox-stretch {
+  &&-stretch {
     .box-align(stretch);
   }
-  &.am-flexbox-baseline {
+  &&-baseline {
     .box-align(baseline);
   }
-  .am-flexbox-item {
+  & &-item {
     .box-sizing();
     .box-flex(1);
     margin-left: 8px;
@@ -29,7 +29,9 @@
       margin-left: 0;
     }
   }
-  &am-flexbox-average .am-flexbox-item {
-    width: 100%;
+  &&-average {
+    .@{flexPrefixClass}-item {
+      width: 100%;
+    }
   }
 }

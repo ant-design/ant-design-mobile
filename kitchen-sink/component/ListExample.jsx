@@ -55,7 +55,7 @@ const ListExample = React.createClass({
             ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
             <List.Item
               extra="写点就有箭头坑位"
-              arrow="aaa"
+              arrow="empty"
             >内容内容</List.Item>
             <List.Item
               extra="arrow为空箭头没有坑位"
@@ -73,7 +73,7 @@ const ListExample = React.createClass({
             <List.Item
               thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
               extra="写点就有剪头坑位"
-              arrow="aaa"
+              arrow="empty"
               onClick={window.clickItem}
             >我有thumb</List.Item>
             <List.Item

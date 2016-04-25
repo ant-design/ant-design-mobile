@@ -9,7 +9,7 @@ const FlexExample = React.createClass({
         <WhiteSpace />
         <WingBlank>
           <Flex>
-            <Flex.Item>
+            <Flex.Item onClick={(e) => {console.log(e);}}>
               <Button>2列</Button>
             </Flex.Item>
             <Flex.Item>

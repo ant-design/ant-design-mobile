@@ -28,7 +28,7 @@ window.openurl = (e) => {
 ReactDOM.render(
   <div>
     <List>
-      <List.Header>列表头部,没有附带说明</List.Header>
+      <List.Header>列表头部,无附带说明</List.Header>
       <List.Body>
         <List.Item>文本内容,无剪头</List.Item>
         <List.Item arrow="horizontal">文本内容,有剪头</List.Item>
