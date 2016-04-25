@@ -39,16 +39,6 @@ const ButtonExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WingBlank>
-          <Flex>
-            <Flex.Item>
-              <Button size="small">primary 按钮</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button size="small" disabled>primary 按钮</Button>
-            </Flex.Item>
-          </Flex>
-        </WingBlank>
         <WhiteSpace />
         <WingBlank>
           <Flex>

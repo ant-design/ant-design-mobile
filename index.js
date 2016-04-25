@@ -26,7 +26,8 @@ const antm = {
   Toast: require('./components/toast'),
   Article: require('./components/article'),
   Card: require('./components/card'),
-  PageResult: require('./components/page-result')
+  PageResult: require('./components/page-result'),
+  ActionSheet: require('./components/actionsheet'),
 };
 
 module.exports = antm;

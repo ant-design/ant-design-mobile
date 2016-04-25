@@ -1,0 +1,123 @@
+@import '../../../style/mixins';
+@import '../../../style/variables';
+@ActionSheetPrefixClass: am-action-sheet;
+
+.@{ActionSheetPrefixClass} {
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+
+  &-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    overflow-scrolling: touch;
+    outline: 0;
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #373737;
+    background-color: rgba(55, 55, 55, 0.6);
+    height: 100%;
+    filter: alpha(opacity=50);
+    z-index: 1050;
+    &-hidden {
+      display: none;
+    }
+  }
+
+  .effect() {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+
+  &-fade-enter,&-fade-appear {
+    opacity: 0;
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-fade-leave {
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-fade-enter&-fade-enter-active,&-fade-appear&-fade-appear-active  {
+    animation-name: ActionSheetFadeIn;
+    animation-play-state: running;
+  }
+
+  &-fade-leave&-fade-leave-active {
+    animation-name: ActionSheetFadeOut;
+    animation-play-state: running;
+  }
+
+  @keyframes ActionSheetFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes ActionSheetFadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &-slide-fade-enter,
+  &-slide-fade-appear {
+    transform: translate(0, 100%);
+  }
+
+  &-slide-fade-enter,
+  &-slide-fade-appear,
+  &-slide-fade-leave {
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-slide-fade-enter&-slide-fade-enter-active, &-slide-fade-appear&-slide-fade-appear-active {
+    animation-name: ActionSheetSlideFadeIn;
+    animation-play-state: running;
+  }
+
+  &-slide-fade-leave&-slide-fade-leave-active {
+    animation-name: ActionSheetSlideFadeOut;
+    animation-play-state: running;
+  }
+
+  @keyframes ActionSheetSlideFadeIn {
+    0% {
+      transform: translate(0, 100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes ActionSheetSlideFadeOut {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, 100%);
+    }
+  }
+}
