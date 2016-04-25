@@ -1,11 +1,11 @@
 ---
 order: 0
-title: ActionSheet
+title: Dropdown
 ---
 
 
 ````jsx
-import { ActionSheet, Button, WingBlank, WhiteSpace } from 'antm';
+import { Dropdown, Button, WingBlank, WhiteSpace } from 'antm';
 
 const Test = React.createClass({
   getInitialState() {
@@ -27,7 +27,7 @@ const Test = React.createClass({
     let as = null;
     if (this.state.visible) {
       as = (
-        <ActionSheet visible={this.state.visible} onClose={this.onClose}>
+        <Dropdown visible={this.state.visible} onClose={this.onClose}>
           <WingBlank>
             <Button type="primary">操作 1</Button>
           </WingBlank>
@@ -39,11 +39,11 @@ const Test = React.createClass({
           <WingBlank>
             <Button onClick={this.onClose}>取消</Button>
           </WingBlank>
-        </ActionSheet>
+        </Dropdown>
       );
     }
     return (<div>
-      <Button type="primary" onClick={this.onClick}>show ActionSheet</Button>
+      <Button type="primary" onClick={this.onClick}>show Dropdown</Button>
       {as}
     </div>);
   }

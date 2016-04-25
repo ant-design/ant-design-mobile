@@ -27,7 +27,9 @@ const antm = {
   Article: require('./components/article'),
   Card: require('./components/card'),
   PageResult: require('./components/page-result'),
-  ActionSheet: require('./components/actionsheet'),
+  ActionSheet: require('./components/action-sheet'),
+  Drowdown: require('./components/dropdown'),
+  FloatMenu: require('./components/float-menu'),
 };
 
 module.exports = antm;

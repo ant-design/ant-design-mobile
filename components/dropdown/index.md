@@ -1,12 +1,12 @@
 ---
 category: Components
-chinese: 动作面板
+chinese: 下拉菜单
 type: 导航
-english: ActionSheet
+english: Dropdown
 ---
 
 ## 如何使用
-类似 iPhone 的底部弹出菜单
+顶部下拉菜单
 
 
 ## API
