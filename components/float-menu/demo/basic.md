@@ -3,9 +3,25 @@ order: 0
 title: FloatMenu
 ---
 
+<style>
+#components-float-menu-demo-basic .title {
+  display: inline-block;
+  width: 300px;
+  text-align: right;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.am-floatmenu .am-list {
+  padding: 0;
+}
+.am-floatmenu .am-list .am-list-item:after {
+  left: 0;
+}
+</style>
+
 
 ````jsx
-import { FloatMenu, Button, WingBlank, WhiteSpace } from 'antm';
+import { FloatMenu, Button, List } from 'antm';
 
 const Test = React.createClass({
   getInitialState() {
@@ -20,17 +36,19 @@ const Test = React.createClass({
   },
   render() {
     const overlay = (<div>
-      <WingBlank>
-        <Button type="primary">操作 1</Button>
-      </WingBlank>
-      <WhiteSpace />
-      <WingBlank>
-        <Button type="primary" ghost>操作 2</Button>
-      </WingBlank>
-      <WhiteSpace />
-      <WingBlank>
-        <Button onClick={() => this.handleVisibleChange(false)}>取消</Button>
-      </WingBlank>
+      <List>
+        <List.Body>
+          <List.Item>item 1</List.Item>
+          <List.Item extra={<Button
+            size="small"
+            inline
+            onClick={() => { this.handleVisibleChange(false); }}
+            >关闭</Button>}
+          >
+            item 2
+          </List.Item>
+        </List.Body>
+      </List>
     </div>);
     return (<div>
       <FloatMenu
@@ -38,7 +56,7 @@ const Test = React.createClass({
         onVisibleChange={this.handleVisibleChange}
         overlay={overlay}
       >
-        <a href="#">menu</a>
+        <a className="title" href="#">menu</a>
       </FloatMenu>
     </div>);
   }
