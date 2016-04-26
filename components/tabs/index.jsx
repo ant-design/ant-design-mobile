@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
-const Tab = React.createClass({
+const Tabs = React.createClass({
   render() {
     const { children, className } = this.props;
     const wrapCls = classNames({
@@ -44,6 +44,6 @@ const Item = React.createClass({
   }
 });
 
-Tab.Item = Item;
+Tabs.Item = Item;
 
-module.exports = Tab;
+module.exports = Tabs;

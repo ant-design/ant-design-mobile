@@ -8,7 +8,7 @@ PageResult
 ---
 
 ````jsx
-import { PageResult, Tab, WhiteSpace } from 'antm';
+import { PageResult, Tabs, WhiteSpace } from 'antm';
 let PageResultExample = React.createClass({
   render() {
     return (
@@ -66,11 +66,11 @@ let PageResultExample = React.createClass({
           buttonClick={() => {alert('点击了按钮');}}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
-        <Tab>
-          <Tab.Item>选项1</Tab.Item>
-          <Tab.Item selected>选项2</Tab.Item>
-          <Tab.Item>选项3</Tab.Item>
-        </Tab>
+        <Tabs>
+          <Tabs.Item>选项1</Tabs.Item>
+          <Tabs.Item selected>选项2</Tabs.Item>
+          <Tabs.Item>选项3</Tabs.Item>
+        </Tabs>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/hcEPreZxgZWxhVw.png"
           title="警示"
@@ -79,11 +79,11 @@ let PageResultExample = React.createClass({
           buttonClick={() => {alert('点击了按钮');}}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
-        <Tab>
-          <Tab.Item>选项1</Tab.Item>
-          <Tab.Item selected>选项2</Tab.Item>
-          <Tab.Item>选项3</Tab.Item>
-        </Tab>
+        <Tabs>
+          <Tabs.Item>选项1</Tabs.Item>
+          <Tabs.Item selected>选项2</Tabs.Item>
+          <Tabs.Item>选项3</Tabs.Item>
+        </Tabs>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/QGxGZRxaqMRKnjS.png"
           title="网络不给力"

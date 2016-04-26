@@ -105,7 +105,7 @@ const App = React.createClass({
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png"
                   title="选项卡"
-                  subtitle="Tab"
+                  subtitle="Tabs"
                   onClick={() => {location.hash = 'tab';}}
                 />
               </Flex.Item>

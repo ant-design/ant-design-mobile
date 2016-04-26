@@ -2,7 +2,7 @@
 category: Components
 chinese: 选项卡
 type: 导航
-english: Tab
+english: Tabs
 ---
 
 
@@ -15,7 +15,7 @@ english: Tab
 
 ## API
 
-### Tab.Item
+### Tabs.Item
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | selected    | 是否选中        | Bool |  false  |
