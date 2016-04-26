@@ -1,6 +1,7 @@
 ---
 order: 0
 title: List Selector
+iframe: true
 ---
 
 
@@ -8,7 +9,7 @@ title: List Selector
 ````jsx
 
 import { List, ListSelector, Modal } from 'antm';
-import { Router, Route } from 'react-router';
+// import { Router, Route } from 'react-router';
 const PropTypes = React.PropTypes;
 
 const SelectorData = [
