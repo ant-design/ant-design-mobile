@@ -28,6 +28,7 @@ import PageResultExample from '../component/PageResultExample';
 import ToastExample from '../component/ToastExample';
 import TopNoticeExample from '../component/TopNoticeExample';
 import ModalExample from '../component/ModalExample';
+import BadgeExample from '../component/BadgeExample';
 import { ListSelectorExample, ListSelector2 } from '../component/ListSelectorExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -301,6 +302,16 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'topnotice';}}
                 />
               </Flex.Item>
+
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png"
+                  title="徽标数"
+                  subtitle="Badge"
+                  onClick={() => {location.hash = 'badge';}}
+                />
+              </Flex.Item>
+
               <Flex.Item/>
             </Flex>
           </List.Body>
@@ -342,6 +353,7 @@ const pageRouter = (
     <Route path="/listselectorpicker" component={ListSelectorExample}>
       <Route path="/listselector" component={ListSelector2}/>
     </Route>
+    <Route path="/badge" component={BadgeExample}/>
   </Router>
 );
 
