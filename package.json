@@ -83,6 +83,7 @@
     "values.js": "^1.0.3"
   },
   "scripts": {
+    "dist": "antd-tools run dist",
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
     "start": "antd-tools run start",
@@ -94,6 +95,7 @@
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components/",
     "pub": "antd-tools run pub",
+    "test": "npm run lint && npm run dist",
     "beta": "antd-tools run beta",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt"
   },

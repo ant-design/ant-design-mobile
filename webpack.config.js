@@ -1,33 +1,36 @@
 const webpack = require('atool-build/lib/webpack');
 
-module.exports = function(webpackConfig) {
+module.exports = function (webpackConfig) {
+  webpackConfig.resolve.alias = {
+    antm: process.cwd()
+  };
+
+  const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
+
+  babelConfig.plugins.push([
+    'antd',
+    {
+      style: true,
+      libraryName: 'antm',
+      libDir: 'components',
+    }
+  ]);
+
+  webpackConfig.module.loaders[0].query = babelConfig;
+  webpackConfig.module.loaders[1].query = babelConfig;
+  
   if (process.env.RUN_ENV === 'WEBSITE') {
     webpackConfig.entry = {
-      'kitchen-sink':'./kitchen-sink/entry/index.jsx',
+      'kitchen-sink': './kitchen-sink/entry/index.jsx',
       index: './site/entry/index.jsx'
     };
     webpackConfig.resolve.root = process.cwd();
-    webpackConfig.resolve.alias = {
-      antm: process.cwd(),
-      site: 'site',
-    };
+    webpackConfig.resolve.alias.site = 'site';
     
     const component = process.env.COMPONENT_STYLE;
 
-    const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
-    
-    babelConfig.plugins.push([
-      'antd',
-      {
-        style: true,
-        libraryName: 'antm',
-        libDir: 'components',
-      }
-    ]);
-
     const componentRegExp = component && new RegExp(`components/${component.toLowerCase()}/demo/.*\.md`);
-    webpackConfig.module.loaders[0].query = babelConfig;
-    webpackConfig.module.loaders[1].query = babelConfig;
+    
     webpackConfig.module.loaders.push({
       test: componentRegExp || /\.md$/,
       exclude: /node_modules/,

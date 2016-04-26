@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { PageResult, Tab, WhiteSpace } from 'antm';
+import { PageResult, Tabs, WhiteSpace } from 'antm';
 
 const PageResultExample = React.createClass({
   render() {
@@ -59,11 +59,11 @@ const PageResultExample = React.createClass({
           buttonClick={() => {alert('点击了按钮');}}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>
-        <Tab>
-          <Tab.Item>选项1</Tab.Item>
-          <Tab.Item selected={true}>选项2</Tab.Item>
-          <Tab.Item>选项3</Tab.Item>
-        </Tab>
+        <Tabs>
+          <Tabs.Item>选项1</Tabs.Item>
+          <Tabs.Item selected={true}>选项2</Tabs.Item>
+          <Tabs.Item>选项3</Tabs.Item>
+        </Tabs>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/hcEPreZxgZWxhVw.png"
           title="警示"
@@ -72,11 +72,11 @@ const PageResultExample = React.createClass({
           buttonClick={() => {alert('点击了按钮');}}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>
-        <Tab>
-          <Tab.Item>选项1</Tab.Item>
-          <Tab.Item selected={true}>选项2</Tab.Item>
-          <Tab.Item>选项3</Tab.Item>
-        </Tab>
+        <Tabs>
+          <Tabs.Item>选项1</Tabs.Item>
+          <Tabs.Item selected={true}>选项2</Tabs.Item>
+          <Tabs.Item>选项3</Tabs.Item>
+        </Tabs>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/QGxGZRxaqMRKnjS.png"
           title="网络不给力"
