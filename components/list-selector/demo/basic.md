@@ -9,7 +9,7 @@ iframe: true
 ````jsx
 
 import { List, ListSelector, Modal } from 'antm';
-// import { Router, Route } from 'react-router';
+import { Router, Route } from 'react-router';
 const PropTypes = React.PropTypes;
 
 const SelectorData = [

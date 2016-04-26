@@ -7,11 +7,19 @@ const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
   componentDidMount() {
-    this.componentDidUpdate();
+    this.scrollToAnchor(this.props);
   }
 
-  componentDidUpdate() {
-    const scrollTo = this.props.location.query.scrollTo;
+  shouldComponentUpdate(nextProps) {
+    this.scrollToAnchor(nextProps);
+
+    const pathname = this.props.location.pathname;
+    return pathname !== nextProps.location.pathname ||
+      /^\/components\//i.test(pathname);
+  }
+
+  scrollToAnchor(props) {
+    const scrollTo = props.location.query.scrollTo;
     if (scrollTo !== undefined) {
       const target = document.getElementById(scrollTo);
 
@@ -109,9 +117,7 @@ export default class MainContent extends React.Component {
     }
 
     if (Array.isArray(menu)) {
-      return menu.reduce((acc, item) => {
-        return acc.concat(this.flattenMenu(item));
-      }, []);
+      return menu.reduce((acc, item) => acc.concat(this.flattenMenu(item)), []);
     }
 
     return this.flattenMenu(menu.props.children);
