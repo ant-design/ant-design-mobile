@@ -63,7 +63,7 @@ const ListForm = React.createClass({
           <List.Item
             thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
             extra="写点就有剪头坑位"
-            arrow="aaa"
+            arrow="empty"
             onClick={window.clickItem}
           >我有thumb</List.Item>
           <List.Item

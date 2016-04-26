@@ -41,7 +41,7 @@ ReactDOM.render(
     <List.Header>单行组合</List.Header>
       <List.Body>
         <List.Item extra="内容">文本信息</List.Item>
-        <List.Item extra="内容" arrow="d">文本信息</List.Item>
+        <List.Item extra="内容" arrow="empty">文本信息</List.Item>
         <List.Item extra="内容" arrow="horizontal">文本信息</List.Item>
         <List.Item extra="内容" arrow="up">文本信息,剪头向上</List.Item>
         <List.Item extra="内容" arrow="down">文本信息,剪头向下</List.Item>
@@ -59,7 +59,7 @@ ReactDOM.render(
       <List.Item
         thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
         extra="有箭头位置"
-        arrow="aaa"
+        arrow="empty"
         onClick={window.clickItem}
       >带thumb</List.Item>
       <List.Item
