@@ -102,6 +102,9 @@
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
   },
+  "config": {
+    "port": 8001
+  },
   "pre-commit": [
     "lint"
   ]
