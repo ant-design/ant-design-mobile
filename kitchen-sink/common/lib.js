@@ -1,1 +1,1 @@
-import 'antm/style';
+import 'antm/components/style/';

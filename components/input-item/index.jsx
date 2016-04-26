@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import '../list/style';
-import './index.less';
 function noop() {}
 
 const InputItem = React.createClass({

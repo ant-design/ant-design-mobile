@@ -12,6 +12,9 @@ https://github.com/airbnb/javascript
 
 ### 组件规范
 
+组件名以 `-` 分割, 例如 `date-picker`
+
+
 components/button/index.jsx
 
 ```js
@@ -34,6 +37,7 @@ export default Button;
 components/button/style/index.js
 
 ```js
+import '../../style/';
 import './index.less';
 ```
 

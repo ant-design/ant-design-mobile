@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import List from '../list/index';
-import '../list/style';
-import './index.less';
+import List from '../list/';
 function noop() {
 }
 

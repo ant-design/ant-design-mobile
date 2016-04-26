@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import List from '../list/index';
-import '../list/style';
 import SearchBar from '../search-bar/index';
-import './index.less';
+
 function noop() {}
 
 let ListSelector = React.createClass({
