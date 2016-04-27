@@ -26,7 +26,7 @@ english: InputItem
 | name    | input的name        | String | |  无  |
 | value    | input的初始值        | String | |  无  |
 | placeholder      | placeholder        | String |  | 无  |
-| clear      |  是否出现清除icon | bool |  | false  |
+| clear      |  是否带清除功能 | bool |  | false  |
 | maxLength      |  最大长度      | number | |  无  |
 | onChange    | input change事件触发的回调函数,参数是value | Function | |  无  |
 | onBlur     | input blur事件触发的回调函数,参数是value | Function |  | 无  |
