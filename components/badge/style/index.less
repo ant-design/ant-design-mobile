@@ -1,0 +1,135 @@
+@import '../../style/mixins';
+@import '../../style/variables';
+@import '../../style/iconfont';
+
+.am-badge {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+
+  &-text {
+    position: absolute;
+    transform: translateX(-50%);
+    top: -10px;
+    height: 24px;
+    border-radius: 12px;
+    line-height: @line-height-2;
+    text-align: center;
+    padding: 0 8px;
+    font-size: @font-size-5;
+    background-color: @orange-8;
+    white-space: nowrap;
+    transform-origin: -10% center;
+    z-index: 10;
+    font-family: tahoma;
+    font-weight: @font-weight-1;
+    box-shadow: 0 0 0 1px #fff;
+    color: @neutral-1;
+    a,
+    a:hover {
+      color: #fff;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &-dot {
+  	position: absolute;
+  	transform: translateX(-50%);
+  	transform-origin: 0 center;
+    top: -4px;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    background: @orange-8;
+    z-index: 10;
+    box-shadow: 0 0 0 1px #fff;
+    &-large {
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+  &-zoom-appear,
+  &-zoom-enter {
+    animation: antZoomBadgeIn .3s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+    animation-fill-mode: both;
+  }
+
+  &-zoom-leave {
+    animation: antZoomBadgeOut .3s cubic-bezier(0.71, -0.46, 0.88, 0.6);
+    animation-fill-mode: both;
+  }
+
+  &-not-a-wrapper &-text,
+  &-not-a-wrapper &-dot{
+    top: auto;
+    display: block;
+    position: relative;
+    transform: translateX(0);
+  }
+
+  &-corner {
+  	width: 80px;
+  	padding: 8px;
+  	position: absolute;
+  	right: -23px;
+  	top: 6px;
+  	background-color: @orange-8;
+  	color: @neutral-1;
+  	white-space: nowrap;
+  	transform: rotate(45deg);
+  	text-align: center;
+  	&-large {
+  	  width: 100px;
+  	  right: -26px;
+  	  top: 15px;
+  	}
+  	&-wrapper {
+  	  overflow: hidden;
+  	}
+  }
+}
+
+a & {
+  &-text:hover {
+    background: tint(@neutral-1, 20%);
+  }
+  &-text:active {
+    background: shade(@orange-8, 5%);
+  }
+}
+
+.am-scroll {
+  &-number {
+  	overflow: hidden;
+  	&-only {
+  	  display: inline-block;
+  	  transition: transform .3s cubic-bezier(0.645,0.045,0.355,1);
+  	}
+  }
+}
+
+@keyframes antZoomBadgeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+  100% {
+    transform: scale(1) translateX(-50%);
+  }
+}
+
+@keyframes antZoomBadgeOut {
+  0% {
+    transform: scale(1) translateX(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+}
+
