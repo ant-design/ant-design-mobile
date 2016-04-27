@@ -1,83 +1,30 @@
 @import '../../style/mixins';
+@import '../../style/variables.less';
+@import '../../style/iconfont.less';
 
-.am-toast {
+@pickerPrefixClass: am-toast;
+
+.@{pickerPrefixClass} {
   position: fixed;
   z-index: 100;
-  top: 20%;
+  top: 40%;
   width: 100%;
   text-align: center;
-  font-size: 13px;
-  font-family: sans-serif;
-  .am-toast-text {
+  &-text {
     display: inline-block;
-    margin: 24px auto auto;
-    padding: 9px 9px;
-    width: 90px;
-    .border-radius(10px);
+    margin: auto 6*@grid;
+    padding: 4*@grid;
+    .border-radius(6px);
     color: #fff;
-    background-color: #1f2337;
-    opacity: 0.9;
-    .iconfont {
-      font-size: 13px;
-    }
+    background-color: @neutral-10;
+    opacity: 0.6;
+    font-size: @font-size-4;
+    line-height: 21px;
   }
-  .am-toast-icon.am-icon {
-    display: block;
-    margin: 8px auto 8px;
-  }
-}
 
-.am-icon {
-  &.am-toast-success,
-  &.am-toast-error,
-  &.am-toast-fail,
-  &.am-toast-network,
-  &.am-toast-loading {
-    display: inline-block;
-    height: 36px;
-    width: 36px;
-    &:before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: url("../image/toast.png") no-repeat;
-      .backgroundSize(160px, auto);
-    }
-  }
-  &.am-toast-success {
-    &:before {
-      background-position: 0 0;
-    }
-  }
-  &.am-toast-error,
-  &.am-toast-fail {
-    &:before {
-      background-position: -40px 0;
-    }
-  }
-  &.am-toast-network {
-    &:before {
-      background-position: -120px 0;
-    }
-  }
-  &.am-toast-loading {
-    -webkit-animation: rotate linear 2.6s infinite;
-    animation: rotate linear 2.6s infinite;
-    &:before {
-      background-position: -80px 0;
-    }
-  }
-}
-
-@-webkit-keyframes rotate {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+  &-icon {
+    font-size: 8*@grid;
+    margin-bottom: @grid;
   }
 }
 
