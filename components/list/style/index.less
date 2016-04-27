@@ -7,7 +7,7 @@
   padding: @margin-7 0 @margin-2 0;
   background-color: @neutral-3;
   & &-header {
-    padding: 0 @margin-4 @margin-2 @margin-4;
+    padding: 0 4*@grid 2*@grid 4*@grid;
     font-size: @font-size-4;
     color: @neutral-7;
     display: inline-block;
@@ -15,7 +15,7 @@
     -webkit-box-sizing: border-box;
   }
   & &-footer {
-    padding: @margin-2 @margin-4;
+    padding: 2*@grid 4*@grid;
     font-size: @font-size-2;
     color: @neutral-7;
     line-height: @line-height-2;
@@ -27,8 +27,8 @@
   }
   & &-item {
     position: relative;
-    padding: 10px @margin-4;
-    min-height: @margin-5;
+    padding: 2.5*@grid 4*@grid;
+    min-height: 6*@grid;
     background: @neutral-1;
     vertical-align: middle;
     overflow: hidden;

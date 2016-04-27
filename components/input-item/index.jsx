@@ -160,7 +160,7 @@ export default class InputItem extends React.Component {
             onFocus={this.onInputFocus}
             readOnly={!editable} />
         </div>
-        {clear && value.length > 0 ?
+        {clear && editable && value.length > 0 ?
           <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
           : null}
         {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}

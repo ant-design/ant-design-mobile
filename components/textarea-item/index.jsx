@@ -2,15 +2,12 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
-const strNumStyle = { position: 'absolute', bottom: '8px', right: '15px', color: '#ccc', fontSize: '13px' };
-
 export default class TextareaItem extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
-    prefixInputCls: PropTypes.string,
     prefixListCls: PropTypes.string,
     style: PropTypes.object,
-    type: PropTypes.oneOf(['hasLine', 'hasBorder']),
+    type: PropTypes.oneOf(['hasLine']),
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     name: PropTypes.string,
     value: PropTypes.string,
@@ -28,7 +25,6 @@ export default class TextareaItem extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-textarea',
-    prefixInputCls: 'am-input',
     prefixListCls: 'am-list',
     title: '',
     type: 'hasLine',
@@ -63,10 +59,10 @@ export default class TextareaItem extends React.Component {
     if (this.props.autoHeight) {
       let textareaDom = this.refs.textarea;
       textareaDom.style.height = '';
-      textareaDom.style.height = `${Math.max(this.initialTextHeight, textareaDom.scrollHeight + 2)}px`;
+      textareaDom.style.height = `${Math.max(this.initialTextHeight, textareaDom.scrollHeight)}px`;
     }
   };
-  _onChange = (e) => {
+  onChange = (e) => {
     let value = e.target.value;
     const { count, onChange } = this.props;
     if (count > 0) {
@@ -74,7 +70,7 @@ export default class TextareaItem extends React.Component {
     }
     onChange(value);
   };
-  _onBlur = (e) => {
+  onBlur = (e) => {
     setTimeout(() => {
       this.setState({
         focus: false
@@ -83,70 +79,47 @@ export default class TextareaItem extends React.Component {
     const value = e.target.value;
     this.props.onBlur(value);
   };
-  _onFocus = (e) => {
+  onFocus = (e) => {
     this.setState({
       focus: true
     });
     const value = e.target.value;
     this.props.onFocus(value);
   };
-  _clearInput = () => {
+  clearInput = () => {
     this.props.onChange('');
   };
   render() {
-    let { prefixCls, title, name, value, placeholder, clear, rows, count, editable, error, className } = this.props;
+    let { prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count, editable, error, className } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
-      [`${prefixCls}`]: true,
-      'am-list-item': true,
-      'am-input-autoclear': clear,
-      'am-list-item-error': error,
-      'am-list-item-focus': focus,
+      [`${prefixListCls}-item`]: true,
+      [`${prefixCls}-item`]: true,
+      [`${prefixCls}-error`]: error,
+      [`${prefixCls}-focus`]: focus,
       [className]: className
     });
 
-    let textareaStyle = { marginTop: '4px' };
-    let alignSelfStyle = { alignSelf: 'stretch' };
-    let titleDom = title ? (<div className="am-list-label" style={rows > 1 ? alignSelfStyle : {}}>{title}</div>) : null;
-
-    let clearDom = '';
-    if (clear && editable) {
-      if (value.length > 0) {
-        clearDom = (<div className="am-list-clear" style={rows > 1 ? alignSelfStyle : {}}><i className="am-icon am-icon-clear" style={{ visibility: 'inherit' }}
-          onClick={this._clearInput}
-          onTouchStart={this._clearInput} /></div>);
-      } else {
-        clearDom = (<div className="am-list-clear"><i className="am-icon am-icon-clear"
-          onClick={this._clearInput}
-          onTouchStart={this._clearInput} />
-        </div>);
-      }
-    }
-
-    let strNumDom = '';
-    if (count > 0 && rows > 1) {
-      strNumDom = <span style={strNumStyle}><span style={{ color: '#000' }}>{count - value.length}</span>/{count}</span>;
-    }
-
     return (
-      <div className={wrapCls} onClick={this._handleClick}>
-        {titleDom}
-        <div className="am-list-control">
+      <div className={wrapCls} style={style} onClick={this._handleClick}>
+        {title ? (<div className={`${prefixCls}-label`}>{title}</div>) : null}
+        <div className={`${prefixCls}-control`}>
           <textarea
             ref="textarea"
             name={name}
             rows={rows}
             placeholder={placeholder}
-            onChange={this._onChange}
-            onBlur={this._onBlur}
-            onFocus={this._onFocus}
+            onChange={this.onChange}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
             value={value}
-            style={rows > 1 ? textareaStyle : {}}
             readOnly={!editable}
           />
         </div>
-        {clearDom}
-        {strNumDom}
+        {clear && editable && value.length > 0 ?
+          (<div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />)
+          : null}
+        {count > 0 && rows > 1 ? (<span className={`${prefixCls}-count`}><span>{value.length}</span>/{count}</span>) : null}
       </div>
     );
   }

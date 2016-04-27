@@ -1,20 +1,85 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-.am-list-item {
-  textarea {
-    font-size: 15px;
-    -webkit-appearance: none;
-    width: 100%;
-    padding: 0px;
-    border: 0px;
-    background-color: transparent;
-    overflow: visible;
-    display: block;
-    resize: none;
-    word-break: break-all;
-    word-wrap: break-word;
-    line-height: normal;
-    margin-top: 3px;
+@listPrefixClass: am-list;
+@textareaPrefixClass: am-textarea;
+
+.@{listPrefixClass} {
+  & &-item {
+    &.@{textareaPrefixClass}-item {
+      padding: 2*@grid 4*@grid;
+    }
+    &.@{textareaPrefixClass}-error {
+      position: relative;
+      z-index: 11;
+      .hairline-bottom(bottom, @red-6, @margin-4);
+      &:last-child:after {
+        left: 0;
+      }
+    }
+    .@{textareaPrefixClass}-label {
+      align-self: stretch;
+      font-size: @font-size-5;
+      margin-left: 0;
+      margin-right: 4*@grid;
+      color: @neutral-10;
+      text-align: left;
+      min-height: 7*@grid;
+      line-height: 7*@grid;
+    }
+    .@{textareaPrefixClass}-control {
+      .box-flex(1);
+      textarea {
+        font-size: @font-size-5;
+        -webkit-appearance: none;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+        overflow: visible;
+        display: block;
+        resize: none;
+        word-break: break-all;
+        word-wrap: break-word;
+        line-height: 7*@grid;
+        &::-webkit-input-placeholder {
+          color: @neutral-6;
+        }
+      }
+    }
+    .@{textareaPrefixClass}-clear {
+      align-self: stretch;
+      visibility: hidden;
+      display: block;
+      width: 4*@grid;
+      height: 4*@grid;
+      margin-top: 1.5*@grid;
+      border-radius: 50%;
+      overflow: hidden;
+      font-style: normal;
+      color: #fff;
+      background-color: @neutral-6;
+      background-repeat: no-repeat;
+      .encoded-svg-background("<svg fill='#fff' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      .backgroundSize(4*@grid, auto);
+      &:active {
+        background-color: @neutral-7;
+      }
+    }
+    &.@{textareaPrefixClass}-focus {
+      .@{textareaPrefixClass}-clear {
+        visibility: visible;
+      }
+    }
+    .@{textareaPrefixClass}-count {
+      position: absolute;
+      bottom: @grid;
+      right: @grid;
+      color: @neutral-8;
+      font-size: @font-size-2;
+      span {
+        color: @neutral-10;
+      }
+    }
   }
 }

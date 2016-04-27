@@ -3,7 +3,7 @@
 import React from 'react';
 import Page from '../common/Page';
 import { createForm } from 'rc-form';
-import { List, TextareaItem } from 'antm';
+import { List, TextareaItem, InputItem } from 'antm';
 
 let TextareaExample = React.createClass({
   onClick() {
@@ -17,7 +17,7 @@ let TextareaExample = React.createClass({
           <List.Body>
             <TextareaItem
               {...getFieldProps('note6', {
-                initialValue: '我的意见是...',
+                initialValue: '',
                 valuePropName: 'value'
               })}
               clear={true}
@@ -26,7 +26,7 @@ let TextareaExample = React.createClass({
             />
             <TextareaItem
               type="hasBorder"
-              {...getFieldProps('note6', {
+              {...getFieldProps('note7', {
                 initialValue: '我的意见是...',
                 valuePropName: 'value'
               })}
@@ -48,6 +48,7 @@ let TextareaExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
+              title={<div style={{ backgroundImage: "url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)",   backgroundSize: "cover", height: "28px", width: "28px" }} />}
               clear={true}
               error={true}
               placeholder="请填写"
@@ -70,7 +71,7 @@ let TextareaExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              title="备注说明"
+              title="备注"
               name="yyy"
               placeholder="请填写"
               clear={false}
@@ -84,11 +85,32 @@ let TextareaExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              title="备注说明"
+              title="备注"
               error={true}
               placeholder="请填写"
             />
-
+            <TextareaItem
+              {...getFieldProps('note8', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              autoHeight
+              clear
+              title="备注"
+              error
+              placeholder="请填写"
+            />
+            <InputItem
+              {...getFieldProps('normal', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              placeholder="placeholder"
+              clear={true}
+              onBlur={function(e){console.log('onBlur'); console.log(e);}}
+              onFocus={function(e){console.log('onFocus'); console.log(e);}}
+              extra="元"
+            >InputItem</InputItem>
           </List.Body>
         </List>
       </Page>
