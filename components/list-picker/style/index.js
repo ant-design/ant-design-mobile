@@ -1,3 +1,4 @@
+import '../../style/';
 import './index.less';
 import 'rmc-cascader/assets/index.css';
 import 'rmc-modal/assets/index.css';
