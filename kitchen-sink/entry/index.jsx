@@ -8,7 +8,7 @@ import CollapseExample from '../component/CollapseExample';
 import ButtonExample from '../component/ButtonExample';
 import TabExample from '../component/TabExample';
 import SegmentedControlExample from '../component/SegmentedControlExample';
-import ResultExample from '../component/ResultExample';
+import PageResultExample from '../component/PageResultExample';
 import ProcessExample from '../component/ProcessExample';
 import WhiteSpaceExample from '../component/WhiteSpaceExample';
 import WingBlankExample from '../component/WingBlankExample';
@@ -23,11 +23,11 @@ import SwitchExample from '../component/SwitchExample';
 import TextareaExample from '../component/TextareaExample';
 import ArticleExample from '../component/ArticleExample';
 import CardExample from '../component/CardExample';
-import MessageExample from '../component/MessageExample';
-import PageResultExample from '../component/PageResultExample';
 import ToastExample from '../component/ToastExample';
 import TopNoticeExample from '../component/TopNoticeExample';
 import ModalExample from '../component/ModalExample';
+import AlertExample from '../component/AlertExample';
+import TagExample from '../component/TagExample';
 import BadgeExample from '../component/BadgeExample';
 import { ListSelectorExample, ListSelector2 } from '../component/ListSelectorExample';
 import ReactDOM from 'react-dom';
@@ -253,9 +253,9 @@ const App = React.createClass({
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/fQJHvKZgnAqDzmR.png"
-                  title="消息提示"
-                  subtitle="Message"
-                  onClick={() => {location.hash = 'message';}}
+                  title="信息提示"
+                  subtitle="Alert"
+                  onClick={() => {location.hash = 'alert';}}
                 />
               </Flex.Item>
             </Flex>
@@ -279,9 +279,9 @@ const App = React.createClass({
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/xEKBTGGcFJvyQgn.png"
-                  title="页面提示"
-                  subtitle="Result"
-                  onClick={() => {location.hash = 'result';}}
+                  title="标签"
+                  subtitle="Tag"
+                  onClick={() => {location.hash = 'tag';}}
                 />
               </Flex.Item>
             </Flex>
@@ -302,7 +302,6 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'topnotice';}}
                 />
               </Flex.Item>
-
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png"
@@ -311,8 +310,6 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'badge';}}
                 />
               </Flex.Item>
-
-              <Flex.Item/>
             </Flex>
           </List.Body>
         </List>
@@ -330,7 +327,6 @@ const pageRouter = (
     <Route path="/button" component={ButtonExample}/>
     <Route path="/tab" component={TabExample}/>
     <Route path="/segmentedcontrol" component={SegmentedControlExample}/>
-    <Route path="/result" component={ResultExample}/>
     <Route path="/process" component={ProcessExample}/>
     <Route path="/whitespace" component={WhiteSpaceExample}/>
     <Route path="/wingblank" component={WingBlankExample}/>
@@ -345,7 +341,6 @@ const pageRouter = (
     <Route path="/textarea" component={TextareaExample}/>
     <Route path="/article" component={ArticleExample}/>
     <Route path="/card" component={CardExample}/>
-    <Route path="/message" component={MessageExample}/>
     <Route path="/pageresult" component={PageResultExample}/>
     <Route path="/toast" component={ToastExample}/>
     <Route path="/topnotice" component={TopNoticeExample}/>
@@ -354,6 +349,8 @@ const pageRouter = (
       <Route path="/listselector" component={ListSelector2}/>
     </Route>
     <Route path="/badge" component={BadgeExample}/>
+    <Route path="/alert" component={AlertExample}/>
+    <Route path="/tag" component={TagExample}/>
   </Router>
 );
 

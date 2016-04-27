@@ -1,0 +1,70 @@
+@import '../../style/mixins';
+@import '../../style/variables.less';
+
+@pickerPrefixClass: am-tag;
+
+.@{pickerPrefixClass} {
+  border-radius: @radius-2;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  &-normal {
+    background-color: @neutral-1;
+    color: @neutral-10;
+    border: @border-width-1 @border-type-1 @neutral-5;
+  }
+
+  &-active {
+    background-color: @neutral-1;
+    color: @brand-6;
+    border: @border-width-1 @border-type-1 @brand-6;
+  }
+
+  &-disabled {
+    color:@neutral-6;
+    background-color: @neutral-2;
+    border: @border-width-1 @border-type-1 @neutral-5;
+    border-radius:@radius-2;
+  }
+
+  &-read {
+    background-color: @neutral-3;
+    color: @neutral-10;
+    border: @border-width-1 @border-type-1 @neutral-3;
+  }
+
+  &-size-large {
+    padding: @grid 4*@grid;
+    font-size: @font-size-2;
+    line-height: 18px;
+  }
+
+  &-size-small {
+    padding: @grid 2*@grid;
+    font-size: @font-size-1;
+    line-height: 14px;
+  }
+
+  &-close {
+    position: absolute;
+    bottom: -8px;
+    right: -2px;
+    width:0;
+    height:0;
+    border-bottom:@margin-3 @border-type-1 transparent;  /* left arrow slant */
+    border-top:@margin-3 @border-type-1 transparent; /* right arrow slant */
+    border-left:@margin-3 @border-type-1 @brand-6; /* bottom, add background color here */
+    line-height:0;
+    transform: rotate(45deg);
+    &:before {
+      content: '×';
+      display: inline-block;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: -13px;
+      transform: rotate(-45deg) scale(0.8);
+    }
+  }
+}
