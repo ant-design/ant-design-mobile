@@ -3,7 +3,7 @@ import {
   TextareaItem, SelectItem, SwitchItem, CaptchaItem, Button, ListPicker,
   ListDatePicker, ListSelector, SearchBar, Process, Message, Result,
   TopNotice, Tabs, SegmentedControl, Modal, Toast, Article,
-  Card, PageResult,
+  Card, PageResult, Badge,
 } from 'antm';
 
 // copy from above
