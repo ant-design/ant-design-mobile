@@ -25,7 +25,7 @@ let TextareaExample = React.createClass({
               placeholder="如果你有什么建议意见，欢迎你来吐槽"
             />
             <TextareaItem
-              type="hasBorder"
+              type="hasLine"
               {...getFieldProps('note7', {
                 initialValue: '我的意见是...',
                 valuePropName: 'value'
