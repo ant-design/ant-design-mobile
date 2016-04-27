@@ -80,22 +80,22 @@ export default class Header extends React.Component {
     return (
       <header id="header" className="clearfix">
         <Row>
-          <Col lg={4} md={6} sm={7} xs={24}>
+          <Col lg={5} md={6} sm={7} xs={24}>
             <Icon
               className="nav-phone-icon"
               onClick={this.handleMenuIconClick}
               type="menu" />
             <Link to="/" id="logo">
-              <img src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
-              <span>Ant Design</span>
+              <img src="https://os.alipayobjects.com/rmsportal/xONkbRSJqciDrmn.svg" />
+              <span>ANT DESIGN | MOBILE</span>
             </Link>
           </Col>
           <Col className={`nav ${this.state.menuVisible ? 'nav-show' : 'nav-hide'}`}
-            lg={20} md={18} sm={17} xs={0} style={menuStyle}>
+            lg={19} md={18} sm={17} xs={0} style={menuStyle}>
             <div id="search-box">
               <Select combobox
                 dropdownClassName="component-select"
-                searchPlaceholder="搜索组件..."
+                searchPlaceholder={ <span><Icon type="search" /> search component</span> }
                 optionLabelProp="nothing"
                 optionFilterProp="data-label"
                 filterOption={this.handleSelectFilter}
@@ -103,10 +103,15 @@ export default class Header extends React.Component {
                 {options}
               </Select>
             </div>
-            <Menu mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav">
+            <Menu theme="dark" mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav">
               <Menu.Item key="home">
                 <Link to="/">
                   首页
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="design">
+                <Link to="/">
+                  设计基础
                 </Link>
               </Menu.Item>
               <Menu.Item key="components">
