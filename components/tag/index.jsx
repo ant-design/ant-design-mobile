@@ -32,7 +32,7 @@ export default class Modal extends React.Component {
     };
   }
 
-  _handleClick = () => {
+  onClick = () => {
     const props = this.props;
     if (props.type === 'read' || props.disabled) return;
     const _selected = this.state.selected;
@@ -43,7 +43,7 @@ export default class Modal extends React.Component {
     });
   }
 
-  _handleClose = (e) => {
+  onClose = (e) => {
     const props = this.props;
     props.onClose(e);
     this.setState({
@@ -68,10 +68,10 @@ export default class Modal extends React.Component {
       [`${prefixCls}-size-large`]: size === 'large',
     });
 
-    const close = closable && selected && size === 'large' ? <div className={`${prefixCls}-close`} onClick={this._handleClose} /> : null;
+    const close = closable && selected && size === 'large' ? <div className={`${prefixCls}-close`} onClick={this.onClose} /> : null;
 
     return this.state.closed ? null : (
-      <div className={wrapCls} {...others} onClick={this._handleClick}>
+      <div className={wrapCls} {...others} onClick={this.onClick}>
         <div className={`${prefixCls}-text`}>{children}</div>
         {close}
       </div>
