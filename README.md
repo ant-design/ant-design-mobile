@@ -12,10 +12,10 @@ https://github.com/airbnb/javascript
 
 ### 组件规范
 
-组件名以 `-` 分割, 例如 `date-picker`
+组件名以 `-` 分割, 例如 `date-picker`,文件后缀名统一为 `.js`
 
 
-components/button/index.jsx
+components/button/index.js
 
 ```js
 import React from 'react';
