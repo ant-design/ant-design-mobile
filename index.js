@@ -3,7 +3,7 @@ import {
   TextareaItem, SelectItem, SwitchItem, CaptchaItem, Button, ListPicker,
   ListDatePicker, ListSelector, SearchBar, Process, Message, Result,
   TopNotice, Tabs, SegmentedControl, Modal, Toast, Article,
-  Card, PageResult, Badge,
+  Card, PageResult, ActionSheet, Drowdown, FloatMenu, Badge,
 } from 'antm';
 
 // copy from above
@@ -12,7 +12,7 @@ const antm = {
   TextareaItem, SelectItem, SwitchItem, CaptchaItem, Button, ListPicker,
   ListDatePicker, ListSelector, SearchBar, Process, Message, Result,
   TopNotice, Tabs, SegmentedControl, Modal, Toast, Article,
-  Card, PageResult, Badge,
+  Card, PageResult, ActionSheet, Drowdown, FloatMenu, Badge,
 };
 
 export default antm;
