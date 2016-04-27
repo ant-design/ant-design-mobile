@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import './style';
 function noop() {}
 
 const strNumStyle = { position: 'absolute', bottom: '8px', right: '15px', color: '#ccc', fontSize: '13px' };
@@ -8,14 +7,17 @@ const strNumStyle = { position: 'absolute', bottom: '8px', right: '15px', color:
 export default class TextareaItem extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
+    prefixInputCls: PropTypes.string,
+    prefixListCls: PropTypes.string,
     style: PropTypes.object,
-    label: PropTypes.string,
+    type: PropTypes.oneOf(['hasLine', 'hasBorder']),
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     name: PropTypes.string,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     clear: PropTypes.bool,
     rows: PropTypes.number,
-    maxLength: PropTypes.number,
+    count: PropTypes.number,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
@@ -25,49 +27,54 @@ export default class TextareaItem extends React.Component {
   };
 
   static defaultProps = {
-    prefixCls: 'am-list',
-    label: '',
+    prefixCls: 'am-textarea',
+    prefixInputCls: 'am-input',
+    prefixListCls: 'am-list',
+    title: '',
+    type: 'hasLine',
+    autoHeight: false,
+    editable: true,
     name: '',
     value: '',
     placeholder: '',
     clear: false,
     rows: 1,
-    maxLength: 0,
+    count: 0,
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
     error: false,
-    autoHeight: false,
-    editable: true,
   };
 
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       focus: false,
     };
   }
-  componentDidMount() {
+
+  componentDidMount = () => {
     if (this.props.autoHeight) {
       this.initialTextHeight = this.refs.textarea.offsetHeight;
       this.componentDidUpdate();
     }
-  }
-  componentDidUpdate() {
+  };
+  componentDidUpdate = () => {
     if (this.props.autoHeight) {
       let textareaDom = this.refs.textarea;
       textareaDom.style.height = '';
       textareaDom.style.height = `${Math.max(this.initialTextHeight, textareaDom.scrollHeight + 2)}px`;
     }
-  }
-  _onChange(e) {
+  };
+  _onChange = (e) => {
     let value = e.target.value;
-    const { maxLength, onChange } = this.props;
-    if (maxLength > 0) {
-      value = value.substring(0, maxLength);
+    const { count, onChange } = this.props;
+    if (count > 0) {
+      value = value.substring(0, count);
     }
     onChange(value);
-  }
-  _onBlur(e) {
+  };
+  _onBlur = (e) => {
     setTimeout(() => {
       this.setState({
         focus: false
@@ -75,23 +82,23 @@ export default class TextareaItem extends React.Component {
     }, 500);
     const value = e.target.value;
     this.props.onBlur(value);
-  }
-  _onFocus(e) {
+  };
+  _onFocus = (e) => {
     this.setState({
       focus: true
     });
     const value = e.target.value;
     this.props.onFocus(value);
-  }
-  _clearInput() {
+  };
+  _clearInput = () => {
     this.props.onChange('');
-  }
+  };
   render() {
-    let { label, name, value, placeholder, clear, rows, maxLength, editable, error, className } = this.props;
+    let { prefixCls, title, name, value, placeholder, clear, rows, count, editable, error, className } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
+      [`${prefixCls}`]: true,
       'am-list-item': true,
-      'am-list-item-form': clear,
       'am-input-autoclear': clear,
       'am-list-item-error': error,
       'am-list-item-focus': focus,
@@ -100,7 +107,7 @@ export default class TextareaItem extends React.Component {
 
     let textareaStyle = { marginTop: '4px' };
     let alignSelfStyle = { alignSelf: 'stretch' };
-    let labelDom = label ? (<div className="am-list-label" style={rows > 1 ? alignSelfStyle : {}}>{label}</div>) : null;
+    let titleDom = title ? (<div className="am-list-label" style={rows > 1 ? alignSelfStyle : {}}>{title}</div>) : null;
 
     let clearDom = '';
     if (clear && editable) {
@@ -117,13 +124,13 @@ export default class TextareaItem extends React.Component {
     }
 
     let strNumDom = '';
-    if (maxLength > 0 && rows > 1) {
-      strNumDom = <span style={strNumStyle}>{maxLength - value.length}</span>;
+    if (count > 0 && rows > 1) {
+      strNumDom = <span style={strNumStyle}><span style={{ color: '#000' }}>{count - value.length}</span>/{count}</span>;
     }
 
     return (
       <div className={wrapCls} onClick={this._handleClick}>
-        {labelDom}
+        {titleDom}
         <div className="am-list-control">
           <textarea
             ref="textarea"

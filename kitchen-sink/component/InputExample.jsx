@@ -14,10 +14,11 @@ let InputExample = React.createClass({
     return (
       <Page title="输入框" subtitle="&lt;InputItem clear={true} maxLength={10} /&gt;">
         <List>
+          <List.Header>线型</List.Header>
           <List.Body>
             <InputItem
-              {...getFieldProps('yyy', {
-                initialValue: '输入框',
+              {...getFieldProps('normal', {
+                initialValue: '',
                 valuePropName: 'value'
               })}
               placeholder="placeholder"
@@ -25,11 +26,18 @@ let InputExample = React.createClass({
               maxLength={10}
               onBlur={function(e){console.log('onBlur'); console.log(e);}}
               onFocus={function(e){console.log('onFocus'); console.log(e);}}
-            >Label</InputItem>
+            >五个字标签</InputItem>
+            <InputItem
+              {...getFieldProps('name', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              placeholder="你的姓名"
+            ><div style={{ backgroundImage: "url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)",   backgroundSize: "cover", height: "22px", width: "22px" }} /></InputItem>
             <InputItem
               value="不可编辑"
               editable={false}
-            >输入说明</InputItem>
+            ><div style={{ backgroundImage: "url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)",   backgroundSize: "cover", height: "22px", width: "22px" }} /></InputItem>
             <InputItem
               {...getFieldProps('222', {
                 initialValue: '无Label',
@@ -64,67 +72,73 @@ let InputExample = React.createClass({
               error={true}
               placeholder="placeholder"
             >输入说明说明</InputItem>
-          </List.Body>
-        </List>
-        <List>
-          <List.Body>
             <InputItem
+              {...getFieldProps('6', {
+                initialValue: '222',
+                valuePropName: 'value'
+              })}
               name="camera"
               placeholder="camera"
               clear={true}
-              icon="camera"
-              onIconClick={() => {console.log('点击了icon');}}
-              onChange={() => {}}
+              extra={<img src="https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png" height="22" />}
             >我是相机</InputItem>
+          </List.Body>
+        </List>
+        <List>
+          <List.Header>格式</List.Header>
+          <List.Body>
             <InputItem
-              name="list"
-              placeholder="list"
+              {...getFieldProps('bankCard', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              format="bankCard"
+              placeholder="8888 8888 8888 8888"
               clear={true}
-              icon="list"
-              onChange={() => {}}
-            >列表</InputItem>
+              maxLength={22}
+              onBlur={function(e){console.log('onBlur'); console.log(e);}}
+              onFocus={function(e){console.log('onFocus'); console.log(e);}}
+            >银行卡</InputItem>
             <InputItem
-              name="contacts-mobile"
-              placeholder="contacts-mobile"
+              {...getFieldProps('phone', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              format="phone"
+              placeholder="186 1234 1234"
               clear={true}
-              icon="contacts-mobile"
-              onChange={() => {}}
-            >通讯录</InputItem>
+              maxLength={22}
+              onBlur={function(e){console.log('onBlur'); console.log(e);}}
+              onFocus={function(e){console.log('onFocus'); console.log(e);}}
+            >电话号码</InputItem>
             <InputItem
-              name="bill"
-              placeholder="bill"
+              {...getFieldProps('password', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              format="password"
+              placeholder="****"
               clear={true}
-              icon="bill"
-              onChange={() => {}}
-            >bill</InputItem>
+              maxLength={22}
+              onBlur={function(e){console.log('onBlur'); console.log(e);}}
+              onFocus={function(e){console.log('onFocus'); console.log(e);}}
+            >密码</InputItem>
+          </List.Body>
+        </List>
+        <List>
+          <List.Header>有边框 暂缓</List.Header>
+          <List.Body>
             <InputItem
-              name="contacts-alipay"
-              placeholder="contacts-alipay"
+              {...getFieldProps('zzzz', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              placeholder="placeholder"
               clear={true}
-              icon="contacts-alipay"
-              onChange={() => {}}
-            >支付宝通讯录</InputItem>
-            <InputItem
-              name="cards"
-              placeholder="cards"
-              clear={true}
-              icon="cards"
-              onChange={() => {}}
-            >卡片</InputItem>
-            <InputItem
-              name="calculator"
-              placeholder="calculator"
-              clear={true}
-              icon="calculator"
-              onChange={() => {}}
-            >日历</InputItem>
-            <InputItem
-              name="scan"
-              placeholder="scan"
-              clear={true}
-              icon="scan"
-              onChange={() => {}}
-            >扫码</InputItem>
+              maxLength={10}
+              onBlur={function(e){console.log('onBlur'); console.log(e);}}
+              onFocus={function(e){console.log('onFocus'); console.log(e);}}
+            >五个字标签</InputItem>
           </List.Body>
         </List>
       </Page>

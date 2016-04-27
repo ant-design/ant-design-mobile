@@ -16,11 +16,48 @@ let TextareaExample = React.createClass({
         <List>
           <List.Body>
             <TextareaItem
+              {...getFieldProps('note6', {
+                initialValue: '我的意见是...',
+                valuePropName: 'value'
+              })}
+              clear={true}
+              rows={5}
+              placeholder="如果你有什么建议意见，欢迎你来吐槽"
+            />
+            <TextareaItem
+              type="hasBorder"
+              {...getFieldProps('note6', {
+                initialValue: '我的意见是...',
+                valuePropName: 'value'
+              })}
+              clear={true}
+              rows={5}
+              placeholder="如果你有什么建议意见，欢迎你来吐槽"
+            />
+            <TextareaItem
+              {...getFieldProps('note4', {
+                initialValue: '我的意见是...',
+                valuePropName: 'value'
+              })}
+              clear={true}
+              rows={5}
+              placeholder="请填写"
+            />
+            <TextareaItem
+              {...getFieldProps('note5', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              clear={true}
+              error={true}
+              placeholder="请填写"
+            />
+            <TextareaItem
               {...getFieldProps('note', {
                 initialValue: 'dada22东方朔放松放松东方朔放松放松冯绍峰放松放松放松放松放松放松放松放松',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              title="备注说明"
               name="yyy"
               rows={5}
               placeholder="带清除"
@@ -33,12 +70,12 @@ let TextareaExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              title="备注说明"
               name="yyy"
               placeholder="请填写"
               clear={false}
               rows={5}
-              maxLength={100}
+              count={100}
               onBlur={() => {console.log('onBlur');}}
               onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
@@ -47,20 +84,11 @@ let TextareaExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              title="备注说明"
               error={true}
               placeholder="请填写"
             />
-            <TextareaItem
-              {...getFieldProps('note4', {
-                initialValue: '',
-                valuePropName: 'value'
-              })}
-              label="备注说明"
-              clear={true}
-              error={true}
-              placeholder="请填写"
-            />
+
           </List.Body>
         </List>
       </Page>
