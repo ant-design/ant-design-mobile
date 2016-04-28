@@ -1,42 +1,82 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import Icon from '../icon';
 
-const Toast = React.createClass({
-  propTypes: {
+export default class Toast extends React.Component {
+  static propTypes = {
     mode: PropTypes.string,
-    children: PropTypes.string,
-  },
-  getDefaultProps() {
-    return {
-      mode: ''
+    children: PropTypes.node,
+    duration: PropTypes.number,
+    afterHide: PropTypes.func,
+  }
+
+  static defaultProps = {
+    prefixCls: 'am-toast',
+    mode: '',
+    duration: 3000,
+    afterHide() {},
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      show: true,
     };
-  },
+  }
+
+  componentDidMount() {
+    const props = this.props;
+    this.toastInterval = setTimeout(() => {
+      this.setState({
+        show: false,
+      }, () => {
+        props.afterHide();
+      });
+    }, props.duration);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.toastInterval);
+  }
+
   render() {
-    const { mode, children, className } = this.props;
+    const { mode, children, className, prefixCls } = this.props;
+
     const wrapCls = classNames({
-      'am-toast': true,
+      [prefixCls]: true,
       [className]: className
     });
 
-    let toastClass = classNames({
-      'am-toast-icon': true,
-      'am-icon': true,
-      'am-toast-loading': mode === 'loading',
-      'am-toast-success': mode === 'success',
-      'am-toast-fail': mode === 'fail',
-      'am-toast-network': mode === 'network'
-    });
+    let iconType = '';
+    switch (mode) {
+      case 'success':
+        iconType = 'check-circle-o';
+        break;
+      case 'fail':
+        iconType = 'cross-circle-o';
+        break;
+      case 'network':
+        iconType = 'frown';
+        break;
+      case 'loading':
+        iconType = 'loading';
+        break;
+      default:
+        break;
+    }
 
-    let iconDom = mode !== '' ? <span className={toastClass} /> : null;
+    const iconDom = mode !== '' ? <div className={`${prefixCls}-icon`}>
+      <Icon type={iconType} />
+    </div> : null;
 
-    return (
+    return this.state.show ? (
       <div className={wrapCls}>
-        <div className="am-toast-text">
+        <div className={`${prefixCls}-text`}>
           {iconDom}
           {children}
         </div>
       </div>
-    );
+    ) : null;
   }
-});
-module.exports = Toast;
+}

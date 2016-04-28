@@ -61,6 +61,12 @@ tnpm install
 npm start
 ```
 
+测试单个组件使用 COMPONENT_STYLE 环境变量, 例如
+
+```
+COMPONENT_STYLE=button npm start
+```
+
 pc 版: http://localhost:8001/
 
 mobile 版: http://localhost:8001/kitchen-sink.html

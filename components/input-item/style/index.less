@@ -1,146 +1,78 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-.am-list {
-  .am-list-item {
-    .am-list-label {
+@listPrefixClass: am-list;
+@inputPrefixClass: am-input;
+
+.@{listPrefixClass} {
+  & &-item {
+    &.@{inputPrefixClass}-error {
+      position: relative;
+      z-index: 11;
+      .hairline-bottom(bottom, @red-6, @margin-4);
+      &:last-child:after {
+        left: 0;
+      }
+    }
+    .@{inputPrefixClass}-label {
       font-size: @font-size-5;
       margin-left: 0;
-      margin-right: @margin-4;
+      margin-right: 4*@grid;
       color: @neutral-10;
       text-align: left;
-      min-width: 64px;
     }
-    .am-list-control {
+    .@{inputPrefixClass}-control {
       .box-flex(1);
       input {
         font-size: @font-size-5;
         -webkit-appearance: none;
         width: 100%;
-        padding: 0px;
-        border: 0px;
+        padding: 0;
+        border: 0;
         background-color: transparent;
         color: @neutral-10;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        height: 5.5*@grid;
+        line-height: 5.5*@grid;
         box-sizing: border-box;
-        padding-left: 3px;
-      }
-      ::-webkit-input-placeholder {
-        color: @neutral-6;
+        &::-webkit-input-placeholder {
+          color: @neutral-6;
+        }
       }
     }
-    .am-list-clear {
+    .@{inputPrefixClass}-clear {
       visibility: hidden;
-      width: 24px;
-      .am-icon-clear {
-        padding: 2px;
+      display: block;
+      width: 4*@grid;
+      height: 4*@grid;
+      border-radius: 50%;
+      overflow: hidden;
+      font-style: normal;
+      color: #fff;
+      background-color: @neutral-6;
+      background-repeat: no-repeat;
+
+      .encoded-svg-background("<svg fill='#fff' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      .backgroundSize(4*@grid, auto);
+      &:active {
+        background-color: @neutral-7;
       }
     }
-    &.am-input-autoclear {
-      .am-icon-clear {
-        visibility: hidden;
-      }
-    }
-    &.am-list-item-focus {
-      .am-list-clear {
+    &.@{inputPrefixClass}-focus {
+      .@{inputPrefixClass}-clear {
         visibility: visible;
       }
     }
-    .am-input-extra {
+    .@{inputPrefixClass}-extra {
       -webkit-box-flex: initial;
       -webkit-flex: initial;
       min-width: 0;
-      padding-right: 3px;
+      max-height: 5.5*@grid;
+      overflow: hidden;
+      padding-right: 0;
+      line-height: 1;
+      color: @neutral-8;
+      font-size: @font-size-4;
+      margin-left: @grid;
     }
-    &.am-list-item-error {
-      position: relative;
-      z-index: 11;
-      &:after {
-        width: 100%;
-        height: 0;
-        border-bottom: 1px solid red;
-        bottom: 0;
-        content: "";
-        left: 15px;
-        position: absolute;
-      }
-      &:last-child:after {
-        left: 0;
-      }
-    }
-  }
-}
-
-.am-icon {
-  &.am-icon-clear {
-    display: block;
-    width: 18px;
-    height: 18px;
-    overflow: hidden;
-    font-style: normal;
-    color: #fff;
-    font-size: 20px;
-    background-repeat: no-repeat;
-    .encoded-svg-background("<svg fill='#000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-    .backgroundSize(18px, auto);
-    &:before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-
-    }
-  }
-  &.am-icon-lock {
-    display: block;
-    width: 18px;
-    height: 18px;
-    overflow: hidden;
-    &:before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: url("../image/lock.png") no-repeat;
-      .backgroundSize(18px, auto);
-    }
-  }
-  display: block;
-  overflow: hidden;
-  width: 25px;
-  height: 25px;
-  &:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: left top;
-    .backgroundSize(24px, auto);
-  }
-  &.am-icon-form-camera:before {
-    background-image: url("../image/camera.png");
-  }
-  &.am-icon-form-list:before {
-    background-image: url("../image/list.png");
-  }
-  &.am-icon-form-contacts-mobile:before {
-    background-image: url("../image/contacts_mobile.png");
-  }
-  &.am-icon-form-bill:before {
-    background-image: url("../image/bill.png");
-  }
-  &.am-icon-form-contacts-alipay:before {
-    background-image: url("../image/contacts_alipay.png");
-  }
-  &.am-icon-form-cards:before {
-    background-image: url("../image/cards.png");
-  }
-  &.am-icon-form-calculator:before {
-    background-image: url("../image/calculator.png");
-  }
-  &.am-icon-form-scan:before {
-    background-image: url("../image/scan.png");
   }
 }

@@ -1,48 +1,51 @@
 import React from 'react';
 import Page from '../common/Page';
-import { Toast } from 'antm';
+import { Toast, WhiteSpace, WingBlank, Button } from 'antm';
 
 const ToastExample = React.createClass({
   getInitialState() {
     return {
-      mode: 0,
+      show: false,
+      mode: ''
     };
   },
-  componentDidMount() {
-    window.toastInterval = setInterval(() => {
-      this.setState({
-        mode: this.state.mode + 1
-      });
-    }, 2000);
-  },
-  componentWillUnmount() {
-    clearInterval(window.toastInterval);
-  },
   render() {
-    const { mode } = this.state;
-    let toastDom = null;
-    switch (mode % 5) {
-      case 0:
-        toastDom = <Toast mode="loading"/>;
-        break;
-      case 1:
-        toastDom = <Toast mode="network">网络无法连接</Toast>;
-        break;
-      case 2:
-        toastDom = <Toast mode="success">成功提醒</Toast>;
-        break;
-      case 3:
-        toastDom = <Toast mode="fail">失败提醒</Toast>;
-        break;
-      case 4:
-        toastDom = <Toast>出错了!</Toast>;
-        break;
-      default:
-        break;
-    }
+    const contentMap = {
+      'success': '成功提示',
+      'network': '网络失败',
+      'loading': '加载中...',
+      'fail': '失败提示',
+    };
+    const mode = this.state.mode;
+
     return (
       <Page title="轻提示" subtitle="&lt;Toast mode='success' /&gt;">
-        {toastDom}
+        <WingBlank>选择一种类型:　
+          <select onChange={(e) => {
+            this.setState({
+              mode: e.target.value,
+            });
+          }} style={{border: '1px solid #ccc'}}>
+            <option value="">纯文字 toast</option>
+            <option value="success">成功提示</option>
+            <option value="network">网络失败</option>
+            <option value="loading">加载中...</option>
+            <option value="fail">失败提示</option>
+          </select>
+        </WingBlank>
+        <WhiteSpace mode={20} />
+        <WingBlank>
+          <Button type="primary" onClick={() => {
+          this.setState({
+            show: true,
+          })
+        }}>显示 toast</Button>
+          {this.state.show ? <Toast afterHide={() => {
+          this.setState({
+            show: false,
+          });
+        }} mode={mode}>{contentMap[mode] || '纯文字 toast'}</Toast> : null}
+        </WingBlank>
       </Page>
     );
   },

@@ -3,7 +3,7 @@
 import React from 'react';
 import Page from '../common/Page';
 import { createForm } from 'rc-form';
-import { List, TextareaItem } from 'antm';
+import { List, TextareaItem, InputItem } from 'antm';
 
 let TextareaExample = React.createClass({
   onClick() {
@@ -16,11 +16,49 @@ let TextareaExample = React.createClass({
         <List>
           <List.Body>
             <TextareaItem
+              {...getFieldProps('note6', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              clear={true}
+              rows={5}
+              placeholder="如果你有什么建议意见，欢迎你来吐槽"
+            />
+            <TextareaItem
+              type="hasLine"
+              {...getFieldProps('note7', {
+                initialValue: '我的意见是...',
+                valuePropName: 'value'
+              })}
+              clear={true}
+              rows={5}
+              placeholder="如果你有什么建议意见，欢迎你来吐槽"
+            />
+            <TextareaItem
+              {...getFieldProps('note4', {
+                initialValue: '我的意见是...',
+                valuePropName: 'value'
+              })}
+              clear={true}
+              rows={5}
+              placeholder="请填写"
+            />
+            <TextareaItem
+              {...getFieldProps('note5', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              title={<div style={{ backgroundImage: "url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)",   backgroundSize: "cover", height: "28px", width: "28px" }} />}
+              clear={true}
+              error={true}
+              placeholder="请填写"
+            />
+            <TextareaItem
               {...getFieldProps('note', {
                 initialValue: 'dada22东方朔放松放松东方朔放松放松冯绍峰放松放松放松放松放松放松放松放松',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              title="备注说明"
               name="yyy"
               rows={5}
               placeholder="带清除"
@@ -33,12 +71,12 @@ let TextareaExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              title="备注"
               name="yyy"
               placeholder="请填写"
               clear={false}
               rows={5}
-              maxLength={100}
+              count={100}
               onBlur={() => {console.log('onBlur');}}
               onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
@@ -47,20 +85,32 @@ let TextareaExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              title="备注"
               error={true}
               placeholder="请填写"
             />
             <TextareaItem
-              {...getFieldProps('note4', {
+              {...getFieldProps('note8', {
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
-              clear={true}
-              error={true}
+              autoHeight
+              clear
+              title="备注"
+              error
               placeholder="请填写"
             />
+            <InputItem
+              {...getFieldProps('normal', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              placeholder="placeholder"
+              clear={true}
+              onBlur={function(e){console.log('onBlur'); console.log(e);}}
+              onFocus={function(e){console.log('onFocus'); console.log(e);}}
+              extra="元"
+            >InputItem</InputItem>
           </List.Body>
         </List>
       </Page>
