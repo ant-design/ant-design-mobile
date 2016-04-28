@@ -25,29 +25,18 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { id, className, meta, intro, preview, style, src,
-            highlightedCode, highlightedStyle, pathname } = this.props;
+    const { id, className, meta, intro, style,
+            highlightedCode, highlightedStyle, pathname, role } = this.props;
     const codeExpand = this.state.codeExpand;
     const codeBoxClass = classNames({
       'code-box': true,
       [className]: className,
       expand: codeExpand,
     });
+
     const introChildren = utils.jsonmlToComponent(pathname, ['div'].concat(intro));
     return (
       <section className={codeBoxClass} id={id}>
-        <section className="code-box-demo">
-          {
-            meta.iframe ?
-              <iframe src={src} /> :
-              preview
-          }
-          {
-            !!style ?
-              <style dangerouslySetInnerHTML={{ __html: style }} /> :
-              null
-          }
-        </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
             <Link to={{ pathname, query: { scrollTo: id } }}>
@@ -55,9 +44,12 @@ export default class Demo extends React.Component {
             </Link>
           </div>
           { introChildren }
+          {
+          role === 'engineer' &&
           <span className="collapse anticon anticon-circle-o-right"
             onClick={this.handleCodeExapnd}
             unselectable="none" />
+          }
         </section>
         <section className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
           key="code">

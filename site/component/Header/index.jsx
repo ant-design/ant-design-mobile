@@ -95,7 +95,7 @@ export default class Header extends React.Component {
             <div id="search-box">
               <Select combobox
                 dropdownClassName="component-select"
-                searchPlaceholder={ <span><Icon type="search" /> search component</span> }
+                placeholder={ <span><Icon type="search" /> search component</span> }
                 optionLabelProp="nothing"
                 optionFilterProp="data-label"
                 filterOption={this.handleSelectFilter}
