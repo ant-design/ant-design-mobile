@@ -14,38 +14,34 @@ let CheckboxExample = React.createClass({
     return (
       <Page title="Checkbox" subtitle="&lt;CheckboxItem /&gt;">
         <List >
+          <List.Header>表单多选项，普通列表中多选项</List.Header>
           <List.Body>
             <CheckboxItem
               {...getFieldProps('f1', {
-                initialValue: false,
-                valuePropName: 'checked'
-              })}
-              extra="dada"
-            >使用优惠</CheckboxItem>
-            <CheckboxItem
-              {...getFieldProps('f2', {
                 initialValue: true,
                 valuePropName: 'checked'
               })}
-              extra="dada"
-              arrow="up"
-            >默认选择</CheckboxItem>
+            >使用 Ant Desgin Component</CheckboxItem>
+            <CheckboxItem
+              {...getFieldProps('f2', {
+                initialValue: false,
+                valuePropName: 'checked'
+              })}
+            >个性化调整</CheckboxItem>
             <CheckboxItem
               disabled={true}
               {...getFieldProps('f3', {
                 initialValue: false,
                 valuePropName: 'checked'
               })}
-              name="f3"
-            >disabled</CheckboxItem>
+            >个性化调整disabled</CheckboxItem>
             <CheckboxItem
               disabled={true}
               {...getFieldProps('f4', {
                 initialValue: true,
                 valuePropName: 'checked'
               })}
-              name="f3"
-            >disabled</CheckboxItem>
+            >个性化调整disabled</CheckboxItem>
           </List.Body>
         </List>
         <CheckboxItem
@@ -54,17 +50,23 @@ let CheckboxExample = React.createClass({
             initialValue: false,
             valuePropName: 'checked'
           })}
-          name="f4"
         >同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
         </CheckboxItem>
         <CheckboxItem
-          disabled={true}
           mode="agree"
           {...getFieldProps('f6', {
             initialValue: true,
             valuePropName: 'checked'
           })}
-          name="f5"
+        >同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
+        </CheckboxItem>
+        <CheckboxItem
+          disabled={true}
+          mode="agree"
+          {...getFieldProps('f7', {
+            initialValue: true,
+            valuePropName: 'checked'
+          })}
         >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
         </CheckboxItem>
 

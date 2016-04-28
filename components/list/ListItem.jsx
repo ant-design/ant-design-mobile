@@ -7,7 +7,7 @@ export default class ListItem extends React.Component {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
     line: PropTypes.number,
-    extra: PropTypes.any,
+    extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
     icon: PropTypes.string,
     thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
     arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
