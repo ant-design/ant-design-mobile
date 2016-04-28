@@ -21,23 +21,18 @@ const TabExample = React.createClass({
           <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
         </Tabs>
         <WhiteSpace />
-        {/*<Tabs defaultActiveKey="1" size="small" onChange={callback}>
-         <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
-         <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
-         <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
-         </Tabs>
-         <WhiteSpace />*/}
         <Tabs defaultActiveKey="1" type="capsule" onChange={callback}>
           <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
           <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
           <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
         </Tabs>
         <WhiteSpace />
-        {/*<Tabs defaultActiveKey="1" type="capsule" size="small" onChange={callback}>
-         <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
-         <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
-         <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
-         </Tabs>*/}
+        <Tabs defaultActiveKey="1" type="capsule" onChange={callback}>
+          <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
+          <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
+          <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
+          <TabPane tab="选项卡四" key="4">选项卡四内容</TabPane>
+        </Tabs>
       </Page>
     );
   },
