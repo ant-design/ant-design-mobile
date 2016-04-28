@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import Icon from '../Icon';
 
 export default class Modal extends React.Component {
   static propTypes = {
@@ -68,7 +69,11 @@ export default class Modal extends React.Component {
       [`${prefixCls}-size-large`]: size === 'large',
     });
 
-    const close = closable && selected && size === 'large' ? <div className={`${prefixCls}-close`} onClick={this.onClose} /> : null;
+    const close = closable && selected && size === 'large' ? (
+      <div className={`${prefixCls}-close`} onClick={this.onClose}>
+        <Icon type="cross" />
+      </div>
+    ) : null;
 
     return this.state.closed ? null : (
       <div className={wrapCls} {...others} onClick={this.onClick}>

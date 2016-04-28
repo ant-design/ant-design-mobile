@@ -57,14 +57,21 @@
     border-left:@margin-3 @border-type-1 @brand-6; /* bottom, add background color here */
     line-height:0;
     transform: rotate(45deg);
-    &:before {
-      content: '×';
-      display: inline-block;
+    .anticon {
       color: white;
       position: absolute;
-      top: 0;
+      top: -6px;
       left: -13px;
-      transform: rotate(-45deg) scale(0.8);
+      transform: rotate(-45deg) scale(0.7);
     }
+    //&:before {
+    //  content: '×';
+    //  display: inline-block;
+    //  color: white;
+    //  position: absolute;
+    //  top: 0;
+    //  left: -13px;
+    //  transform: rotate(-45deg) scale(0.8);
+    //}
   }
 }
