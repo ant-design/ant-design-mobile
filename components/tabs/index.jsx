@@ -9,30 +9,30 @@ export default class Tabs extends React.Component {
     type: PropTypes.oneOf(['line', 'capsule']),
     activeKey: PropTypes.string,
     defaultActiveKey: PropTypes.string,
-    size: PropTypes.string,
-    onTabClick: PropTypes.func,
     onChange: PropTypes.func,
+    onTabClick: PropTypes.func,
   }
 
   static defaultProps = {
     prefixCls: 'am-tab',
     animation: 'slide-horizontal',
     type: 'line',
+    onChange() {},
+    onTabClick() {},
   }
 
   render() {
-    let { prefixCls, size, animation, type, children, handleChange } = this.props;
+    let { prefixCls, type, children, onChange, onTabClick } = this.props;
     let className = classNames({
       [this.props.className]: !!this.props.className,
-      [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
       [`${prefixCls}-${type}`]: true,
     });
 
     return (
       <RcTabs {...this.props}
         className={className}
-        onChange={handleChange}
-        animation={animation}>
+        onChange={onChange}
+        onTabClick={onTabClick}>
         {children}
       </RcTabs>
     );
