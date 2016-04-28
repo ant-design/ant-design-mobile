@@ -29,6 +29,7 @@ import ModalExample from '../component/ModalExample';
 import AlertExample from '../component/AlertExample';
 import TagExample from '../component/TagExample';
 import BadgeExample from '../component/BadgeExample';
+import DrawerExample from '../component/DrawerExample';
 import { ListSelectorExample, ListSelector2 } from '../component/ListSelectorExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -37,7 +38,7 @@ import { Router, Route, hashHistory } from 'react-router';
 if((/iphone|ipad/i).test(navigator.userAgent)) {
   if ('addEventListener' in document) {
     document.addEventListener('DOMContentLoaded', function() {
-      FastClick.attach(document.body);
+      // FastClick.attach(document.body);
     }, false);
   }
 }
@@ -311,6 +312,16 @@ const App = React.createClass({
                 />
               </Flex.Item>
             </Flex>
+            <Flex className="antm-demo-flex">
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+                  title="抽屉"
+                  subtitle="Drawer"
+                  onClick={() => {location.hash = 'drawer';}}
+                />
+              </Flex.Item>
+            </Flex>
           </List.Body>
         </List>
       </Page>
@@ -351,6 +362,7 @@ const pageRouter = (
     <Route path="/badge" component={BadgeExample}/>
     <Route path="/alert" component={AlertExample}/>
     <Route path="/tag" component={TagExample}/>
+    <Route path="/drawer" component={DrawerExample}/>
   </Router>
 );
 
