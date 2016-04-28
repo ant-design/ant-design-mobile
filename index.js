@@ -15,4 +15,9 @@ const antm = {
   Card, PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag
 };
 
+if (typeof console !== 'undefined' && console.warn) {
+  console.warn(`you are using prebuild antm, 
+please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
+}
+
 export default antm;
