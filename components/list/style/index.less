@@ -45,7 +45,10 @@
       .box-align(flex-end);
     }
 
-    .hairline-bottom(bottom, @neutral-5, @margin-4);
+    .hairline-bottom(bottom, @neutral-5, 4*@grid);
+    &.@{listPrefixClass}-item-thumb {
+      .hairline-bottom(bottom, @neutral-5, 13*@grid);
+    }
     /*&:last-child {
       .hairline-remove(bottom);
     }*/

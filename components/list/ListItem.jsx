@@ -22,6 +22,7 @@ export default class ListItem extends React.Component {
     link: '',
     line: 1,
     onClick: noop,
+    thumb: '',
     arrow: '',
     needActive: true,
     error: false,
@@ -56,6 +57,7 @@ export default class ListItem extends React.Component {
       [`${prefixCls}-item-top`]: align === 'top',
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
+      [`${prefixCls}-item-thumb`]: thumb !== '',
       [className]: className
     });
 
