@@ -1,7 +1,6 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-@listPrefixClass: am-list;
 @switchPrefixClass: am-switch;
 
 .@{switchPrefixClass} {
@@ -90,15 +89,6 @@
           background: @green-3;
         }
       }
-    }
-  }
-}
-
-.@{listPrefixClass} {
-  & &-item {
-    &.@{switchPrefixClass}-item {
-      padding-top: 1.5*@grid;
-      padding-bottom: 1.5*@grid;
     }
   }
 }
