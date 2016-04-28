@@ -1,13 +1,10 @@
 @import '../../style/mixins';
 @import '../../style/variables.less';
-@import '../../style/iconfont.less';
 
 @pickerPrefixClass: am-toast;
 
 .@{pickerPrefixClass} {
   position: fixed;
-  z-index: 100;
-  top: 40%;
   width: 100%;
   text-align: center;
   &-text {
@@ -16,13 +13,12 @@
     padding: 4*@grid;
     .border-radius(6px);
     color: #fff;
-    background-color: @neutral-10;
-    opacity: 0.6;
+    background-color: fade(@neutral-10, 60%);
     font-size: @font-size-4;
     line-height: 21px;
   }
 
-  &-icon {
+  .anticon {
     font-size: 8*@grid;
     margin-bottom: @grid;
   }

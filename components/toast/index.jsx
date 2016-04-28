@@ -1,82 +1,74 @@
-import React, { PropTypes } from 'react';
-import classNames from 'classnames';
+import React from 'react';
+import Notification from 'rc-notification';
 import Icon from '../icon';
 
-export default class Toast extends React.Component {
-  static propTypes = {
-    mode: PropTypes.string,
-    children: PropTypes.node,
-    duration: PropTypes.number,
-    afterHide: PropTypes.func,
-  }
+let messageInstance;
+let key = 1;
+let prefixCls = 'am-toast';
 
-  static defaultProps = {
-    prefixCls: 'am-toast',
-    mode: '',
-    duration: 3000,
-    afterHide() {},
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      show: true,
-    };
-  }
-
-  componentDidMount() {
-    const props = this.props;
-    this.toastInterval = setTimeout(() => {
-      this.setState({
-        show: false,
-      }, () => {
-        props.afterHide();
-      });
-    }, props.duration);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.toastInterval);
-  }
-
-  render() {
-    const { mode, children, className, prefixCls } = this.props;
-
-    const wrapCls = classNames({
-      [prefixCls]: true,
-      [className]: className
-    });
-
-    let iconType = '';
-    switch (mode) {
-      case 'success':
-        iconType = 'check-circle-o';
-        break;
-      case 'fail':
-        iconType = 'cross-circle-o';
-        break;
-      case 'network':
-        iconType = 'frown';
-        break;
-      case 'loading':
-        iconType = 'loading';
-        break;
-      default:
-        break;
-    }
-
-    const iconDom = mode !== '' ? <div className={`${prefixCls}-icon`}>
-      <Icon type={iconType} />
-    </div> : null;
-
-    return this.state.show ? (
-      <div className={wrapCls}>
-        <div className={`${prefixCls}-text`}>
-          {iconDom}
-          {children}
-        </div>
-      </div>
-    ) : null;
-  }
+function getMessageInstance() {
+  messageInstance = messageInstance || Notification.newInstance({
+    prefixCls,
+    style: { top: '40%' },
+  });
+  return messageInstance;
 }
+
+function notice(content, duration = 3, onClose, type) {
+  let iconType = ({
+    info: '',
+    success: 'check-circle-o',
+    fail: 'cross-circle-o',
+    network: 'frown',
+    loading: 'loading'
+  })[type];
+
+  if (typeof duration === 'function') {
+    onClose = duration;
+    duration = 3;
+  }
+
+  let instance = getMessageInstance();
+  instance.notice({
+    key,
+    duration,
+    style: {},
+    content: (
+      <div className={`${prefixCls}-text`}>
+        {!!iconType && <Icon type={iconType} />}
+        <div>{content}</div>
+      </div>
+    ),
+    onClose,
+  });
+  return (function () {
+    let target = key++;
+    return function () {
+      instance.removeNotice(target);
+    };
+  }());
+}
+
+export default {
+  info(content, duration, onClose) {
+    return notice(content, duration, onClose, 'info');
+  },
+  success(content, duration, onClose) {
+    return notice(content, duration, onClose, 'success');
+  },
+  fail(content, duration, onClose) {
+    return notice(content, duration, onClose, 'fail');
+  },
+  network(content, duration, onClose) {
+    return notice(content, duration, onClose, 'network');
+  },
+  loading(content, duration, onClose) {
+    return notice(content, duration, onClose, 'loading');
+  },
+  destroy() {
+    if (messageInstance) {
+      messageInstance.destroy();
+      messageInstance = null;
+    }
+  },
+};
