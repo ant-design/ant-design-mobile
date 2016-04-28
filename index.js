@@ -2,7 +2,7 @@ import {
   List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox,
   TextareaItem, SelectItem, Switch, CaptchaItem, Button, ListPicker,
   ListDatePicker, ListSelector, SearchBar, Process,
-  TopNotice, Tabs, SegmentedControl, Modal, Toast, Article, Alert,
+  TopNotice, Tabs, Modal, Toast, Article, Alert,
   Card, PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer
 } from 'antm';
 
@@ -11,7 +11,7 @@ const antm = {
   List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox,
   TextareaItem, SelectItem, Switch, CaptchaItem, Button, ListPicker,
   ListDatePicker, ListSelector, SearchBar, Process,
-  TopNotice, Tabs, SegmentedControl, Modal, Toast, Article, Alert,
+  TopNotice, Tabs, Modal, Toast, Article, Alert,
   Card, PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer
 };
 
