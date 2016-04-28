@@ -1,6 +1,7 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
+@listPrefixClass: am-list;
 @checkboxWarpPrefixCls: am-checkbox;
 @checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
 
@@ -27,8 +28,8 @@
       top: 3px;
       right: 7px;
       z-index: 999;
-      width: 5px;
-      height: 12px;
+      width: @grid;
+      height: 3*@grid;
       border-style: @border-type-1;
       border-width: 0 1px 1px 0;
       content: '\0020';
@@ -49,7 +50,7 @@
 }
 .@{checkboxWarpPrefixCls}-checked {
   .@{checkboxInnerPrefixCls} {
-    border-width: 0px;
+    border-width: 0;
     background-color: @brand-6;
     &:after {
       display: block;
@@ -70,9 +71,9 @@
     }
   }
 }
-.am-list {
-  .am-list-item {
-    &.am-list-item-check {
+.@{listPrefixClass} {
+  & &-item {
+    &.@{checkboxWarpPrefixCls}-item {
       .hairline-bottom(bottom, @neutral-5, 11*@grid);
       .am-list-thumb {
         .@{checkboxWarpPrefixCls} {
@@ -84,11 +85,11 @@
 }
 
 .@{checkboxWarpPrefixCls}-agree {
-  line-height: 24px;
-  label {
+  line-height: 8*@grid;
+  .@{checkboxWarpPrefixCls}-agree-label {
     display: inline-block;
     margin-left: @grid;
-    font-size: 14px;
+    font-size: @font-size-4;
     a {
       position: relative;
       z-index: 99;
