@@ -46,7 +46,7 @@ const App = React.createClass({
       onOpenChange: this.onOpenChange,
     };
     return (<div className="drawer-container">
-      <Drawer sidebar={sidebar} {...drawerProps}>
+      <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
         <p>React component</p>
         <Button type="primary" inline onClick={this.onDock}>
           {this.state.docked ? 'hide menu' : 'show menu'}

@@ -20,7 +20,7 @@
   &-draghandle {
     z-index: 1;
     position: absolute;
-    background-color: rgba(50, 50, 50, 0.2);
+    background-color: rgba(50, 50, 50, 0.1);
   }
   &-overlay {
     z-index: 1;
@@ -53,12 +53,7 @@
     }
     .@{drawerPrefixCls}-draghandle {
       width: 20px;
-      &::after {
-        content: '||';
-        position: absolute;
-        top: 48%;
-        left: 1px;
-      }
+      height: 100%;
     }
   }
   &&-top,

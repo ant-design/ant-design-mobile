@@ -38,7 +38,7 @@ import { Router, Route, hashHistory } from 'react-router';
 if((/iphone|ipad/i).test(navigator.userAgent)) {
   if ('addEventListener' in document) {
     document.addEventListener('DOMContentLoaded', function() {
-      FastClick.attach(document.body);
+      // FastClick.attach(document.body);
     }, false);
   }
 }
