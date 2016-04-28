@@ -1,7 +1,6 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-@listPrefixClass: am-list;
 @checkboxWarpPrefixCls: am-checkbox;
 @checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
 
@@ -12,7 +11,6 @@
   width: 5*@grid;
   height: 5*@grid;
   line-height: 5*@grid;
-  margin-left: 2*@grid;
   &-inner {
     position: absolute;
     right: 0;
@@ -28,8 +26,8 @@
       top: 3px;
       right: 7px;
       z-index: 999;
-      width: @grid;
-      height: 3*@grid;
+      width: 5px;
+      height: 11px;
       border-style: @border-type-1;
       border-width: 0 1px 1px 0;
       content: '\0020';
@@ -47,47 +45,36 @@
     border: 0 none;
     -webkit-appearance: none;
   }
-}
-.@{checkboxWarpPrefixCls}-checked {
-  .@{checkboxInnerPrefixCls} {
-    border-width: 0;
-    background-color: @brand-6;
-    &:after {
-      display: block;
-      border-color: @neutral-1;
-    }
-  }
-}
-.@{checkboxWarpPrefixCls}-disabled {
-  .@{checkboxInnerPrefixCls} {
-    background-color: @neutral-4;
-  }
   &.@{checkboxWarpPrefixCls}-checked {
     .@{checkboxInnerPrefixCls} {
+      border-width: 0;
+      background-color: @brand-6;
       &:after {
         display: block;
-        border-color: @neutral-5;
+        border-color: @neutral-1;
       }
     }
   }
-}
-.@{listPrefixClass} {
-  & &-item {
-    &.@{checkboxWarpPrefixCls}-item {
-      .hairline-bottom(bottom, @neutral-5, 11*@grid);
-      .am-list-thumb {
-        .@{checkboxWarpPrefixCls} {
-          margin-left: 0;
+  &.@{checkboxWarpPrefixCls}-disabled {
+    .@{checkboxInnerPrefixCls} {
+      background-color: @neutral-4;
+    }
+    &.@{checkboxWarpPrefixCls}-checked {
+      .@{checkboxInnerPrefixCls} {
+        &:after {
+          display: block;
+          border-color: @neutral-5;
         }
       }
     }
   }
 }
 
+
 .@{checkboxWarpPrefixCls}-agree {
+  margin-left: 4*@grid;
   line-height: 8*@grid;
   .@{checkboxWarpPrefixCls}-agree-label {
-    display: inline-block;
     margin-left: @grid;
     font-size: @font-size-4;
     a {

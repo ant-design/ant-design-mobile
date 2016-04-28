@@ -6,7 +6,7 @@ title: Modal
 
 
 ````jsx
-import { Modal, List, CheckboxItem, Button, WhiteSpace, WingBlank } from 'antm';
+import { Modal, List, Checkbox, Button, WhiteSpace, WingBlank } from 'antm';
 import { createForm } from 'rc-form';
 function noop() {}
 
@@ -117,11 +117,11 @@ let ListSelector = React.createClass({
 
     let items = renderData.map((data) => {
       return (
-        <CheckboxItem {...getFieldProps(data.id, {
+        <Checkbox {...getFieldProps(data.id, {
           valuePropName: 'checked',
           initialValue: data.checked }) } key={`selector_${data.id}`}>
           {data.name}
-        </CheckboxItem>
+        </Checkbox>
       );
     });
 

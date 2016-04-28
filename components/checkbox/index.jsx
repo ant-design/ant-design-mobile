@@ -1,15 +1,13 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import List from '../list';
-import Checkbox from 'rc-checkbox';
+import RcCheckbox from 'rc-checkbox';
 function noop() {}
 
-export default class CheckboxItem extends React.Component {
+export default class Checkbox extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
-    prefixListCls: PropTypes.string,
-    mode: PropTypes.string,
     style: PropTypes.object,
+    type: PropTypes.oneOf(['normal', 'agree']),
     name: PropTypes.string,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -18,9 +16,8 @@ export default class CheckboxItem extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-checkbox',
-    prefixListCls: 'am-list',
     style: {},
-    mode: 'normal',
+    type: 'normal',
     name: '',
     checked: false,
     disabled: false,
@@ -28,29 +25,17 @@ export default class CheckboxItem extends React.Component {
   };
 
   render() {
-    const { style, prefixCls, prefixListCls, mode, name, checked, disabled, children, className } = this.props;
+    const { prefixCls, style, type, name, checked, disabled, children, className } = this.props;
     const wrapCls = classNames({
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-agree`]: mode === 'agree',
+      [`${prefixCls}`]: type === 'normal',
+      [`${prefixCls}-item`]: type === 'agree',
+      [`${prefixCls}-agree`]: type === 'agree',
       [className]: className
     });
 
-    let listPropObj = {
-      ...this.props,
-      prefixCls: prefixListCls,
-      className: wrapCls,
-      thumb: <Checkbox
-        prefixCls={prefixCls}
-        defaultChecked={checked}
-        name={name}
-        onChange={this.props.onChange}
-        disabled={disabled}
-      />
-    };
-
-    return mode === 'agree' ? (
+    return type === 'agree' ? (
       <div className={wrapCls} style={style}>
-        {<Checkbox
+        {<RcCheckbox
           prefixCls={prefixCls}
           defaultChecked={checked}
           name={name}
@@ -58,6 +43,13 @@ export default class CheckboxItem extends React.Component {
           disabled={disabled}
         />}
         <label className={`${prefixCls}-agree-label`} htmlFor={name}>{children}</label>
-      </div>) : (<List.Item {...listPropObj}>{children}</List.Item>);
+      </div>) : (<RcCheckbox
+        prefixCls={prefixCls}
+        style={style}
+        defaultChecked={checked}
+        name={name}
+        onChange={this.props.onChange}
+        disabled={disabled}
+      />);
   }
 }

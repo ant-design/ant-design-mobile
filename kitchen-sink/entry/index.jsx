@@ -147,7 +147,7 @@ const App = React.createClass({
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/mDSCerpoWfSuLlJ.png"
                   title="复选框"
-                  subtitle="ChackboxItem"
+                  subtitle="Checkbox"
                   onClick={() => {location.hash = 'checkbox';}}
                 />
               </Flex.Item>
@@ -216,7 +216,7 @@ const App = React.createClass({
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/NmMXnPngqRrKHrq.png"
                   title="滑动开关"
-                  subtitle="SwitchItem"
+                  subtitle="Switch"
                   onClick={() => {location.hash = 'switch';}}
                 />
               </Flex.Item>
