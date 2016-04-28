@@ -1,19 +1,26 @@
 ---
-order: 1
+order: 4
 title: 成功提醒
 ---
 
-
-
 ````jsx
-import { Toast } from 'antm';
-
+import { Toast, Button } from 'antm';
 
 let ToastExample = React.createClass({
+  getInitialState() {
+    return {
+      show: false,
+    };
+  },
   render() {
     return (
       <div className="toast-container">
-        <Toast mode="success">成功提醒</Toast>
+        <Button mode="light" size="tiny" inline onClick={() => {
+          this.setState({
+            show: true,
+          });
+        }}>点我-成功toast </Button>
+        {this.state.show ? <Toast mode="success">加载成功</Toast> : null}
       </div>
     );
   }

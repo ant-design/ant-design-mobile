@@ -1,6 +1,6 @@
 ---
-order: 3
-title: 网络无连接
+order: 5
+title: 隐藏事件
 ---
 
 ````jsx
@@ -19,8 +19,10 @@ let ToastExample = React.createClass({
           this.setState({
             show: true,
           });
-        }}> 点我-网络失败toast </Button>
-        {this.state.show ? <Toast mode="network">网络无连接</Toast> : null}
+        }}> 点我显示toast </Button>
+        {this.state.show ? <Toast mode="success" afterClose={() => {
+          alert('hided!!!');
+        }}>加载中...</Toast> : null}
       </div>
     );
   }
