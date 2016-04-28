@@ -15,10 +15,13 @@ english: SwitchItem
 ## API
 
 
-| 成员        | 说明           | 类型               | 默认值       |
+| 成员        | 说明           | 类型     |     可选值        | 默认值       |
 |------------|----------------|--------------------|--------------|
-| label      | 文案说明        | String           |   无  |
-| name       | switch的name    | String           |   无  |
-| checked    | 是否默认选中    | Boolean           |   false  |
-| disabled   | 是否不可修改    | Boolean           |   false  |
-| onChange   | switch change事件触发的回调函数,参数是checked的值 | Function |   无  |
+| prefixCls       | class前缀    | String           |     | `am-switch` |
+| prefixListCls       | List.Item的prefixCls    | String     |     |   `am-list`  |
+| style       | switch的name    | String     |      |   无  |
+| type       | 组件渲染成一个列表项或者是纯的滑动开关    | String      |  `normal` `pure`   |   `normal`  |
+| name       | switch的name    | String       |    |   无  |
+| checked    | 是否默认选中    | Boolean      |     |   false  |
+| disabled   | 是否不可修改    | Boolean      |     |   false  |
+| onChange   | switch change事件触发的回调函数,参数是checked的值 | Function |  |  无  |
