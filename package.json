@@ -25,7 +25,7 @@
   "bugs": {
     "url": "http://gitlab.alipay-inc.com/react-ui/ant-mobile/issues"
   },
-  "main": "lib/index",
+  "main": "dist/antm",
   "files": [
     "lib",
     "style"
