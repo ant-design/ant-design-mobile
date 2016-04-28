@@ -1,35 +1,205 @@
+@import '../../style/variables';
 @import '../../style/mixins';
 
-/*Tab选项卡*/
-.am-tab {
-  .display-box;
-  background-color: #ffffff;
-  height: 44px;
-  button {
-    padding: 0px;
-    border: 0px none;
-    outline: 0px none;
-    background: transparent;
-    -webkit-appearance: none;
+@tab-prefix-cls: am-tab;
+
+.@{tab-prefix-cls} {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  .float-clear();
+  color: #999;
+
+  &-bar {
+    outline: none;
+    margin-bottom: 3*@grid;
   }
-  .am-tab-item {
-    display: block;
-    .box-flex(1);
-    width: 100%;
-    height: 100%;
-    .box-sizing();
-    background: -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#e5e5e5)) bottom left no-repeat;
-    background: -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
-    background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
-    -webkit-background-size: 100% 1px;
-    font-size: 14px;
-    text-align: center;
-    line-height: 44px;
-    color: #666666;
-    &.am-tab-item-selected {
-      background: none;
-      color: #00aaee;
-      border-bottom: 3px solid #00aaee;
+
+  &-nav-container {
+    overflow: hidden;
+    font-size: @font-size-4;
+    line-height: 1;
+    box-sizing: border-box;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  &-nav-wrap {
+    overflow: hidden;
+    margin-bottom: -1px;
+  }
+
+  &-nav {
+    box-sizing: border-box;
+    position: relative;
+    .display-box;
+
+    .@{tab-prefix-cls}-tab-disabled {
+      pointer-events: none;
+      cursor: default;
+
+      .@{tab-prefix-cls}-tab-inner {
+        color: #ccc;
+      }
     }
+
+    .@{tab-prefix-cls}-tab {
+      height: 100%;
+      text-align: center;
+      box-sizing: border-box;
+      position: relative;
+      flex: 1;
+
+      &-inner {
+        padding: 12px 20px;
+        display: block;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:active {
+          color: shade(@brand-6, 5%);
+          transform: translateZ(0);
+        }
+
+        .anticon {
+          width: 14px;
+          height: 14px;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
+      color: @brand-6;
+      transform: translateZ(0);
+    }
+  }
+
+  &.@{tab-prefix-cls}-line {
+    .@{tab-prefix-cls}-bar {
+      .border-1px-bottom;
+    }
+  }
+
+  &.@{tab-prefix-cls}-capsule {
+    .@{tab-prefix-cls}-bar {
+      border:1px @border-type-1 @brand-6;
+      border-radius: @radius-1;
+    }
+    .@{tab-prefix-cls}-ink-bar {
+      background-color: transparent;
+    }
+    .@{tab-prefix-cls}-nav .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
+      background-color: @brand-6;
+      color: @neutral-1;
+    }
+  }
+
+  &-ink-bar {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    box-sizing: border-box;
+    height: 2px;
+    background-color: @brand-6;
+    transform-origin: 0 0;
+    &-transition-forward {
+      //transition: transform 0.3s @ease-in-out;
+    }
+    &-transition-backward {
+      //transition: transform 0.3s @ease-in-out 0.3s * 0.3;
+    }
+  }
+
+  &-tab-btn-disabled {
+    cursor: not-allowed;
+    & {
+      color: #ccc;
+    }
+  }
+
+  &-mini &-nav-container {
+    font-size: 12px;
+  }
+
+  &-mini &-tab {
+    margin-right: 0;
+    .@{tab-prefix-cls}-tab-inner {
+      padding: 8px 16px;
+    }
+  }
+
+  &-tabpane-hidden {
+    display: none;
+  }
+
+  &-content {
+    position: relative;
+    width: 100%;
+  }
+
+  &-slide-horizontal-backward-enter {
+    //.motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
+    opacity: 0;
+    animation-duration: 0.4s;
+  }
+
+  &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
+    animation-name: antMoveLeftIn;
+    transform: translateZ(0);
+    animation-play-state: running;
+  }
+
+  &-slide-horizontal-backward-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    //.motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
+    animation-duration: 0.4s;
+  }
+
+  &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
+    animation-name: antMoveRightOut;
+    transform: translateZ(0);
+    animation-play-state: running;
+  }
+
+  &-slide-horizontal-forward-enter {
+    //.motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
+    opacity: 0;
+    animation-duration: 0.4s;
+  }
+
+  &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
+    animation-name: antMoveRightIn;
+    animation-play-state: running;
+    transform: translateZ(0);
+  }
+
+  &-slide-horizontal-forward-leave {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    //.motion-common();
+    animation-duration: 0.4s;
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
+  }
+
+  &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
+    transform: translateZ(0);
+    animation-name: antMoveLeftOut;
+    animation-play-state: running;
   }
 }
