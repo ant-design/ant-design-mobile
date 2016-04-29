@@ -2,8 +2,11 @@
 category: Components
 chinese: 轻提示
 type: 展示
+noinstant: true
 english: Toast
 ---
+
+全局展示反馈信息。
 
 ## 何时使用
 
@@ -14,8 +17,21 @@ english: Toast
 
 ## API
 
-| 成员        | 说明           | 类型        |  可选值       | 默认值       |
-|------------|----------------|--------------------|--------------|
-| mode       | icon类型        | String |   `success`、`fail`、`loading`、`network`或不写 |  无 |
-| duration       | 持续时间        | Number |   数字或不写 |  `3000` |
-| afterHide       | 消失后的回调        | Function |  无  |  无 |
+- `Toast.success(content, duration, onClose)`
+- `Toast.fail(content, duration, onClose)`
+- `Toast.info(content, duration, onClose)`
+- `Toast.loading(content, duration, onClose)`
+- `Toast.network(content, duration, onClose)`
+
+组件提供了五个静态方法，参数如下：
+
+| 参数       | 说明           | 类型                       | 默认值       |
+|------------|----------------|----------------------------|--------------|
+| content    | 提示内容       | React.Element or String    | 无           |
+| duration   | 自动关闭的延时，单位秒 | number                 | 3          |
+| onClose    | 关闭后回调 |  Function                 | 无          |
+
+
+还提供了全局配置和全局销毁方法：
+
+- `Toast.destroy()`
