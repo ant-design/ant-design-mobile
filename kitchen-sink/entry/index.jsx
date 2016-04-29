@@ -7,7 +7,6 @@ import ListExample from '../component/ListExample';
 import CollapseExample from '../component/CollapseExample';
 import ButtonExample from '../component/ButtonExample';
 import TabExample from '../component/TabExample';
-import SegmentedControlExample from '../component/SegmentedControlExample';
 import PageResultExample from '../component/PageResultExample';
 import ProcessExample from '../component/ProcessExample';
 import WhiteSpaceExample from '../component/WhiteSpaceExample';
@@ -111,14 +110,7 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'tab';}}
                 />
               </Flex.Item>
-              <Flex.Item>
-                <Item
-                  logo="https://os.alipayobjects.com/rmsportal/mOVMmnLfrBdDwKr.png"
-                  title="选项卡"
-                  subtitle="SegmentedControl"
-                  onClick={() => {location.hash = 'segmentedcontrol';}}
-                />
-              </Flex.Item>
+              <Flex.Item/>
               <Flex.Item/>
             </Flex>
           </List.Body>
@@ -337,7 +329,6 @@ const pageRouter = (
     <Route path="/collapse" component={CollapseExample}/>
     <Route path="/button" component={ButtonExample}/>
     <Route path="/tab" component={TabExample}/>
-    <Route path="/segmentedcontrol" component={SegmentedControlExample}/>
     <Route path="/process" component={ProcessExample}/>
     <Route path="/whitespace" component={WhiteSpaceExample}/>
     <Route path="/wingblank" component={WingBlankExample}/>

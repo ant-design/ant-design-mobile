@@ -141,7 +141,6 @@
   align-self: @as;
 }
 
-//-- 文字自动截取 --
 .ellipsis() {
   width: auto;
   overflow: hidden;
@@ -177,15 +176,13 @@
   -webkit-background-clip: padding-box;
 }
 
-//mixins中提供LESS方法
-
 .background(@start: #ffffff, @end: #000000) {
   background: @end;
   background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end)); /* Saf4+, Chrome */
   background-image: linear-gradient(@start, @end);
 }
 
-.border-1px(@color: #d2d2d2) {
+.border-1px-bottom(@color: #d2d2d2) {
   background: left bottom repeat-x;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(.5, transparent), color-stop(.5, @color), to(@color));
   background-image: linear-gradient(left top, left bottom, color-stop(.5, transparent), color-stop(.5, @color), to(@color));
