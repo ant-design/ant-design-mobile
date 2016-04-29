@@ -29,6 +29,7 @@ import AlertExample from '../component/AlertExample';
 import TagExample from '../component/TagExample';
 import BadgeExample from '../component/BadgeExample';
 import DrawerExample from '../component/DrawerExample';
+import SliderExample from '../component/SliderExample';
 import { ListSelectorExample, ListSelector2 } from '../component/ListSelectorExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -220,6 +221,14 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'textarea';}}
                 />
               </Flex.Item>
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/MHMIvHaTJRwnFeV.png"
+                  title="滑动输入条"
+                  subtitle="Slider"
+                  onClick={() => {location.hash = 'slider';}}
+                />
+              </Flex.Item>
             </Flex>
           </List.Body>
         </List>
@@ -354,6 +363,7 @@ const pageRouter = (
     <Route path="/alert" component={AlertExample}/>
     <Route path="/tag" component={TagExample}/>
     <Route path="/drawer" component={DrawerExample}/>
+    <Route path="/slider" component={SliderExample}/>
   </Router>
 );
 
