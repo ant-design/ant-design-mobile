@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Affix, Radio } from 'antd';
+import { Row, Col, Affix, Radio, Button, Icon } from 'antd';
 import Demo from '../Demo';
 import DemoPreview from '../DemoPreview';
 import * as utils from '../utils';
@@ -39,6 +39,24 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
+  togglePreview = (e) => {
+    this.setState({
+      currentIndex: e.index,
+    });
+  }
+
+  nextPreview = () => {
+    this.setState({
+      currentIndex: this.state.currentIndex + 1,
+    });
+  }
+
+  prePreview = () => {
+    this.setState({
+      currentIndex: this.state.currentIndex - 1,
+    });
+  }
+
   render() {
     const { doc, location } = this.props;
     const { description, meta } = doc;
@@ -59,8 +77,10 @@ export default class ComponentDoc extends React.Component {
 
     demoSort.forEach((demoData, index) => {
       demoData.role = role;
+      demoData.index = index;
+
       leftChildren.push(
-        <Demo {...demoData} className={index === currentIndex ? 'code-box-target' : ''}
+        <Demo togglePreview={ this.togglePreview } {...demoData} className={index === currentIndex ? 'code-box-target' : ''}
           key={index}
           expand={expand} pathname={location.pathname} />
       );
@@ -96,6 +116,24 @@ export default class ComponentDoc extends React.Component {
         <Row>
           <Col span="13" style={{ width: '54%', paddingRight: '16px' }}>
             { leftChildren }
+            <Row>
+              <Col span="12" style={{ paddingRight: '8px' }}>
+                <Button style={{ width: '100%' }}
+                  type="ghost"
+                  disabled = { currentIndex === 0 }
+                  onClick = { this.prePreview } >
+                  <Icon type="up" />
+                </Button>
+              </Col>
+              <Col span="12" style={{ paddingLeft: '8px' }}>
+                <Button style={{ width: '100%' }}
+                  type="ghost"
+                  disabled = { currentIndex >= demos.length - 1 }
+                  onClick = { this.nextPreview } >
+                  <Icon type="down" />
+                </Button>
+              </Col>
+            </Row>
           </Col>
           <Col span="11">
             <div className="demo-preview-wrapper">

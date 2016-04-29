@@ -24,6 +24,15 @@ export default class Demo extends React.Component {
     this.setState({ codeExpand: !this.state.codeExpand });
   }
 
+  handleClick = () => {
+    const togglePreview = this.props.togglePreview;
+    const { index } = this.props;
+
+    togglePreview({
+      index,
+    });
+  }
+
   render() {
     const { id, className, meta, intro, style,
             highlightedCode, highlightedStyle, pathname, role } = this.props;
@@ -36,7 +45,7 @@ export default class Demo extends React.Component {
 
     const introChildren = utils.jsonmlToComponent(pathname, ['div'].concat(intro));
     return (
-      <section className={codeBoxClass} id={id}>
+      <section className={codeBoxClass} id={id} onClick={ this.handleClick }>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
             <Link to={{ pathname, query: { scrollTo: id } }}>
