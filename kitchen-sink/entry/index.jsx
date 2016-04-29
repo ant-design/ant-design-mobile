@@ -356,7 +356,7 @@ const pageRouter = (
     <Route path="/toast" component={ToastExample}/>
     <Route path="/topnotice" component={TopNoticeExample}/>
     <Route path="/modal" component={ModalExample}/>
-    <Route path="/listselectorpicker" component={ListSelectorExample}>
+    <Route path="/listselectorpicker" component={ListSelectorExample} >
       <Route path="/listselector" component={ListSelector2}/>
     </Route>
     <Route path="/badge" component={BadgeExample}/>

@@ -3,11 +3,14 @@ import Notification from 'rc-notification';
 import Icon from '../icon';
 
 let messageInstance;
-let key = 1;
 let prefixCls = 'am-toast';
 
 function getMessageInstance() {
-  messageInstance = messageInstance || Notification.newInstance({
+  // 只确保同时只有一个 toast
+  if (messageInstance) {
+    messageInstance.destroy();
+  }
+  messageInstance = Notification.newInstance({
     prefixCls,
     style: { top: '40%' },
   });
@@ -30,7 +33,6 @@ function notice(content, duration = 3, onClose, type) {
 
   let instance = getMessageInstance();
   instance.notice({
-    key,
     duration,
     style: {},
     content: (
@@ -41,12 +43,6 @@ function notice(content, duration = 3, onClose, type) {
     ),
     onClose,
   });
-  return (function () {
-    let target = key++;
-    return function () {
-      instance.removeNotice(target);
-    };
-  }());
 }
 
 export default {

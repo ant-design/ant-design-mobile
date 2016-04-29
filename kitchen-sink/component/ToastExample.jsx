@@ -3,6 +3,9 @@ import Page from '../common/Page';
 import { Toast, WhiteSpace, WingBlank, Button } from 'antm';
 
 const ToastExample = React.createClass({
+  componentWillUnmount () {
+    Toast.destroy();
+  },
   render() {
     return (
       <Page title="轻提示" subtitle="&lt;Toast mode='success' /&gt;">
