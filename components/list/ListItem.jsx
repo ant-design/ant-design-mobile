@@ -15,6 +15,7 @@ export default class ListItem extends React.Component {
     onClick: PropTypes.func,
     error: PropTypes.bool,
     align: PropTypes.string,
+    isLastItem: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -27,7 +28,15 @@ export default class ListItem extends React.Component {
     needActive: true,
     error: false,
     align: 'middle',
+    isLastItem: false,
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      hover: false,
+    };
+  }
 
   onClick = (e) => {
     this.props.onClick(e);
@@ -35,18 +44,23 @@ export default class ListItem extends React.Component {
 
   onTouchStart = () => {
     if (this.props.needActive) {
-      this.refs.listitem.style.backgroundColor = '#d9d9d9';
+      this.setState({
+        hover: true,
+      });
     }
   };
 
   onTouchEnd = () => {
     if (this.props.needActive) {
-      this.refs.listitem.style.backgroundColor = '#fff';
+      this.setState({
+        hover: false,
+      });
     }
   };
 
   render() {
-    let { style, thumb, arrow, line, error, children, extra, className, align, prefixCls } = this.props;
+    let { style, thumb, arrow, line, error, children, extra, className, align, prefixCls, isLastItem } = this.props;
+    let { hover } = this.state;
     let thumbDom;
     let arrowDom;
 
@@ -57,7 +71,8 @@ export default class ListItem extends React.Component {
       [`${prefixCls}-item-top`]: align === 'top',
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
-      [`${prefixCls}-item-thumb`]: thumb !== '',
+      [`${prefixCls}-item-hover`]: hover,
+      [`${prefixCls}-item-last`]: isLastItem,
       [className]: className
     });
 
@@ -88,11 +103,20 @@ export default class ListItem extends React.Component {
     }
 
     return (
-      <div className={wrapCls} style={style} onClick={this.onClick} onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd} onTouchCancel={this.onTouchEnd} ref="listitem">
+      <div
+        className={wrapCls}
+        style={style}
+        onClick={this.onClick}
+        onTouchStart={this.onTouchStart}
+        onTouchEnd={this.onTouchEnd}
+        onTouchCancel={this.onTouchEnd}
+      >
         {thumbDom}
-        {children ? <div className={`${prefixCls}-content`}>{children}</div> : null}
-        {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
-        {arrowDom}
+        <div className={`${prefixCls}-line`}>
+          {children ? <div className={`${prefixCls}-content`}>{children}</div> : null}
+          {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
+          {arrowDom}
+        </div>
       </div>
     );
   }
