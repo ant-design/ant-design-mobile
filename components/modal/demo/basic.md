@@ -3,155 +3,47 @@ order: 0
 title: Modal
 ---
 
-
-
 ````jsx
-import { Modal, List, Checkbox, Button, WhiteSpace, WingBlank } from 'antm';
-import { createForm } from 'rc-form';
-function noop() {}
+import { Modal, Button } from 'antm';
 
-let App = React.createClass({
+const App = React.createClass({
+  getInitialState() {
+    return { visible: false };
+  },
+  showModal() {
+    this.setState({
+      visible: true
+    });
+  },
+  handleOk() {
+    console.log('点击了确定');
+    this.setState({
+      visible: false
+    });
+  },
+  handleCancel(e) {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  },
   render() {
     return (
       <div>
-        <List>
-          <List.Header>列表头部,没有附带说明</List.Header>
-          <List.Body>
-            <ModalListItem form={this.props.form} />
-          </List.Body>
-          <List.Footer>列表尾部</List.Footer>
-        </List>
+        <Button type="primary" onClick={this.showModal}>显示对话框</Button>
+        <Modal title="第一个 Modal" visible={this.state.visible}
+          onOk={this.handleOk} onCancel={this.handleCancel}>
+          <p>对话框的内容</p>
+          <p>对话框的内容</p>
+          <p>对话框的内容</p>
+        </Modal>
       </div>
     );
   }
 });
-App = createForm()(App);
-
-let ModalListItem = React.createClass({
-  render() {
-    const { getFieldProps } = this.props.form;
-    return (
-        <ListSelector data={
-            [{
-              name: '浙江',
-              id: 'zj'
-            }, {
-              name: '上海',
-              id: 'sh'
-            }, {
-              name: '名字很长很长很长的',
-              id: 'shaa'
-            }]
-          }
-          {...getFieldProps('region', {
-            initialValue: {
-              zj: true
-            }
-          })}
-        >
-          <List.Item extra="请选择" arrow="horizontal">所在地区</List.Item>
-        </ListSelector>
-    );
-  }
-});
-
-let ListSelector = React.createClass({
-  getInitialState() {
-    return { open: false };
-  },
-  getDefaultProps() {
-    return {
-      data: [],
-      value: {},
-      onChange: noop
-    };
-  },
-  componentDidMount() {},
-  onFinish() {
-    this.props.onSelect(this.props.form.getFieldsValue());
-  },
-  componentWillUnmount() {},
-  openModal() {
-    this.setState({ open: true });
-  },
-  willReceiveProps(nextProps) {
-    console.log(nextProps);
-  },
-  confirmSelector() {
-    let value = this.props.form.getFieldsValue();
-    console.log('field value');
-    console.log(value);
-
-    this.props.onChange(value);
-    this.setState({ open: false });
-  },
-  render() {
-    // console.log(this.props.value);
-    const inArray = function (arr, item) {
-      let result = false;
-      arr.forEach((i) => {
-        if (i === item) result = true;
-      });
-      return result;
-    };
-
-    const { getFieldProps } = this.props.form;
-
-    const selectedKey = [];
-    const selectedItemNames = [];
-    this.props.data.forEach((d) => {
-      if (this.props.value[d.id]) {
-        selectedItemNames.push(d.name);
-        selectedKey.push(d.id);
-      }
-    });
-
-    const renderData = this.props.data.map((data) => {
-      if (inArray(selectedKey, data.id)) {
-        data.checked = true;
-      } else {
-        data.checked = false;
-      }
-      return data;
-    });
-
-    let items = renderData.map((data) => {
-      return (
-        <Checkbox {...getFieldProps(data.id, {
-          valuePropName: 'checked',
-          initialValue: data.checked }) } key={`selector_${data.id}`}>
-          {data.name}
-        </Checkbox>
-      );
-    });
-
-    const openEl = (
-      <Modal show>
-        <List>
-          <List.Body>
-            {items}
-          </List.Body>
-        </List>
-        <WhiteSpace />
-        <WingBlank>
-          <Button onClick={this.confirmSelector}>确定</Button>
-        </WingBlank>
-      </Modal>
-    );
-
-    const extraProps = {
-      onClick: this.openModal,
-    };
-    if (selectedItemNames.length) {
-      extraProps.extra = selectedItemNames.join(',');
-    }
-    const closeEl = React.cloneElement(this.props.children, extraProps);
-    return this.state.open ? openEl : closeEl;
-  }
-});
-ListSelector = createForm()(ListSelector);
 
 ReactDOM.render(
   <App />
 , mountNode);
+
 ````
