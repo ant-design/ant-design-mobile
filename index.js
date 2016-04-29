@@ -1,3 +1,4 @@
+/* eslint no-console:0 */
 import {
   List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox,
   TextareaItem, SelectItem, Switch, CaptchaItem, Button, ListPicker,
