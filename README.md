@@ -10,6 +10,14 @@ node = 4.x
 
 https://github.com/airbnb/javascript
 
+### API 规范
+
+设计原则
+
+1. 尽量和 react-native 一致
+2. react-native 没有的组件, 参考 antd
+3. antd 也没有的, 发 issue 讨论
+
 ### 组件规范
 
 组件名以 `-` 分割, 例如 `date-picker`,文件后缀名统一为 `.js`
