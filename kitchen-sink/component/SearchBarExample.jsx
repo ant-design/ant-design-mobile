@@ -7,7 +7,7 @@ import { SearchBar, WhiteSpace } from 'antm';
 let SearchBarExample = React.createClass({
   render() {
     return (
-      <Page title="SearchBar" subtitle="&lt;SearchBar placeholder='搜索' /&gt;">
+      <Page title="SearchBar" subtitle="&lt;SearchBar placeholder='搜索' /&gt;" style={{ backgroundColor: '#fff' }}>
         <SearchBar
           value=""
           placeholder="搜索"
@@ -17,6 +17,8 @@ let SearchBarExample = React.createClass({
           onCancel={(value) => {console.log('onCancel');}}
           onFocus={(value) => {console.log('onFocus');}}
           onBlur={(value) => {console.log('onBlur');}}
+          cancelTxt="Cancel"
+          showCancelButton={false}
         />
         <WhiteSpace/>
         <SearchBar
