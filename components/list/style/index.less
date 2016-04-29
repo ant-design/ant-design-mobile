@@ -29,7 +29,7 @@
     position: relative;
     padding-left: 4*@grid;
     min-height: 8*@grid;
-    background: @neutral-1;
+    background-color: @neutral-1;
     box-sizing: content-box;
     vertical-align: middle;
     overflow: hidden;
@@ -54,18 +54,18 @@
     .@{listPrefixClass}-line {
       position: relative;
       padding: 1.5*@grid 4*@grid 1.5*@grid 0;
-      .display-box;
-      .box-flex(1);
       min-height: 8*@grid;
+      .display-box;
+      .box-flex;
+      overflow: hidden;
       .hairline-bottom(bottom, @neutral-5, 0);
       /*list左侧主内容*/
       .@{listPrefixClass}-content {
-        .box-flex(1);
+        .box-flex;
         color: @neutral-10;
         font-size: @font-size-5;
         //font-weight: @line-weight-1;
         line-height: @line-height-2;
-        min-width: 60px;
         .ellipsis();
       }
       /*list右补充内容*/
@@ -75,14 +75,13 @@
         font-size: @font-size-4;
         font-weight: @font-weight-1;
         line-height: @line-height-2;
-        min-width: 96px;
         text-align: right;
         .ellipsis();
         .am-list-brief {
           font-size: @font-size-2;
         }
       }
-      /*list左侧主内容多行时，摘要*/
+      /*list左侧主内容多行时，辅助性文字*/
       .@{listPrefixClass}-brief {
         color: @neutral-7;
         font-size: @font-size-4;
@@ -94,12 +93,12 @@
       .@{listPrefixClass}-arrow {
         margin-left: 7px;
         margin-right: -2px;
-        width: 16px;
+        width: 4*@grid;
         &-horizontal,
         &-vertical {
           display: block;
-          width: 16px;
-          height: 16px;
+          width: 4*@grid;
+          height: 4*@grid;
           overflow: hidden;
           &:before {
             content: "";
@@ -107,32 +106,32 @@
             width: 9px;
             height: 9px;
             margin-left: 0;
-            border: solid 1px @neutral-7;
+            border: @border-type-1 @border-width-1 @neutral-7;
             border-top: 0 none;
             border-left: 0 none;
           }
         }
         &-horizontal {
           &:before {
-            margin-top: 2px;
+            margin-top: 0.5*@grid;
             .transform(rotate(315deg));
           }
         }
         &-vertical {
           &:before {
-            margin-left: 2px;
+            margin-left: 0.5*@grid;
             .transform(rotate(45deg));
           }
         }
         &-vertical-up {
           &:before {
-            margin: 4px 0 0 2px;
+            margin: @grid 0 0 0.5*@grid;
             .transform(rotate(225deg));
           }
         }
         &-vertical-down {
           &:before {
-            margin-left: 2px;
+            margin-left: 0.5*@grid;
             .transform(rotate(45deg));
           }
         }
@@ -153,11 +152,21 @@
         .box-align(flex-end);
       }
     }
+    &.@{listPrefixClass}-item-error {
+      .@{listPrefixClass}-line {
+        .hairline-bottom(bottom, red, 0);
+      }
+    }
     &.@{listPrefixClass}-item-last {
       .@{listPrefixClass}-line {
         .hairline-remove-right-bottom();
       }
+      &.@{listPrefixClass}-item-error {
+        .hairline-bottom(bottom, red, 0);
+      }
+    }
+    &.@{listPrefixClass}-item-hover {
+      background-color: @neutral-5;
     }
   }
 }
-

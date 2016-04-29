@@ -54,10 +54,12 @@ const ListExample = React.createClass({
               arrow="up"
             ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
             <List.Item
+              error
               extra="写点就有箭头坑位"
               arrow="empty"
             >内容内容</List.Item>
             <List.Item
+              error
               extra="arrow为空箭头没有坑位"
             >内容内容</List.Item>
           </List.Body>

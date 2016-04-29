@@ -24,7 +24,7 @@ export default class ListBody extends React.Component {
       children.forEach((el, idx) => {
         if (idx === len - 1) {
           customChildren.push(React.cloneElement(el, {
-            isLastChild: true,
+            isLastItem: true,
             key: idx
           }));
         } else {
