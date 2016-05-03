@@ -1,6 +1,6 @@
 /* eslint no-console:0 */
 import {
-  List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox,
+  List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox, Radio,
   TextareaItem, SelectItem, Switch, CaptchaItem, Button, ListPicker,
   ListDatePicker, ListSelector, SearchBar, Process,
   TopNotice, Tabs, Modal, Toast, Article, Alert,
@@ -9,7 +9,7 @@ import {
 
 // copy from above
 const antm = {
-  List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox,
+  List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox, Radio,
   TextareaItem, SelectItem, Switch, CaptchaItem, Button, ListPicker,
   ListDatePicker, ListSelector, SearchBar, Process,
   TopNotice, Tabs, Modal, Toast, Article, Alert,
