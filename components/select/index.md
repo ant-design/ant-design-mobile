@@ -2,7 +2,7 @@
 category: Components
 chinese: 下拉列表
 type: 表单
-english: SelectItem
+english: Select
 ---
 
 
@@ -12,17 +12,13 @@ english: SelectItem
 ## 何时使用
 
 
-
 ## API
 
 
 | 成员        | 说明           | 类型       | 可选值        | 默认值       |
 |------------|----------------|--------------------|--------------|
-| label    | 文案说明        | String |   |  |
 | name    | select的name        | String |  |   |
 | align    | 对齐方式        | String | `left`、`right` | `left`  |
 | value    | select的默认值        | String | |    |
 | options    | 下拉选项数组,元素是对象,格式是{`val`:'value',`txt`:'some'}        | Array | |    |
 | onChange    | input change事件触发的回调函数,参数是event对象 | Function | |    |
-| error       | 报错样式        | bool | |  false  |
-| arrow       | 剪头方向,向右或者向下        | string |  `horizontal` `down` |  `horizontal`  |
