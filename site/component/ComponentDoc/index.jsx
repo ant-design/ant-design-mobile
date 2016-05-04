@@ -1,10 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router';
-import classNames from 'classnames';
-import { Row, Col, Icon, Affix } from 'antd';
+import { Row, Col, Affix, Radio, Button, Icon, Popover } from 'antd';
 import Demo from '../Demo';
+import DemoPreview from '../DemoPreview';
 import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';
+
+import QRCode from 'qrcode.react';
+
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 
 export default class ComponentDoc extends React.Component {
   constructor(props) {
@@ -12,6 +16,8 @@ export default class ComponentDoc extends React.Component {
 
     this.state = {
       expandAll: false,
+      currentIndex: 0,
+      role: 'engineer',
     };
   }
 
@@ -29,59 +35,87 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
+  handleRoleToggle = (e) => {
+    this.setState({
+      role: e.target.value,
+    });
+  }
+
+  togglePreview = (e) => {
+    this.setState({
+      currentIndex: e.index,
+    });
+  }
+
+  nextPreview = () => {
+    this.setState({
+      currentIndex: this.state.currentIndex + 1,
+    });
+  }
+
+  prePreview = () => {
+    this.setState({
+      currentIndex: this.state.currentIndex - 1,
+    });
+  }
+
   render() {
     const { doc, location } = this.props;
-    const scrollTo = location.query.scrollTo;
     const { description, meta } = doc;
+
+    const demoUrl = `http://beta.antm.alipay.net/kitchen-sink.html#/${meta.english.toLowerCase().replace(/\s+/g, '')}`;
+
+    const PopoverContent = (<div>
+      <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
+      <QRCode size={ 144 } value={ demoUrl } />
+    </div>);
+
     const demos = (demosList[meta.fileName] || [])
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
+    const currentIndex = this.state.currentIndex;
+    const role = this.state.role;
 
-    const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    demos.sort((a, b) => {
+
+    const demoSort = demos.sort((a, b) => {
       return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
-    }).forEach((demoData, index) => {
-      if (index % 2 === 0 || isSingleCol) {
-        leftChildren.push(
-          <Demo {...demoData} className={scrollTo === demoData.id ? 'code-box-target' : ''}
-            key={index}
-            expand={expand} pathname={location.pathname} />
-        );
-      } else {
-        rightChildren.push(
-          <Demo {...demoData} className={scrollTo === demoData.id ? 'code-box-target' : ''}
-            key={index}
-            expand={expand} pathname={location.pathname} />
-        );
-      }
-    });
-    const expandTriggerClass = classNames({
-      'code-box-expand-trigger': true,
-      'code-box-expand-trigger-active': expand,
     });
 
-    const jumper = demos.map((demo) => {
-      return (
-        <li key={demo.id}>
-          <Link className={ demo.id === scrollTo ? 'current' : ''}
-            to={{ pathname: location.pathname, query: { scrollTo: `${demo.id}` } }}>
-            { demo.meta.title }
-          </Link>
-        </li>
+    const demoTitle = demoSort[currentIndex].meta.title;
+
+    demoSort.forEach((demoData, index) => {
+      demoData.role = role;
+      demoData.index = index;
+
+      leftChildren.push(
+        <Demo togglePreview={ this.togglePreview } {...demoData} className={index === currentIndex ? 'code-box-target' : ''}
+          key={index}
+          expand={expand} pathname={location.pathname} />
+      );
+
+      rightChildren.push(
+        <DemoPreview {...demoData} className={index === currentIndex ? 'show' : 'hide'}
+          key={ `preview-${index}` } />
       );
     });
 
     return (
       <article>
         <Affix className="toc-affix">
-          <ul className="toc demos-anchor">
-            { jumper }
-          </ul>
+          <RadioGroup defaultValue="engineer" size="small" onChange= { this.handleRoleToggle }>
+            <RadioButton value="designer">设计者</RadioButton>
+            <RadioButton value="engineer">前端</RadioButton>
+          </RadioGroup>
         </Affix>
         <section className="markdown">
-          <h1>{meta.chinese || meta.english}</h1>
+          <h1 className="section-title">
+            {meta.chinese || meta.english}
+            <Popover content={ PopoverContent } placement="bottom">
+              <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
+            </Popover>
+          </h1>
           {
             utils.jsonmlToComponent(
               location.pathname,
@@ -91,25 +125,47 @@ export default class ComponentDoc extends React.Component {
           }
           <h2>
             代码演示
-            <Icon type="appstore" className={expandTriggerClass}
-              title="展开全部代码" onClick={this.handleExpandToggle} />
           </h2>
         </section>
+
         <Row>
-          <Col span={ isSingleCol ? '24' : '12' }
-            className={ isSingleCol ?
-              'code-boxes-col-1-1' :
-              'code-boxes-col-2-1'
-            }
-          >
+          <Col span="13" style={{ width: '54%', paddingRight: '16px' }}>
             { leftChildren }
+            <Row>
+              <Col span="12" style={{ paddingRight: '8px' }}>
+                <Button style={{ width: '100%' }}
+                  type="ghost"
+                  disabled = { currentIndex === 0 }
+                  onClick = { this.prePreview } >
+                  <Icon type="up" />
+                </Button>
+              </Col>
+              <Col span="12" style={{ paddingLeft: '8px' }}>
+                <Button style={{ width: '100%' }}
+                  type="ghost"
+                  disabled = { currentIndex >= demos.length - 1 }
+                  onClick = { this.nextPreview } >
+                  <Icon type="down" />
+                </Button>
+              </Col>
+            </Row>
           </Col>
-          {
-            isSingleCol ? null :
-            <Col className="code-boxes-col-2-1" span="12">{ rightChildren }</Col>
-          }
+          <Col span="11">
+            <div className="demo-preview-wrapper">
+              <div className="demo-preview-header">
+                <img src="https://os.alipayobjects.com/rmsportal/LKfWaoIcaJiTgOu.svg" />
+                <span style={{ color: '#fff' }}>{ demoTitle }</span>
+              </div>
+              <div className="demo-preview-scroller">
+              { rightChildren }
+              </div>
+            </div>
+          </Col>
+
         </Row>
+
         {
+          role === 'engineer' &&
           utils.jsonmlToComponent(
             location.pathname,
             ['section', {

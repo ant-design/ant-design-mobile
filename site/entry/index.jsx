@@ -7,6 +7,7 @@ import '../common/lib';
 import App from '../component/App';
 import Home from '../component/Home';
 import reactComponents from '../../_data/react-components';
+import pattern from '../../_data/pattern';
 import config from '../website.config';
 
 // TODO: pack dependencies with atool build
@@ -16,6 +17,7 @@ window['react-dom'] = ReactDOM;
 
 
 const ReactComponents = utils.generateContainer(reactComponents);
+const Pattern = utils.generateContainer(pattern);
 const redirects = Object.keys(config.redirects).map((from, index) => {
   return <Redirect from={from} to={config.redirects[from]} key={index} />;
 });
@@ -44,6 +46,11 @@ ReactDOM.render(
         { utils.generateIndex(reactComponents) }
         <Route path=":children"
           component={utils.getChildrenWrapper(reactComponents)} />
+      </Route>
+      <Route path="docs/pattern" component={Pattern}>
+        { utils.generateIndex(pattern) }
+        <Route path=":children"
+          component={utils.getChildrenWrapper(pattern)} />
       </Route>
       { redirects }
     </Route>
