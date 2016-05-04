@@ -2,7 +2,7 @@
 @import '../../style/variables';
 
 @listPrefixClass: am-list;
-@checkboxWarpPrefixCls: am-checkbox;
+@checkboxWarpPrefixCls: am-radio;
 @checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
 
 .@{checkboxWarpPrefixCls} {
@@ -17,18 +17,17 @@
     right: 0;
     width: 5*@grid;
     height: 5*@grid;
-    border: 1px @border-type-1 @neutral-5;
     .border-radius(5*@grid);
     .box-sizing();
     .transform(rotate(0deg));
     &:after {
       position: absolute;
       display: none;
-      top: 3px;
-      right: 7px;
+      top: 0;
+      right: 5px;
       z-index: 999;
-      width: 5px;
-      height: 11px;
+      width: 9px;
+      height: 17px;
       border-style: @border-type-1;
       border-width: 0 1px 1px 0;
       content: '\0020';
@@ -49,17 +48,13 @@
   &.@{checkboxWarpPrefixCls}-checked {
     .@{checkboxInnerPrefixCls} {
       border-width: 0;
-      background-color: @brand-6;
       &:after {
         display: block;
-        border-color: @neutral-1;
+        border-color: @brand-6;
       }
     }
   }
   &.@{checkboxWarpPrefixCls}-disabled {
-    .@{checkboxInnerPrefixCls} {
-      background-color: @neutral-4;
-    }
     &.@{checkboxWarpPrefixCls}-checked {
       .@{checkboxInnerPrefixCls} {
         &:after {
@@ -70,37 +65,19 @@
     }
   }
 }
-
-
-.@{checkboxWarpPrefixCls}-agree {
-  margin-left: 4*@grid;
-  line-height: 8*@grid;
-  .@{checkboxWarpPrefixCls}-agree-label {
-    margin-left: @grid;
-    font-size: @font-size-4;
-    a {
-      position: relative;
-      z-index: 99;
+.@{listPrefixClass}-item-radio {
+  .@{checkboxWarpPrefixCls} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 11*@grid;
+    &-inner {
+      right: 4*@grid;
+      top: 2.5*@grid;
     }
   }
 }
 
-.@{listPrefixClass}-item-checkbox {
-  .@{listPrefixClass}-thumb {
-    width: 5*@grid;
-    height: 5*@grid;
-    .@{checkboxWarpPrefixCls} {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 11*@grid;
-      &-inner {
-        left: 4*@grid;
-        top: 11px;
-      }
-    }
-  }
-}

@@ -73,6 +73,8 @@ export default class ListItem extends React.Component {
       [`${prefixCls}-item-bottom`]: align === 'bottom',
       [`${prefixCls}-item-hover`]: hover,
       [`${prefixCls}-item-last`]: isLastItem,
+      [`${prefixCls}-item-radio`]: extra && extra.type && extra.type.name === 'Radio',
+      [`${prefixCls}-item-checkbox`]: thumb && thumb.type && thumb.type.name === 'Checkbox',
       [className]: className
     });
 

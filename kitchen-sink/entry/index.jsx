@@ -16,6 +16,7 @@ import CheckboxExample from '../component/CheckboxExample';
 import InputExample from '../component/InputExample';
 import DatePickerExample from '../component/DatePickerExample';
 import ListPickerExample from '../component/ListPickerExample';
+import RadioExample from '../component/RadioExample';
 import SearchBarExample from '../component/SearchBarExample';
 import SelectExample from '../component/SelectExample';
 import SwitchExample from '../component/SwitchExample';
@@ -221,6 +222,8 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'textarea';}}
                 />
               </Flex.Item>
+            </Flex>
+            <Flex className="antm-demo-flex">
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/MHMIvHaTJRwnFeV.png"
@@ -229,6 +232,15 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'slider';}}
                 />
               </Flex.Item>
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/MHMIvHaTJRwnFeV.png"
+                  title="单选框"
+                  subtitle="Radio"
+                  onClick={() => {location.hash = 'radio';}}
+                />
+              </Flex.Item>
+              <Flex.Item />
             </Flex>
           </List.Body>
         </List>
@@ -322,6 +334,8 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'drawer';}}
                 />
               </Flex.Item>
+              <Flex.Item />
+              <Flex.Item />
             </Flex>
           </List.Body>
         </List>
@@ -364,6 +378,7 @@ const pageRouter = (
     <Route path="/tag" component={TagExample}/>
     <Route path="/drawer" component={DrawerExample}/>
     <Route path="/slider" component={SliderExample}/>
+    <Route path="/radio" component={RadioExample}/>
   </Router>
 );
 
