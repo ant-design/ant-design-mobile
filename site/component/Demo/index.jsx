@@ -24,13 +24,15 @@ export default class Demo extends React.Component {
     this.setState({ codeExpand: !this.state.codeExpand });
   }
 
-  handleClick = () => {
+  handleClick = (e) => {
     const togglePreview = this.props.togglePreview;
     const { index } = this.props;
 
-    togglePreview({
-      index,
-    });
+    if (e.target.className !== 'collapse anticon anticon-circle-o-right') {
+      togglePreview({
+        index,
+      });
+    }
   }
 
   render() {

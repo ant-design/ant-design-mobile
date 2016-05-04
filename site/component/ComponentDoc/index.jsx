@@ -1,9 +1,11 @@
 import React from 'react';
-import { Row, Col, Affix, Radio, Button, Icon } from 'antd';
+import { Row, Col, Affix, Radio, Button, Icon, Popover } from 'antd';
 import Demo from '../Demo';
 import DemoPreview from '../DemoPreview';
 import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';
+
+import QRCode from 'qrcode.react';
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
@@ -15,7 +17,7 @@ export default class ComponentDoc extends React.Component {
     this.state = {
       expandAll: false,
       currentIndex: 0,
-      role: 'designer',
+      role: 'engineer',
     };
   }
 
@@ -60,6 +62,14 @@ export default class ComponentDoc extends React.Component {
   render() {
     const { doc, location } = this.props;
     const { description, meta } = doc;
+
+    const demoUrl = `http://beta.antm.alipay.net/kitchen-sink.html#/${meta.english.toLowerCase().replace(/\s+/g, '')}`;
+
+    const PopoverContent = (<div>
+      <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
+      <QRCode size="144" value={ demoUrl } />
+    </div>);
+
     const demos = (demosList[meta.fileName] || [])
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
@@ -94,13 +104,18 @@ export default class ComponentDoc extends React.Component {
     return (
       <article>
         <Affix className="toc-affix">
-          <RadioGroup defaultValue="designer" size="small" onChange= { this.handleRoleToggle }>
+          <RadioGroup defaultValue="engineer" size="small" onChange= { this.handleRoleToggle }>
             <RadioButton value="designer">设计者</RadioButton>
             <RadioButton value="engineer">前端</RadioButton>
           </RadioGroup>
         </Affix>
         <section className="markdown">
-          <h1>{meta.chinese || meta.english}</h1>
+          <h1 className="section-title">
+            {meta.chinese || meta.english}
+            <Popover content={ PopoverContent } placement="bottom">
+              <Icon style={{ position: 'relative', left: '8px', top: '-2px', fontSize: '24px' }} type="qrcode" />
+            </Popover>
+          </h1>
           {
             utils.jsonmlToComponent(
               location.pathname,
