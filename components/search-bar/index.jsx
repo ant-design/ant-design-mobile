@@ -2,81 +2,125 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
-const SearchBar = React.createClass({
-  propTypes: {
+export default class SearchBar extends React.Component {
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    style: PropTypes.object,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     onSubmit: PropTypes.func,
     onChange: PropTypes.func,
-    onCancel: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
+    onCancel: PropTypes.func,
+    onClear: PropTypes.func,
     showCancelButton: PropTypes.bool,
+    cancelTxt: PropTypes.string,
     disablSearch: PropTypes.bool,
-  },
-  getDefaultProps() {
-    return {
-      value: '',
-      placeholder: '',
-      onSubmit: noop,
-      onChange: noop,
-      onCancel: noop,
-      onFocus: noop,
-      onBlur: noop,
-      showCancelButton: false,
-      disablSearch: false,
+  };
+
+  static defaultProps = {
+    prefixCls: 'am-search',
+    value: '',
+    placeholder: '',
+    onSubmit: noop,
+    onChange: noop,
+    onFocus: noop,
+    onBlur: noop,
+    onCancel: noop,
+    onClear: noop,
+    showCancelButton: false,
+    cancelTxt: '取消',
+    disablSearch: false,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: this.props.value,
+      focus: false,
     };
-  },
-  getInitialState() {
-    return {
-      value: this.props.value
-    };
-  },
-  _handleChange(e) {
+  }
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.value);
+  };
+
+  onChange = (e) => {
     let value = e.target.value;
     this.setState({ value });
     this.props.onChange(value);
-  },
-  _handleSubmit(e) {
-    e.preventDefault();
-    this.props.onSubmit(this.state.value);
-  },
-  _handleCancel() {
+  };
+
+  onFocus = (e) => {
+    if (this.props.disablSearch) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    let value = e.target.value;
+    this.setState({
+      focus: true,
+    });
+    this.props.onFocus(value);
+  };
+
+  onBlur = (e) => {
+    let value = e.target.value;
+    this.setState({
+      focus: false,
+    });
+    this.props.onBlur(value);
+  };
+
+  onCancel = () => {
     this.setState({ value: '' });
-    this.props.onChange('');
     this.props.onCancel('');
-  },
+  };
+
+  onClear = () => {
+    this.setState({
+      value: ''
+    });
+    this.refs.searchInput.focus();
+    this.props.onClear('');
+  };
+
   render() {
-    const { className, showCancelButton, disablSearch, placeholder } = this.props;
-    const { value } = this.state;
+    const { prefixCls, showCancelButton, disablSearch, placeholder, cancelTxt, className } = this.props;
+    const { value, focus } = this.state;
 
     const wrapCls = classNames({
-      'am-search': true,
+      [`${prefixCls}`]: true,
       [className]: className
     });
-    const inputClass = classNames({
-      'am-search-input': true,
-      'am-search-start': value.length > 0
+
+    const inputCls = classNames({
+      [`${prefixCls}-input`]: true,
+      [`${prefixCls}-input-focus`]: focus,
+      [`${prefixCls}-start`]: value.length > 0
     });
 
     let cancelStyle = value.length > 0 ? { display: 'block' } : { display: 'none' };
-    let cancelDom = showCancelButton ? (<div className="am-search-button" style={{ display: 'block' }}>
-        <button type="button" onClick={this._handleCancel}>取消</button>
-      </div>) : (<div className="am-search-button" style={cancelStyle}>
-        <button type="button" disabled={value.length === 0} onClick={this._handleCancel}>取消</button>
-      </div>);
 
     return (
-      <form onSubmit={this._handleSubmit}>
+      <form onSubmit={this.onSubmit}>
         <div className={wrapCls}>
-          <div className={inputClass}>
-            <div className="am-search-icon"><i className="am-icon am-icon-search" /></div>
-            <input type="search" disabled={disablSearch} placeholder={placeholder} className="am-search-value" onChange={this._handleChange} onFocus={this.props.onFocus} onBlur={this.props.onBlur} value={value} />
+          <div className={inputCls}>
+            <input type="search"
+              className={`${prefixCls}-value`}
+              value={value}
+              disabled={disablSearch}
+              placeholder={placeholder}
+              onChange={this.onChange}
+              onFocus={this.onFocus}
+              onBlur={this.onBlur}
+              ref="searchInput" />
+            <a onClick={this.onClear} className={`${prefixCls}-clear`} />
           </div>
-          {cancelDom}
+          <div className={`${prefixCls}-cancel`} style={showCancelButton ? { display: 'block' } : cancelStyle} onClick={this.onCancel}>{cancelTxt}</div>
         </div>
       </form>
     );
   }
-});
-module.exports = SearchBar;
+}

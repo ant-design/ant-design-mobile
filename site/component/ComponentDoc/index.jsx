@@ -67,7 +67,7 @@ export default class ComponentDoc extends React.Component {
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
-      <QRCode size="144" value={ demoUrl } />
+      <QRCode size={ 144 } value={ demoUrl } />
     </div>);
 
     const demos = (demosList[meta.fileName] || [])

@@ -7,7 +7,6 @@ import ListExample from '../component/ListExample';
 import CollapseExample from '../component/CollapseExample';
 import ButtonExample from '../component/ButtonExample';
 import TabExample from '../component/TabExample';
-import SegmentedControlExample from '../component/SegmentedControlExample';
 import PageResultExample from '../component/PageResultExample';
 import ProcessExample from '../component/ProcessExample';
 import WhiteSpaceExample from '../component/WhiteSpaceExample';
@@ -29,6 +28,8 @@ import ModalExample from '../component/ModalExample';
 import AlertExample from '../component/AlertExample';
 import TagExample from '../component/TagExample';
 import BadgeExample from '../component/BadgeExample';
+import DrawerExample from '../component/DrawerExample';
+import SliderExample from '../component/SliderExample';
 import { ListSelectorExample, ListSelector2 } from '../component/ListSelectorExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -37,7 +38,7 @@ import { Router, Route, hashHistory } from 'react-router';
 if((/iphone|ipad/i).test(navigator.userAgent)) {
   if ('addEventListener' in document) {
     document.addEventListener('DOMContentLoaded', function() {
-      FastClick.attach(document.body);
+      // FastClick.attach(document.body);
     }, false);
   }
 }
@@ -110,14 +111,7 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'tab';}}
                 />
               </Flex.Item>
-              <Flex.Item>
-                <Item
-                  logo="https://os.alipayobjects.com/rmsportal/mOVMmnLfrBdDwKr.png"
-                  title="选项卡"
-                  subtitle="SegmentedControl"
-                  onClick={() => {location.hash = 'segmentedcontrol';}}
-                />
-              </Flex.Item>
+              <Flex.Item/>
               <Flex.Item/>
             </Flex>
           </List.Body>
@@ -146,7 +140,7 @@ const App = React.createClass({
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/mDSCerpoWfSuLlJ.png"
                   title="复选框"
-                  subtitle="ChackboxItem"
+                  subtitle="Checkbox"
                   onClick={() => {location.hash = 'checkbox';}}
                 />
               </Flex.Item>
@@ -215,7 +209,7 @@ const App = React.createClass({
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/NmMXnPngqRrKHrq.png"
                   title="滑动开关"
-                  subtitle="SwitchItem"
+                  subtitle="Switch"
                   onClick={() => {location.hash = 'switch';}}
                 />
               </Flex.Item>
@@ -225,6 +219,14 @@ const App = React.createClass({
                   title="多行输入"
                   subtitle="TextareaItem"
                   onClick={() => {location.hash = 'textarea';}}
+                />
+              </Flex.Item>
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/MHMIvHaTJRwnFeV.png"
+                  title="滑动输入条"
+                  subtitle="Slider"
+                  onClick={() => {location.hash = 'slider';}}
                 />
               </Flex.Item>
             </Flex>
@@ -311,6 +313,16 @@ const App = React.createClass({
                 />
               </Flex.Item>
             </Flex>
+            <Flex className="antm-demo-flex">
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+                  title="抽屉"
+                  subtitle="Drawer"
+                  onClick={() => {location.hash = 'drawer';}}
+                />
+              </Flex.Item>
+            </Flex>
           </List.Body>
         </List>
       </Page>
@@ -326,7 +338,6 @@ const pageRouter = (
     <Route path="/collapse" component={CollapseExample}/>
     <Route path="/button" component={ButtonExample}/>
     <Route path="/tab" component={TabExample}/>
-    <Route path="/segmentedcontrol" component={SegmentedControlExample}/>
     <Route path="/process" component={ProcessExample}/>
     <Route path="/whitespace" component={WhiteSpaceExample}/>
     <Route path="/wingblank" component={WingBlankExample}/>
@@ -345,12 +356,14 @@ const pageRouter = (
     <Route path="/toast" component={ToastExample}/>
     <Route path="/topnotice" component={TopNoticeExample}/>
     <Route path="/modal" component={ModalExample}/>
-    <Route path="/listselectorpicker" component={ListSelectorExample}>
+    <Route path="/listselectorpicker" component={ListSelectorExample} >
       <Route path="/listselector" component={ListSelector2}/>
     </Route>
     <Route path="/badge" component={BadgeExample}/>
     <Route path="/alert" component={AlertExample}/>
     <Route path="/tag" component={TagExample}/>
+    <Route path="/drawer" component={DrawerExample}/>
+    <Route path="/slider" component={SliderExample}/>
   </Router>
 );
 

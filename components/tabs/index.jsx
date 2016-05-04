@@ -1,49 +1,40 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-function noop() {}
+import RcTabs from 'rc-tabs';
 
-const Tabs = React.createClass({
+export default class Tabs extends React.Component {
+  static TabPane = RcTabs.TabPane;
+
+  static propTypes = {
+    type: PropTypes.oneOf(['line', 'capsule']),
+    activeKey: PropTypes.string,
+    defaultActiveKey: PropTypes.string,
+    onChange: PropTypes.func,
+    onTabClick: PropTypes.func,
+  }
+
+  static defaultProps = {
+    prefixCls: 'am-tab',
+    animation: 'slide-horizontal',
+    type: 'line',
+    onChange() {},
+    onTabClick() {},
+  }
+
   render() {
-    const { children, className } = this.props;
-    const wrapCls = classNames({
-      'am-tab': true,
-      [className]: className
+    let { prefixCls, type, children, onChange, onTabClick } = this.props;
+    let className = classNames({
+      [this.props.className]: !!this.props.className,
+      [`${prefixCls}-${type}`]: true,
     });
 
     return (
-      <div className={wrapCls}>
+      <RcTabs {...this.props}
+        className={className}
+        onChange={onChange}
+        onTabClick={onTabClick}>
         {children}
-      </div>
+      </RcTabs>
     );
   }
-});
-
-const Item = React.createClass({
-  propTypes: {
-    selected: PropTypes.bool,
-    onClick: PropTypes.func,
-  },
-  getDefaultProps() {
-    return {
-      selected: false,
-      onClick: noop,
-    };
-  },
-  _handleClick() {
-    this.props.onClick();
-  },
-  render() {
-    const { selected, children, className } = this.props;
-    const wrapCls = classNames({
-      'am-tab-item': true,
-      'am-tab-item-selected': selected,
-      [className]: className
-    });
-
-    return (<div className={wrapCls} onClick={this._handleClick}>{children}</div>);
-  }
-});
-
-Tabs.Item = Item;
-
-module.exports = Tabs;
+}

@@ -7,7 +7,8 @@ const Page = React.createClass({
     subtitle: PropTypes.string,
     children: PropTypes.any,
     isIndex: PropTypes.bool,
-    logo: PropTypes.string
+    logo: PropTypes.string,
+    style: PropTypes.object,
   },
   getDefaultProps() {
     return {
@@ -15,6 +16,7 @@ const Page = React.createClass({
       title: '',
       subtitle: '',
       isApp: 0,
+      style: {}
     };
   },
   componentDidMount() {
@@ -35,10 +37,11 @@ const Page = React.createClass({
     }
   },
   render() {
-    const { logo, title, subtitle, children } = this.props;
+    const { logo, title, subtitle, children, style } = this.props;
     const logoDom = logo !== '' ? <div className="logo" style={{ backgroundImage: 'url(' + logo + ')' }}/> : null;
+
     return (
-      <section className="am-demo-page" ref="demoPage">
+      <section className="am-demo-page" ref="demoPage" style={style}>
         <div className="am-demo-hd">
           {logoDom}
           <h1 className="am-demo-title">{title}</h1>

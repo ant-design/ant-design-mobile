@@ -25,7 +25,7 @@
   "bugs": {
     "url": "http://gitlab.alipay-inc.com/react-ui/ant-mobile/issues"
   },
-  "main": "lib/index",
+  "main": "dist/antm",
   "files": [
     "lib",
     "style"
@@ -43,11 +43,15 @@
     "rc-animate": "~2.0.3",
     "rc-checkbox": "~1.3.4",
     "rc-dialog": "~6.0.1",
+    "rc-drawer": "^0.3.0",
+    "rc-notification": "^1.3.4",
     "rc-tooltip": "~3.3.2",
     "rmc-cascader": "~1.1.0",
     "rmc-date-picker": "~2.2.0",
     "rmc-modal": "~0.4.1",
-    "rmc-picker": "~2.4.1"
+    "rmc-picker": "~2.4.1",
+    "rc-tabs": "~5.9.0",
+    "rc-slider": "~3.6.2"
   },
   "devDependencies": {
     "antd": "^1.0.0-beta.5",
@@ -67,7 +71,7 @@
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
-    "lesshint-antd": "~1.1.0",
+    "lesshint": "1.x",
     "object-assign": "~4.0.1",
     "pre-commit": "1.x",
     "promise": "~7.0.4",
@@ -97,7 +101,7 @@
     "lint": "npm run srclint && npm run demolint && npm run lesshint",
     "srclint": "eslint components test site index.js --ext '.js,.jsx'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
-    "lesshint": "lesshint components/",
+    "lesshint": "lesshint components/ -r scripts/lesshint-report.js",
     "pub": "antd-tools run pub",
     "test": "npm run lint && npm run dist",
     "beta": "antd-tools run beta",
