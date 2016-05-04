@@ -113,7 +113,7 @@ export default class ComponentDoc extends React.Component {
           <h1 className="section-title">
             {meta.chinese || meta.english}
             <Popover content={ PopoverContent } placement="bottom">
-              <Icon style={{ position: 'relative', left: '8px', top: '-2px', fontSize: '24px' }} type="qrcode" />
+              <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
             </Popover>
           </h1>
           {
