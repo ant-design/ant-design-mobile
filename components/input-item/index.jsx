@@ -33,7 +33,6 @@ export default class InputItem extends React.Component {
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
-    style: {},
     type: 'hasLine',
     format: 'text',
     editable: true,

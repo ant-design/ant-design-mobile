@@ -16,7 +16,6 @@ export default class Checkbox extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-checkbox',
-    style: {},
     type: 'normal',
     name: '',
     checked: false,
