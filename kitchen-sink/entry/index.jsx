@@ -92,7 +92,7 @@ const App = React.createClass({
                   logo="https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png"
                   title="两翼留白"
                   subtitle="WingBlank"
-                  onClick={() => {location.hash = 'whitespace';}}
+                  onClick={() => {location.hash = 'wingblank';}}
                 />
               </Flex.Item>
               <Flex.Item/>

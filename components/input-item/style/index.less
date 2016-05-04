@@ -6,6 +6,13 @@
 
 .@{listPrefixClass} {
   & &-item {
+    &.@{inputPrefixClass}-item {
+      padding: 1.5*@grid 4*@grid;
+      .hairline-bottom(bottom, @neutral-5, @margin-4);
+    }
+    &.@{inputPrefixClass}-item-last {
+      .hairline-remove-right-bottom();
+    }
     &.@{inputPrefixClass}-error {
       position: relative;
       z-index: 11;

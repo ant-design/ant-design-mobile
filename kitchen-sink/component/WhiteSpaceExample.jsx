@@ -8,7 +8,7 @@ const WhiteSpaceExample = React.createClass({
       <Page title="上下留白" subtitle="&lt;WhiteSpace mode={12} /&gt;">
         <WhiteSpace/>
         <WingBlank>
-          <Button>上下留白10px</Button>
+          <Button>上下留白8px</Button>
         </WingBlank>
         <WhiteSpace mode={20}/>
         <WingBlank>
