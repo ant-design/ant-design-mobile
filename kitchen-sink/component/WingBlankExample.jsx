@@ -8,15 +8,15 @@ const WingBlankExample = React.createClass({
       <Page title="两翼留白" subtitle="&lt;WingBlank mode={12} /&gt;">
         <WhiteSpace/>
         <WingBlank>
-          <Button>两翼留白10px</Button>
+          <Button>两翼留白8px</Button>
         </WingBlank>
         <WhiteSpace/>
         <WingBlank mode={20}>
           <Button>两翼留白20px</Button>
         </WingBlank>
         <WhiteSpace/>
-        <WingBlank mode={30}>
-          <Button>两翼留白30px</Button>
+        <WingBlank mode={32}>
+          <Button>两翼留白32px</Button>
         </WingBlank>
       </Page>
     );

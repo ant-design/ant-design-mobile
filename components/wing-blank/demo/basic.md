@@ -22,8 +22,8 @@ let WingBlankExample = React.createClass({
         <Button>两翼留白20px</Button>
       </WingBlank>
       <WhiteSpace />
-      <WingBlank mode={30}>
-        <Button>两翼留白30px</Button>
+      <WingBlank mode={32}>
+        <Button>两翼留白32px</Button>
       </WingBlank>
     </div>
     );
