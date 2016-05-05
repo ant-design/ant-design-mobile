@@ -4,3 +4,39 @@
 
 @import './base';
 @import './effect';
+
+// Wrapper for the tooltip content
+.@{floatMenuPrefixClass}-inner {
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+  background-color: fade(@neutral-9, 90%);
+  border-radius: @radius-1;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+  min-height: 34px;
+}
+
+.@{floatMenuPrefixClass} {
+  & &-item {
+    font-size: @font-size-5;
+    color: @neutral-1;
+    padding: 2 * @grid 8 * @grid;
+    border-bottom: @border-thickness-1 @border-type-1 @neutral-8;
+    &:active {
+      background-color: @neutral-9;
+    }
+    &.@{floatMenuPrefixClass}-item-disabled {
+      color: @neutral-7;
+      &.@{floatMenuPrefixClass}-item:active {
+        background-color: transparent;
+      }
+    }
+    &-icon {
+      margin-right: 2 * @grid;
+      font-size: 22px;
+    }
+    &-content {
+      vertical-align: top;
+    }
+  }
+}
