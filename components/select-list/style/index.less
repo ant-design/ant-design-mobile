@@ -1,0 +1,16 @@
+@import '../../style/mixins';
+@import '../../style/variables';
+
+@selectListPrefixClass: am-select-list;
+@listPrefixClass: am-list;
+
+.@{listPrefixClass} {
+  .@{selectListPrefixClass}-selected {
+    .@{listPrefixClass}-line {
+      //.hairline-bottom(bottom, @brand-6, 0);
+      .@{listPrefixClass}-content {
+        color: @brand-6;
+      }
+    }
+  }
+}

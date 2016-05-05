@@ -11,7 +11,6 @@ import PageResultExample from '../component/PageResultExample';
 import ProcessExample from '../component/ProcessExample';
 import WhiteSpaceExample from '../component/WhiteSpaceExample';
 import WingBlankExample from '../component/WingBlankExample';
-import CaptchaExample from '../component/CaptchaExample';
 import CheckboxExample from '../component/CheckboxExample';
 import InputExample from '../component/InputExample';
 import DatePickerExample from '../component/DatePickerExample';
@@ -21,8 +20,6 @@ import SearchBarExample from '../component/SearchBarExample';
 import SelectExample from '../component/SelectExample';
 import SwitchExample from '../component/SwitchExample';
 import TextareaExample from '../component/TextareaExample';
-import ArticleExample from '../component/ArticleExample';
-import CardExample from '../component/CardExample';
 import ToastExample from '../component/ToastExample';
 import TopNoticeExample from '../component/TopNoticeExample';
 import ModalExample from '../component/ModalExample';
@@ -32,7 +29,7 @@ import BadgeExample from '../component/BadgeExample';
 import DrawerExample from '../component/DrawerExample';
 import ActionSheetExample from '../component/ActionSheetExample';
 import SliderExample from '../component/SliderExample';
-import { ListSelectorExample, ListSelector2 } from '../component/ListSelectorExample';
+import SelectListExample from '../component/SelectListExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
@@ -113,8 +110,15 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'tab';}}
                 />
               </Flex.Item>
-              <Flex.Item/>
-              <Flex.Item/>
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+                  title="动作菜单"
+                  subtitle="ActionSheet"
+                  onClick={() => {location.hash = 'actionsheet';}}
+                />
+              </Flex.Item>
+              <Flex.Item />
             </Flex>
           </List.Body>
         </List>
@@ -132,10 +136,10 @@ const App = React.createClass({
               </Flex.Item>
               <Flex.Item>
                 <Item
-                  logo="https://os.alipayobjects.com/rmsportal/ITKHRKKiaZSQKCR.png"
-                  title="校验码"
-                  subtitle="Captcha"
-                  onClick={() => {location.hash = 'captcha';}}
+                  logo="https://os.alipayobjects.com/rmsportal/MHMIvHaTJRwnFeV.png"
+                  title="单选框"
+                  subtitle="Radio"
+                  onClick={() => {location.hash = 'radio';}}
                 />
               </Flex.Item>
               <Flex.Item>
@@ -177,8 +181,8 @@ const App = React.createClass({
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/AnrgQGatyTsOmGS.png"
                   title="列表单选"
-                  subtitle="List Selector"
-                  onClick={() => {location.hash = 'listselectorpicker';}}
+                  subtitle="SelectList"
+                  onClick={() => {location.hash = 'selectlist';}}
                 />
               </Flex.Item>
               <Flex.Item>
@@ -233,14 +237,7 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'slider';}}
                 />
               </Flex.Item>
-              <Flex.Item>
-                <Item
-                  logo="https://os.alipayobjects.com/rmsportal/MHMIvHaTJRwnFeV.png"
-                  title="单选框"
-                  subtitle="Radio"
-                  onClick={() => {location.hash = 'radio';}}
-                />
-              </Flex.Item>
+              <Flex.Item />
               <Flex.Item />
             </Flex>
           </List.Body>
@@ -249,20 +246,21 @@ const App = React.createClass({
           <List.Header>展示</List.Header>
           <List.Body>
             <Flex className="antm-demo-flex">
+
               <Flex.Item>
                 <Item
-                  logo="https://os.alipayobjects.com/rmsportal/mdXdpESGOLgulQD.png"
-                  title="文章"
-                  subtitle="Article"
-                  onClick={() => {location.hash = 'article';}}
+                  logo="https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png"
+                  title="顶部提示"
+                  subtitle="TopNotice"
+                  onClick={() => {location.hash = 'topnotice';}}
                 />
               </Flex.Item>
               <Flex.Item>
                 <Item
-                  logo="https://os.alipayobjects.com/rmsportal/DxlvtotTJltdLxB.png"
-                  title="卡片"
-                  subtitle="Card"
-                  onClick={() => {location.hash = 'card';}}
+                  logo="https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png"
+                  title="徽标数"
+                  subtitle="Badge"
+                  onClick={() => {location.hash = 'badge';}}
                 />
               </Flex.Item>
               <Flex.Item>
@@ -311,36 +309,10 @@ const App = React.createClass({
               </Flex.Item>
               <Flex.Item>
                 <Item
-                  logo="https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png"
-                  title="顶部提示"
-                  subtitle="TopNotice"
-                  onClick={() => {location.hash = 'topnotice';}}
-                />
-              </Flex.Item>
-              <Flex.Item>
-                <Item
-                  logo="https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png"
-                  title="徽标数"
-                  subtitle="Badge"
-                  onClick={() => {location.hash = 'badge';}}
-                />
-              </Flex.Item>
-            </Flex>
-            <Flex className="antm-demo-flex">
-              <Flex.Item>
-                <Item
                   logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
                   title="抽屉"
                   subtitle="Drawer"
                   onClick={() => {location.hash = 'drawer';}}
-                />
-              </Flex.Item>
-              <Flex.Item>
-                <Item
-                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-                  title="动作菜单"
-                  subtitle="ActionSheet"
-                  onClick={() => {location.hash = 'actionsheet';}}
                 />
               </Flex.Item>
               <Flex.Item />
@@ -363,7 +335,6 @@ const pageRouter = (
     <Route path="/process" component={ProcessExample}/>
     <Route path="/whitespace" component={WhiteSpaceExample}/>
     <Route path="/wingblank" component={WingBlankExample}/>
-    <Route path="/captcha" component={CaptchaExample}/>
     <Route path="/checkbox" component={CheckboxExample}/>
     <Route path="/input" component={InputExample}/>
     <Route path="/datepicker" component={DatePickerExample}/>
@@ -372,15 +343,11 @@ const pageRouter = (
     <Route path="/select" component={SelectExample}/>
     <Route path="/switch" component={SwitchExample}/>
     <Route path="/textarea" component={TextareaExample}/>
-    <Route path="/article" component={ArticleExample}/>
-    <Route path="/card" component={CardExample}/>
     <Route path="/pageresult" component={PageResultExample}/>
     <Route path="/toast" component={ToastExample}/>
     <Route path="/topnotice" component={TopNoticeExample}/>
     <Route path="/modal" component={ModalExample}/>
-    <Route path="/listselectorpicker" component={ListSelectorExample} >
-      <Route path="/listselector" component={ListSelector2}/>
-    </Route>
+    <Route path="/selectlist" component={SelectListExample} />
     <Route path="/badge" component={BadgeExample}/>
     <Route path="/alert" component={AlertExample}/>
     <Route path="/tag" component={TagExample}/>
