@@ -5,7 +5,7 @@
 //** Tooltip distance with trigger
 @tooltip-distance: @tooltip-arrow-width + 4;
 //** Tooltip arrow color
-@tooltip-arrow-color: #373737;
+@tooltip-arrow-color: fade(@neutral-9, 90%);
 
 // Base class
 .@{floatMenuPrefixClass} {
@@ -39,18 +39,6 @@
   &-placement-leftBottom {
     padding: 0 @tooltip-distance 0 @tooltip-arrow-width;
   }
-}
-
-// Wrapper for the tooltip content
-.@{floatMenuPrefixClass}-inner {
-  padding: 8px 10px;
-  color: #fff;
-  text-align: left;
-  text-decoration: none;
-  background-color: #373737;
-  border-radius: 6px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
-  min-height: 34px;
 }
 
 // Arrows
