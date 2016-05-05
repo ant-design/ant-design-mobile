@@ -113,19 +113,12 @@ const App = React.createClass({
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-                  title="抽屉"
-                  subtitle="Drawer"
-                  onClick={() => {location.hash = 'drawer';}}
-                />
-              </Flex.Item>
-              <Flex.Item>
-                <Item
-                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
                   title="动作菜单"
                   subtitle="ActionSheet"
                   onClick={() => {location.hash = 'actionsheet';}}
                 />
               </Flex.Item>
+              <Flex.Item />
             </Flex>
           </List.Body>
         </List>
