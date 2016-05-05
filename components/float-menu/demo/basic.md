@@ -4,7 +4,7 @@ title: FloatMenu
 ---
 
 <style>
-#components-float-menu-demo-basic .title {
+#preview-components-float-menu-demo-basic .title {
   display: inline-block;
   width: 300px;
   text-align: right;

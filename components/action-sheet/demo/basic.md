@@ -19,9 +19,12 @@ const Test = React.createClass({
         'Cancel',
       ],
       icons: [
-        {iconName: 'android', title: '用Android'},
-        {iconName: 'apple', title: '用Apple'},
-        {iconName: 'github', title: '用github'},
+        { iconName: 'android', title: '用Android' },
+        { iconName: 'apple', title: '用Apple' },
+        { iconName: 'github', title: '用github' },
+        { iconName: 'github', title: '用github' },
+        { iconName: 'github', title: '用github' },
+        { iconName: 'github', title: '用github' },
       ],
     };
   },
@@ -50,7 +53,7 @@ const Test = React.createClass({
   showActionSheetWithCustom() {
     ActionSheet.showActionSheetWithCustom({
       message: 'this is message',
-      component: <div style={{color: 'red'}}>
+      component: <div style={{ color: 'red', padding: 20 }}>
         custom component
         <Button inline onClick={() => ActionSheet.close()}>close ActionSheet</Button>
       </div>

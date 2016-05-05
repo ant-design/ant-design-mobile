@@ -25,7 +25,7 @@
       border-top: 1px solid rgb(217, 217, 217);
     }
   }
-  &-cancel-button {
+  & &-cancel-button {
     margin-top: 2 * @grid;
     position: relative;
     &::after {
@@ -44,11 +44,14 @@
     color: @function-error-2;
   }
 
-  &-share-content {
+  & &-share-content {
     display: flex;
     padding-left: 6 * @grid;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     > li {
       margin-right: 5 * @grid;
+      min-width: 80px;
     }
   }
   &-share-item-icon {
