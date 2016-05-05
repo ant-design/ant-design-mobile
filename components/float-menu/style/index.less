@@ -6,7 +6,7 @@
 @import './effect';
 
 // Wrapper for the tooltip content
-.@{floatMenuPrefixClass}-inner {
+.@{floatMenuPrefixCls}-inner {
   color: #fff;
   text-align: left;
   text-decoration: none;
@@ -16,7 +16,7 @@
   min-height: 34px;
 }
 
-.@{floatMenuPrefixClass} {
+.@{floatMenuPrefixCls} {
   & &-item {
     font-size: @font-size-5;
     color: @neutral-1;
@@ -25,9 +25,9 @@
     &:active {
       background-color: @neutral-9;
     }
-    &.@{floatMenuPrefixClass}-item-disabled {
+    &.@{floatMenuPrefixCls}-item-disabled {
       color: @neutral-7;
-      &.@{floatMenuPrefixClass}-item:active {
+      &.@{floatMenuPrefixCls}-item:active {
         background-color: transparent;
       }
     }
