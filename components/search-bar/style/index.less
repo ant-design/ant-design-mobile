@@ -1,10 +1,10 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-@searchPrefixClass: am-search;
+@searchPrefixCls: am-search;
 
 /* 默认搜索bar */
-.@{searchPrefixClass} {
+.@{searchPrefixCls} {
   position: relative;
   padding: @grid 2*@grid;
   .display-box;
@@ -62,8 +62,8 @@
         -webkit-appearance:none;
       }
     }
-    /*&.@{searchPrefixClass}-start,
-    &.@{searchPrefixClass}-input-focus {
+    /*&.@{searchPrefixCls}-start,
+    &.@{searchPrefixCls}-input-focus {
       input[type="search"] {
         //background-position: center @grid;
         background-color: transparent;
@@ -77,7 +77,7 @@
         }
       }
     }*/
-    .@{searchPrefixClass}-clear {
+    .@{searchPrefixCls}-clear {
       position: absolute;
       width: 7.5*@grid;
       height: 7.5*@grid;
@@ -91,8 +91,8 @@
       .transition(300ms);
       cursor: pointer;
     }
-    &.@{searchPrefixClass}-start {
-      .@{searchPrefixClass}-clear {
+    &.@{searchPrefixCls}-start {
+      .@{searchPrefixCls}-clear {
         opacity: 1;
       }
     }
