@@ -1,11 +1,11 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-@listPrefixClass: am-list;
-@checkboxWarpPrefixCls: am-radio;
-@checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
+@listPrefixCls: am-list;
+@radioWarpPrefixCls: am-radio;
+@radioInnerPrefixCls: ~"@{radioWarpPrefixCls}-inner";
 
-.@{checkboxWarpPrefixCls} {
+.@{radioWarpPrefixCls} {
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -45,8 +45,8 @@
     border: 0 none;
     -webkit-appearance: none;
   }
-  &.@{checkboxWarpPrefixCls}-checked {
-    .@{checkboxInnerPrefixCls} {
+  &.@{radioWarpPrefixCls}-checked {
+    .@{radioInnerPrefixCls} {
       border-width: 0;
       &:after {
         display: block;
@@ -54,9 +54,9 @@
       }
     }
   }
-  &.@{checkboxWarpPrefixCls}-disabled {
-    &.@{checkboxWarpPrefixCls}-checked {
-      .@{checkboxInnerPrefixCls} {
+  &.@{radioWarpPrefixCls}-disabled {
+    &.@{radioWarpPrefixCls}-checked {
+      .@{radioInnerPrefixCls} {
         &:after {
           display: block;
           border-color: @neutral-5;
@@ -65,8 +65,8 @@
     }
   }
 }
-.@{listPrefixClass}-item-radio {
-  .@{checkboxWarpPrefixCls} {
+.@{listPrefixCls}-item-radio {
+  .@{radioWarpPrefixCls} {
     position: absolute;
     top: 0;
     left: 0;
