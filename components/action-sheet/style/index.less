@@ -10,5 +10,55 @@
   bottom: 0;
   position: fixed;
   width: 100%;
-  background-color: #fff;
+  background-color: @neutral-1;
+
+  &-message {
+    margin: 4 * @grid auto;
+    text-align: center;
+  }
+  &-button-list {
+    text-align: center;
+    color: @neutral-10;
+    > li {
+      height: 11 * @grid;
+      line-height: 11 * @grid;
+      border-top: 1px solid rgb(217, 217, 217);
+    }
+  }
+  &-cancel-button {
+    margin-top: 2 * @grid;
+    position: relative;
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: -2 * @grid;
+      left: 0;
+      width: 100%;
+      height: 2 * @grid;
+      background-color: #F7F7F7;
+      border-top: 1px solid rgb(217, 217, 217);
+      border-bottom: 1px solid rgb(217, 217, 217);
+    }
+  }
+  &-destructive-button {
+    color: @function-error-2;
+  }
+
+  &-share-content {
+    display: flex;
+    padding-left: 6 * @grid;
+    > li {
+      margin-right: 5 * @grid;
+    }
+  }
+  &-share-item-icon {
+    text-align: center;
+    .anticon {
+      font-size: 26px;
+    }
+  }
+  &-share-item-title {
+    text-align: center;
+    margin-top: 2 * @grid;
+  }
 }
