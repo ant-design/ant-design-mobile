@@ -83,8 +83,6 @@ const PageResultExample = React.createClass({
             />
           </TabPane>
         </Tabs>
-        <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>
-
       </Page>
     );
   },

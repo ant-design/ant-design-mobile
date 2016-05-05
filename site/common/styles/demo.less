@@ -83,7 +83,7 @@
 
 .code-box .code-box-demo {
   border-bottom: 1px solid #E9E9E9;
-  padding: 42px 20px 50px;
+  //padding: 42px 20px 50px;
 }
 
 .code-box iframe {
@@ -498,7 +498,7 @@
 
 .demo-preview-wrapper {
   width: 375px;
-  padding-bottom: 10px;
+  //padding-bottom: 10px;
   background-color: #F7F7F7;
   .demo-preview-header {
     height: 64px;
@@ -507,10 +507,17 @@
     padding-top: 10px;
   }
   .demo-preview-scroller {
-    
+    border: 1px solid #d9d9d9;
     height: 666px;
-    padding: 10px;
+    padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    * {
+      box-sizing: content-box;
+    }
+    .am-modal .am-wingblank *,
+    .button-container * {
+      box-sizing: border-box;
+    }
   }
 }
