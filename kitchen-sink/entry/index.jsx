@@ -30,6 +30,7 @@ import AlertExample from '../component/AlertExample';
 import TagExample from '../component/TagExample';
 import BadgeExample from '../component/BadgeExample';
 import DrawerExample from '../component/DrawerExample';
+import ActionSheetExample from '../component/ActionSheetExample';
 import SliderExample from '../component/SliderExample';
 import { ListSelectorExample, ListSelector2 } from '../component/ListSelectorExample';
 import ReactDOM from 'react-dom';
@@ -334,7 +335,14 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'drawer';}}
                 />
               </Flex.Item>
-              <Flex.Item />
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+                  title="动作菜单"
+                  subtitle="ActionSheet"
+                  onClick={() => {location.hash = 'actionsheet';}}
+                />
+              </Flex.Item>
               <Flex.Item />
             </Flex>
           </List.Body>
@@ -377,6 +385,7 @@ const pageRouter = (
     <Route path="/alert" component={AlertExample}/>
     <Route path="/tag" component={TagExample}/>
     <Route path="/drawer" component={DrawerExample}/>
+    <Route path="/actionsheet" component={ActionSheetExample}/>
     <Route path="/slider" component={SliderExample}/>
     <Route path="/radio" component={RadioExample}/>
   </Router>

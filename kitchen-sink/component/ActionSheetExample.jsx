@@ -1,13 +1,8 @@
----
-order: 0
-title: ActionSheet
----
-
-
-````jsx
+import React from 'react';
+import Page from '../common/Page';
 import { ActionSheet, Button, WhiteSpace } from 'antm';
 
-const Test = React.createClass({
+const ActionSheetExample = React.createClass({
   getInitialState() {
     return {
       clicked: 'none',
@@ -60,24 +55,25 @@ const Test = React.createClass({
     });
   },
   render() {
-    return (<div>
-      <div>
-        <Button type="primary" onClick={this.showActionSheet}>show ActionSheet</Button>
-        <p>Clicked button: {this.state.clicked}</p>
-      </div>
-      <WhiteSpace />
-      <div>
-        <Button type="primary" onClick={this.showShareActionSheet}>showShareActionSheet</Button>
-        <p>Clicked icon: {this.state.clicked}</p>
-      </div>
-      <WhiteSpace />
-      <div>
-        <Button type="primary" onClick={this.showActionSheetWithCustom}>showActionSheetWithCustom</Button>
-        <p>Clicked: {this.state.clicked}</p>
-      </div>
-    </div>);
-  }
+    return (
+      <Page title="ActionSheet" subtitle="ActionSheet">
+        <div>
+          <Button type="primary" onClick={this.showActionSheet}>show ActionSheet</Button>
+          <p>Clicked button: {this.state.clicked}</p>
+        </div>
+        <WhiteSpace />
+        <div>
+          <Button type="primary" onClick={this.showShareActionSheet}>showShareActionSheet</Button>
+          <p>Clicked icon: {this.state.clicked}</p>
+        </div>
+        <WhiteSpace />
+        <div>
+          <Button type="primary" onClick={this.showActionSheetWithCustom}>showActionSheetWithCustom</Button>
+          <p>Clicked: {this.state.clicked}</p>
+        </div>
+      </Page>
+    );
+  },
 });
 
-ReactDOM.render(<Test />, mountNode);
-````
+export default ActionSheetExample;

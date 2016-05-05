@@ -1,28 +1,113 @@
 /* eslint no-console:0 */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
+import classNames from 'classnames';
+import assign from 'object-assign';
+import Icon from '../icon';
 
-export default class ActionSheet extends React.Component {
-  static propTypes = {
-    transitionName: PropTypes.string,
-    maskTransitionName: PropTypes.string,
-  }
+const NORMAL = 'NORMAL';
+const SHARE = 'SHARE';
+let closeFn = () => {};
 
-  static defaultProps = {
+function createActionSheet(flag, config, callback) {
+  const props = assign({
     prefixCls: 'am-action-sheet',
+  }, config);
+  const { prefixCls, transitionName, maskTransitionName } = props;
+
+  let div = document.createElement('div');
+  document.body.appendChild(div);
+
+  let d;
+
+  function close() {
+    d.setState({
+      visible: false
+    });
+    ReactDOM.unmountComponentAtNode(div);
+    div.parentNode.removeChild(div);
+  }
+  closeFn = close;
+
+  function cb(info) {
+    callback(info);
+    close();
   }
 
-  render() {
-    let { children, prefixCls, transitionName, maskTransitionName, ...other } = this.props;
+  const { message, options, destructiveButtonIndex, cancelButtonIndex } = props;
+  let children = null;
+  switch (flag) {
+    case NORMAL:
+      children = (<div className={`${prefixCls}-normal`}>
+        <div className={`${prefixCls}-message`}>{message}</div>
+        <ul className={`${prefixCls}-button-list`}>
+          {options.map((item, index) => {
+            const extraProp = {
+              onClick: () => cb(index),
+            };
+            let li = <li key={index} {...extraProp}>{item}</li>;
+            const cls = {
+              [`${prefixCls}-destructive-button`]: destructiveButtonIndex === index,
+              [`${prefixCls}-cancel-button`]: cancelButtonIndex === index,
+            };
+            if (cancelButtonIndex === index || destructiveButtonIndex === index) {
+              li = <li key={index} className={classNames(cls)} {...extraProp}>{item}</li>;
+            }
+            return li;
+          })}
+        </ul>
+      </div>);
+      break;
+    case SHARE:
+      children = (<div className={`${prefixCls}-share`}>
+        <div className={`${prefixCls}-message`}>{message}</div>
+        <ul className={`${prefixCls}-share-content`}>
+        {options.map((item, index) => {
+          const extraProp = {
+            onClick: () => cb(index),
+          };
+          return (<li key={index} {...extraProp}>
+            <p className={`${prefixCls}-share-item-icon`}><Icon type={item.iconName} /></p>
+            <p className={`${prefixCls}-share-item-title`}>{item.title}</p>
+          </li>);
+        })}
+        </ul>
+      </div>);
+      break;
+    default:
+      children = (<div className={`${prefixCls}-custom`}>
+        <div className={`${prefixCls}-message`}>{message}</div>
+        <div className={`${prefixCls}-custom-content`}>
+          {props.component}
+        </div>
+      </div>);
+  }
 
-    transitionName = transitionName || `${prefixCls}-slide-fade`;
-    maskTransitionName = maskTransitionName || `${prefixCls}-fade`;
+  ReactDOM.render(<Dialog
+    prefixCls={prefixCls}
+    visible
+    title=""
+    footer=""
+    transitionName={transitionName || `${prefixCls}-slide-fade`}
+    maskTransitionName={maskTransitionName || `${prefixCls}-fade`}
+    onClose={close}
+  >{children}</Dialog>, div, function () {
+    d = this;
+  });
+}
 
-    return (<Dialog
-      {...other}
-      prefixCls={prefixCls}
-      transitionName={transitionName}
-      maskTransitionName={maskTransitionName}
-    >{children}</Dialog>);
+export default class ActionSheet {
+  static showActionSheetWithOptions = (config, callback = () => {}) => {
+    createActionSheet(NORMAL, config, callback);
+  }
+  static showShareActionSheetWithOptions = (config, callback = () => {}) => {
+    createActionSheet(SHARE, config, callback);
+  }
+  static showActionSheetWithCustom = (config, callback = () => {}) => {
+    createActionSheet(null, config, callback);
+  }
+  static close = () => {
+    closeFn();
   }
 }

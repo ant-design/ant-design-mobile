@@ -10,9 +10,26 @@ english: ActionSheet
 
 
 ## API
+> 参考 RN API：https://facebook.github.io/react-native/docs/actionsheetios.html#content
 
-| 成员        | 说明           | 类型         | 默认值       |
-|------------|----------------|-------------|--------------|
-| visible   | 当前显隐状态    | Boolean |  false   |
-| closable   | 是否允许点击遮罩层关闭    | Boolean |  true   |
-| onClose   | 关闭时调用    | function |  -   |
+#### static showActionSheetWithOptions(options: Object, callback: Function)
+
+Display an iOS action sheet. The options object must contain one or more of:
+
+- options (array of strings) - a list of button titles (required)
+- cancelButtonIndex (int) - index of cancel button in options
+- destructiveButtonIndex (int) - index of destructive button in options
+- message (string) - a message to show below the title
+
+#### static showShareActionSheetWithOptions(options: Object, callback: Function)
+
+- options (array of `{iconName: 'xx', title: ''}`) - a list of button titles (required)
+- message (string) - a message to show below the title
+
+#### static showActionSheetWithCustom(options: Object, callback: Function)
+
+- component (your custom component)
+
+#### static close()
+
+programmatically close ActionSheet.
