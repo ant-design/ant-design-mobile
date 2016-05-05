@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 单选
+chinese: 选择列表
 type: 表单
-english: List Selector
----
+english: Select List 
+----------------------
 
 
 

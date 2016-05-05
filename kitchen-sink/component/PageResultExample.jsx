@@ -2,6 +2,8 @@ import React from 'react';
 import Page from '../common/Page';
 import { PageResult, Tabs, WhiteSpace } from 'antm';
 
+const TabPane = Tabs.TabPane;
+
 const PageResultExample = React.createClass({
   render() {
     return (
@@ -51,48 +53,38 @@ const PageResultExample = React.createClass({
           buttonClick={() => {alert('点击了按钮');}}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>
-        <PageResult
-          imgUrl="https://os.alipayobjects.com/rmsportal/MKXqtwNOLFmYmrY.png"
-          title="内容为空"
-          brief="可各业务自定义文案"
-          buttonTxt="重新尝试"
-          buttonClick={() => {alert('点击了按钮');}}
-        />
-        <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>
-        <Tabs>
-          <Tabs.Item>选项1</Tabs.Item>
-          <Tabs.Item selected={true}>选项2</Tabs.Item>
-          <Tabs.Item>选项3</Tabs.Item>
+
+        <Tabs defaultActiveKey="1">
+          <TabPane tab="选项卡一" key="1">
+            <PageResult
+              imgUrl="https://os.alipayobjects.com/rmsportal/QGxGZRxaqMRKnjS.png"
+              title="网络不给力"
+              brief="请查看网络连接或稍后重试"
+              buttonTxt="重新尝试"
+              buttonClick={() => {alert('点击了按钮');}}
+            />
+          </TabPane>
+          <TabPane tab="选项卡二" key="2">
+            <PageResult
+              imgUrl="https://os.alipayobjects.com/rmsportal/hcEPreZxgZWxhVw.png"
+              title="警示"
+              brief="可各业务自定义文案"
+              buttonTxt="重新加载"
+              buttonClick={() => {alert('点击了按钮');}}
+            />
+          </TabPane>
+          <TabPane tab="选项卡三" key="3">
+            <PageResult
+              imgUrl="https://os.alipayobjects.com/rmsportal/MKXqtwNOLFmYmrY.png"
+              title="内容为空"
+              brief="可各业务自定义文案"
+              buttonTxt="重新尝试"
+              buttonClick={() => {alert('点击了按钮');}}
+            />
+          </TabPane>
         </Tabs>
-        <PageResult
-          imgUrl="https://os.alipayobjects.com/rmsportal/hcEPreZxgZWxhVw.png"
-          title="警示"
-          brief="可各业务自定义文案"
-          buttonTxt="重新加载"
-          buttonClick={() => {alert('点击了按钮');}}
-        />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>
-        <Tabs>
-          <Tabs.Item>选项1</Tabs.Item>
-          <Tabs.Item selected={true}>选项2</Tabs.Item>
-          <Tabs.Item>选项3</Tabs.Item>
-        </Tabs>
-        <PageResult
-          imgUrl="https://os.alipayobjects.com/rmsportal/QGxGZRxaqMRKnjS.png"
-          title="网络不给力"
-          brief="请查看网络连接或稍后重试"
-          buttonTxt="重新尝试"
-          buttonClick={() => {alert('点击了按钮');}}
-        />
-        <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>
-        <PageResult
-          imgUrl="https://os.alipayobjects.com/rmsportal/hbGTnqHwPdYGedk.png"
-          title="我是插画页"
-          brief="页面成为插画页"
-          buttonTxt="主按钮"
-          buttonMode="blue"
-          buttonClick={() => {alert('点击了按钮');}}
-        />
+
       </Page>
     );
   },

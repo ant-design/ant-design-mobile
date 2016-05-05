@@ -1,35 +1,39 @@
 import React, { PropTypes } from 'react';
 import List from '../list/index';
+import Radio from '../radio/index';
 import SearchBar from '../search-bar/index';
 
 function noop() {}
 
-let ListSelector = React.createClass({
-  propTypes: {
+export default class SelectList extends React.Component {
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    style: PropTypes.object,
     value: PropTypes.array,
     data: PropTypes.array,
-    source: PropTypes.string,
     onClick: PropTypes.func,
-    onChange: PropTypes.func,
     needSearch: PropTypes.bool,
-  },
-  getDefaultProps() {
-    return {
-      value: [],
-      data: [],
-      onClick: noop,
-      onChange: noop,
-      needSearch: true
-    };
-  },
-  getInitialState() {
-    return {
+    placeholder: PropTypes.string,
+  };
+
+  static defaultProps = {
+    prefixCls: 'am-select-list',
+    value: [],
+    data: [],
+    onClick: noop,
+    needSearch: false,
+    placeholder: '请输入关键字',
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
       value: this.props.value,
       data: this.props.data,
-      source: this.props.source,
       searchKey: '',
     };
-  },
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.state.searchKey !== '') {
       this._handleSearch(this.state.searchKey);
@@ -38,20 +42,24 @@ let ListSelector = React.createClass({
         data: nextProps.data
       });
     }
-  },
-  _handleClick(el) {
+  }
+
+  handleClick = (el) => {
     this.setState({
       value: [el]
     });
     this.props.onClick(el);
-  },
-  _onSubmit(value) {
-    this._handleSearch(value);
-  },
-  _onChange(value) {
-    this._handleSearch(value);
-  },
-  _handleSearch(value) {
+  };
+
+  onSubmit = (value) => {
+    this.handleSearch(value);
+  };
+
+  onChange = (value) => {
+    this.handleSearch(value);
+  };
+
+  handleSearch = (value) => {
     this.setState({
       searchKey: value
     });
@@ -68,54 +76,52 @@ let ListSelector = React.createClass({
         }
       }
     });
-
     this.setState({
       data: filterData
     });
-  },
-  _onClear() {
+  };
+  onClear = () => {
     this.setState({
       data: this.props.data
     });
-  },
-  _onCancel() {
+  };
+
+  onCancel = () => {
     this.setState({
       data: this.props.data
     });
-  },
+  };
+
   render() {
     const { value, data } = this.state;
+    const { prefixCls, needSearch, placeholder } = this.props;
     const itemsDom = [];
     data.forEach((el, idx) => {
-      if (value.length > 0 && value[0].id === el.id) {
-        itemsDom.push(<List.Item
-          className="am-list-selected"
-          key={idx}
-          extra={<span></span>}
-          onClick={this._handleClick.bind(this, el)}
-        >{el.name}</List.Item>);
-      } else {
-        itemsDom.push(<List.Item
-          key={idx}
-          onClick={this._handleClick.bind(this, el)}
-        >{el.name}</List.Item>);
-      }
+      itemsDom.push(<List.Item
+        className={ value.length > 0 && value[0].id === el.id ? `${prefixCls}-selected` : null }
+        key={idx}
+        extra={<Radio
+          value={el.id}
+          checked={value.length > 0 && value[0].id === el.id}
+          onChange={this.handleClick.bind(this, el)}
+        />}
+      >{el.name}</List.Item>);
     });
 
     let searchDom = null;
-    if (this.props.needSearch) {
+    if (needSearch) {
       searchDom = (<SearchBar
-        placeholder="请输入关键字"
-        onSubmit={this._onSubmit}
-        onChange={this._onChange}
-        onClear={this._onClear}
-        onCancel={this._onCancel}
+        placeholder={placeholder}
+        onSubmit={this.onSubmit}
+        onChange={this.onChange}
+        onClear={this.onClear}
+        onCancel={this.onCancel}
       />);
     }
     return (
       <div>
         {searchDom}
-        <List style={{ paddingTop: '0' }}>
+        <List style={{ paddingTop: 0 }}>
           <List.Body>
             {itemsDom}
           </List.Body>
@@ -123,6 +129,4 @@ let ListSelector = React.createClass({
       </div>
     );
   }
-});
-
-export default ListSelector;
+}
