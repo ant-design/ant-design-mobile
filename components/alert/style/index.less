@@ -1,9 +1,9 @@
 @import '../../style/mixins';
 @import '../../style/variables.less';
 
-@alertPrefixClass: am-alert;
+@alertPrefixCls: am-alert;
 
-.@{alertPrefixClass} {
+.@{alertPrefixCls} {
   position: relative;
   padding: 8px 8px 8px 16px;
   color: @neutral-8;
@@ -11,51 +11,51 @@
   margin-bottom: 2*@grid;
   .border-1px-both;
 
-  &.@{alertPrefixClass}-message {
+  &.@{alertPrefixCls}-message {
     padding: 4*@grid 4*@grid 4*@grid 12*@grid;
     line-height: 16px;
-    .@{alertPrefixClass}-icon {
+    .@{alertPrefixCls}-icon {
       position: absolute;
       top: 5*@grid;
       left: 3*@grid;
       font-size: 24px;
       line-height: 1.2;
     }
-    .@{alertPrefixClass}-main {
+    .@{alertPrefixCls}-main {
       margin-top: 2*@grid;
       font-size: @font-size-5;
     }
-    .@{alertPrefixClass}-description {
+    .@{alertPrefixCls}-description {
       margin-top: 2*@grid;
       font-size: @font-size-2;
       color: @neutral-7;
     }
-    .@{alertPrefixClass}-brief {
+    .@{alertPrefixCls}-brief {
       margin-top: 2*@grid;
       font-size: @font-size-2;
       color: @neutral-7;
     }
   }
 
-  &.@{alertPrefixClass}-result {
+  &.@{alertPrefixCls}-result {
     padding: 6*@grid 2*@grid 6*@grid;
     text-align: center;
     line-height: 1;
-    .@{alertPrefixClass}-icon {
+    .@{alertPrefixCls}-icon {
       display: block;
       text-align: center;
       font-size: 60px;
     }
-    .@{alertPrefixClass}-main {
+    .@{alertPrefixCls}-main {
       margin-top: 2*@grid;
       font-size: 21px;
     }
-    .@{alertPrefixClass}-description {
+    .@{alertPrefixCls}-description {
       margin-top: 2*@grid;
       font-size: 25px;
       color: @neutral-10;
     }
-    .@{alertPrefixClass}-brief {
+    .@{alertPrefixCls}-brief {
       margin-top: 2*@grid;
       font-size: 14px;
       color: @neutral-7;
@@ -64,38 +64,38 @@
 
   &-success,
   &-wait {
-    .@{alertPrefixClass}-icon {
+    .@{alertPrefixCls}-icon {
       color: @green-6;
     }
-    .@{alertPrefixClass}-main {
+    .@{alertPrefixCls}-main {
       color: @green-6;
     }
   }
 
   &-warn {
-    .@{alertPrefixClass}-icon {
+    .@{alertPrefixCls}-icon {
       color: @yellow-6;
     }
-    .@{alertPrefixClass}-main {
+    .@{alertPrefixCls}-main {
       color: @yellow-6;
     }
   }
 
   &-error {
-    .@{alertPrefixClass}-icon {
+    .@{alertPrefixCls}-icon {
       color: @orange-6;
     }
-    .@{alertPrefixClass}-main {
+    .@{alertPrefixCls}-main {
       color: @orange-6;
     }
   }
 
   &-info,
   &-question {
-    .@{alertPrefixClass}-icon {
+    .@{alertPrefixCls}-icon {
       color: @brand-6;
     }
-    .@{alertPrefixClass}-main {
+    .@{alertPrefixCls}-main {
       color: @brand-6;
     }
   }

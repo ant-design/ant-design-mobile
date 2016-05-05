@@ -1,16 +1,16 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-@collapsePrefixClass: am-collapse;
+@collapsePrefixCls: am-collapse;
 
-.@{collapsePrefixClass} {
+.@{collapsePrefixCls} {
   position: relative;
   .hairline-top(top, @neutral-5);
   &-anim-active {
     transition: all .2s ease-out;
   }
   & &-item {
-    .@{collapsePrefixClass}-header {
+    .@{collapsePrefixCls}-header {
       position: relative;
       height: 8*@grid;
       line-height: 8*@grid;
@@ -54,9 +54,9 @@
         }
       }
     }
-    .@{collapsePrefixClass}-content {
+    .@{collapsePrefixCls}-content {
       background: @neutral-2;
-      .@{collapsePrefixClass}-content-box {
+      .@{collapsePrefixCls}-content-box {
         padding-left: 4*@grid;
         position: relative;
         font-size: @font-size-4;
@@ -64,16 +64,16 @@
         font-weight: @font-weight-1;
         color: @neutral-9;
         .hairline-bottom(bottom, @neutral-5, 0);
-        .@{collapsePrefixClass}-content-box-item {
+        .@{collapsePrefixCls}-content-box-item {
           padding: 1.5*@grid 4*@grid 1.5*@grid 0;
           position: relative;
           .hairline-bottom(bottom, @neutral-5, 0);
-          &.@{collapsePrefixClass}-content-box-item-last {
+          &.@{collapsePrefixCls}-content-box-item-last {
             .hairline-remove-right-bottom();
           }
         }
       }
-      &.@{collapsePrefixClass}-content-inactive {
+      &.@{collapsePrefixCls}-content-inactive {
         display: none;
       }
     }

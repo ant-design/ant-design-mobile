@@ -1,9 +1,9 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-@listPrefixClass: am-list;
+@listPrefixCls: am-list;
 
-.@{listPrefixClass} {
+.@{listPrefixCls} {
   padding: @margin-7 0 @margin-2 0;
   background-color: @neutral-3;
   & &-header {
@@ -37,7 +37,7 @@
     .box-align;
     .transition(background-color 200ms);
     /*list左图片显示*/
-    .@{listPrefixClass}-thumb {
+    .@{listPrefixCls}-thumb {
       &:first-child {
         margin-right: @margin-2;
       }
@@ -50,7 +50,7 @@
         vertical-align: middle;
       }
     }
-    .@{listPrefixClass}-line {
+    .@{listPrefixCls}-line {
       position: relative;
       padding: 1.5*@grid 4*@grid 1.5*@grid 0;
       min-height: 8*@grid;
@@ -59,7 +59,7 @@
       overflow: hidden;
       .hairline-bottom(bottom, @neutral-5, 0);
       /*list左侧主内容*/
-      .@{listPrefixClass}-content {
+      .@{listPrefixCls}-content {
         .box-flex;
         color: @neutral-10;
         font-size: @font-size-5;
@@ -68,7 +68,7 @@
         .ellipsis();
       }
       /*list右补充内容*/
-      .@{listPrefixClass}-extra {
+      .@{listPrefixCls}-extra {
         .box-flex(1);
         color: @neutral-8;
         font-size: @font-size-4;
@@ -81,7 +81,7 @@
         }
       }
       /*list左侧主内容多行时，辅助性文字*/
-      .@{listPrefixClass}-brief {
+      .@{listPrefixCls}-brief {
         color: @neutral-7;
         font-size: @font-size-4;
         line-height: @line-height-2;
@@ -89,7 +89,7 @@
         .ellipsis();
       }
       /*list右侧箭头*/
-      .@{listPrefixClass}-arrow {
+      .@{listPrefixCls}-arrow {
         margin-left: 7px;
         margin-right: -2px;
         width: 4*@grid;
@@ -136,35 +136,35 @@
         }
       }
     }
-    &.@{listPrefixClass}-item-top {
-      .@{listPrefixClass}-line {
+    &.@{listPrefixCls}-item-top {
+      .@{listPrefixCls}-line {
         .box-align(flex-start);
       }
     }
-    &.@{listPrefixClass}-item-middle {
-      .@{listPrefixClass}-line {
+    &.@{listPrefixCls}-item-middle {
+      .@{listPrefixCls}-line {
         .box-align(center);
       }
     }
-    &.@{listPrefixClass}-item-bottom {
-      .@{listPrefixClass}-line {
+    &.@{listPrefixCls}-item-bottom {
+      .@{listPrefixCls}-line {
         .box-align(flex-end);
       }
     }
-    &.@{listPrefixClass}-item-error {
-      .@{listPrefixClass}-line {
+    &.@{listPrefixCls}-item-error {
+      .@{listPrefixCls}-line {
         .hairline-bottom(bottom, red, 0);
       }
     }
-    &.@{listPrefixClass}-item-last {
-      .@{listPrefixClass}-line {
+    &.@{listPrefixCls}-item-last {
+      .@{listPrefixCls}-line {
         .hairline-remove-right-bottom();
       }
-      &.@{listPrefixClass}-item-error {
+      &.@{listPrefixCls}-item-error {
         .hairline-bottom(bottom, red, 0);
       }
     }
-    &.@{listPrefixClass}-item-hover {
+    &.@{listPrefixCls}-item-hover {
       background-color: @neutral-5;
     }
   }

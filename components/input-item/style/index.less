@@ -1,19 +1,19 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-@listPrefixClass: am-list;
-@inputPrefixClass: am-input;
+@listPrefixCls: am-list;
+@inputPrefixCls: am-input;
 
-.@{listPrefixClass} {
+.@{listPrefixCls} {
   & &-item {
-    &.@{inputPrefixClass}-item {
+    &.@{inputPrefixCls}-item {
       padding: 1.5*@grid 4*@grid;
       .hairline-bottom(bottom, @neutral-5, @margin-4);
     }
-    &.@{inputPrefixClass}-item-last {
+    &.@{inputPrefixCls}-item-last {
       .hairline-remove-right-bottom();
     }
-    &.@{inputPrefixClass}-error {
+    &.@{inputPrefixCls}-error {
       position: relative;
       z-index: 11;
       .hairline-bottom(bottom, @red-6, @margin-4);
@@ -21,14 +21,14 @@
         left: 0;
       }
     }
-    .@{inputPrefixClass}-label {
+    .@{inputPrefixCls}-label {
       font-size: @font-size-5;
       margin-left: 0;
       margin-right: 4*@grid;
       color: @neutral-10;
       text-align: left;
     }
-    .@{inputPrefixClass}-control {
+    .@{inputPrefixCls}-control {
       .box-flex(1);
       input {
         font-size: @font-size-5;
@@ -46,7 +46,7 @@
         }
       }
     }
-    .@{inputPrefixClass}-clear {
+    .@{inputPrefixCls}-clear {
       visibility: hidden;
       display: block;
       width: 4*@grid;
@@ -64,12 +64,12 @@
         background-color: @neutral-7;
       }
     }
-    &.@{inputPrefixClass}-focus {
-      .@{inputPrefixClass}-clear {
+    &.@{inputPrefixCls}-focus {
+      .@{inputPrefixCls}-clear {
         visibility: visible;
       }
     }
-    .@{inputPrefixClass}-extra {
+    .@{inputPrefixCls}-extra {
       -webkit-box-flex: initial;
       -webkit-flex: initial;
       min-width: 0;

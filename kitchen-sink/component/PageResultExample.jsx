@@ -12,6 +12,8 @@ const PageResultExample = React.createClass({
           imgUrl="https://os.alipayobjects.com/rmsportal/SgCjcxAQTmmNUWi.png"
           title="加载出错"
           buttonTxt="重新加载"
+          buttonType="primary"
+          buttonGhost={false}
           buttonClick={() => {alert('点击了按钮');}}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>
@@ -19,6 +21,8 @@ const PageResultExample = React.createClass({
           imgUrl="https://os.alipayobjects.com/rmsportal/awwrfcIKXAKwGyx.png"
           title="系统繁忙"
           buttonTxt="重新加载"
+          buttonType="primary"
+          buttonGhost={true}
           buttonClick={() => {alert('点击了按钮');}}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace/></div>

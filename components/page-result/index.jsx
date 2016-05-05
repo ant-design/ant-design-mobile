@@ -3,47 +3,46 @@ import Button from '../button';
 import classNames from 'classnames';
 function noop() {}
 
-const PageResult = React.createClass({
-  propTypes: {
+export default class PageResult extends React.Component {
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    style: PropTypes.object,
     imgUrl: PropTypes.string,
     title: PropTypes.string,
     brief: PropTypes.string,
     buttonTxt: PropTypes.string,
-    buttonMode: PropTypes.string,
+    buttonType: PropTypes.string,
+    buttonGhost: PropTypes.bool,
     buttonClick: PropTypes.func,
-  },
-  getDefaultProps() {
-    return {
-      imgUrl: '',
-      title: '',
-      brief: '',
-      buttonTxt: '',
-      buttonMode: 'white',
-      buttonClick: noop,
-    };
-  },
+  };
+
+  static defaultProps = {
+    prefixCls: 'am-page-result',
+    imgUrl: '',
+    title: '',
+    brief: '',
+    buttonTxt: '',
+    buttonType: 'default',
+    buttonGhost: false,
+    buttonClick: noop,
+  };
+
   render() {
-    let { imgUrl, title, brief, buttonTxt, buttonClick, buttonMode, className } = this.props;
+    let { prefixCls, imgUrl, title, brief, buttonTxt, buttonClick, buttonType, buttonGhost, style, className } = this.props;
     const wrapCls = classNames({
-      'am-page-result': true,
+      [`${prefixCls}`]: true,
       [className]: className
     });
 
-    let titleDom = title !== '' ? (<div className="am-page-result-title">{title}</div>) : null;
-    let briefDom = brief !== '' ? (<div className="am-page-result-brief">{brief}</div>) : null;
-    let buttonDom = buttonTxt !== '' ? (<div className="am-page-result-button">
-      <Button mode={buttonMode} onClick={buttonClick}>{buttonTxt}</Button>
-    </div>) : null;
     return (
-      <div className={wrapCls}>
-        <div className="am-page-result-wrap">
-          <div className="am-page-result-pic" style={{ backgroundImage: `url(${imgUrl})` }}></div>
-          {titleDom}
-          {briefDom}
-          {buttonDom}
-        </div>
+      <div {...this.props} className={wrapCls} style={style}>
+        <div className={`${prefixCls}-pic`} style={{ backgroundImage: `url(${imgUrl})` }}></div>
+        { title !== '' ? (<div className={`${prefixCls}-title`}>{title}</div>) : null }
+        { brief !== '' ? (<div className={`${prefixCls}-brief`}>{brief}</div>) : null }
+        { buttonTxt !== '' ? (<div className={`${prefixCls}-button`}>
+          <Button type={buttonType} ghost={buttonGhost} onClick={buttonClick}>{buttonTxt}</Button>
+        </div>) : null }
       </div>
     );
   }
-});
-module.exports = PageResult;
+}
