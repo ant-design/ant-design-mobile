@@ -21,5 +21,4 @@ english: Progress
 | 属性      | 说明           | 类型     | 默认值         |
 |----------|---------------|----------|---------------|
 | percent  | 进度百分比 | number | 0 |
-| status   | 状态，invalid则会隐藏。 可选：`invalid` `active` | string   | `active` |
 | position   | 进度条的位置，fixed将浮出固定在最顶层，可选：`fixed` `normal` | string   | `fixed` |
