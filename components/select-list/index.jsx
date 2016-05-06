@@ -18,6 +18,7 @@ export default class SelectList extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-select-list',
+    radioPrefixCls: 'am-radio',
     value: [],
     data: [],
     onClick: noop,
@@ -94,11 +95,11 @@ export default class SelectList extends React.Component {
 
   render() {
     const { value, data } = this.state;
-    const { prefixCls, needSearch, placeholder } = this.props;
+    const { prefixCls, radioPrefixCls, needSearch, placeholder } = this.props;
     const itemsDom = [];
     data.forEach((el, idx) => {
       itemsDom.push(<List.Item
-        className={ value.length > 0 && value[0].id === el.id ? `${prefixCls}-selected` : null }
+        className={ value.length > 0 && value[0].id === el.id ? `${prefixCls}-selected ${radioPrefixCls}-item` : `${radioPrefixCls}-item`}
         key={idx}
         extra={<Radio
           value={el.id}
