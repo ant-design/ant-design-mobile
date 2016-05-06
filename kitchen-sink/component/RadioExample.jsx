@@ -5,6 +5,8 @@ import Page from '../common/Page';
 import { List, Button, WingBlank, WhiteSpace, Radio } from 'antm';
 import { createForm } from 'rc-form';
 
+const RadioItem = Radio.RadioItem;
+
 let RadioExample = React.createClass({
   getInitialState() {
     return {
@@ -30,46 +32,38 @@ let RadioExample = React.createClass({
         <List >
           <List.Header>表单多选项，普通列表中多选项</List.Header>
           <List.Body>
-            <List.Item
-              extra={<Radio
-                value = "a"
-                checked = {this.state.r === 'a'}
-                onChange={this.handleChange}
-                disabled={this.state.disabled}
-              />}
+            <RadioItem
+              value = "a"
+              checked = {this.state.r === 'a'}
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             >
               使用 Ant Desgin Component
-            </List.Item>
-            <List.Item
-              extra={<Radio
-                value = "b"
-                checked = {this.state.r === 'b'}
-                onChange={this.handleChange}
-                disabled={this.state.disabled}
-              />}
+            </RadioItem>
+            <RadioItem
+              value = "b"
+              checked = {this.state.r === 'b'}
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             >
               使用 Ant Desgin Component
-            </List.Item>
-            <List.Item
-              extra={<Radio
-                value = "c"
-                checked = {true}
-                onChange={this.handleChange}
-                disabled={true}
-              />}
+            </RadioItem>
+            <RadioItem
+              value = "c"
+              checked = {true}
+              onChange={this.handleChange}
+              disabled={true}
             >
               个性化调整disabled
-            </List.Item>
-            <List.Item
-              extra={<Radio
-                value = "d"
-                checked = {false}
-                onChange={this.handleChange}
-                disabled={true}
-              />}
+            </RadioItem>
+            <RadioItem
+              value = "d"
+              checked = {false}
+              onChange={this.handleChange}
+              disabled={true}
             >
               个性化调整disabled
-            </List.Item>
+            </RadioItem>
           </List.Body>
         </List>
         <WhiteSpace mode={12}/>
