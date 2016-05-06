@@ -17,27 +17,24 @@ export default class Progress extends React.Component {
     super(props);
 
     this.state = {
-      selected: false,
-      closed: false,
     };
   }
 
   render() {
-    const { prefixCls, status, percent, position, ...others } = this.props;
-    const selected = this.state.selected;
+    const { prefixCls, percent, position, ...others } = this.props;
     const percentStyle = {
       width: `${percent}%`,
-      height: 0 
-    }
+      height: 0
+    };
 
     const wrapCls = classNames({
-      [`${prefixCls}-outer`] : true,
+      [`${prefixCls}-outer`]: true,
       [`${prefixCls}-fixed-outer`]: position === 'fixed',
     });
-  
+
     return (
       <div className={wrapCls} {...others}>
-          <div className={`${prefixCls}-bar`} style={percentStyle}></div>
+        <div className={`${prefixCls}-bar`} style={percentStyle}></div>
       </div>
     );
   }
