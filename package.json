@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "antd": "^1.0.0-beta.5",
-    "antd-tools": "~0.2.7",
+    "antd-tools": "~0.5.0",
     "babel-eslint": "^6.0.0",
     "babel-plugin-antd": "^0.4.0",
     "clipboard": "^1.5.5",
