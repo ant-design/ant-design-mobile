@@ -1,10 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Icon from '../Icon';
 
 export default class Progress extends React.Component {
   static propTypes = {
-    status: PropTypes.oneOf(['invalid', 'active']),
     position: PropTypes.oneOf(['fixed', 'normal']),
     percent: PropTypes.number,
   }
@@ -13,7 +11,6 @@ export default class Progress extends React.Component {
     prefixCls: 'am-progress',
     percent: 0,
     position: 'fixed',
-    status: 'active',   
   }
 
   constructor(props) {
@@ -38,7 +35,7 @@ export default class Progress extends React.Component {
       [`${prefixCls}-fixed-outer`]: position === 'fixed',
     });
   
-    return status === 'invalid' ? null : (
+    return (
       <div className={wrapCls} {...others}>
           <div className={`${prefixCls}-bar`} style={percentStyle}></div>
       </div>

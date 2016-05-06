@@ -14,21 +14,17 @@ const MyProgress = React.createClass({
     getInitialState(){
         return {
             percent: 0 ,
-            status: 'invalid',
         };
     },
     increase(){
         let percent = this.state.percent + 10;
-        let status = 'active';
-        if (percent >= 100) {
+        if (percent > 100) {
             percent = 100;
-            status = 'invalid';
         }
         this.setState({ percent ,status});
     },
     decline() {
         let percent = this.state.percent - 10;
-        let status = 'active';
         if (percent < 0) {
             percent = 0;
         }
@@ -39,7 +35,9 @@ const MyProgress = React.createClass({
 
         return(
           <div className="progress-container">
-            <Progress percent={this.state.percent} status={this.state.status}/>
+            {this.state.percent === 100 ? null :
+                <Progress percent={this.state.percent} position="fixed"/>
+            }
             <Progress percent={this.state.percent} position="normal"/>
             <WhiteSpace mpde={20}/>
             <WingBlank mode={20}>
