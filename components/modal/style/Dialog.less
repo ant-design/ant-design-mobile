@@ -1,7 +1,9 @@
-.rc-dialog {
-  position: relative;
+.@{modalPrefixClass} {
+  position: absolute;
   width: 71.5*@grid;
-  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   &-wrap {
     position: fixed;
     overflow: auto;
@@ -33,15 +35,16 @@
     border-radius: @radius-1;
     background-clip: padding-box;
     padding-top: 6*@grid;
+    text-align: center;
   }
 
   &-close {
     border: 0;
     background: transparent;
-    font-size: 7*@grid;
+    font-size: 6*@grid;
     position: absolute;
-    right: 6*@grid;
-    top: 3*@grid;
+    right: 3*@grid;
+    top: 4*@grid;
     line-height: 1;
     color: @neutral-7;
     text-decoration: none;
@@ -55,10 +58,8 @@
   &-body {
     padding: 0 6*@grid 6*@grid;
     font-size: @font-size-4;
-  }
-
-  &-footer {
-    border-top: 1px solid #e9e9e9;
+    color: @neutral-8;
+    line-height: 5*@grid;
   }
 
   .effect() {

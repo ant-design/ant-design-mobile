@@ -1,21 +1,60 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Modal from './Modal';
-// import confirm from './confirm';
 
-// Modal.info = function (props) {
-//
-// };
-//
-// Modal.success = function (props) {
-//
-// };
-//
-//
-// Modal.error = function (props) {
-//
-// };
-//
-// Modal.confirm = function (props) {
-//
-// };
+export default function (...args) {
+  const title = args[0];
+  const content = args[1];
+  const actions = args[2];
+  const closable = !!args[3];
 
-export default Modal;
+  if (!title || !content) {
+    return;
+  }
+
+  const prefixCls = 'am-modal';
+  let div = document.createElement('div');
+  document.body.appendChild(div);
+
+  let d;
+  function close() {
+    d.setState({
+      visible: false
+    });
+    ReactDOM.unmountComponentAtNode(div);
+    div.parentNode.removeChild(div);
+  }
+
+  let footer = null;
+  if (actions && actions.length) {
+    const btnGroupClass = `${prefixCls}-button-group-${actions.length === 2 ? 'h' : 'v'}`;
+    footer = [<div key="footer" className={btnGroupClass}>
+      { actions.map((button, i) => {
+        return (
+          <a key={i} className={`${prefixCls}-button`} href="#" onClick={(e) => {
+            e.preventDefault();
+            if (button.onPress) {
+              button.onPress();
+            }
+            close();
+          }}>{button.text || `按钮${i}`}</a>
+        );
+      }) }
+    </div>];
+  }
+
+  ReactDOM.render(<Modal
+    visible
+    prefixCls={prefixCls}
+    closable={closable}
+    onClose={close}
+    maskClosable={closable}
+    title={title}
+    transitionName="zoom"
+    footer={footer}
+    maskTransitionName="fade">
+    <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
+  </Modal>, div, function () {
+    d = this;
+  });
+}
