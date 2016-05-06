@@ -88,7 +88,7 @@ let CheckboxExample = React.createClass({
             initialValue: false,
             valuePropName: 'checked'
           })}
-        >同意<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
+        >同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意
         </AgreeItem>
         <AgreeItem
           {...getFieldProps('f6', {
