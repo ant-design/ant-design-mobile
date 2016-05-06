@@ -32,12 +32,9 @@ export default class Progress extends React.Component {
     }
 
     return status === 'invalid' ? null : (
-      <div>
       <div className={`${prefixCls}-outer`}>
           <div className={`${prefixCls}-bar`} style={percentStyle}></div>
       </div>
-      </div>
-
     );
   }
 }
