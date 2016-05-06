@@ -11,7 +11,7 @@ title: 大数字
 import { Badge } from 'antm';
 
 ReactDOM.render(
-  <div className="badge-container">
+  <div className="badge-container" style={{ padding: '40px 16px' }}>
     <Badge text={99}>
         <a href="#" className="head-example"></a>
     </Badge>
