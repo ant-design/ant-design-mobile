@@ -9,6 +9,7 @@ import ButtonExample from '../component/ButtonExample';
 import TabExample from '../component/TabExample';
 import PageResultExample from '../component/PageResultExample';
 import ProcessExample from '../component/ProcessExample';
+import ProgressExample from '../component/ProgressExample';
 import WhiteSpaceExample from '../component/WhiteSpaceExample';
 import WingBlankExample from '../component/WingBlankExample';
 import CheckboxExample from '../component/CheckboxExample';
@@ -284,9 +285,9 @@ const App = React.createClass({
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png"
-                  title="支付流程"
-                  subtitle="Process"
-                  onClick={() => {location.hash = 'process';}}
+                  title="进度条"
+                  subtitle="Progress"
+                  onClick={() => {location.hash = 'progress';}}
                 />
               </Flex.Item>
               <Flex.Item>
@@ -314,8 +315,15 @@ const App = React.createClass({
                   subtitle="Drawer"
                   onClick={() => {location.hash = 'drawer';}}
                 />
-              </Flex.Item>
-              <Flex.Item />
+                </Flex.Item>
+                <Flex.Item>
+                  <Item
+                    logo="https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png"
+                    title="支付流程"
+                    subtitle="Process"
+                    onClick={() => {location.hash = 'process';}}
+                  />
+                </Flex.Item>
             </Flex>
           </List.Body>
         </List>
@@ -333,6 +341,7 @@ const pageRouter = (
     <Route path="/button" component={ButtonExample}/>
     <Route path="/tab" component={TabExample}/>
     <Route path="/process" component={ProcessExample}/>
+    <Route path="/progress" component={ProgressExample}/>
     <Route path="/whitespace" component={WhiteSpaceExample}/>
     <Route path="/wingblank" component={WingBlankExample}/>
     <Route path="/checkbox" component={CheckboxExample}/>
