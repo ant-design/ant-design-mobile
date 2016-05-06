@@ -36,7 +36,7 @@ const PageResultExample = React.createClass({
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/dlMevdYPbXUwgCQ.png"
           title="空白页"
-          brief="可各业务自定义文案"
+          message="可各业务自定义文案"
           buttonTxt="重新加载"
           buttonClick={() => {alert('点击了按钮');}}
         />
@@ -44,7 +44,7 @@ const PageResultExample = React.createClass({
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/SgCjcxAQTmmNUWi.png"
           title="加载错误"
-          brief="可各业务自定义文案"
+          message="可各业务自定义文案"
           buttonTxt="重新加载"
           buttonClick={() => {alert('点击了按钮');}}
         />
@@ -52,7 +52,7 @@ const PageResultExample = React.createClass({
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/XMUAssczvVftDHX.png"
           title="网络无法连接"
-          brief="请查看网络连接或稍后重试"
+          message="请查看网络连接或稍后重试"
           buttonTxt="刷新"
           buttonClick={() => {alert('点击了按钮');}}
         />
@@ -63,7 +63,7 @@ const PageResultExample = React.createClass({
             <PageResult
               imgUrl="https://os.alipayobjects.com/rmsportal/QGxGZRxaqMRKnjS.png"
               title="网络不给力"
-              brief="请查看网络连接或稍后重试"
+              message="请查看网络连接或稍后重试"
               buttonTxt="重新尝试"
               buttonClick={() => {alert('点击了按钮');}}
             />
@@ -72,7 +72,7 @@ const PageResultExample = React.createClass({
             <PageResult
               imgUrl="https://os.alipayobjects.com/rmsportal/hcEPreZxgZWxhVw.png"
               title="警示"
-              brief="可各业务自定义文案"
+              message="可各业务自定义文案"
               buttonTxt="重新加载"
               buttonClick={() => {alert('点击了按钮');}}
             />
@@ -81,7 +81,7 @@ const PageResultExample = React.createClass({
             <PageResult
               imgUrl="https://os.alipayobjects.com/rmsportal/MKXqtwNOLFmYmrY.png"
               title="内容为空"
-              brief="可各业务自定义文案"
+              message="可各业务自定义文案"
               buttonTxt="重新尝试"
               buttonClick={() => {alert('点击了按钮');}}
             />
