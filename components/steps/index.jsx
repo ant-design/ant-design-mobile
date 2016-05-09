@@ -8,6 +8,7 @@ export default class Steps extends React.Component {
     prefixCls: 'am-steps',
     iconPrefix: 'ant',
     maxDescriptionWidth: 100,
+    labelPlacement: 'vertical',
     current: 0,
   }
 

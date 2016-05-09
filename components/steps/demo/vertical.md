@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: 竖直方向的步骤条
 ---
 
