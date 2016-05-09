@@ -1,29 +1,30 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-const WingBlank = React.createClass({
-  propTypes: {
-    mode: PropTypes.number,
-  },
-  getDefaultProps() {
-    return {
-      mode: 10
-    };
-  },
+export default class WingBlank extends React.Component {
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    style: PropTypes.object,
+    mode: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32]),
+  };
+
+  static defaultProps = {
+    prefixCls: 'am-wingblank',
+    mode: 8,
+  };
+
   render() {
-    const { mode, children, className } = this.props;
+    const { prefixCls, style, mode, children, className } = this.props;
     let wrapCls = classNames({
-      'am-wingblank': true,
+      [`${prefixCls}`]: true,
       [className]: className
     });
-    wrapCls += ` am-wingblank-${mode}`;
+    wrapCls += ` ${prefixCls}-wb${mode}`;
 
     return (
-      <div className={wrapCls}>
+      <div {...this.props} style={style} className={wrapCls}>
         {children}
       </div>
     );
   }
-});
-
-module.exports = WingBlank;
+}

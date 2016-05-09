@@ -1,18 +1,19 @@
+/* eslint no-console:0 */
 import {
-  List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox,
-  TextareaItem, SelectItem, Switch, CaptchaItem, Button, ListPicker,
-  ListDatePicker, ListSelector, SearchBar, Process,
-  TopNotice, Tabs, Modal, Toast, Article, Alert,
-  Card, PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer
+  List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox, Radio,
+  TextareaItem, SelectItem, Switch, Button, ListPicker,
+  ListDatePicker, ListSelector, SearchBar, Process, Progress,
+  TopNotice, Tabs, Modal, Toast, Alert,
+  PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer
 } from 'antm';
 
 // copy from above
 const antm = {
-  List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox,
-  TextareaItem, SelectItem, Switch, CaptchaItem, Button, ListPicker,
-  ListDatePicker, ListSelector, SearchBar, Process,
-  TopNotice, Tabs, Modal, Toast, Article, Alert,
-  Card, PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer
+  List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox, Radio,
+  TextareaItem, SelectItem, Switch, Button, ListPicker,
+  ListDatePicker, ListSelector, SearchBar, Process, Progress,
+  TopNotice, Tabs, Modal, Toast, Alert,
+  PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer
 };
 
 if (typeof console !== 'undefined' && console.warn) {

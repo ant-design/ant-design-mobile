@@ -17,9 +17,26 @@ export default class ListBody extends React.Component {
       [`${prefixCls}-body`]: true,
       [className]: className
     });
+    let customChildren = children;
+    if (Array.isArray(children)) {
+      const len = children.length;
+      customChildren = [];
+      children.forEach((el, idx) => {
+        if (idx === len - 1) {
+          customChildren.push(React.cloneElement(el, {
+            isLastItem: true,
+            key: idx
+          }));
+        } else {
+          customChildren.push(React.cloneElement(el, {
+            key: idx
+          }));
+        }
+      });
+    }
     return (
       <div className={listBodyCls} style={style}>
-        {children}
+        {customChildren}
       </div>
     );
   }

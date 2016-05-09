@@ -1,4 +1,4 @@
-.@{ActionSheetPrefixClass} {
+.@{ActionSheetPrefixCls} {
   &-wrap {
     position: fixed;
     overflow: auto;
@@ -17,13 +17,21 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: #373737;
-    background-color: rgba(55, 55, 55, 0.6);
+    background-color: fade(@neutral-10, 60%);
     height: 100%;
-    filter: alpha(opacity=50);
     z-index: 1050;
     &-hidden {
       display: none;
     }
+  }
+  // 隐藏掉 dialog 默认的 x 按钮
+  &-close {
+    display: none;
+  }
+  ul,
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 }

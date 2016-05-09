@@ -2,7 +2,7 @@
 
 #header {
   transition: opacity 0.5s;
-  background: #fff;
+  background: #404040;
   border-bottom: 1px solid #eee;
   height: @header-height;
   margin-bottom: 24px;
@@ -62,6 +62,11 @@
 #search-box .ant-select-selection {
   border: 0;
   box-shadow: none;
+  background-color: #404040;
+}
+
+#search-box  .ant-select-search__field__placeholder {
+  color: #CADCE3;
 }
 
 #nav {
@@ -71,16 +76,18 @@
 }
 
 #nav li {
-  height: @header-height;
+  height: 70px;
   line-height: @header-height;
-  width: 72px;
   text-align: center;
   border-bottom-width: 3px;
-
   &.ant-menu-item-selected a {
     color: #2db7f5;
     font-weight: bold;
   }
+}
+
+#nav.ant-menu-inline .ant-menu-item-selected a{
+  color: #fff;
 }
 
 .ant-select-combobox .ant-select-search__field:focus {

@@ -1,15 +1,15 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-@listPrefixClass: am-list;
-@textareaPrefixClass: am-textarea;
+@listPrefixCls: am-list;
+@textareaPrefixCls: am-textarea;
 
-.@{listPrefixClass} {
+.@{listPrefixCls} {
   & &-item {
-    &.@{textareaPrefixClass}-item {
+    &.@{textareaPrefixCls}-item {
       padding: 2*@grid 4*@grid;
     }
-    &.@{textareaPrefixClass}-error {
+    &.@{textareaPrefixCls}-error {
       position: relative;
       z-index: 11;
       .hairline-bottom(bottom, @red-6, @margin-4);
@@ -17,7 +17,7 @@
         left: 0;
       }
     }
-    .@{textareaPrefixClass}-label {
+    .@{textareaPrefixCls}-label {
       align-self: stretch;
       font-size: @font-size-5;
       margin-left: 0;
@@ -27,7 +27,7 @@
       min-height: 7*@grid;
       line-height: 7*@grid;
     }
-    .@{textareaPrefixClass}-control {
+    .@{textareaPrefixCls}-control {
       .box-flex(1);
       textarea {
         font-size: @font-size-5;
@@ -47,7 +47,7 @@
         }
       }
     }
-    .@{textareaPrefixClass}-clear {
+    .@{textareaPrefixCls}-clear {
       align-self: stretch;
       visibility: hidden;
       display: block;
@@ -66,12 +66,12 @@
         background-color: @neutral-7;
       }
     }
-    &.@{textareaPrefixClass}-focus {
-      .@{textareaPrefixClass}-clear {
+    &.@{textareaPrefixCls}-focus {
+      .@{textareaPrefixCls}-clear {
         visibility: visible;
       }
     }
-    .@{textareaPrefixClass}-count {
+    .@{textareaPrefixCls}-count {
       position: absolute;
       bottom: @grid;
       right: @grid;

@@ -1,35 +1,81 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 
-.am-collapse {
-  & &-hd {
-    .hairline-bottom(bottom, @neutral-5, 0);
-    &.am-collapse-hd-open {
-      color: red;
-      .am-icon {
-        &.am-icon-arrow-horizontal,
-        &.am-icon-arrow-vertical {
+@collapsePrefixCls: am-collapse;
+
+.@{collapsePrefixCls} {
+  position: relative;
+  .hairline-top(top, @neutral-5);
+  &-anim-active {
+    transition: all .2s ease-out;
+  }
+  & &-item {
+    .@{collapsePrefixCls}-header {
+      position: relative;
+      height: 8*@grid;
+      line-height: 8*@grid;
+      background-color: @neutral-1;
+      box-sizing: content-box;
+      vertical-align: middle;
+      overflow: hidden;
+      color: @neutral-10;
+      padding: 1.5*@grid 4*@grid;
+      padding-right: 9*@grid;
+      .hairline-bottom(bottom, @neutral-5, 0);
+      .ellipsis();
+      i {
+        position: absolute;
+        display: block;
+        top: 3.5*@grid;
+        right: 4*@grid;
+        width: 4*@grid;
+        height: 4*@grid;
+        margin-left: 7px;
+        margin-right: -2px;
+        overflow: hidden;
+        &:before {
+          content: "";
+          display: block;
+          width: 9px;
+          height: 9px;
+          border: @border-type-1 @border-width-1 @neutral-7;
+          border-top: none;
+          border-left: none;
+          margin: @grid 0 0 0.5*@grid;
+          .transform(rotate(225deg));
+        }
+      }
+      &[aria-expanded~="true"] {
+        i {
           &:before {
-            border-color: @neutral-9;
+            margin-left: 0.5*@grid;
+            .transform(rotate(45deg));
           }
         }
       }
     }
-  }
-  & &-bd {
-    background: @neutral-2;
-    .am-list-item {
-      .am-list-content {
+    .@{collapsePrefixCls}-content {
+      background: @neutral-2;
+      .@{collapsePrefixCls}-content-box {
+        padding-left: 4*@grid;
+        position: relative;
         font-size: @font-size-4;
-        line-height: @line-height-2;
+        line-height: 8*@grid;
         font-weight: @font-weight-1;
         color: @neutral-9;
-        white-space: normal;
-        word-break: break-all;
+        .hairline-bottom(bottom, @neutral-5, 0);
+        .@{collapsePrefixCls}-content-box-item {
+          padding: 1.5*@grid 4*@grid 1.5*@grid 0;
+          position: relative;
+          .hairline-bottom(bottom, @neutral-5, 0);
+          &.@{collapsePrefixCls}-content-box-item-last {
+            .hairline-remove-right-bottom();
+          }
+        }
+      }
+      &.@{collapsePrefixCls}-content-inactive {
+        display: none;
       }
     }
-  }
-  & &-bd-closed {
-    display: none;
   }
 }

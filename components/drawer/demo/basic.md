@@ -60,14 +60,14 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 <style>
-#components-drawer-demo-basic .drawer-container {
+#preview-components-drawer-demo-basic .drawer-container {
   position: relative;
   height: 400px;
 }
-#components-drawer-demo-basic .am-drawer-content {
+#preview-components-drawer-demo-basic .am-drawer-content {
   padding: 10px;
 }
-#components-drawer-demo-basic .am-drawer-sidebar {
+#preview-components-drawer-demo-basic .am-drawer-sidebar {
   padding: 16px;
   background-color: #e4f6fe;
 }

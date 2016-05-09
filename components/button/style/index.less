@@ -1,9 +1,9 @@
 @import '../../style/mixins';
 @import '../../style/variables';
 @import '../../style/iconfont';
-@buttonPrefixClass: am-button;
+@buttonPrefixCls: am-button;
 
-.@{buttonPrefixClass} {
+.@{buttonPrefixCls} {
   position: relative;
   display: inline-block;
   outline: 0 none;
@@ -45,6 +45,7 @@
   }
   // ghost
   &-ghost {
+    background-color: transparent;
     &:after {
       border: @border-width-1 @border-type-1 @neutral-4;
     }
@@ -66,9 +67,9 @@
       color: @neutral-1;
       background-color: @brand-7;
     }
-    &.@{buttonPrefixClass}-ghost {
+    &.@{buttonPrefixCls}-ghost {
       color: @brand-6;
-      background-color: @neutral-1;
+      background-color: transparent;
       &:active,
       &:hover {
         color: @brand-7;
@@ -99,7 +100,7 @@
       &:after {
         border: @border-width-1 @border-type-1 @neutral-4;
       }
-      &.@{buttonPrefixClass}-ghost {
+      &.@{buttonPrefixCls}-ghost {
         color: fade(@neutral-6, 60%);
         background-color: fade(@neutral-3, 20%);
         &:after {
@@ -107,13 +108,13 @@
         }
       }
 
-      &.@{buttonPrefixClass}-primary {
+      &.@{buttonPrefixCls}-primary {
         color: @neutral-1;
         background-color: @brand-3;
         &:after {
           border: @border-width-1 @border-type-1 @brand-1;
         }
-        &.@{buttonPrefixClass}-ghost {
+        &.@{buttonPrefixCls}-ghost {
           color: fade(@brand-3, 60%);
           background-color: fade(@brand-3, 20%);
           &:after {
@@ -122,7 +123,7 @@
         }
       }
 
-      &.@{buttonPrefixClass}-warning {
+      &.@{buttonPrefixCls}-warning {
         color: fade(@neutral-6, 60%);
         background-color: fade(@neutral-3, 20%);
       }

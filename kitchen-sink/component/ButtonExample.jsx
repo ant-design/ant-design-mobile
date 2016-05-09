@@ -5,37 +5,55 @@ import Page from '../common/Page';
 import { Button, WingBlank, WhiteSpace, Flex, List } from 'antm';
 
 const ButtonExample = React.createClass({
+  getInitialState() {
+    return {
+      dark: false,
+    };
+  },
   render() {
     return (
-      <Page title="按钮" subtitle="&lt;Button size='small' onClick={() => {}}/&gt;">
+      <Page title="按钮" subtitle="&lt;Button size='small' onClick={() => {}}/&gt;"
+        style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
+      >
+        <WingBlank>
+          <Button type="primary" size="small" inline
+            onClick={() => { this.setState({ dark: !this.state.dark }); }}
+          >{`点击切换：${this.state.dark ? '白天模式' : '夜间模式'}`}</Button>
+        </WingBlank>
         <WhiteSpace />
         <WingBlank>
           <Button type="primary">primary按钮</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
+          <Button type="primary" disabled>primary disabled 按钮</Button>
+        </WingBlank>
+        <WhiteSpace />
+        <WingBlank>
           <Button type="primary" ghost>primary ghost 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={20} />
+        <WhiteSpace />
         <WingBlank>
           <Button>default 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={20} />
+        <WhiteSpace />
         <WingBlank>
           <Button ghost>default ghost 按钮</Button>
+        </WingBlank>
+        <WhiteSpace />
+        <WingBlank>
+          <Button ghost disabled>default ghost disabled 按钮</Button>
         </WingBlank>
         <WhiteSpace mode={20} />
         <Button type="warning">warning按钮</Button>
         <WhiteSpace />
-        <Button type="primary" disabled>primary 按钮</Button>
-        <WhiteSpace />
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button type="primary">primary 按钮</Button>
+              <Button type="primary" size="small">primary small 按钮</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button type="primary" disabled>primary 按钮</Button>
+              <Button type="primary" size="small" disabled>primary small disabled 按钮</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -43,31 +61,10 @@ const ButtonExample = React.createClass({
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Button size="small">primary 按钮</Button>
+              <Button size="small">default small 按钮</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="small" disabled>primary 按钮</Button>
-            </Flex.Item>
-          </Flex>
-        </WingBlank>
-        <WingBlank>
-          <Flex>
-            <Flex.Item>
-              <Button size="small">primary 按钮</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button size="small" disabled>primary 按钮</Button>
-            </Flex.Item>
-          </Flex>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <Flex>
-            <Flex.Item>
-              <Button size="small">primary 按钮</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button size="small" disabled>primary 按钮</Button>
+              <Button size="small" disabled>default small 按钮</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -75,7 +72,8 @@ const ButtonExample = React.createClass({
         <WingBlank>
           <Button size="large" inline>inline 按钮</Button>
         </WingBlank>
-        <List >
+        <WhiteSpace />
+        <List>
           <List.Body>
             <List.Item line={2} needActive={false}
               extra={<Button size="small" inline>按钮</Button>}

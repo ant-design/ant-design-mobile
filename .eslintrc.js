@@ -39,6 +39,7 @@ const eslintrc = {
     'react/no-multi-comp': 0,
     'array-callback-return': 0,
     'no-alert': 0,
+    'object-shorthand': 1
   }
 };
 

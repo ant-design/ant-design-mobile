@@ -14,7 +14,6 @@ export default class Switch extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-switch',
-    style: {},
     name: '',
     checked: false,
     disabled: false,

@@ -80,6 +80,7 @@ let InputExample = React.createClass({
               name="camera"
               placeholder="camera"
               clear={true}
+              error
               extra={<img src="https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png" height="22" />}
             >我是相机</InputItem>
           </List.Body>

@@ -1,27 +1,28 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-const WhiteSpace = React.createClass({
-  propTypes: {
-    mode: PropTypes.number,
-  },
-  getDefaultProps() {
-    return {
-      mode: 10
-    };
-  },
+export default class WhiteSpace extends React.Component {
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    style: PropTypes.object,
+    mode: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48]),
+  };
+
+  static defaultProps = {
+    prefixCls: 'am-whitespace',
+    mode: 8,
+  };
+
   render() {
-    const { mode, className } = this.props;
+    const { prefixCls, style, mode, className } = this.props;
     let wrapCls = classNames({
-      'am-whitespace': true,
+      [`${prefixCls}`]: true,
       [className]: className
     });
-    wrapCls += ` am-whitespace-${mode}`;
+    wrapCls += ` ${prefixCls}-ws${mode}`;
 
     return (
-      <div className={wrapCls} />
+      <div {...this.props} style={style} className={wrapCls} />
     );
   }
-});
-
-module.exports = WhiteSpace;
+}

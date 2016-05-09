@@ -1,66 +1,41 @@
-@import '../../style/mixins';
+@import '../../style/variables';
 
-.am-whitespace {
-  /*以5px为单位的间隔*/
-  &.am-whitespace-5 {
-    height: 5px;
+@whitespacePrefixCls: am-whitespace;
+.@{whitespacePrefixCls} {
+  &&-ws4 {
+    height: @grid;
   }
-  &.am-whitespace-10 {
-    height: 10px;
+  &&-ws8 {
+    height: 2*@grid;
   }
-  &.am-whitespace-15 {
-    height: 15px;
+  &&-ws12 {
+    height: 3*@grid;
   }
-  &.am-whitespace-20 {
-    height: 20px;
+  &&-ws16 {
+    height: 4*@grid;
   }
-  &.am-whitespace-25 {
-    height: 25px;
+  &&-ws20 {
+    height: 5*@grid;
   }
-  &.am-whitespace-30 {
-    height: 30px;
+  &&-ws24 {
+    height: 6*@grid;
   }
-  &.am-whitespace-35 {
-    height: 35px;
+  &&-ws28 {
+    height: 7*@grid;
   }
-  &.am-whitespace-40 {
-    height: 40px;
+  &&-ws32 {
+    height: 8*@grid;
   }
-  &.am-whitespace-45 {
-    height: 45px;
+  &&-ws36 {
+    height: 9*@grid;
   }
-  &.am-whitespace-50 {
-    height: 50px;
+  &&-ws40 {
+    height: 10*@grid;
   }
-  /*以4px为单位的间隔*/
-  &.am-whitespace-4 {
-    height: 4px;
+  &&-ws44 {
+    height: 11*@grid;
   }
-  &.am-whitespace-8 {
-    height: 8px;
-  }
-  &.am-whitespace-12 {
-    height: 12px;
-  }
-  &.am-whitespace-16 {
-    height: 16px;
-  }
-  &.am-whitespace-24 {
-    height: 24px;
-  }
-  &.am-whitespace-28 {
-    height: 28px;
-  }
-  &.am-whitespace-32 {
-    height: 32px;
-  }
-  &.am-whitespace-36 {
-    height: 36px;
-  }
-  &.am-whitespace-44 {
-    height: 44px;
-  }
-  &.am-whitespace-48 {
-    height: 50px;
+  &&-ws48 {
+    height: 12*@grid;
   }
 }

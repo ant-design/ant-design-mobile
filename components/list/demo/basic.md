@@ -37,7 +37,7 @@ const ListForm = React.createClass({
           >文本信息</List.Item>
           <List.Item
             extra="内容内容"
-            arrow="ss"
+            arrow="empty"
             onClick={this.onClick}
           >文本内容</List.Item>
           <List.Item

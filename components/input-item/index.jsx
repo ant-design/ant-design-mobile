@@ -27,12 +27,12 @@ export default class InputItem extends React.Component {
     size: PropTypes.oneOf(['large', 'small']),
     labelPosition: PropTypes.oneOf(['left', 'top']),
     textAlign: PropTypes.oneOf(['left', 'center']),
+    isLastItem: PropTypes.bool,
   };
 
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
-    style: {},
     type: 'hasLine',
     format: 'text',
     editable: true,
@@ -50,6 +50,7 @@ export default class InputItem extends React.Component {
     size: 'large',
     labelPosition: 'left',
     textAlign: 'left',
+    isLastItem: false,
   };
 
   constructor(props) {
@@ -129,11 +130,12 @@ export default class InputItem extends React.Component {
   };
 
   render() {
-    const { prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children, error, className, extra } = this.props;
+    const { prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children, error, className, extra, isLastItem } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: type === 'hasLine',
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-last`]: isLastItem,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
       [className]: className

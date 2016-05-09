@@ -54,10 +54,12 @@ const ListExample = React.createClass({
               arrow="up"
             ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
             <List.Item
+              error
               extra="写点就有箭头坑位"
               arrow="empty"
             >内容内容</List.Item>
             <List.Item
+              error
               extra="arrow为空箭头没有坑位"
             >内容内容</List.Item>
           </List.Body>
@@ -93,7 +95,7 @@ const ListExample = React.createClass({
           <List.Header>对齐</List.Header>
           <List.Body>
             <List.Item
-              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div>}
               line={2}
               arrow="horizontal"
             >垂直居中对齐</List.Item>
@@ -101,9 +103,9 @@ const ListExample = React.createClass({
               extra="内容内容"
               line={2}
               arrow="horizontal"
-            ><div>垂直居中对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
+            ><div>垂直居中对齐<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div></List.Item>
             <List.Item
-              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+              extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div>}
               line={2}
               arrow="horizontal"
               align="top"
