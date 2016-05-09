@@ -1,0 +1,17 @@
+---
+order: 3
+title: 带图标的步骤条
+---
+
+通过设置 `Steps.Step` 的 `icon` 属性，可以启用自定义图标。
+
+````jsx
+import { Steps } from 'antm';
+const Step = Steps.Step;
+
+ReactDOM.render(<Steps>
+  <Step status="finish" title="步骤1" icon="cloud" />
+  <Step status="process" title="步骤2" icon="apple" />
+  <Step status="wait" title="步骤3" icon="github" />
+</Steps>, mountNode);
+````
