@@ -2,6 +2,7 @@
 @import '../../style/variables';
 
 @collapsePrefixCls: am-collapse;
+@listPrefixCls: am-list;
 
 .@{collapsePrefixCls} {
   position: relative;
@@ -57,24 +58,26 @@
     .@{collapsePrefixCls}-content {
       background: @neutral-2;
       .@{collapsePrefixCls}-content-box {
-        padding-left: 4*@grid;
         position: relative;
         font-size: @font-size-4;
         line-height: 8*@grid;
         font-weight: @font-weight-1;
         color: @neutral-9;
         .hairline-bottom(bottom, @neutral-5, 0);
-        .@{collapsePrefixCls}-content-box-item {
+        .@{listPrefixCls}-item {
+          margin-left: 4*@grid;
+          background: @neutral-2;
           padding: 1.5*@grid 4*@grid 1.5*@grid 0;
           position: relative;
           .hairline-bottom(bottom, @neutral-5, 0);
-          &.@{collapsePrefixCls}-content-box-item-last {
+          &:last-child {
             .hairline-remove-right-bottom();
           }
         }
       }
       &.@{collapsePrefixCls}-content-inactive {
         display: none;
+
       }
     }
   }

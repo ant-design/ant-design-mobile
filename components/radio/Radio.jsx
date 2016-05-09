@@ -14,7 +14,6 @@ export default class Radio extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-radio',
-    style: {},
     name: '',
     checked: false,
     disabled: false,

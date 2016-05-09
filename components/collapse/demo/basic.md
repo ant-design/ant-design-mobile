@@ -8,7 +8,7 @@ Collapse
 ---
 
 ````jsx
-import { Collapse } from 'antm';
+import { Collapse, List } from 'antm';
 
 let Test = React.createClass({
   onChange(key) {
@@ -17,17 +17,15 @@ let Test = React.createClass({
   render() {
     return (<Collapse
       defaultActiveKey="0"
-      onChange={this.onChange}
     >
-      <Collapse.Panel header="hellohellohellohellohellohe">{['this is panel contentthis is panel contentthis is panel contentthis is panel contentthis is panel content', 'this is panel content', 222]}</Collapse.Panel>
-      <Collapse.Panel header="title2">this is panel content2 or other</Collapse.Panel>
-      <Collapse.Panel header="title2">
-        <Collapse
-          defaultActiveKey="0"
-          prefixCls="am-collapse">
-          <Collapse.Panel header="This is panel nest panel">daadada</Collapse.Panel>
-        </Collapse>
+      <Collapse.Panel header="hellohellohellohellohellohe">
+        <List.Item>子内容子内容</List.Item>
+        <List.Item>子内容子内容</List.Item>
+        <List.Item>子内容子内容</List.Item>
+        <List.Item>子内容子内容</List.Item>
       </Collapse.Panel>
+      <Collapse.Panel header="title2"><List.Item>this is panel content2 or other</List.Item></Collapse.Panel>
+      <Collapse.Panel header="title3"><List.Item>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</List.Item></Collapse.Panel>
     </Collapse>);
   }
 });

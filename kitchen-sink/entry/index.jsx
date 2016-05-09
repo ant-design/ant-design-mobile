@@ -18,7 +18,6 @@ import DatePickerExample from '../component/DatePickerExample';
 import ListPickerExample from '../component/ListPickerExample';
 import RadioExample from '../component/RadioExample';
 import SearchBarExample from '../component/SearchBarExample';
-import SelectExample from '../component/SelectExample';
 import SwitchExample from '../component/SwitchExample';
 import TextareaExample from '../component/TextareaExample';
 import ToastExample from '../component/ToastExample';
@@ -349,7 +348,6 @@ const pageRouter = (
     <Route path="/datepicker" component={DatePickerExample}/>
     <Route path="/listpicker" component={ListPickerExample}/>
     <Route path="/searchbar" component={SearchBarExample}/>
-    <Route path="/select" component={SelectExample}/>
     <Route path="/switch" component={SwitchExample}/>
     <Route path="/textarea" component={TextareaExample}/>
     <Route path="/pageresult" component={PageResultExample}/>

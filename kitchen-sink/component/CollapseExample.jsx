@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Page from '../common/Page';
-import { Collapse } from 'antm';
+import { Collapse, List } from 'antm';
 
 const text = `
   A dog is a type of domesticated animal.
@@ -13,22 +13,20 @@ const text = `
 const CollapseExample = React.createClass({
   render() {
     return (
-      <Page title="列表" subtitle="&lt;List&gt;&lt;List.Item /&gt;&lt;List.Item /&gt;&lt;/List&gt;">
+      <Page title="折叠列表" subtitle="&lt;Collapse&gt;&lt;Collapse.Panel&gt;&lt;List.Item&gt;xxxx&lt;/List.Item&gt;&lt;/Collapse.Panel&gt;&lt;/Collapse&gt;">
         <Collapse
           prefixCls="am-collapse"
           defaultActiveKey="0"
         >
-          <Collapse.Panel header="hellohellohellohellohellohe">{['this is panel contentthis is panel contentthis is panel contentthis is panel contentthis is panel content', 'this is panel content', 222]}</Collapse.Panel>
-          <Collapse.Panel header="title2">this is panel content2 or other</Collapse.Panel>
-          <Collapse.Panel header="title2">
-            <Collapse
-              defaultActiveKey="0"
-              prefixCls="am-collapse">
-              <Collapse.Panel header="This is panel nest panel">daadada</Collapse.Panel>
-            </Collapse>
+          <Collapse.Panel header="hellohellohellohellohellohe">
+            <List.Item>子内容子内容</List.Item>
+            <List.Item>子内容子内容</List.Item>
+            <List.Item>子内容子内容</List.Item>
+            <List.Item>子内容子内容</List.Item>
           </Collapse.Panel>
+          <Collapse.Panel header="title2"><List.Item>this is panel content2 or other</List.Item></Collapse.Panel>
+          <Collapse.Panel header="title3"><List.Item>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</List.Item></Collapse.Panel>
         </Collapse>
-
       </Page>
     );
   },

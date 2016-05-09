@@ -4,7 +4,6 @@ import classNames from 'classnames';
 export default class WhiteSpace extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
-    style: PropTypes.object,
     mode: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48]),
   };
 
@@ -14,7 +13,7 @@ export default class WhiteSpace extends React.Component {
   };
 
   render() {
-    const { prefixCls, style, mode, className } = this.props;
+    const { prefixCls, mode, className, ...others } = this.props;
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className]: className
@@ -22,7 +21,7 @@ export default class WhiteSpace extends React.Component {
     wrapCls += ` ${prefixCls}-ws${mode}`;
 
     return (
-      <div {...this.props} style={style} className={wrapCls} />
+      <div {...others} className={wrapCls} />
     );
   }
 }

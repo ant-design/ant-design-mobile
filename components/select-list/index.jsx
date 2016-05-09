@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 import List from '../list/index';
 import Radio from '../radio/index';
 import SearchBar from '../search-bar/index';
@@ -11,7 +12,7 @@ export default class SelectList extends React.Component {
     style: PropTypes.object,
     value: PropTypes.array,
     data: PropTypes.array,
-    onClick: PropTypes.func,
+    onChange: PropTypes.func,
     needSearch: PropTypes.bool,
     placeholder: PropTypes.string,
   };
@@ -21,7 +22,7 @@ export default class SelectList extends React.Component {
     radioPrefixCls: 'am-radio',
     value: [],
     data: [],
-    onClick: noop,
+    onChange: noop,
     needSearch: false,
     placeholder: '请输入关键字',
   };
@@ -49,14 +50,14 @@ export default class SelectList extends React.Component {
     this.setState({
       value: [el]
     });
-    this.props.onClick(el);
+    this.props.onChange(el);
   };
 
   onSubmit = (value) => {
     this.handleSearch(value);
   };
 
-  onChange = (value) => {
+  onSearchChange = (value) => {
     this.handleSearch(value);
   };
 
@@ -96,14 +97,21 @@ export default class SelectList extends React.Component {
   render() {
     const { value, data } = this.state;
     const { prefixCls, radioPrefixCls, needSearch, placeholder } = this.props;
+
     const itemsDom = [];
     data.forEach((el, idx) => {
+      const listItemCls = classNames({
+        [`${radioPrefixCls}-item`]: true,
+        [`${prefixCls}-selected`]: value.length > 0 && value[0].id === el.id,
+        [`${prefixCls}-disabled`]: el.disabled,
+      });
       itemsDom.push(<List.Item
-        className={ value.length > 0 && value[0].id === el.id ? `${prefixCls}-selected ${radioPrefixCls}-item` : `${radioPrefixCls}-item`}
+        className={listItemCls}
         key={idx}
         extra={<Radio
           value={el.id}
           checked={value.length > 0 && value[0].id === el.id}
+          disabled={el.disabled}
           onChange={this.handleClick.bind(this, el)}
         />}
       >{el.name}</List.Item>);
@@ -114,7 +122,7 @@ export default class SelectList extends React.Component {
       searchDom = (<SearchBar
         placeholder={placeholder}
         onSubmit={this.onSubmit}
-        onChange={this.onChange}
+        onChange={this.onSearchChange}
         onClear={this.onClear}
         onCancel={this.onCancel}
       />);
