@@ -7,7 +7,8 @@
 .@{listPrefixCls} {
   & &-item {
     &.@{textareaPrefixCls}-item {
-      padding: 2*@grid 4*@grid;
+      padding: 1.5*@grid 4*@grid;
+      .hairline-bottom(bottom, @neutral-5, @margin-4);
     }
     &.@{textareaPrefixCls}-error {
       position: relative;
@@ -24,8 +25,8 @@
       margin-right: 4*@grid;
       color: @neutral-10;
       text-align: left;
-      min-height: 7*@grid;
-      line-height: 7*@grid;
+      min-height: 8*@grid;
+      line-height: 8*@grid;
     }
     .@{textareaPrefixCls}-control {
       .box-flex(1);
