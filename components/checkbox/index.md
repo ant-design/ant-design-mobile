@@ -10,10 +10,13 @@ english: Checkbox
 
 ## 何时使用
 
-Checkbox当type为`normal`时,props会传给List.Item,thumb指定为一个checkbox
+复选框提供了一个简单的方法来从一个预定义集合中选取多个值。
 
 ## API
 
+### Checkbox
+
+单纯的复选框
 
 | 成员        | 说明           | 类型       |  可选值        | 默认值       |
 |------------|----------------|----------|----------|--------------|
@@ -24,3 +27,11 @@ Checkbox当type为`normal`时,props会传给List.Item,thumb指定为一个checkb
 | checked    |        | String |   | 无  |
 | disabled      |         | String | |  无  |
 | onChange    | change事件触发的回调函数,参数是event对象 | Function | |   无  |
+
+### Checkbox.CheckboxItem
+
+作为列表项复选框
+
+### Checkbox.AgreeItem
+
+用于同意XX协议这种场景的复选框
