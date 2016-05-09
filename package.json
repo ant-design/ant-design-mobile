@@ -52,7 +52,8 @@
     "rmc-cascader": "~1.1.0",
     "rmc-date-picker": "~2.2.0",
     "rmc-modal": "~0.4.1",
-    "rmc-picker": "~2.4.1"
+    "rmc-picker": "~2.4.1",
+    "react-slick": "~0.12.0"
   },
   "devDependencies": {
     "antd": "^1.0.0-beta.5",
