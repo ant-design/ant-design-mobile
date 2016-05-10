@@ -153,8 +153,12 @@ export default class ComponentDoc extends React.Component {
           <Col span="11">
             <div className="demo-preview-wrapper">
               <div className="demo-preview-header">
-                <img src="https://os.alipayobjects.com/rmsportal/LKfWaoIcaJiTgOu.svg" />
-                <span style={{ color: '#fff' }}>{ demoTitle }</span>
+                <div className = "demo-preview-statbar">
+                  <img style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/KorHKxDiNFtvpsp.png" />
+                </div>
+                <div className = "demo-preview-navbar">
+                  <span style={{ color: '#fff', fontSize: '18px', lineHeight: '44px' }}>{ demoTitle }</span>
+                </div>
               </div>
               <div className="demo-preview-scroller">
               { rightChildren }
