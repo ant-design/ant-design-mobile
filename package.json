@@ -54,7 +54,8 @@
     "rmc-modal": "~0.4.1",
     "rmc-picker": "~2.4.1",
     "react-slick": "~0.12.0",
-    "rc-steps": "~2.1.0"
+    "rc-steps": "~2.1.0",
+    "rc-input-number": "~2.5.8"
   },
   "devDependencies": {
     "antd": "^1.0.0-beta.5",
