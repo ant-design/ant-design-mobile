@@ -17,6 +17,7 @@
     padding: 3*@grid;
     position: relative;
     .ellipsis();
+    line-height: 1;
   }
   &-button-group-h {
     position: relative;
@@ -36,6 +37,22 @@
       display: block;
       .hairline-top(top, @neutral-5);
       .button-common();
+    }
+  }
+
+  &-input{
+    position: relative;
+    border-left: @border-width-1 @border-type-1 @neutral-5;
+    border-right: @border-width-1 @border-type-1 @neutral-5;
+    border-bottom: @border-width-1 @border-type-1 @neutral-5;
+    &:first-child{
+      margin-top: 2*@grid;
+      border-top: @border-width-1 @border-type-1 @neutral-5;
+    }
+    input {
+      border: none;
+      width: 92%;
+      height: 7*@grid;
     }
   }
 }

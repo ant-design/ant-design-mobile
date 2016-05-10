@@ -1,9 +1,5 @@
 .@{modalPrefixClass} {
-  position: absolute;
-  width: 71.5*@grid;
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  position: relative;
   &-wrap {
     position: fixed;
     overflow: auto;
@@ -11,9 +7,21 @@
     right: 0;
     bottom: 0;
     left: 0;
+    height: 100%;
     z-index: 1050;
     -webkit-overflow-scrolling: touch;
     outline: 0;
+    .display-box();
+    align-items: center;
+    justify-content: center;
+  }
+
+  &&-transparent {
+    .@{modalPrefixClass}-content {
+      border-radius: @radius-1;
+      height: auto;
+      padding-top: 6*@grid;
+    }
   }
 
   &-title {
@@ -32,10 +40,11 @@
     position: relative;
     background-color: @neutral-1;
     border: none;
-    border-radius: @radius-1;
+    //border-radius: @radius-1;
     background-clip: padding-box;
-    padding-top: 6*@grid;
+    //padding-top: 6*@grid;
     text-align: center;
+    height: 100%;
   }
 
   &-close {
@@ -63,13 +72,15 @@
   }
 
   .effect() {
-    animation-duration: 0.3s;
+    animation-duration: 0.4s;
     animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
   }
 
   &-zoom-enter,
   &-zoom-appear {
     opacity: 0;
+    transform: translate3d(0, 0, 0) scale(1.185);
     .effect();
     animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
     animation-play-state: paused;
@@ -95,21 +106,62 @@
   @keyframes rcDialogZoomIn {
     0% {
       opacity: 0;
-      transform: scale(0, 0);
+      transform: translate3d(0, 0, 0) scale(1.185);
     }
     100% {
       opacity: 1;
-      transform: scale(1, 1);
+      transform: translate3d(0, 0, 0) scale(1);
     }
   }
   @keyframes rcDialogZoomOut {
     0% {
-
-      transform: scale(1, 1);
+      opacity: 1;
     }
     100% {
       opacity: 0;
-      transform: scale(0, 0);
     }
   }
+
+  &-slide-enter,
+  &-slide-appear {
+    top: 100%;
+    .effect();
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-play-state: paused;
+  }
+
+  &-slide-leave {
+    .effect();
+    animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    animation-play-state: paused;
+  }
+
+  &-slide-enter&-slide-enter-active,
+  &-slide-appear&-slide-appear-active {
+    animation-name: rcDialogSlideUp;
+    animation-play-state: running;
+  }
+
+  &-slide-leave&-slide-leave-active {
+    animation-name: rcDialogSlideDown;
+    animation-play-state: running;
+  }
+
+  @keyframes rcDialogSlideUp {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: 0;
+    }
+  }
+  @keyframes rcDialogSlideDown {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+
 }
