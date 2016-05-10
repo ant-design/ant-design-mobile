@@ -5,12 +5,11 @@ type: 基本
 english: WingBlank
 ---
 
-
-
-列表项
-
 ## 如何使用
 
+通常dom两边要设置下padding
+
+```<WingBlank mode={8}>...</WingBlank>```
 
 ## API
 

@@ -75,6 +75,7 @@ let FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
+        <WhiteSpace />
       </div>
     );
   }

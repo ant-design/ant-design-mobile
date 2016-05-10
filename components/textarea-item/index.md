@@ -18,9 +18,7 @@ english: TextareaItem
 
 | 成员        | 说明           | 类型     |     可选值        | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    |      | String | |  `am-textarea`  |
 | prefixListCls    |         | String | |  `am-list`  |
-| style    |         | object | | {}  |
 | type    |  文本区域样式类型 | String | 线型`hasLine`,有边框`hasBorder`,本期只支持`hasLine` |  `hasLine`  |
 | title    | 文案说明        | String/node |     | '' |
 | name    | textarea的name        | String |  |  ''  |

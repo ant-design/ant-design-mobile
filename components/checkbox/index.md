@@ -20,9 +20,7 @@ english: Checkbox
 
 | 成员        | 说明           | 类型       |  可选值        | 默认值       |
 |------------|----------------|----------|----------|--------------|
-| prefixCls    |         | Object |   | 无  |
 | type    | 复选框类型 | String |  `normal`、 `agree` |   'normal'  |
-| style    |         | Object |   | 无  |
 | name    |         | String |   | 无  |
 | checked    |        | String |   | 无  |
 | disabled      |         | String | |  无  |
