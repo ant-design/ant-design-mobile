@@ -41,6 +41,7 @@ ReactDOM.render(
         </Flex.Item>
       </Flex>
     </WingBlank>
+    <WhiteSpace />
     <List >
       <List.Body>
         <List.Item line={2}

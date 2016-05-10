@@ -21,6 +21,7 @@ const ButtonExample = React.createClass({
       <div className="button-container"
         style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
       >
+        <WhiteSpace />
         <WingBlank>
           <Button type="primary" size="small" inline
             onClick={() => { this.setState({ dark: !this.state.dark }); }}
@@ -67,6 +68,7 @@ const ButtonExample = React.createClass({
         <WingBlank>
           <Button ghost disabled>default ghost disabled 按钮</Button>
         </WingBlank>
+        <WhiteSpace />
       </div>
     );
   }

@@ -35,11 +35,12 @@ function createActionSheet(flag, config, callback) {
     close();
   }
 
-  const { message, options, destructiveButtonIndex, cancelButtonIndex } = props;
+  const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = props;
   let children = null;
   switch (flag) {
     case NORMAL:
       children = (<div className={`${prefixCls}-normal`}>
+        <h3 className={`${prefixCls}-title`}>{title}</h3>
         <div className={`${prefixCls}-message`}>{message}</div>
         <ul className={`${prefixCls}-button-list`}>
           {options.map((item, index) => {
@@ -61,6 +62,7 @@ function createActionSheet(flag, config, callback) {
       break;
     case SHARE:
       children = (<div className={`${prefixCls}-share`}>
+        <h3 className={`${prefixCls}-title`}>{title}</h3>
         <div className={`${prefixCls}-message`}>{message}</div>
         <ul className={`${prefixCls}-share-content`}>
         {options.map((item, index) => {
@@ -77,6 +79,7 @@ function createActionSheet(flag, config, callback) {
       break;
     default:
       children = (<div className={`${prefixCls}-custom`}>
+        <h3 className={`${prefixCls}-title`}>{title}</h3>
         <div className={`${prefixCls}-message`}>{message}</div>
         <div className={`${prefixCls}-custom-content`}>
           {props.component}
