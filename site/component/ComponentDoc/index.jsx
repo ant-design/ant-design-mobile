@@ -18,6 +18,9 @@ export default class ComponentDoc extends React.Component {
       expandAll: false,
       currentIndex: 0,
       role: 'engineer',
+      // 收起展开代码的存储数组
+      codeExpandList: []
+
     };
   }
 
@@ -27,6 +30,16 @@ export default class ComponentDoc extends React.Component {
   componentDidUpdate() {
     const { chinese, english } = this.props.doc.meta;
     utils.setTitle(`${chinese} ${english} - Ant Design`);
+  }
+
+  // 用于控制内部代码的展开和收起
+  handleCodeExpandList = (index, type) => {
+    let codeExpandList = { ...this.state.codeExpandList };
+    codeExpandList[index] = type;
+
+    this.setState({
+      codeExpandList: codeExpandList
+    });
   }
 
   handleExpandToggle = () => {
@@ -90,7 +103,7 @@ export default class ComponentDoc extends React.Component {
       demoData.index = index;
 
       leftChildren.push(
-        <Demo togglePreview={ this.togglePreview } {...demoData} className={index === currentIndex ? 'code-box-target' : ''}
+        <Demo togglePreview={ this.togglePreview } {...demoData} handleCodeExpandList={this.handleCodeExpandList} codeExpand={this.state.codeExpandList[index]} className={index === currentIndex ? 'code-box-target' : ''}
           key={index}
           expand={expand} pathname={location.pathname} />
       );
