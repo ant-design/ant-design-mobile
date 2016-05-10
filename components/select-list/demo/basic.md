@@ -16,10 +16,11 @@ const SelectorData = [
     py: 'zj',
     id: 'zj'
   }, {
-    name: '上海',
+    name: '上海(不可选)',
     pinyin: 'shanghai',
     py: 'sh',
-    id: 'sh'
+    id: 'sh',
+    disabled: true
   }, {
     name: '江苏',
     pinyin: 'jiangsu',

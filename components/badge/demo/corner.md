@@ -11,7 +11,7 @@ title: 角标
 import { Badge } from 'antm';
 
 ReactDOM.render(
-  <div className="badge-container">
+  <div className="badge-container" style={{ padding: '40px 16px' }}>
 
     <Badge text={'new'} corner>
         <a href="#" className="head-example"></a>

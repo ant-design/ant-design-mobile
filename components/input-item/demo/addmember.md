@@ -8,7 +8,7 @@ title: 添加收银员
 ---
 
 ````jsx
-import { List, InputItem, Button, Select, WingBlank } from 'antm';
+import { List, InputItem, Button, WingBlank } from 'antm';
 
 ReactDOM.render(
   <div>
@@ -36,15 +36,6 @@ ReactDOM.render(
         clear
         placeholder="请填写该员工的手机号码"
       >所属门店</InputItem>
-      <List.Item
-        extra={<Select
-          name="yyy"
-          align="right"
-          value="0"
-          options={[{ val: '0', txt: '请选择' }, { val: '1', txt: '不允许退款' }, { val: '2', txt: '可退门店所有交易' }, { val: '3', txt: '只可退自己收的' }]}
-          onChange={(e) => {console.log('onChange'); console.log(e);}}
-        />}
-      >退款权限</List.Item>
       <List.Item
         arrow="horizontal"
       >其他权限</List.Item>

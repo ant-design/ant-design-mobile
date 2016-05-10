@@ -18,9 +18,6 @@ let FlexExample = React.createClass({
           顶部对齐
           <Flex align="top">
             <Flex.Item>
-              <Button>3列</Button>
-            </Flex.Item>
-            <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
@@ -32,9 +29,6 @@ let FlexExample = React.createClass({
         <WingBlank>
           居中对齐
           <Flex align="middle">
-            <Flex.Item>
-              <Button>3列</Button>
-            </Flex.Item>
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
@@ -48,9 +42,6 @@ let FlexExample = React.createClass({
           底部对齐
           <Flex align="bottom">
             <Flex.Item>
-              <Button>3列</Button>
-            </Flex.Item>
-            <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
@@ -58,6 +49,7 @@ let FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
+        <WhiteSpace />
       </div>
     );
   }

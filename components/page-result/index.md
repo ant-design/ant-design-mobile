@@ -15,7 +15,7 @@ english: PageResult
 
 ## API
 
-### TabItem
+### PageResult
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | imgUrl    | 插图URL        | string |    |

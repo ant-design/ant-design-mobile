@@ -18,7 +18,6 @@ english: SearchBar
 ### TabItem
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| prefixCls    |         | String |    |
 | value    |    搜索框的默认值     | String |    |
 | placeholder    |    placeholder     | String |    |
 | onSubmit    |    点击键盘的enter会触发submit事件     | Func |    |
