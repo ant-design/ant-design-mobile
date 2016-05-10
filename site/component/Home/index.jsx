@@ -1,5 +1,9 @@
 import React from 'react';
 import './index.less';
+import Banner from './Banner';
+import Link from './Link';
+import Page1 from './Page1';
+import Page2 from './Page2';
 
 import * as utils from '../utils';
 
@@ -9,7 +13,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    utils.setTitle('Ant Design - 一个 UI 设计语言');
+    utils.setTitle('Ant Mobile - 移动端H5规范库');
   }
 
   componentWillUnmount() {
@@ -18,7 +22,11 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="main-wrapper">
+      <div className="index-wrapper">
+        <Link />
+        <Banner />
+        <Page1 />
+        <Page2 />
         <iframe
           style={{ width: 320, height: 548, display: 'block', margin: '100px auto' }}
           frameBorder="0"

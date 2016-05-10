@@ -86,7 +86,7 @@ export default class Header extends React.Component {
               onClick={this.handleMenuIconClick}
               type="menu" />
             <Link to="/" id="logo">
-              <img src="https://os.alipayobjects.com/rmsportal/xONkbRSJqciDrmn.svg" />
+              <img src="https://os.alipayobjects.com/rmsportal/aPhSgPnBnqpOswb.svg" />
               <span>ANT DESIGN | MOBILE</span>
             </Link>
           </Col>
