@@ -5,7 +5,7 @@ title: ActionSheet
 
 
 ````jsx
-import { ActionSheet, Button, WhiteSpace } from 'antm';
+import { ActionSheet, Button, WingBlank, WhiteSpace } from 'antm';
 
 const Test = React.createClass({
   getInitialState() {
@@ -34,7 +34,9 @@ const Test = React.createClass({
       options: BUTTONS,
       cancelButtonIndex: BUTTONS.length - 1,
       destructiveButtonIndex: BUTTONS.length - 2,
+      title: 'Title',
       message: 'this is message',
+      maskClosable: false,
     },
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });
@@ -44,6 +46,7 @@ const Test = React.createClass({
     const icons = this.state.icons;
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
+      title: 'Title',
       message: 'this is message',
     },
     (buttonIndex) => {
@@ -52,29 +55,31 @@ const Test = React.createClass({
   },
   showActionSheetWithCustom() {
     ActionSheet.showActionSheetWithCustom({
+      title: 'custom',
       message: 'this is message',
       component: <div style={{ color: 'red', padding: 20 }}>
-        custom component
-        <Button inline onClick={() => ActionSheet.close()}>close ActionSheet</Button>
-      </div>
+        custom component &nbsp;
+        <Button inline size="small" onClick={() => ActionSheet.close()}>close ActionSheet</Button>
+      </div>,
     });
   },
   render() {
     return (<div>
-      <div>
+      <WhiteSpace />
+      <WingBlank>
         <Button type="primary" onClick={this.showActionSheet}>show ActionSheet</Button>
         <p>Clicked button: {this.state.clicked}</p>
-      </div>
+      </WingBlank>
       <WhiteSpace />
-      <div>
+      <WingBlank>
         <Button type="primary" onClick={this.showShareActionSheet}>showShareActionSheet</Button>
         <p>Clicked icon: {this.state.clicked}</p>
-      </div>
+      </WingBlank>
       <WhiteSpace />
-      <div>
+      <WingBlank>
         <Button type="primary" onClick={this.showActionSheetWithCustom}>showActionSheetWithCustom</Button>
         <p>Clicked: {this.state.clicked}</p>
-      </div>
+      </WingBlank>
     </div>);
   }
 });
