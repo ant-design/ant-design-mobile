@@ -10,7 +10,7 @@ title: 基本
 ````jsx
 import { Badge } from 'antm';
 ReactDOM.render(
-  <div className="badge-container">
+  <div className="badge-container" style={{ padding: '40px 16px' }}>
     <Badge text={9}>
       <a href="#" className="head-example"></a>
     </Badge>

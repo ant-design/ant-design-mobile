@@ -8,7 +8,7 @@ Radio
 ---
 
 ````jsx
-import { List, Radio } from 'antm';
+import { Radio } from 'antm';
 
 let Test = React.createClass({
   getInitialState() {
@@ -32,51 +32,22 @@ let Test = React.createClass({
   render() {
     return (
       <div>
-        <List>
-          <List.Header>表单多选项，普通列表中多选项</List.Header>
-          <List.Body>
-            <List.Item
-              extra={<Radio
-                value = "a"
-                checked = {this.state.r === 'a'}
-                onChange={this.handleChange}
-                disabled={this.state.disabled}
-              />}
-            >
-              使用 Ant Desgin Component
-            </List.Item>
-            <List.Item
-              extra={<Radio
-                value = "b"
-                checked = {this.state.r === 'b'}
-                onChange={this.handleChange}
-                disabled={this.state.disabled}
-              />}
-            >
-              使用 Ant Desgin Component
-            </List.Item>
-            <List.Item
-              extra={<Radio
-                value = "c"
-                checked
-                onChange={this.handleChange}
-                disabled
-              />}
-            >
-              个性化调整disabled
-            </List.Item>
-            <List.Item
-              extra={<Radio
-                value = "d"
-                checked = {false}
-                onChange={this.handleChange}
-                disabled
-              />}
-            >
-              个性化调整disabled
-            </List.Item>
-          </List.Body>
-        </List>
+        <div style={{ position: 'relative' }}>
+          <span style={{ borderWidth: '1px', borderColor: 'red', borderStyle: 'solid' }}>
+            <Radio
+              value = "e"
+              checked = {this.state.s === 'e'}
+              onChange={this.handleChange2}
+            />
+          </span>
+          <span style={{ borderWidth: '1px', borderColor: 'red', borderStyle: 'solid' }}>
+            <Radio
+              value = "f"
+              checked = {this.state.s === 'f'}
+              onChange={this.handleChange2}
+            />
+          </span>
+        </div>
       </div>
     );
   }

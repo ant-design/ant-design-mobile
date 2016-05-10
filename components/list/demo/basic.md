@@ -8,7 +8,7 @@ title: 基本
 ---
 
 ````jsx
-import { List, InputItem } from 'antm';
+import { List } from 'antm';
 
 const ListForm = React.createClass({
   onClick() {
@@ -72,34 +72,6 @@ const ListForm = React.createClass({
             arrow="horizontal"
             onClick={window.clickItem}
           >我是内容22</List.Item>
-        </List.Body>
-      </List>
-      <List>
-        <List.Header>form列表</List.Header>
-        <List.Body>
-          <InputItem
-            name="yyy"
-            defaultValue="dada22"
-            placeholder="dadads"
-            clear
-            onChange={(e) => {console.log('onChange'); console.log(e);}}
-            onBlur={(e) => {console.log('onBlur'); console.log(e);}}
-            onFocus={(e) => {console.log('onFocus'); console.log(e);}}
-          >我是</InputItem>
-          <InputItem
-            label=""
-            name="yyy"
-            defaultValue="dada22"
-            placeholder="dadads"
-            onChange={() => {console.log('onChange');}}
-          >我是内</InputItem>
-          <InputItem
-            name="yyy"
-            defaultValue="dada22"
-            placeholder="dadads"
-            clear
-            onChange={() => {console.log('onChange');}}
-          />
         </List.Body>
       </List>
     </form>);

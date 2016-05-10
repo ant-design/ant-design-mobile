@@ -28,14 +28,14 @@ export default class PageResult extends React.Component {
   };
 
   render() {
-    let { prefixCls, imgUrl, title, message, buttonTxt, buttonClick, buttonType, buttonGhost, style, className } = this.props;
+    let { prefixCls, imgUrl, title, message, buttonTxt, buttonClick, buttonType, buttonGhost, className, ...others } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className]: className
     });
 
     return (
-      <div {...this.props} className={wrapCls} style={style}>
+      <div {...others} className={wrapCls}>
         <div className={`${prefixCls}-pic`} style={{ backgroundImage: `url(${imgUrl})` }}></div>
         { title !== '' ? (<div className={`${prefixCls}-title`}>{title}</div>) : null }
         { message !== '' ? (<div className={`${prefixCls}-message`}>{message}</div>) : null }
