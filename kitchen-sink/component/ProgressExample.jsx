@@ -25,24 +25,26 @@ const ProgressExample = React.createClass({
     render(){
 
         return(
-          <div className="progress-container">
-            {this.state.percent === 100 ? null :
-                <Progress percent={this.state.percent} position="fixed"/>
-            }
-            <Progress percent={this.state.percent} position="normal"/>
-            <WhiteSpace mpde={20}/>
-            <WingBlank mode={20}>
-                <Flex>
-                    <Flex.Item>
-                        <Button onClick={this.increase}> + </Button>
-                    </Flex.Item>
-                    <Flex.Item>
-                        <Button onClick={this.decline}> - </Button>
-                    </Flex.Item>
-                </Flex>
-            </WingBlank>
-            <WhiteSpace mpde={20}/>
-          </div>
+          <Page title="进度条" subtitle="&lt;Progress result={} /&gt;">
+            <div className="progress-container">
+              {this.state.percent === 100 ? null :
+                  <Progress percent={this.state.percent} position="fixed"/>
+              }
+              <Progress percent={this.state.percent} position="normal"/>
+              <WhiteSpace mpde={20}/>
+              <WingBlank mode={20}>
+                  <Flex>
+                      <Flex.Item>
+                          <Button onClick={this.increase}> + </Button>
+                      </Flex.Item>
+                      <Flex.Item>
+                          <Button onClick={this.decline}> - </Button>
+                      </Flex.Item>
+                  </Flex>
+              </WingBlank>
+              <WhiteSpace mpde={20}/>
+            </div>
+          </Page>
         )
     }
 });
