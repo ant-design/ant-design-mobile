@@ -10,21 +10,21 @@ import { Carousel } from 'antm';
 
 const settings = {
   mode: 'card',
-  beforeChange: function (index) {
-    console.log('Slider will change from:' + index);
+  beforeChange(index) {
+    console.log(`Slider will change from: ${index}`);
   },
-  afterChange: function (currentSlide) {
-    console.log('Slider Changed to :' + (currentSlide + 1));
+  afterChange(currentSlide) {
+    console.log(`Slider Changed to : ${(currentSlide + 1)}`);
   }
 };
 
 ReactDOM.render(
   <Carousel {...settings}>
-  <div style={{width: 272}}><p>Pic1</p></div>
-  <div style={{width: 272}}><p>Pic2</p></div>
-  <div style={{width: 272}}><p>Pic3</p></div>
-  <div style={{width: 272}}><p>Pic4</p></div>
-  <div style={{width: 272}}><p>Pic5</p></div>
+  <div style={{ width: 272 }}><p>Pic1</p></div>
+  <div style={{ width: 272 }}><p>Pic2</p></div>
+  <div style={{ width: 272 }}><p>Pic3</p></div>
+  <div style={{ width: 272 }}><p>Pic4</p></div>
+  <div style={{ width: 272 }}><p>Pic5</p></div>
   </Carousel>
 , mountNode);
 ````
