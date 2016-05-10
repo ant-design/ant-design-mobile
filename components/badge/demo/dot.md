@@ -11,7 +11,7 @@ title: 讨嫌的小红点
 import { Badge } from 'antm';
 
 ReactDOM.render(
-  <div className="badge-container">
+  <div className="badge-container" style={{ padding: '40px 16px' }}>
     <Badge dot>
       <a href="#">一个链接</a>
     </Badge>
