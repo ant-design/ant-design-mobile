@@ -36,6 +36,7 @@ const Test = React.createClass({
       destructiveButtonIndex: BUTTONS.length - 2,
       title: 'Title',
       message: 'this is message',
+      maskClosable: false,
     },
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });
@@ -59,7 +60,7 @@ const Test = React.createClass({
       component: <div style={{ color: 'red', padding: 20 }}>
         custom component &nbsp;
         <Button inline size="small" onClick={() => ActionSheet.close()}>close ActionSheet</Button>
-      </div>
+      </div>,
     });
   },
   render() {

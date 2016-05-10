@@ -14,7 +14,7 @@ function createActionSheet(flag, config, callback) {
   const props = assign({
     prefixCls: 'am-action-sheet',
   }, config);
-  const { prefixCls, transitionName, maskTransitionName } = props;
+  const { prefixCls, transitionName, maskTransitionName, maskClosable = true } = props;
 
   let div = document.createElement('div');
   document.body.appendChild(div);
@@ -95,6 +95,7 @@ function createActionSheet(flag, config, callback) {
     transitionName={transitionName || `${prefixCls}-slide-fade`}
     maskTransitionName={maskTransitionName || `${prefixCls}-fade`}
     onClose={close}
+    maskClosable={maskClosable}
   >{children}</Dialog>, div, function () {
     d = this;
   });

@@ -20,6 +20,7 @@ english: ActionSheet
 - destructiveButtonIndex (int) - 按钮列表中破坏性按钮（一般为删除）的索引位置
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
+- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
 
 #### static showShareActionSheetWithOptions(options: Object, callback: Function)
 
@@ -28,6 +29,7 @@ english: ActionSheet
 - options (array of `{iconName: 'xx', title: ''}`) - 分享按钮列表 (required)
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
+- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
 
 #### static showActionSheetWithCustom(options: Object, callback: Function)
 
@@ -36,6 +38,7 @@ english: ActionSheet
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
 - component - 自定义的任何组件
+- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
 
 #### static close()
 
