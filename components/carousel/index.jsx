@@ -37,8 +37,13 @@ export default class Carousel extends React.Component {
     if (props.mode === 'banner') {
       className = `${className} am-carousel-banner`;
     }
-    if (props.mode === 'showcase') {
-      className = `${className} am-carousel-showcase`;
+    if (props.mode === 'card') {
+      className = `${className} am-carousel-card center slider variable-width`;
+      props.centerMode = true;
+      props.infinite = true;
+      props.slidesToShow = 1;
+      props.slidesToScroll = 1;
+      props.variableWidth = true;
     }
 
     return (

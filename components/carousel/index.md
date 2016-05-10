@@ -17,6 +17,7 @@ english: Carousel
 
 | 参数             | 说明                                         | 类型     | 默认值                          |
 |------------------|----------------------------------------------|----------|---------------------------------|
+| mode | 展示模式，可取banner，card，提供定制化的顶部banner型和卡片型两种样式 | String | 无 |
 | effect           | 动画效果函数，可取 scrollx, fade | String | scrollx |
 | dots | 是否显示面板指示点 | Boolean   | true |
 | vertical | 垂直显示 | Boolean   | false |
@@ -28,6 +29,9 @@ english: Carousel
 更多参数可参考：https://github.com/akiran/react-slick
 
 <style>
+.demo-preview-wrapper .demo-preview-scroller * {
+    box-sizing: border-box;
+}
 .am-carousel .slick-slide {
   text-align: center;
   height: 120px;
@@ -35,26 +39,6 @@ english: Carousel
   background: #71B5DE;
   color: #fff;
   overflow: hidden;
-}
-.am-carousel-banner .slick-slider {
-  padding-bottom: 0;
-  background: #fff;
-}
-.am-carousel-banner .slick-dots li {
-  width: 12px;
-  margin: 0;
-}
-.am-carousel-banner .slick-slide h3 {
-  background: #fff;
-  color: #5B5B5B;
-}
-.variable-width .slick-slider {
-  height: 352px;
-}
-.variable-width .slick-slide {
-  background: #fff;
-  height: 352px;
-  line-height: 352px;
 }
 .variable-width .slick-slide p, h3 {
   background: #71B5DE;

@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 居中模式
+title: 卡片模式
 ---
 
 最简单的用法。
@@ -9,14 +9,7 @@ title: 居中模式
 import { Carousel } from 'antm';
 
 const settings = {
-  className: 'center slider variable-width',
-  centerMode: true,
-  centerPadding: '60px',
-  mode: 'showcase',
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  variableWidth: true,
+  mode: 'card',
   beforeChange: function (index) {
     console.log('Slider will change from:' + index);
   },

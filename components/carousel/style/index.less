@@ -140,7 +140,7 @@
   // Dots
 
   .slick-slider {
-    padding-bottom: 45px;
+    padding-bottom: @grid * 7;
   }
 
   .slick-dots {
@@ -185,7 +185,7 @@
           content: "•";
           width: 20px;
           height: 20px;
-          font-size: 24px;
+          font-size: 28px;
           font-family: arial, sans-serif;
           line-height: 20px;
           text-align: center;
@@ -213,5 +213,34 @@
     bottom: auto;
     right: -35px;
     top: 0;
+  }
+}
+
+.am-carousel-banner .slick-slider {
+  padding-bottom: 0;
+  background: #fff;
+}
+.am-carousel-banner .slick-dots li {
+  width: 12px;
+  margin: 0;
+}
+.am-carousel-banner .slick-slide h3 {
+  background: #fff;
+  color: #5B5B5B;
+}
+.am-carousel.am-carousel-card {
+  .slick-slider {
+    height: @grid * 88;
+  }
+  .slick-slide {
+    background: #fff;
+    height: @grid * 88;
+    line-height: @grid * 88;
+  }
+  .slick-dots {
+    bottom: -@grid * 8;
+    li {
+      margin: 0 8px;
+    }
   }
 }
