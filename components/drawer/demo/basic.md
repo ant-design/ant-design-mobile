@@ -8,7 +8,7 @@ Drawer
 ---
 
 ````jsx
-import { Drawer, Button } from 'antm';
+import { Drawer, Button, List } from 'antm';
 
 const App = React.createClass({
   getInitialState() {
@@ -33,10 +33,21 @@ const App = React.createClass({
   },
   render() {
     const sidebar = (<div>
-      <h3>
-        sideMenu
-      </h3>
-      <p>this is content!</p>
+      <List >
+        <List.Body>
+          {[1, 2, 3, 4, 5, 6].map((i, index) => {
+            if (index === 0) {
+              return (<List.Item
+                thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
+                line={2}
+              ><div className="am-list-title">收银员</div><div className="am-list-brief">仅可进行收款、退款及查账操作</div></List.Item>);
+            }
+            return (<List.Item key={index}
+              line={2}
+            ><div className="am-list-title">运营</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></List.Item>);
+          })}
+        </List.Body>
+      </List>
     </div>);
 
     const drawerProps = {
@@ -47,7 +58,6 @@ const App = React.createClass({
     };
     return (<div className="drawer-container">
       <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-        <p>React component</p>
         <Button type="primary" inline onClick={this.onDock}>
           {this.state.docked ? 'hide menu' : 'show menu'}
         </Button>
@@ -62,13 +72,16 @@ ReactDOM.render(<App />, mountNode);
 <style>
 #preview-components-drawer-demo-basic .drawer-container {
   position: relative;
-  height: 400px;
+  height: 660px;
 }
 #preview-components-drawer-demo-basic .am-drawer-content {
   padding: 10px;
 }
 #preview-components-drawer-demo-basic .am-drawer-sidebar {
-  padding: 16px;
-  background-color: #e4f6fe;
+  max-width: 260px;
+}
+#preview-components-drawer-demo-basic .am-drawer-sidebar .am-list {
+  padding: 0;
+  margin: 10px 0;
 }
 </style>

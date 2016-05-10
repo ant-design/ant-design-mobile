@@ -47,8 +47,8 @@ const Test = React.createClass({
         onClick={() => { this.handleVisibleChange(false); }}
         >关闭</Button></Item>,
     ]);
-    return (<div>
-      <span>选中了 {this.state.selected}</span>
+    return (<div style={{ padding: 10, minHeight: 600 }}>
+      <p>选中了 {this.state.selected}</p>
       <FloatMenu
         visible={this.state.visible}
         overlay={overlay}
