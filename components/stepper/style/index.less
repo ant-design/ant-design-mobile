@@ -34,122 +34,115 @@
 }
 
 .@{stepperPrefixCls} {
+  position: relative;
   margin: 0;
   padding: 4px 0;
   line-height: @grid * 11;
-  font-size: 12px;
-  height: @grid * 11;
+  font-size: @font-size-2;
+
+  width: @grid * 29;
+  height: @grid * 7;
+  line-height: @grid * 7;
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
 
   &-input {
     display: inline-block;
-    font-size: 16px;
+    font-size: @font-size-5;
     border: none;
     text-align: center;
-    width: @grid * 22;
+    width: @grid * 14;
     color: @neutral-10;
+  }
+
+  .@{stepperPrefixCls}-handler-wrap {
+    position: absolute;
+    width: 100%;
+  }
+
+  .@{stepperPrefixCls}-handler,
+  .@{stepperPrefixCls}-handler-up-inner,
+  .@{stepperPrefixCls}-handler-down-inner {
+    width: @grid * 7;
+    height: @grid * 7;
+    line-height: @grid * 7;
   }
 
   &-handler {
     text-align: center;
-    line-height: 0;
-    height: @grid * 11;
     border: @border-thickness-1 @border-type-1 @border-color-base;
     border-radius: @radius-2;
     overflow: hidden;
     color: #999;
-    position: relative;
+    position: absolute;
     display: inline-block;
     &:active {
-      border-color: tint(@brand-6, 20%);
-      background: #fefefe;
+      border-color: @brand-6;
     }
     &:active &-up-inner,
     &:active &-down-inner {
-      border-color: tint(@brand-6, 20%);
-      color: tint(@brand-6, 20%);
+      border-color: @brand-6;
+      color: @brand-6;
     }
   }
 
   &-handler-up-inner,
   &-handler-down-inner {
     .iconfont-mixin();
-    line-height: @grid * 11;
     user-select: none;
-    width: @grid * 11;
-    height: @grid * 11;
     right: 4px;
-    color: #999;
+    color: @neutral-7;
   }
 
   &-input-wrap {
+    width: 100%;
+    text-align: center;
     display: inline-block;
     overflow: hidden;
-    height: @grid * 11;
-  }
-
-
-  &-sm {
-    padding: 4px 0;
-    width: @grid * 7;
     height: @grid * 7;
     line-height: @grid * 7;
+  }
+
+  &-lg {
+    width: @grid * 45;
+    height: @grid * 11;
+    line-height: @grid * 11;
+
     .@{stepperPrefixCls}-handler-wrap,
     .@{stepperPrefixCls}-handler,
     .@{stepperPrefixCls}-handler-up-inner,
     .@{stepperPrefixCls}-handler-down-inner {
-      width: @grid * 7;
-      height: @grid * 7;
-      line-height: @grid * 7;
+      width: @grid * 11;
+      height: @grid * 11;
+      line-height: @grid * 11;
+    }
+
+    .@{stepperPrefixCls}-handler-wrap {
+      position: absolute;
+      width: 100%;
     }
 
     .@{stepperPrefixCls}-input-wrap {
-      width: @grid * 14;
-      height: @grid * 7;
-      line-height: @grid * 7;
+      height: @grid * 11;
+      line-height: @grid * 11;
     }
-
 
     input {
-      width: @grid * 14;
-      height: @grid * 7;
-      line-height: @grid * 7;
+      font-size: @font-size-6;
+      width: @grid * 22;
+      height: @grid * 11;
+      line-height: @grid * 11;
       vertical-align: top;
     }
-    .@{stepperPrefixCls}-handler-up-inner {
-      // top: -1px;
-    }
-    .@{stepperPrefixCls}-handler-down-inner {
-      // bottom: -1px;
-    }
-    .@{stepperPrefixCls}-handler-up:active {
-      // height: 13px;
-    }
     .@{stepperPrefixCls}-handler-down:active .@{stepperPrefixCls}-handler-down-inner {
-      // bottom: 4px;
-      color: tint(@brand-6, 20%);
-    }
-  }
-
-  &-hideNumber {
-    .@{stepperPrefixCls}-input-wrap {
-      display: none;
-    }
-    .@{stepperPrefixCls}-handler-up {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    .@{stepperPrefixCls}-handler-down {
-      right: -1px;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      color: @brand-6;
     }
   }
 
   &-handler-up {
     cursor: pointer;
+    right: 0;
     &-inner {
       &:before {
         text-align: center;
@@ -160,6 +153,7 @@
 
   &-handler-down {
     cursor: pointer;
+    left: 0;
     &-inner {
       &:before {
         text-align: center;
@@ -184,11 +178,25 @@
       background-color: none;
       color: @neutral-6;
     }
-    .@{stepperPrefixCls}-handler-wrap {
-      display: none;
-    }
     .@{stepperPrefixCls}-handler {
       .handler-disabled();
     }
+  }
+}
+
+.hideNumber {
+  width: @grid * 14.5;
+  .@{stepperPrefixCls}-input-wrap {
+    display: none;
+  }
+  .@{stepperPrefixCls}-handler-up {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .@{stepperPrefixCls}-handler-down {
+    right: -1px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
   }
 }
