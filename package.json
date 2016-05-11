@@ -51,10 +51,10 @@
     "rc-tabs": "~5.9.0",
     "rc-tooltip": "~3.3.2",
     "react-slick": "~0.12.0",
-    "rmc-cascader": "~1.1.0",
-    "rmc-date-picker": "~2.2.0",
+    "rmc-cascader": "~1.2.0",
+    "rmc-date-picker": "~2.3.0",
     "rmc-modal": "~0.4.1",
-    "rmc-picker": "~2.4.1",
+    "rmc-picker": "~2.5.0",
     "rc-input-number": "~2.5.8"
   },
   "devDependencies": {

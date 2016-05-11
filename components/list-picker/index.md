@@ -52,5 +52,6 @@ const data = [{
 | children| 通常是List.Item | Object |   |  List.Item  |
 | okText  | 选中的文案 | String |   |  `确定`  |
 | dismissText  | 取消选中的文案 | String |   |  `取消`  |
+| title  | 大标题 | String |   |    |
 | extra   | Children如果是List.Item,则是extra属性的默认值, 如果是其它的UI组件,则value或者extra属性会经过format方法处理后传给children的extra属性,用户需要自己实现这个属性 | String |   |  `请选择`  |
 | style   | 样式 | Object |   |  无  |

@@ -34,7 +34,8 @@ function getDefaultProps() {
     format: defaultFormat,
     extra: '请选择',
     okText: '确定',
-    dismissText: '取消'
+    dismissText: '取消',
+    title: '',
   };
 }
 
@@ -92,7 +93,7 @@ export default class ListDatePicker extends React.Component {
   }
   render() {
     const { date, minDate, maxDate } = this.state;
-    const { format, extra, value, okText, dismissText } = this.props;
+    const { format, extra, value, okText, dismissText, title } = this.props;
     const extraProps = {
       extra: value ? format(value) : extra,
     };
@@ -101,6 +102,7 @@ export default class ListDatePicker extends React.Component {
         locale={require('rmc-date-picker/lib/locale/zh_CN')}
         okText={okText}
         dismissText={dismissText}
+        title={title}
         style={{ left: 0, bottom: 0 }}
         onChange={this.onChange}
         date={date}
