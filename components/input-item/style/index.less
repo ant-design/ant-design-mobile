@@ -10,16 +10,16 @@
       padding: 1.5*@grid 4*@grid;
       .hairline-bottom(bottom, @neutral-5, @margin-4);
     }
-    &.@{inputPrefixCls}-item-last {
+    &:last-child {
       .hairline-bottom(bottom, @neutral-5, 0);
+      &.@{inputPrefixCls}-error {
+        .hairline-bottom(bottom, @red-6, 0);
+      }
     }
     &.@{inputPrefixCls}-error {
       position: relative;
       z-index: 11;
       .hairline-bottom(bottom, @red-6, @margin-4);
-      &.@{inputPrefixCls}-item-last {
-        .hairline-bottom(bottom, @red-6, 0);
-      }
     }
     .@{inputPrefixCls}-label {
       font-size: @font-size-5;

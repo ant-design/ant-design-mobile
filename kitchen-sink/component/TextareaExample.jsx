@@ -110,6 +110,7 @@ let TextareaExample = React.createClass({
               clear
               title="备注"
               placeholder="请填写"
+              error
             />
           </List.Body>
         </List>

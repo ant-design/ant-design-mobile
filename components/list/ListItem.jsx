@@ -13,7 +13,6 @@ export default class ListItem extends React.Component {
     onClick: PropTypes.func,
     error: PropTypes.bool,
     align: PropTypes.string,
-    isLastItem: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -24,7 +23,6 @@ export default class ListItem extends React.Component {
     needActive: true,
     error: false,
     align: 'middle',
-    isLastItem: false,
   };
 
   constructor(props) {
@@ -55,7 +53,7 @@ export default class ListItem extends React.Component {
   };
 
   render() {
-    let { prefixCls, thumb, arrow, error, children, extra, className, align, isLastItem, ...others } = this.props;
+    let { prefixCls, thumb, arrow, error, children, extra, className, align, ...others } = this.props;
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;
@@ -67,7 +65,6 @@ export default class ListItem extends React.Component {
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
       [`${prefixCls}-item-hover`]: hover,
-      [`${prefixCls}-item-last`]: isLastItem,
       [className]: className
     });
 
