@@ -1,0 +1,144 @@
+.@{datePickerPopupPrefixCls} {
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+
+  &-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    overflow-scrolling: touch;
+    outline: 0;
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #373737;
+    background-color: rgba(55, 55, 55, 0.6);
+    height: 100%;
+    filter: alpha(opacity=50);
+    z-index: 1050;
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    background-image: -webkit-linear-gradient(top, #e7e7e7, #e7e7e7, transparent, transparent);
+    background-image: linear-gradient(to bottom, #e7e7e7, #e7e7e7, transparent, transparent);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+  }
+
+  &-item {
+    color: #0ae;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+    cursor: pointer;
+    box-sizing: border-box;
+    flex: 1;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .effect() {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+
+  &-fade-enter,
+  &-fade-appear {
+    opacity: 0;
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-fade-leave {
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-fade-enter&-fade-enter-active,
+  &-fade-appear&-fade-appear-active {
+    animation-name: rmcPopupPickerFadeIn;
+    animation-play-state: running;
+  }
+
+  &-fade-leave&-fade-leave-active {
+    animation-name: rmcPopupPickerFadeOut;
+    animation-play-state: running;
+  }
+
+  @keyframes rmcPopupPickerFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes rmcPopupPickerFadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &-slide-fade-enter,
+  &-slide-fade-appear {
+    transform: translate(0, 100%);
+  }
+
+  &-slide-fade-enter,
+  &-slide-fade-appear,
+  &-slide-fade-leave {
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-slide-fade-enter&-slide-fade-enter-active,
+  &-slide-fade-appear&-slide-fade-appear-active {
+    animation-name: rmcPopupPickerSlideFadeIn;
+    animation-play-state: running;
+  }
+
+  &-slide-fade-leave&-slide-fade-leave-active {
+    animation-name: rmcPopupPickerSlideFadeOut;
+    animation-play-state: running;
+  }
+
+  @keyframes rmcPopupPickerSlideFadeIn {
+    0% {
+      transform: translate(0, 100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes rmcPopupPickerSlideFadeOut {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, 100%);
+    }
+  }
+}

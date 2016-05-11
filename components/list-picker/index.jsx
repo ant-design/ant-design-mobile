@@ -8,6 +8,9 @@ function getDefaultProps() {
     return values.join(',');
   };
   return {
+    prefixCls: 'am-list-picker',
+    pickerPrefixCls: 'am-list-picker-picker',
+    popupPrefixCls: 'am-list-picker-popup',
     format: defaultFormat,
     style: { left: 0, bottom: 0 },
     cols: 3,

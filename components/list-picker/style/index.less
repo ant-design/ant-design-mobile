@@ -1,5 +1,21 @@
 @import '../../style/mixins';
 @import '../../style/variables';
-@pickerPrefixCls: am-picker;
 
-// .@{pickerPrefixCls} {}
+@listPickerPrefixCls: am-list-picker;
+@listPickerPickerPrefixCls: am-list-picker-picker;
+@listPickerPopupPrefixCls: am-list-picker-popup;
+
+@import './picker';
+@import './picker-popup';
+
+.@{listPickerPrefixCls} {
+  display: flex;
+  box-align: center;
+  align-items: center;
+  padding: 10px 0;
+
+  &-main-item {
+    flex: 1;
+    text-align: center;
+  }
+}
