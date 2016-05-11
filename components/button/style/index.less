@@ -39,8 +39,7 @@
   &:after {
     border: @border-width-1 @border-type-1 @neutral-5;
   }
-  &:active,
-  &:hover {
+  &:active {
     background-color: @neutral-2;
   }
   // ghost
@@ -49,8 +48,7 @@
     &:after {
       border: @border-width-1 @border-type-1 @neutral-4;
     }
-    &:active,
-    &:hover {
+    &:active {
       color: @brand-6;
       background-color: fade(@neutral-3, 20%);
     }
@@ -62,16 +60,14 @@
     &:after {
       border: @border-width-1 @border-type-1 @brand-6;
     }
-    &:active,
-    &:hover {
+    &:active {
       color: @neutral-1;
       background-color: @brand-7;
     }
     &.@{buttonPrefixCls}-ghost {
       color: @brand-6;
       background-color: transparent;
-      &:active,
-      &:hover {
+      &:active {
         color: @brand-7;
         background-color: fade(@brand-3, 20%);
         &:after {
@@ -87,8 +83,7 @@
     &:after {
       border: @border-width-1 @border-type-1 @red-4;
     }
-    &:active,
-    &:hover {
+    &:active {
       background-color: @red-2;
     }
   }
