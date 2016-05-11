@@ -45,24 +45,12 @@
 .banner-text-wrapper h2 {
   font-size: 40px;
   font-weight: normal;
-  font-family: 'Raleway';
+  font-family: 'PingFang SC';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.banner-text-wrapper h2 p {
-  color: #FF3171;
-  display: inline-block;
-}
-.banner-text-wrapper .line {
-  width: 0.8px;
-  height: 76px;
-  position: absolute;
-  background: rgba(255, 255, 255, .44);
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
-  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
-  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
-  top: 16px;
-  right: -25px;
-}
+
 .banner-text-wrapper > p {
   margin: 10px auto 24px;
   font-size: 16px;
@@ -89,17 +77,6 @@
   }
   > a span {
     margin-left: 15px;
-  }
-}
-
-.banner-text-wrapper .github-btn {
-  float: right;
-  line-height: 14px;
-  width: 91px;
-  text-align: left;
-
-  a:hover {
-    color: #333;
   }
 }
 
@@ -165,7 +142,6 @@
   background: url("https://os.alipayobjects.com/rmsportal/RZGWkJRiysQZMzh.png") no-repeat 80px 0;
   height: 396px;
   top: 50%;
-  margin-top: -256px;
 }
 .image2 {
   padding-right: 10%;
@@ -181,8 +157,31 @@
   margin: 10% auto 40px;
 }
 .text-wrapper-bottom p {
-  margin: 20px auto;
+  margin:10px 0 20px;
   font-size: 16px;
   line-height: 28px;
   color: #999;
+}
+.text-wrapper-bottom .text-left {
+  float: left;
+  padding-left: 10%;
+  width: 35%;
+  position: relative;
+  top: 20%;
+  left: 10px;
+  text-align: left;
+}
+.text-wrapper-bottom  .start-button-wrap {
+  height: 56px;
+  margin-bottom: 32px;
+}
+.text-wrapper-bottom  .start-button-wrap a {
+  color: #2DB7F5;
+  font-size: 18px;
+  padding: 13px 45px 14px;
+  border: 1px solid #2DB7F5;
+  border-radius: 6px;
+  &:hover {
+    box-shadow: 0 0 10px #2DB7F5;
+  }
 }
