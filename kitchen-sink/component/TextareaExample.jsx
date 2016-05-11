@@ -86,17 +86,6 @@ let TextareaExample = React.createClass({
                 valuePropName: 'value'
               })}
               title="备注"
-              error={true}
-              placeholder="请填写"
-            />
-            <TextareaItem
-              {...getFieldProps('note8', {
-                initialValue: '',
-                valuePropName: 'value'
-              })}
-              autoHeight
-              clear
-              title="备注"
               error
               placeholder="请填写"
             />
@@ -110,7 +99,19 @@ let TextareaExample = React.createClass({
               onBlur={function(e){console.log('onBlur'); console.log(e);}}
               onFocus={function(e){console.log('onFocus'); console.log(e);}}
               extra="元"
+              error
             >InputItem</InputItem>
+            <TextareaItem
+              {...getFieldProps('note8', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              autoHeight
+              clear
+              title="备注"
+              placeholder="请填写"
+              error
+            />
           </List.Body>
         </List>
       </Page>

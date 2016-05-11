@@ -56,11 +56,14 @@
     "rmc-cascader": "~1.1.0",
     "rmc-date-picker": "~2.2.0",
     "rmc-modal": "~0.4.1",
-    "rmc-picker": "~2.4.1"
+    "rmc-picker": "~2.4.1",
+    "react-slick": "~0.12.0",
+    "rc-steps": "~2.1.0",
+    "rc-input-number": "~2.5.8"
   },
   "devDependencies": {
-    "antd": "^1.0.0-beta.5",
-    "antd-tools": "~0.5.0",
+    "antd": "1.0.x",
+    "antd-tools": "~0.6.0",
     "babel-eslint": "^6.0.4",
     "babel-plugin-antd": "^0.4.0",
     "clipboard": "^1.5.5",
@@ -72,7 +75,7 @@
     "eslint-plugin-markdown": "*",
     "eslint-plugin-react": "^4.0.0",
     "eslint-tinker": "^0.3.1",
-    "history": "^1.17.0",
+    "history": "2.x",
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",

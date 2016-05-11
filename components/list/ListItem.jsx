@@ -5,8 +5,6 @@ function noop() {}
 export default class ListItem extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
-    style: PropTypes.object,
-    line: PropTypes.number,
     extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
     icon: PropTypes.string,
     thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
@@ -15,20 +13,16 @@ export default class ListItem extends React.Component {
     onClick: PropTypes.func,
     error: PropTypes.bool,
     align: PropTypes.string,
-    isLastItem: PropTypes.bool,
   };
 
   static defaultProps = {
     prefixCls: 'am-list',
-    link: '',
-    line: 1,
     onClick: noop,
     thumb: '',
     arrow: '',
     needActive: true,
     error: false,
     align: 'middle',
-    isLastItem: false,
   };
 
   constructor(props) {
@@ -59,20 +53,18 @@ export default class ListItem extends React.Component {
   };
 
   render() {
-    let { style, thumb, arrow, line, error, children, extra, className, align, prefixCls, isLastItem } = this.props;
+    let { prefixCls, thumb, arrow, error, children, extra, className, align, ...others } = this.props;
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;
 
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-13`]: line === 2,
       [`${prefixCls}-item-error`]: error,
       [`${prefixCls}-item-top`]: align === 'top',
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
       [`${prefixCls}-item-hover`]: hover,
-      [`${prefixCls}-item-last`]: isLastItem,
       [className]: className
     });
 
@@ -104,8 +96,8 @@ export default class ListItem extends React.Component {
 
     return (
       <div
+        {...others}
         className={wrapCls}
-        style={style}
         onClick={this.onClick}
         onTouchStart={this.onTouchStart}
         onTouchEnd={this.onTouchEnd}

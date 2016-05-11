@@ -23,7 +23,7 @@
   & &-body {
     position: relative;
     .hairline-top(top, @neutral-5);
-    .hairline-bottom(bottom, @neutral-5);
+    //.hairline-bottom(bottom, @neutral-5);
   }
   & &-item {
     position: relative;
@@ -139,6 +139,9 @@
     &.@{listPrefixCls}-item-top {
       .@{listPrefixCls}-line {
         .box-align(flex-start);
+        .@{listPrefixCls}-arrow {
+          margin-top: 2px;
+        }
       }
     }
     &.@{listPrefixCls}-item-middle {
@@ -156,7 +159,8 @@
         .hairline-bottom(bottom, red, 0);
       }
     }
-    &.@{listPrefixCls}-item-last {
+    &:last-child {
+      .hairline-bottom(bottom, @neutral-5, 0);
       .@{listPrefixCls}-line {
         .hairline-remove-right-bottom();
       }
@@ -166,6 +170,9 @@
     }
     &.@{listPrefixCls}-item-hover {
       background-color: @neutral-5;
+    }
+    img {
+      vertical-align: middle;
     }
   }
 }

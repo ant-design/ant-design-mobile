@@ -1,28 +1,84 @@
 /* eslint no-console:0 */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
+import assign from 'object-assign';
 
-export default class Dropdown extends React.Component {
-  static propTypes = {
-    transitionName: PropTypes.string,
-    maskTransitionName: PropTypes.string,
-  }
+let closeFn = () => {};
 
-  static defaultProps = {
+function create(instanceId, config, content, afterClose = closeFn) {
+  const props = assign({
     prefixCls: 'am-dropdown',
+  }, config);
+  const { prefixCls, transitionName, maskTransitionName, maskClosable = true } = props;
+
+  let div = document.createElement('div');
+  document.body.appendChild(div);
+
+  let d;
+
+  function close() {
+    d.setState({
+      visible: false
+    });
+    ReactDOM.unmountComponentAtNode(div);
+    div.parentNode.removeChild(div);
+    afterClose(instanceId);
   }
 
-  render() {
-    let { children, prefixCls, transitionName, maskTransitionName, ...other } = this.props;
+  ReactDOM.render(<Dialog
+    prefixCls={prefixCls}
+    visible
+    title=""
+    footer=""
+    transitionName={transitionName || `${prefixCls}-slide-fade`}
+    maskTransitionName={maskTransitionName || `${prefixCls}-fade`}
+    onClose={close}
+    maskClosable={maskClosable}
+  >{content}</Dialog>, div, function () {
+    d = this;
+  });
 
-    transitionName = transitionName || `${prefixCls}-slide-fade`;
-    maskTransitionName = maskTransitionName || `${prefixCls}-fade`;
+  return {
+    instanceId,
+    close,
+  };
+}
 
-    return (<Dialog
-      {...other}
-      prefixCls={prefixCls}
-      transitionName={transitionName}
-      maskTransitionName={maskTransitionName}
-    >{children}</Dialog>);
+const ins = {
+  defaultInstance: null,
+  instances: [],
+};
+let instanceId = 1;
+
+export default class Dropdown {
+  static newInstance = () => {
+    let _i;
+    return {
+      show: (content, config) => {
+        _i = create(instanceId++, config, content, (iId) => {
+          for (let i = 0; i < ins.instances.length; i++) {
+            if (ins.instances[i].instanceId === iId) {
+              ins.instances.splice(i, 1);
+              return;
+            }
+          }
+        });
+        ins.instances.push(_i);
+      },
+      hide: () => {
+        _i.close();
+      },
+    };
+  }
+  static show = (content, config) => {
+    ins.defaultInstance = create('0', config, content, (iId) => {
+      if (iId === '0') {
+        ins.defaultInstance = null;
+      }
+    });
+  }
+  static hide = () => {
+    ins.defaultInstance.close();
   }
 }

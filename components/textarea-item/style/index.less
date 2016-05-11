@@ -10,13 +10,16 @@
       padding: 1.5*@grid 4*@grid;
       .hairline-bottom(bottom, @neutral-5, @margin-4);
     }
+    &:last-child {
+      .hairline-bottom(bottom, @neutral-5, 0);
+      &.@{textareaPrefixCls}-error {
+        .hairline-bottom(bottom, @red-6, 0);
+      }
+    }
     &.@{textareaPrefixCls}-error {
       position: relative;
       z-index: 11;
       .hairline-bottom(bottom, @red-6, @margin-4);
-      &:last-child:after {
-        left: 0;
-      }
     }
     .@{textareaPrefixCls}-label {
       align-self: stretch;
