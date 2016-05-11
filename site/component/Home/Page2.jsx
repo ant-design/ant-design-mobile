@@ -5,29 +5,17 @@ import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Icon, Button } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 
-const clientHeight = document.documentElement.clientHeight;
-function onScrollEvent(e) {
-  const header = document.getElementById('header');
-  if (e.pageY >= clientHeight) {
-    if (header.className.indexOf('home-nav-bottom') < 0) {
-      header.className += ' home-nav-bottom';
-    }
-  } else if (header.className.indexOf('home-nav-bottom') >= 0) {
-    header.className = header.className.replace(/home-nav-bottom/ig, '');
-  }
-}
-
 export default function Page2() {
   return (
-    <ScrollOverPack id="page2" scrollName="page2" className="content-wrapper page" playScale={1} replay scrollEvent={onScrollEvent}>
+    <ScrollOverPack scrollName="page2" className="content-wrapper page" playScale={1} replay>
       <TweenOne key="image" className="image2 image-wrapper" animation={{ x: 0, opacity: 1, duration: 550 }}
         style={{ transform: 'translateX(-100px)', opacity: 0 }} hideProps={{ reverse: true }} />
-      <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse
+      <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{ top: '40%' }}
         hideProps={{ child: null }}>
-        <h2 key="h2">最佳实践</h2>
-        <p key="p" style={{ maxWidth: 310 }}>近一年的中后台设计实践，积累了大量的优秀案例。</p>
+        <h2 key="h2">丰富的基础组件</h2>
+        <p key="p" style={{ maxWidth: 280 }}>丰富、灵活、实用的基础组件，为业务产品提供强有力的设计支持</p>
         <div key="button">
-          <Link to="/docs/practice/cases">
+          <Link to="/components">
             <Button type="primary" size="large">
               了解更多
               <Icon type="right" />

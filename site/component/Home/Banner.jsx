@@ -6,10 +6,10 @@ import QueueAnim from 'rc-queue-anim';
 
 export default class Banner extends React.Component {
   typeFunc(a) {
-    if (a.key === 'bottom') {
-      return 'bottom';
-    } else if (a.key === 'top') {
+    if (a.key === 'image') {
       return 'top';
+    } else if (a.key === 'text') {
+      return 'bottom';
     }
     return 'left';
   }
@@ -18,9 +18,9 @@ export default class Banner extends React.Component {
     return (
       <section id="banner">
         <ScrollElement scrollName="banner" className="page">
-          <QueueAnim className="banner-text-wrapper" type={ this.typeFunc } delay={360}>
-            <div className = "banner-img" key="top"></div>
-            <h2 key="bottom">移动端H5规范库</h2>
+          <QueueAnim className="banner-text-wrapper" type={this.typeFunc} delay={300}>
+            <div className="banner-img" key="image" />
+            <h2 key="text">移动端H5规范库</h2>
           </QueueAnim>
           <TweenOne className="down" animation={[{ opacity: 1 }, { y: 10, duration: 800, yoyo: true, repeat: -1 }]}>
             <Icon type="down" />
