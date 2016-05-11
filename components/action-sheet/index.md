@@ -26,7 +26,7 @@ english: ActionSheet
 
 `options`对象必须包含以下的一个或者多个：
 
-- options (array of `{iconName: 'xx', title: ''}`) - 分享按钮列表 (required)
+- options (array of `{icon:React.element, iconName:string, title:string}`) - 分享按钮列表 (required)，注意：`iconName`为antm-icon里的某一个icon的名字，优先级高于icon设置（icon用于设置自己特有的icon内容）
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许

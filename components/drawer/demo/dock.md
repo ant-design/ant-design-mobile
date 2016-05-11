@@ -1,9 +1,9 @@
 ---
-order: 0
-title: 基本
+order: 1
+title: 嵌入文档模式
 ---
 
-遮罩层模式
+嵌入到文档流中
 
 ---
 
@@ -13,12 +13,23 @@ import { Drawer, Button, List } from 'antm';
 const App = React.createClass({
   getInitialState() {
     return {
+      docked: false,
       open: false,
       position: 'left',
     };
   },
-  onOpenChange() {
-    this.setState({ open: !this.state.open });
+  onOpenChange(open) {
+    console.log('onOpenChange', open);
+    this.setState({ open });
+  },
+  onDock() {
+    const docked = !this.state.docked;
+    this.setState({
+      docked,
+    });
+    if (!docked) {
+      this.onOpenChange(false);
+    }
   },
   render() {
     const sidebar = (<div>
@@ -40,14 +51,15 @@ const App = React.createClass({
     </div>);
 
     const drawerProps = {
+      docked: this.state.docked,
       open: this.state.open,
       position: this.state.position,
       onOpenChange: this.onOpenChange,
     };
     return (<div className="drawer-container">
       <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-        <Button type="primary" inline onClick={this.onOpenChange}>
-          {this.state.open ? 'hide menu' : 'show menu'}
+        <Button type="primary" inline onClick={this.onDock}>
+          {this.state.docked ? 'hide menu' : 'show menu'}
         </Button>
       </Drawer>
     </div>);
@@ -58,17 +70,17 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 <style>
-#preview-components-drawer-demo-basic .drawer-container {
+#preview-components-drawer-demo-dock .drawer-container {
   position: relative;
   height: 660px;
 }
-#preview-components-drawer-demo-basic .am-drawer-content {
+#preview-components-drawer-demo-dock .am-drawer-content {
   padding: 10px;
 }
-#preview-components-drawer-demo-basic .am-drawer-sidebar {
+#preview-components-drawer-demo-dock .am-drawer-sidebar {
   max-width: 260px;
 }
-#preview-components-drawer-demo-basic .am-drawer-sidebar .am-list {
+#preview-components-drawer-demo-dock .am-drawer-sidebar .am-list {
   padding: 0;
 }
 </style>
