@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, Redirect, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, Redirect, useRouterHistory } from 'react-router';
 
 import * as utils from './utils';
 import '../common/lib';
 import App from '../component/App';
-import Home from '../component/Home';
+import Home from '../component/Home/index';
 import reactComponents from '../../_data/react-components';
 import pattern from '../../_data/pattern';
 import config from '../website.config';
+
+import { createHashHistory } from 'history';
+
+// useRouterHistory creates a composable higher-order function
+const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 // TODO: pack dependencies with atool build
 // Expose React, ReactDOM
