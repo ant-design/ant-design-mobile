@@ -4,7 +4,6 @@ import classNames from 'classnames';
 export default class ListBody extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
-    style: PropTypes.object,
   };
 
   static defaultProps = {
@@ -12,7 +11,7 @@ export default class ListBody extends React.Component {
   };
 
   render() {
-    let { style, children, className, prefixCls } = this.props;
+    let { prefixCls, children, className, ...others } = this.props;
     const listBodyCls = classNames({
       [`${prefixCls}-body`]: true,
       [className]: className
@@ -21,7 +20,7 @@ export default class ListBody extends React.Component {
     if (Array.isArray(children)) {
       const len = children.length;
       customChildren = [];
-      children.forEach((el, idx) => {
+      React.Children.forEach(children, (el, idx) => {
         if (idx === len - 1) {
           customChildren.push(React.cloneElement(el, {
             isLastItem: true,
@@ -33,9 +32,13 @@ export default class ListBody extends React.Component {
           }));
         }
       });
+    } else {
+      customChildren = React.cloneElement(children, {
+        isLastItem: true
+      });
     }
     return (
-      <div className={listBodyCls} style={style}>
+      <div {...others} className={listBodyCls}>
         {customChildren}
       </div>
     );

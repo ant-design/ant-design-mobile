@@ -4,7 +4,6 @@ import classNames from 'classnames';
 export default class List extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
-    style: PropTypes.object,
   };
 
   static defaultProps = {
@@ -12,14 +11,14 @@ export default class List extends React.Component {
   };
 
   render() {
-    let { style, children, className, prefixCls } = this.props;
+    let { prefixCls, children, className, ...others } = this.props;
     const wrapCls = classNames({
       [prefixCls]: true,
       [className]: className
     });
 
     return (
-      <div className={wrapCls} style={style}>
+      <div {...others} className={wrapCls}>
         {children}
       </div>
     );

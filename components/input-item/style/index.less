@@ -11,14 +11,14 @@
       .hairline-bottom(bottom, @neutral-5, @margin-4);
     }
     &.@{inputPrefixCls}-item-last {
-      .hairline-remove-right-bottom();
+      .hairline-bottom(bottom, @neutral-5, 0);
     }
     &.@{inputPrefixCls}-error {
       position: relative;
       z-index: 11;
       .hairline-bottom(bottom, @red-6, @margin-4);
-      &:last-child:after {
-        left: 0;
+      &.@{inputPrefixCls}-item-last {
+        .hairline-bottom(bottom, @red-6, 0);
       }
     }
     .@{inputPrefixCls}-label {

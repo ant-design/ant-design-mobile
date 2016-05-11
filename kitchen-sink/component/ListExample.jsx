@@ -11,14 +11,14 @@ const ListExample = React.createClass({
         <List>
           <List.Header>列表标题</List.Header>
           <List.Body>
-            <List.Item extra="内容内容" needActive={false}>标题文字,无Active效果</List.Item>
-            <List.Item extra="内容内容" onClick={() => {console.log('onClick');}}>标题文字</List.Item>
+            <List.Item extra="内容内容" needActive={false} error>标题文字,无Active效果</List.Item>
+            <List.Item extra="内容内容" onClick={() => {console.log('onClick');}} error>标题文字</List.Item>
           </List.Body>
           <List.Footer>列表尾部</List.Footer>
         </List>
         <List>
           <List.Body>
-            <List.Item extra="内容内容" onClick={() => {console.log('onClick');}}>标题文字</List.Item>
+            <List.Item extra="内容内容" onClick={() => {console.log('onClick');}} error>标题文字</List.Item>
           </List.Body>
         </List>
         <List>
@@ -80,7 +80,7 @@ const ListExample = React.createClass({
             >我有thumb</List.Item>
             <List.Item
               icon=""
-              extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="29" height="29"/>}
+              extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="28" height="28"/>}
               arrow="horizontal"
               onClick={window.clickItem}
             >我是内容22</List.Item>
