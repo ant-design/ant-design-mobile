@@ -59,7 +59,7 @@ export default class Modal extends React.Component {
     const selected = this.state.selected;
 
     const wrapCls = classNames({
-      [className]: className,
+      [className]: !!className,
       [prefixCls]: true,
       [`${prefixCls}-normal`]: !selected,
       [`${prefixCls}-active`]: selected,

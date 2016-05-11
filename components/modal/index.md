@@ -1,9 +1,47 @@
 ---
 category: Components
-chinese: Modal
-type: 表单
+chinese: 对话框
+type: 展示
 english: Modal
 ---
 
+模态对话框。
+
+## 何时使用
+
+包含了某个特定任务或提醒，用来告知用户关键信息，要求用户作出决定或操作。当页操作弹出展示，可承载：提示、数据收集、信息确认、反馈信息、通知展示…
+
+## API
+
+### Modal
+
+| 参数             | 说明                                         | 类型     | 默认值        |
+|------------------|----------------------------------------------|----------|---------------|
+| visible      | 对话框是否可见 | Boolean          | 无           |
+| title        | 标题           | React.Element    | 无           |
+| closable     | 是否显示右上角的关闭按钮 | Boolean    | false        |
+| maskClosable | 点击蒙层是否允许关闭 | Boolean   | false       |
+| footer       | 底部内容       |  React.Element    | 无 |
+| onClose      | 点击 x 或 mask 回调       | Function   | 无 |
+| animated     | 是否展示动画       | Boolean   | true |
+| transparent  | 是否显示半透明       | Boolean   |  false |
+| style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, 非透明 {width: '100%', height: '100%'}|
+
+### Modal.alert(title, message, actions?)
+
+| 参数             | 说明                                         | 类型     | 默认值        |
+|------------------|----------------------------------------------|----------|---------------|
+| title        | 标题                      | String 或 React.Element   | 无            |
+| message      | 提示信息                  | String 或 React.Element    | 无    |
+| actions         | 按钮组, [{text, onPress}]       | Array | 无            |
+
+### Modal.prompt(title?, message?, callbackOrActions, type?)
+
+| 参数             | 说明                                         | 类型     | 默认值        |
+|------------------|----------------------------------------------|----------|---------------|
+| title        | 标题                      | String 或 React.Element   | 无            |
+| message      | 提示信息                  | String 或 React.Element                    | 无    |
+| callbackOrActions  | 按钮组 [{text, onPress}] 或回调函数      | Array or Function | 无            |
+| type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|   `default`          |
 
 
