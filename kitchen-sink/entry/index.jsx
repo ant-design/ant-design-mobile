@@ -205,14 +205,6 @@ const App = React.createClass({
             <Flex className="antm-demo-flex">
               <Flex.Item>
                 <Item
-                  logo="https://os.alipayobjects.com/rmsportal/MHMIvHaTJRwnFeV.png"
-                  title="下拉列表"
-                  subtitle="SelectItem"
-                  onClick={() => {location.hash = 'select';}}
-                />
-              </Flex.Item>
-              <Flex.Item>
-                <Item
                   logo="https://os.alipayobjects.com/rmsportal/NmMXnPngqRrKHrq.png"
                   title="滑动开关"
                   subtitle="Switch"
@@ -227,8 +219,6 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'textarea';}}
                 />
               </Flex.Item>
-            </Flex>
-            <Flex className="antm-demo-flex">
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/MHMIvHaTJRwnFeV.png"
@@ -237,8 +227,6 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'slider';}}
                 />
               </Flex.Item>
-              <Flex.Item />
-              <Flex.Item />
             </Flex>
           </List.Body>
         </List>
