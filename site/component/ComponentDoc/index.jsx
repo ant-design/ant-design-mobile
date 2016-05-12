@@ -19,9 +19,14 @@ export default class ComponentDoc extends React.Component {
       currentIndex: 0,
       role: 'engineer',
       // 收起展开代码的存储数组
-      codeExpandList: []
-
+      codeExpandList: [],
     };
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      currentIndex: 0,
+    });
   }
 
   componentDidMount() {
@@ -71,7 +76,6 @@ export default class ComponentDoc extends React.Component {
       currentIndex: this.state.currentIndex - 1,
     });
   }
-
   render() {
     const { doc, location } = this.props;
     const { description, meta } = doc;
