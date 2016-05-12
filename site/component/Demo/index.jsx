@@ -11,6 +11,7 @@ export default class Demo extends React.Component {
   handleClick = (e) => {
     const togglePreview = this.props.togglePreview;
     const { index } = this.props;
+
     if (e.target.className !== 'collapse anticon anticon-circle-o-right') {
       togglePreview({
         index,
@@ -20,7 +21,7 @@ export default class Demo extends React.Component {
 
   render() {
     const { id, className, meta, intro, style,
-            highlightedCode, highlightedStyle, pathname, role } = this.props;
+            highlightedCode, highlightedStyle, pathname } = this.props;
     const codeExpand = this.props.codeExpand;
     const codeBoxClass = classNames({
       'code-box': true,
@@ -38,12 +39,10 @@ export default class Demo extends React.Component {
             </Link>
           </div>
           { introChildren }
-          {
-          role === 'engineer' &&
+
           <span className="collapse anticon anticon-circle-o-right"
             onClick={this.handleCodeExapnd}
             unselectable="none" />
-          }
         </section>
         <section className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
           key="code">

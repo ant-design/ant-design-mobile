@@ -1,14 +1,11 @@
 import React from 'react';
-import { Row, Col, Affix, Radio, Button, Icon, Popover } from 'antd';
+import { Row, Col, Button, Icon, Popover } from 'antd';
 import Demo from '../Demo';
 import DemoPreview from '../DemoPreview';
 import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';
 
 import QRCode from 'qrcode.react';
-
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
 
 export default class ComponentDoc extends React.Component {
   constructor(props) {
@@ -17,14 +14,19 @@ export default class ComponentDoc extends React.Component {
     this.state = {
       expandAll: false,
       currentIndex: 0,
-      role: 'engineer',
       // 收起展开代码的存储数组
-      codeExpandList: []
-
+      codeExpandList: [],
     };
   }
 
+  componentWillReceiveProps() {
+    this.setState({
+      currentIndex: 0,
+    });
+  }
+
   componentDidMount() {
+    window.addEventListener('scroll', this.onScrollEvent);
     this.componentDidUpdate();
   }
   componentDidUpdate() {
@@ -48,12 +50,6 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
-  handleRoleToggle = (e) => {
-    this.setState({
-      role: e.target.value,
-    });
-  }
-
   togglePreview = (e) => {
     this.setState({
       currentIndex: e.index,
@@ -72,6 +68,20 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
+  onScrollEvent() {
+    const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    const apiTop = document.getElementById('api').offsetTop;
+
+    const asideDemo = document.getElementById('aside-demo');
+
+    if (scrollTop >= apiTop - 500) {
+      if (asideDemo.className.indexOf('fixed') >= 0) {
+        asideDemo.className = asideDemo.className.replace(/fixed/ig, '');
+      }
+    } else if (asideDemo.className.indexOf('fixed') < 0) {
+      asideDemo.className += ' fixed';
+    }
+  }
   render() {
     const { doc, location } = this.props;
     const { description, meta } = doc;
@@ -87,7 +97,6 @@ export default class ComponentDoc extends React.Component {
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
     const currentIndex = this.state.currentIndex;
-    const role = this.state.role;
 
     const leftChildren = [];
     const rightChildren = [];
@@ -99,7 +108,6 @@ export default class ComponentDoc extends React.Component {
     const demoTitle = demoSort[currentIndex].meta.title;
 
     demoSort.forEach((demoData, index) => {
-      demoData.role = role;
       demoData.index = index;
 
       leftChildren.push(
@@ -116,33 +124,26 @@ export default class ComponentDoc extends React.Component {
 
     return (
       <article>
-        <Affix className="toc-affix">
-          <RadioGroup defaultValue="engineer" size="small" onChange= { this.handleRoleToggle }>
-            <RadioButton value="designer">设计者</RadioButton>
-            <RadioButton value="engineer">前端</RadioButton>
-          </RadioGroup>
-        </Affix>
-        <section className="markdown">
-          <h1 className="section-title">
-            {meta.chinese || meta.english}
-            <Popover content={ PopoverContent } placement="bottom">
-              <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
-            </Popover>
-          </h1>
-          {
-            utils.jsonmlToComponent(
-              location.pathname,
-              ['section', { className: 'markdown' }]
-                .concat(description)
-            )
-          }
-          <h2>
-            代码演示
-          </h2>
-        </section>
-
-        <Row>
+        <Row style ={{ minHeight: '830px' }}>
           <Col span="13" style={{ width: '54%', paddingRight: '16px' }}>
+            <section className="markdown">
+              <h1 className="section-title">
+                {meta.chinese || meta.english}
+                  <Popover content={ PopoverContent } placement="bottom">
+                    <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
+                  </Popover>
+              </h1>
+              {
+                utils.jsonmlToComponent(
+                location.pathname,
+                ['section', { className: 'markdown' }]
+                .concat(description)
+                )
+              }
+              <h2>
+                代码演示
+              </h2>
+            </section>
             { leftChildren }
             <Row>
               <Col span="12" style={{ paddingRight: '8px' }}>
@@ -164,32 +165,36 @@ export default class ComponentDoc extends React.Component {
             </Row>
           </Col>
           <Col span="11">
-            <div className="demo-preview-wrapper">
-              <div className="demo-preview-header">
-                <div className = "demo-preview-statbar">
-                  <img style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/KorHKxDiNFtvpsp.png" />
+            <div id="aside-demo" className="aside-demo fixed">
+              <div style = {{ width: '395px', height: '813px', paddingTop: '99px', background: 'url("https://os.alipayobjects.com/rmsportal/XdawWiuviSMdHNn.png") no-repeat', backgroundSize: '100%' }}>
+                <div className="demo-preview-wrapper">
+                  <div className="demo-preview-header">
+                    <div className = "demo-preview-statbar">
+                      <img width="340px" style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                    </div>
+                    <div className = "demo-preview-navbar">
+                      <span style={{ color: '#fff', fontSize: '18px', lineHeight: '44px' }}>{ demoTitle }</span>
+                    </div>
+                  </div>
+                  <div className="demo-preview-scroller">
+                  { rightChildren }
+                  </div>
                 </div>
-                <div className = "demo-preview-navbar">
-                  <span style={{ color: '#fff', fontSize: '18px', lineHeight: '44px' }}>{ demoTitle }</span>
-                </div>
-              </div>
-              <div className="demo-preview-scroller">
-              { rightChildren }
               </div>
             </div>
           </Col>
-
         </Row>
 
         {
-          role === 'engineer' &&
           utils.jsonmlToComponent(
-            location.pathname,
-            ['section', {
-              className: 'markdown api-container',
-            }].concat(doc.api || [])
+          location.pathname,
+          ['section', {
+            id: 'api',
+            className: 'markdown api-container',
+          }].concat(doc.api || [])
           )
         }
+
       </article>
     );
   }
