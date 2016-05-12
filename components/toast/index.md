@@ -21,7 +21,7 @@ english: Toast
 - `Toast.fail(content, duration, onClose)`
 - `Toast.info(content, duration, onClose)`
 - `Toast.loading(content, duration, onClose)`
-- `Toast.network(content, duration, onClose)`
+- `Toast.offline(content, duration, onClose)`
 
 组件提供了五个静态方法，参数如下：
 

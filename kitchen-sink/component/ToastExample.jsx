@@ -29,7 +29,7 @@ const ToastExample = React.createClass({
         <WhiteSpace />
         <WingBlank>
           <Button type="primary" ghost onClick={() => {
-            Toast.network('网络连接失败!!!')
+            Toast.offline('网络连接失败!!!')
           }}>网络 toast</Button>
         </WingBlank>
         <WhiteSpace />
