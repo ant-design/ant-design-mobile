@@ -72,37 +72,48 @@
     .@{drawerPrefixCls}-sidebar {
       left: 0;
       transform: translateX(-100%);
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+      .@{drawerPrefixCls}-open& {
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+      }
     }
     .@{drawerPrefixCls}-draghandle {
       left: 0;
     }
   }
+
   &&-right {
     .@{drawerPrefixCls}-sidebar {
       right: 0;
       transform: translateX(100%);
-      box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+      .@{drawerPrefixCls}-open& {
+        box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+      }
     }
     .@{drawerPrefixCls}-draghandle {
       right: 0;
     }
   }
+
   &&-top {
     .@{drawerPrefixCls}-sidebar {
       top: 0;
       transform: translateY(-100%);
-      box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+      .@{drawerPrefixCls}-open& {
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+      }
     }
     .@{drawerPrefixCls}-draghandle {
       top: 0;
     }
   }
+
   &&-bottom {
     .@{drawerPrefixCls}-sidebar {
       bottom: 0;
       transform: translateY(100%);
-      box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.15);
+      .@{drawerPrefixCls}-open& {
+        box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.15);
+      }
     }
     .@{drawerPrefixCls}-draghandle {
       bottom: 0;
