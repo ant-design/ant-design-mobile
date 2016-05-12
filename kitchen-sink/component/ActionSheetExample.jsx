@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../common/Page';
-import { ActionSheet, Button, WhiteSpace } from 'antm';
+import { ActionSheet, Button, WhiteSpace, WingBlank } from 'antm';
 
 const ActionSheetExample = React.createClass({
   getInitialState() {
@@ -14,12 +14,29 @@ const ActionSheetExample = React.createClass({
         'Cancel',
       ],
       icons: [
+        {
+          icon: <img src="https://os.alipayobjects.com/rmsportal/zfQfLxUmXfgWech.png" style={{
+            height: 27,
+            verticalAlign: 'top',
+          }} />,
+          title: '支付宝',
+        },
+        {
+          icon: <img src="https://os.alipayobjects.com/rmsportal/pTINxOHGLBxzEAG.png" style={{
+            height: 27,
+            verticalAlign: 'top',
+          }} />,
+          title: '微信好友',
+        },
+        {
+          icon: <img src="https://os.alipayobjects.com/rmsportal/VMjNbIuafpXfjQE.png" style={{
+            height: 27,
+            verticalAlign: 'top',
+          }} />,
+          title: 'QQ',
+        },
         { iconName: 'android', title: '用Android' },
         { iconName: 'apple', title: '用Apple' },
-        { iconName: 'github', title: '用github' },
-        { iconName: 'github', title: '用github' },
-        { iconName: 'github', title: '用github' },
-        { iconName: 'github', title: '用github' },
       ],
     };
   },
@@ -57,20 +74,24 @@ const ActionSheetExample = React.createClass({
   render() {
     return (
       <Page title="ActionSheet" subtitle="ActionSheet">
-        <div>
+        <WhiteSpace />
+        <WingBlank>
+          <h4>通常的 ActionSheet</h4>
           <Button type="primary" onClick={this.showActionSheet}>show ActionSheet</Button>
-          <p>Clicked button: {this.state.clicked}</p>
-        </div>
-        <WhiteSpace />
-        <div>
+          <p>点击过的按钮: {this.state.clicked}</p>
+        </WingBlank>
+        <WhiteSpace mode={16} />
+        <WingBlank>
+          <h4>带分享功能的 ActionSheet</h4>
           <Button type="primary" onClick={this.showShareActionSheet}>showShareActionSheet</Button>
-          <p>Clicked icon: {this.state.clicked}</p>
-        </div>
-        <WhiteSpace />
-        <div>
+          <p>点击过的icon: {this.state.clicked}</p>
+        </WingBlank>
+        <WhiteSpace mode={16} />
+        <WingBlank>
+          <h4>内容可以完全自定义的 ActionSheet</h4>
           <Button type="primary" onClick={this.showActionSheetWithCustom}>showActionSheetWithCustom</Button>
-          <p>Clicked: {this.state.clicked}</p>
-        </div>
+        </WingBlank>
+        <WhiteSpace />
       </Page>
     );
   },

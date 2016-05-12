@@ -3,7 +3,7 @@ order: 0
 title: 基本
 ---
 
-Drawer
+遮罩层模式
 
 ---
 
@@ -13,23 +13,12 @@ import { Drawer, Button, List } from 'antm';
 const App = React.createClass({
   getInitialState() {
     return {
-      docked: false,
       open: false,
       position: 'left',
     };
   },
-  onOpenChange(open) {
-    console.log('onOpenChange', open);
-    this.setState({ open });
-  },
-  onDock() {
-    const docked = !this.state.docked;
-    this.setState({
-      docked,
-    });
-    if (!docked) {
-      this.onOpenChange(false);
-    }
+  onOpenChange() {
+    this.setState({ open: !this.state.open });
   },
   render() {
     const sidebar = (<div>
@@ -37,8 +26,8 @@ const App = React.createClass({
         <List.Body>
           {[1, 2, 3, 4, 5, 6].map((i, index) => {
             if (index === 0) {
-              return (<List.Item
-                thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
+              return (<List.Item key={index}
+                thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
                 line={2}
               ><div className="am-list-title">收银员</div><div className="am-list-brief">仅可进行收款、退款及查账操作</div></List.Item>);
             }
@@ -51,15 +40,14 @@ const App = React.createClass({
     </div>);
 
     const drawerProps = {
-      docked: this.state.docked,
       open: this.state.open,
       position: this.state.position,
       onOpenChange: this.onOpenChange,
     };
     return (<div className="drawer-container">
       <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-        <Button type="primary" inline onClick={this.onDock}>
-          {this.state.docked ? 'hide menu' : 'show menu'}
+        <Button type="primary" inline onClick={this.onOpenChange}>
+          {this.state.open ? 'hide menu' : 'show menu'}
         </Button>
       </Drawer>
     </div>);
@@ -82,6 +70,5 @@ ReactDOM.render(<App />, mountNode);
 }
 #preview-components-drawer-demo-basic .am-drawer-sidebar .am-list {
   padding: 0;
-  margin: 10px 0;
 }
 </style>

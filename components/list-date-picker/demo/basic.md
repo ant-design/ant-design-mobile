@@ -15,11 +15,12 @@ let Test = React.createClass({
     const { getFieldProps } = this.props.form;
     return (<div>
       <List>
-        <List.Header>店铺位置</List.Header>
+        <List.Header>选择时间</List.Header>
         <List.Body>
           <ListDatePicker
             className="am-date-picker"
             mode="date"
+            title="选择日期"
             extra="可选,小于结束日期"
             { ...getFieldProps('date1', {
               initialValue: '2015-08-06'

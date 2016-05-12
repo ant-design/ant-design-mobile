@@ -20,10 +20,81 @@ let BasicInput = React.createClass({
 
     return (<div>
       <List>
+        <List.Header>线型</List.Header>
         <List.Body>
           <InputItem
-            {...getFieldProps('yyy', {
+            {...getFieldProps('input1', {
+              initialValue: '',
+              valuePropName: 'value'
+            })}
+            placeholder="placeholder"
+            clear
+            maxLength={10}
+            onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+            onFocus={function (e) { console.log('onFocus'); console.log(e);}}
+          >基本</InputItem>
+          <InputItem
+            {...getFieldProps('input2', {
+              initialValue: '',
+              valuePropName: 'value'
+            })}
+            placeholder="标题可以是node"
+          ><div style={{ backgroundImage: 'url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} /></InputItem>
+          <InputItem
+            value="仅供展示editable"
+            editable={false}
+          >不可编辑</InputItem>
+          <InputItem
+            {...getFieldProps('input3', {
+              initialValue: '无标题',
+              valuePropName: 'value'
+            })}
+            clear
+            placeholder="placeholder"
+          />
+          <InputItem
+            {...getFieldProps('input4', {
+              initialValue: '',
+              valuePropName: 'value'
+            })}
+            clear
+            placeholder="extra"
+            extra="元"
+          >右边带注释</InputItem>
+          <InputItem
+            {...getFieldProps('input5', {
+              initialValue: '',
+              valuePropName: 'value'
+            })}
+            name="camera"
+            placeholder="camera"
+            clear
+            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="22" height="22" />}
+          >注释可以是node</InputItem>
+          <InputItem
+            {...getFieldProps('input6', {
               initialValue: '输入框',
+              valuePropName: 'value'
+            })}
+            clear
+            placeholder="clear"
+          >带清除功能</InputItem>
+          <InputItem
+            {...getFieldProps('input7', {
+              initialValue: '',
+              valuePropName: 'value'
+            })}
+            error
+            placeholder="placeholder"
+          >报错样式</InputItem>
+        </List.Body>
+      </List>
+      <List>
+        <List.Header>有边框,本期不实现</List.Header>
+        <List.Body>
+          <InputItem
+            {...getFieldProps('zzzz', {
+              initialValue: '',
               valuePropName: 'value'
             })}
             placeholder="placeholder"
@@ -31,119 +102,7 @@ let BasicInput = React.createClass({
             maxLength={10}
             onBlur={function (e) {console.log('onBlur'); console.log(e);}}
             onFocus={function (e) {console.log('onFocus'); console.log(e);}}
-          >Label</InputItem>
-          <InputItem
-            value="不可编辑"
-            editable={false}
-          >输入说明</InputItem>
-          <InputItem
-            value="不可编辑不可编辑不可编辑不可编辑不可编辑不可编辑"
-            editable={false}
-          >输入说明</InputItem>
-          <InputItem
-            {...getFieldProps('222', {
-              initialValue: '无Label',
-              valuePropName: 'value'
-            })}
-            error
-            clear
-            placeholder="placeholder"
-          />
-          <InputItem
-            {...getFieldProps('3', {
-              initialValue: '222',
-              valuePropName: 'value'
-            })}
-            error
-            placeholder="placeholder"
-          >输入说明</InputItem>
-          <InputItem
-            {...getFieldProps('4', {
-              initialValue: '222',
-              valuePropName: 'value'
-            })}
-            placeholder="placeholder"
-            clear
-          >所属门店</InputItem>
-          <InputItem
-            {...getFieldProps('5', {
-              initialValue: '8',
-              valuePropName: 'value'
-            })}
-            error
-            placeholder="placeholder"
-            clear
-            extra="折"
-          >带附加说明</InputItem>
-          <InputItem
-            {...getFieldProps('6', {
-              initialValue: '222',
-              valuePropName: 'value'
-            })}
-            error
-            placeholder="placeholder"
-          >输入说明说明</InputItem>
-        </List.Body>
-      </List>
-      <List>
-        <List.Body>
-          <InputItem
-            name="camera"
-            placeholder="camera"
-            clear
-            icon="camera"
-            onIconClick={() => {console.log('点击了icon');}}
-            onChange={() => {}}
-          >我是相机</InputItem>
-          <InputItem
-            name="list"
-            placeholder="list"
-            clear
-            icon="list"
-            onChange={() => {}}
-          >列表</InputItem>
-          <InputItem
-            name="contacts-mobile"
-            placeholder="contacts-mobile"
-            clear
-            icon="contacts-mobile"
-            onChange={() => {}}
-          >通讯录</InputItem>
-          <InputItem
-            name="bill"
-            placeholder="bill"
-            clear
-            icon="bill"
-            onChange={() => {}}
-          >bill</InputItem>
-          <InputItem
-            name="contacts-alipay"
-            placeholder="contacts-alipay"
-            clear
-            icon="contacts-alipay"
-            onChange={() => {}}
-          >支付宝通讯录</InputItem>
-          <InputItem
-            name="cards"
-            placeholder="cards"
-            clear
-            icon="cards"
-            onChange={() => {}}
-          >卡片</InputItem>
-          <InputItem
-            name="calculator"
-            placeholder="calculator"
-            clear
-            icon="calculator"
-            onChange={() => {}}
-          >日历</InputItem>
-          <InputItem
-            name="scan"
-            placeholder="scan"
-            clear
-            icon="scan"
-            onChange={() => {}}
-          >扫码</InputItem>
+          >五个字标签</InputItem>
         </List.Body>
       </List>
     </div>);

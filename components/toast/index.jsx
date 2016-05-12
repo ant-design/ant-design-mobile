@@ -55,7 +55,7 @@ export default {
   fail(content, duration, onClose) {
     return notice(content, duration, onClose, 'fail');
   },
-  network(content, duration, onClose) {
+  offline(content, duration, onClose) {
     return notice(content, duration, onClose, 'network');
   },
   loading(content, duration, onClose) {

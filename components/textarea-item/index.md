@@ -7,7 +7,7 @@ english: TextareaItem
 
 
 
-表单页面中的文本输入时
+表单页面中的多行输入
 
 ## 何时使用
 

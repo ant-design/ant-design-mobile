@@ -1,13 +1,58 @@
 @import '../../style/mixins';
+@import '../../style/variables.less';
 
-.am-modal {
-  display: block;
-  overflow-y: scroll;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: #f5f5f9;
-  z-index: 100;
+@modalPrefixClass: am-modal;
+
+@import './Mask.less';
+@import './Dialog.less';
+@import './body.less';
+
+.@{modalPrefixClass} {
+  .button-common() {
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: @blue-6;
+    font-size: @font-size-6;
+    padding: 3*@grid;
+    position: relative;
+    .ellipsis();
+    line-height: 1;
+  }
+  &-button-group-h {
+    position: relative;
+    .hairline-top(top, @neutral-5);
+    .display-box();
+    .@{modalPrefixClass}-button {
+      .box-flex();
+      .button-common();
+      &:first-child {
+        .hairline-right(right, @neutral-5);
+      }
+    }
+  }
+
+  &-button-group-v {
+    .@{modalPrefixClass}-button {
+      display: block;
+      .hairline-top(top, @neutral-5);
+      .button-common();
+    }
+  }
+
+  &-input{
+    position: relative;
+    border-left: @border-width-1 @border-type-1 @neutral-5;
+    border-right: @border-width-1 @border-type-1 @neutral-5;
+    border-bottom: @border-width-1 @border-type-1 @neutral-5;
+    &:first-child{
+      margin-top: 2*@grid;
+      border-top: @border-width-1 @border-type-1 @neutral-5;
+    }
+    input {
+      border: none;
+      width: 92%;
+      height: 7*@grid;
+    }
+  }
 }

@@ -4,30 +4,13 @@ import classNames from 'classnames';
 import * as utils from '../utils';
 
 export default class Demo extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      codeExpand: false,
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.expand === undefined) return;
-
-    this.setState({
-      codeExpand: nextProps.expand,
-    });
-  }
-
   handleCodeExapnd = () => {
-    this.setState({ codeExpand: !this.state.codeExpand });
+    this.props.handleCodeExpandList(this.props.index, !this.props.codeExpand);
   }
 
   handleClick = (e) => {
     const togglePreview = this.props.togglePreview;
     const { index } = this.props;
-
     if (e.target.className !== 'collapse anticon anticon-circle-o-right') {
       togglePreview({
         index,
@@ -38,7 +21,7 @@ export default class Demo extends React.Component {
   render() {
     const { id, className, meta, intro, style,
             highlightedCode, highlightedStyle, pathname, role } = this.props;
-    const codeExpand = this.state.codeExpand;
+    const codeExpand = this.props.codeExpand;
     const codeBoxClass = classNames({
       'code-box': true,
       [className]: className,

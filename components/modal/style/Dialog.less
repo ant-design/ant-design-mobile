@@ -1,0 +1,167 @@
+.@{modalPrefixClass} {
+  position: relative;
+  &-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    .display-box();
+    align-items: center;
+    justify-content: center;
+  }
+
+  &&-transparent {
+    .@{modalPrefixClass}-content {
+      border-radius: @radius-1;
+      height: auto;
+      padding-top: 6*@grid;
+    }
+  }
+
+  &-title {
+    margin: 0;
+    font-size: @font-size-6;
+    line-height: 5*@grid;
+    color: @neutral-10;
+    text-align: center;
+  }
+
+  &-header {
+    padding: 0 6*@grid 2*@grid;
+  }
+
+  &-content {
+    position: relative;
+    background-color: @neutral-1;
+    border: none;
+    //border-radius: @radius-1;
+    background-clip: padding-box;
+    //padding-top: 6*@grid;
+    text-align: center;
+    height: 100%;
+  }
+
+  &-close {
+    border: 0;
+    background: transparent;
+    font-size: 6*@grid;
+    position: absolute;
+    right: 3*@grid;
+    top: 4*@grid;
+    line-height: 1;
+    color: @neutral-7;
+    text-decoration: none;
+    outline: none;
+
+    &-x:after {
+      content: '×';
+    }
+  }
+
+  &-body {
+    padding: 0 6*@grid 6*@grid;
+    font-size: @font-size-4;
+    color: @neutral-8;
+    line-height: 5*@grid;
+  }
+
+  .effect() {
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+
+  &-zoom-enter,
+  &-zoom-appear {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(1.185);
+    .effect();
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-play-state: paused;
+  }
+
+  &-zoom-leave {
+    .effect();
+    animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    animation-play-state: paused;
+  }
+
+  &-zoom-enter&-zoom-enter-active,
+  &-zoom-appear&-zoom-appear-active {
+    animation-name: rcDialogZoomIn;
+    animation-play-state: running;
+  }
+
+  &-zoom-leave&-zoom-leave-active {
+    animation-name: rcDialogZoomOut;
+    animation-play-state: running;
+  }
+
+  @keyframes rcDialogZoomIn {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(1.185);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+  @keyframes rcDialogZoomOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &-slide-enter,
+  &-slide-appear {
+    top: 100%;
+    .effect();
+    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+    animation-play-state: paused;
+  }
+
+  &-slide-leave {
+    .effect();
+    animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    animation-play-state: paused;
+  }
+
+  &-slide-enter&-slide-enter-active,
+  &-slide-appear&-slide-appear-active {
+    animation-name: rcDialogSlideUp;
+    animation-play-state: running;
+  }
+
+  &-slide-leave&-slide-leave-active {
+    animation-name: rcDialogSlideDown;
+    animation-play-state: running;
+  }
+
+  @keyframes rcDialogSlideUp {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: 0;
+    }
+  }
+  @keyframes rcDialogSlideDown {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+
+}

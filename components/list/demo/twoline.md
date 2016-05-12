@@ -1,7 +1,7 @@
 ---
 order: 2
-title: 双行列表
----
+title: 对齐
+---------
 
 双行列表
 
@@ -12,39 +12,53 @@ import { List, Button } from 'antm';
 
 ReactDOM.render(
   <div>
-  <List >
-    <List.Body>
-      <List.Item
-        thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-        line={2}
-        arrow="horizontal"
-      ><div className="am-list-title">收银员</div><div className="am-list-brief">仅可进行收款、退款及查账操作</div></List.Item>
-      <List.Item
-        extra={<div><div className="am-list-title">财务</div><div className="am-list-brief">财务</div></div>}
-        line={2}
-        arrow="horizontal"
-      ><div className="am-list-title">title</div><div className="am-list-brief">brief</div></List.Item>
-      <List.Item
-        line={2}
-      ><div className="am-list-title">运营</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></List.Item>
-      <List.Item
-        needActive={false}
-        line={2}
-        extra={<Button
-          size="small"
-          inline
-          onClick={() => {alert(111);}}
-          >按钮</Button>}
-      ><div><div className="am-list-title">区域经理</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></div></List.Item>
-      <List.Item line={2} arrow="down">
-        <div><div className="am-list-title">客服经理</div><div className="am-list-brief">自定义权限</div></div>
-      </List.Item>
-      <List.Item
-        line={2}
-        arrow="horizontal"
-      >dada</List.Item>
-    </List.Body>
-  </List>
+    <List >
+      <List.Header>对齐</List.Header>
+      <List.Body>
+        <List.Item
+          extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div>}
+          line={2}
+          arrow="horizontal"
+        >垂直居中对齐</List.Item>
+        <List.Item
+          extra="内容内容"
+          line={2}
+          arrow="horizontal"
+        ><div>垂直居中对齐<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div></List.Item>
+        <List.Item
+          extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div>}
+          line={2}
+          arrow="horizontal"
+          align="top"
+        >顶部对齐</List.Item>
+        <List.Item
+          extra="内容内容"
+          line={2}
+          arrow="horizontal"
+          align="top"
+        ><div>顶部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
+        <List.Item
+          extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
+          line={2}
+          arrow="horizontal"
+          align="bottom"
+        >底部对齐</List.Item>
+        <List.Item
+          extra="内容内容"
+          line={2}
+          arrow="horizontal"
+          align="bottom"
+        ><div>底部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
+        <List.Item
+          needActive={false}
+          extra={<Button
+            size="small"
+            inline
+            onClick={() => {alert(111);}}
+            >按钮</Button>}
+        ><div><div className="am-list-title">区域经理</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></div></List.Item>
+      </List.Body>
+    </List>
   </div>
 , mountNode);
 ````

@@ -6,8 +6,7 @@ english: List
 ---
 
 
-
-AntUI列表容器,其中会有列表头,列表尾,列表主体。
+列表容器```List```,包含```List```,```List.Header```,```List.Body```,```List.Footer```,```List.Item```。
 
 ## 何时使用
 

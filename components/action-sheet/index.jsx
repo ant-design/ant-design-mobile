@@ -70,7 +70,9 @@ function createActionSheet(flag, config, callback) {
             onClick: () => cb(index),
           };
           return (<li key={index} {...extraProp}>
-            <p className={`${prefixCls}-share-item-icon`}><Icon type={item.iconName} /></p>
+            <p className={`${prefixCls}-share-item-icon`}>
+              {item.iconName ? <Icon type={item.iconName} /> : item.icon}
+            </p>
             <p className={`${prefixCls}-share-item-title`}>{item.title}</p>
           </li>);
         })}

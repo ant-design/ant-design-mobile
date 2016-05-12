@@ -25,13 +25,17 @@ function getDefaultProps() {
     return val;
   };
   return {
-    className: '',
+    // className: '',
+    prefixCls: 'am-date-picker',
+    pickerPrefixCls: 'am-date-picker-picker',
+    popupPrefixCls: 'am-date-picker-popup',
     mode: 'datetime',
     locale: require('rmc-date-picker/lib/locale/zh_CN'),
     format: defaultFormat,
     extra: '请选择',
     okText: '确定',
-    dismissText: '取消'
+    dismissText: '取消',
+    title: '',
   };
 }
 
@@ -89,25 +93,24 @@ export default class ListDatePicker extends React.Component {
   }
   render() {
     const { date, minDate, maxDate } = this.state;
-    const { format, extra, value, okText, dismissText } = this.props;
+    const { format, extra, value, okText, dismissText, title } = this.props;
     const extraProps = {
       extra: value ? format(value) : extra,
     };
     return (
-      <div>
-        <PopupDatePicker {...this.props}
-          locale={require('rmc-date-picker/lib/locale/zh_CN')}
-          okText={okText}
-          dismissText={dismissText}
-          style={{ left: 0, bottom: 0 }}
-          onChange={this.onChange}
-          date={date}
-          minDate={minDate}
-          maxDate={maxDate}
-        >
-          {React.cloneElement(this.props.children, extraProps)}
-        </PopupDatePicker>
-      </div>
+      <PopupDatePicker {...this.props}
+        locale={require('rmc-date-picker/lib/locale/zh_CN')}
+        okText={okText}
+        dismissText={dismissText}
+        title={title}
+        style={{ left: 0, bottom: 0 }}
+        onChange={this.onChange}
+        date={date}
+        minDate={minDate}
+        maxDate={maxDate}
+      >
+        {React.cloneElement(this.props.children, extraProps)}
+      </PopupDatePicker>
     );
   }
 }

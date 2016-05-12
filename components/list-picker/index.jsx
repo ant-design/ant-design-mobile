@@ -8,6 +8,9 @@ function getDefaultProps() {
     return values.join(',');
   };
   return {
+    prefixCls: 'am-list-picker',
+    pickerPrefixCls: 'am-list-picker-picker',
+    popupPrefixCls: 'am-list-picker-popup',
     format: defaultFormat,
     style: { left: 0, bottom: 0 },
     cols: 3,
@@ -15,6 +18,7 @@ function getDefaultProps() {
     extra: '请选择',
     okText: '确定',
     dismissText: '取消',
+    title: '',
   };
 }
 
@@ -35,7 +39,7 @@ export default class ListPicker extends React.Component {
     }));
   }
   render() {
-    const { style, data, value, okText, dismissText, extra } = this.props;
+    const { style, data, value, okText, dismissText, title, extra } = this.props;
     const extraProps = {
       extra: this.getSel() || extra,
     };
@@ -45,6 +49,7 @@ export default class ListPicker extends React.Component {
       data={data}
       value={value}
       dismissText={dismissText}
+      title={title}
       okText={okText}
       {...this.props} >{childEl}</PopupCascader>);
   }

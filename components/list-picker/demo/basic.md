@@ -34,7 +34,7 @@ let Test = React.createClass({
       <List>
         <List.Header>店铺位置</List.Header>
         <List.Body>
-          <ListPicker extra="请选择(可选)" data={district} {...getFieldProps('district', {
+          <ListPicker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
             // initialValue: ['340000', '340800', '340822']
           })}
           >
