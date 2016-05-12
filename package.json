@@ -1,6 +1,9 @@
 {
   "name": "antm",
-  "version": "0.1.0-beta.0",
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  },
+  "version": "0.5.0-beta.0",
   "title": "Ant Mobile",
   "description": "基于React的AntUI",
   "homepage": "http://antm.alipay.net/",
@@ -109,13 +112,10 @@
     "srclint": "eslint components test site index.js --ext '.js,.jsx'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components/ -r scripts/lesshint-report.js",
-    "pub": "antd-tools run pub",
+    "pub": "antd-tools run update-self && antd-tools run pub",
     "test": "npm run lint && npm run dist",
-    "beta": "antd-tools run beta",
+    "beta": "antd-tools run update-self && antd-tools run beta",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt"
-  },
-  "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "config": {
     "port": 8001
