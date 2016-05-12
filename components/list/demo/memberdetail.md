@@ -36,29 +36,25 @@ ReactDOM.render(
         arrow="horizontal"
       >文本信息</List.Item>
       <List.Item
-        extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29" />}
+        extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="29" height="29" />}
         arrow="horizontal"
       >员工二维码</List.Item>
       <List.Item
         extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
-        line={2}
         arrow="horizontal"
       >垂直居中对齐</List.Item>
       <List.Item
         extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
-        line={2}
         arrow="horizontal"
         align="top"
       >顶部对齐</List.Item>
       <List.Item
         extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
-        line={2}
         arrow="horizontal"
         align="bottom"
       >底部对齐</List.Item>
       <List.Item
         extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
-        line={2}
         arrow="horizontal"
         align="top"
       ><div className="am-list-title am-list-multiline">zhifubao@alipay.com#zh#</div></List.Item>

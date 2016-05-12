@@ -7,8 +7,7 @@ english: WhiteSpace
 
 ## 如何使用
 
-上下留白
-```<WhiteSpace mode={8} />```
+上下留白,设计上通常需要一段特定高度的空白区块
 
 ## API
 
