@@ -17,7 +17,7 @@ english: Modal
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
-| visible      | 对话框是否可见 | Boolean          | 无           |
+| visible      | 对话框是否可见 | Boolean          | false           |
 | title        | 标题           | React.Element    | 无           |
 | closable     | 是否显示右上角的关闭按钮 | Boolean    | false        |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | false       |
@@ -25,7 +25,7 @@ english: Modal
 | onClose      | 点击 x 或 mask 回调       | Function   | 无 |
 | animated     | 是否展示动画       | Boolean   | true |
 | transparent  | 是否显示半透明       | Boolean   |  false |
-| style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, 非透明 {width: '100%', height: '100%'}|
+| style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'}|
 
 ### Modal.alert(title, message, actions?)
 
