@@ -3,6 +3,10 @@ order: 0
 title: 普通
 ---
 
+纯文字、纯图标、成功、失败、离线、loading
+
+---
+
 ````jsx
 import { Toast, WhiteSpace, WingBlank, Button } from 'antm';
 
@@ -32,6 +36,7 @@ const ToastExample = React.createClass({
   render() {
     return (
       <div className="toast-container">
+        <WhiteSpace />
         <WingBlank>
           <Button type="primary" onClick={showToast}>纯文字 toast</Button>
         </WingBlank>
@@ -51,6 +56,7 @@ const ToastExample = React.createClass({
         <WingBlank>
           <Button type="primary" onClick={loadingToast}>加载中 toast</Button>
         </WingBlank>
+        <WhiteSpace />
       </div>
     );
   },
