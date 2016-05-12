@@ -1,10 +1,14 @@
 ---
 order: 0
-title: 基本
+title: 线性型选项卡
+---
+
+多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。
+
 ---
 
 ````jsx
-import { Tabs, WingBlank } from 'antm';
+import { Tabs, WingBlank, WhiteSpace } from 'antm';
 const TabPane = Tabs.TabPane;
 
 function callback(key) {
@@ -14,13 +18,17 @@ function callback(key) {
 let TabExample = React.createClass({
   render() {
     return (
-      <WingBlank mode={20}>
-        <Tabs defaultActiveKey="1" onChange={callback}>
-          <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
-          <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
-          <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
-        </Tabs>
-      </WingBlank>
+      <div>
+        <WhiteSpace />
+        <WingBlank mode={20}>
+          <Tabs defaultActiveKey="1" onChange={callback}>
+            <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
+            <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
+            <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
+          </Tabs>
+        </WingBlank>
+        <WhiteSpace />
+      </div>
     );
   }
 });
