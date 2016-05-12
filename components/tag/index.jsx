@@ -11,6 +11,7 @@ export default class Modal extends React.Component {
     onChange: PropTypes.func,
     onClose: PropTypes.func,
     afterClose: PropTypes.func,
+    selected: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -19,6 +20,7 @@ export default class Modal extends React.Component {
     disabled: false,
     size: 'large',
     closable: false,
+    selected: false,
     onChange() {},
     onClose() {},
     afterClose() {},
@@ -28,7 +30,7 @@ export default class Modal extends React.Component {
     super(props);
 
     this.state = {
-      selected: false,
+      selected: props.selected,
       closed: false,
     };
   }
@@ -36,12 +38,16 @@ export default class Modal extends React.Component {
   onClick = () => {
     const props = this.props;
     if (props.type === 'read' || props.disabled) return;
-    const _selected = this.state.selected;
-    this.setState({
-      selected: !_selected,
-    }, () => {
-      props.onChange(!_selected);
-    });
+    if (props.closable) {
+      this.onClose();
+    } else {
+      const _selected = this.state.selected;
+      this.setState({
+        selected: !_selected,
+      }, () => {
+        props.onChange(!_selected);
+      });
+    }
   }
 
   onClose = (e) => {
@@ -62,15 +68,15 @@ export default class Modal extends React.Component {
       [className]: !!className,
       [prefixCls]: true,
       [`${prefixCls}-normal`]: !selected,
-      [`${prefixCls}-active`]: selected,
+      [`${prefixCls}-active`]: (selected || closable) && !disabled && type !== 'read',
       [`${prefixCls}-read`]: type === 'read',
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-size-small`]: size === 'small',
       [`${prefixCls}-size-large`]: size === 'large',
     });
 
-    const close = closable && selected && size === 'large' ? (
-      <div className={`${prefixCls}-close`} onClick={this.onClose}>
+    const close = closable && !disabled && type !== 'read' && size === 'large' ? (
+      <div className={`${prefixCls}-close`}>
         <Icon type="cross" />
       </div>
     ) : null;

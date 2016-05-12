@@ -18,60 +18,40 @@ const ListForm = React.createClass({
   render() {
     return (<form>
       <List>
-        <List.Header>单行列表</List.Header>
+        <List.Header>列表头部,List.Header</List.Header>
         <List.Body>
           <List.Item
-            arrow="horizontal"
             onClick={this.onClick}
             needActive={false}
-          >文本内容,无Active效果</List.Item>
+          >标题文字,无Active效果</List.Item>
           <List.Item
-            extra="内容内容"
-            arrow="down"
             onClick={this.onClick}
-          >文本信息</List.Item>
-          <List.Item
-            arrow="up"
-            extra="内容内容"
-            onClick={this.onClick}
-          >文本信息</List.Item>
-          <List.Item
-            extra="内容内容"
-            arrow="empty"
-            onClick={this.onClick}
-          >文本内容</List.Item>
+          >标题文字默认有Active效果</List.Item>
           <List.Item
             extra="内容内容"
             onClick={this.onClick}
-          >文本内容</List.Item>
-          <List.Item
-            extra="文本内容"
-            arrow="horizontal"
-            onClick={this.onClick}
-          >文本信息</List.Item>
+          >标题文字</List.Item>
         </List.Body>
-        <List.Footer onClick={this.onClick} style={{ color: 'red' }} align="right"><a id="ddd">超链接</a>,改了样式,右对齐,快点我</List.Footer>
+        <List.Footer>列表尾部,List.Footer</List.Footer>
       </List>
-      <List isIconList>
-        <List.Header>带icon</List.Header>
+      <List>
+        <List.Header>icon</List.Header>
          <List.Body>
           <List.Item
-            thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
+            thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
             arrow="horizontal"
             onClick={window.openurl}
-          >我有thumb</List.Item>
+          >icon</List.Item>
           <List.Item
-            thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-            extra="写点就有剪头坑位"
-            arrow="empty"
+            thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
             onClick={window.clickItem}
-          >我有thumb</List.Item>
+          >icon</List.Item>
           <List.Item
             icon=""
-            extra={<img src="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" width="29" height="29" />}
+            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="28" height="28" />}
             arrow="horizontal"
             onClick={window.clickItem}
-          >我是内容22</List.Item>
+          >扩展信息传入icon</List.Item>
         </List.Body>
       </List>
     </form>);

@@ -20,18 +20,29 @@ let TextareaItemExample = React.createClass({
     return (
       <div>
         <List>
+          <List.Header>多行输入,TextareaItem</List.Header>
           <List.Body>
             <TextareaItem
               {...getFieldProps('note', {
-                initialValue: 'dada22东方朔放松放松东方朔放松放松冯绍峰放松放松放松放松放松放松放松放松',
+                initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
               name="yyy"
-              rows={5}
-              placeholder="带清除"
+              placeholder="如果你有什么建议意见，欢迎你来吐槽"
               clear
               onBlur={() => {console.log('onBlur'); }}
+              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
+            />
+            <TextareaItem
+              {...getFieldProps('note1', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              title="带标题"
+              name="yyy"
+              placeholder="title"
+              clear={false}
+              onBlur={() => {console.log('onBlur');}}
               onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
             <TextareaItem
@@ -39,47 +50,64 @@ let TextareaItemExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
-              name="yyy"
-              placeholder="请填写"
-              clear={false}
-              rows={5}
-              maxLength={100}
-              onBlur={() => {console.log('onBlur');}}
-              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
+              title="高度自适应"
+              autoHeight
+              clear
+              placeholder="autoHeight"
             />
             <TextareaItem
               {...getFieldProps('note3', {
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="高度自适应"
-              error
-              autoHeight
-              maxLength={30}
+              name="yyy"
+              rows={3}
+              placeholder="固定行数,rows"
               clear
-              placeholder="高度自适应+最大长度"
+              onBlur={() => {console.log('onBlur'); }}
+              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
             <TextareaItem
               {...getFieldProps('note4', {
                 initialValue: '',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              title="最大长度"
+              count={30}
               clear
-              error
-              placeholder="请填写"
+              placeholder="count"
             />
             <TextareaItem
               {...getFieldProps('note5', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="28" height="28" />}
+              clear
+              placeholder="title类型可以是node"
+            />
+            <TextareaItem
+              {...getFieldProps('note6', {
                 initialValue: '不可编辑',
                 valuePropName: 'value'
               })}
-              label="备注说明"
-              clear
-              error
-              placeholder="不可编辑"
+              title="不可编辑"
+              placeholder="editable"
               editable={false}
+            />
+            <TextareaItem
+              {...getFieldProps('note7', {
+                initialValue: '多行输入,带计数功能,count+rows',
+                valuePropName: 'value'
+              })}
+              label="备注说明"
+              name="yyy"
+              rows={5}
+              placeholder="计数功能"
+              clear
+              count={100}
+              onBlur={() => {console.log('onBlur'); }}
+              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
           </List.Body>
         </List>

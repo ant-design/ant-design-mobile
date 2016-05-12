@@ -26,13 +26,14 @@ const App = React.createClass({
         {[1, 2, 3, 4, 5, 6].map((i, index) => {
           if (index === 0) {
             return (<List.Item key={index}
-              thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
+              thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
               line={2}
             ><div className="am-list-title">收银员</div><div className="am-list-brief">仅可进行收款、退款及查账操作</div></List.Item>);
           }
           return (<List.Item key={index}
+            thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
             line={2}
-          ><div className="am-list-title">运营</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></List.Item>);
+          ><div className="am-list-title">收银员</div><div className="am-list-brief">仅可进行收款、退款及查账操作</div></List.Item>);
         })}
       </List.Body>
     </List>);

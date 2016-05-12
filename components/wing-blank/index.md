@@ -7,9 +7,7 @@ english: WingBlank
 
 ## 如何使用
 
-通常dom两边要设置下padding
-
-```<WingBlank mode={8}>...</WingBlank>```
+设计上,通常dom两边要设置下特定宽度边距
 
 ## API
 

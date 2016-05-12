@@ -1,7 +1,7 @@
 ---
-category: Components
+<!--category: Components-->
 chinese: 警告提示
-type: 展示
+<!--type: 展示-->
 english: Alert
 ---
 

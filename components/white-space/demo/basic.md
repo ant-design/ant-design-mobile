@@ -3,28 +3,33 @@ order: 0
 title: 基本
 ---
 
-上下留白 <WhiteSpace mode={8} />
+上下留白 ```<WhiteSpace mode={8} />```
 
 
 ````jsx
 import { WhiteSpace, WingBlank } from 'antm';
 
-
 let WhiteSpaceExample = React.createClass({
   render() {
     return (
     <div className="button-container">
-      <WhiteSpace style={{ backgroundColor: '#2DB7F5' }} />
-      <WingBlank style={{ textAlign: 'center' }}>
-        上下留白8px
+      <div style={{ textAlign: 'center' }}>
+        8px
+      </div>
+      <WingBlank>
+        <WhiteSpace style={{ backgroundColor: '#2DB7F5' }} />
       </WingBlank>
-      <WhiteSpace mode={20} style={{ backgroundColor: '#2DB7F5' }} />
-      <WingBlank style={{ textAlign: 'center' }}>
-        上下留白20px
+      <div style={{ textAlign: 'center' }}>
+        16px
+      </div>
+      <WingBlank>
+        <WhiteSpace mode={16} style={{ backgroundColor: '#2DB7F5' }} />
       </WingBlank>
-      <WhiteSpace mode={40} style={{ backgroundColor: '#2DB7F5' }} />
-      <WingBlank style={{ textAlign: 'center' }}>
-        上下留白40px
+      <div style={{ textAlign: 'center' }}>
+        32px
+      </div>
+      <WingBlank>
+        <WhiteSpace mode={32} style={{ backgroundColor: '#2DB7F5' }} />
       </WingBlank>
       <WhiteSpace />
     </div>
