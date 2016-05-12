@@ -3,7 +3,7 @@ order: 0
 chinese: Ant Mobile of React
 ---
 
-Ant Mobile是 AntUI 的 React 实现，开发和服务于蚂蚁大中台无线业务。
+Ant Mobile 是 Ant Design 的 Mobile 版本，服务于蚂蚁大中台无线业务。
 
 <div class="pic-plus">
   <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
@@ -26,9 +26,8 @@ Ant Mobile是 AntUI 的 React 实现，开发和服务于蚂蚁大中台无线�
 
 ## 特性
 
-- 基于AntUI（支付宝客户端）视觉规范。
-- 基于 React 的组件化开发模式,精心开发了AntUI样式规范包含的所有UI组件。复杂组件则由[React Component](http://react-component.github.io/badgeboard/)提供大力支持,在其基础上再进行封装,保证组件的高质量。
-- 基于 npm + webpack + babel 的工作流，支持 ES2015。
+- 基于 Ant Design 视觉规范。
+- 基于 npm + webpack + babel 的工作流，支持 ES next。
 
 ## 示例
 
@@ -39,8 +38,10 @@ ReactDOM.render(<Button>按钮</Button>, mountNode);
 引入样式：
 
 ```jsx
-import 'antm/lib/index.css';
+import 'antm/dist/antm.css'; // or 'antm/dist/antm.less'
 ```
+
+按需加载可通过此写法 `import Button from 'antm/lib/button'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)（此插件支持 js 和 css 同时按需加载）。
 
 ## 版本
 
@@ -53,7 +54,7 @@ ios & android4.0+
 
 ## 链接
 
-- [构建调试工具](https://github.com/ant-design/antd-bin)
+- [首页](http://beta.antm.alipay.net/#/)
 - [React 模块](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
