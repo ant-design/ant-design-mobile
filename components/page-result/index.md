@@ -1,8 +1,9 @@
 ---
-<!--category: Components-->
+category: Components
 chinese: 结果页面
-<!--type: 展示-->
+type: 展示
 english: PageResult
+display: false
 ---
 
 

@@ -8,8 +8,6 @@ import CollapseExample from '../component/CollapseExample';
 import ButtonExample from '../component/ButtonExample';
 import TabExample from '../component/TabExample';
 import PageResultExample from '../component/PageResultExample';
-import ProcessExample from '../component/ProcessExample';
-import ProgressExample from '../component/ProgressExample';
 import WhiteSpaceExample from '../component/WhiteSpaceExample';
 import WingBlankExample from '../component/WingBlankExample';
 import CheckboxExample from '../component/CheckboxExample';
@@ -23,7 +21,6 @@ import TextareaExample from '../component/TextareaExample';
 import ToastExample from '../component/ToastExample';
 import TopNoticeExample from '../component/TopNoticeExample';
 import ModalExample from '../component/ModalExample';
-import AlertExample from '../component/AlertExample';
 import TagExample from '../component/TagExample';
 import BadgeExample from '../component/BadgeExample';
 import DrawerExample from '../component/DrawerExample';
@@ -253,21 +250,20 @@ const App = React.createClass({
               </Flex.Item>
               <Flex.Item>
                 <Item
-                  logo="https://os.alipayobjects.com/rmsportal/fQJHvKZgnAqDzmR.png"
-                  title="信息提示"
-                  subtitle="Alert"
-                  onClick={() => {location.hash = 'alert';}}
+                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+                  title="轻提示"
+                  subtitle="Toast"
+                  onClick={() => {location.hash = 'toast';}}
                 />
               </Flex.Item>
             </Flex>
             <Flex className="antm-demo-flex">
               <Flex.Item>
                 <Item
-                  logo="https://os.alipayobjects.com/rmsportal/QdpIVVsRUpwExAM.png"
-                  title="结果页面"
-                  subtitle="PageResult"
-                  onClick={() => {location.hash = 'pageresult';}}
-                />
+                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+                  title="抽屉"
+                  subtitle="Drawer"
+                  onClick={() => {location.hash = 'drawer';}} />
               </Flex.Item>
               <Flex.Item>
                 <Item
@@ -286,32 +282,6 @@ const App = React.createClass({
                 />
               </Flex.Item>
             </Flex>
-            <Flex className="antm-demo-flex">
-              <Flex.Item>
-                <Item
-                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-                  title="轻提示"
-                  subtitle="Toast"
-                  onClick={() => {location.hash = 'toast';}}
-                />
-              </Flex.Item>
-              <Flex.Item>
-                <Item
-                  logo="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-                  title="抽屉"
-                  subtitle="Drawer"
-                  onClick={() => {location.hash = 'drawer';}}
-                />
-                </Flex.Item>
-                <Flex.Item>
-                  <Item
-                    logo="https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png"
-                    title="支付流程"
-                    subtitle="Process"
-                    onClick={() => {location.hash = 'process';}}
-                  />
-                </Flex.Item>
-            </Flex>
           </List.Body>
         </List>
       </Page>
@@ -327,8 +297,6 @@ const pageRouter = (
     <Route path="/collapse" component={CollapseExample}/>
     <Route path="/button" component={ButtonExample}/>
     <Route path="/tab" component={TabExample}/>
-    <Route path="/process" component={ProcessExample}/>
-    <Route path="/progress" component={ProgressExample}/>
     <Route path="/whitespace" component={WhiteSpaceExample}/>
     <Route path="/wingblank" component={WingBlankExample}/>
     <Route path="/checkbox" component={CheckboxExample}/>
@@ -344,7 +312,6 @@ const pageRouter = (
     <Route path="/modal" component={ModalExample}/>
     <Route path="/selectlist" component={SelectListExample} />
     <Route path="/badge" component={BadgeExample}/>
-    <Route path="/alert" component={AlertExample}/>
     <Route path="/tag" component={TagExample}/>
     <Route path="/drawer" component={DrawerExample}/>
     <Route path="/actionsheet" component={ActionSheetExample}/>

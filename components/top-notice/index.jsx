@@ -1,45 +1,79 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-function noop() {}
+import Icon from '../icon';
 
-const TopNotice = React.createClass({
-  propTypes: {
+export default class TopNotice extends React.Component {
+  static propTypes = {
     mode: PropTypes.string,
-    operationTxt: PropTypes.string,
     onClick: PropTypes.func,
-  },
-  getDefaultProps() {
-    return {
-      needOperation: true,
-      operationTxt: '',
-      onClick: noop,
-    };
-  },
+    type: PropTypes.string
+  }
+
+  static defaultProps = {
+    prefixCls: 'am-top-notice',
+    mode: '',
+    onClick() {}
+  }
+
   render() {
-    const { children, mode, operationTxt, onClick, className } = this.props;
+    const { prefixCls, children, mode, type, onClick, className } = this.props;
     const wrapCls = classNames({
-      'am-top-notice': true,
-      [className]: className
+      [prefixCls]: true,
+      [className]: !!className
     });
 
     let operationDom = '';
     switch (mode) {
-      case 'close':
-        operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-close" /></div>;
+      case 'closable':
+        operationDom = (
+          <div className="am-top-notice-operation" onClick={onClick}>
+            <Icon type="cross" />
+          </div>
+        );
         break;
-      case 'operation':
-        operationDom = <div className="am-top-notice-operation" onClick={onClick}><a className="am-top-notice-go">{operationTxt}</a></div>;
+      case 'link':
+        operationDom = (
+          <div className="am-top-notice-operation" onClick={onClick}>
+            <Icon type="right" />
+          </div>
+        );
         break;
       default:
         operationDom = '';
         break;
     }
+
+    let iconType = '';
+    switch (type) {
+      case 'success':
+        iconType = 'check-circle';
+        break;
+      case 'error':
+        iconType = 'cross-circle';
+        break;
+      case 'warn':
+        iconType = 'exclamation-circle';
+        break;
+      case 'question':
+        iconType = 'question-circle';
+        break;
+      case 'info':
+      default:
+        iconType = 'info-circle';
+        break;
+    }
+
+    const iconDom = type ? <div className="am-top-notice-icon">
+      <Icon type={iconType} />
+    </div> : null;
+
     return (
       <div className={wrapCls}>
+        {iconDom}
         <div className="am-top-notice-content">{children}</div>
         {operationDom}
       </div>
     );
   }
-});
-module.exports = TopNotice;
+}
+
