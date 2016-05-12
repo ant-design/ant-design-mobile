@@ -33,7 +33,8 @@ export default class Modal extends React.Component {
     };
   }
 
-  onClick = () => {
+  onClick = (e) => {
+    e.preventDefault();
     const props = this.props;
     if (props.type === 'read' || props.disabled) return;
     const _selected = this.state.selected;
