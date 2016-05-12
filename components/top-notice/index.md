@@ -5,9 +5,7 @@ type: 展示
 english: TopNotice
 ---
 
-
-
-列表项
+一般是系统提醒，活动等通知，需要引起用户关注时使用。
 
 ## 如何使用
 
@@ -17,7 +15,6 @@ english: TopNotice
 ### TabItem
 | 成员        | 说明           | 类型      |     可选值    | 默认值       |
 |------------|----------------|--------------------|--------------|
-| content    | 提示文案        | String | |  ''  |
-| mode    | 提示类型,        | String |`colse`、`operation`、`''` |  ''  |
-| operationTxt    | 操作文案        | String |  |  ''  |
+| mode    | 提示类型      | String |`closable`、`link`、`''` |  ''  |
+| type    | 图标类型        | String | `success`、`error`、`info`、`question`、`warn` 、'' |  ''  |
 | onClick    | 点击关闭或者操作区域的回调函数        | function | |    |
