@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Affix, Button, Icon, Popover } from 'antd';
+import { Row, Col, Button, Icon, Popover } from 'antd';
 import Demo from '../Demo';
 import DemoPreview from '../DemoPreview';
 import * as utils from '../utils';
@@ -26,6 +26,7 @@ export default class ComponentDoc extends React.Component {
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', this.onScrollEvent);
     this.componentDidUpdate();
   }
   componentDidUpdate() {
@@ -65,6 +66,21 @@ export default class ComponentDoc extends React.Component {
     this.setState({
       currentIndex: this.state.currentIndex - 1,
     });
+  }
+
+  onScrollEvent() {
+    const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    const apiTop = document.getElementById('api').offsetTop;
+
+    const asideDemo = document.getElementById('aside-demo');
+
+    if (scrollTop >= apiTop - 500) {
+      if (asideDemo.className.indexOf('fixed') >= 0) {
+        asideDemo.className = asideDemo.className.replace(/fixed/ig, '');
+      }
+    } else if (asideDemo.className.indexOf('fixed') < 0) {
+      asideDemo.className += ' fixed';
+    }
   }
   render() {
     const { doc, location } = this.props;
@@ -108,26 +124,26 @@ export default class ComponentDoc extends React.Component {
 
     return (
       <article>
-        <Row>
+        <Row style ={{ minHeight: '830px' }}>
           <Col span="13" style={{ width: '54%', paddingRight: '16px' }}>
-          <section className="markdown">
-          <h1 className="section-title">
-            {meta.chinese || meta.english}
-            <Popover content={ PopoverContent } placement="bottom">
-              <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
-            </Popover>
-          </h1>
-          {
-            utils.jsonmlToComponent(
-              location.pathname,
-              ['section', { className: 'markdown' }]
+            <section className="markdown">
+              <h1 className="section-title">
+                {meta.chinese || meta.english}
+                  <Popover content={ PopoverContent } placement="bottom">
+                    <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
+                  </Popover>
+              </h1>
+              {
+                utils.jsonmlToComponent(
+                location.pathname,
+                ['section', { className: 'markdown' }]
                 .concat(description)
-            )
-          }
-          <h2>
-            代码演示
-          </h2>
-        </section>
+                )
+              }
+              <h2>
+                代码演示
+              </h2>
+            </section>
             { leftChildren }
             <Row>
               <Col span="12" style={{ paddingRight: '8px' }}>
@@ -147,17 +163,9 @@ export default class ComponentDoc extends React.Component {
                 </Button>
               </Col>
             </Row>
-            {
-              utils.jsonmlToComponent(
-                location.pathname,
-                ['section', {
-                  className: 'markdown api-container',
-                }].concat(doc.api || [])
-              )
-            }
           </Col>
           <Col span="11">
-            <Affix className="toc-affix">
+            <div id="aside-demo" className="aside-demo fixed">
               <div style = {{ width: '395px', height: '813px', paddingTop: '99px', background: 'url("https://os.alipayobjects.com/rmsportal/XdawWiuviSMdHNn.png") no-repeat', backgroundSize: '100%' }}>
                 <div className="demo-preview-wrapper">
                   <div className="demo-preview-header">
@@ -173,9 +181,19 @@ export default class ComponentDoc extends React.Component {
                   </div>
                 </div>
               </div>
-            </Affix>
+            </div>
           </Col>
         </Row>
+
+        {
+          utils.jsonmlToComponent(
+          location.pathname,
+          ['section', {
+            id: 'api',
+            className: 'markdown api-container',
+          }].concat(doc.api || [])
+          )
+        }
 
       </article>
     );
