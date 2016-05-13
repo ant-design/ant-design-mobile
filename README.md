@@ -120,7 +120,16 @@ git push origin master:deploy
 
 代码推送到 deploy 分支即完成部署
 
-### 发布 CDN
+### 发布
+
+发布日志参考: http://www.atatech.org/articles/37414   http://www.atatech.org/articles/54610
+
+发布日志先发到: http://gitlab.alipay.net/react-ui/ant-mobile/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=
+
+再发到 http://www.atatech.org/articles/new/?group=1338
+
+最后发个邮件
+
 
 ```
 npm run pub // 正式版本
