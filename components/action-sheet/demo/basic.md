@@ -85,19 +85,19 @@ const Test = React.createClass({
       <WhiteSpace />
       <WingBlank>
         <h4>通常的 ActionSheet</h4>
-        <Button type="primary" onClick={this.showActionSheet}>show ActionSheet</Button>
+        <Button type="primary" onClick={this.showActionSheet}>显示</Button>
         <p>点击过的按钮: {this.state.clicked}</p>
       </WingBlank>
       <WhiteSpace mode={16} />
       <WingBlank>
         <h4>带分享功能的 ActionSheet</h4>
-        <Button type="primary" onClick={this.showShareActionSheet}>showShareActionSheet</Button>
+        <Button type="primary" onClick={this.showShareActionSheet}>显示</Button>
         <p>点击过的icon: {this.state.clicked}</p>
       </WingBlank>
       <WhiteSpace mode={16} />
       <WingBlank>
         <h4>内容可以完全自定义的 ActionSheet</h4>
-        <Button type="primary" onClick={this.showActionSheetWithCustom}>showActionSheetWithCustom</Button>
+        <Button type="primary" onClick={this.showActionSheetWithCustom}>显示</Button>
       </WingBlank>
       <WhiteSpace />
     </div>);
