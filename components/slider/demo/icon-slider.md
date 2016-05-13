@@ -1,12 +1,15 @@
 ---
-order: 2
+order: 3
 title: 带 icon 的滑块
 ---
 
 滑块左右可以设置图标来表达业务含义。
 
+---
+
+
 ````jsx
-import { Slider } from 'antm';
+import { Slider, WhiteSpace, WingBlank } from 'antm';
 import Icon from '../../icon';
 
 const IconSlider = React.createClass({
@@ -32,10 +35,16 @@ const IconSlider = React.createClass({
 
   render() {
     return (
-      <div className="iconWrapper">
-        <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
-        <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
-        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
+      <div>
+        <WhiteSpace mode={20} />
+        <WingBlank mode={20}>
+          <div className="iconWrapper">
+            <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
+              <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
+            <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
+          </div>
+        </WingBlank>
+        <WhiteSpace mode={32} />
       </div>
     );
   }
