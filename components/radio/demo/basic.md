@@ -32,15 +32,15 @@ let Test = React.createClass({
   render() {
     return (
       <div>
-        <div style={{ position: 'relative' }}>
-          <span style={{ borderWidth: '1px', borderColor: 'red', borderStyle: 'solid' }}>
+        <div style={{ position: 'relative', paddingTop: '5px' }}>
+          <span style={{ borderWidth: '1px', borderColor: 'red', borderStyle: 'solid', margin: '10px 4px' }}>
             <Radio
               value = "e"
               checked = {this.state.s === 'e'}
               onChange={this.handleChange2}
             />
           </span>
-          <span style={{ borderWidth: '1px', borderColor: 'red', borderStyle: 'solid' }}>
+          <span style={{ borderWidth: '1px', borderColor: 'rgba(45, 183, 245, 0.7)', borderStyle: 'solid', margin: '10px 4px' }}>
             <Radio
               value = "f"
               checked = {this.state.s === 'f'}

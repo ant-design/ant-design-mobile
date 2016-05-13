@@ -50,7 +50,6 @@
   margin: 0px 0 16px 0px;
   transition: all 0.5s ease;
   &-preview {
-    background-color: #fff;
     border: none;
   }
 }
@@ -82,8 +81,6 @@
 }
 
 .code-box .code-box-demo {
-  border-bottom: 1px solid #E9E9E9;
-  //padding: 42px 20px 50px;
 }
 
 .code-box iframe {
@@ -497,9 +494,8 @@
 }
 
 .demo-preview-wrapper {
-  width: 350px;
+  width: 349px;
   margin:0 auto;
-  background-color: #F7F7F7;
   .demo-preview-header {
     background-color: #1B1B1B;
     text-align: center;
@@ -511,8 +507,10 @@
     }
   }
   .demo-preview-scroller {
-    border: 1px solid #d9d9d9;
-    height: 555px;
+    background-color: #F7F7F7;
+    height: 554px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
