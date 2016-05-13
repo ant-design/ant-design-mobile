@@ -166,7 +166,7 @@ export default class ComponentDoc extends React.Component {
           </Col>
           <Col span="11">
             <div id="aside-demo" className="aside-demo fixed">
-              <div style = {{ width: '395px', height: '813px', paddingTop: '99px', background: 'url("https://os.alipayobjects.com/rmsportal/XdawWiuviSMdHNn.png") no-repeat', backgroundSize: '100%' }}>
+              <div style = {{ width: '395px', height: '818px', paddingTop: '99px', background: 'url("https://os.alipayobjects.com/rmsportal/XdawWiuviSMdHNn.png") no-repeat', backgroundSize: '100%' }}>
                 <div className="demo-preview-wrapper">
                   <div className="demo-preview-header">
                     <div className = "demo-preview-statbar">
