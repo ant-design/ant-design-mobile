@@ -106,4 +106,24 @@ git checkout master
 git pull
 ```
 
+
 更新自己主干结束本次需求开发。
+
+
+## 发布流程
+
+### 发布网站
+
+```
+git push origin master:deploy
+```
+
+代码推送到 deploy 分支即完成部署
+
+### 发布 CDN
+
+```
+npm run pub // 正式版本
+
+npm run beta // beta 版本
+```
