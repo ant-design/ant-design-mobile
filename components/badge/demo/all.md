@@ -5,7 +5,6 @@ title: 综合示例
 
 结合列表的案例参考
 
----
 
 ````jsx
 import { List, Badge } from 'antm';

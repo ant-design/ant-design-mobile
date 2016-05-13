@@ -5,7 +5,6 @@ title: 大数字
 
 数字大于99，会显示 `99+`
 
----
 
 ````jsx
 import { Badge } from 'antm';

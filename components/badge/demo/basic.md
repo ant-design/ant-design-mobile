@@ -5,7 +5,6 @@ title: 基本
 
 简单的徽章展示。
 
----
 
 ````jsx
 import { Badge } from 'antm';

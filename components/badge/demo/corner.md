@@ -5,7 +5,6 @@ title: 角标
 
 像丝带一样的角标
 
----
 
 ````jsx
 import { Badge } from 'antm';
