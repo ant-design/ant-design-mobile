@@ -5,7 +5,6 @@ title: 讨嫌的小红点
 
 只有个讨嫌的小红点，没有具体数字
 
----
 
 ````jsx
 import { Badge } from 'antm';
