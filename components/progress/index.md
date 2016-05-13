@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 进度条
-type: 展示
 english: Progress
 ---
 

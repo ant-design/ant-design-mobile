@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 浮动菜单
-type: 导航
 english: FloatMenu
 ---
 

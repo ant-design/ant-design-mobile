@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 文本输入
-type: 表单
 english: InputItem
 ---
 

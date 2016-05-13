@@ -1,7 +1,7 @@
 ---
-category: Components
+category: APIS
+type: APIS
 chinese: 动作面板
-type: 导航
 english: ActionSheet
 ---
 

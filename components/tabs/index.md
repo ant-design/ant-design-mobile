@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 标签页
-type: 导航
 english: Tabs
 ---
 

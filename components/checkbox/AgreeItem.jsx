@@ -34,7 +34,7 @@ export default class AgreeItem extends React.Component {
       style={style}>
       {<Checkbox
         prefixCls={prefixCls}
-        defaultChecked={checked}
+        checked={checked}
         name={name}
         onChange={onChange}
         disabled={disabled}

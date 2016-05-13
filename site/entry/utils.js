@@ -24,17 +24,19 @@ function getMenuItems(data) {
   menuMeta.sort((a, b) => {
     return parseInt(a.order, 10) - parseInt(b.order, 10);
   }).forEach((meta) => {
-    const category = meta.category || 'topLevel';
-    if (!menuItems[category]) {
-      menuItems[category] = {};
-    }
+    if (meta.display !== false) {
+      const category = meta.category || 'topLevel';
+      if (!menuItems[category]) {
+        menuItems[category] = {};
+      }
 
-    const type = meta.type || 'topLevel';
-    if (!menuItems[category][type]) {
-      menuItems[category][type] = [];
-    }
+      const type = meta.type || 'topLevel';
+      if (!menuItems[category][type]) {
+        menuItems[category][type] = [];
+      }
 
-    menuItems[category][type].push(meta);
+      menuItems[category][type].push(meta);
+    }
   });
 
   return menuItems;

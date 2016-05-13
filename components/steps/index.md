@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 步骤条
-type: 导航
 cols: 1
 english: Steps
 ---

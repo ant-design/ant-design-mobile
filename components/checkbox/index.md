@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: Checkbox
-type: 表单
 english: Checkbox
 ---
 

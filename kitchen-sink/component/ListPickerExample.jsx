@@ -87,7 +87,7 @@ let ListPickerExample = React.createClass({
           <List.Header>店铺位置</List.Header>
           <List.Body>
             <ListPicker data={district} cols={2} {...getFieldProps('district', {
-              initialValue: ['340000', '340800', '340822']
+              initialValue: ['004', '400100']
             })}
             >
               <List.Item arrow="horizontal">所在地区</List.Item>

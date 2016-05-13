@@ -1,8 +1,9 @@
 ---
-<!--category: Components-->
+category: Components
+type: Components
 chinese: 警告提示
-<!--type: 展示-->
 english: Alert
+display: false
 ---
 
 ## 何时使用

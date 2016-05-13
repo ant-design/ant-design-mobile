@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 多行输入
-type: 表单
 english: TextareaItem
 ---
 

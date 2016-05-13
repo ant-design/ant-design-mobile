@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 两翼留白
-type: 基本
 english: WingBlank
 ---
 

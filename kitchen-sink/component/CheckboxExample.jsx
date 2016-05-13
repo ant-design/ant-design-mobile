@@ -103,7 +103,7 @@ let CheckboxExample = React.createClass({
             initialValue: false,
             valuePropName: 'checked'
           })}
-        >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
+        >强制不能选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
         </AgreeItem>
         <AgreeItem
           disabled={true}

@@ -106,4 +106,33 @@ git checkout master
 git pull
 ```
 
+
 更新自己主干结束本次需求开发。
+
+
+## 发布流程
+
+### 发布网站
+
+```
+git push origin master:deploy
+```
+
+代码推送到 deploy 分支即完成部署
+
+### 发布
+
+发布日志参考: http://www.atatech.org/articles/37414   http://www.atatech.org/articles/54610
+
+发布日志先发到: http://gitlab.alipay.net/react-ui/ant-mobile/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=
+
+大家 review 通过后, 再发到 http://www.atatech.org/articles/new/?group=1338
+
+最后发个邮件, done!
+
+
+```
+npm run pub // 正式版本
+
+npm run beta // beta 版本
+```
