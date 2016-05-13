@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 步进器
-type: 表单
 english: Stepper
 ---
 

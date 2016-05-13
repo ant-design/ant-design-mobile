@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 抽屉
-type: 展示
 english: Drawer
 ---
 

@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 顶部提示
-type: 展示
 english: TopNotice
 ---
 

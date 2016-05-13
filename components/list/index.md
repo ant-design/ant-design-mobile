@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 列表
-type: 基本
 english: List
 ---
 
@@ -40,4 +40,3 @@ english: List
 | arrow      | 箭头方向（右,上,下）,如果是`empty`,则存在对应的dom,但是不显示        | String | `horizontal`、`up`、`down`、`empty`、无 |   无  |
 | align    |    Flex 子元素垂直对齐     | String    | `top` `middle` `bottom` | `middle` |
 | onClick    | 点击事件的回调函数 | Function |  | 无  |
-

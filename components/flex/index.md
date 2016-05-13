@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: Flex布局
-type: 基本
 english: Flex
 ---
 

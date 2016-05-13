@@ -1,7 +1,7 @@
 ---
-category: Components
+category: APIS
+type: APIS
 chinese: 对话框
-type: 展示
 english: Modal
 ---
 
@@ -43,5 +43,3 @@ english: Modal
 | message      | 提示信息                  | String 或 React.Element                    | 无    |
 | callbackOrActions  | 按钮组 [{text, onPress}] 或回调函数      | Array or Function | 无            |
 | type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|   `default`          |
-
-

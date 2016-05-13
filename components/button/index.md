@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 按钮
-type: 表单
 english: Button
 ---
 

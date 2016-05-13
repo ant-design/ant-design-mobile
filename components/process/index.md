@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 支付流程
-type: 展示
 english: Process
 display: false
 ---

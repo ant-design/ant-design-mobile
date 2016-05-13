@@ -1,7 +1,7 @@
 ---
-category: Components
+category: APIS
+type: APIS
 chinese: 轻提示
-type: 展示
 noinstant: true
 english: Toast
 ---

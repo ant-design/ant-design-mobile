@@ -1,7 +1,7 @@
 ---
-category: Components
+category: APIS
+type: APIS
 chinese: 下拉菜单
-type: 导航
 english: Dropdown
 ---
 

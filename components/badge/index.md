@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 徽标数
-type: 展示
 english: Badge
 ---
 
@@ -20,7 +20,3 @@ english: Badge
 | corner     | 展示位角标样式  | boolean |  false  |
 | overflowCount       | 展示封顶的数字值  | number | 99|
 | size	   | 红点及角标状态下可选默认(null)或者大号(large)  | String	 | - |
-
-
-
-

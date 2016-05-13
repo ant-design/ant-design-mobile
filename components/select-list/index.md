@@ -1,8 +1,8 @@
 ---
 category: Components
+type: Components
 chinese: 选择列表
-type: 表单
-english: Select List 
+english: Select List
 ----------------------
 
 

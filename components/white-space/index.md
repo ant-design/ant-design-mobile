@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 上下留白
-type: 基本
 english: WhiteSpace
 ---
 

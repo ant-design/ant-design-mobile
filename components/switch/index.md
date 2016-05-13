@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 滑动开关
-type: 表单
 english: Switch
 ---
 

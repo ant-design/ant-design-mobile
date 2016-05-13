@@ -1,9 +1,9 @@
 ---
 category: Components
+type: Components
 chinese: 折叠面板
-type: 展示
 english: Collapse
------------------
+---
 
 可以折叠/展开的内容区域。
 

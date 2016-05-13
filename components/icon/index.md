@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 图标
-type: 基本
 english: Icon
 ---
 

@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 单选框
-type: 表单
 english: Radio
 --------------
 
@@ -25,4 +25,3 @@ Radio提供了一个简单的方法来从一个预定义集合中选取单个值
 | onChange    | change事件触发的回调函数,参数是event对象 | Function | |   无  |
 
 ### Radio.RadioItem
-

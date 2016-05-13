@@ -1,7 +1,7 @@
 ---
 category: Components
+type: Components
 chinese: 列表选择
-type: 表单
 english: List Picker
 ---
 
