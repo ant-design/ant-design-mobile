@@ -1,14 +1,13 @@
 ---
 order: 1
 chinese: 快速上手
----
+------------------
 
-Ant Mobile 致力于提供给程序员**愉悦**的无线端开发体验。
+AntD Mobile 致力于提供给程序员**愉悦**的无线端开发体验。
 
 ## Demo演示
 
-[antm-demo](http://demo.antm.alipay.net)仓库为所有组件提供了demo演示,可以clone下来直接阅读源代码http://gitlab.alipay-inc.com/react-ui/antm-demo/ ,如遇到没有权限请联系@特木。
-比如入门的同学,请先看antm-demo的README.md文档
+beta版demo演示请先看用手机扫二维码,单独的demo 仓库后续放出。
 <div class="pic-plus">
   <img width="150" src="https://os.alipayobjects.com/rmsportal/sWXtlkRDKtwAwRG.jpg">
 </div>
@@ -25,7 +24,7 @@ Ant Mobile 致力于提供给程序员**愉悦**的无线端开发体验。
 实际项目开发中，你会需要对 ES2015 和 JSX 代码的构建、调试、代理、打包部署等一系列工程化的需求。
 我们提供了一套 `tnpm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
-### 1. 安装命令行工具
+### 1. 安装命令行工具,beta版 脚手架稍后放出
 
 ```bash
 $ tnpm install @alipay/antm-init -g

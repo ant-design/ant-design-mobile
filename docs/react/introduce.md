@@ -1,9 +1,9 @@
 ---
 order: 0
-chinese: Ant Mobile of React
----
+chinese: AntD Mobile of React
+-----------------------------
 
-Ant Mobile 是 Ant Design 的 Mobile 版本，服务于蚂蚁大中台无线业务。
+AntD Mobile 是 Ant Design 的 Mobile 版本，服务于蚂蚁及口碑大中台无线业务。
 
 <div class="pic-plus">
   <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
@@ -46,7 +46,7 @@ import 'antm/dist/antm.css'; // or 'antm/dist/antm.less'
 ## 版本
 
 - 稳定版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
-- 开发版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
+- 开发版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?tag=beta&style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
 
 ## 浏览器支持
 

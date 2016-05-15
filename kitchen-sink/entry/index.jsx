@@ -44,7 +44,7 @@ window.scrolltopNumber = 0;
 const App = React.createClass({
   render() {
     return (
-      <Page logo="https://os.alipayobjects.com/rmsportal/MEyMcVciuKgRnjL.png" title="Ant Mobile" subtitle="服务于蚂蚁大中台无线业务的react组件库" isIndex={true}>
+      <Page logo="https://os.alipayobjects.com/rmsportal/MEyMcVciuKgRnjL.png" title="AntD Mobile" subtitle="服务于蚂蚁大中台无线业务的react组件库" isIndex={true}>
         <List>
           <List.Header>基本</List.Header>
           <List.Body>
