@@ -1,5 +1,5 @@
 {
-  "name": "@alipay/antm",
+  "name": "antm",
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
   },
