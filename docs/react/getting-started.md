@@ -44,7 +44,7 @@ $ tnpm install
 
 ### 3. 使用组件
 
-编辑 `src/component/App.jsx`，用 React 的方式直接使用 Ant Mobile 的组件。
+编辑 `src/component/App.jsx`，用 React 的方式直接使用 AntD Mobile 的组件。
 
 ```jsx
 import React from 'react';
@@ -100,7 +100,7 @@ $ tnpm run build
 
 ## 兼容性
 
-Ant Mobile 组件库 目前仅针对iOS/Android4.0系统。
+AntD Mobile 组件库 目前仅针对iOS/Android4.0系统。
 
 <div class="code-line-highlight"></div>
 
