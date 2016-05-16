@@ -24,13 +24,15 @@ beta版demo演示请先看用手机扫二维码,单独的demo 仓库后续放出
 实际项目开发中，你会需要对 ES2015 和 JSX 代码的构建、调试、代理、打包部署等一系列工程化的需求。
 我们提供了一套 `tnpm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
-### 1. 安装命令行工具,beta版 脚手架稍后放出
+### 1. 安装命令行工具
 
 ```bash
-$ tnpm install @alipay/antm-init -g
+$ tnpm install @alipay/antm-init@0.8.2 -g
 ```
 
-antm-init基于antd-init 0.8.1版本开发,主要更换了脚手架模板,方便初始化基于Antd Mobile的项目,[更多使用参考antd-init说明](https://github.com/ant-design/antd-bin#使用说明)。
+目前antm-init@0.8.2为beta版本, 基于antd-init 1.0.0版本开发, 适配Beta版的@alipay/antm,主要更换了脚手架模板,方便初始化基于Antd Mobile的项目,[更多使用参考antd-init说明](https://github.com/ant-design/antd-bin#使用说明)。
+
+`./webpack.config.js`里第三行```style: true```可以修改为```style: 'css'```,区别为引入的默认antm 模块样式文件后缀.
 
 ### 2. 创建一个项目
 
@@ -85,7 +87,7 @@ export default App;
 一键启动调试，访问 http://127.0.0.1:8001 查看效果。
 
 ```bash
-$ tnpm run dev
+$ tnpm start
 ```
 
 ### 5. 构建和部署
