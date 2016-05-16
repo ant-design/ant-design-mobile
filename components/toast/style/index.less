@@ -6,7 +6,14 @@
 .@{pickerPrefixCls} {
   position: fixed;
   width: 100%;
+  height: 100%;
+  .display-box();
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  &-notice {
+    margin-top: -15*@grid;
+  }
   &-text {
     display: inline-block;
     margin: auto 6*@grid;
