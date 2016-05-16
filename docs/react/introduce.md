@@ -66,4 +66,4 @@ ios & android4.0+
 
 ## 欢迎参与
 
-有任何建议或意见您可以进行发个issue [提问](http://gitlab.alipay-inc.com/react-ui/ant-mobile/issues)。
+有任何建议或意见您可以进行发个issue [提问](http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues)。
