@@ -54,8 +54,8 @@ ios & android4.0+
 
 ## 链接
 
-- [首页](http://beta.antm.alipay.net/#/)
-- [React 模块](http://react-component.github.io/)
+- [首页](http://antm.alipay.net/)
+- [React 模块](http://github.com/react-component)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
 
