@@ -5,4 +5,4 @@ before_deploy:
 options:
   branch: 'deploy'
   dist: '_site'
-cname: 'beta.antm.alipay.net'
+cname: 'antm.alipay.net'
