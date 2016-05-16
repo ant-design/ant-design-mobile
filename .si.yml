@@ -1,4 +1,8 @@
+before_deploy:
+  - tnpm i tnpm@release-3
+  - ./node_modules/.bin/tnpm ii
+  - ./node_modules/.bin/tnpm run site
 options:
-  branch: 'gh-pages'
+  branch: 'deploy'
   dist: '_site'
 cname: 'antm.alipay.net'
