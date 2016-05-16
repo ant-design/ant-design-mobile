@@ -132,7 +132,5 @@ git push origin master:deploy
 
 
 ```
-npm run pub // 正式版本
-
-npm run beta // beta 版本
+npm run pub // 发布
 ```
