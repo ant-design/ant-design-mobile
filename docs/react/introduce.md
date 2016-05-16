@@ -32,16 +32,16 @@ AntD Mobile 是 Ant Design 的 Mobile 版本，服务于蚂蚁及口碑大中台
 ## 示例
 
 ```jsx
-import { Button } from 'antm';
+import { Button } from '@alipay/antm';
 ReactDOM.render(<Button>按钮</Button>, mountNode);
 ```
 引入样式：
 
 ```jsx
-import 'antm/dist/antm.css'; // or 'antm/dist/antm.less'
+//无需单独引入样式, 引入具体模块时会按需引入该模块所需的所有样式文件
 ```
 
-按需加载可通过此写法 `import Button from 'antm/lib/button'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)（此插件支持 js 和 css 同时按需加载）。
+插件说明: [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)（此插件支持 js 和 css 同时按需加载）。
 
 ## 版本
 

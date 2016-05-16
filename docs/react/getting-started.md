@@ -27,12 +27,12 @@ beta版demo演示请先看用手机扫二维码,单独的demo 仓库后续放出
 ### 1. 安装命令行工具
 
 ```bash
-$ tnpm install @alipay/antm-init@0.8.2 -g
+$ tnpm install @alipay/antm-init@beta -g
 ```
 
-目前antm-init@0.8.2为beta版本, 基于antd-init 1.0.0版本开发, 适配Beta版的@alipay/antm,主要更换了脚手架模板,方便初始化基于Antd Mobile的项目,[更多使用参考antd-init说明](https://github.com/ant-design/antd-bin#使用说明)。
+目前antm-init@beta版, 基于antd-init 1.0.0版本开发, 适配@alipay/antm@beta,方便初始化基于Antd Mobile开发的项目,[更多使用参考antd-init说明](https://github.com/ant-design/antd-bin#使用说明)。
 
-`./webpack.config.js`里第三行```style: true```可以修改为```style: 'css'```,区别为引入的默认antm 模块样式文件后缀.
+`./webpack.config.js`里第三行```style: true```可以修改为```style: 'css'```,区别为引入的默认antm 模块样式文件后缀,一个是less,一个是css.
 
 ### 2. 创建一个项目
 
@@ -80,7 +80,7 @@ const App = React.createClass({
 export default App;
 ```
 
-你可以在 [这里](/components/flex) 选用更多组件。
+你可以在 [这里](#/components/action-sheet) 选用更多组件。
 
 ### 4. 开发调试
 
