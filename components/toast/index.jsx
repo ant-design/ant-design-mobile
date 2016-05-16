@@ -6,13 +6,9 @@ let messageInstance;
 let prefixCls = 'am-toast';
 
 function getMessageInstance() {
-  // 只确保同时只有一个 toast
-  if (messageInstance) {
-    messageInstance.destroy();
-  }
   messageInstance = Notification.newInstance({
     prefixCls,
-    style: { top: '40%' },
+    style: { top: 0 },
   });
   return messageInstance;
 }
@@ -41,7 +37,13 @@ function notice(content, duration = 3, onClose, type) {
         <div>{content}</div>
       </div>
     ),
-    onClose,
+    onClose: () => {
+      if (onClose) {
+        onClose();
+      }
+      instance.destroy();
+      instance = null;
+    },
   });
 }
 
