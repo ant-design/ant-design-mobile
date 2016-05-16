@@ -110,9 +110,9 @@
     "srclint": "eslint components test site index.js --ext '.js,.jsx'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components/ -r scripts/lesshint-report.js",
-    "pre-publish":"node scripts/pre-publish",
-    "pub": "antd-tools run update-self && antd-tools run pub",
-    "post-publish":"node scripts/post-publish",
+    "pre-publish": "node scripts/pre-publish",
+    "pub": "NPM_CLI=tnpm antd-tools run update-self && antd-tools run pub",
+    "post-publish": "node scripts/post-publish",
     "test": "npm run lint && npm run dist",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt"
   },
