@@ -23,10 +23,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://gitlab.alipay-inc.com/react-ui/ant-mobile"
+    "url": "http://gitlab.alibaba-inc.com/react-ui/ant-mobile"
   },
   "bugs": {
-    "url": "http://gitlab.alipay-inc.com/react-ui/ant-mobile/issues"
+    "url": "http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues"
   },
   "main": "dist/antm",
   "files": [
