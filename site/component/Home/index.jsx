@@ -12,7 +12,7 @@ export default class Home extends React.Component {
     this.componentDidUpdate();
   }
   componentDidUpdate() {
-    utils.setTitle('Ant Mobile - 移动端H5规范库');
+    utils.setTitle('AntD Mobile - 移动端H5规范库');
   }
   // To store style which is only for Home and has conflicts with others.
   getStyle() {

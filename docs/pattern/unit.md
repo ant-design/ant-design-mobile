@@ -6,8 +6,8 @@ english: Unit and Multipliers
 
 ### 定义／Definition  
 
-Ant mobile在设计过程中需要考虑各类操作系统以及不同设备的PPI对UI的影响。在多重复杂的设计环境下，用pixel作为UI设计的基本单元是不合适的，这里我们需要引入设备独立像素的概念。苹果以及谷歌在此类问题上早就有解决方法，他们的设计团队分别采用PT （point）和DP （device independent pixel）两个单位来定义UI设计中图形的最小单元，事实上两者是同一种概念。
-Ant mobile将DP （device independent pixel）和SP（scaled pixels）分别定为UI设计的图形单位和字体单位。再通过换算系数来达到UI设计在不同PPI之下的通用性。
+AntD Mobile在设计过程中需要考虑各类操作系统以及不同设备的PPI对UI的影响。在多重复杂的设计环境下，用pixel作为UI设计的基本单元是不合适的，这里我们需要引入设备独立像素的概念。苹果以及谷歌在此类问题上早就有解决方法，他们的设计团队分别采用PT （point）和DP （device independent pixel）两个单位来定义UI设计中图形的最小单元，事实上两者是同一种概念。
+AntD Mobile将DP （device independent pixel）和SP（scaled pixels）分别定为UI设计的图形单位和字体单位。再通过换算系数来达到UI设计在不同PPI之下的通用性。
 
 ### 换算系数／multipliers  
 

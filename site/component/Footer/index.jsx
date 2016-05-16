@@ -34,7 +34,7 @@ export default class Footer extends React.Component {
             </a>
           </li>
           <li>
-            <div>©2015 蚂蚁金服体验技术部出品</div>
+            <div>©2016 蚂蚁金服体验技术部 & 口碑终端技术部</div>
           </li>
         </ul>
       </footer>

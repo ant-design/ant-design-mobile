@@ -17,7 +17,7 @@ english: Border
 
 ### 边线的粗细／Thickness 
 
-Ant mobile在设计上坚持“有效复杂性”的原则，一共只定义了两种边的粗细，1 dp的边主要用于解决信息间区块的分割。2 dp的主要用于强调和引导。 
+AntD Mobile在设计上坚持“有效复杂性”的原则，一共只定义了两种边的粗细，1 dp的边主要用于解决信息间区块的分割。2 dp的主要用于强调和引导。 
 
 ![边线粗细](https://os.alipayobjects.com/rmsportal/lVckcTMlWgzhPit.png)
 
@@ -29,9 +29,9 @@ Ant mobile在设计上坚持“有效复杂性”的原则，一共只定义了�
 
 ### 边线的颜色／Color 
 
-品牌色、功能色都可以用于边的颜色。Ant mobile在设计中提取出最常用的几种情况，具体如下：
+品牌色、功能色都可以用于边的颜色。AntD Mobile在设计中提取出最常用的几种情况，具体如下：
 
-1. 常用边线的颜色在ant mobile的UI设计中采用的是中性色，常用的使用场景有分割线以及边框线。原则上我们会建议在一套UI体系中常用的色彩同样不建议做过多定义。
+1. 常用边线的颜色在AntD Mobile的UI设计中采用的是中性色，常用的使用场景有分割线以及边框线。原则上我们会建议在一套UI体系中常用的色彩同样不建议做过多定义。
 
 ![](https://os.alipayobjects.com/rmsportal/jAnNpDuErCZYeeA.png)
 

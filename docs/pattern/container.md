@@ -10,7 +10,7 @@ english: Container
 
 ### 容器规范／Containers for Mobile
 
-Ant mobile中的容器分成两种规格：
+AntD Mobile中的容器分成两种规格：
 
 大容器： 信息放置的上下边距为16dp。主要用户页面容器和弹出框。 
 
