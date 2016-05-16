@@ -86,7 +86,7 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = this.props;
     const { description, meta } = doc;
 
-    const demoUrl = `http://beta.antm.alipay.net/kitchen-sink.html#/${meta.english.toLowerCase().replace(/\s+/g, '')}`;
+    const demoUrl = `http://antm.alipay.net/kitchen-sink.html#/${meta.english.toLowerCase().replace(/\s+/g, '')}`;
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
