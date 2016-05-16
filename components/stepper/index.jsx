@@ -7,7 +7,7 @@ export default class Stepper extends React.Component {
     prefixCls: 'am-stepper',
     step: 1,
     readOnly: true,
-    hideNumber: true,
+    showNumber: false,
     size: 'small',
   }
 
@@ -17,7 +17,7 @@ export default class Stepper extends React.Component {
       [`${this.props.prefixCls}-lg`]: size === 'large',
       [`${this.props.prefixCls}-sm`]: size === 'small',
       [className]: !!className,
-      ['hideNumber']: !!this.props.hideNumber,
+      ['showNumber']: !!this.props.showNumber,
     });
 
     return <RcInputNumber className={stepperClass} {...other} />;

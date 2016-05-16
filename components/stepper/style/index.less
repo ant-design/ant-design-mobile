@@ -2,7 +2,6 @@
 @import "../../style/mixins";
 
 @stepperPrefixCls: am-stepper;
-
 @border-color-base: @neutral-5;
 @border-radius-base: @radius-2;
 
@@ -13,7 +12,6 @@
   text-align: center;
   text-transform: none;
   text-rendering: auto;
-  line-height: 1;
 
   &:before {
     display: block;
@@ -21,15 +19,12 @@
   }
 }
 
-
 .handler-disabled() {
   opacity: 0.72;
   background-color: @neutral-4;
   color: @neutral-6 !important;
-  cursor: default;
   &:active {
     color: @neutral-6;
-    cursor: default;
   }
 }
 
@@ -37,33 +32,23 @@
   position: relative;
   margin: 0;
   padding: 4px 0;
-  line-height: @grid * 11;
-  font-size: @font-size-2;
-
-  width: @grid * 29;
-  height: @grid * 7;
-  line-height: @grid * 7;
   display: inline-block;
+  box-sizing: content-box;
+  width: @grid * 14.5;
+  height: @grid * 7;
+  font-size: @font-size-2;
+  line-height: @grid * 7;
   vertical-align: middle;
   overflow: hidden;
 
-  &-input {
-    display: inline-block;
-    font-size: @font-size-5;
-    border: none;
-    text-align: center;
-    width: @grid * 14;
-    color: @neutral-10;
-  }
-
-  .@{stepperPrefixCls}-handler-wrap {
+  &-handler-wrap {
     position: absolute;
     width: 100%;
   }
 
-  .@{stepperPrefixCls}-handler,
-  .@{stepperPrefixCls}-handler-up-inner,
-  .@{stepperPrefixCls}-handler-down-inner {
+  &-handler,
+  &-handler-up-inner,
+  &-handler-down-inner {
     width: @grid * 7;
     height: @grid * 7;
     line-height: @grid * 7;
@@ -77,6 +62,7 @@
     color: #999;
     position: absolute;
     display: inline-block;
+    box-sizing: content-box;
     &:active {
       border-color: @brand-6;
     }
@@ -86,7 +72,15 @@
       color: @brand-6;
     }
   }
-
+  &-handler-up {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &-handler-down {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
   &-handler-up-inner,
   &-handler-down-inner {
     .iconfont-mixin();
@@ -96,19 +90,49 @@
   }
 
   &-input-wrap {
+    display: none;
     width: 100%;
-    text-align: center;
-    display: inline-block;
-    overflow: hidden;
     height: @grid * 7;
     line-height: @grid * 7;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &-input {
+    display: none;
+    width: @grid * 14;
+    font-size: @font-size-5;
+    color: @neutral-10;
+    text-align: center;
+    border: none;
+  }
+
+  &.showNumber {
+    width: @grid * 29;
+    .@{stepperPrefixCls}-input-wrap {
+      display: inline-block;
+    }
+    .@{stepperPrefixCls}-input {
+      display: inline-block;
+    }
+    .@{stepperPrefixCls}-handler-up {
+      border-top-left-radius: @radius-2;
+      border-bottom-left-radius: @radius-2;
+    }
+    .@{stepperPrefixCls}-handler-down {
+      border-top-right-radius: @radius-2;
+      border-bottom-right-radius: @radius-2;
+      border-right: @border-thickness-1 @border-type-1 @border-color-base;
+    }
+    .@{stepperPrefixCls}-handler-down-disabled {
+      right: -1px;
+    }
   }
 
   &-lg {
-    width: @grid * 45;
+    width: 90px;
     height: @grid * 11;
     line-height: @grid * 11;
-
     .@{stepperPrefixCls}-handler-wrap,
     .@{stepperPrefixCls}-handler,
     .@{stepperPrefixCls}-handler-up-inner,
@@ -128,6 +152,10 @@
       line-height: @grid * 11;
     }
 
+    &.showNumber {
+      width: @grid * 45;
+    }
+
     input {
       font-size: @font-size-6;
       width: @grid * 22;
@@ -135,6 +163,7 @@
       line-height: @grid * 11;
       vertical-align: top;
     }
+
     .@{stepperPrefixCls}-handler-down:active .@{stepperPrefixCls}-handler-down-inner {
       color: @brand-6;
     }
@@ -181,22 +210,5 @@
     .@{stepperPrefixCls}-handler {
       .handler-disabled();
     }
-  }
-}
-
-.hideNumber {
-  width: @grid * 14.5;
-  .@{stepperPrefixCls}-input-wrap {
-    display: none;
-  }
-  .@{stepperPrefixCls}-handler-up {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .@{stepperPrefixCls}-handler-down {
-    right: -1px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: 0;
   }
 }
