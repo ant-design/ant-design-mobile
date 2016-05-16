@@ -26,3 +26,4 @@ english: Stepper
 | onChange     | 变化回调       | Function      |            |
 | disabled     | 禁用       | Boolean      |      false      |
 | size    | 步进器大小，可取small，large  | String      |      small      |
+| showNumber    | 是否显示数值，默认不显示  | Boolean      |      false      |
