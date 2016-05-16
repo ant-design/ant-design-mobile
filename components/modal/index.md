@@ -20,7 +20,7 @@ english: Modal
 | visible      | 对话框是否可见 | Boolean          | false           |
 | title        | 标题           | React.Element    | 无           |
 | closable     | 是否显示右上角的关闭按钮 | Boolean    | false        |
-| maskClosable | 点击蒙层是否允许关闭 | Boolean   | false       |
+| maskClosable | 点击蒙层是否允许关闭, 需配合 closable 一起使用 | Boolean   | false       |
 | footer       | 底部内容       |  React.Element    | 无 |
 | onClose      | 点击 x 或 mask 回调       | Function   | 无 |
 | animated     | 是否展示动画       | Boolean   | true |
