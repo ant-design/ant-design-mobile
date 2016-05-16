@@ -27,10 +27,10 @@ beta版demo演示请先看用手机扫二维码,单独的demo 仓库后续放出
 ### 1. 安装命令行工具
 
 ```bash
-$ tnpm install @alipay/antm-init@beta -g
+$ tnpm install @alipay/antm-init -g
 ```
 
-目前antm-init@beta版, 基于antd-init 1.0.0版本开发, 适配@alipay/antm@beta,方便初始化基于Antd Mobile开发的项目,[更多使用参考antd-init说明](https://github.com/ant-design/antd-bin#使用说明)。
+目前 antm-init 版, 基于antd-init 1.0.0版本开发, 适配@alipay/antm,方便初始化基于Antd Mobile开发的项目,[更多使用参考antd-init说明](https://github.com/ant-design/antd-init#使用说明)。
 
 `./webpack.config.js`里第三行```style: true```可以修改为```style: 'css'```,区别为引入的默认antm 模块样式文件后缀,一个是less,一个是css.
 
@@ -41,7 +41,6 @@ $ tnpm install @alipay/antm-init@beta -g
 ```bash
 $ mkdir antm-demo && cd antm-demo
 $ antm-init
-$ tnpm install
 ```
 
 ### 3. 使用组件
