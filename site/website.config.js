@@ -22,5 +22,6 @@ export default {
   },
 
   docVersions: {
+    '0.1.x': 'http://01x.antm.alipay.net'
   }
 };
