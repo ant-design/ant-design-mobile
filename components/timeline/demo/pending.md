@@ -23,7 +23,7 @@ let App = React.createClass({
           </Timeline>
         </WingBlank>
       </div>
-    );  
+    );
   }
 });
 

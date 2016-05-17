@@ -8,7 +8,7 @@ title: 圆圈颜色
 ---
 
 ````jsx
-import { Timeline , WingBlank, WhiteSpace } from 'antm';
+import { Timeline, WingBlank, WhiteSpace } from 'antm';
 
 let App = React.createClass({
   render() {
@@ -33,7 +33,7 @@ let App = React.createClass({
         </WingBlank>
       </div>
     );
-  }  
+  }
 });
 
 ReactDOM.render(<App />, mountNode);
