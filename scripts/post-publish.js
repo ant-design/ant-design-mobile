@@ -2,4 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-fs.renameSync(path.join(__dirname, '../package.json.bak'), path.join(__dirname, '../package.json'));
+if (fs.existsSync(path.join(__dirname, '../package.json.bak'))) {
+  fs.renameSync(path.join(__dirname, '../package.json.bak'), path.join(__dirname, '../package.json'));
+}
