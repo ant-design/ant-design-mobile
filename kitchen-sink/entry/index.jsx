@@ -28,6 +28,7 @@ import ActionSheetExample from '../component/ActionSheetExample';
 import SliderExample from '../component/SliderExample';
 import SelectListExample from '../component/SelectListExample';
 import TimelineExample from '../component/TimelineExample';
+import ProgressExample from '../component/ProgressExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
@@ -331,6 +332,7 @@ const pageRouter = (
     <Route path="/slider" component={SliderExample}/>
     <Route path="/radio" component={RadioExample}/>
     <Route path="/timeline" component={TimelineExample}/>
+    <Route path="/progress" component={ProgressExample}/>
   </Router>
 );
 
