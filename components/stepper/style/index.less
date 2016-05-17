@@ -21,8 +21,9 @@
 
 .handler-disabled() {
   opacity: 0.72;
-  background-color: @neutral-4;
+  background-color: @neutral-3;
   color: @neutral-6 !important;
+  border-color: @neutral-5;
   &:active {
     color: @neutral-6;
   }
@@ -105,6 +106,8 @@
     color: @neutral-10;
     text-align: center;
     border: none;
+    padding: 0;
+    background: none;
   }
 
   &.showNumber {
@@ -204,7 +207,7 @@
     .@{stepperPrefixCls}-input {
       opacity: 0.72;
       cursor: not-allowed;
-      background-color: none;
+      background: none;
       color: @neutral-6;
     }
     .@{stepperPrefixCls}-handler {

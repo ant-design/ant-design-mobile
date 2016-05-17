@@ -29,6 +29,7 @@ import SliderExample from '../component/SliderExample';
 import SelectListExample from '../component/SelectListExample';
 import TimelineExample from '../component/TimelineExample';
 import ProgressExample from '../component/ProgressExample';
+import StepperExample from '../component/StepperExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
@@ -293,7 +294,14 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'timeline';}}
                 />
               </Flex.Item>
-              <Flex.Item/>
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png"
+                  title="步进器"
+                  subtitle="Stepper"
+                  onClick={() => {location.hash = 'stepper';}}
+                />
+              </Flex.Item>
               <Flex.Item/>
             </Flex>
           </List.Body>
@@ -333,6 +341,7 @@ const pageRouter = (
     <Route path="/radio" component={RadioExample}/>
     <Route path="/timeline" component={TimelineExample}/>
     <Route path="/progress" component={ProgressExample}/>
+    <Route path="/stepper" component={StepperExample}/>
   </Router>
 );
 
