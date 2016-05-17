@@ -1,17 +1,10 @@
----
-order: 1
-title: 圆圈颜色
----
+/* eslint no-console:0 */
 
-圆圈颜色，绿色用于已完成、成功状态，橙色表示告警或错误状态，蓝色可表示正在进行或其他默认状态。
+import React from 'react';
+import { Timeline, WhiteSpace, WingBlank } from 'antm';
 
----
-
-````jsx
-import { Timeline, WingBlank, WhiteSpace } from 'antm';
-
-let App = React.createClass({
-  render() {
+let TimelineExample = React.createClass({
+  render () {
     return (
       <div>
         <WhiteSpace mode={32} />
@@ -32,9 +25,8 @@ let App = React.createClass({
           </Timeline>
         </WingBlank>
       </div>
-    );
+    )
   }
 });
 
-ReactDOM.render(<App />, mountNode);
-````
+export default TimelineExample;

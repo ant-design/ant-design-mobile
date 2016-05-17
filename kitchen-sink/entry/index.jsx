@@ -27,6 +27,7 @@ import DrawerExample from '../component/DrawerExample';
 import ActionSheetExample from '../component/ActionSheetExample';
 import SliderExample from '../component/SliderExample';
 import SelectListExample from '../component/SelectListExample';
+import TimelineExample from '../component/TimelineExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
@@ -282,6 +283,18 @@ const App = React.createClass({
                 />
               </Flex.Item>
             </Flex>
+            <Flex className="antm-demo-flex">
+              <Flex.Item>
+                <Item
+                  logo="https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png"
+                  title="时间线"
+                  subtitle="Timeline"
+                  onClick={() => {location.hash = 'timeline';}}
+                />
+              </Flex.Item>
+              <Flex.Item/>
+              <Flex.Item/>
+            </Flex>
           </List.Body>
         </List>
       </Page>
@@ -317,6 +330,7 @@ const pageRouter = (
     <Route path="/actionsheet" component={ActionSheetExample}/>
     <Route path="/slider" component={SliderExample}/>
     <Route path="/radio" component={RadioExample}/>
+    <Route path="/timeline" component={TimelineExample}/>
   </Router>
 );
 
