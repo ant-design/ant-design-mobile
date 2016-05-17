@@ -124,7 +124,7 @@ git push origin master:deploy
 
 发布日志参考: http://www.atatech.org/articles/37414   http://www.atatech.org/articles/54610
 
-发布日志先发到: http://gitlab.alipay.net/react-ui/ant-mobile/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=
+发布日志先发到: http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=
 
 大家 review 通过后, 再发到 http://www.atatech.org/articles/new/?group=1338
 
