@@ -32,7 +32,11 @@ import ProgressExample from '../component/ProgressExample';
 import StepperExample from '../component/StepperExample';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, useRouterHistory } from 'react-router';
+import { createHashHistory } from 'history';
+
+// useRouterHistory creates a composable higher-order function
+const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 if((/iphone|ipad/i).test(navigator.userAgent)) {
   if ('addEventListener' in document) {
