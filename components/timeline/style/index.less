@@ -8,6 +8,11 @@
 @success-color: @green-6;
 
 .@{timelinePrefixCls} {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
   list-style: none;
   margin: 0;
   padding: 0;
@@ -39,7 +44,7 @@
       &-blue {
         border: 2px solid @brand-6;
       }
-      &-red {
+      &-orange {
         border: 2px solid @error-color;
       }
       &-green {
@@ -50,6 +55,7 @@
     &-content {
       padding: 0 0 10px 24px;
       font-size: 14px;
+      line-height: 21px;
       position: relative;
       top: -2px;
     }

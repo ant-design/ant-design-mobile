@@ -282,6 +282,8 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'tag';}}
                 />
               </Flex.Item>
+            </Flex>
+            <Flex className="antm-demo-flex">
               <Flex.Item>
                 <Item
                   logo="https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png"
@@ -290,6 +292,8 @@ const App = React.createClass({
                   onClick={() => {location.hash = 'timeline';}}
                 />
               </Flex.Item>
+              <Flex.Item/>
+              <Flex.Item/>
             </Flex>
           </List.Body>
         </List>
