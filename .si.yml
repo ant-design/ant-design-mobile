@@ -1,6 +1,6 @@
 before_deploy:
   - tnpm i tnpm@release-3
-  - ./node_modules/.bin/tnpm ii
+  - ./node_modules/.bin/tnpm i
   - ./node_modules/.bin/tnpm run site
 options:
   branch: 'deploy'
