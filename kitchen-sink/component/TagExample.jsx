@@ -35,6 +35,12 @@ const TagExample = React.createClass({
           }} afterClose={() => {
             console.log('closed');
           }}>标签close</Tag>
+          <WhiteSpace />
+          标签默认选中:
+          <Tag type="action" size="large" selected>大号标签默认选中</Tag>
+          <WhiteSpace />
+          <Tag type="action" size="small" selected>小号标签默认选中</Tag>
+          <WhiteSpace />
         </WingBlank>
       </Page>
     );
