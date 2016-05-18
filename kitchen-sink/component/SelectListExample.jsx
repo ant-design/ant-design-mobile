@@ -14,7 +14,8 @@ const SelectorData = [
     name:'上海',
     pinyin:'shanghai',
     py:'sh',
-    id:'sh'
+    id:'sh',
+    disabled: true
   }, {
     name:'江苏',
     pinyin:'jiangsu',
@@ -40,11 +41,13 @@ const SelectorData = [
 
 let SelectListExample = React.createClass({
   render() {
-    return (<SelectList
+    return (<Page title="列表单选（筛选）" subtitle="&lt;SelectList value={} data={} /&gt;">
+      <SelectList
       value={[SelectorData[0]]}
       data={SelectorData}
       onClick={(el) => {console.log(el);}}
-    />);
+    />
+    </Page>);
   }
 });
 
