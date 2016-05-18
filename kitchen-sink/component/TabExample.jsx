@@ -14,7 +14,7 @@ const TabExample = React.createClass({
   },
   render() {
     return (
-      <Page title="选项卡" subtitle="&lt;Tabs&gt;&lt;Tabs.Item selected={true} /&gt;&lt;Tabs.Item /&gt;&lt;/Tabs&gt;">
+      <Page title="选项卡" subtitle="&lt;Tabs&gt;&lt;TabPane /&gt;&lt;TabPane /&gt;&lt;/Tabs&gt;">
         <WingBlank mode={20}>
           <Tabs defaultActiveKey="1" onChange={callback}>
             <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
