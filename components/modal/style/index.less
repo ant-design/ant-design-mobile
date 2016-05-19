@@ -41,12 +41,9 @@
   }
 
   &-input{
-    position: relative;
     border-left: @border-width-1 @border-type-1 @neutral-5;
     border-right: @border-width-1 @border-type-1 @neutral-5;
     border-bottom: @border-width-1 @border-type-1 @neutral-5;
-    height: 5*@grid;
-    padding: @grid 2*@grid;
     &:first-child{
       margin-top: 2*@grid;
       border-top: @border-width-1 @border-type-1 @neutral-5;
@@ -54,10 +51,11 @@
     input {
       border: none;
       width: 100%;
-      height: 100%;
       .box-sizing();
+      height: 7*@grid;
+      height: 7*@grid;
       margin: 0;
-      padding: 0;
+      padding: @grid 2*@grid;
     }
   }
 }
