@@ -28,7 +28,6 @@
   "bugs": {
     "url": "http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues"
   },
-  "main": "dist/antm",
   "files": [
     "dist",
     "lib"
@@ -60,6 +59,8 @@
     "rmc-picker": "~2.5.0"
   },
   "devDependencies": {
+    "rn-core": "0.3.x",
+    "rn-packager": "0.3.x",
     "antd": "1.0.x",
     "antd-tools": "~0.7.0",
     "babel-eslint": "^6.0.4",
@@ -112,6 +113,7 @@
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
     "start": "antd-tools run start",
+    "rn-start":"rnpackager start",
     "site": "antd-tools run site",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
