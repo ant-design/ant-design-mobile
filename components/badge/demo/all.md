@@ -87,3 +87,9 @@ ReactDOM.render(
   </div>
 , mountNode);
 ````
+
+````css
+.am-badge {
+  margin-right: 8px;
+}
+````

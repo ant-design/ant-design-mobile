@@ -38,7 +38,7 @@
   font-size: 0;
   width: 100%;
   line-height: 1.5;
-
+  .box-sizing();
   .@{stepsPrefixCls}-item {
     position: relative;
     display: inline-block;
@@ -164,7 +164,7 @@
     vertical-align: top;
   }
   .@{stepsPrefixCls}-head {
-    background: #fff;
+    // background: #fff;
   }
 
   .@{stepsPrefixCls}-head-inner {
@@ -202,7 +202,7 @@
     margin-bottom: 4px;
     color: #666;
     font-weight: bold;
-    background: #fff;
+    // background: #fff;
     display: inline-block;
     padding-right: 10px;
     > a:first-child:last-child {
@@ -360,7 +360,7 @@
 
 .@{stepsPrefixCls}-horizontal {
    &.@{stepsPrefixCls}-hidden {
-     vertical-align: hidden;
+     visibility: hidden;
   }
   .@{stepsPrefixCls}-description {
     max-width: 100px;
@@ -373,7 +373,10 @@
 
 .@{stepsPrefixCls}-label-vertical {
   .@{stepsPrefixCls}-tail {
-    padding: 0 32px;
+    // padding: 0 32px;
+    left: 32px;
+    right: 12px;
+    width: auto;
   }
   .@{stepsPrefixCls}-item {
     .@{stepsPrefixCls}-step {
@@ -387,7 +390,7 @@
   }
   .@{stepsPrefixCls}-head {
     display: inline-block;
-    padding-right: 10px;
+    // padding-right: 10px;
     &-inner {
       margin: 0 auto;
     }

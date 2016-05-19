@@ -27,33 +27,3 @@ english: Carousel
 | afterChange       | 切换面板的回调                              | function(current)  | 无
 
 更多参数可参考：https://github.com/akiran/react-slick
-
-<style>
-.demo-preview-wrapper .demo-preview-scroller * {
-    box-sizing: border-box;
-}
-.am-carousel .slick-slide {
-  text-align: center;
-  height: 120px;
-  line-height: 120px;
-  background: #71B5DE;
-  color: #fff;
-  overflow: hidden;
-}
-.variable-width .slick-slide p, h3 {
-  background: #71B5DE;
-  color: #fff;
-  text-align: center;
-}
-.variable-width .slick-slide p {
-  height: 352px;
-  margin: 0px 10px;
-  line-height: 352px;
-}
-h3 {
-  height: 120px;
-}
-#components-carousel-demo-vertical .am-carousel {
-  margin-right: 35px;
-}
-</style>

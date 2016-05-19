@@ -5,8 +5,11 @@ title: 竖直方向的步骤条
 
 简单的竖直方向的步骤条。
 
+---
+
+
 ````jsx
-import { Steps } from 'antm';
+import { Steps, WingBlank, WhiteSpace } from 'antm';
 const Step = Steps.Step;
 
 const steps = [{
@@ -23,6 +26,12 @@ const steps = [{
   description: '这里是信息的描述'
 }].map((s, i) => <Step key={i} title={s.title} description={s.description} />);
 
-ReactDOM.render(<Steps direction="vertical" current={1}>{steps}</Steps>,
-  mountNode);
+ReactDOM.render(
+  <div className="stepsExample">
+    <WhiteSpace mode={20} />
+    <WingBlank mode={20}>
+      <Steps direction="vertical" current={1}>{steps}</Steps>
+    </WingBlank>
+  </div>
+, mountNode);
 ````

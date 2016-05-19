@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 title: 基本
 ---
 
@@ -22,3 +22,27 @@ ReactDOM.render(
   </Carousel>
 , mountNode);
 ````
+
+<style>
+.am-carousel .slick-slide {
+  text-align: center;
+  height: 120px;
+  line-height: 120px;
+  background: #71B5DE;
+  color: #fff;
+  overflow: hidden;
+}
+h3 {
+  height: 120px;
+}
+.am-carousel-card .slick-slide p, h3 {
+  background: #71B5DE;
+  color: #fff;
+  text-align: center;
+}
+.am-carousel-card .slick-slide p {
+  height: 152px;
+  margin: 0px 10px;
+  line-height: 152px;
+}
+</style>

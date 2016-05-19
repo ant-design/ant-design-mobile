@@ -40,7 +40,7 @@ export default class ComponentDoc extends React.Component {
     codeExpandList[index] = type;
 
     this.setState({
-      codeExpandList: codeExpandList
+      codeExpandList
     });
   }
 
@@ -101,7 +101,7 @@ export default class ComponentDoc extends React.Component {
     const currentIndex = this.state.currentIndex;
 
     const leftChildren = [];
-    const rightChildren = [];
+    let rightChildren = null;
 
     const demoSort = demos.sort((a, b) => {
       return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
@@ -117,12 +117,14 @@ export default class ComponentDoc extends React.Component {
           key={index}
           expand={expand} pathname={location.pathname} />
       );
-
-      rightChildren.push(
-        <DemoPreview {...demoData} className={index === currentIndex ? 'show' : 'hide'}
-          key={ `preview-${index}` } />
-      );
     });
+
+    let rightDemoData = demoSort[currentIndex];
+    rightDemoData.index = currentIndex;
+
+    rightChildren = (
+      <DemoPreview {...rightDemoData} key={ `preview-${currentIndex}`} className="show" />
+    );
 
     return (
       <article>

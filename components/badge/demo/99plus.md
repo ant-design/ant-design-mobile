@@ -21,3 +21,15 @@ ReactDOM.render(
   </div>
 , mountNode);
 ````
+
+````css
+.head-example {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 140, 101, 0.15);
+  display: inline-block;
+}
+.am-badge {
+  margin-right: 8px;
+}
+````
