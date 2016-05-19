@@ -36,6 +36,7 @@
   "license": "MIT",
   "dependencies": {
     "array-tree-filter": "^1.0.0",
+    "babel-polyfill": "^6.9.0",
     "classnames": "~2.2.1",
     "css-animation": "~1.2.3",
     "gregorian-calendar": "~4.1.0",
