@@ -18,10 +18,11 @@ https://github.com/airbnb/javascript
 2. react-native 没有的组件, 参考 antd
 3. antd 也没有的, 发 issue 讨论
 
-### 组件规范
 
 组件名以 `-` 分割, 例如 `date-picker`,文件后缀名统一为 `.js`
 
+
+### web 组件规范
 
 components/button/index.js
 
@@ -61,11 +62,66 @@ components/button/style/index.less
 }
 ```
 
+### react-native 组件规范
+
+components/button/index.ios.js
+
+```
+import React, { View, StyleSheet } from 'react-native';
+
+// 可独立到 components/button/style/index.ios.js
+const styles = StyleSheet.create({
+  button: {
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+  },
+});
+
+class Button extends React.Component {
+  render() {
+    return (<View style={[styles.button]}>
+      {this.props.children}
+    </View>);
+  }
+}
+
+export default Button;
+
+```
+
+components/button/index.android.js
+
+```
+module.exports = require('./index.ios');
+```
+
+components/button/demo/basic.js
+
+```
+import { Button } from 'antm';
+import React, { AppRegistry, Text, View } from 'react-native';
+
+
+class BasicButtonExample extends React.Component {
+  render() {
+    return <Button><Text>basic button</Text></Button>;
+  }
+}
+
+AppRegistry.registerComponent('basic', () => BasicButtonExample);
+```
+
 ## 开发流程
 
 ```
 npm install tnpm@release-3 -g --registry=http://registry.npm.alibaba-inc.com
-tnpm install
+tnpm install`
+```
+
+### web 流程
+
+```
 npm start
 ```
 
@@ -78,6 +134,24 @@ COMPONENT_STYLE=button npm start
 pc 版: http://localhost:8001/
 
 mobile 版: http://localhost:8001/kitchen-sink.html
+
+### react-native 流程
+
+
+```
+npm run rn-start
+```
+
+iphone 手机安装
+
+http://gitlab.alibaba-inc.com/animajs-rn/RNPlayground/tree/master
+
+使用 RNPlayground 扫码访问
+
+```
+http://ip:8081/components/button/demo/basic.bundle?platform=ios
+```
+
 
 ### 提交代码
 
