@@ -24,7 +24,7 @@ https://github.com/airbnb/javascript
 
 ### web 组件规范
 
-components/button/index.js
+components/button/index.web.js
 
 ```js
 import React from 'react';
@@ -43,7 +43,7 @@ class Button extends React.Component {
 export default Button;
 ```
 
-components/button/style/index.js
+components/button/style/index.web.js
 
 ```js
 import '../../style/';
