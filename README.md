@@ -149,7 +149,7 @@ http://gitlab.alibaba-inc.com/animajs-rn/RNPlayground/tree/master
 使用 RNPlayground 扫码访问
 
 ```
-http://ip:8081/components/button/demo/basic.bundle?platform=ios
+http://ip:8081/components/button/demo/basic.rn.bundle?platform=ios
 ```
 
 
