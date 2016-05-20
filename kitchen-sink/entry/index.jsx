@@ -5,10 +5,8 @@ import { createHashHistory } from 'history';
 // useRouterHistory creates a composable higher-order function
 const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
-import '../common/lib';
-import App from './App';
+import App from '../components/App';
 import demosList from '../../_data/demos-list';
-
 
 if((/iphone|ipad/i).test(navigator.userAgent)) {
   if ('addEventListener' in document) {

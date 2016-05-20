@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Flex } from 'antm';
-import Page from '../common/Page';
-import Item from '../common/Item';
+import Page from './Page';
+import Item from './Item';
 
 const hashImgObj = {
   actionsheet: 'IptWdCkrtkAUfjE',
