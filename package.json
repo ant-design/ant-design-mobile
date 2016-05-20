@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
   },
-  "version": "0.5.0",
+  "version": "0.6.0",
   "title": "AntD Mobile",
   "description": "基于React的AntD Mobile",
   "homepage": "http://antm.alipay.net/",
