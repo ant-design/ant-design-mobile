@@ -96,7 +96,7 @@ components/button/index.android.js
 module.exports = require('./index.ios');
 ```
 
-components/button/demo/basic.js
+components/button/demo/basic.rn.js
 
 ```
 import { Button } from 'antm';
