@@ -137,21 +137,39 @@ mobile 版: http://localhost:8001/kitchen-sink.html
 
 ### react-native 流程
 
-
 ```
 npm run rn-start
 ```
 
-iphone 手机安装
+#### 模拟器
 
-http://gitlab.alibaba-inc.com/animajs-rn/RNPlayground/tree/master
+clone 运行
+
+```
+https://github.com/react-component/RNPlayground
+```
+
+复制
+
+```
+http://localhost:8081/components/button/demo/basic.rn.bundle?platform=ios
+```
+
+到输入框, 确定回车.
+
+#### 真机调试
+
+本地 iphone 手机安装
+
+```
+https://github.com/react-component/RNPlayground
+```
 
 使用 RNPlayground 扫码访问
 
 ```
 http://ip:8081/components/button/demo/basic.rn.bundle?platform=ios
 ```
-
 
 ### 提交代码
 
