@@ -19,20 +19,32 @@
 <script src="./kitchen-sink.js"></script>
 <script type="text/javascript">
 
-function getQueryString(name) {  
-  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
-  var r = window.location.search.substr(1).match(reg);  
-  if (r != null) return unescape(r[2]); return null;  
-} 
+function getQueryString(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+  var r = window.location.search.substr(1).match(reg);
+  if (r != null) return unescape(r[2]); return null;
+}
 
 var demos = document.getElementsByClassName('demo-preview-item');
 if(getQueryString('iframeDemo')) {
-  showDemo(0);  
+  showDemo(0);
 }
 
-function showDemo(index) {   
+function showDemo(index) {
+  let demoSort;
+  const path = location.hash.split('/')[1];
+  Object.keys(window.demosList).forEach(i => {
+    if (path === i.split('/')[1]) {
+      demoSort = window.sortFn(window.demosList[i]);
+    }
+  });
+  let customNavBar = window.react.cloneElement(window.navbar, {}, `${path}-${demoSort[index].meta.title}`);
+  if (demoSort && demoSort[index].preview.type.customNavBar) {
+    customNavBar = demoSort[index].preview.type.customNavBar;
+  }
+  window['react-dom'].render(customNavBar, document.getElementById('demoNavbar'));
   for (var i = 0; i < demos.length; i++ ) {
-    demos[i].style.display = 'none';	
+    demos[i].style.display = 'none';
   }
   demos[index].style.display = 'block';
 }

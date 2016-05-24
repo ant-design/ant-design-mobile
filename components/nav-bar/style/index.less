@@ -1,0 +1,20 @@
+@import '../../style/mixins';
+@import '../../style/variables.less';
+
+@navbarPrefixCls: am-navbar;
+.@{navbarPrefixCls} {
+  .display-box;
+  .box-align;
+  background-color: #000;
+  color: #fff;
+  padding: 2 * @grid 4 * @grid;
+  &-left {
+    &-icon {
+      margin-right: 2 * @grid;
+    }
+  }
+  &-title {
+    .box-flex(1);
+    text-align: center;
+  }
+}

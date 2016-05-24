@@ -8,7 +8,7 @@ Button
 ---
 
 ````jsx
-import { Button, WingBlank, WhiteSpace } from 'antm';
+import { Button, WingBlank, WhiteSpace, NavBar } from 'antm';
 
 const ButtonExample = React.createClass({
   getInitialState() {
@@ -16,17 +16,19 @@ const ButtonExample = React.createClass({
       dark: false,
     };
   },
+  switchDark() {
+    this.setState({ dark: !this.state.dark });
+    window['react-dom'].render(ButtonExample.customNavBar, document.getElementById('demoNavbar'));
+  },
   render() {
+    ButtonExample.customNavBar = (<NavBar rightContent={<Button type="primary" size="small" inline
+      onClick={this.switchDark}
+    >{`点击切换：${this.state.dark ? '白天模式' : '夜间模式'}`}</Button>}>基本</NavBar>);
+
     return (
       <div className="button-container"
         style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
       >
-        <WhiteSpace />
-        <WingBlank>
-          <Button type="primary" size="small" inline
-            onClick={() => { this.setState({ dark: !this.state.dark }); }}
-          >{`点击切换：${this.state.dark ? '白天模式' : '夜间模式'}`}</Button>
-        </WingBlank>
         <WhiteSpace />
         <WingBlank>
           <Button type="primary">primary按钮</Button>
