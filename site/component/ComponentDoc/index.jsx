@@ -93,7 +93,7 @@ export default class ComponentDoc extends React.Component {
 
     const path = doc.meta.fileName.split('/')[1];
 
-    const demoUrl = `http://antm.alipay.net/kitchen-sink.html#/${path}`;
+    const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink.html#/${path}`;
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
