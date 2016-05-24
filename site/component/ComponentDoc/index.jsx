@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col, Button, Icon, Popover } from 'antd';
 import Demo from '../Demo';
-import DemoPreview from '../DemoPreview';
 import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';
 
@@ -20,6 +19,7 @@ export default class ComponentDoc extends React.Component {
   }
 
   componentWillReceiveProps() {
+    window.demoFrame.window.showDemo(0);
     this.setState({
       currentIndex: 0,
     });
@@ -51,18 +51,21 @@ export default class ComponentDoc extends React.Component {
   }
 
   togglePreview = (e) => {
+    window.demoFrame.window.showDemo(e.index);
     this.setState({
       currentIndex: e.index,
     });
   }
 
   nextPreview = () => {
+    window.demoFrame.window.showDemo(this.state.currentIndex + 1);
     this.setState({
       currentIndex: this.state.currentIndex + 1,
     });
   }
 
   prePreview = () => {
+    window.demoFrame.window.showDemo(this.state.currentIndex - 1);
     this.setState({
       currentIndex: this.state.currentIndex - 1,
     });
@@ -88,7 +91,9 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = this.props;
     const { description, meta } = doc;
 
-    const demoUrl = `http://antm.alipay.net/kitchen-sink.html#/${meta.english.toLowerCase().replace(/\s+/g, '')}`;
+    const path = doc.meta.fileName.split('/')[1];
+
+    const demoUrl = `http://antm.alipay.net/kitchen-sink.html#/${path}`;
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
@@ -119,11 +124,14 @@ export default class ComponentDoc extends React.Component {
       );
     });
 
-    let rightDemoData = demoSort[currentIndex];
-    rightDemoData.index = currentIndex;
+    let iframeUrl = `/kitchen-sink.html?iframeDemo=true#/${path}`;
 
     rightChildren = (
-      <DemoPreview {...rightDemoData} key={ `preview-${currentIndex}`} className="show" />
+      <section className="code-box code-box-preview">
+        <section className="code-box-demo code-box-demo-preview">
+          <iframe id="demoFrame" name="demoFrame" style={{ width: '349px', height: '554px' }} src={ iframeUrl } />
+        </section>
+      </section>
     );
 
     return (

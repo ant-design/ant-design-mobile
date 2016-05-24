@@ -19,13 +19,20 @@ window.scrolltopNumber = 0;
 
 
 function createComponent(demos, path) {
+  const demoSort = demos.sort((a, b) => {
+    return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
+  });
   return React.createClass({
     render() {
       return (<div id={path}>
-        <h3>{path}</h3>
-        {demos.map((i, index) => {
-          return (<div id={`${path}-demo-${index}`} key={index}>
+        {demoSort.map((i, index) => {
+          return (<div className={`demo-preview-item demo-preview-item-${index}`} id={`${path}-demo-${index}`} key={index}>
             {i.preview}
+            {
+            !!i.style ?
+            <style dangerouslySetInnerHTML={{ __html: i.style }} /> :
+            null
+            }
           </div>);
         })}
       </div>);
