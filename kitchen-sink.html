@@ -17,4 +17,24 @@
 </body>
 <!--<script src="https://a.alipayobjects.com/static/fastclick/1.0.6/fastclick.min.js"></script>-->
 <script src="./kitchen-sink.js"></script>
+<script type="text/javascript">
+
+function getQueryString(name) {  
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+  var r = window.location.search.substr(1).match(reg);  
+  if (r != null) return unescape(r[2]); return null;  
+} 
+
+var demos = document.getElementsByClassName('demo-preview-item');
+if(getQueryString('iframeDemo')) {
+  showDemo(0);  
+}
+
+function showDemo(index) {   
+  for (var i = 0; i < demos.length; i++ ) {
+    demos[i].style.display = 'none';	
+  }
+  demos[index].style.display = 'block';
+}
+</script>
 </html>
