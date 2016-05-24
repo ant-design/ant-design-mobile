@@ -26,4 +26,4 @@ class BasicWhiteSpaceExample extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('basic', () => BasicWhiteSpaceExample);
+AppRegistry.registerComponent('basic.rn', () => BasicWhiteSpaceExample);

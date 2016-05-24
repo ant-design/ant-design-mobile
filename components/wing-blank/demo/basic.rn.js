@@ -31,4 +31,4 @@ class BasicWingBlankExample extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('basic', () => BasicWingBlankExample);
+AppRegistry.registerComponent('basic.rn', () => BasicWingBlankExample);
