@@ -1,7 +1,6 @@
 import React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import assign from 'object-assign';
 
 export default class Modal extends React.Component {
   static defaultProps = {
@@ -28,13 +27,15 @@ export default class Modal extends React.Component {
     let maskAnim = maskAnimation || (animated ? 'slide' : null);
 
     // transparent 模式下, 内容默认居中
-    const rootStyle = assign({}, transparent ? {
+    const rootStyle = transparent ? {
       width: '286px',
-      height: 'auto'
+      height: 'auto',
+      ...style,
     } : {
       width: '100%',
-      height: '100%'
-    }, style);
+      height: '100%',
+      ...style,
+    };
 
     return (
       <Dialog

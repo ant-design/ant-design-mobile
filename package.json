@@ -35,13 +35,11 @@
   "license": "MIT",
   "dependencies": {
     "array-tree-filter": "^1.0.0",
-    "babel-polyfill": "^6.9.0",
     "classnames": "~2.2.1",
     "css-animation": "~1.2.3",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.0.4",
     "normalize.css": "~4.0.0",
-    "object-assign": "~4.0.1",
     "rc-animate": "~2.0.3",
     "rc-checkbox": "~1.3.4",
     "rc-collapse": "~1.6.3",
@@ -59,6 +57,7 @@
     "rmc-picker": "~2.5.0"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.9.0",
     "rn-core": "0.3.x",
     "rn-packager": "0.3.x",
     "antd": "1.0.x",

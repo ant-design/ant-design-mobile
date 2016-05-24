@@ -2,14 +2,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
-import assign from 'object-assign';
 
 let closeFn = () => {};
 
 function create(instanceId, config, content, afterClose = closeFn) {
-  const props = assign({
+  const props = {
     prefixCls: 'am-dropdown',
-  }, config);
+    ...config,
+  };
   const { prefixCls, transitionName, maskTransitionName, maskClosable = true } = props;
 
   let div = document.createElement('div');

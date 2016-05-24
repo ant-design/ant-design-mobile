@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import Icon from '../icon';
 
 const NORMAL = 'NORMAL';
@@ -11,9 +10,10 @@ const SHARE = 'SHARE';
 let closeFn = () => {};
 
 function createActionSheet(flag, config, callback) {
-  const props = assign({
+  const props = {
     prefixCls: 'am-action-sheet',
-  }, config);
+    ...config,
+  };
   const { prefixCls, transitionName, maskTransitionName, maskClosable = true } = props;
 
   let div = document.createElement('div');
