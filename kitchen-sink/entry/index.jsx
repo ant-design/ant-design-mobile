@@ -52,7 +52,12 @@ function createComponent(demos, path) {
     },
 
     getNavBar(index) {
-      let customNavBar = <NavBar iconName={false}>
+      let home = '';
+      if (self === top) {
+        // 不在 iframe 里
+        home = <a href="/kitchen-sink.html">首页</a>
+      }
+      let customNavBar = <NavBar iconName={false} leftContent={home}>
         {
         demoSort.length > 1 ?
         <span onClick={this.showActionSheet}>
