@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9178570a3a28c95fabd3bc746cd68efe99ad2b47">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-2a5c6a8f9e429d87e61522a1f0d00b31e22b5e9a.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho/1.2.0/1d6cdb8ce8185b8b23213fad48a83987fb6d2d67/stetho-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1d6cdb8ce8185b8b23213fad48a83987fb6d2d67">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/stetho-1.2.0-d2e7c8d91768974e96357eab08c3c4e122cd5c16.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="845a5b3a624946b2068963ba656c117fc453701c">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-45e634a27a86f8014ae25c38e2d645e889ecedcb.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2c06af8f68934cbbbc1153a5ab0064483e6ac692">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-1959b884ffeb6438db832f92268d18923906b77f.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/okio-1.6.0-a75ebe8decaf9aed478ad6b2ddddde86b7393374.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/library-2.4.0-4074275f16bda0b8143df55319eb6d7f97655c08.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.3/1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14/jackson-core-2.2.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.3-63dfa8c4f82ea0b35cb48a15ec03c87400b00ae0.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4af24c040b21980e0a80a505816c648e36705bd9">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-84786a6ebed5f4eed79ebea797cee7cfe595d410.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-91c75e9447647d54eea14d8ba4c03ba8b8b51e6b.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-01d59b8c2a213c7f905637756ef52f658109586e.jar" />
+    </item>
+    <item
+        jar="/usr/local/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-83cbd8867bbfafb64844edcdc4bcc0a8099d3359.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-f6fd4bdbb8a11b2304a5702ec4a87eda13ed9e5a.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-cb906b7f9c5d0b6ff7155100b3794e01d2b3f06a.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ffc64da9d9261e18ebc8b5e814f3d6a39aa6cbbe">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5-72463cd17458f1d9e509f8f6d15fb34d55150eda.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3836ecca4e31e18ea8fbae8e822d49777b0db4f7">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-0c12552089265e5047db91248cff7ea8867e9c37.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0d5d69b03cb7d68b81543f6483ed04ccb0e2235b">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-737abba294dc01a056aef32396d60c0fe614a562.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0-3fe87c9de37099b4eb688e69a91a6e0a95a8bdde.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.5.0/4de2b4ed3445c37ec1720a7d214712e845a24636/okhttp-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/okhttp-2.5.0-560b0349b3b5bb270081c0493762fc48c00c63c3.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/classes-afb3b7ac35891f58b821442eb7b18b8b55ef4f46.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-ws/2.5.0/e9753b7dcae5deca92e871c5c759067070b07bc/okhttp-ws-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0e9753b7dcae5deca92e871c5c759067070b07bc">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-2.5.0-10547b063b696cf18d7b0bc5167c56fba7459669.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho-okhttp/1.2.0/6c5c9380e245c4ff5be2b2a49dcbb0200c39798e/stetho-okhttp-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6c5c9380e245c4ff5be2b2a49dcbb0200c39798e">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/stetho-okhttp-1.2.0-835b01ea132e9034c18bcebec31e2a16f04dcded.jar" />
+    </item>
+    <item
+        jar="/Users/silentcloud/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="/Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/pre-dexed/debug/commons-cli-1.2-5c63d68b867708e4001e31b5097451ff3b2b0472.jar" />
+    </item>
+
+</items>

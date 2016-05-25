@@ -57,9 +57,6 @@
     "rmc-picker": "~2.5.0"
   },
   "devDependencies": {
-    "babel-polyfill": "^6.9.0",
-    "rn-core": "0.3.x",
-    "rn-packager": "0.3.x",
     "antd": "1.0.x",
     "antd-tools": "~0.7.0",
     "babel-eslint": "^6.0.4",
@@ -78,26 +75,27 @@
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
     "lesshint": "1.x",
+    "lodash.debounce": "^4.0.6",
     "object-assign": "~4.0.1",
     "pre-commit": "1.x",
     "promise": "~7.0.4",
     "qrcode.react": "^0.6.1",
     "querystring": "^0.2.0",
     "rc-form": "^0.10.x",
+    "rc-queue-anim": "^0.11.9",
     "rc-scroll-anim": "~0.2.8",
     "rc-tween-one": "~0.3.0",
-    "react": "^15.0.0",
-    "react-addons-test-utils": "^15.0.0",
+    "react": "~0.14.5",
+    "react-dom": "~0.14.5",
+    "react-native": "~0.25.0",
+    "react-addons-test-utils": "~0.14.5",
     "react-copy-to-clipboard": "^4.0.1",
-    "react-dom": "^15.0.0",
     "react-github-button": "^0.1.1",
     "react-router": "^2.0.0",
     "react-stateless-wrapper": "~1.0.2",
     "react-sublime-video": "0.1.0-beta",
     "reqwest": "~2.0.5",
-    "values.js": "^1.0.3",
-    "lodash.debounce": "^4.0.6",
-    "rc-queue-anim": "^0.11.9"
+    "values.js": "^1.0.3"
   },
   "scripts": {
     "lint": "npm run srclint && npm run demolint && npm run lesshint",
@@ -112,11 +110,13 @@
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
     "start": "antd-tools run start",
-    "rn-start":"rnpackager start",
     "site": "antd-tools run site",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
-    "pub": "antd-tools run update-self && NPM_CLI=tnpm PUBLISH_NPM_CLI=tnpm antd-tools run pub || node scripts/post-publish"
+    "pub": "antd-tools run update-self && NPM_CLI=tnpm PUBLISH_NPM_CLI=tnpm antd-tools run pub || node scripts/post-publish",
+    "rn-start": "node node_modules/react-native/local-cli/cli.js start",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path rn-kitchen-sink/ios",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android --root rn-kitchen-sink"
   },
   "config": {
     "port": 8001

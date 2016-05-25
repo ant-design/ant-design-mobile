@@ -1,7 +1,7 @@
 import { Button } from 'antm';
-import React, { AppRegistry, View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 
-// entry file is independent
 class BasicButtonExample extends React.Component {
   render() {
     return (
@@ -31,5 +31,3 @@ class BasicButtonExample extends React.Component {
 exports.title = 'Button';
 exports.description = 'button example';
 exports.demo = BasicButtonExample;
-
-AppRegistry.registerComponent('basic.rn', () => BasicButtonExample);

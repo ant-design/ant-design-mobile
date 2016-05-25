@@ -1,4 +1,5 @@
-import React, { AppRegistry, View, Text } from 'react-native';
+import React from 'react';
+import { View, Text } from 'react-native';
 import { WhiteSpace, WingBlank } from 'antm';
 
 const variables = require('../../style/variables');
@@ -31,4 +32,6 @@ class BasicWingBlankExample extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('basic.rn', () => BasicWingBlankExample);
+exports.title = 'WingBlank';
+exports.description = 'Basic WingBlank Example';
+exports.demo = BasicWingBlankExample;
