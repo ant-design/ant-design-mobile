@@ -6,7 +6,8 @@ export default class NavBar extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     children: PropTypes.any,
-    iconName: PropTypes.string,
+    mode: PropTypes.oneOf(['dark', 'light']),
+    iconName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     leftContent: PropTypes.any,
     rightContent: PropTypes.any,
     onLeftClick: PropTypes.func,
@@ -14,24 +15,28 @@ export default class NavBar extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-navbar',
+    mode: 'dark',
     iconName: 'left',
     onLeftClick: () => {},
   }
 
   render() {
-    const { prefixCls, children, className, leftContent, rightContent, onLeftClick, ...other } = this.props;
+    const { prefixCls, children, mode, className, iconName, leftContent, rightContent, onLeftClick, ...other } = this.props;
     const wrapCls = classNames({
       [className]: className,
       [prefixCls]: true,
+      [`${prefixCls}-${mode}`]: true,
     });
     return (
       <div {...other} className={wrapCls}>
         <div className={`${prefixCls}-left`} onClick={onLeftClick}>
-          <span className={`${prefixCls}-left-icon`}><Icon type="left" /></span>
+          {iconName ? <span className={`${prefixCls}-left-icon`}><Icon type={iconName} /></span> : null}
           <span className={`${prefixCls}-left-content`}>{leftContent}</span>
         </div>
         <div className={`${prefixCls}-title`}>{children}</div>
-        <div className={`${prefixCls}-right`}>{rightContent}</div>
+        <div className={`${prefixCls}-right`}>
+          {rightContent}
+        </div>
       </div>
     );
   }

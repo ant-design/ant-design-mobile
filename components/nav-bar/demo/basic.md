@@ -1,19 +1,29 @@
 ---
 order: 0
-title: 展示
+title: mode
 ---
 
-NavBar
+模式
 
 ---
 
 ````jsx
-import { NavBar, Button } from 'antm';
+import { NavBar, Icon, WingBlank, WhiteSpace } from 'antm';
 ReactDOM.render(
-  <div style={{ margin: 10 }}>
-    <NavBar leftContent="返回"
-      rightContent={<Button size="small" onClick={() => {}}>操作</Button>}
-    >NavBar</NavBar>
+  <div>
+    <WhiteSpace />
+    <WingBlank>
+      <NavBar leftContent="返回"
+        rightContent={[<Icon key="0" type="user" />, <Icon key="1" type="search" />, <Icon key="2" type="plus" />]}
+      >NavBar</NavBar>
+    </WingBlank>
+    <WhiteSpace />
+    <WingBlank>
+      <NavBar leftContent="返回" mode="light"
+        rightContent={[<Icon key="0" type="user" />, <Icon key="1" type="search" />, <Icon key="2" type="plus" />]}
+      >NavBar</NavBar>
+    </WingBlank>
+    <Icon type="ellipsis" />
   </div>
 , mountNode);
 ````
