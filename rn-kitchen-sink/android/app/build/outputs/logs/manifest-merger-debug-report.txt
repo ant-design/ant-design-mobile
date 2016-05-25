@@ -1,0 +1,104 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:1:1-30:12
+	package
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:2:5-25
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:4:5-30
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:6:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:7:5-77
+MERGED from [com.facebook.react:react-native:0.20.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:7:22-75
+uses-sdk
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:9:5-11:41
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.react:react-native:0.20.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fresco:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.fresco:fbcore:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.fresco:imagepipeline-okhttp:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.fresco:fbcore:0.8.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:11:9-38
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:10:9-35
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml
+application
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:13:5-28:19
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.react:react-native:0.20.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [org.webkit:android-jsc:r174650] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/org.webkit/android-jsc/r174650/AndroidManifest.xml:2:3-17
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:15:7-39
+	android:allowBackup
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:14:7-33
+	android:icon
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:16:7-41
+	android:theme
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:17:7-38
+activity#com.rndemo.MainActivity
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:18:7-26:18
+	android:label
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:20:9-41
+	android:configChanges
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:21:9-79
+	android:name
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:19:9-37
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:22:9-25:25
+action#android.intent.action.MAIN
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:23:13-65
+	android:name
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:23:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:24:13-73
+	android:name
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:24:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:27:7-84
+	android:name
+		ADDED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:27:17-81
+android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:1:1-30:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+android:uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:1:1-30:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /Users/silentcloud/Workspace/ant-mobile/rndemo/android/app/src/main/AndroidManifest.xml:1:1-30:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

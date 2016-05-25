@@ -1,4 +1,3 @@
-require('babel-polyfill');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Redirect, useRouterHistory } from 'react-router';
@@ -42,6 +41,37 @@ if (!location.port) {
     ga('send', 'pageview', loc.pathname + loc.search);
   });
   /* eslint-enable */
+}
+
+/* eslint no-extend-native: 0 */
+if (!Array.prototype.find) {
+  Object.defineProperty(Array.prototype, 'find', {
+    enumerable: false,
+    configurable: true,
+    writable: true,
+    value: function (predicate, ...args) {
+      if (this === null) {
+        throw new TypeError('Array.prototype.find called on null or undefined');
+      }
+      if (typeof predicate !== 'function') {
+        throw new TypeError('predicate must be a function');
+      }
+      const list = Object(this);
+      const length = list.length >>> 0;
+      const thisArg = args[1];
+      let value;
+
+      for (let i = 0; i < length; i++) {
+        if (i in list) {
+          value = list[i];
+          if (predicate.call(thisArg, value, i, list)) {
+            return value;
+          }
+        }
+      }
+      return undefined;
+    }
+  });
 }
 
 ReactDOM.render(
