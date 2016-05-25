@@ -26,7 +26,8 @@ function createComponent(demos, path) {
       return {
         current: this.props.params.index,
         customNavBar: null,
-      }
+        NavBarChange: false,
+      };
     },
 
     showActionSheet() {
@@ -43,9 +44,9 @@ function createComponent(demos, path) {
         maskClosable: true,
       },
       (buttonIndex) => {
-        this.setState({ 
+        this.setState({
           current: buttonIndex,
-          customNavBar: this.getNavBar(buttonIndex), 
+          customNavBar: this.getNavBar(buttonIndex),
         });
       });
     },
@@ -54,24 +55,31 @@ function createComponent(demos, path) {
       let customNavBar = <NavBar iconName={false}>
         {
         demoSort.length > 1 ?
-        <span onClick={this.showActionSheet}> 
+        <span onClick={this.showActionSheet}>
           { `${demoSort[index].meta.title}` }  <Icon type="down" />
-        </span> : 
+        </span> :
         <span>
-        { `${demoSort[index].meta.title}` }  
+        { `${demoSort[index].meta.title}` }
         </span>
         }
       </NavBar>;
       if (demoSort && demoSort[index].preview.type.customNavBar) {
         customNavBar = demoSort[index].preview.type.customNavBar;
-      }  
+      }
       return customNavBar;
     },
     componentWillReceiveProps(nextProps) {
       this.setState({
         current: nextProps.params.index,
-        customNavBar: this.getNavBar(nextProps.params.index) 
+        customNavBar: this.getNavBar(nextProps.params.index)
       })
+    },
+    componentDidUpdate(prevProps, prevState) {
+      if (prevState.NavBarChange === !this.state.NavBarChange) {
+        this.setState({
+          customNavBar: this.getNavBar(this.state.current),
+        });
+      }
     },
     componentDidMount() {
       const current = this.state.current;
@@ -86,9 +94,11 @@ function createComponent(demos, path) {
           { this.state.customNavBar }
         </div>
         {demoSort.map((i, index) => {
-          return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' } 
+          return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' }
             id={`${path}-demo-${index}`} key={index} style={{ height: '520px', overflowY: 'scroll' }}>
-            {i.preview}
+            {React.cloneElement(i.preview, {
+              onNavBarChange: () => { console.log('ccc', this); this.setState({ NavBarChange: !this.state.NavBarChange }); },
+            })}
             {
             !!i.style ?
             <style dangerouslySetInnerHTML={{ __html: i.style }} /> :

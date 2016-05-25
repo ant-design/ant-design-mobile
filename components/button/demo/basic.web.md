@@ -18,6 +18,7 @@ const ButtonExample = React.createClass({
   },
   switchDark() {
     this.setState({ dark: !this.state.dark });
+    this.props.onNavBarChange();
   },
   render() {
     ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<Button size="small" inline
