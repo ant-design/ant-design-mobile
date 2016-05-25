@@ -30,11 +30,23 @@ window.sortFn = demos => demos.sort((a, b) => {
 function createComponent(demos, path) {
   const demoSort = window.sortFn(demos);
   return React.createClass({
+    getInitialState() {
+      return {
+        current: this.props.params.index
+      }
+    },
+    componentWillReceiveProps(nextProps) {
+      this.setState({
+        current: nextProps.params.index  
+      })
+    },
     render() {
+      const current = this.state.current;
       return (<div id={path}>
         <div id="demoNavbar"></div>
         {demoSort.map((i, index) => {
-          return (<div className={`demo-preview-item demo-preview-item-${index}`} id={`${path}-demo-${index}`} key={index}>
+          return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' } 
+            id={`${path}-demo-${index}`} key={index}>
             {i.preview}
             {
             !!i.style ?
@@ -52,7 +64,9 @@ const pageRouter = (
   <Router history={hashHistory}>
     {[<Route key="app" path="/" component={App} />, ...Object.keys(demosList).map((i, index) => {
       const path = i.split('/')[1];
-      return (<Route key={index} path={`/${path}`} component={createComponent(demosList[i], path)} />);
+      return (<Route key={index} path={`/${path}`} component={createComponent(demosList[i], path)}>
+          <Route path=":index" />
+        </Route>);
     })]}
   </Router>
 );

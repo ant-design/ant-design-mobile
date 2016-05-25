@@ -19,7 +19,6 @@ export default class ComponentDoc extends React.Component {
   }
 
   componentWillReceiveProps() {
-    window.demoFrame.window.showDemo(0);
     this.setState({
       currentIndex: 0,
     });
@@ -51,21 +50,18 @@ export default class ComponentDoc extends React.Component {
   }
 
   togglePreview = (e) => {
-    window.demoFrame.window.showDemo(e.index);
     this.setState({
       currentIndex: e.index,
     });
   }
 
   nextPreview = () => {
-    window.demoFrame.window.showDemo(this.state.currentIndex + 1);
     this.setState({
       currentIndex: this.state.currentIndex + 1,
     });
   }
 
   prePreview = () => {
-    window.demoFrame.window.showDemo(this.state.currentIndex - 1);
     this.setState({
       currentIndex: this.state.currentIndex - 1,
     });
@@ -124,7 +120,7 @@ export default class ComponentDoc extends React.Component {
       );
     });
 
-    let iframeUrl = `/kitchen-sink.html?iframeDemo=true#/${path}`;
+    let iframeUrl = `/kitchen-sink.html#/${path}/${currentIndex}`;
 
     rightChildren = (
       <section className="code-box code-box-preview">
