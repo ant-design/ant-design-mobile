@@ -36,20 +36,20 @@ function createComponent(demos, path) {
       })
 
       ActionSheet.showActionSheetWithOptions({
-      options: actionArr,
-      cancelButtonIndex: actionArr.length - 1,
-      title: '切换演示',
-      message: '点击可切换demo演示',
-      maskClosable: true,
-    },
-    (buttonIndex) => {
-      this.setState({ 
-        current: buttonIndex,
-        customNavBar: this.getNavBar(buttonIndex), 
+        options: actionArr,
+        cancelButtonIndex: actionArr.length - 1,
+        title: '切换演示',
+        message: '点击可切换demo演示',
+        maskClosable: true,
+      },
+      (buttonIndex) => {
+        this.setState({ 
+          current: buttonIndex,
+          customNavBar: this.getNavBar(buttonIndex), 
+        });
       });
-    });
-
     },
+
     getNavBar(index) {
       let customNavBar = <NavBar iconName={false}>
         {
