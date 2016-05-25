@@ -123,7 +123,7 @@ export default class ComponentDoc extends React.Component {
     rightChildren = (
       <section className="code-box code-box-preview">
         <section className="code-box-demo code-box-demo-preview">
-          <iframe id="demoFrame" name="demoFrame" style={{ width: '349px', height: '554px' }} src={ iframeUrl } />
+          <iframe id="demoFrame" name="demoFrame" style={{ width: '349px', height: '577px' }} src={ iframeUrl } />
         </section>
       </section>
     );
@@ -179,7 +179,7 @@ export default class ComponentDoc extends React.Component {
                       <img width="340px" style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
                     </div>
                   </div>
-                  <div className="demo-preview-scroller">
+                  <div className="demo-preview-scroller1">
                   { rightChildren }
                   </div>
                 </div>

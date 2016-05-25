@@ -20,9 +20,9 @@ const ButtonExample = React.createClass({
     this.setState({ dark: !this.state.dark });
   },
   render() {
-    ButtonExample.customNavBar = (<NavBar rightContent={<Button type="primary" size="small" inline
+    ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<Button size="small" inline
       onClick={this.switchDark}
-    >{`点击切换：${this.state.dark ? '白天模式' : '夜间模式'}`}</Button>}>基本</NavBar>);
+    >{this.state.dark ? '白天' : '夜间'}</Button>}>基本</NavBar>);
 
     return (
       <div className="button-container"

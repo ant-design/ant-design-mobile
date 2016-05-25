@@ -7,7 +7,7 @@ const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 import App from '../components/App';
 import demosList from '../../_data/demos-list';
-import { NavBar } from 'antm';
+import { NavBar, ActionSheet, Icon } from 'antm';
 
 if((/iphone|ipad/i).test(navigator.userAgent)) {
   if ('addEventListener' in document) {
@@ -16,19 +16,11 @@ if((/iphone|ipad/i).test(navigator.userAgent)) {
     }, false);
   }
 }
-window.scrolltopNumber = 0;
-
-window.react = React;
-window['react-dom'] = ReactDOM;
-
-window.navbar = <NavBar />;
-window.demosList = demosList;
-window.sortFn = demos => demos.sort((a, b) => {
-  return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
-});
 
 function createComponent(demos, path) {
-  const demoSort = window.sortFn(demos);
+  const demoSort = demos.sort((a, b) => {
+    return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
+  });
   return React.createClass({
     getInitialState() {
       return {
@@ -36,19 +28,55 @@ function createComponent(demos, path) {
         customNavBar: null,
       }
     },
+
+    showActionSheet() {
+      let actionArr = [];
+      demoSort.map((demo, index) =>{
+        actionArr[index] = demo.meta.title;
+      })
+
+      ActionSheet.showActionSheetWithOptions({
+      options: actionArr,
+      cancelButtonIndex: actionArr.length - 1,
+      title: '切换演示',
+      message: '点击可切换demo演示',
+      maskClosable: true,
+    },
+    (buttonIndex) => {
+      this.setState({ 
+        current: buttonIndex,
+        customNavBar: this.getNavBar(buttonIndex), 
+      });
+    });
+
+    },
+    getNavBar(index) {
+      let customNavBar = <NavBar iconName={false}>
+        {
+        demoSort.length > 1 ?
+        <span onClick={this.showActionSheet}> 
+          { `${demoSort[index].meta.title}` }  <Icon type="down" />
+        </span> : 
+        <span>
+        { `${demoSort[index].meta.title}` }  
+        </span>
+        }
+      </NavBar>;
+      if (demoSort && demoSort[index].preview.type.customNavBar) {
+        customNavBar = demoSort[index].preview.type.customNavBar;
+      }  
+      return customNavBar;
+    },
     componentWillReceiveProps(nextProps) {
       this.setState({
-        current: nextProps.params.index  
+        current: nextProps.params.index,
+        customNavBar: this.getNavBar(nextProps.params.index) 
       })
     },
     componentDidMount() {
       const current = this.state.current;
-      let customNavBar = <NavBar>{ `${path}-${demoSort[current].meta.title}` }</NavBar>;
-      if (demoSort && demoSort[current].preview.type.customNavBar) {
-        customNavBar = demoSort[current].preview.type.customNavBar;
-      }
       this.setState({
-        customNavBar, 
+        customNavBar: this.getNavBar(current),
       })
     },
     render() {
@@ -59,7 +87,7 @@ function createComponent(demos, path) {
         </div>
         {demoSort.map((i, index) => {
           return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' } 
-            id={`${path}-demo-${index}`} key={index}>
+            id={`${path}-demo-${index}`} key={index} style={{ height: '520px', overflowY: 'scroll' }}>
             {i.preview}
             {
             !!i.style ?

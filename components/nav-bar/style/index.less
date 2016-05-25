@@ -5,16 +5,40 @@
 .@{navbarPrefixCls} {
   .display-box;
   .box-align;
-  background-color: #000;
-  color: #fff;
   padding: 2 * @grid 4 * @grid;
+  background-color: @neutral-10;
+  color: @neutral-1;
+  &-light {
+    background-color: #fff;
+    color: @neutral-10;
+  }
   &-left {
+    .box-flex(1);
+    font-size: @font-size-5;
     &-icon {
       margin-right: 2 * @grid;
     }
   }
   &-title {
     .box-flex(1);
+    .ellipsis;
+    max-width: 80%;
     text-align: center;
+    font-size: @font-size-6;
+    line-height: @line-height-2;
+  }
+  &-right {
+    .box-flex(1);
+    font-size: @font-size-5;
+    text-align: right;
+    .anticon {
+      margin-right: 4 * @grid;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &-content {
+      margin-right: 4 * @grid;
+    }
   }
 }
