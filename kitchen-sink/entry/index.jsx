@@ -32,7 +32,8 @@ function createComponent(demos, path) {
   return React.createClass({
     getInitialState() {
       return {
-        current: this.props.params.index
+        current: this.props.params.index,
+        customNavBar: null,
       }
     },
     componentWillReceiveProps(nextProps) {
@@ -40,10 +41,22 @@ function createComponent(demos, path) {
         current: nextProps.params.index  
       })
     },
+    componentDidMount() {
+      const current = this.state.current;
+      let customNavBar = <NavBar>{ `${path}-${demoSort[current].meta.title}` }</NavBar>;
+      if (demoSort && demoSort[current].preview.type.customNavBar) {
+        customNavBar = demoSort[current].preview.type.customNavBar;
+      }
+      this.setState({
+        customNavBar, 
+      })
+    },
     render() {
       const current = this.state.current;
       return (<div id={path}>
-        <div id="demoNavbar"></div>
+        <div id="demoNavbar">
+          { this.state.customNavBar }
+        </div>
         {demoSort.map((i, index) => {
           return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' } 
             id={`${path}-demo-${index}`} key={index}>

@@ -108,8 +108,6 @@ export default class ComponentDoc extends React.Component {
       return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
     });
 
-    const demoTitle = demoSort[currentIndex].meta.title;
-
     demoSort.forEach((demoData, index) => {
       demoData.index = index;
 
@@ -179,9 +177,6 @@ export default class ComponentDoc extends React.Component {
                   <div className="demo-preview-header">
                     <div className = "demo-preview-statbar">
                       <img width="340px" style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
-                    </div>
-                    <div className = "demo-preview-navbar">
-                      <span style={{ color: '#fff', fontSize: '18px', lineHeight: '44px' }}>{ demoTitle }</span>
                     </div>
                   </div>
                   <div className="demo-preview-scroller">

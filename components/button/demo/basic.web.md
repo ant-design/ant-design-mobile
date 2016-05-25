@@ -18,7 +18,6 @@ const ButtonExample = React.createClass({
   },
   switchDark() {
     this.setState({ dark: !this.state.dark });
-    window['react-dom'].render(ButtonExample.customNavBar, document.getElementById('demoNavbar'));
   },
   render() {
     ButtonExample.customNavBar = (<NavBar rightContent={<Button type="primary" size="small" inline
