@@ -4,7 +4,7 @@ title: FloatMenu
 ---
 
 <style>
-#preview-components-float-menu-demo-basic .title {
+.float-menu-demo-title {
   display: inline-block;
   width: 300px;
   text-align: right;
@@ -55,7 +55,7 @@ const Test = React.createClass({
         onVisibleChange={this.handleVisibleChange}
         onSelect={this.onSelect}
       >
-        <a className="title" href="#">menu</a>
+        <a className="float-menu-demo-title" href="#">menu</a>
       </FloatMenu>
     </div>);
   }
