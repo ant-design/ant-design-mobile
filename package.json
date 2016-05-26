@@ -36,7 +36,6 @@
   "dependencies": {
     "array-tree-filter": "^1.0.0",
     "classnames": "~2.2.1",
-    "css-animation": "~1.2.3",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.0.4",
     "normalize.css": "~4.0.0",
@@ -58,7 +57,7 @@
   },
   "devDependencies": {
     "antd": "1.0.x",
-    "antd-tools": "~0.7.0",
+    "antd-tools": "~0.8.0",
     "babel-eslint": "^6.0.4",
     "babel-plugin-antd": "^0.4.0",
     "clipboard": "^1.5.5",
@@ -87,6 +86,7 @@
     "rc-tween-one": "~0.3.0",
     "react": "~0.14.5",
     "react-dom": "~0.14.5",
+    "react-native-cli": "~0.2.0",
     "react-native": "~0.25.0",
     "react-addons-test-utils": "~0.14.5",
     "react-copy-to-clipboard": "^4.0.1",
@@ -102,7 +102,7 @@
     "srclint": "eslint components test site index.js --ext '.js,.jsx'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components/ -r scripts/lesshint-report.js",
-    "pre-publish": "antd-tools run guard && node scripts/pre-publish",
+    "pre-publish": "node scripts/pre-publish",
     "prepublish": "antd-tools run guard",
     "test": "npm run lint && npm run dist",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt",
@@ -114,9 +114,9 @@
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
     "pub": "antd-tools run update-self && NPM_CLI=tnpm PUBLISH_NPM_CLI=tnpm antd-tools run pub || node scripts/post-publish",
-    "rn-start": "node node_modules/react-native/local-cli/cli.js start",
-    "ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path rn-kitchen-sink/ios",
-    "android": "node node_modules/react-native/local-cli/cli.js run-android --root rn-kitchen-sink"
+    "rn-start": "react-native-cli start",
+    "ios": "react-native run-ios --entry-file rn-kitchen-sink/index.ios.js --project-path rn-kitchen-sink/ios",
+    "android": "react-native run-android --entry-file rn-kitchen-sink/index.android.js --root rn-kitchen-sink"
   },
   "config": {
     "port": 8001

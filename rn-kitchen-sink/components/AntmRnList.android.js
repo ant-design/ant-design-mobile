@@ -8,11 +8,6 @@ import {
 import AntmRnListBase from './AntmRnListBase';
 import { COMPONENTS, APIS } from '../demoList';
 
-type Props = {
-  onSelectExample: Function,
-  isInDrawer: bool,
-};
-
 class AntRnList extends React.Component {
   props: Props;
 

@@ -1,11 +1,7 @@
-import Button from './components/button/index.ios';
-import WhiteSpace from './components/white-space/index.ios';
-import WingBlank from './components/wing-blank/index.ios';
+import Button_ from './components/button/';
+import WhiteSpace_ from './components/white-space/';
+import WingBlank_ from './components/wing-blank/';
 
-module.exports = {
-  Button,
-  WhiteSpace,
-  WingBlank,
-};
-
-require('./rn-kitchen-sink/index.ios');
+export const Button = Button_;
+export const WhiteSpace = WhiteSpace_;
+export const WingBlank = WingBlank_;
