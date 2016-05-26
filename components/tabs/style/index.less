@@ -7,6 +7,7 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  background-color: @neutral-1;
   .float-clear();
 
   &-bar {
@@ -39,7 +40,7 @@
       cursor: default;
 
       .@{tab-prefix-cls}-tab-inner {
-        color: #ccc;
+        color: @neutral-6;
       }
     }
 
@@ -54,13 +55,13 @@
         padding: 3*@grid 0;
         display: block;
         text-decoration: none;
-        line-height: 17px;
+        line-height: 4*@grid;
         color: @neutral-10;
 
         .anticon {
-          width: 14px;
-          height: 14px;
-          margin-right: 8px;
+          width: 3.5*@grid;
+          height: 3.5*@grid;
+          margin-right: 2*@grid;
         }
       }
     }
@@ -72,12 +73,12 @@
   }
 
   &-ink-bar {
-    z-index: 1;
+    z-index: 99;
     position: absolute;
     left: 0;
     bottom: 1px;
     box-sizing: border-box;
-    height: 2px;
+    height: 0.5*@grid;
     background-color: @brand-6;
     transform-origin: 0 0;
   }
@@ -105,7 +106,7 @@
       }
       .@{tab-prefix-cls}-tab-inner {
         padding: 2*@grid 0;
-        line-height: 15px;
+        line-height: 4*@grid;
         color: @brand-6;
       }
       .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner{
@@ -122,6 +123,7 @@
   &-content {
     position: relative;
     width: 100%;
+    padding: 0 3*@grid 3*@grid;
   }
 
   &-slide-horizontal-backward-enter {
@@ -142,7 +144,7 @@
   &-slide-horizontal-backward-leave {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 3*@grid;
     right: 0;
     bottom: 0;
     animation-duration: .2s;
@@ -177,7 +179,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    left: 0;
+    left: 3*@grid;
     bottom: 0;
     animation-duration: .2s;
     animation-fill-mode: both;

@@ -5,7 +5,7 @@
 
 .@{alertPrefixCls} {
   position: relative;
-  padding: 8px 8px 8px 16px;
+  padding: 2*@grid 2*@grid 2*@grid 4*@grid;
   color: @neutral-8;
   font-size: @font-size-2;
   margin-bottom: 2*@grid;
@@ -13,12 +13,12 @@
 
   &&-message {
     padding: 4*@grid 4*@grid 4*@grid 12*@grid;
-    line-height: 16px;
+    line-height: 4*@grid;
     .@{alertPrefixCls}-icon {
       position: absolute;
       top: 5*@grid;
       left: 3*@grid;
-      font-size: 24px;
+      font-size: 6*@grid;
       line-height: 1.2;
     }
     .@{alertPrefixCls}-main {
@@ -44,20 +44,20 @@
     .@{alertPrefixCls}-icon {
       display: block;
       text-align: center;
-      font-size: 60px;
+      font-size: 15*@grid;
     }
     .@{alertPrefixCls}-main {
       margin-top: 2*@grid;
-      font-size: 21px;
+      font-size: 5*@grid;
     }
     .@{alertPrefixCls}-description {
       margin-top: 2*@grid;
-      font-size: 25px;
+      font-size: 6*@grid;
       color: @neutral-10;
     }
     .@{alertPrefixCls}-brief {
       margin-top: 2*@grid;
-      font-size: 14px;
+      font-size: @font-size-4;
       color: @neutral-7;
     }
   }

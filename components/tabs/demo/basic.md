@@ -8,7 +8,7 @@ title: 线性型选项卡
 ---
 
 ````jsx
-import { Tabs, WingBlank, WhiteSpace } from 'antm';
+import { Tabs, WhiteSpace } from 'antm';
 const TabPane = Tabs.TabPane;
 
 function callback(key) {
@@ -19,14 +19,11 @@ let TabExample = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace />
-        <WingBlank mode={20}>
-          <Tabs defaultActiveKey="1" onChange={callback}>
-            <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
-            <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
-            <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
-          </Tabs>
-        </WingBlank>
+        <Tabs defaultActiveKey="1" onChange={callback}>
+          <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
+          <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
+          <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
+        </Tabs>
         <WhiteSpace />
       </div>
     );
