@@ -40,7 +40,7 @@
       cursor: default;
 
       .@{tab-prefix-cls}-tab-inner {
-        color: #ccc;
+        color: @neutral-6;
       }
     }
 
@@ -55,13 +55,13 @@
         padding: 3*@grid 0;
         display: block;
         text-decoration: none;
-        line-height: 17px;
+        line-height: 4*@grid;
         color: @neutral-10;
 
         .anticon {
-          width: 14px;
-          height: 14px;
-          margin-right: 8px;
+          width: 3.5*@grid;
+          height: 3.5*@grid;
+          margin-right: 2*@grid;
         }
       }
     }
@@ -78,7 +78,7 @@
     left: 0;
     bottom: 1px;
     box-sizing: border-box;
-    height: 2px;
+    height: 0.5*@grid;
     background-color: @brand-6;
     transform-origin: 0 0;
   }
@@ -106,7 +106,7 @@
       }
       .@{tab-prefix-cls}-tab-inner {
         padding: 2*@grid 0;
-        line-height: 15px;
+        line-height: 4*@grid;
         color: @brand-6;
       }
       .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner{
