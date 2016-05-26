@@ -51,9 +51,9 @@ class AntRnListBase extends React.Component {
     );
   }
 
-  renderTextInput(searchTextInputStyle: any) {
+  renderTextInput(searchTextInputStyle: any, searchRowStyle: any) {
     return (
-      <View style={styles.searchRow}>
+      <View style={[styles.searchRow, searchRowStyle]}>
         <TextInput
           autoCapitalize="none"
           autoCorrect={false}
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   },
   searchRow: {
     backgroundColor: '#eeeeee',
-    paddingTop: 75,
+    // paddingTop: 75,
     paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 10,

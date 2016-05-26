@@ -62,7 +62,7 @@ import com.android.build.OutputFile
 project.ext.react = [
    bundleAssetName: "index.android.bundle",
    entryFile: file("../../index.android.js"),
-   root: "../../",
+   root: "../../../rn-kitchen-sink",
    inputExcludes: ["android/**", "./**"]
 ]
 

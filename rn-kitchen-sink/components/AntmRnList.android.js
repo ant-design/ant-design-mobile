@@ -2,6 +2,7 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  ScrollView,
 } from 'react-native';
 
 import AntmRnListBase from './AntmRnListBase';
@@ -36,7 +37,7 @@ class AntRnList extends React.Component {
   renderAdditionalView(renderRow, renderTextInput): React.Component {
     if (this.props.isInDrawer) {
       const homePage = renderRow({
-        title: 'Ant Mobile',
+        title: 'Ant Mobile1',
         description: 'List of examples',
       }, -1);
       return (
@@ -45,19 +46,30 @@ class AntRnList extends React.Component {
         </View>
       );
     }
-    return renderTextInput(styles.searchTextInput);
+    return renderTextInput(styles.searchTextInput, styles.searchRow);
   }
 
   onPressRow(example: any) {
-
+    const Component = example.demo;
     this.props.onSelectExample({
       title: example.title,
-      component: example.demo,
+      component: React.createClass({
+        render() {
+          return (
+            <ScrollView>
+              <Component />
+            </ScrollView>
+          );
+        }
+      }),
     });
   }
 }
 
 const styles = StyleSheet.create({
+  searchRow: {
+    paddingTop: 15,
+  },
   searchTextInput: {
     padding: 2,
   },

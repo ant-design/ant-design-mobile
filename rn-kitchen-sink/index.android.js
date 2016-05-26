@@ -79,14 +79,13 @@ const AntmRnApp = React.createClass({
   },
 
   _renderNavigation: function() {
-    var Component = this.state.example.component;
+    const Component = this.state.example.component;
     return (
       <View style={styles.container}>
         <StatusBar
           backgroundColor="#589c90"
         />
         <ToolbarAndroid
-          onIconClicked={() => this.drawer.openDrawer()}
           style={styles.toolbar}
           title={this.state.example.title}
         />
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
   },
   toolbar: {
     backgroundColor: '#E9EAED',
-    height: 56,
+    height: 36,
   },
 });
 

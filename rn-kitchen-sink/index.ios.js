@@ -61,3 +61,5 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('rndemo', () => AntmRnApp);
+
+module.exports = AntmRnApp;

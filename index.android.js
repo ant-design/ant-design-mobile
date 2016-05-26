@@ -8,4 +8,4 @@ module.exports = {
   WingBlank,
 };
 
-require('./rn-kitchen-sink/index.ios');
+require('./rn-kitchen-sink/index.android');

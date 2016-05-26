@@ -34,7 +34,7 @@ class AntmRnList extends React.Component {
   }
 
   renderAdditionalView(renderRow: Function, renderTextInput: Function): React.Component {
-    return renderTextInput(styles.searchTextInput);
+    return renderTextInput(styles.searchTextInput, styles.searchRow);
   }
 
   search(text: mixed) {
@@ -61,6 +61,9 @@ class AntmRnList extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  searchRow: {
+    paddingTop: 75,
+  },
   searchTextInput: {
     height: 30,
   },
