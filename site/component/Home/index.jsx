@@ -32,6 +32,7 @@ export default class Home extends React.Component {
         min-height: 600px;
       }
       #header {
+        background: #1F1F1F;
         position: fixed;
         z-index: 999;
         border-bottom: 1px solid transparent;
