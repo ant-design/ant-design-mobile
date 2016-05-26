@@ -67,7 +67,8 @@ components/button/style/index.less
 components/button/index.ios.js
 
 ```
-import React, { View, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 
 // 可独立到 components/button/style/index.ios.js
 const styles = StyleSheet.create({
@@ -100,7 +101,8 @@ components/button/demo/basic.rn.js
 
 ```
 import { Button } from 'antm';
-import React, { AppRegistry, Text, View } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 
 class BasicButtonExample extends React.Component {
@@ -109,7 +111,10 @@ class BasicButtonExample extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('basic', () => BasicButtonExample);
+exports.title = 'Button';
+exports.description = 'button example';
+exports.demo = BasicButtonExample;
+
 ```
 
 ## 开发流程
