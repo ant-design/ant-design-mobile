@@ -145,18 +145,17 @@ export default class MainContent extends React.Component {
 
     return (
       <div className="main-wrapper">
-        <Row>
-          <Col lg={5} md={8} sm={24} xs={24}>
+          <div style={{ width: 240, float: 'left', marginRight: '-1px' }}>
             <Menu className="aside-container" mode="inline"
               defaultOpenKeys={Object.keys(this.props.menuItems)}
               selectedKeys={[activeMenuItem]}>
               { menuItems }
             </Menu>
-          </Col>
-          <Col lg={19} md={16} sm={24} xs={24} className="main-container">
+          </div>
+          <div className="main-container">
             { this.props.children }
-          </Col>
-        </Row>
+          </div>
+
 
         <Row>
           <Col lg={{ span: 19, offset: 5 }}

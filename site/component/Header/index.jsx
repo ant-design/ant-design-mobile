@@ -123,7 +123,7 @@ export default class Header extends React.Component {
                 {options}
               </Select>
             </div>
-            <Menu theme="dark" mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav">
+            <Menu mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav">
               <Menu.Item key="home">
                 <Link to="/">
                   首页
