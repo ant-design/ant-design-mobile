@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('rndemo', () => AntmRnApp);
+AppRegistry.registerComponent('kitchen-sink', () => AntmRnApp);
