@@ -15,7 +15,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "rndemo";
+        return "kitchen-sink";
     }
 
     /**
@@ -25,6 +25,11 @@ public class MainActivity extends ReactActivity {
     @Override
     protected boolean getUseDeveloperSupport() {
         return BuildConfig.DEBUG;
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+        return "rn-kitchen-sink/index.android";
     }
 
     /**
