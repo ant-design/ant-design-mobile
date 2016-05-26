@@ -51,16 +51,38 @@ function createComponent(demos, path) {
       });
     },
 
+    demoPrev() {
+      const current = this.state.current - 1;
+      this.setState({
+        current,
+        customNavBar: this.getNavBar(current),
+      })
+    },
+
+    demoNext() {
+      const current = this.state.current*1 + 1;
+      this.setState({
+        current,
+        customNavBar: this.getNavBar(current),
+      })
+    },
+
     getNavBar(index) {
-      let home = '';
-      if (self === top) {
-        // 不在 iframe 里
-        home = <a href="/kitchen-sink.html">首页</a>
-      }
-      let customNavBar = <NavBar iconName={false} leftContent={home}>
+      let leftContent = self === top ? 
+        <a href="/kitchen-sink.html">首页</a> :
+          (index > 0 ? 
+          <span style={{ fontSize: 12, cursor: 'pointer' }} onClick={ this.demoPrev }>
+            上页
+          </span> :
+          null);
+
+      let rightContent = index < demos.length - 1 ? 
+        <span style={{ fontSize: 12, cursor: 'pointer' }} onClick={ this.demoNext }>下页</span> :
+        null;
+      let customNavBar = <NavBar iconName={false} leftContent={leftContent} rightContent={rightContent}>
         {
         demoSort.length > 1 ?
-        <span onClick={this.showActionSheet}>
+        <span onClick={this.showActionSheet} style={{ cursor: 'pointer' }}>
           { `${demoSort[index].meta.title}` }  <Icon type="down" />
         </span> :
         <span>
@@ -100,7 +122,7 @@ function createComponent(demos, path) {
         </div>
         {demoSort.map((i, index) => {
           return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' }
-            id={`${path}-demo-${index}`} key={index} style={{ height: '520px', overflowY: 'scroll' }}>
+            id={`${path}-demo-${index}`} key={index} style={{ height: '450px', overflowY: 'scroll' }}>
             {React.cloneElement(i.preview, {
               onNavBarChange: () => { console.log('ccc', this); this.setState({ NavBarChange: !this.state.NavBarChange }); },
             })}

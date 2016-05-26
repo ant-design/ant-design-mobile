@@ -42,7 +42,7 @@
 }
 
 .code-box {
-  border: 1px solid #E9E9E9;
+  border: 1px dotted #E9E9E9;
   border-radius: 6px;
   display: inline-block;
   width: 100%;
@@ -54,30 +54,9 @@
   }
 }
 
-.code-box:hover {
-  border-color: #ccc;
-}
-
 .code-box.code-box-target {
   border: 1px solid rgba(45, 183, 245, 0.7);
-  .code-box-title a {
-    color: #2DB7F5;
-  }
-}
-
-.code-box:hover .code-box-meta,
-.code-box:target .code-box-meta {
-  background: #fbfbfb;
-}
-
-.code-box:hover .code-box-title,
-.code-box:target .code-box-title {
-  background: #fbfbfb;
-}
-
-.code-box .code-box-title a,
-.code-box .code-box-title a:hover {
-  color: #666;
+  box-shadow: 0 0 4px rgba(45, 183, 245, .5);
 }
 
 .code-box .code-box-demo {
@@ -110,6 +89,10 @@
   font-size: 16px;
   color: #777;
   transition: all 0.4s ease;
+}
+
+.code-box-title a {
+ color: #222;
 }
 
 .code-box-meta > p {
@@ -157,6 +140,8 @@
   opacity: 0;
   overflow: auto;
   transition: all 0.4s ease;
+  background-color: #F7F7F7;
+  border-radius: 6px;
 }
 .code-box .highlight-wrapper-expand {
   max-height: 500px;
@@ -179,6 +164,11 @@
 
 .code-box pre code {
   border: none;
+}
+.code-box:hover {
+  box-shadow: 0 0 6px rgba(0,0,0,.15);
+  position: relative;
+  z-index: 10;
   background: #fff;
 }
 
@@ -494,9 +484,11 @@
 }
 
 .demo-preview-wrapper {
-  width: 349px;
+  width: 300px;
   margin:0 auto;
+  border: 1px solid #F7F7F7;
   .demo-preview-header {
+    border-radius: 4px 4px 0 0;
     background-color: #222;
     text-align: center;
     .demo-preview-statbar {
@@ -508,9 +500,9 @@
   }
   .demo-preview-scroller {
     background-color: #F7F7F7;
-    height: 554px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    height: 450px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     padding: 0;
     overflow: hidden;
     * {
@@ -534,6 +526,14 @@
 .sub-menu-item .ant-menu-item-group-title {
   padding: 0;
   height: 0;
+}
+
+.link-buttons a {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.link-buttons .link-current span {
+  color: #2DB7F5;
 }
 
 

@@ -1,8 +1,10 @@
 import React from 'react';
-import { Row, Col, Button, Icon, Popover } from 'antd';
+import { Link } from 'react-router';
+import { Button, Icon, Popover } from 'antd';
 import Demo from '../Demo';
 import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';
+import scrollIntoView from 'dom-scroll-into-view';
 
 import QRCode from 'qrcode.react';
 
@@ -15,22 +17,54 @@ export default class ComponentDoc extends React.Component {
       currentIndex: 0,
       // 收起展开代码的存储数组
       codeExpandList: [],
+      toggle: false,
     };
   }
 
-  componentWillReceiveProps() {
+  linkToAnchor(props) {
+    this.setState({
+      toggle: false,
+    });
+    const linkTo = props.location.query.linkTo;
+    if (linkTo !== undefined) {
+      const target = document.getElementById(linkTo);
+      const demoTitle = document.getElementById('demoTitle');
+      const _offSetTop = target.offsetTop - demoTitle.offsetTop;
+      if (target !== null) {
+        scrollIntoView(
+          target,
+          document,
+          { offsetTop: _offSetTop, alignWithTop: true, onlyScrollIfNeeded: false }
+        );
+      }
+    } else {
+      scrollIntoView(document.body, document, { alignWithTop: true });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.linkToAnchor(nextProps);
     this.setState({
       currentIndex: 0,
+      toggle: false,
     });
   }
 
   componentDidMount() {
+    this.linkToAnchor(this.props);
     window.addEventListener('scroll', this.onScrollEvent);
     this.componentDidUpdate();
   }
   componentDidUpdate() {
     const { chinese, english } = this.props.doc.meta;
     utils.setTitle(`${chinese} ${english} - Ant Design`);
+  }
+
+  togglePreview = (e) => {
+    this.setState({
+      currentIndex: e.index,
+      toggle: true,
+    });
   }
 
   // 用于控制内部代码的展开和收起
@@ -49,33 +83,16 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
-  togglePreview = (e) => {
-    this.setState({
-      currentIndex: e.index,
-    });
-  }
-
-  nextPreview = () => {
-    this.setState({
-      currentIndex: this.state.currentIndex + 1,
-    });
-  }
-
-  prePreview = () => {
-    this.setState({
-      currentIndex: this.state.currentIndex - 1,
-    });
-  }
-
   onScrollEvent() {
     const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    const asideDemo = document.getElementById('aside-demo');
+    const demoTop = document.getElementById('demo-code').offsetTop;
+
     const apiDom = document.getElementById('api');
     if (!apiDom) return;
     const apiTop = apiDom.offsetTop;
 
-    const asideDemo = document.getElementById('aside-demo');
-
-    if (scrollTop >= apiTop - 500) {
+    if (scrollTop >= apiTop - 500 || scrollTop < demoTop) {
       if (asideDemo.className.indexOf('fixed') >= 0) {
         asideDemo.className = asideDemo.className.replace(/fixed/ig, '');
       }
@@ -87,8 +104,9 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = this.props;
     const { description, meta } = doc;
 
-    const path = doc.meta.fileName.split('/')[1];
+    const linkTo = location.query.linkTo;
 
+    const path = doc.meta.fileName.split('/')[1];
     const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink.html#/${path}`;
 
     const PopoverContent = (<div>
@@ -103,90 +121,97 @@ export default class ComponentDoc extends React.Component {
 
     const leftChildren = [];
     let rightChildren = null;
+    let linkButtons = [];
 
     const demoSort = demos.sort((a, b) => {
       return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
     });
 
+    let scrollIndex;
+
     demoSort.forEach((demoData, index) => {
       demoData.index = index;
 
+      if (!!linkTo && linkTo === demoData.id) {
+        scrollIndex = index;
+      }
+
+      linkButtons.push(
+        <Link className={ demoData.id === linkTo ? 'link-current' : ''}
+          to={ `${location.pathname}?linkTo=${demoData.id}` } key={ index }>
+          <Button>{ demoData.meta.title }</Button>
+        </Link>
+      );
+
       leftChildren.push(
-        <Demo togglePreview={ this.togglePreview } {...demoData} handleCodeExpandList={this.handleCodeExpandList} codeExpand={this.state.codeExpandList[index]} className={index === currentIndex ? 'code-box-target' : ''}
+        <Demo togglePreview={ this.togglePreview } {...demoData} handleCodeExpandList={this.handleCodeExpandList}
+          codeExpand={this.state.codeExpandList[index]}
+          className={demoData.id === linkTo ? 'code-box-target' : ''}
           key={index}
           expand={expand} pathname={location.pathname} />
       );
     });
 
-    let iframeUrl = `/kitchen-sink.html#/${path}/${currentIndex}`;
+    let iframeIndex = (!this.state.toggle && scrollIndex) ? scrollIndex : currentIndex;
+
+    let iframeUrl = `/kitchen-sink.html#/${path}/${iframeIndex}`;
 
     rightChildren = (
       <section className="code-box code-box-preview">
         <section className="code-box-demo code-box-demo-preview">
-          <iframe id="demoFrame" name="demoFrame" style={{ width: '349px', height: '577px' }} src={ iframeUrl } />
+          <iframe id="demoFrame" name="demoFrame" style={{ width: '300px', height: '450px' }} src={ iframeUrl } />
         </section>
       </section>
     );
 
     return (
       <article>
-        <Row style ={{ minHeight: '830px' }}>
-          <Col span="13" style={{ width: '54%', paddingRight: '16px' }}>
-            <section className="markdown">
-              <h1 className="section-title">
-                {meta.chinese || meta.english}
-                  <Popover content={ PopoverContent } placement="bottom">
-                    <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
-                  </Popover>
-              </h1>
-              {
-                utils.jsonmlToComponent(
-                location.pathname,
-                ['section', { className: 'markdown' }]
-                .concat(description)
-                )
-              }
-              <h2>
-                代码演示
-              </h2>
-            </section>
+        <section className="markdown">
+          <h1 className="section-title">
+            {meta.chinese || meta.english}
+            <Popover content={ PopoverContent } placement="bottom">
+              <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
+            </Popover>
+          </h1>
+          {
+            utils.jsonmlToComponent(
+              location.pathname,
+              ['section', { className: 'markdown' }]
+              .concat(description)
+            )
+          }
+          <h2 id="demoTitle">
+          代码演示
+          </h2>
+        </section>
+
+        {
+        demoSort.length > 1 &&
+        <div className="link-buttons" style={{ marginBottom: 12 }}>
+          { linkButtons }
+        </div>
+        }
+        <div id="demo-code" className="clearfix" style={{ paddingRight: 380 }}>
+          <div style={{ width: '100%', float: 'left' }}>
             { leftChildren }
-            <Row>
-              <Col span="12" style={{ paddingRight: '8px' }}>
-                <Button style={{ width: '100%' }}
-                  type="ghost"
-                  disabled = { currentIndex === 0 }
-                  onClick = { this.prePreview } >
-                  <Icon type="up" />
-                </Button>
-              </Col>
-              <Col span="12" style={{ paddingLeft: '8px' }}>
-                <Button style={{ width: '100%' }}
-                  type="ghost"
-                  disabled = { currentIndex >= demos.length - 1 }
-                  onClick = { this.nextPreview } >
-                  <Icon type="down" />
-                </Button>
-              </Col>
-            </Row>
-          </Col>
-          <Col span="11">
+          </div>
+          <div style={{ width: 380, padding: '0 40px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-380px' }}>
             <div id="aside-demo" className="aside-demo fixed">
-              <div style = {{ width: '395px', height: '818px', paddingTop: '99px', background: 'url("https://os.alipayobjects.com/rmsportal/XdawWiuviSMdHNn.png") no-repeat', backgroundSize: '100%' }}>
+              <div style = {{ width: '300px', height: '450px' }}>
                 <div className="demo-preview-wrapper">
                   <div className="demo-preview-header">
                     <div className = "demo-preview-statbar">
-                      <img width="340px" style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                      <img width="290px" style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
                     </div>
                   </div>
-                  <div className="demo-preview-scroller1">
+                  <div className="demo-preview-scroller">
                   { rightChildren }
                   </div>
                 </div>
               </div>
             </div>
-          </Col>
-        </Row>
+          </div>
+        </div>
 
         {
           utils.jsonmlToComponent(
