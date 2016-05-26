@@ -196,7 +196,7 @@ export default class ComponentDoc extends React.Component {
             { leftChildren }
           </div>
           <div style={{ width: 380, padding: '0 40px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-380px' }}>
-            <div id="aside-demo" className="aside-demo fixed">
+            <div id="aside-demo" className="aside-demo">
               <div style = {{ width: '300px', height: '450px' }}>
                 <div className="demo-preview-wrapper">
                   <div className="demo-preview-header">
