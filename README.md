@@ -67,7 +67,8 @@ components/button/style/index.less
 components/button/index.ios.js
 
 ```
-import React, { View, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 
 // 可独立到 components/button/style/index.ios.js
 const styles = StyleSheet.create({
@@ -100,7 +101,8 @@ components/button/demo/basic.rn.js
 
 ```
 import { Button } from 'antm';
-import React, { AppRegistry, Text, View } from 'react-native';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 
 class BasicButtonExample extends React.Component {
@@ -109,7 +111,10 @@ class BasicButtonExample extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('basic', () => BasicButtonExample);
+exports.title = 'Button';
+exports.description = 'button example';
+exports.demo = BasicButtonExample;
+
 ```
 
 ## 开发流程
@@ -141,21 +146,9 @@ mobile 版: http://localhost:8001/kitchen-sink.html
 npm run rn-start
 ```
 
-#### 模拟器
+#### 模拟器调试
 
-clone 运行
-
-```
-https://github.com/react-component/RNPlayground
-```
-
-复制
-
-```
-http://localhost:8081/components/button/demo/basic.rn.bundle?platform=ios
-```
-
-到输入框, 确定回车.
+模拟器安装一次 rndemoApp（ 运行命令 `npm run ios/android` 或者用 xcode 打开 rn-kitchen-sink/ios/rndemo.xcodeproj, 在 xcode 里 run 一次 )
 
 #### 真机调试
 
@@ -168,7 +161,7 @@ https://github.com/react-component/RNPlayground
 使用 RNPlayground 扫码访问
 
 ```
-http://ip:8081/components/button/demo/basic.rn.bundle?platform=ios
+http://ip:8081/rn-kitchen-sink/index.ios.bundle?platform=ios
 ```
 
 ### 提交代码

@@ -1,4 +1,5 @@
-import React, { View, TouchableHighlight, PropTypes, Text } from 'react-native';
+import React, { PropTypes } from 'react';
+import { View, TouchableHighlight, Text } from 'react-native';
 
 const Button = React.createClass({
   propTypes: {
