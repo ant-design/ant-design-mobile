@@ -41,7 +41,7 @@ let BasicInput = React.createClass({
             placeholder="标题可以是node"
           ><div style={{ backgroundImage: 'url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} /></InputItem>
           <InputItem
-            value="仅供展示editable"
+            value="仅供展示:editable={false}"
             editable={false}
           >不可编辑</InputItem>
           <InputItem

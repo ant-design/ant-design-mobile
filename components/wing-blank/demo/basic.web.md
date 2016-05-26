@@ -18,9 +18,13 @@ let WingBlankExample = React.createClass({
         <Button>两翼留白8px</Button>
       </WingBlank>
       <WhiteSpace />
-      <WingBlank mode={20}>
-        <Button type="primary">两翼留白20px</Button>
+      <div style={{ borderTop: '1px solid #2DB7F5' }} />
+      <WhiteSpace />
+      <WingBlank mode={16}>
+        <Button type="primary">两翼留白16px</Button>
       </WingBlank>
+      <WhiteSpace />
+      <div style={{ borderTop: '1px solid #2DB7F5' }} />
       <WhiteSpace />
       <WingBlank mode={32}>
         <Button>两翼留白32px</Button>
