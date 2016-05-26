@@ -1,5 +1,6 @@
 // WhiteSpace
-import React, { View, PropTypes } from 'react-native';
+import React, { PropTypes } from 'react';
+import { View } from 'react-native';
 
 class WhiteSpace extends React.Component {
   static propTypes = {

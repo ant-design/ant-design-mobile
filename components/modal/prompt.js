@@ -24,7 +24,6 @@ export default function (...args) {
     });
   }
 
-  // 多一层 div 适应高清方案
   switch (type) {
     case 'login-password':
       inputDom = (
@@ -40,8 +39,10 @@ export default function (...args) {
       break;
     case 'secure-text':
       inputDom = (
-        <div className={`${prefixCls}-input`}>
-          <input type="password" placeholder="Password" defaultValue="" onChange={onChange} />
+        <div>
+          <div className={`${prefixCls}-input`}>
+            <input type="password" placeholder="Password" defaultValue="" onChange={onChange} />
+          </div>
         </div>
       );
       break;
@@ -49,8 +50,10 @@ export default function (...args) {
     case 'default':
     default:
       inputDom = (
-        <div className={`${prefixCls}-input`}>
-          <input type="text" placeholder="Login" defaultValue="" onChange={onChange} />
+        <div>
+          <div className={`${prefixCls}-input`}>
+            <input type="text" placeholder="Login" defaultValue="" onChange={onChange} />
+          </div>
         </div>
       );
       break;

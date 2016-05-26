@@ -1,5 +1,6 @@
 import { WhiteSpace } from 'antm';
-import React, { View, AppRegistry, Text } from 'react-native';
+import React from 'react';
+import { View, Text } from 'react-native';
 
 const variables = require('../../style/variables');
 
@@ -26,4 +27,6 @@ class BasicWhiteSpaceExample extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('basic.rn', () => BasicWhiteSpaceExample);
+exports.title = 'WhiteSpace';
+exports.description = 'Basic WhiteSpace Example';
+exports.demo = BasicWhiteSpaceExample;

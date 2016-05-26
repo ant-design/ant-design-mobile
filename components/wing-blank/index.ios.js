@@ -1,5 +1,6 @@
 // WingBlank
-import React, { View, PropTypes } from 'react-native';
+import React, { PropTypes } from 'react';
+import { View } from 'react-native';
 
 class WingBlank extends React.Component {
   static propTypes = {
