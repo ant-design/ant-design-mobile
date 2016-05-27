@@ -12,7 +12,7 @@
   text-decoration: none;
   background-color: fade(@neutral-9, 90%);
   border-radius: @radius-1;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+  // box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
   min-height: 34px;
 }
 
@@ -22,7 +22,11 @@
     color: @neutral-1;
     padding: 2 * @grid 8 * @grid;
     border-bottom: @border-thickness-1 @border-type-1 @neutral-8;
+    &:last-child {
+      border-bottom: none;
+    }
     &:active {
+      border-radius: @radius-1;
       background-color: @neutral-9;
     }
     &.@{floatMenuPrefixCls}-item-disabled {

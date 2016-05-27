@@ -3,25 +3,16 @@ order: 0
 title: FloatMenu
 ---
 
-<style>
-.float-menu-demo-title {
-  display: inline-block;
-  width: 300px;
-  text-align: right;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-</style>
-
 
 ````jsx
-import { FloatMenu, Button } from 'antm';
+import { FloatMenu, Button, NavBar } from 'antm';
 const Item = FloatMenu.Item;
 
-const Test = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       visible: false,
+      visible1: false,
       selected: '',
     };
   },
@@ -30,11 +21,13 @@ const Test = React.createClass({
       visible: false,
       selected: opt.props.value,
     });
+    this.props.onNavBarChange();
   },
   handleVisibleChange(visible) {
     this.setState({
       visible,
     });
+    this.props.onNavBarChange();
   },
   render() {
     let overlay = [1, 2, 3].map((i, index) => <Item key={index} value={`option ${i}`}>option {i}</Item>);
@@ -47,19 +40,37 @@ const Test = React.createClass({
         onClick={() => { this.handleVisibleChange(false); }}
         >关闭</Button></Item>,
     ]);
-    return (<div style={{ padding: 10, minHeight: 600 }}>
-      <p>选中了 {this.state.selected}</p>
-      <FloatMenu
+
+    App.customNavBar = (<NavBar iconName={false}
+      rightContent={<FloatMenu
         visible={this.state.visible}
         overlay={overlay}
         onVisibleChange={this.handleVisibleChange}
         onSelect={this.onSelect}
       >
-        <a className="float-menu-demo-title" href="#">menu</a>
-      </FloatMenu>
+        <a href="#">菜单</a>
+      </FloatMenu>}
+    >FloatMenu</NavBar>);
+
+    return (<div>
+      <p>选中了 {this.state.selected}</p>
+      <div style={{ paddingTop: 100, paddingLeft: 100 }}>
+        <FloatMenu
+          visible={this.state.visible1}
+          overlay={[
+            <Item key="0" value="0">item 0</Item>,
+            <Item key="1" value="1">item 1</Item>,
+            <Item key="2" value="1">item 1</Item>,
+          ]}
+          placement="topRight"
+          onVisibleChange={ v => this.setState({ visible1: v }) }
+        >
+          <a href="#">菜单</a>
+        </FloatMenu>
+      </div>
     </div>);
   }
 });
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<App />, mountNode);
 ````

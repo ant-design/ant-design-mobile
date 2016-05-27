@@ -18,6 +18,7 @@ english: FloatMenu
 | overlay   | 弹出层内容    | React.node |  -   |
 | onVisibleChange   | 当显隐状态变化时调用    | Function |  -   |
 | onSelect   | 选中的选项    | Function |  -   |
+| placement   | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'}    | String |  'bottomRight'   |
 
 ### FloatMenu.Item
 | 成员        | 说明           | 类型         | 默认值       |
