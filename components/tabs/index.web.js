@@ -11,6 +11,7 @@ export default class Tabs extends React.Component {
     defaultActiveKey: PropTypes.string,
     onChange: PropTypes.func,
     onTabClick: PropTypes.func,
+    animation: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   }
 
   static defaultProps = {
@@ -22,7 +23,7 @@ export default class Tabs extends React.Component {
   }
 
   render() {
-    let { prefixCls, type, children, onChange, onTabClick } = this.props;
+    let { prefixCls, type, children, onChange, onTabClick, animation } = this.props;
     let className = classNames({
       [this.props.className]: !!this.props.className,
       [`${prefixCls}-${type}`]: true,
@@ -32,6 +33,7 @@ export default class Tabs extends React.Component {
       <RcTabs {...this.props}
         className={className}
         onChange={onChange}
+        animation = {animation || ''}
         onTabClick={onTabClick}>
         {children}
       </RcTabs>
