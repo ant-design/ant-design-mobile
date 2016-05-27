@@ -8,22 +8,24 @@ title: 嵌入文档模式
 ---
 
 ````jsx
-import { Drawer, Button, List } from 'antm';
+import { Drawer, List, NavBar } from 'antm';
 
 const App = React.createClass({
   getInitialState() {
     return {
       docked: false,
-      open: false,
-      position: 'left',
     };
   },
-  onDock() {
+  onDock(d) {
     this.setState({
-      docked: !this.state.docked,
+      [d]: !this.state[d],
     });
   },
   render() {
+    App.customNavBar = (<NavBar iconName="ellipsis"
+      onLeftClick={() => this.onDock('docked')}
+    >嵌入文档</NavBar>);
+
     const sidebar = (<List>
       <List.Body>
         {[1, 2, 3, 4, 5, 6].map((i, index) => {
@@ -43,14 +45,12 @@ const App = React.createClass({
 
     const drawerProps = {
       docked: this.state.docked,
-      open: this.state.open,
-      position: this.state.position,
+      open: false,
+      position: 'left',
     };
     return (<div className="drawer-container">
       <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-        <Button type="primary" inline onClick={this.onDock}>
-          {this.state.docked ? 'hide menu' : 'show menu'}
-        </Button>
+        请点击左上角
       </Drawer>
     </div>);
   },
@@ -58,29 +58,3 @@ const App = React.createClass({
 
 ReactDOM.render(<App />, mountNode);
 ````
-
-<style>
-#preview-components-drawer-demo-dock {
-  position: relative;
-  margin: 0;
-  height: 100%;
-}
-#preview-components-drawer-demo-dock .code-box-demo {
-  height: 100%;
-}
-#preview-components-drawer-demo-dock .drawer-container {
-  position: relative;
-  height: 100%;
-}
-#preview-components-drawer-demo-dock .am-drawer-content {
-  padding: 10px;
-}
-#preview-components-drawer-demo-dock .am-drawer-sidebar {
-  max-width: 260px;
-  background-color: #fff;
-  border-right: 1px solid #ddd;
-}
-#preview-components-drawer-demo-dock .am-drawer-sidebar .am-list {
-  padding: 0;
-}
-</style>

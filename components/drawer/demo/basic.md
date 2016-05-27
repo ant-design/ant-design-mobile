@@ -8,7 +8,7 @@ title: 基本
 ---
 
 ````jsx
-import { Drawer, Button, List } from 'antm';
+import { Drawer, List, NavBar } from 'antm';
 
 const App = React.createClass({
   getInitialState() {
@@ -21,6 +21,10 @@ const App = React.createClass({
     this.setState({ open: !this.state.open });
   },
   render() {
+    App.customNavBar = (<NavBar iconName="ellipsis"
+      onLeftClick={this.onOpenChange}
+    >基本</NavBar>);
+
     const sidebar = (<List>
       <List.Body>
         {[1, 2, 3, 4, 5, 6].map((i, index) => {
@@ -45,9 +49,7 @@ const App = React.createClass({
     };
     return (<div className="drawer-container">
       <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-        <Button type="primary" inline onClick={this.onOpenChange}>
-          {this.state.open ? 'hide menu' : 'show menu'}
-        </Button>
+        请点击左上角
       </Drawer>
     </div>);
   },
@@ -57,26 +59,15 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 <style>
-#preview-components-drawer-demo-basic {
-  position: relative;
-  margin: 0;
-  height: 100%;
-}
-#preview-components-drawer-demo-basic .code-box-demo {
-  height: 100%;
-}
-#preview-components-drawer-demo-basic .drawer-container {
+.drawer-container {
   position: relative;
   height: 100%;
 }
-#preview-components-drawer-demo-basic .am-drawer-content {
-  padding: 10px;
-}
-#preview-components-drawer-demo-basic .am-drawer-sidebar {
+.am-drawer-sidebar {
   max-width: 260px;
   background-color: #fff;
 }
-#preview-components-drawer-demo-basic .am-drawer-sidebar .am-list {
+.am-drawer-sidebar .am-list {
   padding: 0;
 }
 </style>
