@@ -1,6 +1,6 @@
 ---
 order: 0
-chinese: AntD Mobile of React
+chinese: Ant Design Mobile of React
 -----------------------------
 
 AntD Mobile 是 Ant Design 的 Mobile 版本，服务于蚂蚁及口碑大中台无线业务。

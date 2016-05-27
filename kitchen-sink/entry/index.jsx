@@ -68,15 +68,15 @@ function createComponent(demos, path) {
     },
 
     getNavBar(index) {
-      let leftContent = self === top ? 
+      let leftContent = self === top ?
         <a href="/kitchen-sink.html">首页</a> :
-          (index > 0 ? 
+          (index > 0 ?
           <span style={{ fontSize: 12, cursor: 'pointer' }} onClick={ this.demoPrev }>
             上页
           </span> :
           null);
 
-      let rightContent = index < demos.length - 1 ? 
+      let rightContent = index < demos.length - 1 ?
         <span style={{ fontSize: 12, cursor: 'pointer' }} onClick={ this.demoNext }>下页</span> :
         null;
       let customNavBar = <NavBar iconName={false} leftContent={leftContent} rightContent={rightContent}>
@@ -124,7 +124,7 @@ function createComponent(demos, path) {
           return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' }
             id={`${path}-demo-${index}`} key={index} style={{ height: '450px', overflowY: 'scroll' }}>
             {React.cloneElement(i.preview, {
-              onNavBarChange: () => { console.log('ccc', this); this.setState({ NavBarChange: !this.state.NavBarChange }); },
+              onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
             })}
             {
             !!i.style ?

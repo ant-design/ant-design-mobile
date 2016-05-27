@@ -23,7 +23,6 @@ ReactDOM.render(
         rightContent={[<Icon key="0" type="user" />, <Icon key="1" type="search" />, <Icon key="2" type="plus" />]}
       >NavBar</NavBar>
     </WingBlank>
-    <Icon type="ellipsis" />
   </div>
 , mountNode);
 ````
