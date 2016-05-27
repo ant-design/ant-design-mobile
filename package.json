@@ -34,7 +34,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "array-tree-filter": "^1.0.0",
+    "array-tree-filter": "~1.0.0",
     "classnames": "~2.2.1",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.0.4",
