@@ -108,7 +108,7 @@
     "dist": "antd-tools run dist",
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
-    "start": "antd-tools run start",
+    "start": "antd-tools run start --no-livereload",
     "site": "antd-tools run site",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
