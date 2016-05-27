@@ -24,7 +24,7 @@ function createComponent(demos, path) {
   return React.createClass({
     getInitialState() {
       return {
-        current: this.props.params.index,
+        current: this.props.params.index || 0,
         customNavBar: null,
         NavBarChange: false,
       };
