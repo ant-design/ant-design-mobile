@@ -19,12 +19,17 @@ let TabExample = React.createClass({
   render() {
     return (
       <div>
-        <Tabs type="bar" defaultActiveKey="1" onChange={callback}>
+        <Tabs type="tabbar" defaultActiveKey="1" onChange={callback}>
           <TabPane tab={<span><Icon type="home" />首页</span>} key="1">选项首页内容</TabPane>
-          <TabPane tab={<span><img src="http://baidu.com" />好友</span>} key="2">选项好友内容</TabPane>
+          <TabPane tab={<span><Icon type="team" />好友</span>} key="2">选项好友内容</TabPane>
           <TabPane tab={<span><Icon type="setting" />设置</span>} key="3">选项设置的内容</TabPane>
         </Tabs>
         <WhiteSpace />
+        <Tabs type="tabbar" mode="dark" defaultActiveKey="2" onChange={callback}>
+          <TabPane tab={<span><Icon type="home" />首页</span>} key="1">选项首页内容</TabPane>
+          <TabPane tab={<span><Icon type="team" />好友</span>} key="2">选项好友内容</TabPane>
+          <TabPane tab={<span><Icon type="setting" />设置</span>} key="3">选项设置的内容</TabPane>
+        </Tabs>
       </div>
     );
   }

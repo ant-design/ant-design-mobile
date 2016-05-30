@@ -116,6 +116,46 @@
     }
   }
 
+  &.@{tab-prefix-cls}-tabbar {
+    .am-tab-nav-wrap {
+      margin-bottom: 0;
+    }
+    .@{tab-prefix-cls}-bar {
+      margin-bottom: 0;
+      .hairline-top(top, @neutral-5);
+    }
+    .@{tab-prefix-cls}-ink-bar {
+      background-color: transparent;
+    }
+    .@{tab-prefix-cls}-tab-inner {
+      padding: @grid 0;
+      font-size: @font-size-1;
+      line-height: 1;
+      color: @neutral-7;
+      .anticon {
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: 7*@grid;
+        font-size: 6*@grid;
+      }
+    }
+    .@{tab-prefix-cls}-content {
+      padding: 3*@grid;
+    }
+    &.@{tab-prefix-cls}-dark {
+      .@{tab-prefix-cls}-bar {
+        background-color: @neutral-10;
+      }
+      .@{tab-prefix-cls}-tab-inner {
+        color: @neutral-1;
+      }
+    }
+    .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
+      color: @brand-6;
+    }
+  }
+
   &-tabpane-hidden {
     display: none;
   }
