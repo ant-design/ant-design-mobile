@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-function noop() {}
+function noop() { }
 
 export default class InputItem extends React.Component {
   static propTypes = {
