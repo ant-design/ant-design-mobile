@@ -4,7 +4,7 @@ import {
   TextareaItem, Switch, Button, ListPicker,
   ListDatePicker, SelectList, SearchBar, Process, Progress,
   TopNotice, Tabs, Modal, Toast, Alert,
-  PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer, NavBar, TabBar
+  PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer, NavBar
 } from 'antm';
 
 // copy from above
@@ -13,7 +13,7 @@ const antm = {
   TextareaItem, Switch, Button, ListPicker,
   ListDatePicker, SelectList, SearchBar, Process, Progress,
   TopNotice, Tabs, Modal, Toast, Alert,
-  PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer, NavBar, TabBar
+  PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer, NavBar
 };
 
 if (typeof console !== 'undefined' && console.warn) {
