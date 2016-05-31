@@ -5,7 +5,7 @@ import {
   ListDatePicker, SelectList, SearchBar, Process, Progress,
   TopNotice, Tabs, Modal, Toast, Alert,
   PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer, NavBar,
-  RefreshControl
+  RefreshControl, Grid
 } from 'antm';
 
 // copy from above
@@ -15,7 +15,7 @@ export {
   ListDatePicker, SelectList, SearchBar, Process, Progress,
   TopNotice, Tabs, Modal, Toast, Alert,
   PageResult, ActionSheet, Dropdown, FloatMenu, Badge, Tag, Drawer, NavBar,
-  RefreshControl
+  RefreshControl, Grid
 };
 
 if (typeof console !== 'undefined' && console.warn) {
