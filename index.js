@@ -9,7 +9,7 @@ import {
 } from 'antm';
 
 // copy from above
-const antm = {
+export {
   List, Collapse, Flex, WingBlank, WhiteSpace, InputItem, Checkbox, Radio,
   TextareaItem, Switch, Button, ListPicker,
   ListDatePicker, SelectList, SearchBar, Process, Progress,
@@ -22,5 +22,3 @@ if (typeof console !== 'undefined' && console.warn) {
   console.warn(`you are using prebuild antm,
 please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
 }
-
-export default antm;
