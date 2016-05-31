@@ -12,11 +12,11 @@ const Test = React.createClass({
     return {
       clicked: 'none',
       BUTTONS: [
-        'Option 0',
-        'Option 1',
-        'Option 2',
-        'Delete',
-        'Cancel',
+        '按钮 0',
+        '按钮 1',
+        '按钮 2',
+        '删除',
+        '取消',
       ],
       icons: [
         {
@@ -51,8 +51,8 @@ const Test = React.createClass({
       options: BUTTONS,
       cancelButtonIndex: BUTTONS.length - 1,
       destructiveButtonIndex: BUTTONS.length - 2,
-      title: 'Title',
-      message: 'this is message',
+      title: '标题',
+      message: '我是具体消息',
       maskClosable: false,
     },
     (buttonIndex) => {
@@ -63,8 +63,8 @@ const Test = React.createClass({
     const icons = this.state.icons;
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
-      title: 'Title',
-      message: 'this is message',
+      title: '标题',
+      message: '我是具体消息',
     },
     (buttonIndex) => {
       this.setState({ clicked: icons[buttonIndex].title });
@@ -72,34 +72,36 @@ const Test = React.createClass({
   },
   showActionSheetWithCustom() {
     ActionSheet.showActionSheetWithCustom({
-      title: 'custom',
-      message: 'this is message',
+      title: '自定义 ActionSheet',
+      message: '我是具体消息',
       component: <div style={{ color: 'red', padding: 20 }}>
-        custom component &nbsp;
-        <Button inline size="small" onClick={() => ActionSheet.close()}>close ActionSheet</Button>
+        自定义内容 &nbsp;
+        <Button inline size="small" onClick={() => ActionSheet.close()}>关闭</Button>
       </div>,
     });
   },
   render() {
     return (<div>
-      <WhiteSpace />
       <WingBlank>
+        <WhiteSpace />
         <h4>通常的 ActionSheet</h4>
+        <WhiteSpace />
         <Button type="primary" onClick={this.showActionSheet}>显示</Button>
+        <WhiteSpace />
         <p>点击过的按钮: {this.state.clicked}</p>
-      </WingBlank>
-      <WhiteSpace mode={16} />
-      <WingBlank>
+
+        <WhiteSpace mode={16} />
         <h4>带分享功能的 ActionSheet</h4>
+        <WhiteSpace />
         <Button type="primary" onClick={this.showShareActionSheet}>显示</Button>
+        <WhiteSpace />
         <p>点击过的icon: {this.state.clicked}</p>
-      </WingBlank>
-      <WhiteSpace mode={16} />
-      <WingBlank>
+
+        <WhiteSpace mode={16} />
         <h4>内容可以完全自定义的 ActionSheet</h4>
+        <WhiteSpace />
         <Button type="primary" onClick={this.showActionSheetWithCustom}>显示</Button>
       </WingBlank>
-      <WhiteSpace />
     </div>);
   }
 });
