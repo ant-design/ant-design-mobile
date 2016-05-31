@@ -1,0 +1,48 @@
+@import '../../style/mixins';
+@import '../../style/variables.less';
+
+@PullToRefresh: am-refresh-control;
+.@{PullToRefresh} {
+  &-element {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	color: #aaa;
+  	z-index: 10;
+  	text-align: center;
+  	height: 40px;
+
+    body:not(.@{PullToRefresh}-loading) & {
+      transform: translate3d(0, -40px, 0);
+    }
+    .@{PullToRefresh}-icon {
+      display: inline-block; // if not set, transform will not work!
+    	transition: all .25s ease;
+    }
+  }
+  &-refresh {
+    .@{PullToRefresh}-element .@{PullToRefresh}-icon {
+      -webkit-transform: rotate(180deg);
+    	transform: rotate(180deg);
+    }
+  }
+  &-loading-ele {
+  	display: none;
+  }
+  &-loading {
+    & &-ele {
+      display: block;
+    }
+  }
+  &-loading,
+  &-reset {
+    .@{PullToRefresh}-element,
+    .@{PullToRefresh}-refresh-view {
+      transition: all .25s ease;
+    }
+    .@{PullToRefresh}-element .@{PullToRefresh}-icon {
+      display: none;
+    }
+  }
+}
