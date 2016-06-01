@@ -1,9 +1,9 @@
 ---
 order: 0
-title: mode
+title: 基本
 ---
 
-模式
+下拉刷新
 
 ---
 

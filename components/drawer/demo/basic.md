@@ -61,7 +61,7 @@ ReactDOM.render(<App />, mountNode);
 <style>
 .drawer-container {
   position: relative;
-  height: 100%;
+  height: 1000px;
 }
 .am-drawer-sidebar {
   max-width: 260px;

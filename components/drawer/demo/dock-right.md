@@ -20,6 +20,7 @@ const App = React.createClass({
     this.setState({
       [d]: !this.state[d],
     });
+    this.props.onNavBarChange();
   },
   render() {
     App.customNavBar = (<NavBar iconName={false}
