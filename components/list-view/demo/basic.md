@@ -92,7 +92,7 @@ const Demo = React.createClass({
   },
 
   render() {
-    return (<div style={{ height: 300 }}>
+    return (<div>
       <ListView
         style={styles.listview}
         dataSource={this.state.dataSource}
