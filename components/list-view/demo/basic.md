@@ -9,7 +9,116 @@ react native listView
 
 ````jsx
 import { ListView } from 'antm';
-import { View, Text, pagingStyles as styles, TouchableOpacity, Thumb } from 'components/list-view/demoUtil';
+
+const styles = {
+  listView: {
+    height: '100%',
+    backgroundColor: '#B0C4DE',
+  },
+  header: {
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#3B5998',
+    flexDirection: 'row',
+  },
+  text: {
+    color: 'white',
+    paddingHorizontal: 8,
+  },
+  rowText: {
+    color: '#888888',
+  },
+  thumbText: {
+    fontSize: 20,
+    color: '#888888',
+  },
+  buttonContents: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 5,
+    marginVertical: 3,
+    padding: 5,
+    backgroundColor: '#EAEAEA',
+    borderRadius: 3,
+    paddingVertical: 10,
+  },
+  img: {
+    width: 64,
+    height: 64,
+    marginHorizontal: 10,
+    backgroundColor: 'transparent',
+  },
+  section: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    padding: 6,
+    backgroundColor: '#5890ff',
+  },
+};
+
+const victory = 'https://os.alipayobjects.com/rmsportal/kwihkdUVljwUURM.png';
+const superlike = 'https://os.alipayobjects.com/rmsportal/pmXtSKUFLsIEJLh.png';
+const poke = 'https://os.alipayobjects.com/rmsportal/ZlYzyBcrtLqnbjN.png';
+const party = 'https://os.alipayobjects.com/rmsportal/mIrghdvucaPOLhc.png';
+const liking = 'https://os.alipayobjects.com/rmsportal/DrcLpisGZWASeoj.png';
+const like = 'https://os.alipayobjects.com/rmsportal/jloFMiDVGaHrHIO.png';
+const heart = 'https://os.alipayobjects.com/rmsportal/QFjTyLzmuJQIflm.png';
+const flowers = 'https://os.alipayobjects.com/rmsportal/rgahTjFqZATwqqL.png';
+const fist = 'https://os.alipayobjects.com/rmsportal/KcyBnnVZlfIDgci.png';
+const dislike = 'https://os.alipayobjects.com/rmsportal/FmMzrxqOhiogBOX.png';
+const call = 'https://os.alipayobjects.com/rmsportal/TKlynYhJACDNwKw.png';
+const bandaged = 'https://os.alipayobjects.com/rmsportal/htJwTSIUpppWwSb.png';
+
+const THUMB_URLS = [
+  like,
+  dislike,
+  call,
+  fist,
+  bandaged,
+  flowers,
+  heart,
+  liking,
+  party,
+  poke,
+  superlike,
+  victory,
+];
+
+const Thumb = React.createClass({
+  getInitialState() {
+    return { thumbIndex: this._getThumbIdx(), dir: 'row' };
+  },
+  _getThumbIdx() {
+    return Math.floor(Math.random() * THUMB_URLS.length);
+  },
+  _onPressThumb() {
+    this.setState({
+      thumbIndex: this._getThumbIdx(),
+      dir: this.state.dir === 'row' ? 'column' : 'row',
+    });
+  },
+  render() {
+    return (
+      <div
+        onClick={this._onPressThumb}
+        style={{ ...styles.buttonContents, flexDirection: this.state.dir }}>
+        <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
+        <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
+        <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
+        {this.state.dir === 'column' ?
+          <span>
+            Oooo, look at this new text!  So awesome it may just be crazy.
+            Let me keep typing here so it wraps at least one line.
+          </span> :
+          <span />
+        }
+      </div>
+    );
+  },
+});
 
 const NUM_SECTIONS = 100;
 const NUM_ROWS_PER_SECTION = 10;
@@ -51,50 +160,50 @@ const Demo = React.createClass({
     };
   },
 
-  renderRow(rowData: string) {
+  renderRow(rowData) {
     return (<Thumb text={rowData} />);
   },
 
-  renderSectionHeader(sectionData: string) {
+  renderSectionHeader(sectionData) {
     return (
-      <View style={styles.section}>
-        <Text style={styles.text}>
+      <div style={styles.section}>
+        <span style={styles.text}>
           {sectionData}
-        </Text>
-      </View>
+        </span>
+      </div>
     );
   },
 
   renderHeader() {
     let headerLikeText = this.state.headerPressCount % 2 ?
-      <View><Text style={styles.text}>1 Like</Text></View> :
+      <div><span style={styles.text}>1 Like</span></div> :
       null;
     return (
-      <TouchableOpacity onPress={this._onPressHeader} style={styles.header}>
+      <div onClick={this._onPressHeader} style={styles.header}>
         {headerLikeText}
-        <View>
-          <Text style={styles.text}>
+        <div>
+          <span style={styles.text}>
             Table Header (click me)
-          </Text>
-        </View>
-      </TouchableOpacity>
+          </span>
+        </div>
+      </div>
     );
   },
 
   renderFooter() {
     return (
-      <View style={styles.header}>
-        <Text onPress={() => console.log('Footer!')} style={styles.text}>
+      <div style={styles.header}>
+        <span onClick={() => console.log('Footer!')} style={styles.text}>
           Table Footer
-        </Text>
-      </View>
+        </span>
+      </div>
     );
   },
 
   render() {
     return (<div>
       <ListView
-        style={styles.listview}
+        style={styles.listView}
         dataSource={this.state.dataSource}
         renderHeader={this.renderHeader}
         renderFooter={this.renderFooter}
