@@ -1,4 +1,4 @@
 import '../../style/';
-import '../../flex';
-import '../../carousel';
+import '../../flex/style';
+import '../../carousel/style';
 import './index.less';
