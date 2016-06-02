@@ -46,7 +46,7 @@ let Test = React.createClass({
                 valuePropName: 'checked'
               })}
             >
-              个性化调整disabled
+              未选中，不可编辑
             </CheckboxItem>
             <CheckboxItem
               disabled
@@ -55,7 +55,7 @@ let Test = React.createClass({
                 valuePropName: 'checked'
               })}
             >
-              个性化调整disabled
+              强制选中,不可编辑
             </CheckboxItem>
           </List.Body>
         </List>

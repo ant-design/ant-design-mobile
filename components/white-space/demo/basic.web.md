@@ -7,31 +7,30 @@ title: 基本
 
 
 ````jsx
-import { WhiteSpace, WingBlank } from 'antm';
+import { WhiteSpace, WingBlank, Button } from 'antm';
 
 let WhiteSpaceExample = React.createClass({
   render() {
     return (
     <div className="button-container">
-      <div style={{ textAlign: 'center' }}>
-        8px
-      </div>
+      <WhiteSpace />
       <WingBlank>
-        <WhiteSpace style={{ backgroundColor: '#2DB7F5' }} />
-      </WingBlank>
-      <div style={{ textAlign: 'center' }}>
-        16px
-      </div>
-      <WingBlank>
-        <WhiteSpace mode={16} style={{ backgroundColor: '#2DB7F5' }} />
-      </WingBlank>
-      <div style={{ textAlign: 'center' }}>
-        32px
-      </div>
-      <WingBlank>
-        <WhiteSpace mode={32} style={{ backgroundColor: '#2DB7F5' }} />
+        <Button type="primary">上下留白8px</Button>
       </WingBlank>
       <WhiteSpace />
+      <div style={{ borderTop: '1px solid #2DB7F5' }} />
+      <WhiteSpace mode={16} />
+      <WingBlank>
+        <Button type="primary">上下留白16px</Button>
+      </WingBlank>
+      <WhiteSpace mode={16} />
+      <div style={{ borderTop: '1px solid #2DB7F5' }} />
+      <WhiteSpace mode={32} />
+      <WingBlank>
+        <Button type="primary">上下留白32px</Button>
+      </WingBlank>
+      <WhiteSpace mode={32} />
+      <div style={{ borderTop: '1px solid #2DB7F5' }} />
     </div>
     );
   }

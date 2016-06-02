@@ -40,7 +40,7 @@ let Test = React.createClass({
             initialValue: false,
             valuePropName: 'checked'
           })}
-        >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
+        >未选中，不可编辑<a href="http://www.alipay.com" target="_blank">《信用支付服务合同》</a>
         </AgreeItem>
         <AgreeItem
           disabled
@@ -48,7 +48,7 @@ let Test = React.createClass({
             initialValue: true,
             valuePropName: 'checked'
           })}
-        >强制选中,无法取消勾选<a href="http://www.alipay.com" target="_blank">《信用支付服务合同信用支付服务合同信用支付服务合同》</a>
+        >强制选中,不可编辑<a href="http://www.alipay.com" target="_blank">《信用支付服务合同信用支付服务合同信用支付服务合同》</a>
         </AgreeItem>
       </div>
     );
