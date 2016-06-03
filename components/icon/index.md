@@ -110,7 +110,7 @@ ul.anticons-list li.copied:after {
   opacity: 1;
   top: 0;
 }
-.anticon {
+.icons .anticon {
   font-size: 26px;
   margin: 12px 0 16px;
 }
