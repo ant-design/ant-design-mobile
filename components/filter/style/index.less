@@ -1,0 +1,64 @@
+@import '../../style/mixins';
+
+@fliterPrefixCls: am-filter;
+@flexPrefixCls: am-flexbox;
+@listPrefixCls: am-list;
+@selectListPrefixCls: am-select-list;
+
+.@{fliterPrefixCls} {
+  background-color: @neutral-3;
+  .@{flexPrefixCls} {
+    .@{flexPrefixCls}-item {
+      margin-left: 0;
+      -webkit-overflow-scrolling: touch;
+      .@{listPrefixCls} {
+        padding: 0;
+      }
+      .@{listPrefixCls} {
+        .@{listPrefixCls}-item {
+          .@{listPrefixCls}-line {
+            .@{listPrefixCls}-content {
+              font-size: @font-size-4;
+            }
+          }
+        }
+      }
+      &:first-child {
+        .@{listPrefixCls} {
+          .@{listPrefixCls}-item {
+            background-color: @neutral-3;
+            .@{listPrefixCls}-line {
+              .hairline-remove-right-bottom();
+              .@{listPrefixCls}-content {
+                color: @neutral-10;
+              }
+            }
+            &:last-child {
+              .hairline-remove-right-bottom();
+            }
+            &.@{fliterPrefixCls}-selected {
+              background-color: @neutral-1;
+            }
+          }
+        }
+      }
+      &:last-child {
+        background-color: @neutral-1;
+        .@{listPrefixCls} {
+          .@{listPrefixCls}-item {
+            padding-left: 3*@grid;
+            .hairline-remove-right-bottom();
+            .@{listPrefixCls}-line {
+              .hairline-bottom(bottom, @neutral-5);
+            }
+            &.@{selectListPrefixCls}-selected {
+              .@{listPrefixCls}-line {
+                .hairline-bottom(bottom, @brand-6);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
