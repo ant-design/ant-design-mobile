@@ -1,7 +1,7 @@
 ---
 order: 1
 chinese: 颜色
-english: color
+english: Color
 ---
 
 ### 定义／Definition 

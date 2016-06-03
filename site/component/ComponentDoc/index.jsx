@@ -86,7 +86,10 @@ export default class ComponentDoc extends React.Component {
   onScrollEvent() {
     const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
     const asideDemo = document.getElementById('aside-demo');
-    const demoTop = document.getElementById('demo-code').offsetTop;
+
+    const demoDom = document.getElementById('demo-code');
+    if (!demoDom) return;
+    const demoTop = demoDom.offsetTop;
 
     const apiDom = document.getElementById('api');
     if (!apiDom) return;
