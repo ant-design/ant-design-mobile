@@ -69,7 +69,7 @@ function createComponent(demos, path) {
 
     getNavBar(index) {
       let leftContent = self === top ?
-        <a href="/kitchen-sink.html">首页</a> :
+        <a href="/kitchen-sink.html" style={{ color: '#2db7f5', textDecoration: 'none', transition: 'color .3s ease' }}>首页</a> :
           (index > 0 ?
           <span style={{ fontSize: 12, cursor: 'pointer' }} onClick={ this.demoPrev }>
             上页
