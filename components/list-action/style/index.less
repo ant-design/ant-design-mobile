@@ -1,0 +1,46 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+@swipeout-prefix-cls: am-listaction;
+
+.@{swipeout-prefix-cls} {
+  overflow: hidden;
+  position: relative;
+  &-content {
+    position: relative;
+    z-index: 10;
+  }
+  &.transitioning .@{swipeout-prefix-cls}-content,
+  &.transitioning .@{swipeout-prefix-cls}-actions {
+    transition: all 250ms;
+  }
+  &-actions {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  &-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+    &-text{
+      padding: 0 12px;
+    }
+  }
+  &-android-actions {
+    font-size: 16px;
+    border-top: 1px solid #EAEAEA;
+  }
+  &-android-btn {
+    border-top: 1px solid #EAEAEA;
+    padding: 2*@grid 0;
+  }
+}
