@@ -122,7 +122,9 @@ function createComponent(demos, path) {
         </div>
         {demoSort.map((i, index) => {
           return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' }
-            id={`${path}-demo-${index}`} key={index} style={{ overflowY: 'scroll' }}>
+            id={`${path}-demo-${index}`} key={index}
+                       // style={{ overflowY: 'scroll' }} 
+          >
             {React.cloneElement(i.preview, {
               onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
             })}
