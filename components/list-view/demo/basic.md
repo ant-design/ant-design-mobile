@@ -13,49 +13,17 @@ import { ListView } from 'antm';
 const styles = {
   listView: {
     height: '100%',
-    backgroundColor: '#B0C4DE',
-  },
-  header: {
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#3B5998',
-    flexDirection: 'row',
-  },
-  text: {
-    color: 'white',
-    paddingHorizontal: 8,
-  },
-  rowText: {
-    color: '#888888',
-  },
-  thumbText: {
-    fontSize: 20,
-    color: '#888888',
   },
   buttonContents: {
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 5,
-    marginVertical: 3,
     padding: 5,
-    backgroundColor: '#EAEAEA',
-    borderRadius: 3,
-    paddingVertical: 10,
   },
   img: {
     width: 64,
     height: 64,
-    marginHorizontal: 10,
-    backgroundColor: 'transparent',
-  },
-  section: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    padding: 6,
-    backgroundColor: '#5890ff',
   },
 };
 
@@ -110,8 +78,7 @@ const Thumb = React.createClass({
         <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
         {this.state.dir === 'column' ?
           <span>
-            Oooo, look at this new text!  So awesome it may just be crazy.
-            Let me keep typing here so it wraps at least one line.
+            我是 list-item
           </span> :
           <span />
         }
@@ -166,36 +133,8 @@ const Demo = React.createClass({
 
   renderSectionHeader(sectionData) {
     return (
-      <div style={styles.section}>
-        <span style={styles.text}>
-          {sectionData}
-        </span>
-      </div>
-    );
-  },
-
-  renderHeader() {
-    let headerLikeText = this.state.headerPressCount % 2 ?
-      <div><span style={styles.text}>1 Like</span></div> :
-      null;
-    return (
-      <div onClick={this._onPressHeader} style={styles.header}>
-        {headerLikeText}
-        <div>
-          <span style={styles.text}>
-            Table Header (click me)
-          </span>
-        </div>
-      </div>
-    );
-  },
-
-  renderFooter() {
-    return (
-      <div style={styles.header}>
-        <span onClick={() => console.log('Footer!')} style={styles.text}>
-          Table Footer
-        </span>
+      <div style={{ color: 'blue' }}>
+        {sectionData}
       </div>
     );
   },
@@ -205,8 +144,8 @@ const Demo = React.createClass({
       <ListView
         style={styles.listView}
         dataSource={this.state.dataSource}
-        renderHeader={this.renderHeader}
-        renderFooter={this.renderFooter}
+        renderHeader={() => <span>header</span>}
+        renderFooter={() => <span>footer</span>}
         renderSectionHeader={this.renderSectionHeader}
         renderRow={this.renderRow}
         initialListSize={10}
@@ -214,6 +153,9 @@ const Demo = React.createClass({
         scrollRenderAheadDistance={500}
         renderScrollComponent={() => null}
         stickyHeader
+        stickyProps={{
+          stickyStyle: { zIndex: 999 },
+        }}
       />
     </div>);
   },

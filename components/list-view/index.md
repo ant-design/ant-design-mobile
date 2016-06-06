@@ -12,5 +12,9 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 
 #### current not support:
 - onChangeVisibleRows
-- stickyHeaderIndices (ios native only)
-    - web replace with stickyHeader
+- stickyHeaderIndices
+
+#### new
+- stickyHeader
+    - stickyProps / stickyContainerProps
+- renderBodyComponent
