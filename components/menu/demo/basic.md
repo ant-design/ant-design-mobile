@@ -1,12 +1,12 @@
 ---
 order: 0
-title: 基本
----
+title: 二级菜单
+-----------
 
 
 
 ````jsx
-import { Filter, Toast } from 'antm';
+import { Menu, Toast } from 'antm';
 
 let data1 = [
   {
@@ -124,7 +124,7 @@ let data1 = [
   }
 ];
 
-let FilterExample = React.createClass({
+let MenuExample1 = React.createClass({
   getInitialState() {
     return {
       visiable: true,
@@ -145,7 +145,7 @@ let FilterExample = React.createClass({
   },
   render() {
     return (<div>
-      {this.state.visiable ? (<Filter
+      {this.state.visiable ? (<Menu
         onChange={this.onChange}
         value={this.state.value}
         data={data1}
@@ -155,5 +155,5 @@ let FilterExample = React.createClass({
 });
 
 
-ReactDOM.render(<FilterExample />, mountNode);
+ReactDOM.render(<MenuExample1 />, mountNode);
 ````

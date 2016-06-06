@@ -1,11 +1,11 @@
 @import '../../style/mixins';
 
-@fliterPrefixCls: am-filter;
+@menuPrefixCls: am-menu;
+@subMenuPrefixCls: am-sub-menu;
 @flexPrefixCls: am-flexbox;
 @listPrefixCls: am-list;
-@selectListPrefixCls: am-select-list;
 
-.@{fliterPrefixCls} {
+.@{menuPrefixCls} {
   background-color: @neutral-3;
   .@{flexPrefixCls} {
     .@{flexPrefixCls}-item {
@@ -36,7 +36,7 @@
             &:last-child {
               .hairline-remove-right-bottom();
             }
-            &.@{fliterPrefixCls}-selected {
+            &.@{menuPrefixCls}-selected {
               background-color: @neutral-1;
             }
           }
@@ -46,14 +46,25 @@
         background-color: @neutral-1;
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
+            background-color: @neutral-1;
             padding-left: 3*@grid;
             .hairline-remove-right-bottom();
             .@{listPrefixCls}-line {
               .hairline-bottom(bottom, @neutral-5);
             }
-            &.@{selectListPrefixCls}-selected {
+            &.@{subMenuPrefixCls}-item-selected {
               .@{listPrefixCls}-line {
                 .hairline-bottom(bottom, @brand-6);
+                .@{listPrefixCls}-content {
+                  color: @brand-6;
+                }
+              }
+            }
+            &.@{subMenuPrefixCls}-item-disabled {
+              .@{listPrefixCls}-line {
+                .@{listPrefixCls}-content {
+                  color: @neutral-5;
+                }
               }
             }
           }
