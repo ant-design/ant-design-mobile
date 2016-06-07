@@ -38,6 +38,7 @@ h3 {
   background: #71B5DE;
   color: #fff;
   text-align: center;
+  margin: 0;
 }
 .am-carousel-card .slick-slide p {
   height: 152px;
