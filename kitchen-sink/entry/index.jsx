@@ -5,6 +5,7 @@ import { createHashHistory } from 'history';
 // useRouterHistory creates a composable higher-order function
 const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
+import './base.less';
 import App from '../components/App';
 import demosList from '../../_data/demos-list';
 import { NavBar, ActionSheet, Icon } from 'antm';
@@ -123,7 +124,7 @@ function createComponent(demos, path) {
         {demoSort.map((i, index) => {
           return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' }
             id={`${path}-demo-${index}`} key={index}
-                       // style={{ overflowY: 'scroll' }} 
+                       // style={{ overflowY: 'scroll' }}
           >
             {React.cloneElement(i.preview, {
               onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
