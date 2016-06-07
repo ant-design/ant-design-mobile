@@ -12,7 +12,7 @@ let data1 = [
   {
     value: '1',
     label: '全部分类',
-    isAll: true
+    isLeaf: true
   }, {
     value: '2',
     label: '美食',

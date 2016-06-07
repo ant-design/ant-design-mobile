@@ -16,8 +16,8 @@ const SelectorDataForDropdown = [
     value: '22',
     disabled: true
   }, {
-    label: '火锅',
-    value: '23'
+    label: '关闭浮层',
+    value: 'qx'
   }, {
     label: '自助餐',
     value: '24'
@@ -84,8 +84,9 @@ const Test = React.createClass({
   },
   newInstance() {
     const ins = Dropdown.newInstance();
-    const hide = (el) => {
-      if (el.id === 'qx') {
+    const hide = (value) => {
+      debugger;
+      if (value[0] === 'qx') {
         ins.hide();
       }
     };

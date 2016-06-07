@@ -43,7 +43,7 @@ export default class Menu extends React.Component {
   }
 
   onClickListItem = (el) => {
-    if (el.isAll) {
+    if (el.isLeaf === true) {
       this.setState({
         firstValue: el.value,
         SubMenuData: []
@@ -60,7 +60,11 @@ export default class Menu extends React.Component {
 
   onClickSubMenuItem = (el) => {
     setTimeout(() => {
-      this.props.onChange([this.state.firstValue, el.value]);
+      if (this.props.level === 2) {
+        this.props.onChange([this.state.firstValue, el.value]);
+      } else {
+        this.props.onChange([el.value]);
+      }
     }, 300);
   };
 
