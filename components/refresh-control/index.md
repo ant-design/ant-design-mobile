@@ -15,4 +15,4 @@ english: RefreshControl
 | loading   | 加载指示器   | React element |  anticon-loading |
 | distanceToRefresh   |   刷新距离    | number |    70  |
 | resistance   |   阻力系数   | number |    2.5  |
-| onRefresh   |   刷新回调函数   | function, required |  -  |
+| loadingFunction   |   刷新回调函数   | function, required |  -  |
