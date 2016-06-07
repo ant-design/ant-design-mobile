@@ -5,25 +5,49 @@ title: Dropdown
 
 
 ````jsx
-import { Dropdown, Button, WingBlank, WhiteSpace, SelectList } from 'antm';
+import { Dropdown, Button, WingBlank, WhiteSpace, Menu } from 'antm';
 
 const SelectorDataForDropdown = [
   {
-    name: '浙江',
-    pinyin: 'zhejiang',
-    py: 'zj',
-    id: 'zj'
+    label: '中餐',
+    value: '21'
   }, {
-    name: '上海(不可选)',
-    pinyin: 'shanghai',
-    py: 'sh',
-    id: 'sh',
+    label: '还没生效',
+    value: '22',
     disabled: true
   }, {
-    name: '关闭浮层',
-    pinyin: 'quxiao',
-    py: 'qx',
-    id: 'qx'
+    label: '关闭浮层',
+    value: 'qx'
+  }, {
+    label: '自助餐',
+    value: '24'
+  }, {
+    label: '快餐',
+    value: '25'
+  }, {
+    label: '小吃',
+    value: '26'
+  }, {
+    label: '面包甜点',
+    value: '27'
+  }, {
+    label: '生鲜水果',
+    value: '28'
+  }, {
+    label: '面食',
+    value: '29'
+  }, {
+    label: '休闲食品',
+    value: '210'
+  }, {
+    label: '日韩料理',
+    value: '211'
+  }, {
+    label: '咖啡',
+    value: '212'
+  }, {
+    label: '粤菜',
+    value: '213'
   }
 ];
 
@@ -60,12 +84,14 @@ const Test = React.createClass({
   },
   newInstance() {
     const ins = Dropdown.newInstance();
-    const hide = (el) => {
-      if (el.id === 'qx') {
+    const hide = (value) => {
+      debugger;
+      if (value[0] === 'qx') {
         ins.hide();
       }
     };
-    ins.show(<SelectList
+    ins.show(<Menu
+      level={1}
       value={[SelectorDataForDropdown[0]]}
       data={SelectorDataForDropdown}
       onChange={hide}
