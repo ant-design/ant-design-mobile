@@ -19,8 +19,16 @@ const App = React.createClass({
       ]
     };
   },
-  handleRefresh(resolve, reject) {
-    setTimeout(() => (this.addItem() ? resolve() : reject()), 1000);
+  loadingFunction() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (this.addItem()) {
+          resolve();
+        } else {
+          reject();
+        }
+      }, 2500);
+    });
   },
   addItem() {
     this.state.items.push(<div key={`item-${count}`}>条目 {count++}</div>);
@@ -31,7 +39,8 @@ const App = React.createClass({
   },
   render() {
     return (
-      <RefreshControl onRefresh={this.handleRefresh}
+      <RefreshControl
+        loadingFunction={this.loadingFunction}
         distanceToRefresh={40}
         resistance={1}
         style={{

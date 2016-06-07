@@ -1,47 +1,43 @@
-@import '../../style/mixins';
-@import '../../style/variables.less';
+@pull-to-refresh: am-refresh-control;
+.@{pull-to-refresh} {
+  position: relative;
+  overflow: hidden;
 
-@PullToRefresh: am-refresh-control;
-.@{PullToRefresh} {
-  &-element {
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	width: 100%;
-  	color: #aaa;
-  	z-index: 10;
-  	text-align: center;
-  	height: 40px;
+  &-ptr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: grey;
+    z-index: 10;
+    text-align: center;
+    height: 40px;
 
-    body:not(.@{PullToRefresh}-loading) & {
+    .@{pull-to-refresh}:not(.@{pull-to-refresh}-loading) & {
       transform: translate3d(0, -40px, 0);
     }
-    .@{PullToRefresh}-icon {
-      display: inline-block; // if not set, transform will not work!
-    	transition: all .25s ease;
+    &-icon {
+      transition: all .25s ease;
     }
   }
-  &-refresh {
-    .@{PullToRefresh}-element .@{PullToRefresh}-icon {
-      -webkit-transform: rotate(180deg);
-    	transform: rotate(180deg);
-    }
-  }
-  &-loading-ele {
-  	display: none;
+  &-ptr-loading {
+    display: none;
   }
   &-loading {
-    & &-ele {
+    .@{pull-to-refresh}-ptr-loading {
       display: block;
+    }
+    .@{pull-to-refresh}-content {
+      transform: translate3d(0, 40px, 0);
     }
   }
   &-loading,
   &-reset {
-    .@{PullToRefresh}-element,
-    .@{PullToRefresh}-refresh-view {
+    .@{pull-to-refresh}-ptr,
+    .@{pull-to-refresh}-content {
       transition: all .25s ease;
     }
-    .@{PullToRefresh}-element .@{PullToRefresh}-icon {
+    .@{pull-to-refresh}-ptr-icon {
       display: none;
     }
   }
