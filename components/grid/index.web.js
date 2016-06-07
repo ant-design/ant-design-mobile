@@ -95,7 +95,7 @@ export default class Grid extends React.Component {
             <div className={`${prefixCls}-text`}>{data[i * 4 + j].text}</div>
           </Flex.Item>);
         } else {
-          flexContent.push(<Flex.Item key={`griditem-${i * 4 + j}`} />);
+          flexContent.push(<Flex.Item style={flexItemStyle} key={`griditem-${i * 4 + j}`} />);
         }
       }
 
