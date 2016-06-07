@@ -1,10 +1,11 @@
 ---
-order: 0
-title: 1. 类型/type
+order: 3
+title: 4. 尺寸/size、行内按钮/inline
 ---
 
-主按钮和次按钮可独立使用，需要强引导用主按钮。在有多个操作同时出现时，需要区分主次优先级，主按钮在同一个操作区域建议最多出现一次。
+支持大小两种尺寸。
 
+支持是否是行内按钮。
 
 ---
 
@@ -24,7 +25,7 @@ const ButtonExample = React.createClass({
   render() {
     ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<Button size="small" inline
       onClick={this.switchDark}
-    >{this.state.dark ? '白天' : '夜间'}</Button>}>类型/type</NavBar>);
+    >{this.state.dark ? '白天' : '夜间'}</Button>}>尺寸/行内</NavBar>);
 
     return (
       <div className="button-container"
@@ -32,27 +33,25 @@ const ButtonExample = React.createClass({
       >
         <WhiteSpace />
         <WingBlank>
-          <p className="demo-p">type="primary" - 用于主要操作或必须点击才能完成流程的操作</p>
+          <p className="demo-p">主按钮</p>
           <WhiteSpace />
-          <Button type="primary">primary按钮</Button>
+          <Button type="primary">primary 按钮</Button>
+          <WhiteSpace />
+          <Button type="primary" size="small">primary small 按钮</Button>
+          <WhiteSpace />
+          <Button type="primary" inline>inline</Button>&nbsp;
+          <Button type="primary" size="small" inline>inline</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <p className="demo-p">默认type - 用于较轻或不希望引导用户使用的操作</p>
+          <p className="demo-p">次按钮</p>
           <WhiteSpace />
           <Button>default 按钮</Button>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <p className="demo-p">提醒按钮</p>
           <WhiteSpace />
-          <Button type="warning">warning 按钮</Button>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <p className="demo-p">添加 loading 属性即可让按钮处于加载状态</p>
+          <Button size="small">default small 按钮</Button>
           <WhiteSpace />
-          <Button loading>loading 按钮</Button>
+          <Button inline>inline</Button>&nbsp;
+          <Button size="small" inline>inline</Button>
         </WingBlank>
         <WhiteSpace />
       </div>

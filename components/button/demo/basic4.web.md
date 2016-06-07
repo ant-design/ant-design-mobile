@@ -1,9 +1,9 @@
 ---
-order: 1
-title: 各种型号按钮
+order: 4
+title: 应用场景示例
 ---
 
-Button
+和 List / Flex 结合使用示例
 
 ---
 
@@ -11,17 +11,6 @@ Button
 import { Button, Flex, List, WingBlank, WhiteSpace } from 'antm';
 ReactDOM.render(
   <div className="button-container">
-  <WhiteSpace />
-    <WingBlank>
-      <Flex>
-        <Flex.Item>
-          <Button type="primary">primary按钮</Button>
-        </Flex.Item>
-        <Flex.Item>
-          <Button type="primary" ghost>primary ghost 按钮</Button>
-        </Flex.Item>
-      </Flex>
-    </WingBlank>
     <WhiteSpace />
     <WingBlank>
       <Flex>
