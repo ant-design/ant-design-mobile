@@ -22,7 +22,7 @@ function getDefaultProps() {
   };
 }
 
-export default class ListPicker extends React.Component {
+export default class Picker extends React.Component {
   static propTypes = {
     format: PropTypes.func,
   }

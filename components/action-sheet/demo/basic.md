@@ -84,21 +84,25 @@ const Test = React.createClass({
     return (<div>
       <WingBlank>
         <WhiteSpace />
-        <h4>通常的 ActionSheet</h4>
+        <p className="demo-p">通常的 ActionSheet</p>
         <WhiteSpace />
         <Button type="primary" onClick={this.showActionSheet}>显示</Button>
         <WhiteSpace />
-        <p>点击过的按钮: {this.state.clicked}</p>
+        <p className="demo-p">点击过的按钮: &nbsp;
+          <span style={{ color: '#222' }}>{this.state.clicked}</span>
+        </p>
 
         <WhiteSpace mode={16} />
-        <h4>带分享功能的 ActionSheet</h4>
+        <p className="demo-p">带分享功能的 ActionSheet</p>
         <WhiteSpace />
         <Button type="primary" onClick={this.showShareActionSheet}>显示</Button>
         <WhiteSpace />
-        <p>点击过的icon: {this.state.clicked}</p>
+        <p className="demo-p">点击过的icon: &nbsp;
+          <span style={{ color: '#222' }}>{this.state.clicked}</span>
+        </p>
 
         <WhiteSpace mode={16} />
-        <h4>内容可以完全自定义的 ActionSheet</h4>
+        <p className="demo-p">内容可以完全自定义的 ActionSheet</p>
         <WhiteSpace />
         <Button type="primary" onClick={this.showActionSheetWithCustom}>显示</Button>
       </WingBlank>

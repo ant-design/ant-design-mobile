@@ -39,7 +39,7 @@ function getDefaultProps() {
   };
 }
 
-export default class ListDatePicker extends React.Component {
+export default class DatePicker extends React.Component {
   static propTypes = {
     value: PropTypes.string,
     mode: PropTypes.string,

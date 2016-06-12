@@ -2,10 +2,10 @@
 category: Components
 type: Components
 chinese: 日期选择
-english: Date Picker
+english: DatePicker
 ---
 
-
+日期或时间选择器
 
 ## API
 
