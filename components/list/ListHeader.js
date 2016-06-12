@@ -1,8 +1,24 @@
-import React, { Text } from 'react-native';
-const THEMES = require('./style/index.ios').ThemesList;
+import React, { PropTypes } from 'react';
+import classNames from 'classnames';
 
-export default class Header extends React.Component {
+export default class ListHeader extends React.Component {
+  static propTypes = {
+    prefixCls: PropTypes.string,
+  };
+
+  static defaultProps = {
+    prefixCls: 'am-list',
+  };
+
   render() {
-    return (<Text style={THEMES.Header}>{this.props.children}</Text>);
+    let { prefixCls, children, className, ...others } = this.props;
+    const wrapCls = classNames({
+      [`${prefixCls}-header`]: true,
+      [className]: className
+    });
+
+    return (
+      <div {...others} className={wrapCls}>{children}</div>
+    );
   }
 }
