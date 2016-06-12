@@ -109,7 +109,7 @@
 
 .code-box .collapse {
   position: absolute;
-  right: 16px;
+  right: 32px;
   bottom: 18px;
   cursor: pointer;
   width: 18px;
@@ -133,6 +133,19 @@
 
 .code-box .collapse:hover {
   opacity: 1;
+}
+
+.code-box .fullscreen {
+  position: absolute;
+  right: 16px;
+  bottom: -60px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #ededed;
+  padding: 8px;
+  border-radius: 16px;
+  background-color: rgba(256,256,256,0.6);
 }
 
 .code-box .highlight-wrapper {
@@ -533,6 +546,27 @@
 }
 .link-buttons .link-current span {
   color: #2DB7F5;
+}
+
+ul.anticons-list li.copied:hover {
+  color: rgba(255,255,255,0.2);
+}
+ul.anticons-list li:after {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "Copied!";
+  text-align: center;
+  line-height: 110px;
+  color: #fff;
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  opacity: 0;
+}
+ul.anticons-list li.copied:after {
+  opacity: 1;
+  top: 0;
 }
 
 

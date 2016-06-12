@@ -16,7 +16,7 @@ ReactDOM.render(
     </Badge>
 
     <Badge dot size="large">
-      <a href="#" className="head-example"></a>
+      <span className="head-example"></span>
     </Badge>
   </div>
 , mountNode);
