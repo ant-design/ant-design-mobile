@@ -15,13 +15,13 @@ export default class Button extends React.Component {
   };
 
   static defaultProps = {
-      pressIn: false,
-      size: 'large',
-      type: 'primary',
-      goast: false,
-      disabled: false,
-      inline: false,
-      loading: false
+    pressIn: false,
+    size: 'large',
+    type: 'primary',
+    goast: false,
+    disabled: false,
+    inline: false,
+    loading: false
   };
 
   constructor(props) {
