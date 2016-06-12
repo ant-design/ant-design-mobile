@@ -33,5 +33,5 @@ english: ListAction
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
 | text       | button text     | String | `Click` |
-| style       | button style     | Object | `` |
+| style       | button style （iOS only）    | Object | `` |
 | onPress       | button press function      | Function | `function() {}` |
