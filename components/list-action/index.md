@@ -25,6 +25,7 @@ english: ListAction
 | onOpen       |       | Function | `function() {}` |
 | onClose       |       | Function | `function() {}` |
 | disabled       |   disabled swipeout    | Boolean | `false` |
+| title          |    modal title (android only)   | String | `请确认操作` |
 
 
 ### Button

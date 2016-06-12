@@ -8,6 +8,7 @@ class ListAction extends React.Component {
     prefixCls: PropTypes.string,
     autoClose: PropTypes.bool,
     disabled: PropTypes.bool,
+    title: PropTypes.string,
     left: PropTypes.arrayOf(PropTypes.object),
     right: PropTypes.arrayOf(PropTypes.object),
     onOpen: PropTypes.func,
@@ -17,6 +18,7 @@ class ListAction extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-listaction',
+    title: '请确认操作',
     autoClose: false,
     disabled: false,
     left: [],
@@ -42,6 +44,7 @@ class ListAction extends React.Component {
       return;
     }
     onOpen();
+
     this.setState({
       showModal: true,
     });
@@ -65,7 +68,7 @@ class ListAction extends React.Component {
   }
 
   renderAndroid() {
-    const { children } = this.props;
+    const { children, title } = this.props;
     const pressOption = {
       recognizers: {
         press: {
@@ -80,7 +83,7 @@ class ListAction extends React.Component {
           {children}
         </Hammer>
         <Modal animated={false}
-          title="请确认操作"
+          title={title}
           transparent
           closable
           maskClosable

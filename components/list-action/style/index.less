@@ -32,15 +32,24 @@
     overflow: hidden;
     z-index: 99;
     &-text{
-      padding: 0 12px;
+      padding: 0 3*@grid;
     }
   }
   &-android-actions {
-    font-size: 16px;
-    border-top: 1px solid #EAEAEA;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: @blue-6;
+    font-size: @font-size-6;
   }
   &-android-btn {
-    border-top: 1px solid #EAEAEA;
-    padding: 2*@grid 0;
+    .hairline-top(top, @neutral-5);
+    padding: 3*@grid;
+    position: relative;
+    .ellipsis();
+    line-height: 1;
+  }
+  .am-modal-body {
+    padding: 0 6*@grid 3*@grid;
   }
 }
