@@ -109,12 +109,16 @@ export default class Grid extends React.Component {
           carouselContent.push();
         }
         if (k * 2 + 1 < gridContentLength) {
-          carouselContent.push(<div>
+          carouselContent.push(<div
+            key={`carouselitem-${k * 2 + 1}`}
+          >
             {gridContent[k * 2]}
             {gridContent[k * 2 + 1]}
           </div>);
         } else {
-          carouselContent.push(<div>
+          carouselContent.push(<div
+            key={`carouselitem-${k * 2}`}
+          >
             {gridContent[k * 2]}
             <Flex>
               <Flex.Item className={itemCls} style={flexItemStyle} />
