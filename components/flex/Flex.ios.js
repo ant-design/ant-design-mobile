@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
-export default class FlexItem extends React.Component {
+export default class Flex extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,

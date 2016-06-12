@@ -12,11 +12,11 @@ import { Badge } from 'antm';
 ReactDOM.render(
   <div className="badge-container" style={{ padding: '40px 16px' }}>
     <Badge text={99}>
-        <a href="#" className="head-example"></a>
+        <span className="head-example"></span>
     </Badge>
 
     <Badge text={108}>
-        <a href="#" className="head-example"></a>
+        <span className="head-example"></span>
     </Badge>
   </div>
 , mountNode);

@@ -1,13 +1,13 @@
 ---
 order: 0
-title: Date Picker
+title: 基本
 ---
 
-
+日期时间选择示例
 
 ````jsx
 
-import { ListDatePicker, List } from 'antm';
+import { DatePicker, List } from 'antm';
 import { createForm } from 'rc-form';
 
 let Test = React.createClass({
@@ -17,7 +17,7 @@ let Test = React.createClass({
       <List>
         <List.Header>选择时间</List.Header>
         <List.Body>
-          <ListDatePicker
+          <DatePicker
             className="am-date-picker"
             mode="date"
             title="选择日期"
@@ -29,28 +29,28 @@ let Test = React.createClass({
             maxDate="2016-12-3"
           >
             <List.Item arrow="horizontal">日期</List.Item>
-          </ListDatePicker>
-          <ListDatePicker mode="time" { ...getFieldProps('time1', {
+          </DatePicker>
+          <DatePicker mode="time" { ...getFieldProps('time1', {
             initialValue: ''
           })}
           >
             <List.Item arrow="horizontal">时间,不限定上下限</List.Item>
-          </ListDatePicker>
-          <ListDatePicker mode="time" { ...getFieldProps('time', {
+          </DatePicker>
+          <DatePicker mode="time" { ...getFieldProps('time', {
             initialValue: ''
           })}
             minDate="00:30"
             maxDate="22:00"
           >
             <List.Item arrow="horizontal">时间</List.Item>
-          </ListDatePicker>
-          <ListDatePicker mode="datetime" { ...getFieldProps('datetime', {
+          </DatePicker>
+          <DatePicker mode="datetime" { ...getFieldProps('datetime', {
             initialValue: ''
           })}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
-          </ListDatePicker>
-          <ListDatePicker
+          </DatePicker>
+          <DatePicker
             mode="datetime"
             format={ (val) => { return val; }}
             { ...getFieldProps('customformat', {
@@ -58,7 +58,7 @@ let Test = React.createClass({
             })}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
-          </ListDatePicker>
+          </DatePicker>
         </List.Body>
       </List>
     </div>);

@@ -118,14 +118,12 @@ function createComponent(demos, path) {
     render() {
       const current = this.state.current;
       return (<div id={path}>
-        <div id="demoNavbar">
+        <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 999 }}>
           { this.state.customNavBar }
         </div>
         {demoSort.map((i, index) => {
           return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' }
-            id={`${path}-demo-${index}`} key={index}
-                       // style={{ overflowY: 'scroll' }}
-          >
+            id={`${path}-demo-${index}`} key={index}>
             {React.cloneElement(i.preview, {
               onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
             })}

@@ -20,7 +20,7 @@ export default class ListView extends React.Component {
         renderHeader={() => <Header>{renderHeader()}</Header>}
         renderFooter={() => <Footer>{renderFooter()}</Footer>}
         renderSectionHeader={(sectionData, sectionID) => <Item>{renderSectionHeader(sectionData, sectionID)}</Item>}
-        renderRow={() => <Item>{renderRow()}</Item>}
+        renderRow={renderRow}
         renderBodyComponent={() => <Body />} />
     );
   }

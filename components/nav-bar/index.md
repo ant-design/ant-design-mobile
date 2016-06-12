@@ -3,6 +3,7 @@ category: Components
 type: Components
 chinese: 顶部导航
 english: NavBar
+display: false
 ---
 
 

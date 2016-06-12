@@ -1,11 +1,11 @@
 ---
 category: Components
 type: Components
-chinese: 列表选择
-english: List Picker
+chinese: 选择器
+english: Picker
 ---
 
-
+适用于数据有级联关系的选择器，比如`省市区选择`、`商品分类选择`。
 
 ## 如何使用
 

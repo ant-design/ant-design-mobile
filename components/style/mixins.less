@@ -152,19 +152,32 @@
   -webkit-background-size: @width @height;
 }
 
-.box-flex(@scale: 1) {
-  -webkit-box-flex: @scale;
-  -webkit-flex: @scale;
+.display-box() {
+  display: flex;
+}
+
+.flex-direction(@direction: row) {
+  flex-direction: @direction;
+}
+
+.flex-wrap(@wrap: nowrap) {
+  flex-wrap: @wrap;
+}
+
+.flex-justify(@justify: flex-start) {
+  justify-content: @justify;
 }
 
 .box-align(@align: center) {
-  -webkit-box-align: @align;
-  -webkit-align-items: @align;
+  align-items: @align;
 }
 
-.display-box() {
-  display: -webkit-box;
-  display: -webkit-flex;
+.box-align-content(@alignContent: stretch) {
+  align-content: @alignContent;
+}
+
+.box-flex(@scale: 1) {
+  flex: @scale;
 }
 
 .border-radius(@radius: 0) {
