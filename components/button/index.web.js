@@ -36,7 +36,8 @@ export default class Button extends React.Component {
     loading: PropTypes.bool,
     icon: PropTypes.bool,
     onClick: PropTypes.func,
-  }
+  };
+
   static defaultProps = {
     prefixCls: 'am-button',
     size: 'large',
@@ -45,7 +46,7 @@ export default class Button extends React.Component {
     disabled: false,
     loading: false,
     onClick: noop,
-  }
+  };
 
   onClick = () => {
     this.props.onClick(this);
