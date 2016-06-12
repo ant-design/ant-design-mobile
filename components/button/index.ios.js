@@ -1,8 +1,8 @@
 import React, { View, TouchableHighlight, PropTypes, Text } from 'react-native';
-const variables = require('../style/variables');
+import variables from '../style/variables';
 
-const Button = React.createClass({
-  propTypes: {
+export default class Button extends React.Component {
+  static propTypes = {
     pressIn: PropTypes.bool,
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
@@ -12,25 +12,24 @@ const Button = React.createClass({
     goast: PropTypes.bool,
     inline: PropTypes.bool,
     loading: PropTypes.bool,
-  },
+  };
 
-  getDefaultProps() {
-    return {
+  static defaultProps = {
       pressIn: false,
       size: 'large',
       type: 'primary',
       goast: false,
       disabled: false,
       inline: false,
-      loading: false,
-    };
-  },
+      loading: false
+  };
 
-  getInitialState: function () {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       pressIn: false
     };
-  },
+  }
 
   pressTextColor() {
     if (this.state.pressIn) {
@@ -38,7 +37,7 @@ const Button = React.createClass({
     }
 
     return { color: this._textColor };
-  },
+  }
 
   pressBorderColor() {
     if (this.state.pressIn && this._borderHighlightColor) {
@@ -46,7 +45,7 @@ const Button = React.createClass({
     }
 
     return {};
-  },
+  }
 
   render() {
     const size = this.props.size;
@@ -202,6 +201,4 @@ const Button = React.createClass({
       </Text>
     </TouchableHighlight>);
   }
-});
-
-module.exports = Button;
+}
