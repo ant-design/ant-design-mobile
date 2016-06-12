@@ -28,6 +28,6 @@ class BasicButtonExample extends React.Component {
   }
 }
 
-exports.title = 'Button';
-exports.description = 'button example';
-exports.demo = BasicButtonExample;
+export const title = 'Button';
+export const description = 'button example';
+export const demo = BasicButtonExample;

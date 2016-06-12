@@ -8,7 +8,9 @@ react native listView
 ---
 
 ````jsx
-import { ListView } from 'antm';
+import { ListView, List, DatePicker } from 'antm';
+
+const { Item } = List;
 
 const styles = {
   listView: {
@@ -128,7 +130,20 @@ const Demo = React.createClass({
   },
 
   renderRow(rowData) {
-    return (<Thumb text={rowData} />);
+    if (rowData.indexOf('R0') !== -1) {
+      return (
+      <DatePicker
+        className="am-date-picker"
+        mode="date"
+        title="选择日期"
+        extra="可选,小于结束日期"
+        minDate="2014-08-06"
+        maxDate="2016-12-3"
+       >
+         <Item arrow="horizontal">日期</Item>
+       </DatePicker>);
+    }
+    return (<Item><Thumb text={rowData} /></Item>);
   },
 
   renderSectionHeader(sectionData) {
