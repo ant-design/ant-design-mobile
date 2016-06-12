@@ -28,6 +28,19 @@ loop(district, (d) => {
 import { createForm } from 'rc-form';
 
 let Test = React.createClass({
+  getInitialState() {
+    return {
+      data: [],
+    };
+  },
+  onClick() {
+    console.log('start loading data');
+    setTimeout(() => {
+      this.setState({
+        data: district
+      });
+    }, 500);
+  },
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
@@ -40,16 +53,10 @@ let Test = React.createClass({
           >
             <List.Item arrow="horizontal">省市区选择</List.Item>
           </Picker>
-          <Picker data={district} cols={2} {...getFieldProps('district2', {
-          })}
-
-          >
-            <List.Item arrow="horizontal">省市选择</List.Item>
+          <Picker data={this.state.data} cols={2} {...getFieldProps('district2')}>
+            <List.Item arrow="horizontal" onClick={this.onClick}>省市选择(异步加载)</List.Item>
           </Picker>
-          <Picker data={district} cols={1} {...getFieldProps('district3', {
-          })}
-
-          >
+          <Picker data={district} cols={1} {...getFieldProps('district3')}>
             <List.Item arrow="horizontal">选择省份</List.Item>
           </Picker>
         </List.Body>
