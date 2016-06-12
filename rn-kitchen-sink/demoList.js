@@ -6,6 +6,7 @@ module.exports = {
     require('../components/wing-blank/demo/basic.rn'),
     require('../components/white-space/demo/basic.rn'),
     require('../components/button/demo/basic.rn'),
+    require('../components/flex/demo/basic.rn'),
     require('../components/list/demo/basic.rn'),
   ],
 };
