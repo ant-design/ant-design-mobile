@@ -41,7 +41,7 @@ export default class BasicListExample extends React.Component {
             >icon</List.Item>
             <List.Item
               icon=""
-              extra={<Image source="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="28" height="28" />}
+              extra={<Image source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }} width="28" height="28" />}
               arrow="horizontal"
               onClick={window.clickItem}
             >扩展信息传入icon</List.Item>
@@ -119,7 +119,7 @@ export default class BasicListExample extends React.Component {
               arrow="horizontal"
             >文本信息</List.Item>
             <List.Item
-              extra={<Image source="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="29" height="29" />}
+              extra={<Image source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }} width="29" height="29" />}
               arrow="horizontal"
             >员工二维码</List.Item>
             <List.Item
