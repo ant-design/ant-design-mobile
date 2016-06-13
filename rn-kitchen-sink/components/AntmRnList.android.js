@@ -45,7 +45,7 @@ class AntRnList extends React.Component {
   }
 
   onPressRow(example: any) {
-    const Component = example.demo;
+    const Component = example.default;
     this.props.onSelectExample({
       title: example.title,
       component: React.createClass({

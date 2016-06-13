@@ -46,7 +46,7 @@ const CircleBlock = React.createClass({
   }
 });
 
-class FlexExample extends React.Component {
+export default class FlexExample extends React.Component {
   render() {
     return (
       <View>
@@ -152,6 +152,5 @@ class FlexExample extends React.Component {
   }
 }
 
-exports.title = 'Flex';
-exports.description = 'Flex example';
-exports.demo = FlexExample;
+export const title = 'Flex';
+export const description = 'Flex example';

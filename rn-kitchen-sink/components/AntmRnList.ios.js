@@ -37,7 +37,7 @@ class AntmRnList extends React.Component {
   }
 
   onPressRow(example: any) {
-    const Component = example.demo;
+    const Component = example.default;
     this.props.navigator.push({
       title: example.title,
       component: React.createClass({

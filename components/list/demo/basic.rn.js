@@ -134,6 +134,5 @@ export default class BasicListExample extends React.Component {
   }
 }
 
-exports.title = 'List';
-exports.description = 'List Example';
-exports.demo = BasicListExample;
+export const title = 'List';
+export const description = 'List Example';
