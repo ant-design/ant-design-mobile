@@ -85,7 +85,6 @@ const Test = React.createClass({
   newInstance() {
     const ins = Dropdown.newInstance();
     const hide = (value) => {
-      debugger;
       if (value[0] === 'qx') {
         ins.hide();
       }
