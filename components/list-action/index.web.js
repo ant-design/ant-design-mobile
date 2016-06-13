@@ -82,15 +82,20 @@ class ListAction extends React.Component {
         <Hammer onPress={this.onLongTap} options={pressOption}>
           {children}
         </Hammer>
-        <Modal animated={false}
-          title={title}
-          transparent
-          closable
-          maskClosable
-          onClose={this.onClose}
-          footer={this.renderAndroidBtn()}
-          visible={this.state.showModal}
-        />
+        {
+          this.state.showModal ? (
+            <Modal
+              animated={false}
+              title={title}
+              transparent
+              closable
+              maskClosable
+              onClose={this.onClose}
+              footer={this.renderAndroidBtn()}
+              visible
+            />
+          ) : null
+        }
       </div>
     );
   }

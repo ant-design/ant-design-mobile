@@ -18,7 +18,7 @@ english: ListAction
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
 | prefixCls       | className prefix     | String | `rc-swipeout` |
-| style           | swipeout style       | Object |             |
+| style           | swipeout style (iOS only)      | Object |             |
 | left       | swipeout buttons on left      | Array | `null` |
 | right       | swipeout buttons on right      | Array | `null` |
 | autoClose       | auto close on button press   | Boolean | `function() {}` |
