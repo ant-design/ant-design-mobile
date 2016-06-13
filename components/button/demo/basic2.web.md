@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 3. 失效状态/disabled
+title: 失效状态/disabled
 ---
 
 添加 disabled 属性即可让按钮处于不可用状态，同时按钮样式也会改变。
@@ -22,15 +22,16 @@ const ButtonExample = React.createClass({
     this.props.onNavBarChange();
   },
   render() {
-    ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<Button size="small" inline
+    ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<span
+      style={{ cursor: 'pointer' }}
       onClick={this.switchDark}
-    >{this.state.dark ? '白天' : '夜间'}</Button>}>失效状态</NavBar>);
+    >{this.state.dark ? '白天' : '夜间'}</span>}>失效状态</NavBar>);
 
     return (
       <div className="button-container"
         style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
       >
-        <WhiteSpace />
+        <WhiteSpace mode={32} />
         <WingBlank>
           <p className="demo-p">主按钮失效</p>
           <WhiteSpace />
@@ -38,7 +39,7 @@ const ButtonExample = React.createClass({
           <WhiteSpace />
           <Button type="primary" ghost disabled>primary ghost 按钮</Button>
         </WingBlank>
-        <WhiteSpace />
+        <WhiteSpace mode={32} />
         <WingBlank>
           <p className="demo-p">次按钮失效</p>
           <WhiteSpace />

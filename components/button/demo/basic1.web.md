@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 2. 幽灵模式/ghost
+title: 幽灵模式/ghost
 ---
 
 当操作并不需要太过强调/明显时，可以启动幽灵变量。该变量是在原有按钮类型上的变形，主次等级遵循原有按钮的规则。
@@ -22,21 +22,22 @@ const ButtonExample = React.createClass({
     this.props.onNavBarChange();
   },
   render() {
-    ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<Button size="small" inline
+    ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<span
+      style={{ cursor: 'pointer' }}
       onClick={this.switchDark}
-    >{this.state.dark ? '白天' : '夜间'}</Button>}>幽灵模式/ghost</NavBar>);
+    >{this.state.dark ? '白天' : '夜间'}</span>}>幽灵模式/ghost</NavBar>);
 
     return (
       <div className="button-container"
         style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
       >
-        <WhiteSpace />
+        <WhiteSpace mode={32} />
         <WingBlank>
           <p className="demo-p">主按钮的幽灵模式，用于较轻量级或希望引导用户使用的操作</p>
           <WhiteSpace />
           <Button type="primary" ghost>primary ghost 按钮</Button>
         </WingBlank>
-        <WhiteSpace />
+        <WhiteSpace mode={32} />
         <WingBlank>
           <p className="demo-p">次按钮的幽灵模式，用于较轻量级或希望引导用户使用的操作</p>
           <WhiteSpace />

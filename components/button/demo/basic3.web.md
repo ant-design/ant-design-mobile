@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 4. 尺寸/size、行内按钮/inline
+title: 尺寸/size、行内按钮/inline
 ---
 
 支持大小两种尺寸。
@@ -23,15 +23,16 @@ const ButtonExample = React.createClass({
     this.props.onNavBarChange();
   },
   render() {
-    ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<Button size="small" inline
+    ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<span
+      style={{ cursor: 'pointer' }}
       onClick={this.switchDark}
-    >{this.state.dark ? '白天' : '夜间'}</Button>}>尺寸/行内</NavBar>);
+    >{this.state.dark ? '白天' : '夜间'}</span>}>尺寸/行内</NavBar>);
 
     return (
       <div className="button-container"
         style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
       >
-        <WhiteSpace />
+        <WhiteSpace mode={32} />
         <WingBlank>
           <p className="demo-p">主按钮</p>
           <WhiteSpace />
@@ -42,7 +43,7 @@ const ButtonExample = React.createClass({
           <Button type="primary" inline>inline</Button>&nbsp;
           <Button type="primary" size="small" inline>inline</Button>
         </WingBlank>
-        <WhiteSpace />
+        <WhiteSpace mode={32} />
         <WingBlank>
           <p className="demo-p">次按钮</p>
           <WhiteSpace />

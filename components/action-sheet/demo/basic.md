@@ -83,7 +83,7 @@ const Test = React.createClass({
   render() {
     return (<div>
       <WingBlank>
-        <WhiteSpace />
+        <WhiteSpace mode={32} />
         <p className="demo-p">通常的 ActionSheet</p>
         <WhiteSpace />
         <Button type="primary" onClick={this.showActionSheet}>显示</Button>
@@ -92,7 +92,7 @@ const Test = React.createClass({
           <span style={{ color: '#222' }}>{this.state.clicked}</span>
         </p>
 
-        <WhiteSpace mode={16} />
+        <WhiteSpace mode={32} />
         <p className="demo-p">带分享功能的 ActionSheet</p>
         <WhiteSpace />
         <Button type="primary" onClick={this.showShareActionSheet}>显示</Button>
@@ -101,7 +101,7 @@ const Test = React.createClass({
           <span style={{ color: '#222' }}>{this.state.clicked}</span>
         </p>
 
-        <WhiteSpace mode={16} />
+        <WhiteSpace mode={32} />
         <p className="demo-p">内容可以完全自定义的 ActionSheet</p>
         <WhiteSpace />
         <Button type="primary" onClick={this.showActionSheetWithCustom}>显示</Button>
