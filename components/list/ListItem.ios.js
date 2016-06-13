@@ -26,9 +26,8 @@ class Detail extends React.Component {
 
 export default class Item extends React.Component {
   static propTypes = {
-    extra: function (props, propName) {
+    extra(props, propName) {
       if (props[propName]) {
-        console.log(props[propName]);
         if (!ReactElement.isValidElement(props[propName]) && typeof(props[propName]) !== 'string') {
           throw new Error('extra must be a string or element');
         }

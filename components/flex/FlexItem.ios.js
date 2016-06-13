@@ -1,26 +1,23 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
+import { View } from 'react-native';
 
 export default class FlexItem extends React.Component {
   static propTypes = {
-    prefixCls: PropTypes.string,
-    style: PropTypes.object,
+    flex: PropTypes.number
   };
 
   static defaultProps = {
-    prefixCls: 'am-flexbox'
+    flex: 1
   };
   render() {
-    const { children, className, prefixCls, ...others } = this.props;
-    const wrapCls = classNames({
-      [`${prefixCls}-item`]: true,
-      [className]: className
-    });
+    let { style, children, flex, ...others } = this.props;
+    const flexItemStyle = {
+      flex: flex || 1
+    };
     return (
-      <div
-        {...others}
-        className={wrapCls}
-      >{children}</div>
+      <View style={[flexItemStyle, style]} {...others}>
+        {children}
+      </View>
     );
   }
 }

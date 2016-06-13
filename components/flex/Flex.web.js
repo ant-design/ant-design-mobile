@@ -8,8 +8,8 @@ export default class Flex extends React.Component {
     direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
     wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
     justify: PropTypes.oneOf(['start', 'end', 'center', 'between', 'around']),
-    align: PropTypes.oneOf(['start', 'center', 'end', 'top', 'middle', 'bottom', 'baseline', 'stretch']),
-    alignContent: PropTypes.oneOf(['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'stretch']),
+    align: PropTypes.oneOf(['start', 'end', 'center', 'top', 'middle', 'bottom', 'baseline', 'stretch']),
+    alignContent: PropTypes.oneOf(['start', 'end', 'center', 'between', 'around', 'stretch']),
   };
 
   static defaultProps = {

@@ -171,12 +171,12 @@ export default class Button extends React.Component {
 
     let style = {
       alignItems: 'center',
-      height: height,
-      paddingLeft: paddingLeft,
-      backgroundColor: backgroundColor,
-      borderRadius: borderRadius,
-      borderWidth: borderWidth,
-      borderColor: borderColor,
+      height,
+      paddingLeft,
+      backgroundColor,
+      borderRadius,
+      borderWidth,
+      borderColor,
       justifyContent: 'center',
     };
 
@@ -188,16 +188,15 @@ export default class Button extends React.Component {
 
     if (disabled) {
       return (<View {...this.props} style={[style, this.pressBorderColor(), this.props.style]}>
-        <Text style={[{ fontSize: fontSize }, this.pressTextColor()]}>
+        <Text style={[{ fontSize }, this.pressTextColor()]}>
           {this.props.children}
         </Text>
       </View>);
     }
 
-    console.log('this.props.children: ', this.props.children, { ...this.props }, { ...touchableProps }, this.props.style);
     return (<TouchableHighlight activeOpacity={1} delayPressOut={1} { ...this.props } { ...touchableProps } style={[style, this.pressBorderColor(), this.props.style]}
       underlayColor={highlightBackgroundColor}>
-      <Text style={[{ fontSize: fontSize }, this.pressTextColor()]}>
+      <Text style={[{ fontSize }, this.pressTextColor()]}>
         {this.props.children}
       </Text>
     </TouchableHighlight>);
