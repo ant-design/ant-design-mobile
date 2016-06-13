@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button, WhiteSpace, WingBlank } from 'antm';
 
-export default class BasicButtonExample extends React.Component {
+class BasicButtonExample extends React.Component {
   render() {
     return (
       <View>
@@ -76,3 +76,4 @@ export default class BasicButtonExample extends React.Component {
 
 export const title = 'Button';
 export const description = 'button example';
+export const demo = BasicButtonExample;
