@@ -7,7 +7,7 @@ export default function (...args) {
   const content = args[1];
   const actions = args[2] || [{ text: '确定' }];
 
-  if (!title || !content) {
+  if (!title && !content) {
     console.log('Must specify either an alert title, or message, or both');
     return;
   }
