@@ -58,14 +58,14 @@ class FlexExample extends React.Component {
         </CircleBlock>
         <WingBlank>
           <CircleBlock style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-            <Button mode="white" size="little" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
-            <Button mode="white" size="little" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
-            <Button mode="white" size="little" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
+            <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
+            <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
+            <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
           </CircleBlock>
         </WingBlank>
         <WingBlank>
-          <Button mode="white" size="little" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
-          <Button mode="white" size="little" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
+          <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
+          <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
         </WingBlank>
         <Text>column</Text>
         <CircleBlock style={{ flexDirection: 'column' }}>
@@ -115,7 +115,7 @@ class FlexExample extends React.Component {
           <Circle />
           <Circle />
         </CircleBlock>
-        <Button mode="red" size="tiny">红色26px按钮</Button>
+        <Button mode="red" size="small">红色26px按钮</Button>
         <Text>flex-start</Text>
         <CircleBlock style={{ alignItems: 'flex-start', height: 30 }}>
           <Circle size={15} /><Circle size={10} /><Circle size={20} />
@@ -143,7 +143,7 @@ class FlexExample extends React.Component {
           <Circle size={20} /><Circle size={17} /><Circle size={12} />
           <Circle size={15} /><Circle size={8} />
         </CircleBlock>
-        <Button mode="white" size="little">白色31px按钮</Button>
+        <Button mode="white" size="small">白色31px按钮</Button>
         <CircleBlock style={{ flexWrap: 'wrap' }}>
           {'oooooooooooooooo'.split('').map((char, i) => <Circle key={i} />)}
         </CircleBlock>

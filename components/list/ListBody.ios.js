@@ -1,4 +1,5 @@
-import React, { PropTypes, View } from 'react-native';
+import React from 'react';
+import { PropTypes, View } from 'react-native';
 const THEMES = require('./style/index.ios').ThemesList;
 
 export default class Body extends React.Component {

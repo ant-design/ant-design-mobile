@@ -1,4 +1,5 @@
-import React, { PropTypes, Text } from 'react-native';
+import React from 'react';
+import { PropTypes, Text } from 'react-native';
 const THEMES = require('./style/index.ios').ThemesList;
 
 export default class Footer extends React.Component {

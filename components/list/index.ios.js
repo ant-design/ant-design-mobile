@@ -1,6 +1,6 @@
 // List
-
-import React, { View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import Body from './ListBody.ios';
 import Item from './ListItem.ios';
 import Header from './ListHeader.ios';

@@ -1,4 +1,5 @@
-import React, { View, TouchableHighlight, PropTypes, Text } from 'react-native';
+import React from 'react';
+import { View, TouchableHighlight, PropTypes, Text } from 'react-native';
 import variables from '../style/variables';
 
 export default class Button extends React.Component {

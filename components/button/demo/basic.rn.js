@@ -1,4 +1,5 @@
-import React, { View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import { Button, WhiteSpace, WingBlank } from 'antm';
 
 export default class BasicButtonExample extends React.Component {

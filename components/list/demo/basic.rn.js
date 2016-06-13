@@ -1,4 +1,5 @@
-import React, { Image, ScrollView } from 'react-native';
+import React from 'react';
+import { Image, ScrollView } from 'react-native';
 import List from '../index.ios';
 import Button from '../../button/index.ios';
 
@@ -80,7 +81,7 @@ export default class BasicListExample extends React.Component {
                   <List.Item.Content>运营</List.Item.Content>
                   <List.Item.Detail>可进行收款、折扣管理、查看数据等操作。如果文字超长那就省略号</List.Item.Detail>
                 </List.Item>
-                <List.Item line={2} arrow="up" extra={<Button mode="light" size="sam" onPress={() => alert(1)}>按钮</Button>}>
+                <List.Item line={2} arrow="up" extra={<Button mode="light" size="small" onPress={() => alert(1)}>按钮</Button>}>
                   <List.Item.Content>区域经理</List.Item.Content>
                   <List.Item.Detail>可进行收款、折扣管理、查看数据等操作。</List.Item.Detail>
                 </List.Item>
