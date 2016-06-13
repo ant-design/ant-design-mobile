@@ -53,7 +53,7 @@
     "rc-tooltip": "~3.3.2",
     "react-hammerjs": "^0.4.6",
     "react-slick": "~0.12.2",
-    "react-swipeout": "^1.0.0",
+    "react-swipeout": "^1.1.0",
     "rmc-cascader": "~1.2.0",
     "rmc-date-picker": "~2.3.0",
     "rmc-list-view": "^0.5.0-beta",
