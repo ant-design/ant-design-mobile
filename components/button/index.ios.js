@@ -66,6 +66,7 @@ export default class Button extends React.Component {
     let highlightTextColor;
     let highlightBorderColor;
     let paddingLeft;
+    let paddingRight;
 
     const largeHeight = 11 * variables.grid;
     const smallHeight = 7 * variables.grid;
@@ -78,12 +79,12 @@ export default class Button extends React.Component {
       case 'large':
         height = largeHeight;
         fontSize = largeFontSize;
-        paddingLeft = largePadding;
+        paddingLeft = paddingRight = largePadding;
         break;
       case 'small':
         height = smallHeight;
         fontSize = smallFontSize;
-        paddingLeft = smallPadding;
+        paddingLeft = paddingRight = smallPadding;
         break;
       default:
         break;
@@ -173,6 +174,7 @@ export default class Button extends React.Component {
       alignItems: 'center',
       height,
       paddingLeft,
+      paddingRight,
       backgroundColor,
       borderRadius,
       borderWidth,
