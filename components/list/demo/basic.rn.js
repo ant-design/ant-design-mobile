@@ -12,15 +12,14 @@ export default class BasicListExample extends React.Component {
           <List.Header>基本用法 Demo</List.Header>
             <List.Body>
               <List.Item
-                onClick={this.onClick}
-                needActive={false}
+                needActive = {false}
               >标题文字,无Active效果</List.Item>
               <List.Item
-                onClick={this.onClick}
+                needActive
+                onClick={() => alert('点击响应方法')}
               >标题文字默认有Active效果</List.Item>
               <List.Item
                 extra="内容内容"
-                onClick={this.onClick}
                 last
               >标题文字</List.Item>
             </List.Body>
