@@ -51,7 +51,7 @@ const Test = React.createClass({
       options: BUTTONS,
       cancelButtonIndex: BUTTONS.length - 1,
       destructiveButtonIndex: BUTTONS.length - 2,
-      title: '标题',
+      // title: '标题',
       message: '我是具体消息',
       maskClosable: false,
     },
