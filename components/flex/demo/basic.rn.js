@@ -1,16 +1,6 @@
-import { Button, Flex, WingBlank } from 'antm';
+import { Button, Flex, WingBlank, WhiteSpace } from 'antm';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-  overlay: {
-    backgroundColor: '#aaccff',
-    borderRadius: 10,
-    borderWidth: 0.5,
-    opacity: 0.5,
-    padding: 5,
-  },
-});
+import { View, Text } from 'react-native';
 
 const Circle = React.createClass({
   render() {
@@ -29,124 +19,157 @@ const Circle = React.createClass({
   }
 });
 
-const CircleBlock = React.createClass({
-  render() {
-    const circleStyle = {
-      flexDirection: 'row',
-      backgroundColor: '#f6f7f8',
-      borderWidth: 0.5,
-      borderColor: '#d6d7da',
-      marginBottom: 2,
-    };
-    return (
-      <View style={[circleStyle, this.props.style]}>
-        {this.props.children}
-      </View>
-    );
-  }
-});
-
 export default class FlexExample extends React.Component {
   render() {
     return (
       <View>
-        <Text>row</Text>
-        <CircleBlock style={{ flexDirection: 'row' }}>
-          <Circle /><Circle /><Circle /><Circle /><Circle />
-          <Circle /><Circle /><Circle /><Circle /><Circle />
-          <Circle /><Circle /><Circle /><Circle /><Circle />
-        </CircleBlock>
-        <WingBlank>
-          <CircleBlock style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-            <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
-            <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
-            <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
-          </CircleBlock>
+        <WingBlank style={{ marginTop: 20, marginBottom: 5 }}>
+          <Text style={{ marginBottom: 10, }}>项目的排列方向</Text>
+          <Text>direction="row":主轴为水平方向，起点在左端</Text>
         </WingBlank>
-        <WingBlank>
-          <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
-          <Button mode="white" size="small" style={{ borderWidth: 1, borderColor: 'red', borderStyle: 'solid' }}>白色31px按钮</Button>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex>
+            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}><Button mode="white" size="small">按钮1</Button></Flex.Item>
+            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}><Button mode="white" size="small">按钮2</Button></Flex.Item>
+            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}><Button mode="white" size="small">按钮3</Button></Flex.Item>
+          </Flex>
         </WingBlank>
-        <Text>column</Text>
-        <CircleBlock style={{ flexDirection: 'column' }}>
-          <Circle /><Circle /><Circle /><Circle /><Circle />
-        </CircleBlock>
-        <View style={[styles.overlay, { position: 'absolute', top: 15, left: 160 }]}>
-          <Text>{'top: 15, left: 160'}</Text>
-        </View>
-        <Flex><Text>白色31px按钮</Text></Flex>
-        <Text>flex-start</Text>
-        <CircleBlock style={{ justifyContent: 'flex-start' }}>
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-        </CircleBlock>
-        <Text>center</Text>
-        <CircleBlock style={{ justifyContent: 'center' }}>
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-        </CircleBlock>
-        <Text>flex-end</Text>
-        <CircleBlock style={{ justifyContent: 'flex-end' }}>
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-        </CircleBlock>
-        <Text>space-between</Text>
-        <CircleBlock style={{ justifyContent: 'space-between' }}>
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-        </CircleBlock>
-        <Text>space-around</Text>
-        <CircleBlock style={{ justifyContent: 'space-around' }}>
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-          <Circle />
-        </CircleBlock>
-        <Button mode="red" size="small">红色26px按钮</Button>
-        <Text>flex-start</Text>
-        <CircleBlock style={{ alignItems: 'flex-start', height: 30 }}>
-          <Circle size={15} /><Circle size={10} /><Circle size={20} />
-          <Circle size={17} /><Circle size={12} /><Circle size={15} />
-          <Circle size={10} /><Circle size={20} /><Circle size={17} />
-          <Circle size={12} /><Circle size={15} /><Circle size={10} />
-          <Circle size={20} /><Circle size={17} /><Circle size={12} />
-          <Circle size={15} /><Circle size={8} />
-        </CircleBlock>
-        <Text>center</Text>
-        <CircleBlock style={{ alignItems: 'center', height: 30 }}>
-          <Circle size={15} /><Circle size={10} /><Circle size={20} />
-          <Circle size={17} /><Circle size={12} /><Circle size={15} />
-          <Circle size={10} /><Circle size={20} /><Circle size={17} />
-          <Circle size={12} /><Circle size={15} /><Circle size={10} />
-          <Circle size={20} /><Circle size={17} /><Circle size={12} />
-          <Circle size={15} /><Circle size={8} />
-        </CircleBlock>
-        <Text>flex-end</Text>
-        <CircleBlock style={{ alignItems: 'flex-end', height: 30 }}>
-          <Circle size={15} /><Circle size={10} /><Circle size={20} />
-          <Circle size={17} /><Circle size={12} /><Circle size={15} />
-          <Circle size={10} /><Circle size={20} /><Circle size={17} />
-          <Circle size={12} /><Circle size={15} /><Circle size={10} />
-          <Circle size={20} /><Circle size={17} /><Circle size={12} />
-          <Circle size={15} /><Circle size={8} />
-        </CircleBlock>
-        <Button mode="white" size="small">白色31px按钮</Button>
-        <CircleBlock style={{ flexWrap: 'wrap' }}>
-          {'oooooooooooooooo'.split('').map((char, i) => <Circle key={i} />)}
-        </CircleBlock>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}><
+          Text>direction="column":主轴为垂直方向，起点在上沿</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex direction="column">
+            <Flex.Item style={{ paddingBottom: 4 }}><Button mode="white" size="small">按钮1</Button></Flex.Item>
+            <Flex.Item style={{ paddingBottom: 4 }}><Button mode="white" size="small">按钮2</Button></Flex.Item>
+            <Flex.Item style={{ paddingBottom: 4 }}><Button mode="white" size="small">按钮3</Button></Flex.Item>
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text style={{ marginTop: 20, marginBottom: 20 }}>项目在主轴上的对齐方式</Text>
+          <Text>justify="start":左对齐</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex justify="start">
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>justify="center":居中</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex justify="center">
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>justify="end":右对齐</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex justify="end">
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>justify="between":两端对齐，项目之间的间隔都相等</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex justify="between">
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>justify="around":每个项目两侧的间隔相等</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex justify="around">
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text style={{ marginTop: 20, marginBottom: 20, }}>项目在交叉轴上的对齐方式</Text>
+          <Text>align="start":交叉轴的起点对齐</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex align="start" style={{ height: 30 }}>
+            <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 14, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>align="center":交叉轴的中点对齐</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex align="center" style={{ height: 30 }}>
+            <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 14, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>align="end":交叉轴的终点对齐</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex align="end" style={{ height: 30 }}>
+            <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text style={{ fontSize: 14, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>align="stretch":如果项目未设置高度或设为auto，将占满整个容器的高度</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <WingBlank>
+            <Flex align="stretch" style={{ height: 70 }}>
+              <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+              <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+              <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+              <Text style={{ fontSize: 14, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            </Flex>
+          </WingBlank>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text style={{ marginBottom: 10, }}>是否折行</Text>
+          <Text>wrap="wrap":换行</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex wrap="wrap">
+            {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={i} />)}
+          </Flex>
+        </WingBlank>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>wrap="nowrap":不换行</Text>
+        </WingBlank>
+        <WingBlank style={{ marginBottom: 5 }}>
+          <Flex wrap="nowrap">
+            {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={i} />)}
+          </Flex>
+        </WingBlank>
+        <WhiteSpace />
       </View>
     );
   }

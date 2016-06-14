@@ -1,17 +1,6 @@
-import React from 'react';
-import { View } from 'react-native';
+import Flex from './Flex.ios';
+import FlexItem from './FlexItem.ios';
 
-
-const Flex = React.createClass({
-  render() {
-    let { children } = this.props;
-
-    return (
-      <View>
-        {children}
-      </View>
-    );
-  }
-});
+Flex.Item = FlexItem;
 
 export default Flex;

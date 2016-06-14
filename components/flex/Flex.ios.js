@@ -1,33 +1,59 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
+import { View } from 'react-native';
 
 export default class Flex extends React.Component {
   static propTypes = {
-    prefixCls: PropTypes.string,
     style: PropTypes.object,
-    align: PropTypes.oneOf(['top', 'middle', 'bottom']),
+    direction: PropTypes.oneOf(['row', 'column']),
+    wrap: PropTypes.oneOf(['nowrap', 'wrap']),
+    justify: PropTypes.oneOf(['start', 'end', 'center', 'between', 'around']),
+    align: PropTypes.oneOf(['start', 'end', 'center', 'stretch']),
   };
 
   static defaultProps = {
-    prefixCls: 'am-flexbox',
-    align: 'middle',
+    direction: 'row',
+    wrap: 'nowrap',
+    justify: 'start',
+    align: 'center',
   };
 
   render() {
-    let { align, className, children, prefixCls, style } = this.props;
+    const { style, direction, wrap, justify, align, ...others } = this.props;
+    let transferConst = [justify, align];
+    transferConst = transferConst.map((el) => {
+      let tempTxt = el;
+      switch (el) {
+        case 'start':
+          tempTxt = 'flex-start';
+          break;
+        case 'end':
+          tempTxt = 'flex-end';
+          break;
+        case 'between':
+          tempTxt = 'space-between';
+          break;
+        case 'around':
+          tempTxt = 'space-around';
+          break;
+        default:
+          break;
+      }
 
-    const wrapCls = classNames({
-      [prefixCls]: true,
-      [`${prefixCls}-top`]: align === 'top',
-      [`${prefixCls}-middle`]: align === 'middle',
-      [`${prefixCls}-bottom`]: align === 'bottom',
-      [className]: className
+      return tempTxt;
     });
+    const flexStyle = {
+      flexDirection: direction,
+      flexWrap: wrap,
+      justifyContent: transferConst[0],
+      alignItems: transferConst[1],
+    };
+
+    let { children } = this.props;
 
     return (
-      <div className={wrapCls} style={style}>
+      <View style={[flexStyle, style]} {...others}>
         {children}
-      </div>
+      </View>
     );
   }
 }
