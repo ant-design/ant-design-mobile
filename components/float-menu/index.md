@@ -18,7 +18,8 @@ english: FloatMenu
 | overlay   | 弹出层内容    | React.node |  -   |
 | onVisibleChange   | 当显隐状态变化时调用    | Function |  -   |
 | onSelect   | 选中的选项    | Function |  -   |
-| placement   | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'}    | String |  'bottomRight'   |
+| placement   | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'} | String |  'bottomRight'   |
+| popupAlign   | 用于设置偏移量等、会被合并到 placement 的设置中，可选值为 [dom-align](https://github.com/yiminghe/dom-align) 的`alignConfig`配置（ points 设置用 placement 代替）   | Object |  `{ overflow: { adjustY: 0, adjustX: 0 } }`禁掉位置自动适应 |
 
 ### FloatMenu.Item
 | 成员        | 说明           | 类型         | 默认值       |

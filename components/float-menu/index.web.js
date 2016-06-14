@@ -17,6 +17,7 @@ export default class FloatMenu extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     placement: PropTypes.string,
+    popupAlign: PropTypes.object,
     trigger: PropTypes.array,
     onSelect: PropTypes.func,
   }
@@ -24,6 +25,7 @@ export default class FloatMenu extends React.Component {
   static defaultProps = {
     prefixCls: 'am-floatmenu',
     placement: 'bottomRight',
+    popupAlign: { overflow: { adjustY: 0, adjustX: 0 } },
     trigger: ['click'],
     onSelect: () => {},
   }
@@ -46,7 +48,7 @@ export default class FloatMenu extends React.Component {
       placement={placement}
       trigger={trigger}
       overlay={newChildren}
-      popupAlign={popupAlign || { overflow: { adjustY: 0, adjustX: 0 } }}
+      popupAlign={popupAlign}
       {...other}
     >
       {children}
