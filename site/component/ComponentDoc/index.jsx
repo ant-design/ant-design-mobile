@@ -1,12 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Button, Icon, Popover } from 'antd';
+import classNames from 'classnames';
 import Demo from '../Demo';
 import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';
 import scrollIntoView from 'dom-scroll-into-view';
 
 import QRCode from 'qrcode.react';
+
+function getOffsetTop(dom) {
+  let top = 0;
+  top += dom.offsetTop;
+
+  while (dom.parentElement) {
+    if (getComputedStyle(dom.parentElement).position === 'relative') {
+      top += dom.parentElement.offsetTop;
+    }
+    dom = dom.parentElement;
+  }
+  return top;
+}
 
 export default class ComponentDoc extends React.Component {
   constructor(props) {
@@ -78,8 +92,13 @@ export default class ComponentDoc extends React.Component {
   }
 
   handleExpandToggle = () => {
+    let codeExpandList = {};
+    const { meta } = this.props.doc;
+    const demos = (demosList[meta.fileName] || []).filter((demoData) => !demoData.meta.hidden);
+
     this.setState({
       expandAll: !this.state.expandAll,
+      codeExpandList: demos.map((item, index) => { return codeExpandList[index] = !this.state.expandAll; }),
     });
   }
 
@@ -89,13 +108,13 @@ export default class ComponentDoc extends React.Component {
 
     const demoDom = document.getElementById('demo-code');
     if (!demoDom) return;
-    const demoTop = demoDom.offsetTop;
+    const demoTop = getOffsetTop(demoDom);
 
     const apiDom = document.getElementById('api');
     if (!apiDom) return;
-    const apiTop = apiDom.offsetTop;
+    const apiTop = getOffsetTop(apiDom);
 
-    if (scrollTop >= apiTop - 500 || scrollTop < demoTop) {
+    if (scrollTop + 568 >= apiTop || scrollTop - 40 < demoTop) {
       if (asideDemo.className.indexOf('fixed') >= 0) {
         asideDemo.className = asideDemo.className.replace(/fixed/ig, '');
       }
@@ -107,10 +126,17 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = this.props;
     const { description, meta } = doc;
 
+    const expand = this.state.expandAll;
+
     const linkTo = location.query.linkTo;
 
     const path = doc.meta.fileName.split('/')[1];
     const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink.html#/${path}`;
+
+    const expandTriggerClass = classNames({
+      'code-box-expand-trigger': true,
+      'code-box-expand-trigger-active': expand,
+    });
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
@@ -119,7 +145,6 @@ export default class ComponentDoc extends React.Component {
 
     const demos = (demosList[meta.fileName] || [])
             .filter((demoData) => !demoData.meta.hidden);
-    const expand = this.state.expandAll;
     const currentIndex = this.state.currentIndex;
 
     const leftChildren = [];
@@ -162,7 +187,7 @@ export default class ComponentDoc extends React.Component {
     rightChildren = (
       <section className="code-box code-box-preview">
         <section className="code-box-demo code-box-demo-preview">
-          <iframe id="demoFrame" name="demoFrame" style={{ width: '320px', height: '460px' }} src={ iframeUrl } />
+          <iframe id="demoFrame" name="demoFrame" style={{ width: '320px', height: '548px' }} src={ iframeUrl } />
         </section>
       </section>
     );
@@ -183,24 +208,29 @@ export default class ComponentDoc extends React.Component {
               .concat(description)
             )
           }
-          <h2 id="demoTitle">
-          代码演示
-          </h2>
+          <section id="demoTitle" className="demo-title-wrapper">
+            <h2 id="demoTitle" className="demo-title">
+            代码演示
+            <Icon type="appstore" className={expandTriggerClass}
+              title="展开全部代码" onClick={this.handleExpandToggle}
+            />
+            </h2>
+            {
+            demoSort.length > 1 &&
+            <div id="linkButtons" className="link-buttons" style={{ marginBottom: 12 }}>
+              { linkButtons }
+            </div>
+            }
+          </section>
         </section>
 
-        {
-        demoSort.length > 1 &&
-        <div className="link-buttons" style={{ marginBottom: 12 }}>
-          { linkButtons }
-        </div>
-        }
         <div id="demo-code" className="clearfix" style={{ paddingRight: 380 }}>
           <div style={{ width: '100%', float: 'left' }}>
             { leftChildren }
           </div>
           <div style={{ width: 380, padding: '0 30px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-380px' }}>
             <div id="aside-demo" className="aside-demo">
-              <div style = {{ width: '320px', height: '480px' }}>
+              <div style = {{ width: '320px', height: '568px' }}>
                 <div className="demo-preview-wrapper">
                   <div className="demo-preview-header">
                     <div className = "demo-preview-statbar">
