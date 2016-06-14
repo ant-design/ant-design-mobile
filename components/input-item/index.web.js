@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import FloatMenu from '../float-menu';
 function noop() { }
 
 export default class InputItem extends React.Component {
@@ -24,6 +25,7 @@ export default class InputItem extends React.Component {
     ]),
     onExtraClick: PropTypes.func,
     error: PropTypes.bool,
+    errorMsg: PropTypes.string,
     size: PropTypes.oneOf(['large', 'small']),
     labelPosition: PropTypes.oneOf(['left', 'top']),
     textAlign: PropTypes.oneOf(['left', 'center']),
@@ -46,6 +48,7 @@ export default class InputItem extends React.Component {
     extra: '',
     onExtraClick: noop,
     error: false,
+    errorMsg: '',
     size: 'large',
     labelPosition: 'left',
     textAlign: 'left',
@@ -55,6 +58,7 @@ export default class InputItem extends React.Component {
     super(props);
     this.state = {
       focus: false,
+      errorMsgVisible: false
     };
   }
 
@@ -127,12 +131,18 @@ export default class InputItem extends React.Component {
     this.props.onExtraClick(e);
   };
 
+  onShowErrorMsg = () => {
+    this.setState({
+      errorMsgVisible: !this.state.errorMsgVisible
+    });
+  };
+
   clearInput = () => {
     this.props.onChange('');
   };
 
   render() {
-    const { prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children, error, className, extra } = this.props;
+    const { prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children, error, errorMsg, className, extra } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: type === 'hasLine',
@@ -168,6 +178,16 @@ export default class InputItem extends React.Component {
         {clear && editable && value.length > 0 ?
           <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
           : null}
+        {errorMsg !== '' ? (
+          <FloatMenu
+            visible={this.state.errorMsgVisible}
+            overlay={[
+              <FloatMenu.Item key="0" value="0">{errorMsg}</FloatMenu.Item>,
+            ]}
+            onVisibleChange={ v => this.setState({ errorMsgVisible: v }) }
+          >
+            <div className={`${prefixCls}-extra`} onClick={this.onShowErrorMsg} />
+          </FloatMenu>) : null}
         {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
       </div>
     );

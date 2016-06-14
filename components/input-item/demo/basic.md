@@ -79,6 +79,16 @@ let BasicInput = React.createClass({
           >带清除功能</InputItem>
           <InputItem
             {...getFieldProps('input7', {
+              initialValue: '校验出错',
+              valuePropName: 'value'
+            })}
+            error
+            errorMsg="校验出错"
+            clear
+            placeholder="placeholder"
+          >报错样式</InputItem>
+          <InputItem
+            {...getFieldProps('input7', {
               initialValue: '',
               valuePropName: 'value'
             })}
