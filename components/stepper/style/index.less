@@ -35,7 +35,7 @@
   padding: 4px 0;
   display: inline-block;
   box-sizing: content-box;
-  width: @grid * 14.5;
+  width: @grid * 14.5 + 1;
   height: @grid * 7;
   font-size: @font-size-2;
   line-height: @grid * 7;
@@ -66,6 +66,7 @@
     box-sizing: content-box;
     &:active {
       border-color: @brand-6;
+      z-index: 2;
     }
     &:active &-up-inner,
     &:active &-down-inner {
@@ -80,7 +81,6 @@
   &-handler-down {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border-right: 0;
   }
   &-handler-up-inner,
   &-handler-down-inner {
@@ -138,7 +138,7 @@
   }
 
   &-lg {
-    width: 90px;
+    width: @grid * 22.5 + 1;
     height: @grid * 11;
     line-height: @grid * 11;
     .@{stepperPrefixCls}-handler-wrap,
