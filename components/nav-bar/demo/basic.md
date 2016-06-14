@@ -5,7 +5,6 @@ title: mode
 
 模式
 
----
 
 ````jsx
 import { NavBar, Icon, WingBlank, WhiteSpace } from 'antm';

@@ -7,7 +7,6 @@ title: 尺寸/size、行内按钮/inline
 
 支持是否是行内按钮。
 
----
 
 ````jsx
 import { Button, WingBlank, WhiteSpace, NavBar } from 'antm';

@@ -5,7 +5,6 @@ title: list-view
 
 react native listView
 
----
 
 ````jsx
 import { ListView, List, DatePicker } from 'antm';

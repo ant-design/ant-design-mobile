@@ -5,7 +5,6 @@ title: 基本
 
 遮罩层模式
 
----
 
 ````jsx
 import { Drawer, List, NavBar } from 'antm';

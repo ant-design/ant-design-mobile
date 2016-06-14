@@ -5,7 +5,6 @@ title: 右出
 
 嵌入到文档流中
 
----
 
 ````jsx
 import { Drawer, List, NavBar } from 'antm';
