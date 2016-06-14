@@ -67,7 +67,7 @@ ReactDOM.render(
             <div style={{ padding: '10px 0' }}>
               <Badge text={ 108 }>
                 <span style={{ width: 52, height: 52, background: 'rgba(255, 140, 101, 0.15)', display: 'inline-block' }}></span>
-              </Badge>超出99显示99+
+              </Badge>超出99
             </div>
           </List.Item>
         </List.Body>

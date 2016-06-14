@@ -162,7 +162,7 @@ export default class ComponentDoc extends React.Component {
     rightChildren = (
       <section className="code-box code-box-preview">
         <section className="code-box-demo code-box-demo-preview">
-          <iframe id="demoFrame" name="demoFrame" style={{ width: '320px', height: '460px' }} src={ iframeUrl } />
+          <iframe id="demoFrame" name="demoFrame" style={{ width: '320px', height: '548px' }} src={ iframeUrl } />
         </section>
       </section>
     );
@@ -200,7 +200,7 @@ export default class ComponentDoc extends React.Component {
           </div>
           <div style={{ width: 380, padding: '0 30px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-380px' }}>
             <div id="aside-demo" className="aside-demo">
-              <div style = {{ width: '320px', height: '480px' }}>
+              <div style = {{ width: '320px', height: '568px' }}>
                 <div className="demo-preview-wrapper">
                   <div className="demo-preview-header">
                     <div className = "demo-preview-statbar">
