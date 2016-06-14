@@ -43,6 +43,7 @@ export default class BasicListExample extends React.Component {
               icon=""
               extra={<Image source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }} width="28" height="28" />}
               arrow="horizontal"
+              last
               onClick={window.clickItem}
             >扩展信息传入icon</List.Item>
           </List.Body>
@@ -56,7 +57,7 @@ export default class BasicListExample extends React.Component {
             <List.Item extra="down,剪头向下" arrow="down">标题文字</List.Item>
             <List.Item extra="up,剪头向上" arrow="up">标题文字</List.Item>
             <List.Item
-              extra={<List.Item.Extra><List.Item.Content>zhifubao@alipay.com</List.Item.Content><List.Item.Detail>001</List.Item.Detail></List.Item.Extra>}
+              extra={<List.Item.Extra><List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent><List.Item.Detail>001</List.Item.Detail></List.Item.Extra>}
               line={2}
               arrow="horizontal"
               last
@@ -73,7 +74,7 @@ export default class BasicListExample extends React.Component {
                   <List.Item.Detail>仅可进行收款、退款及查账操作</List.Item.Detail>
                 </List.Item>
                 <List.Item line={2} thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" arrow="horizontal"
-                  extra={<List.Item.Extra><List.Item.Content>第一行文字</List.Item.Content><List.Item.Detail>Detail</List.Item.Detail></List.Item.Extra>}>
+                  extra={<List.Item.Extra><List.Item.AffiliatedContent>第一行文字</List.Item.AffiliatedContent><List.Item.Detail>Detail</List.Item.Detail></List.Item.Extra>}>
                   <List.Item.Content>Content</List.Item.Content>
                   <List.Item.Detail>Detail</List.Item.Detail>
                 </List.Item>
@@ -86,7 +87,7 @@ export default class BasicListExample extends React.Component {
                   <List.Item.Detail>可进行收款、折扣管理、查看数据等操作。</List.Item.Detail>
                 </List.Item>
                 <List.Item line={2} last arrow="horizontal" align={'top'}
-                  extra={<List.Item.Extra><List.Item.Content>zhifubao@alipay.com</List.Item.Content><List.Item.Detail>001</List.Item.Detail></List.Item.Extra>}>
+                  extra={<List.Item.Extra><List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent><List.Item.Detail>001</List.Item.Detail></List.Item.Extra>}>
                   <List.Item.Content>账户名</List.Item.Content>
                 </List.Item>
           </List.Body>

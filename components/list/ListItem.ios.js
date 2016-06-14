@@ -12,6 +12,12 @@ class Content extends React.Component {
   }
 }
 
+class AffiliatedContent extends React.Component {
+  render() {
+    return (<Text style={[THEMES.AffiliatedContent, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
+  }
+}
+
 class Extra extends React.Component {
   render() {
     return (<View style={{ alignItems: 'flex-end' }}>{this.props.children}</View>);
@@ -125,5 +131,6 @@ export default class Item extends React.Component {
 }
 
 Item.Content = Content;
+Item.AffiliatedContent = AffiliatedContent;
 Item.Extra = Extra;
 Item.Detail = Detail;
