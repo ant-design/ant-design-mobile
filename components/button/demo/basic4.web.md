@@ -5,7 +5,6 @@ title: 应用场景示例
 
 和 List / Flex 结合使用示例
 
----
 
 ````jsx
 import { Button, Flex, List, WingBlank, WhiteSpace } from 'antm';

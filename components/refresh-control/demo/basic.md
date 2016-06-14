@@ -5,7 +5,6 @@ title: 基本
 
 下拉刷新
 
----
 
 ````jsx
 import { RefreshControl } from 'antm';

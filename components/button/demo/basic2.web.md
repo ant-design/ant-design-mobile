@@ -6,8 +6,6 @@ title: 失效状态/disabled
 添加 disabled 属性即可让按钮处于不可用状态，同时按钮样式也会改变。
 
 
----
-
 ````jsx
 import { Button, WingBlank, WhiteSpace, NavBar } from 'antm';
 

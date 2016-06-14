@@ -5,7 +5,6 @@ title: other
 
 左侧或右侧无内容
 
----
 
 ````jsx
 import { NavBar, Icon, WingBlank, WhiteSpace } from 'antm';
