@@ -20,7 +20,8 @@ export default class Demo extends React.Component {
   handleClick = (e) => {
     const togglePreview = this.props.togglePreview;
     const { index } = this.props;
-    if (e.target.className !== 'collapse anticon anticon-circle-o-right' ||
+
+    if (e.target.className !== 'collapse anticon anticon-circle-o-right' &&
       e.target.className !== 'fullscreen anticon anticon-arrow-salt') {
       togglePreview({
         index,
