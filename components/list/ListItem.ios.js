@@ -12,6 +12,12 @@ class Content extends React.Component {
   }
 }
 
+class AffiliatedContent extends React.Component {
+  render() {
+    return (<Text style={[THEMES.AffiliatedContent, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
+  }
+}
+
 class Extra extends React.Component {
   render() {
     return (<View style={{ alignItems: 'flex-end' }}>{this.props.children}</View>);
@@ -45,7 +51,8 @@ export default class Item extends React.Component {
   static defaultProps = {
     lazy: false,
     last: false,
-    line: 1
+    line: 1,
+    needActive: true
   };
 
   mixins: [TimerMixin];
@@ -114,15 +121,17 @@ export default class Item extends React.Component {
         {thumbDom}{contentDom}{extraDom}{arrowDom}
       </View>);
 
-    if (this.props.onPress) {
-      return (<TouchableHighlight activeOpacity={1} underlayColor={THEMES.underlayColor} {...this.props}>
-          {itemView}
-        </TouchableHighlight>);
+    if (this.props.needActive) {
+      return (<TouchableHighlight activeOpacity={1} underlayColor={THEMES.underlayColor} onPress={this.props.onClick} onPressIn={() => {}} onPressOut={() => {}} {...this.props}>
+        {itemView}
+      </TouchableHighlight>);
     }
+
     return itemView;
   }
 }
 
 Item.Content = Content;
+Item.AffiliatedContent = AffiliatedContent;
 Item.Extra = Extra;
 Item.Detail = Detail;

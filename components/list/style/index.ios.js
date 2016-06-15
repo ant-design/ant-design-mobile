@@ -11,22 +11,22 @@ const styles = {
     underlayColor: '#e5e5e5',
     Header: {
       marginTop: 2 * variables.grid,
-      marginLeft: 15,
-      marginRight: 15,
+      marginLeft: 4 * variables.grid,
+      marginRight: 4 * variables.grid,
       marginBottom: 8,
       fontSize: variables.font_size_4,
       lineHeight: 15,
-      backgroundColor: variables.neutral_3,
+      backgroundColor: '#eaeaea',
       color: variables.neutral_7
     },
     Footer: {
       marginTop: 2 * variables.grid,
-      marginLeft: 15,
-      marginRight: 15,
+      marginLeft: 4 * variables.grid,
+      marginRight: 4 * variables.grid,
       marginBottom: 8,
       fontSize: variables.font_size_2,
       lineHeight: 15,
-      backgroundColor: variables.neutral_3,
+      backgroundColor: '#eaeaea',
       color: variables.neutral_7
     },
     Body: {
@@ -40,10 +40,10 @@ const styles = {
       flexDirection: 'row',
       flex: 1,
       alignItems: 'center',
-      marginLeft: 15,
+      marginLeft: 4 * variables.grid,
       paddingTop: 6,
       paddingBottom: 6,
-      paddingRight: 15,
+      paddingRight: 4 * variables.grid,
       height: variables.margin - 9,
       borderBottomWidth: 1,
       borderBottomColor: '#e5e5e5'
@@ -55,8 +55,15 @@ const styles = {
     },
     Content: {
       flex: 1,
-      color: '#333',
-      fontSize: 16,
+      color: variables.neutral_10,
+      fontSize: variables.font_size_5,
+      height: 24,
+      lineHeight: 20
+    },
+    AffiliatedContent: {
+      flex: 1,
+      color: variables.neutral_8,
+      fontSize: variables.font_size_4,
       height: 24,
       lineHeight: 20
     },
@@ -65,7 +72,7 @@ const styles = {
       height: 15,
       lineHeight: 14,
       fontSize: variables.font_size_4,
-      color: '#999',
+      color: variables.neutral_7,
       marginTop: variables.margin_1,
     },
     Extra: {
