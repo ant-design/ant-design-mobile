@@ -8,9 +8,9 @@ function getDefaultProps() {
     return values.join(',');
   };
   return {
-    prefixCls: 'am-list-picker',
-    pickerPrefixCls: 'am-list-picker-picker',
-    popupPrefixCls: 'am-list-picker-popup',
+    prefixCls: 'am-picker',
+    pickerPrefixCls: 'am-picker-picker',
+    popupPrefixCls: 'am-picker-popup',
     format: defaultFormat,
     style: { left: 0, bottom: 0 },
     cols: 3,
@@ -22,7 +22,7 @@ function getDefaultProps() {
   };
 }
 
-export default class ListPicker extends React.Component {
+export default class Picker extends React.Component {
   static propTypes = {
     format: PropTypes.func,
   }
@@ -32,10 +32,10 @@ export default class ListPicker extends React.Component {
   getSel = () => {
     const value = this.props.value || [];
     const treeChildren = treeFilter(this.props.data, (c, level) => {
-      return c.i === value[level];
+      return c.value === value[level];
     });
     return this.props.format(treeChildren.map((v) => {
-      return v.n;
+      return v.label;
     }));
   }
   render() {

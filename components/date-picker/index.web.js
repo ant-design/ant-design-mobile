@@ -33,13 +33,14 @@ function getDefaultProps() {
     locale: require('rmc-date-picker/lib/locale/zh_CN'),
     format: defaultFormat,
     extra: '请选择',
+    onChange() {},
     okText: '确定',
     dismissText: '取消',
     title: '',
   };
 }
 
-export default class ListDatePicker extends React.Component {
+export default class DatePicker extends React.Component {
   static propTypes = {
     value: PropTypes.string,
     mode: PropTypes.string,

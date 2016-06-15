@@ -5,9 +5,7 @@ chinese: 搜索栏
 english: SearchBar
 ---
 
-
-
-列表项
+搜索栏
 
 ## 何时使用
 
@@ -15,7 +13,7 @@ english: SearchBar
 
 ## API
 
-### TabItem
+### SearchBar
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | value    |    搜索框的默认值     | String |    |

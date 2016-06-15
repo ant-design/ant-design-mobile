@@ -45,16 +45,19 @@ const App = React.createClass({
       rightContent={<FloatMenu
         visible={this.state.visible}
         overlay={overlay}
+        popupAlign={{
+          offset: [5, 14],
+        }}
         onVisibleChange={this.handleVisibleChange}
         onSelect={this.onSelect}
       >
-        <a href="#">菜单</a>
+        <a href="#" style={{ color: 'white' }}>菜单</a>
       </FloatMenu>}
     >FloatMenu</NavBar>);
 
     return (<div>
       <p>选中了 {this.state.selected}</p>
-      <div style={{ paddingTop: 100, paddingLeft: 100 }}>
+      <div style={{ paddingTop: 80, paddingLeft: 100 }}>
         <FloatMenu
           visible={this.state.visible1}
           overlay={[

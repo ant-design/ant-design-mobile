@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 
 const variables = require('../../style/variables');
 
-class BasicWhiteSpaceExample extends React.Component {
+export default class BasicWhiteSpaceExample extends React.Component {
   render() {
     return (
       <View>
@@ -27,6 +27,5 @@ class BasicWhiteSpaceExample extends React.Component {
   }
 }
 
-exports.title = 'WhiteSpace';
-exports.description = 'Basic WhiteSpace Example';
-exports.demo = BasicWhiteSpaceExample;
+export const title = 'WhiteSpace';
+export const description = 'Basic WhiteSpace Example';

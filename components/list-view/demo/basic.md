@@ -1,14 +1,16 @@
 ---
 order: 0
-title: list-view
+title: 基本
+destroyComponent: true
 ---
 
-react native listView
+无尽列表
 
----
 
 ````jsx
-import { ListView } from 'antm';
+import { ListView, List, DatePicker } from 'antm';
+
+const { Item } = List;
 
 const styles = {
   listView: {
@@ -87,8 +89,9 @@ const Thumb = React.createClass({
   },
 });
 
-const NUM_SECTIONS = 100;
+const NUM_SECTIONS = 20;
 const NUM_ROWS_PER_SECTION = 10;
+let pageIndex = 0;
 
 const Demo = React.createClass({
   getInitialState() {
@@ -106,29 +109,48 @@ const Demo = React.createClass({
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
     });
 
-    const dataBlob = {};
-    const sectionIDs = [];
-    const rowIDs = [];
-    for (let ii = 0; ii < NUM_SECTIONS; ii++) {
-      const sectionName = `Section ${ii}`;
-      sectionIDs.push(sectionName);
-      dataBlob[sectionName] = sectionName;
-      rowIDs[ii] = [];
+    this.dataBlob = {};
+    this.sectionIDs = [];
+    this.rowIDs = [];
+    this._genData = (pIndex = 0) => {
+      for (let i = 0; i < NUM_SECTIONS; i++) {
+        let ii = pIndex * NUM_SECTIONS + i;
+        const sectionName = `Section ${ii}`;
+        this.sectionIDs.push(sectionName);
+        this.dataBlob[sectionName] = sectionName;
+        this.rowIDs[ii] = [];
 
-      for (let jj = 0; jj < NUM_ROWS_PER_SECTION; jj++) {
-        const rowName = `S${ii}, R${jj}`;
-        rowIDs[ii].push(rowName);
-        dataBlob[rowName] = rowName;
+        for (let jj = 0; jj < NUM_ROWS_PER_SECTION; jj++) {
+          const rowName = `S${ii}, R${jj}`;
+          this.rowIDs[ii].push(rowName);
+          this.dataBlob[rowName] = rowName;
+        }
       }
-    }
+      // new object ref
+      this.sectionIDs = [].concat(this.sectionIDs);
+      this.rowIDs = [].concat(this.rowIDs);
+    };
+    this._genData();
     return {
-      dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
+      dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
       headerPressCount: 0,
     };
   },
-
   renderRow(rowData) {
-    return (<Thumb text={rowData} />);
+    if (rowData.indexOf('R0') !== -1) {
+      return (
+      <DatePicker
+        className="am-date-picker"
+        mode="date"
+        title="选择日期"
+        extra="可选,小于结束日期"
+        minDate="2014-08-06"
+        maxDate="2016-12-3"
+       >
+         <Item arrow="horizontal">日期</Item>
+       </DatePicker>);
+    }
+    return (<Item><Thumb text={rowData} /></Item>);
   },
 
   renderSectionHeader(sectionData) {
@@ -151,19 +173,22 @@ const Demo = React.createClass({
         initialListSize={10}
         pageSize={4}
         scrollRenderAheadDistance={500}
-        renderScrollComponent={() => null}
         stickyHeader
         stickyProps={{
           stickyStyle: { zIndex: 999 },
         }}
+        onEndReached={this._onEndReached}
       />
     </div>);
   },
 
-  _onPressHeader() {
-    // var config = layoutAnimationConfigs[Math.floor(this.state.headerPressCount / 2) % layoutAnimationConfigs.length];
-    // LayoutAnimation.configureNext(config);
-    this.setState({ headerPressCount: this.state.headerPressCount + 1 });
+  _onEndReached(event) {
+    // load new data
+    console.log('reach end', event);
+    this._genData(++pageIndex);
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+    });
   },
 });
 

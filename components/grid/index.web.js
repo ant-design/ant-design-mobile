@@ -95,7 +95,7 @@ export default class Grid extends React.Component {
             <div className={`${prefixCls}-text`}>{data[i * 4 + j].text}</div>
           </Flex.Item>);
         } else {
-          flexContent.push(<Flex.Item key={`griditem-${i * 4 + j}`} />);
+          flexContent.push(<Flex.Item style={flexItemStyle} key={`griditem-${i * 4 + j}`} />);
         }
       }
 
@@ -109,12 +109,16 @@ export default class Grid extends React.Component {
           carouselContent.push();
         }
         if (k * 2 + 1 < gridContentLength) {
-          carouselContent.push(<div>
+          carouselContent.push(<div
+            key={`carouselitem-${k * 2 + 1}`}
+          >
             {gridContent[k * 2]}
             {gridContent[k * 2 + 1]}
           </div>);
         } else {
-          carouselContent.push(<div>
+          carouselContent.push(<div
+            key={`carouselitem-${k * 2}`}
+          >
             {gridContent[k * 2]}
             <Flex>
               <Flex.Item className={itemCls} style={flexItemStyle} />

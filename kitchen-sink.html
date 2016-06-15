@@ -22,7 +22,7 @@
 </body>
 <!--<script src="https://a.alipayobjects.com/static/fastclick/1.0.6/fastclick.min.js"></script>-->
 <script src="./kitchen-sink.js"></script>
-<script>// fix Dropdown\Modal demo (mask cover NavBar)
+<!-- <script>// fix Dropdown\Modal demo (mask cover NavBar)
   const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       if (mutation.type !== 'childList') return;
@@ -30,11 +30,11 @@
       for (let i = 0; i < divs.length; i++) {
         const style = window.getComputedStyle(divs[i], null);
         if (style.position === 'fixed' && parseInt(style.top, 10) < 43) {
-          divs[i].style.top = '43px'; //<!-- demo-fix -->
+          divs[i].style.top = '43px';
         }
       }
     });
   });
   setTimeout(() => observer.observe(document.body, { attributes: true, childList: true }), 100);
-</script>
+</script> -->
 </html>

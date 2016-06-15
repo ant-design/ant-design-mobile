@@ -5,7 +5,6 @@ title: 嵌入文档模式
 
 嵌入到文档流中
 
----
 
 ````jsx
 import { Drawer, List, NavBar } from 'antm';
@@ -23,6 +22,7 @@ const App = React.createClass({
     this.props.onNavBarChange();
   },
   render() {
+    // customNavBar 此处用作demo，不要用在生产环境
     App.customNavBar = (<NavBar iconName="ellipsis"
       onLeftClick={() => this.onDock('docked')}
     >嵌入文档</NavBar>);

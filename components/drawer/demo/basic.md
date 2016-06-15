@@ -5,12 +5,11 @@ title: 基本
 
 遮罩层模式
 
----
 
 ````jsx
 import { Drawer, List, NavBar } from 'antm';
 
-const App = React.createClass({
+const App1 = React.createClass({
   getInitialState() {
     return {
       open: false,
@@ -21,7 +20,8 @@ const App = React.createClass({
     this.setState({ open: !this.state.open });
   },
   render() {
-    App.customNavBar = (<NavBar iconName="ellipsis"
+    // customNavBar 此处用作demo，不要用在生产环境
+    App1.customNavBar = (<NavBar iconName="ellipsis"
       onLeftClick={this.onOpenChange}
     >基本</NavBar>);
 
@@ -55,7 +55,7 @@ const App = React.createClass({
   },
 });
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<App1 />, mountNode);
 ````
 
 <style>
