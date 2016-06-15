@@ -60,7 +60,7 @@ ReactDOM.render(
             <div style={{ padding: '10px 0' }}>
               <Badge text={9}>
                 <span style={{ width: 52, height: 52, background: 'rgba(255, 140, 101, 0.15)', display: 'inline-block' }}></span>
-              </Badge>数字数字
+              </Badge>数字
             </div>
           </List.Item>
           <List.Item extra="内容内容" arrow="horizontal">
@@ -78,7 +78,7 @@ ReactDOM.render(
             <div style={{ padding: '4px 0' }}>
               <Badge text={ '限时优惠' } corner size="large">
                 <span style={{ width: 72, height: 72, background: 'rgba(255, 140, 101, 0.15)', display: 'inline-block' }}></span>
-              </Badge>大角标
+              </Badge>角标
             </div>
           </List.Item>
         </List.Body>
