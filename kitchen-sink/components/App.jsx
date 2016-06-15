@@ -65,7 +65,7 @@ export default React.createClass({
                   if (i % 3 === 0) {
                     flexItems = [];
                     flexs.push(<Flex className="antm-demo-flex" key={`flex-${i}`}>
-                      {flexItems};
+                      {flexItems}
                     </Flex>);
                   }
                   flexItems.push(<Flex.Item key={i}>
