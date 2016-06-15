@@ -11,7 +11,7 @@ destroyComponent: true
 import { ListView, List } from 'antm';
 const { Item } = List;
 
-const NUM_SECTIONS = 30;
+const NUM_SECTIONS = 20;
 const NUM_ROWS_PER_SECTION = 10;
 
 const Demo = React.createClass({
@@ -51,8 +51,8 @@ const Demo = React.createClass({
     };
   },
 
-  renderRow() {
-    return (<Item><span>xxx</span></Item>);
+  renderRow(rowData) {
+    return (<Item>Hello: {rowData}</Item>);
   },
 
   renderSectionHeader(sectionData) {

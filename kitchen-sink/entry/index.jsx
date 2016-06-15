@@ -28,6 +28,7 @@ function createComponent(demos, path) {
         current: this.props.params.index || 0,
         customNavBar: null,
         NavBarChange: false,
+        hideNavBar: false,
       };
     },
 
@@ -118,11 +119,21 @@ function createComponent(demos, path) {
     render() {
       const current = this.state.current;
       return (<div id={path}>
-        <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 999 }}>
+        <span style={{ position: 'fixed', zIndex: 9999, top: 0, left: 100 }}
+          onClick={() => this.setState({ hideNavBar: !this.state.hideNavBar })}>
+          {this.state.hideNavBar ? '⬇️' : '⬆️'}
+        </span>
+        <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0,
+          display: this.state.hideNavBar ? 'none' : 'block' }}>
           { this.state.customNavBar }
         </div>
         {demoSort.map((i, index) => {
-          const isShow = !current || (current - index === 0);
+          let isShow = !current || (current - index === 0);
+          // ListView 组件要占用全屏、不能多实例共存（用 destroyComponent 做标记）
+          if (i.meta.destroyComponent) {
+            isShow = this.props.params.index == undefined && current === index ? true : false;
+            console.log(isShow);
+          }
           return (<div className={ isShow ? 'demo-preview-item show': 'demo-preview-item hide' }
             id={`${path}-demo-${index}`} key={index}>
             {!i.meta.destroyComponent || isShow ? React.cloneElement(i.preview, {
