@@ -38,35 +38,30 @@
       &.@{uploaderPrefixCls}-upload-btn {
         border-radius: @grid;
         border: @border-width-1 @border-type-1 @neutral-5;
-        &:before {
-          width: 2px;
-          height: 39.5px;
+        background-color: @neutral-1;
+        &:before,
+        &:after {
+          width: 0.5*@grid;
+          height: 8*@grid;
           content: " ";
           position: absolute;
           top: 50%;
           left: 50%;
           -webkit-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
-          background-color: #d9d9d9;
+          background-color: @neutral-5;
         }
         &:after {
-          width: 39.5px;
-          height: 2px;
-          content: " ";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          -webkit-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
-          background-color: #d9d9d9;
+          width: 8*@grid;
+          height: 0.5*@grid;
         }
         &:active {
           border-color: @neutral-6;
           &:before {
-            background-color: #ccc;
+            background-color: @neutral-6;
           }
           &:after {
-            background-color: #ccc;
+            background-color: @neutral-6;
           }
         }
 
