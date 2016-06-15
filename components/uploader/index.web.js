@@ -10,14 +10,12 @@ export default class Uploader extends React.Component {
     prefixCls: PropTypes.string,
     files: PropTypes.array,
     onChange: PropTypes.func,
-    maxUpload: PropTypes.number,
   };
 
   static defaultProps = {
     prefixCls: 'am-uploader',
     files: [],
     onChange: noop,
-    maxUpload: 10,
   };
 
   // http://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
@@ -61,16 +59,16 @@ export default class Uploader extends React.Component {
   };
 
   removeImage = (index) => {
-    const imageToRender = [];
+    const newImages = [];
     this.props.files.forEach((image, idx) => {
       if (index !== idx) {
-        imageToRender.push(image);
+        newImages.push(image);
       }
     });
-    this.props.onChange(imageToRender);
+    this.props.onChange(newImages);
   };
 
-  appendPhotoItem = (imgItem) => {
+  addImage = (imgItem) => {
     const newImages = this.props.files.concat(imgItem);
     this.props.onChange(newImages);
   };
@@ -93,7 +91,7 @@ export default class Uploader extends React.Component {
           if (res > 0) {
             orientation = res;
           }
-          this.appendPhotoItem({
+          this.addImage({
             url: dataURL,
             orientation
           });
@@ -104,7 +102,7 @@ export default class Uploader extends React.Component {
   };
 
   render() {
-    const { prefixCls, style, className, maxUpload, files } = this.props;
+    const { prefixCls, style, className, files } = this.props;
     const imgItemList = [];
     const customWidth = ((document.documentElement.clientWidth - 32 - 24) / 4);
 
@@ -136,17 +134,15 @@ export default class Uploader extends React.Component {
           <WingBlank mode={16}>
             <Flex wrap="wrap">
               {imgItemList}
-              {files.length < maxUpload ? (
-                <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={inputWrapStyle}>
-                  <input
-                    style={itemStyle}
-                    ref="fileSelectorInput"
-                    type="file"
-                    accept="image/jpg,image/jpeg,image/png,image/gif"
-                    onChange={this.onFileChange}
-                  />
-                </div>
-              ) : null}
+              <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={inputWrapStyle}>
+                <input
+                  style={itemStyle}
+                  ref="fileSelectorInput"
+                  type="file"
+                  accept="image/jpg,image/jpeg,image/png,image/gif"
+                  onChange={this.onFileChange}
+                />
+              </div>
             </Flex>
           </WingBlank>
         </div>
