@@ -119,7 +119,7 @@ function createComponent(demos, path) {
     render() {
       const current = this.state.current;
       return (<div id={path}>
-        <span style={{ position: 'fixed', zIndex: 9999, top: 0, left: 100 }}
+        <span style={{ position: 'fixed', zIndex: 9999, top: 0, left: 100, color: '#999' }}
           onClick={() => this.setState({ hideNavBar: !this.state.hideNavBar })}>
           {this.state.hideNavBar ? '⬇️' : '⬆️'}
         </span>
