@@ -13,6 +13,7 @@ export default class RadioItem extends React.Component {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
+    needActive: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -21,21 +22,24 @@ export default class RadioItem extends React.Component {
     name: '',
     checked: false,
     disabled: false,
+    needActive: true,
     onChange: noop,
   };
 
   render() {
-    const { prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, value, ...others } = this.props;
+    const { prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive, value, ...others } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-disabled`]: disabled === true,
       [className]: className
     });
 
     return (<List.Item
       prefixCls={listPrefixCls}
-      {...others}
+      needActive={disabled ? false : needActive}
       style={style}
       className={wrapCls}
+      {...others}
       extra={<Radio
         value={value}
         checked={checked}
