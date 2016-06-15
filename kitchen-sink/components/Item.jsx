@@ -23,10 +23,9 @@ const Item = React.createClass({
     this.refs.demoitem.style.backgroundColor = '#fff';
   },
   render() {
-    const { logo, title, subtitle, onClick } = this.props;
-    const width = (Math.floor(document.documentElement.clientWidth / 3) - 18) + 'px';
+    const { logo, title, subtitle, onClick, style } = this.props;
     return (
-      <section className="am-demo-item" onClick={onClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} onTouchCancel={this._handleTouchEnd} ref="demoitem" style={{ height: width }}>
+      <section className="am-demo-item" onClick={onClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} onTouchCancel={this._handleTouchEnd} ref="demoitem" style={style}>
         <div className="am-demo-item-logo" style={{ backgroundImage: 'url(' + logo + ')' }}/>
         <h1 className="am-demo-item-title">{title}</h1>
         <h2 className="am-demo-item-subtitle">{subtitle}</h2>
