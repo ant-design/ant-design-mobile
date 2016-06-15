@@ -65,18 +65,27 @@
     }
   }
 }
-.@{radioWarpPrefixCls}-item {
-  .@{radioWarpPrefixCls} {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 11*@grid;
-    &-inner {
-      right: 4*@grid;
-      top: 2.5*@grid;
+.@{listPrefixCls} {
+  & &-item {
+    &.@{radioWarpPrefixCls}-item {
+      .@{radioWarpPrefixCls} {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 11*@grid;
+        &-inner {
+          right: 4*@grid;
+          top: 2.5*@grid;
+        }
+      }
+      &.@{radioWarpPrefixCls}-item-disabled {
+        .@{listPrefixCls}-content {
+          color: @neutral-6;
+        }
+      }
     }
   }
 }
