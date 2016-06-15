@@ -5,16 +5,18 @@ chinese: 列表
 english: ListView
 ---
 
-react-native 核心组件，高性能列表，提供无尽列表功能
+react-native 核心组件。
+
+高性能列表：节点分步渲染；无尽列表。
+
 
 ## API
 same as [React Native ListView](https://facebook.github.io/react-native/docs/listview.html#content)
 (v0.26).
 
-#### current not support:
-In general, do not support platform-specific feature,
-like: `android` endFillColor, `ios` alwaysBounceHorizontal.
-And, use css style instead of react-native's style.
+#### 不支持的特性
+> 一般情况下，不支持“平台特有”的API，例如`android`endFillColor、`ios`alwaysBounceHorizontal。
+另外，使用 css 代替 react-native 的 style 设置方式。
 
 - onChangeVisibleRows
 - stickyHeaderIndices
@@ -27,9 +29,17 @@ And, use css style instead of react-native's style.
 - showsHorizontalScrollIndicator (use css style instead)
 - showsVerticalScrollIndicator (use css style instead)
 
-- [View](https://facebook.github.io/react-native/docs/view.html#props) props: **note: just support `onLayout` prop**
+- [View](https://facebook.github.io/react-native/docs/view.html#props) props: **注意：只支持`onLayout` prop**
 
-#### new
-- stickyHeader (note: if set it, ScrollComponent will be render into the head of body element)
+#### 新增API
+- stickyHeader 固定区块标题到页面顶部 (注意: 设置后，ScrollComponent 将被渲染到 body 的第一个元素里)
     - stickyProps / stickyContainerProps
-- renderBodyComponent
+- renderBodyComponent 渲染自定义的 body 组件
+
+### ListView.IndexedList
+> 注意：由于需要直接scroll到任意位置、所以列表不再支持分步渲染，列表数据量过大时、性能会有影响
+
+支持右侧导航功能
+
+- quickSearchBarTop (object{value:string, label:string}, 默认为'#') - 快捷导航栏置顶按钮
+- onQuickSearch (function())

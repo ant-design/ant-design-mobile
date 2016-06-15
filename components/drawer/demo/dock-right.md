@@ -22,6 +22,7 @@ const App = React.createClass({
     this.props.onNavBarChange();
   },
   render() {
+    // customNavBar 此处用作demo，不要用在生产环境
     App.customNavBar = (<NavBar iconName={false}
       rightContent={<span onClick={() => this.onDock('docked1')}>点击</span>}
     >嵌入文档</NavBar>);

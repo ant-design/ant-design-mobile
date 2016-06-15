@@ -20,6 +20,7 @@ const ButtonExample = React.createClass({
     this.props.onNavBarChange();
   },
   render() {
+    // customNavBar 此处用作demo，不要用在生产环境
     ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<span
       style={{ cursor: 'pointer' }}
       onClick={this.switchDark}

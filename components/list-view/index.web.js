@@ -3,14 +3,6 @@ import MListView, { DataSource } from 'rmc-list-view';
 import List, { Header, Body, Footer, Item } from '../list';
 
 export default class ListView extends React.Component {
-  static propTypes = {
-    // prefixCls: PropTypes.string,
-  }
-
-  static defaultProps = {
-    // prefixCls: 'am-refresh-control',
-  }
-
   render() {
     const { renderHeader, renderFooter, renderSectionHeader, renderRow, ...other } = this.props;
     return (
@@ -27,3 +19,4 @@ export default class ListView extends React.Component {
 }
 
 ListView.DataSource = DataSource;
+ListView.IndexedList = require('./Indexed.web');

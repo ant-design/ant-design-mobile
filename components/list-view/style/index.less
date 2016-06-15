@@ -1,7 +1,19 @@
 @import '../../style/mixins';
 @import '../../style/variables.less';
 
-// @ListView: am-refresh-control;
-// .@{ListView} {
-//
-// }
+@indexedList: am-indexed-list;
+.@{indexedList} {
+  position: relative;
+
+  &-quick-search-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1999;
+    text-align: center;
+    font-size: @font-size-2;
+    li {
+      padding: 5px 10px;
+    }
+  }
+}

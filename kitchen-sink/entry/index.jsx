@@ -122,11 +122,12 @@ function createComponent(demos, path) {
           { this.state.customNavBar }
         </div>
         {demoSort.map((i, index) => {
-          return (<div className={ !current || (current - index === 0) ? 'demo-preview-item show': 'demo-preview-item hide' }
+          const isShow = !current || (current - index === 0);
+          return (<div className={ isShow ? 'demo-preview-item show': 'demo-preview-item hide' }
             id={`${path}-demo-${index}`} key={index}>
-            {React.cloneElement(i.preview, {
+            {!i.meta.destroyComponent || isShow ? React.cloneElement(i.preview, {
               onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
-            })}
+            }) : null}
             {
             !!i.style ?
             <style dangerouslySetInnerHTML={{ __html: i.style }} /> :
