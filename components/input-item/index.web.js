@@ -8,7 +8,7 @@ export default class InputItem extends React.Component {
     prefixListCls: PropTypes.string,
     style: PropTypes.object,
     type: PropTypes.oneOf(['hasLine']),
-    format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password']),
+    format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
     editable: PropTypes.bool,
     name: PropTypes.string,
     value: PropTypes.string,
@@ -91,6 +91,10 @@ export default class InputItem extends React.Component {
         }
         break;
       }
+      case 'number': {
+        value = value.replace(/\D/g, '');
+        break;
+      }
       case 'password': {
         break;
       }
@@ -157,7 +161,9 @@ export default class InputItem extends React.Component {
             onChange={this.onInputChange}
             onBlur={this.onInputBlur}
             onFocus={this.onInputFocus}
-            readOnly={!editable} />
+            readOnly={!editable}
+            pattern={format === 'number' ? '[0-9]*' : ''}
+          />
         </div>
         {clear && editable && value.length > 0 ?
           <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
