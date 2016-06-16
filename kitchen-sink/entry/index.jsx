@@ -131,9 +131,8 @@ function createComponent(demos, path) {
         {demoSort.map((i, index) => {
           let isShow = !current || (current - index === 0);
           // ListView 组件要占用全屏、不能多实例共存（用 destroyComponent 做标记）
-          if (i.meta.destroyComponent) {
+          if (i.meta.destroyComponent && window.name !== 'demoFrame') {
             isShow = this.props.params.index == undefined && current === index ? true : false;
-            console.log(isShow);
           }
           return (<div className={ isShow ? 'demo-preview-item show': 'demo-preview-item hide' }
             id={`${path}-demo-${index}`} key={index}>
