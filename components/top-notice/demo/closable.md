@@ -11,26 +11,16 @@ title: 可关闭
 import { TopNotice, WhiteSpace } from 'antm';
 
 const TopNoticeExample = React.createClass({
-  getInitialState() {
-    return {
-      show: true
-    };
-  },
-  hideNotice() {
-    this.setState({
-      show: false,
-    });
+  onClick() {
+    alert('clicked');
   },
   render() {
-    const TopNotice1 = this.state.show ? (
-      <TopNotice mode="closable" onClick={this.hideNotice}>
-        国庆期间余额宝收益和转出到账时间1
-      </TopNotice>
-    ) : null;
     return (
       <div>
         <WhiteSpace mode={20} />
-        {TopNotice1}
+        <TopNotice mode="closable" onClick={this.onClick}>
+          国庆期间余额宝收益和转出到账时间1
+        </TopNotice>
         <WhiteSpace mode={20} />
         <TopNotice type="info" mode="closable">国庆期间余额宝收益和转出到账时间</TopNotice>
         <WhiteSpace mode={20} />
