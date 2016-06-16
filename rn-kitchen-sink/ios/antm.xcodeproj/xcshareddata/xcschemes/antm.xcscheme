@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "rndemo.app"
-               BlueprintName = "rndemo"
-               ReferencedContainer = "container:rndemo.xcodeproj">
+               BuildableName = "antm.app"
+               BlueprintName = "antm"
+               ReferencedContainer = "container:antm.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "rndemoTests.xctest"
-               BlueprintName = "rndemoTests"
-               ReferencedContainer = "container:rndemo.xcodeproj">
+               BuildableName = "antmTests.xctest"
+               BlueprintName = "antmTests"
+               ReferencedContainer = "container:antm.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "rndemoTests.xctest"
-               BlueprintName = "rndemoTests"
-               ReferencedContainer = "container:rndemo.xcodeproj">
+               BuildableName = "antmTests.xctest"
+               BlueprintName = "antmTests"
+               ReferencedContainer = "container:antm.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rndemo.app"
-            BlueprintName = "rndemo"
-            ReferencedContainer = "container:rndemo.xcodeproj">
+            BuildableName = "antm.app"
+            BlueprintName = "antm"
+            ReferencedContainer = "container:antm.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rndemo.app"
-            BlueprintName = "rndemo"
-            ReferencedContainer = "container:rndemo.xcodeproj">
+            BuildableName = "antm.app"
+            BlueprintName = "antm"
+            ReferencedContainer = "container:antm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rndemo.app"
-            BlueprintName = "rndemo"
-            ReferencedContainer = "container:rndemo.xcodeproj">
+            BuildableName = "antm.app"
+            BlueprintName = "antm"
+            ReferencedContainer = "container:antm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
