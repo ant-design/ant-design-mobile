@@ -1,5 +1,5 @@
-import React from 'react';
-import { PropTypes, Image, View, TouchableHighlight, Text } from 'react-native';
+import React, { PropTypes } from 'react';
+import { Image, View, TouchableHighlight, Text } from 'react-native';
 import ReactElement from 'ReactElement';
 import TimerMixin from 'react-timer-mixin';
 

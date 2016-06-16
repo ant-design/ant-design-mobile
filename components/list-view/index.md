@@ -5,9 +5,13 @@ chinese: 列表
 english: ListView
 ---
 
+### 定义／Definition
 react-native 核心组件。
 
 高性能列表：节点分步渲染；无尽列表。
+
+### 规则 / Rule
+常用在渲染长列表中
 
 
 ## API
@@ -36,7 +40,7 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
     - stickyProps / stickyContainerProps
 - renderBodyComponent 渲染自定义的 body 组件
 
-### ListView.IndexedList
+### ListView.IndexedList (beta)
 > 注意：由于需要直接scroll到任意位置、所以列表不再支持分步渲染，列表数据量过大时、性能会有影响
 
 支持右侧导航功能

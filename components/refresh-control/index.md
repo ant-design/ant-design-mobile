@@ -5,6 +5,9 @@ chinese: 下拉刷新
 english: RefreshControl
 ---
 
+### 定义／Definition
+
+### 规则 / Rule
 
 ## API
 
