@@ -1,4 +1,4 @@
-package com.rndemo;
+package com.antm;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
