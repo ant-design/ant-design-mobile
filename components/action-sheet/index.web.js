@@ -25,8 +25,11 @@ function createActionSheet(flag, config, callback) {
     d.setState({
       visible: false
     });
-    ReactDOM.unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
+    if (div) {
+      ReactDOM.unmountComponentAtNode(div);
+      div.parentNode.removeChild(div);
+      div = null;
+    }
   }
   closeFn = close;
 
