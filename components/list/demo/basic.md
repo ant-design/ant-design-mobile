@@ -21,7 +21,6 @@ const ListForm = React.createClass({
           <List.Item
             onClick={this.onClick}
             needActive={false}
-            error
           >标题文字,无Active效果</List.Item>
           <List.Item
             onClick={this.onClick}

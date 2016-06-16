@@ -19,6 +19,7 @@ export default class TextareaItem extends React.Component {
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     error: PropTypes.bool,
+    onErrorClick: PropTypes.func,
     autoHeight: PropTypes.bool,
     editable: PropTypes.bool,
   };
@@ -39,6 +40,7 @@ export default class TextareaItem extends React.Component {
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
+    onErrorClick: noop,
     error: false,
   };
 
@@ -55,6 +57,7 @@ export default class TextareaItem extends React.Component {
       this.componentDidUpdate();
     }
   };
+
   componentDidUpdate = () => {
     if (this.props.autoHeight) {
       let textareaDom = this.refs.textarea;
@@ -62,6 +65,7 @@ export default class TextareaItem extends React.Component {
       textareaDom.style.height = `${Math.max(this.initialTextHeight, textareaDom.scrollHeight)}px`;
     }
   };
+
   onChange = (e) => {
     let value = e.target.value;
     const { count, onChange } = this.props;
@@ -70,6 +74,7 @@ export default class TextareaItem extends React.Component {
     }
     onChange(value);
   };
+
   onBlur = (e) => {
     setTimeout(() => {
       this.setState({
@@ -79,6 +84,7 @@ export default class TextareaItem extends React.Component {
     const value = e.target.value;
     this.props.onBlur(value);
   };
+
   onFocus = (e) => {
     this.setState({
       focus: true
@@ -86,9 +92,15 @@ export default class TextareaItem extends React.Component {
     const value = e.target.value;
     this.props.onFocus(value);
   };
+
+  onErrorClick = () => {
+    this.props.onErrorClick();
+  };
+
   clearInput = () => {
     this.props.onChange('');
   };
+
   render() {
     let { prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count, editable, error, className } = this.props;
     const { focus } = this.state;
@@ -119,6 +131,7 @@ export default class TextareaItem extends React.Component {
         {clear && editable && value.length > 0 ?
           (<div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />)
           : null}
+        {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
         {count > 0 && rows > 1 ? (<span className={`${prefixCls}-count`}><span>{value.length}</span>/{count}</span>) : null}
       </div>
     );

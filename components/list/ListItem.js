@@ -5,14 +5,13 @@ function noop() {}
 export default class ListItem extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
-    extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
-    icon: PropTypes.string,
-    thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
-    arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
     needActive: PropTypes.bool,
+    thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
+    extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
+    arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
+    align: PropTypes.string,
     onClick: PropTypes.func,
     error: PropTypes.bool,
-    align: PropTypes.string,
   };
 
   static defaultProps = {

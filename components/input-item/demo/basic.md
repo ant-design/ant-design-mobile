@@ -21,10 +21,7 @@ let BasicInput = React.createClass({
         <List.Header>线型</List.Header>
         <List.Body>
           <InputItem
-            {...getFieldProps('input1', {
-              initialValue: '',
-              valuePropName: 'value'
-            })}
+            {...getFieldProps('input1')}
             placeholder="placeholder"
             clear
             maxLength={10}
@@ -32,10 +29,7 @@ let BasicInput = React.createClass({
             onFocus={function (e) { console.log('onFocus'); console.log(e);}}
           >基本</InputItem>
           <InputItem
-            {...getFieldProps('input2', {
-              initialValue: '',
-              valuePropName: 'value'
-            })}
+            {...getFieldProps('input2')}
             placeholder="标题可以是node"
           ><div style={{ backgroundImage: 'url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} /></InputItem>
           <InputItem
@@ -45,25 +39,18 @@ let BasicInput = React.createClass({
           <InputItem
             {...getFieldProps('input3', {
               initialValue: '无标题',
-              valuePropName: 'value'
             })}
             clear
             placeholder="placeholder"
           />
           <InputItem
-            {...getFieldProps('input4', {
-              initialValue: '',
-              valuePropName: 'value'
-            })}
+            {...getFieldProps('input4')}
             clear
             placeholder="extra"
             extra="元"
           >右边带注释</InputItem>
           <InputItem
-            {...getFieldProps('input5', {
-              initialValue: '',
-              valuePropName: 'value'
-            })}
+            {...getFieldProps('input5')}
             name="camera"
             placeholder="camera"
             clear
@@ -72,7 +59,6 @@ let BasicInput = React.createClass({
           <InputItem
             {...getFieldProps('input6', {
               initialValue: '输入框',
-              valuePropName: 'value'
             })}
             clear
             placeholder="clear"
@@ -80,7 +66,6 @@ let BasicInput = React.createClass({
           <InputItem
             {...getFieldProps('input7', {
               initialValue: '校验出错',
-              valuePropName: 'value'
             })}
             error
             errorMsg="校验出错"
@@ -88,12 +73,14 @@ let BasicInput = React.createClass({
             placeholder="placeholder"
           >报错样式</InputItem>
           <InputItem
-            {...getFieldProps('input7', {
+            {...getFieldProps('input8', {
               initialValue: '',
-              valuePropName: 'value'
             })}
             error
+            onErrorClick={() => {alert(111);}}
             placeholder="placeholder"
+            clear
+            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="22" height="22" />}
           >报错样式</InputItem>
         </List.Body>
       </List>

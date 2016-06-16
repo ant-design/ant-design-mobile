@@ -30,8 +30,9 @@ english: InputItem
 | onBlur     | input blur事件触发的回调函数,参数是value | Function |  | 无  |
 | onFocus    | input focus事件触发的回调函数,参数是value | Function |  | 无  |
 | extra       | 右边注释   | string or node | |  ''  |
-| onExtraClick      | extra点击事件触发的回调函数,参数是event对象 | String |  | 无  |
+| onExtraClick      | extra点击事件触发的回调函数,参数是event对象 | Function |  | 无  |
 | error       | 报错样式        | bool | |  false  |
+| onErrorClick       | 点击报错icon触发的回调,        | Function | |  无  |
 | size(本期不实现)       | 尺寸        | string | `large`,`small` |  `large`  |
 | labelPosition(本期不实现)        | 标题方向        | string | `left`,`top` |  `left`  |
 | textAlign(本期不实现)        | 文本对齐        | string | `left`,`center` |  `left`  |

@@ -31,5 +31,6 @@ english: TextareaItem
 | onBlur     | textarea blur事件触发的回调函数,参数是value | Function |    | |
 | onFocus    | textarea focus事件触发的回调函数,参数是value | Function |   |  |
 | error       | 报错样式        | bool | |  false  |
+| onErrorClick       | 点击报错icon触发的回调,        | Function | |  无  |
 | autoHeight       | 高度自适应, autoHeight和rows请二选一       | bool |  | false  |
 | editable    | 输入框是否可输入        | bool | |  true  |
