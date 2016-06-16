@@ -44,7 +44,7 @@ const styles = {
       paddingTop: 6,
       paddingBottom: 6,
       paddingRight: 4 * variables.grid,
-      height: variables.margin - 9,
+      height: variables.margin_9,
       borderBottomWidth: 1,
       borderBottomColor: '#e5e5e5'
     },
