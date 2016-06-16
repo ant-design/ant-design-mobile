@@ -45,6 +45,8 @@ export default class Picker extends React.Component {
     };
     const childEl = React.cloneElement(this.props.children, extraProps);
     return (<PopupCascader
+      popupTransitionName="am-slide-fade"
+      maskTransitionName="am-fade"
       style={style}
       data={data}
       value={value}

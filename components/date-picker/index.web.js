@@ -100,6 +100,8 @@ export default class DatePicker extends React.Component {
     };
     return (
       <PopupDatePicker {...this.props}
+        popupTransitionName="am-slide-fade"
+        maskTransitionName="am-fade"
         locale={require('rmc-date-picker/lib/locale/zh_CN')}
         okText={okText}
         dismissText={dismissText}

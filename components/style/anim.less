@@ -1,0 +1,88 @@
+.am {
+  .effect() {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+
+  &-fade-enter,
+  &-fade-appear {
+    opacity: 0;
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-fade-leave {
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-fade-enter&-fade-enter-active,
+  &-fade-appear&-fade-appear-active {
+    animation-name: amPopupPickerFadeIn;
+    animation-play-state: running;
+  }
+
+  &-fade-leave&-fade-leave-active {
+    animation-name: amPopupPickerFadeOut;
+    animation-play-state: running;
+  }
+
+  @keyframes amPopupPickerFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes amPopupPickerFadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &-slide-fade-enter,
+  &-slide-fade-appear {
+    transform: translate(0, 100%);
+  }
+
+  &-slide-fade-enter,
+  &-slide-fade-appear,
+  &-slide-fade-leave {
+    .effect();
+    animation-play-state: paused;
+  }
+
+  &-slide-fade-enter&-slide-fade-enter-active,
+  &-slide-fade-appear&-slide-fade-appear-active {
+    animation-name: amPopupPickerSlideFadeIn;
+    animation-play-state: running;
+  }
+
+  &-slide-fade-leave&-slide-fade-leave-active {
+    animation-name: amPopupPickerSlideFadeOut;
+    animation-play-state: running;
+  }
+
+  @keyframes amPopupPickerSlideFadeIn {
+    0% {
+      transform: translate(0, 100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes amPopupPickerSlideFadeOut {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, 100%);
+    }
+  }
+}
