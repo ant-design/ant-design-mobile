@@ -73,6 +73,7 @@ let TextareaItemExample = React.createClass({
               title="最大长度"
               count={30}
               clear
+              error
               placeholder="count"
             />
             <TextareaItem
@@ -98,11 +99,27 @@ let TextareaItemExample = React.createClass({
                 initialValue: '多行输入,带计数功能,count+rows',
                 valuePropName: 'value'
               })}
-              label="备注说明"
+              title="备注说明"
               name="yyy"
               rows={5}
               placeholder="计数功能"
               clear
+              count={100}
+              onBlur={() => {console.log('onBlur'); }}
+              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
+            />
+            <TextareaItem
+              {...getFieldProps('note8', {
+                initialValue: '多行输入,带计数功能,count+rows',
+                valuePropName: 'value'
+              })}
+              title="备注说明"
+              name="yyy"
+              rows={5}
+              placeholder="计数功能"
+              clear
+              error
+              onErrorClick={() => { alert(21212); }}
               count={100}
               onBlur={() => {console.log('onBlur'); }}
               onFocus={(e) => {console.log('onFocus'); console.log(e);}}

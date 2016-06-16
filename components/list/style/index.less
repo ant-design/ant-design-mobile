@@ -156,16 +156,18 @@
     }
     &.@{listPrefixCls}-item-error {
       .@{listPrefixCls}-line {
-        .hairline-bottom(bottom, red, 0);
+        .@{listPrefixCls}-extra {
+          color: #f50;
+          .@{listPrefixCls}-brief {
+            color: #f50;
+          }
+        }
       }
     }
     &:last-child {
       .hairline-bottom(bottom, @neutral-5, 0);
       .@{listPrefixCls}-line {
         .hairline-remove-right-bottom();
-      }
-      &.@{listPrefixCls}-item-error {
-        .hairline-bottom(bottom, red, 0);
       }
     }
     &.@{listPrefixCls}-item-hover {

@@ -46,13 +46,15 @@ ReactDOM.render(
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
           line={2}
           arrow="up"
+          error
         ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
         <List.Item
           extra="empty,有箭头坑位"
           arrow="empty"
         >内容内容</List.Item>
         <List.Item
-          extra="arrow为空,箭头没有坑位"
+          extra="校验报错"
+          error
         >内容内容</List.Item>
       </List.Body>
     </List>

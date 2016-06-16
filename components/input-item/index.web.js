@@ -24,6 +24,7 @@ export default class InputItem extends React.Component {
     ]),
     onExtraClick: PropTypes.func,
     error: PropTypes.bool,
+    onErrorClick: PropTypes.func,
     size: PropTypes.oneOf(['large', 'small']),
     labelPosition: PropTypes.oneOf(['left', 'top']),
     textAlign: PropTypes.oneOf(['left', 'center']),
@@ -46,6 +47,7 @@ export default class InputItem extends React.Component {
     extra: '',
     onExtraClick: noop,
     error: false,
+    onErrorClick: noop,
     size: 'large',
     labelPosition: 'left',
     textAlign: 'left',
@@ -127,6 +129,10 @@ export default class InputItem extends React.Component {
     this.props.onExtraClick(e);
   };
 
+  onErrorClick = () => {
+    this.props.onErrorClick();
+  };
+
   clearInput = () => {
     this.props.onChange('');
   };
@@ -168,6 +174,7 @@ export default class InputItem extends React.Component {
         {clear && editable && value.length > 0 ?
           <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
           : null}
+        {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
         {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
       </div>
     );
