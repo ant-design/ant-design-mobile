@@ -21,6 +21,9 @@
       border-radius: @radius-1;
       height: auto;
       padding-top: 6*@grid;
+      .@{modalPrefixClass}-body {
+        padding: 0 6*@grid 6*@grid;
+      }
     }
   }
 
@@ -63,10 +66,10 @@
   }
 
   &-body {
-    padding: 0 6*@grid 6*@grid;
     font-size: @font-size-4;
     color: @neutral-8;
     line-height: 5*@grid;
+    height: 100%;
   }
 
   .effect() {

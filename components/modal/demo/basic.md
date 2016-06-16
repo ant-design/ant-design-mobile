@@ -33,8 +33,10 @@ const App = React.createClass({
             显示对话框
           </Button>
           <Modal animated transparent={false} visible={this.state.visible} >
-            这是内容...<br />
-            这是内容...<br />
+            <div style={{ height: '50%', paddingTop: 200 }}>
+              这是内容...<br />
+              这是内容...<br />
+            </div>
             <Button type="primary" inline onClick={this.onClose}>close modal</Button>
           </Modal>
         </WingBlank>

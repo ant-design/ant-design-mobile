@@ -57,7 +57,7 @@
         text-decoration: none;
         line-height: 4*@grid;
         color: @neutral-10;
-
+        background-color: transparent;
         .anticon {
           width: 3.5*@grid;
           height: 3.5*@grid;
@@ -67,7 +67,7 @@
     }
 
     .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
-      color: @brand-6;
+      color: @brand-7;
       transform: translateZ(0);
     }
   }
@@ -79,7 +79,7 @@
     bottom: 1px;
     box-sizing: border-box;
     height: 0.5*@grid;
-    background-color: @brand-6;
+    background-color: @brand-7;
     transform-origin: 0 0;
   }
 
@@ -87,11 +87,14 @@
     .@{tab-prefix-cls}-bar {
       .hairline-bottom(bottom, @neutral-5);
     }
+    .@{tab-prefix-cls}-tab-inner:active {
+      background-color: @neutral-3;
+    }
   }
 
   &.@{tab-prefix-cls}-capsule {
     .@{tab-prefix-cls}-bar {
-      border:1px @border-type-1 @brand-6;
+      border:1px @border-type-1 @brand-7;
       border-radius: @radius-1;
     }
     .@{tab-prefix-cls}-ink-bar {
@@ -101,16 +104,19 @@
     .@{tab-prefix-cls}-nav {
       .@{tab-prefix-cls}-tab {
         &:not(:last-child) {
-          border-right: @border-width-1 @border-type-1 @brand-6;
+          border-right: @border-width-1 @border-type-1 @brand-7;
         }
       }
       .@{tab-prefix-cls}-tab-inner {
         padding: 2*@grid 0;
         line-height: 4*@grid;
-        color: @brand-6;
+        color: @brand-7;
+        &:active {
+          background-color: fade(@brand-3, 40%);
+        }
       }
       .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner{
-        background-color: @brand-6;
+        background-color: @brand-7;
         color: @neutral-1;
       }
     }
@@ -152,7 +158,7 @@
       }
     }
     .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
-      color: @brand-6;
+      color: @brand-7;
     }
   }
 
