@@ -12,7 +12,24 @@ export default class TopNotice extends React.Component {
   static defaultProps = {
     prefixCls: 'am-top-notice',
     mode: '',
-    onClick() {}
+    onClick() {},
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: true,
+    };
+  }
+
+  onClick() {
+    const { mode, onClick } = this.props;
+    onClick();
+    if (mode === 'closable') {
+      this.setState({
+        show: false,
+      });
+    }
   }
 
   render() {
@@ -26,7 +43,7 @@ export default class TopNotice extends React.Component {
     switch (mode) {
       case 'closable':
         operationDom = (
-          <div className="am-top-notice-operation" onClick={onClick}>
+          <div className="am-top-notice-operation" onClick={() => this.onClick()}>
             <Icon type="cross" />
           </div>
         );
@@ -67,13 +84,13 @@ export default class TopNotice extends React.Component {
       <Icon type={iconType} />
     </div> : null;
 
-    return (
+    return this.state.show ? (
       <div className={wrapCls}>
         {iconDom}
         <div className="am-top-notice-content">{children}</div>
         {operationDom}
       </div>
-    );
+    ) : null;
   }
 }
 
