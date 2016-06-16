@@ -25,8 +25,11 @@ function createActionSheet(flag, config, callback) {
     d.setState({
       visible: false
     });
-    ReactDOM.unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
+    if (div) {
+      ReactDOM.unmountComponentAtNode(div);
+      div.parentNode.removeChild(div);
+      div = null;
+    }
   }
   closeFn = close;
 
@@ -47,7 +50,7 @@ function createActionSheet(flag, config, callback) {
             const extraProp = {
               onClick: () => cb(index),
             };
-            let li = <li key={index} {...extraProp}>{item}</li>;
+            let li = <li className={[`${prefixCls}-button-list-item`]} key={index} {...extraProp}>{item}</li>;
             const cls = {
               [`${prefixCls}-destructive-button`]: destructiveButtonIndex === index,
               [`${prefixCls}-cancel-button`]: cancelButtonIndex === index,

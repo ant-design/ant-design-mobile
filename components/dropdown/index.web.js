@@ -21,8 +21,11 @@ function create(instanceId, config, content, afterClose = closeFn) {
     d.setState({
       visible: false
     });
-    ReactDOM.unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
+    if (div) {
+      ReactDOM.unmountComponentAtNode(div);
+      div.parentNode.removeChild(div);
+      div = null;
+    }
     afterClose(instanceId);
   }
 
