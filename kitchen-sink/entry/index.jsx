@@ -36,20 +36,21 @@ function createComponent(demos, path) {
       let actionArr = [];
       demoSort.map((demo, index) =>{
         actionArr[index] = demo.meta.title;
-      })
+      }) 
+      actionArr.push("取消");
 
       ActionSheet.showActionSheetWithOptions({
         options: actionArr,
         cancelButtonIndex: actionArr.length - 1,
-        title: '切换演示',
-        message: '点击可切换demo演示',
         maskClosable: true,
       },
       (buttonIndex) => {
+        if(buttonIndex < actionArr.length -1 ){
         this.setState({
           current: buttonIndex,
           customNavBar: this.getNavBar(buttonIndex),
         });
+      }
       });
     },
 
@@ -73,13 +74,13 @@ function createComponent(demos, path) {
       let leftContent = self === top ?
         <a href="/kitchen-sink.html" style={{ color: '#2db7f5', textDecoration: 'none', transition: 'color .3s ease' }}>首页</a> :
           (index > 0 ?
-          <span style={{ fontSize: 12, cursor: 'pointer' }} onClick={ this.demoPrev }>
+          <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={ this.demoPrev }>
             上页
           </span> :
           null);
 
       let rightContent = index < demos.length - 1 ?
-        <span style={{ fontSize: 12, cursor: 'pointer' }} onClick={ this.demoNext }>下页</span> :
+        <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={ this.demoNext }>下页</span> :
         null;
       let customNavBar = <NavBar iconName={false} leftContent={leftContent} rightContent={rightContent}>
         {
