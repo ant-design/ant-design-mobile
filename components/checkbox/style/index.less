@@ -101,21 +101,30 @@
   }
 }
 
-.@{checkboxWarpPrefixCls}-item {
-  .@{listPrefixCls}-thumb {
-    width: 5*@grid;
-    height: 5*@grid;
-    .@{checkboxWarpPrefixCls} {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 11*@grid;
-      &-inner {
-        left: 4*@grid;
-        top: 11px;
+.@{listPrefixCls} {
+  & &-item {
+    &.@{checkboxWarpPrefixCls}-item {
+      .@{listPrefixCls}-thumb {
+        width: 5*@grid;
+        height: 5*@grid;
+        .@{checkboxWarpPrefixCls} {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 11*@grid;
+          &-inner {
+            left: 4*@grid;
+            top: 11px;
+          }
+        }
+      }
+      &.@{checkboxWarpPrefixCls}-item-disabled {
+        .@{listPrefixCls}-content {
+          color: @neutral-6;
+        }
       }
     }
   }

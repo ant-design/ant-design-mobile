@@ -24,17 +24,19 @@ export default class CheckboxItem extends React.Component {
   };
 
   render() {
-    const { prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, ...others } = this.props;
+    const { prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive, ...others } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-disabled`]: disabled === true,
       [className]: className
     });
 
     return (<List.Item
       prefixCls={listPrefixCls}
-      {...others}
+      needActive={disabled ? false : needActive}
       style={style}
       className={wrapCls}
+      {...others}
       thumb={<Checkbox
         prefixCls={prefixCls}
         checked={checked}
