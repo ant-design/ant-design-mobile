@@ -22,17 +22,36 @@ function getOffsetTop(dom) {
   return top;
 }
 
+
 export default class ComponentDoc extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       expandAll: false,
-      currentIndex: 0,
+      currentIndex: this.getIndex(props),
       // 收起展开代码的存储数组
       codeExpandList: [],
       toggle: false,
     };
+  }
+
+  getIndex(props) {
+    const linkTo = props.location.query.linkTo;
+
+    const { meta } = props.doc;
+    const demos = (demosList[meta.fileName] || []).filter((demoData) => !demoData.meta.hidden);
+    const demoSort = demos.sort((a, b) => {
+      return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
+    });
+
+    demos.map((item, index) => {
+      item.index = index;
+    });
+
+    let linkIndex = linkTo ? demoSort.filter((item) => (item.id === linkTo))[0].index : 0;
+
+    return linkIndex;
   }
 
   linkToAnchor(props) {
@@ -59,7 +78,7 @@ export default class ComponentDoc extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.linkToAnchor(nextProps);
     this.setState({
-      currentIndex: 0,
+      currentIndex: this.getIndex(nextProps),
       toggle: false,
     });
   }
@@ -174,7 +193,7 @@ export default class ComponentDoc extends React.Component {
       leftChildren.push(
         <Demo togglePreview={ this.togglePreview } {...demoData} handleCodeExpandList={this.handleCodeExpandList}
           codeExpand={this.state.codeExpandList[index]}
-          className={demoData.id === linkTo ? 'code-box-target' : ''}
+          className={currentIndex === index ? 'code-box-target' : ''}
           key={index}
           expand={expand} pathname={location.pathname} />
       );
