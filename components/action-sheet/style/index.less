@@ -29,14 +29,20 @@
     text-align: center;
     color: @neutral-10;
     > li {
+      position: relative;
       height: 11 * @grid;
       line-height: 11 * @grid;
-      border-top: 1px solid rgb(217, 217, 217);
+      // border-top: @border-thickness-1 @border-type-1 @neutral-5;
+      .hairline-top(top, @neutral-5);
     }
   }
   & &-cancel-button {
     margin-top: 2 * @grid;
     position: relative;
+    &::before {
+      content: ' ';
+      border: none;
+    }
     &::after {
       content: ' ';
       position: absolute;
@@ -45,8 +51,7 @@
       width: 100%;
       height: 2 * @grid;
       background-color: #F7F7F7;
-      border-top: 1px solid rgb(217, 217, 217);
-      border-bottom: 1px solid rgb(217, 217, 217);
+      // .hairline-top(top, @neutral-5);
     }
   }
   &-destructive-button {
@@ -71,6 +76,8 @@
     }
   }
   &-share-item-title {
+    color: @neutral-8;
+    font-size: @font-size-2;
     text-align: center;
     margin: 2 * @grid auto;
   }

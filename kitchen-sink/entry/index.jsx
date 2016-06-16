@@ -4,7 +4,6 @@ import { Router, Route, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 // useRouterHistory creates a composable higher-order function
 const hashHistory = useRouterHistory(createHashHistory)({ queryKey: false });
-
 import './base.less';
 import App from '../components/App';
 import demosList from '../../_data/demos-list';
@@ -115,7 +114,8 @@ function createComponent(demos, path) {
       const current = this.state.current;
       this.setState({
         customNavBar: this.getNavBar(current),
-      })
+      });
+      ActionSheet && ActionSheet.close && ActionSheet.close();
     },
     render() {
       const current = this.state.current;
@@ -129,11 +129,10 @@ function createComponent(demos, path) {
           { this.state.customNavBar }
         </div>
         {demoSort.map((i, index) => {
-          let isShow = !current || (current - index === 0);
+          let isShow = current - index === 0;
           // ListView 组件要占用全屏、不能多实例共存（用 destroyComponent 做标记）
-          if (i.meta.destroyComponent) {
+          if (i.meta.destroyComponent && window.name !== 'demoFrame') {
             isShow = this.props.params.index == undefined && current === index ? true : false;
-            console.log(isShow);
           }
           return (<div className={ isShow ? 'demo-preview-item show': 'demo-preview-item hide' }
             id={`${path}-demo-${index}`} key={index}>
