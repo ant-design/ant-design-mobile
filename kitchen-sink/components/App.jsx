@@ -16,20 +16,20 @@ const hashImgObj = {
   dropdown: 'PMIYKpJIhmqwyXI',
   flex: 'KZtGFWmnMUFpiSE',
   'float-menu': 'HhilRXHawmUwlML',
-  grid: '1',
+  grid: 'QbGTlZewFSvHlSS',
   icon: 'zRqLyIrksLZyGPo',
   'input-item': 'nZNeLMIrNJiuSyr',
   list: 'wlNeoTpEKIpTcOW',
-  'list-action': '1',
+  'list-action': 'OJgqKyrKGdIEfwp',
   'list-view': 'wlNeoTpEKIpTcOW',
   menu: 'NRpaVQhCssmCMvT',
   modal: 'AMszKQQdMvMmYng',
-  'nav-bar': '2',
+  'nav-bar': 'VrOSRjcBgRlvffN',
   'page-result': 'nQbMEPIMUYIxyfW',
   picker: 'WYAMQVIuqdtAGqK',
   progress: 'aIomfcRsRHmPyNo',
   radio: 'MHMIvHaTJRwnFeV',
-  'refresh-control': '2',
+  'refresh-control': 'kmDibjGUbFrdeeY',
   'search-bar': 'UAJROWKghHcBeoL',
   slider: 'ViixEhXOewlupTr',
   stepper: 'aDugjLTLBeQffgX',
@@ -68,7 +68,7 @@ export default React.createClass({
       height: `${customWidth}px`,
     };
     return (
-      <Page logo="https://os.alipayobjects.com/rmsportal/MEyMcVciuKgRnjL.png" title="AntD Mobile" subtitle="服务于蚂蚁大中台无线业务的react组件库" isIndex={true}>
+      <Page logo="https://os.alipayobjects.com/rmsportal/MEyMcVciuKgRnjL.png" title="AntD Mobile" subtitle="移动端UI组件库" isIndex={true}>
         {Object.keys(lists).map((cate, index) => {
           return (<List key={index}>
             <List.Header>{cate}</List.Header>
