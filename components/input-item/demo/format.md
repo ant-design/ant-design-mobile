@@ -1,11 +1,9 @@
 ---
 order: 1
 title: 格式
----------
+---
 
 支持银行卡（format="bankCard"）,手机号码（format="phone"）,密码（format="password"）,数字（format="number",尽量唤起数字键盘）四种类型的格式
-
----
 
 ````jsx
 import { List, InputItem } from 'antm';

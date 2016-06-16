@@ -1,11 +1,10 @@
 ---
 order: 1
 title: 箭头
-------------
+---
 
 单行列表
 
----
 
 ````jsx
 import { List } from 'antm';

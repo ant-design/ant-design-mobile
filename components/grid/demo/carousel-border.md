@@ -1,9 +1,7 @@
 ---
 order: 2
 title: 走马灯有边线
--------------
-
-
+---
 
 ````jsx
 import { Grid } from 'antm';

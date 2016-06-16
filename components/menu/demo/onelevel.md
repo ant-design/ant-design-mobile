@@ -1,9 +1,7 @@
 ---
 order: 1
 title: 单级菜单
------------
-
-
+---
 
 ````jsx
 import { Menu, Toast } from 'antm';

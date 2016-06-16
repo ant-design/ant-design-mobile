@@ -1,9 +1,9 @@
 ---
 order: 4
 title: 交叉轴对齐方式
-----------------
+---
 
-
+align="start/end/center/baseline/stretch"
 
 ````jsx
 import { Flex, Button, List, WingBlank, WhiteSpace } from 'antm';

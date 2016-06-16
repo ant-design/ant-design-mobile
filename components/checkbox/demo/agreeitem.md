@@ -5,8 +5,6 @@ title: 协议复选框
 
 Checkbox.AgreeItem
 
----
-
 ````jsx
 import { Checkbox } from 'antm';
 import { createForm } from 'rc-form';

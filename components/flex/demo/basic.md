@@ -3,7 +3,7 @@ order: 0
 title: 基本
 ---
 
-
+基本,子元素FLex.Item,设置flex=1
 
 ````jsx
 import { Flex, Button, WingBlank, WhiteSpace } from 'antm';

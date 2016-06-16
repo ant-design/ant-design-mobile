@@ -5,8 +5,6 @@ title: 基本
 
 输入框。
 
----
-
 ````jsx
 import { List, InputItem } from 'antm';
 import { createForm } from 'rc-form';

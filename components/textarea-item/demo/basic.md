@@ -5,8 +5,6 @@ title: 基本
 
 列表主体内容的容器。
 
----
-
 ````jsx
 import { List, TextareaItem } from 'antm';
 import { createForm } from 'rc-form';

@@ -1,9 +1,9 @@
 ---
 order: 1
 title: 排列方向
----------------
+---
 
-
+direction="row/row-reverse/column/column-reverse"
 
 ````jsx
 import { Flex, List, Button, WhiteSpace } from 'antm';

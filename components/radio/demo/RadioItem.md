@@ -1,11 +1,9 @@
 ---
 order: 1
 title: 列表单选框
-------------
+---
 
 Radio.RadioItem
-
----
 
 ````jsx
 import { List, Radio } from 'antm';

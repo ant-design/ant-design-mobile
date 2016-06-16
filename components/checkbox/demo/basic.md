@@ -5,8 +5,6 @@ title: 基本
 
 纯粹的Checkbox
 
----
-
 ````jsx
 import { Checkbox, WhiteSpace, WingBlank } from 'antm';
 import { createForm } from 'rc-form';

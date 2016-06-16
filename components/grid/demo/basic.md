@@ -3,8 +3,6 @@ order: 0
 title: 基本
 ---
 
-
-
 ````jsx
 import { Grid } from 'antm';
 

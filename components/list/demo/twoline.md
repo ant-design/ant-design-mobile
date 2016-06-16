@@ -1,11 +1,9 @@
 ---
 order: 2
 title: 对齐
----------
+---
 
 双行列表
-
----
 
 ````jsx
 import { List, Button } from 'antm';

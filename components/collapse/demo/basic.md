@@ -5,8 +5,6 @@ title: 基本
 
 Collapse
 
----
-
 ````jsx
 import { Collapse, List } from 'antm';
 

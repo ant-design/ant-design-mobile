@@ -1,9 +1,9 @@
 ---
 order: 2
 title: 换行
----------------
+---
 
-
+wrap="nowrap/wrap/wrap-reverse"
 
 ````jsx
 import { Flex, List, Button, WhiteSpace } from 'antm';

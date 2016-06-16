@@ -5,8 +5,6 @@ title: 基本
 
 Radio
 
----
-
 ````jsx
 import { Radio } from 'antm';
 
