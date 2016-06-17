@@ -5,7 +5,6 @@ title: 基本
 
 PageResult
 
----
 
 ````jsx
 import { PageResult, Tabs, WhiteSpace } from 'antm';

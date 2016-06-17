@@ -5,8 +5,6 @@ title: 基本
 
 基本使用方式, 弹出一个浮层
 
----
-
 ````jsx
 import { Modal, Button, WhiteSpace, WingBlank } from 'antm';
 

@@ -5,7 +5,6 @@ title: 内容区域无动画
 
 禁用内容区域的切换动画效果
 
----
 
 ````jsx
 import { Tabs, WhiteSpace, Icon } from 'antm';

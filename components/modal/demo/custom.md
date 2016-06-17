@@ -5,8 +5,6 @@ title: 可关闭
 
 可关闭的浮层
 
----
-
 ````jsx
 import { Modal, Button, WhiteSpace, WingBlank } from 'antm';
 

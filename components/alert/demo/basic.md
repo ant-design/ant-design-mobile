@@ -5,8 +5,6 @@ title: 展示
 
 Alert
 
----
-
 ````jsx
 import { Alert } from 'antm';
 ReactDOM.render(

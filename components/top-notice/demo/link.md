@@ -5,7 +5,6 @@ title: 跳转
 
 是否显示跳转箭头图标，点击之后会跳转到别的页面。
 
----
 
 ````jsx
 import { TopNotice, WhiteSpace } from 'antm';

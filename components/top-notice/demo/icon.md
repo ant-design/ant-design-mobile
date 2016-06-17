@@ -5,7 +5,6 @@ title: 图标名称
 
 显示成功, 错误, 信息, 警告, 问题 图标
 
----
 
 ````jsx
 import { TopNotice, WhiteSpace } from 'antm';
