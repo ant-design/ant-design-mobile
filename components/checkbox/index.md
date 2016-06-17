@@ -1,16 +1,18 @@
 ---
 category: Components
 type: Components
-chinese: Checkbox
+chinese: 复选框
 english: Checkbox
 ---
 
 
-
-
-## 何时使用
-
+### 定义／Definition
 复选框提供了一个简单的方法来从一个预定义集合中选取多个值。
+
+### 规则 / Rule
+- 复选框一般出现在列表左侧；
+- 如果两个相互排斥的选项，如“我同意”和“我不同意”，请将其合并使用单个复选框“我同意”。
+
 
 ## API
 

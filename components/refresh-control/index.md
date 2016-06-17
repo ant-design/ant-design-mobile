@@ -6,8 +6,11 @@ english: RefreshControl
 ---
 
 ### 定义／Definition
+用于需要下拉刷新的场景
 
 ### 规则 / Rule
+用于需要下拉刷新的场景
+
 
 ## API
 

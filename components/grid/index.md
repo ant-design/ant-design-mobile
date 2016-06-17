@@ -6,11 +6,12 @@ english: Grid
 ---
 
 
-九宫格
+### 定义／Definition
+卡片可以控制和组织信息，通常是更复杂或详细信息的切入点。
 
-## 如何使用
+### 规则 / Rule
+九宫格内文本最长不超过五个字符。
 
-Flex
 
 ## API
 
@@ -22,4 +23,3 @@ Flex
 | hasLine    |   是否有边框     | bollean  |  | `true` |
 | needActive    |   点击时时候背景色变化     | bollean  |  | `true` |
 | isCarousel    |   是否跑马灯,     | bollean  |  | `false` |
-

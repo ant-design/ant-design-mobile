@@ -6,19 +6,17 @@ english: Flex
 ---
 
 
+### 定义／Definition
+flexbox 布局
 
-Flex布局
+### 规则 / Rule
+Flex布局的相关知识请先阅读阮一峰的博客
+[Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
-## 如何使用
-
-Flex
 
 ## API
 
 ### Flex
-
-Flex布局的相关知识请先阅读阮一峰的博客
-[Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
 | 成员        | 说明           | 类型       |   可选值     | 默认值       |
 |------------|----------------|-----------|---------|--------------|

@@ -32,10 +32,10 @@ ReactDOM.render(
   color: #fff;
   overflow: hidden;
 }
-h3 {
+.am-carousel h3 {
   height: 120px;
 }
-.am-carousel-card .slick-slide p, h3 {
+.am-carousel-card .slick-slide p, .am-carousel h3 {
   background: #71B5DE;
   color: #fff;
   text-align: center;

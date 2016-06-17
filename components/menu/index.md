@@ -3,14 +3,17 @@ category: Components
 type: Components
 chinese: 菜单
 english: Menu
----------------
+---
 
 
-筛选
+### 定义／Definition
+卡片可以控制和组织信息，通常是更复杂或详细信息的切入点。
 
-## 如何使用
+### 规则 / Rule
+1. 卡片是矩形，可定义为任何高度。
+2. 卡片可以包含自己的页头，页脚，列表视图，图像，和里面的任何元素。
+3. 卡头和内容可以是HTML。
 
-Menu
 
 ## API
 
@@ -22,4 +25,3 @@ Menu
 | value    |    初始值  | Array,一级和二级筛选数据的`value`组成的数组  |  | [] |
 | onChange    |   选择后的回调     | Function(value)  |  |  |
 | height    |   筛选组件的高度     | number  |  | `document.documentElement.clientHeight / 2` |
-

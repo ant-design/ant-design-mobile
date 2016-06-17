@@ -5,9 +5,13 @@ chinese: 顶部提示
 english: TopNotice
 ---
 
+
+### 定义／Definition
 一般是系统提醒，活动等通知，需要引起用户关注时使用。
 
-## 如何使用
+### 规则 / Rule
+按需使用
+
 
 
 ## API
