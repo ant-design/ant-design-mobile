@@ -36,7 +36,7 @@ const hashImgObj = {
   steps: 'aDugjLTLBeQffgX',
   switch: 'NmMXnPngqRrKHrq',
   tabs: 'oeOvbvMpweuBOvO',
-  tag: 'xEKBTGGcFJvyQgn',
+  tag: 'AkXOzPmaytaVYLD',
   'textarea-item': 'aDugjLTLBeQffgX',
   timeline: 'aIomfcRsRHmPyNo',
   toast: 'IptWdCkrtkAUfjE',
@@ -68,7 +68,7 @@ export default React.createClass({
       height: `${customWidth}px`,
     };
     return (
-      <Page logo="https://os.alipayobjects.com/rmsportal/MEyMcVciuKgRnjL.png" title="AntD Mobile" subtitle="移动端UI组件库" isIndex={true}>
+      <Page logo="https://zos.alipayobjects.com/rmsportal/EMcaWpnrUZqsOQt.png" title="AntD Mobile" subtitle="移动端UI组件库" isIndex={true}>
         {Object.keys(lists).map((cate, index) => {
           return (<List key={index}>
             <List.Header>{cate}</List.Header>
