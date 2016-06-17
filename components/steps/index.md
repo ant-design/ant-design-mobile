@@ -30,7 +30,7 @@ english: Steps
 |----------|------------------------------------------|-------------|-------|
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |
-| size | 指定大小，目前支持普通（`default`）和迷你（`small`）| string | default |
+| size | 指定大小，目前支持普通（`default`）、迷你（`small`）和点状（`pointer`）| string | default |
 | direction | 指定步骤条方向。目前支持水平和竖直（`vertical`）两种方向，默认水平方向） | string | -  |
 
 ### Steps.Step
@@ -42,4 +42,4 @@ english: Steps
 | status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | string | `wait` |
 | title | 标题 | React.Element | -     |
 | description | 步骤的详情描述，可选 | React.Element | -  |
-| icon | 步骤图标，可选 | React.Element | - |
+| icon | 步骤图标，可选 | string | - |
