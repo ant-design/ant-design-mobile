@@ -1,7 +1,7 @@
 ---
 order: 1
 title: 列表项复选框
--------------
+---
 
 Checkbox.CheckboxItem
 
