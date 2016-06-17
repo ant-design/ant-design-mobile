@@ -14,7 +14,7 @@ english: RefreshControl
 | 成员        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | children   | 内容      | any |    无  |
-| icon   | 刷新指示icon   | React element |  anticon-down |
+| icon   | 刷新指示icon   | React element |  `...` |
 | loading   | 加载指示器   | React element |  anticon-loading |
 | distanceToRefresh   |   刷新距离    | number |    70  |
 | resistance   |   阻力系数   | number |    2.5  |

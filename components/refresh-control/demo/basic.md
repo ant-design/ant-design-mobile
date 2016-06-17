@@ -40,7 +40,7 @@ const App = React.createClass({
     return (
       <RefreshControl
         loadingFunction={this.loadingFunction}
-        distanceToRefresh={40}
+        distanceToRefresh={60}
         resistance={1}
         style={{
           position: 'relative',
@@ -49,7 +49,7 @@ const App = React.createClass({
         }}
       >
         <h3>下拉刷新</h3>
-        <div style={{ minHeight: 100 }}>
+        <div style={{ minHeight: 300 }}>
           {this.state.items}
         </div>
       </RefreshControl>

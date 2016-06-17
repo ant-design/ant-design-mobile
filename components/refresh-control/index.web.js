@@ -13,7 +13,14 @@ export default class RefreshControl extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-refresh-control',
-    icon: <Icon type="down" />,
+    icon: <div>
+      <div className="pull">
+        <Icon type="down" />
+      </div>
+      <div className="release">
+        <Icon type="up" />
+      </div>
+    </div>,
     loading: <Icon type="loading" />,
   }
 
