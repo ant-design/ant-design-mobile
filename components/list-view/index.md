@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Components
-chinese: 列表
+chinese: 长列表
 english: ListView
 ---
 

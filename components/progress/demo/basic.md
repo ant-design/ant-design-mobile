@@ -1,11 +1,10 @@
 ---
 order: 0
-title: 展示
+title: 基本
 ---
 
-Progress
+基本功能展示
 
----
 
 ````jsx
 import { Progress, WhiteSpace, Button, Flex, WingBlank } from 'antm';
