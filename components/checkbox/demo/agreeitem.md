@@ -1,7 +1,7 @@
 ---
 order: 2
 title: 协议复选框
-------------
+---
 
 Checkbox.AgreeItem
 
