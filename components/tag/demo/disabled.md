@@ -5,8 +5,6 @@ title: 标签失效状态
 
 添加 disabled 属性即可让标签处于不可用状态，同时标签样式也会改变。
 
----
-
 ````jsx
 import { Tag, WingBlank, WhiteSpace } from 'antm';
 

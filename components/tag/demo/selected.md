@@ -5,8 +5,6 @@ title: 标签选中项
 
 添加 selected 属性即可让标签处于被选中状态。
 
----
-
 ````jsx
 import { Tag, WingBlank, WhiteSpace } from 'antm';
 

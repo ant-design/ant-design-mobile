@@ -5,8 +5,6 @@ title: 标签类型
 
 标签类型分为选择型标签和只读型标签，只读型标签无交互过程，仅展示内容。
 
----
-
 ````jsx
 import { Tag, WingBlank, WhiteSpace } from 'antm';
 
