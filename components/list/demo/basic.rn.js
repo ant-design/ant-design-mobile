@@ -137,7 +137,7 @@ export default class BasicListExample extends React.Component {
               </List.Item.Extra>}
               arrow="horizontal"
               last
-            >垂直居中对齐</List.Item>
+            ><List.Item.Content>垂直居中对齐</List.Item.Content></List.Item>
           </List.Body>
         </List>
       </ScrollView>
