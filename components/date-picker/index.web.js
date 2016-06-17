@@ -100,13 +100,13 @@ export default class DatePicker extends React.Component {
     };
     return (
       <PopupDatePicker {...this.props}
+        WrapComponent="div"
         popupTransitionName="am-slide-fade"
         maskTransitionName="am-fade"
         locale={require('rmc-date-picker/lib/locale/zh_CN')}
         okText={okText}
         dismissText={dismissText}
         title={title}
-        style={{ left: 0, bottom: 0 }}
         onChange={this.onChange}
         date={date}
         minDate={minDate}
