@@ -6,9 +6,10 @@ chinese: 升级指南
 此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [Changelog](/#/components/changelog)。
 
 
-## 0.1.29 => 0.5.0
+## 0.5.x => 0.6.0
+请查看 [Changelog](/#/components/changelog?scrollTo=0.6.0)
 
----
+## 0.1.29 => 0.5.0
 
 注意：两个版本间变动比较大、具体变化不一一列出。
 
