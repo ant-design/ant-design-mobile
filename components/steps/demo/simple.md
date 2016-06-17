@@ -5,7 +5,6 @@ title: 基本用法
 
 简单的步骤条。
 
----
 
 ````jsx
 import { Steps, WingBlank, WhiteSpace } from 'antm';
@@ -23,7 +22,7 @@ ReactDOM.render(
   <div className="stepsExample">
     <WhiteSpace mode={20} />
     <WingBlank mode={20}>
-    <Steps current={1}>{steps}</Steps>
+    <Steps current={1} size="point">{steps}</Steps>
     </WingBlank>
   </div>
 , mountNode);

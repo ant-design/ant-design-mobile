@@ -108,6 +108,9 @@
     border: none;
     padding: 0;
     background: none;
+    &:disabled {
+      opacity: 1;
+    }
   }
 
   &.showNumber {
@@ -210,7 +213,8 @@
 
   &-disabled {
     .@{stepperPrefixCls}-input {
-      opacity: 0.72;
+      opacity: 1;
+      -webkit-text-fill-color: @neutral-6;
       cursor: not-allowed;
       background: none;
       color: @neutral-6;
