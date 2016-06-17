@@ -22,6 +22,7 @@ export default {
   },
 
   docVersions: {
-    '0.1.x': 'http://01x.antm.alipay.net'
+    '0.1.x': 'http://01x.antm.alipay.net',
+    '0.5.x': 'http://05x.antm.alipay.net'
   }
 };
