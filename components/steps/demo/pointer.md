@@ -1,9 +1,9 @@
 ---
-order: 3
-title: 带图标的步骤条
+order: 4
+title: 点状的步骤条
 ---
 
-通过设置 `Steps.Step` 的 `icon` 属性，可以启用自定义图标。
+点状的步骤条。
 
 
 ````jsx
@@ -14,10 +14,10 @@ ReactDOM.render(
   <div className="stepsExample">
   <WhiteSpace mode={20} />
   <WingBlank mode={20}>
-    <Steps>
-      <Step status="finish" title="步骤1" icon="cloud" />
-      <Step status="process" title="步骤2" icon="apple" />
-      <Step status="wait" title="步骤3" icon="github" />
+    <Steps size="pointer">
+      <Step status="finish" title="步骤1" icon="pointer" />
+      <Step status="process" title="步骤2" icon="pointer" />
+      <Step status="wait" title="步骤3" icon="pointer" />
     </Steps>
   </WingBlank>
   </div>

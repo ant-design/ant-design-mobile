@@ -11,6 +11,10 @@ export default class Stepper extends React.Component {
     size: 'small',
   }
 
+  componentDidMount() {
+    this.refs.inputNumber.refs.input.setAttribute('disabled', true);
+  }
+
   render() {
     const { className, size, ...other } = this.props;
     const stepperClass = classNames({
@@ -20,6 +24,6 @@ export default class Stepper extends React.Component {
       ['showNumber']: !!this.props.showNumber,
     });
 
-    return <RcInputNumber className={stepperClass} {...other} />;
+    return <RcInputNumber ref="inputNumber" className={stepperClass} {...other} />;
   }
 }

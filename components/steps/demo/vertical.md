@@ -5,8 +5,6 @@ title: 竖直方向的步骤条
 
 简单的竖直方向的步骤条。
 
----
-
 
 ````jsx
 import { Steps, WingBlank, WhiteSpace } from 'antm';

@@ -54,7 +54,11 @@
         background-color: #fff;
         > .@{stepsPrefixCls}-icon {
           color: @wait-icon-color;
+          &.anticon-pointer {
+            background-color: @wait-icon-color !important;
+          }
         }
+
       }
       .@{stepsPrefixCls}-title {
         color: @wait-title-color;
@@ -147,6 +151,12 @@
           top: 2px;
           width: 20px;
           height: 20px;
+          &.anticon-pointer {
+            width: @grid * 2;
+            height: @grid * 2;
+            background-color: @brand-6;
+            border-radius: 50%;
+          }
         }
       }
       &.@{stepsPrefixCls}-status-process {
@@ -202,7 +212,6 @@
     margin-bottom: 4px;
     color: #666;
     font-weight: bold;
-    // background: #fff;
     display: inline-block;
     padding-right: 10px;
     > a:first-child:last-child {
@@ -358,6 +367,21 @@
   }
 }
 
+.@{stepsPrefixCls}-pointer {
+  .@{stepsPrefixCls}-title {
+    font-size: 12px;
+  }
+}
+
+.@{stepsPrefixCls}-pointer {
+  &.@{stepsPrefixCls}-label-vertical {
+    .@{stepsPrefixCls}-tail {
+      left: 8px;
+      right: -5px;
+    }
+  }
+}
+
 .@{stepsPrefixCls}-horizontal {
    &.@{stepsPrefixCls}-hidden {
      visibility: hidden;
@@ -405,5 +429,4 @@
       text-align: left;
     }
   }
-
 }
