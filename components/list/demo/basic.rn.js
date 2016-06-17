@@ -85,8 +85,15 @@ export default class BasicListExample extends React.Component {
                   <List.Item.Content>区域经理</List.Item.Content>
                   <List.Item.Detail>可进行收款、折扣管理、查看数据等操作。</List.Item.Detail>
                 </List.Item>
-                <List.Item line={2} last arrow="horizontal" align={'top'}
-                  extra={<List.Item.Extra><List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent><List.Item.Detail>001</List.Item.Detail></List.Item.Extra>}>
+                <List.Item
+                  line={2}
+                  last
+                  arrow="horizontal" align={'top'}
+                  extra={<List.Item.Extra>
+                    <List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent>
+                    <List.Item.Detail>001</List.Item.Detail>
+                  </List.Item.Extra>}
+                >
                   <List.Item.Content>账户名</List.Item.Content>
                 </List.Item>
           </List.Body>
@@ -123,7 +130,11 @@ export default class BasicListExample extends React.Component {
               arrow="horizontal"
             >员工二维码</List.Item>
             <List.Item
-              extra={<List.Item.Extra><List.Item.Content>koubei@alipay.com</List.Item.Content><List.Item.Detail>002</List.Item.Detail></List.Item.Extra>}
+              line={2}
+              extra={<List.Item.Extra>
+                <List.Item.Content>koubei@alipay.com</List.Item.Content>
+                <List.Item.Detail>002</List.Item.Detail>
+              </List.Item.Extra>}
               arrow="horizontal"
               last
             >垂直居中对齐</List.Item>
