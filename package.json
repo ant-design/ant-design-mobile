@@ -112,7 +112,7 @@
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
     "start": "antd-tools run start --no-livereload",
-    "site": "antd-tools run site",
+    "site": "antd-tools run site && npm run build-rn",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
     "pub": "antd-tools run update-self && NPM_CLI=tnpm PUBLISH_NPM_CLI=tnpm antd-tools run pub || node scripts/post-publish",

@@ -10,6 +10,7 @@ AntD Mobile 致力于提供给程序员**愉悦**的无线端开发体验。
 beta版demo演示请先看用手机扫二维码,单独的demo 仓库后续放出。
 <div class="pic-plus">
   <img width="150" src="https://os.alipayobjects.com/rmsportal/sWXtlkRDKtwAwRG.jpg">
+  <img width="150" src="https://zos.alipayobjects.com/rmsportal/pqSGjgXJCojReWW.png">
 </div>
 
 <style>
