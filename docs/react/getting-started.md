@@ -42,6 +42,9 @@ $ tnpm install @alipay/antm-init -g
 ```bash
 $ mkdir antm-demo && cd antm-demo
 $ antm-init
+
+//如果是初始化离线包项目
+$ antm-init -i {{appid}}
 ```
 
 ### 3. 使用组件
@@ -97,6 +100,12 @@ $ tnpm run build
 ```
 
 入口文件会构建到 `dist` 目录中，你可以自由部署到不同环境中进行引用。
+
+##### 离线包打包
+
+```bash
+$ tnpm run build-h5app
+```
 
 > 上述例子用于帮助你理解 Antd Mobile 的使用流程，并非真实的开发过程，你可以根据自己的项目开发流程进行接入。
 

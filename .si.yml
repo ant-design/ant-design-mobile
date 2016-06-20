@@ -3,6 +3,6 @@ before_deploy:
   - ./node_modules/.bin/tnpm i
   - ./node_modules/.bin/tnpm run site
 options:
-  branch: 'deploy_beta'
+  branch: 'deploy'
   dist: '_site'
 cname: 'beta.antm.alipay.net'
