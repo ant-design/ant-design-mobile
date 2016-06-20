@@ -15,6 +15,7 @@ chinese: 更新日志
 - Flex、List.Item、InputItem、textAreaItem等组件。inputItem支持数字输入，Flex属性更加全面。
 - tabs 组件新增 tabbar 形式;
 - topNotice mode 为 closable, 则自动销毁;
+- steps组件支持size微pointer的点状样式;
 
 ### RN部分
 
