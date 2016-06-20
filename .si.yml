@@ -2,7 +2,6 @@ before_deploy:
   - tnpm i tnpm@release-3
   - ./node_modules/.bin/tnpm i
   - ./node_modules/.bin/tnpm run site
-  - ./node_modules/.bin/tnpm run build-rn
 options:
   branch: 'deploy_beta'
   dist: '_site'

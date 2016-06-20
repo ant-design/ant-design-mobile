@@ -46,7 +46,7 @@ ReactDOM.render(<Button>按钮</Button>, mountNode);
 ## 版本
 
 - 稳定版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
-    - hpm工具build后体积：antm 总体积：xxKB，antm + react.js：KB
+    - hpm工具build后体积：antm 总体积：~110KB
     - 业务优化：只需引入业务中需要的组件即可，未 import 进来的组件不会打包进来。
 - 开发版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?tag=beta&style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
 
