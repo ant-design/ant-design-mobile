@@ -130,12 +130,9 @@ export default class BasicListExample extends React.Component {
               arrow="horizontal"
             >员工二维码</List.Item>
             <List.Item
-              line={2}
-              extra={<List.Item.Extra>
-                <List.Item.Content>koubei@alipay.com</List.Item.Content>
-                <List.Item.Detail>002</List.Item.Detail>
-              </List.Item.Extra>}
+              extra={<List.Item.Extra><List.Item.AffiliatedContent>koubei@alipay.com</List.Item.AffiliatedContent><List.Item.Detail>002</List.Item.Detail></List.Item.Extra>}
               arrow="horizontal"
+              line={2}
               last
             ><List.Item.Content>垂直居中对齐</List.Item.Content></List.Item>
           </List.Body>

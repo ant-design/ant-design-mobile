@@ -83,7 +83,7 @@ export default class Item extends React.Component {
       thumbDom = (<Image source={{ uri: this.props.thumb }} style={[THEMES.Thumb,
         this.props.line === 2 ? THEMES.Line2.Thumb : {}]} />);
     }
-    if (this.props.line === 2) {
+    if ((this.props.line === 2) && ReactElement.isValidElement(this.props.children)) {
       contentDom = <View style={{ flex: 1 }}>{this.props.children}</View>;
     } else {
       contentDom = <Text style={THEMES.Content} numberOfLines={1}>{this.props.children}</Text>;
