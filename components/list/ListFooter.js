@@ -1,26 +1,26 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
-
-export default class ListFooter extends React.Component {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-  };
-
-  static defaultProps = {
-    prefixCls: 'am-list',
-  };
-
-
-  render() {
-    let { prefixCls, children, className, ...other } = this.props;
-    const wrapCls = classNames({
-      [`${prefixCls}-footer`]: true,
-      [className]: className
-    });
-    return (
-      <div {...other} className={wrapCls}>
-        {children}
-      </div>
-    );
-  }
+import { Text } from 'react-native';
+const THEMES = require('./style/index').ThemesList;
+export default class Footer extends React.Component {
+    render() {
+        let alignStyle = {};
+        switch (this.props.align) {
+            case 'middle':
+                alignStyle = { textAlign: 'center' };
+                break;
+            case 'right':
+                alignStyle = { textAlign: 'right' };
+                break;
+            default:
+                alignStyle = { textAlign: 'left' };
+                break;
+        }
+        return (React.createElement(Text, {style: [THEMES.Footer, alignStyle]}, this.props.children));
+    }
 }
+Footer.propTypes = {
+    align: PropTypes.oneOf(['left', 'middle', 'right'])
+};
+Footer.defaultProps = {
+    align: 'left'
+};

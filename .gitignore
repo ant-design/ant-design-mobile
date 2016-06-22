@@ -31,3 +31,6 @@ rn-kitchen-sink/android/.gradle
 rn-kitchen-sink/android/app/build
 rn-kitchen-sink/android/build
 xcuserdata
+typings
+components/**/*.jsx
+components/**/*.js

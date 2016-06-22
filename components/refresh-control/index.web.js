@@ -1,40 +1,31 @@
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 import React, { PropTypes } from 'react';
-// import classNames from 'classnames';
 import PullToRefresh from 'rmc-pull-to-refresh';
 import Icon from '../icon';
-
+import splitObject from '../_util/splitObject';
 export default class RefreshControl extends React.Component {
-  static propTypes = {
+    render() {
+        let [{ prefixCls, children, icon, loading }, restProps] = splitObject(this.props, ['prefixCls', 'children', 'icon', 'loading']);
+        // const wrapCls = classNames({
+        // });
+        return (React.createElement(PullToRefresh, __assign({}, restProps, {prefixCls: prefixCls, icon: icon, loading: loading}), children));
+    }
+}
+RefreshControl.propTypes = {
     prefixCls: PropTypes.string,
     children: PropTypes.any,
     icon: PropTypes.any,
     loading: PropTypes.any,
-  }
-
-  static defaultProps = {
+};
+RefreshControl.defaultProps = {
     prefixCls: 'am-refresh-control',
-    icon: <div>
-      <div className="pull">
-        <Icon type="down" />
-      </div>
-      <div className="release">
-        <Icon type="up" />
-      </div>
-    </div>,
-    loading: <Icon type="loading" />,
-  }
-
-  render() {
-    const { prefixCls, children, icon, loading, ...other } = this.props;
-    // const wrapCls = classNames({
-    // });
-    return (
-      <PullToRefresh
-        {...other}
-        prefixCls={prefixCls}
-        icon={icon}
-        loading={loading}
-      >{children}</PullToRefresh>
-    );
-  }
-}
+    icon: React.createElement("div", null, React.createElement("div", {className: "pull"}, React.createElement(Icon, {type: "down"})), React.createElement("div", {className: "release"}, React.createElement(Icon, {type: "up"}))),
+    loading: React.createElement(Icon, {type: "loading"}),
+};
