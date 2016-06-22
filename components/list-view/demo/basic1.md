@@ -8,7 +8,7 @@ destroyComponent: true
 
 
 ````jsx
-import { ListView, List } from 'antm';
+import { ListView, List, SearchBar } from 'antm';
 const { Item } = List;
 
 const NUM_SECTIONS = 20;
@@ -64,9 +64,20 @@ const Demo = React.createClass({
   },
 
   render() {
-    return (<div>
+    return (<div style={{ paddingTop: 40 }}>
+      <div style={{ position: 'fixed', zIndex: 999, top: 43, left: 0, right: 0 }}>
+      <SearchBar
+        value=""
+        placeholder="搜索"
+        onSubmit={(value) => {console.log(`onSubmit${value}`);}}
+        onChange={(value) => {console.log(value);}}
+        onClear={() => {console.log('onClear');}}
+        onCancel={() => {console.log('onCancel');}}
+        onFocus={() => {console.log('onFocus');}}
+        onBlur={() => {console.log('onBlur');}}
+      />
+      </div>
       <ListView.IndexedList
-        style={{ height: '100%' }}
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
         renderFooter={() => <span>footer</span>}
@@ -74,7 +85,12 @@ const Demo = React.createClass({
         renderRow={this.renderRow}
         stickyHeader
         stickyProps={{
-          stickyStyle: { zIndex: 999 },
+          stickyStyle: { zIndex: 999, top: 83 },
+          topOffset: -83,
+          // isActive: false, // 关闭 sticky 效果
+        }}
+        quickSearchBarStyle={{
+          top: 85,
         }}
       />
     </div>);
