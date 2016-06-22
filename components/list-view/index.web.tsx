@@ -1,18 +1,26 @@
 import React from 'react';
 import MListView, { DataSource } from 'rmc-list-view';
 import List, { Header, Body, Footer, Item } from '../list';
-import splitObject from '../_util/splitObject';
+
 export default class ListView extends React.Component {
   render() {
-    let [{renderHeader, renderFooter, renderSectionHeader, renderRow}, restProps] = splitObject(this.props,
-      ['renderHeader', 'renderFooter', 'renderSectionHeader','renderRow']);
+    const { renderHeader, renderFooter, renderSectionHeader, renderRow, ...other } = this.props;
+    const extraProps = {};
+    if (renderHeader) {
+      extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;
+    }
+    if (renderFooter) {
+      extraProps.renderFooter = () => <Footer>{renderFooter()}</Footer>;
+    }
+    if (renderSectionHeader) {
+      extraProps.renderSectionHeader =
+        (sectionData, sectionID) => <Item>{renderSectionHeader(sectionData, sectionID)}</Item>;
+    }
     return (
       <MListView
-        {...restProps}
+        {...other}
+        {...extraProps}
         renderScrollComponent={props => <List {...props} />}
-        renderHeader={() => <Header>{renderHeader()}</Header>}
-        renderFooter={() => <Footer>{renderFooter()}</Footer>}
-        renderSectionHeader={(sectionData, sectionID) => <Item>{renderSectionHeader(sectionData, sectionID)}</Item>}
         renderRow={renderRow}
         renderBodyComponent={() => <Body />} />
     );

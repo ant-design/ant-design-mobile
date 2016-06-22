@@ -8,14 +8,11 @@ destroyComponent: true
 
 
 ````jsx
-import { ListView, List, DatePicker } from 'antm';
+import { ListView, List, Toast, DatePicker } from 'antm';
 
 const { Item } = List;
 
 const styles = {
-  listView: {
-    height: '100%',
-  },
   buttonContents: {
     display: 'flex',
     flexDirection: 'row',
@@ -164,20 +161,18 @@ const Demo = React.createClass({
   render() {
     return (<div>
       <ListView
-        style={styles.listView}
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
         renderFooter={() => <span>footer</span>}
         renderSectionHeader={this.renderSectionHeader}
         renderRow={this.renderRow}
-        initialListSize={10}
         pageSize={4}
-        scrollRenderAheadDistance={500}
         stickyHeader
         stickyProps={{
           stickyStyle: { zIndex: 999 },
         }}
         onEndReached={this._onEndReached}
+        onScroll={() => { console.log('scroll'); } }
       />
     </div>);
   },
@@ -185,6 +180,7 @@ const Demo = React.createClass({
   _onEndReached(event) {
     // load new data
     console.log('reach end', event);
+    Toast.info('reach end');
     this._genData(++pageIndex);
     this.setState({
       dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),

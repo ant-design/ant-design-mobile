@@ -37,7 +37,7 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 
 #### 新增API
 - stickyHeader 固定区块标题到页面顶部 (注意: 设置后，ScrollComponent 将被渲染到 body 的第一个元素里)
-    - stickyProps / stickyContainerProps
+    - stickyProps / stickyContainerProps (see [react-sticky](https://github.com/captivationsoftware/react-sticky))
 - renderBodyComponent 渲染自定义的 body 组件
 
 ### ListView.IndexedList (beta)
@@ -46,4 +46,5 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 支持右侧导航功能
 
 - quickSearchBarTop (object{value:string, label:string}, 默认为'#') - 快捷导航栏置顶按钮
+- quickSearchBarStyle (object) - quickSearchBar 的 style
 - onQuickSearch (function())
