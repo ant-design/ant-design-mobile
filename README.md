@@ -8,7 +8,11 @@ node = 4.x
 
 ## 代码风格
 
-https://github.com/airbnb/javascript
+typescript
+
+```
+npm run ts-lint
+```
 
 ### API 规范
 
@@ -19,12 +23,12 @@ https://github.com/airbnb/javascript
 3. antd 也没有的, 发 issue 讨论
 
 
-组件名以 `-` 分割, 例如 `date-picker`,文件后缀名统一为 `.js`
+组件名以 `-` 分割, 例如 `date-picker`,文件后缀名统一为 `.tsx`
 
 
 ### web 组件规范
 
-components/button/index.web.js
+components/button/index.web.tsx
 
 ```js
 import React from 'react';
@@ -43,7 +47,7 @@ class Button extends React.Component {
 export default Button;
 ```
 
-components/button/style/index.web.js
+components/button/style/index.web.tsx
 
 ```js
 import '../../style/';
@@ -64,7 +68,9 @@ components/button/style/index.less
 
 ### react-native 组件规范
 
-components/button/index.ios.js
+无特殊情况(ios android 代码完全一致)不用带后缀.
+
+components/button/index.tsx
 
 ```
 import React from 'react';
@@ -91,13 +97,8 @@ export default Button;
 
 ```
 
-components/button/index.android.js
 
-```
-module.exports = require('./index.ios');
-```
-
-components/button/demo/basic.rn.js
+components/button/demo/basic.js
 
 ```
 import { Button } from 'antm';
@@ -120,8 +121,10 @@ exports.demo = BasicButtonExample;
 ## 开发流程
 
 ```
+npm install typings -g
 npm install tnpm@release-3 -g --registry=http://registry.npm.alibaba-inc.com
 tnpm install`
+typings install
 ```
 
 ### web 流程
