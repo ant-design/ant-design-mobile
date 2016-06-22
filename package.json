@@ -117,7 +117,7 @@
     "site": "antd-tools run site && npm run build-rn",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
-    "pub": "antd-tools run update-self && NPM_CLI=tnpm PUBLISH_NPM_CLI=tnpm antd-tools run pub || node scripts/post-publish",
+    "pub": "antd-tools run update-self && NPM_CLI=tnpm PUBLISH_NPM_CLI=tnpm antd-tools run pub && node scripts/post-publish || node scripts/post-publish",
     "rn-start": "node node_modules/react-native/local-cli/cli.js start",
     "ios":"concurrently \"antd-tools run watch-tsc\" \"npm run _ios\"",
     "android":"concurrently \"antd-tools run watch-tsc\" \"npm run _android\"",
