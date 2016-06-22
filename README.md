@@ -139,32 +139,13 @@ npm start
 COMPONENT_STYLE=button npm start
 ```
 
-pc 版: http://localhost:8001/
-
-mobile 版: http://localhost:8001/kitchen-sink.html
+http://localhost:8001/
 
 ### react-native 流程
 
 ```
-npm run rn-start
-```
-
-#### 模拟器调试
-
-模拟器安装一次 rndemoApp（ 运行命令 `npm run ios/android` 或者用 xcode 打开 rn-kitchen-sink/ios/rndemo.xcodeproj, 在 xcode 里 run 一次 )
-
-#### 真机调试
-
-本地 iphone 手机安装
-
-```
-https://github.com/react-component/RNPlayground
-```
-
-使用 RNPlayground 扫码访问
-
-```
-http://ip:8081/rn-kitchen-sink/index.ios.bundle?platform=ios
+npm run ios
+npm run android
 ```
 
 ### 提交代码
