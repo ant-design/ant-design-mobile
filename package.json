@@ -130,6 +130,7 @@
   "config": {
     "port": 8001
   },
+  "typings": "lib/index.web.d.ts",
   "pre-commit": [
     "lint"
   ]
