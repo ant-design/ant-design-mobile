@@ -201,5 +201,5 @@ git push origin master:deploy
 
 
 ```
-npm run pub // 发布
+RUN_ENV_USER=chengyu RUN_ENV_EMAIL=chengyu@taobao.com npm run pub // 替换成自己帐户发布
 ```
