@@ -12,7 +12,7 @@ export default class IndexedList extends React.Component {
   }
 
   render() {
-    const { children, renderHeader, renderFooter, renderSectionHeader, renderRow, ...other } = this.props;
+    const { children, renderHeader, renderFooter, renderSectionHeader, renderRow} = this.props;
     const extraProps = {};
     if (renderHeader) {
       extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;
@@ -26,7 +26,7 @@ export default class IndexedList extends React.Component {
     }
     return (
       <MListView.IndexedList
-        {...other}
+        {...this.props}
         {...extraProps}
         renderScrollComponent={props => <List {...props} />}
         renderRow={renderRow}

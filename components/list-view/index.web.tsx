@@ -4,7 +4,7 @@ import List, { Header, Body, Footer, Item } from '../list';
 
 export default class ListView extends React.Component {
   render() {
-    const { renderHeader, renderFooter, renderSectionHeader, renderRow, ...other } = this.props;
+    const { renderHeader, renderFooter, renderSectionHeader, renderRow } = this.props;
     const extraProps = {};
     if (renderHeader) {
       extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;
@@ -18,7 +18,7 @@ export default class ListView extends React.Component {
     }
     return (
       <MListView
-        {...other}
+        {...this.props}
         {...extraProps}
         renderScrollComponent={props => <List {...props} />}
         renderRow={renderRow}
