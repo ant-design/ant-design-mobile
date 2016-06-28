@@ -26,6 +26,7 @@ export default class InputItem extends React.Component {
     error: PropTypes.bool,
     onErrorClick: PropTypes.func,
     size: PropTypes.oneOf(['large', 'small']),
+    labelNumber: PropTypes.number,
     labelPosition: PropTypes.oneOf(['left', 'top']),
     textAlign: PropTypes.oneOf(['left', 'center']),
   };
@@ -49,6 +50,7 @@ export default class InputItem extends React.Component {
     error: false,
     onErrorClick: noop,
     size: 'large',
+    labelNumber: 4,
     labelPosition: 'left',
     textAlign: 'left',
   };
@@ -138,7 +140,7 @@ export default class InputItem extends React.Component {
   };
 
   render() {
-    const { prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children, error, className, extra } = this.props;
+    const { prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children, error, className, extra, labelNumber } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: type === 'hasLine',
@@ -146,6 +148,16 @@ export default class InputItem extends React.Component {
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
       [className]: className
+    });
+
+    const labelCls = classNames({
+      [`${prefixCls}-label`]: true,
+      [`${prefixCls}-label-2`]: labelNumber === 2,
+      [`${prefixCls}-label-3`]: labelNumber === 3,
+      [`${prefixCls}-label-4`]: labelNumber === 4,
+      [`${prefixCls}-label-5`]: labelNumber === 5,
+      [`${prefixCls}-label-6`]: labelNumber === 6,
+      [`${prefixCls}-label-7`]: labelNumber === 7,
     });
 
     let inputType = 'text';
@@ -157,7 +169,7 @@ export default class InputItem extends React.Component {
 
     return (
       <div className={wrapCls} style={style}>
-        {children ? (<div className={`${prefixCls}-label`}>{children}</div>) : null}
+        {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <input
             type={inputType}

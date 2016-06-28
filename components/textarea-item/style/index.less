@@ -10,10 +10,10 @@
       display: flex;
       align-items: stretch;
       padding: 1.5*@grid 4*@grid;
-      .hairline-bottom(bottom, @neutral-5, @margin-4);
-    }
-    &:last-child {
-      .hairline-bottom(bottom, @neutral-5, 0);
+      .hairline-bottom(@neutral-5, @margin-4);
+      &:last-child {
+        .hairline-bottom(@neutral-5);
+      }
     }
     &.@{textareaPrefixCls}-error {
       .@{textareaPrefixCls}-control {

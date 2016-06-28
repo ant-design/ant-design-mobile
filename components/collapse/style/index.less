@@ -6,7 +6,7 @@
 
 .@{collapsePrefixCls} {
   position: relative;
-  .hairline-top(top, @neutral-5);
+  .hairline-top(@neutral-5);
   &-anim-active {
     transition: all .2s ease-out;
   }
@@ -22,7 +22,7 @@
       color: @neutral-10;
       padding: 1.5*@grid 4*@grid;
       padding-right: 9*@grid;
-      .hairline-bottom(bottom, @neutral-5, 0);
+      .hairline-bottom(@neutral-5);
       .ellipsis();
       i {
         position: absolute;
@@ -64,13 +64,13 @@
         line-height: 8*@grid;
         font-weight: @font-weight-1;
         color: @neutral-9;
-        .hairline-bottom(bottom, @neutral-5, 0);
+        .hairline-bottom(@neutral-5);
         .@{listPrefixCls}-item {
           margin-left: 4*@grid;
           background: @neutral-2;
           padding: 1.5*@grid 4*@grid 1.5*@grid 0;
           position: relative;
-          .hairline-bottom(bottom, @neutral-5, 0);
+          .hairline-bottom(@neutral-5);
           &:last-child {
             .hairline-remove-right-bottom();
           }

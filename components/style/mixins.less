@@ -17,7 +17,7 @@
 .transition(@value) {
   -webkit-transition: @value;
 }
-.hairline-top(@position, @color) {
+.hairline-top(@color) {
   &:before {
     content: '';
     position: absolute;
@@ -27,11 +27,10 @@
     right: auto;
     height: 0;
     width: 100%;
-    //background-color: @color;
     border-bottom: 1px @border-type-1 @color;
     display: block;
     z-index: 15;
-    .transform-origin(50% 50%);
+    .transform-origin(50% 0%);
     html.pixel-ratio-2 & {
       .transform(scaleY(0.5));
     }
@@ -43,7 +42,7 @@
     }
   }
 }
-.hairline-left(@position, @color) {
+.hairline-left(@color) {
   &:before {
     content: '';
     position: absolute;
@@ -53,7 +52,6 @@
     right: auto;
     width: 1px;
     height: 100%;
-    //background-color: @color;
     border-bottom: 1px solid @color;
     display: block;
     z-index: 15;
@@ -64,9 +62,12 @@
     html.pixel-ratio-3 & {
       .transform(scaleX(0.33));
     }
+    html.pixel-ratio-4 & {
+      .transform(scaleX(0.25));
+    }
   }
 }
-.hairline-bottom(@position, @color, @left:0) {
+.hairline-bottom(@color, @left:0) {
   &:after {
     content: '';
     position: absolute;
@@ -81,7 +82,7 @@
     border-bottom: 1px solid @color;
     display: block;
     z-index: 15;
-    .transform-origin(50% 50%);
+    .transform-origin(50% 100%);
     html.pixel-ratio-2 & {
       .transform(scaleY(0.5));
     }
@@ -93,7 +94,7 @@
     }
   }
 }
-.hairline-right(@position, @color) {
+.hairline-right(@color) {
   &:after {
     content: '';
     position: absolute;
@@ -112,6 +113,9 @@
     }
     html.pixel-ratio-3 & {
       .transform(scaleX(0.33));
+    }
+    html.pixel-ratio-4 & {
+      .transform(scaleX(0.25));
     }
   }
 }

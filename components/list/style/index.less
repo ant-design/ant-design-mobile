@@ -22,8 +22,7 @@
   }
   & &-body {
     position: relative;
-    .hairline-top(top, @neutral-5);
-    //.hairline-bottom(bottom, @neutral-5);
+    .hairline-top(@neutral-5);
   }
   & &-item {
     position: relative;
@@ -57,7 +56,7 @@
       .display-box;
       .box-flex;
       overflow: hidden;
-      .hairline-bottom(bottom, @neutral-5, 0);
+      .hairline-bottom(@neutral-5);
       /*list左侧主内容*/
       .@{listPrefixCls}-content {
         .box-flex;
@@ -66,6 +65,9 @@
         //font-weight: @line-weight-1;
         line-height: @line-height-2;
         .ellipsis();
+        & > div {
+          .ellipsis();
+        }
       }
       /*list右补充内容*/
       .@{listPrefixCls}-extra {
@@ -78,6 +80,9 @@
         .ellipsis();
         .am-list-brief {
           font-size: @font-size-2;
+        }
+        & > div {
+          .ellipsis();
         }
       }
       /*list左侧主内容多行时，辅助性文字*/
@@ -165,7 +170,7 @@
       }
     }
     &:last-child {
-      .hairline-bottom(bottom, @neutral-5, 0);
+      .hairline-bottom(@neutral-5);
       .@{listPrefixCls}-line {
         .hairline-remove-right-bottom();
       }

@@ -1,5 +1,7 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
+
+const PropTypes = React.PropTypes;
 
 export default class Flex extends React.Component {
   static propTypes = {

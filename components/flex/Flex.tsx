@@ -1,6 +1,8 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
 import splitObject from '../_util/splitObject';
 import { View } from 'react-native';
+
+const PropTypes = React.PropTypes;
 
 export default class Flex extends React.Component {
   static propTypes = {

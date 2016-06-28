@@ -8,7 +8,10 @@
   & &-item {
     &.@{inputPrefixCls}-item {
       padding: 1.5*@grid 4*@grid;
-      .hairline-bottom(bottom, @neutral-5, @margin-4);
+      .hairline-bottom(@neutral-5, @margin-4);
+      &:last-child {
+        .hairline-bottom(@neutral-5);
+      }
     }
     &.@{inputPrefixCls}-error {
       .@{inputPrefixCls}-control {
@@ -29,6 +32,25 @@
       margin-right: 4*@grid;
       color: @neutral-10;
       text-align: left;
+      .ellipsis();
+      &.@{inputPrefixCls}-label-2 {
+        width: 32px;
+      }
+      &.@{inputPrefixCls}-label-3 {
+        width: 48px;
+      }
+      &.@{inputPrefixCls}-label-4 {
+        width: 64px;
+      }
+      &.@{inputPrefixCls}-label-5 {
+        width: 80px;
+      }
+      &.@{inputPrefixCls}-label-6 {
+        width: 96px;
+      }
+      &.@{inputPrefixCls}-label-7 {
+        width: 112px;
+      }
     }
     .@{inputPrefixCls}-control {
       .box-flex(1);
