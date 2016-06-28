@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-const THEMES = require('./style/index').ThemesList;
+const THEMES = require('./style/').ThemesList;
 
 export default class Header extends React.Component {
   render() {

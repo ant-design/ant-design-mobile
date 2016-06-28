@@ -1,4 +1,4 @@
-const variables = {
+export default {
   pink_1: '#000',
   pink_2: '#000',
   pink_3: '#000',
@@ -230,5 +230,3 @@ const variables = {
   // ease_in_quint : cubic_bezier(0.755, 0.05, 0.855, 0.06),
   // ease_in_out_quint : cubic_bezier(0.86, 0, 0.07, 1),
 };
-
-module.exports = variables;

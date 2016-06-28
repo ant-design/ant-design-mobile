@@ -7,14 +7,14 @@ function camelCase(name) {
     });
 }
 
-const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.tsx?$/);
+const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.web\.tsx?$/);
 
 req.keys().forEach((mod) => {
   let v = req(mod);
   if (v && v.default) {
     v = v.default;
   }
-  const match = mod.match(/^\.\/([^_][\w-]+)\/index\.tsx?$/);
+  const match = mod.match(/^\.\/([^_][\w-]+)\/index\.web\.tsx?$/);
   if (match && match[1]) {
     exports[camelCase(match[1])] = v;
   }
