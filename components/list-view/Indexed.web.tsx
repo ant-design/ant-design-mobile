@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import MListView from 'rmc-list-view';
 import List, { Header, Body, Footer, Item } from '../list';
+import splitObject from '../_util/splitObject';
 
 export default class IndexedList extends React.Component {
   static propTypes = {
@@ -12,7 +13,8 @@ export default class IndexedList extends React.Component {
   }
 
   render() {
-    const { children, renderHeader, renderFooter, renderSectionHeader, renderRow} = this.props;
+    let [{renderHeader, renderFooter, renderSectionHeader, renderRow}, restProps] = splitObject(this.props,
+    ['renderHeader', 'renderFooter', 'renderSectionHeader','renderRow']);
     const extraProps = {};
     if (renderHeader) {
       extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;
@@ -26,12 +28,12 @@ export default class IndexedList extends React.Component {
     }
     return (
       <MListView.IndexedList
-        {...this.props}
+        {...restProps}
         {...extraProps}
         renderScrollComponent={props => <List {...props} />}
         renderRow={renderRow}
         renderBodyComponent={() => <Body />}
-      >{children}</MListView.IndexedList>
+      >{this.props.children}</MListView.IndexedList>
     );
   }
 }

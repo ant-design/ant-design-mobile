@@ -1,10 +1,15 @@
 import React from 'react';
 import MListView, { DataSource } from 'rmc-list-view';
 import List, { Header, Body, Footer, Item } from '../list';
+import splitObject from '../_util/splitObject';
 
 export default class ListView extends React.Component {
+  static propTypes = {
+    dataSource: React.PropTypes.object,
+  }
   render() {
-    const { renderHeader, renderFooter, renderSectionHeader, renderRow } = this.props;
+    let [{renderHeader, renderFooter, renderSectionHeader, renderRow}, restProps] = splitObject(this.props,
+      ['renderHeader', 'renderFooter', 'renderSectionHeader','renderRow']);
     const extraProps = {};
     if (renderHeader) {
       extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;
@@ -18,7 +23,7 @@ export default class ListView extends React.Component {
     }
     return (
       <MListView
-        {...this.props}
+        {...restProps}
         {...extraProps}
         renderScrollComponent={props => <List {...props} />}
         renderRow={renderRow}
