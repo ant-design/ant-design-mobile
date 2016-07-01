@@ -34,3 +34,5 @@ xcuserdata
 typings
 components/**/*.jsx
 components/**/*.js
+my-release-key.keystore
+*.bundle

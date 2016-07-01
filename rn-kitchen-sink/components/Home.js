@@ -1,0 +1,69 @@
+import React from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+} from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { List } from 'antm';
+
+export default class Home extends React.Component {
+  render() {
+    return (
+      <View style={{marginTop: 64, flex: 1}}>
+        <View style={styles.container}>
+          <Image source={{uri: 'https://zos.alipayobjects.com/rmsportal/qyucQHYfzZlVaQo.png'}}
+                 style={styles.logo} />
+          <Text style={styles.logoText}>Ant Design Mobile</Text>
+          <Text style={styles.logoTextSub}>移动端UI组件库</Text>
+          <List style={styles.list}>
+            <List.Body>
+              <List.Item
+                thumb="https://zos.alipayobjects.com/rmsportal/UIqwcqpVsIjvyYZ.png"
+                arrow="horizontal"
+                needActive
+                onClick={ Actions.web }
+              >H5 组件</List.Item>
+              <List.Item
+                thumb="https://zos.alipayobjects.com/rmsportal/lSsJiCJnOzSnBJG.png"
+                onClick={Actions.native}
+                needActive
+                arrow="horizontal"
+                last
+              >React Native 组件</List.Item>
+            </List.Body>
+          </List>
+        </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+  },
+  logo: {
+    width: 108,
+    height: 108,
+    alignSelf: 'center',
+    marginTop: 45
+  },
+  logoText: {
+    alignSelf: 'center',
+    fontSize: 24,
+    marginTop: 24,
+    color: '#28B5F5',
+  },
+  logoTextSub: {
+    alignSelf: 'center',
+    fontSize: 20,
+    marginTop: 12,
+    color: '#626262'
+  },
+  list: {
+    marginTop: 32,
+    marginBottom: 0,
+  }
+});

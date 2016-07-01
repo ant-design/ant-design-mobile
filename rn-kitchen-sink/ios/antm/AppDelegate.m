@@ -8,8 +8,8 @@
  */
 
 #import "AppDelegate.h"
-
 #import "RCTRootView.h"
+#import "CodePush.h"
 
 @implementation AppDelegate
 
@@ -30,9 +30,14 @@
    * `inet` value under `en0:`) and make sure your computer and iOS device are
    * on the same Wi-Fi network.
    */
-
-  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/rn-kitchen-sink/index.ios.bundle?platform=ios&dev=true"];
-
+  
+  #ifdef DEBUG
+    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/rn-kitchen-sink/index.ios.bundle?platform=ios&dev=true"];
+  #else
+    jsCodeLocation = [CodePush bundleURLForResource:@"index.ios" withExtension:@"bundle"];
+  #endif
+  
+  
   /**
    * OPTION 2
    * Load from pre-bundled file on disk. The static bundle is automatically

@@ -7,6 +7,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.List;
 
+import com.microsoft.codepush.react.CodePush;
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -28,8 +30,18 @@ public class MainActivity extends ReactActivity {
     }
 
     @Override
+    protected String getBundleAssetName() {
+        return "index.android.bundle";
+    }
+
+    @Override
     protected String getJSMainModuleName() {
         return "rn-kitchen-sink/index.android";
+    }
+
+    @Override
+    protected String getJSBundleFile() {
+        return CodePush.getBundleUrl();
     }
 
     /**
@@ -39,7 +51,8 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-            new MainReactPackage()
+            new MainReactPackage(),
+            new CodePush("G9i2CN948Wpy31683uO0DXPQfyzz4JsHf03EW", this, BuildConfig.DEBUG)
         );
     }
 }
