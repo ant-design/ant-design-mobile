@@ -22,3 +22,4 @@ english: RefreshControl
 | distanceToRefresh   |   刷新距离    | number |    70  |
 | resistance   |   阻力系数   | number |    2.5  |
 | loadingFunction   |   刷新回调函数   | function, required |  -  |
+| hammerOptions   |  参考 [react-hammerjs](https://github.com/JedWatson/react-hammerjs) ，用于配置 [Hammer manager](http://hammerjs.github.io/api/)，将被合并到默认配置中   | object |  -  |

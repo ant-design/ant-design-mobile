@@ -26,11 +26,11 @@ const App = React.createClass({
         } else {
           reject();
         }
-      }, 2500);
+      }, 500);
     });
   },
   addItem() {
-    this.state.items.push(<div key={`item-${count}`}>条目 {count++}</div>);
+    this.state.items.push(<div key={`item-${count}`} style={{ height: 50 }}>条目 {count++}</div>);
     this.setState({
       items: this.state.items
     });
@@ -46,6 +46,9 @@ const App = React.createClass({
           position: 'relative',
           paddingTop: 20,
           textAlign: 'center'
+        }}
+        hammerOptions={{
+          touchAction: 'auto',
         }}
       >
         <h3>下拉刷新</h3>
