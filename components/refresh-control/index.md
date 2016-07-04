@@ -17,6 +17,8 @@ english: RefreshControl
 | 成员        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | children   | 内容      | any |    无  |
+| contentClassName | 内容容器className | String | - |
+| contentStyle | 内容容器style | object | - |
 | icon   | 刷新指示icon   | React element |  `...` |
 | loading   | 加载指示器   | React element |  anticon-loading |
 | distanceToRefresh   |   刷新距离    | number |    70  |
