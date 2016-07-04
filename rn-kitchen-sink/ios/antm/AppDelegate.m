@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RCTRootView.h"
 #import "CodePush.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
 
@@ -32,7 +33,7 @@
    */
   
   #ifdef DEBUG
-    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/rn-kitchen-sink/index.ios.bundle?platform=ios&dev=true"];
+    jsCodeLocation = [NSURL URLWithString:@"http://30.20.78.229:8081/rn-kitchen-sink/index.ios.bundle?platform=ios&dev=true"];
   #else
     jsCodeLocation = [CodePush bundleURLForResource:@"index.ios" withExtension:@"bundle"];
   #endif
@@ -48,16 +49,18 @@
 
 //   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"kitchen-sink"
-                                               initialProperties:nil
-                                                   launchOptions:launchOptions];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+//  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+//                                                      moduleName:@"kitchen-sink"
+//                                               initialProperties:nil
+//                                                   launchOptions:launchOptions];
+//  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+  HomeViewController *rootViewController = [HomeViewController new];
+  UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+//  rootViewController.view = rootView;
+//  self.window.rootViewController = rootViewController;
+    self.window.rootViewController = nav;
   [self.window makeKeyAndVisible];
   return YES;
 }
