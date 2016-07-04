@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { View } from 'react-native';
-const THEMES = require('./style/').ThemesList;
+const THEMES = require('./style/index.ios').ThemesList;
 
 export default class Body extends React.Component {
   static propTypes = {

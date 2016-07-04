@@ -3,8 +3,10 @@ import { Image, View, TouchableHighlight, Text } from 'react-native';
 import ReactElement from 'ReactElement';
 import TimerMixin from 'react-timer-mixin';
 
-const ASSETS = require('./style/index').AssetsList;
-const THEMES = require('./style/index').ThemesList;
+const ASSETS = require('./style/index.ios').AssetsList;
+const THEMES = require('./style/index.ios').ThemesList;
+
+console.log(ASSETS, THEMES)
 
 class Content extends React.Component {
   render() {

@@ -38,6 +38,7 @@ export default class WebIndex extends React.Component {
         <Modal
           animationType={'none'}
           transparent
+          onRequestClose={this.onLoadEnd}
           visible={this.state.visible}
         >
           <View style={styles.loading}>
