@@ -65,9 +65,6 @@
         //font-weight: @line-weight-1;
         line-height: @line-height-2;
         .ellipsis();
-        & > div {
-          .ellipsis();
-        }
       }
       /*list右补充内容*/
       .@{listPrefixCls}-extra {
@@ -81,9 +78,9 @@
         .am-list-brief {
           font-size: @font-size-2;
         }
-        & > div {
-          .ellipsis();
-        }
+      }
+      .@{listPrefixCls}-title {
+        .ellipsis();
       }
       /*list左侧主内容多行时，辅助性文字*/
       .@{listPrefixCls}-brief {
