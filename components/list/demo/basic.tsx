@@ -57,7 +57,6 @@ export default class BasicListExample extends React.Component {
             <List.Item extra="up,剪头向上" arrow="up">标题文字</List.Item>
             <List.Item
               extra={<List.Item.Extra><List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent><List.Item.Detail>001</List.Item.Detail></List.Item.Extra>}
-              line={2}
               arrow="horizontal"
               last
             ><List.Item.Content>账户名</List.Item.Content></List.Item>
@@ -105,7 +104,6 @@ export default class BasicListExample extends React.Component {
           <List.Header>业务例子 Demo</List.Header>
           <List.Body>
             <List.Item
-              link="http://www.baidu.com"
               extra="鹿港小镇"
               arrow="horizontal"
             >所属门店</List.Item>
