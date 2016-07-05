@@ -29,22 +29,19 @@ ReactDOM.render(
     <List>
       <List.Header>箭头</List.Header>
       <List.Body>
-        <List.Item extra="horizontal,剪头向右" arrow="horizontal">标题文字</List.Item>
-        <List.Item extra="down,剪头向下" arrow="down">标题文字</List.Item>
-        <List.Item extra="up,剪头向上" arrow="up">标题文字</List.Item>
+        <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>
+        <List.Item extra="down,箭头向下" arrow="down">标题文字</List.Item>
+        <List.Item extra="up,箭头向上" arrow="up">标题文字</List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
-          line={2}
           arrow="horizontal"
         ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
-          line={2}
           arrow="down"
         ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
-          line={2}
           arrow="up"
           error
         ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>

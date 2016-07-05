@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 业务例子
+title: 业务示例
 ---
 
 一个业务上使用的示例。
@@ -13,28 +13,31 @@ ReactDOM.render(
   <List >
     <List.Body>
       <List.Item
-        link="http://www.baidu.com"
         extra="鹿港小镇"
         arrow="horizontal"
       >所属门店</List.Item>
       <List.Item
         extra="张三"
+        arrow="empty"
       >员工姓名</List.Item>
       <List.Item
         extra="收银员"
+        arrow="empty"
       >员工角色</List.Item>
       <List.Item
         extra="13838383756"
+        arrow="empty"
       >员工手机</List.Item>
       <List.Item
         extra="只可退自己的"
+        arrow="empty"
       >退款权限</List.Item>
       <List.Item
-        content="其他权限"
+        extra="其他权限"
         arrow="horizontal"
       >文本信息</List.Item>
       <List.Item
-        extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="29" height="29" />}
+        extra={<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAm0lEQVR4Ae2Whw0DMQwD5Q24gfbfRTslaPlGCGb6vyAe2tdzty1uArAlyz2RMgJLoggsSTUBfUwCSkD49jKCFnhgYegCaZgSIAGlokCHBDk1BR6YspMteHIfRqWbhMc714Y/aMF/Bdgw5mJh5HgmU2u2qITatEAQCEvCe53cp+v3T9ct0E92HH01bcGlBIEVRfDWMGUBU0aQ04I7BEwkp1QhR1sAAAAASUVORK5CYII=" width="29" height="29" />}
         arrow="horizontal"
       >员工二维码</List.Item>
       <List.Item

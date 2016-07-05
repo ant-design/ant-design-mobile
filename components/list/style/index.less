@@ -4,10 +4,10 @@
 @listPrefixCls: am-list;
 
 .@{listPrefixCls} {
-  padding: @margin-7 0 @margin-2 0;
+  padding: 2*@grid 0;
   background-color: transparent;
   & &-header {
-    padding: 0 4*@grid 2*@grid 4*@grid;
+    padding: 6*@grid 4*@grid 2*@grid 4*@grid;
     font-size: @font-size-2;
     color: @neutral-7;
     display: inline-block;
@@ -48,6 +48,17 @@
         height: @margin-6;
         vertical-align: middle;
       }
+    }
+    select {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      font-size: @font-size-5;
+      appearance: none;
+      background-color: transparent;
     }
     .@{listPrefixCls}-line {
       position: relative;
