@@ -112,12 +112,13 @@
         NSRange range = [lastPath rangeOfString:@"." options:NSBackwardsSearch];
         moduleName = [lastPath substringToIndex:range.location];
       }
+      [moduleNameField resignFirstResponder];
     }
 
     ResultViewController *resultVC = [[ResultViewController alloc] init];
     resultVC.moduleName = moduleName;
     resultVC.bundleURL = self.bundleURL;
-    [self.navigationController pushViewController:resultVC animated:YES];
+    [self.navigationController pushViewController:resultVC animated:NO];
   }
 }
 

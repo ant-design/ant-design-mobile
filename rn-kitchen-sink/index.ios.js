@@ -65,7 +65,7 @@ class AntmRnApp extends React.Component {
 const styles = StyleSheet.create({
   content: {
     marginTop: 64,
-    flex: 1,
+    flex: 1
   },
   scrollView: {
     height: Dimensions.get('window').height - 64,
