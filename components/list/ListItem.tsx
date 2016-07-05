@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import { Image, View, TouchableHighlight, Text } from 'react-native';
-import ReactElement from 'ReactElement';
 import TimerMixin from 'react-timer-mixin';
 
 const ASSETS = require('./style/index').AssetsList;
@@ -34,7 +34,7 @@ export default class Item extends React.Component {
   static propTypes = {
     extra(props, propName) {
       if (props[propName]) {
-        if (!ReactElement.isValidElement(props[propName]) && typeof(props[propName]) !== 'string') {
+        if (!React.isValidElement(props[propName]) && typeof(props[propName]) !== 'string') {
           throw new Error('extra must be a string or element');
         }
       }
@@ -83,13 +83,13 @@ export default class Item extends React.Component {
       thumbDom = (<Image source={{ uri: this.props.thumb }} style={[THEMES.Thumb,
         this.props.line === 2 ? THEMES.Line2.Thumb : {}]} />);
     }
-    if ((this.props.line === 2) && ReactElement.isValidElement(this.props.children)) {
+    if ((this.props.line === 2) && React.isValidElement(this.props.children)) {
       contentDom = <View style={{ flex: 1 }}>{this.props.children}</View>;
     } else {
       contentDom = <Text style={THEMES.Content} numberOfLines={1}>{this.props.children}</Text>;
     }
     if (this.props.extra) {
-      if (ReactElement.isValidElement(this.props.extra)) {
+      if (React.isValidElement(this.props.extra)) {
         extraDom = this.props.extra;
       } else {
         extraDom = <Text style={THEMES.Extra} numberOfLines={1}>{this.props.extra}</Text>;

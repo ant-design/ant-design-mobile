@@ -1,5 +1,5 @@
 // List
-import React from 'react';
+import * as React from 'react';
 import { View } from 'react-native';
 import Body from './ListBody';
 import Item from './ListItem';
