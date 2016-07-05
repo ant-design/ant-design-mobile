@@ -27,7 +27,7 @@
   NSURL *jsCodeLocation;
   
   #ifdef DEBUG
-    jsCodeLocation = [NSURL URLWithString:@"http://30.20.78.229:8081/rn-kitchen-sink/index.ios.bundle?platform=ios&dev=true"];
+    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/rn-kitchen-sink/index.ios.bundle?platform=ios&dev=true"];
   #else
     jsCodeLocation = [CodePush bundleURLForResource:@"index.ios" withExtension:@"bundle"];
   #endif
