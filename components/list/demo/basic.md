@@ -10,10 +10,6 @@ import { List, Switch } from 'antm';
 import { createForm } from 'rc-form';
 
 let ListExample = React.createClass({
-  onClick() {
-    console.log('onClick');
-  },
-
   render() {
     const { getFieldProps } = this.props.form;
     return (<form>
@@ -21,15 +17,12 @@ let ListExample = React.createClass({
         <List.Header>列表头部,List.Header</List.Header>
         <List.Body>
           <List.Item
-            onClick={this.onClick}
             needActive={false}
           >标题文字,无Active效果</List.Item>
           <List.Item
-            onClick={this.onClick}
           >标题文字,默认有Active效果</List.Item>
           <List.Item
             extra="内容内容"
-            onClick={this.onClick}
           >标题文字</List.Item>
         </List.Body>
         <List.Footer>列表尾部,List.Footer</List.Footer>
@@ -38,7 +31,6 @@ let ListExample = React.createClass({
         <List.Header>下拉框</List.Header>
         <List.Body>
           <List.Item
-            onClick={this.onClick}
             extra={<select style={{ direction: 'rtl' }}
               {...getFieldProps('select1', {
                 initialValue: 1,
@@ -50,22 +42,20 @@ let ListExample = React.createClass({
             arrow="horizontal"
           >下拉框</List.Item>
           <List.Item
-            onClick={this.onClick}
             extra={<select style={{ direction: 'rtl' }} defaultValue="2">
                 <option value="1">选项1</option>
                 <option value="2">选项2</option>
-                <option value="3" disabled>选项3</option>
+                <option value="3" disabled>选项3不可选</option>
               </select>}
             arrow="horizontal"
           >下拉框</List.Item>
           <List.Item
-            onClick={this.onClick}
             arrow="horizontal"
           >
             <select defaultValue="3">
               <option value="1">选项1</option>
-              <option value="2" disabled>选项2</option>
-              <option value="3">选项3在左侧,没有传入children</option>
+              <option value="2" disabled>选项2不可选</option>
+              <option value="3">选项3</option>
             </select>
           </List.Item>
         </List.Body>
