@@ -6,6 +6,7 @@ import {
   StatusBar,
   ScrollView,
   Dimensions,
+  Platform,
 } from 'react-native';
 import codePush from "react-native-code-push";
 import { Scene, Router } from 'react-native-router-flux';
@@ -64,7 +65,7 @@ class AntmRnApp extends React.Component {
 
 const styles = StyleSheet.create({
   content: {
-    marginTop: 64,
+    marginTop: Platform.OS === 'ios' ? 64 : 54,
     flex: 1
   },
   scrollView: {

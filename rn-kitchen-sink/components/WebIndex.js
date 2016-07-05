@@ -6,7 +6,8 @@ import {
   Text,
   WebView,
   Modal,
-  ActivityIndicator
+  ActivityIndicator,
+  Platform,
 } from 'react-native';
 
 export default class WebIndex extends React.Component {
@@ -27,7 +28,7 @@ export default class WebIndex extends React.Component {
 
   render() {
     return (
-      <View style={{marginTop: 64, flex: 1}}>
+      <View style={{marginTop: Platform.OS === 'ios' ? 64 : 44, flex: 1}}>
         <WebView
           style={styles.webView}
           ref="webview"

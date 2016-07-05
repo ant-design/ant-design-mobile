@@ -4,6 +4,7 @@ import {
   View,
   Text,
   Image,
+  Platform,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { List } from 'antm';
@@ -41,7 +42,7 @@ export default class Home extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    marginTop: 64,
+    marginTop: Platform.OS === 'ios' ? 64 : 44,
     flex: 1
   },
   logo: {
