@@ -30,6 +30,7 @@ export default class ComponentDoc extends React.Component {
     const { content, meta } = doc;
     // const locale = this.context.intl.locale;
 
+    console.log(props);
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
