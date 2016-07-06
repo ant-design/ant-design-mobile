@@ -2,11 +2,9 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import { Image, View, TouchableHighlight, Text } from 'react-native';
 import TimerMixin from 'react-timer-mixin';
-
-const ASSETS = require('./style/index.ios').AssetsList;
-const THEMES = require('./style/index.ios').ThemesList;
-
-console.log(ASSETS, THEMES)
+import theme from './style/index';
+const THEMES = theme.ThemesList;
+const ASSETS = theme.AssetsList;
 
 class Content extends React.Component {
   render() {

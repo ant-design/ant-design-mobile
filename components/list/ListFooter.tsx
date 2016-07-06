@@ -1,7 +1,8 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
 import { Text } from 'react-native';
-const THEMES = require('./style/').ThemesList;
+import theme from './style/index';
+const THEMES = theme.ThemesList;
 
 export default class Footer extends React.Component {
   static propTypes = {
