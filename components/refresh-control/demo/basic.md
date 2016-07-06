@@ -14,7 +14,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       items: [
-        <div key={`item-${count}`}>条目 {count++}</div>
+        <div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>
       ]
     };
   },
@@ -30,7 +30,7 @@ const App = React.createClass({
     });
   },
   addItem() {
-    this.state.items.push(<div key={`item-${count}`} style={{ height: 50 }}>条目 {count++}</div>);
+    this.state.items.push(<div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>);
     this.setState({
       items: this.state.items
     });
@@ -49,6 +49,11 @@ const App = React.createClass({
         }}
         hammerOptions={{
           touchAction: 'auto',
+          recognizers: {
+            pan: {
+              threshold: 100,
+            },
+          },
         }}
       >
         <h3>下拉刷新</h3>

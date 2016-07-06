@@ -102,6 +102,7 @@ const Test = React.createClass({
       <WingBlank>
         <Button type="primary" onClick={this.onClick}>show Dropdown</Button>
         已选项目：{this.state.sel}
+        <h6>注意：请点击 navbar 上的箭头，隐藏掉 navbar</h6>
       </WingBlank>
       <WhiteSpace />
     </div>);
