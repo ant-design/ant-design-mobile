@@ -4,6 +4,11 @@ import splitObject from '../_util/splitObject';
 import CardStyle from './style/index';
 
 export default class CardBody extends React.Component {
+
+  static defaultProps = {
+    style: {},
+  };
+
   render() {
     let [{children, style}, restProps] = splitObject(
       this.props, ['children', 'style']

@@ -6,6 +6,10 @@ import CardFooter from './CardFooter';
 import CardStyle from './style/index';
 
 export default class Card extends React.Component {
+  static defaultProps = {
+    style: {},
+  };
+
   render() {
     return (
       <View {...this.props} style={[CardStyle.Card, this.props.style]}>

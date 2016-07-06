@@ -13,6 +13,11 @@ export default class CardHeader extends React.Component {
     extra: PropTypes.node,
   };
 
+  static defaultProps = {
+    thumbStyle: {},
+    style: {},
+  };
+
   render() {
     let [{title, thumb, thumbStyle, extra, style}, restProps] = splitObject(
       this.props, ['title', 'thumb', 'thumbStyle', 'extra', 'style']

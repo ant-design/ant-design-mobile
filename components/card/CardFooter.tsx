@@ -11,6 +11,10 @@ export default class CardFooter extends React.Component {
     extra: PropTypes.string,
   };
 
+  static defaultProps = {
+    style: {},
+  };
+
   render() {
     let [{content, extra, style}, restProps] = splitObject(
       this.props, ['content', 'extra', style]

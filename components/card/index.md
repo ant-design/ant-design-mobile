@@ -17,10 +17,31 @@ english: Card
 
 ## API
 
-| 成员        | 说明           | 类型      | 默认值       |
-|------------|----------------|--------------------|--------------|
-| type       | 信息类型，可选值为 `success`, `info`, `error`, `warn`, `wait`, `question`|   string   |   info  |
-| message   | 主提示文案      | string |    无  |
-| description   | 副提示文案      | string |    无  |
-| brief   | 说明文案     | string |    无  |
-| result	   | 是否结果页面 | boolean	 | false |
+## API
+
+### Card
+
+| 成员        | 说明           | 类型               | 默认值       |
+|-------------|----------------|--------------------|--------------|
+|无| | | |
+
+### Card.Header
+| 成员        | 说明           | 类型               | 默认值       |
+|-------------|----------------|------------------|--------------|
+|title| 卡片标题 | React.Element、String(`react-native`) | |
+|thumb| 卡片标题图片 | String |  |
+|thumbStyle| 标题图片样式 | Object | {} |
+|extra| 卡片标题辅助内容 | React.Element |  |
+
+### Card.Body
+| 成员        | 说明           | 类型               | 默认值       |
+|-------------|----------------|--------------------|--------------|
+|无| | | |
+
+### Card.Footer
+
+| 成员        | 说明           | 类型        |   默认值       |
+|-------------|----------------|--------------------|--------------|
+|content|尾部内容 | React.Element、String(`react-native`) | |
+|extra| 尾部辅助内容 | React.Element、String(`react-native`) |  |
+
