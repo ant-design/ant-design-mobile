@@ -9,6 +9,7 @@ export default class RefreshControl extends React.Component {
     children: PropTypes.any,
     icon: PropTypes.any,
     loading: PropTypes.any,
+    hammerOptions: PropTypes.object,
   }
 
   static defaultProps = {
@@ -25,16 +26,16 @@ export default class RefreshControl extends React.Component {
   }
 
   render() {
-    let [{prefixCls, children, icon, loading}, restProps] = splitObject(this.props,
-      ['prefixCls', 'children', 'icon','loading']);
-    // const wrapCls = classNames({
-    // });
+    let [{prefixCls, children, icon, loading, hammerOptions}, restProps] = splitObject(this.props,
+      ['prefixCls', 'children', 'icon','loading', 'hammerOptions']);
+
     return (
       <PullToRefresh
         {...restProps}
         prefixCls={prefixCls}
         icon={icon}
         loading={loading}
+        hammerOptions={hammerOptions || {}}
       >{children}</PullToRefresh>
     );
   }

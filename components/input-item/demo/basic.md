@@ -124,7 +124,7 @@ let BasicInput = React.createClass({
             maxLength={10}
             onBlur={function (e) {console.log('onBlur'); console.log(e);}}
             onFocus={function (e) {console.log('onFocus'); console.log(e);}}
-          >四个字标签</InputItem>
+          >四字标签</InputItem>
         </List.Body>
       </List>
       <List>

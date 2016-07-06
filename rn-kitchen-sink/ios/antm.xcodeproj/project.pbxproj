@@ -21,6 +21,14 @@
 		932801341D12865300A90AF1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932801261D12861300A90AF1 /* libRCTVibration.a */; };
 		932801351D12865300A90AF1 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9328012C1D12861700A90AF1 /* libRCTWebSocket.a */; };
 		932801361D12865300A90AF1 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932800F61D1285D000A90AF1 /* libReact.a */; };
+		936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936A047A1D267BB0005EE7C1 /* libCodePush.a */; };
+		936A047D1D267C03005EE7C1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 936A047C1D267C03005EE7C1 /* libz.tbd */; };
+		938336A61D2BB29E0067F8AD /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 938336A41D2BB29E0067F8AD /* assets */; };
+		938336A71D2BB29E0067F8AD /* index.ios.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 938336A51D2BB29E0067F8AD /* index.ios.bundle */; };
+		93ABB6081D2A301C00652A63 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6071D2A301C00652A63 /* HomeViewController.m */; };
+		93ABB6211D2A3DF100652A63 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6201D2A3DF100652A63 /* ScanViewController.m */; };
+		93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6231D2A3E2600652A63 /* ResultViewController.m */; };
+		93ABB6261D2A430B00652A63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93ABB6251D2A430B00652A63 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,10 +102,16 @@
 			remoteGlobalIDString = 3C86DF461ADF2C930047B81A;
 			remoteInfo = RCTWebSocket;
 		};
+		936A04791D267BB0005EE7C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = CodePush;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* antm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = antm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = antm/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = antm/AppDelegate.m; sourceTree = "<group>"; };
@@ -115,6 +129,17 @@
 		9328011B1D12860D00A90AF1 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		932801211D12861300A90AF1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
 		932801271D12861700A90AF1 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
+		936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
+		936A047C1D267C03005EE7C1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		938336A41D2BB29E0067F8AD /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = bundle/assets; sourceTree = "<group>"; };
+		938336A51D2BB29E0067F8AD /* index.ios.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = index.ios.bundle; path = bundle/index.ios.bundle; sourceTree = "<group>"; };
+		93ABB6061D2A301C00652A63 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = antm/HomeViewController.h; sourceTree = "<group>"; };
+		93ABB6071D2A301C00652A63 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = antm/HomeViewController.m; sourceTree = "<group>"; };
+		93ABB61F1D2A3DF100652A63 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanViewController.h; path = antm/ScanViewController.h; sourceTree = "<group>"; };
+		93ABB6201D2A3DF100652A63 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanViewController.m; path = antm/ScanViewController.m; sourceTree = "<group>"; };
+		93ABB6221D2A3E2600652A63 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultViewController.h; path = antm/ResultViewController.h; sourceTree = "<group>"; };
+		93ABB6231D2A3E2600652A63 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultViewController.m; path = antm/ResultViewController.m; sourceTree = "<group>"; };
+		93ABB6251D2A430B00652A63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +147,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93ABB6261D2A430B00652A63 /* AVFoundation.framework in Frameworks */,
+				936A047D1D267C03005EE7C1 /* libz.tbd in Frameworks */,
 				9328012D1D12865300A90AF1 /* libRCTActionSheet.a in Frameworks */,
 				9328012E1D12865300A90AF1 /* libRCTGeolocation.a in Frameworks */,
 				9328012F1D12865300A90AF1 /* libRCTImage.a in Frameworks */,
@@ -132,6 +159,7 @@
 				932801341D12865300A90AF1 /* libRCTVibration.a in Frameworks */,
 				932801351D12865300A90AF1 /* libRCTWebSocket.a in Frameworks */,
 				932801361D12865300A90AF1 /* libReact.a in Frameworks */,
+				936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,13 +169,20 @@
 		13B07FAE1A68108700A75B9A /* antm */ = {
 			isa = PBXGroup;
 			children = (
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				938336A41D2BB29E0067F8AD /* assets */,
+				938336A51D2BB29E0067F8AD /* index.ios.bundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				93ABB6061D2A301C00652A63 /* HomeViewController.h */,
+				93ABB6071D2A301C00652A63 /* HomeViewController.m */,
+				93ABB61F1D2A3DF100652A63 /* ScanViewController.h */,
+				93ABB6201D2A3DF100652A63 /* ScanViewController.m */,
+				93ABB6221D2A3E2600652A63 /* ResultViewController.h */,
+				93ABB6231D2A3E2600652A63 /* ResultViewController.m */,
 			);
 			name = antm;
 			sourceTree = "<group>";
@@ -155,6 +190,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */,
 				932800F11D1285D000A90AF1 /* React.xcodeproj */,
 				932800F71D1285E400A90AF1 /* RCTActionSheet.xcodeproj */,
 				932800FD1D1285ED00A90AF1 /* RCTGeolocation.xcodeproj */,
@@ -172,6 +208,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				93ABB6251D2A430B00652A63 /* AVFoundation.framework */,
+				936A047C1D267C03005EE7C1 /* libz.tbd */,
 				13B07FAE1A68108700A75B9A /* antm */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -268,6 +306,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		936A04761D267BB0005EE7C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				936A047A1D267BB0005EE7C1 /* libCodePush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,7 +324,6 @@
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
-				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 			);
 			buildRules = (
 			);
@@ -310,6 +355,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 936A04761D267BB0005EE7C1 /* Products */;
+					ProjectRef = 936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */;
+				},
 				{
 					ProductGroup = 932800F81D1285E400A90AF1 /* Products */;
 					ProjectRef = 932800F71D1285E400A90AF1 /* RCTActionSheet.xcodeproj */;
@@ -429,6 +478,13 @@
 			remoteRef = 9328012B1D12861700A90AF1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		936A047A1D267BB0005EE7C1 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 936A04791D267BB0005EE7C1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -436,6 +492,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938336A61D2BB29E0067F8AD /* assets in Resources */,
+				938336A71D2BB29E0067F8AD /* index.ios.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -443,30 +501,16 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native code and images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../../node_modules/react-native/packager/react-native-xcode.sh";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				93ABB6211D2A3DF100652A63 /* ScanViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */,
+				93ABB6081D2A301C00652A63 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,12 +534,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../../node_modules/react-native/React/**",
+					"$(SRCROOT)/../../node_modules/react-native-code-push/**",
 				);
 				INFOPLIST_FILE = antm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -503,6 +553,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mybank.ios.RNPlayground;
 				PRODUCT_NAME = antm;
 			};
 			name = Debug;
@@ -512,11 +563,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../../node_modules/react-native/React/**",
+					"$(SRCROOT)/../../node_modules/react-native-code-push/**",
 				);
 				INFOPLIST_FILE = antm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -524,6 +581,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mybank.ios.RNPlayground;
 				PRODUCT_NAME = antm;
 			};
 			name = Release;
