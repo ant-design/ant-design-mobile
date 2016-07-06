@@ -34,7 +34,6 @@ rn-kitchen-sink/android/build
 rn-kitchen-sink/android/app/src/main/assets
 rn-kitchen-sink/android/app/src/main/res/drawable*
 xcuserdata
-typings
 components/**/*.jsx
 components/**/*.js
 my-release-key.keystore
