@@ -7,8 +7,8 @@ const Footer = CardStyle.Footer;
 
 export default class CardFooter extends React.Component {
   static propTypes = {
-    content: PropTypes.string,
-    extra: PropTypes.string,
+    content: PropTypes.node,
+    extra: PropTypes.node,
   };
 
   static defaultProps = {
@@ -20,13 +20,23 @@ export default class CardFooter extends React.Component {
       this.props, ['content', 'extra', style]
     );
 
+    const contentDom = React.isValidElement(content) ? (
+      <View style={{ flex: 1 }}>{content}</View>
+    ) : (
+      <Text style={Footer.content}>{content}</Text>
+    );
+
+    const extraDom = React.isValidElement(extra) ? (
+      <View style={{ flex: 1 }}>{content}</View>
+    ) : (
+      <Text style={Footer.extra}>{extra}</Text>
+    );
+
     return (
       <View {...restProps} style={[Footer.footer, style]}>
-        <Text style={Footer.content}>{content}</Text>
+        {contentDom}
         {
-          extra ? (
-            <Text style={Footer.extra}>{extra}</Text>
-          ) : null
+          extra ? extraDom : null
         }
       </View>
     );

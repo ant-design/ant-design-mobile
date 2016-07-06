@@ -7,7 +7,7 @@ const Header = CardStyle.Header;
 
 export default class CardHeader extends React.Component {
   static propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.node,
     thumb: PropTypes.string,
     thumbStyle: PropTypes.object,
     extra: PropTypes.node,
@@ -23,11 +23,17 @@ export default class CardHeader extends React.Component {
       this.props, ['title', 'thumb', 'thumbStyle', 'extra', 'style']
     );
 
+    const titleDom = React.isValidElement(title) ? (
+      <View style={{ flex: 1 }}>{title}</View>
+    ) : (
+      <Text style={Header.content}>{title}</Text>
+    );
+
     return (
       <View {...restProps} style={[Header.header, style]}>
         <View style={Header.title}>
           { thumb ? <Image source={{uri: thumb}} style={[Header.image, thumbStyle]} /> : null }
-          <Text style={Header.content}>{title}</Text>
+          {titleDom}
         </View>
         { extra ? <View style={Header.extra}>{extra}</View> : null }
       </View>
