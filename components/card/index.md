@@ -31,7 +31,7 @@ english: Card
 |title| 卡片标题 | React.Element、String | |
 |thumb| 卡片标题图片 | String |  |
 |thumbStyle| 标题图片样式 | Object | {} |
-|extra| 卡片标题辅助内容 | React.Element |  |
+|extra| 卡片标题辅助内容 | React.Element、String |  |
 
 ### Card.Body
 | 成员        | 说明           | 类型               | 默认值       |
