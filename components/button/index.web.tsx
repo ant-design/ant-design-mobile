@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Icon from '../icon';
 function noop() {}
 import splitObject from '../_util/splitObject';
+import ButtonProps from './ButtonPropsType';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -24,10 +25,6 @@ function insertSpace(child) {
     return <span>{child}</span>;
   }
   return child;
-}
-
-export interface ButtonProps {
-  prefixCls?: string;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {

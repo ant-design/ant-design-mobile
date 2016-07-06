@@ -2,8 +2,9 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
 import variables from '../style/variables';
+import ButtonProps from './ButtonPropsType';
 
-export default class Button extends React.Component {
+export default class Button extends React.Component<ButtonProps, any> {
   static propTypes = {
     pressIn: PropTypes.bool,
     onPressIn: PropTypes.func,
@@ -11,7 +12,7 @@ export default class Button extends React.Component {
     disabled: PropTypes.bool,
     size: PropTypes.oneOf(['large', 'small']),
     type: PropTypes.oneOf(['primary', 'default']),
-    goast: PropTypes.bool,
+    ghost: PropTypes.bool,
     inline: PropTypes.bool,
     loading: PropTypes.bool,
   };
@@ -20,7 +21,7 @@ export default class Button extends React.Component {
     pressIn: false,
     size: 'large',
     type: 'primary',
-    goast: false,
+    ghost: false,
     disabled: false,
     inline: false,
     loading: false
@@ -53,7 +54,7 @@ export default class Button extends React.Component {
     const size = this.props.size;
     const type = this.props.type;
     const disabled = this.props.disabled;
-    const goast = this.props.goast;
+    const ghost = this.props.ghost;
 
     let height;
     let fontSize;
@@ -109,7 +110,7 @@ export default class Button extends React.Component {
         borderColor = variables.brand_1;
       }
 
-      if (goast) {
+      if (ghost) {
         backgroundColor = 'transparent';
         textColor = variables.brand_6;
         borderColor = variables.brand_6;
@@ -139,7 +140,7 @@ export default class Button extends React.Component {
         borderColor = variables.neutral_4;
       }
 
-      if (goast) {
+      if (ghost) {
         textColor = variables.neutral_8;
         borderColor = variables.neutral_4;
 
