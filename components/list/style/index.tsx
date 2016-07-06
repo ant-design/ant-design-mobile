@@ -1,4 +1,4 @@
-const variables = require('../../style/variables');
+import variables from '../../style/variables';
 
 export default {
   AssetsList: {
