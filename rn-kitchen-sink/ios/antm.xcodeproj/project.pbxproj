@@ -23,8 +23,6 @@
 		932801361D12865300A90AF1 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932800F61D1285D000A90AF1 /* libReact.a */; };
 		936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936A047A1D267BB0005EE7C1 /* libCodePush.a */; };
 		936A047D1D267C03005EE7C1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 936A047C1D267C03005EE7C1 /* libz.tbd */; };
-		938336A61D2BB29E0067F8AD /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 938336A41D2BB29E0067F8AD /* assets */; };
-		938336A71D2BB29E0067F8AD /* index.ios.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 938336A51D2BB29E0067F8AD /* index.ios.bundle */; };
 		93ABB6081D2A301C00652A63 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6071D2A301C00652A63 /* HomeViewController.m */; };
 		93ABB6211D2A3DF100652A63 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6201D2A3DF100652A63 /* ScanViewController.m */; };
 		93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6231D2A3E2600652A63 /* ResultViewController.m */; };
@@ -131,8 +129,6 @@
 		932801271D12861700A90AF1 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		936A047C1D267C03005EE7C1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		938336A41D2BB29E0067F8AD /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = bundle/assets; sourceTree = "<group>"; };
-		938336A51D2BB29E0067F8AD /* index.ios.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = index.ios.bundle; path = bundle/index.ios.bundle; sourceTree = "<group>"; };
 		93ABB6061D2A301C00652A63 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = antm/HomeViewController.h; sourceTree = "<group>"; };
 		93ABB6071D2A301C00652A63 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = antm/HomeViewController.m; sourceTree = "<group>"; };
 		93ABB61F1D2A3DF100652A63 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanViewController.h; path = antm/ScanViewController.h; sourceTree = "<group>"; };
@@ -169,8 +165,6 @@
 		13B07FAE1A68108700A75B9A /* antm */ = {
 			isa = PBXGroup;
 			children = (
-				938336A41D2BB29E0067F8AD /* assets */,
-				938336A51D2BB29E0067F8AD /* index.ios.bundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -492,8 +486,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				938336A61D2BB29E0067F8AD /* assets in Resources */,
-				938336A71D2BB29E0067F8AD /* index.ios.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
