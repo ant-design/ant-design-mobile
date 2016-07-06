@@ -1,4 +1,4 @@
-const variables = require('../../style/variables').default;
+import variables from '../../style/variables';
 
 export default {
   Card: {
