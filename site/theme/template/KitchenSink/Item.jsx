@@ -26,7 +26,7 @@ const Item = React.createClass({
     const { logo, title, subtitle, onClick, style } = this.props;
     return (
       <section className="am-demo-item" onClick={onClick} onTouchStart={this._handleTouchStart} onTouchEnd={this._handleTouchEnd} onTouchCancel={this._handleTouchEnd} ref="demoitem" style={style}>
-      /* eslint prefer-template: 0 */
+      {/* eslint prefer-template: 0 */}
         <div className="am-demo-item-logo" style={{ backgroundImage: `url(${logo})` }} />
         <h1 className="am-demo-item-title">{title}</h1>
         <h2 className="am-demo-item-subtitle">{subtitle}</h2>
