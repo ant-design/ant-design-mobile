@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  port: 8001,
+  port: 8000,
   source: [
     './components',
     './docs',
