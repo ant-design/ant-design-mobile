@@ -32,6 +32,8 @@
     "dist",
     "lib"
   ],
+  "entry":{
+  },
   "license": "MIT",
   "dependencies": {
     "array-tree-filter": "~1.0.0",
@@ -39,6 +41,7 @@
     "css-vendor": "~0.3.4",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.0.4",
+    "jquery": "^3.0.0",
     "normalize.css": "~4.0.0",
     "object-assign": "~4.0.1",
     "rc-animate": "~2.1.0",
@@ -126,6 +129,7 @@
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
     "start": "bisheng start -c ./site/bisheng.config.js",
+    "m-start": "antd-tools run start --no-livereload",
     "site": "bisheng build -c ./site/bisheng.config.js && npm run build-rn",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",

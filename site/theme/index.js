@@ -24,5 +24,7 @@ module.exports = {
     '/docs/react/:children': contentTmpl,
     '/changelog': contentTmpl,
     '/components/:children': contentTmpl,
+    '/kitchen-sink': './template/KitchenSink/index',
+    '/kitchen-sink/:component': './template/KitchenSink/Demo'
   },
 };

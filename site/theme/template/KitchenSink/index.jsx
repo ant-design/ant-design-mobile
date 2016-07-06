@@ -1,7 +1,10 @@
 import React from 'react';
-import { List, Flex } from 'antm';
+
+import Promise from 'bluebird';
+import * as utils from '../utils';
 import Page from './Page';
 import Item from './Item';
+import { List, Flex } from 'antm';
 
 const hashImgObj = {
   'action-sheet': 'sTvsgvivVKnqQtS',
@@ -46,30 +49,48 @@ const hashImgObj = {
   'wing-blank': 'WzZoGzTRKzQgMWi',
 };
 
-const lists = {};
+export function collect(nextProps, callback) {
+  const componentsList = utils.collectDocs(nextProps.data.components);
 
-import reactComponents from '../../_data/react-components';
-Object.keys(reactComponents).forEach(i => {
-  console.log(i)
-  const iArr = i.split('/');
-  if (iArr[0] === 'components') {
-    const meta = reactComponents[i].meta;
-    if (!lists[meta.category]) {
-      lists[meta.category] = [];
-    }
-    lists[meta.category].push(meta);
-  }
-});
+  let moduleDocs;
+  moduleDocs = [
+    ...utils.collectDocs(nextProps.data.docs.react),
+    ...componentsList,
+    /* eslint-disable new-cap */
+    nextProps.data.CHANGELOG(),
+    /* eslint-enable new-cap */
+  ];
 
-export default React.createClass({
+  const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
+
+  Promise.all(promises)
+    .then((list) => callback(null, {
+      ...nextProps,
+      components: list[0],
+    }));
+}
+
+export default class Home extends React.Component {
   render() {
     const customWidth = (document.documentElement.clientWidth / 3);
     const itemStyle = {
       width: `${customWidth}px`,
       height: `${customWidth}px`,
     };
-    console.log(lists)
+
+    const props = this.props;
+
+    const lists = {};
+    props.components.forEach(i => {
+      const meta = i.meta;
+      if (!lists[meta.category]) {
+        lists[meta.category] = [];
+      }
+      lists[meta.category].push(meta);
+    });
+
     return (
+      /* eslint react/jsx-boolean-value: 0 */
       <Page logo="https://zos.alipayobjects.com/rmsportal/EMcaWpnrUZqsOQt.png" title="AntD Mobile" subtitle="移动端UI组件库" isIndex={true}>
         {Object.keys(lists).map((cate, index) => {
           return (<List key={index}>
@@ -80,7 +101,7 @@ export default React.createClass({
                 let flexItems = [];
                 for (let i = 0; i < lists[cate].length; i++) {
                   const ii = lists[cate][i];
-                  const fileName = ii.fileName.split('/')[1];
+                  const fileName = ii.filename.split('/')[1];
                   const img = hashImgObj[fileName] || 'IptWdCkrtkAUfjE';
                   flexItems.push(<Item
                     logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
@@ -101,5 +122,5 @@ export default React.createClass({
         })}
       </Page>
     );
-  },
-});
+  }
+}

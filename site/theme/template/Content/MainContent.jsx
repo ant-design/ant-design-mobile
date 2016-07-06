@@ -139,29 +139,26 @@ export default class MainContent extends React.Component {
 
     return (
       <div className="main-wrapper">
-        <Row>
-          <Col lg={4} md={6} sm={24} xs={24}>
+
+        <div style={{ width: 240, float: 'left', marginRight: '-1px' }}>
             <Menu className="aside-container" mode="inline"
               defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
-              selectedKeys={[activeMenuItem]}
-            >
-              {menuItems}
+              selectedKeys={[activeMenuItem]}>
+              { menuItems }
             </Menu>
-          </Col>
-          <Col lg={20} md={18} sm={24} xs={24} className="main-container">
+          </div>
+          <div className="main-container">
             {
               props.utils.get(props, 'pageData.demo') ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
                 <Article {...props} content={localizedPageData} />
             }
-          </Col>
-        </Row>
+          </div>
 
-        <Row>
-          <Col lg={{ span: 20, offset: 4 }}
+          <Row>
+          <Col lg={{ span: 19, offset: 5 }}
             md={{ span: 18, offset: 6 }}
-            sm={24} xs={24}
-          >
+            sm={24} xs={24}>
             <section className="prev-next-nav">
               {
                 !!prev ?
