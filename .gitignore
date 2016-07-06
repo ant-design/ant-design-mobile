@@ -27,10 +27,14 @@ elasticsearch-*
 config/base.yaml
 _data
 rn-kitchen-sink/ios/build
+rn-kitchen-sink/ios/bundle
 rn-kitchen-sink/android/.gradle
 rn-kitchen-sink/android/app/build
 rn-kitchen-sink/android/build
+rn-kitchen-sink/android/app/src/main/assets
+rn-kitchen-sink/android/app/src/main/res/drawable*
 xcuserdata
 typings
 components/**/*.jsx
 components/**/*.js
+my-release-key.keystore
