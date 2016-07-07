@@ -1,0 +1,47 @@
+@import '../../style/mixins';
+@import '../../style/variables';
+@tooltipPrefixCls: am-tooltip;
+
+@import './base';
+@import './effect';
+
+// Wrapper for the tooltip content
+.@{tooltipPrefixCls}-inner {
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+  background-color: fade(@neutral-9, 90%);
+  border-radius: @radius-1;
+  padding: 2 * @grid 2.5 * @grid;
+  // box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+  font-size: @font-size-4;
+}
+
+.@{tooltipPrefixCls} {
+  & &-item {
+    font-size: @font-size-5;
+    color: @neutral-1;
+    padding: 2 * @grid 8 * @grid;
+    border-bottom: @border-thickness-1 @border-type-1 @neutral-8;
+    &:last-child {
+      border-bottom: none;
+    }
+    &:active {
+      border-radius: @radius-1;
+      background-color: @neutral-9;
+    }
+    &.@{tooltipPrefixCls}-item-disabled {
+      color: @neutral-7;
+      &.@{tooltipPrefixCls}-item:active {
+        background-color: transparent;
+      }
+    }
+    &-icon {
+      margin-right: 2 * @grid;
+      font-size: 22px;
+    }
+    &-content {
+      vertical-align: top;
+    }
+  }
+}
