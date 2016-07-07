@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
-export default class Modal extends React.Component {
+
+export default class Tag extends React.Component {
   static propTypes = {
     type: PropTypes.oneOf(['action', 'read']),
     disabled: PropTypes.bool,

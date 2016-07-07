@@ -16,6 +16,8 @@ import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { APIS, COMPONENTS } from './demoList';
 
+// import Tag from '../components/tag/demo/basic';
+
 class AntmRnApp extends React.Component {
   constructor(props) {
     super(props);
