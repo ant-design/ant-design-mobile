@@ -1,7 +1,5 @@
-import List from './components/list/';
-import Button from './components/button/';
-import Flex from './components/flex/';
-import WhiteSpace from './components/white-space/';
-import WingBlank from './components/wing-blank/';
-
-export { Button, WhiteSpace, WingBlank, Flex, List };
+export { default as List } from './components/list/';
+export { default as Button } from './components/button/';
+export { default as Flex } from './components/flex/';
+export { default as WhiteSpace } from './components/white-space/';
+export { default as WingBlank } from './components/wing-blank/';
