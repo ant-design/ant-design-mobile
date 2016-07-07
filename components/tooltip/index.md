@@ -1,33 +1,25 @@
 ---
 category: Components
 type: Components
-chinese: 浮动菜单
-english: FloatMenu
+chinese: 文字提醒
+english: Tooltip
 ---
 
+
 ### 定义／Definition
-提示层式的浮动菜单
+
+文字提示是一个简短的提示浮层来帮助用户理解界面中的元素。
 
 ### 规则 / Rule
-- 点击背景的任一位置时，可以隐藏菜单；
-- 浮动菜单可以是选择也可以是行为（筛选、跳转…）。
 
+- 点击icon后出现提示，移除消失，气泡浮层不承载复杂文本和操作。
+- 气泡浮层最多承载一行文本15个汉字，最多不超过2行。
 
 ## API
 
-### FloatMenu
-| 成员        | 说明           | 类型         | 默认值       |
-|------------|----------------|-------------|--------------|
-| visible   | 当前显隐状态    | Boolean |  false   |
-| overlay   | 弹出层内容    | React.node |  -   |
-| onVisibleChange   | 当显隐状态变化时调用    | Function |  -   |
-| onSelect   | 选中的选项    | Function |  -   |
-| placement   | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'} | String |  'bottomRight'   |
-| popupAlign   | 用于设置偏移量等、会被合并到 placement 的设置中，可选值为 [dom-align](https://github.com/yiminghe/dom-align) 的`alignConfig`配置（ points 设置用 placement 代替）   | Object |  `{ overflow: { adjustY: 0, adjustX: 0 } }`禁掉位置自动适应 |
+| 参数      | 说明                                     | 类型       | 默认值 |
+|-----------|------------------------------------------|------------|--------|
+| placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string     | bootomLeft    |
+| title     | 提示文字                                 | string/React.Element | 无     |
 
-### FloatMenu.Item
-| 成员        | 说明           | 类型         | 默认值       |
-|------------|----------------|-------------|--------------|
-| children   | 节点内容    | String/React.node |  -   |
-| disabled   | 是否禁用    | Boolean |  false   |
-| iconName   | icon名称    | String |  -   |
+更多 API 可参考：https://github.com/react-component/tooltip
