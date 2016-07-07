@@ -126,6 +126,9 @@ export default class MainContent extends React.Component {
 
   render() {
     const props = this.props;
+    // console.log('~~~~~~~~~~~')
+    // console.log(props)
+    // console.log('~~~~~~~~~~~')
     const activeMenuItem = this.getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);

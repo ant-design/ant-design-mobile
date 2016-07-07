@@ -56,7 +56,6 @@ export default class Demo extends React.Component {
       pathname
     } = props;
 
-
     const codeExpand = this.props.codeExpand;
     const codeBoxClass = classNames({
       'code-box': true,
