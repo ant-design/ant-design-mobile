@@ -26,7 +26,7 @@ export default class InputItem extends React.Component {
     error: PropTypes.bool,
     onErrorClick: PropTypes.func,
     size: PropTypes.oneOf(['large', 'small']),
-    labelNumber: PropTypes.number,
+    labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
     labelPosition: PropTypes.oneOf(['left', 'top']),
     textAlign: PropTypes.oneOf(['left', 'center']),
   };
