@@ -92,6 +92,8 @@ function createComponent(demos, path) {
         </span>
         }
       </NavBar>;
+
+      console.log(demoSort[index])
       if (demoSort && demoSort[index].preview.type.customNavBar) {
         customNavBar = demoSort[index].preview.type.customNavBar;
       }

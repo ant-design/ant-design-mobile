@@ -1,0 +1,54 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+@table-prefix-cls: am-table;
+@table-head-background-color: #f7f7f7;
+
+.@{table-prefix-cls} {
+  font-size: @font-size-4;
+  color: #666;
+  font-weight: @font-weight-1;
+
+  &-body {
+    transition: opacity 0.3s ease;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  th {
+    background-color: @table-head-background-color;
+    color: #000;
+    font-weight: bold;
+    transition: background .3s ease;
+    text-align: left;
+    line-height: @line-height-2;
+    font-size: @font-size-5;
+  }
+
+  td {
+    border-bottom: 1px solid @neutral-5;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+    word-break: break-all;
+  }
+
+  &-horizonTitle {
+    background-color: @table-head-background-color;
+    color: #000;
+    font-weight: bold;
+    transition: background .3s ease;
+    text-align: center;
+    line-height: @line-height-2;
+    font-size: @font-size-5;
+  }
+}
