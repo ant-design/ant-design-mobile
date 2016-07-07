@@ -17,11 +17,8 @@ export function collect(nextProps, callback) {
     /* eslint-enable new-cap */
   ];
 
-  console.log('*************');
   const componentName = nextProps.location.query.component;
   const demos = nextProps.utils.get(nextProps.data, ['components', componentName, 'demo']);
-
-  console.log(demos);
 
   const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
 
@@ -174,9 +171,6 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const props = this.props;
-    console.log('**************');
-    console.log(props);
     const { demos } = this.props;
     const { name, current } = this.state;
 

@@ -129,7 +129,6 @@
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
     "start": "bisheng start -c ./site/bisheng.config.js",
-    "m-start": "antd-tools run start --no-livereload",
     "site": "bisheng build -c ./site/bisheng.config.js && npm run build-rn",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",

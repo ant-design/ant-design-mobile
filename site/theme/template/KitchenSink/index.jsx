@@ -79,7 +79,7 @@ export default class Home extends React.Component {
     };
 
     const props = this.props;
-    console.log(props);
+    // console.log(props);
 
     const lists = {};
     props.components.forEach(i => {
@@ -108,7 +108,7 @@ export default class Home extends React.Component {
                     logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
                     title={ii.chinese}
                     subtitle={ii.english}
-                    onClick={() => {location.hash = fileName;}}
+                    onClick={() => {location.href = `${window.location.protocol}//${window.location.host}/mobile?component=${fileName}`;}}
                     style={itemStyle}
                     key={`flexitem-${i}`}
                   />);

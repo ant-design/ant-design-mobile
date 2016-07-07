@@ -157,8 +157,8 @@ export default class MainContent extends React.Component {
                 <Article {...props} content={localizedPageData} />
             }
           </div>
-
             <section className="prev-next-nav">
+              <div className="prev-next-nav-wrap">
               {
                 !!prev ?
                   React.cloneElement(prev.props.children, { className: 'prev-page' }) :
@@ -169,6 +169,7 @@ export default class MainContent extends React.Component {
                   React.cloneElement(next.props.children, { className: 'next-page' }) :
                   null
               }
+              </div>
             </section>
       </div>
     );
