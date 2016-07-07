@@ -28,7 +28,14 @@ export function collect(nextProps, callback) {
   const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
   if (demos) {
     promises.push(Promise.all(
-      Object.keys(demos).map((key) => demos[key]())
+      Object.keys(demos).map((key) => {
+        if (typeof demos[key] === 'function') {
+          return demos[key]();
+        /* eslint-disable no-else-return */
+        } else {
+          return demos[key].web();
+        }
+      })
     ));
   }
   Promise.all(promises)

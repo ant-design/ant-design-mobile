@@ -79,6 +79,7 @@ export default class Home extends React.Component {
     };
 
     const props = this.props;
+    console.log(props);
 
     const lists = {};
     props.components.forEach(i => {

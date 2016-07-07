@@ -99,7 +99,7 @@ export default class ComponentDoc extends React.Component {
     const { content, meta } = doc;
     // const locale = this.context.intl.locale;
 
-    console.log(props);
+    // console.log(props);
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
@@ -138,7 +138,7 @@ export default class ComponentDoc extends React.Component {
     });
 
     const path = doc.meta.filename.split('/')[1];
-    const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink.html#/${path}`;
+    const demoUrl = `${window.location.protocol}//${window.location.host}/mobile?component=${path}`;
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
@@ -146,11 +146,13 @@ export default class ComponentDoc extends React.Component {
     </div>);
 
     const { title, subtitle, chinese, english } = meta;
+
+    const iframeUrl = `${window.location.protocol}////${window.location.host}/mobile?component=${path}&index=${currentIndex}`;
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
           <section className="markdown">
-            <h1>
+            <h1 className="section-title">
               {meta.title || meta.english} {meta.subtitle || meta.chinese}
               <Popover content={ PopoverContent } placement="bottom">
                 <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
@@ -195,7 +197,7 @@ export default class ComponentDoc extends React.Component {
                     <div className="demo-preview-scroller">
                       <section className="code-box code-box-preview">
                         <section className="code-box-demo code-box-demo-preview">
-                          <iframe id="demoFrame" name="demoFrame" style={{ width: '320px', height: '548px' }} src="http://127.0.0.1:8000/kitchen-sink" />
+                          <iframe id="demoFrame" name="demoFrame" style={{ width: '320px', height: '548px' }} src={iframeUrl} />
                         </section>
                       </section>
                     </div>
