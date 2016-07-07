@@ -9,7 +9,7 @@ export default class Link extends React.Component {
 
   render() {
     return (
-      <div id="list">
+      <div id="list-wrapper">
         <ScrollLink className="list-point" location="banner" />
         <ScrollLink className="list-point" location="page1" />
         <ScrollLink className="list-point" location="page2" />

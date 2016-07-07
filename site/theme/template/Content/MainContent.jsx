@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Row, Col, Menu } from 'antd';
+import { Menu } from 'antd';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
@@ -74,7 +74,7 @@ export default class MainContent extends React.Component {
           (b.title || b.english).charCodeAt(0);
         }).map(this.generateMenuItem.bind(this, false));
         return (
-          <Menu.ItemGroup title={type} key={index}>
+          <Menu.ItemGroup key={index} className="sub-menu-item">
             {groupItems}
           </Menu.ItemGroup>
         );
@@ -158,10 +158,6 @@ export default class MainContent extends React.Component {
             }
           </div>
 
-          <Row>
-          <Col lg={{ span: 19, offset: 5 }}
-            md={{ span: 18, offset: 6 }}
-            sm={24} xs={24}>
             <section className="prev-next-nav">
               {
                 !!prev ?
@@ -174,8 +170,6 @@ export default class MainContent extends React.Component {
                   null
               }
             </section>
-          </Col>
-        </Row>
       </div>
     );
   }

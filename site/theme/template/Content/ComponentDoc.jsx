@@ -5,21 +5,21 @@ import classNames from 'classnames';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import { Button, Icon, Popover } from 'antd';
-
+import scrollIntoView from 'dom-scroll-into-view';
 import QRCode from 'qrcode.react';
 
-// function getOffsetTop(dom) {
-//   let top = 0;
-//   top += dom.offsetTop;
+function getOffsetTop(dom) {
+  let top = 0;
+  top += dom.offsetTop;
 
-//   while (dom.parentElement) {
-//     if (getComputedStyle(dom.parentElement).position === 'relative') {
-//       top += dom.parentElement.offsetTop;
-//     }
-//     dom = dom.parentElement;
-//   }
-//   return top;
-// }
+  while (dom.parentElement) {
+    if (getComputedStyle(dom.parentElement).position === 'relative') {
+      top += dom.parentElement.offsetTop;
+    }
+    dom = dom.parentElement;
+  }
+  return top;
+}
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
@@ -52,9 +52,30 @@ export default class ComponentDoc extends React.Component {
       item.index = index;
     });
 
-    let linkIndex = linkTo ? demoSort.filter((item) => (item.id === linkTo))[0].index : 0;
+    let linkIndex = linkTo ? demoSort.filter((item) => (item.meta.id === linkTo))[0].index : 0;
 
     return linkIndex;
+  }
+
+  linkToAnchor(props) {
+    this.setState({
+      toggle: false,
+    });
+    const linkTo = props.location.query.linkTo;
+    if (linkTo !== undefined) {
+      const target = document.getElementById(linkTo);
+      const demoTitle = document.getElementById('demoTitle');
+      const _offSetTop = target.offsetTop - demoTitle.offsetTop;
+      if (target !== null) {
+        scrollIntoView(
+          target,
+          document,
+          { offsetTop: _offSetTop, alignWithTop: true, onlyScrollIfNeeded: false }
+        );
+      }
+    } else {
+      scrollIntoView(document.body, document, { alignWithTop: true });
+    }
   }
 
   togglePreview = (e) => {
@@ -87,10 +108,32 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
-  handleExpandToggle = () => {
-    this.setState({
-      expandAll: !this.state.expandAll,
-    });
+
+  onScrollEvent() {
+    const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    const asideDemo = document.getElementById('aside-demo');
+
+    const demoDom = document.getElementById('demo-code');
+    if (!demoDom) return;
+    const demoTop = getOffsetTop(demoDom);
+
+    const apiDom = document.getElementById('api');
+    if (!apiDom) return;
+    const apiTop = getOffsetTop(apiDom);
+
+    if (scrollTop + 568 >= apiTop || scrollTop - 40 < demoTop) {
+      if (asideDemo.className.indexOf('fixed') >= 0) {
+        asideDemo.className = asideDemo.className.replace(/fixed/ig, '');
+      }
+    } else if (asideDemo.className.indexOf('fixed') < 0) {
+      asideDemo.className += ' fixed';
+    }
+  }
+
+  componentDidMount() {
+    this.linkToAnchor(this.props);
+    window.addEventListener('scroll', this.onScrollEvent);
+    // this.componentDidUpdate();
   }
 
   render() {
@@ -114,8 +157,8 @@ export default class ComponentDoc extends React.Component {
     demos.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         linkButtons.push(
-          <Link className={ demoData.id === linkTo ? 'link-current' : ''}
-            to={ `${location.pathname}?linkTo=${demoData.id}` } key={ index }>
+          <Link className={ demoData.meta.id === linkTo ? 'link-current' : ''}
+            to={ `${location.pathname}?linkTo=${demoData.meta.id}` } key={ index }>
             <Button>{ demoData.meta.title }</Button>
           </Link>
         );
@@ -210,6 +253,7 @@ export default class ComponentDoc extends React.Component {
           {
             props.utils.toReactComponent(
               ['section', {
+                id: 'api',
                 className: 'markdown api-container',
               }].concat(getChildren(doc.api || ['placeholder']))
             )
