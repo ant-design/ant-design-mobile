@@ -17,8 +17,6 @@ english: Card
 
 ## API
 
-## API
-
 ### Card
 
 | 成员        | 说明           | 类型               | 默认值       |

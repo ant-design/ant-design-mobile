@@ -5,7 +5,11 @@ import Body from './CardBody';
 import Footer from './CardFooter';
 import splitObject from '../_util/splitObject';
 
-class Card extends React.Component {
+interface CardProps {
+  prefixCls?:string;
+}
+
+class Card extends React.Component <CardProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
   };

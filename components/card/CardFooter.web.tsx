@@ -2,7 +2,13 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
-export default class CardFooter extends React.Component {
+interface CardFooterProps {
+  prefixCls?:string;
+  content?:any;
+  extra?:any;
+}
+
+export default class CardFooter extends React.Component <CardFooterProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     content: PropTypes.node,

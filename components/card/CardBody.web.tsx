@@ -2,7 +2,11 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
-export default class CardBody extends React.Component {
+interface CardBodyProps {
+  prefixCls?:string;
+}
+
+export default class CardBody extends React.Component<CardBodyProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
   };

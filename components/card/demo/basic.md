@@ -12,9 +12,9 @@ ReactDOM.render(
     <Card>
       <Card.Header
         title="这是 title"
-        thumb="http://gravatar.com/avatar/e9c13fb979736b16033acbce4c710ca1.png?size=32" extra={
-        <span>this is extra</span>
-      } />
+        thumb="http://gravatar.com/avatar/e9c13fb979736b16033acbce4c710ca1.png?size=32"
+        extra={<span>this is extra</span>}
+      />
       <Card.Body>
         <div style={{ marginLeft: 16 }}>这是卡片内容</div>
       </Card.Body>

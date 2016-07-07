@@ -5,7 +5,12 @@ import CardStyle from './style/index';
 
 const Footer = CardStyle.Footer;
 
-export default class CardFooter extends React.Component {
+interface CardFooterProps {
+  content?:any;
+  extra?:any;
+}
+
+export default class CardFooter extends React.Component<CardFooterProps, any> {
   static propTypes = {
     content: PropTypes.node,
     extra: PropTypes.node,

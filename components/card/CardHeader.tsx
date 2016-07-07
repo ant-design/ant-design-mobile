@@ -5,7 +5,14 @@ import CardStyle from './style/index';
 
 const Header = CardStyle.Header;
 
-export default class CardHeader extends React.Component {
+interface CardHeaderProps {
+  title?:any;
+  thumb?:string;
+  extra?:any;
+  thumbStyle?:Object;
+}
+
+export default class CardHeader extends React.Component <CardHeaderProps, any> {
   static propTypes = {
     title: PropTypes.node,
     thumb: PropTypes.string,

@@ -2,11 +2,19 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
-export default class CardHeader extends React.Component {
+interface CardHeaderProps {
+  prefixCls?:string;
+  title?:any;
+  thumb?:string;
+  extra?:any;
+  thumbStyle?:Object;
+}
+
+export default class CardHeader extends React.Component <CardHeaderProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     title: PropTypes.node,
-    thumb: PropTypes.node,
+    thumb: PropTypes.string,
     thumbStyle: PropTypes.object,
     extra: PropTypes.node,
   };
