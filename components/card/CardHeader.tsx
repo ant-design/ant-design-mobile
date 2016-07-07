@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { PropTypes } from 'react';
+import * as React from 'react';
+import { View, Text, Image } from 'react-native';
 import splitObject from '../_util/splitObject';
 import CardStyle from './style/index';
 
@@ -9,7 +10,7 @@ interface CardHeaderProps {
   title?:any;
   thumb?:string;
   extra?:any;
-  thumbStyle?:Object;
+  thumbStyle?:{};
 }
 
 export default class CardHeader extends React.Component <CardHeaderProps, any> {
