@@ -10,6 +10,12 @@ module.exports = {
       module: require('../components/button/demo/basic'), // 必须
     },
     {
+      title: 'Card', // 必须
+      description: 'Card Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/lOXYjfSRPpkwudh.png',
+      module: require('../components/card/demo/basic'), // 必须
+    },
+    {
       title: 'Flex', // 必须
       description: 'Flex Example',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
