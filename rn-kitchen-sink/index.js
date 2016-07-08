@@ -16,8 +16,6 @@ import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { APIS, COMPONENTS } from './demoList';
 
-// import Tag from '../components/tag/demo/basic';
-
 class AntmRnApp extends React.Component {
   constructor(props) {
     super(props);
@@ -50,7 +48,7 @@ class AntmRnApp extends React.Component {
     });
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
         <Router>
           <Scene key="root" navigationBarStyle={{backgroundColor: '#2e2e2e'}} titleStyle={{color: 'white'}}>

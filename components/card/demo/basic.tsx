@@ -5,7 +5,7 @@ import Card from '../index';
 export default class BasicCardExample extends React.Component {
   render() {
     return (
-      <View style={{ padding: 10}}>
+      <View style={{ padding: 10 }}>
         <Card>
           <Card.Header
             title="这是 title"
