@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Swipeout from 'react-swipeout';
+import Swipeout from 'rc-swipeout';
 import Hammer from 'react-hammerjs';
 import Modal from '../modal';
 class ListAction extends React.Component {
@@ -13,7 +13,7 @@ class ListAction extends React.Component {
     onOpen: PropTypes.func,
     onClose: PropTypes.func,
     children: PropTypes.any,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-listaction',
@@ -24,7 +24,7 @@ class ListAction extends React.Component {
     right: [],
     onOpen() {},
     onClose() {},
-  }
+  };
 
   constructor(props) {
     super(props);

@@ -26,7 +26,7 @@ export default class InputItem extends React.Component {
     error: PropTypes.bool,
     onErrorClick: PropTypes.func,
     size: PropTypes.oneOf(['large', 'small']),
-    labelNumber: PropTypes.number,
+    labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
     labelPosition: PropTypes.oneOf(['left', 'top']),
     textAlign: PropTypes.oneOf(['left', 'center']),
   };
@@ -68,21 +68,20 @@ export default class InputItem extends React.Component {
 
 
     switch (format) {
-      case 'text': {
+      case 'text':
         if (maxLength > 0) {
           value = value.substring(0, maxLength);
         }
         break;
-      }
-      case 'bankCard': {
+      case 'bankCard':
+
         value = value.replace(/\D/g, '');
         if (maxLength > 0) {
           value = value.substring(0, maxLength);
         }
         value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
-      }
-      case 'phone': {
+      case 'phone':
         value = value.replace(/\D/g, '');
         if (maxLength > 0) {
           value = value.substring(0, 11);
@@ -94,17 +93,13 @@ export default class InputItem extends React.Component {
           value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(7)}`;
         }
         break;
-      }
-      case 'number': {
+      case 'number':
         value = value.replace(/\D/g, '');
         break;
-      }
-      case 'password': {
+      case 'password':
         break;
-      }
-      default: {
+      default:
         break;
-      }
     }
     onChange(value);
   };

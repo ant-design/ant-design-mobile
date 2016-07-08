@@ -25,9 +25,9 @@ function getDefaultProps() {
 export default class Picker extends React.Component {
   static propTypes = {
     format: PropTypes.func,
-  }
+  };
 
-  static defaultProps = getDefaultProps()
+  static defaultProps = getDefaultProps();
 
   getSel = () => {
     const value = this.props.value || [];

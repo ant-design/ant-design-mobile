@@ -1,9 +1,12 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
-interface CardBodyProps {
+export interface CardBodyProps {
   prefixCls?:string;
+  children?:any;
+  style?:{};
 }
 
 export default class CardBody extends React.Component<CardBodyProps, any> {

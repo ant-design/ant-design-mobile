@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Checkbox from './Checkbox';
-import List from '../list';
+import Checkbox from './Checkbox.web';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class CheckboxItem extends React.Component {
+export default class AgreeItem extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
@@ -17,7 +16,6 @@ export default class CheckboxItem extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-checkbox',
-    listPrefixCls: 'am-list',
     name: '',
     checked: false,
     disabled: false,
@@ -25,27 +23,25 @@ export default class CheckboxItem extends React.Component {
   };
 
   render() {
-    let[{ prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive }, restProps] = splitObject(this.props,
-      ['prefixCls','listPrefixCls','style','name','checked','disabled','children','className','onChange','needActive']);
+    let[{ prefixCls, style, name, checked, disabled, children, onChange, className }, restProps] = splitObject(this.props,
+      ['prefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'onChange', 'className']);
     const wrapCls = classNames({
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-disabled`]: disabled === true,
+      [`${prefixCls}-agree`]: true,
       [className]: className
     });
 
-    return (<List.Item
-      prefixCls={listPrefixCls}
-      needActive={disabled ? false : needActive}
-      style={style}
-      className={wrapCls}
+    return (<div
       {...restProps}
-      thumb={<Checkbox
+      className={wrapCls}
+      style={style}>
+      {<Checkbox
         prefixCls={prefixCls}
         checked={checked}
         name={name}
         onChange={onChange}
         disabled={disabled}
       />}
-    >{children}</List.Item>);
+      <label className={`${prefixCls}-agree-label`} htmlFor={name}>{children}</label>
+    </div>);
   }
 }

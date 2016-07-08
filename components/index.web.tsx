@@ -1,2 +1,1 @@
-import Button from './button/index.web';
-export { Button };
+export { default as Button } from './button/index.web';

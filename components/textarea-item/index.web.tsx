@@ -22,6 +22,7 @@ export default class TextareaItem extends React.Component {
     onErrorClick: PropTypes.func,
     autoHeight: PropTypes.bool,
     editable: PropTypes.bool,
+    labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
   };
 
   static defaultProps = {
@@ -42,6 +43,7 @@ export default class TextareaItem extends React.Component {
     onFocus: noop,
     onErrorClick: noop,
     error: false,
+    labelNumber: 4
   };
 
   constructor(props) {
@@ -102,7 +104,7 @@ export default class TextareaItem extends React.Component {
   };
 
   render() {
-    let { prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count, editable, error, className } = this.props;
+    let { prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count, editable, error, className, labelNumber } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
@@ -112,9 +114,19 @@ export default class TextareaItem extends React.Component {
       [className]: className
     });
 
+    const labelCls = classNames({
+      [`${prefixCls}-label`]: true,
+      [`${prefixCls}-label-2`]: labelNumber === 2,
+      [`${prefixCls}-label-3`]: labelNumber === 3,
+      [`${prefixCls}-label-4`]: labelNumber === 4,
+      [`${prefixCls}-label-5`]: labelNumber === 5,
+      [`${prefixCls}-label-6`]: labelNumber === 6,
+      [`${prefixCls}-label-7`]: labelNumber === 7,
+    });
+
     return (
       <div className={wrapCls} style={style} onClick={this._handleClick}>
-        {title ? (<div className={`${prefixCls}-label`}>{title}</div>) : null}
+        {title ? (<div className={labelCls}>{title}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <textarea
             ref="textarea"

@@ -36,5 +36,6 @@ english: InputItem
 | error       | 报错样式        | bool | |  false  |
 | onErrorClick       | 点击报错icon触发的回调,        | Function | |  无  |
 | size(本期不实现)       | 尺寸        | string | `large`,`small` |  `large`  |
+| labelNumber        | 标签字数（一个表单页面中,通常有多个InputItem,需要统一标签字数以便统一宽度,保持页面整洁、美观）        | number | `2`, `3`, `4`, `5`, `6`, `7`|  `4`  |
 | labelPosition(本期不实现)        | 标题方向        | string | `left`,`top` |  `left`  |
 | textAlign(本期不实现)        | 文本对齐        | string | `left`,`center` |  `left`  |

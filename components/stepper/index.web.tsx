@@ -9,7 +9,7 @@ export default class Stepper extends React.Component {
     readOnly: true,
     showNumber: false,
     size: 'small',
-  }
+  };
 
   componentDidMount() {
     this.refs.inputNumber.refs.input.setAttribute('disabled', true);

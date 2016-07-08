@@ -19,10 +19,14 @@ function onScrollEvent(e) {
 
 export default function Page1() {
   return (
-    <ScrollOverPack id="page1" scrollName="page1" className="content-wrapper page" playScale={1} replay scrollEvent={onScrollEvent}>
-      <QueueAnim className="text-wrapper left-text" delay={300} key="text" duration={550} type="bottom"
-        leaveReverse
-        hideProps={{ child: null }}>
+    <ScrollOverPack id="page1" scrollName="page1"
+      className="content-wrapper page" playScale={1} replay
+      scrollEvent={onScrollEvent}
+      hideProps={{ image: { reverse: true } }}
+    >
+      <QueueAnim className="text-wrapper left-text" delay={300}
+        key="text" duration={550} type="bottom" leaveReverse
+      >
         <h2 key="h2">海量的通用样式</h2>
         <p key="p" style={{ maxWidth: 260 }}>抽象通用的基础样式，为组件提供强有力的支持</p>
         <div key="button">
@@ -34,8 +38,10 @@ export default function Page1() {
           </Link>
         </div>
       </QueueAnim>
-      <TweenOne key="image" className="image1 image-wrapper" animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
-        style={{ transform: 'translateX(100px)', opacity: 0 }} hideProps={{ reverse: true }} />
+      <TweenOne key="image" className="image1 image-wrapper"
+        animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
+        style={{ transform: 'translateX(100px)', opacity: 0 }}
+      />
     </ScrollOverPack>
   );
 }

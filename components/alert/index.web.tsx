@@ -1,3 +1,4 @@
+/* tslint:disable:no-switch-case-fall-through */
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
@@ -15,14 +16,14 @@ export default class Alert extends React.Component {
     message: PropTypes.string,
     description: PropTypes.string,
     brief: PropTypes.string,
-    result: PropTypes.bool
-  }
+    result: PropTypes.bool,
+  };
 
   static defaultProps = {
     prefixCls: 'am-alert',
     type: 'info',
     result: false,
-  }
+  };
 
   render() {
     let { description, type, prefixCls, message, brief, result } = this.props;

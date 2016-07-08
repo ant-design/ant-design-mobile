@@ -7,11 +7,11 @@ export default class Drawer extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     enableDragHandle: PropTypes.bool,
-  }
+  };
   static defaultProps = {
     prefixCls: 'am-drawer',
     enableDragHandle: false,
-  }
+  };
 
   render() {
     let[{ prefixCls, children }, restProps] = splitObject(this.props,

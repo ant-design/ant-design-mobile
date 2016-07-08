@@ -48,7 +48,7 @@ class AntmRnApp extends React.Component {
     });
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
         <Router>
           <Scene key="root" navigationBarStyle={{backgroundColor: '#2e2e2e'}} titleStyle={{color: 'white'}}>

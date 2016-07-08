@@ -28,6 +28,12 @@ module.exports = {
       module: require('../components/list/demo/basic'), // 必须
     },
     {
+      title: 'Tag', // 必须
+      description: 'Tag Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/AkXOzPmaytaVYLD.png',
+      module: require('../components/tag/demo/basic'), // 必须
+    },
+    {
       title: 'WingBlank', // 必须
       description: 'WingBlank Example',
       icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',

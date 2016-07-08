@@ -1,8 +1,9 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
-interface CardFooterProps {
+export interface CardFooterProps {
   prefixCls?:string;
   content?:any;
   extra?:any;

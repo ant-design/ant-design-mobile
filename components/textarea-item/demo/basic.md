@@ -32,28 +32,6 @@ let TextareaItemExample = React.createClass({
               onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
             <TextareaItem
-              {...getFieldProps('note1', {
-                initialValue: '',
-                valuePropName: 'value'
-              })}
-              title="带标题"
-              name="yyy"
-              placeholder="title"
-              clear={false}
-              onBlur={() => {console.log('onBlur');}}
-              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
-            />
-            <TextareaItem
-              {...getFieldProps('note2', {
-                initialValue: '',
-                valuePropName: 'value'
-              })}
-              title="高度自适应"
-              autoHeight
-              clear
-              placeholder="autoHeight"
-            />
-            <TextareaItem
               {...getFieldProps('note3', {
                 initialValue: '',
                 valuePropName: 'value'
@@ -66,11 +44,36 @@ let TextareaItemExample = React.createClass({
               onFocus={(e) => {console.log('onFocus'); console.log(e);}}
             />
             <TextareaItem
+              {...getFieldProps('note1', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              title="带标题"
+              labelNumber={4}
+              name="yyy"
+              placeholder="title"
+              clear={false}
+              onBlur={() => {console.log('onBlur');}}
+              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
+            />
+            <TextareaItem
+              {...getFieldProps('note2', {
+                initialValue: '',
+                valuePropName: 'value'
+              })}
+              title="自适应"
+              labelNumber={4}
+              autoHeight
+              clear
+              placeholder="高度自适应"
+            />
+            <TextareaItem
               {...getFieldProps('note4', {
                 initialValue: '',
                 valuePropName: 'value'
               })}
               title="最大长度"
+              labelNumber={4}
               count={30}
               clear
               error
@@ -82,6 +85,7 @@ let TextareaItemExample = React.createClass({
                 valuePropName: 'value'
               })}
               title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="28" height="28" />}
+              labelNumber={4}
               clear
               placeholder="title类型可以是node"
             />
@@ -91,6 +95,7 @@ let TextareaItemExample = React.createClass({
                 valuePropName: 'value'
               })}
               title="不可编辑"
+              labelNumber={4}
               placeholder="editable"
               editable={false}
             />
@@ -100,6 +105,7 @@ let TextareaItemExample = React.createClass({
                 valuePropName: 'value'
               })}
               title="备注说明"
+              labelNumber={4}
               name="yyy"
               rows={5}
               placeholder="计数功能"
@@ -114,6 +120,7 @@ let TextareaItemExample = React.createClass({
                 valuePropName: 'value'
               })}
               title="备注说明"
+              labelNumber={4}
               name="yyy"
               rows={5}
               placeholder="计数功能"
