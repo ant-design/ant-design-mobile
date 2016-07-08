@@ -1,13 +1,12 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
-import classNames from 'classnames';
-import Icon from '../icon';
 import splitObject from '../_util/splitObject';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import TagStyle from './style/index';
 import TagProps from './TagPropsType';
 
-export default class Tag extends React.Component<TagProps, any> {
+export default class Modal extends React.Component<TagProps, any> {
   static propTypes = {
-    prefixCls: PropTypes.string,
     type: PropTypes.oneOf(['action', 'read']),
     disabled: PropTypes.bool,
     size: PropTypes.oneOf(['large', 'small']),
@@ -19,7 +18,6 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   static defaultProps = {
-    prefixCls: 'am-tag',
     type: 'read',
     disabled: false,
     size: 'large',
@@ -65,32 +63,39 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   render() {
-    let [{children, className, prefixCls, type, size, disabled, closable}, restProps] = splitObject(this.props,
-      ['children', 'className','prefixCls', 'type','size', 'disabled','closable']);
+    let [{children, className, prefixCls, type, size, disabled, closable, style}, restProps] = splitObject(this.props,
+      ['children', 'className','prefixCls', 'type','size', 'disabled','closable', 'style']);
     const selected = this.state.selected;
 
-    const wrapCls = classNames({
-      [className]: !!className,
-      [prefixCls]: true,
-      [`${prefixCls}-normal`]: !selected,
-      [`${prefixCls}-active`]: (selected || closable) && !disabled && type !== 'read',
-      [`${prefixCls}-read`]: type === 'read',
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-size-small`]: size === 'small',
-      [`${prefixCls}-size-large`]: size === 'large',
-    });
+    const styles = [TagStyle[size]];
+    if (!selected) {
+      styles.push(TagStyle.normal);
+    }
+    if ((selected || closable) && !disabled && type !== 'read') {
+      styles.push(TagStyle.active);
+    }
+    if (type === 'read') {
+      styles.push(TagStyle.read);
+    }
+    if (disabled) {
+      styles.push(TagStyle.disabled);
+    }
 
-    const close = closable && !disabled && type !== 'read' && size === 'large' ? (
-      <div className={`${prefixCls}-close`}>
-        <Icon type="cross" />
-      </div>
+    const closeDom = closable && !disabled && type !== 'read' && size === 'large' ? (
+      <View style={TagStyle.closeWrap}>
+        <Text style={TagStyle.close}>×</Text>
+      </View>
     ) : null;
 
     return this.state.closed ? null : (
-      <div className={wrapCls} {...restProps} onClick={this.onClick}>
-        <div className={`${prefixCls}-text`}>{children}</div>
-        {close}
-      </div>
+      <View style={[ TagStyle.tag, style ]} {...restProps}>
+        <TouchableWithoutFeedback onPress={this.onClick}>
+          <View style={TagStyle.wrap}>
+            <Text style={[styles]}>{children} </Text>
+            {closeDom}
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
     );
   }
 }
