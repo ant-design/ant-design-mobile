@@ -7,6 +7,7 @@ export interface TooltipProps {
   prefixCls?:string;
   placement?:string;
   title?:any;
+  onVisibleChange: (visible: boolean) => void;
 }
 
 export default class Tooltip extends React.Component<TooltipProps, any> {
@@ -14,6 +15,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     prefixCls: PropTypes.string,
     placement: PropTypes.string,
     title: PropTypes.node,
+    onVisibleChange: PropTypes.func,
   }
 
   static defaultProps = {
