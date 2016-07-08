@@ -32,7 +32,7 @@ export default class Tabs extends React.Component {
       this.props, ['className', 'prefixCls', 'type', 'children', 'onChange', 'onTabClick', 'tabPosition', 'animation', 'mode'
     ]);
 
-    let className = classNames({
+    let cls = classNames({
       [className]: !!className,
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-${mode}`]: type === 'tabbar',
@@ -43,7 +43,7 @@ export default class Tabs extends React.Component {
 
     return (
       <RcTabs {...restProps}
-        className={className}
+        className={cls}
         onChange={onChange}
         tabPosition={tabPosition}
         animation = {animation}

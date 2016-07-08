@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Swipeout from 'react-swipeout';
+import Swipeout from 'rc-swipeout';
 import Hammer from 'react-hammerjs';
 import Modal from '../modal';
 class ListAction extends React.Component {
