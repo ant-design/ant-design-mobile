@@ -22,7 +22,7 @@ export default class Flex extends React.Component {
 
   render() {
     let[{ style, direction, wrap, justify, align }, restProps] = splitObject(this.props,
-      ['style','direction','wrap','justify','align']);
+      ['style', 'direction', 'wrap', 'justify', 'align']);
     let transferConst = [justify, align];
     transferConst = transferConst.map((el) => {
       let tempTxt = el;

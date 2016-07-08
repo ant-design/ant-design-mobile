@@ -6,15 +6,15 @@ import splitObject from '../_util/splitObject';
 export default class IndexedList extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-indexed-list',
-  }
+  };
 
   render() {
     let [{renderHeader, renderFooter, renderSectionHeader, renderRow}, restProps] = splitObject(this.props,
-    ['renderHeader', 'renderFooter', 'renderSectionHeader','renderRow']);
+    ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderRow']);
     const extraProps = {};
     if (renderHeader) {
       extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;

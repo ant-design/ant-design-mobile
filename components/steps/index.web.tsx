@@ -10,7 +10,7 @@ export default class Steps extends React.Component {
     maxDescriptionWidth: 100,
     labelPlacement: 'vertical',
     current: 0,
-  }
+  };
 
   render() {
     let maxDescriptionWidth = this.props.maxDescriptionWidth;

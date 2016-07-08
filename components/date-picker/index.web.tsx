@@ -48,9 +48,9 @@ export default class DatePicker extends React.Component {
     maxDate: PropTypes.string,
     onChange: PropTypes.func,
     format: PropTypes.func,
-  }
+  };
 
-  static defaultProps = getDefaultProps()
+  static defaultProps = getDefaultProps();
 
   constructor(props) {
     super(props);

@@ -1,3 +1,4 @@
+/* tslint:disable:no-switch-case-fall-through */
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
@@ -7,13 +8,13 @@ export default class TopNotice extends React.Component {
     mode: PropTypes.string,
     onClick: PropTypes.func,
     type: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-top-notice',
     mode: '',
     onClick() {},
-  }
+  };
 
   constructor(props) {
     super(props);

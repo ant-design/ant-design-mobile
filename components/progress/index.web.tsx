@@ -5,13 +5,13 @@ export default class Progress extends React.Component {
   static propTypes = {
     position: PropTypes.oneOf(['fixed', 'normal']),
     percent: PropTypes.number,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-progress',
     percent: 0,
     position: 'fixed',
-  }
+  };
 
   constructor(props) {
     super(props);

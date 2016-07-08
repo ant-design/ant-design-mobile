@@ -23,7 +23,7 @@ export default class Checkbox extends React.Component {
 
   render() {
     let[{ prefixCls, style, name, checked, disabled, className, onChange }, restProps] = splitObject(this.props,
-      ['prefixCls','style','name','checked','disabled','className','onChange']);
+      ['prefixCls', 'style', 'name', 'checked', 'disabled', 'className', 'onChange']);
 
     return (<RcCheckbox
       {...restProps}

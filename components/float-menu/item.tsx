@@ -8,18 +8,18 @@ export default class Item extends React.Component {
     prefixCls: PropTypes.string,
     iconName: PropTypes.string,
     disabled: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-floatmenu',
     disabled: false,
-  }
+  };
 
   static FloatMenuItem = true;
 
   render() {
     let[{ children, className, prefixCls, iconName, disabled }, restProps] = splitObject(this.props,
-      ['children','className','prefixCls','iconName','disabled']);
+      ['children', 'className', 'prefixCls', 'iconName', 'disabled']);
 
     const cls = {
       [className]: className,

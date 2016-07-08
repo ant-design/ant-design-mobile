@@ -7,7 +7,7 @@ export default class TimelineItem extends React.Component {
     color: 'blue',
     last: false,
     pending: false,
-  }
+  };
 
   render() {
     let [{prefixCls, color, last, children, pending, className}, restProps] = splitObject(this.props,

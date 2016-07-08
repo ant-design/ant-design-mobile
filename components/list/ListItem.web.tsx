@@ -54,7 +54,7 @@ export default class ListItem extends React.Component {
 
   render() {
     let [{prefixCls, thumb, arrow, error, children, extra, className, align, needActive}, restProps] = splitObject(this.props,
-      ['prefixCls', 'thumb', 'arrow','error', 'children', 'extra','className', 'align', 'needActive']);
+      ['prefixCls', 'thumb', 'arrow', 'error', 'children', 'extra', 'className', 'align', 'needActive']);
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;

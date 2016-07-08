@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import RcTabs from 'rc-tabs';
+import splitObject from '../_util/splitObject';
 
 export default class Tabs extends React.Component {
   static TabPane = RcTabs.TabPane;
@@ -13,7 +14,7 @@ export default class Tabs extends React.Component {
     onTabClick: PropTypes.func,
     animation: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
     mode: PropTypes.oneOf(['dark', 'light']),
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-tab',
@@ -22,12 +23,17 @@ export default class Tabs extends React.Component {
     mode: 'light',
     onChange() {},
     onTabClick() {},
-  }
+  };
 
   render() {
-    let { prefixCls, type, children, onChange, onTabClick, tabPosition, animation, mode } = this.props;
+    let [{
+      className, prefixCls, type, children, onChange, onTabClick, tabPosition, animation, mode
+    }, restProps] = splitObject(
+      this.props, ['className', 'prefixCls', 'type', 'children', 'onChange', 'onTabClick', 'tabPosition', 'animation', 'mode'
+    ]);
+
     let className = classNames({
-      [this.props.className]: !!this.props.className,
+      [className]: !!className,
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-${mode}`]: type === 'tabbar',
     });
@@ -36,7 +42,7 @@ export default class Tabs extends React.Component {
     animation = (type === 'tabbar' || !animation) ? '' : animation;
 
     return (
-      <RcTabs {...this.props}
+      <RcTabs {...restProps}
         className={className}
         onChange={onChange}
         tabPosition={tabPosition}

@@ -15,7 +15,7 @@ export default class Modal extends React.Component<TagProps, any> {
     onClose: PropTypes.func,
     afterClose: PropTypes.func,
     selected: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     type: 'read',
@@ -26,7 +26,7 @@ export default class Modal extends React.Component<TagProps, any> {
     onChange() {},
     onClose() {},
     afterClose() {},
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -39,7 +39,9 @@ export default class Modal extends React.Component<TagProps, any> {
 
   onClick = () => {
     const props = this.props;
-    if (props.type === 'read' || props.disabled) return;
+    if (props.type === 'read' || props.disabled) {
+      return;
+    }
     if (props.closable) {
       this.onClose();
     } else {
@@ -63,8 +65,10 @@ export default class Modal extends React.Component<TagProps, any> {
   }
 
   render() {
-    let [{children, className, prefixCls, type, size, disabled, closable, style}, restProps] = splitObject(this.props,
-      ['children', 'className','prefixCls', 'type','size', 'disabled','closable', 'style']);
+    let [{children, className, prefixCls, type, size, disabled, closable, style}, restProps] = splitObject(
+      this.props,
+      ['children', 'className', 'prefixCls', 'type', 'size', 'disabled', 'closable', 'style']
+    );
     const selected = this.state.selected;
 
     const styles = [TagStyle[size]];
