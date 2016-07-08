@@ -68,22 +68,20 @@ export default class InputItem extends React.Component {
 
 
     switch (format) {
-      case 'text': {
+      case 'text':
         if (maxLength > 0) {
           value = value.substring(0, maxLength);
         }
-      }
         break;
-      case 'bankCard': {
+      case 'bankCard':
+
         value = value.replace(/\D/g, '');
         if (maxLength > 0) {
           value = value.substring(0, maxLength);
         }
         value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
-
-      }
         break;
-      case 'phone': {
+      case 'phone':
         value = value.replace(/\D/g, '');
         if (maxLength > 0) {
           value = value.substring(0, 11);
@@ -94,11 +92,9 @@ export default class InputItem extends React.Component {
         } else if (valueLen >= 8) {
           value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(7)}`;
         }
-      }
         break;
-      case 'number': {
+      case 'number':
         value = value.replace(/\D/g, '');
-      }
         break;
       case 'password':
         break;

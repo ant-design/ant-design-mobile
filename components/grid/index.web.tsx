@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import Flex from '../flex';
 import Carousel from '../carousel';
-import splitObject from '../_util/splitObject';
 function noop() {}
 
 export default class Grid extends React.Component {
@@ -57,8 +56,7 @@ export default class Grid extends React.Component {
   };
 
   render() {
-    let[{ className, data, prefixCls, hasLine, isCarousel }, restProps] = splitObject(this.props,
-      ['className', 'data', 'prefixCls', 'hasLine', 'isCarousel']);
+    let { className, data, prefixCls, hasLine, isCarousel, needActive } = this.props;
 
     const wrapCls = classNames({
       [prefixCls]: true,
@@ -134,12 +132,10 @@ export default class Grid extends React.Component {
 
     return (
       <div
-        {...restProps}
         className={wrapCls}
       >{isCarousel === true ? <Carousel mode="banner" infinite={false}>
-        {carouselContent}
-      </Carousel> : gridContent}
-
+          {carouselContent}
+        </Carousel> : gridContent}
       </div>
     );
   }
