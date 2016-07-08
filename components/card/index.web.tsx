@@ -1,11 +1,12 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Header from './CardHeader';
 import Body from './CardBody';
 import Footer from './CardFooter';
 import splitObject from '../_util/splitObject';
 
-interface CardProps {
+export interface CardProps {
   prefixCls?:string;
 }
 
