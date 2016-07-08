@@ -6,10 +6,10 @@ import splitObject from '../_util/splitObject';
 export default class ListView extends React.Component {
   static propTypes = {
     dataSource: React.PropTypes.object,
-  }
+  };
   render() {
     let [{renderHeader, renderFooter, renderSectionHeader, renderRow}, restProps] = splitObject(this.props,
-      ['renderHeader', 'renderFooter', 'renderSectionHeader','renderRow']);
+      ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderRow']);
     const extraProps = {};
     if (renderHeader) {
       extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;

@@ -58,7 +58,7 @@ export default class Grid extends React.Component {
 
   render() {
     let[{ className, data, prefixCls, hasLine, isCarousel }, restProps] = splitObject(this.props,
-      ['className','data','prefixCls','hasLine','isCarousel']);
+      ['className', 'data', 'prefixCls', 'hasLine', 'isCarousel']);
 
     const wrapCls = classNames({
       [prefixCls]: true,

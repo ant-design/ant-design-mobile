@@ -15,7 +15,7 @@ export function create(styles) {
           ret2[property] = value;
         }
       }
-      ret[s] = ret2
+      ret[s] = ret2;
     }
   }
   return ret;

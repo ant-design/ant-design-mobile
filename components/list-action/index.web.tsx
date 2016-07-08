@@ -13,7 +13,7 @@ class ListAction extends React.Component {
     onOpen: PropTypes.func,
     onClose: PropTypes.func,
     children: PropTypes.any,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-listaction',
@@ -24,7 +24,7 @@ class ListAction extends React.Component {
     right: [],
     onOpen() {},
     onClose() {},
-  }
+  };
 
   constructor(props) {
     super(props);

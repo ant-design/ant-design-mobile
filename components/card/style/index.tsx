@@ -5,19 +5,19 @@ export default {
     borderWidth: 1,
     borderColor: variables.neutral_5,
     borderRadius: variables.radius_1,
-    paddingBottom: 2*variables.grid,
+    paddingBottom: 2 * variables.grid,
     flexDirection: 'column',
     backgroundColor: variables.neutral_1,
   },
   Header: {
-    header : {
+    header: {
       flexDirection: 'row',
       paddingVertical: 2 * variables.grid,
       paddingRight: 4 * variables.grid,
       marginLeft: 4 * variables.grid,
       borderBottomWidth: 1,
       borderColor: variables.neutral_5,
-      alignItems: 'center'
+      alignItems: 'center',
     },
     title: {
       flex: 1,

@@ -1,3 +1,4 @@
+/* tslint:disable:no-bitwise */
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import WingBlank from '../wing-blank';
@@ -26,7 +27,9 @@ export default class Uploader extends React.Component {
       const reader = new FileReader();
       reader.onload = (e) => {
         const view = new DataView(e.target.result);
-        if (view.getUint16(0, false) !== 0xFFD8) return callback(-2);
+        if (view.getUint16(0, false) !== 0xFFD8) {
+          return callback(-2);
+        }
         let length = view.byteLength;
         let offset = 2;
         while (offset < length) {

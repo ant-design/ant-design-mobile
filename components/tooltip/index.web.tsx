@@ -17,13 +17,13 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     placement: PropTypes.string,
     title: PropTypes.node,
     onVisibleChange: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-tooltip',
     placement: 'bootomLeft',
     onVisibleChange() {},
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -39,7 +39,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
 
   render() {
     let[{ children, prefixCls, overlay, title }, restProps] = splitObject(
-      this.props, ['children','prefixCls','overlay', 'title']
+      this.props, ['children', 'prefixCls', 'overlay', 'title']
     );
 
     // Hide tooltip when there is no title

@@ -12,11 +12,11 @@ export default class Modal extends React.Component {
     transparent: false,
     animated: true,
     style: {}
-  }
+  };
 
   render() {
     let [{prefixCls, className, transparent, animated, animation, maskAnimation, style}, restProps] = splitObject(this.props,
-      ['prefixCls', 'className', 'transparent','animated',
+      ['prefixCls', 'className', 'transparent', 'animated',
         'animation', 'maskAnimation', 'style']);
 
     const wrapCls = classNames({

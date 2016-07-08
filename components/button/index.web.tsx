@@ -58,8 +58,8 @@ export default class Button extends React.Component<ButtonProps, any> {
   render() {
     let[{ children, className, prefixCls, type, size, ghost, inline, disabled,
       htmlType, icon, loading }, restProps] = splitObject(this.props,
-    ['children','className','prefixCls','type','size','ghost','inline',
-      'disabled','htmlType','icon','loading']);
+    ['children', 'className', 'prefixCls', 'type', 'size', 'ghost', 'inline',
+      'disabled', 'htmlType', 'icon', 'loading']);
 
     const wrapCls = classNames({
       [className]: className,

@@ -11,7 +11,7 @@ export default class NavBar extends React.Component {
     leftContent: PropTypes.any,
     rightContent: PropTypes.any,
     onLeftClick: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-navbar',
@@ -19,7 +19,7 @@ export default class NavBar extends React.Component {
     iconName: 'left',
     onLeftClick() {
     },
-  }
+  };
 
   render() {
     let [{prefixCls, children, mode, className, iconName, leftContent, rightContent, onLeftClick}, restProps] = splitObject(this.props,

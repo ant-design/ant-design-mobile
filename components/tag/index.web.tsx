@@ -16,7 +16,7 @@ export default class Tag extends React.Component<TagProps, any> {
     onClose: PropTypes.func,
     afterClose: PropTypes.func,
     selected: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-tag',
@@ -28,7 +28,7 @@ export default class Tag extends React.Component<TagProps, any> {
     onChange() {},
     onClose() {},
     afterClose() {},
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -41,7 +41,9 @@ export default class Tag extends React.Component<TagProps, any> {
 
   onClick = () => {
     const props = this.props;
-    if (props.type === 'read' || props.disabled) return;
+    if (props.type === 'read' || props.disabled) {
+      return;
+    }
     if (props.closable) {
       this.onClose();
     } else {
@@ -65,8 +67,10 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   render() {
-    let [{children, className, prefixCls, type, size, disabled, closable}, restProps] = splitObject(this.props,
-      ['children', 'className','prefixCls', 'type','size', 'disabled','closable']);
+    let [{children, className, prefixCls, type, size, disabled, closable}, restProps] = splitObject(
+      this.props,
+      ['children', 'className', 'prefixCls', 'type', 'size', 'disabled', 'closable']
+    );
     const selected = this.state.selected;
 
     const wrapCls = classNames({
