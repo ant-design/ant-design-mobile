@@ -3,7 +3,7 @@ import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
 import splitObject from '../_util/splitObject';
 
-interface TooltipProps {
+export interface TooltipProps {
   prefixCls?:string;
   placement?:string;
   title?:any;

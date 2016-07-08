@@ -6,7 +6,7 @@ import CardStyle from './style/index';
 
 const Header = CardStyle.Header;
 
-interface CardHeaderProps {
+export interface CardHeaderProps {
   title?:any;
   thumb?:string;
   extra?:any;

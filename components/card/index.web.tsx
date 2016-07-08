@@ -6,7 +6,7 @@ import Body from './CardBody';
 import Footer from './CardFooter';
 import splitObject from '../_util/splitObject';
 
-interface CardProps {
+export interface CardProps {
   prefixCls?:string;
 }
 

@@ -6,7 +6,7 @@ import CardStyle from './style/index';
 
 const Footer = CardStyle.Footer;
 
-interface CardFooterProps {
+export interface CardFooterProps {
   content?:any;
   extra?:any;
 }
