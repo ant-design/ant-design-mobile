@@ -9,6 +9,7 @@ const Footer = CardStyle.Footer;
 export interface CardFooterProps {
   content?:any;
   extra?:any;
+  style?:{};
 }
 
 export default class CardFooter extends React.Component<CardFooterProps, any> {
@@ -23,7 +24,7 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
 
   render() {
     let [{content, extra, style}, restProps] = splitObject(
-      this.props, ['content', 'extra', style]
+      this.props, ['content', 'extra', 'style']
     );
 
     const contentDom = React.isValidElement(content) ? (

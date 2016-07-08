@@ -5,6 +5,8 @@ import splitObject from '../_util/splitObject';
 
 export interface CardBodyProps {
   prefixCls?:string;
+  children?:any;
+  style?:{};
 }
 
 export default class CardBody extends React.Component<CardBodyProps, any> {

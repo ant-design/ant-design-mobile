@@ -7,6 +7,7 @@ export interface TooltipProps {
   prefixCls?:string;
   placement?:string;
   title?:any;
+  visible?:boolean;
   onVisibleChange: (visible: boolean) => void;
 }
 
