@@ -54,9 +54,9 @@ export default class Tag extends React.Component<TagProps, any> {
     }
   }
 
-  onClose = (e) => {
+  onClose = () => {
     const props = this.props;
-    props.onClose(e);
+    props.onClose();
     this.setState({
       closed: true,
     }, () => {

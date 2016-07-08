@@ -38,7 +38,6 @@ export default class Modal extends React.Component<TagProps, any> {
   }
 
   onClick = () => {
-    console.log('clicked')
     const props = this.props;
     if (props.type === 'read' || props.disabled) return;
     if (props.closable) {
@@ -53,9 +52,9 @@ export default class Modal extends React.Component<TagProps, any> {
     }
   }
 
-  onClose = (e) => {
+  onClose = () => {
     const props = this.props;
-    props.onClose(e);
+    props.onClose();
     this.setState({
       closed: true,
     }, () => {
