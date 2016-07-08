@@ -1,7 +1,12 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-export default class WingBlank extends React.Component {
+
+interface WingBlankProps {
+  prefixCls?:string;
+  mode?:number;
+}
+
+export default class WingBlank extends React.Component <WingBlankProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     mode: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32]),
@@ -13,8 +18,7 @@ export default class WingBlank extends React.Component {
   };
 
   render() {
-    let [{prefixCls, mode, className, children}, restProps] = splitObject(this.props,
-      ['prefixCls', 'mode', 'className', 'children']);
+    let {prefixCls, mode, className, children, style } = this.props;
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className]: className
@@ -22,7 +26,7 @@ export default class WingBlank extends React.Component {
     wrapCls += ` ${prefixCls}-wb${mode}`;
 
     return (
-      <div {...restProps} className={wrapCls}>
+      <div className={wrapCls} style={style}>
         {children}
       </div>
     );

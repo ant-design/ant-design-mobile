@@ -1,7 +1,12 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-export default class WhiteSpace extends React.Component {
+
+interface WhiteSpaceProps {
+  prefixCls?:string;
+  mode?:number;
+}
+
+export default class WhiteSpace extends React.Component <WhiteSpaceProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     mode: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48]),
@@ -13,8 +18,7 @@ export default class WhiteSpace extends React.Component {
   };
 
   render() {
-    let [{prefixCls, mode, className}, restProps] = splitObject(this.props,
-      ['prefixCls', 'mode', 'className']);
+    let {prefixCls, mode, className, style, onClick} = this.props;
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className]: className
@@ -22,7 +26,7 @@ export default class WhiteSpace extends React.Component {
     wrapCls += ` ${prefixCls}-ws${mode}`;
 
     return (
-      <div {...restProps} className={wrapCls} />
+      <div className={wrapCls} style={style} onClick={onClick} />
     );
   }
 }

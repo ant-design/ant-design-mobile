@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Checkbox from './Checkbox';
+import Checkbox from './Checkbox.web';
+import List from '../list';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class AgreeItem extends React.Component {
+export default class CheckboxItem extends React.Component {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
@@ -16,6 +17,7 @@ export default class AgreeItem extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-checkbox',
+    listPrefixCls: 'am-list',
     name: '',
     checked: false,
     disabled: false,
@@ -23,25 +25,27 @@ export default class AgreeItem extends React.Component {
   };
 
   render() {
-    let[{ prefixCls, style, name, checked, disabled, children, onChange, className }, restProps] = splitObject(this.props,
-      ['prefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'onChange', 'className']);
+    let[{ prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive }, restProps] = splitObject(this.props,
+      ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'className', 'onChange', 'needActive']);
     const wrapCls = classNames({
-      [`${prefixCls}-agree`]: true,
+      [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-disabled`]: disabled === true,
       [className]: className
     });
 
-    return (<div
-      {...restProps}
+    return (<List.Item
+      prefixCls={listPrefixCls}
+      needActive={disabled ? false : needActive}
+      style={style}
       className={wrapCls}
-      style={style}>
-      {<Checkbox
+      {...restProps}
+      thumb={<Checkbox
         prefixCls={prefixCls}
         checked={checked}
         name={name}
         onChange={onChange}
         disabled={disabled}
       />}
-      <label className={`${prefixCls}-agree-label`} htmlFor={name}>{children}</label>
-    </div>);
+    >{children}</List.Item>);
   }
 }
