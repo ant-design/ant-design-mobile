@@ -15,7 +15,7 @@ export default function Page2() {
         <h2 key="h2">设计模式</h2>
         <p key="p" style={{ maxWidth: 260 }}>总结中后台设计中反复出现的问题，并提供相应的解决方案。</p>
         <div key="button">
-          <Link to="/docs/pattern/navigation">
+          <Link to="/docs/react/introduce">
             <Button type="primary" size="large">
               了解更多
               <Icon type="right" />

@@ -83,8 +83,9 @@ export default class Header extends React.Component {
     const { routes, components } = this.props;
     const route = routes[0].path.replace(/^\//, '');
     let activeMenuItem = route.slice(0, route.indexOf(':') - 1) || 'home';
-    if (activeMenuItem === 'components' || route === 'changelog') {
-      activeMenuItem = 'docs/react';
+
+    if (activeMenuItem === 'components' || activeMenuItem === 'docs/react' || route === 'changelog') {
+      activeMenuItem = 'components';
     }
 
     const options = components
@@ -107,19 +108,19 @@ export default class Header extends React.Component {
     return (
       <header id="header" className={headerClassName}>
         <Row>
-          <Col lg={4} md={6} sm={7} xs={24}>
+          <Col lg={5} md={6} sm={7} xs={24}>
             <Icon
               className="nav-phone-icon"
               onClick={this.handleMenuIconClick}
               type="menu"
             />
             <Link to="/" id="logo">
-              <img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
-              <span>Ant Design</span>
+              <img src="https://os.alipayobjects.com/rmsportal/aPhSgPnBnqpOswb.svg" />
+              <span>ANT DESIGN | MOBILE</span>
             </Link>
           </Col>
           <Col className={`nav ${this.state.menuVisible ? 'nav-show' : ''}`}
-            lg={20} md={18} sm={17} xs={0} style={{ display: 'block' }}
+            lg={19} md={18} sm={17} xs={0} style={{ display: 'block' }}
           >
             <div id="search-box">
               <Select combobox
