@@ -5,11 +5,11 @@ import splitObject from '../_util/splitObject';
 export default class Timeline extends React.Component {
   static defaultProps = {
     prefixCls: 'am-timeline',
-  }
+  };
 
   render() {
     let [{prefixCls, children, pending, className}, restProps] = splitObject(this.props,
-      ['prefixCls', 'children','pending', 'className']);
+      ['prefixCls', 'children', 'pending', 'className']);
     const pendingNode = typeof pending === 'boolean' ? null : pending;
     const classString = classNames({
       [prefixCls]: true,

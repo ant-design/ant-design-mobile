@@ -21,7 +21,7 @@ export default class FloatMenu extends React.Component {
     popupAlign: PropTypes.object,
     trigger: PropTypes.array,
     onSelect: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-floatmenu',
@@ -29,11 +29,11 @@ export default class FloatMenu extends React.Component {
     popupAlign: { overflow: { adjustY: 0, adjustX: 0 } },
     trigger: ['click'],
     onSelect: () => {},
-  }
+  };
 
   render() {
     let[{ children, prefixCls, placement, trigger, overlay, onSelect, popupAlign }, restProps] = splitObject(this.props,
-      ['children','prefixCls','placement','trigger','overlay','onSelect','popupAlign']);
+      ['children', 'prefixCls', 'placement', 'trigger', 'overlay', 'onSelect', 'popupAlign']);
 
     const newChildren = recursiveCloneChildren(overlay, (child) => {
       const extraProps = {};

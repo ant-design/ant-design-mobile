@@ -1,3 +1,4 @@
+/* tslint:disable:no-switch-case-fall-through */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';

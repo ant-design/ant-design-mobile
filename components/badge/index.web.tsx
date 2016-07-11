@@ -14,7 +14,7 @@ export default class Badge extends React.Component {
     corner: PropTypes.bool,
     overflowCount: PropTypes.number,
     size: PropTypes.string,
-  }
+  };
   static defaultProps = {
     prefixCls: 'am-badge',
     text: null,
@@ -22,7 +22,7 @@ export default class Badge extends React.Component {
     corner: false,
     overflowCount: 99,
     size: null,
-  }
+  };
 
   render() {
     let { text, prefixCls, overflowCount, className, style, children } = this.props;

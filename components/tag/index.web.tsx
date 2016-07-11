@@ -1,9 +1,13 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
-export default class Modal extends React.Component {
+import TagProps from './TagPropsType';
+
+export default class Tag extends React.Component<TagProps, any> {
   static propTypes = {
+    prefixCls: PropTypes.string,
     type: PropTypes.oneOf(['action', 'read']),
     disabled: PropTypes.bool,
     size: PropTypes.oneOf(['large', 'small']),
@@ -12,7 +16,7 @@ export default class Modal extends React.Component {
     onClose: PropTypes.func,
     afterClose: PropTypes.func,
     selected: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     prefixCls: 'am-tag',
@@ -24,7 +28,7 @@ export default class Modal extends React.Component {
     onChange() {},
     onClose() {},
     afterClose() {},
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -37,7 +41,9 @@ export default class Modal extends React.Component {
 
   onClick = () => {
     const props = this.props;
-    if (props.type === 'read' || props.disabled) return;
+    if (props.type === 'read' || props.disabled) {
+      return;
+    }
     if (props.closable) {
       this.onClose();
     } else {
@@ -50,9 +56,9 @@ export default class Modal extends React.Component {
     }
   }
 
-  onClose = (e) => {
+  onClose = () => {
     const props = this.props;
-    props.onClose(e);
+    props.onClose();
     this.setState({
       closed: true,
     }, () => {
@@ -61,8 +67,10 @@ export default class Modal extends React.Component {
   }
 
   render() {
-    let [{children, className, prefixCls, type, size, disabled, closable}, restProps] = splitObject(this.props,
-      ['children', 'className','prefixCls', 'type','size', 'disabled','closable']);
+    let [{children, className, prefixCls, type, size, disabled, closable}, restProps] = splitObject(
+      this.props,
+      ['children', 'className', 'prefixCls', 'type', 'size', 'disabled', 'closable']
+    );
     const selected = this.state.selected;
 
     const wrapCls = classNames({

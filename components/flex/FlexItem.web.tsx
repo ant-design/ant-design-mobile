@@ -15,7 +15,7 @@ export default class FlexItem extends React.Component {
   };
   render() {
     let[{ children, className, prefixCls }, restProps] = splitObject(this.props,
-      ['children','className','prefixCls']);
+      ['children', 'className', 'prefixCls']);
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [className]: className

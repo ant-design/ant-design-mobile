@@ -28,8 +28,8 @@ export default class RadioItem extends React.Component {
 
   render() {
     let [{prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive, value}, restProps] = splitObject(this.props,
-      ['prefixCls', 'listPrefixCls', 'style','name', 'checked', 'disabled',
-        'children', 'className', 'onChange','needActive', 'value']);
+      ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled',
+        'children', 'className', 'onChange', 'needActive', 'value']);
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,

@@ -20,7 +20,7 @@ export default class Carousel extends React.Component {
   static defaultProps = {
     dots: true,
     arrows: false,
-  }
+  };
 
   render() {
     let props = assign({}, this.props);

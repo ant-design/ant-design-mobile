@@ -2,7 +2,7 @@ import { WhiteSpace } from 'antm';
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const variables = require('../../style/variables');
+import variables from '../../style/variables';
 
 export default class BasicWhiteSpaceExample extends React.Component {
   render() {

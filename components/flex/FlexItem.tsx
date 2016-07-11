@@ -12,7 +12,7 @@ export default class FlexItem extends React.Component {
   };
   render() {
     let[{ style, children, flex }, restProps] = splitObject(this.props,
-      ['style','children','flex']);
+      ['style', 'children', 'flex']);
     const flexItemStyle = {
       flex: flex || 1
     };

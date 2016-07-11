@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { WhiteSpace, WingBlank } from 'antm';
 
-const variables = require('../../style/variables');
+import variables from '../../style/variables';
 
 export default class BasicWingBlankExample extends React.Component {
   render() {

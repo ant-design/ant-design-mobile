@@ -35,3 +35,4 @@ english: TextareaItem
 | onErrorClick       | 点击报错icon触发的回调,        | Function | |  无  |
 | autoHeight       | 高度自适应, autoHeight和rows请二选一       | bool |  | false  |
 | editable    | 输入框是否可输入        | bool | |  true  |
+| labelNumber        | 标签字数（一个表单页面中,通常有多个InputItem或者TextareaItem,需要统一标签字数以便统一宽度,保持页面整洁、美观）        | number | `2`, `3`, `4`, `5`, `6`, `7`|  `4`  |
