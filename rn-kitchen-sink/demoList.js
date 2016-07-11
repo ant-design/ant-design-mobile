@@ -45,5 +45,11 @@ module.exports = {
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
       module: require('../components/white-space/demo/basic'), // 必须
     },
+    {
+      title: 'Picker', // 必须
+      description: 'Picker Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/picker/demo/popup'), // 必须
+    },
   ],
 };
