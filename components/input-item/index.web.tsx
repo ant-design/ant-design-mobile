@@ -2,7 +2,36 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() { }
 
-export default class InputItem extends React.Component {
+export interface InputItemProps {
+  prefixCls?: string,
+  prefixListCls?: string,
+  style?: React.CSSProperties,
+  type?: 'hasLine',
+  format?: 'text'|'bankCard'|'phone'|'password'|'number',
+  editable?: boolean,
+  name?: string,
+  value?: string,
+  placeholder?: string,
+  clear?: boolean,
+  maxLength?: number,
+  onChange?: Function,
+  onBlur?: Function,
+  onFocus?: Function,
+  extra?: string|React.ReactNode,
+  onExtraClick?: Function,
+  error?: boolean,
+  onErrorClick?: Function,
+  size?: 'large'|'small',
+  labelNumber?: number,
+  labelPosition?: 'left'|'top',
+  textAlign?: 'left'|'center',
+}
+
+export interface InputItemState {
+  focus: boolean,
+}
+
+export default class InputItem extends React.Component<InputItemProps, InputItemState> {
   static propTypes = {
     prefixCls: PropTypes.string,
     prefixListCls: PropTypes.string,
@@ -126,8 +155,8 @@ export default class InputItem extends React.Component {
     this.props.onExtraClick(e);
   };
 
-  onErrorClick = () => {
-    this.props.onErrorClick();
+  onErrorClick = (e) => {
+    this.props.onErrorClick(e);
   };
 
   clearInput = () => {

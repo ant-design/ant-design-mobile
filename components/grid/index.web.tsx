@@ -4,7 +4,21 @@ import Flex from '../flex';
 import Carousel from '../carousel';
 function noop() {}
 
-export default class Grid extends React.Component {
+export interface GridProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+  data?: Array,
+  onClick?: Function,
+  hasLine?: boolean,
+  needActive?: boolean,
+  isCarousel?: boolean,
+}
+
+export interface GridState {
+  hover: boolean,
+}
+
+export default class Grid extends React.Component<GridProps, GridState> {
   static propTypes = {
     prefixCls: PropTypes.string,
     data: PropTypes.array,

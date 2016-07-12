@@ -3,7 +3,23 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class ListItem extends React.Component {
+export interface ListItemProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+  needActive?: boolean,
+  thumb: string|{}|React.ReactNode,
+  extra?: string|{}|React.ReactNode,
+  arrow?: 'horizontal'|'down'|'up'|'empty'|'',
+  align?: string,
+  onClick?: Function,
+  error?: boolean,
+}
+
+export interface ListItemState {
+  hover: boolean,
+}
+
+export default class ListItem extends React.Component<ListItemProps, ListItemState> {
   static propTypes = {
     prefixCls: PropTypes.string,
     needActive: PropTypes.bool,
