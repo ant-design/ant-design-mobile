@@ -5,3 +5,4 @@ export { default as Flex } from './components/flex/';
 export { default as Tag } from './components/tag/';
 export { default as WhiteSpace } from './components/white-space/';
 export { default as WingBlank } from './components/wing-blank/';
+export { default as Picker } from './components/picker/';
