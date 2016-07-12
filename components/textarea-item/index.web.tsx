@@ -2,7 +2,33 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
-export default class TextareaItem extends React.Component {
+export interface TextareaItemProps {
+  prefixCls?: string,
+  prefixListCls?: string,
+  style?: React.CSSProperties,
+  type?: 'hasLine',
+  title?: string|React.ReactNode,
+  name?: string,
+  value?: string,
+  placeholder?: string,
+  clear?: boolean,
+  rows?: number,
+  count?: number,
+  onChange?: Function,
+  onBlur?: Function,
+  onFocus?: Function,
+  error?: boolean,
+  onExtraClick?: Function,
+  autoHeight?: boolean,
+  editable?: boolean,
+  labelNumber?: number,
+}
+
+export interface TextareaItemState {
+  focus: boolean,
+}
+
+export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
   static propTypes = {
     prefixCls: PropTypes.string,
     prefixListCls: PropTypes.string,

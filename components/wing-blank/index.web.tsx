@@ -1,12 +1,13 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 
-interface WingBlankProps {
-  prefixCls?:string;
-  mode?:number;
+export interface WingBlankProps {
+  prefixCls?:string,
+  style?: React.CSSProperties,
+  mode?:number,
 }
 
-export default class WingBlank extends React.Component <WingBlankProps, any> {
+export default class WingBlank extends React.Component<WingBlankProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     mode: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32]),

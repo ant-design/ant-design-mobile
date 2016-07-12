@@ -1,7 +1,12 @@
 import React from 'react';
 import RcCollapse from 'rc-collapse';
 
-export default class Collapse extends React.Component {
+export interface CollapseProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+}
+
+export default class Collapse extends React.Component<CollapseProps, any> {
   static Panel = RcCollapse.Panel;
 
   static defaultProps = {

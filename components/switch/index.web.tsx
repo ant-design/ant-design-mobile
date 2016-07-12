@@ -2,7 +2,16 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
-export default class Switch extends React.Component {
+export interface SwitchProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+  name?: string,
+  checked?: boolean,
+  disabled?: boolean,
+  onChange?: Function,
+}
+
+export default class Switch extends React.Component<SwitchProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,

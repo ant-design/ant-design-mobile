@@ -2,7 +2,28 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
-export default class SearchBar extends React.Component {
+export interface SearchBarProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+  value?: string,
+  placeholder?: string,
+  onSubmit?: Function,
+  onChange?: Function,
+  onFocus?: Function,
+  onBlur?: Function,
+  onCancel?: Function,
+  onClear?: Function,
+  showCancelButton?: boolean,
+  cancelTxt?: string,
+  disablSearch?: boolean,
+}
+
+export interface SearchBarState {
+  value?: string,
+  focus?: boolean,
+}
+
+export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,

@@ -4,7 +4,19 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class PageResult extends React.Component {
+export interface PageResultProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+  imgUrl?: string,
+  title?: string,
+  message?: string,
+  buttonTxt?: string,
+  buttonType?: string,
+  buttonGhost?: string,
+  buttonClick?: Function,
+}
+
+export default class PageResult extends React.Component<PageResultProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
