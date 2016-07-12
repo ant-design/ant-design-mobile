@@ -3,7 +3,7 @@ order: 2
 title: 混合
 ---
 
-简单的表格，最后一列是各种操作。
+有表头和标题列混合使用
 
 ````jsx
 import { Table } from 'antm';
@@ -35,5 +35,10 @@ const data = [{
   key: '3'
 }];
 
-ReactDOM.render(<Table direction="mix" hTitles={titles} columns={columns} dataSource={data} />, mountNode);
+ReactDOM.render(<Table
+  direction="mix"
+  hTitles={titles}
+  columns={columns}
+  dataSource={data}
+/>, mountNode);
 ````

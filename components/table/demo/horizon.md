@@ -3,7 +3,7 @@ order: 1
 title: 横向
 ---
 
-简单的表格，最后一列是各种操作。
+简单的表格，无表头，用标题列替代表头
 
 ````jsx
 import { Table } from 'antm';
@@ -35,5 +35,10 @@ const data = [{
   key: '3'
 }];
 
-ReactDOM.render(<Table direction="horizon" hTitles={titles} columns={columns} dataSource={data} />, mountNode);
+ReactDOM.render(<Table
+  direction="horizon"
+  hTitles={titles}
+  columns={columns}
+  dataSource={data}
+/>, mountNode);
 ````

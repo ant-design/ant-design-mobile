@@ -13,7 +13,7 @@ export default class Table extends React.Component {
   }
 
   render() {
-    const { columns, dataSource, hTitles, direction } = this.props;
+    const { columns, dataSource, hTitles, direction, scrollX, fixedTitle, titleWidth } = this.props;
 
     const [{
       style, className
@@ -23,10 +23,49 @@ export default class Table extends React.Component {
     let table;
     // 默认纵向
     if (!direction || direction === 'vertical') {
-      table = <RcTable {...restProps} columns={columns}
-        data={dataSource}
-        className="am-table"
-      />
+      if(fixedTitle) {
+        
+        let titleData = [];
+    
+        let titleColums = [];
+        for(let i = 0; i < hTitles.length;i++) {
+          
+          titleData[i] = {
+            title: hTitles[i],
+            key:i 
+          }
+        }
+
+        console.log(titleData)
+        titleColums.push({
+          title: 'tmp',
+          dataIndex: 'title',
+          key: 'title',
+          width: titleWidth
+        })
+
+        table = <div style={{position:"relative"}}>
+          <RcTable {...restProps} columns={titleColums}
+            data={titleData}
+            className="am-table am-table-vertical-title am-table-fixed-left"
+            showHeader={false}
+          />
+          <div style={{marginLeft: titleWidth}}>
+          <RcTable {...restProps} columns={columns}
+            data={dataSource}
+            className="am-table"
+            scroll={{ x: true }} 
+            showHeader={false}
+          />
+          </div>
+        </div>
+      } else {
+        table = <RcTable {...restProps} columns={columns}
+          data={dataSource}
+          className="am-table"
+          scroll={{ x: scrollX }} 
+        />
+      }
     // 横向
     } else if (direction === 'horizon' && hTitles.length > 0 ) {
       const columns_withTitle = [{dataIndex: 'horizonTitle', key: 'horizonTitle', className: 'am-table-horizonTitle'}].concat(columns)
@@ -39,6 +78,7 @@ export default class Table extends React.Component {
         data={dataSource}
         className="am-table"
         showHeader={false}
+        scroll={{ x: scrollX }} 
       />  
     } else if (direction === 'mix' && hTitles.length > 0) {
       const columns_withTitle = [{dataIndex: 'horizonTitle', key: 'horizonTitle', className: 'am-table-horizonTitle'}].concat(columns)
@@ -50,12 +90,15 @@ export default class Table extends React.Component {
       table = <RcTable {...restProps} columns={columns_withTitle}
         data={dataSource}
         className="am-table"
+        scroll={{ x: scrollX }} 
       />   
     }
 
     return (
-      <div>
-      {table}  
+      <div style={{padding: 20}}>
+      {
+        table
+      }  
       </div>
     );
   }

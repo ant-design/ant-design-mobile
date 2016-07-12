@@ -26,12 +26,12 @@ english: Table
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
-| activeKey        | 当前激活 tab 面板的 key                      | String   | 无            |
-| defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板    |
-| onChange         | 切换面板的回调                               | Function | 无            |
-| onTabClick       | tab 被点击的回调                             | Function | 无            |
-| type | 页签的基本样式，可选 `line`、`capsule`、`tabbar` 类型   | String   | 'line'      |
-| animation | 内容区域动画, 目前仅支持 `slide-horizontal`, 设为 false 禁用动画    |  String   |    `slide-horizontal`    |
-| mode |  `dark`、`light` 仅当 type 为 tabbar 有效   | String   | 'light'      |
+| columns        | 表格列的配置描述，具体项见下表                     | Array   |             |
+| dataSource | 数据数组	 | Array   | -    |
+| direction         | 排列方式 horizon/vetical/mix                              | String | horizon            |
+| hTitles       | 标题列数据                             | Array |             |
+| scrollX | 是否横向滚动    |  Boolean   |    false    |
+| fixedTitle | 横向滚动时，标题列是否固定   | Boolean   | false      |
+| titleWidth |  固定标题列宽度   | Number   |      |
 
 

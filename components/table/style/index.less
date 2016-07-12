@@ -51,4 +51,47 @@
     line-height: @line-height-2;
     font-size: @font-size-5;
   }
+
+  &-fixed-left {
+    position: absolute;
+    left: 0;
+    top:0;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-transition: box-shadow .3s ease;
+    transition: box-shadow .3s ease;
+    border-radius: 0;
+    table {
+      background-color: @table-head-background-color;
+      color: #000;
+      font-weight: bold;
+      transition: background .3s ease;
+      text-align: center;
+    }
+  }
+
+  &-vertical-scroll {
+    position: absolute;
+    top: 0;
+  }
+
+  &-scroll {
+    overflow: auto;
+    position: relative;
+    box-shadow: 1px 0 6px hsla(0,0%,39%,.2);
+    &:before {
+      box-shadow: 1px 0 6px hsla(0,0%,39%,.2);
+      content: " ";
+      height: 100%;
+      left: -10px;
+      position: absolute;
+      top: 0;
+      width: 10px;
+    }
+  }
 }
+
+
+
+
+
