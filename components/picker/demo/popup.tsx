@@ -43,6 +43,8 @@ export default class PopupExample extends React.Component {
     }, 500);
   }
   render() {
+    console.log(Picker, 'ppp');
+    
     return (<ScrollView>
       <List>
         <List.Header>基本用法 Demo</List.Header>
