@@ -1,8 +1,12 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import Swipeout from 'rc-swipeout';
 import Hammer from 'react-hammerjs';
 import Modal from '../modal';
-class ListAction extends React.Component {
+import SwipeActionProps from './SwipeActionPropsType';
+import splitObject from '../_util/splitObject';
+
+class SwipeAction extends React.Component <SwipeActionProps, any>{
   static propTypes = {
     prefixCls: PropTypes.string,
     autoClose: PropTypes.bool,
@@ -16,7 +20,7 @@ class ListAction extends React.Component {
   };
 
   static defaultProps = {
-    prefixCls: 'am-listaction',
+    prefixCls: 'am-swipe',
     title: '请确认操作',
     autoClose: false,
     disabled: false,
@@ -87,7 +91,7 @@ class ListAction extends React.Component {
               animated={false}
               title={title}
               transparent
-              closable
+              closable={false}
               maskClosable
               onClose={this.onClose}
               footer={this.renderAndroidBtn()}
@@ -122,21 +126,33 @@ class ListAction extends React.Component {
   }
 
   render() {
+    let [{prefixCls, left, right, autoClose, disabled, onOpen, onClose, children}, restProps] = splitObject(
+      this.props,
+      ['prefixCls', 'left', 'right', 'autoClose', 'disabled', 'onOpen', 'onClose', 'children']
+    );
     const isAndroid = !!navigator.userAgent.match(/Android/i);
-    const { prefixCls, left, right, style } = this.props;
-
     return (left.length || right.length) ? (
-      <div className={`${prefixCls}`} style={style}>
+      <div className={`${prefixCls}`} {...restProps}>
         {
           isAndroid ? this.renderAndroid() : (
-            <Swipeout {...this.props} />
+            <Swipeout
+              prefixCls={prefixCls}
+              left={left}
+              right={right}
+              autoClose={autoClose}
+              disabled={disabled}
+              onOpen={onOpen}
+              onClose={onClose}
+            >
+              {children}
+            </Swipeout>
           )
         }
       </div>
     ) : (
-      <div />
+      <div {...restProps}>{children}</div>
     );
   }
 }
 
-export default ListAction;
+export default SwipeAction;

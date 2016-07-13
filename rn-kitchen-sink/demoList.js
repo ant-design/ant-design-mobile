@@ -28,6 +28,12 @@ module.exports = {
       module: require('../components/list/demo/basic'), // 必须
     },
     {
+      title: 'SwipeAction', // 必须
+      description: 'SwipeAction Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/OJgqKyrKGdIEfwp.png',
+      module: require('../components/swipe-action/demo/basic'), // 必须
+    },
+    {
       title: 'Tag', // 必须
       description: 'Tag Example',
       icon: 'https://os.alipayobjects.com/rmsportal/AkXOzPmaytaVYLD.png',
