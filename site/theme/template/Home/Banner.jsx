@@ -22,7 +22,7 @@ export default class Banner extends React.Component {
           <QueueAnim className="banner-text-wrapper" type={this.typeFunc} delay={300}>
             <div className="banner-img" key="image" />
             <div className="start-button-wrap" key="button">
-              <Link to="/docs/pattern/">
+              <Link to="/docs/pattern/color">
                 开始探索
               </Link>
           </div>

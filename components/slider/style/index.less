@@ -29,9 +29,9 @@
   &-track {
     position: absolute;
     left: 0;
-    height: @border-thickness-2;
+    height: 2px;
     border-radius: @border-radius-base;
-    background-color: @brand-6;
+    background-color: @brand-base;
     z-index: 1;
   }
 
@@ -43,19 +43,19 @@
     height: @grid * 6;
     cursor: pointer;
     border-radius: 50%;
-    border: @border-thickness-2 @border-type-1 @brand-6;
+    border: 2px solid @brand-base;
     background-color: #fff;
     z-index: 2;
 
     &:focus {
-      background-color: tint(@brand-6, 20%);
+      background-color: tint(@brand-base, 20%);
       background: #000;
     }
 
     &-active {
       &:active {
-        background-color: tint(@brand-6, 20%);
-        box-shadow: 0 0 5px tint(@brand-6, 20%);
+        background-color: tint(@brand-base, 20%);
+        box-shadow: 0 0 5px tint(@brand-base, 20%);
       }
     }
   }
@@ -108,7 +108,7 @@
       margin-left: -4px;
     }
     &-active {
-      border-color: @brand-6;
+      border-color: @brand-base;
     }
   }
 
@@ -116,7 +116,7 @@
     background-color: #e9e9e9;
 
     .@{sliderPrefixCls}-track {
-      height: @border-thickness-2;
+      height: 2px;
       background-color: @neutral-6;
     }
 

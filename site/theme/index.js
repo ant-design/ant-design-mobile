@@ -12,10 +12,9 @@ module.exports = {
     COMPONENTS: 1,
   },
   docVersions: {
-    '0.9.x': 'http://09x.ant.design/',
-    '0.10.x': 'http://010x.ant.design/',
-    '0.11.x': 'http://011x.ant.design/',
-    '0.12.x': 'http://012x.ant.design/',
+    '0.1.x': 'http://01x.antm.alipay.net',
+    '0.5.x': 'http://05x.antm.alipay.net',
+    '0.6.x': 'http://06x.antm.alipay.net',
   },
   routes: {
     '/': './template/Home/index',

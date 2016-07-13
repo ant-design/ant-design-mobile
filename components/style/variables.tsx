@@ -1,92 +1,8 @@
+import colorPalette from './color-palette';
+
 export default {
-  pink_1: '#000',
-  pink_2: '#000',
-  pink_3: '#000',
-  pink_4: '#000',
-  pink_5: '#000',
-  pink_6: '#000',
-  pink_7: '#000',
-  pink_8: '#000',
-  pink_9: '#000',
-  pink_10: '#000',
-
-  red_1: '#fee8e7',
-  red_2: '#fdcccb',
-  red_3: '#fbadaa',
-  red_4: '#f88b88',
-  red_5: '#f56863',
-  red_6: '#f2443e',
-  red_7: '#ed211a',
-  red_8: '#ce1812',
-  red_9: '#a91813',
-  red_10: '#881714',
-
-  yellow_1: '#fef5e1',
-  yellow_2: '#fee8bb',
-  yellow_3: '#feda92',
-  yellow_4: '#fecc68',
-  yellow_5: '#fcbd3d',
-  yellow_6: '#FAAE14',
-  yellow_7: '#DF9706',
-  yellow_8: '#B77D09',
-  yellow_9: '#94670B',
-  yellow_10: '#77540D',
-
-  green_1: '#EDFBE7',
-  green_2: '#CEF2C0',
-  green_3: '#B3E69E',
-  green_4: '#99D97F',
-  green_5: '#81CC62',
-  green_6: '#6ABF47',
-  green_7: '#5BA63C',
-  green_8: '#4E8B35',
-  green_9: '#437230',
-  green_10: '#395B2B',
-
-  emerald_1: '#000',
-  emerald_2: '#000',
-  emerald_3: '#000',
-  emerald_4: '#000',
-  emerald_5: '#000',
-  emerald_6: '#000',
-  emerald_7: '#000',
-  emerald_8: '#000',
-  emerald_9: '#000',
-  emerald_10: '#000',
-
-  blue_1: '#E4F6FE',
-  blue_2: '#C2EBFD',
-  blue_3: '#9EDFFC',
-  blue_4: '#79D2FA',
-  blue_5: '#53C4F8',
-  blue_6: '#2DB7F5',
-  blue_7: '#0EA6EB',
-  blue_8: '#0F8BC2',
-  blue_9: '#10709B',
-  blue_10: '#115777',
-
-  orange_1: '#FEEFE8',
-  orange_2: '#FED3BF',
-  orange_3: '#FDBB99',
-  orange_4: '#FEA477',
-  orange_5: '#FE8E57',
-  orange_6: '#FE7A38',
-  orange_7: '#FD661B',
-  orange_8: '#F55404',
-  orange_9: '#D04B09',
-  orange_10: '#A8410D',
-
-  purple_1: '#000',
-  purple_2: '#000',
-  purple_3: '#000',
-  purple_4: '#000',
-  purple_5: '#000',
-  purple_6: '#000',
-  purple_7: '#000',
-  purple_8: '#000',
-  purple_9: '#000',
-  purple_10: '#000',
-
+  ...colorPalette,
+  
   /* 中性色版(neutral) */
   neutral_1: '#fff',
   neutral_2: '#f7f7f7',
@@ -98,18 +14,12 @@ export default {
   neutral_8: '#666',
   neutral_9: '#404040',
   neutral_10: '#222',
+  neutral_11: '#000',
   // neutral_3_f_20: '#efefef14',
   // neutral_3_f_60: '#efefef3C',
   neutral_3_f_20: '#efefef20',
   neutral_3_f_60: '#efefef60',
   neutral_6_f_60: '#ccc6',
-
-  /* 中性色版(gray) */
-  gray_1: '#000',
-  gray_2: '#666',
-  gray_4: '#666',
-  gray_5: '#d9d9d9',
-  gray_8: '#666',
 
   /* 品牌色（brand） */
   brand_1: '#E4F6FE',
@@ -173,24 +83,9 @@ export default {
   font_weight_1: 'normal',
   font_weight_2: 'bold',
 
-  /* 字体风格，可拓展 */
-
-
   /* 圆角边框 (radius) */
   radius_1: 4,
   radius_2: 6,
-
-  /* 线条粗细，可拓展 */
-  border_width_1: 1,
-  border_width_2: 2,
-
-  border_thickness_1: 1,
-  border_thickness_2: 2,
-
-  /* 线条类型 */
-  border_type_1: 'solid',
-  border_type_2: 'dashed',
-
 
   /* 阴影 (shadow) */
   /* 常用尺寸size，可拓展 */

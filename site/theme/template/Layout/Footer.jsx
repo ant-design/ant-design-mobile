@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select, Modal } from 'antd';
-import { version as antdVersion } from 'antd/package.json';
+import { version as antmVersion } from 'antm/package.json';
 import { docVersions } from '../../';
 const Option = Select.Option;
 
@@ -16,7 +16,7 @@ function isLocalStorageNameSupported() {
   }
 }
 
-docVersions[antdVersion] = antdVersion;
+docVersions[antmVersion] = antmVersion;
 
 export default class Footer extends React.Component {
   componentDidMount() {
@@ -65,53 +65,32 @@ export default class Footer extends React.Component {
       <footer id="footer">
         <ul>
           <li>
-            <h2>GitHub</h2>
-            <div>
-              <a target="_blank " href="https://github.com/ant-design/ant-design">仓库</a>
-            </div>
-            <div>
-              <a target="_blank" href="https://github.com/ant-design/antd-init">antd-init</a> - 脚手架
-            </div>
-            <div>
-              <a target="_blank" href="http://ant-tool.github.io">ant-tool</a> - 开发工具
-            </div>
-          </li>
-          <li>
-            <h2>相关站点</h2>
-            <div><a href="https://g2.alipay.com/">G2</a> - 数据可视化</div>
-            <div><a href="https://antv.alipay.com/">AntV</a> - 数据可视化规范</div>
-            <div><a href="http://motion.ant.design">Ant Motion</a> - 设计动效</div>
-            <div><a href="http://ux.ant.design">Ant UX</a> - 页面逻辑素材</div>
+            <h2>源码</h2>
+            <a target="_blank " href="http://github.com/ant-design">
+              antd
+            </a>
+            <a target="_blank " href="http://gitlab.alibaba-inc.com/react-ui/ant-mobile">
+              antm
+            </a>
+            <a target="_blank" href="https://github.com/react-component">
+              react-component
+            </a>
           </li>
           <li>
             <h2>联系我们</h2>
-            <div>
-              <a target="_blank" href="https://github.com/ant-design/ant-design/issues">
-                反馈和建议
-              </a>
-            </div>
-            <div>
-              <a target="_blank" href="https://gitter.im/ant-design/ant-design">
-                讨论
-              </a>
-            </div>
-            <div>
-              <a target="_blank" href="https://github.com/ant-design/ant-design/issues/new">
-                报告 Bug
-              </a>
-            </div>
+            <a target="_blank" href="http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues">
+              反馈和建议
+            </a>
           </li>
           <li>
-            <div>©2016 蚂蚁金服体验技术部出品</div>
-            <div>Powered by <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
-            <div style={{ marginTop: 10 }}>
+            <div style={{ margin: '10px auto 5px' }}>©2016 蚂蚁金服体验技术部 & 口碑终端技术部</div>
+            <div style={{ marginTop: 0 }}>
               文档版本：
               <Select
                 size="small"
                 dropdownMatchSelectWidth={false}
-                defaultValue={antdVersion}
-                onChange={this.handleVersionChange}
-              >
+                defaultValue={antmVersion}
+                onChange={this.handleVersionChange}>
                 {options}
               </Select>
             </div>

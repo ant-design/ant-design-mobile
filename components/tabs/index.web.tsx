@@ -43,6 +43,7 @@ export default class Tabs extends React.Component {
 
     return (
       <RcTabs {...restProps}
+        prefixCls={prefixCls}
         className={cls}
         onChange={onChange}
         tabPosition={tabPosition}
