@@ -18,6 +18,17 @@ export default class Modal extends React.Component<ModalProps, any> {
     onShow() {},
   };
 
+  componentWillMount() {
+    const { visible, onShow } = this.props;
+    if (visible) {
+      onShow();
+    }
+  }
+
+  componentDidMount() {
+    this.componentDidUpdate(this.props);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible) {
       this.props.onShow();
@@ -26,7 +37,8 @@ export default class Modal extends React.Component<ModalProps, any> {
 
   componentDidUpdate(prevProps) {
     const { prefixCls, closable } = this.props;
-    if (!prevProps.visible && !closable) {
+    // visible always true
+    if (prevProps.visible === true && !closable) {
       const closeDom = document.getElementsByClassName(`${prefixCls}-close`)[0];
       closeDom.style.display = 'none';
     }
