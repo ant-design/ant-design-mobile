@@ -17,7 +17,7 @@ english: Modal
 
 ## API
 
-### Modal
+### Modal (web & react native)
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
@@ -27,6 +27,7 @@ english: Modal
 | maskClosable | 点击蒙层是否允许关闭, 需配合 closable 一起使用 | Boolean   | false       |
 | footer       | 底部内容       |  React.Element    | 无 |
 | onClose      | 点击 x 或 mask 回调       | Function   | 无 |
+| onShow      | modal 显示回调       | Function   | 无 |
 | animated     | 是否展示动画       | Boolean   | true |
 | transparent  | 是否显示半透明       | Boolean   |  false |
 | style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'}|
