@@ -1,6 +1,6 @@
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Icon } from 'antd';
+import { Icon } from 'antm';
 
 export default class CopyableIcon extends React.Component {
   constructor(props) {
