@@ -2,9 +2,9 @@ import React, {PropTypes} from 'react';
 import classNames from 'classnames';
 
 export interface WingBlankProps {
-  prefixCls?:string,
-  style?: React.CSSProperties,
-  mode?:number,
+  prefixCls?:string;
+  style?: React.CSSProperties;
+  mode?:number;
 }
 
 export default class WingBlank extends React.Component<WingBlankProps, any> {

@@ -8,17 +8,17 @@ import Flex from '../flex';
 function noop() {}
 
 export interface GridProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  data?: Array<{}>,
-  onChange?: Function,
-  level?: number,
-  height?: number,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  data?: Array<{}>;
+  onChange?: Function;
+  level?: number;
+  height?: number;
 }
 
 export interface GridState {
-  SubMenuData: Array<{}>,
-  firstValue?: any,
+  SubMenuData: Array<{}>;
+  firstValue?: any;
 }
 
 export default class Menu extends React.Component {

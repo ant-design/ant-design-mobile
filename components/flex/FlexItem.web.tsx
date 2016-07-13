@@ -5,8 +5,8 @@ import splitObject from '../_util/splitObject';
 const PropTypes = React.PropTypes;
 
 export interface FlexItemProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
+  prefixCls?: string;
+  style?: React.CSSProperties;
 }
 
 export default class FlexItem extends React.Component<FlexItemProps, any> {

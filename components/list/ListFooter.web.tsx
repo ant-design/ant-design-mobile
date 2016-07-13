@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
 export interface ListFooterProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
+  prefixCls?: string;
+  style?: React.CSSProperties;
 }
 
 export default class ListFooter extends React.Component<ListFooterProps, any> {

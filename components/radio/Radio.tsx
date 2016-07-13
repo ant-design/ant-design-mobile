@@ -3,12 +3,12 @@ import RcCheckbox from 'rc-checkbox';
 function noop() {}
 
 export interface RadioProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  name?: string,
-  checked?: boolean,
-  disabled?: boolean,
-  onChange?: Function,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
 }
 
 export default class Radio extends React.Component<RadioProps, any> {

@@ -4,19 +4,19 @@ import splitObject from '../_util/splitObject';
 function noop() {}
 
 export interface ListItemProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  needActive?: boolean,
-  thumb: string|{}|React.ReactNode,
-  extra?: string|{}|React.ReactNode,
-  arrow?: 'horizontal'|'down'|'up'|'empty'|'',
-  align?: string,
-  onClick?: Function,
-  error?: boolean,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  needActive?: boolean;
+  thumb: string|{}|React.ReactNode;
+  extra?: string|{}|React.ReactNode;
+  arrow?: 'horizontal'|'down'|'up'|'empty'|'';
+  align?: string;
+  onClick?: Function;
+  error?: boolean;
 }
 
 export interface ListItemState {
-  hover: boolean,
+  hover: boolean;
 }
 
 export default class ListItem extends React.Component<ListItemProps, ListItemState> {

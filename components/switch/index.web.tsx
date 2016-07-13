@@ -3,12 +3,12 @@ import classNames from 'classnames';
 function noop() {}
 
 export interface SwitchProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  name?: string,
-  checked?: boolean,
-  disabled?: boolean,
-  onChange?: Function,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
 }
 
 export default class Switch extends React.Component<SwitchProps, any> {

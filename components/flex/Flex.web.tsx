@@ -4,13 +4,13 @@ import classNames from 'classnames';
 const PropTypes = React.PropTypes;
 
 export interface FlexProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  direction?: string,
-  wrap?: string,
-  justify?: string,
-  align?: string,
-  alignContent?: string,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  direction?: string;
+  wrap?: string;
+  justify?: string;
+  align?: string;
+  alignContent?: string;
 }
 
 export default class Flex extends React.Component<FlexProps, any> {

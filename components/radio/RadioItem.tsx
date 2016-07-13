@@ -6,13 +6,13 @@ import splitObject from '../_util/splitObject';
 function noop() {}
 
 export interface RadioItemProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  name?: string,
-  checked?: boolean,
-  disabled?: boolean,
-  onChange?: Function,
-  needActive?: boolean,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
+  needActive?: boolean;
 }
 
 export default class RadioItem extends React.Component<RadioItemProps, any> {
