@@ -1,7 +1,13 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
-export default class ListFooter extends React.Component {
+
+export interface ListFooterProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+}
+
+export default class ListFooter extends React.Component<ListFooterProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
   };
@@ -12,14 +18,14 @@ export default class ListFooter extends React.Component {
 
 
   render() {
-    let [{prefixCls, children, className}, restProps] = splitObject(this.props,
+    let [{prefixCls, children, className, style}, restProps] = splitObject(this.props,
       ['prefixCls', 'children', 'className']);
     const wrapCls = classNames({
       [`${prefixCls}-footer`]: true,
       [className]: className
     });
     return (
-      <div {...restProps} className={wrapCls}>
+      <div {...restProps} className={wrapCls} style={style}>
         {children}
       </div>
     );

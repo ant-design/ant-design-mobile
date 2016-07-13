@@ -4,7 +4,12 @@ import splitObject from '../_util/splitObject';
 
 const PropTypes = React.PropTypes;
 
-export default class FlexItem extends React.Component {
+export interface FlexItemProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+}
+
+export default class FlexItem extends React.Component<FlexItemProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
