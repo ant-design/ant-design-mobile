@@ -2,7 +2,7 @@
 category: Components
 type: Components
 chinese: 滑动或长按操作
-english: ListAction
+english: SwipeAction
 ---
 
 滑动（ iOS ）或长按（ android ）操作组件。
