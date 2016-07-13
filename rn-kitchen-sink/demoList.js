@@ -34,6 +34,12 @@ module.exports = {
       module: require('../components/tag/demo/basic'), // 必须
     },
     {
+      title: 'TopNotice', // 必须
+      description: 'TopNotice Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
+      module: require('../components/top-notice/demo/basic'), // 必须
+    },
+    {
       title: 'WingBlank', // 必须
       description: 'WingBlank Example',
       icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
