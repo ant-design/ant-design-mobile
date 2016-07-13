@@ -8,8 +8,13 @@ function noop() {}
 export interface SubMenuProps {
   prefixCls?: string,
   style?: React.CSSProperties,
+<<<<<<< HEAD
   value?: Array<{}>,
   data?: Array<{}>,
+=======
+  value?: Array,
+  data?: Array,
+>>>>>>> 32df552220e67d75aef7f9b367d17ea6d3022c34
   onChange?: Function,
 }
 
