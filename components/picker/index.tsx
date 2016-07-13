@@ -3,6 +3,7 @@ import * as React from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
 import tsPropsType from './PropsType';
+import PopupStyles from './PopupStyles';
 
 function getDefaultProps() {
   const defaultFormat = (values) => {
@@ -16,6 +17,7 @@ function getDefaultProps() {
     okText: '确定',
     dismissText: '取消',
     title: '',
+    styles: {},
   };
 }
 
@@ -39,23 +41,13 @@ export default class Picker extends React.Component<tsPropsType, any> {
       extra: this.getSel() || extra,
     };
     const childEl = React.cloneElement(this.props.children, extraProps);
-    // return (<PopupCascader
-    //   WrapComponent="div"
-    //   popupTransitionName="am-slide-fade"
-    //   maskTransitionName="am-fade"
-    //   data={data}
-    //   value={value}
-    //   dismissText={dismissText}
-    //   title={title}
-    //   okText={okText}
-    //   {...this.props} >{childEl}</PopupCascader>);
-    return <PopupCascader 
-      data={data} 
-      title={title} 
-      okText={okText} 
-      dismissText={dismissText}
-      value={value}
+    return (<PopupCascader
       {...this.props}
-    >{childEl}</PopupCascader>
+      styles={PopupStyles}
+      data={data}
+      value={value}
+      dismissText={dismissText}
+      title={title}
+      okText={okText}>{childEl}</PopupCascader>);
   }
 }

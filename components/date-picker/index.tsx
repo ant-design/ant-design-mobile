@@ -1,10 +1,11 @@
-/* eslint no-console:0 */
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import GregorianCalendar from 'gregorian-calendar';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
 import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
 import zhCnPicker from 'rmc-date-picker/lib/locale/zh_CN';
+import PopupStyles from './PopupStyles';
 
 const now = new GregorianCalendar(zhCn);
 now.setTime(Date.now());
@@ -101,9 +102,7 @@ export default class DatePicker extends React.Component {
     };
     return (
       <PopupDatePicker {...this.props}
-        WrapComponent="div"
-        popupTransitionName="am-slide-fade"
-        maskTransitionName="am-fade"
+        styles={PopupStyles}
         locale={locale}
         okText={okText}
         dismissText={dismissText}

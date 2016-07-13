@@ -1,4 +1,4 @@
-import {ScrollView, TouchableHighlight, StyleSheet} from 'react-native';
+import {View, TouchableHighlight, StyleSheet} from 'react-native';
 import { Picker, List } from 'antm';
 import * as React from 'react';
 
@@ -32,6 +32,7 @@ export default class PopupExample extends React.Component {
     super(props);
     this.state = {
       data: [],
+      value: [],
     };
   }
   onClick = () => {
@@ -42,20 +43,22 @@ export default class PopupExample extends React.Component {
       });
     }, 500);
   }
+  onChange = (value) => {
+    console.log(value);
+    this.setState({ value });
+  }
   render() {
-    console.log(Picker, 'ppp');
-    
-    return (<ScrollView>
+    return (<View>
       <List>
-        <List.Header>基本用法 Demo</List.Header>
-          <List.Body>
-            <Picker data={this.state.data} cols={2}>
-              <List.Item arrow="horizontal" onClick={this.onClick}>省市选择(异步加载)</List.Item>
-            </Picker>
-          </List.Body>
-        <List.Footer>列表尾部,List.Footer</List.Footer>
+        <List.Body>
+          <Picker data={this.state.data} cols={2} triggerType="onClick" 
+            value={this.state.value} onChange={this.onChange}
+          >
+            <List.Item arrow="horizontal" onClick={this.onClick}>省市选择(异步加载)</List.Item>
+          </Picker>
+        </List.Body>
       </List>
-    </ScrollView>);
+    </View>);
   }
 }
 
