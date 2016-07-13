@@ -10,14 +10,14 @@ function noop() {}
 export interface GridProps {
   prefixCls?: string,
   style?: React.CSSProperties,
-  data?: Array,
+  data?: Array<{}>,
   onChange?: Function,
   level?: number,
   height?: number,
 }
 
 export interface GridState {
-  SubMenuData: Array,
+  SubMenuData: Array<{}>,
   firstValue?: any,
 }
 
