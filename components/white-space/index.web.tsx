@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 export interface WhiteSpaceProps {
-  prefixCls?:string,
-  style?: React.CSSProperties,
-  mode?:number,
+  prefixCls?:string;
+  style?: React.CSSProperties;
+  mode?:number;
 }
 
 export default class WhiteSpace extends React.Component<WhiteSpaceProps, any> {

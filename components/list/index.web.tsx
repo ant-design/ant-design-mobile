@@ -7,8 +7,8 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
 export interface ListProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
+  prefixCls?: string;
+  style?: React.CSSProperties;
 }
 
 class List extends React.Component<ListProps, any> {

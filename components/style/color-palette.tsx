@@ -56,4 +56,4 @@ export default {
   orange_8: '#F55404',
   orange_9: '#D04B09',
   orange_10: '#A8410D',
-}
+};

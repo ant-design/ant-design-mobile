@@ -5,17 +5,17 @@ import Carousel from '../carousel';
 function noop() {}
 
 export interface GridProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  data?: Array<{}>,
-  onClick?: Function,
-  hasLine?: boolean,
-  needActive?: boolean,
-  isCarousel?: boolean,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  data?: Array<{}>;
+  onClick?: Function;
+  hasLine?: boolean;
+  needActive?: boolean;
+  isCarousel?: boolean;
 }
 
 export interface GridState {
-  hover: boolean,
+  hover: boolean;
 }
 
 export default class Grid extends React.Component<GridProps, GridState> {

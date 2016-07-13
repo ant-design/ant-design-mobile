@@ -2,8 +2,8 @@ import React from 'react';
 import RcCollapse from 'rc-collapse';
 
 export interface CollapseProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
+  prefixCls?: string;
+  style?: React.CSSProperties;
 }
 
 export default class Collapse extends React.Component<CollapseProps, any> {

@@ -5,12 +5,12 @@ import splitObject from '../_util/splitObject';
 function noop() {}
 
 export interface AgreeItemProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  name?: string,
-  checked?: boolean,
-  disabled?: boolean,
-  onChange?: Function,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
 }
 
 export default class AgreeItem extends React.Component<AgreeItemProps, any> {

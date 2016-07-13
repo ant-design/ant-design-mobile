@@ -7,10 +7,10 @@ import Toast from '../toast';
 function noop() { }
 
 export interface UploaderProps {
-  prefixCls?:string,
-  style?: React.CSSProperties,
-  files?:Array<{}>,
-  onChange?: Function,
+  prefixCls?:string;
+  style?: React.CSSProperties;
+  files?:Array<{}>;
+  onChange?: Function;
 }
 
 export default class Uploader extends React.Component<UploaderProps, any> {

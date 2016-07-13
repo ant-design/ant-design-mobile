@@ -5,15 +5,15 @@ import splitObject from '../_util/splitObject';
 function noop() {}
 
 export interface PageResultProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  imgUrl?: string,
-  title?: string,
-  message?: string,
-  buttonTxt?: string,
-  buttonType?: string,
-  buttonGhost?: string,
-  buttonClick?: Function,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  imgUrl?: string;
+  title?: string;
+  message?: string;
+  buttonTxt?: string;
+  buttonType?: string;
+  buttonGhost?: string;
+  buttonClick?: Function;
 }
 
 export default class PageResult extends React.Component<PageResultProps, any> {

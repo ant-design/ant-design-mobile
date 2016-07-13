@@ -3,29 +3,29 @@ import classNames from 'classnames';
 function noop() {}
 
 export interface TextareaItemProps {
-  prefixCls?: string,
-  prefixListCls?: string,
-  style?: React.CSSProperties,
-  type?: 'hasLine',
-  title?: string|React.ReactNode,
-  name?: string,
-  value?: string,
-  placeholder?: string,
-  clear?: boolean,
-  rows?: number,
-  count?: number,
-  onChange?: Function,
-  onBlur?: Function,
-  onFocus?: Function,
-  error?: boolean,
-  onExtraClick?: Function,
-  autoHeight?: boolean,
-  editable?: boolean,
-  labelNumber?: number,
+  prefixCls?: string;
+  prefixListCls?: string;
+  style?: React.CSSProperties;
+  type?: 'hasLine';
+  title?: string|React.ReactNode;
+  name?: string;
+  value?: string;
+  placeholder?: string;
+  clear?: boolean;
+  rows?: number;
+  count?: number;
+  onChange?: Function;
+  onBlur?: Function;
+  onFocus?: Function;
+  error?: boolean;
+  onExtraClick?: Function;
+  autoHeight?: boolean;
+  editable?: boolean;
+  labelNumber?: number;
 }
 
 export interface TextareaItemState {
-  focus: boolean,
+  focus: boolean;
 }
 
 export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {

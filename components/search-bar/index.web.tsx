@@ -3,24 +3,24 @@ import classNames from 'classnames';
 function noop() {}
 
 export interface SearchBarProps {
-  prefixCls?: string,
-  style?: React.CSSProperties,
-  value?: string,
-  placeholder?: string,
-  onSubmit?: Function,
-  onChange?: Function,
-  onFocus?: Function,
-  onBlur?: Function,
-  onCancel?: Function,
-  onClear?: Function,
-  showCancelButton?: boolean,
-  cancelTxt?: string,
-  disablSearch?: boolean,
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  value?: string;
+  placeholder?: string;
+  onSubmit?: Function;
+  onChange?: Function;
+  onFocus?: Function;
+  onBlur?: Function;
+  onCancel?: Function;
+  onClear?: Function;
+  showCancelButton?: boolean;
+  cancelTxt?: string;
+  disablSearch?: boolean;
 }
 
 export interface SearchBarState {
-  value?: string,
-  focus?: boolean,
+  value?: string;
+  focus?: boolean;
 }
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
