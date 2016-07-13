@@ -10,12 +10,18 @@ export default {
   innerContainer: {
     borderRadius: variables.radius_1,
     width: 286,
-    padding: 6 * variables.grid,
+    paddingTop: 6 * variables.grid,
   },
-  title: {
+  header: {
     fontSize: variables.font_size_6,
     color: variables.neutral_10,
     textAlign: 'center',
+    paddingHorizontal: 6 * variables.grid,
+  },
+  body: {
+    paddingTop: 0,
+    paddingBottom: 6 * variables.grid,
+    paddingHorizontal: 6 * variables.grid,
   },
   maskClosable: {
     position: 'absolute', 

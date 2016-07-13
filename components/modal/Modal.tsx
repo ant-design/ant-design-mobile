@@ -84,8 +84,8 @@ class AntmModal extends React.Component <modalProps, any>{
                 <View style={modalStyle.maskClosable}></View>
               </TouchableWithoutFeedback> : null}
               <View style={[modalStyle.innerContainer, innerContainerTransparentStyle, style]}>
-                {title ? <Text style={modalStyle.title}>{title}</Text> : null}
-                {children}
+                {title ? <Text style={modalStyle.header}>{title}</Text> : null}
+                <View style={modalStyle.body}>{children}</View>
                 {footer ? <View>{footer}</View> : null}
                 {closable ? <TouchableWithoutFeedback onPress={this.onClosePress}>
                   <View style={modalStyle.closeWrap}>
