@@ -8,14 +8,14 @@ function noop() {}
 export interface SubMenuProps {
   prefixCls?: string,
   style?: React.CSSProperties,
-  value?: Array,
-  data?: Array,
+  value?: Array<{}>,
+  data?: Array<{}>,
   onChange?: Function,
 }
 
 export interface SubMenuState {
-  value?: Array,
-  data?: Array,
+  value?: Array<{}>,
+  data?: Array<{}>,
 }
 
 export default class SubMenu extends React.Component<SubMenuProps, SubMenuState> {
