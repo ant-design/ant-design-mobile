@@ -58,7 +58,7 @@
     "react-hammerjs": "^0.4.6",
     "react-slick": "~0.12.2",
     "rc-swipeout": "~1.0.2",
-    "rmc-cascader": "~2.0.0",
+    "rmc-cascader": "~2.2.0",
     "rmc-date-picker": "~3.0.0",
     "rmc-list-view": "~0.5.2",
     "rmc-pull-to-refresh": "~0.3.0"
