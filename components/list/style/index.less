@@ -38,14 +38,14 @@
     /*list左图片显示*/
     .@{listPrefixCls}-thumb {
       &:first-child {
-        margin-right: @margin-2;
+        margin-right: 2 * @grid;
       }
       &:last-child {
-        margin-left: @margin-2;
+        margin-left: 2 * @grid;
       }
       img {
-        width: @margin-6;
-        height: @margin-6;
+        width: 7 * @grid;
+        height: 7 * @grid;
         vertical-align: middle;
       }
     }
@@ -98,7 +98,7 @@
         color: @neutral-7;
         font-size: @font-size-4;
         line-height: @line-height-2;
-        margin-top: @margin-1;
+        margin-top: @grid;
         .ellipsis();
       }
       /*list右侧箭头*/
@@ -118,7 +118,7 @@
             width: 9px;
             height: 9px;
             margin-left: 0;
-            border: @border-type-1 @border-width-1 @neutral-7;
+            border: solid 1px @neutral-7;
             border-top: 0 none;
             border-left: 0 none;
           }

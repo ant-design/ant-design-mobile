@@ -57,7 +57,7 @@
 
   &-handler {
     text-align: center;
-    border: @border-thickness-1 @border-type-1 @border-color-base;
+    border: 1px solid @border-color-base;
     border-radius: @radius-2;
     overflow: hidden;
     color: #999;
@@ -65,13 +65,13 @@
     display: inline-block;
     box-sizing: content-box;
     &:active {
-      border-color: @brand-6;
+      border-color: @brand-base;
       z-index: 2;
     }
     &:active &-up-inner,
     &:active &-down-inner {
-      border-color: @brand-6;
-      color: @brand-6;
+      border-color: @brand-base;
+      color: @brand-base;
     }
   }
   &-handler-up {
@@ -123,7 +123,7 @@
     }
     .@{stepperPrefixCls}-handler {
       &:active {
-        border-color: @brand-6;
+        border-color: @brand-base;
       }
     }
     .@{stepperPrefixCls}-handler-up {
@@ -133,7 +133,7 @@
     .@{stepperPrefixCls}-handler-down {
       border-top-right-radius: @radius-2;
       border-bottom-right-radius: @radius-2;
-      border-right: @border-thickness-1 @border-type-1 @border-color-base;
+      border-right: 1px solid @border-color-base;
     }
     .@{stepperPrefixCls}-handler-down-disabled {
       right: -1px;
@@ -176,7 +176,7 @@
     }
 
     .@{stepperPrefixCls}-handler-down:active .@{stepperPrefixCls}-handler-down-inner {
-      color: @brand-6;
+      color: @brand-base;
     }
   }
 

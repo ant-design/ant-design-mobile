@@ -1,90 +1,4 @@
-@pink-1: #000;
-@pink-2: #000;
-@pink-3: #000;
-@pink-4: #000;
-@pink-5: #000;
-@pink-6: #000;
-@pink-7: #000;
-@pink-8: #000;
-@pink-9: #000;
-@pink-10: #000;
-
-@red-1: #fee8e7;
-@red-2: #fdcccb;
-@red-3: #fbadaa;
-@red-4: #f88b88;
-@red-5: #f56863;
-@red-6: #f2443e;
-@red-7: #ed211a;
-@red-8: #ce1812;
-@red-9: #a91813;
-@red-10: #881714;
-
-@yellow-1: #fef5e1;
-@yellow-2: #fee8bb;
-@yellow-3: #feda92;
-@yellow-4: #fecc68;
-@yellow-5: #fcbd3d;
-@yellow-6: #FAAE14;
-@yellow-7: #DF9706;
-@yellow-8: #B77D09;
-@yellow-9: #94670B;
-@yellow-10: #77540D;
-
-@green-1: #EDFBE7;
-@green-2: #CEF2C0;
-@green-3: #B3E69E;
-@green-4: #99D97F;
-@green-5: #81CC62;
-@green-6: #6ABF47;
-@green-7: #5BA63C;
-@green-8: #4E8B35;
-@green-9: #437230;
-@green-10: #395B2B;
-
-@emerald-1: #000;
-@emerald-2: #000;
-@emerald-3: #000;
-@emerald-4: #000;
-@emerald-5: #000;
-@emerald-6: #000;
-@emerald-7: #000;
-@emerald-8: #000;
-@emerald-9: #000;
-@emerald-10: #000;
-
-@blue-1: #E4F6FE;
-@blue-2: #C2EBFD;
-@blue-3: #9EDFFC;
-@blue-4: #79D2FA;
-@blue-5: #53C4F8;
-@blue-6: #2DB7F5;
-@blue-7: #0EA6EB;
-@blue-8: #0F8BC2;
-@blue-9: #10709B;
-@blue-10: #115777;
-
-@orange-1: #FEEFE8;
-@orange-2: #FED3BF;
-@orange-3: #FDBB99;
-@orange-4: #FEA477;
-@orange-5: #FE8E57;
-@orange-6: #FE7A38;
-@orange-7: #FD661B;
-@orange-8: #F55404;
-@orange-9: #D04B09;
-@orange-10: #A8410D;
-
-@purple-1: #000;
-@purple-2: #000;
-@purple-3: #000;
-@purple-4: #000;
-@purple-5: #000;
-@purple-6: #000;
-@purple-7: #000;
-@purple-8: #000;
-@purple-9: #000;
-@purple-10: #000;
+@import './color-palette';
 
 //中性色版(neutral)
 @neutral-1: #fff;
@@ -97,15 +11,10 @@
 @neutral-8: #666;
 @neutral-9: #404040;
 @neutral-10: #222;
-
-//中性色版(gray)
-@gray-1: #000;
-@gray-2: #666;
-@gray-4: #666;
-@gray-5: #d9d9d9;
-@gray-8: #666;
+@neutral-11: #000;
 
 //品牌色（brand）
+@brand-base: @blue-6; // 主要品牌色
 @brand-1: @blue-1;
 @brand-2: @blue-2;
 @brand-3: @blue-3;
@@ -129,16 +38,6 @@
 
 @function-link-1: @blue-6;
 
-//间距（margin）
-@margin-1: 4px;
-@margin-2: 8px;
-@margin-3: 12px;
-@margin-4: 16px;
-@margin-5: 24px;
-@margin-6: 28px;
-@margin-7: 32px;
-@margin-8: 40px;
-@margin-9: 44px;
 
 //字体家族，可拓展
 @font-family-1: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
@@ -164,29 +63,14 @@
 @font-weight-1:normal;
 @font-weight-2:bold;
 
-//字体风格，可拓展
-
-
 //圆角边框 (radius)
 @radius-1: 4px;
 @radius-2: 6px;
 
-//线条粗细，可拓展
-@border-width-1: 1px;
-@border-width-2: 2px;
-
-@border-thickness-1: 1px;
-@border-thickness-2: 2px;
-
-//线条类型
-@border-type-1: solid;
-@border-type-2: dashed;
-
-
 //阴影 (shadow);
 //常用尺寸size，可拓展
 @shadow-alpha: 20%;
-@shadow-color: @gray-1;
+@shadow-color: @neutral-11;
 @shadow-blur-1: 0;
 @shadow-blur-2: 4px;
 @shadow-blur-3: 8px;
