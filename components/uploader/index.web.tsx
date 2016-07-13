@@ -9,7 +9,7 @@ function noop() { }
 export interface UploaderProps {
   prefixCls?:string,
   style?: React.CSSProperties,
-  files?:Array,
+  files?:Array<{}>,
   onChange?: Function,
 }
 

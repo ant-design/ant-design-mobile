@@ -7,7 +7,7 @@ function noop() {}
 export interface GridProps {
   prefixCls?: string,
   style?: React.CSSProperties,
-  data?: Array,
+  data?: Array<{}>,
   onClick?: Function,
   hasLine?: boolean,
   needActive?: boolean,
