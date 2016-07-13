@@ -5,7 +5,17 @@ import List from '../list';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class RadioItem extends React.Component {
+export interface RadioItemProps {
+  prefixCls?: string,
+  style?: React.CSSProperties,
+  name?: string,
+  checked?: boolean,
+  disabled?: boolean,
+  onChange?: Function,
+  needActive?: boolean,
+}
+
+export default class RadioItem extends React.Component<RadioItemProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,

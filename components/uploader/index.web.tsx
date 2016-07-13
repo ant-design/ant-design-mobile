@@ -6,7 +6,14 @@ import Flex from '../flex';
 import Toast from '../toast';
 function noop() { }
 
-export default class Uploader extends React.Component {
+export interface UploaderProps {
+  prefixCls?:string,
+  style?: React.CSSProperties,
+  files?:Array<{}>,
+  onChange?: Function,
+}
+
+export default class Uploader extends React.Component<UploaderProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     files: PropTypes.array,
