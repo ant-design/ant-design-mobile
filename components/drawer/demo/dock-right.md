@@ -7,6 +7,10 @@ title: 右出
 
 
 ````jsx
+// 此处用作demo展示，不要用在生产环境
+this.customNavFlag = true;
+
+
 import { Drawer, List, NavBar } from 'antm';
 
 const App = React.createClass({
@@ -19,14 +23,9 @@ const App = React.createClass({
     this.setState({
       [d]: !this.state[d],
     });
-    this.props.onNavBarChange();
+   // this.props.onNavBarChange();
   },
   render() {
-    // customNavBar 此处用作demo，不要用在生产环境
-    App.customNavBar = (<NavBar iconName={false}
-      rightContent={<span onClick={() => this.onDock('docked1')}>点击</span>}
-    >嵌入文档</NavBar>);
-
     const sidebar = (<List>
       <List.Body>
         {[1, 2, 3, 4, 5, 6].map((i, index) => {
@@ -49,10 +48,18 @@ const App = React.createClass({
       open: false,
       position: 'right',
     };
-    return (<div className="drawer-container">
-      <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps1}>
-        请点击右上角
-      </Drawer>
+    return (<div>
+      <NavBar iconName={false}
+        rightContent={<span onClick={() => this.onDock('docked1')}
+        >点击</span>}
+      >
+        嵌入文档
+      </NavBar>
+      <div className="drawer-container">
+        <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps1}>
+          请点击右上角
+        </Drawer>
+      </div>
     </div>);
   },
 });

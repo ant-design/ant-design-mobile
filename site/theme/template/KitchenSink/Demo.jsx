@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
+import classNames from 'classnames';
 import * as utils from '../utils';
 
 import { NavBar, ActionSheet, Icon } from 'antm';
@@ -178,16 +179,26 @@ export default class Home extends React.Component {
       return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
     });
 
+    demoSort[current].preview.call(this);
+    const customNavFlag = this.customNavFlag;
+
     return (
       <div id={name}>
+        {
+        !customNavFlag &&
         <span style={{ position: 'fixed', zIndex: 9999, top: 0, left: 100, color: '#999' }}
           onClick={() => this.setState({ hideNavBar: !this.state.hideNavBar })}>
           {this.state.hideNavBar ? '⬇️' : '⬆️'}
         </span>
+        }
 
         <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0,
           display: this.state.hideNavBar ? 'none' : 'block' }}>
-          { this.state.customNavBar }
+          {
+            !customNavFlag ?
+            this.state.customNavBar :
+            null
+          }
         </div>
 
         {demoSort.map((i, index) => {
@@ -197,7 +208,14 @@ export default class Home extends React.Component {
             isShow = this.props.params.index === undefined && current === index;
           }
 
-          return (<div className={ isShow ? 'demo-preview-item show' : 'demo-preview-item hide' }
+          const previewItemClass = classNames({
+            'demo-preview-item': true,
+            'demo-preview-item-custom': customNavFlag,
+            show: isShow,
+            hide: !isShow
+          });
+
+          return (<div className={ previewItemClass }
             id={`${name}-demo-${index}`} key={index}>
             {!i.meta.destroyComponent || isShow ? React.cloneElement(i.preview(React, ReactDOM), {
               onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },

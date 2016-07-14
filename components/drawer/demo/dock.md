@@ -7,6 +7,10 @@ title: 嵌入文档模式
 
 
 ````jsx
+// 此处用作demo展示，不要用在生产环境
+this.customNavFlag = true;
+
+
 import { Drawer, List, NavBar } from 'antm';
 
 const App = React.createClass({
@@ -19,14 +23,8 @@ const App = React.createClass({
     this.setState({
       [d]: !this.state[d],
     });
-    this.props.onNavBarChange();
   },
   render() {
-    // customNavBar 此处用作demo，不要用在生产环境
-    App.customNavBar = (<NavBar iconName="ellipsis"
-      onLeftClick={() => this.onDock('docked')}
-    >嵌入文档</NavBar>);
-
     const sidebar = (<List>
       <List.Body>
         {[1, 2, 3, 4, 5, 6].map((i, index) => {
@@ -49,10 +47,13 @@ const App = React.createClass({
       open: false,
       position: 'left',
     };
-    return (<div className="drawer-container">
-      <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-        请点击左上角
-      </Drawer>
+    return (<div>
+      <NavBar iconName="ellipsis" onLeftClick={() => this.onDock('docked')}>嵌入文档</NavBar>
+      <div className="drawer-container">
+        <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
+          请点击左上角
+        </Drawer>
+      </div>
     </div>);
   },
 });

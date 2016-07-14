@@ -7,6 +7,10 @@ title: 失效状态/disabled
 
 
 ````jsx
+// 此处用作demo展示，不要用在生产环境
+this.customNavFlag = true;
+
+
 import { Button, WingBlank, WhiteSpace, NavBar } from 'antm';
 
 const ButtonExample = React.createClass({
@@ -17,19 +21,19 @@ const ButtonExample = React.createClass({
   },
   switchDark() {
     this.setState({ dark: !this.state.dark });
-    this.props.onNavBarChange();
   },
   render() {
-    // customNavBar 此处用作demo，不要用在生产环境
-    ButtonExample.customNavBar = (<NavBar iconName={false} rightContent={<span
-      style={{ cursor: 'pointer' }}
-      onClick={this.switchDark}
-    >{this.state.dark ? '白天' : '夜间'}</span>}>失效状态</NavBar>);
-
     return (
       <div className="button-container"
         style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
       >
+        <NavBar iconName={false} rightContent={<span
+          style={{ cursor: 'pointer' }}
+          onClick={this.switchDark}
+          >{this.state.dark ? '白天' : '夜间'}</span>}
+        >
+          失效状态
+        </NavBar>
         <WhiteSpace mode={32} />
         <WingBlank>
           <p className="demo-p">主按钮失效</p>
