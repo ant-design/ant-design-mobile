@@ -7,6 +7,10 @@ title: 基本
 
 
 ````jsx
+// 此处用作demo展示，不要用在生产环境
+this.customNavFlag = true;
+
+
 import { Drawer, List, NavBar } from 'antm';
 
 const App1 = React.createClass({
@@ -20,11 +24,6 @@ const App1 = React.createClass({
     this.setState({ open: !this.state.open });
   },
   render() {
-    // customNavBar 此处用作demo，不要用在生产环境
-    App1.customNavBar = (<NavBar iconName="ellipsis"
-      onLeftClick={this.onOpenChange}
-    >基本</NavBar>);
-
     const sidebar = (<List>
       <List.Body>
         {[1, 2, 3, 4, 5, 6].map((i, index) => {
@@ -47,10 +46,15 @@ const App1 = React.createClass({
       position: this.state.position,
       onOpenChange: this.onOpenChange,
     };
-    return (<div className="drawer-container">
-      <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-        请点击左上角
-      </Drawer>
+    return (<div>
+      <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>
+        基本
+      </NavBar>
+      <div className="drawer-container">
+        <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
+          请点击左上角
+        </Drawer>
+      </div>
     </div>);
   },
 });
