@@ -5,7 +5,11 @@ import CardHeader from './CardHeader';
 import CardFooter from './CardFooter';
 import CardStyle from './style/index';
 
-export default class Card extends React.Component {
+export interface CardProps {
+  style?:{};
+}
+
+export default class Card extends React.Component<CardProps, any> {
   static defaultProps = {
     style: {},
   };

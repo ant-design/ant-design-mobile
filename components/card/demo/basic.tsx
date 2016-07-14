@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import Card from 'antm';
+import { Card } from 'antm';
 
 export default class BasicCardExample extends React.Component {
   render() {
