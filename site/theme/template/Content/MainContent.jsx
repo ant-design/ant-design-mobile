@@ -144,33 +144,33 @@ export default class MainContent extends React.Component {
       <div className="main-wrapper">
 
         <div style={{ width: 240, float: 'left', marginRight: '-1px' }}>
-            <Menu className="aside-container" mode="inline"
-              defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
-              selectedKeys={[activeMenuItem]}>
-              { menuItems }
-            </Menu>
-          </div>
-          <div className="main-container">
+          <Menu className="aside-container" mode="inline"
+            defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
+            selectedKeys={[activeMenuItem]}>
+            { menuItems }
+          </Menu>
+        </div>
+        <div className="main-container">
+          {
+            props.utils.get(props, 'pageData.demo') ?
+              <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
+              <Article {...props} content={localizedPageData} />
+          }
+        </div>
+        <section className="prev-next-nav">
+          <div className="prev-next-nav-wrap">
             {
-              props.utils.get(props, 'pageData.demo') ?
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
-                <Article {...props} content={localizedPageData} />
+              !!prev ?
+                React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                null
+            }
+            {
+              !!next ?
+                React.cloneElement(next.props.children, { className: 'next-page' }) :
+                null
             }
           </div>
-            <section className="prev-next-nav">
-              <div className="prev-next-nav-wrap">
-              {
-                !!prev ?
-                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
-                  null
-              }
-              {
-                !!next ?
-                  React.cloneElement(next.props.children, { className: 'next-page' }) :
-                  null
-              }
-              </div>
-            </section>
+        </section>
       </div>
     );
   }
