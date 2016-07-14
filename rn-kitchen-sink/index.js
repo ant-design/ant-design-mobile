@@ -8,7 +8,7 @@ import {
   Dimensions,
   Platform,
 } from 'react-native';
-import codePush from "react-native-code-push";
+import codePush from 'react-native-code-push';
 import { Scene, Router } from 'react-native-router-flux';
 
 import Home from './components/Home';
@@ -17,11 +17,7 @@ import WebIndex from './components/WebIndex';
 import { APIS, COMPONENTS } from './demoList';
 
 class AntmRnApp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount(){
+  componentDidMount() {
     codePush.sync();
   }
 
@@ -51,7 +47,7 @@ class AntmRnApp extends React.Component {
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
         <Router>
-          <Scene key="root" navigationBarStyle={{backgroundColor: '#2e2e2e'}} titleStyle={{color: 'white'}}>
+          <Scene key="root" navigationBarStyle={{ backgroundColor: '#2e2e2e' }} titleStyle={{ color: 'white' }}>
             <Scene key="home" component={Home} title="Ant Design Mobile" initial />
             <Scene key="web" component={WebIndex} title="Antm Web Component" />
             <Scene key="native" component={RnIndex} title="Antm React Native" />
