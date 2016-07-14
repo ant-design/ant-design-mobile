@@ -11,10 +11,8 @@ export default class BasicListExample extends React.Component {
           <List.Header>基本用法 Demo</List.Header>
             <List.Body>
               <List.Item
-                needActive = {false}
               >标题文字,无Active效果</List.Item>
               <List.Item
-                needActive
                 onClick={() => alert('点击响应方法')}
               >标题文字默认有Active效果</List.Item>
               <List.Item

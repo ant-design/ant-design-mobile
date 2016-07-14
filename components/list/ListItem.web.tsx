@@ -6,7 +6,6 @@ function noop() {}
 export interface ListItemProps {
   prefixCls?: string;
   style?: React.CSSProperties;
-  needActive?: boolean;
   thumb: string|{}|React.ReactNode;
   extra?: string|{}|React.ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
@@ -22,7 +21,6 @@ export interface ListItemState {
 export default class ListItem extends React.Component<ListItemProps, ListItemState> {
   static propTypes = {
     prefixCls: PropTypes.string,
-    needActive: PropTypes.bool,
     thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
     extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
     arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
@@ -33,10 +31,8 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
 
   static defaultProps = {
     prefixCls: 'am-list',
-    onClick: noop,
     thumb: '',
     arrow: '',
-    needActive: true,
     error: false,
     align: 'middle',
   };
@@ -48,12 +44,8 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     };
   }
 
-  onClick = (e) => {
-    this.props.onClick(e);
-  };
-
   onTouchStart = () => {
-    if (this.props.needActive) {
+    if (this.props.onClick) {
       this.setState({
         hover: true,
       });
@@ -61,7 +53,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
   };
 
   onTouchEnd = () => {
-    if (this.props.needActive) {
+    if (this.props.onClick) {
       this.setState({
         hover: false,
       });
@@ -69,8 +61,8 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
   };
 
   render() {
-    let [{prefixCls, thumb, arrow, error, children, extra, className, align, needActive}, restProps] = splitObject(this.props,
-      ['prefixCls', 'thumb', 'arrow', 'error', 'children', 'extra', 'className', 'align', 'needActive']);
+    let [{prefixCls, thumb, arrow, error, children, extra, className, align}, restProps] = splitObject(this.props,
+      ['prefixCls', 'thumb', 'arrow', 'error', 'children', 'extra', 'className', 'align']);
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;
@@ -114,7 +106,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     return (
       <div
         className={wrapCls}
-        onClick={this.onClick}
+        onClick={this.props.onClick}
         onTouchStart={this.onTouchStart}
         onTouchEnd={this.onTouchEnd}
         onTouchCancel={this.onTouchEnd}

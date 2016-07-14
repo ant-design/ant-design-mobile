@@ -42,7 +42,6 @@ ReactDOM.render(
           align="bottom"
         ><div>底部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
         <List.Item
-          needActive={false}
           extra={<Button
             size="small"
             inline

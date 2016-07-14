@@ -22,13 +22,11 @@ export default class Home extends React.Component {
             <List.Item
               thumb="https://zos.alipayobjects.com/rmsportal/UIqwcqpVsIjvyYZ.png"
               arrow="horizontal"
-              needActive
               onClick={ Actions.web }
             >H5 组件</List.Item>
             <List.Item
               thumb="https://zos.alipayobjects.com/rmsportal/lSsJiCJnOzSnBJG.png"
               onClick={Actions.native}
-              needActive
               arrow="horizontal"
               last
             >React Native 组件</List.Item>
