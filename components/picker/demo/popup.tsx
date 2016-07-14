@@ -61,6 +61,3 @@ export default class PopupExample extends React.Component {
     </View>);
   }
 }
-
-export const title = 'Picker';
-export const description = 'picker example';

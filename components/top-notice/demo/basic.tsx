@@ -9,7 +9,7 @@ export default class TopNoticeExample extends React.Component<any, any> {
         <WhiteSpace mode={20} />
         <TopNotice>国庆期间余额宝收益和转出到账时间</TopNotice>
         <WhiteSpace mode={20} />
-        <TopNotice mode="closable" onClick={() => {console.log('close')}}>
+        <TopNotice mode="closable" onClick={() => {console.log('close');}}>
           国庆期间余额宝收益和转出到账时间1
         </TopNotice>
         <WhiteSpace mode={20} />

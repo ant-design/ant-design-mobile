@@ -73,6 +73,3 @@ export default class BasicButtonExample extends React.Component {
     );
   }
 }
-
-export const title = 'Button';
-export const description = 'button example';

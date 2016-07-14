@@ -10,7 +10,7 @@ export default class BasicSwipeActionExample extends React.Component<any, any> {
           <List.Body>
             <SwipeAction
               autoClose
-              style={{ backgroundColor: '#c1c1c1' }}
+              style={{ backgroundColor: 'transparent' }}
               right={[
                   {
                     text: 'more',

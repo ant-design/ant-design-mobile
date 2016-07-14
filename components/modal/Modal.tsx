@@ -5,7 +5,7 @@ import splitObject from '../_util/splitObject';
 import modalStyle from './style/index';
 import modalProps from './modalPropsType';
 
-class AntmModal extends React.Component <modalProps, any>{
+class AntmModal extends React.Component<modalProps, any> {
   static propTypes = {
     title: PropTypes.string,
     visible: PropTypes.bool,
@@ -73,23 +73,23 @@ class AntmModal extends React.Component <modalProps, any>{
     return (
       <Modal
         animationType={animationType}
-        onRequestClose={() => {this.onRequestClose(false)}}
+        onRequestClose={() => {this.onRequestClose(false);}}
         onShow={onShow}
         transparent={transparent}
         visible={showModal}
       >
         { transparent ? 
-            <View style={modalStyle.container}>
+            <View style={[modalStyle.container]}>
               {maskClosable ? <TouchableWithoutFeedback onPress={this.onClosePress}>
-                <View style={modalStyle.maskClosable}></View>
+                <View style={[modalStyle.maskClosable]}></View>
               </TouchableWithoutFeedback> : null}
               <View style={[modalStyle.innerContainer, innerContainerTransparentStyle, style]}>
-                {title ? <Text style={modalStyle.header}>{title}</Text> : null}
+                {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}
                 <View style={modalStyle.body}>{children}</View>
                 {footer ? <View>{footer}</View> : null}
                 {closable ? <TouchableWithoutFeedback onPress={this.onClosePress}>
-                  <View style={modalStyle.closeWrap}>
-                    <Text style={modalStyle.close}>×</Text>
+                  <View style={[modalStyle.closeWrap]}>
+                    <Text style={[modalStyle.close]}>×</Text>
                   </View>
                 </TouchableWithoutFeedback> : null}
               </View>
