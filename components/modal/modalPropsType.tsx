@@ -1,4 +1,4 @@
-interface modalProps {
+interface ModalProps {
   title?: string;
   visible: boolean;
   closable?: boolean;
@@ -13,4 +13,4 @@ interface modalProps {
   prefixCls?:string;
 };
 
-export default modalProps;
+export default ModalProps;

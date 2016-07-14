@@ -7,7 +7,7 @@ import SwipeActionProps from './SwipeActionPropsType';
 import splitObject from '../_util/splitObject';
 import SwipeStyle from './style/index';
 
-class SwipeAction extends React.Component <SwipeActionProps, any>{
+class SwipeAction extends React.Component<SwipeActionProps, any> {
   static propTypes = {
     autoClose: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -70,13 +70,13 @@ class SwipeAction extends React.Component <SwipeActionProps, any>{
     const { left, right } = this.props;
     const actions = [...left, ...right];
     return (
-      <View style={SwipeStyle.actions}>
+      <View style={[SwipeStyle.actions]}>
         {
           actions.map((btn, i) => {
             return (
-              <View key={i} style={SwipeStyle.buttonWrap}>
-                <TouchableOpacity onPress={() => {this.onAndroidBtnClick(btn)}}>
-                  <Text style={SwipeStyle.button}>{btn.text || 'Click'}</Text>
+              <View key={i} style={[SwipeStyle.buttonWrap]}>
+                <TouchableOpacity onPress={() => {this.onAndroidBtnClick(btn);}}>
+                  <Text style={[SwipeStyle.button]}>{btn.text || 'Click'}</Text>
                   </TouchableOpacity>
               </View>
             );
@@ -95,7 +95,7 @@ class SwipeAction extends React.Component <SwipeActionProps, any>{
         onShow={this.props.onOpen}
         onClose={this.props.onClose}
         title={this.props.title}
-        onRequestClose={() => {this._setModalVisible(false)}}
+        onRequestClose={() => {this._setModalVisible(false);}}
         footer={this._renderAndroidBtn()}
       />
     );
