@@ -1,4 +1,3 @@
-import colorPalette from '../../style/color-palette';
 import variables from '../../style/variables';
 
 export default {
@@ -12,7 +11,7 @@ export default {
   content: {
     flex: 1,
     fontSize: variables.font_size_2,
-    color: colorPalette.red_6,
+    color: variables.red_6,
     marginRight: 3 * variables.grid,
   },
   left8: {
@@ -22,14 +21,14 @@ export default {
     marginLeft: 3 * variables.grid,
   },
   close: {
-    color: colorPalette.red_6,
+    color: variables.red_6,
     fontSize: variables.font_size_6,
     marginRight: 2 * variables.grid,
     fontWeight: '200',
   },
   link: {
     transform: [{ rotate: '225deg' }],
-    color: colorPalette.red_6,
+    color: variables.red_6,
     fontSize: variables.font_size_1,
     fontWeight: '500',
     marginRight: 3 * variables.grid,
