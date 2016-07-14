@@ -30,16 +30,16 @@ export default class Switch extends React.Component<SwitchProps, any> {
     let { prefixCls, style, name, checked, disabled, className } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (<label className={wrapCls} style={style}>
-        <input 
-          type="checkbox" 
-          name={name} 
-          className={`${prefixCls}-checkbox`} 
-          {...(disabled ? { disabled: 'disabled' } : '') } 
-          checked={checked} 
+        <input
+          type="checkbox"
+          name={name}
+          className={`${prefixCls}-checkbox`}
+          {...(disabled ? { disabled: 'disabled' } : '') }
+          checked={checked}
           onChange={this.onChange}
         />
         <div className="checkbox"></div>
