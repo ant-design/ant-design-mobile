@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { SwipeAction， List } from 'antm';
+import { SwipeAction, List } from 'antm';
 
 export default class BasicSwipeActionExample extends React.Component<any, any> {
   render() {
