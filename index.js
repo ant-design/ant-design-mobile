@@ -6,6 +6,7 @@ export { default as List } from './components/list/';
 export { default as Modal } from './components/modal/';
 export { default as Picker } from './components/picker/';
 export { default as SwipeAction } from './components/swipe-action/';
+export { default as Switch } from './components/switch/';
 export { default as Tag } from './components/tag/';
 export { default as TopNotice } from './components/top-notice/';
 export { default as WhiteSpace } from './components/white-space/';
