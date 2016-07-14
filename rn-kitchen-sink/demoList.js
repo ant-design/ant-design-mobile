@@ -16,6 +16,12 @@ module.exports = {
       module: require('../components/card/demo/basic'), // 必须
     },
     {
+      title: 'DatePicker', // 必须
+      description: 'DatePicker Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/date-picker/demo/popup'), // 必须
+    },
+    {
       title: 'Flex', // 必须
       description: 'Flex Example',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
@@ -32,6 +38,12 @@ module.exports = {
       description: 'Modal Example',
       icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
       module: require('../components/modal/demo/basic'), // 必须
+    },
+    {
+      title: 'Picker', // 必须
+      description: 'Picker Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/picker/demo/popup'), // 必须
     },
     {
       title: 'Tag', // 必须
@@ -56,18 +68,6 @@ module.exports = {
       description: 'WhiteSpace Example',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
       module: require('../components/white-space/demo/basic'), // 必须
-    },
-    {
-      title: 'Picker', // 必须
-      description: 'Picker Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
-      module: require('../components/picker/demo/popup'), // 必须
-    },
-    {
-      title: 'DatePicker', // 必须
-      description: 'DatePicker Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
-      module: require('../components/date-picker/demo/popup'), // 必须
     },
   ],
 };
