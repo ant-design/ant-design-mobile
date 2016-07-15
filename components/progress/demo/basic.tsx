@@ -41,6 +41,11 @@ export default class BasicProgressExample extends React.Component<any, any> {
             </Button>
             <View style={{ flex: 1 }} />
         </WingBlank>
+        <WhiteSpace/>
+        <WhiteSpace/>
+        <View style={{ marginTop: 80, width: 200 }}>
+          <Progress percent={5} />
+        </View>
 
       </View>
     );
