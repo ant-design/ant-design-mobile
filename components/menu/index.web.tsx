@@ -90,7 +90,7 @@ export default class Menu extends React.Component {
     }
 
     let heightStyle = {
-      height: `${height}px`,
+      height: `${Math.round(height/44) * 44 -1}px`,
       overflowY: 'scroll'
     };
 

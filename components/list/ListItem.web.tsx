@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-function noop() {}
 
 export interface ListItemProps {
   prefixCls?: string;
@@ -45,6 +43,20 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     };
   }
 
+  onClick = (e) => {
+    if (this.props.onClick) {
+      this.setState({
+        hover: true,
+      });
+      setTimeout(() => {
+        this.setState({
+          hover: false,
+        });
+      }, 300);
+      this.props.onClick(e);
+    }
+  };
+
   onTouchStart = () => {
     if (this.props.onClick) {
       this.setState({
@@ -62,8 +74,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
   };
 
   render() {
-    let [{prefixCls, thumb, arrow, error, children, extra, className, align}, restProps] = splitObject(this.props,
-      ['prefixCls', 'thumb', 'arrow', 'error', 'children', 'extra', 'className', 'align']);
+    let { prefixCls, thumb, arrow, error, children, extra, className, align } = this.props;
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;
@@ -107,7 +118,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     return (
       <div
         className={wrapCls}
-        onClick={this.props.onClick}
+        onClick={this.onClick}
         onTouchStart={this.onTouchStart}
         onTouchEnd={this.onTouchEnd}
         onTouchCancel={this.onTouchEnd}
