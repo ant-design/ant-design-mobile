@@ -81,5 +81,11 @@ module.exports = {
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
       module: require('../components/white-space/demo/basic'), // 必须
     },
+    {
+      title: 'Progress', // 必须
+      description: 'Progress Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
+      module: require('../components/progress/demo/basic'), // 必须  
+    }
   ],
 };
