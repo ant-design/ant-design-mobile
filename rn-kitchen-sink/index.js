@@ -16,6 +16,7 @@ import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { APIS, COMPONENTS } from './demoList';
 
+
 class AntmRnApp extends React.Component {
   componentDidMount() {
     codePush.sync();
