@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
 export interface CardBodyProps {
-  prefixCls?:string;
-  children?:any;
-  style?:{};
+  prefixCls?: string;
+  children?: any;
+  style?: {};
 }
 
 export default class CardBody extends React.Component<CardBodyProps, any> {
@@ -24,7 +24,7 @@ export default class CardBody extends React.Component<CardBodyProps, any> {
     );
     const wrapCls = classNames({
       [`${prefixCls}-body`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (

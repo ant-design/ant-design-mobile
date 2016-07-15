@@ -1,11 +1,11 @@
 /* tslint:disable:no-switch-case-fall-through */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Modal from './Modal';
 
 export default function (...args) {
   if (!args || !args[2]) {
-    console.log('Must specify callbackOrActions');
+    // console.log('Must specify callbackOrActions');
     return;
   }
 
@@ -72,7 +72,7 @@ export default function (...args) {
 
   function close() {
     d.setState({
-      visible: false
+      visible: false,
     });
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);
@@ -93,7 +93,7 @@ export default function (...args) {
   if (typeof args[2] === 'function') {
     actions = [
       { text: '取消' },
-      { text: '确定', onPress: () => getArgs(args[2]) }
+      { text: '确定', onPress: () => { getArgs(args[2]); }, }
     ];
   } else {
     actions = args[2].map(item => {

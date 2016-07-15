@@ -36,7 +36,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     };
   }
 
-  _setModalVisible(visible) {
+  setModalVisible(visible) {
     this.setState({
       showModal: visible,
     });
@@ -60,13 +60,12 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
   }
 
   onLongPress = () => {
-    const { title, left, right } = this.props;
     this.setState({
       showModal: true,
     });
   }
 
-  _renderAndroidBtn = () => {
+  renderAndroidBtn = () => {
     const { left, right } = this.props;
     const actions = [...left, ...right];
     return (
@@ -82,7 +81,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
             );
           })
         }
-      </View> 
+      </View>
     );
   }
 
@@ -95,8 +94,8 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
         onShow={this.props.onOpen}
         onClose={this.props.onClose}
         title={this.props.title}
-        onRequestClose={() => {this._setModalVisible(false);}}
-        footer={this._renderAndroidBtn()}
+        onRequestClose={() => {this.setModalVisible(false);}}
+        footer={this.renderAndroidBtn()}
       />
     );
   }

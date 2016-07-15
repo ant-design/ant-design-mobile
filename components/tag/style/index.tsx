@@ -65,20 +65,21 @@ export default {
     height: 7 * variables.grid,
     backgroundColor: variables.brand_6,
     transform: [{
-      rotate: '45deg'
+      rotate: '45deg',
     }],
     overflow: 'hidden',
   },
   closeDom: {
-    backgroundColor: 'transparent', 
-    position: 'absolute', 
-    right: 0, bottom: 0, 
-    height: 16, 
-    width: 16,
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    height: 4 * variables.grid,
+    width: 4 * variables.grid,
   },
   closeX: {
     transform: [{
-      rotate: '-45deg'
+      rotate: '-45deg',
     }],
     color: 'white',
     marginLeft: 0,
@@ -93,5 +94,5 @@ export default {
     borderBottomRightRadius: variables.radius_2,
     borderTopLeftRadius: variables.radius_2,
     backgroundColor: variables.brand_6,
-  }
+  },
 };

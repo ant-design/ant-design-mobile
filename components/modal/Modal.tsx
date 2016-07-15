@@ -59,16 +59,17 @@ class AntmModal extends React.Component<modalProps, any> {
   }
 
   render() {
-    let [{title, visible, closable, maskClosable, footer, animated, onClose, onShow, transparent, children, style}, restProps] = splitObject(
+    let [
+      { title, closable, maskClosable, footer, animated, onShow, transparent, children, style },
+      restProps,
+    ] = splitObject(
       this.props,
-      ['title', 'visible', 'closable', 'maskClosable', 'footer', 'animated', 'onClose', 'onShow', 'transparent', 'children', 'style']
+      ['title', 'closable', 'maskClosable', 'footer', 'animated', 'onShow', 'transparent', 'children', 'style']
     );
 
     let showModal = this.state.visible;
     const animationType = animated ? (transparent ? 'fade' : 'slide') : 'none';
-    const innerContainerTransparentStyle = transparent ? {backgroundColor: 'white'} : {backgroundColor: 'transparent'};
-
-    const closeDom = <Text>×</Text>;
+    const innerStyle = transparent ? {backgroundColor: 'white'} : {backgroundColor: 'transparent'};
 
     return (
       <Modal
@@ -78,12 +79,12 @@ class AntmModal extends React.Component<modalProps, any> {
         transparent={transparent}
         visible={showModal}
       >
-        { transparent ? 
+        { transparent ? (
             <View style={[modalStyle.container]}>
               {maskClosable ? <TouchableWithoutFeedback onPress={this.onClosePress}>
                 <View style={[modalStyle.maskClosable]}></View>
               </TouchableWithoutFeedback> : null}
-              <View style={[modalStyle.innerContainer, innerContainerTransparentStyle, style]}>
+              <View style={[modalStyle.innerContainer, innerStyle, style]}>
                 {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}
                 <View style={modalStyle.body}>{children}</View>
                 {footer ? <View>{footer}</View> : null}
@@ -94,9 +95,11 @@ class AntmModal extends React.Component<modalProps, any> {
                 </TouchableWithoutFeedback> : null}
               </View>
             </View>
-           : <View style={style}>
-            {children}
-          </View>
+          ) : (
+            <View style={style} {...restProps}>
+              {children}
+            </View>
+          )
         }
       </Modal>
     );

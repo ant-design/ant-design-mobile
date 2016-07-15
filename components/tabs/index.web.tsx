@@ -37,11 +37,13 @@ export default class Tabs extends React.Component<TabsProps, any> {
   };
 
   render() {
-    let [{
-      className, prefixCls, type, children, onChange, onTabClick, tabPosition, animation, mode
-    }, restProps] = splitObject(
-      this.props, ['className', 'prefixCls', 'type', 'children', 'onChange', 'onTabClick', 'tabPosition', 'animation', 'mode'
-    ]);
+    let [
+      {className, prefixCls, type, children, onChange, onTabClick, tabPosition, animation, mode},
+      restProps,
+    ] = splitObject(
+      this.props,
+      ['className', 'prefixCls', 'type', 'children', 'onChange', 'onTabClick', 'tabPosition', 'animation', 'mode']
+    );
 
     let cls = classNames({
       [className]: !!className,

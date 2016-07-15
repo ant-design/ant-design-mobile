@@ -76,9 +76,9 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
       recognizers: {
         press: {
           time: 500,
-          threshold: 50
-        }
-      }
+          threshold: 50,
+        },
+      },
     };
     return (
       <div>

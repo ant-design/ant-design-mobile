@@ -47,11 +47,11 @@ export default class Tag extends React.Component<TagProps, any> {
     if (props.closable) {
       this.onClose();
     } else {
-      const _selected = this.state.selected;
+      const isSelect = this.state.selected;
       this.setState({
-        selected: !_selected,
+        selected: !isSelect,
       }, () => {
-        props.onChange(!_selected);
+        props.onChange(!isSelect);
       });
     }
   }
