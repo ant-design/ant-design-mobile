@@ -47,7 +47,7 @@ const hashImgObj = {
   uploader: 'CVHyVxhFqkhZfYs',
   'white-space': 'mioJMWDMAmiurTR',
   'wing-blank': 'WzZoGzTRKzQgMWi',
-  card: 'MocahVGboyJUOsx',
+  card: 'kkQBRgZgcqSyMPS',
   tooltip: 'WFdIwNKWiAkOQYd',
   pagination: 'xavLtHVkhbayZau',
   loading: 'PfDTjHZZKwYguUV',
