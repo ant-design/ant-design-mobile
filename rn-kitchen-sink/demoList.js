@@ -52,6 +52,12 @@ module.exports = {
       module: require('../components/swipe-action/demo/basic'), // 必须
     },
     {
+      title: 'Switch', // 必须
+      description: 'Switch Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/NmMXnPngqRrKHrq.png',
+      module: require('../components/switch/demo/basic'), // 必须
+    },
+    {
       title: 'Tag', // 必须
       description: 'Tag Example',
       icon: 'https://os.alipayobjects.com/rmsportal/AkXOzPmaytaVYLD.png',
