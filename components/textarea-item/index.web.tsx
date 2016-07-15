@@ -7,7 +7,7 @@ export interface TextareaItemProps {
   prefixListCls?: string;
   style?: React.CSSProperties;
   type?: 'hasLine';
-  title?: string|React.ReactNode;
+  title?: React.ReactNode;
   name?: string;
   value?: string;
   placeholder?: string;
