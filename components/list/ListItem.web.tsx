@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 function noop() {}
@@ -6,8 +7,8 @@ function noop() {}
 export interface ListItemProps {
   prefixCls?: string;
   style?: React.CSSProperties;
-  thumb: string|{}|React.ReactNode;
-  extra?: string|{}|React.ReactNode;
+  thumb: React.ReactNode;
+  extra?: React.ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
   align?: string;
   onClick?: Function;
@@ -21,8 +22,8 @@ export interface ListItemState {
 export default class ListItem extends React.Component<ListItemProps, ListItemState> {
   static propTypes = {
     prefixCls: PropTypes.string,
-    thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
-    extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
+    thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.node]),
+    extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.node]),
     arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
     align: PropTypes.string,
     onClick: PropTypes.func,

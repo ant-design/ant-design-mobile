@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
 import List from '../list';
@@ -34,8 +35,8 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
   };
 
   render() {
-    let[{ prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive }, restProps] = splitObject(this.props,
-      ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'className', 'onChange', 'needActive']);
+    let[{ prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange }, restProps] = splitObject(this.props,
+      ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'className', 'onChange']);
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
@@ -44,7 +45,6 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
 
     return (<List.Item
       prefixCls={listPrefixCls}
-      needActive={disabled ? false : needActive}
       style={style}
       className={wrapCls}
       {...restProps}

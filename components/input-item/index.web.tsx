@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() { }
 
@@ -17,7 +18,7 @@ export interface InputItemProps {
   onChange?: Function;
   onBlur?: Function;
   onFocus?: Function;
-  extra?: string|React.ReactNode;
+  extra?: React.ReactNode;
   onExtraClick?: Function;
   error?: boolean;
   onErrorClick?: Function;

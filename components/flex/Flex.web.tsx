@@ -1,7 +1,6 @@
 import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
-
-const PropTypes = React.PropTypes;
 
 export interface FlexProps {
   prefixCls?: string;

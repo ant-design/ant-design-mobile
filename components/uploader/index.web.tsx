@@ -1,5 +1,6 @@
 /* tslint:disable:no-bitwise */
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';

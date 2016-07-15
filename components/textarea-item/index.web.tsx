@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
@@ -7,7 +8,7 @@ export interface TextareaItemProps {
   prefixListCls?: string;
   style?: React.CSSProperties;
   type?: 'hasLine';
-  title?: string|React.ReactNode;
+  title?: React.ReactNode;
   name?: string;
   value?: string;
   placeholder?: string;
