@@ -1,49 +1,106 @@
-import React from 'react';
-import Dialog from 'rc-dialog';
-import classNames from 'classnames';
-import assign from 'object-assign';
+import { PropTypes } from 'react';
+import * as React from 'react';
+import { View, Text, Modal, TouchableWithoutFeedback } from 'react-native';
 import splitObject from '../_util/splitObject';
-export default class Modal extends React.Component {
+import modalStyle from './style/index';
+import modalProps from './modalPropsType';
+
+class AntmModal extends React.Component<modalProps, any> {
+  static propTypes = {
+    title: PropTypes.string,
+    visible: PropTypes.bool,
+    closable: PropTypes.bool,
+    maskClosable: PropTypes.bool,
+    footer: PropTypes.node,
+    onClose: PropTypes.func,
+    onShow: PropTypes.func,
+    animated: PropTypes.bool,
+    transparent: PropTypes.bool,
+    style: PropTypes.object,
+  };
+
   static defaultProps = {
-    prefixCls: 'am-modal',
     visible: false,
     closable: false,
     maskClosable: false,
     transparent: false,
     animated: true,
-    style: {}
+    style: {},
+    onClose() {},
+    onShow() {},
   };
 
-  render() {
-    let [{prefixCls, className, transparent, animated, animation, maskAnimation, style}, restProps] = splitObject(this.props,
-      ['prefixCls', 'className', 'transparent', 'animated',
-        'animation', 'maskAnimation', 'style']);
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: props.visible || false,
+    };
+  }
 
-    const wrapCls = classNames({
-      [className]: !!className,
-      [`${prefixCls}-transparent`]: transparent
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.visible !== this.state.visible) {
+      this.setState({
+        visible: nextProps.visible,
+      });
+    }
+  }
+
+  onRequestClose(visible) {
+    this.setState({
+      visible,
     });
+  }
 
-    let anim = animation || (animated ? 'slide' : null);
-    let maskAnim = maskAnimation || (animated ? 'slide' : null);
+  onClosePress = () => {
+    this.props.onClose();
+    this.setState({
+      visible: false,
+    });
+  }
 
-    // transparent 模式下, 内容默认居中
-    const rootStyle = transparent ? assign({
-      width: '286px',
-      height: 'auto',
-    }, style) : assign({
-      width: '100%',
-      height: '100%',
-    }, style);
+  render() {
+    let [{title, visible, closable, maskClosable, footer, animated, onClose, onShow, transparent, children, style}, restProps] = splitObject(
+      this.props,
+      ['title', 'visible', 'closable', 'maskClosable', 'footer', 'animated', 'onClose', 'onShow', 'transparent', 'children', 'style']
+    );
+
+    let showModal = this.state.visible;
+    const animationType = animated ? (transparent ? 'fade' : 'slide') : 'none';
+    const innerContainerTransparentStyle = transparent ? {backgroundColor: 'white'} : {backgroundColor: 'transparent'};
+
+    const closeDom = <Text>×</Text>;
 
     return (
-      <Dialog
-        animation={anim}
-        maskAnimation={maskAnim}
-        style={rootStyle}
-        className={wrapCls}
-        prefixCls={prefixCls}
-        {...restProps} />
+      <Modal
+        animationType={animationType}
+        onRequestClose={() => {this.onRequestClose(false);}}
+        onShow={onShow}
+        transparent={transparent}
+        visible={showModal}
+      >
+        { transparent ? 
+            <View style={[modalStyle.container]}>
+              {maskClosable ? <TouchableWithoutFeedback onPress={this.onClosePress}>
+                <View style={[modalStyle.maskClosable]}></View>
+              </TouchableWithoutFeedback> : null}
+              <View style={[modalStyle.innerContainer, innerContainerTransparentStyle, style]}>
+                {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}
+                <View style={modalStyle.body}>{children}</View>
+                {footer ? <View>{footer}</View> : null}
+                {closable ? <TouchableWithoutFeedback onPress={this.onClosePress}>
+                  <View style={[modalStyle.closeWrap]}>
+                    <Text style={[modalStyle.close]}>×</Text>
+                  </View>
+                </TouchableWithoutFeedback> : null}
+              </View>
+            </View>
+           : <View style={style}>
+            {children}
+          </View>
+        }
+      </Modal>
     );
   }
 }
+
+export default AntmModal;

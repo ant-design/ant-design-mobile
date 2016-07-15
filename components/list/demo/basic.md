@@ -17,7 +17,6 @@ let ListExample = React.createClass({
         <List.Header>列表头部,List.Header</List.Header>
         <List.Body>
           <List.Item
-            needActive={false}
           >标题文字,无Active效果</List.Item>
           <List.Item
           >标题文字,默认有Active效果</List.Item>
@@ -80,7 +79,6 @@ let ListExample = React.createClass({
             />}
           >默认关</List.Item>
           <List.Item
-            needActive={false}
             extra={<Switch
               {...getFieldProps('3', {
                 initialValue: false,
@@ -90,7 +88,6 @@ let ListExample = React.createClass({
             />}
           >默认关,不可修改</List.Item>
           <List.Item
-            needActive={false}
             extra={<Switch
               {...getFieldProps('4', {
                 initialValue: true,

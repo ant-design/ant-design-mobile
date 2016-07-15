@@ -5,14 +5,14 @@ title: 基本使用
 
 
 ````jsx
-import { ListAction, List } from 'antm';
+import { SwipeAction, List } from 'antm';
 
 let TabExample = React.createClass({
   render() {
     return (
       <List>
         <List.Body>
-          <ListAction
+          <SwipeAction
             style={{ backgroundColor: 'gray' }}
             right={[
               {
@@ -44,7 +44,7 @@ let TabExample = React.createClass({
             <List.Item extra="额外参数">
                 简单例子 - 左右都可操作
             </List.Item>
-          </ListAction>
+          </SwipeAction>
         </List.Body>
       </List>
     );

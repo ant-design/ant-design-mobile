@@ -13,7 +13,7 @@ export interface CardHeaderProps {
   thumbStyle?:{};
 }
 
-export default class CardHeader extends React.Component <CardHeaderProps, any> {
+export default class CardHeader extends React.Component<CardHeaderProps, any> {
   static propTypes = {
     title: PropTypes.node,
     thumb: PropTypes.string,
@@ -39,7 +39,7 @@ export default class CardHeader extends React.Component <CardHeaderProps, any> {
 
     return (
       <View {...restProps} style={[Header.header, style]}>
-        <View style={Header.title}>
+        <View style={[Header.title]}>
           { thumb ? <Image source={{uri: thumb}} style={[Header.image, thumbStyle]} /> : null }
           {titleDom}
         </View>

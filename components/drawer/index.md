@@ -18,16 +18,18 @@ english: Drawer
 
 | 成员        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
-| children | 主要内容 | any | n/a |
-| sidebarStyle | - | Object | {} |
-| contentStyle | - | Object | {} |
-| overlayStyle | - | Object | {} |
-| dragHandleStyle | - | Object | {} |
-| sidebar | 抽屉里的内容 | any | n/a |
-| onOpenChange | open 状态切换时调用 | Function | n/a |
-| open | 开关状态 | Boolean | false |
-| position | 抽屉所在位置 | String | 'left', enum{'left', 'right', 'top', 'bottom'} |
+| sidebarStyle(web) | - | Object | {} |
+| contentStyle(web) | - | Object | {} |
+| overlayStyle(web) | - | Object | {} |
+| dragHandleStyle(web) | - | Object | {} |
+| touch(web) | 是否开启触摸手势 | Boolean | true |
+| transitions(web) | 是否开启动画 | Boolean | true |
 | docked | 是否嵌入到正常文档流里 | Boolean | false |
-| transitions | 是否开启动画 | Boolean | true |
-| touch | 是否开启触摸手势 | Boolean | true |
 | dragToggleDistance | 打开关闭抽屉时距sidebar的拖动距离 | Number | 30 |
+| children | 主要内容 | any | n/a |
+| sidebar | 抽屉里的内容 | any | n/a |
+| open | 开关状态 | Boolean | false |
+| onOpenChange | open 状态切换时调用 | Function | n/a |
+| position | 抽屉所在位置 | String | 'left', enum{'left', 'right', 'top'(web), 'bottom'(web)} |
+| drawerWidth(rn) | 抽屉宽度 | Number | 300 |
+| drawerBackgroundColor(rn) | 指定抽屉背景色 | String | 'rgba(0,0,0,0.5)' |

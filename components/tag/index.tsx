@@ -71,31 +71,40 @@ export default class Modal extends React.Component<TagProps, any> {
     );
     const selected = this.state.selected;
 
-    const styles = [TagStyle[size]];
+    const wrapStyles = [TagStyle[`${size}Wrap`]];
+    const textStyles = [TagStyle[`${size}Text`]];
     if (!selected) {
-      styles.push(TagStyle.normal);
+      wrapStyles.push(TagStyle.normalWrap);
+      textStyles.push(TagStyle.normalText);
     }
     if ((selected || closable) && !disabled && type !== 'read') {
-      styles.push(TagStyle.active);
+      wrapStyles.push(TagStyle.activeWrap);
+      textStyles.push(TagStyle.activeText);
     }
     if (type === 'read') {
-      styles.push(TagStyle.read);
+      wrapStyles.push(TagStyle.readWrap);
+      textStyles.push(TagStyle.readText);
     }
     if (disabled) {
-      styles.push(TagStyle.disabled);
+      wrapStyles.push(TagStyle.disabledWrap);
+      textStyles.push(TagStyle.disabledText);
     }
 
     const closeDom = closable && !disabled && type !== 'read' && size === 'large' ? (
-      <View style={TagStyle.closeWrap}>
-        <Text style={TagStyle.close}>×</Text>
+      <View style={[TagStyle.closeDom]}>
+        {/* https://github.com/facebook/react-native/issues/3198 */}
+        <View style={[TagStyle.fixAndroid]}></View>
+        <View style={[TagStyle.closeWrap]}>
+          <Text style={[TagStyle.closeX]}>×</Text>
+        </View>
       </View>
     ) : null;
 
     return this.state.closed ? null : (
       <View style={[ TagStyle.tag, style ]} {...restProps}>
         <TouchableWithoutFeedback onPress={this.onClick}>
-          <View style={TagStyle.wrap}>
-            <Text style={[styles]}>{children} </Text>
+          <View style={[TagStyle.wrap, wrapStyles]}>
+            <Text style={[textStyles]}>{children} </Text>
             {closeDom}
           </View>
         </TouchableWithoutFeedback>

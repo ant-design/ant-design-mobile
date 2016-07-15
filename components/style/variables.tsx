@@ -1,8 +1,6 @@
 import colorPalette from './color-palette';
 
-export default {
-  ...colorPalette,
-  
+export default Object.assign({}, colorPalette, {
   /* 中性色版(neutral) */
   neutral_1: '#fff',
   neutral_2: '#f7f7f7',
@@ -124,4 +122,4 @@ export default {
   // ease_out_quint : cubic_bezier(0.23, 1, 0.32, 1),
   // ease_in_quint : cubic_bezier(0.755, 0.05, 0.855, 0.06),
   // ease_in_out_quint : cubic_bezier(0.86, 0, 0.07, 1),
-};
+});

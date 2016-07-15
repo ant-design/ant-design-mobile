@@ -1,10 +1,10 @@
 import { WhiteSpace } from 'antm';
-import React from 'react';
+import * as React from 'react';
 import { View, Text } from 'react-native';
 
 import variables from '../../style/variables';
 
-export default class BasicWhiteSpaceExample extends React.Component {
+export default class BasicWhiteSpaceExample extends React.Component<any, any> {
   render() {
     return (
       <View>
@@ -26,6 +26,3 @@ export default class BasicWhiteSpaceExample extends React.Component {
     );
   }
 }
-
-export const title = 'WhiteSpace';
-export const description = 'Basic WhiteSpace Example';

@@ -1,9 +1,9 @@
 /* tslint:disable:no-switch-case-fall-through */
-import { PropTypes } from 'react';
 import * as React from 'react';
-import classNames from 'classnames';
-import Icon from '../icon';
+import { PropTypes } from 'react';
 import TopNoticeProps from './topNoticePropsType';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import NoticeStyle from './style';
 
 export default class TopNotice extends React.Component<TopNoticeProps, any> {
   static propTypes = {
@@ -13,7 +13,6 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
   };
 
   static defaultProps = {
-    prefixCls: 'am-top-notice',
     mode: '',
     onClick() {},
   };
@@ -25,7 +24,7 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
     };
   }
 
-  onClick() {
+  onClick = () => {
     const { mode, onClick } = this.props;
     onClick();
     if (mode === 'closable') {
@@ -37,25 +36,20 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
 
   render() {
     const { prefixCls, children, mode, type, onClick, className } = this.props;
-    const wrapCls = classNames({
-      [prefixCls]: true,
-      [className]: !!className
-    });
-
     let operationDom;
     switch (mode) {
       case 'closable':
         operationDom = (
-          <div className="am-top-notice-operation" onClick={() => this.onClick()}>
-            <Icon type="cross" />
-          </div>
+          <TouchableOpacity onPress={this.onClick}>
+            <Text style={[NoticeStyle.close]}>×</Text>
+          </TouchableOpacity>
         );
         break;
       case 'link':
         operationDom = (
-          <div className="am-top-notice-operation" onClick={onClick}>
-            <Icon type="right" />
-          </div>
+          <TouchableOpacity onPress={this.onClick}>
+            <Text style={[NoticeStyle.link]}>∟</Text>
+          </TouchableOpacity>
         );
         break;
       default:
@@ -66,33 +60,34 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
     let iconType = '';
     switch (type) {
       case 'success':
-        iconType = 'check-circle';
+        iconType = 'dHVDErPWEJtMlmn';
         break;
       case 'error':
-        iconType = 'cross-circle';
+        iconType = 'LvckcvVesFNgvpV';
         break;
       case 'warn':
-        iconType = 'exclamation-circle';
+        iconType = 'bRnouywfdRsCcLU';
         break;
       case 'question':
-        iconType = 'question-circle';
+        iconType = 'JNRDCOIzgNJGnZt';
         break;
       case 'info':
       default:
-        iconType = 'info-circle';
+        iconType = 'baPKdUnrQFvLyHS';
         break;
     }
 
-    const iconDom = type ? <div className="am-top-notice-icon">
-      <Icon type={iconType} />
-    </div> : null;
+    const iconDom = type ? <View style={[NoticeStyle.left12]}>
+      <Image source={{uri: `https://zos.alipayobjects.com/rmsportal/${iconType}.png`}} style={{ width: 12, height:12 }} />
+    </View> : null;
 
+    const contentMarginLeftStyle = type ? NoticeStyle.left8 : NoticeStyle.left12;
     return this.state.show ? (
-      <div className={wrapCls}>
+      <View style={[NoticeStyle.notice]}>
         {iconDom}
-        <div className="am-top-notice-content">{children}</div>
+        <Text style={[NoticeStyle.content, contentMarginLeftStyle]}>{children}</Text>
         {operationDom}
-      </div>
+      </View>
     ) : null;
   }
 }

@@ -16,6 +16,18 @@ module.exports = {
       module: require('../components/card/demo/basic'), // 必须
     },
     {
+      title: 'DatePicker', // 必须
+      description: 'DatePicker Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/date-picker/demo/popup'), // 必须
+    },
+    {
+      title: 'Drawer', // 必须
+      description: 'Drawer Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/drawer/demo/basic'), // 必须
+    },
+    {
       title: 'Flex', // 必须
       description: 'Flex Example',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
@@ -28,10 +40,34 @@ module.exports = {
       module: require('../components/list/demo/basic'), // 必须
     },
     {
+      title: 'Modal', // 必须
+      description: 'Modal Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
+      module: require('../components/modal/demo/basic'), // 必须
+    },
+    {
+      title: 'Picker', // 必须
+      description: 'Picker Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/picker/demo/popup'), // 必须
+    },
+    {
+      title: 'SwipeAction', // 必须
+      description: 'SwipeAction Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/OJgqKyrKGdIEfwp.png',
+      module: require('../components/swipe-action/demo/basic'), // 必须
+    },
+    {
       title: 'Tag', // 必须
       description: 'Tag Example',
       icon: 'https://os.alipayobjects.com/rmsportal/AkXOzPmaytaVYLD.png',
       module: require('../components/tag/demo/basic'), // 必须
+    },
+    {
+      title: 'TopNotice', // 必须
+      description: 'TopNotice Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
+      module: require('../components/top-notice/demo/basic'), // 必须
     },
     {
       title: 'WingBlank', // 必须
@@ -44,18 +80,6 @@ module.exports = {
       description: 'WhiteSpace Example',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
       module: require('../components/white-space/demo/basic'), // 必须
-    },
-    {
-      title: 'Picker', // 必须
-      description: 'Picker Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
-      module: require('../components/picker/demo/popup'), // 必须
-    },
-    {
-      title: 'DatePicker', // 必须
-      description: 'DatePicker Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
-      module: require('../components/date-picker/demo/popup'), // 必须
     },
   ],
 };
