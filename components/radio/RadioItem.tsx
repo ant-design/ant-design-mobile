@@ -13,7 +13,6 @@ export interface RadioItemProps {
   checked?: boolean;
   disabled?: boolean;
   onChange?: Function;
-  needActive?: boolean;
 }
 
 export default class RadioItem extends React.Component<RadioItemProps, any> {
@@ -24,7 +23,6 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
-    needActive: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -33,14 +31,13 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
     name: '',
     checked: false,
     disabled: false,
-    needActive: true,
     onChange: noop,
   };
 
   render() {
-    let [{prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive, value}, restProps] = splitObject(this.props,
+    let [{prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, value}, restProps] = splitObject(this.props,
       ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled',
-        'children', 'className', 'onChange', 'needActive', 'value']);
+        'children', 'className', 'onChange', 'value']);
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
@@ -49,7 +46,6 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
 
     return (<List.Item
       prefixCls={listPrefixCls}
-      needActive={disabled ? false : needActive}
       style={style}
       className={wrapCls}
       {...restProps}
