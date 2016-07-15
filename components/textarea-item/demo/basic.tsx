@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { View } from 'react-native';
-import TextAreaItem from '../index';
+import { TextAreaItem } from 'antm';
 
-export default class BasicTextAreaItemExample extends React.Component {
+export default class BasicTextAreaItemExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,7 +32,7 @@ export default class BasicTextAreaItemExample extends React.Component {
     return (
       <View style={{ padding: 10 }}>
 
-        <View style={{marginTop: 80}}>
+        <View style={{marginTop: 20}}>
           <TextAreaItem
             rows = {4}
             placeholder="固定行数"

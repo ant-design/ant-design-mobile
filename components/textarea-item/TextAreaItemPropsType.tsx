@@ -1,7 +1,7 @@
 interface TextAreaItemProps {
   clear?:boolean;
   error?:boolean;
-  editable?:editable;
+  editable?:boolean;
   rows?:number;
   value?:string;
   placeholder?:string;

@@ -3,6 +3,7 @@ import * as React from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/variables';
 import TextAreaItemProps from './TextAreaItemPropsType';
+import TextAreaItemStyle from './style/index';
 
 export default class TextAreaItem extends React.Component<TextAreaItemProps, any> {
   
@@ -94,35 +95,15 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
 
     const inputLines = this.props.rows || 1;
     const inputHeight = inputLines > 1 ? 6 * inputLines * variables.grid : 10 * variables.grid;
-    const inputFontSize = variables.font_size_6;
 
     const inputStyle = {
       height: inputHeight,
-      fontSize: inputFontSize, 
-      paddingHorizontal: 2 * variables.grid,
-      backgroundColor: '#fff',
       color: error ? '#f50' : variables.neutral_10,
-      paddingRight: error ? 12 * variables.grid : 6 * variables.grid,
+      
     };
 
     const iconStyle = {
-      position: 'absolute',
       right: error ? 8 * variables.grid : 2 * variables.grid,
-      top: 2 * variables.grid,
-      width: 18,
-      height: 18,   
-    };
-
-    const errorIconStyle = {
-      position: 'absolute',
-      right: 2 * variables.grid,
-      top: 2 * variables.grid,
-    };
-
-    const countStyle = {
-      position: 'absolute',
-      right: 2 * variables.grid,
-      bottom: 2 * variables.grid,
     };
 
     const maxLength = count > 0 ? count : null;
@@ -130,7 +111,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     return (
       <View>
         <TextInput
-          style={inputStyle}
+          style={[TextAreaItemStyle.input, inputStyle]}
           {...this.props}
           onChangeText={(text) => this.onChange(text)}
           onFocus={this.onFocus}
@@ -143,7 +124,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
         {
         clear !== false && clearFlag &&
         <TouchableWithoutFeedback onPress={this.clearInput}>
-          <View style={iconStyle}>
+          <View style={[TextAreaItemStyle.icon, iconStyle]}>
             <Image
               source={{ uri: 'https://zos.alipayobjects.com/rmsportal/WvpyGwPbGnTLdKd.png' }}
               style={{ width: 18, height:18 }}
@@ -154,7 +135,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
         {
         error &&
         <TouchableWithoutFeedback onPress={this.onErrorClick}>
-          <View style={errorIconStyle}>
+          <View style={[TextAreaItemStyle.errorIcon]}>
             <Image
               source={{ uri: 'https://zos.alipayobjects.com/rmsportal/ginyKmmfHfKAXze.png' }}
               style={{ width: 18, height:18 }}
@@ -165,7 +146,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
 
         {
         rows > 1 && count > 0 &&
-        <View style={countStyle}>
+        <View style={[TextAreaItemStyle.count]}>
           <Text>
             {inputCount} / {count}
           </Text>
