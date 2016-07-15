@@ -2,20 +2,17 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
 import { View } from 'react-native';
+import WhiteSpaceProps from './WhiteSpacePropsType';
 
-class WhiteSpace extends React.Component {
-  static propTypes = {
-    mode: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48]),
-  };
-
+class WhiteSpace extends React.Component<WhiteSpaceProps, any> {
   static defaultProps = {
-    mode: 8
+    size: 8,
   };
 
   render() {
-    const marginHeight = this.props.mode;
+    const { size, style } = this.props;
     return (
-      <View style={[{ height: marginHeight }, this.props.style]} />
+      <View style={[{ height: size }, style]} />
     );
   }
 }
