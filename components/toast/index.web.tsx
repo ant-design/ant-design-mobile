@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
 
@@ -19,7 +19,7 @@ function notice(content, duration = 3, onClose, type) {
     success: 'check-circle-o',
     fail: 'cross-circle-o',
     network: 'frown',
-    loading: 'loading'
+    loading: 'loading',
   })[type];
 
   if (typeof duration === 'function') {

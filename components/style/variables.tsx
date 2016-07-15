@@ -58,7 +58,8 @@ export default Object.assign({}, colorPalette, {
   margin_9: 44,
 
   /* 字体家族，可拓展 */
-  // font_family_1: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑',Arial,sans_serif,
+  // font_family_1: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB',
+  //   'Microsoft YaHei','微软雅黑',Arial,sans_serif,
   // font_family_2: Consolas,Menlo,Courier,monospace,
   //
   /* 字号，可拓展 */

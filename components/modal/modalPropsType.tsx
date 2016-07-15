@@ -5,12 +5,12 @@ interface ModalProps {
   maskClosable?: boolean;
   footer?: any;
   onClose?: () => void;
-  onShow?:() => void;
+  onShow?: () => void;
   animated?: boolean;
   transparent?: boolean;
   style?: {};
   /** web only */
-  prefixCls?:string;
+  prefixCls?: string;
 };
 
 export default ModalProps;

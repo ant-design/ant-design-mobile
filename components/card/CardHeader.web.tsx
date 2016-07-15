@@ -4,11 +4,11 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 
 export interface CardHeaderProps {
-  prefixCls?:string;
-  title?:any;
-  thumb?:string;
-  extra?:any;
-  thumbStyle?:{};
+  prefixCls?: string;
+  title?: any;
+  thumb?: string;
+  extra?: any;
+  thumbStyle?: {};
 }
 
 export default class CardHeader extends React.Component <CardHeaderProps, any> {
@@ -22,17 +22,17 @@ export default class CardHeader extends React.Component <CardHeaderProps, any> {
 
   static defaultProps = {
     prefixCls: 'am-card',
-    thumbStyle: {}
+    thumbStyle: {},
   };
 
   render() {
-    let [{prefixCls, children, className, title, thumb, thumbStyle, extra}, restProps] = splitObject(
+    let [{prefixCls, className, title, thumb, thumbStyle, extra}, restProps] = splitObject(
       this.props,
-      ['prefixCls', 'children', 'className', 'title', 'thumb', 'thumbStyle', 'extra']
+      ['prefixCls', 'className', 'title', 'thumb', 'thumbStyle', 'extra']
     );
     const wrapCls = classNames({
       [`${prefixCls}-header`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (

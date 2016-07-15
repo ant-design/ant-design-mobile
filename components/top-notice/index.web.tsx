@@ -9,7 +9,7 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
   static propTypes = {
     mode: PropTypes.string,
     onClick: PropTypes.func,
-    type: PropTypes.string
+    type: PropTypes.string,
   };
 
   static defaultProps = {
@@ -39,7 +39,7 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
     const { prefixCls, children, mode, type, onClick, className } = this.props;
     const wrapCls = classNames({
       [prefixCls]: true,
-      [className]: !!className
+      [className]: !!className,
     });
 
     let operationDom;
@@ -96,4 +96,3 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
     ) : null;
   }
 }
-

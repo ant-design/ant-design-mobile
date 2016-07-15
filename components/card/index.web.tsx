@@ -7,7 +7,7 @@ import Footer from './CardFooter';
 import splitObject from '../_util/splitObject';
 
 export interface CardProps {
-  prefixCls?:string;
+  prefixCls?: string;
 }
 
 class Card extends React.Component <CardProps, any> {
@@ -25,7 +25,7 @@ class Card extends React.Component <CardProps, any> {
     );
     const wrapCls = classNames({
       [prefixCls]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (

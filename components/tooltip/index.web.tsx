@@ -4,10 +4,10 @@ import RcTooltip from 'rc-tooltip';
 import splitObject from '../_util/splitObject';
 
 export interface TooltipProps {
-  prefixCls?:string;
-  placement?:string;
-  title?:any;
-  visible?:boolean;
+  prefixCls?: string;
+  placement?: string;
+  title?: any;
+  visible?: boolean;
   onVisibleChange: (visible: boolean) => void;
 }
 

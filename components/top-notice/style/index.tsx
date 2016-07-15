@@ -6,7 +6,7 @@ export default {
     height: 9 * variables.grid,
     overflow: 'hidden',
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   content: {
     flex: 1,
@@ -32,5 +32,5 @@ export default {
     fontSize: variables.font_size_1,
     fontWeight: '500',
     marginRight: 3 * variables.grid,
-  }
+  },
 };
