@@ -6,7 +6,7 @@ import Modal from '../modal';
 import SwipeActionProps from './SwipeActionPropsType';
 import splitObject from '../_util/splitObject';
 
-class SwipeAction extends React.Component <SwipeActionProps, any>{
+class SwipeAction extends React.Component<SwipeActionProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     autoClose: PropTypes.bool,

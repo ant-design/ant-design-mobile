@@ -1,21 +1,18 @@
-import React from 'react';
-import { Image, ScrollView } from 'react-native';
-import List from '../index';
-import Button from '../../button/index';
+import * as React from 'react';
+import { Image, View } from 'react-native';
+import { List, Button } from 'antm';
 
 export default class BasicListExample extends React.Component {
   render() {
     return (
-      <ScrollView>
-        {/* 基本用法 Demo */}
+      <View>
         <List>
+          {/* 基本用法 Demo */}
           <List.Header>基本用法 Demo</List.Header>
             <List.Body>
               <List.Item
-                needActive = {false}
               >标题文字,无Active效果</List.Item>
               <List.Item
-                needActive
                 onClick={() => alert('点击响应方法')}
               >标题文字默认有Active效果</List.Item>
               <List.Item
@@ -28,7 +25,7 @@ export default class BasicListExample extends React.Component {
 
         <List>
           <List.Header>icon Demo</List.Header>
-           <List.Body>
+            <List.Body>
             <List.Item
               thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
               arrow="horizontal"
@@ -48,8 +45,8 @@ export default class BasicListExample extends React.Component {
           </List.Body>
         </List>
 
-        {/* 箭头 Demo */}
         <List>
+          {/* 箭头 Demo */}
           <List.Header>箭头 Demo</List.Header>
           <List.Body>
             <List.Item extra="horizontal,剪头向右" arrow="horizontal">标题文字</List.Item>
@@ -63,8 +60,8 @@ export default class BasicListExample extends React.Component {
           </List.Body>
         </List>
 
-        {/* 双行列表 Demo */}
         <List>
+          {/* 双行列表 Demo */}
           <List.Header>双行列表 Demo</List.Header>
               <List.Body>
                 <List.Item line={2} thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" arrow="horizontal">
@@ -96,11 +93,11 @@ export default class BasicListExample extends React.Component {
                   <List.Item.Content>账户名</List.Item.Content>
                 </List.Item>
           </List.Body>
-         <List.Footer>文本说明文本说明</List.Footer>
+          <List.Footer>文本说明文本说明</List.Footer>
         </List>
 
-        {/* 业务例子 Demo */}
         <List >
+          {/* 业务例子 Demo */}
           <List.Header>业务例子 Demo</List.Header>
           <List.Body>
             <List.Item
@@ -135,7 +132,7 @@ export default class BasicListExample extends React.Component {
             ><List.Item.Content>垂直居中对齐</List.Item.Content></List.Item>
           </List.Body>
         </List>
-      </ScrollView>
+      </View>
     );
   }
 }

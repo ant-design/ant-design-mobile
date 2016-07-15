@@ -12,7 +12,7 @@ module.exports = {
     {
       title: 'Card', // 必须
       description: 'Card Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/lOXYjfSRPpkwudh.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/MocahVGboyJUOsx.png',
       module: require('../components/card/demo/basic'), // 必须
     },
     {
@@ -50,6 +50,12 @@ module.exports = {
       description: 'SwipeAction Example',
       icon: 'https://os.alipayobjects.com/rmsportal/OJgqKyrKGdIEfwp.png',
       module: require('../components/swipe-action/demo/basic'), // 必须
+    },
+    {
+      title: 'Switch', // 必须
+      description: 'Switch Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/NmMXnPngqRrKHrq.png',
+      module: require('../components/switch/demo/basic'), // 必须
     },
     {
       title: 'Tag', // 必须

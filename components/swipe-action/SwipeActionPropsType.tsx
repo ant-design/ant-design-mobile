@@ -3,10 +3,10 @@ interface SwipeActionProps {
   autoClose?:boolean;
   disabled?:boolean;
   title?:string;
-  left?:Array<{}>,
-  right?:Array<{}>,
+  left?:Array<{}>;
+  right?:Array<{}>;
   onOpen?:() => void;
-  style?:{},
+  style?:{};
   /** web only */
   prefixCls?:string;
   onClose?:() => void;

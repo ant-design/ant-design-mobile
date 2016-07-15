@@ -32,6 +32,3 @@ export default class PopupExample extends React.Component {
     </View>);
   }
 }
-
-export const title = 'DatePicker';
-export const description = 'DatePicker example';

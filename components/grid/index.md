@@ -21,5 +21,4 @@ english: Grid
 | data    |    传入的菜单数据     | Array,每个元素必须包含`icon`,和`text`两个key   |  | [] |
 | onClick    |   点击每个菜单的回调     | Function(el, index)  |  |  |
 | hasLine    |   是否有边框     | bollean  |  | `true` |
-| needActive    |   点击时时候背景色变化     | bollean  |  | `true` |
 | isCarousel    |   是否跑马灯,     | bollean  |  | `false` |

@@ -1,8 +1,9 @@
+import * as React from 'react';
+import { PropTypes } from 'react';
 import Header from './ListHeader';
 import Body from './ListBody';
 import Footer from './ListFooter';
 import Item from './ListItem';
-import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 

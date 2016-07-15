@@ -1,5 +1,5 @@
-import { PropTypes } from 'react';
 import * as React from 'react';
+import { PropTypes } from 'react';
 import { View } from 'react-native';
 import theme from './style/index';
 const THEMES = theme.ThemesList;

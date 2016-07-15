@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import objectAssign from 'object-assign';
 import SubMenu from './SubMenu';
@@ -89,7 +90,7 @@ export default class Menu extends React.Component {
     }
 
     let heightStyle = {
-      height: `${height}px`,
+      height: `${Math.round(height/44) * 44 -1}px`,
       overflowY: 'scroll'
     };
 

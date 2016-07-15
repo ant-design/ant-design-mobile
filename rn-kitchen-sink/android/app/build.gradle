@@ -55,10 +55,15 @@ import com.android.build.OutputFile
  *   // date; if you have any other folders that you want to ignore for performance reasons (gradle
  *   // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
  *   // for example, you might want to remove it from here.
- *   inputExcludes: ["android/**", "ios/**"]
+ *   inputExcludes: ["android/**", "ios/**"],
+ *
+ *   // override which node gets called and with what additional arguments
+ *   nodeExecutableAndArgs: ["node"]
+ *
+ *   // supply additional arguments to the packager
+ *   extraPackagerArgs: []
  * ]
  */
-
 project.ext.react = [
   root: "../../../",
   entryFile: file("../../index.android.js")
@@ -91,7 +96,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -117,7 +122,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-          //  signingConfig signingConfigs.release
+            //  signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release

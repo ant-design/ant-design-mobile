@@ -6,7 +6,6 @@ import Item from './ListItem';
 import Header from './ListHeader';
 import Footer from './ListFooter';
 
-
 export default class List extends React.Component {
   render() {
     const style = {
