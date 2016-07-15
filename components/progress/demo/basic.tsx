@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { WingBlank, WhiteSpace, Button } from 'antm';
-import Progress from '../index';
+import { WingBlank, WhiteSpace, Button, Progress } from 'antm';
 
 export default class BasicProgressExample extends React.Component<any, any> {
   constructor(props) {
