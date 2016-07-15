@@ -8,7 +8,6 @@ import enLocale from '../../en-US.js';
 import cnLocale from '../../zh-CN.js';
 import '../../static/style';
 
-
 // Expose to iframe
 window.react = React;
 window['react-dom'] = ReactDOM;
