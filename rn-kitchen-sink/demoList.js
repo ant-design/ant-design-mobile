@@ -12,7 +12,7 @@ module.exports = {
     {
       title: 'Card', // 必须
       description: 'Card Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/lOXYjfSRPpkwudh.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/MocahVGboyJUOsx.png',
       module: require('../components/card/demo/basic'), // 必须
     },
     {

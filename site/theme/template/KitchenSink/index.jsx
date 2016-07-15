@@ -47,6 +47,12 @@ const hashImgObj = {
   uploader: 'CVHyVxhFqkhZfYs',
   'white-space': 'mioJMWDMAmiurTR',
   'wing-blank': 'WzZoGzTRKzQgMWi',
+  card: 'MocahVGboyJUOsx',
+  tooltip: 'WFdIwNKWiAkOQYd',
+  pagination: 'xavLtHVkhbayZau',
+  loading: 'PfDTjHZZKwYguUV',
+  table: 'yZwezpbmJzARTxK',
+  form: 'gvFzrNIoBJneFUY',
 };
 
 export function collect(nextProps, callback) {
