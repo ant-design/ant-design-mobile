@@ -2,8 +2,9 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/variables';
+import TextAreaItemProps from './TextAreaItemPropsType';
 
-export default class TextAreaItem extends React.Component<textAreaItemProps, any> {
+export default class TextAreaItem extends React.Component<TextAreaItemProps, any> {
   
   static propTypes = {
     onChange: PropTypes.func,

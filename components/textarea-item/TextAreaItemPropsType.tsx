@@ -11,4 +11,4 @@ interface TextAreaItemProps {
   prefixCls?:string;
 }
 
-export default TagProps;
+export default TextAreaItemProps;
