@@ -1,14 +1,17 @@
 .am-demo-item {
-  padding-top: 18px;
-  box-sizing: border-box;
-  & &-logo {
+  &-inner {
+    transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+  }
+  &-logo {
     width: 32px;
     height: 32px;
     background-size: 32px 32px;
     margin: 0 auto 10px auto;
   }
-  & &-title,
-  & &-subtitle {
+  &-title,
+  &-subtitle {
     color: #333;
     height: 20px;
     line-height: 20px;
