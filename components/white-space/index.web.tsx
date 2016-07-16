@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import WhiteSpaceProps from './WhiteSpacePropsType';
 
