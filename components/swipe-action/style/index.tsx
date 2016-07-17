@@ -1,6 +1,7 @@
 import variables from '../../style/variables';
+import { StyleSheet } from 'react-native';
 
-export default {
+export default StyleSheet.create({
   actions: {
     flexDirection: 'column',
   },
@@ -14,4 +15,4 @@ export default {
     textAlign: 'center',
     color: variables.blue_6,
   },
-};
+});

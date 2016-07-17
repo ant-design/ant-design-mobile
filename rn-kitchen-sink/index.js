@@ -5,7 +5,6 @@ import {
   View,
   StatusBar,
   ScrollView,
-  Dimensions,
   Platform,
 } from 'react-native';
 import codePush from 'react-native-code-push';
@@ -16,6 +15,23 @@ import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { APIS, COMPONENTS } from './demoList';
 
+const styles = StyleSheet.create({
+  content: {
+    ...Platform.select({
+      ios: {
+        marginTop: 64,
+      },
+      android: {
+        marginTop: 54,
+      },
+    }),
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+    backgroundColor: 'white',
+  }
+});
 
 class AntmRnApp extends React.Component {
   componentDidMount() {
@@ -59,17 +75,6 @@ class AntmRnApp extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  content: {
-    marginTop: Platform.OS === 'ios' ? 64 : 54,
-    flex: 1
-  },
-  scrollView: {
-    height: Dimensions.get('window').height - 64,
-    backgroundColor: 'white',
-  }
-});
 
 AppRegistry.registerComponent('kitchen-sink', () => AntmRnApp);
 

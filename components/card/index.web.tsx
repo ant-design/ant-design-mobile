@@ -1,16 +1,16 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
 import classNames from 'classnames';
-import Header from './CardHeader';
-import Body from './CardBody';
-import Footer from './CardFooter';
+import CardHeader from './CardHeader';
+import CardBody from './CardBody';
+import CardFooter from './CardFooter';
 import splitObject from '../_util/splitObject';
 
 export interface CardProps {
   prefixCls?: string;
 }
 
-class Card extends React.Component <CardProps, any> {
+export default class Card extends React.Component <CardProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
   };
@@ -18,6 +18,10 @@ class Card extends React.Component <CardProps, any> {
   static defaultProps = {
     prefixCls: 'am-card',
   };
+
+  static Header = CardHeader;
+  static Body = CardBody;
+  static Footer = CardFooter;
 
   render() {
     let [{prefixCls, children, className}, restProps] = splitObject(
@@ -35,9 +39,3 @@ class Card extends React.Component <CardProps, any> {
     );
   }
 }
-
-Card.Header = Header;
-Card.Body = Body;
-Card.Footer = Footer;
-
-export default Card;
