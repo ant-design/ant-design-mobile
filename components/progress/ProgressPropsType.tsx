@@ -1,6 +1,6 @@
 interface ProgressProps {
-  percent?:boolean;
-  position?:string;
+  percent?: number;
+  position?: 'fixed' | 'normal';
 }
 
 export default ProgressProps;

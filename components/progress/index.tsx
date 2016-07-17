@@ -24,7 +24,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
 
   onLayout = (e) => {
     this.setState({
-      wrapWidth: e.nativeEvent.layout.width
+      wrapWidth: e.nativeEvent.layout.width,
     });
   }
 
@@ -38,14 +38,14 @@ export default class Progress extends React.Component<ProgressProps, any> {
     } else {
       widthPercent = 0;
     }
-    
-    const positionStyle = 
+
+    const positionStyle =
     position === 'fixed' ?
     {
       position: 'absolute',
       top: 0,
     } : null;
-    
+
     const percentStyle = {
       width: wrapWidth * (widthPercent / 100),
       height: 0,

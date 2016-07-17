@@ -12,14 +12,14 @@ export default class BasicProgressExample extends React.Component<any, any> {
 
   onAdd = () => {
     this.setState({
-      percent: this.state.percent + 10,	
+      percent: this.state.percent + 10,
     });
   }
 
   onMius = () => {
     this.setState({
-      percent: this.state.percent - 10,	
-    });  
+      percent: this.state.percent - 10,
+    });
   }
 
   render() {
