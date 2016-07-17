@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { View, Text } from 'react-native';
 import { Card } from 'antm';
 
-export default class BasicCardExample extends React.Component {
+export default class BasicCardExample extends React.Component<any, any> {
   render() {
     return (
       <View style={{ padding: 10 }}>
