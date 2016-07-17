@@ -12,7 +12,7 @@ module.exports = {
     {
       title: 'Card', // 必须
       description: 'Card Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/MocahVGboyJUOsx.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/kkQBRgZgcqSyMPS.png',
       module: require('../components/card/demo/basic'), // 必须
     },
     {
@@ -87,5 +87,10 @@ module.exports = {
       icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
       module: require('../components/progress/demo/basic'), // 必须  
     }
+      title: 'TextAreaItem', // 必须
+      description: 'TextAreaItem Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
+      module: require('../components/textarea-item/demo/basic'), // 必须
+    },
   ],
 };

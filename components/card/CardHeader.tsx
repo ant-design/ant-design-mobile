@@ -7,10 +7,10 @@ import CardStyle from './style/index';
 const Header = CardStyle.Header;
 
 export interface CardHeaderProps {
-  title?:any;
-  thumb?:string;
-  extra?:any;
-  thumbStyle?:{};
+  title?: any;
+  thumb?: string;
+  extra?: any;
+  thumbStyle?: {};
 }
 
 export default class CardHeader extends React.Component<CardHeaderProps, any> {

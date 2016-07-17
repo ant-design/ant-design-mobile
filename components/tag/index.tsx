@@ -45,11 +45,11 @@ export default class Modal extends React.Component<TagProps, any> {
     if (props.closable) {
       this.onClose();
     } else {
-      const _selected = this.state.selected;
+      const isSelect = this.state.selected;
       this.setState({
-        selected: !_selected,
+        selected: !isSelect,
       }, () => {
-        props.onChange(!_selected);
+        props.onChange(!isSelect);
       });
     }
   }
@@ -65,9 +65,9 @@ export default class Modal extends React.Component<TagProps, any> {
   }
 
   render() {
-    let [{children, className, prefixCls, type, size, disabled, closable, style}, restProps] = splitObject(
+    let [{children, type, size, disabled, closable, style}, restProps] = splitObject(
       this.props,
-      ['children', 'className', 'prefixCls', 'type', 'size', 'disabled', 'closable', 'style']
+      ['children', 'type', 'size', 'disabled', 'closable', 'style']
     );
     const selected = this.state.selected;
 

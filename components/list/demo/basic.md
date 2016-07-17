@@ -17,11 +17,13 @@ let ListExample = React.createClass({
         <List.Header>列表头部,List.Header</List.Header>
         <List.Body>
           <List.Item
-          >标题文字,无Active效果</List.Item>
+          >标题文字,没有配置onClick则点击无反馈</List.Item>
           <List.Item
-          >标题文字,默认有Active效果</List.Item>
+             onClick={()=>{}}
+           >标题文字</List.Item>
           <List.Item
             extra="内容内容"
+             onClick={()=>{}}
           >标题文字</List.Item>
         </List.Body>
         <List.Footer>列表尾部,List.Footer</List.Footer>

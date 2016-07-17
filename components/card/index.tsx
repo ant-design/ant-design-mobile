@@ -6,7 +6,7 @@ import CardFooter from './CardFooter';
 import CardStyle from './style/index';
 
 export interface CardProps {
-  style?:{};
+  style?: {};
 }
 
 export default class Card extends React.Component<CardProps, any> {

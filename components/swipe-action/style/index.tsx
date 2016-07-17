@@ -13,5 +13,5 @@ export default {
   button: {
     textAlign: 'center',
     color: variables.blue_6,
-  }
+  },
 };

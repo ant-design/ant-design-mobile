@@ -34,7 +34,7 @@ export default {
     },
     extra: {
       flex: 1,
-    }
+    },
   },
   Body: {
     paddingVertical: 2 * variables.grid,
@@ -57,6 +57,6 @@ export default {
       textAlign: 'right',
       fontSize: variables.font_size_2,
       color: variables.neutral_7,
-    }
-  }
+    },
+  },
 };

@@ -9,7 +9,7 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
   static propTypes = {
     mode: PropTypes.string,
     onClick: PropTypes.func,
-    type: PropTypes.string
+    type: PropTypes.string,
   };
 
   static defaultProps = {
@@ -35,7 +35,7 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
   }
 
   render() {
-    const { prefixCls, children, mode, type, onClick, className } = this.props;
+    const { children, mode, type, style } = this.props;
     let operationDom;
     switch (mode) {
       case 'closable':
@@ -83,7 +83,7 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
 
     const contentMarginLeftStyle = type ? NoticeStyle.left8 : NoticeStyle.left12;
     return this.state.show ? (
-      <View style={[NoticeStyle.notice]}>
+      <View style={[NoticeStyle.notice, style]}>
         {iconDom}
         <Text style={[NoticeStyle.content, contentMarginLeftStyle]}>{children}</Text>
         {operationDom}
@@ -91,4 +91,3 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
     ) : null;
   }
 }
-
