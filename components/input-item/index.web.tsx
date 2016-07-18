@@ -50,7 +50,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     onFocus: PropTypes.func,
     extra: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.node
+      PropTypes.node,
     ]),
     onExtraClick: PropTypes.func,
     error: PropTypes.bool,
@@ -96,7 +96,6 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     let value = e.target.value;
     const { maxLength, onChange, format } = this.props;
 
-
     switch (format) {
       case 'text':
         if (maxLength > 0) {
@@ -137,7 +136,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   onInputBlur = (e) => {
     setTimeout(() => {
       this.setState({
-        focus: false
+        focus: false,
       });
     }, 300);
     const value = e.target.value;
@@ -146,7 +145,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
   onInputFocus = (e) => {
     this.setState({
-      focus: true
+      focus: true,
     });
     const value = e.target.value;
     this.props.onFocus(value);
@@ -165,14 +164,16 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   render() {
-    const { prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children, error, className, extra, labelNumber } = this.props;
+    const {
+      prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children,
+      error, className, extra, labelNumber } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: type === 'hasLine',
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
-      [className]: className
+      [className]: className,
     });
 
     const labelCls = classNames({

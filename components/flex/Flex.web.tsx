@@ -61,7 +61,7 @@ export default class Flex extends React.Component<FlexProps, any> {
       [`${prefixCls}-align-content-around`]: alignContent === 'around',
       [`${prefixCls}-align-content-stretch`]: alignContent === 'stretch',
 
-      [className]: className
+      [className]: className,
     });
 
     return (

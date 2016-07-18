@@ -16,39 +16,39 @@ ReactDOM.render(
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div>}
           arrow="horizontal"
-          onClick={()=>{}}
+          onClick={() => {}}
         >垂直居中对齐</List.Item>
         <List.Item
           extra="内容内容"
           arrow="horizontal"
-          onClick={()=>{}}
+          onClick={() => {}}
         ><div>垂直居中对齐<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div></List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div>}
           arrow="horizontal"
           align="top"
-          onClick={()=>{}}
+          onClick={() => {}}
         >顶部对齐</List.Item>
         <List.Item
           extra="内容内容"
           arrow="horizontal"
           align="top"
-          onClick={()=>{}}
+          onClick={() => {}}
         ><div>顶部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
           arrow="horizontal"
           align="bottom"
-          onClick={()=>{}}
+          onClick={() => {}}
         >底部对齐</List.Item>
         <List.Item
           extra="内容内容"
           arrow="horizontal"
           align="bottom"
-          onClick={()=>{}}
+          onClick={() => {}}
         ><div>底部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
         <List.Item
-          onClick={()=>{}}
+          onClick={() => {}}
           extra={<Button
             size="small"
             inline

@@ -26,7 +26,7 @@ class List extends React.Component<ListProps, any> {
       ['prefixCls', 'children', 'className']);
     const wrapCls = classNames({
       [prefixCls]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (

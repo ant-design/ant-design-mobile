@@ -33,11 +33,13 @@ export default class AgreeItem extends React.Component<AgreeItemProps, any> {
   };
 
   render() {
-    let[{ prefixCls, style, name, checked, disabled, children, onChange, className }, restProps] = splitObject(this.props,
+    let[{
+      prefixCls, style, name, checked, disabled, children, onChange, className,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'onChange', 'className']);
     const wrapCls = classNames({
       [`${prefixCls}-agree`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (<div

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import splitObject from '../_util/splitObject';
 export default props => {
   let [{type, className}, restProps] = splitObject(props,

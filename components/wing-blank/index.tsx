@@ -9,7 +9,7 @@ class WingBlank extends React.Component {
   };
 
   static defaultProps = {
-    mode: 8
+    mode: 8,
   };
 
   render() {

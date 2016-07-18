@@ -23,7 +23,9 @@ export default class NavBar extends React.Component {
   };
 
   render() {
-    let [{prefixCls, children, mode, className, iconName, leftContent, rightContent, onLeftClick}, restProps] = splitObject(this.props,
+    let [{
+      prefixCls, children, mode, className, iconName, leftContent, rightContent, onLeftClick,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'children', 'mode', 'className',
         'iconName', 'leftContent', 'rightContent', 'onLeftClick']);
     const wrapCls = classNames({

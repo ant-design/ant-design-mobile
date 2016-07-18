@@ -1,10 +1,10 @@
 interface Props {
-  data:Array<Object>;
-  value?:Array<string|number>;
-  format?:(values) => void;
-  cols?:number;
+  data: Array<Object>;
+  value?: Array<string|number>;
+  format?: (values) => void;
+  cols?: number;
   /** web only */
-  prefixCls?:string;
+  prefixCls?: string;
 }
 
 export default Props;

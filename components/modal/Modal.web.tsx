@@ -50,7 +50,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       restProps,
     ] = splitObject(
       this.props,
-      ['prefixCls', 'className', 'transparent', 'animated', 'animation', 
+      ['prefixCls', 'className', 'transparent', 'animated', 'animation',
       'maskAnimation', 'closable', 'maskClosable', 'style']
     );
 

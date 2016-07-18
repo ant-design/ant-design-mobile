@@ -102,7 +102,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
   onClear = () => {
     this.setState({
-      value: ''
+      value: '',
     });
     this.refs.searchInput.focus();
     this.props.onClear('');
@@ -114,13 +114,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     const inputCls = classNames({
       [`${prefixCls}-input`]: true,
       [`${prefixCls}-input-focus`]: focus,
-      [`${prefixCls}-start`]: value.length > 0
+      [`${prefixCls}-start`]: value.length > 0,
     });
 
     let cancelStyle = value.length > 0 ? { display: 'block' } : { display: 'none' };
@@ -140,7 +140,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
               ref="searchInput" />
             <a onClick={this.onClear} className={`${prefixCls}-clear`} />
           </div>
-          <div className={`${prefixCls}-cancel`} style={showCancelButton ? { display: 'block' } : cancelStyle} onClick={this.onCancel}>{cancelTxt}</div>
+          <div
+            className={`${prefixCls}-cancel`}
+            style={showCancelButton ? { display: 'block' } : cancelStyle}
+            onClick={this.onCancel}>{cancelTxt}
+          </div>
         </div>
       </form>
     );

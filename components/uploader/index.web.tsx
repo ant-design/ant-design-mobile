@@ -8,9 +8,9 @@ import Toast from '../toast';
 function noop() { }
 
 export interface UploaderProps {
-  prefixCls?:string;
+  prefixCls?: string;
   style?: React.CSSProperties;
-  files?:Array<{}>;
+  files?: Array<{}>;
   onChange?: Function;
 }
 
@@ -104,7 +104,7 @@ export default class Uploader extends React.Component<UploaderProps, any> {
           }
           this.addImage({
             url: dataURL,
-            orientation
+            orientation,
           });
         });
       };
@@ -119,7 +119,7 @@ export default class Uploader extends React.Component<UploaderProps, any> {
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     const itemStyle = {

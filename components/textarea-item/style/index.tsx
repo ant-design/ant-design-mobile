@@ -10,7 +10,7 @@ export default {
     position: 'absolute',
     top: 2 * variables.grid,
     width: 18,
-    height: 18, 
+    height: 18,
   }
   errorIcon: {
     position: 'absolute',
@@ -21,5 +21,5 @@ export default {
     position: 'absolute',
     right: 2 * variables.grid,
     bottom: 2 * variables.grid,
-  }
+  },
 };

@@ -16,7 +16,7 @@ const Circle = React.createClass({
         }}
       />
     );
-  }
+  },
 });
 
 export default class FlexExample extends React.Component {
@@ -24,14 +24,20 @@ export default class FlexExample extends React.Component {
     return (
       <View>
         <WingBlank style={{ marginTop: 20, marginBottom: 5 }}>
-          <Text style={{ marginBottom: 10, }}>项目的排列方向</Text>
+          <Text style={{ marginBottom: 10 }}>项目的排列方向</Text>
           <Text>direction="row":主轴为水平方向，起点在左端</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex>
-            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}><Button mode="white" size="small">按钮1</Button></Flex.Item>
-            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}><Button mode="white" size="small">按钮2</Button></Flex.Item>
-            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}><Button mode="white" size="small">按钮3</Button></Flex.Item>
+            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+              <Button mode="white" size="small">按钮1</Button>
+            </Flex.Item>
+            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+              <Button mode="white" size="small">按钮2</Button>
+            </Flex.Item>
+            <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
+              <Button mode="white" size="small">按钮3</Button>
+            </Flex.Item>
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}><
@@ -106,7 +112,7 @@ export default class FlexExample extends React.Component {
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
-          <Text style={{ marginTop: 20, marginBottom: 20, }}>项目在交叉轴上的对齐方式</Text>
+          <Text style={{ marginTop: 20, marginBottom: 20 }}>项目在交叉轴上的对齐方式</Text>
           <Text>align="start":交叉轴的起点对齐</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
@@ -153,7 +159,7 @@ export default class FlexExample extends React.Component {
           </WingBlank>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
-          <Text style={{ marginBottom: 10, }}>是否折行</Text>
+          <Text style={{ marginBottom: 10 }}>是否折行</Text>
           <Text>wrap="wrap":换行</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>

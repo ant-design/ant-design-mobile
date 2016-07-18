@@ -42,12 +42,14 @@ export default class PageResult extends React.Component<PageResultProps, any> {
   };
 
   render() {
-    let [{prefixCls, imgUrl, title, message, buttonTxt, buttonClick, buttonType, buttonGhost, className}, restProps] = splitObject(this.props,
+    let [{
+      prefixCls, imgUrl, title, message, buttonTxt, buttonClick, buttonType, buttonGhost, className,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'imgUrl', 'title', 'message', 'className',
         'buttonTxt', 'buttonClick', 'buttonType', 'buttonGhost']);
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (

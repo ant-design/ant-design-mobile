@@ -57,7 +57,7 @@ export default class Grid extends React.Component<GridProps, GridState> {
     if (this.props.needActive) {
       this.setState({
         hover: true,
-        hoverIndex: index
+        hoverIndex: index,
       });
     }
   };
@@ -76,7 +76,7 @@ export default class Grid extends React.Component<GridProps, GridState> {
     const wrapCls = classNames({
       [prefixCls]: true,
       [`${prefixCls}-line`]: hasLine,
-      [className]: className
+      [className]: className,
     });
 
     const itemCls = classNames({
@@ -92,7 +92,7 @@ export default class Grid extends React.Component<GridProps, GridState> {
 
     const flexItemStyle = {
       height: `${this.clientWidth / 4}px`,
-      paddingTop: `${(this.clientWidth / 4 - 40) / 2}px`
+      paddingTop: `${(this.clientWidth / 4 - 40) / 2}px`,
     };
 
     for (let i = 0; i < FlexCount; i ++) {

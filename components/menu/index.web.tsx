@@ -45,14 +45,16 @@ export default class Menu extends React.Component {
 
     const { data, value, level } = this.props;
     if (level === 2) {
-      let SubMenuData = (data.filter((el) => { return el.value === (value.length > 0 && value[0] || null); }))[0].children || [];
+      let SubMenuData =
+        (data.filter((el) => {
+          return el.value === (value.length > 0 && value[0] || null); }))[0].children || [];
       this.state = {
         SubMenuData,
         firstValue: value[0] || '',
       };
     } else {
       this.state = {
-        SubMenuData: data
+        SubMenuData: data,
       };
     }
   }
@@ -61,14 +63,14 @@ export default class Menu extends React.Component {
     if (el.isLeaf === true) {
       this.setState({
         firstValue: el.value,
-        SubMenuData: []
+        SubMenuData: [],
       }, () => {
         this.props.onChange([el.value]);
       });
     } else {
       this.setState({
         firstValue: el.value,
-        SubMenuData: el.children || []
+        SubMenuData: el.children || [],
       });
     }
   };
@@ -90,8 +92,8 @@ export default class Menu extends React.Component {
     }
 
     let heightStyle = {
-      height: `${Math.round(height/44) * 44 -1}px`,
-      overflowY: 'scroll'
+      height: `${ Math.round(height / 44) * 44 - 1 }px`,
+      overflowY: 'scroll',
     };
 
     style = objectAssign(style || {}, heightStyle);
@@ -100,7 +102,7 @@ export default class Menu extends React.Component {
 
     const wrapCls = classNames({
       [prefixCls]: true,
-      [className]: className
+      [className]: className,
     });
 
     let listContent = [];
