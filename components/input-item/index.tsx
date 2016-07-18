@@ -25,7 +25,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     onFocus: PropTypes.func,
     extra: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.node
+      PropTypes.node,
     ]),
     onExtraClick: PropTypes.func,
     error: PropTypes.bool,
@@ -63,7 +63,6 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   onInputChange = (e) => {
     let value = e.target.value;
     const { maxLength, onChange, format } = this.props;
-
 
     switch (format) {
       case 'text':
@@ -105,7 +104,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   onInputBlur = (e) => {
     setTimeout(() => {
       this.setState({
-        focus: false
+        focus: false,
       });
     }, 300);
     const value = e.target.value;
@@ -114,7 +113,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
   onInputFocus = (e) => {
     this.setState({
-      focus: true
+      focus: true,
     });
     const value = e.target.value;
     this.props.onFocus(value);
@@ -133,9 +132,8 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   render() {
-    const { format, type, name, editable, value, placeholder, style, clear, children, error, className, extra, labelNumber } = this.props;
-    const { focus } = this.state;
-
+    const { format, name, editable, value, placeholder,
+      style, clear, children, error, extra } = this.props;
 
     let inputType = 'text';
     if (format === 'bankCard' || format === 'phone') {
@@ -150,7 +148,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
     return (
       <View style={style}>
-        {children ? (<Text className={labelCls}>{children}</Text>) : null}
+        {children ? (<Text>{children}</Text>) : null}
         <View>
           <TextInput
             type={inputType}
