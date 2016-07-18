@@ -3,9 +3,9 @@ import { PropTypes } from 'react';
 import classNames from 'classnames';
 
 export interface WingBlankProps {
-  prefixCls?:string;
+  prefixCls?: string;
   style?: React.CSSProperties;
-  mode?:number;
+  mode?: number;
 }
 
 export default class WingBlank extends React.Component<WingBlankProps, any> {
@@ -23,7 +23,7 @@ export default class WingBlank extends React.Component<WingBlankProps, any> {
     let {prefixCls, mode, className, children, style } = this.props;
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
     wrapCls += ` ${prefixCls}-wb${mode}`;
 

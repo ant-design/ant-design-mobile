@@ -93,7 +93,7 @@ export default function (...args) {
   if (typeof args[2] === 'function') {
     actions = [
       { text: '取消' },
-      { text: '确定', onPress: () => { getArgs(args[2]); }, }
+      { text: '确定', onPress: () => { getArgs(args[2]); } },
     ];
   } else {
     actions = args[2].map(item => {

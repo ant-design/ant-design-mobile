@@ -1,4 +1,4 @@
-import {View, TouchableHighlight, StyleSheet} from 'react-native';
+import { View } from 'react-native';
 import { DatePicker, List } from 'antm';
 import * as React from 'react';
 
@@ -10,7 +10,7 @@ export default class PopupExample extends React.Component {
     };
   }
   onChange = (value) => {
-    console.log(value);
+    // console.log(value);
     this.setState({ value });
   }
   render() {

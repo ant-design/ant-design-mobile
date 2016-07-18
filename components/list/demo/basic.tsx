@@ -37,7 +37,12 @@ export default class BasicListExample extends React.Component {
             >icon</List.Item>
             <List.Item
               icon=""
-              extra={<Image source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }} width="28" height="28" />}
+              extra={
+                <Image
+                  source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }}
+                  width="28"
+                  height="28" />
+              }
               arrow="horizontal"
               last
               onClick={window.clickItem}
@@ -53,7 +58,12 @@ export default class BasicListExample extends React.Component {
             <List.Item extra="down,剪头向下" arrow="down">标题文字</List.Item>
             <List.Item extra="up,剪头向上" arrow="up">标题文字</List.Item>
             <List.Item
-              extra={<List.Item.Extra><List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent><List.Item.Detail>001</List.Item.Detail></List.Item.Extra>}
+              extra={
+                <List.Item.Extra>
+                  <List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent>
+                  <List.Item.Detail>001</List.Item.Detail>
+                </List.Item.Extra>
+              }
               arrow="horizontal"
               last
             ><List.Item.Content>账户名</List.Item.Content></List.Item>
@@ -68,8 +78,17 @@ export default class BasicListExample extends React.Component {
                   <List.Item.Content>收银员</List.Item.Content>
                   <List.Item.Detail>仅可进行收款、退款及查账操作</List.Item.Detail>
                 </List.Item>
-                <List.Item line={2} thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" arrow="horizontal"
-                  extra={<List.Item.Extra><List.Item.AffiliatedContent>第一行文字</List.Item.AffiliatedContent><List.Item.Detail>Detail</List.Item.Detail></List.Item.Extra>}>
+                <List.Item
+                  line={2}
+                  thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
+                  arrow="horizontal"
+                  extra={
+                    <List.Item.Extra>
+                      <List.Item.AffiliatedContent>第一行文字</List.Item.AffiliatedContent>
+                      <List.Item.Detail>Detail</List.Item.Detail>
+                      </List.Item.Extra>
+                  }
+                >
                   <List.Item.Content>Content</List.Item.Content>
                   <List.Item.Detail>Detail</List.Item.Detail>
                 </List.Item>
@@ -77,7 +96,11 @@ export default class BasicListExample extends React.Component {
                   <List.Item.Content>运营</List.Item.Content>
                   <List.Item.Detail>可进行收款、折扣管理、查看数据等操作。如果文字超长那就省略号</List.Item.Detail>
                 </List.Item>
-                <List.Item line={2} arrow="up" extra={<Button mode="light" size="small" onPress={() => alert(1)}>按钮</Button>}>
+                <List.Item
+                  line={2}
+                  arrow="up"
+                  extra={<Button mode="light" size="small" onPress={() => alert(1)}>按钮</Button>}
+                >
                   <List.Item.Content>区域经理</List.Item.Content>
                   <List.Item.Detail>可进行收款、折扣管理、查看数据等操作。</List.Item.Detail>
                 </List.Item>
@@ -121,11 +144,21 @@ export default class BasicListExample extends React.Component {
               arrow="horizontal"
             >文本信息</List.Item>
             <List.Item
-              extra={<Image source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }} width="29" height="29" />}
+              extra={
+                <Image
+                source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }}
+                width="29"
+                height="29" />
+              }
               arrow="horizontal"
             >员工二维码</List.Item>
             <List.Item
-              extra={<List.Item.Extra><List.Item.AffiliatedContent>koubei@alipay.com</List.Item.AffiliatedContent><List.Item.Detail>002</List.Item.Detail></List.Item.Extra>}
+              extra={
+                <List.Item.Extra>
+                  <List.Item.AffiliatedContent>koubei@alipay.com</List.Item.AffiliatedContent>
+                  <List.Item.Detail>002</List.Item.Detail>
+                </List.Item.Extra>
+              }
               arrow="horizontal"
               line={2}
               last

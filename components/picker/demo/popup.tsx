@@ -1,4 +1,4 @@
-import {View, TouchableHighlight, StyleSheet} from 'react-native';
+import { View } from 'react-native';
 import { Picker, List } from 'antm';
 import * as React from 'react';
 
@@ -36,7 +36,7 @@ export default class PopupExample extends React.Component {
     };
   }
   onClick = () => {
-    console.log('start loading data');
+    // console.log('start loading data');
     setTimeout(() => {
       this.setState({
         data,
@@ -44,14 +44,14 @@ export default class PopupExample extends React.Component {
     }, 500);
   }
   onChange = (value) => {
-    console.log(value);
+    // console.log(value);
     this.setState({ value });
   }
   render() {
     return (<View>
       <List>
         <List.Body>
-          <Picker data={this.state.data} cols={2} triggerType="onClick" 
+          <Picker data={this.state.data} cols={2} triggerType="onClick"
             value={this.state.value} onChange={this.onChange}
           >
             <List.Item arrow="horizontal" onClick={this.onClick}>省市选择(异步加载)</List.Item>

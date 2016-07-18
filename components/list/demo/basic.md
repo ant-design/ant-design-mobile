@@ -19,11 +19,11 @@ let ListExample = React.createClass({
           <List.Item
           >标题文字,没有配置onClick则点击无反馈</List.Item>
           <List.Item
-             onClick={()=>{}}
+            onClick={() => {}}
            >标题文字</List.Item>
           <List.Item
             extra="内容内容"
-             onClick={()=>{}}
+            onClick={() => {}}
           >标题文字</List.Item>
         </List.Body>
         <List.Footer>列表尾部,List.Footer</List.Footer>
