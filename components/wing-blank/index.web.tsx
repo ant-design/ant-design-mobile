@@ -1,31 +1,26 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 
 export interface WingBlankProps {
   prefixCls?: string;
   style?: React.CSSProperties;
-  mode?: number;
+  size?: number;
+  className?: string;
 }
 
 export default class WingBlank extends React.Component<WingBlankProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    mode: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32]),
-  };
-
   static defaultProps = {
     prefixCls: 'am-wingblank',
-    mode: 8,
+    size: 8,
   };
 
   render() {
-    let {prefixCls, mode, className, children, style } = this.props;
+    let { prefixCls, size, className, children, style } = this.props;
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className,
+      [className]: !!className,
+      [`${prefixCls}-wb${size}`]: true,
     });
-    wrapCls += ` ${prefixCls}-wb${mode}`;
 
     return (
       <div className={wrapCls} style={style}>

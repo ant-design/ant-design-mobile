@@ -15,13 +15,13 @@ export default class BasicWingBlankExample extends React.Component {
           </Text>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank mode={20}>
+        <WingBlank size={20}>
           <Text style={{ textAlign: 'center', backgroundColor: variables.brand_6 }}>
             两翼留白20px
           </Text>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank mode={32}>
+        <WingBlank size={32}>
           <Text style={{ textAlign: 'center', backgroundColor: variables.brand_6 }}>
             两翼留32px
           </Text>
