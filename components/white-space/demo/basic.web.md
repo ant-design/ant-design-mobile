@@ -3,7 +3,7 @@ order: 0
 title: 基本
 ---
 
-上下留白 ```<WhiteSpace mode={8} />```
+上下留白 ```<WhiteSpace size={8} />```
 
 
 ````jsx
@@ -19,17 +19,17 @@ let WhiteSpaceExample = React.createClass({
       </WingBlank>
       <WhiteSpace />
       <div style={{ borderTop: '1px solid #2DB7F5' }} />
-      <WhiteSpace mode={16} />
+      <WhiteSpace size={16} />
       <WingBlank>
         <Button type="primary">上下留白16px</Button>
       </WingBlank>
-      <WhiteSpace mode={16} />
+      <WhiteSpace size={16} />
       <div style={{ borderTop: '1px solid #2DB7F5' }} />
-      <WhiteSpace mode={32} />
+      <WhiteSpace size={32} />
       <WingBlank>
         <Button type="primary">上下留白32px</Button>
       </WingBlank>
-      <WhiteSpace mode={32} />
+      <WhiteSpace size={32} />
       <div style={{ borderTop: '1px solid #2DB7F5' }} />
     </div>
     );
