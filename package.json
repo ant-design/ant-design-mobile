@@ -3,9 +3,9 @@
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
   },
-  "version": "0.7.0-alpha.0",
+  "version": "0.7.0-alpha.1",
   "title": "AntD Mobile",
-  "description": "基于React的AntD Mobile",
+  "description": "基于 React 的移动设计规范实现",
   "homepage": "http://antm.alipay.net/",
   "keywords": [
     "ant",
