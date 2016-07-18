@@ -15,7 +15,7 @@ export default class WingBlank extends React.Component<WingBlankProps, any> {
   };
 
   render() {
-    let { prefixCls, size, className, children, style } = this.props;
+    const { prefixCls, size, className, children, style } = this.props;
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className]: !!className,
