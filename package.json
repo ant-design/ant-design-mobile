@@ -32,7 +32,7 @@
     "dist",
     "lib"
   ],
-  "entry": {},
+  "main": "dist/antm.js",
   "license": "MIT",
   "dependencies": {
     "array-tree-filter": "~1.0.0",
