@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
-import classNames from 'classnames';
-function noop() { }
+import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
+import variables from '../style/variables';
 import InputItemProps from './InputItemPropsType';
+import InputItemStyle from './style/index';
 
 export interface InputItemState {
   focus: boolean;
@@ -10,8 +11,6 @@ export interface InputItemState {
 
 export default class InputItem extends React.Component<InputItemProps, InputItemState> {
   static propTypes = {
-    prefixCls: PropTypes.string,
-    prefixListCls: PropTypes.string,
     style: PropTypes.object,
     type: PropTypes.oneOf(['hasLine']),
     format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
@@ -26,7 +25,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     onFocus: PropTypes.func,
     extra: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.node,
+      PropTypes.node
     ]),
     onExtraClick: PropTypes.func,
     error: PropTypes.bool,
@@ -38,8 +37,6 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   static defaultProps = {
-    prefixCls: 'am-input',
-    prefixListCls: 'am-list',
     type: 'hasLine',
     format: 'text',
     editable: true,
@@ -48,13 +45,8 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     placeholder: '',
     clear: false,
     maxLength: -1,
-    onChange: noop,
-    onBlur: noop,
-    onFocus: noop,
     extra: '',
-    onExtraClick: noop,
     error: false,
-    onErrorClick: noop,
     size: 'large',
     labelNumber: 4,
     labelPosition: 'left',
@@ -71,6 +63,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   onInputChange = (e) => {
     let value = e.target.value;
     const { maxLength, onChange, format } = this.props;
+
 
     switch (format) {
       case 'text':
@@ -112,7 +105,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   onInputBlur = (e) => {
     setTimeout(() => {
       this.setState({
-        focus: false,
+        focus: false
       });
     }, 300);
     const value = e.target.value;
@@ -121,7 +114,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
   onInputFocus = (e) => {
     this.setState({
-      focus: true,
+      focus: true
     });
     const value = e.target.value;
     this.props.onFocus(value);
@@ -140,27 +133,9 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   render() {
-    const {
-      prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children,
-      error, className, extra, labelNumber } = this.props;
+    const { format, type, name, editable, value, placeholder, style, clear, children, error, className, extra, labelNumber } = this.props;
     const { focus } = this.state;
-    const wrapCls = classNames({
-      [`${prefixListCls}-item`]: type === 'hasLine',
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-error`]: error,
-      [`${prefixCls}-focus`]: focus,
-      [className]: className,
-    });
 
-    const labelCls = classNames({
-      [`${prefixCls}-label`]: true,
-      [`${prefixCls}-label-2`]: labelNumber === 2,
-      [`${prefixCls}-label-3`]: labelNumber === 3,
-      [`${prefixCls}-label-4`]: labelNumber === 4,
-      [`${prefixCls}-label-5`]: labelNumber === 5,
-      [`${prefixCls}-label-6`]: labelNumber === 6,
-      [`${prefixCls}-label-7`]: labelNumber === 7,
-    });
 
     let inputType = 'text';
     if (format === 'bankCard' || format === 'phone') {
@@ -169,11 +144,15 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       inputType = 'password';
     }
 
+    const iconStyle = {
+      right: error ? 8 * variables.grid : 2 * variables.grid,
+    };
+
     return (
-      <div className={wrapCls} style={style}>
-        {children ? (<div className={labelCls}>{children}</div>) : null}
-        <div className={`${prefixCls}-control`}>
-          <input
+      <View style={style}>
+        {children ? (<Text className={labelCls}>{children}</Text>) : null}
+        <View>
+          <TextInput
             type={inputType}
             name={name}
             placeholder={placeholder}
@@ -184,13 +163,27 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
             readOnly={!editable}
             pattern={format === 'number' ? '[0-9]*' : ''}
           />
-        </div>
+        </View>
         {clear && editable && value.length > 0 ?
-          <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
+          <TouchableWithoutFeedback onPress={this.clearInput} >
+            <View style={[InputItemStyle.icon, iconStyle]}>
+              <Image
+                source={{ uri: 'https://zos.alipayobjects.com/rmsportal/WvpyGwPbGnTLdKd.png' }}
+                style={{ width: 18, height:18 }}
+              />
+            </View>
+          </TouchableWithoutFeedback>
           : null}
-        {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
-        {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
-      </div>
+        {error ? (<TouchableWithoutFeedback onPress={this.onErrorClick} >
+          <View style={[InputItemStyle.errorIcon]}>
+            <Image
+              source={{ uri: 'https://zos.alipayobjects.com/rmsportal/ginyKmmfHfKAXze.png' }}
+              style={{ width: 18, height:18 }}
+            />
+          </View>
+        </TouchableWithoutFeedback>) : null}
+        {extra !== '' ? <TouchableWithoutFeedback onPress={this.onExtraClick}>{extra}</TouchableWithoutFeedback> : null}
+      </View>
     );
   }
 }
