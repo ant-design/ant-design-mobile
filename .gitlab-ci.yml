@@ -6,6 +6,6 @@ before_script:
 
 test:
   script:
-    - npm i tnpm --registry=http://registry.npm.alibaba-inc.com
+    - npm i tnpm@3.x --registry=http://registry.npm.alibaba-inc.com
     - node_modules/.bin/tnpm i
     - node_modules/.bin/tnpm run lint
