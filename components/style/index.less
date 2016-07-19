@@ -1,3 +1,4 @@
+@import './variables';
 *,
 *:before,
 *:after {
@@ -11,4 +12,17 @@ body {
 
 *:focus {
   outline: none;
+}
+
+a {
+  color: @brand-6;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+  &:active,
+  &:hover {
+    color: @brand-7;
+  }
 }
