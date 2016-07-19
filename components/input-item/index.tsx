@@ -4,13 +4,12 @@ import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-na
 import variables from '../style/variables';
 import InputItemProps from './InputItemPropsType';
 import InputItemStyle from './style/index';
+function noop() { }
 
-export interface InputItemState {
-  focus: boolean;
-}
-
-export default class InputItem extends React.Component<InputItemProps, InputItemState> {
+export default class InputItem extends React.Component<InputItemProps, any> {
   static propTypes = {
+    prefixCls: PropTypes.string,
+    prefixListCls: PropTypes.string,
     style: PropTypes.object,
     type: PropTypes.oneOf(['hasLine']),
     format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
@@ -34,9 +33,12 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
     labelPosition: PropTypes.oneOf(['left', 'top']),
     textAlign: PropTypes.oneOf(['left', 'center']),
+    last: PropTypes.bool,
   };
 
   static defaultProps = {
+    prefixCls: 'am-input',
+    prefixListCls: 'am-list',
     type: 'hasLine',
     format: 'text',
     editable: true,
@@ -45,86 +47,38 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     placeholder: '',
     clear: false,
     maxLength: -1,
+    onChange: noop,
+    onBlur: noop,
+    onFocus: noop,
     extra: '',
+    onExtraClick: noop,
     error: false,
+    onErrorClick: noop,
     size: 'large',
     labelNumber: 4,
     labelPosition: 'left',
     textAlign: 'left',
+    last: false,
   };
 
   constructor(props) {
     super(props);
-    this.state = {
-      focus: false,
-    };
   }
 
-  onInputChange = (e) => {
-    let value = e.target.value;
-    const { maxLength, onChange, format } = this.props;
-
-    switch (format) {
-      case 'text':
-        if (maxLength > 0) {
-          value = value.substring(0, maxLength);
-        }
-        break;
-      case 'bankCard':
-
-        value = value.replace(/\D/g, '');
-        if (maxLength > 0) {
-          value = value.substring(0, maxLength);
-        }
-        value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
-        break;
-      case 'phone':
-        value = value.replace(/\D/g, '');
-        if (maxLength > 0) {
-          value = value.substring(0, 11);
-        }
-        const valueLen = value.length;
-        if (valueLen > 3 && valueLen < 8) {
-          value = `${value.substr(0, 3)} ${value.substr(3)}`;
-        } else if (valueLen >= 8) {
-          value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(7)}`;
-        }
-        break;
-      case 'number':
-        value = value.replace(/\D/g, '');
-        break;
-      case 'password':
-        break;
-      default:
-        break;
-    }
-    onChange(value);
+  onChange = (text) => {
+    this.props.onChange(text);
   };
 
-  onInputBlur = (e) => {
-    setTimeout(() => {
-      this.setState({
-        focus: false,
-      });
-    }, 300);
-    const value = e.target.value;
-    this.props.onBlur(value);
-  };
+  onFocus = () => {
+    this.props.onFocus(this.props.value);
+  }
 
-  onInputFocus = (e) => {
-    this.setState({
-      focus: true,
-    });
-    const value = e.target.value;
-    this.props.onFocus(value);
-  };
+  onBlur = () => {
+    this.props.onBlur(this.props.value);
+  }
 
-  onExtraClick = (e) => {
-    this.props.onExtraClick(e);
-  };
-
-  onErrorClick = (e) => {
-    this.props.onErrorClick(e);
+  onErrorClick = () => {
+    this.props.onErrorClick();
   };
 
   clearInput = () => {
@@ -132,56 +86,62 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   render() {
-    const { format, name, editable, value, placeholder,
-      style, clear, children, error, extra } = this.props;
+    const {
+     format, type, name, editable, value, placeholder, style, clear, children,
+      error, extra, labelNumber, last } = this.props;
 
-    let inputType = 'text';
-    if (format === 'bankCard' || format === 'phone') {
-      inputType = 'tel';
-    } else if (format === 'password') {
-      inputType = 'password';
-    }
+    const containerStyle = {
+      borderBottomWidth: last ? 0 : 1;
+    };
 
-    const iconStyle = {
+    const textStyle = {
+     width: 4 * variables.grid * labelNumber
+    };
+
+    const inputStyle = {
+      color: error ? '#f50' : variables.neutral_10,
+      left: children ?  4 * variables.grid + 4 * variables.grid * labelNumber : 0,
+  };
+
+    const clearIconStyle = {
       right: error ? 8 * variables.grid : 2 * variables.grid,
     };
 
+    console.log(clear);
+    console.log(editable);
     return (
-      <View style={style}>
-        {children ? (<Text>{children}</Text>) : null}
-        <View>
-          <TextInput
-            type={inputType}
-            name={name}
-            placeholder={placeholder}
-            value={value}
-            onChange={this.onInputChange}
-            onBlur={this.onInputBlur}
-            onFocus={this.onInputFocus}
-            readOnly={!editable}
-            pattern={format === 'number' ? '[0-9]*' : ''}
-          />
-        </View>
-        {clear && editable && value.length > 0 ?
-          <TouchableWithoutFeedback onPress={this.clearInput} >
-            <View style={[InputItemStyle.icon, iconStyle]}>
+      <View style={[InputItemStyle.container, containerStyle, style]}>
+        {children ? <Text style={[InputItemStyle.text, textStyle]}>{children}</Text> : null}
+        <TextInput
+          style={[InputItemStyle.input, inputStyle]}
+          onChange={(event) => this.onChange(event.nativeEvent.text)}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          value={value}
+          placeholder={placeholder}
+          autoCorrect={false}
+        />
+        {clear && editable && value.length > 0 ? <TouchableWithoutFeedback onPress={this.clearInput}>
+          <View style={[InputItemStyle.clearIcon, clearIconStyle]}>
+            <Image
+              source={{ uri: 'https://zos.alipayobjects.com/rmsportal/WvpyGwPbGnTLdKd.png' }}
+              style={{ width: 16, height: 16 }}
+            />
+          </View>
+        </TouchableWithoutFeedback> : null}
+        {
+          error &&
+          <TouchableWithoutFeedback onPress={this.onErrorClick}>
+            <View style={[InputItemStyle.errorIcon]}>
               <Image
-                source={{ uri: 'https://zos.alipayobjects.com/rmsportal/WvpyGwPbGnTLdKd.png' }}
-                style={{ width: 18, height:18 }}
+                source={{ uri: 'https://zos.alipayobjects.com/rmsportal/ginyKmmfHfKAXze.png' }}
+                style={{ width: 16, height: 16 }}
               />
             </View>
           </TouchableWithoutFeedback>
-          : null}
-        {error ? (<TouchableWithoutFeedback onPress={this.onErrorClick} >
-          <View style={[InputItemStyle.errorIcon]}>
-            <Image
-              source={{ uri: 'https://zos.alipayobjects.com/rmsportal/ginyKmmfHfKAXze.png' }}
-              style={{ width: 18, height:18 }}
-            />
-          </View>
-        </TouchableWithoutFeedback>) : null}
-        {extra !== '' ? <TouchableWithoutFeedback onPress={this.onExtraClick}>{extra}</TouchableWithoutFeedback> : null}
+        }
       </View>
+
     );
   }
 }
