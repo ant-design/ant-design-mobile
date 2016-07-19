@@ -13,3 +13,4 @@ export { default as WhiteSpace } from './components/white-space/';
 export { default as WingBlank } from './components/wing-blank/';
 export { default as Progress } from './components/progress/';
 export { default as TextAreaItem } from './components/textarea-item/';
+export { default as Slider } from './components/slider/';
