@@ -142,7 +142,7 @@ export default class Uploader extends React.Component<UploaderProps, any> {
     return (
       <div className={wrapCls} style={style}>
         <div className={`${prefixCls}-list`}>
-          <WingBlank mode={16}>
+          <WingBlank size={16}>
             <Flex wrap="wrap">
               {imgItemList}
               <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={inputWrapStyle}>

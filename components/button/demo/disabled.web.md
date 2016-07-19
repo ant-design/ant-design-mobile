@@ -34,7 +34,7 @@ const ButtonExample = React.createClass({
         >
           失效状态
         </NavBar>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">主按钮失效</p>
           <WhiteSpace />
@@ -42,7 +42,7 @@ const ButtonExample = React.createClass({
           <WhiteSpace />
           <Button type="primary" ghost disabled>primary ghost 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">次按钮失效</p>
           <WhiteSpace />

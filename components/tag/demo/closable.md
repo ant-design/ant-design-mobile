@@ -23,7 +23,7 @@ function onChange(selected) {
 ReactDOM.render(
   <div className="tag-container">
     <WhiteSpace />
-    <WingBlank mode={20}>
+    <WingBlank size={20}>
       <Tag type="action" size="large" closable>可关闭标签</Tag>
       <WhiteSpace />
       <Tag

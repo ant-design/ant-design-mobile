@@ -18,17 +18,17 @@ let App = React.createClass({
   render() {
     return (
       <div className="am-slider-example">
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p className="title">格式化Tooltip</p>
           <Slider tipFormatter={formatter} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p className="title">隐藏Tooltip</p>
           <Slider tipFormatter={null} />
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
       </div>
     );
   }

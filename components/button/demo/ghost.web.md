@@ -37,13 +37,13 @@ const ButtonExample = React.createClass({
         >
           幽灵模式/ghost
         </NavBar>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">主按钮的幽灵模式，用于较轻量级或希望引导用户使用的操作</p>
           <WhiteSpace />
           <Button type="primary" ghost>primary ghost 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">次按钮的幽灵模式，用于较轻量级或不希望引导用户使用的操作</p>
           <WhiteSpace />

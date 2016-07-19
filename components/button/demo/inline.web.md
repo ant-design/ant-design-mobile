@@ -36,7 +36,7 @@ const ButtonExample = React.createClass({
         >
           尺寸/行内
         </NavBar>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">主按钮</p>
           <WhiteSpace />
@@ -47,7 +47,7 @@ const ButtonExample = React.createClass({
           <Button type="primary" inline>inline</Button>&nbsp;
           <Button type="primary" size="small" inline>inline</Button>
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">次按钮</p>
           <WhiteSpace />

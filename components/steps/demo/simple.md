@@ -20,8 +20,8 @@ const steps = [{
 
 ReactDOM.render(
   <div className="stepsExample">
-    <WhiteSpace mode={20} />
-    <WingBlank mode={20}>
+    <WhiteSpace size={20} />
+    <WingBlank size={20}>
     <Steps current={1} size="point">{steps}</Steps>
     </WingBlank>
   </div>

@@ -16,23 +16,23 @@ let App = React.createClass({
   render() {
     return (
       <div className="am-slider-example">
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p className="title">单模块</p>
           <Slider defaultValue={26} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p className="title">双模块</p>
           <WhiteSpace />
           <Slider range defaultValue={[20, 50]} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p className="title">不可用状态</p>
           <Slider range defaultValue={[20, 50]} disabled />
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
       </div>
     );
   }

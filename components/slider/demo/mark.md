@@ -26,31 +26,31 @@ let App = React.createClass({
   render() {
     return (
       <div className="am-slider-example">
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p className="title">包含关系</p>
           <Slider marks={marks} defaultValue={37} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <Slider range marks={marks} defaultValue={[26, 37]} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p className="title">并列关系</p>
           <Slider marks={marks} included={false} defaultValue={37} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p className="title">结合 step</p>
           <Slider marks={marks} step={10} defaultValue={37} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <p>`step=null`</p>
           <Slider marks={marks} step={null} defaultValue={37} />
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
       </div>
     );
   }

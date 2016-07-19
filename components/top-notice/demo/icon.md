@@ -12,17 +12,17 @@ const TopNoticeExample = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
         <TopNotice type="info">国庆期间余额宝收益和转出到账时间</TopNotice>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
         <TopNotice type="warn">国庆期间余额宝收益和转出到账时间</TopNotice>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
         <TopNotice mode="closable" type="success">国庆期间余额宝收益和转出到账时间</TopNotice>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
         <TopNotice type="error">国庆期间余额宝收益和转出到账时间</TopNotice>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
         <TopNotice mode="link" type="question">国庆期间余额宝收益和转出到账时间</TopNotice>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
       </div>
     );
   }
