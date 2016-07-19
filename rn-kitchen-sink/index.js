@@ -41,7 +41,7 @@ class AntmRnApp extends React.Component {
   render() {
     const scenes = APIS.concat(COMPONENTS).map(component => {
       const Module = component.module.default;
-      const Component = React.createClass({
+      let Component = React.createClass({
         render() {
           return (
             <View style={styles.content}>
@@ -57,6 +57,32 @@ class AntmRnApp extends React.Component {
           );
         }
       });
+      if (component.module.title === 'Drawer') {
+        // drawer 不能放到 ScrollView 里
+        Component = React.createClass({
+          render() {
+            return (
+              <View style={styles.content}>
+                <Module onNavigate={this.props.onNavigate} navigationState={this.props.navigationState} />
+              </View>
+            );
+          }
+        });
+        const DrawerMainComponent = React.createClass({
+          render() {
+            return (
+              <component.module.DrawerMain drawerComponent={Module} />
+            );
+          }
+        });
+        return (
+          <Scene key={component.title} component={Component} title={component.title}>
+            <Scene key="main" tabs>
+              <Scene key={`${component.title}Sub`} hideNavBar component={DrawerMainComponent} />
+            </Scene>
+          </Scene>
+        );
+      }
       return <Scene key={component.title} component={Component} title={component.title} />;
     });
 

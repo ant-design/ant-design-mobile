@@ -20,6 +20,12 @@ module.exports = {
       module: require('../components/date-picker/demo/popup'), // 必须
     },
     {
+      title: 'Drawer', // 必须
+      description: 'Drawer Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/drawer/demo/basic'), // 必须
+    },
+    {
       title: 'Flex', // 必须
       description: 'Flex Example',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',

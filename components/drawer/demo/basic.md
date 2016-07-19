@@ -20,7 +20,8 @@ const App1 = React.createClass({
       position: 'left',
     };
   },
-  onOpenChange() {
+  onOpenChange(isOpen) {
+    console.log(isOpen, arguments);
     this.setState({ open: !this.state.open });
   },
   render() {

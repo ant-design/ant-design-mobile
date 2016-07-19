@@ -1,6 +1,7 @@
 export { default as Button } from './components/button/';
 export { default as Card } from './components/card/';
 export { default as DatePicker } from './components/date-picker/';
+export { default as Drawer } from './components/drawer/';
 export { default as Flex } from './components/flex/';
 export { default as List } from './components/list/';
 export { default as Modal } from './components/modal/';
