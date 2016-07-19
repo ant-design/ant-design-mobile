@@ -82,6 +82,11 @@ module.exports = {
       module: require('../components/white-space/demo/basic'), // 必须
     },
     {
+      title: 'Progress', // 必须
+      description: 'Progress Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
+      module: require('../components/progress/demo/basic'), // 必须  
+    }
       title: 'TextAreaItem', // 必须
       description: 'TextAreaItem Example',
       icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
