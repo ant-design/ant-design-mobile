@@ -1,7 +1,5 @@
 module.exports = {
-  APIS: [
-
-  ],
+  APIS: [],
   COMPONENTS: [
     {
       title: 'Button', // 必须
@@ -86,7 +84,8 @@ module.exports = {
       description: 'Progress Example',
       icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
       module: require('../components/progress/demo/basic'), // 必须  
-    }
+    },
+    {
       title: 'TextAreaItem', // 必须
       description: 'TextAreaItem Example',
       icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
