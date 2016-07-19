@@ -44,6 +44,12 @@ module.exports = {
       module: require('../components/picker/demo/popup'), // 必须
     },
     {
+      title: 'Progress', // 必须
+      description: 'Progress Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
+      module: require('../components/progress/demo/basic'), // 必须  
+    },
+    {
       title: 'SwipeAction', // 必须
       description: 'SwipeAction Example',
       icon: 'https://os.alipayobjects.com/rmsportal/OJgqKyrKGdIEfwp.png',
@@ -62,6 +68,18 @@ module.exports = {
       module: require('../components/tag/demo/basic'), // 必须
     },
     {
+      title: 'TextAreaItem', // 必须
+      description: 'TextAreaItem Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
+      module: require('../components/textarea-item/demo/basic'), // 必须
+    },
+    {
+      title: 'Timeline', // 必须
+      description: 'Timeline Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
+      module: require('../components/timeline/demo/basic'), // 必须
+    },
+    {
       title: 'TopNotice', // 必须
       description: 'TopNotice Example',
       icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
@@ -78,18 +96,6 @@ module.exports = {
       description: 'WhiteSpace Example',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
       module: require('../components/white-space/demo/basic'), // 必须
-    },
-    {
-      title: 'Progress', // 必须
-      description: 'Progress Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
-      module: require('../components/progress/demo/basic'), // 必须  
-    },
-    {
-      title: 'TextAreaItem', // 必须
-      description: 'TextAreaItem Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
-      module: require('../components/textarea-item/demo/basic'), // 必须
     },
   ],
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import TimelineItem from './TimelineItem';
 import splitObject from '../_util/splitObject';
+
 export default class Timeline extends React.Component {
   static defaultProps = {
     prefixCls: 'am-timeline',
