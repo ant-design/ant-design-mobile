@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
   },
-  "version": "0.7.0-alpha.3",
+  "version": "0.7.0-alpha.4",
   "title": "AntD Mobile",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://antm.alipay.net/",
@@ -111,9 +111,7 @@
     "react-native-router-flux": "^3.30.3",
     "react-router": "^2.0.0",
     "react-stateless-wrapper": "~1.0.2",
-    "react-sublime-video": "0.1.0-beta",
-    "reqwest": "~2.0.5",
-    "values.js": "^1.0.3"
+    "reqwest": "~2.0.5"
   },
   "scripts": {
     "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint",
