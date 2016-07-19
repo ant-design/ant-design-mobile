@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import { Platform, DrawerLayoutAndroid } from 'react-native';
-import RnDrawer from 'react-native-drawer';
+import DrawerLayout from 'react-native-drawer-layout';
 import tsPropsType from './PropsType';
+import splitObject from '../_util/splitObject';
 
 export default class Drawer extends React.Component<tsPropsType, any> {
   static propTypes = {
@@ -11,65 +11,30 @@ export default class Drawer extends React.Component<tsPropsType, any> {
     position: 'left',
     onOpenChange: () => { },
     drawerWidth: 300,
-    drawerBackgroundColor: 'rgb(0,0,0)',
+    // drawerBackgroundColor: 'rgba(0,0,0,0.3)',
   };
-
-  constructor(props) {
-    super(props);
-  }
-
-  renderIos() {
-    const {
+  render() {
+    let [{
       children, sidebar, open, onOpenChange, position,
-      drawerWidth, drawerBackgroundColor
-    } = this.props;
-    const drawerStyles = {
-      drawer: { backgroundColor: drawerBackgroundColor },
-      drawerOverlay: { backgroundColor: drawerBackgroundColor },
-      main: { backgroundColor: drawerBackgroundColor },
-      mainOverlay: { backgroundColor: drawerBackgroundColor },
-    };
-    return (
-      <RnDrawer
-        content={sidebar}
-        open={open}
-        onOpen={() => onOpenChange(true)}
-        onClose={() => onOpenChange(false)}
-        side={position}
-        openDrawerOffset={(viewport) => viewport.width - drawerWidth}
-        styles={drawerStyles}
-        style={{ position: 'relative' }}
-      >
-        {children}
-      </RnDrawer>
+      drawerWidth, drawerBackgroundColor, drawerPosition
+    }, restProps] = splitObject(
+      this.props,
+      ['children', 'sidebar', 'open', 'onOpenChange', 'position',
+        'drawerWidth', 'drawerBackgroundColor', 'drawerPosition']
     );
-  }
-  renderAndroid() {
-    const {
-      children, sidebar, open, onOpenChange, position,
-      drawerWidth, drawerBackgroundColor
-    } = this.props;
-    let drawerPosition = DrawerLayoutAndroid.positions.Left;
-    if (position === 'right') {
-      drawerPosition = DrawerLayoutAndroid.positions.right;
-    }
     return (
-      <DrawerLayoutAndroid
+      <DrawerLayout
+        ref={drawer => this.drawer = drawer}
         renderNavigationView={() => sidebar}
         drawerWidth={drawerWidth}
         drawerBackgroundColor={drawerBackgroundColor}
         drawerPosition={drawerPosition}
         onDrawerOpen={() => onOpenChange(true)}
-        onDrawerClose={() => onOpenChange(false)}
+        onDrawerClose={() => onOpenChange(false) }
+        {...restProps}
       >
         {children}
-      </DrawerLayoutAndroid>
+      </DrawerLayout>
     );
-  }
-  render() {
-    if (Platform.OS === 'android') {
-      return this.renderAndroid();
-    }
-    return this.renderIos();
   }
 }

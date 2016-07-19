@@ -21,7 +21,7 @@ const App1 = React.createClass({
     };
   },
   onOpenChange(isOpen) {
-    console.log(isOpen);
+    console.log(isOpen, arguments);
     this.setState({ open: !this.state.open });
   },
   render() {
