@@ -1,8 +1,7 @@
 /* tslint:disable:no-console */
 import * as React from 'react';
 import { View } from 'react-native';
-import List from '../../list';
-import Stepper from '../';
+import {Stepper, List} from 'antm';
 
 function onChange(value) {
   console.log('changed', value);
