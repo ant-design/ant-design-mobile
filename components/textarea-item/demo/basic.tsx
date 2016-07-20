@@ -7,6 +7,8 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
     super(props);
     this.state = {
       value1: '默认带value',
+      text: '',
+      height: 0,
     };
   }
 
@@ -24,7 +26,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
   }
 
   handleError = () => {
-    alert('onErrorClick');
+    // console.log('onErrorClick')
   }
 
   render() {
@@ -54,6 +56,14 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
           <TextAreaItem
             keyboardType="email-address"
             value={this.state.value1}
+            onChange={(e) => this.onChange(e)}
+          />
+        </View>
+
+        <View style={{marginTop: 20}}>
+          <TextAreaItem
+            placeholder="高度自适应"
+            autoHeight = {true}
             onChange={(e) => this.onChange(e)}
           />
         </View>
