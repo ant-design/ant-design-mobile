@@ -53,13 +53,19 @@ module.exports = {
       title: 'Progress', // 必须
       description: 'Progress Example',
       icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
-      module: require('../components/progress/demo/basic'), // 必须  
+      module: require('../components/progress/demo/basic'), // 必须
     },
     {
       title: 'Slider', // 必须
       description: 'Slider Example',
       icon: 'https://os.alipayobjects.com/rmsportal/ViixEhXOewlupTr.png',
       module: require('../components/slider/demo/basic'), // 必须
+    },
+    {
+      title: 'Stepper', // 必须
+      description: 'Stepper Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
+      module: require('../components/stepper/demo/basic'), // 必须
     },
     {
       title: 'SwipeAction', // 必须

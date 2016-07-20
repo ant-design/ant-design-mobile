@@ -18,7 +18,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
   }
 
   onFocus = () => {
-    // console.log('onFocus');  
+    // console.log('onFocus');
   }
 
   onBlur = () => {
@@ -31,7 +31,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
 
   render() {
     return (
-      <View style={{ padding: 10 }}>
+      <View style={{ padding: 10, backgroundColor: '#f1f1f1' }}>
 
         <View style={{marginTop: 20}}>
           <TextAreaItem
