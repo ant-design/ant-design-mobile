@@ -7,8 +7,15 @@ title: 基本
 
 ````jsx
 import { SearchBar } from 'antm';
+import { createForm } from 'rc-form';
 let SearchBarExample = React.createClass({
+  getInitialState() {
+    return {
+      value: '蚂蚁中台'
+    };
+  },
   render() {
+    const { getFieldProps } = this.props.form;
     return (
       <div>
         <SearchBar
@@ -22,10 +29,9 @@ let SearchBarExample = React.createClass({
           onBlur={() => {console.log('onBlur');}}
         />
         <SearchBar
-          value="蚂蚁中台"
+          {...getFieldProps('SearchBar')}
           placeholder="搜索"
           onSubmit={(value) => {console.log(`onSubmit${value}`);}}
-          onChange={(value) => {console.log(value);}}
           onClear={() => {console.log('onClear');}}
           onCancel={() => {console.log('onCancel');}}
         />
@@ -43,6 +49,8 @@ let SearchBarExample = React.createClass({
     );
   }
 });
+
+SearchBarExample = createForm()(SearchBarExample);
 
 ReactDOM.render(<SearchBarExample />, mountNode);
 ````
