@@ -6,6 +6,7 @@ import StepProps from './stepPropTypes';
 
 export default class Stepper extends React.Component<StepProps, any> {
   static defaultProps = {
+    prefixCls: 'am-stepper',
     step: 1,
     readOnly: true,
     showNumber: false,
