@@ -56,6 +56,12 @@ module.exports = {
       module: require('../components/progress/demo/basic'), // 必须  
     },
     {
+      title: 'Slider', // 必须
+      description: 'Slider Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/ViixEhXOewlupTr.png',
+      module: require('../components/slider/demo/basic'), // 必须
+    },
+    {
       title: 'SwipeAction', // 必须
       description: 'SwipeAction Example',
       icon: 'https://os.alipayobjects.com/rmsportal/OJgqKyrKGdIEfwp.png',
