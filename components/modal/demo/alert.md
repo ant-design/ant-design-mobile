@@ -37,19 +37,19 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace mode={20} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={20} />
+        <WingBlank size={20}>
           <Button onClick={showAlert}>自定义按钮 </Button>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank mode={20}>
+        <WingBlank size={20}>
           <Button onClick={showConfirm}>确认对话框</Button>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank mode={20}>
+        <WingBlank size={20}>
           <Button onClick={showMoreBtn}>弹出多个按钮 </Button>
         </WingBlank>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
       </div>
     );
   }

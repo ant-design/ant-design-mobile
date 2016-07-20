@@ -15,14 +15,14 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
   };
 
   static defaultProps = {
-    prefixCls: 'am-flexbox'
+    prefixCls: 'am-flexbox',
   };
   render() {
     let[{ children, className, prefixCls }, restProps] = splitObject(this.props,
       ['children', 'className', 'prefixCls']);
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
-      [className]: className
+      [className]: className,
     });
     return (
       <div

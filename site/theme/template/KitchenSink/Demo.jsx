@@ -217,9 +217,11 @@ export default class Home extends React.Component {
 
           return (<div className={ previewItemClass }
             id={`${name}-demo-${index}`} key={index}>
-            {!i.meta.destroyComponent || isShow ? React.cloneElement(i.preview(React, ReactDOM), {
-              onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
-            }) : null}
+            {!i.meta.destroyComponent || isShow ?
+              React.cloneElement(i.preview(React, ReactDOM), {
+                // onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
+              }) :
+            null}
             {
             !!i.style ?
             <style dangerouslySetInnerHTML={{ __html: i.style }} /> :

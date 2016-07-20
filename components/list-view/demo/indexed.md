@@ -34,7 +34,7 @@ const Demo = React.createClass({
     const sectionIDs = [];
     const rowIDs = [];
     for (let ii = 0; ii < NUM_SECTIONS; ii++) {
-      const sectionName = `Section ${ii}`;
+      const sectionName = String.fromCharCode(65 + ii);
       sectionIDs.push(sectionName);
       dataBlob[sectionName] = sectionName;
       rowIDs[ii] = [];
@@ -57,7 +57,7 @@ const Demo = React.createClass({
 
   renderSectionHeader(sectionData) {
     return (
-      <div style={{ color: 'blue' }}>
+      <div>
         {sectionData}
       </div>
     );
@@ -79,8 +79,8 @@ const Demo = React.createClass({
       </div>
       <ListView.IndexedList
         dataSource={this.state.dataSource}
-        renderHeader={() => <span>header</span>}
-        renderFooter={() => <span>footer</span>}
+        renderHeader={() => <span>头部内容请自定义</span>}
+        renderFooter={() => <span>尾部内容请自定义</span>}
         renderSectionHeader={this.renderSectionHeader}
         renderRow={this.renderRow}
         stickyHeader

@@ -6,13 +6,12 @@ import TextAreaItemProps from './TextAreaItemPropsType';
 import TextAreaItemStyle from './style/index';
 
 export default class TextAreaItem extends React.Component<TextAreaItemProps, any> {
-  
   static propTypes = {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     onErrorClick: PropTypes.func,
-    clear: PropTypes.bool, 
+    clear: PropTypes.bool,
     error: PropTypes.bool,
     editable: PropTypes.bool,
     rows: PropTypes.number,
@@ -57,8 +56,8 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
   onChange = (text) => {
     this.setState({
       value: text,
-      clearFlag: !!text, 
-      inputCount: text.length, 
+      clearFlag: !!text,
+      inputCount: text.length,
     });
     this.props.onChange({text});
   }
@@ -88,8 +87,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     this.props.onErrorClick();
   }
 
-
-  render() {  
+  render() {
     const { clearFlag, inputCount } = this.state;
     const { rows, error, clear, count } = this.props;
 
@@ -99,7 +97,6 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     const inputStyle = {
       height: inputHeight,
       color: error ? '#f50' : variables.neutral_10,
-      
     };
 
     const iconStyle = {
@@ -141,7 +138,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
               style={{ width: 18, height:18 }}
             />
           </View>
-        </TouchableWithoutFeedback> 
+        </TouchableWithoutFeedback>
         }
 
         {
@@ -152,7 +149,6 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
           </Text>
         </View>
         }
-        
       </View>
     );
   }

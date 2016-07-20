@@ -5,7 +5,6 @@ import {
   View,
   StatusBar,
   ScrollView,
-  Dimensions,
   Platform,
 } from 'react-native';
 import codePush from 'react-native-code-push';
@@ -16,6 +15,23 @@ import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { APIS, COMPONENTS } from './demoList';
 
+const styles = StyleSheet.create({
+  content: {
+    ...Platform.select({
+      ios: {
+        marginTop: 64,
+      },
+      android: {
+        marginTop: 54,
+      },
+    }),
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+    backgroundColor: 'white',
+  }
+});
 
 class AntmRnApp extends React.Component {
   componentDidMount() {
@@ -25,7 +41,7 @@ class AntmRnApp extends React.Component {
   render() {
     const scenes = APIS.concat(COMPONENTS).map(component => {
       const Module = component.module.default;
-      const Component = React.createClass({
+      let Component = React.createClass({
         render() {
           return (
             <View style={styles.content}>
@@ -41,6 +57,32 @@ class AntmRnApp extends React.Component {
           );
         }
       });
+      if (component.module.title === 'Drawer') {
+        // drawer 不能放到 ScrollView 里
+        Component = React.createClass({
+          render() {
+            return (
+              <View style={styles.content}>
+                <Module onNavigate={this.props.onNavigate} navigationState={this.props.navigationState} />
+              </View>
+            );
+          }
+        });
+        const DrawerMainComponent = React.createClass({
+          render() {
+            return (
+              <component.module.DrawerMain drawerComponent={Module} />
+            );
+          }
+        });
+        return (
+          <Scene key={component.title} component={Component} title={component.title}>
+            <Scene key="main" tabs>
+              <Scene key={`${component.title}Sub`} hideNavBar component={DrawerMainComponent} />
+            </Scene>
+          </Scene>
+        );
+      }
       return <Scene key={component.title} component={Component} title={component.title} />;
     });
 
@@ -59,17 +101,6 @@ class AntmRnApp extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  content: {
-    marginTop: Platform.OS === 'ios' ? 64 : 54,
-    flex: 1
-  },
-  scrollView: {
-    height: Dimensions.get('window').height - 64,
-    backgroundColor: 'white',
-  }
-});
 
 AppRegistry.registerComponent('kitchen-sink', () => AntmRnApp);
 

@@ -6,6 +6,8 @@ import List from '../list';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
+const ListItem = List.Item;
+
 export interface RadioItemProps {
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -35,16 +37,18 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   };
 
   render() {
-    let [{prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, value}, restProps] = splitObject(this.props,
+    let [{
+      prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, value,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled',
         'children', 'className', 'onChange', 'value']);
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
-      [className]: className
+      [className]: className,
     });
 
-    return (<List.Item
+    return (<ListItem
       prefixCls={listPrefixCls}
       style={style}
       className={wrapCls}
@@ -56,6 +60,6 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
         onChange={onChange}
         disabled={disabled}
       />}
-    >{children}</List.Item>);
+    >{children}</ListItem>);
   }
 }

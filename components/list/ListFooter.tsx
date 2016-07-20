@@ -6,11 +6,11 @@ const THEMES = theme.ThemesList;
 
 export default class Footer extends React.Component {
   static propTypes = {
-    align: PropTypes.oneOf(['left', 'middle', 'right'])
+    align: PropTypes.oneOf(['left', 'middle', 'right']),
   };
 
   static defaultProps = {
-    align: 'left'
+    align: 'left',
   };
 
   render() {

@@ -1,6 +1,7 @@
 import variables from '../../style/variables';
+import { StyleSheet } from 'react-native';
 
-export default {
+export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -41,4 +42,4 @@ export default {
     fontWeight: '300',
     color: variables.neutral_7,
   },
-};
+});

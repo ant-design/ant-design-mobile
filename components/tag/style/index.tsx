@@ -1,6 +1,7 @@
 import variables from '../../style/variables';
+import { StyleSheet } from 'react-native';
 
-export default {
+export default StyleSheet.create({
   tag: {
     borderRadius: variables.radius_2,
     backgroundColor: 'transparent',
@@ -95,4 +96,4 @@ export default {
     borderTopLeftRadius: variables.radius_2,
     backgroundColor: variables.brand_6,
   },
-};
+});

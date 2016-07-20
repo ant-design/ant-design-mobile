@@ -70,7 +70,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     onFocus: noop,
     onErrorClick: noop,
     error: false,
-    labelNumber: 4
+    labelNumber: 4,
   };
 
   constructor(props) {
@@ -107,7 +107,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   onBlur = (e) => {
     setTimeout(() => {
       this.setState({
-        focus: false
+        focus: false,
       });
     }, 500);
     const value = e.target.value;
@@ -116,7 +116,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   onFocus = (e) => {
     this.setState({
-      focus: true
+      focus: true,
     });
     const value = e.target.value;
     this.props.onFocus(value);
@@ -131,14 +131,16 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   };
 
   render() {
-    let { prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count, editable, error, className, labelNumber } = this.props;
+    let {
+      prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count,
+      editable, error, className, labelNumber } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
-      [className]: className
+      [className]: className,
     });
 
     const labelCls = classNames({
@@ -171,7 +173,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
           (<div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />)
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
-        {count > 0 && rows > 1 ? (<span className={`${prefixCls}-count`}><span>{value.length}</span>/{count}</span>) : null}
+        {count > 0 && rows > 1
+          ? (<span className={`${prefixCls}-count`}><span>{value.length}</span>/{count}</span>)
+          : null}
       </div>
     );
   }

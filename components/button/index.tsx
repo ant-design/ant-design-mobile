@@ -24,13 +24,13 @@ export default class Button extends React.Component<ButtonProps, any> {
     ghost: false,
     disabled: false,
     inline: false,
-    loading: false
+    loading: false,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      pressIn: false
+      pressIn: false,
     };
   }
 
@@ -198,11 +198,17 @@ export default class Button extends React.Component<ButtonProps, any> {
       </View>);
     }
 
-    return (<TouchableHighlight activeOpacity={1} delayPressOut={1} { ...this.props } { ...touchableProps } style={[style, this.pressBorderColor(), this.props.style]}
-      underlayColor={highlightBackgroundColor}>
-      <Text style={[{ fontSize }, this.pressTextColor()]}>
-        {this.props.children}
-      </Text>
-    </TouchableHighlight>);
+    return (
+      <TouchableHighlight
+        activeOpacity={1}
+        delayPressOut={1} { ...this.props } { ...touchableProps }
+        style={[style, this.pressBorderColor(), this.props.style]}
+        underlayColor={highlightBackgroundColor}
+      >
+        <Text style={[{ fontSize }, this.pressTextColor()]}>
+          {this.props.children}
+        </Text>
+      </TouchableHighlight>
+    );
   }
 }

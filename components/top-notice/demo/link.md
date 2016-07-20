@@ -16,13 +16,13 @@ const TopNoticeExample = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
         <TopNotice mode="link" onClick={linkClick}>
           国庆期间余额宝收益和转出到账时间
         </TopNotice>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
         <TopNotice mode="link" type="info">国庆期间余额宝收益和转出到账时间</TopNotice>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
       </div>
     );
   }

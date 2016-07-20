@@ -12,8 +12,8 @@ let App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={32}>
+        <WhiteSpace size={32} />
+        <WingBlank size={32}>
           <Timeline>
             <Timeline.Item>创建服务现场 2015-09-01</Timeline.Item>
             <Timeline.Item>初步排除网络异常 2015-09-01</Timeline.Item>

@@ -1,15 +1,12 @@
 ---
-order: 1
-title: 幽灵模式/ghost
+order: 2
+title: 失效状态/disabled
 ---
 
-当操作并不需要太过强调/明显时，可以启动幽灵变量。
-
-该变量是在原有按钮类型上的变形，主次等级遵循原有按钮的规则。
+添加 disabled 属性即可让按钮处于不可用状态，同时按钮样式也会改变。
 
 
 ````jsx
-
 // 此处用作demo展示，不要用在生产环境
 this.customNavFlag = true;
 
@@ -35,19 +32,23 @@ const ButtonExample = React.createClass({
           onClick={this.switchDark}
           >{this.state.dark ? '白天' : '夜间'}</span>}
         >
-          幽灵模式/ghost
+          失效状态
         </NavBar>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
-          <p className="demo-p">主按钮的幽灵模式，用于较轻量级或希望引导用户使用的操作</p>
+          <p className="demo-p">主按钮失效</p>
           <WhiteSpace />
-          <Button type="primary" ghost>primary ghost 按钮</Button>
+          <Button type="primary" disabled>primary 按钮</Button>
+          <WhiteSpace />
+          <Button type="primary" ghost disabled>primary ghost 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
-          <p className="demo-p">次按钮的幽灵模式，用于较轻量级或不希望引导用户使用的操作</p>
+          <p className="demo-p">次按钮失效</p>
           <WhiteSpace />
-          <Button ghost>default ghost 按钮</Button>
+          <Button disabled>default disabled 按钮</Button>
+          <WhiteSpace />
+          <Button ghost disabled>default ghost disabled 按钮</Button>
         </WingBlank>
         <WhiteSpace />
       </div>

@@ -22,7 +22,7 @@ export default class ListHeader extends React.Component<ListHeaderProps, any> {
       ['prefixCls', 'children', 'className']);
     const wrapCls = classNames({
       [`${prefixCls}-header`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (

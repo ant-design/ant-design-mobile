@@ -78,7 +78,9 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
     }
 
     const iconDom = type ? <View style={[NoticeStyle.left12]}>
-      <Image source={{uri: `https://zos.alipayobjects.com/rmsportal/${iconType}.png`}} style={{ width: 12, height:12 }} />
+      <Image
+        source={{uri: `https://zos.alipayobjects.com/rmsportal/${iconType}.png`}}
+        style={{ width: 12, height:12 }} />
     </View> : null;
 
     const contentMarginLeftStyle = type ? NoticeStyle.left8 : NoticeStyle.left12;

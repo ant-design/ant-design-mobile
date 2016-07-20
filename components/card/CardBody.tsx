@@ -19,7 +19,7 @@ export default class CardBody extends React.Component<CardBodyProps, any> {
     );
 
     return (
-      <View style={[CardStyle.Body, style]} {...restProps}>{children}</View>
+      <View style={[CardStyle.body, style]} {...restProps}>{children}</View>
     );
   }
 }

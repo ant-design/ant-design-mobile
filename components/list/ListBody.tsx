@@ -6,7 +6,7 @@ const THEMES = theme.ThemesList;
 
 export default class Body extends React.Component {
   static propTypes = {
-    error: PropTypes.bool
+    error: PropTypes.bool,
   };
 
   render() {

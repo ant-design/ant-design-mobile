@@ -36,25 +36,25 @@ const ButtonExample = React.createClass({
         >
           类型/type
         </NavBar>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">type="primary" - 用于主要操作或必须点击才能完成流程的操作</p>
           <WhiteSpace />
           <Button type="primary">primary按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">默认type - 用于较轻或不希望引导用户使用的操作</p>
           <WhiteSpace />
           <Button>default 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">提醒按钮</p>
           <WhiteSpace />
           <Button type="warning">warning 按钮</Button>
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
         <WingBlank>
           <p className="demo-p">添加 loading 属性即可让按钮处于加载状态</p>
           <WhiteSpace />

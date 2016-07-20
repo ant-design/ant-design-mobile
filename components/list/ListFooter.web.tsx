@@ -17,13 +17,12 @@ export default class ListFooter extends React.Component<ListFooterProps, any> {
     prefixCls: 'am-list',
   };
 
-
   render() {
     let [{prefixCls, children, className, style}, restProps] = splitObject(this.props,
       ['prefixCls', 'children', 'className']);
     const wrapCls = classNames({
       [`${prefixCls}-footer`]: true,
-      [className]: className
+      [className]: className,
     });
     return (
       <div {...restProps} className={wrapCls} style={style}>

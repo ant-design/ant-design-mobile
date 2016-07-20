@@ -52,7 +52,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
         this.setState({
           hover: false,
         });
-      }, 300);
+      }, 200);
       this.props.onClick(e);
     }
   };
@@ -74,7 +74,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
   };
 
   render() {
-    let { prefixCls, thumb, arrow, error, children, extra, className, align } = this.props;
+    let { prefixCls, thumb, arrow, error, children, extra, className, align, style } = this.props;
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;
@@ -86,7 +86,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
       [`${prefixCls}-item-hover`]: hover,
-      [className]: className
+      [className]: className,
     });
 
     const arrowCls = classNames({
@@ -122,6 +122,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
         onTouchStart={this.onTouchStart}
         onTouchEnd={this.onTouchEnd}
         onTouchCancel={this.onTouchEnd}
+        style={style}
       >
         {thumbDom}
         <div className={`${prefixCls}-line`}>

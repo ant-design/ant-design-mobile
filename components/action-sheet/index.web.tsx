@@ -1,6 +1,6 @@
 /* eslint no-console:0 */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import Icon from '../icon';
@@ -23,7 +23,7 @@ function createActionSheet(flag, config, callback) {
 
   function close() {
     d.setState({
-      visible: false
+      visible: false,
     });
     if (div) {
       ReactDOM.unmountComponentAtNode(div);

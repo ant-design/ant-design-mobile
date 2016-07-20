@@ -1,6 +1,7 @@
 import variables from '../../style/variables';
+import { StyleSheet } from 'react-native';
 
-export default {
+export default StyleSheet.create({
   notice: {
     backgroundColor: variables.function_warning_1,
     height: 9 * variables.grid,
@@ -33,4 +34,4 @@ export default {
     fontWeight: '500',
     marginRight: 3 * variables.grid,
   },
-};
+});

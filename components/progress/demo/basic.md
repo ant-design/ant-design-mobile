@@ -37,7 +37,7 @@ const MyProgress = React.createClass({
         }
         <Progress percent={this.state.percent} position="normal" />
         <WhiteSpace mpde={20} />
-        <WingBlank mode={20}>
+        <WingBlank size={20}>
             <Flex>
                 <Flex.Item>
                     <Button onClick={this.increase}> + </Button>

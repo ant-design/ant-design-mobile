@@ -44,7 +44,7 @@ export default class Item extends React.Component<any, any> {
     arrow: PropTypes.oneOf(['horizontal', 'down', 'up']),
     error: PropTypes.bool,
     lazy: PropTypes.bool,
-    last: PropTypes.bool
+    last: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -120,9 +120,16 @@ export default class Item extends React.Component<any, any> {
       </View>);
 
     if (this.props.onClick) {
-      return (<TouchableHighlight activeOpacity={1} underlayColor={THEMES.underlayColor} onPress={this.props.onClick} onPressIn={() => {}} onPressOut={() => {}}>
-        {itemView}
-      </TouchableHighlight>);
+      return (
+        <TouchableHighlight
+          activeOpacity={1}
+          underlayColor={THEMES.underlayColor}
+          onPress={this.props.onClick}
+          onPressIn={() => {}} onPressOut={() => {}}
+        >
+          {itemView}
+        </TouchableHighlight>
+      );
     }
 
     return itemView;

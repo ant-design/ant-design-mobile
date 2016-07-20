@@ -14,15 +14,15 @@ export default class Card extends React.Component<CardProps, any> {
     style: {},
   };
 
+  static Header = CardHeader;
+  static Body = CardBody;
+  static Footer = CardFooter;
+
   render() {
     return (
-      <View {...this.props} style={[CardStyle.Card, this.props.style]}>
+      <View {...this.props} style={[CardStyle.card, this.props.style]}>
         {this.props.children}
       </View>
     );
   }
 }
-
-Card.Header = CardHeader;
-Card.Body = CardBody;
-Card.Footer = CardFooter;

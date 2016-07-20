@@ -1,7 +1,5 @@
 module.exports = {
-  APIS: [
-
-  ],
+  APIS: [],
   COMPONENTS: [
     {
       title: 'Button', // 必须
@@ -20,6 +18,12 @@ module.exports = {
       description: 'DatePicker Example',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
       module: require('../components/date-picker/demo/popup'), // 必须
+    },
+    {
+      title: 'Drawer', // 必须
+      description: 'Drawer Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/drawer/demo/basic'), // 必须
     },
     {
       title: 'Flex', // 必须
@@ -80,6 +84,12 @@ module.exports = {
       description: 'TextAreaItem Example',
       icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
       module: require('../components/textarea-item/demo/basic'), // 必须
+    },
+    {
+      title: 'Timeline', // 必须
+      description: 'Timeline Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
+      module: require('../components/timeline/demo/basic'), // 必须
     },
     {
       title: 'TopNotice', // 必须

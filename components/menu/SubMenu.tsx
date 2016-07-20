@@ -33,26 +33,26 @@ export default class SubMenu extends React.Component<SubMenuProps, SubMenuState>
     radioPrefixCls: 'am-radio',
     value: [],
     data: [],
-    onChange: noop
+    onChange: noop,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       value: this.props.value,
-      data: this.props.data
+      data: this.props.data,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      data: nextProps.data
+      data: nextProps.data,
     });
   }
 
   onClick = (el) => {
     this.setState({
-      value: [el]
+      value: [el],
     });
     this.props.onChange(el);
   };
@@ -63,7 +63,7 @@ export default class SubMenu extends React.Component<SubMenuProps, SubMenuState>
 
     const subMenuCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     const itemsDom = [];

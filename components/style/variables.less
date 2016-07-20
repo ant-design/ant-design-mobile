@@ -1,49 +1,47 @@
 @import './color-palette';
 
-//中性色版(neutral)
+// 中性色版(neutral)
 @neutral-1: #fff;
-@neutral-2: #f7f7f7;
+@neutral-2: #f7f7f7;  // 灰背景色
 @neutral-3: #efefef;
-@neutral-4: #e9e9e9;
-@neutral-5: #d9d9d9;
-@neutral-6: #ccc;
-@neutral-7: #999;
-@neutral-8: #666;
-@neutral-9: #404040;
+@neutral-4: #e9e9e9;  // 边框分割线色
+@neutral-5: #d9d9d9;  // 边框线色
+@neutral-6: #ccc;     // 失效背景色
+@neutral-7: #999;     // 辅助文字
+@neutral-8: #666;     // 文字色
+@neutral-9: #404040;  // 标题色
 @neutral-10: #222;
 @neutral-11: #000;
 
-//品牌色（brand）
-@brand-base: @blue-6; // 主要品牌色
+// 品牌色（brand）
 @brand-1: @blue-1;
 @brand-2: @blue-2;
 @brand-3: @blue-3;
 @brand-4: @blue-4;
 @brand-5: @blue-5;
-@brand-6: @blue-6;
-@brand-7: @blue-7;
+@brand-6: @blue-6;    // 主品牌色
+@brand-7: @blue-7;    // 触发/按下色
 @brand-8: @blue-8;
 @brand-9: @blue-9;
 @brand-10: @blue-10;
 
-//功能色（function）
-@function-error-1: @orange-1;
-@function-error-2: @orange-6;
+// 功能色（function）
+@function-error-1: @orange-1;  // 出错 浅底色
+@function-error-2: @orange-6;  // 出错色
 
-@function-success-1: @green-1;
-@function-success-2: @green-6;
+@function-success-1: @green-1;  // 成功 浅底色
+@function-success-2: @green-6;  // 成功色
 
-@function-warning-1: @yellow-1;
-@function-warning-2: @yellow-6;
+@function-warning-1: @yellow-1;  // 警告 浅底色
+@function-warning-2: @yellow-6;  // 警告色
 
-@function-link-1: @blue-6;
+@function-link-1: @brand-6;  // 链接色
 
-
-//字体家族，可拓展
+// 字体家族，可拓展
 @font-family-1: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 @font-family-2: Consolas,Menlo,Courier,monospace;
 
-//字号，可拓展
+// 字号，可拓展
 @font-size-1: 10px;
 @font-size-2: 12px;
 @font-size-3: 13px;
@@ -52,55 +50,20 @@
 @font-size-6: 18px;
 @font-size-7: 20px;
 
-//最小单位
+// 最小单位
 @grid: 4px;
 
-//行高，可拓展，行高值的单位可以是em也可以是dp
+// 行高，可拓展，行高值的单位可以是em也可以是dp
 @line-height-1: 1em;
 @line-height-2: 1.5em;
 
-//字重，可拓展
-@font-weight-1:normal;
-@font-weight-2:bold;
+// 字重，可拓展
+@font-weight-1: normal;
+@font-weight-2: bold;
 
-//圆角边框 (radius)
+// 圆角边框 (radius)
 @radius-1: 4px;
 @radius-2: 6px;
 
-//阴影 (shadow);
-//常用尺寸size，可拓展
-@shadow-alpha: 20%;
-@shadow-color: @neutral-11;
-@shadow-blur-1: 0;
-@shadow-blur-2: 4px;
-@shadow-blur-3: 8px;
-
-//常用阴影
-/*
-@shadow-1-down : @shadow-color @shadow-alpha (x: 0 y: -1 blur: @shadow-blur-1);
-@shadow-1-up: @shadow-color @shadow-alpha (x: 0 y: 1 blur: @shadow-blur-1);
-@shadow-1-left:@shadow-color @shadow-alpha (x: 1 y: 0 blur: @shadow-blur-1);
-@shadow-1-right:@shadow-color @shadow-alpha (x: -1 y: 0 blur: @shadow-blur-1);
-@shadow-2-down : @shadow-color @shadow-alpha (x: 0 y: -1 blur: @shadow-blur-2);
-@shadow-2-up:@shadow-color @shadow-alpha (x: 0 y: 1 blur: @shadow-blur-2);
-@shadow-2-left:@shadow-color @shadow-alpha (x: 1 y: 0 blur: @shadow-blur-2);
-@shadow-2-right:@shadow-color @shadow-alpha (x: -1 y:0 blur: @shadow-blur-2);
-@shadow-3-down : @shadow-color @shadow-alpha (x: 0 y: -2 blur : @shadow-blur-3);
-@shadow-3-up:@shadow-color 20% (x: 0 y: 1 blur: @shadow-blur-3);
-@shadow-3-left:@shadow-color 20% (x: 1 y: 0 blur: @shadow-blur-3);
-@shadow-3-right:@shadow-color 20% (x: -1 y: 0 blur: @shadow-blur-3);
-*/
-
-//动效 Animation
-@ease-out : cubic-bezier(0.215, 0.61, 0.355, 1);
-@ease-in : cubic-bezier(0.55, 0.055, 0.675, 0.19);
-@ease-in-out : cubic-bezier(0.645, 0.045, 0.355, 1);
-@ease-out-back : cubic-bezier(0.18, 0.89, 0.32, 1.28);
-@ease-in-back : cubic-bezier(0.6, -0.3, 0.74, 0.05);
-@ease-in-out-back : cubic-bezier(0.68, -0.55, 0.27, 1.55);
-@ease-out-circ : cubic-bezier(0.08, 0.82, 0.17, 1);
-@ease-in-circ : cubic-bezier(0.6, 0.04, 0.98, 0.34);
-@ease-in-out-circ : cubic-bezier(0.78, 0.14, 0.15, 0.86);
-@ease-out-quint : cubic-bezier(0.23, 1, 0.32, 1);
-@ease-in-quint : cubic-bezier(0.755, 0.05, 0.855, 0.06);
-@ease-in-out-quint : cubic-bezier(0.86, 0, 0.07, 1);
+// 动画缓动
+@ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);

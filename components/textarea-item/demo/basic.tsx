@@ -11,22 +11,21 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
   }
 
   onChange = (e) => {
-    console.log('onChange');
-    console.log(e.text);
+    // console.log('onChange');
+    // console.log(e.text);
   }
 
   onFocus = () => {
-    console.log('onFocus');  
+    // console.log('onFocus');  
   }
 
   onBlur = () => {
-    console.log('onBlur');  
+    // console.log('onBlur');
   }
 
   handleError = () => {
     alert('onErrorClick');
   }
-
 
   render() {
     return (
@@ -61,7 +60,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
 
         <View style={{marginTop: 20}}>
           <TextAreaItem
-            value="不可编辑 editable = {false}" 
+            value="不可编辑 editable = {false}"
             editable = {false}
           />
         </View>

@@ -5,6 +5,20 @@
 .@{indexedList} {
   position: relative;
 
+  .am-list-header {
+    padding: @grid 4 * @grid;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  &-section-header {
+    .am-list-item {
+      font-size: @font-size-2;
+      height: 34px;
+      background-color: #F7F7F7;
+    }
+  }
+
   &-quick-search-bar {
     position: fixed;
     top: 0;
@@ -13,7 +27,7 @@
     text-align: center;
     font-size: @font-size-2;
     li {
-      padding: 5px 10px;
+      padding: 0 10px;
     }
   }
 }

@@ -22,7 +22,7 @@ export default class ListBody extends React.Component<ListBodyProps, any> {
       ['prefixCls', 'children', 'className']);
     const wrapCls = classNames({
       [`${prefixCls}-body`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (
