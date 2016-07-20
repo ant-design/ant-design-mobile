@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
@@ -40,7 +40,9 @@ export default class Modal extends React.Component<ModalProps, any> {
     // visible always true
     if (prevProps.visible === true && !closable) {
       const closeDom = document.getElementsByClassName(`${prefixCls}-close`)[0];
-      closeDom.style.display = 'none';
+      if (closeDom) {
+        closeDom.style.display = 'none';
+      }
     }
   }
 

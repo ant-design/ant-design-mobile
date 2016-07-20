@@ -42,7 +42,7 @@
     "jquery": "^3.0.0",
     "normalize.css": "~4.0.0",
     "object-assign": "~4.0.1",
-    "rc-animate": "~2.1.0",
+    "rc-animate": "~2.3.0",
     "rc-checkbox": "~1.4.0",
     "rc-collapse": "~1.6.3",
     "rc-dialog": "~6.1.0",
