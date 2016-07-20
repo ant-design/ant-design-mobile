@@ -63,6 +63,15 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       focus: false,
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.state.value !== nextProps.value) {
+      this.setState({
+        value: nextProps.value,
+      });
+    }
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit(this.state.value);
@@ -98,6 +107,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   onCancel = () => {
     this.setState({ value: '' });
     this.props.onCancel('');
+    this.props.onChange('');
   };
 
   onClear = () => {
@@ -106,6 +116,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     });
     this.refs.searchInput.focus();
     this.props.onClear('');
+    this.props.onChange('');
   };
 
   render() {
