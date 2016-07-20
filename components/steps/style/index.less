@@ -39,12 +39,12 @@
   width: 100%;
   line-height: 1.5;
   .box-sizing();
-  .@{stepsPrefixCls}-item {
+  &-item {
     position: relative;
     display: inline-block;
     vertical-align: top;
 
-    .@{stepsPrefixCls}-item:last-child {
+    &:last-child {
       position: absolute;
     }
 
@@ -167,17 +167,14 @@
     }
   }
 
-  .@{stepsPrefixCls}-head,
-  .@{stepsPrefixCls}-main {
+  &-head,
+  &-main {
     position: relative;
     display: inline-block;
     vertical-align: top;
   }
-  .@{stepsPrefixCls}-head {
-    // background: #fff;
-  }
 
-  .@{stepsPrefixCls}-head-inner {
+  &-head-inner {
     display: block;
     border: 1px solid @wait-icon-color;
     width: 26px;
@@ -204,10 +201,10 @@
       }
     }
   }
-  .@{stepsPrefixCls}-main {
+  &-main {
     margin-top: 3px;
   }
-  .@{stepsPrefixCls}-title {
+  &-title {
     font-size: 14px;
     margin-bottom: 4px;
     color: #666;
@@ -218,16 +215,16 @@
       color: #666;
     }
   }
-  .@{stepsPrefixCls}-item-last {
+  &-item-last {
     .@{stepsPrefixCls}-title {
       padding-right: 0;
     }
   }
-  .@{stepsPrefixCls}-description {
+  &-description {
     font-size: 12px;
     color: #999;
   }
-  .@{stepsPrefixCls}-tail {
+  &-tail {
     position: absolute;
     left: 0;
     width: 100%;
@@ -253,7 +250,7 @@
     }
   }
 
-  &.@{stepsPrefixCls}-small {
+  &&-small {
     .@{stepsPrefixCls}-head-inner {
       border: 1px solid @wait-icon-color;
       width: 18px;
@@ -292,8 +289,8 @@
     }
   }
 
-  &.@{stepsPrefixCls}-small .@{stepsPrefixCls}-item.@{stepsPrefixCls}-custom .@{stepsPrefixCls}-head-inner,
-  .@{stepsPrefixCls}-item.@{stepsPrefixCls}-custom .@{stepsPrefixCls}-head-inner {
+  &&-small &-item&-custom &-head-inner,
+  &-item&-custom &-head-inner {
     width: inherit;
     height: inherit;
     line-height: inherit;
