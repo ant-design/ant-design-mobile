@@ -8,6 +8,7 @@ export default class SliderAntm extends React.Component<SliderProps, any> {
     onChange: PropTypes.func,
     onAfterChange: PropTypes.func,
     defaultValue: PropTypes.number,
+    value: PropTypes.number,
     step: PropTypes.number,
     min: PropTypes.number,
     max: PropTypes.number,
@@ -22,10 +23,10 @@ export default class SliderAntm extends React.Component<SliderProps, any> {
   };
 
   render() {
-    const { defaultValue, min, max, step, disabled, onChange, onAfterChange } = this.props;
+    const { defaultValue, value, min, max, step, disabled, onChange, onAfterChange } = this.props;
     return (<View>
         <Slider
-          value = {defaultValue}
+          value = {defaultValue || value}
           minimumValue = {min}
           maximumValue = {max}
           step={step}

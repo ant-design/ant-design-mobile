@@ -51,7 +51,7 @@ export default class BasicSliderExample extends React.Component<any, any> {
 
         <View style={{marginTop: 20}}>
           <Text>step: 0.25</Text>
-          <Slider step={0.25} defaultValue={0.25} />
+          <Slider step={0.25} value={0.25} />
         </View>
 
         <View style={{marginTop: 20}}>
