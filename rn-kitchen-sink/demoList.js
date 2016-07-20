@@ -26,10 +26,22 @@ module.exports = {
       module: require('../components/drawer/demo/basic'), // 必须
     },
     {
+      title: 'Dropdown', // 必须
+      description: 'Dropdown Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/dropdown/demo/basic'), // 必须
+    },
+    {
       title: 'Flex', // 必须
       description: 'Flex Example',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
       module: require('../components/flex/demo/basic'), // 必须
+    },
+    {
+      title: 'FloatMenu', // 必须
+      description: 'FloatMenu Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
+      module: require('../components/float-menu/demo/basic'), // 必须
     },
     {
       title: 'List', // 必须

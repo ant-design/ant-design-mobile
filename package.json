@@ -56,6 +56,7 @@
     "rc-tooltip": "~3.4.2",
     "react-hammerjs": "^0.4.6",
     "react-native-drawer-layout": "~1.0.0",
+    "react-native-menu": "~0.20.1",
     "react-slick": "~0.12.2",
     "rmc-cascader": "~2.2.0",
     "rmc-date-picker": "~3.1.0",
