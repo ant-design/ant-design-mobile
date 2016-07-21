@@ -170,5 +170,11 @@ module.exports = {
       icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
       module: require('../components/wing-blank/demo/basic'), // 必须
     },
+    {
+      title: 'Checkbox', // 必须
+      description: 'Checkbox Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/checkbox/demo/basic'), // 必须
+    },
   ],
 };
