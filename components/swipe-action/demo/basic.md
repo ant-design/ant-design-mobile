@@ -30,7 +30,7 @@ let TabExample = React.createClass({
               {
                 text: '阅读',
                 onPress: () => console.log('阅读'),
-                style: { backgroundColor: 'blue', color: 'white' }
+                style: { backgroundColor: 'blue', color: 'white' },
               },
               {
                 text: '回复',
@@ -38,8 +38,8 @@ let TabExample = React.createClass({
                 style: { backgroundColor: 'green', color: 'white' },
               },
             ]}
-            onOpen={ () => console.log('open') }
-            onClose={ () => console.log('close') }
+            onOpen={() => console.log('open')}
+            onClose={() => console.log('close')}
           >
             <List.Item extra="额外参数">
                 简单例子 - 左右都可操作
@@ -48,7 +48,7 @@ let TabExample = React.createClass({
         </List.Body>
       </List>
     );
-  }
+  },
 });
 
 ReactDOM.render(<TabExample />, mountNode);

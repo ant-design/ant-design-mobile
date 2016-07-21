@@ -9,10 +9,10 @@ title: 混合
 import { Table } from 'antm';
 
 const columns = [
-  { title: '', dataIndex: 'title', key: 'title', },
-  { title: '名字', dataIndex: 'name', key: 'name', },
-  { title: '品种', dataIndex: 'type', key: 'type', },
-  { title: '属性', dataIndex: 'class', key: 'class', },
+  { title: '', dataIndex: 'title', key: 'title' },
+  { title: '名字', dataIndex: 'name', key: 'name' },
+  { title: '品种', dataIndex: 'type', key: 'type' },
+  { title: '属性', dataIndex: 'class', key: 'class' },
 ];
 
 const data = [{

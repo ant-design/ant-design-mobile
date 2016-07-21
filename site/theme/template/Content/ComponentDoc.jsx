@@ -44,15 +44,13 @@ export default class ComponentDoc extends React.Component {
     // const { meta } = props.doc;
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
             .filter((demoData) => !demoData.meta.hidden);
-    const demoSort = demos.sort((a, b) => {
-      return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
-    });
+    const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
 
     demos.map((item, index) => {
       item.index = index;
     });
 
-    let linkIndex = linkTo ? demoSort.filter((item) => (item.meta.id === linkTo))[0].index : 0;
+    const linkIndex = linkTo ? demoSort.filter((item) => (item.meta.id === linkTo))[0].index : 0;
 
     return linkIndex;
   }
@@ -65,12 +63,16 @@ export default class ComponentDoc extends React.Component {
     if (linkTo !== undefined) {
       const target = document.getElementById(linkTo);
       const demoTitle = document.getElementById('demoTitle');
-      const _offSetTop = target.offsetTop - demoTitle.offsetTop;
+      const offsetTop = target.offsetTop - demoTitle.offsetTop;
       if (target !== null) {
         scrollIntoView(
           target,
           document,
-          { offsetTop: _offSetTop, alignWithTop: true, onlyScrollIfNeeded: false }
+          {
+            offsetTop,
+            alignWithTop: true,
+            onlyScrollIfNeeded: false,
+          }
         );
       }
     } else {
@@ -87,16 +89,14 @@ export default class ComponentDoc extends React.Component {
 
   // 用于控制内部代码的展开和收起
   handleCodeExpandList = (index, type) => {
-    let codeExpandList = { ...this.state.codeExpandList };
+    const codeExpandList = { ...this.state.codeExpandList };
     codeExpandList[index] = type;
 
-    this.setState({
-      codeExpandList
-    });
+    this.setState({ codeExpandList });
   }
 
   handleExpandToggle = () => {
-    let codeExpandList = {};
+    const codeExpandList = {};
     // const { meta } = this.props.doc;
     const props = this.props;
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
@@ -104,10 +104,9 @@ export default class ComponentDoc extends React.Component {
 
     this.setState({
       expandAll: !this.state.expandAll,
-      codeExpandList: demos.map((item, index) => { return codeExpandList[index] = !this.state.expandAll; }),
+      codeExpandList: demos.map((item, index) => codeExpandList[index] = !this.state.expandAll),
     });
   }
-
 
   onScrollEvent() {
     const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
@@ -157,22 +156,25 @@ export default class ComponentDoc extends React.Component {
     demos.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         linkButtons.push(
-          <Link className={ demoData.meta.id === linkTo ? 'link-current' : ''}
-            to={ `${location.pathname}?linkTo=${demoData.meta.id}` } key={ index }>
-            <Button>{ demoData.meta.title }</Button>
+          <Link
+            className={demoData.meta.id === linkTo ? 'link-current' : ''}
+            to={`${location.pathname}?linkTo=${demoData.meta.id}`} key={index}
+          >
+            <Button>{demoData.meta.title}</Button>
           </Link>
         );
 
         leftChildren.push(
           <Demo
-            togglePreview={ this.togglePreview }
+            togglePreview={this.togglePreview}
             {...demoData}
             handleCodeExpandList={this.handleCodeExpandList}
             codeExpand={this.state.codeExpandList[index]}
             className={currentIndex === index ? 'code-box-target' : ''}
             key={index}
             utils={props.utils}
-            expand={expand} pathname={location.pathname} />
+            expand={expand} pathname={location.pathname}
+          />
         );
       });
     const expandTriggerClass = classNames({
@@ -185,7 +187,7 @@ export default class ComponentDoc extends React.Component {
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
-      <QRCode size={ 144 } value={ demoUrl } />
+      <QRCode size={144} value={demoUrl} />
     </div>);
 
     const { title, subtitle, chinese, english } = meta;
@@ -197,7 +199,7 @@ export default class ComponentDoc extends React.Component {
           <section className="markdown">
             <h1 className="section-title">
               {meta.title || meta.english} {meta.subtitle || meta.chinese}
-              <Popover content={ PopoverContent } placement="bottom">
+              <Popover content={PopoverContent} placement="bottom">
                 <Icon style={{ position: 'relative', left: '8px', top: '-1px', fontSize: '24px' }} type="qrcode" />
               </Popover>
             </h1>
@@ -218,7 +220,7 @@ export default class ComponentDoc extends React.Component {
               {
               demos.length > 1 &&
                 <div id="linkButtons" className="link-buttons" style={{ marginBottom: 12 }}>
-                { linkButtons }
+                {linkButtons}
                 </div>
               }
             </section>
@@ -226,15 +228,15 @@ export default class ComponentDoc extends React.Component {
 
           <div id="demo-code" className="clearfix" style={{ paddingRight: 380 }}>
             <div style={{ width: '100%', float: 'left' }}>
-            { leftChildren }
+            {leftChildren}
             </div>
             <div style={{ width: 380, padding: '0 30px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-380px' }}>
               <div id="aside-demo" className="aside-demo">
-                <div style = {{ width: '320px', height: '568px' }}>
+                <div style={{ width: '320px', height: '568px' }}>
                   <div className="demo-preview-wrapper">
                     <div className="demo-preview-header">
-                      <div className = "demo-preview-statbar">
-                        <img width="290px" style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                      <div className="demo-preview-statbar">
+                        <img width="290px" role="presentation" style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
                       </div>
                     </div>
                     <div className="demo-preview-scroller">

@@ -56,11 +56,11 @@ let GridExample = React.createClass({
       <Grid
         data={data3}
         isCarousel
-        onClick={(el, index) => {alert(index);}}
+        onClick={(el, index) => { alert(index); }}
         needActive={false}
       />
     </div>);
-  }
+  },
 });
 
 ReactDOM.render(<GridExample />, mountNode);

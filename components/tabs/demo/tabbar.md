@@ -30,7 +30,7 @@ let TabExample = React.createClass({
         </Tabs>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<TabExample />, mountNode);

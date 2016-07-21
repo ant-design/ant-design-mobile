@@ -53,7 +53,7 @@ let App = React.createClass({
         <WhiteSpace size={32} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

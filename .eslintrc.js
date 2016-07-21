@@ -23,24 +23,19 @@ const eslintrc = {
     'babel',
   ],
   rules: {
-    'comma-dangle': 0,
     'func-names': 0,
-    'prefer-const': 0,
-    'arrow-body-style': 0,
     'react/sort-comp': 0,
     'react/prop-types': 0,
     'react/prefer-es6-class': 0,
     'react/prefer-stateless-function': 0,
-    'react/jsx-closing-bracket-location': 0,
+    'react/jsx-first-prop-new-line': 0,
     'no-param-reassign': 0,
     'no-return-assign': 0,
     'max-len': 0,
-    'react/jsx-no-bind': 0,
     'react/no-multi-comp': 0,
     'array-callback-return': 0,
-    'no-alert': 0,
-    'object-shorthand': 1,
-    'react/jsx-boolean-value': 1
+    'import/no-unresolved': 0,
+    'jsx-a11y/img-has-alt': 0,
   }
 };
 
@@ -56,6 +51,7 @@ if (process.env.RUN_ENV === 'DEMO') {
 
   Object.assign(eslintrc.rules, {
     'no-console': 0,
+    'no-alert': 0,
     'eol-last': 0,
     'prefer-rest-params': 0,
     'react/no-multi-comp': 0,

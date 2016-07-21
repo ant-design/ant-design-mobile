@@ -59,7 +59,7 @@ let GridExample = React.createClass({
         isCarousel
       />
     </div>);
-  }
+  },
 });
 
 ReactDOM.render(<GridExample />, mountNode);

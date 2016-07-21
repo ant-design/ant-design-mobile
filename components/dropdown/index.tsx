@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { View, Modal, TouchableWithoutFeedback } from 'react-native';
+import { View, Modal, TouchableWithoutFeedback, Animated, Dimensions } from 'react-native';
 import tsPropsType from './PropsType';
 // import splitObject from '../_util/splitObject';
 import styles from './style/index';
@@ -18,6 +18,7 @@ export default class Dropdown extends React.Component<tsPropsType, any> {
     super(props);
     this.state = {
       visible: props.visible,
+      translateY: new Animated.Value(0),
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -27,22 +28,34 @@ export default class Dropdown extends React.Component<tsPropsType, any> {
       });
     }
   }
+  componentDidUpdate() {
+    this.state.translateY.setValue(-Dimensions.get('window').height);
+    Animated.timing(this.state.translateY, {
+      duration: 200,
+      toValue: 0,
+      delay: 5,
+    }).start();
+  }
   render() {
     const { children, onShow, onClose, maskClosable } = this.props;
     return (
       <Modal
-        animationType={'slide'}
+        animationType={'none'}
         transparent={true}
         visible={this.state.visible}
         onShow={onShow}
         onRequestClose={onClose}
       >
-        <View style={styles.container}>
+        <Animated.View style={[styles.container, {
+          transform: [
+            { translateY: this.state.translateY },
+          ],
+        }]}>
           {maskClosable ? <TouchableWithoutFeedback onPress={onClose}>
                 <View style={[styles.maskClosable]}></View>
               </TouchableWithoutFeedback> : null}
           {children}
-        </View>
+        </Animated.View>
       </Modal>
     );
   }

@@ -9,9 +9,9 @@ title: 纵向
 import { Table } from 'antm';
 
 const columns = [
-  { title: '名字', dataIndex: 'name', key: 'name', },
-  { title: '品种', dataIndex: 'type', key: 'type', },
-  { title: '属性', dataIndex: 'class', key: 'class', },
+  { title: '名字', dataIndex: 'name', key: 'name' },
+  { title: '品种', dataIndex: 'type', key: 'type' },
+  { title: '属性', dataIndex: 'class', key: 'class' },
 ];
 
 const data = [{

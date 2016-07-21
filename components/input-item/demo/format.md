@@ -23,8 +23,8 @@ let FormatExample = React.createClass({
           placeholder="8888 8888 8888 8888"
           clear
           maxLength={22}
-          onBlur={function (e) {console.log('onBlur'); console.log(e);}}
-          onFocus={function (e) {console.log('onFocus'); console.log(e);}}
+          onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+          onFocus={function (e) { console.log('onFocus'); console.log(e); }}
         >银行卡</InputItem>
         <InputItem
           {...getFieldProps('phone', {
@@ -34,8 +34,8 @@ let FormatExample = React.createClass({
           placeholder="186 1234 1234"
           clear
           maxLength={22}
-          onBlur={ function (e) {console.log('onBlur'); console.log(e);}}
-          onFocus={ function (e) {console.log('onFocus'); console.log(e);}}
+          onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+          onFocus={function (e) { console.log('onFocus'); console.log(e); }}
         >手机号码</InputItem>
         <InputItem
           {...getFieldProps('password', {
@@ -45,8 +45,8 @@ let FormatExample = React.createClass({
           placeholder="****"
           clear
           maxLength={22}
-          onBlur={ function (e) {console.log('onBlur'); console.log(e);}}
-          onFocus={ function (e) {console.log('onFocus'); console.log(e);}}
+          onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+          onFocus={function (e) { console.log('onFocus'); console.log(e); }}
         >密码</InputItem>
         <InputItem
           {...getFieldProps('number', {
@@ -56,12 +56,12 @@ let FormatExample = React.createClass({
           placeholder="123131"
           clear
           maxLength={22}
-          onBlur={ function (e) {console.log('onBlur'); console.log(e);}}
-          onFocus={ function (e) {console.log('onFocus'); console.log(e);}}
+          onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+          onFocus={function (e) { console.log('onFocus'); console.log(e); }}
         >数字键盘</InputItem>
       </List.Body>
     </List>);
-  }
+  },
 });
 
 FormatExample = createForm()(FormatExample);

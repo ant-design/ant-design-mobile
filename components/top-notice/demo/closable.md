@@ -24,7 +24,7 @@ const TopNoticeExample = React.createClass({
         <WhiteSpace size={20} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<TopNoticeExample />, mountNode);

@@ -18,13 +18,13 @@ let Test = React.createClass({
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List >
+        <List>
           <List.Header>表单多选项，普通列表中多选项</List.Header>
           <List.Body>
             <CheckboxItem
               {...getFieldProps('f1', {
                 initialValue: true,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
             >
               使用 Ant Desgin Component
@@ -32,7 +32,7 @@ let Test = React.createClass({
             <CheckboxItem
               {...getFieldProps('f2', {
                 initialValue: false,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
             >
               使用 Ant Desgin Component
@@ -41,7 +41,7 @@ let Test = React.createClass({
               disabled
               {...getFieldProps('f3', {
                 initialValue: false,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
             >
               未选中，不可编辑
@@ -50,15 +50,16 @@ let Test = React.createClass({
               disabled
               {...getFieldProps('f4', {
                 initialValue: true,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
             >
               强制选中,不可编辑
             </CheckboxItem>
           </List.Body>
         </List>
-    </div>);
-  }
+      </div>
+    );
+  },
 });
 
 Test = createForm()(Test);

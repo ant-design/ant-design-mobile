@@ -15,17 +15,17 @@ let BasicInput = React.createClass({
       disabled: false,
       checked: null,
       r: 'a',
-      s: 'e'
+      s: 'e',
     };
   },
   handleChange(e) {
     this.setState({
-      r: e.target.value
+      r: e.target.value,
     });
   },
   handleChange2(e) {
     this.setState({
-      s: e.target.value
+      s: e.target.value,
     });
   },
   onClick() {
@@ -61,7 +61,7 @@ let BasicInput = React.createClass({
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
             onClick={() => {}}
-           >我的花销占比</List.Item>
+          >我的花销占比</List.Item>
         </List.Body>
       </List>
       <List>
@@ -100,23 +100,23 @@ let BasicInput = React.createClass({
         <List.Header>表单单选项</List.Header>
         <List.Body>
           <Radio.RadioItem
-            value = "a"
-            checked = {this.state.r === 'a'}
+            value="a"
+            checked={this.state.r === 'a'}
             onChange={this.handleChange}
             disabled={this.state.disabled}
           >
             使用 Ant Desgin Component
           </Radio.RadioItem>
           <Radio.RadioItem
-            value = "b"
-            checked = {this.state.r === 'b'}
+            value="b"
+            checked={this.state.r === 'b'}
             onChange={this.handleChange}
             disabled={this.state.disabled}
           >
             使用 Ant Desgin Component
           </Radio.RadioItem>
           <Radio.RadioItem
-            value = "c"
+            value="c"
             checked
             onChange={this.handleChange}
             disabled
@@ -124,8 +124,8 @@ let BasicInput = React.createClass({
             个性化调整disabled
           </Radio.RadioItem>
           <Radio.RadioItem
-            value = "d"
-            checked = {false}
+            value="d"
+            checked={false}
             onChange={this.handleChange}
             disabled
           >
@@ -139,7 +139,7 @@ let BasicInput = React.createClass({
           <Checkbox.CheckboxItem
             {...getFieldProps('f1', {
               initialValue: true,
-              valuePropName: 'checked'
+              valuePropName: 'checked',
             })}
           >
             使用 Ant Desgin Component
@@ -147,7 +147,7 @@ let BasicInput = React.createClass({
           <Checkbox.CheckboxItem
             {...getFieldProps('f2', {
               initialValue: false,
-              valuePropName: 'checked'
+              valuePropName: 'checked',
             })}
           >
             使用 Ant Desgin Component
@@ -156,7 +156,7 @@ let BasicInput = React.createClass({
             disabled
             {...getFieldProps('f3', {
               initialValue: false,
-              valuePropName: 'checked'
+              valuePropName: 'checked',
             })}
           >
             未选中，不可编辑
@@ -165,39 +165,39 @@ let BasicInput = React.createClass({
             disabled
             {...getFieldProps('f4', {
               initialValue: true,
-              valuePropName: 'checked'
+              valuePropName: 'checked',
             })}
           >
             强制选中,不可编辑
           </Checkbox.CheckboxItem>
         </List.Body>
       </List>
-<List>
-          <List.Header>多行输入,TextareaItem</List.Header>
-          <List.Body>
-            <TextareaItem
-              {...getFieldProps('note7', {
-                initialValue: '多行输入,带计数功能,count+rows',
-                valuePropName: 'value'
-              })}
-              labelNumber={4}
-              name="yyy"
-              rows={5}
-              placeholder="计数功能"
-              clear
-              count={100}
-              onBlur={() => {console.log('onBlur'); }}
-              onFocus={(e) => {console.log('onFocus'); console.log(e);}}
-            />
-          </List.Body>
-        </List>
-        <WhiteSpace />
-        <WingBlank>
-          <Button type="primary">通栏按钮</Button>
-        </WingBlank>
-        <WhiteSpace />
+      <List>
+        <List.Header>多行输入,TextareaItem</List.Header>
+        <List.Body>
+          <TextareaItem
+            {...getFieldProps('note7', {
+              initialValue: '多行输入,带计数功能,count+rows',
+              valuePropName: 'value',
+            })}
+            labelNumber={4}
+            name="yyy"
+            rows={5}
+            placeholder="计数功能"
+            clear
+            count={100}
+            onBlur={() => { console.log('onBlur'); }}
+            onFocus={(e) => { console.log('onFocus'); console.log(e); }}
+          />
+        </List.Body>
+      </List>
+      <WhiteSpace />
+      <WingBlank>
+        <Button type="primary">通栏按钮</Button>
+      </WingBlank>
+      <WhiteSpace />
     </div>);
-  }
+  },
 });
 
 BasicInput = createForm()(BasicInput);

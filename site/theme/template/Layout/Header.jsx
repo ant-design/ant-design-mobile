@@ -71,13 +71,11 @@ export default class Header extends React.Component {
     });
   }
 
-  handleSearch = (value) => {
-    this.context.router.push({ pathname: value });
-  }
+  handleSearch = (value) => this.context.router.push({ pathname: value });
 
-  handleSelectFilter = (value, option) => {
-    return option.props['data-label'].indexOf(value.toLowerCase()) > -1;
-  }
+  handleSelectFilter = (value, option) => (
+    option.props['data-label'].indexOf(value.toLowerCase()) > -1
+  )
 
   render() {
     const { routes, components } = this.props;
@@ -115,7 +113,7 @@ export default class Header extends React.Component {
               type="menu"
             />
             <Link to="/" id="logo">
-              <img src="https://os.alipayobjects.com/rmsportal/aPhSgPnBnqpOswb.svg" />
+              <img alt="logo" src="https://os.alipayobjects.com/rmsportal/aPhSgPnBnqpOswb.svg" />
               <span>ANT DESIGN | MOBILE</span>
             </Link>
           </Col>

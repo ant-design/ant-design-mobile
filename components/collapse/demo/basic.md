@@ -25,7 +25,7 @@ let Test = React.createClass({
       <Collapse.Panel header="title2"><List.Item>this is panel content2 or other</List.Item></Collapse.Panel>
       <Collapse.Panel header="title3"><List.Item>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</List.Item></Collapse.Panel>
     </Collapse>);
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

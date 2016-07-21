@@ -16,7 +16,7 @@ const Page = React.createClass({
       title: '',
       subtitle: '',
       isApp: 0,
-      style: {}
+      style: {},
     };
   },
   componentDidMount() {
@@ -54,7 +54,7 @@ const Page = React.createClass({
         </div>
       </section>
     );
-  }
+  },
 });
 
 export default Page;

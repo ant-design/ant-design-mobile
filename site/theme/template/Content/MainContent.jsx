@@ -69,10 +69,9 @@ export default class MainContent extends React.Component {
     const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
       .sort((a, b) => config.typeOrder[a] - config.typeOrder[b])
       .map((type, index) => {
-        const groupItems = obj[type].sort((a, b) => {
-          return (a.title || a.english).charCodeAt(0) -
-          (b.title || b.english).charCodeAt(0);
-        }).map(this.generateMenuItem.bind(this, false));
+        const groupItems = obj[type].sort((a, b) => (
+          (a.title || a.english).charCodeAt(0) - (b.title || b.english).charCodeAt(0)
+        )).map(this.generateMenuItem.bind(this, false));
         return (
           <Menu.ItemGroup key={index} className="sub-menu-item">
             {groupItems}
@@ -135,10 +134,9 @@ export default class MainContent extends React.Component {
 
     const locale = this.context.intl.locale;
     const moduleData = this.props.moduleData;
-    const localizedPageData = moduleData.filter((page) => {
-      return page.meta.filename.toLowerCase()
-        .startsWith(props.location.pathname);
-    })[0];
+    const localizedPageData = moduleData.filter((page) =>
+      page.meta.filename.toLowerCase().startsWith(props.location.pathname)
+    )[0];
 
     return (
       <div className="main-wrapper">
@@ -146,8 +144,9 @@ export default class MainContent extends React.Component {
         <div style={{ width: 240, float: 'left', marginRight: '-1px' }}>
           <Menu className="aside-container" mode="inline"
             defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
-            selectedKeys={[activeMenuItem]}>
-            { menuItems }
+            selectedKeys={[activeMenuItem]}
+          >
+            {menuItems}
           </Menu>
         </div>
         <div className="main-container">

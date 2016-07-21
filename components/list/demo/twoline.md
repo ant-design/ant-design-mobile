@@ -52,8 +52,8 @@ ReactDOM.render(
           extra={<Button
             size="small"
             inline
-            onClick={() => {alert(111);}}
-            >按钮</Button>}
+            onClick={() => alert(111)}
+          >按钮</Button>}
         ><div><div className="am-list-title">区域经理</div><div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div></div></List.Item>
       </List.Body>
     </List>

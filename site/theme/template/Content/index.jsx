@@ -47,10 +47,8 @@ export function collect(nextProps, callback) {
     }));
 }
 
-export default (props) => {
-  return (
-    <Layout {...props}>
-      <MainContent {...props} />
-    </Layout>
-  );
-};
+export default (props) => (
+  <Layout {...props}>
+    <MainContent {...props} />
+  </Layout>
+);

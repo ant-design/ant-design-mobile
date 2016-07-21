@@ -45,7 +45,7 @@ ReactDOM.render(
           <div className="am-list-brief">可进行收款、退款、折扣管理、查看数据等操作</div>
         </List.Item>
       </List.Body>
-  </List>
+    </List>
   </div>
 , mountNode);
 ````

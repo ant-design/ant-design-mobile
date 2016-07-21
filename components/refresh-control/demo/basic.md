@@ -14,8 +14,8 @@ const App = React.createClass({
   getInitialState() {
     return {
       items: [
-        <div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>
-      ]
+        <div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>,
+      ],
     };
   },
   loadingFunction() {
@@ -32,7 +32,7 @@ const App = React.createClass({
   addItem() {
     this.state.items.push(<div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>);
     this.setState({
-      items: this.state.items
+      items: this.state.items,
     });
     return true;
   },
@@ -45,7 +45,7 @@ const App = React.createClass({
         style={{
           position: 'relative',
           paddingTop: 20,
-          textAlign: 'center'
+          textAlign: 'center',
         }}
         hammerOptions={{
           touchAction: 'auto',
@@ -62,7 +62,7 @@ const App = React.createClass({
         </div>
       </RefreshControl>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

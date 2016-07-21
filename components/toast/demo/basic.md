@@ -38,7 +38,7 @@ const ToastExample = React.createClass({
         <WingBlank>
           <Button type="primary" onClick={showToast}>纯文字 toast</Button>
         </WingBlank>
-       <WhiteSpace />
+        <WhiteSpace />
         <WingBlank>
           <Button type="primary" ghost onClick={successToast}>成功 toast</Button>
         </WingBlank>

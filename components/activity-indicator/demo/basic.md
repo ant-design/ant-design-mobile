@@ -49,7 +49,7 @@ let App = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

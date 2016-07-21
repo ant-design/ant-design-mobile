@@ -11,15 +11,12 @@ import { Badge } from 'antm';
 
 ReactDOM.render(
   <div className="badge-container" style={{ padding: '40px 16px' }}>
-
     <Badge text={'new'} corner>
-        <span className="head-example"></span>
+      <span className="head-example"></span>
     </Badge>
-
     <Badge text={'限时优惠'} corner size="large">
-        <span className="head-example head-example-l"></span>
+      <span className="head-example head-example-l"></span>
     </Badge>
-
   </div>
 , mountNode);
 ````

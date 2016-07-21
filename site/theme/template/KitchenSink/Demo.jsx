@@ -9,8 +9,7 @@ import { NavBar, ActionSheet, Icon } from 'antm';
 export function collect(nextProps, callback) {
   const componentsList = utils.collectDocs(nextProps.data.components);
 
-  let moduleDocs;
-  moduleDocs = [
+  const moduleDocs = [
     ...utils.collectDocs(nextProps.data.docs.react),
     ...componentsList,
     /* eslint-disable new-cap */
@@ -59,11 +58,11 @@ export default class Home extends React.Component {
   }
 
   showActionSheet =() => {
-    let actionArr = [];
+    const actionArr = [];
 
-    const demoSort = this.props.demos.sort((a, b) => {
-      return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
-    });
+    const demoSort = this.props.demos.sort((a, b) => (
+      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
+    ));
     demoSort.map((demo, index) => {
       actionArr[index] = demo.meta.title;
     });
@@ -102,45 +101,46 @@ export default class Home extends React.Component {
 
   getNavBar(index) {
     const demos = this.props.demos;
-    const demoSort = demos.sort((a, b) => {
-      return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
-    });
+    const demoSort = demos.sort((a, b) => (
+      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
+    ));
     /* eslint-disable no-nested-ternary */
     let leftContent = self === top ?
       <a href="/kitchen-sink" style={{ color: '#2db7f5', textDecoration: 'none', transition: 'color .3s ease' }}>首页</a> :
         (index > 0 ?
-          <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={ this.demoPrev }>
+          <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={this.demoPrev}>
             上页
           </span> :
           null
         );
 
     let rightContent = index < demos.length - 1 ?
-      <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={ this.demoNext }>下页</span> :
+      <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={this.demoNext}>下页</span> :
       null;
 
-    let customNavBar = (<NavBar iconName={false} leftContent={leftContent} rightContent={rightContent}>
-      {
-        demoSort.length > 1 ?
-        <span onClick={this.showActionSheet} style={{ cursor: 'pointer' }}>
-          { `${demoSort[index].meta.title}` } <Icon type="down" />
-        </span> :
-        <span>
-        { `${demoSort[index].meta.title}` }
-        </span>
+    const customNavBar = (
+      <NavBar iconName={false} leftContent={leftContent} rightContent={rightContent}>
+        {
+          demoSort.length > 1 ?
+            <span onClick={this.showActionSheet} style={{ cursor: 'pointer' }}>
+              {`${demoSort[index].meta.title}`} <Icon type="down" />
+            </span> :
+            <span>
+              {`${demoSort[index].meta.title}`}
+            </span>
         }
-      </NavBar>);
-
-      // if (demoSort && demoSort[index].preview.type.customNavBar) {
-      //   customNavBar = demoSort[index].preview.type.customNavBar;
-      // }
+      </NavBar>
+    );
+    // if (demoSort && demoSort[index].preview.type.customNavBar) {
+    //   customNavBar = demoSort[index].preview.type.customNavBar;
+    // }
     return customNavBar;
   }
 
   componentWillReceiveProps = (nextProps) => {
     this.setState({
       current: nextProps.params.index,
-      customNavBar: this.getNavBar(nextProps.params.index)
+      customNavBar: this.getNavBar(nextProps.params.index),
     });
   }
 
@@ -175,9 +175,9 @@ export default class Home extends React.Component {
     const { demos } = this.props;
     const { name, current } = this.state;
 
-    const demoSort = demos.sort((a, b) => {
-      return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
-    });
+    const demoSort = demos.sort((a, b) => (
+      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
+    ));
 
     demoSort[current].preview.call(this);
     const customNavFlag = this.customNavFlag;
@@ -186,14 +186,16 @@ export default class Home extends React.Component {
       <div id={name}>
         {
         !customNavFlag &&
-        <span style={{ position: 'fixed', zIndex: 9999, top: 0, left: 100, color: '#999' }}
-          onClick={() => this.setState({ hideNavBar: !this.state.hideNavBar })}>
-          {this.state.hideNavBar ? '⬇️' : '⬆️'}
-        </span>
+          <span style={{ position: 'fixed', zIndex: 9999, top: 0, left: 100, color: '#999' }}
+            onClick={() => this.setState({ hideNavBar: !this.state.hideNavBar })}
+          >
+            {this.state.hideNavBar ? '⬇️' : '⬆️'}
+          </span>
         }
 
         <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0,
-          display: this.state.hideNavBar ? 'none' : 'block' }}>
+          display: this.state.hideNavBar ? 'none' : 'block' }}
+        >
           {
             !customNavFlag ?
             this.state.customNavBar :
@@ -212,11 +214,12 @@ export default class Home extends React.Component {
             'demo-preview-item': true,
             'demo-preview-item-custom': customNavFlag,
             show: isShow,
-            hide: !isShow
+            hide: !isShow,
           });
 
-          return (<div className={ previewItemClass }
-            id={`${name}-demo-${index}`} key={index}>
+          return (<div className={previewItemClass}
+            id={`${name}-demo-${index}`} key={index}
+          >
             {!i.meta.destroyComponent || isShow ?
               React.cloneElement(i.preview(React, ReactDOM), {
                 // onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
@@ -224,8 +227,7 @@ export default class Home extends React.Component {
             null}
             {
             !!i.style ?
-            <style dangerouslySetInnerHTML={{ __html: i.style }} /> :
-            null
+              <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null
             }
           </div>);
         })}

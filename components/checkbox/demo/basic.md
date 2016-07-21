@@ -22,14 +22,14 @@ let Test = React.createClass({
           <Checkbox
             {...getFieldProps('a0', {
               initialValue: true,
-              valuePropName: 'checked'
+              valuePropName: 'checked',
             })}
           />
           <WhiteSpace />
           <Checkbox
             {...getFieldProps('a1', {
               initialValue: false,
-              valuePropName: 'checked'
+              valuePropName: 'checked',
             })}
           />
           <WhiteSpace />
@@ -37,7 +37,7 @@ let Test = React.createClass({
             disabled
             {...getFieldProps('a2', {
               initialValue: true,
-              valuePropName: 'checked'
+              valuePropName: 'checked',
             })}
           />
           <WhiteSpace />
@@ -45,14 +45,14 @@ let Test = React.createClass({
             disabled
             {...getFieldProps('a3', {
               initialValue: false,
-              valuePropName: 'checked'
+              valuePropName: 'checked',
             })}
           />
           <WhiteSpace />
         </WingBlank>
       </div>
     );
-  }
+  },
 });
 
 Test = createForm()(Test);

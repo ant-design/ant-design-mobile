@@ -16,12 +16,8 @@ const NUM_ROWS_PER_SECTION = 10;
 
 const Demo = React.createClass({
   getInitialState() {
-    const getSectionData = (dataBlob, sectionID) => {
-      return dataBlob[sectionID];
-    };
-    const getRowData = (dataBlob, sectionID, rowID) => {
-      return dataBlob[rowID];
-    };
+    const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
+    const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
     const dataSource = new ListView.DataSource({
       getRowData,
@@ -66,16 +62,16 @@ const Demo = React.createClass({
   render() {
     return (<div style={{ paddingTop: 40 }}>
       <div style={{ position: 'fixed', zIndex: 999, top: 43, left: 0, right: 0 }}>
-      <SearchBar
-        value=""
-        placeholder="搜索"
-        onSubmit={(value) => {console.log(`onSubmit${value}`);}}
-        onChange={(value) => {console.log(value);}}
-        onClear={() => {console.log('onClear');}}
-        onCancel={() => {console.log('onCancel');}}
-        onFocus={() => {console.log('onFocus');}}
-        onBlur={() => {console.log('onBlur');}}
-      />
+        <SearchBar
+          value=""
+          placeholder="搜索"
+          onSubmit={(value) => { console.log(`onSubmit${value}`); }}
+          onChange={(value) => { console.log(value); }}
+          onClear={() => { console.log('onClear'); }}
+          onCancel={() => { console.log('onCancel'); }}
+          onFocus={() => { console.log('onFocus'); }}
+          onBlur={() => { console.log('onBlur'); }}
+        />
       </div>
       <ListView.IndexedList
         dataSource={this.state.dataSource}

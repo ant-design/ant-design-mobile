@@ -27,7 +27,7 @@ let TabExample = React.createClass({
         <WhiteSpace />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<TabExample />, mountNode);
