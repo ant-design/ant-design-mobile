@@ -2,6 +2,12 @@ module.exports = {
   APIS: [],
   COMPONENTS: [
     {
+      title: 'ActionSheet', // 必须
+      description: 'ActionSheet Example',
+      icon: 'https://zos.alipayobjects.com/rmsportal/ZLKbJvxVNSmsOwW.png',
+      module: require('../components/action-sheet/demo/basic'), // 必须
+    },
+    {
       title: 'ActivityIndicator', // 必须
       description: 'ActivityIndicator Example',
       icon: 'https://zos.alipayobjects.com/rmsportal/ZLKbJvxVNSmsOwW.png',
@@ -56,6 +62,12 @@ module.exports = {
       module: require('../components/list/demo/basic'), // 必须
     },
     {
+      title: 'ListView', // 必须
+      description: 'ListView Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/wlNeoTpEKIpTcOW.png',
+      module: require('../components/list-view/demo/basic'), // 必须
+    },
+    {
       title: 'Modal', // 必须
       description: 'Modal Example',
       icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
@@ -72,6 +84,12 @@ module.exports = {
       description: 'Progress Example',
       icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
       module: require('../components/progress/demo/basic'), // 必须
+    },
+    {
+      title: 'RefreshControl', // 必须
+      description: 'RefreshControl Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
+      module: require('../components/refresh-control/demo/basic'), // 必须
     },
     {
       title: 'Slider', // 必须
