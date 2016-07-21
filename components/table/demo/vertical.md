@@ -9,30 +9,32 @@ title: 纵向
 import { Table } from 'antm';
 
 const columns = [
-  { title: '表头1', dataIndex: 'a', key: 'a' },
-  { id: '123', title: '表头2', dataIndex: 'b', key: 'b' },
-  { title: '表头3', dataIndex: 'c', key: 'c' },
+  { title: '名字', dataIndex: 'name', key: 'name', },
+  { title: '品种', dataIndex: 'type', key: 'type', },
+  { title: '属性', dataIndex: 'class', key: 'class', },
 ];
 
 const data = [{
-  a: '我是内容',
-  b: '我是内容',
-  c: '我是内容',
-  key: '1'
+  name: '科多',
+  type: '英短',
+  class: '猫',
+  key: '1',
 }, {
-  a: '我是内容',
-  b: '我是内容',
-  c: '我是内容',
-  key: '2'
+  name: '萨满',
+  type: '英短',
+  class: '猫',
+  key: '2',
 }, {
-  a: '我是内容',
-  b: '我是内容',
-  c: '我是内容',
-  key: '3'
+  name: '开心',
+  type: '约克夏',
+  class: '犬',
+  key: '3',
 }];
 
-ReactDOM.render(<Table
-  columns={columns}
-  dataSource={data}
-/>, mountNode);
+ReactDOM.render(<div style={{ padding: 20 }}>
+  <Table
+    columns={columns}
+    dataSource={data}
+  />
+</div>, mountNode);
 ````

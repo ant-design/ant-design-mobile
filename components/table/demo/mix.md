@@ -8,37 +8,37 @@ title: 混合
 ````jsx
 import { Table } from 'antm';
 
-const titles = [
-  '标题1', '标题2', '标题3'
-];
-
 const columns = [
-  { title: '表头1', dataIndex: 'b', key: 'b' },
-  { title: '表头2', dataIndex: 'c', key: 'c' },
-  { title: '表头3', dataIndex: 'd', key: 'd' },
+  { title: '名字', dataIndex: 'name', key: 'name' },
+  { title: '品种', dataIndex: 'type', key: 'type' },
+  { title: '属性', dataIndex: 'class', key: 'class' },
 ];
 
 const data = [{
-  b: '我是内容',
-  c: '我是内容',
-  d: '我是内容',
+  title: '宠物一',
+  name: '科多',
+  type: '英短',
+  class: '猫',
   key: '1'
 }, {
-  b: '我是内容',
-  c: '我是内容',
-  d: '我是内容',
+  title: '宠物二',
+  name: '萨满',
+  type: '英短',
+  class: '猫',
   key: '2'
 }, {
-  b: '我是内容',
-  c: '我是内容',
-  d: '我是内容',
+  title: '宠物三',
+  name: '开心',
+  type: '约克夏',
+  class: '犬',
   key: '3'
 }];
 
-ReactDOM.render(<Table
-  direction="mix"
-  hTitles={titles}
-  columns={columns}
-  dataSource={data}
-/>, mountNode);
+ReactDOM.render(<div style={{ padding: 20 }}>
+  <Table
+    direction="mix"
+    columns={columns}
+    dataSource={data}
+  />
+</div>, mountNode);
 ````

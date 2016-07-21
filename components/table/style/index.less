@@ -2,12 +2,13 @@
 @import '../../style/mixins';
 
 @table-prefix-cls: am-table;
-@table-head-background-color: #f7f7f7;
+@table-head-background-color: @neutral-2;
 
 .@{table-prefix-cls} {
   font-size: @font-size-4;
-  color: #666;
+  color: @neutral-8;
   font-weight: @font-weight-1;
+  position: relative;
 
   &-body {
     transition: opacity 0.3s ease;
@@ -19,12 +20,12 @@
     border-spacing: 0;
     text-align: left;
     overflow: hidden;
-    background-color: #fff;
+    background-color: @neutral-1;
   }
 
   th {
     background-color: @table-head-background-color;
-    color: #000;
+    color: @gray-1;
     font-weight: bold;
     transition: background .3s ease;
     text-align: left;
@@ -44,7 +45,7 @@
 
   &-horizonTitle {
     background-color: @table-head-background-color;
-    color: #000;
+    color: @gray-1;
     font-weight: bold;
     transition: background .3s ease;
     text-align: center;
@@ -59,11 +60,12 @@
     overflow: hidden;
     z-index: 1;
     -webkit-transition: box-shadow .3s ease;
+    box-shadow: @shadow-1-right;
     transition: box-shadow .3s ease;
     border-radius: 0;
     table {
       background-color: @table-head-background-color;
-      color: #000;
+      color: @gray-1;
       font-weight: bold;
       transition: background .3s ease;
       text-align: center;
@@ -75,23 +77,15 @@
     top: 0;
   }
 
+  &-scroll-position-left {
+    .@{table-prefix-cls}-fixed-left {
+      box-shadow: none;
+    }
+  }
+
   &-scroll-position-middle {
     overflow: auto;
     position: relative;
-    box-shadow: 1px 0 6px hsla(0,0%,39%,.2);
-    &:before {
-      box-shadow: 1px 0 6px hsla(0,0%,39%,.2);
-      content: " ";
-      height: 100%;
-      left: -10px;
-      position: absolute;
-      top: 0;
-      width: 10px;
-    }
+    box-shadow: @shadow-1-right;
   }
 }
-
-
-
-
-

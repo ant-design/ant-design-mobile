@@ -13,7 +13,7 @@ export default class Table extends React.Component {
   }
 
   render() {
-    const { columns, dataSource, hTitles, direction, scrollX, fixedTitle, titleWidth } = this.props;
+    const { columns, dataSource, direction, scrollX, titleFixed } = this.props;
 
     const [{
       style, className
@@ -23,79 +23,41 @@ export default class Table extends React.Component {
     let table;
     // 默认纵向
     if (!direction || direction === 'vertical') {
-      if(fixedTitle) {
-        
-        let titleData = [];
-    
-        let titleColums = [];
-        for(let i = 0; i < hTitles.length;i++) {
-          
-          titleData[i] = {
-            title: hTitles[i],
-            key:i 
-          }
-        }
-
-        console.log(titleData)
-        titleColums.push({
-          title: 'tmp',
-          dataIndex: 'title',
-          key: 'title',
-          width: titleWidth
-        })
-
-        table = <div style={{position:"relative"}}>
-          <RcTable {...restProps} columns={titleColums}
-            data={titleData}
-            className="am-table am-table-vertical-title am-table-fixed-left"
-            showHeader={false}
-          />
-          <div style={{marginLeft: titleWidth}}>
-          <RcTable {...restProps} columns={columns}
-            data={dataSource}
-            className="am-table"
-            scroll={{ x: true }} 
-            showHeader={false}
-          />
-          </div>
-        </div>
+      if(titleFixed) {
+        table = <RcTable {...restProps} columns={columns}
+          data={dataSource}
+          className="am-table"
+          scroll={{ x: true }} 
+          showHeader={false}  
+        />
       } else {
         table = <RcTable {...restProps} columns={columns}
           data={dataSource}
           className="am-table"
-          scroll={{ x: scrollX }} 
+          scroll={{ x: scrollX }}
         />
       }
     // 横向
-    } else if (direction === 'horizon' && hTitles.length > 0 ) {
-      const columns_withTitle = [{dataIndex: 'horizonTitle', key: 'horizonTitle', className: 'am-table-horizonTitle'}].concat(columns)
-
-      dataSource.map((item, index) => {
-        item.horizonTitle = hTitles[index]
-      })
-
-      table = <RcTable {...restProps} columns={columns_withTitle}
+    } else if (direction === 'horizon') {
+      columns[0].className = 'am-table-horizonTitle'
+      table = <RcTable {...restProps} columns={columns}
         data={dataSource}
         className="am-table"
         showHeader={false}
         scroll={{ x: scrollX }} 
-      />  
-    } else if (direction === 'mix' && hTitles.length > 0) {
-      const columns_withTitle = [{dataIndex: 'horizonTitle', key: 'horizonTitle', className: 'am-table-horizonTitle'}].concat(columns)
-
-      dataSource.map((item, index) => {
-        item.horizonTitle = hTitles[index]
-      })
-
+      /> 
+    // 混合 
+    } else if (direction === 'mix') {
+      const columns_withTitle = [{dataIndex: 'title', key: 'title', className: 'am-table-horizonTitle'}].concat(columns)
       table = <RcTable {...restProps} columns={columns_withTitle}
         data={dataSource}
         className="am-table"
         scroll={{ x: scrollX }} 
-      />   
+      />    
     }
 
     return (
-      <div style={{padding: 20}}>
+      <div>
       {
         table
       }  
