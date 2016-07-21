@@ -4,11 +4,11 @@ import { Image } from 'react-native';
 import CheckboxStyle from './style/index';
 const CheckboxItemStyle = CheckboxStyle.Checkbox;
 
-export default class Checkbox extends React.Component{
+export default class Checkbox extends React.Component {
   static propTypes = {
     disabled: PropTypes.bool,
     checked: PropTypes.bool,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
@@ -27,13 +27,13 @@ export default class Checkbox extends React.Component{
     }
   }
 
-  render(){
+  render() {
     const size = (this.props.size || 'default');
     let uri = CheckboxItemStyle[size];
     let width = 20;
     let height = 20;
-    switch(size) {
-      case "large":
+    switch (size) {
+      case 'large':
         width = height = 24;
         break;
       default:
