@@ -50,8 +50,7 @@ const App = React.createClass({
     };
     return (<div>
       <NavBar iconName={false}
-        rightContent={<span onClick={() => this.onDock('docked1')}
-        >点击</span>}
+        rightContent={<span onClick={() => this.onDock('docked1')}>点击</span>}
       >
         嵌入文档
       </NavBar>

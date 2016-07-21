@@ -16,11 +16,10 @@ let ListExample = React.createClass({
       <List>
         <List.Header>列表头部,List.Header</List.Header>
         <List.Body>
-          <List.Item
-          >标题文字,没有配置onClick则点击无反馈</List.Item>
+          <List.Item>标题文字,没有配置onClick则点击无反馈</List.Item>
           <List.Item
             onClick={() => {}}
-           >标题文字</List.Item>
+          >标题文字</List.Item>
           <List.Item
             extra="内容内容"
             onClick={() => {}}
@@ -35,19 +34,20 @@ let ListExample = React.createClass({
             extra={<select style={{ direction: 'rtl' }}
               {...getFieldProps('select1', {
                 initialValue: 1,
-              })}>
-                <option value="1">选项1</option>
-                <option value="2">选项2</option>
-                <option value="3">选项3</option>
-              </select>}
+              })}
+            >
+              <option value="1">选项1</option>
+              <option value="2">选项2</option>
+              <option value="3">选项3</option>
+            </select>}
             arrow="horizontal"
           >下拉框</List.Item>
           <List.Item
             extra={<select style={{ direction: 'rtl' }} defaultValue="2">
-                <option value="1">选项1</option>
-                <option value="2">选项2</option>
-                <option value="3" disabled>选项3不可选</option>
-              </select>}
+              <option value="1">选项1</option>
+              <option value="2">选项2</option>
+              <option value="3" disabled>选项3不可选</option>
+            </select>}
             arrow="horizontal"
           >下拉框</List.Item>
           <List.Item
@@ -76,7 +76,7 @@ let ListExample = React.createClass({
             extra={<Switch
               {...getFieldProps('2', {
                 initialValue: false,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
             />}
           >默认关</List.Item>
@@ -84,7 +84,7 @@ let ListExample = React.createClass({
             extra={<Switch
               {...getFieldProps('3', {
                 initialValue: false,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
               disabled
             />}
@@ -93,7 +93,7 @@ let ListExample = React.createClass({
             extra={<Switch
               {...getFieldProps('4', {
                 initialValue: true,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
               disabled
             />}
@@ -102,7 +102,7 @@ let ListExample = React.createClass({
       </List>
       <List>
         <List.Header>带缩略图</List.Header>
-         <List.Body>
+        <List.Body>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"
             arrow="horizontal"

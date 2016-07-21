@@ -29,10 +29,14 @@ const ButtonExample = React.createClass({
       <div className="button-container"
         style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
       >
-        <NavBar iconName={false} rightContent={<span
-          style={{ cursor: 'pointer' }}
-          onClick={this.switchDark}
-          >{this.state.dark ? '白天' : '夜间'}</span>}
+        <NavBar iconName={false} rightContent={(
+          <span
+            style={{ cursor: 'pointer' }}
+            onClick={this.switchDark}
+          >
+            {this.state.dark ? '白天' : '夜间'}
+          </span>
+          )}
         >
           类型/type
         </NavBar>
@@ -63,7 +67,7 @@ const ButtonExample = React.createClass({
         <WhiteSpace />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<ButtonExample />, mountNode);

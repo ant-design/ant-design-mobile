@@ -21,14 +21,14 @@ let Test = React.createClass({
         <AgreeItem
           {...getFieldProps('f5', {
             initialValue: false,
-            valuePropName: 'checked'
+            valuePropName: 'checked',
           })}
         >同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意
         </AgreeItem>
         <AgreeItem
           {...getFieldProps('f6', {
             initialValue: true,
-            valuePropName: 'checked'
+            valuePropName: 'checked',
           })}
         >同意<a>《信用支付服务合同》</a>
         </AgreeItem>
@@ -36,7 +36,7 @@ let Test = React.createClass({
           disabled
           {...getFieldProps('f7', {
             initialValue: false,
-            valuePropName: 'checked'
+            valuePropName: 'checked',
           })}
         >未选中，不可编辑<a>《信用支付服务合同》</a>
         </AgreeItem>
@@ -44,13 +44,13 @@ let Test = React.createClass({
           disabled
           {...getFieldProps('f8', {
             initialValue: true,
-            valuePropName: 'checked'
+            valuePropName: 'checked',
           })}
         >强制选中,不可编辑<a>《信用支付服务合同信用支付服务合同信用支付服务合同》</a>
         </AgreeItem>
       </div>
     );
-  }
+  },
 });
 
 Test = createForm()(Test);

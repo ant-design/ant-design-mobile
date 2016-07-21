@@ -58,7 +58,7 @@ let GridExample = React.createClass({
         hasLine={false}
       />
     </div>);
-  }
+  },
 });
 
 ReactDOM.render(<GridExample />, mountNode);

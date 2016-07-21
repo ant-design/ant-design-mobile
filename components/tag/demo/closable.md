@@ -32,7 +32,8 @@ ReactDOM.render(
         closable
         onClose={onClose}
         onChange={onChange}
-        afterClose={afterClose}>事件</Tag>
+        afterClose={afterClose}
+      >事件</Tag>
     </WingBlank>
     <WhiteSpace />
   </div>

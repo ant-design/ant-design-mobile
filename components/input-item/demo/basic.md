@@ -26,7 +26,7 @@ let BasicInput = React.createClass({
             clear
             maxLength={10}
             onBlur={function (e) { console.log('onBlur'); console.log(e); }}
-            onFocus={function (e) { console.log('onFocus'); console.log(e);}}
+            onFocus={function (e) { console.log('onFocus'); console.log(e); }}
           >基本</InputItem>
           <InputItem
             {...getFieldProps('input2', {
@@ -79,7 +79,7 @@ let BasicInput = React.createClass({
               initialValue: '',
             })}
             error
-            onErrorClick={() => {alert(111);}}
+            onErrorClick={() => { alert(111); }}
             placeholder="内容"
             clear
             extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="22" height="22" />}
@@ -95,8 +95,8 @@ let BasicInput = React.createClass({
             clear
             maxLength={10}
             labelNumber={2}
-            onBlur={function (e) {console.log('onBlur'); console.log(e);}}
-            onFocus={function (e) {console.log('onFocus'); console.log(e);}}
+            onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+            onFocus={function (e) { console.log('onFocus'); console.log(e); }}
           >姓名</InputItem>
         </List.Body>
       </List>
@@ -109,8 +109,8 @@ let BasicInput = React.createClass({
             clear
             maxLength={10}
             labelNumber={3}
-            onBlur={function (e) {console.log('onBlur'); console.log(e);}}
-            onFocus={function (e) {console.log('onFocus'); console.log(e);}}
+            onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+            onFocus={function (e) { console.log('onFocus'); console.log(e); }}
           >校验码</InputItem>
         </List.Body>
       </List>
@@ -122,8 +122,8 @@ let BasicInput = React.createClass({
             placeholder="内容"
             clear
             maxLength={10}
-            onBlur={function (e) {console.log('onBlur'); console.log(e);}}
-            onFocus={function (e) {console.log('onFocus'); console.log(e);}}
+            onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+            onFocus={function (e) { console.log('onFocus'); console.log(e); }}
           >四字标签</InputItem>
         </List.Body>
       </List>
@@ -136,8 +136,8 @@ let BasicInput = React.createClass({
             clear
             maxLength={10}
             labelNumber={5}
-            onBlur={function (e) {console.log('onBlur'); console.log(e);}}
-            onFocus={function (e) {console.log('onFocus'); console.log(e);}}
+            onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+            onFocus={function (e) { console.log('onFocus'); console.log(e); }}
           >五个字标签</InputItem>
         </List.Body>
       </List>
@@ -150,8 +150,8 @@ let BasicInput = React.createClass({
             clear
             maxLength={10}
             labelNumber={6}
-            onBlur={function (e) {console.log('onBlur'); console.log(e);}}
-            onFocus={function (e) {console.log('onFocus'); console.log(e);}}
+            onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+            onFocus={function (e) { console.log('onFocus'); console.log(e); }}
           >六个字标签六</InputItem>
         </List.Body>
       </List>
@@ -164,8 +164,8 @@ let BasicInput = React.createClass({
             clear
             maxLength={10}
             labelNumber={7}
-            onBlur={function (e) {console.log('onBlur'); console.log(e);}}
-            onFocus={function (e) {console.log('onFocus'); console.log(e);}}
+            onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+            onFocus={function (e) { console.log('onFocus'); console.log(e); }}
           >七个字标签七个</InputItem>
         </List.Body>
       </List>
@@ -175,18 +175,18 @@ let BasicInput = React.createClass({
           <InputItem
             {...getFieldProps('zzzz', {
               initialValue: '',
-              valuePropName: 'value'
+              valuePropName: 'value',
             })}
             placeholder="内容"
             clear
             maxLength={10}
-            onBlur={function (e) {console.log('onBlur'); console.log(e);}}
-            onFocus={function (e) {console.log('onFocus'); console.log(e);}}
+            onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+            onFocus={function (e) { console.log('onFocus'); console.log(e); }}
           >五个字标签</InputItem>
         </List.Body>
       </List>
     </div>);
-  }
+  },
 });
 
 BasicInput = createForm()(BasicInput);

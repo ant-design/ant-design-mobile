@@ -53,7 +53,7 @@ export default class Demo extends React.Component {
       highlightedStyle,
       id,
       className,
-      pathname
+      pathname,
     } = props;
 
     const codeExpand = this.props.codeExpand;
@@ -74,11 +74,11 @@ export default class Demo extends React.Component {
     //   'highlight-wrapper-expand': codeExpand,
     // });
     return (
-      <section className={codeBoxClass} id={id} onClick={ this.handleClick } >
+      <section className={codeBoxClass} id={id} onClick={this.handleClick} >
         <Modal ref="modal"
           visible={this.state.fullscreen}
-          title={ meta.title } onCancel={this.handleCancel}
-          width = {900}
+          title={meta.title} onCancel={this.handleCancel}
+          width={900}
           footer={[
             <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>返 回</Button>,
           ]}
@@ -91,20 +91,22 @@ export default class Demo extends React.Component {
         <section className="code-box-meta markdown">
           <div className="code-box-title">
             <Link to={{ pathname, query: { scrollTo: id } }}>
-              { localizedTitle }
+              {localizedTitle}
             </Link>
           </div>
-          { introChildren }
+          {introChildren}
 
           <span className="collapse anticon anticon-circle-o-right"
             onClick={this.handleCodeExapnd}
-            unselectable="none" />
+            unselectable="none"
+          />
 
           {
           codeExpand &&
-          <span className="fullscreen anticon anticon-arrow-salt"
-            onClick={this.viewFullscreen}
-            unselectable="none" />
+            <span className="fullscreen anticon anticon-arrow-salt"
+              onClick={this.viewFullscreen}
+              unselectable="none"
+            />
           }
         </section>
 
@@ -120,7 +122,8 @@ export default class Demo extends React.Component {
                 <pre>
                   <code className="css" dangerouslySetInnerHTML={{
                     __html: highlightedStyle,
-                  }} />
+                  }}
+                  />
                 </pre>
               </div> :
               null

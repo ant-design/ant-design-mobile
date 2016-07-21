@@ -23,7 +23,7 @@ let App = React.createClass({
         </WingBlank>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

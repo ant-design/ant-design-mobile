@@ -69,7 +69,7 @@ let App = React.createClass({
         <WhiteSpace size={20} />
       </div>
     );
-  }
+  },
 });
 
 

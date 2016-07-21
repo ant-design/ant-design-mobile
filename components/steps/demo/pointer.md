@@ -12,14 +12,14 @@ const Step = Steps.Step;
 
 ReactDOM.render(
   <div className="stepsExample">
-  <WhiteSpace size={20} />
-  <WingBlank size={20}>
-    <Steps size="pointer">
-      <Step status="finish" title="步骤1" icon="pointer" />
-      <Step status="process" title="步骤2" icon="pointer" />
-      <Step status="wait" title="步骤3" icon="pointer" />
-    </Steps>
-  </WingBlank>
+    <WhiteSpace size={20} />
+    <WingBlank size={20}>
+      <Steps size="pointer">
+        <Step status="finish" title="步骤1" icon="pointer" />
+        <Step status="process" title="步骤2" icon="pointer" />
+        <Step status="wait" title="步骤3" icon="pointer" />
+      </Steps>
+    </WingBlank>
   </div>
 , mountNode);
 ````

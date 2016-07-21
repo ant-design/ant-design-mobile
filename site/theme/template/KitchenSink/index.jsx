@@ -58,8 +58,7 @@ const hashImgObj = {
 export function collect(nextProps, callback) {
   const componentsList = utils.collectDocs(nextProps.data.components);
 
-  let moduleDocs;
-  moduleDocs = [
+  const moduleDocs = [
     ...utils.collectDocs(nextProps.data.docs.react),
     ...componentsList,
     /* eslint-disable new-cap */
@@ -98,8 +97,8 @@ export default class Home extends React.Component {
     return (
       /* eslint react/jsx-boolean-value: 0 */
       <Page logo="https://zos.alipayobjects.com/rmsportal/EMcaWpnrUZqsOQt.png" title="AntD Mobile" subtitle="移动端UI组件库" isIndex={true}>
-        {Object.keys(lists).map((cate, index) => {
-          return (<List key={index}>
+        {Object.keys(lists).map((cate, index) => (
+          <List key={index}>
             <List.Header>{cate}</List.Header>
             <List.Body>
               {(() => {
@@ -113,7 +112,7 @@ export default class Home extends React.Component {
                     logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
                     title={ii.chinese}
                     subtitle={ii.english}
-                    onClick={() => {location.href = `${window.location.protocol}//${window.location.host}/mobile?component=${fileName}`;}}
+                    onClick={() => { location.href = `${window.location.protocol}//${window.location.host}/mobile?component=${fileName}`; }}
                     style={itemStyle}
                     key={`flexitem-${i}`}
                   />);
@@ -124,8 +123,8 @@ export default class Home extends React.Component {
                 return flexs;
               })()}
             </List.Body>
-          </List>);
-        })}
+          </List>
+        ))}
       </Page>
     );
   }

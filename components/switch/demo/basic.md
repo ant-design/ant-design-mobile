@@ -30,7 +30,7 @@ let SwitchExample = React.createClass({
             extra={<Switch
               {...getFieldProps('2', {
                 initialValue: false,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
             />}
           >默认关</List.Item>
@@ -39,7 +39,7 @@ let SwitchExample = React.createClass({
             extra={<Switch
               {...getFieldProps('3', {
                 initialValue: false,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
               disabled
             />}
@@ -49,7 +49,7 @@ let SwitchExample = React.createClass({
             extra={<Switch
               {...getFieldProps('4', {
                 initialValue: true,
-                valuePropName: 'checked'
+                valuePropName: 'checked',
               })}
               disabled
             />}
@@ -57,7 +57,7 @@ let SwitchExample = React.createClass({
         </List.Body>
       </List>
     );
-  }
+  },
 });
 
 SwitchExample = createForm()(SwitchExample);

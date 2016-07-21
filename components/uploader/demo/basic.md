@@ -14,24 +14,24 @@ const UploaderExample = React.createClass({
     return {
       files: [{
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
-        id: '2121'
+        id: '2121',
       }, {
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
-        id: '2122'
+        id: '2122',
       }, {
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
-        id: '2123'
+        id: '2123',
       }, {
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
-        id: '2124'
+        id: '2124',
       }, {
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
-        id: '2125'
+        id: '2125',
       }, {
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
-        id: '2126'
+        id: '2126',
       }],
-      files2: []
+      files2: [],
     };
   },
   render() {
@@ -41,7 +41,7 @@ const UploaderExample = React.createClass({
           onChange={(files) => {
             console.log(files);
             this.setState({
-              files
+              files,
             });
           }}
           files={this.state.files}
@@ -51,7 +51,7 @@ const UploaderExample = React.createClass({
           onChange={(files2) => {
             console.log(files2);
             this.setState({
-              files2
+              files2,
             });
           }}
           maxUpload={4}
@@ -59,7 +59,7 @@ const UploaderExample = React.createClass({
         />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<UploaderExample />, mountNode);

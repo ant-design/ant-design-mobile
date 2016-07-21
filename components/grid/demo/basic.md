@@ -55,7 +55,7 @@ let GridExample = React.createClass({
     return (<div>
       <Grid data={data1} />
     </div>);
-  }
+  },
 });
 
 ReactDOM.render(<GridExample />, mountNode);

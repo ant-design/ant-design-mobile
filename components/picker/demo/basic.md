@@ -78,7 +78,7 @@ let Test = React.createClass({
         <List.Header>联动选择</List.Header>
         <List.Body>
           <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
-            initialValue: ['340000', '340800', '340824']
+            initialValue: ['340000', '340800', '340824'],
           })}
           >
             <List.Item arrow="horizontal">省市区选择</List.Item>
@@ -93,7 +93,7 @@ let Test = React.createClass({
         </List.Body>
       </List>
     </div>);
-  }
+  },
 });
 
 Test = createForm()(Test);

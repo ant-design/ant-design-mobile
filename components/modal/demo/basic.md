@@ -41,7 +41,7 @@ const App = React.createClass({
         <WhiteSpace size={20} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(

@@ -16,10 +16,10 @@ const Item = React.createClass({
       onClick: () => {},
     };
   },
-  _handleTouchStart() {
+  handleTouchStart() {
     this.refs.demoitem.style.backgroundColor = '#f2f2f2';
   },
-  _handleTouchEnd() {
+  handleTouchEnd() {
     this.refs.demoitem.style.backgroundColor = '#fff';
   },
   render() {
@@ -28,9 +28,9 @@ const Item = React.createClass({
       <section
         className="am-demo-item"
         onClick={onClick}
-        onTouchStart={this._handleTouchStart}
-        onTouchEnd={this._handleTouchEnd}
-        onTouchCancel={this._handleTouchEnd}
+        onTouchStart={this.handleTouchStart}
+        onTouchEnd={this.handleTouchEnd}
+        onTouchCancel={this.handleTouchEnd}
         ref="demoitem"
         style={style}
       >
@@ -41,7 +41,7 @@ const Item = React.createClass({
         </div>
       </section>
     );
-  }
+  },
 });
 
 export default Item;

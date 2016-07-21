@@ -55,22 +55,23 @@ const THUMB_URLS = [
 
 const Thumb = React.createClass({
   getInitialState() {
-    return { thumbIndex: this._getThumbIdx(), dir: 'row' };
+    return { thumbIndex: this.getThumbIdx(), dir: 'row' };
   },
-  _getThumbIdx() {
+  getThumbIdx() {
     return Math.floor(Math.random() * THUMB_URLS.length);
   },
-  _onPressThumb() {
+  onPressThumb() {
     this.setState({
-      thumbIndex: this._getThumbIdx(),
+      thumbIndex: this.getThumbIdx(),
       dir: this.state.dir === 'row' ? 'column' : 'row',
     });
   },
   render() {
     return (
       <div
-        onClick={this._onPressThumb}
-        style={{ ...styles.buttonContents, flexDirection: this.state.dir }}>
+        onClick={this.onPressThumb}
+        style={{ ...styles.buttonContents, flexDirection: this.state.dir }}
+      >
         <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
         <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
         <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
@@ -91,12 +92,8 @@ let pageIndex = 0;
 
 const Demo = React.createClass({
   getInitialState() {
-    const getSectionData = (dataBlob, sectionID) => {
-      return dataBlob[sectionID];
-    };
-    const getRowData = (dataBlob, sectionID, rowID) => {
-      return dataBlob[rowID];
-    };
+    const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
+    const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
     const dataSource = new ListView.DataSource({
       getRowData,
@@ -108,9 +105,9 @@ const Demo = React.createClass({
     this.dataBlob = {};
     this.sectionIDs = [];
     this.rowIDs = [];
-    this._genData = (pIndex = 0) => {
+    this.genData = (pIndex = 0) => {
       for (let i = 0; i < NUM_SECTIONS; i++) {
-        let ii = pIndex * NUM_SECTIONS + i;
+        const ii = pIndex * NUM_SECTIONS + i;
         const sectionName = `Section ${ii}`;
         this.sectionIDs.push(sectionName);
         this.dataBlob[sectionName] = sectionName;
@@ -126,7 +123,7 @@ const Demo = React.createClass({
       this.sectionIDs = [].concat(this.sectionIDs);
       this.rowIDs = [].concat(this.rowIDs);
     };
-    this._genData();
+    this.genData();
     return {
       dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
       headerPressCount: 0,
@@ -135,16 +132,17 @@ const Demo = React.createClass({
   renderRow(rowData) {
     if (rowData.indexOf('R0') !== -1) {
       return (
-      <DatePicker
-        className="am-date-picker"
-        mode="date"
-        title="选择日期"
-        extra="可选,小于结束日期"
-        minDate="2014-08-06"
-        maxDate="2016-12-3"
-       >
-         <Item arrow="horizontal">日期</Item>
-       </DatePicker>);
+        <DatePicker
+          className="am-date-picker"
+          mode="date"
+          title="选择日期"
+          extra="可选,小于结束日期"
+          minDate="2014-08-06"
+          maxDate="2016-12-3"
+        >
+          <Item arrow="horizontal">日期</Item>
+        </DatePicker>
+      );
     }
     return (<Item><Thumb text={rowData} /></Item>);
   },
@@ -170,17 +168,17 @@ const Demo = React.createClass({
         stickyProps={{
           stickyStyle: { zIndex: 999 },
         }}
-        onEndReached={this._onEndReached}
-        onScroll={() => { console.log('scroll'); } }
+        onEndReached={this.onEndReached}
+        onScroll={() => { console.log('scroll'); }}
       />
     </div>);
   },
 
-  _onEndReached(event) {
+  onEndReached(event) {
     // load new data
     console.log('reach end', event);
     Toast.info('reach end');
-    this._genData(++pageIndex);
+    this.genData(++pageIndex);
     this.setState({
       dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
     });

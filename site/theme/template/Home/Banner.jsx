@@ -25,7 +25,7 @@ export default class Banner extends React.Component {
               <Link to="/docs/pattern/color">
                 开始探索
               </Link>
-          </div>
+            </div>
           </QueueAnim>
           <TweenOne className="down" animation={[{ opacity: 1 }, { y: 10, duration: 800, yoyo: true, repeat: -1 }]}>
             <Icon type="down" />

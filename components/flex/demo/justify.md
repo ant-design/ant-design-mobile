@@ -63,7 +63,7 @@ let FlexExample = React.createClass({
         </Flex>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<FlexExample />, mountNode);

@@ -2,9 +2,7 @@
 
 function camelCase(name) {
   return name.charAt(0).toUpperCase() +
-    name.slice(1).replace(/-(\w)/g, (m, n) => {
-      return n.toUpperCase();
-    });
+    name.slice(1).replace(/-(\w)/g, (m, n) => n.toUpperCase());
 }
 
 const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.web\.tsx?$/);

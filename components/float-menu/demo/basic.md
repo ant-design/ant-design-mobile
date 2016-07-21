@@ -37,11 +37,15 @@ const App = React.createClass({
     overlay = overlay.concat([
       <Item key="4" value="disabled" disabled>disabled opt</Item>,
       <Item key="5" value="special" iconName="github">special opt</Item>,
-      <Item key="6" value="button ct" iconName="github"><Button
-        size="small"
-        inline
-        onClick={() => { this.handleVisibleChange(false); }}
-        >关闭</Button></Item>,
+      <Item key="6" value="button ct" iconName="github">
+        <Button
+          size="small"
+          inline
+          onClick={() => this.handleVisibleChange(false)}
+        >
+          关闭
+        </Button>
+      </Item>,
     ]);
 
     return (<div>
@@ -55,8 +59,8 @@ const App = React.createClass({
           onVisibleChange={this.handleVisibleChange}
           onSelect={this.onSelect}
         >
-        <a href="#" style={{ color: 'white' }}>菜单</a>
-      </FloatMenu>}
+          <a href="#" style={{ color: 'white' }}>菜单</a>
+        </FloatMenu>}
       >
         FloatMenu
       </NavBar>
@@ -70,13 +74,13 @@ const App = React.createClass({
             <Item key="2" value="1">item 1</Item>,
           ]}
           placement="topRight"
-          onVisibleChange={ v => this.setState({ visible1: v }) }
+          onVisibleChange={v => this.setState({ visible1: v })}
         >
           <a href="#">菜单</a>
         </FloatMenu>
       </div>
     </div>);
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

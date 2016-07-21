@@ -36,21 +36,21 @@ const MyProgress = React.createClass({
           <Progress percent={this.state.percent} position="fixed" />
         }
         <Progress percent={this.state.percent} position="normal" />
-        <WhiteSpace mpde={20} />
+        <WhiteSpace size={20} />
         <WingBlank size={20}>
-            <Flex>
-                <Flex.Item>
-                    <Button onClick={this.increase}> + </Button>
-                </Flex.Item>
-                <Flex.Item>
-                    <Button onClick={this.decline}> - </Button>
-                </Flex.Item>
-            </Flex>
+          <Flex>
+            <Flex.Item>
+              <Button onClick={this.increase}> + </Button>
+            </Flex.Item>
+            <Flex.Item>
+              <Button onClick={this.decline}> - </Button>
+            </Flex.Item>
+          </Flex>
         </WingBlank>
-        <WhiteSpace mpde={20} />
+        <WhiteSpace size={20} />
       </div>
     );
-  }
+  },
 });
 ReactDOM.render(<MyProgress />, mountNode);
 ````

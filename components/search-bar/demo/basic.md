@@ -11,7 +11,7 @@ import { createForm } from 'rc-form';
 let SearchBarExample = React.createClass({
   getInitialState() {
     return {
-      value: '蚂蚁中台'
+      value: '蚂蚁中台',
     };
   },
   render() {
@@ -21,33 +21,33 @@ let SearchBarExample = React.createClass({
         <SearchBar
           value=""
           placeholder="搜索"
-          onSubmit={(value) => {console.log(`onSubmit${value}`);}}
-          onChange={(value) => {console.log(value);}}
-          onClear={() => {console.log('onClear');}}
-          onCancel={() => {console.log('onCancel');}}
-          onFocus={() => {console.log('onFocus');}}
-          onBlur={() => {console.log('onBlur');}}
+          onSubmit={(value) => { console.log(`onSubmit${value}`); }}
+          onChange={(value) => { console.log(value); }}
+          onClear={() => { console.log('onClear'); }}
+          onCancel={() => { console.log('onCancel'); }}
+          onFocus={() => { console.log('onFocus'); }}
+          onBlur={() => { console.log('onBlur'); }}
         />
         <SearchBar
           {...getFieldProps('SearchBar')}
           placeholder="搜索"
-          onSubmit={(value) => {console.log(`onSubmit${value}`);}}
-          onClear={() => {console.log('onClear');}}
-          onCancel={() => {console.log('onCancel');}}
+          onSubmit={(value) => { console.log(`onSubmit${value}`); }}
+          onClear={() => { console.log('onClear'); }}
+          onCancel={() => { console.log('onCancel'); }}
         />
         <SearchBar
           value=""
           placeholder="取消按钮总是显示"
-          onSubmit={(value) => {console.log(`onSubmit${value}`);}}
-          onChange={(value) => {console.log(value);}}
-          onClear={() => {console.log('onClear');}}
-          onCancel={() => {console.log('onCancel');}}
+          onSubmit={(value) => { console.log(`onSubmit${value}`); }}
+          onChange={(value) => { console.log(value); }}
+          onClear={() => { console.log('onClear'); }}
+          onCancel={() => { console.log('onCancel'); }}
           showCancelButton
         />
         <SearchBar placeholder="搜索框被禁用" disablSearch />
-    </div>
+      </div>
     );
-  }
+  },
 });
 
 SearchBarExample = createForm()(SearchBarExample);

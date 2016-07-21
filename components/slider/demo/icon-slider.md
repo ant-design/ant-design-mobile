@@ -20,7 +20,7 @@ const IconSlider = React.createClass({
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
       nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
       mid,
-      sliderValue: this.props.value
+      sliderValue: this.props.value,
     };
   },
 
@@ -28,7 +28,7 @@ const IconSlider = React.createClass({
     this.setState({
       preIconClass: v >= this.state.mid ? '' : 'anticon-highlight',
       nextIconClass: v >= this.state.mid ? 'anticon-highlight' : '',
-      sliderValue: v
+      sliderValue: v,
     });
   },
 
@@ -39,18 +39,18 @@ const IconSlider = React.createClass({
         <WingBlank size={20}>
           <div className="iconWrapper">
             <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
-              <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
+            <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
             <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
           </div>
         </WingBlank>
         <WhiteSpace size={32} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(
-<IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
+  <IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
 , mountNode);
 ````
 

@@ -23,7 +23,7 @@ let Test = React.createClass({
             title="选择日期"
             extra="可选,小于结束日期"
             { ...getFieldProps('date1', {
-              initialValue: '2015-08-06'
+              initialValue: '2015-08-06',
             })}
             minDate="2014-08-06"
             maxDate="2016-12-3"
@@ -31,13 +31,13 @@ let Test = React.createClass({
             <List.Item arrow="horizontal">日期</List.Item>
           </DatePicker>
           <DatePicker mode="time" { ...getFieldProps('time1', {
-            initialValue: ''
+            initialValue: '',
           })}
           >
             <List.Item arrow="horizontal">时间,不限定上下限</List.Item>
           </DatePicker>
           <DatePicker mode="time" { ...getFieldProps('time', {
-            initialValue: ''
+            initialValue: '',
           })}
             minDate="00:30"
             maxDate="22:00"
@@ -45,16 +45,16 @@ let Test = React.createClass({
             <List.Item arrow="horizontal">时间</List.Item>
           </DatePicker>
           <DatePicker mode="datetime" { ...getFieldProps('datetime', {
-            initialValue: ''
+            initialValue: '',
           })}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
           </DatePicker>
           <DatePicker
             mode="datetime"
-            format={ (val) => { return val; }}
+            format={val => val}
             { ...getFieldProps('customformat', {
-              initialValue: ''
+              initialValue: '',
             })}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
@@ -62,7 +62,7 @@ let Test = React.createClass({
         </List.Body>
       </List>
     </div>);
-  }
+  },
 });
 
 Test = createForm()(Test);

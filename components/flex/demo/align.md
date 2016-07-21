@@ -104,7 +104,7 @@ let FlexExample = React.createClass({
         <WhiteSpace />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<FlexExample />, mountNode);
