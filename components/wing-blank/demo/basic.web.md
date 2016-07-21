@@ -3,7 +3,7 @@ order: 0
 title: 基本
 ---
 
-```<WingBlank mode={8}>...</WingBlank>```
+```<WingBlank size={8}>...</WingBlank>```
 
 ````jsx
 import { WingBlank, WhiteSpace, Button } from 'antm';
@@ -20,13 +20,13 @@ let WingBlankExample = React.createClass({
       <WhiteSpace />
       <div style={{ borderTop: '1px solid #2DB7F5' }} />
       <WhiteSpace />
-      <WingBlank mode={16}>
+      <WingBlank size={16}>
         <Button type="primary">两翼留白16px</Button>
       </WingBlank>
       <WhiteSpace />
       <div style={{ borderTop: '1px solid #2DB7F5' }} />
       <WhiteSpace />
-      <WingBlank mode={32}>
+      <WingBlank size={32}>
         <Button>两翼留白32px</Button>
       </WingBlank>
       <WhiteSpace />

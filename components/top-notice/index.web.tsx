@@ -1,13 +1,15 @@
 /* tslint:disable:no-switch-case-fall-through */
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
+import TopNoticeProps from './topNoticePropsType';
 
-export default class TopNotice extends React.Component {
+export default class TopNotice extends React.Component<TopNoticeProps, any> {
   static propTypes = {
     mode: PropTypes.string,
     onClick: PropTypes.func,
-    type: PropTypes.string
+    type: PropTypes.string,
   };
 
   static defaultProps = {
@@ -37,10 +39,10 @@ export default class TopNotice extends React.Component {
     const { prefixCls, children, mode, type, onClick, className } = this.props;
     const wrapCls = classNames({
       [prefixCls]: true,
-      [className]: !!className
+      [className]: !!className,
     });
 
-    let operationDom = '';
+    let operationDom;
     switch (mode) {
       case 'closable':
         operationDom = (
@@ -57,7 +59,7 @@ export default class TopNotice extends React.Component {
         );
         break;
       default:
-        operationDom = '';
+        operationDom = null;
         break;
     }
 
@@ -94,4 +96,3 @@ export default class TopNotice extends React.Component {
     ) : null;
   }
 }
-

@@ -1,8 +1,18 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import RcCheckbox from 'rc-checkbox';
 function noop() {}
 
-export default class Radio extends React.Component {
+export interface RadioProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
+}
+
+export default class Radio extends React.Component<RadioProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,

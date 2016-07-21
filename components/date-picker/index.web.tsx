@@ -4,6 +4,7 @@ import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import GregorianCalendar from 'gregorian-calendar';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
 import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
+import zhCnPicker from 'rmc-date-picker/lib/locale/zh_CN';
 
 const now = new GregorianCalendar(zhCn);
 now.setTime(Date.now());
@@ -30,7 +31,7 @@ function getDefaultProps() {
     pickerPrefixCls: 'am-date-picker-picker',
     popupPrefixCls: 'am-date-picker-popup',
     mode: 'datetime',
-    locale: require('rmc-date-picker/lib/locale/zh_CN'),
+    locale: zhCnPicker,
     format: defaultFormat,
     extra: '请选择',
     onChange() {},
@@ -94,7 +95,7 @@ export default class DatePicker extends React.Component {
   }
   render() {
     const { date, minDate, maxDate } = this.state;
-    const { format, extra, value, okText, dismissText, title } = this.props;
+    const { format, extra, value, okText, dismissText, title, locale } = this.props;
     const extraProps = {
       extra: value ? format(value) : extra,
     };
@@ -103,7 +104,7 @@ export default class DatePicker extends React.Component {
         WrapComponent="div"
         popupTransitionName="am-slide-fade"
         maskTransitionName="am-fade"
-        locale={require('rmc-date-picker/lib/locale/zh_CN')}
+        locale={locale}
         okText={okText}
         dismissText={dismissText}
         title={title}

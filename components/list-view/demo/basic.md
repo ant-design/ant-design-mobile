@@ -4,8 +4,7 @@ title: 基本
 destroyComponent: true
 ---
 
-无尽列表
-
+无尽列表。
 
 ````jsx
 import { ListView, List, Toast, DatePicker } from 'antm';
@@ -100,7 +99,7 @@ const Demo = React.createClass({
     };
 
     const dataSource = new ListView.DataSource({
-      getRowData: getRowData,
+      getRowData,
       getSectionHeaderData: getSectionData,
       rowHasChanged: (row1, row2) => row1 !== row2,
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2,

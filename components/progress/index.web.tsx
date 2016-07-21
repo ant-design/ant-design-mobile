@@ -25,7 +25,7 @@ export default class Progress extends React.Component {
       ['prefixCls', 'percent', 'position']);
     const percentStyle = {
       width: `${percent}%`,
-      height: 0
+      height: 0,
     };
 
     const wrapCls = classNames({

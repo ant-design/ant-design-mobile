@@ -4,16 +4,14 @@ import { View, Text, Image } from 'react-native';
 import splitObject from '../_util/splitObject';
 import CardStyle from './style/index';
 
-const Header = CardStyle.Header;
-
 export interface CardHeaderProps {
-  title?:any;
-  thumb?:string;
-  extra?:any;
-  thumbStyle?:{};
+  title?: any;
+  thumb?: string;
+  extra?: any;
+  thumbStyle?: {};
 }
 
-export default class CardHeader extends React.Component <CardHeaderProps, any> {
+export default class CardHeader extends React.Component<CardHeaderProps, any> {
   static propTypes = {
     title: PropTypes.node,
     thumb: PropTypes.string,
@@ -34,16 +32,16 @@ export default class CardHeader extends React.Component <CardHeaderProps, any> {
     const titleDom = React.isValidElement(title) ? (
       <View style={{ flex: 1 }}>{title}</View>
     ) : (
-      <Text style={Header.content}>{title}</Text>
+      <Text style={CardStyle.headerContent}>{title}</Text>
     );
 
     return (
-      <View {...restProps} style={[Header.header, style]}>
-        <View style={Header.title}>
-          { thumb ? <Image source={{uri: thumb}} style={[Header.image, thumbStyle]} /> : null }
+      <View {...restProps} style={[CardStyle.headerWrap, style]}>
+        <View style={[CardStyle.headerTitle]}>
+          { thumb ? <Image source={{uri: thumb}} style={[CardStyle.headerImage, thumbStyle]} /> : null }
           {titleDom}
         </View>
-        { extra ? <View style={Header.extra}>{extra}</View> : null }
+        { extra ? <View style={CardStyle.headerExtra}>{extra}</View> : null }
       </View>
     );
   }

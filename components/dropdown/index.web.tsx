@@ -1,6 +1,6 @@
 /* eslint no-console:0 */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import assign from 'object-assign';
 let closeFn = () => {
@@ -19,7 +19,7 @@ function create(instanceId, config, content, afterClose = closeFn) {
 
   function close() {
     d.setState({
-      visible: false
+      visible: false,
     });
     if (div) {
       ReactDOM.unmountComponentAtNode(div);
@@ -56,10 +56,10 @@ let instanceId = 1;
 
 export default class Dropdown {
   static newInstance = () => {
-    let _i;
+    let j;
     return {
       show: (content, config) => {
-        _i = create(instanceId++, config, content, (iId) => {
+        j = create(instanceId++, config, content, (iId) => {
           for (let i = 0; i < ins.instances.length; i++) {
             if (ins.instances[i].instanceId === iId) {
               ins.instances.splice(i, 1);
@@ -67,10 +67,10 @@ export default class Dropdown {
             }
           }
         });
-        ins.instances.push(_i);
+        ins.instances.push(j);
       },
       hide: () => {
-        _i.close();
+        j.close();
       },
     };
   }

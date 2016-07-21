@@ -18,19 +18,19 @@ let App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <Slider defaultValue={30} onChange={log} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <Slider range step={10} defaultValue={[20, 50]} onChange={log} />
         </WingBlank>
-        <WhiteSpace mode={32} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={32} />
+        <WingBlank size={20}>
           <Slider defaultValue={30} onAfterChange={log} />
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
       </div>
     );
   }

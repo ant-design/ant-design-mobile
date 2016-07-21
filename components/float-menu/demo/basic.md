@@ -5,6 +5,10 @@ title: FloatMenu
 
 
 ````jsx
+// 此处用作demo展示，不要用在生产环境
+this.customNavFlag = true;
+
+
 import { FloatMenu, Button, NavBar } from 'antm';
 const Item = FloatMenu.Item;
 
@@ -27,7 +31,6 @@ const App = React.createClass({
     this.setState({
       visible,
     });
-    this.props.onNavBarChange();
   },
   render() {
     let overlay = [1, 2, 3].map((i, index) => <Item key={index} value={`option ${i}`}>option {i}</Item>);
@@ -41,21 +44,22 @@ const App = React.createClass({
         >关闭</Button></Item>,
     ]);
 
-    App.customNavBar = (<NavBar iconName={false}
-      rightContent={<FloatMenu
-        visible={this.state.visible}
-        overlay={overlay}
-        popupAlign={{
-          offset: [5, 14],
-        }}
-        onVisibleChange={this.handleVisibleChange}
-        onSelect={this.onSelect}
-      >
+    return (<div>
+      <NavBar iconName={false}
+        rightContent={<FloatMenu
+          visible={this.state.visible}
+          overlay={overlay}
+          popupAlign={{
+            offset: [5, 14],
+          }}
+          onVisibleChange={this.handleVisibleChange}
+          onSelect={this.onSelect}
+        >
         <a href="#" style={{ color: 'white' }}>菜单</a>
       </FloatMenu>}
-    >FloatMenu</NavBar>);
-
-    return (<div>
+      >
+        FloatMenu
+      </NavBar>
       <p>选中了 {this.state.selected}</p>
       <div style={{ paddingTop: 80, paddingLeft: 100 }}>
         <FloatMenu

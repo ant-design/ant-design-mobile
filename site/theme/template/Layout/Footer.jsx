@@ -66,15 +66,22 @@ export default class Footer extends React.Component {
         <ul>
           <li>
             <h2>源码</h2>
-            <a target="_blank " href="http://github.com/ant-design">
-              antd
-            </a>
-            <a target="_blank " href="http://gitlab.alibaba-inc.com/react-ui/ant-mobile">
-              antm
-            </a>
-            <a target="_blank" href="https://github.com/react-component">
-              react-component
-            </a>
+            <div>
+              <a target="_blank " href="http://github.com/ant-design">antd</a>
+            </div>
+            <div>
+              <a target="_blank " href="http://gitlab.alibaba-inc.com/react-ui/ant-mobile">antm</a>
+            </div>
+            <div>
+              <a target="_blank" href="https://github.com/react-component">react-component</a>
+            </div>
+          </li>
+          <li>
+            <h2>相关站点</h2>
+            <div><a href="https://g2.alipay.com/">G2</a> - 数据可视化</div>
+            <div><a href="https://antv.alipay.com/">AntV</a> - 数据可视化规范</div>
+            <div><a href="http://motion.ant.design">Ant Motion</a> - 设计动效</div>
+            <div><a href="http://ux.ant.design">Ant UX</a> - 页面逻辑素材</div>
           </li>
           <li>
             <h2>联系我们</h2>

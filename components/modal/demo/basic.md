@@ -25,7 +25,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
         <WingBlank>
           <Button type="primary" size="small" inline onClick={this.showModal}>
             显示对话框
@@ -38,7 +38,7 @@ const App = React.createClass({
             <Button type="primary" inline onClick={this.onClose}>close modal</Button>
           </Modal>
         </WingBlank>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
       </div>
     );
   }

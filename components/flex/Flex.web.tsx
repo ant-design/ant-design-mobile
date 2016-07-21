@@ -1,9 +1,18 @@
 import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 
-const PropTypes = React.PropTypes;
+export interface FlexProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  direction?: string;
+  wrap?: string;
+  justify?: string;
+  align?: string;
+  alignContent?: string;
+}
 
-export default class Flex extends React.Component {
+export default class Flex extends React.Component<FlexProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
@@ -52,7 +61,7 @@ export default class Flex extends React.Component {
       [`${prefixCls}-align-content-around`]: alignContent === 'around',
       [`${prefixCls}-align-content-stretch`]: alignContent === 'stretch',
 
-      [className]: className
+      [className]: className,
     });
 
     return (

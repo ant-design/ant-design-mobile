@@ -1,11 +1,25 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import List from '../list/index';
 import Radio from '../radio/index';
 
 function noop() {}
 
-export default class SubMenu extends React.Component {
+export interface SubMenuProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  value?: Array<{}>;
+  data?: Array<{}>;
+  onChange?: Function;
+}
+
+export interface SubMenuState {
+  value?: Array<{}>;
+  data?: Array<{}>;
+}
+
+export default class SubMenu extends React.Component<SubMenuProps, SubMenuState> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
@@ -19,26 +33,26 @@ export default class SubMenu extends React.Component {
     radioPrefixCls: 'am-radio',
     value: [],
     data: [],
-    onChange: noop
+    onChange: noop,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       value: this.props.value,
-      data: this.props.data
+      data: this.props.data,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      data: nextProps.data
+      data: nextProps.data,
     });
   }
 
   onClick = (el) => {
     this.setState({
-      value: [el]
+      value: [el],
     });
     this.props.onChange(el);
   };
@@ -49,7 +63,7 @@ export default class SubMenu extends React.Component {
 
     const subMenuCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     const itemsDom = [];

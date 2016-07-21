@@ -1,9 +1,20 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import RcTabs from 'rc-tabs';
 import splitObject from '../_util/splitObject';
 
-export default class Tabs extends React.Component {
+export interface TabsProps {
+  type?: 'line' | 'capsule' | 'tabbar';
+  activeKey?: string;
+  defaultActiveKey?: string;
+  onChange?: () => void;
+  onTabClick?: () => void;
+  animation?: string | boolean;
+  mode?: 'dark' | 'light';
+}
+
+export default class Tabs extends React.Component<TabsProps, any> {
   static TabPane = RcTabs.TabPane;
 
   static propTypes = {
@@ -26,11 +37,13 @@ export default class Tabs extends React.Component {
   };
 
   render() {
-    let [{
-      className, prefixCls, type, children, onChange, onTabClick, tabPosition, animation, mode
-    }, restProps] = splitObject(
-      this.props, ['className', 'prefixCls', 'type', 'children', 'onChange', 'onTabClick', 'tabPosition', 'animation', 'mode'
-    ]);
+    let [
+      {className, prefixCls, type, children, onChange, onTabClick, tabPosition, animation, mode},
+      restProps,
+    ] = splitObject(
+      this.props,
+      ['className', 'prefixCls', 'type', 'children', 'onChange', 'onTabClick', 'tabPosition', 'animation', 'mode']
+    );
 
     let cls = classNames({
       [className]: !!className,
@@ -43,6 +56,7 @@ export default class Tabs extends React.Component {
 
     return (
       <RcTabs {...restProps}
+        prefixCls={prefixCls}
         className={cls}
         onChange={onChange}
         tabPosition={tabPosition}

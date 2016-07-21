@@ -35,15 +35,15 @@ const IconSlider = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace mode={20} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={20} />
+        <WingBlank size={20}>
           <div className="iconWrapper">
             <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
               <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
             <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
           </div>
         </WingBlank>
-        <WhiteSpace mode={32} />
+        <WhiteSpace size={32} />
       </div>
     );
   }

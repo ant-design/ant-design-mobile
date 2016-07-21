@@ -16,33 +16,39 @@ ReactDOM.render(
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div>}
           arrow="horizontal"
+          onClick={() => {}}
         >垂直居中对齐</List.Item>
         <List.Item
           extra="内容内容"
           arrow="horizontal"
+          onClick={() => {}}
         ><div>垂直居中对齐<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div></List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div><div className="am-list-brief">辅助文字内容</div></div>}
           arrow="horizontal"
           align="top"
+          onClick={() => {}}
         >顶部对齐</List.Item>
         <List.Item
           extra="内容内容"
           arrow="horizontal"
           align="top"
+          onClick={() => {}}
         ><div>顶部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
           arrow="horizontal"
           align="bottom"
+          onClick={() => {}}
         >底部对齐</List.Item>
         <List.Item
           extra="内容内容"
           arrow="horizontal"
           align="bottom"
+          onClick={() => {}}
         ><div>底部对齐<div className="am-list-brief">辅助文字内容</div></div></List.Item>
         <List.Item
-          needActive={false}
+          onClick={() => {}}
           extra={<Button
             size="small"
             inline

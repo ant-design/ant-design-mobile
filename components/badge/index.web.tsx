@@ -8,7 +8,7 @@ export default class Badge extends React.Component {
     prefixCls: PropTypes.string,
     text: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.number
+      PropTypes.number,
     ]),
     dot: PropTypes.bool,
     corner: PropTypes.bool,

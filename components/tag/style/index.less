@@ -13,25 +13,25 @@
   &-normal {
     background-color: @neutral-1;
     color: @neutral-10;
-    border: @border-width-1 @border-type-1 @neutral-5;
+    border: 1px solid @neutral-5;
   }
 
   &-active {
     background-color: @neutral-1;
     color: @brand-6;
-    border: @border-width-1 @border-type-1 @brand-6;
+    border: 1px solid @brand-6;
   }
 
   &-disabled {
     color:@neutral-6;
     background-color: @neutral-2;
-    border: @border-width-1 @border-type-1 @neutral-5;
+    border: 1px solid @neutral-5;
   }
 
   &-read {
     background-color: @neutral-3;
     color: @neutral-10;
-    border: @border-width-1 @border-type-1 @neutral-3;
+    border: 1px solid @neutral-3;
   }
 
   &-size-large {
@@ -52,9 +52,9 @@
     right: -@grid;
     width: 0;
     height: 0;
-    border-bottom: 3*@grid @border-type-1 transparent;
-    border-top: 3*@grid @border-type-1 transparent;
-    border-left: 3*@grid @border-type-1 @brand-6;
+    border-bottom: 3*@grid solid transparent;
+    border-top: 3*@grid solid transparent;
+    border-left: 3*@grid solid @brand-6;
     line-height: 0;
     transform: rotate(45deg);
     .anticon {

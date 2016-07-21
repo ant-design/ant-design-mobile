@@ -1,14 +1,27 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-function noop() {}
 
-export default class ListItem extends React.Component {
+export interface ListItemProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  thumb: React.ReactNode;
+  extra?: React.ReactNode;
+  arrow?: 'horizontal'|'down'|'up'|'empty'|'';
+  align?: string;
+  onClick?: Function;
+  error?: boolean;
+}
+
+export interface ListItemState {
+  hover: boolean;
+}
+
+export default class ListItem extends React.Component<ListItemProps, ListItemState> {
   static propTypes = {
     prefixCls: PropTypes.string,
-    needActive: PropTypes.bool,
-    thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
-    extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.object, React.PropTypes.node]),
+    thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.node]),
+    extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.node]),
     arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
     align: PropTypes.string,
     onClick: PropTypes.func,
@@ -17,10 +30,8 @@ export default class ListItem extends React.Component {
 
   static defaultProps = {
     prefixCls: 'am-list',
-    onClick: noop,
     thumb: '',
     arrow: '',
-    needActive: true,
     error: false,
     align: 'middle',
   };
@@ -33,11 +44,21 @@ export default class ListItem extends React.Component {
   }
 
   onClick = (e) => {
-    this.props.onClick(e);
+    if (this.props.onClick) {
+      this.setState({
+        hover: true,
+      });
+      setTimeout(() => {
+        this.setState({
+          hover: false,
+        });
+      }, 200);
+      this.props.onClick(e);
+    }
   };
 
   onTouchStart = () => {
-    if (this.props.needActive) {
+    if (this.props.onClick) {
       this.setState({
         hover: true,
       });
@@ -45,7 +66,7 @@ export default class ListItem extends React.Component {
   };
 
   onTouchEnd = () => {
-    if (this.props.needActive) {
+    if (this.props.onClick) {
       this.setState({
         hover: false,
       });
@@ -53,8 +74,7 @@ export default class ListItem extends React.Component {
   };
 
   render() {
-    let [{prefixCls, thumb, arrow, error, children, extra, className, align, needActive}, restProps] = splitObject(this.props,
-      ['prefixCls', 'thumb', 'arrow', 'error', 'children', 'extra', 'className', 'align', 'needActive']);
+    let { prefixCls, thumb, arrow, error, children, extra, className, align, style } = this.props;
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;
@@ -66,7 +86,7 @@ export default class ListItem extends React.Component {
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
       [`${prefixCls}-item-hover`]: hover,
-      [className]: className
+      [className]: className,
     });
 
     const arrowCls = classNames({
@@ -102,6 +122,7 @@ export default class ListItem extends React.Component {
         onTouchStart={this.onTouchStart}
         onTouchEnd={this.onTouchEnd}
         onTouchCancel={this.onTouchEnd}
+        style={style}
       >
         {thumbDom}
         <div className={`${prefixCls}-line`}>

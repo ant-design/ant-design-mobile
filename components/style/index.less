@@ -1,11 +1,8 @@
+@import './variables';
 *,
 *:before,
 *:after {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-body {
-  background-color: #f5f5f9;
 }
 
 body {
@@ -17,100 +14,15 @@ body {
   outline: none;
 }
 
-@import './mixins';
-/* -- 对齐 -- */
-.am-ft-left {
-  text-align: left;
+a {
+  color: @brand-6;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+  &:active,
+  &:hover {
+    color: @brand-7;
+  }
 }
-
-.am-ft-center {
-  text-align: center;
-}
-
-.am-ft-right {
-  text-align: right;
-}
-
-/* -- 字号 默认16px 每 .125 是2px -- */
-.am-ft-xxxl {
-  font-size: 24px;
-}
-
-.am-ft-xxl {
-  font-size: 20px;
-}
-
-.am-ft-xl {
-  font-size: 18px;
-}
-
-.am-ft-lg {
-  font-size: 17px;
-}
-
-.am-ft-md {
-  font-size: 16px;
-}
-
-.am-ft-sm {
-  font-size: 14px;
-}
-
-/* -- 颜色 -- */
-.am-ft-white {
-  color: #ffffff;
-}
-
-.am-ft-black {
-  color: #333333;
-}
-
-.am-ft-darkgray {
-  color: #666666;
-}
-
-.am-ft-gray {
-  color: #a5a5a5;
-}
-
-.am-ft-lightgray {
-  color: #cccccc;
-}
-
-.am-ft-blue {
-  color: #00aaee;
-}
-
-.am-ft-orange {
-  color: #ff8208;
-}
-
-.am-ft-green {
-  color: #f85800;
-}
-
-.am-ft-red {
-  color: #f4333c;
-}
-
-.am-ft-20 {
-  font-size: 20px;
-}
-
-.am-ft-13 {
-  font-size: 13px;
-}
-
-.am-ft-12 {
-  font-size: 12px;
-}
-
-/* -- 文字自动截取 -- */
-.am-ft-ellipsis {
-  width: auto;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-@import "./anim.less";

@@ -4,12 +4,10 @@ import { View, Text } from 'react-native';
 import splitObject from '../_util/splitObject';
 import CardStyle from './style/index';
 
-const Footer = CardStyle.Footer;
-
 export interface CardFooterProps {
-  content?:any;
-  extra?:any;
-  style?:{};
+  content?: any;
+  extra?: any;
+  style?: {};
 }
 
 export default class CardFooter extends React.Component<CardFooterProps, any> {
@@ -30,17 +28,17 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
     const contentDom = React.isValidElement(content) ? (
       <View style={{ flex: 1 }}>{content}</View>
     ) : (
-      <Text style={Footer.content}>{content}</Text>
+      <Text style={CardStyle.footerContent}>{content}</Text>
     );
 
     const extraDom = React.isValidElement(extra) ? (
       <View style={{ flex: 1 }}>{content}</View>
     ) : (
-      <Text style={Footer.extra}>{extra}</Text>
+      <Text style={CardStyle.footerExtra}>{extra}</Text>
     );
 
     return (
-      <View {...restProps} style={[Footer.footer, style]}>
+      <View {...restProps} style={[CardStyle.footerWrap, style]}>
         {contentDom}
         {
           extra ? extraDom : null

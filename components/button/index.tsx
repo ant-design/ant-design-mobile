@@ -24,13 +24,13 @@ export default class Button extends React.Component<ButtonProps, any> {
     ghost: false,
     disabled: false,
     inline: false,
-    loading: false
+    loading: false,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      pressIn: false
+      pressIn: false,
     };
   }
 
@@ -95,7 +95,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     if (type === 'primary') {
       backgroundColor = variables.brand_6;
       textColor = variables.neutral_1;
-      borderWidth = variables.border_width_1;
+      borderWidth = 1;
       borderColor = variables.brand_6;
       borderRadius = variables.radius_2;
 
@@ -127,7 +127,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     } else if (type === 'default') {
       backgroundColor = variables.neutral_1;
       textColor = variables.neutral_8;
-      borderWidth = variables.border_width_1;
+      borderWidth = 1;
       borderColor = variables.neutral_5;
       borderRadius = variables.radius_2;
 
@@ -198,11 +198,17 @@ export default class Button extends React.Component<ButtonProps, any> {
       </View>);
     }
 
-    return (<TouchableHighlight activeOpacity={1} delayPressOut={1} { ...this.props } { ...touchableProps } style={[style, this.pressBorderColor(), this.props.style]}
-      underlayColor={highlightBackgroundColor}>
-      <Text style={[{ fontSize }, this.pressTextColor()]}>
-        {this.props.children}
-      </Text>
-    </TouchableHighlight>);
+    return (
+      <TouchableHighlight
+        activeOpacity={1}
+        delayPressOut={1} { ...this.props } { ...touchableProps }
+        style={[style, this.pressBorderColor(), this.props.style]}
+        underlayColor={highlightBackgroundColor}
+      >
+        <Text style={[{ fontSize }, this.pressTextColor()]}>
+          {this.props.children}
+        </Text>
+      </TouchableHighlight>
+    );
   }
 }

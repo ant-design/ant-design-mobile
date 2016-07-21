@@ -1,12 +1,20 @@
 /* tslint:disable:no-bitwise */
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
 function noop() { }
 
-export default class Uploader extends React.Component {
+export interface UploaderProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  files?: Array<{}>;
+  onChange?: Function;
+}
+
+export default class Uploader extends React.Component<UploaderProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     files: PropTypes.array,
@@ -96,7 +104,7 @@ export default class Uploader extends React.Component {
           }
           this.addImage({
             url: dataURL,
-            orientation
+            orientation,
           });
         });
       };
@@ -111,7 +119,7 @@ export default class Uploader extends React.Component {
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     const itemStyle = {
@@ -134,7 +142,7 @@ export default class Uploader extends React.Component {
     return (
       <div className={wrapCls} style={style}>
         <div className={`${prefixCls}-list`}>
-          <WingBlank mode={16}>
+          <WingBlank size={16}>
             <Flex wrap="wrap">
               {imgItemList}
               <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={inputWrapStyle}>

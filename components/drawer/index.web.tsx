@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import RcDrawer from 'rc-drawer';
 import splitObject from '../_util/splitObject';
-// function noop() {}
+import tsPropsType from './PropsType';
 
-export default class Drawer extends React.Component {
+export default class Drawer extends React.Component<tsPropsType, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     enableDragHandle: PropTypes.bool,
@@ -14,8 +14,7 @@ export default class Drawer extends React.Component {
   };
 
   render() {
-    let[{ prefixCls, children }, restProps] = splitObject(this.props,
-      ['prefixCls', 'children']);
+    let[{ prefixCls, children }, restProps] = splitObject(this.props, ['prefixCls', 'children']);
 
     return (<RcDrawer prefixCls={prefixCls} {...restProps}>
       {children}

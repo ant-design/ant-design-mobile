@@ -1,8 +1,35 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
-export default class TextareaItem extends React.Component {
+export interface TextareaItemProps {
+  prefixCls?: string;
+  prefixListCls?: string;
+  style?: React.CSSProperties;
+  type?: 'hasLine';
+  title?: React.ReactNode;
+  name?: string;
+  value?: string;
+  placeholder?: string;
+  clear?: boolean;
+  rows?: number;
+  count?: number;
+  onChange?: Function;
+  onBlur?: Function;
+  onFocus?: Function;
+  error?: boolean;
+  onExtraClick?: Function;
+  autoHeight?: boolean;
+  editable?: boolean;
+  labelNumber?: number;
+}
+
+export interface TextareaItemState {
+  focus: boolean;
+}
+
+export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
   static propTypes = {
     prefixCls: PropTypes.string,
     prefixListCls: PropTypes.string,
@@ -43,7 +70,7 @@ export default class TextareaItem extends React.Component {
     onFocus: noop,
     onErrorClick: noop,
     error: false,
-    labelNumber: 4
+    labelNumber: 4,
   };
 
   constructor(props) {
@@ -80,7 +107,7 @@ export default class TextareaItem extends React.Component {
   onBlur = (e) => {
     setTimeout(() => {
       this.setState({
-        focus: false
+        focus: false,
       });
     }, 500);
     const value = e.target.value;
@@ -89,7 +116,7 @@ export default class TextareaItem extends React.Component {
 
   onFocus = (e) => {
     this.setState({
-      focus: true
+      focus: true,
     });
     const value = e.target.value;
     this.props.onFocus(value);
@@ -104,14 +131,16 @@ export default class TextareaItem extends React.Component {
   };
 
   render() {
-    let { prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count, editable, error, className, labelNumber } = this.props;
+    let {
+      prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count,
+      editable, error, className, labelNumber } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
-      [className]: className
+      [className]: className,
     });
 
     const labelCls = classNames({
@@ -144,7 +173,9 @@ export default class TextareaItem extends React.Component {
           (<div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />)
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
-        {count > 0 && rows > 1 ? (<span className={`${prefixCls}-count`}><span>{value.length}</span>/{count}</span>) : null}
+        {count > 0 && rows > 1
+          ? (<span className={`${prefixCls}-count`}><span>{value.length}</span>/{count}</span>)
+          : null}
       </div>
     );
   }

@@ -50,23 +50,23 @@ let App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace mode={20} />
-        <WingBlank mode={20}>
+        <WhiteSpace size={20} />
+        <WingBlank size={20}>
           <Button onClick={plainTextPrompt}>输入框按钮按钮 </Button>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank mode={20}>
+        <WingBlank size={20}>
           <Button onClick={passwordPrompt}>输入框密码形式 </Button>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank mode={20}>
+        <WingBlank size={20}>
           <Button onClick={customBtnPrompt}>自定义按钮形式 </Button>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank mode={20}>
+        <WingBlank size={20}>
           <Button onClick={loginPwdPrompt}>输入框登录形式 </Button>
         </WingBlank>
-        <WhiteSpace mode={20} />
+        <WhiteSpace size={20} />
       </div>
     );
   }

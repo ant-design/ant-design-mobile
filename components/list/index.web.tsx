@@ -1,11 +1,18 @@
+import * as React from 'react';
+import { PropTypes } from 'react';
 import Header from './ListHeader';
 import Body from './ListBody';
 import Footer from './ListFooter';
 import Item from './ListItem';
-import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
-class List extends React.Component {
+
+export interface ListProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+}
+
+class List extends React.Component<ListProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
   };
@@ -15,15 +22,15 @@ class List extends React.Component {
   };
 
   render() {
-    let [{prefixCls, children, className}, restProps] = splitObject(this.props,
+    let [{prefixCls, children, className, style}, restProps] = splitObject(this.props,
       ['prefixCls', 'children', 'className']);
     const wrapCls = classNames({
       [prefixCls]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (
-      <div {...restProps} className={wrapCls}>
+      <div {...restProps} className={wrapCls} style={style}>
         {children}
       </div>
     );

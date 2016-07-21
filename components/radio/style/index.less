@@ -23,12 +23,12 @@
     &:after {
       position: absolute;
       display: none;
-      top: 0;
+      top: -1px;
       right: 5px;
       z-index: 999;
       width: 7px;
       height: 17px;
-      border-style: @border-type-1;
+      border-style: solid;
       border-width: 0 1px 1px 0;
       content: '\0020';
       .transform(rotate(45deg));
@@ -79,7 +79,7 @@
         overflow: visible;
         &-inner {
           right: 4*@grid;
-          top: 2.5*@grid;
+          top: 3*@grid;
         }
       }
       &.@{radioWarpPrefixCls}-item-disabled {

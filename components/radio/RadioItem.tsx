@@ -1,11 +1,23 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Radio from './Radio';
 import List from '../list';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class RadioItem extends React.Component {
+const ListItem = List.Item;
+
+export interface RadioItemProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
+}
+
+export default class RadioItem extends React.Component<RadioItemProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
@@ -13,7 +25,6 @@ export default class RadioItem extends React.Component {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
-    needActive: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -22,23 +33,23 @@ export default class RadioItem extends React.Component {
     name: '',
     checked: false,
     disabled: false,
-    needActive: true,
     onChange: noop,
   };
 
   render() {
-    let [{prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive, value}, restProps] = splitObject(this.props,
+    let [{
+      prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, value,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled',
-        'children', 'className', 'onChange', 'needActive', 'value']);
+        'children', 'className', 'onChange', 'value']);
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
-      [className]: className
+      [className]: className,
     });
 
-    return (<List.Item
+    return (<ListItem
       prefixCls={listPrefixCls}
-      needActive={disabled ? false : needActive}
       style={style}
       className={wrapCls}
       {...restProps}
@@ -49,6 +60,6 @@ export default class RadioItem extends React.Component {
         onChange={onChange}
         disabled={disabled}
       />}
-    >{children}</List.Item>);
+    >{children}</ListItem>);
   }
 }

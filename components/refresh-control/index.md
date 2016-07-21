@@ -12,7 +12,7 @@ english: RefreshControl
 用于需要下拉刷新的场景
 
 
-## API
+## API (web)
 
 | 成员        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
@@ -25,3 +25,6 @@ english: RefreshControl
 | resistance   |   阻力系数   | number |    2.5  |
 | loadingFunction   |   刷新回调函数   | function, required |  -  |
 | hammerOptions   |  参考 [react-hammerjs](https://github.com/JedWatson/react-hammerjs) ，用于配置 [Hammer manager](http://hammerjs.github.io/api/)，将被合并到默认配置中   | object |  -  |
+
+## API (ios/android)
+见此：https://facebook.github.io/react-native/docs/refreshcontrol.html#props

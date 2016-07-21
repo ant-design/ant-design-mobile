@@ -5,20 +5,24 @@ import CardHeader from './CardHeader';
 import CardFooter from './CardFooter';
 import CardStyle from './style/index';
 
-export default class Card extends React.Component {
+export interface CardProps {
+  style?: {};
+}
+
+export default class Card extends React.Component<CardProps, any> {
   static defaultProps = {
     style: {},
   };
 
+  static Header = CardHeader;
+  static Body = CardBody;
+  static Footer = CardFooter;
+
   render() {
     return (
-      <View {...this.props} style={[CardStyle.Card, this.props.style]}>
+      <View {...this.props} style={[CardStyle.card, this.props.style]}>
         {this.props.children}
       </View>
     );
   }
 }
-
-Card.Header = CardHeader;
-Card.Body = CardBody;
-Card.Footer = CardFooter;

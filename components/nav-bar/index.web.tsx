@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import {PropTypes} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
@@ -22,7 +23,9 @@ export default class NavBar extends React.Component {
   };
 
   render() {
-    let [{prefixCls, children, mode, className, iconName, leftContent, rightContent, onLeftClick}, restProps] = splitObject(this.props,
+    let [{
+      prefixCls, children, mode, className, iconName, leftContent, rightContent, onLeftClick,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'children', 'mode', 'className',
         'iconName', 'leftContent', 'rightContent', 'onLeftClick']);
     const wrapCls = classNames({

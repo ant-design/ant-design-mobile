@@ -1,8 +1,9 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
-function noop() {}
+import SwitchProps from './switchPropsType';
 
-export default class Switch extends React.Component {
+export default class Switch extends React.Component<SwitchProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
@@ -17,7 +18,7 @@ export default class Switch extends React.Component {
     name: '',
     checked: false,
     disabled: false,
-    onChange: noop,
+    onChange() {},
   };
 
   onChange = (e) => {
@@ -29,11 +30,18 @@ export default class Switch extends React.Component {
     let { prefixCls, style, name, checked, disabled, className } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (<label className={wrapCls} style={style}>
-        <input type="checkbox" name={name} className={`${prefixCls}-checkbox`} {...(disabled ? { disabled: 'disabled' } : '') } checked={checked} onChange={this.onChange} />
+        <input
+          type="checkbox"
+          name={name}
+          className={`${prefixCls}-checkbox`}
+          {...(disabled ? { disabled: 'disabled' } : '') }
+          checked={checked}
+          onChange={this.onChange}
+        />
         <div className="checkbox"></div>
       </label>);
   }

@@ -6,31 +6,31 @@ import theme from './style/index';
 const THEMES = theme.ThemesList;
 const ASSETS = theme.AssetsList;
 
-class Content extends React.Component {
+class Content extends React.Component<any, any> {
   render() {
     return (<Text style={[THEMES.Content, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
   }
 }
 
-class AffiliatedContent extends React.Component {
+class AffiliatedContent extends React.Component<any, any> {
   render() {
     return (<Text style={[THEMES.AffiliatedContent, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
   }
 }
 
-class Extra extends React.Component {
+class Extra extends React.Component<any, any> {
   render() {
     return (<View style={{ alignItems: 'flex-end' }}>{this.props.children}</View>);
   }
 }
 
-class Detail extends React.Component {
+class Detail extends React.Component<any, any> {
   render() {
     return (<Text style={[THEMES.Detail, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
   }
 }
 
-export default class Item extends React.Component {
+export default class Item extends React.Component<any, any> {
   static propTypes = {
     extra(props, propName) {
       if (props[propName]) {
@@ -39,20 +39,18 @@ export default class Item extends React.Component {
         }
       }
     },
-    needActive: PropTypes.bool,
     onClick: PropTypes.func,
     line: PropTypes.number,
     arrow: PropTypes.oneOf(['horizontal', 'down', 'up']),
     error: PropTypes.bool,
     lazy: PropTypes.bool,
-    last: PropTypes.bool
+    last: PropTypes.bool,
   };
 
   static defaultProps = {
     lazy: false,
     last: false,
     line: 1,
-    needActive: true
   };
 
   mixins: [TimerMixin];
@@ -121,10 +119,17 @@ export default class Item extends React.Component {
         {thumbDom}{contentDom}{extraDom}{arrowDom}
       </View>);
 
-    if (this.props.needActive) {
-      return (<TouchableHighlight activeOpacity={1} underlayColor={THEMES.underlayColor} onPress={this.props.onClick} onPressIn={() => {}} onPressOut={() => {}} {...this.props}>
-        {itemView}
-      </TouchableHighlight>);
+    if (this.props.onClick) {
+      return (
+        <TouchableHighlight
+          activeOpacity={1}
+          underlayColor={THEMES.underlayColor}
+          onPress={this.props.onClick}
+          onPressIn={() => {}} onPressOut={() => {}}
+        >
+          {itemView}
+        </TouchableHighlight>
+      );
     }
 
     return itemView;

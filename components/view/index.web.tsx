@@ -3,7 +3,7 @@ import assign from 'object-assign';
 
 export default class View extends React.Component<any, any> {
   static defaultProps = {
-    Component: 'div'
+    Component: 'div',
   };
   render() {
     const props = assign({}, this.props);

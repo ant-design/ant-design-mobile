@@ -1,11 +1,23 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
 import List from '../list';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class CheckboxItem extends React.Component {
+const ListItem = List.Item;
+
+export interface CheckboxItemProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
+}
+
+export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
@@ -25,17 +37,18 @@ export default class CheckboxItem extends React.Component {
   };
 
   render() {
-    let[{ prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange, needActive }, restProps] = splitObject(this.props,
-      ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'className', 'onChange', 'needActive']);
+    let[{
+      prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange,
+    }, restProps] = splitObject(this.props,
+      ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'className', 'onChange']);
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
-      [className]: className
+      [className]: className,
     });
 
-    return (<List.Item
+    return (<ListItem
       prefixCls={listPrefixCls}
-      needActive={disabled ? false : needActive}
       style={style}
       className={wrapCls}
       {...restProps}
@@ -46,6 +59,6 @@ export default class CheckboxItem extends React.Component {
         onChange={onChange}
         disabled={disabled}
       />}
-    >{children}</List.Item>);
+    >{children}</ListItem>);
   }
 }

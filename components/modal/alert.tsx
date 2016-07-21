@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Modal from './Modal';
 
 export default function (...args) {
@@ -8,7 +8,7 @@ export default function (...args) {
   const actions = args[2] || [{ text: '确定' }];
 
   if (!title && !content) {
-    console.log('Must specify either an alert title, or message, or both');
+    // console.log('Must specify either an alert title, or message, or both');
     return;
   }
 
@@ -19,7 +19,7 @@ export default function (...args) {
   let d;
   function close() {
     d.setState({
-      visible: false
+      visible: false,
     });
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);

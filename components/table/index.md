@@ -26,7 +26,7 @@ english: Table
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
-| columns        | 表格列的配置描述，具体项见下表                     | Array   |             |
+| columns        | 表格列的配置描述，具体项见下表                     | Array   |    -         |
 | dataSource | 数据数组	 | Array   | -    |
 | direction         | 排列方式 horizon/vetical/mix                              | String | horizon            |
 | scrollX | 是否横向滚动    |  Boolean   |    false    |

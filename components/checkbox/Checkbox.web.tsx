@@ -1,9 +1,19 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import RcCheckbox from 'rc-checkbox';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class Checkbox extends React.Component {
+export interface CheckboxProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  name?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  onChange?: Function;
+}
+
+export default class Checkbox extends React.Component<CheckboxProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,

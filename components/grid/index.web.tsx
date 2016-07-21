@@ -1,10 +1,25 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Flex from '../flex';
 import Carousel from '../carousel';
 function noop() {}
 
-export default class Grid extends React.Component {
+export interface GridProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  data?: Array<{}>;
+  onClick?: Function;
+  hasLine?: boolean;
+  needActive?: boolean;
+  isCarousel?: boolean;
+}
+
+export interface GridState {
+  hover: boolean;
+}
+
+export default class Grid extends React.Component<GridProps, GridState> {
   static propTypes = {
     prefixCls: PropTypes.string,
     data: PropTypes.array,
@@ -42,7 +57,7 @@ export default class Grid extends React.Component {
     if (this.props.needActive) {
       this.setState({
         hover: true,
-        hoverIndex: index
+        hoverIndex: index,
       });
     }
   };
@@ -61,7 +76,7 @@ export default class Grid extends React.Component {
     const wrapCls = classNames({
       [prefixCls]: true,
       [`${prefixCls}-line`]: hasLine,
-      [className]: className
+      [className]: className,
     });
 
     const itemCls = classNames({
@@ -77,7 +92,7 @@ export default class Grid extends React.Component {
 
     const flexItemStyle = {
       height: `${this.clientWidth / 4}px`,
-      paddingTop: `${(this.clientWidth / 4 - 40) / 2}px`
+      paddingTop: `${(this.clientWidth / 4 - 40) / 2}px`,
     };
 
     for (let i = 0; i < FlexCount; i ++) {

@@ -1,10 +1,23 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import Button from '../button';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 function noop() {}
 
-export default class PageResult extends React.Component {
+export interface PageResultProps {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  imgUrl?: string;
+  title?: string;
+  message?: string;
+  buttonTxt?: string;
+  buttonType?: string;
+  buttonGhost?: string;
+  buttonClick?: Function;
+}
+
+export default class PageResult extends React.Component<PageResultProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     style: PropTypes.object,
@@ -29,12 +42,14 @@ export default class PageResult extends React.Component {
   };
 
   render() {
-    let [{prefixCls, imgUrl, title, message, buttonTxt, buttonClick, buttonType, buttonGhost, className}, restProps] = splitObject(this.props,
+    let [{
+      prefixCls, imgUrl, title, message, buttonTxt, buttonClick, buttonType, buttonGhost, className,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'imgUrl', 'title', 'message', 'className',
         'buttonTxt', 'buttonClick', 'buttonType', 'buttonGhost']);
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className
+      [className]: className,
     });
 
     return (

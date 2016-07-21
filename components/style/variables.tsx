@@ -1,92 +1,6 @@
-export default {
-  pink_1: '#000',
-  pink_2: '#000',
-  pink_3: '#000',
-  pink_4: '#000',
-  pink_5: '#000',
-  pink_6: '#000',
-  pink_7: '#000',
-  pink_8: '#000',
-  pink_9: '#000',
-  pink_10: '#000',
+import colorPalette from './color-palette';
 
-  red_1: '#fee8e7',
-  red_2: '#fdcccb',
-  red_3: '#fbadaa',
-  red_4: '#f88b88',
-  red_5: '#f56863',
-  red_6: '#f2443e',
-  red_7: '#ed211a',
-  red_8: '#ce1812',
-  red_9: '#a91813',
-  red_10: '#881714',
-
-  yellow_1: '#fef5e1',
-  yellow_2: '#fee8bb',
-  yellow_3: '#feda92',
-  yellow_4: '#fecc68',
-  yellow_5: '#fcbd3d',
-  yellow_6: '#FAAE14',
-  yellow_7: '#DF9706',
-  yellow_8: '#B77D09',
-  yellow_9: '#94670B',
-  yellow_10: '#77540D',
-
-  green_1: '#EDFBE7',
-  green_2: '#CEF2C0',
-  green_3: '#B3E69E',
-  green_4: '#99D97F',
-  green_5: '#81CC62',
-  green_6: '#6ABF47',
-  green_7: '#5BA63C',
-  green_8: '#4E8B35',
-  green_9: '#437230',
-  green_10: '#395B2B',
-
-  emerald_1: '#000',
-  emerald_2: '#000',
-  emerald_3: '#000',
-  emerald_4: '#000',
-  emerald_5: '#000',
-  emerald_6: '#000',
-  emerald_7: '#000',
-  emerald_8: '#000',
-  emerald_9: '#000',
-  emerald_10: '#000',
-
-  blue_1: '#E4F6FE',
-  blue_2: '#C2EBFD',
-  blue_3: '#9EDFFC',
-  blue_4: '#79D2FA',
-  blue_5: '#53C4F8',
-  blue_6: '#2DB7F5',
-  blue_7: '#0EA6EB',
-  blue_8: '#0F8BC2',
-  blue_9: '#10709B',
-  blue_10: '#115777',
-
-  orange_1: '#FEEFE8',
-  orange_2: '#FED3BF',
-  orange_3: '#FDBB99',
-  orange_4: '#FEA477',
-  orange_5: '#FE8E57',
-  orange_6: '#FE7A38',
-  orange_7: '#FD661B',
-  orange_8: '#F55404',
-  orange_9: '#D04B09',
-  orange_10: '#A8410D',
-
-  purple_1: '#000',
-  purple_2: '#000',
-  purple_3: '#000',
-  purple_4: '#000',
-  purple_5: '#000',
-  purple_6: '#000',
-  purple_7: '#000',
-  purple_8: '#000',
-  purple_9: '#000',
-  purple_10: '#000',
-
+export default Object.assign({}, colorPalette, {
   /* 中性色版(neutral) */
   neutral_1: '#fff',
   neutral_2: '#f7f7f7',
@@ -98,18 +12,10 @@ export default {
   neutral_8: '#666',
   neutral_9: '#404040',
   neutral_10: '#222',
-  // neutral_3_f_20: '#efefef14',
-  // neutral_3_f_60: '#efefef3C',
+  neutral_11: '#000',
   neutral_3_f_20: '#efefef20',
   neutral_3_f_60: '#efefef60',
   neutral_6_f_60: '#ccc6',
-
-  /* 中性色版(gray) */
-  gray_1: '#000',
-  gray_2: '#666',
-  gray_4: '#666',
-  gray_5: '#d9d9d9',
-  gray_8: '#666',
 
   /* 品牌色（brand） */
   brand_1: '#E4F6FE',
@@ -122,10 +28,10 @@ export default {
   brand_8: '#0F8BC2',
   brand_9: '#10709B',
   brand_10: '#115777',
-  // brand_3_f_20: '#9EDFFC14',
-  // brand_3_f_60: '#9EDFFC3C',
+
   brand_3_f_20: '#9EDFFC20',
   brand_3_f_60: '#9EDFFC60',
+
   /* 功能色（function）*/
   function_error_1: '#FEEFE8',
   function_error_2: '#FE7A38',
@@ -149,10 +55,6 @@ export default {
   margin_8: 40,
   margin_9: 44,
 
-  /* 字体家族，可拓展 */
-  // font_family_1: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑',Arial,sans_serif,
-  // font_family_2: Consolas,Menlo,Courier,monospace,
-  //
   /* 字号，可拓展 */
   font_size_1: 10,
   font_size_2: 12,
@@ -173,60 +75,7 @@ export default {
   font_weight_1: 'normal',
   font_weight_2: 'bold',
 
-  /* 字体风格，可拓展 */
-
-
   /* 圆角边框 (radius) */
   radius_1: 4,
   radius_2: 6,
-
-  /* 线条粗细，可拓展 */
-  border_width_1: 1,
-  border_width_2: 2,
-
-  border_thickness_1: 1,
-  border_thickness_2: 2,
-
-  /* 线条类型 */
-  border_type_1: 'solid',
-  border_type_2: 'dashed',
-
-
-  /* 阴影 (shadow) */
-  /* 常用尺寸size，可拓展 */
-  // shadow_alpha: 20%,
-  // shadow_color: gray_1,
-  // shadow_blur_1: 0,
-  // shadow_blur_2: 4px,
-  // shadow_blur_3: 8px,
-
-  /* 常用阴影 */
-  /*
-  shadow_1_down : shadow_color shadow_alpha (x: 0 y: _1 blur: shadow_blur_1),
-  shadow_1_up: shadow_color shadow_alpha (x: 0 y: 1 blur: shadow_blur_1),
-  shadow_1_left:shadow_color shadow_alpha (x: 1 y: 0 blur: shadow_blur_1),
-  shadow_1_right:shadow_color shadow_alpha (x: _1 y: 0 blur: shadow_blur_1),
-  shadow_2_down : shadow_color shadow_alpha (x: 0 y: _1 blur: shadow_blur_2),
-  shadow_2_up:shadow_color shadow_alpha (x: 0 y: 1 blur: shadow_blur_2),
-  shadow_2_left:shadow_color shadow_alpha (x: 1 y: 0 blur: shadow_blur_2),
-  shadow_2_right:shadow_color shadow_alpha (x: _1 y:0 blur: shadow_blur_2),
-  shadow_3_down : shadow_color shadow_alpha (x: 0 y: _2 blur : shadow_blur_3),
-  shadow_3_up:shadow_color 20% (x: 0 y: 1 blur: shadow_blur_3),
-  shadow_3_left:shadow_color 20% (x: 1 y: 0 blur: shadow_blur_3),
-  shadow_3_right:shadow_color 20% (x: _1 y: 0 blur: shadow_blur_3),
-  */
-
-  /* 动效 Animation */
-  // ease_out : cubic_bezier(0.215, 0.61, 0.355, 1),
-  // ease_in : cubic_bezier(0.55, 0.055, 0.675, 0.19),
-  // ease_in_out : cubic_bezier(0.645, 0.045, 0.355, 1),
-  // ease_out_back : cubic_bezier(0.18, 0.89, 0.32, 1.28),
-  // ease_in_back : cubic_bezier(0.6, _0.3, 0.74, 0.05),
-  // ease_in_out_back : cubic_bezier(0.68, _0.55, 0.27, 1.55),
-  // ease_out_circ : cubic_bezier(0.08, 0.82, 0.17, 1),
-  // ease_in_circ : cubic_bezier(0.6, 0.04, 0.98, 0.34),
-  // ease_in_out_circ : cubic_bezier(0.78, 0.14, 0.15, 0.86),
-  // ease_out_quint : cubic_bezier(0.23, 1, 0.32, 1),
-  // ease_in_quint : cubic_bezier(0.755, 0.05, 0.855, 0.06),
-  // ease_in_out_quint : cubic_bezier(0.86, 0, 0.07, 1),
-};
+});

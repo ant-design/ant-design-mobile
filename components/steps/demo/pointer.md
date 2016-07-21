@@ -12,8 +12,8 @@ const Step = Steps.Step;
 
 ReactDOM.render(
   <div className="stepsExample">
-  <WhiteSpace mode={20} />
-  <WingBlank mode={20}>
+  <WhiteSpace size={20} />
+  <WingBlank size={20}>
     <Steps size="pointer">
       <Step status="finish" title="步骤1" icon="pointer" />
       <Step status="process" title="步骤2" icon="pointer" />

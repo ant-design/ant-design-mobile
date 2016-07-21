@@ -47,6 +47,12 @@ const hashImgObj = {
   uploader: 'CVHyVxhFqkhZfYs',
   'white-space': 'mioJMWDMAmiurTR',
   'wing-blank': 'WzZoGzTRKzQgMWi',
+  card: 'kkQBRgZgcqSyMPS',
+  tooltip: 'WFdIwNKWiAkOQYd',
+  pagination: 'xavLtHVkhbayZau',
+  loading: 'PfDTjHZZKwYguUV',
+  table: 'yZwezpbmJzARTxK',
+  form: 'gvFzrNIoBJneFUY',
 };
 
 export function collect(nextProps, callback) {
@@ -74,12 +80,11 @@ export default class Home extends React.Component {
   render() {
     const customWidth = (document.documentElement.clientWidth / 3);
     const itemStyle = {
-      width: `${customWidth}px`,
-      height: `${customWidth}px`,
+      width: '33.33%',
+      height: `${customWidth >= 138 ? 138 : customWidth}px`,
     };
 
     const props = this.props;
-    // console.log(props);
 
     const lists = {};
     props.components.forEach(i => {

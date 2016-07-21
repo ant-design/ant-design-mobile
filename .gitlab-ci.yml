@@ -1,0 +1,11 @@
+before_script:
+  - '[ ! -d $HOME/.nvm ] && git clone http://gitlab.alibaba-inc.com/node/nvm.git $HOME/.nvm'
+  - cd $HOME/.nvm && git pull -p && cd -
+  - source $HOME/.nvm/nvm.sh
+  - nvm i 5 && nvm alias default 5
+
+test:
+  script:
+    - npm i tnpm@3.x --registry=http://registry.npm.alibaba-inc.com
+    - node_modules/.bin/tnpm i
+    - node_modules/.bin/tnpm run lint
