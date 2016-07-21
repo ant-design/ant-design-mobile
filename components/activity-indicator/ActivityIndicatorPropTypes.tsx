@@ -1,5 +1,7 @@
 interface LoadingPropTypes {
   animating?: boolean;
-  color?: string;
-  size?: string;
+  toast?: boolean;
+  color?: 'gray' | 'white';
+  size?: 'large' | 'small';
+  text?: string;
 }

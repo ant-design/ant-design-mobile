@@ -1,11 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import ActivityIndicatorProps from './ActivityIndicatorPropTypes';
 
-export default class ActivityIndicator extends React.Component<any, any> {
-  static propTypes = {
-
-  };
-
+export default class ActivityIndicator extends React.Component<ActivityIndicatorProps, any> {
   static defaultProps = {
     prefixCls: 'am-activity-indicator',
     animating: true,
