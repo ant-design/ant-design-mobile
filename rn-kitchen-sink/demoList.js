@@ -2,6 +2,12 @@ module.exports = {
   APIS: [],
   COMPONENTS: [
     {
+      title: 'ActivityIndicator', // 必须
+      description: 'ActivityIndicator Example',
+      icon: 'https://zos.alipayobjects.com/rmsportal/ZLKbJvxVNSmsOwW.png',
+      module: require('../components/activity-indicator/demo/basic'), // 必须
+    },
+    {
       title: 'Button', // 必须
       description: 'Button Example',
       icon: 'https://os.alipayobjects.com/rmsportal/lOXYjfSRPpkwudh.png',
@@ -116,16 +122,16 @@ module.exports = {
       module: require('../components/top-notice/demo/basic'), // 必须
     },
     {
-      title: 'WingBlank', // 必须
-      description: 'WingBlank Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
-      module: require('../components/wing-blank/demo/basic'), // 必须
-    },
-    {
       title: 'WhiteSpace', // 必须
       description: 'WhiteSpace Example',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
       module: require('../components/white-space/demo/basic'), // 必须
+    },
+    {
+      title: 'WingBlank', // 必须
+      description: 'WingBlank Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
+      module: require('../components/wing-blank/demo/basic'), // 必须
     },
   ],
 };

@@ -1,3 +1,4 @@
+export { default as ActivityIndicator } from './components/activity-indicator/';
 export { default as Button } from './components/button/';
 export { default as Card } from './components/card/';
 export { default as DatePicker } from './components/date-picker/';
