@@ -1,5 +1,6 @@
 /* eslint no-console:0 */
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import GregorianCalendar from 'gregorian-calendar';
 import GregorianCalendarFormat from 'gregorian-calendar-format';

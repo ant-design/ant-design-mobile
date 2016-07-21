@@ -1,5 +1,6 @@
 /* eslint no-console:0 */
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import Tooltip from 'rc-tooltip';
 import Item from './item';
 import splitObject from '../_util/splitObject';

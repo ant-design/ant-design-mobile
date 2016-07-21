@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import { Platform } from 'react-native';
 import DrawerLayout from 'react-native-drawer-layout';
 import tsPropsType from './PropsType';

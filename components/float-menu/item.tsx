@@ -1,5 +1,6 @@
 /* eslint no-console:0 */
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';

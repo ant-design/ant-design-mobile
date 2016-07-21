@@ -1,5 +1,6 @@
 /* eslint no-console:0 */
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
 

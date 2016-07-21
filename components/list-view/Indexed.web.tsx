@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import { PropTypes } from 'react';
 import MListView from 'rmc-list-view';
 import List, { Header, Body, Footer, Item } from '../list';
 import splitObject from '../_util/splitObject';
