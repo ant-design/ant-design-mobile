@@ -30,7 +30,7 @@ const data = [
 
 ReactDOM.render(<div style={{ padding: 20 }}>
   <Table
-    scrollX={true}
+    scrollX
     columns={columns}
     dataSource={data}
   />

@@ -31,7 +31,7 @@ const data = [
 
 ReactDOM.render(<div style={{ padding: 20 }}>
   <Table
-    titleFixed={true}
+    titleFixed
     columns={columns}
     dataSource={data}
   />
