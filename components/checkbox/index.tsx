@@ -6,18 +6,18 @@ import List from '../list/index';
 import ListStyle from '../list/style/index';
 import CheckboxItem from './CheckboxItem';
 
-export default class Checkbox extends List.Item{
+export default class Checkbox extends List.Item {
   static propTypes = {
     disabled: PropTypes.bool,
     checked: PropTypes.bool,
-    mode: PropTypes.string
-  }
+    mode: PropTypes.string,
+  };
 
   static defaultProps = {
     disabled: false,
     checked: false,
-    mode:''
-  }
+    mode: '',
+  };
 
   constructor(props) {
     super(props);
@@ -30,14 +30,14 @@ export default class Checkbox extends List.Item{
     }
   }
 
-  render(){
+  render() {
     const state = this.state;
     const props = this.props;
 
     let checkboxDom = <CheckboxItem
       disabled={props.disabled}
       checked={state.checked}
-      onChange={props.onChange} />
+      onChange={props.onChange} />;
 
     if (props.mode === 'agree') {
       const content = (<View style={CheckboxStyle.CheckboxItem.AgreeItem}>
