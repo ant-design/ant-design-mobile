@@ -2,6 +2,7 @@ interface TextAreaItemProps {
   clear?: boolean;
   error?: boolean;
   editable?: boolean;
+  autoHeight?: boolean;
   rows?: number;
   value?: string;
   placeholder?: string;

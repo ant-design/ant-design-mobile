@@ -27,10 +27,6 @@ function getDefaultProps() {
     return val;
   };
   return {
-    // className: '',
-    prefixCls: 'am-date-picker',
-    pickerPrefixCls: 'am-date-picker-picker',
-    popupPrefixCls: 'am-date-picker-popup',
     mode: 'datetime',
     locale: zhCnPicker,
     format: defaultFormat,
@@ -57,9 +53,9 @@ export default class DatePicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: this.props.value && this.getFormatter().parse(this.props.value, { locale: zhCn }) || now,
-      minDate: this.props.minDate && this.getFormatter().parse(this.props.minDate, { locale: zhCn }),
-      maxDate: this.props.maxDate && this.getFormatter().parse(this.props.maxDate, { locale: zhCn }),
+      date: props.value && this.getFormatter().parse(props.value, { locale: zhCn }) || now,
+      minDate: props.minDate && this.getFormatter().parse(props.minDate, { locale: zhCn }),
+      maxDate: props.maxDate && this.getFormatter().parse(props.maxDate, { locale: zhCn }),
     };
   }
 

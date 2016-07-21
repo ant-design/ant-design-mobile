@@ -13,6 +13,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     onErrorClick: PropTypes.func,
     clear: PropTypes.bool,
     error: PropTypes.bool,
+    autoHeight: PropTypes.bool,
     editable: PropTypes.bool,
     rows: PropTypes.number,
     value: PropTypes.string,
@@ -34,53 +35,46 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     placeholder: '',
     count: 0,
     keyboardType: 'default',
+    autoHeight: false,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       value: props.value,
-      clearFlag: false,
       inputCount: 0,
+      height: props.rows > 1 ? 6 * props.rows * variables.grid : 10 * variables.grid,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== this.state.value) {
-      this.setState({
-        value: nextProps.value,
-      });
-    }
-  }
+  onChange = (event) => {
 
-  onChange = (text) => {
+    const text = event.nativeEvent.text;
+    let height;
+    const { autoHeight, rows } = this.props;
+
+    if (autoHeight) {
+      height = event.nativeEvent.contentSize.height;
+    } else if (rows > 1) {
+      height = 6 * rows * variables.grid;
+    } else {
+      height = 10 * variables.grid;
+    }
+
     this.setState({
       value: text,
-      clearFlag: !!text,
       inputCount: text.length,
+      height,
     });
     this.props.onChange({text});
   }
 
   onFocus = () => {
-    this.setState({
-      clearFlag: !!this.state.value,
-    });
     this.props.onFocus();
   }
 
   onBlur = () => {
-    this.setState({
-      clearFlag: false,
-    });
     this.props.onBlur();
-  }
-
-  clearInput = () => {
-    this.setState({
-      value: '',
-      inputCount: 0,
-    });
   }
 
   onErrorClick = () => {
@@ -88,19 +82,11 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
   }
 
   render() {
-    const { clearFlag, inputCount } = this.state;
-    const { rows, error, clear, count } = this.props;
-
-    const inputLines = this.props.rows || 1;
-    const inputHeight = inputLines > 1 ? 6 * inputLines * variables.grid : 10 * variables.grid;
+    const { inputCount } = this.state;
+    const { rows, error, clear, count, placeholder, autoHeight, editable } = this.props;
 
     const inputStyle = {
-      height: inputHeight,
       color: error ? '#f50' : variables.neutral_10,
-    };
-
-    const iconStyle = {
-      right: error ? 8 * variables.grid : 2 * variables.grid,
     };
 
     const maxLength = count > 0 ? count : null;
@@ -108,34 +94,27 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     return (
       <View>
         <TextInput
-          style={[TextAreaItemStyle.input, inputStyle]}
-          {...this.props}
-          onChangeText={(text) => this.onChange(text)}
+          style={[TextAreaItemStyle.input, inputStyle, {height: Math.max(35, this.state.height)}]}
+          onChange={(event) => this.onChange(event)}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           value={this.state.value}
-          multiline = {rows > 1}
+          placeholder = {placeholder}
+          multiline = {rows > 1 || autoHeight}
           numberOfLines = {rows}
           maxLength = {maxLength}
+          clearButtonMode = {clear ? 'while-editing' : 'never'}
+          autoHeight = {autoHeight}
+          editable = {editable}
         />
-        {
-        clear !== false && clearFlag &&
-        <TouchableWithoutFeedback onPress={this.clearInput}>
-          <View style={[TextAreaItemStyle.icon, iconStyle]}>
-            <Image
-              source={{ uri: 'https://zos.alipayobjects.com/rmsportal/WvpyGwPbGnTLdKd.png' }}
-              style={{ width: 18, height:18 }}
-            />
-          </View>
-        </TouchableWithoutFeedback>
-        }
+
         {
         error &&
         <TouchableWithoutFeedback onPress={this.onErrorClick}>
           <View style={[TextAreaItemStyle.errorIcon]}>
             <Image
               source={{ uri: 'https://zos.alipayobjects.com/rmsportal/ginyKmmfHfKAXze.png' }}
-              style={{ width: 18, height:18 }}
+              style={{ width: 16, height:16 }}
             />
           </View>
         </TouchableWithoutFeedback>

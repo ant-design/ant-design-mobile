@@ -10,10 +10,18 @@ export default class Body extends React.Component {
   };
 
   render() {
+    const { error, style, children } = this.props;
     return (<View {...this.props} style={[THEMES.Body,
-      this.props.error ? THEMES.Error.Body : {},
-      this.props.style]}>
-      {this.props.children}
+      error ? THEMES.Error.Body : {}, style]}>
+      {
+        this.props.children.map((item, index) => {
+          if (index === children.length - 1) {
+            return React.cloneElement(item, Object.assign({}, item.props, {last: true, key: index}));
+          } else {
+            return item;
+          }
+        })
+      }
     </View>);
   }
 }

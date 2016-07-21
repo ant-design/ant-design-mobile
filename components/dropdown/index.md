@@ -14,7 +14,7 @@ english: Dropdown
 - 下拉菜单项可以是选择也可以是行为（筛选、跳转…）
 
 
-## API
+## API (web)
 
 #### static show(content: React.Element, options: Object):
 
@@ -33,3 +33,10 @@ english: Dropdown
 
 - show (function) - 同 static show
 - hide (function) - 同 static hide
+
+## API (ios/android)
+
+- visible (bool) - 是否显示 dropdown
+- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
+- onShow (function) - 显示 dropdown 时调用
+- onClose (function) - 隐藏 dropdown 时调用

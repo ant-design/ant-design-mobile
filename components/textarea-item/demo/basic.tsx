@@ -7,6 +7,8 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
     super(props);
     this.state = {
       value1: '默认带value',
+      text: '',
+      height: 0,
     };
   }
 
@@ -16,7 +18,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
   }
 
   onFocus = () => {
-    // console.log('onFocus');  
+    // console.log('onFocus');
   }
 
   onBlur = () => {
@@ -24,12 +26,12 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
   }
 
   handleError = () => {
-    alert('onErrorClick');
+    // console.log('onErrorClick')
   }
 
   render() {
     return (
-      <View style={{ padding: 10 }}>
+      <View style={{ padding: 10, backgroundColor: '#f1f1f1' }}>
 
         <View style={{marginTop: 20}}>
           <TextAreaItem
@@ -54,6 +56,14 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
           <TextAreaItem
             keyboardType="email-address"
             value={this.state.value1}
+            onChange={(e) => this.onChange(e)}
+          />
+        </View>
+
+        <View style={{marginTop: 20}}>
+          <TextAreaItem
+            placeholder="高度自适应"
+            autoHeight = {true}
             onChange={(e) => this.onChange(e)}
           />
         </View>

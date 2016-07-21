@@ -28,25 +28,20 @@
 @finish-description-color: @finish-title-color;
 @finish-tail-color: @process-icon-color;
 
-@error-color: @orange-6;
-@error-icon-color: @error-color;
-@error-title-color: @error-color;
-@error-description-color: @error-color;
-@error-tail-color: @error-color;
+@error-icon-color: @function-error-2;
+@error-title-color: @function-error-2;
+@error-description-color: @function-error-2;
+@error-tail-color: @function-error-2;
 
 .@{stepsPrefixCls} {
   font-size: 0;
   width: 100%;
   line-height: 1.5;
   .box-sizing();
-  .@{stepsPrefixCls}-item {
+  &-item {
     position: relative;
     display: inline-block;
     vertical-align: top;
-
-    .@{stepsPrefixCls}-item:last-child {
-      position: absolute;
-    }
 
     &.@{stepsPrefixCls}-status-wait {
       .@{stepsPrefixCls}-head-inner {
@@ -167,17 +162,14 @@
     }
   }
 
-  .@{stepsPrefixCls}-head,
-  .@{stepsPrefixCls}-main {
+  &-head,
+  &-main {
     position: relative;
     display: inline-block;
     vertical-align: top;
   }
-  .@{stepsPrefixCls}-head {
-    // background: #fff;
-  }
 
-  .@{stepsPrefixCls}-head-inner {
+  &-head-inner {
     display: block;
     border: 1px solid @wait-icon-color;
     width: 26px;
@@ -204,10 +196,10 @@
       }
     }
   }
-  .@{stepsPrefixCls}-main {
+  &-main {
     margin-top: 3px;
   }
-  .@{stepsPrefixCls}-title {
+  &-title {
     font-size: 14px;
     margin-bottom: 4px;
     color: #666;
@@ -218,16 +210,16 @@
       color: #666;
     }
   }
-  .@{stepsPrefixCls}-item-last {
+  &-item-last {
     .@{stepsPrefixCls}-title {
       padding-right: 0;
     }
   }
-  .@{stepsPrefixCls}-description {
+  &-description {
     font-size: 12px;
     color: #999;
   }
-  .@{stepsPrefixCls}-tail {
+  &-tail {
     position: absolute;
     left: 0;
     width: 100%;
@@ -253,7 +245,7 @@
     }
   }
 
-  &.@{stepsPrefixCls}-small {
+  &&-small {
     .@{stepsPrefixCls}-head-inner {
       border: 1px solid @wait-icon-color;
       width: 18px;
@@ -292,8 +284,8 @@
     }
   }
 
-  &.@{stepsPrefixCls}-small .@{stepsPrefixCls}-item.@{stepsPrefixCls}-custom .@{stepsPrefixCls}-head-inner,
-  .@{stepsPrefixCls}-item.@{stepsPrefixCls}-custom .@{stepsPrefixCls}-head-inner {
+  &&-small &-item&-custom &-head-inner,
+  &-item&-custom &-head-inner {
     width: inherit;
     height: inherit;
     line-height: inherit;

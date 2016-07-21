@@ -14,8 +14,8 @@ export default {
   },
   errorIcon: {
     position: 'absolute',
-    right: 2 * variables.grid,
-    top: 2 * variables.grid,
+    right: 6 * variables.grid,
+    top: 3 * variables.grid,
   },
   count: {
     position: 'absolute',
