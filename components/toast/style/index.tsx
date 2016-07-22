@@ -21,6 +21,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(34, 34, 34, 0.6)',
     padding: variables.grid * 4,
+    minWidth: 100,
     marginTop: -15 * variables.grid,
   },
   content: {
