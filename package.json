@@ -61,7 +61,8 @@
     "rmc-cascader": "~2.2.1",
     "rmc-date-picker": "~3.1.0",
     "rmc-list-view": "~0.5.4",
-    "rmc-pull-to-refresh": "~0.3.0"
+    "rmc-pull-to-refresh": "~0.3.0",
+    "rn-topview": "^0.1.0"
   },
   "devDependencies": {
     "antd": "1.x",
