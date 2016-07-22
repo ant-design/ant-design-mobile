@@ -1,5 +1,12 @@
 module.exports = {
-  APIS: [],
+  APIS: [
+    {
+      title: 'Toast', // 必须
+      description: 'Toast Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+      module: require('../components/toast/demo/basic'), // 必须
+    },
+  ],
   COMPONENTS: [
     {
       title: 'ActionSheet', // 必须
@@ -34,7 +41,7 @@ module.exports = {
     {
       title: 'Drawer', // 必须
       description: 'Drawer Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/kpbezGjgdRhGfMa.png',
       module: require('../components/drawer/demo/basic'), // 必须
     },
     {
