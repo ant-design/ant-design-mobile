@@ -1,5 +1,12 @@
 module.exports = {
-  APIS: [],
+  APIS: [
+    {
+      title: 'Toast', // 必须
+      description: 'Toast Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+      module: require('../components/toast/demo/basic'), // 必须
+    },
+  ],
   COMPONENTS: [
     {
       title: 'ActionSheet', // 必须
