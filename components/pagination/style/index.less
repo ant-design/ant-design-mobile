@@ -1,0 +1,51 @@
+@import '../../style/variables';
+
+@paginationPrefixCls: am-pagination;
+
+.@{paginationPrefixCls} {
+  .am-button:not(:disabled):active {
+    background-color: #fff;
+    border: 1px solid @brand-6;
+    color: @brand-6;
+    &:after {
+      border: none;
+    }
+  }
+  &-wrap {
+    font-size: @font-size-6;
+    color: @neutral-10;
+    text-align: center;
+
+    .active {
+      color: @brand-6;
+    }
+    &-btn {
+      text-align: center;
+    }
+    &-dot {
+      display: inline-block;
+      zoom: 1;
+      > span {
+        display: block;
+        width: 2 * @grid;
+        height: 2 * @grid;
+        margin: @grid 3 * @grid;
+        border-radius: 50%;
+        background: #DCDEE3;
+      }
+      &-active {
+        > span {
+          background: @brand-6;
+          }
+      }
+    }
+    &-sm {
+      font-size: @font-size-3;
+      .@{paginationPrefixCls}-wrap-dot {
+        > span {
+          margin: @grid 2px;
+        }
+      }
+    }
+  }
+}
