@@ -14,6 +14,12 @@ module.exports = {
       module: require('../components/activity-indicator/demo/basic'), // 必须
     },
     {
+      title: 'Badge', // 必须
+      description: 'Badge Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/nSDcLEWgUrOkCJq.png',
+      module: require('../components/badge/demo/basic'), // 必须
+    },
+    {
       title: 'Button', // 必须
       description: 'Button Example',
       icon: 'https://os.alipayobjects.com/rmsportal/lOXYjfSRPpkwudh.png',
