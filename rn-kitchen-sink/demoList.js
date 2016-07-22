@@ -4,7 +4,7 @@ module.exports = {
     {
       title: 'ActionSheet', // 必须
       description: 'ActionSheet Example',
-      icon: 'https://zos.alipayobjects.com/rmsportal/ZLKbJvxVNSmsOwW.png',
+      icon: 'https://zos.alipayobjects.com/rmsportal/sTvsgvivVKnqQtS.png',
       module: require('../components/action-sheet/demo/basic'), // 必须
     },
     {
@@ -28,19 +28,19 @@ module.exports = {
     {
       title: 'DatePicker', // 必须
       description: 'DatePicker Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/XjBSEKVWMeIulGv.png',
       module: require('../components/date-picker/demo/popup'), // 必须
     },
     {
       title: 'Drawer', // 必须
       description: 'Drawer Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
       module: require('../components/drawer/demo/basic'), // 必须
     },
     {
       title: 'Dropdown', // 必须
       description: 'Dropdown Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/PMIYKpJIhmqwyXI.png',
       module: require('../components/dropdown/demo/basic'), // 必须
     },
     {
@@ -52,7 +52,7 @@ module.exports = {
     {
       title: 'FloatMenu', // 必须
       description: 'FloatMenu Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/HhilRXHawmUwlML.png',
       module: require('../components/float-menu/demo/basic'), // 必须
     },
     {
@@ -88,7 +88,7 @@ module.exports = {
     {
       title: 'RefreshControl', // 必须
       description: 'RefreshControl Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
+      icon: 'https://os.alipayobjects.com/rmsportal/kmDibjGUbFrdeeY.png',
       module: require('../components/refresh-control/demo/basic'), // 必须
     },
     {
