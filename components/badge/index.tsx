@@ -31,7 +31,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
     );
 
     const overflowNum = overflowCount || 99;
-    const badgeText = text > overflowNum ? `${overflowNum}+` : text;
+    const badgeText = typeof text === 'number' && text > overflowNum ? `${overflowNum}+` : text;
+
     const badgeCls = corner ? 'textCorner' : 'textDom';
 
     return (
@@ -40,15 +41,17 @@ export default class Badge extends React.Component<BadgeProps, any> {
           {children}
 
           {
-          !dot ?
-          <TouchableWithoutFeedback>
-            <View style={ [BadgeStyle[badgeCls], BadgeStyle[`${badgeCls}${size}`]] }>
-              <Text style={ [BadgeStyle.text] }>{badgeText}</Text>
-            </View>
-          </TouchableWithoutFeedback> :
-          <TouchableWithoutFeedback>
-            <View style={ [BadgeStyle.dot, BadgeStyle[`dotSize${size}`] ] } />
-          </TouchableWithoutFeedback>
+            !dot ? (
+              <TouchableWithoutFeedback>
+                <View style={ [BadgeStyle[badgeCls], BadgeStyle[`${badgeCls}${size}`]] }>
+                  <Text style={ [BadgeStyle.text] }>{badgeText}</Text>
+                </View>
+              </TouchableWithoutFeedback>
+            ) : (
+              <TouchableWithoutFeedback>
+                <View style={ [BadgeStyle.dot, BadgeStyle[`dotSize${size}`] ] } />
+              </TouchableWithoutFeedback>
+            )
           }
 
         </View>

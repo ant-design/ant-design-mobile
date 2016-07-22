@@ -14,8 +14,8 @@ export default StyleSheet.create({
     borderRadius: variables.radius_1,
     backgroundColor: '#f55404',
     position: 'absolute',
-    top: -4,
-    right: -4,
+    top: -1 * variables.grid,
+    right: -1 * variables.grid,
   },
   dotSizelarge: {
     width: 4 * variables.grid,
@@ -39,11 +39,11 @@ export default StyleSheet.create({
       rotate: '45deg',
     }],
     position: 'absolute',
-    top: 8,
+    top: 2 * variables.grid,
   },
   textCornerlarge: {
     width: 26 * variables.grid,
-    top: 12,
+    top: 3 * variables.grid,
   },
   text: {
     color: '#fff',
