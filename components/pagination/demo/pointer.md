@@ -15,22 +15,22 @@ let App = React.createClass({
         <div className="pagination-container" >
           <WhiteSpace size={20} />
           <WingBlank>
-          <p className="title">点状</p>
-          <Pagination
-            mode="pointer"
-            size="large"
-            total={5}
-            activeIndex={1}
-          />
+            <p className="title">点状</p>
+            <Pagination
+              mode="pointer"
+              size="large"
+              total={5}
+              activeIndex={1}
+            />
           </WingBlank>
           <WhiteSpace size={20} />
           <WingBlank>
-          <Pagination
-            mode="pointer"
-            size="small"
-            total={5}
-            activeIndex={2}
-          />
+            <Pagination
+              mode="pointer"
+              size="small"
+              total={5}
+              activeIndex={2}
+            />
           </WingBlank>
         </div>
       </div>

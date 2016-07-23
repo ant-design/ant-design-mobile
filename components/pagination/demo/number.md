@@ -15,21 +15,21 @@ let App = React.createClass({
         <div className="pagination-container" >
           <WhiteSpace size={20} />
           <WingBlank>
-          <p className="title">只显示数字</p>
-          <Pagination
-            mode="number"
-            total={5}
-            activeIndex={2}
-          />
+            <p className="title">只显示数字</p>
+            <Pagination
+              mode="number"
+              total={5}
+              activeIndex={2}
+            />
           </WingBlank>
           <WhiteSpace size={20} />
           <WingBlank>
-          <Pagination
-            mode="number"
-            size="small"
-            total={5}
-            activeIndex={-1}
-          />
+            <Pagination
+              mode="number"
+              size="small"
+              total={5}
+              activeIndex={-1}
+            />
           </WingBlank>
         </div>
       </div>
