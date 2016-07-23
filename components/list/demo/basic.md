@@ -125,3 +125,12 @@ ListExample = createForm()(ListExample);
 
 ReactDOM.render(<ListExample />, mountNode);
 ````
+
+```css
+/** hack for antd responsive conflict */ 
+@media only screen and (max-width: 767px) and (min-width: 320px) {
+#list {
+    display: block;
+}
+}
+```
