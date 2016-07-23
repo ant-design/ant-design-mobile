@@ -1,4 +1,5 @@
-import { View } from 'react-native';
+/* tslint:disable:no-console */
+import { View, TouchableWithoutFeedback } from 'react-native';
 import { DatePicker, List } from 'antm';
 import * as React from 'react';
 
@@ -10,7 +11,7 @@ export default class PopupExample extends React.Component {
     };
   }
   onChange = (value) => {
-    // console.log(value);
+    console.log(value);
     this.setState({ value });
   }
   render() {
@@ -25,7 +26,14 @@ export default class PopupExample extends React.Component {
             maxDate="2016-12-3"
             onChange={this.onChange}
           >
-            <List.Item arrow="horizontal">选择时间</List.Item>
+            <TouchableWithoutFeedback>
+              <List.Item
+                arrow="horizontal"
+                extra={this.state.value}
+              >
+                选择时间
+              </List.Item>
+            </TouchableWithoutFeedback>
           </DatePicker>
         </List.Body>
       </List>
