@@ -10,13 +10,13 @@ export default class Checkbox extends List.Item {
   static propTypes = {
     disabled: PropTypes.bool,
     checked: PropTypes.bool,
-    mode: PropTypes.string,
+    type: PropTypes.oneOf(['normal', 'agree']),
   };
 
   static defaultProps = {
     disabled: false,
     checked: false,
-    mode: '',
+    type: 'normal',
   };
 
   constructor(props) {
@@ -39,7 +39,8 @@ export default class Checkbox extends List.Item {
       checked={state.checked}
       onChange={props.onChange} />;
 
-    if (props.mode === 'agree') {
+    // default type is normal
+    if (props.type === 'agree') {
       const content = (<View style={CheckboxStyle.CheckboxItem.AgreeItem}>
         {checkboxDom}
         <View style={{flex: 1, flexDirection: 'row', flexWrap: 'wrap', marginLeft: 10}}>
