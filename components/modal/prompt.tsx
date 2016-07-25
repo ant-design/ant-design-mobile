@@ -30,10 +30,10 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" placeholder="Login" defaultValue="" onChange={onChange} />
+            <input type="text" defaultValue="" onChange={onChange} />
           </div>
           <div className={`${prefixCls}-input`}>
-            <input type="password" placeholder="Password" defaultValue="" onChange={onChange} />
+            <input type="password" defaultValue="" onChange={onChange} />
           </div>
         </div>
       );
@@ -42,7 +42,7 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="password" placeholder="Password" defaultValue="" onChange={onChange} />
+            <input type="password" defaultValue="" onChange={onChange} />
           </div>
         </div>
       );
@@ -53,7 +53,7 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" placeholder="Login" defaultValue="" onChange={onChange} />
+            <input type="text" defaultValue="" onChange={onChange} />
           </div>
         </div>
       );

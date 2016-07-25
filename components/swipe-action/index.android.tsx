@@ -1,10 +1,8 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
-import Swipeout from 'rc-swipeout/lib/Swipeout';
-import { View, Platform, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import Modal from '../modal';
 import SwipeActionProps from './SwipeActionPropsType';
-import splitObject from '../_util/splitObject';
 import SwipeStyle from './style/index';
 
 class SwipeAction extends React.Component<SwipeActionProps, any> {
@@ -101,30 +99,14 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
   }
 
   render() {
-    const isAndroid = Platform.OS === 'android';
-    let [{ left, right, autoClose, disabled, onOpen, onClose, children }, restProps] = splitObject(
-      this.props,
-      ['left', 'right', 'autoClose', 'disabled', 'onOpen', 'onClose', 'children']
-    );
-    return isAndroid ? (
-      <View {...restProps}>
+    const { style, children } = this.props;
+    return (
+      <View style={style}>
         <TouchableOpacity onLongPress={this.onLongPress}>
           <View>{children}</View>
         </TouchableOpacity>
         { this.state.showModal ? this._renderAndroidModal() : null}
       </View>
-    ) : (
-      <Swipeout
-        left={left}
-        right={right}
-        autoClose={autoClose}
-        disabled={disabled}
-        onOpen={onOpen}
-        onClose={onClose}
-        {...restProps}
-      >
-        {children}
-      </Swipeout>
     );
   }
 }

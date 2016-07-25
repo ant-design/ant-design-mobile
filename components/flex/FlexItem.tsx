@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import { View } from 'react-native';
 import splitObject from '../_util/splitObject';
 
-export default class FlexItem extends React.Component {
-  static propTypes = {
-    flex: PropTypes.number,
-  };
+export interface FlexItemProps {
+  flex?: number;
+}
 
+export default class FlexItem extends React.Component<FlexItemProps, any> {
   static defaultProps = {
     flex: 1,
   };

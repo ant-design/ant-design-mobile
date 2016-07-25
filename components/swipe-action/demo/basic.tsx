@@ -6,7 +6,7 @@ import { SwipeAction, List } from 'antm';
 export default class BasicSwipeActionExample extends React.Component<any, any> {
   render() {
     return (
-      <View style={{ paddingTop: 30 }}>
+      <View style={{ paddingTop: 80 }}>
         <List>
           <List.Body>
             <SwipeAction

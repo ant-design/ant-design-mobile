@@ -6,7 +6,7 @@ import Item from './ListItem';
 import Header from './ListHeader';
 import Footer from './ListFooter';
 
-export default class List extends React.Component {
+export default class List extends React.Component<any, any> {
   render() {
     const style = {
       marginTop: 8,

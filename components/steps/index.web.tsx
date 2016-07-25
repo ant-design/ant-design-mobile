@@ -1,7 +1,17 @@
 import React from 'react';
 import RcSteps from 'rc-steps';
 
-export default class Steps extends React.Component {
+export interface StepsProps {
+  prefixCls?: string;
+  iconPrefix?: string;
+  direction?: string;
+  labelPlacement?: string;
+  children: any;
+  status?: string;
+  size?: string;
+}
+
+export default class Steps extends React.Component<StepsProps, any> {
   static Step = RcSteps.Step;
 
   static defaultProps = {

@@ -43,7 +43,7 @@ export default StyleSheet.create({
     borderRadius: varibles.radius_1,
     borderWidth: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   plusWrapNormal: {
     backgroundColor: varibles.neutral_1,

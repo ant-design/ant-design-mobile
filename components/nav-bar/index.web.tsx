@@ -1,19 +1,19 @@
-import {PropTypes} from 'react';
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
-export default class NavBar extends React.Component {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    children: PropTypes.any,
-    mode: PropTypes.oneOf(['dark', 'light']),
-    iconName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    leftContent: PropTypes.any,
-    rightContent: PropTypes.any,
-    onLeftClick: PropTypes.func,
-  };
 
+export interface NavBarProps {
+  prefixCls?: string;
+  children?: any;
+  mode?: 'dark' | 'light';
+  iconName?: string | boolean;
+  leftContent?: any;
+  rightContent?: any;
+  onLeftClick?: () => void;
+}
+
+export default class NavBar extends React.Component<NavBarProps, any> {
   static defaultProps = {
     prefixCls: 'am-navbar',
     mode: 'dark',
