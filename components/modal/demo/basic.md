@@ -27,7 +27,7 @@ const App = React.createClass({
       <div>
         <WhiteSpace size={20} />
         <WingBlank>
-          <Button type="primary" size="small" inline onClick={this.showModal}>
+          <Button type="primary" onClick={this.showModal}>
             显示对话框
           </Button>
           <Modal animated transparent={false} visible={this.state.visible} >
