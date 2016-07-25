@@ -53,4 +53,3 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
     return (<Image {...this.props} source={{uri: uri}} style={[{width: width, height: height}, this.props.style]} />);
   }
 }
-
