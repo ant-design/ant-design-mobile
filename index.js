@@ -8,6 +8,7 @@ export { default as Drawer } from './components/drawer/';
 export { default as Dropdown } from './components/dropdown/';
 export { default as Flex } from './components/flex/';
 export { default as FloatMenu } from './components/float-menu/';
+export { default as InputItem } from './components/input-item/';
 export { default as List } from './components/list/';
 export { default as ListView } from './components/list-view/';
 export { default as Modal } from './components/modal/';

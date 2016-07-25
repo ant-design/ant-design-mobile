@@ -69,6 +69,12 @@ module.exports = {
       module: require('../components/float-menu/demo/basic'), // 必须
     },
     {
+      title: 'InputItem', // 必须
+      description: 'InputItem Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
+      module: require('../components/input-item/demo/basic'), // 必须
+    },
+    {
       title: 'List', // 必须
       description: 'List Example',
       icon: 'https://os.alipayobjects.com/rmsportal/wlNeoTpEKIpTcOW.png',
