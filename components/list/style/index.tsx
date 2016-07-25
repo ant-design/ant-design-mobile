@@ -10,7 +10,7 @@ export default {
   ThemesList: {
     underlayColor: '#e5e5e5',
     Header: {
-      marginTop: 6 * variables.grid,
+      marginTop: 4 * variables.grid,
       marginLeft: 4 * variables.grid,
       marginRight: 4 * variables.grid,
       marginBottom: 2 * variables.grid,
@@ -22,7 +22,6 @@ export default {
       marginTop: 2 * variables.grid,
       marginLeft: 4 * variables.grid,
       marginRight: 4 * variables.grid,
-      marginBottom: 2 * variables.grid,
       fontSize: variables.font_size_2,
       lineHeight: 15,
       color: variables.neutral_7,

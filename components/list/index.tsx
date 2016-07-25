@@ -8,7 +8,11 @@ import Footer from './ListFooter';
 
 export default class List extends React.Component<any, any> {
   render() {
-    return (<View {...this.props} style={[this.props.style]}>{this.props.children}</View>);
+    const style = {
+      marginTop: 8,
+      marginBottom: 8,
+    };
+    return (<View {...this.props} style={[style, this.props.style]}>{this.props.children}</View>);
   }
 }
 
