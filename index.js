@@ -23,5 +23,6 @@ export { default as TextAreaItem } from './components/textarea-item/';
 export { default as Timeline } from './components/timeline/';
 export { default as Toast } from './components/toast/';
 export { default as TopNotice } from './components/top-notice/';
+export { default as Uploader } from './components/uploader/';
 export { default as WhiteSpace } from './components/white-space/';
 export { default as WingBlank } from './components/wing-blank/';
