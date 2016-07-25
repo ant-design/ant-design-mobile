@@ -4,7 +4,13 @@ import { Image } from 'react-native';
 import CheckboxStyle from './style/index';
 const CheckboxItemStyle = CheckboxStyle.Checkbox;
 
-export default class Checkbox extends React.Component {
+export interface CheckboxItemProps {
+  disabled?: boolean;
+  checked?: boolean;
+  onChange?: Function;
+}
+
+export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
   static propTypes = {
     disabled: PropTypes.bool,
     checked: PropTypes.bool,
@@ -47,3 +53,4 @@ export default class Checkbox extends React.Component {
     return (<Image {...this.props} source={{uri: uri}} style={[{width: width, height: height}, this.props.style]} />);
   }
 }
+

@@ -5,8 +5,9 @@ import CheckboxStyle from './style/index';
 import List from '../list/index';
 import ListStyle from '../list/style/index';
 import CheckboxItem from './CheckboxItem';
+import CheckboxProps from './CheckboxPropsType';
 
-export default class Checkbox extends List.Item {
+export default class Checkbox extends List.Item<CheckboxProps, any> {
   static propTypes = {
     disabled: PropTypes.bool,
     checked: PropTypes.bool,
@@ -57,7 +58,6 @@ export default class Checkbox extends List.Item {
     } else {
       const itemStyle = [ListStyle.ThemesList.Item,
         props.last ? ListStyle.ThemesList.Last.Item : {},
-        props.error ? ListStyle.ThemesList.Error.Item : {},
         props.style];
       let labelDom = [];
       if (props.children) {
