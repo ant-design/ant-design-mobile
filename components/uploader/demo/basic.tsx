@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Uploader, WhiteSpace } from 'antm';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 export default class UploaderExample extends React.Component<any, any> {
   constructor(props) {
@@ -34,7 +34,6 @@ export default class UploaderExample extends React.Component<any, any> {
       <View style={{ marginTop: 20, marginLeft: 20 }}>
         <Uploader
           onChange={(files) => {
-            console.log(files);
             this.setState({
               files,
             });
@@ -44,7 +43,6 @@ export default class UploaderExample extends React.Component<any, any> {
         <WhiteSpace />
         <Uploader
           onChange={(files2) => {
-            console.log(files2);
             this.setState({
               files2,
             });

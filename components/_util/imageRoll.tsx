@@ -3,12 +3,9 @@ import {
   View,
   Text,
   StatusBar,
-  CameraRoll,
   Modal,
-  ScrollView,
   StyleSheet,
   TouchableOpacity,
-  Platform,
 } from 'react-native';
 import varibles from '../style/variables';
 import CameraRollPicker from 'react-native-camera-roll-picker';
@@ -36,7 +33,7 @@ const styles = StyleSheet.create({
     width: 14 * varibles.grid,
     color: varibles.blue_6,
     fontSize: varibles.font_size_5,
-  }
+  },
 });
 
 export interface ImageRollProps {

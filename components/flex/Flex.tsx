@@ -2,8 +2,9 @@ import * as React from 'react';
 import { PropTypes } from 'react';
 import splitObject from '../_util/splitObject';
 import { View } from 'react-native';
+import FlexProps from './FlexPropTypes';
 
-export default class Flex extends React.Component {
+export default class Flex extends React.Component<FlexProps, any> {
   static propTypes = {
     style: PropTypes.object,
     direction: PropTypes.oneOf(['row', 'column']),

@@ -1,16 +1,7 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
-
-export interface FlexProps {
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  direction?: string;
-  wrap?: string;
-  justify?: string;
-  align?: string;
-  alignContent?: string;
-}
+import FlexProps from './FlexPropTypes';
 
 export default class Flex extends React.Component<FlexProps, any> {
   static propTypes = {

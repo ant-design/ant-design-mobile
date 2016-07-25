@@ -3,11 +3,11 @@ import {
   View,
   Text,
   Image,
-  CameraRoll,
+  // CameraRoll,
   TouchableWithoutFeedback,
-  Platform,
+  // Platform,
   // ImagePickerIOS,
-  ActionSheetIOS,
+  // ActionSheetIOS,
 } from 'react-native';
 import UploaderProps from './uploaderPropTypes';
 import uploaderStyles from './style/';

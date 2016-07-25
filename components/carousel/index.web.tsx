@@ -13,10 +13,12 @@ if (typeof window !== 'undefined') {
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
 }
 
+import * as React from 'react';
 import SlickCarousel from 'react-slick';
-import React from 'react';
 import assign from 'object-assign';
-export default class Carousel extends React.Component {
+import CarouselProps from './CarouselPropTypes';
+
+export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
     dots: true,
     arrows: false,
