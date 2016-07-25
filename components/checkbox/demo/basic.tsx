@@ -16,7 +16,7 @@ export default class BasicCheckboxExample extends React.Component {
 
   render() {
     return (
-      <ScrollView style={{ flex: 1, backgroundColor: '#F5F5F9' }}>
+      <ScrollView style={{ flex: 1 }}>
         <List>
           <List.Header>列表项复选框demo</List.Header>
           <List.Body>

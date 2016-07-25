@@ -39,6 +39,12 @@ module.exports = {
       module: require('../components/card/demo/basic'), // 必须
     },
     {
+      title: 'Checkbox', // 必须
+      description: 'Checkbox Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/checkbox/demo/basic'), // 必须
+    },
+    {
       title: 'DatePicker', // 必须
       description: 'DatePicker Example',
       icon: 'https://os.alipayobjects.com/rmsportal/XjBSEKVWMeIulGv.png',
@@ -175,12 +181,6 @@ module.exports = {
       description: 'WingBlank Example',
       icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
       module: require('../components/wing-blank/demo/basic'), // 必须
-    },
-    {
-      title: 'Checkbox', // 必须
-      description: 'Checkbox Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
-      module: require('../components/checkbox/demo/basic'), // 必须
     },
   ],
 };
