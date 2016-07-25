@@ -23,6 +23,7 @@
 		932801361D12865300A90AF1 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932800F61D1285D000A90AF1 /* libReact.a */; };
 		936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936A047A1D267BB0005EE7C1 /* libCodePush.a */; };
 		936A047D1D267C03005EE7C1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 936A047C1D267C03005EE7C1 /* libz.tbd */; };
+		93735FCF1D44E0D700B29FD8 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BF62B91D44DF2400AFA3D0 /* libRCTCameraRoll.a */; };
 		93ABB6081D2A301C00652A63 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6071D2A301C00652A63 /* HomeViewController.m */; };
 		93ABB6211D2A3DF100652A63 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6201D2A3DF100652A63 /* ScanViewController.m */; };
 		93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6231D2A3E2600652A63 /* ResultViewController.m */; };
@@ -107,6 +108,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = CodePush;
 		};
+		93BF62B81D44DF2400AFA3D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93BF62B21D44DF2400AFA3D0 /* RCTCameraRoll.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
+			remoteInfo = RCTCameraRoll;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +144,7 @@
 		93ABB6221D2A3E2600652A63 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultViewController.h; path = antm/ResultViewController.h; sourceTree = "<group>"; };
 		93ABB6231D2A3E2600652A63 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultViewController.m; path = antm/ResultViewController.m; sourceTree = "<group>"; };
 		93ABB6251D2A430B00652A63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		93BF62B21D44DF2400AFA3D0 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +165,7 @@
 				932801351D12865300A90AF1 /* libRCTWebSocket.a in Frameworks */,
 				932801361D12865300A90AF1 /* libReact.a in Frameworks */,
 				936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */,
+				93735FCF1D44E0D700B29FD8 /* libRCTCameraRoll.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +194,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				93BF62B21D44DF2400AFA3D0 /* RCTCameraRoll.xcodeproj */,
 				936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */,
 				932800F11D1285D000A90AF1 /* React.xcodeproj */,
 				932800F71D1285E400A90AF1 /* RCTActionSheet.xcodeproj */,
@@ -308,6 +319,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		93BF62B31D44DF2400AFA3D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93BF62B91D44DF2400AFA3D0 /* libRCTCameraRoll.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,6 +375,10 @@
 				{
 					ProductGroup = 932800F81D1285E400A90AF1 /* Products */;
 					ProjectRef = 932800F71D1285E400A90AF1 /* RCTActionSheet.xcodeproj */;
+				},
+				{
+					ProductGroup = 93BF62B31D44DF2400AFA3D0 /* Products */;
+					ProjectRef = 93BF62B21D44DF2400AFA3D0 /* RCTCameraRoll.xcodeproj */;
 				},
 				{
 					ProductGroup = 932800FE1D1285ED00A90AF1 /* Products */;
@@ -479,6 +502,13 @@
 			remoteRef = 936A04791D267BB0005EE7C1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		93BF62B91D44DF2400AFA3D0 /* libRCTCameraRoll.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCameraRoll.a;
+			remoteRef = 93BF62B81D44DF2400AFA3D0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -547,6 +577,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mybank.ios.RNPlayground;
 				PRODUCT_NAME = antm;
+				PROVISIONING_PROFILE = "a8097e9a-687b-42ee-9af9-826171343137";
 			};
 			name = Debug;
 		};
@@ -575,6 +606,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mybank.ios.RNPlayground;
 				PRODUCT_NAME = antm;
+				PROVISIONING_PROFILE = "a8097e9a-687b-42ee-9af9-826171343137";
 			};
 			name = Release;
 		};

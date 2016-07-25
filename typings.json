@@ -1,7 +1,7 @@
 {
   "globalDependencies": {
-    "react": "registry:dt/react#0.14.0+20160630100702",
+    "react": "registry:dt/react#0.14.0+20160720060442",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
-    "react-native": "registry:dt/react-native#0.27.0+20160619030006"
+    "react-native": "registry:dt/react-native#0.29.0+20160724063008"
   }
 }

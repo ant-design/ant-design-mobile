@@ -153,6 +153,12 @@ module.exports = {
       module: require('../components/top-notice/demo/basic'), // 必须
     },
     {
+      title: 'Uploader', // 必须
+      description: 'Uploader Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/CVHyVxhFqkhZfYs.png',
+      module: require('../components/uploader/demo/basic'), // 必须
+    },
+    {
       title: 'WhiteSpace', // 必须
       description: 'WhiteSpace Example',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',

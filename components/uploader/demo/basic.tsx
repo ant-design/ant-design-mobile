@@ -1,17 +1,11 @@
----
-order: 0
-title: 图片上传
------------
-
-简单的图片上传组件
----------
-
-````jsx
+import * as React from 'react';
 import { Uploader, WhiteSpace } from 'antm';
+import { View, Text } from 'react-native';
 
-const UploaderExample = React.createClass({
-  getInitialState() {
-    return {
+export default class UploaderExample extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
       files: [{
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
         id: '2121',
@@ -33,10 +27,11 @@ const UploaderExample = React.createClass({
       }],
       files2: [],
     };
-  },
+  }
+
   render() {
     return (
-      <div>
+      <View style={{ marginTop: 20, marginLeft: 20 }}>
         <Uploader
           onChange={(files) => {
             console.log(files);
@@ -56,10 +51,7 @@ const UploaderExample = React.createClass({
           }}
           files={this.state.files2}
         />
-      </div>
+      </View>
     );
-  },
-});
-
-ReactDOM.render(<UploaderExample />, mountNode);
-````
+  }
+}
