@@ -5,7 +5,7 @@ import { List, Button } from 'antm';
 export default class BasicListExample extends React.Component {
   render() {
     return (
-      <View>
+      <View style={{ backgroundColor:'#eaeaea' }}>
         <List>
           {/* 基本用法 Demo */}
           <List.Header>基本用法 Demo</List.Header>
