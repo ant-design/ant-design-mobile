@@ -58,16 +58,22 @@ export default class Home extends React.Component {
   }
 
   showActionSheet =() => {
-    const actionArr = [];
+    if (this.actionSheetShown) {
+      ActionSheet.close();
+      this.actionSheetShown = false;
+      return;
+    }
 
+    const actionArr = [];
     const demoSort = this.props.demos.sort((a, b) => (
       parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
     ));
-    demoSort.map((demo, index) => {
+    demoSort.forEach((demo, index) => {
       actionArr[index] = demo.meta.title;
     });
     actionArr.push('取消');
 
+    this.actionSheetShown = true;
     ActionSheet.showActionSheetWithOptions({
       options: actionArr,
       cancelButtonIndex: actionArr.length - 1,
