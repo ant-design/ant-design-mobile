@@ -1,6 +1,6 @@
 ---
 order: 2
-chinese: 更新日志
+english: 更新日志
 ---
 
 ## 0.6.0
