@@ -26,7 +26,9 @@ export default class Button extends React.Component<ButtonProps, any> {
     inline: false,
     loading: false,
   };
-
+  mTextColor: string;
+  mTextHighlightColor: string;
+  mBorderHighlightColor: string;
   constructor(props) {
     super(props);
     this.state = {
@@ -36,19 +38,27 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   pressTextColor() {
     if (this.state.pressIn) {
-      return { color: this._textHighlightColor };
+      return { color: this.mTextHighlightColor };
     }
 
-    return { color: this._textColor };
+    return { color: this.mTextColor };
   }
 
   pressBorderColor() {
-    if (this.state.pressIn && this._borderHighlightColor) {
-      return { borderColor: this._borderHighlightColor };
+    if (this.state.pressIn && this.mBorderHighlightColor) {
+      return { borderColor: this.mBorderHighlightColor };
     }
 
-    return {};
+    return {borderColor: undefined};
   }
+
+  onPressIn = (...args) => {
+    this.setState({ pressIn: true });
+  };
+
+  onPressOut = (...args) => {
+    this.setState({ pressIn: false });
+  };
 
   render() {
     const size = this.props.size;
@@ -156,20 +166,10 @@ export default class Button extends React.Component<ButtonProps, any> {
       }
     }
 
-    let touchableProps = {};
+    let touchableProps: any = {};
     if (!disabled) {
-      touchableProps.onPressIn = function (...args) {
-        if (this.props.onPressIn) {
-          this.props.onPressIn(...args);
-        }
-        this.setState({ pressIn: true });
-      }.bind(this);
-      touchableProps.onPressOut = function (...args) {
-        if (this.props.onPressOut) {
-          this.props.onPressOut(...args);
-        }
-        this.setState({ pressIn: false });
-      }.bind(this);
+      touchableProps.onPressIn = this.onPressIn;
+      touchableProps.onPressOut = this.onPressOut;
     }
 
     let style = {
@@ -184,10 +184,10 @@ export default class Button extends React.Component<ButtonProps, any> {
       justifyContent: 'center',
     };
 
-    this._textColor = textColor;
-    this._textHighlightColor = highlightTextColor;
+    this.mTextColor = textColor;
+    this.mTextHighlightColor = highlightTextColor;
     if (highlightBorderColor) {
-      this._borderHighlightColor = highlightBorderColor;
+      this.mBorderHighlightColor = highlightBorderColor;
     }
 
     if (disabled) {

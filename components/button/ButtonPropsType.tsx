@@ -6,6 +6,7 @@ interface ButtonProps {
   ghost?: boolean;
   inline?: boolean;
   loading?: boolean;
+  style?: {};
   /** web only */
   prefixCls?: string;
 }
