@@ -94,7 +94,7 @@ class AntmRnApp extends React.Component {
             <Scene key="home" component={Home} title="Ant Design Mobile" initial />
             <Scene key="web" component={WebIndex} title="Antm Web Component" />
             <Scene key="native" component={RnIndex} title="Antm React Native" />
-                 {scenes}
+            {scenes}
           </Scene>
         </Router>
       </View>
