@@ -42,8 +42,6 @@ const ButtonExample = React.createClass({
           <WhiteSpace />
           <Button type="primary">primary 按钮</Button>
           <WhiteSpace />
-          <Button type="primary" size="small">primary small 按钮</Button>
-          <WhiteSpace />
           <Button type="primary" inline>inline</Button>&nbsp;
           <Button type="primary" size="small" inline>inline</Button>
         </WingBlank>
@@ -52,8 +50,6 @@ const ButtonExample = React.createClass({
           <p className="demo-p">次按钮</p>
           <WhiteSpace />
           <Button>default 按钮</Button>
-          <WhiteSpace />
-          <Button size="small">default small 按钮</Button>
           <WhiteSpace />
           <Button inline>inline</Button>&nbsp;
           <Button size="small" inline>inline</Button>

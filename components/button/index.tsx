@@ -126,7 +126,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       }
     } else if (type === 'default') {
       backgroundColor = variables.neutral_1;
-      textColor = variables.neutral_8;
+      textColor = variables.neutral_10;
       borderWidth = 1;
       borderColor = variables.neutral_5;
       borderRadius = variables.radius_2;
@@ -141,10 +141,10 @@ export default class Button extends React.Component<ButtonProps, any> {
       }
 
       if (ghost) {
-        textColor = variables.neutral_8;
+        textColor = variables.neutral_10;
         borderColor = variables.neutral_4;
 
-        highlightTextColor = variables.brand_6;
+        highlightTextColor = variables.neutral_10;
         highlightBackgroundColor = variables.neutral_3_f_20;
         highlightBorderColor = variables.neutral_4;
 

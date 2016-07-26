@@ -67,7 +67,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-ghost`]: ghost,
       [`${prefixCls}-warning`]: type === 'warning',
-      [`${prefixCls}-small`]: size === 'small',
+      [`${prefixCls}-small`]: size === 'small' && inline,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
