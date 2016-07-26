@@ -11,6 +11,7 @@ const Test = React.createClass({
   getInitialState() {
     return {
       clicked: 'none',
+      clicked1: 'none',
       BUTTONS: [
         '按钮 0',
         '按钮 1',
@@ -70,7 +71,7 @@ const Test = React.createClass({
       message: '我是具体消息',
     },
     (buttonIndex) => {
-      this.setState({ clicked: icons[buttonIndex].title });
+      this.setState({ clicked1: icons[buttonIndex].title });
     });
   },
   showActionSheetWithCustom() {
@@ -101,7 +102,7 @@ const Test = React.createClass({
         <Button type="primary" onClick={this.showShareActionSheet}>显示</Button>
         <WhiteSpace />
         <p className="demo-p">点击过的icon: &nbsp;
-          <span style={{ color: '#222' }}>{this.state.clicked}</span>
+          <span style={{ color: '#222' }}>{this.state.clicked1}</span>
         </p>
 
         <WhiteSpace size={32} />
