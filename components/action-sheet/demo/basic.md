@@ -13,9 +13,9 @@ const Test = React.createClass({
       clicked: 'none',
       clicked1: 'none',
       BUTTONS: [
-        '按钮 0',
-        '按钮 1',
-        '按钮 2',
+        '操作 0',
+        '操作 1',
+        '操作 2',
         '删除',
         '取消',
       ],
@@ -56,8 +56,8 @@ const Test = React.createClass({
       cancelButtonIndex: BUTTONS.length - 1,
       destructiveButtonIndex: BUTTONS.length - 2,
       // title: '标题',
-      message: '我是具体消息',
-      maskClosable: false,
+      message: '我是描述我是描述',
+      maskClosable: true,
     },
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });
@@ -68,7 +68,7 @@ const Test = React.createClass({
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
       title: '标题',
-      message: '我是具体消息',
+      message: '我是描述我是描述',
     },
     (buttonIndex) => {
       this.setState({ clicked1: icons[buttonIndex].title });
@@ -77,7 +77,7 @@ const Test = React.createClass({
   showActionSheetWithCustom() {
     ActionSheet.showActionSheetWithCustom({
       title: '自定义 ActionSheet',
-      message: '我是具体消息',
+      message: '我是描述我是描述',
       component: <div style={{ color: 'red', padding: 20 }}>
         自定义内容 &nbsp;
         <Button inline size="small" onClick={() => ActionSheet.close()}>关闭</Button>
@@ -90,7 +90,7 @@ const Test = React.createClass({
         <WhiteSpace size={32} />
         <p className="demo-p">通常的 ActionSheet</p>
         <WhiteSpace />
-        <Button type="primary" onClick={this.showActionSheet}>显示</Button>
+        <Button type="primary" onClick={this.showActionSheet}>选择操作</Button>
         <WhiteSpace />
         <p className="demo-p">点击过的按钮: &nbsp;
           <span style={{ color: '#222' }}>{this.state.clicked}</span>
@@ -99,7 +99,7 @@ const Test = React.createClass({
         <WhiteSpace size={32} />
         <p className="demo-p">带分享功能的 ActionSheet</p>
         <WhiteSpace />
-        <Button type="primary" onClick={this.showShareActionSheet}>显示</Button>
+        <Button type="primary" onClick={this.showShareActionSheet}>我要分享</Button>
         <WhiteSpace />
         <p className="demo-p">点击过的icon: &nbsp;
           <span style={{ color: '#222' }}>{this.state.clicked1}</span>
@@ -108,7 +108,7 @@ const Test = React.createClass({
         <WhiteSpace size={32} />
         <p className="demo-p">内容可以完全自定义的 ActionSheet</p>
         <WhiteSpace />
-        <Button type="primary" onClick={this.showActionSheetWithCustom}>显示</Button>
+        <Button type="primary" onClick={this.showActionSheetWithCustom}>自定义</Button>
       </WingBlank>
     </div>);
   },
