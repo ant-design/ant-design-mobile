@@ -21,6 +21,11 @@ class Dropdown extends React.Component<DropdownProps, any> {
   static defaultProps = {
     maskClosable: true,
   };
+
+  timer: number;
+
+  anim: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -36,16 +41,23 @@ class Dropdown extends React.Component<DropdownProps, any> {
 
   componentDidMount() {
     this.state.translateY.setValue(-WIN_HEIGHT);
-    Animated.timing(this.state.translateY, {
+    this.anim = Animated.timing(this.state.translateY, {
       duration: 200,
       toValue: 0,
       delay: 5,
-    }).start();
+    });
+    this.anim.start(() => {
+      this.anim = null;
+    });
   }
 
   componentWillUnmount() {
     if (this.timer) {
       clearTimeout(this.timer);
+    }
+    if (this.anim) {
+      this.anim.stop();
+      this.anim = null;
     }
     DeviceEventEmitter.removeAllListeners('dropdownHide');
   }
@@ -54,18 +66,19 @@ class Dropdown extends React.Component<DropdownProps, any> {
     if (this.props.maskClosable) {
       this.animatedHide();
     }
-  }
+  };
 
   animatedHide() {
     this.state.translateY.setValue(0);
-    Animated.timing(this.state.translateY, {
+    this.anim = Animated.timing(this.state.translateY, {
       duration: 200,
       toValue: -WIN_HEIGHT,
       delay: 5,
-    }).start();
-    this.timer = setTimeout(() => {
+    });
+    this.anim.start(() => {
+      this.anim = null;
       topView.remove();
-    }, 205);
+    });
   }
 
   render() {
@@ -78,7 +91,7 @@ class Dropdown extends React.Component<DropdownProps, any> {
           onRequestClose={() => {}}
         >
           <TouchableWithoutFeedback onPress={this.onMaskClose}>
-            <View style={styles.mask}></View>
+            <View style={styles.mask}/>
           </TouchableWithoutFeedback>
           <Animated.View style={[styles.content, {
             transform: [
