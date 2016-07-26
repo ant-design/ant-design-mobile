@@ -1,7 +1,7 @@
 /* tslint:disable:no-switch-case-fall-through */
 import * as React from 'react';
 import { PropTypes } from 'react';
-import TopNoticeProps from './topNoticePropsType';
+import TopNoticeProps from './TopNoticePropsType';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import NoticeStyle from './style';
 

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
-import UploaderProps from './uploaderPropTypes';
+import UploaderProps from './UploaderPropTypes';
 
 function noop() { }
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcInputNumber from 'rc-input-number/lib';
 import splitObject from '../_util/splitObject';
-import StepProps from './stepPropTypes';
+import StepProps from './StepPropTypes';
 import styles from 'rc-input-number/lib/styles';
 
 export default class Stepper extends React.Component<StepProps, any> {

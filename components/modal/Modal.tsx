@@ -3,9 +3,9 @@ import * as React from 'react';
 import { View, Text, Modal, TouchableWithoutFeedback } from 'react-native';
 import splitObject from '../_util/splitObject';
 import modalStyle from './style/index';
-import modalProps from './modalPropsType';
+import ModalPropsType from './ModalPropsType';
 
-class AntmModal extends React.Component<modalProps, any> {
+class AntmModal extends React.Component<ModalPropsType, any> {
   static propTypes = {
     title: PropTypes.string,
     visible: PropTypes.bool,

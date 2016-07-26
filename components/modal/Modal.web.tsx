@@ -3,7 +3,7 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
-import ModalProps from './modalPropsType';
+import ModalProps from './ModalPropsType';
 
 export default class Modal extends React.Component<ModalProps, any> {
   static defaultProps = {
