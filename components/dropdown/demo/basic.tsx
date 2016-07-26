@@ -1,9 +1,5 @@
 import * as React from 'react';
-<<<<<<< 0d60f5c74123225dee089590655d7523c0741d51
-import { StyleSheet, View } from 'react-native';
-=======
 import { View, Text } from 'react-native';
->>>>>>> dropdown 重新实现为 api 形式
 import { Dropdown, WhiteSpace, WingBlank, Button } from 'antm';
 
 export default class DropdownExample extends React.Component<any, any> {
