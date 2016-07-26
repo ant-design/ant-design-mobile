@@ -55,7 +55,7 @@
     "rc-table": "~4.4.1",
     "rc-tabs": "~5.9.2",
     "rc-tooltip": "~3.4.2",
-    "react-hammerjs": "^0.4.6",
+    "react-hammerjs": "^0.5.0",
     "react-native-camera-roll-picker": "^1.1.6",
     "react-native-drawer-layout": "~1.0.0",
     "react-native-menu": "~0.20.1",
@@ -63,7 +63,7 @@
     "rmc-cascader": "~2.2.1",
     "rmc-date-picker": "~3.1.0",
     "rmc-list-view": "~0.5.4",
-    "rmc-pull-to-refresh": "~0.3.0",
+    "rmc-pull-to-refresh": "~0.3.1",
     "rn-topview": "^0.1.0"
   },
   "devDependencies": {

@@ -25,7 +25,6 @@ const App = React.createClass({
       visible: false,
       selected: opt.props.value,
     });
-    this.props.onNavBarChange();
   },
   handleVisibleChange(visible) {
     this.setState({
