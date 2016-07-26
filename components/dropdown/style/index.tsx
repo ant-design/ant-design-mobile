@@ -2,16 +2,22 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgba(34, 34, 34, 0.6)',
+  wrap: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
   },
-  maskClosable: {
+  content: {
+    backgroundColor: 'white',
+    paddingTop: 20,
+  },
+  mask: {
     position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(34, 34, 34, 0.6)',
   },
 });
