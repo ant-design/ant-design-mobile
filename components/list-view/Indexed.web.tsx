@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
 import MListView from 'rmc-list-view';
-import List, { Header, Body, Footer, Item } from '../list';
+import { Header, Body, Footer, Item } from '../list';
+import MyList from './MyList';
 import splitObject from '../_util/splitObject';
+import tsPropsType from './PropsType';
 
 const MListViewIndexedList = MListView.IndexedList;
 
-export default class IndexedList extends React.Component {
+export default class IndexedList extends React.Component<tsPropsType, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
   };
@@ -33,7 +35,7 @@ export default class IndexedList extends React.Component {
       <MListViewIndexedList
         {...restProps}
         {...extraProps}
-        renderScrollComponent={props => <List {...props} />}
+        renderScrollComponent={props => <MyList {...props} />}
         renderRow={renderRow}
         renderBodyComponent={() => <Body />}
       >{this.props.children}</MListViewIndexedList>

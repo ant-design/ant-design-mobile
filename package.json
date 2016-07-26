@@ -62,7 +62,7 @@
     "react-slick": "~0.12.2",
     "rmc-cascader": "~2.2.1",
     "rmc-date-picker": "~3.1.0",
-    "rmc-list-view": "~0.5.4",
+    "rmc-list-view": "~0.5.5",
     "rmc-pull-to-refresh": "~0.3.1",
     "rn-topview": "^0.1.0"
   },
@@ -117,6 +117,7 @@
     "react-native-router-flux": "^3.30.3",
     "react-router": "^2.0.0",
     "react-stateless-wrapper": "~1.0.2",
+    "react-tap-event-plugin": "~1.0.0",
     "reqwest": "~2.0.5"
   },
   "scripts": {
