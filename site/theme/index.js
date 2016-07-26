@@ -1,4 +1,6 @@
 const contentTmpl = './template/Content/index';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin(); // fix Warning: Unknown prop `onTouchTap`
 
 module.exports = {
   categoryOrder: {
