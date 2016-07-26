@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcSlider from 'rc-slider';
 
 export default class Slider extends React.Component {

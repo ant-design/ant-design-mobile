@@ -1,14 +1,9 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import { View, Modal, TouchableWithoutFeedback, Animated, Dimensions } from 'react-native';
 import tsPropsType from './PropsType';
-// import splitObject from '../_util/splitObject';
 import styles from './style/index';
 
 export default class Dropdown extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    children: PropTypes.any,
-  };
   static defaultProps = {
     visible: false,
     maskClosable: true,
@@ -18,16 +13,8 @@ export default class Dropdown extends React.Component<tsPropsType, any> {
   constructor(props) {
     super(props);
     this.state = {
-      visible: props.visible,
       translateY: new Animated.Value(0),
     };
-  }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.visible !== this.state.visible) {
-      this.setState({
-        visible: nextProps.visible,
-      });
-    }
   }
   componentDidUpdate() {
     this.state.translateY.setValue(-Dimensions.get('window').height);
@@ -43,7 +30,7 @@ export default class Dropdown extends React.Component<tsPropsType, any> {
       <Modal
         animationType={'none'}
         transparent={true}
-        visible={this.state.visible}
+        visible={this.props.visible}
         onShow={onShow}
         onRequestClose={onClose}
       >

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { RefreshControl } from 'antm';
 

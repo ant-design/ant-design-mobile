@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import MListView, { DataSource } from 'rmc-list-view';
 import List, { Header, Body, Footer, Item } from '../list';
 import splitObject from '../_util/splitObject';

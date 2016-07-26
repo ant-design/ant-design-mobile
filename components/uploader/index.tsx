@@ -9,9 +9,9 @@ import {
   // ImagePickerIOS,
   // ActionSheetIOS,
 } from 'react-native';
-import UploaderProps from './uploaderPropTypes';
+import UploaderProps from './UploaderPropTypes';
 import uploaderStyles from './style/';
-import ImageRoll from '../_util/imageRoll';
+import ImageRoll from './ImageRoll';
 
 export default class Uploader extends React.Component<UploaderProps, any> {
 
