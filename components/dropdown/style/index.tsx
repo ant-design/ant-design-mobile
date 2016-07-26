@@ -10,11 +10,7 @@ export default StyleSheet.create({
   },
   content: {
     backgroundColor: 'white',
-<<<<<<< HEAD
     paddingTop: 5 * variables.grid,
-=======
-    paddingTop: 20,
->>>>>>> 5ce0890cc32bcd93f5d375a79d126355d1a64e48
   },
   mask: {
     position: 'absolute',
