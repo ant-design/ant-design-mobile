@@ -113,7 +113,7 @@ export default class Header extends React.Component {
               type="menu"
             />
             <Link to="/" id="logo">
-              <img alt="logo" src="https://os.alipayobjects.com/rmsportal/aPhSgPnBnqpOswb.svg" />
+              <img alt="logo" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" />
               <span>ANT DESIGN | MOBILE</span>
             </Link>
           </Col>

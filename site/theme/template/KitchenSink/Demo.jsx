@@ -184,14 +184,14 @@ export default class Home extends React.Component {
 
     return (
       <div id={name}>
-        {
+        {/*
         !customNavFlag &&
           <span style={{ position: 'fixed', zIndex: 9999, top: 0, left: 100, color: '#999' }}
             onClick={() => this.setState({ hideNavBar: !this.state.hideNavBar })}
           >
             {this.state.hideNavBar ? '⬇️' : '⬆️'}
           </span>
-        }
+        */}
 
         <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0,
           display: this.state.hideNavBar ? 'none' : 'block' }}
