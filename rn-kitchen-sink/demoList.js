@@ -1,6 +1,12 @@
 module.exports = {
   APIS: [
     {
+      title: 'Dropdown', // 必须
+      description: 'Dropdown Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/PMIYKpJIhmqwyXI.png',
+      module: require('../components/dropdown/demo/basic'), // 必须
+    },
+    {
       title: 'Toast', // 必须
       description: 'Toast Example',
       icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
@@ -55,12 +61,6 @@ module.exports = {
       description: 'Drawer Example',
       icon: 'https://os.alipayobjects.com/rmsportal/kpbezGjgdRhGfMa.png',
       module: require('../components/drawer/demo/basic'), // 必须
-    },
-    {
-      title: 'Dropdown', // 必须
-      description: 'Dropdown Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/PMIYKpJIhmqwyXI.png',
-      module: require('../components/dropdown/demo/basic'), // 必须
     },
     {
       title: 'Flex', // 必须
