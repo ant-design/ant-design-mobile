@@ -3,11 +3,9 @@ import {
   StyleSheet,
   View,
   Text,
-  StatusBar,
   ListView,
   TextInput,
   TouchableHighlight,
-  Dimensions,
   Image,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
@@ -64,13 +62,13 @@ export default class RnIndex extends React.Component {
       <View key={i}>
         <TouchableHighlight onPress={() => this.onPressRow(rowData)}>
           <View style={styles.row}>
-            <Image style={styles.image} source={{uri: icon}} />
-            <View style={{flex: 1}}>
+            <Image style={styles.image} source={{ uri: icon }} />
+            <View style={{ flex: 1 }}>
               <Text style={styles.rowTitleText}>
-                    {rowData.title}
+                {rowData.title}
               </Text>
               <Text style={styles.rowDetailText}>
-                    {rowData.description}
+                {rowData.description}
               </Text>
             </View>
           </View>
@@ -82,7 +80,7 @@ export default class RnIndex extends React.Component {
   _renderSectionHeader(sectionData, sectionID) {
     return (
       <Text style={styles.sectionHeader}>
-            {sectionID.toUpperCase()}
+        {sectionID.toUpperCase()}
       </Text>
     );
   }
@@ -115,12 +113,12 @@ export default class RnIndex extends React.Component {
         </View>
         <ListView
           style={styles.list}
-          enableEmptySections={true}
+          enableEmptySections
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}
           renderSectionHeader={this._renderSectionHeader}
           renderSeparator={this._renderSeperator}
-          keyboardShouldPersistTaps={true}
+          keyboardShouldPersistTaps
           automaticallyAdjustContentInsets={false}
           keyboardDismissMode="on-drag"
         />
@@ -136,21 +134,20 @@ const styles = StyleSheet.create({
   searchRow: {
     backgroundColor: '#eeeeee',
     paddingTop: 75,
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingHorizontal: 10,
     paddingBottom: 10,
   },
   searchTextInput: {
-    height: 32,
+    height: 36,
     backgroundColor: 'white',
     borderColor: '#cccccc',
     borderRadius: 3,
     borderWidth: 1,
-    paddingLeft: 8
+    paddingLeft: 8,
   },
   list: {
     backgroundColor: '#eeeeee',
-    height: Dimensions.get('window').height - 117
+    flex: 1,
   },
   sectionHeader: {
     padding: 5,
@@ -163,7 +160,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 15,
     paddingVertical: 8,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   image: {
     width: 28,

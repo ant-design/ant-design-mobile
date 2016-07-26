@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: 'white',
-  }
+  },
 });
 
 class AntmRnApp extends React.Component {
@@ -55,7 +55,7 @@ class AntmRnApp extends React.Component {
               </ScrollView>
             </View>
           );
-        }
+        },
       });
       if (component.module.title === 'Drawer') {
         // drawer 不能放到 ScrollView 里
@@ -66,14 +66,14 @@ class AntmRnApp extends React.Component {
                 <Module onNavigate={this.props.onNavigate} navigationState={this.props.navigationState} />
               </View>
             );
-          }
+          },
         });
         const DrawerMainComponent = React.createClass({
           render() {
             return (
               <component.module.DrawerMain drawerComponent={Module} />
             );
-          }
+          },
         });
         return (
           <Scene key={component.title} component={Component} title={component.title}>
