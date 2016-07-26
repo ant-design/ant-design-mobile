@@ -39,12 +39,15 @@ function createActionSheet(flag, config, callback) {
   }
 
   const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = props;
+  const titleMsg = [
+    title ? <h3 key="0" className={`${prefixCls}-title`}>{title}</h3> : null,
+    message ? <div key="1" className={`${prefixCls}-message`}>{message}</div> : null,
+  ];
   let children = null;
   switch (flag) {
     case NORMAL:
       children = (<div className={`${prefixCls}-normal`}>
-        <h3 className={`${prefixCls}-title`}>{title}</h3>
-        <div className={`${prefixCls}-message`}>{message}</div>
+        {titleMsg}
         <ul className={`${prefixCls}-button-list`}>
           {options.map((item, index) => {
             const extraProp = {
@@ -56,7 +59,10 @@ function createActionSheet(flag, config, callback) {
               [`${prefixCls}-cancel-button`]: cancelButtonIndex === index,
             };
             if (cancelButtonIndex === index || destructiveButtonIndex === index) {
-              li = <li key={index} className={classNames(cls)} {...extraProp}>{item}</li>;
+              li = (<li key={index} className={classNames(cls) } {...extraProp}>
+                {item}
+                {cancelButtonIndex === index ? <span className={`${prefixCls}-cancel-button-mask`}></span> : null}
+              </li>);
             }
             return li;
           })}
@@ -65,8 +71,7 @@ function createActionSheet(flag, config, callback) {
       break;
     case SHARE:
       children = (<div className={`${prefixCls}-share`}>
-        <h3 className={`${prefixCls}-title`}>{title}</h3>
-        <div className={`${prefixCls}-message`}>{message}</div>
+        {titleMsg}
         <ul className={`${prefixCls}-share-content`}>
         {options.map((item, index) => {
           const extraProp = {
@@ -84,8 +89,7 @@ function createActionSheet(flag, config, callback) {
       break;
     default:
       children = (<div className={`${prefixCls}-custom`}>
-        <h3 className={`${prefixCls}-title`}>{title}</h3>
-        <div className={`${prefixCls}-message`}>{message}</div>
+        {titleMsg}
         <div className={`${prefixCls}-custom-content`}>
           {props.component}
         </div>

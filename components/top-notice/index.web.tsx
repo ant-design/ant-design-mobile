@@ -3,7 +3,7 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
-import TopNoticeProps from './topNoticePropsType';
+import TopNoticeProps from './TopNoticePropsType';
 
 export default class TopNotice extends React.Component<TopNoticeProps, any> {
   static propTypes = {

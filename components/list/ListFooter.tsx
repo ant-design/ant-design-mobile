@@ -1,14 +1,13 @@
-import { PropTypes } from 'react';
 import * as React from 'react';
 import { Text } from 'react-native';
 import theme from './style/index';
 const THEMES = theme.ThemesList;
 
-export default class Footer extends React.Component {
-  static propTypes = {
-    align: PropTypes.oneOf(['left', 'middle', 'right']),
-  };
+export interface FooterProps {
+  align?: 'left' | 'middle' | 'right';
+}
 
+export default class Footer extends React.Component<FooterProps, any> {
   static defaultProps = {
     align: 'left',
   };

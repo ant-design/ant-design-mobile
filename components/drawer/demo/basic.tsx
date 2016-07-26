@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import { Drawer, List, Button } from 'antm';
 import { DefaultRenderer } from 'react-native-router-flux';

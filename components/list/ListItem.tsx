@@ -125,7 +125,8 @@ export default class Item extends React.Component<any, any> {
           activeOpacity={1}
           underlayColor={THEMES.underlayColor}
           onPress={this.props.onClick}
-          onPressIn={() => {}} onPressOut={() => {}}
+          onPressIn={() => {}}
+          onPressOut={() => {}}
         >
           {itemView}
         </TouchableHighlight>

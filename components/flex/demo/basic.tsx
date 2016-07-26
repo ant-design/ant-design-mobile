@@ -1,5 +1,5 @@
 import { Button, Flex, WingBlank, WhiteSpace } from 'antm';
-import React from 'react';
+import * as React from 'react';
 import { View, Text } from 'react-native';
 
 const Circle = React.createClass({

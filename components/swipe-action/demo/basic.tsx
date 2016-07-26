@@ -6,7 +6,7 @@ import { SwipeAction, List } from 'antm';
 export default class BasicSwipeActionExample extends React.Component<any, any> {
   render() {
     return (
-      <View style={{ paddingTop: 30 }}>
+      <View style={{ paddingTop: 80 }}>
         <List>
           <List.Body>
             <SwipeAction
@@ -39,7 +39,7 @@ export default class BasicSwipeActionExample extends React.Component<any, any> {
               onOpen={ () => console.log('open') }
               onClose={ () => console.log('close') }
             >
-              <List.Item extra="额外参数">
+              <List.Item extra="额外参数" last>
                 简单例子 - 左右都可操作
               </List.Item>
             </SwipeAction>

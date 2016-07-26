@@ -1,63 +1,107 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
-import { View, Modal, TouchableWithoutFeedback, Animated, Dimensions } from 'react-native';
-import tsPropsType from './PropsType';
-// import splitObject from '../_util/splitObject';
+import {
+  View,
+  Modal,
+  TouchableWithoutFeedback,
+  Animated,
+  Dimensions,
+  DeviceEventEmitter,
+} from 'react-native';
 import styles from './style/index';
+import topView from 'rn-topview';
 
-export default class Dropdown extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    children: PropTypes.any,
-  };
+const WIN_HEIGHT = Dimensions.get('window').height;
+
+export interface DropdownProps {
+  children: any;
+  maskClosable?: boolean;
+}
+
+class Dropdown extends React.Component<DropdownProps, any> {
   static defaultProps = {
-    visible: false,
     maskClosable: true,
-    onShow: () => { },
-    onClose: () => { },
   };
   constructor(props) {
     super(props);
     this.state = {
-      visible: props.visible,
       translateY: new Animated.Value(0),
     };
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.visible !== this.state.visible) {
-      this.setState({
-        visible: nextProps.visible,
-      });
-    }
+
+  componentWillMount() {
+    DeviceEventEmitter.addListener('dropdownHide', () => {
+      this.animatedHide();
+    });
   }
-  componentDidUpdate() {
-    this.state.translateY.setValue(-Dimensions.get('window').height);
+
+  componentDidMount() {
+    this.state.translateY.setValue(-WIN_HEIGHT);
     Animated.timing(this.state.translateY, {
       duration: 200,
       toValue: 0,
       delay: 5,
     }).start();
   }
+
+  componentWillUnmount() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    DeviceEventEmitter.removeAllListeners('dropdownHide');
+  }
+
+  onMaskClose = () => {
+    if (this.props.maskClosable) {
+      this.animatedHide();
+    }
+  }
+
+  animatedHide() {
+    this.state.translateY.setValue(0);
+    Animated.timing(this.state.translateY, {
+      duration: 200,
+      toValue: -WIN_HEIGHT,
+      delay: 5,
+    }).start();
+    this.timer = setTimeout(() => {
+      topView.remove();
+    }, 205);
+  }
+
   render() {
-    const { children, onShow, onClose, maskClosable } = this.props;
     return (
-      <Modal
-        animationType={'none'}
-        transparent={true}
-        visible={this.state.visible}
-        onShow={onShow}
-        onRequestClose={onClose}
-      >
-        <Animated.View style={[styles.container, {
-          transform: [
-            { translateY: this.state.translateY },
-          ],
-        }]}>
-          {maskClosable ? <TouchableWithoutFeedback onPress={onClose}>
-                <View style={[styles.maskClosable]}></View>
-              </TouchableWithoutFeedback> : null}
-          {children}
-        </Animated.View>
-      </Modal>
+      <View style={styles.wrap}>
+        <Modal
+          animationType={'none'}
+          transparent
+          visible
+          onRequestClose={() => {}}
+        >
+          <TouchableWithoutFeedback onPress={this.onMaskClose}>
+            <View style={styles.mask}></View>
+          </TouchableWithoutFeedback>
+          <Animated.View style={[styles.content, {
+            transform: [
+              { translateY: this.state.translateY },
+            ],
+          }]}>
+            {this.props.children}
+          </Animated.View>
+        </Modal>
+      </View>
     );
   }
 }
+
+export default {
+  show(content, options) {
+    topView.set(
+      <Dropdown maskClosable={options.maskClosable}>
+        {content}
+      </Dropdown>
+    );
+  },
+  hide() {
+    DeviceEventEmitter.emit('dropdownHide');
+  },
+};

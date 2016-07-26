@@ -1,9 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import {
-  Dimensions,
   StyleSheet,
   View,
-  Text,
   WebView,
   Modal,
   ActivityIndicator,
@@ -15,12 +13,11 @@ export default class WebIndex extends React.Component {
     super(props);
     this.state = {
       visible: true,
-      error: false
+      error: false,
     };
-    this.onLoadEnd = this.onLoadEnd.bind(this);
   }
 
-  onLoadEnd() {
+  onLoadEnd = () => {
     this.setState({
       visible: false,
     });
@@ -28,13 +25,13 @@ export default class WebIndex extends React.Component {
 
   render() {
     return (
-      <View style={{marginTop: Platform.OS === 'ios' ? 64 : 44, flex: 1}}>
+      <View style={styles.container}>
         <WebView
           style={styles.webView}
           ref="webview"
           onLoadEnd={this.onLoadEnd}
           automaticallyAdjustContentInsets={false}
-          source={{uri: 'http://antm.alipay.net/kitchen-sink.html'}}
+          source={{ uri: 'http://antm.alipay.net/kitchen-sink.html' }}
         />
         <Modal
           animationType={'none'}
@@ -56,23 +53,22 @@ export default class WebIndex extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    flex: 1,
+    ...Platform.select({
+      ios: {
+        marginTop: 64,
+      },
+      android: {
+        marginTop: 44,
+      },
+    }),
   },
   webView: {
-    height: Dimensions.get('window').height - 64
-  },
-  actions: {
     flex: 1,
-    height: 30,
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  action: {
-    alignSelf: 'center'
   },
   loading: {
     marginTop: 64,
-    height: Dimensions.get('window').height - 64,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import { View } from 'react-native';
 import theme from './style/index';
 const THEMES = theme.ThemesList;
@@ -8,11 +7,11 @@ function makeArray(array) {
   return array.length == null ? [array] : array;
 }
 
-export default class Body extends React.Component {
-  static propTypes = {
-    error: PropTypes.bool,
-  };
+export interface ListBodyProps {
+  error?: boolean;
+}
 
+export default class Body extends React.Component<ListBodyProps, any> {
   render() {
     const { error, style, children } = this.props;
     const childrenArray = makeArray(children);

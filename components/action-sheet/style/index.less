@@ -41,18 +41,21 @@
   & &-cancel-button {
     margin-top: 2 * @grid;
     position: relative;
-    &::before {
-      content: ' ';
-      border: none;
-    }
-    &::after {
-      content: ' ';
+    // &::before {
+    //   content: ' ';
+    //   border: none;
+    // }
+    // &::after {
+    //   content: ' ';
+    // }
+    &-mask {
       position: absolute;
       top: -2 * @grid;
       left: 0;
       width: 100%;
       height: 2 * @grid;
       background-color: #F7F7F7;
+      .hairline-top(@neutral-5);
     }
   }
   &-destructive-button {

@@ -54,7 +54,6 @@ const UploaderExample = React.createClass({
               files2,
             });
           }}
-          maxUpload={4}
           files={this.state.files2}
         />
       </div>

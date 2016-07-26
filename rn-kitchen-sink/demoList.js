@@ -1,6 +1,12 @@
 module.exports = {
   APIS: [
     {
+      title: 'Dropdown', // 必须
+      description: 'Dropdown Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/PMIYKpJIhmqwyXI.png',
+      module: require('../components/dropdown/demo/basic'), // 必须
+    },
+    {
       title: 'Toast', // 必须
       description: 'Toast Example',
       icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
@@ -39,6 +45,12 @@ module.exports = {
       module: require('../components/card/demo/basic'), // 必须
     },
     {
+      title: 'Checkbox', // 必须
+      description: 'Checkbox Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
+      module: require('../components/checkbox/demo/basic'), // 必须
+    },
+    {
       title: 'DatePicker', // 必须
       description: 'DatePicker Example',
       icon: 'https://os.alipayobjects.com/rmsportal/XjBSEKVWMeIulGv.png',
@@ -51,12 +63,6 @@ module.exports = {
       module: require('../components/drawer/demo/basic'), // 必须
     },
     {
-      title: 'Dropdown', // 必须
-      description: 'Dropdown Example',
-      icon: 'https://os.alipayobjects.com/rmsportal/PMIYKpJIhmqwyXI.png',
-      module: require('../components/dropdown/demo/basic'), // 必须
-    },
-    {
       title: 'Flex', // 必须
       description: 'Flex Example',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
@@ -67,6 +73,12 @@ module.exports = {
       description: 'FloatMenu Example',
       icon: 'https://os.alipayobjects.com/rmsportal/HhilRXHawmUwlML.png',
       module: require('../components/float-menu/demo/basic'), // 必须
+    },
+    {
+      title: 'InputItem', // 必须
+      description: 'InputItem Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
+      module: require('../components/input-item/demo/basic'), // 必须
     },
     {
       title: 'List', // 必须
@@ -151,6 +163,12 @@ module.exports = {
       description: 'TopNotice Example',
       icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
       module: require('../components/top-notice/demo/basic'), // 必须
+    },
+    {
+      title: 'Uploader', // 必须
+      description: 'Uploader Example',
+      icon: 'https://os.alipayobjects.com/rmsportal/CVHyVxhFqkhZfYs.png',
+      module: require('../components/uploader/demo/basic'), // 必须
     },
     {
       title: 'WhiteSpace', // 必须
