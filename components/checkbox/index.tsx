@@ -2,12 +2,12 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import CheckboxStyle from './style/index';
-import List from '../list/index';
+import ListItem from '../list/ListItem';
 import ListStyle from '../list/style/index';
 import CheckboxItem from './CheckboxItem';
 import CheckboxProps from './CheckboxPropsType';
 
-export default class Checkbox extends List.Item<CheckboxProps, any> {
+export default class Checkbox extends ListItem<CheckboxProps, any> {
   static propTypes = {
     disabled: PropTypes.bool,
     checked: PropTypes.bool,
@@ -59,7 +59,7 @@ export default class Checkbox extends List.Item<CheckboxProps, any> {
       const itemStyle = [ListStyle.ThemesList.Item,
         props.last ? ListStyle.ThemesList.Last.Item : {},
         props.style];
-      let labelDom = [];
+      let labelDom;
       if (props.children) {
         labelDom = <Text style={CheckboxStyle.CheckboxItem.Label}>{props.children}</Text>;
       }
