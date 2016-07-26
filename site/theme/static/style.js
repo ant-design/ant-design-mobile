@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css';
 import './common.less';
 import './header.less';
 import './footer.less';
@@ -16,4 +17,3 @@ import './colors.less';
 import './mock-browser.less';
 import './new-version-info-modal.less';
 import './motion.less';
-import 'antd/dist/antd.css';

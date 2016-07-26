@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Menu } from 'antd';
+import { Menu, Row, Col } from 'antd';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
@@ -125,9 +125,6 @@ export default class MainContent extends React.Component {
 
   render() {
     const props = this.props;
-    // console.log('~~~~~~~~~~~')
-    // console.log(props)
-    // console.log('~~~~~~~~~~~')
     const activeMenuItem = this.getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
@@ -140,36 +137,42 @@ export default class MainContent extends React.Component {
 
     return (
       <div className="main-wrapper">
-
-        <div style={{ width: 240, float: 'left', marginRight: '-1px' }}>
-          <Menu className="aside-container" mode="inline"
-            defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
-            selectedKeys={[activeMenuItem]}
+        <Row>
+          <Col lg={5} md={6} sm={24} xs={24}>
+            <Menu className="aside-container" mode="inline"
+              defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
+              selectedKeys={[activeMenuItem]}
+            >
+              {menuItems}
+            </Menu>
+          </Col>
+          <Col lg={19} md={18} sm={24} xs={24} className="main-container">
+            {
+              props.utils.get(props, 'pageData.demo') ?
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
+                <Article {...props} content={localizedPageData} />
+            }
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={{ span: 19, offset: 5 }}
+            md={{ span: 18, offset: 6 }}
+            sm={24} xs={24}
           >
-            {menuItems}
-          </Menu>
-        </div>
-        <div className="main-container">
-          {
-            props.utils.get(props, 'pageData.demo') ?
-              <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
-              <Article {...props} content={localizedPageData} />
-          }
-        </div>
-        <section className="prev-next-nav">
-          <div className="prev-next-nav-wrap">
-            {
-              !!prev ?
-                React.cloneElement(prev.props.children, { className: 'prev-page' }) :
-                null
-            }
-            {
-              !!next ?
-                React.cloneElement(next.props.children, { className: 'next-page' }) :
-                null
-            }
-          </div>
-        </section>
+            <section className="prev-next-nav">
+              {
+                !!prev ?
+                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                  null
+              }
+              {
+                !!next ?
+                  React.cloneElement(next.props.children, { className: 'next-page' }) :
+                  null
+              }
+            </section>
+          </Col>
+        </Row>
       </div>
     );
   }
