@@ -113,7 +113,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
         <TouchableWithoutFeedback onPress={this.onErrorClick}>
           <View style={[TextAreaItemStyle.errorIcon]}>
             <Image
-              source={{ uri: 'https://zos.alipayobjects.com/rmsportal/ginyKmmfHfKAXze.png' }}
+              source={require('./images/error.png')}
               style={{ width: 16, height:16 }}
             />
           </View>

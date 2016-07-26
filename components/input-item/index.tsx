@@ -138,18 +138,9 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           placeholder={placeholder}
           autoCorrect={false}
           secureTextEntry={format === 'password'}
+          clearButtonMode = {clear ? 'while-editing' : 'never'}
           editable={editable}
         />
-        {clear && editable && value.length > 0 ? <TouchableWithoutFeedback
-          onPress={() => { this.props.onChange(''); }}
-        >
-          <View style={[InputItemStyle.clearIcon]}>
-            <Image
-              source={{ uri: 'https://zos.alipayobjects.com/rmsportal/WvpyGwPbGnTLdKd.png' }}
-              style={{ width: 16, height: 16 }}
-            />
-          </View>
-        </TouchableWithoutFeedback> : null}
         {extra ? <TouchableWithoutFeedback
           onPress={() => { this.props.onExtraPress(); }}
         >
@@ -164,7 +155,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           >
             <View style={[InputItemStyle.errorIcon]}>
               <Image
-                source={{ uri: 'https://zos.alipayobjects.com/rmsportal/ginyKmmfHfKAXze.png' }}
+                source={require('./images/error.png')}
                 style={{ width: 16, height: 16 }}
               />
             </View>

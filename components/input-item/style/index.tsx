@@ -23,11 +23,6 @@ export default {
     fontSize: variables.font_size_5,
 
   },
-  clearIcon: {
-    width: 16,
-    height: 16,
-    marginLeft: variables.grid,
-  },
   extra: {
     marginLeft: variables.grid,
     fontSize: variables.font_size_4,

@@ -186,7 +186,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
           />
         </div>
         {clear && editable && value.length > 0 ?
-          <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
+          <div className={`${prefixCls}-clear`} onClick={() => this.props.onChange('')} />
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
         {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
