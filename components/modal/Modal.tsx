@@ -68,7 +68,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     );
 
     let showModal = this.state.visible;
-    const animationType = animated ? (transparent ? 'fade' : 'slide') : 'none';
+    const animationType: 'fade' | 'slide' | 'none' = animated ? (transparent ? 'fade' : 'slide') : 'none';
     const innerStyle = transparent ? {backgroundColor: 'white'} : {backgroundColor: 'transparent'};
 
     return (
