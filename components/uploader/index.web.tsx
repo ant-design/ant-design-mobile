@@ -1,6 +1,5 @@
 /* tslint:disable:no-bitwise */
 import * as React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';
@@ -10,12 +9,6 @@ import UploaderProps from './UploaderPropTypes';
 function noop() { }
 
 export default class Uploader extends React.Component<UploaderProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    files: PropTypes.array,
-    onChange: PropTypes.func,
-  };
-
   static defaultProps = {
     prefixCls: 'am-uploader',
     files: [],
@@ -29,7 +22,7 @@ export default class Uploader extends React.Component<UploaderProps, any> {
     } else {
       const reader = new FileReader();
       reader.onload = (e) => {
-        const view = new DataView(e.target.result);
+        const view = new DataView((e.target as any).result);
         if (view.getUint16(0, false) !== 0xFFD8) {
           return callback(-2);
         }
@@ -80,12 +73,12 @@ export default class Uploader extends React.Component<UploaderProps, any> {
   };
 
   onFileChange = () => {
-    const fileSelectorEl = this.refs.fileSelectorInput;
+    const fileSelectorEl = (this.refs as any).fileSelectorInput;
     if (fileSelectorEl.files && fileSelectorEl.files.length) {
       const file = fileSelectorEl.files[0];
       const reader = new FileReader();
       reader.onload = (e) => {
-        const dataURL = e.target.result;
+        const dataURL = (e.target as any).result;
         if (!dataURL) {
           Toast.fail('图片获取失败');
           return;
@@ -125,7 +118,7 @@ export default class Uploader extends React.Component<UploaderProps, any> {
       width: `${customWidth - 2}px`,
       height: `${customWidth - 2}px`,
     };
-    files.forEach((image, index) => {
+    files.forEach((image: any, index: number) => {
       imgItemList.push(
         <div key={index} className={`${prefixCls}-item`} style={itemStyle}>
           <div className={`${prefixCls}-item-remove`} onClick={this.removeImage.bind(this, index)} />

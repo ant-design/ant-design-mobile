@@ -1,17 +1,10 @@
 /* tslint:disable:no-switch-case-fall-through */
-import { PropTypes } from 'react';
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import TopNoticeProps from './TopNoticePropsType';
 
 export default class TopNotice extends React.Component<TopNoticeProps, any> {
-  static propTypes = {
-    mode: PropTypes.string,
-    onClick: PropTypes.func,
-    type: PropTypes.string,
-  };
-
   static defaultProps = {
     prefixCls: 'am-top-notice',
     mode: '',

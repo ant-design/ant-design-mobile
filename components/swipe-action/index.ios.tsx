@@ -2,7 +2,6 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import Swipeout from 'rc-swipeout/lib/Swipeout';
 import SwipeActionProps from './SwipeActionPropsType';
-import splitObject from '../_util/splitObject';
 
 class SwipeAction extends React.Component<SwipeActionProps, any> {
   static propTypes = {
@@ -26,10 +25,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
   };
 
   render() {
-    let [{ left, right, autoClose, disabled, onOpen, onClose, children }, restProps] = splitObject(
-      this.props,
-      ['left', 'right', 'autoClose', 'disabled', 'onOpen', 'onClose', 'children']
-    );
+    const { left, right, autoClose, disabled, onOpen, onClose, children } = this.props;
     return (
       <Swipeout
         left={left}
@@ -38,7 +34,6 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
         disabled={disabled}
         onOpen={onOpen}
         onClose={onClose}
-        {...restProps}
       >
         {children}
       </Swipeout>

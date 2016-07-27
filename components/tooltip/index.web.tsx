@@ -1,7 +1,5 @@
-import { PropTypes } from 'react';
 import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
-import splitObject from '../_util/splitObject';
 
 export interface TooltipProps {
   prefixCls?: string;
@@ -9,16 +7,10 @@ export interface TooltipProps {
   title?: any;
   visible?: boolean;
   onVisibleChange: (visible: boolean) => void;
+  overlay?: any;
 }
 
 export default class Tooltip extends React.Component<TooltipProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    placement: PropTypes.string,
-    title: PropTypes.node,
-    onVisibleChange: PropTypes.func,
-  };
-
   static defaultProps = {
     prefixCls: 'am-tooltip',
     placement: 'bootomLeft',
@@ -38,9 +30,12 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   render() {
-    let[{ children, prefixCls, overlay, title }, restProps] = splitObject(
-      this.props, ['children', 'prefixCls', 'overlay', 'title']
-    );
+    const {
+      children,
+      prefixCls,
+      title,
+      overlay,
+    } = this.props;
 
     // Hide tooltip when there is no title
     let visible = this.state.visible;
@@ -51,14 +46,21 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       visible = this.props.visible;
     }
 
+    const restProps = Object.assign({}, this.props);
+    ['prefixCls', 'overlay', 'visible', 'trigger', 'onVisibleChange', 'children'].forEach(prop => {
+      if (restProps.hasOwnProperty(prop)) {
+        delete restProps[prop];
+      }
+    });
+
     return (
       <RcTooltip
         prefixCls={prefixCls}
         overlay={title}
         visible={visible}
         trigger={['click']}
-        {...restProps}
         onVisibleChange={this.onVisibleChange}
+        {...restProps}
       >
         {children}
       </RcTooltip>

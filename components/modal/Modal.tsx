@@ -1,24 +1,9 @@
-import { PropTypes } from 'react';
 import * as React from 'react';
 import { View, Text, Modal, TouchableWithoutFeedback } from 'react-native';
-import splitObject from '../_util/splitObject';
 import modalStyle from './style/index';
 import ModalPropsType from './ModalPropsType';
 
 class AntmModal extends React.Component<ModalPropsType, any> {
-  static propTypes = {
-    title: PropTypes.string,
-    visible: PropTypes.bool,
-    closable: PropTypes.bool,
-    maskClosable: PropTypes.bool,
-    footer: PropTypes.node,
-    onClose: PropTypes.func,
-    onShow: PropTypes.func,
-    animated: PropTypes.bool,
-    transparent: PropTypes.bool,
-    style: PropTypes.object,
-  };
-
   static defaultProps = {
     visible: false,
     closable: false,
@@ -59,13 +44,9 @@ class AntmModal extends React.Component<ModalPropsType, any> {
   }
 
   render() {
-    let [
-      { title, closable, maskClosable, footer, animated, onShow, transparent, children, style },
-      restProps,
-    ] = splitObject(
-      this.props,
-      ['title', 'closable', 'maskClosable', 'footer', 'animated', 'onShow', 'transparent', 'children', 'style']
-    );
+    const {
+      title, closable, maskClosable, footer, animated, onShow, transparent, children, style,
+    } = this.props;
 
     let showModal = this.state.visible;
     const animationType: 'fade' | 'slide' | 'none' = animated ? (transparent ? 'fade' : 'slide') : 'none';
@@ -96,7 +77,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
               </View>
             </View>
           ) : (
-            <View style={style} {...restProps}>
+            <View style={style}>
               {children}
             </View>
           )

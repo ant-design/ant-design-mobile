@@ -5,6 +5,12 @@ import Modal from '../modal';
 import SwipeActionProps from './SwipeActionPropsType';
 import SwipeStyle from './style/index';
 
+export interface ButtonProps {
+  text?: string;
+  onPress?: () => void;
+  style?: {};
+}
+
 class SwipeAction extends React.Component<SwipeActionProps, any> {
   static propTypes = {
     autoClose: PropTypes.bool,
@@ -69,7 +75,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     return (
       <View style={[SwipeStyle.actions]}>
         {
-          actions.map((btn, i) => {
+          actions.map((btn: ButtonProps, i: number) => {
             return (
               <View key={i} style={[SwipeStyle.buttonWrap]}>
                 <TouchableOpacity onPress={() => {this.onAndroidBtnClick(btn);}}>

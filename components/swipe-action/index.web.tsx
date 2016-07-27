@@ -2,9 +2,15 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import Swipeout from 'rc-swipeout';
 import Hammer from 'react-hammerjs';
+import classNames from 'classnames';
 import Modal from '../modal';
 import SwipeActionProps from './SwipeActionPropsType';
-import splitObject from '../_util/splitObject';
+
+export interface ButtonProps {
+  text?: string;
+  onPress?: () => void;
+  style?: {};
+}
 
 class SwipeAction extends React.Component<SwipeActionProps, any> {
   static propTypes = {
@@ -110,7 +116,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     return (
       <ul className={`${prefixCls}-android-actions`}>
         {
-          actions.map((btn, i) => {
+          actions.map((btn: ButtonProps, i: number) => {
             return (
               <li key={i}
                 className={`${prefixCls}-android-btn`}
@@ -126,13 +132,17 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
   }
 
   render() {
-    let [{prefixCls, left, right, autoClose, disabled, onOpen, onClose, children}, restProps] = splitObject(
-      this.props,
-      ['prefixCls', 'left', 'right', 'autoClose', 'disabled', 'onOpen', 'onClose', 'children']
-    );
+    const {
+      className, prefixCls, left, right, autoClose, disabled, onOpen, onClose, children,
+    } = this.props;
     const isAndroid = !!navigator.userAgent.match(/Android/i);
+    const wrapClass = classNames({
+      [`${prefixCls}`]: 1,
+      [className]: !!className,
+    });
+
     return (left.length || right.length) ? (
-      <div className={`${prefixCls}`} {...restProps}>
+      <div className={wrapClass}>
         {
           isAndroid ? this.renderAndroid() : (
             <Swipeout
@@ -150,7 +160,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
         }
       </div>
     ) : (
-      <div {...restProps}>{children}</div>
+      <div className={wrapClass}>{children}</div>
     );
   }
 }

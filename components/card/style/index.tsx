@@ -50,7 +50,6 @@ export default StyleSheet.create({
     color: variables.neutral_7,
   },
   footerExtra: {
-    flex: 1,
     textAlign: 'right',
     fontSize: variables.font_size_2,
     color: variables.neutral_7,

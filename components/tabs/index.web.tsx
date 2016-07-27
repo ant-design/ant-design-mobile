@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import RcTabs from 'rc-tabs';
-import splitObject from '../_util/splitObject';
 
 export interface TabsProps {
   type?: 'line' | 'capsule' | 'tabbar';
@@ -12,21 +10,15 @@ export interface TabsProps {
   onTabClick?: () => void;
   animation?: string | boolean;
   mode?: 'dark' | 'light';
+  className?: string;
+  prefixCls?: string;
+  tabPosition?: string;
+  transitionName?: string;
+  tabBarExtraContent?: any;
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
-  static TabPane = RcTabs.TabPane;
-
-  static propTypes = {
-    type: PropTypes.oneOf(['line', 'capsule', 'tabbar']),
-    activeKey: PropTypes.string,
-    defaultActiveKey: PropTypes.string,
-    onChange: PropTypes.func,
-    onTabClick: PropTypes.func,
-    animation: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    mode: PropTypes.oneOf(['dark', 'light']),
-  };
-
+  static TabPane = (RcTabs as any).TabPane;
   static defaultProps = {
     prefixCls: 'am-tab',
     animation: 'slide-horizontal',
@@ -37,31 +29,31 @@ export default class Tabs extends React.Component<TabsProps, any> {
   };
 
   render() {
-    let [
-      {className, prefixCls, type, children, onChange, onTabClick, tabPosition, animation, mode},
-      restProps,
-    ] = splitObject(
-      this.props,
-      ['className', 'prefixCls', 'type', 'children', 'onChange', 'onTabClick', 'tabPosition', 'animation', 'mode']
-    );
-
+    const { className, prefixCls, type, children, animation, mode, tabPosition } = this.props;
     let cls = classNames({
       [className]: !!className,
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-${mode}`]: type === 'tabbar',
     });
 
-    tabPosition = type !== 'tabbar' ? tabPosition : 'bottom';
-    animation = (type === 'tabbar' || !animation) ? '' : animation;
+    const position = type !== 'tabbar' ? tabPosition : 'bottom';
+    const anim = (type === 'tabbar' || !animation) ? '' : animation;
+
+    const restProps = Object.assign({}, this.props);
+    ['className', 'prefixCls', 'type', 'animation', 'mode', 'tabPosition', 'children'].forEach(prop => {
+      if (restProps.hasOwnProperty(prop)) {
+        delete restProps[prop];
+      }
+    });
 
     return (
-      <RcTabs {...restProps}
+      <RcTabs
         prefixCls={prefixCls}
         className={cls}
-        onChange={onChange}
-        tabPosition={tabPosition}
-        animation = {animation}
-        onTabClick={onTabClick}>
+        tabPosition={position}
+        animation = {anim}
+        {...restProps}
+      >
         {children}
       </RcTabs>
     );

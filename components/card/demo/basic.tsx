@@ -18,7 +18,7 @@ export default class BasicCardExample extends React.Component<any, any> {
               <Text style={{ marginLeft: 16 }}>这是卡片内容</Text>
             </View>
           </Card.Body>
-          <Card.Footer content={<Text style={{fontSize: 12, color: '#999'}}>这是卡尾</Text>} extra="这是尾部介绍" />
+          <Card.Footer content={<Text style={{ fontSize: 12, color: '#999' }}>这是卡尾</Text>} extra="这是尾部介绍" />
         </Card>
       </View>
     );

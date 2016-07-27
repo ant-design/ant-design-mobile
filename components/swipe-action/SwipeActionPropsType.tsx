@@ -9,6 +9,7 @@ interface SwipeActionProps {
   style?: {};
   /** web only */
   prefixCls?: string;
+  className?: string;
   onClose?: () => void;
 }
 

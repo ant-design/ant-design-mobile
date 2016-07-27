@@ -1,17 +1,10 @@
 /* tslint:disable:no-switch-case-fall-through */
 import * as React from 'react';
-import { PropTypes } from 'react';
 import TopNoticeProps from './TopNoticePropsType';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import NoticeStyle from './style';
 
 export default class TopNotice extends React.Component<TopNoticeProps, any> {
-  static propTypes = {
-    mode: PropTypes.string,
-    onClick: PropTypes.func,
-    type: PropTypes.string,
-  };
-
   static defaultProps = {
     mode: '',
     onClick() {},

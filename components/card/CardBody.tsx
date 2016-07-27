@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import splitObject from '../_util/splitObject';
 import CardStyle from './style/index';
 
 export interface CardBodyProps {
@@ -14,12 +13,9 @@ export default class CardBody extends React.Component<CardBodyProps, any> {
   };
 
   render() {
-    let [{children, style}, restProps] = splitObject(
-      this.props, ['children', 'style']
-    );
-
+    let { children, style } = this.props;
     return (
-      <View style={[CardStyle.body, style]} {...restProps}>{children}</View>
+      <View style={[CardStyle.body, style]}>{children}</View>
     );
   }
 }
