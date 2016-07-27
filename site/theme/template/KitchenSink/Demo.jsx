@@ -17,6 +17,7 @@ export function collect(nextProps, callback) {
     /* eslint-enable new-cap */
   ];
 
+  // const componentName = nextProps.params.component;
   const componentName = nextProps.location.query.component;
   const demos = nextProps.utils.get(nextProps.data, ['components', componentName, 'demo']);
 

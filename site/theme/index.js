@@ -19,15 +19,30 @@ module.exports = {
     '0.6.x': 'http://06x.antm.alipay.net',
   },
   routes: {
-    '/': './template/Home/index',
-    '/docs/practice/:children': contentTmpl,
-    '/docs/pattern/:children': contentTmpl,
-    '/docs/react/:children': contentTmpl,
-    '/changelog': contentTmpl,
-    '/components/:children': contentTmpl,
-    '/kitchen-sink/:component': './template/KitchenSink/Demo',
-    '/kitchen-sink': './template/KitchenSink/index',
-    '/kitchen-sink/test': './template/Home/index',
-    '/mobile': './template/KitchenSink/Demo',
+    path: '/',
+    component: './template/Layout/index',
+    indexRoute: { component: './template/Home/index' },
+    childRoutes: [{
+      path: '/docs/practice/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/pattern/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/react/:children',
+      component: contentTmpl,
+    }, {
+      path: '/changelog',
+      component: contentTmpl,
+    }, {
+      path: '/components/:children',
+      component: contentTmpl,
+    }, {
+      path: '/kitchen-sink',
+      component: './template/KitchenSink/index', // p.s 这里需要隔离'./template/Layout/index'的影响
+    }, {
+      path: '/kitchen-sink/:component/:index',
+      component: './template/KitchenSink/Demo', // 同上
+    }],
   },
 };
