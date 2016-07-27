@@ -13,7 +13,7 @@ title: 尺寸/size、行内按钮/inline
 this.customNavFlag = true;
 
 
-import { Button, WingBlank, WhiteSpace, NavBar } from 'antd-mobile';
+import { Button, NavBar } from 'antd-mobile';
 
 const ButtonExample = React.createClass({
   getInitialState() {
@@ -27,7 +27,7 @@ const ButtonExample = React.createClass({
   render() {
     return (
       <div className="button-container"
-        style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
+        style={{ backgroundColor: this.state.dark ? 'black' : 'white', height: '100%' }}
       >
         <NavBar iconName={false} rightContent={<span
           style={{ cursor: 'pointer' }}
@@ -36,25 +36,25 @@ const ButtonExample = React.createClass({
         >
           尺寸/行内
         </NavBar>
-        <WhiteSpace size={32} />
-        <WingBlank>
-          <p className="demo-p">主按钮</p>
-          <WhiteSpace />
-          <Button type="primary">primary 按钮</Button>
-          <WhiteSpace />
-          <Button type="primary" inline>inline</Button>&nbsp;
-          <Button type="primary" size="small" inline>inline</Button>
-        </WingBlank>
-        <WhiteSpace size={32} />
-        <WingBlank>
-          <p className="demo-p">次按钮</p>
-          <WhiteSpace />
-          <Button>default 按钮</Button>
-          <WhiteSpace />
-          <Button inline>inline</Button>&nbsp;
-          <Button size="small" inline>inline</Button>
-        </WingBlank>
-        <WhiteSpace />
+        <div style={{ margin: '0 8px' }}>
+          <div style={{ margin: '32px 0' }}>
+            <p className="demo-p">主按钮</p>
+            <div style={{ height: 8 }} />
+            <Button type="primary">primary 按钮</Button>
+            <div style={{ height: 8 }} />
+            <Button type="primary" inline>inline</Button>&nbsp;
+            <Button type="primary" size="small" inline>inline</Button>
+          </div>
+
+          <div style={{ margin: '32px 0' }}>
+            <p className="demo-p">次按钮</p>
+            <div style={{ height: 8 }} />
+            <Button>default 按钮</Button>
+            <div style={{ height: 8 }} />
+            <Button inline>inline</Button>&nbsp;
+            <Button size="small" inline>inline</Button>
+          </div>
+        </div>
       </div>
     );
   },

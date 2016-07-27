@@ -13,7 +13,7 @@ title: 类型/type
 this.customNavFlag = true;
 
 
-import { Button, WingBlank, WhiteSpace, NavBar } from 'antd-mobile';
+import { Button, NavBar } from 'antd-mobile';
 
 const ButtonExample = React.createClass({
   getInitialState() {
@@ -27,7 +27,7 @@ const ButtonExample = React.createClass({
   render() {
     return (
       <div className="button-container"
-        style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
+        style={{ backgroundColor: this.state.dark ? 'black' : 'white', height: '100%' }}
       >
         <NavBar iconName={false} rightContent={(
           <span
@@ -40,31 +40,32 @@ const ButtonExample = React.createClass({
         >
           类型/type
         </NavBar>
-        <WhiteSpace size={32} />
-        <WingBlank>
-          <p className="demo-p">type="primary" - 用于主要操作或必须点击才能完成流程的操作</p>
-          <WhiteSpace />
-          <Button type="primary">primary按钮</Button>
-        </WingBlank>
-        <WhiteSpace size={32} />
-        <WingBlank>
-          <p className="demo-p">默认type - 用于较轻或不希望引导用户使用的操作</p>
-          <WhiteSpace />
-          <Button>default 按钮</Button>
-        </WingBlank>
-        <WhiteSpace size={32} />
-        <WingBlank>
-          <p className="demo-p">提醒按钮</p>
-          <WhiteSpace />
-          <Button type="warning">warning 按钮</Button>
-        </WingBlank>
-        <WhiteSpace size={32} />
-        <WingBlank>
-          <p className="demo-p">添加 loading 属性即可让按钮处于加载状态</p>
-          <WhiteSpace />
-          <Button loading>loading 按钮</Button>
-        </WingBlank>
-        <WhiteSpace />
+
+        <div style={{ margin: '0 8px' }}>
+          <div style={{ margin: '32px 0' }}>
+            <p className="demo-p">type="primary" - 用于主要操作或必须点击才能完成流程的操作</p>
+            <div style={{ height: 8 }} />
+            <Button type="primary">primary按钮</Button>
+          </div>
+
+          <div style={{ margin: '32px 0' }}>
+            <p className="demo-p">默认type - 用于较轻或不希望引导用户使用的操作</p>
+            <div style={{ height: 8 }} />
+            <Button>default 按钮</Button>
+          </div>
+
+          <div style={{ margin: '32px 0' }}>
+            <p className="demo-p">提醒按钮</p>
+            <div style={{ height: 8 }} />
+            <Button type="warning">warning 按钮</Button>
+          </div>
+
+          <div style={{ margin: '32px 0' }}>
+            <p className="demo-p">添加 loading 属性即可让按钮处于加载状态</p>
+            <div style={{ height: 8 }} />
+            <Button loading>loading 按钮</Button>
+          </div>
+        </div>
       </div>
     );
   },

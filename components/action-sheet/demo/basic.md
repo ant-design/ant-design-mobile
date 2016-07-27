@@ -5,7 +5,7 @@ title: 基本
 
 
 ````jsx
-import { ActionSheet, Button, WingBlank, WhiteSpace } from 'antd-mobile';
+import { ActionSheet, Button } from 'antd-mobile';
 
 const Test = React.createClass({
   getInitialState() {
@@ -85,31 +85,33 @@ const Test = React.createClass({
     });
   },
   render() {
-    return (<div>
-      <WingBlank>
-        <WhiteSpace size={32} />
+    return (<div style={{ margin: '0 8px' }}>
+      <div style={{ margin: '32px 0' }}>
         <p className="demo-p">通常的 ActionSheet</p>
-        <WhiteSpace />
-        <Button type="primary" onClick={this.showActionSheet}>选择操作</Button>
-        <WhiteSpace />
+        <div style={{ padding: '8px 0' }}>
+          <Button type="primary" onClick={this.showActionSheet}>选择操作</Button>
+        </div>
         <p className="demo-p">点击过的按钮: &nbsp;
           <span style={{ color: '#222' }}>{this.state.clicked}</span>
         </p>
+      </div>
 
-        <WhiteSpace size={32} />
+      <div style={{ margin: '32px 0' }}>
         <p className="demo-p">带分享功能的 ActionSheet</p>
-        <WhiteSpace />
-        <Button type="primary" onClick={this.showShareActionSheet}>我要分享</Button>
-        <WhiteSpace />
+        <div style={{ padding: '8px 0' }}>
+          <Button type="primary" onClick={this.showShareActionSheet}>我要分享</Button>
+        </div>
         <p className="demo-p">点击过的icon: &nbsp;
           <span style={{ color: '#222' }}>{this.state.clicked1}</span>
         </p>
+      </div>
 
-        <WhiteSpace size={32} />
+      <div style={{ margin: '32px 0' }}>
         <p className="demo-p">内容可以完全自定义的 ActionSheet</p>
-        <WhiteSpace />
-        <Button type="primary" onClick={this.showActionSheetWithCustom}>自定义</Button>
-      </WingBlank>
+        <div style={{ padding: '8px 0' }}>
+          <Button type="primary" onClick={this.showActionSheetWithCustom}>自定义</Button>
+        </div>
+      </div>
     </div>);
   },
 });

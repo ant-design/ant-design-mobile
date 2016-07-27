@@ -11,7 +11,7 @@ title: 失效状态/disabled
 this.customNavFlag = true;
 
 
-import { Button, WingBlank, WhiteSpace, NavBar } from 'antd-mobile';
+import { Button, NavBar } from 'antd-mobile';
 
 const ButtonExample = React.createClass({
   getInitialState() {
@@ -25,7 +25,7 @@ const ButtonExample = React.createClass({
   render() {
     return (
       <div className="button-container"
-        style={{ backgroundColor: this.state.dark ? 'black' : 'white' }}
+        style={{ backgroundColor: this.state.dark ? 'black' : 'white', height: '100%' }}
       >
         <NavBar iconName={false} rightContent={<span
           style={{ cursor: 'pointer' }}
@@ -34,23 +34,24 @@ const ButtonExample = React.createClass({
         >
           失效状态
         </NavBar>
-        <WhiteSpace size={32} />
-        <WingBlank>
-          <p className="demo-p">主按钮失效</p>
-          <WhiteSpace />
-          <Button type="primary" disabled>primary 按钮</Button>
-          <WhiteSpace />
-          <Button type="primary" ghost disabled>primary ghost 按钮</Button>
-        </WingBlank>
-        <WhiteSpace size={32} />
-        <WingBlank>
-          <p className="demo-p">次按钮失效</p>
-          <WhiteSpace />
-          <Button disabled>default disabled 按钮</Button>
-          <WhiteSpace />
-          <Button ghost disabled>default ghost disabled 按钮</Button>
-        </WingBlank>
-        <WhiteSpace />
+
+        <div style={{ margin: '0 8px' }}>
+          <div style={{ margin: '32px 0' }}>
+            <p className="demo-p">主按钮失效</p>
+            <div style={{ height: 8 }} />
+            <Button type="primary" disabled>primary 按钮</Button>
+            <div style={{ height: 8 }} />
+            <Button type="primary" ghost disabled>primary ghost 按钮</Button>
+          </div>
+
+          <div style={{ margin: '32px 0' }}>
+            <p className="demo-p">次按钮失效</p>
+            <div style={{ height: 8 }} />
+            <Button disabled>default disabled 按钮</Button>
+            <div style={{ height: 8 }} />
+            <Button ghost disabled>default ghost disabled 按钮</Button>
+          </div>
+        </div>
       </div>
     );
   },

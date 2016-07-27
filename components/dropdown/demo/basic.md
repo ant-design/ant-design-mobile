@@ -5,7 +5,10 @@ title: Dropdown
 
 
 ````jsx
-import { Dropdown, Button, WingBlank, WhiteSpace, Menu } from 'antd-mobile';
+// 此处用作demo展示，不要用在生产环境
+this.customNavFlag = true;
+
+import { Dropdown, Button, Menu } from 'antd-mobile';
 
 const SelectorDataForDropdown = [
   {
@@ -58,20 +61,12 @@ const Test = React.createClass({
     };
   },
   onClick() {
-    Dropdown.show(<div>
-      <WhiteSpace />
-      <WingBlank>
-        <Button type="primary" onClick={() => { this.onClose('opt 1'); }}>创建层叠Dropdown</Button>
-      </WingBlank>
-      <WhiteSpace />
-      <WingBlank>
-        <Button type="primary" ghost onClick={() => { this.onClose('opt 2'); }}>opt 2</Button>
-      </WingBlank>
-      <WhiteSpace />
-      <WingBlank>
-        <Button onClick={() => { this.onClose('cancel'); }}>取消</Button>
-      </WingBlank>
-      <WhiteSpace />
+    Dropdown.show(<div style={{ padding: 8 }}>
+      <Button type="primary" onClick={() => { this.onClose('opt 1'); }}>创建层叠Dropdown</Button>
+      <div style={{ height: 8 }} />
+      <Button type="primary" ghost onClick={() => { this.onClose('opt 2'); }}>opt 2</Button>
+      <div style={{ height: 8 }} />
+      <Button onClick={() => { this.onClose('cancel'); }}>取消</Button>
     </div>, { maskClosable: false });
   },
   onClose(sel) {
@@ -97,14 +92,9 @@ const Test = React.createClass({
     />, { maskClosable: false });
   },
   render() {
-    return (<div>
-      <WhiteSpace />
-      <WingBlank>
-        <Button type="primary" onClick={this.onClick}>show Dropdown</Button>
-        已选项目：{this.state.sel}
-        <h6>注意：请点击 navbar 上的箭头，隐藏掉 navbar</h6>
-      </WingBlank>
-      <WhiteSpace />
+    return (<div style={{ padding: 8 }}>
+      <Button type="primary" onClick={this.onClick}>show Dropdown</Button>
+      已选项目：{this.state.sel}
     </div>);
   },
 });
