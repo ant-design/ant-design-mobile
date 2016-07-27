@@ -117,7 +117,4 @@ export default {
   hide() {
     topView.remove();
   },
-  destroy() {
-    topView.remove();
-  },
 };

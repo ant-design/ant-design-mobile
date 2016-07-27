@@ -37,4 +37,4 @@ english: Toast
 
 还提供了全局配置和全局销毁方法：
 
-- `Toast.destroy()`
+- `Toast.hide()`

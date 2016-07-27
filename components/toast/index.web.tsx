@@ -63,7 +63,7 @@ export default {
   loading(content, duration, onClose) {
     return notice(content, duration, onClose, 'loading');
   },
-  destroy() {
+  hide() {
     if (messageInstance) {
       messageInstance.destroy();
       messageInstance = null;

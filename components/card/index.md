@@ -26,6 +26,7 @@ english: Card
 ### Card.Header
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|------------------|--------------|
+|prefixCls (web only)| 样式类名前缀 | String | `am-card` |
 |title| 卡片标题 | React.Element、String | |
 |thumb| 卡片标题图片 | String |  |
 |thumbStyle| 标题图片样式 | Object | {} |
@@ -42,4 +43,3 @@ english: Card
 |-------------|----------------|--------------------|--------------|
 |content|尾部内容 | React.Element、String | |
 |extra| 尾部辅助内容 | React.Element、String |  |
-

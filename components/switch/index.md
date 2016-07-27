@@ -18,7 +18,7 @@ english: Switch
 
 | 成员        | 说明           | 类型     |     可选值        | 默认值       |
 |------------|----------------|--------------------|--------------|
-| name       | switch的name    | String       |    |     |
+| name (web only)      | switch的name    | String       |    |     |
 | checked    | 是否默认选中    | Boolean      |     |   false  |
 | disabled   | 是否不可修改    | Boolean      |     |   false  |
 | onChange   | change事件触发的回调函数,参数是checked的值 | Function |  |  无  |
