@@ -21,7 +21,7 @@ english: SwipeAction
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
-| prefixCls       | className prefix     | String | `rc-swipeout` |
+| prefixCls (web only)      | className prefix     | String | `rc-swipeout` |
 | style           | swipeout style (iOS only)      | Object |             |
 | left       | swipeout buttons on left      | Array | `null` |
 | right       | swipeout buttons on right      | Array | `null` |
