@@ -5,8 +5,6 @@ import FlexProps from './FlexPropTypes';
 
 export default class Flex extends React.Component<FlexProps, any> {
   static propTypes = {
-    prefixCls: PropTypes.string,
-    style: PropTypes.object,
     direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
     wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
     justify: PropTypes.oneOf(['start', 'end', 'center', 'between', 'around']),
@@ -17,10 +15,11 @@ export default class Flex extends React.Component<FlexProps, any> {
   static defaultProps = {
     prefixCls: 'am-flexbox',
     align: 'center',
+    onClick: () => {},
   };
 
   render() {
-    let { direction, wrap, justify, align, alignContent, className, children, prefixCls, style } = this.props;
+    let { direction, wrap, justify, align, alignContent, className, children, prefixCls, style, onClick } = this.props;
 
     const wrapCls = classNames({
       [prefixCls]: true,
@@ -56,7 +55,7 @@ export default class Flex extends React.Component<FlexProps, any> {
     });
 
     return (
-      <div className={wrapCls} style={style}>
+      <div className={wrapCls} style={style} onClick={onClick}>
         {children}
       </div>
     );

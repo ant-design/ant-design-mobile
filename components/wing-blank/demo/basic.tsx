@@ -4,7 +4,7 @@ import { WhiteSpace, WingBlank } from 'antm';
 
 import variables from '../../style/variables';
 
-export default class BasicWingBlankExample extends React.Component {
+export default class BasicWingBlankExample extends React.Component<any, any> {
   render() {
     return (
       <View>

@@ -2,34 +2,31 @@ import * as React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import objectAssign from 'object-assign';
-import SubMenu from './SubMenu';
+import SubMenu from './SubMenu.web';
 import List from '../list';
 import Flex from '../flex';
 
-function noop() {}
-
-export interface GridProps {
+export interface MenuProps {
+  /** web only */
   prefixCls?: string;
+  /** web only */
+  className?: string;
   style?: React.CSSProperties;
   data?: Array<{}>;
+  value?: Array<{}>;
   onChange?: Function;
   level?: number;
   height?: number;
 }
 
-export interface GridState {
+export interface MenuState {
   SubMenuData: Array<{}>;
   firstValue?: any;
 }
 
-export default class Menu extends React.Component {
+export default class Menu extends React.Component<MenuProps, MenuState> {
   static propTypes = {
-    prefixCls: PropTypes.string,
-    data: PropTypes.array,
-    value: PropTypes.array,
-    onChange: PropTypes.func,
     level: PropTypes.oneOf([1, 2]),
-    height: PropTypes.number,
   };
 
   static defaultProps = {
@@ -37,7 +34,7 @@ export default class Menu extends React.Component {
     value: [],
     data: [],
     level: 2,
-    onChange: noop,
+    onChange: () => {},
   };
 
   constructor(props) {

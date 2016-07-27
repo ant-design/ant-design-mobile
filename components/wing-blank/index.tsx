@@ -3,7 +3,9 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import { View } from 'react-native';
 
-class WingBlank extends React.Component {
+import WingBlankProps from './WingBlankPropsType';
+
+class WingBlank extends React.Component<WingBlankProps, any> {
   static propTypes = {
     size: PropTypes.oneOf([4, 8, 12, 16, 20, 24, 28, 32]),
   };
@@ -13,13 +15,10 @@ class WingBlank extends React.Component {
   };
 
   render() {
-    const margin = this.props.size;
-    return (
-      // <View {...this.props} style={{height:marginHeight}}>
-      <View style={[{ marginLeft: margin, marginRight: margin }, this.props.style]}>
-        {this.props.children}
-      </View>
-    );
+    const { size, style, children } = this.props;
+    return (<View style={[{ marginLeft: size, marginRight: size }, style]}>
+      {children}
+    </View>);
   }
 }
 

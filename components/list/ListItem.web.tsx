@@ -1,16 +1,19 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 
 export interface ListItemProps {
+  /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
+  /** web only */
+  className?: string;
   thumb: React.ReactNode;
   extra?: React.ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
   align?: string;
   onClick?: Function;
   error?: boolean;
+  children?: any;
 }
 
 export interface ListItemState {
@@ -18,16 +21,6 @@ export interface ListItemState {
 }
 
 export default class ListItem extends React.Component<ListItemProps, ListItemState> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    thumb: PropTypes.oneOfType([PropTypes.string, React.PropTypes.node]),
-    extra: PropTypes.oneOfType([PropTypes.string, React.PropTypes.node]),
-    arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
-    align: PropTypes.string,
-    onClick: PropTypes.func,
-    error: PropTypes.bool,
-  };
-
   static defaultProps = {
     prefixCls: 'am-list',
     thumb: '',

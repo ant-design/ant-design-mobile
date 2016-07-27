@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import List from '../list/index';
-import Radio from '../radio/index';
-
-function noop() {}
+import Radio from '../radio/index.web';
 
 export interface SubMenuProps {
+  /** web only */
   prefixCls?: string;
+  /** web only */
+  radioPrefixCls?: string;
+  /** web only */
+  className?: string;
   style?: React.CSSProperties;
   value?: Array<{}>;
   data?: Array<{}>;
@@ -20,20 +22,12 @@ export interface SubMenuState {
 }
 
 export default class SubMenu extends React.Component<SubMenuProps, SubMenuState> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    style: PropTypes.object,
-    value: PropTypes.array,
-    data: PropTypes.array,
-    onChange: PropTypes.func,
-  };
-
   static defaultProps = {
     prefixCls: 'am-sub-menu',
     radioPrefixCls: 'am-radio',
     value: [],
     data: [],
-    onChange: noop,
+    onChange: () => {},
   };
 
   constructor(props) {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Image, View } from 'react-native';
 import { List, Button } from 'antm';
 
-export default class BasicListExample extends React.Component {
+export default class BasicListExample extends React.Component<any, any> {
   render() {
     return (
       <View>

@@ -1,5 +1,5 @@
-import Radio from './Radio';
-import RadioItem from './RadioItem';
+import Radio from './Radio.web';
+import RadioItem from './RadioItem.web';
 
 Radio.RadioItem = RadioItem;
 
