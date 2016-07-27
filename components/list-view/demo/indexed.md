@@ -11,7 +11,7 @@ destroyComponent: true
 import { ListView, List, SearchBar } from 'antd-mobile';
 const { Item } = List;
 
-const NUM_SECTIONS = 20;
+const NUM_SECTIONS = 26;
 const NUM_ROWS_PER_SECTION = 10;
 
 const Demo = React.createClass({
@@ -47,18 +47,6 @@ const Demo = React.createClass({
     };
   },
 
-  renderRow(rowData) {
-    return (<Item>Hello: {rowData}</Item>);
-  },
-
-  renderSectionHeader(sectionData) {
-    return (
-      <div>
-        {sectionData}
-      </div>
-    );
-  },
-
   render() {
     return (<div style={{ paddingTop: 40 }}>
       <div style={{ position: 'fixed', zIndex: 999, top: 43, left: 0, right: 0 }}>
@@ -77,8 +65,8 @@ const Demo = React.createClass({
         dataSource={this.state.dataSource}
         renderHeader={() => <span>头部内容请自定义</span>}
         renderFooter={() => <span>尾部内容请自定义</span>}
-        renderSectionHeader={this.renderSectionHeader}
-        renderRow={this.renderRow}
+        renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
+        renderRow={(rowData) => (<Item>Hello: {rowData}</Item>)}
         stickyHeader
         stickyProps={{
           stickyStyle: { zIndex: 999, top: 83 },

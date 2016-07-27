@@ -7,87 +7,29 @@ destroyComponent: true
 无尽列表。
 
 ````jsx
-import { ListView, List, Toast, DatePicker } from 'antd-mobile';
+import { ListView, Toast } from 'antd-mobile';
 
-const { Item } = List;
-
-const styles = {
-  buttonContents: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 5,
+const data = [
+  {
+    img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
+    title: '相约酒店',
+    des: '不是所有的兼职汪都需要风吹日晒',
   },
-  img: {
-    width: 64,
-    height: 64,
+  {
+    img: 'https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png',
+    title: '麦当劳邀您过周末',
+    des: '不是所有的兼职汪都需要风吹日晒',
   },
-};
-
-const victory = 'https://os.alipayobjects.com/rmsportal/kwihkdUVljwUURM.png';
-const superlike = 'https://os.alipayobjects.com/rmsportal/pmXtSKUFLsIEJLh.png';
-const poke = 'https://os.alipayobjects.com/rmsportal/ZlYzyBcrtLqnbjN.png';
-const party = 'https://os.alipayobjects.com/rmsportal/mIrghdvucaPOLhc.png';
-const liking = 'https://os.alipayobjects.com/rmsportal/DrcLpisGZWASeoj.png';
-const like = 'https://os.alipayobjects.com/rmsportal/jloFMiDVGaHrHIO.png';
-const heart = 'https://os.alipayobjects.com/rmsportal/QFjTyLzmuJQIflm.png';
-const flowers = 'https://os.alipayobjects.com/rmsportal/rgahTjFqZATwqqL.png';
-const fist = 'https://os.alipayobjects.com/rmsportal/KcyBnnVZlfIDgci.png';
-const dislike = 'https://os.alipayobjects.com/rmsportal/FmMzrxqOhiogBOX.png';
-const call = 'https://os.alipayobjects.com/rmsportal/TKlynYhJACDNwKw.png';
-const bandaged = 'https://os.alipayobjects.com/rmsportal/htJwTSIUpppWwSb.png';
-
-const THUMB_URLS = [
-  like,
-  dislike,
-  call,
-  fist,
-  bandaged,
-  flowers,
-  heart,
-  liking,
-  party,
-  poke,
-  superlike,
-  victory,
+  {
+    img: 'https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png',
+    title: '食惠周',
+    des: '不是所有的兼职汪都需要风吹日晒',
+  },
 ];
+let index = data.length - 1;
 
-const Thumb = React.createClass({
-  getInitialState() {
-    return { thumbIndex: this.getThumbIdx(), dir: 'row' };
-  },
-  getThumbIdx() {
-    return Math.floor(Math.random() * THUMB_URLS.length);
-  },
-  onPressThumb() {
-    this.setState({
-      thumbIndex: this.getThumbIdx(),
-      dir: this.state.dir === 'row' ? 'column' : 'row',
-    });
-  },
-  render() {
-    return (
-      <div
-        onClick={this.onPressThumb}
-        style={{ ...styles.buttonContents, flexDirection: this.state.dir }}
-      >
-        <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
-        <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
-        <img style={styles.img} src={THUMB_URLS[this.state.thumbIndex]} />
-        {this.state.dir === 'column' ?
-          <span>
-            我是 list-item
-          </span> :
-          <span />
-        }
-      </div>
-    );
-  },
-});
-
-const NUM_SECTIONS = 20;
-const NUM_ROWS_PER_SECTION = 10;
+const NUM_SECTIONS = 5;
+const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
 const Demo = React.createClass({
@@ -126,50 +68,70 @@ const Demo = React.createClass({
     this.genData();
     return {
       dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
-      headerPressCount: 0,
+      isLoading: false,
     };
-  },
-  renderRow(rowData) {
-    if (rowData.indexOf('R0') !== -1) {
-      return (
-        <DatePicker
-          className="am-date-picker"
-          mode="date"
-          title="选择日期"
-          extra="可选,小于结束日期"
-          minDate="2014-08-06"
-          maxDate="2016-12-3"
-        >
-          <Item arrow="horizontal">日期</Item>
-        </DatePicker>
-      );
-    }
-    return (<Item><Thumb text={rowData} /></Item>);
-  },
-
-  renderSectionHeader(sectionData) {
-    return (
-      <div style={{ color: 'blue' }}>
-        {sectionData}
-      </div>
-    );
   },
 
   render() {
+    const separator = (sectionID, rowID) => (
+      <div key={`${sectionID}-${rowID}`} style={{
+        backgroundColor: '#F5F5F9',
+        height: 8,
+        borderTop: '1px solid #ECECED',
+        borderBottom: '1px solid #ECECED',
+      }}
+      ></div>
+    );
+    const row = (rowData, sectionID, rowID) => {
+      if (index < 0) {
+        index = data.length - 1;
+      }
+      const obj = data[index--];
+      return (
+        <div key={rowID}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: 'white',
+          }}
+        >
+          <h3 style={{
+            padding: 2,
+            marginBottom: 8,
+            borderBottom: '1px solid #F6F6F6',
+          }}
+          >{obj.title}</h3>
+          <div style={{ display: 'flex' }}>
+            <img style={{ height: 64, marginRight: 8 }} src={obj.img} />
+            <div>
+              <p>{obj.des}</p>
+              <p><span style={{ fontSize: 24, color: '#FF6E27' }}>35</span>元/任务</p>
+            </div>
+          </div>
+        </div>
+      );
+    };
     return (<div>
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
-        renderFooter={() => <span>footer</span>}
-        renderSectionHeader={this.renderSectionHeader}
-        renderRow={this.renderRow}
+        renderFooter={() => <div style={{ padding: 30, textAlign: 'center' }}>
+          {this.state.isLoading ? '加载中...' : '加载完毕'}
+        </div>}
+        renderSectionHeader={(sectionData) => (
+          <div>{`任务 ${sectionData.split(' ')[1]}`}</div>
+        )}
+        renderRow={row}
+        renderSeparator={separator}
         pageSize={4}
+        scrollEventThrottle={20}
+        onScroll={() => { console.log('scroll'); }}
+        onEndReached={this.onEndReached}
+        onEndReachedThreshold={10}
         stickyHeader
         stickyProps={{
-          stickyStyle: { zIndex: 999 },
+          stickyStyle: { zIndex: 999, top: 43 },
+          topOffset: -43,
         }}
-        onEndReached={this.onEndReached}
-        onScroll={() => { console.log('scroll'); }}
       />
     </div>);
   },
@@ -177,11 +139,15 @@ const Demo = React.createClass({
   onEndReached(event) {
     // load new data
     console.log('reach end', event);
-    Toast.info('reach end');
-    this.genData(++pageIndex);
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
-    });
+    Toast.info('加载新数据');
+    this.setState({ isLoading: true });
+    setTimeout(() => {
+      this.genData(++pageIndex);
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+        isLoading: false,
+      });
+    }, 1000);
   },
 });
 
