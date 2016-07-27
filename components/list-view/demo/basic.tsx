@@ -43,7 +43,14 @@ const THUMB_URLS = [
   victory,
 ];
 
-const Thumb = React.createClass({
+interface ThumbProps {
+  rowData: any;
+  sectionID: any;
+  rowID: any;
+  highlightRow: any;
+}
+
+const Thumb = React.createClass<ThumbProps, any>({
   getInitialState() {
     return { thumbIndex: this._getThumbIdx(), dir: 'row' };
   },
