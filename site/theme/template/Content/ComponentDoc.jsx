@@ -132,8 +132,6 @@ export default class ComponentDoc extends React.Component {
 
     const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
 
-    const fileFstArr = demoSort[0].meta.filename.split('/');
-    const filenameFirst = fileFstArr[fileFstArr.length - 1].split('.')[0];
     const fileArr = demoSort[currentIndex].meta.filename.split('/');
     const filename = fileArr[fileArr.length - 1].split('.')[0];
 
@@ -166,7 +164,7 @@ export default class ComponentDoc extends React.Component {
 
 
     const path = doc.meta.filename.split('/')[1];
-    const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}/${filenameFirst}`;
+    const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}`;
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
