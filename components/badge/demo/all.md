@@ -7,7 +7,7 @@ title: 综合示例
 
 
 ````jsx
-import { List, Badge } from 'antm';
+import { List, Badge } from 'antd-mobile';
 
 ReactDOM.render(
   <div className="badge-container">

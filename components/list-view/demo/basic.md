@@ -7,7 +7,7 @@ destroyComponent: true
 无尽列表。
 
 ````jsx
-import { ListView, List, Toast, DatePicker } from 'antm';
+import { ListView, List, Toast, DatePicker } from 'antd-mobile';
 
 const { Item } = List;
 

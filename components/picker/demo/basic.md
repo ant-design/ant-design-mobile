@@ -6,7 +6,7 @@ title: 基本
 数据级联选择示例
 
 ````jsx
-import { Picker, List, Button } from 'antm';
+import { Picker, List, Button } from 'antd-mobile';
 
 import district from 'site/data/district';
 

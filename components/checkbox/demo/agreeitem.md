@@ -6,7 +6,7 @@ title: 协议复选框
 Checkbox.AgreeItem
 
 ````jsx
-import { Checkbox } from 'antm';
+import { Checkbox } from 'antd-mobile';
 import { createForm } from 'rc-form';
 const AgreeItem = Checkbox.AgreeItem;
 

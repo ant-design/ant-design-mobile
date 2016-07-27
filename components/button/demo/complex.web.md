@@ -7,7 +7,7 @@ title: 应用场景示例
 
 
 ````jsx
-import { Button, Flex, List, WingBlank, WhiteSpace } from 'antm';
+import { Button, Flex, List, WingBlank, WhiteSpace } from 'antd-mobile';
 ReactDOM.render(
   <div className="button-container">
     <WhiteSpace size={32} />

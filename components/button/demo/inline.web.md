@@ -13,7 +13,7 @@ title: 尺寸/size、行内按钮/inline
 this.customNavFlag = true;
 
 
-import { Button, WingBlank, WhiteSpace, NavBar } from 'antm';
+import { Button, WingBlank, WhiteSpace, NavBar } from 'antd-mobile';
 
 const ButtonExample = React.createClass({
   getInitialState() {

@@ -11,7 +11,7 @@ title: 右出
 this.customNavFlag = true;
 
 
-import { Drawer, List, NavBar } from 'antm';
+import { Drawer, List, NavBar } from 'antd-mobile';
 
 const App = React.createClass({
   getInitialState() {

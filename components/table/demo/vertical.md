@@ -6,7 +6,7 @@ title: 纵向
 简单表格，默认为纵向排列
 
 ````jsx
-import { Table } from 'antm';
+import { Table } from 'antd-mobile';
 
 const columns = [
   { title: '名字', dataIndex: 'name', key: 'name' },

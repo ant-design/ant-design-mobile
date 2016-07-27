@@ -6,7 +6,7 @@ title: 基本
 Collapse
 
 ````jsx
-import { Collapse, List } from 'antm';
+import { Collapse, List } from 'antd-mobile';
 
 let Test = React.createClass({
   onChange(key) {

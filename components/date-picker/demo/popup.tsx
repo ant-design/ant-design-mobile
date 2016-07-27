@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
 import { View, TouchableWithoutFeedback } from 'react-native';
-import { DatePicker, List } from 'antm';
+import { DatePicker, List } from 'antd-mobile';
 import * as React from 'react';
 
 export default class PopupExample extends React.Component {

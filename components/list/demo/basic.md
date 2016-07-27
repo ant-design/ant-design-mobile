@@ -6,7 +6,7 @@ title: 基本
 最简单的用法。
 
 ````jsx
-import { List, Switch } from 'antm';
+import { List, Switch } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let ListExample = React.createClass({

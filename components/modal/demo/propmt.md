@@ -6,7 +6,7 @@ title: 输入框
 包含输入普通文字, 密码, 登录信息样式
 
 ````jsx
-import { Modal, Button, WingBlank, WhiteSpace } from 'antm';
+import { Modal, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 const prompt = Modal.prompt;
 
 function plainTextPrompt() {

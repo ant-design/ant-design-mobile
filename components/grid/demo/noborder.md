@@ -4,7 +4,7 @@ title: 没有边线
 ---
 
 ````jsx
-import { Grid } from 'antm';
+import { Grid } from 'antd-mobile';
 
 let data2 = [
   {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { List, Switch } from 'antm';
+import { List, Switch } from 'antd-mobile';
 
 export default class SwitchExample extends React.Component<any, any> {
   constructor(props) {

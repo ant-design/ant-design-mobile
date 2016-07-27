@@ -6,7 +6,7 @@ title: 锁定标题列
 标题列锁定，可横向滚动
 
 ````jsx
-import { Table } from 'antm';
+import { Table } from 'antd-mobile';
 
 const columns = [
   { title: '标题', dataIndex: 'title', key: 'title', width: 100, fixed: 'left' },

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ScrollView, TouchableOpacity, Text } from 'react-native';
-import { List } from 'antm';
+import { List } from 'antd-mobile';
 import Checkbox from '../index';
 import CheckStyle from '../style/index';
 const styles = CheckStyle.CheckboxItem;

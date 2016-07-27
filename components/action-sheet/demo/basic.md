@@ -5,7 +5,7 @@ title: 基本
 
 
 ````jsx
-import { ActionSheet, Button, WingBlank, WhiteSpace } from 'antm';
+import { ActionSheet, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const Test = React.createClass({
   getInitialState() {

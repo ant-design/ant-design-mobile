@@ -6,7 +6,7 @@ title: 基本
 滑动开关。
 
 ````jsx
-import { List, Switch } from 'antm';
+import { List, Switch } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let SwitchExample = React.createClass({

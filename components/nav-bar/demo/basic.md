@@ -7,7 +7,7 @@ title: mode
 
 
 ````jsx
-import { NavBar, Icon, WingBlank, WhiteSpace } from 'antm';
+import { NavBar, Icon, WingBlank, WhiteSpace } from 'antd-mobile';
 ReactDOM.render(
   <div>
     <WhiteSpace />

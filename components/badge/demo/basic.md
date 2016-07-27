@@ -7,7 +7,7 @@ title: 基本
 
 
 ````jsx
-import { Badge } from 'antm';
+import { Badge } from 'antd-mobile';
 ReactDOM.render(
   <div className="badge-container" style={{ padding: '40px 16px' }}>
     <Badge text={9}>

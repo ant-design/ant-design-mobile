@@ -8,7 +8,7 @@ title: 分段式滑块
 
 
 ````jsx
-import { Slider, WingBlank, WhiteSpace } from 'antm';
+import { Slider, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const marks = {
   0: '0°C',

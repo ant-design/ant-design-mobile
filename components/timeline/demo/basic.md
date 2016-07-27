@@ -6,7 +6,7 @@ title: 基本用法
 基本的时间轴。
 
 ````jsx
-import { Timeline, WingBlank, WhiteSpace } from 'antm';
+import { Timeline, WingBlank, WhiteSpace } from 'antd-mobile';
 
 let App = React.createClass({
   render() {

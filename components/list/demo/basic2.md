@@ -7,7 +7,7 @@ title: 箭头
 
 
 ````jsx
-import { List } from 'antm';
+import { List } from 'antd-mobile';
 
 window.clickItem = (e) => {
   console.log(e);

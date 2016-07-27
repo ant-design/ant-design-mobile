@@ -7,7 +7,7 @@ title: 基本
 
 
 ````jsx
-import { List, Stepper } from 'antm';
+import { List, Stepper } from 'antd-mobile';
 
 function onChange(value) {
   console.log('changed', value);

@@ -6,7 +6,7 @@ title: 按钮形态
 基本的分页器。
 
 ````jsx
-import { Pagination, WhiteSpace, Icon, WingBlank } from 'antm';
+import { Pagination, WhiteSpace, Icon, WingBlank } from 'antd-mobile';
 
 let App = React.createClass({
   render() {

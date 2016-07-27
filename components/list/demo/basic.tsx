@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image, View } from 'react-native';
-import { List, Button } from 'antm';
+import { List, Button } from 'antd-mobile';
 
 export default class BasicListExample extends React.Component<any, any> {
   render() {

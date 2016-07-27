@@ -6,7 +6,7 @@ title: 点状型
 基本的分页器。
 
 ````jsx
-import { Pagination, WhiteSpace, WingBlank } from 'antm';
+import { Pagination, WhiteSpace, WingBlank } from 'antd-mobile';
 
 let App = React.createClass({
   render() {

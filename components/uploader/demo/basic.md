@@ -7,7 +7,7 @@ title: 图片上传
 ---------
 
 ````jsx
-import { Uploader, WhiteSpace } from 'antm';
+import { Uploader, WhiteSpace } from 'antd-mobile';
 
 const UploaderExample = React.createClass({
   getInitialState() {

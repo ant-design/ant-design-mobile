@@ -13,7 +13,7 @@ title: 类型/type
 this.customNavFlag = true;
 
 
-import { Button, WingBlank, WhiteSpace, NavBar } from 'antm';
+import { Button, WingBlank, WhiteSpace, NavBar } from 'antd-mobile';
 
 const ButtonExample = React.createClass({
   getInitialState() {

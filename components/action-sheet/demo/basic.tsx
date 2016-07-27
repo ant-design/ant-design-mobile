@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { ActionSheet } from 'antm';
+import { ActionSheet } from 'antd-mobile';
 
 const BUTTONS = [
   'Option 0',

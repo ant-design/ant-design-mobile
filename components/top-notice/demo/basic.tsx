@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 import * as React from 'react';
 import { View } from 'react-native';
-import { TopNotice, WhiteSpace } from 'antm';
+import { TopNotice, WhiteSpace } from 'antd-mobile';
 
 export default class TopNoticeExample extends React.Component<any, any> {
   render() {

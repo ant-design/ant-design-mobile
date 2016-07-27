@@ -6,7 +6,7 @@ title: 基本
 ```<WingBlank size={8}>...</WingBlank>```
 
 ````jsx
-import { WingBlank, WhiteSpace, Button } from 'antm';
+import { WingBlank, WhiteSpace, Button } from 'antd-mobile';
 
 
 let WingBlankExample = React.createClass({

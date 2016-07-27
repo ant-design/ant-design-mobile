@@ -1,4 +1,4 @@
-import { WhiteSpace } from 'antm';
+import { WhiteSpace } from 'antd-mobile';
 import * as React from 'react';
 import { View, Text } from 'react-native';
 

@@ -6,7 +6,7 @@ title: 弹出框
 包含无按钮, 确认框, 多按钮情况
 
 ````jsx
-import { Modal, Button, WhiteSpace, WingBlank } from 'antm';
+import { Modal, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const alert = Modal.alert;
 

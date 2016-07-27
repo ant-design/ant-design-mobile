@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { FloatMenu } from 'antm';
+import { FloatMenu } from 'antd-mobile';
 
 const Item = FloatMenu.Item;
 

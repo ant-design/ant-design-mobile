@@ -11,7 +11,7 @@ title: 失效状态/disabled
 this.customNavFlag = true;
 
 
-import { Button, WingBlank, WhiteSpace, NavBar } from 'antm';
+import { Button, WingBlank, WhiteSpace, NavBar } from 'antd-mobile';
 
 const ButtonExample = React.createClass({
   getInitialState() {

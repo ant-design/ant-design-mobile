@@ -6,7 +6,7 @@ title: 横向滚动
 横向滚动的表格，无锁定项
 
 ````jsx
-import { Table } from 'antm';
+import { Table } from 'antd-mobile';
 
 const columns = [
   { title: '姓名', dataIndex: 'a', key: 'a', width: 100 },

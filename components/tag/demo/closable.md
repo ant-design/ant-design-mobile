@@ -6,7 +6,7 @@ title: 可关闭标签
 添加 closeable 属性可以让标签项消失，当手势点击到整个标签的热区时，该标签项就被删除。
 
 ````jsx
-import { Tag, WingBlank, WhiteSpace } from 'antm';
+import { Tag, WingBlank, WhiteSpace } from 'antd-mobile';
 
 function onClose() {
   console.log('tag closing');

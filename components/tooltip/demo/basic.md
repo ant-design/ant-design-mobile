@@ -5,7 +5,7 @@ title: Tooltip
 
 
 ````jsx
-import { Tooltip } from 'antm';
+import { Tooltip } from 'antd-mobile';
 
 const text = <span>提示文字</span>;
 

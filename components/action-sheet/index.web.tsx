@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import Icon from '../icon';
+import Icon from '../icon/index.web';
 import assign from 'object-assign';
 
 const NORMAL = 'NORMAL';

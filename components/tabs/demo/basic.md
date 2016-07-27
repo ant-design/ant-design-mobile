@@ -7,7 +7,7 @@ title: 线性型选项卡
 
 
 ````jsx
-import { Tabs, WhiteSpace } from 'antm';
+import { Tabs, WhiteSpace } from 'antd-mobile';
 const TabPane = Tabs.TabPane;
 
 function callback(key) {

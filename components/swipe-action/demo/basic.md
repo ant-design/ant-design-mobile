@@ -5,7 +5,7 @@ title: 基本使用
 
 
 ````jsx
-import { SwipeAction, List } from 'antm';
+import { SwipeAction, List } from 'antd-mobile';
 
 let TabExample = React.createClass({
   render() {

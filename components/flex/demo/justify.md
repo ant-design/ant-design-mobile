@@ -6,7 +6,7 @@ title: 主轴对齐方式
 justify="start/end/center/between/around"
 
 ````jsx
-import { Flex, List, Button, WhiteSpace } from 'antm';
+import { Flex, List, Button, WhiteSpace } from 'antd-mobile';
 
 let FlexExample = React.createClass({
   render() {

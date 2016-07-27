@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, Image } from 'react-native';
-import { ListView } from 'antm';
+import { ListView } from 'antd-mobile';
 
 const styles = StyleSheet.create({
   buttonContents: {

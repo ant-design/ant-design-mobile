@@ -7,7 +7,7 @@ title: 基本
 
 
 ````jsx
-import { WhiteSpace, WingBlank, Button } from 'antm';
+import { WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 let WhiteSpaceExample = React.createClass({
   render() {

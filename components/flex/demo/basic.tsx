@@ -1,4 +1,4 @@
-import { Button, Flex, WingBlank, WhiteSpace } from 'antm';
+import { Button, Flex, WingBlank, WhiteSpace } from 'antd-mobile';
 import * as React from 'react';
 import { View, Text } from 'react-native';
 

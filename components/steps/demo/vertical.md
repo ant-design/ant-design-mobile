@@ -7,7 +7,7 @@ title: 竖直方向的步骤条
 
 
 ````jsx
-import { Steps, WingBlank, WhiteSpace } from 'antm';
+import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
 const Step = Steps.Step;
 
 const steps = [{

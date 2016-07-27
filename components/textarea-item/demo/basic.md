@@ -6,7 +6,7 @@ title: 基本
 列表主体内容的容器。
 
 ````jsx
-import { List, TextareaItem } from 'antm';
+import { List, TextareaItem } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let TextareaItemExample = React.createClass({

@@ -4,7 +4,7 @@ title: 单级菜单
 ---
 
 ````jsx
-import { Menu, Toast } from 'antm';
+import { Menu, Toast } from 'antd-mobile';
 
 let data2 = [
   {

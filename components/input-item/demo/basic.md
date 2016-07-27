@@ -6,7 +6,7 @@ title: 基本
 输入框。
 
 ````jsx
-import { List, InputItem } from 'antm';
+import { List, InputItem } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let BasicInput = React.createClass({

@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
 import classNames from 'classnames';
-import Icon from '../icon';
+import Icon from '../icon/index.web';
 function noop() {}
 import splitObject from '../_util/splitObject';
 import ButtonProps from './ButtonPropsType';

@@ -1,4 +1,4 @@
-import { WhiteSpace, Timeline, WingBlank } from 'antm';
+import { WhiteSpace, Timeline, WingBlank } from 'antd-mobile';
 import * as React from 'react';
 import { View, Text } from 'react-native';
 

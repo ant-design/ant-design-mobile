@@ -6,7 +6,7 @@ title: 列表单选框
 Radio.RadioItem
 
 ````jsx
-import { List, Radio } from 'antm';
+import { List, Radio } from 'antd-mobile';
 
 const RadioItem = Radio.RadioItem;
 

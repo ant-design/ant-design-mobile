@@ -6,7 +6,7 @@ title: 对齐
 双行列表
 
 ````jsx
-import { List, Button } from 'antm';
+import { List, Button } from 'antd-mobile';
 
 ReactDOM.render(
   <div>

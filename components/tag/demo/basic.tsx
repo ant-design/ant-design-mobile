@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 import * as React from 'react';
 import { View } from 'react-native';
-import { Tag, WhiteSpace } from 'antm';
+import { Tag, WhiteSpace } from 'antd-mobile';
 
 function onClose() {
   console.log('tag closing');

@@ -6,7 +6,7 @@ title: 表单
 表单集合
 
 ````jsx
-import { List, InputItem, Switch, Stepper, Slider, Radio, Checkbox, TextareaItem, WingBlank, WhiteSpace, Button } from 'antm';
+import { List, InputItem, Switch, Stepper, Slider, Radio, Checkbox, TextareaItem, WingBlank, WhiteSpace, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let BasicInput = React.createClass({

@@ -6,7 +6,7 @@ title: 混合
 有表头和标题列混合使用
 
 ````jsx
-import { Table } from 'antm';
+import { Table } from 'antd-mobile';
 
 const columns = [
   { title: '', dataIndex: 'title', key: 'title' },

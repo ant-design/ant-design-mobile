@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Uploader, WhiteSpace } from 'antm';
+import { Uploader, WhiteSpace } from 'antd-mobile';
 import { View } from 'react-native';
 
 export default class UploaderExample extends React.Component<any, any> {

@@ -6,7 +6,7 @@ title: 可关闭
 是否显示关闭按钮，点击关闭图标后，隐藏该栏。
 
 ````jsx
-import { TopNotice, WhiteSpace } from 'antm';
+import { TopNotice, WhiteSpace } from 'antd-mobile';
 
 const TopNoticeExample = React.createClass({
   onClick() {

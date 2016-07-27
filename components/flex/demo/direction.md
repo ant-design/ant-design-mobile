@@ -6,7 +6,7 @@ title: 排列方向
 direction="row/row-reverse/column/column-reverse"
 
 ````jsx
-import { Flex, List, Button, WhiteSpace } from 'antm';
+import { Flex, List, Button, WhiteSpace } from 'antd-mobile';
 
 let FlexExample = React.createClass({
   render() {

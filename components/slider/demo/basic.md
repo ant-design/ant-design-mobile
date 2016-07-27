@@ -10,7 +10,7 @@ title: 基本
 
 ```jsx
 
-import { Slider, WingBlank, WhiteSpace } from 'antm';
+import { Slider, WingBlank, WhiteSpace } from 'antd-mobile';
 
 let App = React.createClass({
   render() {

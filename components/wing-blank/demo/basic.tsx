@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { WhiteSpace, WingBlank } from 'antm';
+import { WhiteSpace, WingBlank } from 'antd-mobile';
 
 import variables from '../../style/variables';
 

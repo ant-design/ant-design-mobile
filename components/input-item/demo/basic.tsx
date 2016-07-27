@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { InputItem, List } from 'antm';
+import { InputItem, List } from 'antd-mobile';
 
 export default class BasicInputItemExample extends React.Component<any, any> {
   constructor(props) {

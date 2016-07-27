@@ -9,7 +9,7 @@ title: FloatMenu
 this.customNavFlag = true;
 
 
-import { FloatMenu, Button, NavBar } from 'antm';
+import { FloatMenu, Button, NavBar } from 'antd-mobile';
 const Item = FloatMenu.Item;
 
 const App = React.createClass({

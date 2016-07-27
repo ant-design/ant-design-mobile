@@ -6,7 +6,7 @@ title: 换行
 wrap="nowrap/wrap/wrap-reverse"
 
 ````jsx
-import { Flex, List, Button, WhiteSpace } from 'antm';
+import { Flex, List, Button, WhiteSpace } from 'antd-mobile';
 
 let FlexExample = React.createClass({
   render() {

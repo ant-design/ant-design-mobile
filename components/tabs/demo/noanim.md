@@ -7,7 +7,7 @@ title: 内容区域无动画
 
 
 ````jsx
-import { Tabs, WhiteSpace, Icon } from 'antm';
+import { Tabs, WhiteSpace, Icon } from 'antd-mobile';
 const TabPane = Tabs.TabPane;
 
 function callback(key) {

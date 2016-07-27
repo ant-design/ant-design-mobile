@@ -6,7 +6,7 @@ title: 基本
 Radio
 
 ````jsx
-import { Radio } from 'antm';
+import { Radio } from 'antd-mobile';
 
 let Test = React.createClass({
   getInitialState() {

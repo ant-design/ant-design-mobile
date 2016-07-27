@@ -7,7 +7,7 @@ title: 基本
 
 
 ````jsx
-import { RefreshControl } from 'antm';
+import { RefreshControl } from 'antd-mobile';
 
 let count = 1;
 const App = React.createClass({

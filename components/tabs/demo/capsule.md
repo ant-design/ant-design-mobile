@@ -6,7 +6,7 @@ title: 胶囊型选项卡
 主要应用在页面的NavBar区块，一般起着控制全局页面内容切换的作用。选项卡的文字内容建议不超过四个。
 
 ````jsx
-import { Tabs, WhiteSpace } from 'antm';
+import { Tabs, WhiteSpace } from 'antd-mobile';
 const TabPane = Tabs.TabPane;
 
 function callback(key) {

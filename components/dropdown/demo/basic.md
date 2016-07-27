@@ -5,7 +5,7 @@ title: Dropdown
 
 
 ````jsx
-import { Dropdown, Button, WingBlank, WhiteSpace, Menu } from 'antm';
+import { Dropdown, Button, WingBlank, WhiteSpace, Menu } from 'antd-mobile';
 
 const SelectorDataForDropdown = [
   {

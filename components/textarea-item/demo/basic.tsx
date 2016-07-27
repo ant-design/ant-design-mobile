@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { TextAreaItem } from 'antm';
+import { TextAreaItem } from 'antd-mobile';
 
 export default class BasicTextAreaItemExample extends React.Component<any, any> {
   constructor(props) {

@@ -7,7 +7,7 @@ title: 基本
 
 ````jsx
 
-import { DatePicker, List } from 'antm';
+import { DatePicker, List } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let Test = React.createClass({

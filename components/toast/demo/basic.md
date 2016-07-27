@@ -6,7 +6,7 @@ title: 普通
 纯文字、纯图标、成功、失败、离线、loading
 
 ````jsx
-import { Toast, WhiteSpace, WingBlank, Button } from 'antm';
+import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 function showToast() {
   Toast.info('这是一个 toast 提示!!!');

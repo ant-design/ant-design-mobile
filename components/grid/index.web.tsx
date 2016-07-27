@@ -2,7 +2,7 @@ import * as React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Flex from '../flex';
-import Carousel from '../carousel';
+import Carousel from '../carousel/index.web';
 function noop() {}
 
 export interface GridProps {

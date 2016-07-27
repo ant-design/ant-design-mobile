@@ -6,7 +6,7 @@ title: 基本
 纯粹的Checkbox
 
 ````jsx
-import { Checkbox, WhiteSpace, WingBlank } from 'antm';
+import { Checkbox, WhiteSpace, WingBlank } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let Test = React.createClass({

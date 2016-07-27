@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
-import { RefreshControl } from 'antm';
+import { RefreshControl } from 'antd-mobile';
 
 const styles = StyleSheet.create({
   row: {

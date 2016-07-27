@@ -6,7 +6,7 @@ title: 可关闭
 可关闭的浮层
 
 ````jsx
-import { Modal, Button, WhiteSpace, WingBlank } from 'antm';
+import { Modal, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const App = React.createClass({
   getInitialState() {

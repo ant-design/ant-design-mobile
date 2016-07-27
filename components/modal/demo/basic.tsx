@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { Modal, Button } from 'antm';
+import { Modal, Button } from 'antd-mobile';
 
 export default class BasicModalExample extends React.Component {
   constructor(props) {

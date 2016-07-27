@@ -6,7 +6,7 @@ title: 基本
 基本,子元素FLex.Item,设置flex=1
 
 ````jsx
-import { Flex, Button, WingBlank, WhiteSpace } from 'antm';
+import { Flex, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
 
 let FlexExample = React.createClass({

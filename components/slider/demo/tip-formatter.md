@@ -8,7 +8,7 @@ title: 自定义提示
 
 
 ````jsx
-import { Slider, WhiteSpace, WingBlank } from 'antm';
+import { Slider, WhiteSpace, WingBlank } from 'antd-mobile';
 
 function formatter(value) {
   return `${value}%`;

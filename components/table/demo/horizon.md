@@ -6,7 +6,7 @@ title: 横向
 简单的表格，无表头，用标题列替代表头，columns第一项为取竖向标题的索引，dataSource每项中需要指定标题的值。
 
 ````jsx
-import { Table } from 'antm';
+import { Table } from 'antd-mobile';
 
 const columns = [
   { title: '标题', dataIndex: 'title', key: 'title' },

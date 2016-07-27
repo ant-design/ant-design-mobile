@@ -8,7 +8,7 @@ destroyComponent: true
 
 
 ````jsx
-import { ListView, List, SearchBar } from 'antm';
+import { ListView, List, SearchBar } from 'antd-mobile';
 const { Item } = List;
 
 const NUM_SECTIONS = 20;

@@ -6,7 +6,7 @@ title: 业务示例
 一个业务上使用的示例。
 
 ````jsx
-import { List } from 'antm';
+import { List } from 'antd-mobile';
 
 ReactDOM.render(
   <div>

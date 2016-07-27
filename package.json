@@ -1,5 +1,5 @@
 {
-  "name": "antm",
+  "name": "antd-mobile",
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
   },

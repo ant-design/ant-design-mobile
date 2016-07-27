@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { Picker, List } from 'antm';
+import { Picker, List } from 'antd-mobile';
 import * as React from 'react';
 
 const data = [{

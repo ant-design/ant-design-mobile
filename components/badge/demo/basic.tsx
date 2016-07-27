@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 import * as React from 'react';
 import { View } from 'react-native';
-import { Badge, WhiteSpace } from 'antm';
+import { Badge, WhiteSpace } from 'antd-mobile';
 
 export default class BasicTagExample extends React.Component<any, any> {
   render() {

@@ -7,7 +7,7 @@ title: 基本用法
 
 
 ````jsx
-import { Steps, WingBlank, WhiteSpace } from 'antm';
+import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
 const Step = Steps.Step;
 
 const steps = [{

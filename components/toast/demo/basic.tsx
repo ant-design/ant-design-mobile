@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
 import * as React from 'react';
-import { Toast, WhiteSpace, WingBlank, Button } from 'antm';
+import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 import { View } from 'react-native';
 
 function showToast() {

@@ -7,7 +7,7 @@ title: 基本
 
 
 ````jsx
-import { Progress, WhiteSpace, Button, Flex, WingBlank } from 'antm';
+import { Progress, WhiteSpace, Button, Flex, WingBlank } from 'antd-mobile';
 
 const MyProgress = React.createClass({
   getInitialState() {

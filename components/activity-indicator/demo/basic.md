@@ -6,7 +6,7 @@ title: 基本用法
 基本的活动指示器。
 
 ````jsx
-import { ActivityIndicator, WhiteSpace } from 'antm';
+import { ActivityIndicator, WhiteSpace } from 'antd-mobile';
 
 let App = React.createClass({
   render() {

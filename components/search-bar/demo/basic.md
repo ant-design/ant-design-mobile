@@ -6,7 +6,7 @@ title: 基本
 
 
 ````jsx
-import { SearchBar } from 'antm';
+import { SearchBar } from 'antd-mobile';
 import { createForm } from 'rc-form';
 let SearchBarExample = React.createClass({
   getInitialState() {

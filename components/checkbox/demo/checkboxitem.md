@@ -6,7 +6,7 @@ title: 列表项复选框
 Checkbox.CheckboxItem
 
 ````jsx
-import { List, Checkbox } from 'antm';
+import { List, Checkbox } from 'antd-mobile';
 import { createForm } from 'rc-form';
 const CheckboxItem = Checkbox.CheckboxItem;
 
