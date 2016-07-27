@@ -30,7 +30,7 @@ module.exports = {
       require.resolve('babel-plugin-antd'),
       {
         style: true,
-        libraryName: 'antm',
+        libraryName: 'antd-mobile',
         libDir: 'components',
       },
     ]);

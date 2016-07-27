@@ -4,7 +4,7 @@ import Promise from 'bluebird';
 import classNames from 'classnames';
 import * as utils from '../utils';
 
-import { NavBar, ActionSheet, Icon } from 'antm';
+import { NavBar, ActionSheet, Icon } from 'antd-mobile';
 
 export function collect(nextProps, callback) {
   const componentsList = utils.collectDocs(nextProps.data.components);

@@ -4,7 +4,7 @@ import Promise from 'bluebird';
 import * as utils from '../utils';
 import Page from './Page';
 import Item from './Item';
-import { List, Flex } from 'antm';
+import { List, Flex } from 'antd-mobile';
 
 const hashImgObj = {
   'action-sheet': 'sTvsgvivVKnqQtS',
