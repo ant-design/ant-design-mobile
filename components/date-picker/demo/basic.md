@@ -44,20 +44,23 @@ let Test = React.createClass({
           >
             <List.Item arrow="horizontal">时间</List.Item>
           </DatePicker>
-          <DatePicker mode="datetime" { ...getFieldProps('datetime', {
-            initialValue: '',
-          })}
+          <DatePicker
+            mode="datetime"
+            { ...getFieldProps('datetime', {
+              initialValue: '',
+            })}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
           </DatePicker>
           <DatePicker
             mode="datetime"
-            format={val => val}
+            format={val => `dt: ${val}`}
+            locale={DatePicker.locale.en_US}
             { ...getFieldProps('customformat', {
               initialValue: '',
             })}
           >
-            <List.Item arrow="horizontal">日期+时间</List.Item>
+            <List.Item arrow="horizontal">datetime(en_US)</List.Item>
           </DatePicker>
         </List.Body>
       </List>

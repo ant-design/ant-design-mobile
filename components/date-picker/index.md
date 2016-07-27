@@ -24,7 +24,7 @@ english: DatePicker
 | minDate   | 最小可选日期,格式同value | String  |  `2000-1-1`  |
 | maxDate   | 最大可选日期,格式同value | String  |  `2030-1-1`  |
 | onChange   | 时间发生变化的回调  | function(date) |  无  |
-| locale   | 国际化配置	 | String  |  `zhCn` |
+| locale   | 国际化配置 (可自行构造，结构为 {calendar: enUs, year, month, day, hour, minute})	 | Object  | DatePicker.locale.zh_CN |
 | okText   | 选中的文案 | String |  `确定`  |
 | dismissText  | 取消选中的文案 | String |  `取消`  |
 | title  | 弹框的标题 | String |  无  |

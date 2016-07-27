@@ -4,11 +4,10 @@ import { PropTypes } from 'react';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import GregorianCalendar from 'gregorian-calendar';
 import GregorianCalendarFormat from 'gregorian-calendar-format';
-import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
+// import zhCn from 'gregorian-calendar/lib/locale/zh_CN';
 import zhCnPicker from 'rmc-date-picker/lib/locale/zh_CN';
-
-const now = new GregorianCalendar(zhCn);
-now.setTime(Date.now());
+import enUsPicker from 'rmc-date-picker/lib/locale/en_US';
+import assign from 'object-assign';
 
 function getFormatter(type) {
   let formatter;
@@ -56,40 +55,48 @@ export default class DatePicker extends React.Component {
 
   constructor(props) {
     super(props);
+    const { value, minDate, maxDate, locale } = props;
+    const { calendar } = locale;
+    const now = new GregorianCalendar(calendar);
+    now.setTime(Date.now());
     this.state = {
-      date: this.props.value && this.getFormatter().parse(this.props.value, { locale: zhCn }) || now,
-      minDate: this.props.minDate && this.getFormatter().parse(this.props.minDate, { locale: zhCn }),
-      maxDate: this.props.maxDate && this.getFormatter().parse(this.props.maxDate, { locale: zhCn }),
+      date: this.getParsed(value, props) || now,
+      minDate: this.getParsed(minDate, props),
+      maxDate: this.getParsed(maxDate, props),
     };
   }
 
   componentWillReceiveProps(nextProps) {
+    const { value, minDate, maxDate, locale } = nextProps;
+    const { calendar } = locale;
+    const now = new GregorianCalendar(calendar);
+    now.setTime(Date.now());
+
     if ('value' in nextProps && nextProps.value !== this.props.value) {
       this.setState({
-        date: nextProps.value && this.getFormatter().parse(nextProps.value, {
-          locale: zhCn,
-        }) || now,
+        date: this.getParsed(value, nextProps) || now,
       });
     }
 
     if ('minDate' in nextProps && nextProps.minDate !== this.props.minDate) {
       this.setState({
-        minDate: nextProps.minDate && this.getFormatter().parse(nextProps.minDate, {
-          locale: zhCn,
-        }),
+        minDate: this.getParsed(minDate, nextProps),
       });
     }
 
     if ('maxDate' in nextProps && nextProps.maxDate !== this.props.maxDate) {
       this.setState({
-        maxDate: nextProps.maxDate && this.getFormatter().parse(nextProps.maxDate, {
-          locale: zhCn,
-        }),
+        maxDate: this.getParsed(maxDate, nextProps),
       });
     }
   }
   onChange = (v) => {
-    this.props.onChange(this.getFormatter().format(v));
+    if (v) {
+      this.props.onChange(this.getFormatter().format(v));
+    }
+  }
+  getParsed = (date, props) => {
+    return date && this.getFormatter().parse(date, { locale: props.locale.calendar });
   }
   getFormatter = () => {
     return getFormatter(this.props.mode);
@@ -119,3 +126,8 @@ export default class DatePicker extends React.Component {
     );
   }
 }
+
+DatePicker.locale = {
+  zh_CN: assign({}, zhCnPicker),
+  en_US: assign({}, enUsPicker),
+};
