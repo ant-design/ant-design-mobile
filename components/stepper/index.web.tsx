@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
-import splitObject from '../_util/splitObject';
 import StepProps from './StepPropTypes';
 
 export default class Stepper extends React.Component<StepProps, any> {
@@ -14,14 +13,11 @@ export default class Stepper extends React.Component<StepProps, any> {
   };
 
   componentDidMount() {
-    this.refs.inputNumber.refs.input.setAttribute('disabled', true);
+    (this.refs as any).inputNumber.refs.input.setAttribute('disabled', true);
   }
 
   render() {
-    let [{prefixCls, className, size, showNumber}, restProps] = splitObject(
-      this.props,
-      ['prefixCls', 'className', 'size', 'showNumber']
-    );
+    const { prefixCls, className, size, showNumber } = this.props;
     const stepperClass = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
@@ -29,8 +25,21 @@ export default class Stepper extends React.Component<StepProps, any> {
       ['showNumber']: !!showNumber,
     });
 
+    const restProps = Object.assign({}, this.props);
+    ['className', 'prefixCls', 'size', 'showNumber'].forEach(prop => {
+      if (restProps.hasOwnProperty(prop)) {
+        delete restProps[prop];
+      }
+    });
+
     return (
-      <RcInputNumber ref="inputNumber" prefixCls={prefixCls} className={stepperClass} {...restProps} />
+      <RcInputNumber
+        ref="inputNumber"
+        prefixCls={prefixCls}
+        className={stepperClass}
+        size={size}
+        {...restProps}
+      />
     );
   }
 }

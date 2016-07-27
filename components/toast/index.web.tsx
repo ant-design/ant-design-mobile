@@ -6,14 +6,14 @@ let messageInstance;
 let prefixCls = 'am-toast';
 
 function getMessageInstance() {
-  messageInstance = Notification.newInstance({
+  messageInstance = (Notification as any).newInstance({
     prefixCls,
     style: { top: 0 },
   });
   return messageInstance;
 }
 
-function notice(content, duration = 3, onClose, type) {
+function notice(content, type, duration = 3, onClose) {
   let iconType = ({
     info: '',
     success: 'check-circle-o',
@@ -48,20 +48,25 @@ function notice(content, duration = 3, onClose, type) {
 }
 
 export default {
-  info(content, duration, onClose) {
-    return notice(content, duration, onClose, 'info');
+  SHORT: 3,
+  LONG: 8,
+  show(content: string, duration?: number) {
+    return notice(content, 'info', duration, () => {});
   },
-  success(content, duration, onClose) {
-    return notice(content, duration, onClose, 'success');
+  info(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'info', duration, onClose);
   },
-  fail(content, duration, onClose) {
-    return notice(content, duration, onClose, 'fail');
+  success(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'success', duration, onClose);
   },
-  offline(content, duration, onClose) {
-    return notice(content, duration, onClose, 'network');
+  fail(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'fail', duration, onClose);
   },
-  loading(content, duration, onClose) {
-    return notice(content, duration, onClose, 'loading');
+  offline(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'offline', duration, onClose);
+  },
+  loading(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'loading', duration, onClose);
   },
   hide() {
     if (messageInstance) {

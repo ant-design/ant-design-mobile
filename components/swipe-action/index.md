@@ -27,7 +27,7 @@ english: SwipeAction
 | right       | swipeout buttons on right      | Array | `null` |
 | autoClose       | auto close on button press   | Boolean | `function() {}` |
 | onOpen       |       | Function | `function() {}` |
-| onClose       |       | Function | `function() {}` |
+| onClose (web only)      |       | Function | `function() {}` |
 | disabled       |   disabled swipeout    | Boolean | `false` |
 | title          |    modal title (android only)   | String | `请确认操作` |
 

@@ -14,12 +14,14 @@ import uploaderStyles from './style/';
 import ImageRoll from './ImageRoll';
 
 export default class Uploader extends React.Component<UploaderProps, any> {
-
   static defaultProps = {
     styles: uploaderStyles,
     onChange() {},
     files: [],
   };
+
+  plusText: any;
+  plusWrap: any;
 
   constructor(props) {
     super(props);
@@ -30,20 +32,20 @@ export default class Uploader extends React.Component<UploaderProps, any> {
 
   onPressIn = () => {
     const styles = this.props.styles;
-    this._plusWrap.setNativeProps({
+    this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapHighlight],
     });
-    this._plusText.setNativeProps({
+    this.plusText.setNativeProps({
       style: [styles.plusTextHilight, styles.plusText],
     });
   }
 
   onPressOut = () => {
     const styles = this.props.styles;
-    this._plusWrap.setNativeProps({
+    this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapNormal],
     });
-    this._plusText.setNativeProps({
+    this.plusText.setNativeProps({
       style: [styles.plusText, styles.plusTextNormal],
     });
   }
@@ -120,7 +122,7 @@ export default class Uploader extends React.Component<UploaderProps, any> {
     return (
       <View style={styles.container}>
         {
-          files.map((item, index) => {
+          files.map((item: any, index) => {
             return (
               <View key={index} style={[styles.item, styles.size]}>
                 <Image
@@ -143,10 +145,10 @@ export default class Uploader extends React.Component<UploaderProps, any> {
           onPressOut={this.onPressOut}
         >
           <View ref={
-            conponent => this._plusWrap = conponent
+            conponent => this.plusWrap = conponent
           } style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}>
             <Text
-              ref={conponent => this._plusText = conponent
+              ref={conponent => this.plusText = conponent
               } style={[styles.plusNormal, styles.plusText]}>+</Text>
           </View>
         </TouchableWithoutFeedback>

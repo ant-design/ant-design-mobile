@@ -1,23 +1,9 @@
-import { PropTypes } from 'react';
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
-import splitObject from '../_util/splitObject';
 import TagProps from './TagPropsType';
 
 export default class Tag extends React.Component<TagProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    type: PropTypes.oneOf(['action', 'read']),
-    disabled: PropTypes.bool,
-    size: PropTypes.oneOf(['large', 'small']),
-    closable: PropTypes.bool,
-    onChange: PropTypes.func,
-    onClose: PropTypes.func,
-    afterClose: PropTypes.func,
-    selected: PropTypes.bool,
-  };
-
   static defaultProps = {
     prefixCls: 'am-tag',
     type: 'read',
@@ -32,7 +18,6 @@ export default class Tag extends React.Component<TagProps, any> {
 
   constructor(props) {
     super(props);
-
     this.state = {
       selected: props.selected,
       closed: false,
@@ -40,39 +25,35 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   onClick = () => {
-    const props = this.props;
-    if (props.type === 'read' || props.disabled) {
+    const { type, disabled, closable, onChange } = this.props;
+    if (type === 'read' || disabled) {
       return;
     }
-    if (props.closable) {
+    if (closable) {
       this.onClose();
     } else {
       const isSelect = this.state.selected;
       this.setState({
         selected: !isSelect,
       }, () => {
-        props.onChange(!isSelect);
+        onChange(!isSelect);
       });
     }
   }
 
   onClose = () => {
-    const props = this.props;
-    props.onClose();
+    const { onClose, afterClose } = this.props;
+    onClose();
     this.setState({
       closed: true,
-    }, () => {
-      props.afterClose();
-    });
+    }, afterClose);
   }
 
   render() {
-    let [{children, className, prefixCls, type, size, disabled, closable}, restProps] = splitObject(
-      this.props,
-      ['children', 'className', 'prefixCls', 'type', 'size', 'disabled', 'closable']
-    );
+    const {
+      children, className, prefixCls, type, size, disabled, closable,
+    } = this.props;
     const selected = this.state.selected;
-
     const wrapCls = classNames({
       [className]: !!className,
       [prefixCls]: true,
@@ -91,7 +72,7 @@ export default class Tag extends React.Component<TagProps, any> {
     ) : null;
 
     return this.state.closed ? null : (
-      <div className={wrapCls} {...restProps} onClick={this.onClick}>
+      <div className={wrapCls} onClick={this.onClick}>
         <div className={`${prefixCls}-text`}>{children}</div>
         {close}
       </div>

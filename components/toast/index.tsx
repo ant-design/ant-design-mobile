@@ -62,15 +62,15 @@ class ToastContainer extends React.Component<ToastProps, any> {
     }
 
     return (
-      <View style={styles.container}>
+      <View style={[styles.container]}>
         <Modal
           animationType="fade"
           transparent
           visible
           onRequestClose={() => {}}
         >
-          <View style={styles.innerContainer}>
-            <View style={styles.innnerWrap}>
+          <View style={[styles.innerContainer]}>
+            <View style={[styles.innnerWrap]}>
               {iconDom}
               <Text style={styles.content}>{content}</Text>
             </View>
@@ -81,7 +81,7 @@ class ToastContainer extends React.Component<ToastProps, any> {
   }
 }
 
-function notice(content, duration, onClose, type) {
+function notice(content, type, duration = 3, onClose) {
   if (typeof duration === 'function') {
     onClose = duration;
     duration = 3;
@@ -91,28 +91,26 @@ function notice(content, duration, onClose, type) {
   );
 }
 
-function noop() {}
-
 export default {
   SHORT: 3,
   LONG: 8,
-  show(content, duration) {
-    return notice(content, duration, noop, 'info');
+  show(content: string, duration?: number) {
+    return notice(content, 'info', duration, () => {});
   },
-  info(content, duration, onClose) {
-    return notice(content, duration, onClose, 'info');
+  info(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'info', duration, onClose);
   },
-  success(content, duration, onClose) {
-    return notice(content, duration, onClose, 'success');
+  success(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'success', duration, onClose);
   },
-  fail(content, duration, onClose) {
-    return notice(content, duration, onClose, 'fail');
+  fail(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'fail', duration, onClose);
   },
-  offline(content, duration, onClose) {
-    return notice(content, duration, onClose, 'offline');
+  offline(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'offline', duration, onClose);
   },
-  loading(content, duration, onClose) {
-    return notice(content, duration, onClose, 'loading');
+  loading(content: string, duration?: number, onClose?: () => void) {
+    return notice(content, 'loading', duration, onClose);
   },
   hide() {
     topView.remove();

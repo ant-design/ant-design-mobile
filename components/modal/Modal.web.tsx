@@ -2,20 +2,22 @@ import * as React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import splitObject from '../_util/splitObject';
 import ModalProps from './ModalPropsType';
 
 export default class Modal extends React.Component<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
+    wrapClassName: '',
     visible: false,
     closable: false,
     maskClosable: false,
     transparent: false,
     animated: true,
     style: {},
+    bodyStyle: {},
     onClose() {},
     onShow() {},
+    footer: null,
   };
 
   componentWillMount() {
@@ -41,20 +43,29 @@ export default class Modal extends React.Component<ModalProps, any> {
     if (prevProps.visible === true && !closable) {
       const closeDom = document.getElementsByClassName(`${prefixCls}-close`)[0];
       if (closeDom) {
-        closeDom.style.display = 'none';
+        (closeDom as any).style.display = 'none';
       }
     }
   }
 
   render() {
-    let [
-      {prefixCls, className, transparent, animated, animation, maskAnimation, closable, maskClosable, style},
-      restProps,
-    ] = splitObject(
-      this.props,
-      ['prefixCls', 'className', 'transparent', 'animated', 'animation',
-      'maskAnimation', 'closable', 'maskClosable', 'style']
-    );
+    const {
+      prefixCls,
+      className,
+      wrapClassName,
+      transparent,
+      animated,
+      animation,
+      maskAnimation,
+      closable,
+      maskClosable,
+      style,
+      bodyStyle,
+      visible,
+      children,
+      onClose,
+      footer,
+    } = this.props;
 
     const wrapCls = classNames({
       [className]: !!className,
@@ -75,14 +86,21 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     return (
       <Dialog
+        prefixCls={prefixCls}
+        className={wrapCls}
+        wrapClassName={wrapClassName}
         animation={anim}
         maskAnimation={maskAnim}
         style={rootStyle}
-        className={wrapCls}
-        prefixCls={prefixCls}
+        bodyStyle={bodyStyle}
+        visible={visible}
         closable={closable || maskClosable}
         maskClosable={maskClosable}
-        {...restProps} />
+        onClose={onClose}
+        footer={footer}
+      >
+        {children}
+      </Dialog>
     );
   }
 }

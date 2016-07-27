@@ -19,6 +19,7 @@ interface StepProps {
   prefixCls?: 'am-stepper';
   name?: string;
   showNumber?: boolean;
+  className?: string;
 }
 
 export default StepProps;

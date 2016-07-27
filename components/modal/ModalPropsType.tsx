@@ -9,8 +9,15 @@ interface ModalProps {
   animated?: boolean;
   transparent?: boolean;
   style?: {};
+  /** react native only **/
+  onRequestClose?: () => void;
   /** web only */
   prefixCls?: string;
+  animation?: string;
+  maskAnimation?: string;
+  className?: string;
+  wrapClassName?: string;
+  bodyStyle?: {};
 };
 
 export default ModalProps;

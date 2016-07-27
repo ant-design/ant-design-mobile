@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: 1,
     borderBottomColor: varibles.neutral_5,
     height: 11 * varibles.grid,
   },
@@ -53,8 +53,8 @@ export default class ImageRoll extends React.Component<ImageRollProps, any> {
         <View style={{flex: 1}}>
           <StatusBar barStyle="light-content" />
           <View style={styles.statusBarBg}></View>
-          <View style={styles.naviBar}>
-            <Text style={styles.barTitle}>Photos</Text>
+          <View style={[styles.naviBar]}>
+            <Text style={[styles.barTitle]}>Photos</Text>
             <TouchableOpacity onPress={this.props.onCancel}>
               <Text style={styles.rightBtn}>Cancel</Text>
             </TouchableOpacity>

@@ -1,22 +1,9 @@
-import { PropTypes } from 'react';
 import * as React from 'react';
-import splitObject from '../_util/splitObject';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import TagStyle from './style/index';
 import TagProps from './TagPropsType';
 
 export default class Modal extends React.Component<TagProps, any> {
-  static propTypes = {
-    type: PropTypes.oneOf(['action', 'read']),
-    disabled: PropTypes.bool,
-    size: PropTypes.oneOf(['large', 'small']),
-    closable: PropTypes.bool,
-    onChange: PropTypes.func,
-    onClose: PropTypes.func,
-    afterClose: PropTypes.func,
-    selected: PropTypes.bool,
-  };
-
   static defaultProps = {
     type: 'read',
     disabled: false,
@@ -38,37 +25,33 @@ export default class Modal extends React.Component<TagProps, any> {
   }
 
   onClick = () => {
-    const props = this.props;
-    if (props.type === 'read' || props.disabled) {
+    const { type, disabled, closable, onChange } = this.props;
+    if (type === 'read' || disabled) {
       return;
     }
-    if (props.closable) {
+    if (closable) {
       this.onClose();
     } else {
-      const isSelect = this.state.selected;
+      const isSelect: boolean = this.state.selected;
       this.setState({
         selected: !isSelect,
       }, () => {
-        props.onChange(!isSelect);
+        onChange(!isSelect);
       });
     }
   }
 
   onClose = () => {
-    const props = this.props;
-    props.onClose();
+    const { onClose, afterClose } = this.props;
+    onClose();
     this.setState({
       closed: true,
-    }, () => {
-      props.afterClose();
-    });
+    }, afterClose);
   }
 
   render() {
-    let [{children, type, size, disabled, closable, style}, restProps] = splitObject(
-      this.props,
-      ['children', 'type', 'size', 'disabled', 'closable', 'style']
-    );
+    const {children, type, size, disabled, closable, style} = this.props;
+
     const selected = this.state.selected;
 
     const wrapStyles = [TagStyle[`${size}Wrap`]];
@@ -101,10 +84,10 @@ export default class Modal extends React.Component<TagProps, any> {
     ) : null;
 
     return this.state.closed ? null : (
-      <View style={[ TagStyle.tag, style ]} {...restProps}>
+      <View style={[ TagStyle.tag, style ]}>
         <TouchableWithoutFeedback onPress={this.onClick}>
           <View style={[TagStyle.wrap, wrapStyles]}>
-            <Text style={[textStyles]}>{children} </Text>
+            <Text style={textStyles}>{children} </Text>
             {closeDom}
           </View>
         </TouchableWithoutFeedback>
