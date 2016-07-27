@@ -7,6 +7,10 @@ import Header from './ListHeader';
 import Footer from './ListFooter';
 
 export default class List extends React.Component<any, any> {
+  static Header: any;
+  static Body: any;
+  static Footer: any;
+  static Item: any;
   render() {
     const style = {
       marginTop: 8,

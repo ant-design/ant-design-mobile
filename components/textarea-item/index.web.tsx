@@ -37,6 +37,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     labelNumber: 4,
   };
 
+  initialTextHeight: any;
+  refs: {
+    textarea: any;
+  };
+
   constructor(props) {
     super(props);
     this.state = {

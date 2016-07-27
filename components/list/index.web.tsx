@@ -15,6 +15,11 @@ export interface ListProps {
 }
 
 class List extends React.Component<ListProps, any> {
+  static Header: any;
+  static Body: any;
+  static Footer: any;
+  static Item: any;
+
   static defaultProps = {
     prefixCls: 'am-list',
   };
