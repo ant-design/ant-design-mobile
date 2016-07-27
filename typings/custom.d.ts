@@ -8,6 +8,7 @@ declare module 'antd-mobile'{
     List: any;
     ListView: any;
     Modal: any;
+    Slider: any;
     Stepper: any;
     SwipeAction: any;
     Switch: any;
@@ -82,6 +83,11 @@ declare module 'css-vendor'{
     supportedValue:(property: string, value: string) => string;
   }
   export = exports
+}
+
+declare module 'rc-slider'{
+  var exports:(...any) => any
+  export default exports
 }
 
 declare module 'rc-swipeout'{
