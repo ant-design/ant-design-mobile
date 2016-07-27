@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import FlexProps from './FlexPropTypes';
 
 export default class Flex extends React.Component<FlexProps, any> {
+  static Item: any;
+
   static propTypes = {
     direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
     wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
