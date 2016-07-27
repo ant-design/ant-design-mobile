@@ -1,10 +1,7 @@
 import * as React from 'react';
 import RcTable from 'rc-table';
 
-import splitObject from '../_util/splitObject';
-
-export default class Table extends React.Component {
-
+export default class Table extends React.Component<any, any> {
   static defaultProps = {
     dataSource: [],
     prefixCls: 'am-table',
@@ -13,7 +10,15 @@ export default class Table extends React.Component {
   render() {
     const { columns, dataSource, direction, scrollX, titleFixed } = this.props;
 
-    const [{ style, className }, restProps] = splitObject(this.props, ['style', 'className']);
+    // const [{ style, className }, restProps] = splitObject(this.props, ['style', 'className']);
+    const { style, className } = this.props;
+
+    const restProps = Object.assign({}, this.props);
+    [style, className].forEach(prop => {
+      if (restProps.hasOwnProperty(prop)) {
+        delete restProps[prop];
+      }
+    });
 
     let table;
     // 默认纵向
@@ -41,7 +46,7 @@ export default class Table extends React.Component {
         showHeader={false}
         scroll={{ x: scrollX }}
       />;
-    // 混合 
+    // 混合
     } else if (direction === 'mix') {
       columns[0].className = 'am-table-horizonTitle';
       table = <RcTable {...restProps} columns={columns}

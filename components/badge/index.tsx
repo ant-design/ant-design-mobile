@@ -1,6 +1,5 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
-import splitObject from '../_util/splitObject';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import BadgeStyle from './style/index';
 import BadgeProps from './BadgePropsType';
@@ -25,10 +24,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
   };
 
   render() {
-    let [{size, overflowCount, corner, dot, text, children, style}, restProps] = splitObject(
-      this.props,
-      ['size', 'overflowCount', 'corner', 'dot', 'text', 'children', 'style']
-    );
+    const {size, overflowCount, corner, dot, text, children, style} = this.props;
 
     const overflowNum = overflowCount || 99;
     const badgeText = typeof text === 'number' && text > overflowNum ? `${overflowNum}+` : text;
@@ -36,7 +32,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const badgeCls = corner ? 'textCorner' : 'textDom';
 
     return (
-      <View style={[ BadgeStyle.wrap, style ]} {...restProps}>
+      <View style={[ BadgeStyle.wrap, style ]}>
         <View style={ [BadgeStyle[`${badgeCls}Wrap`]] }>
           {children}
 

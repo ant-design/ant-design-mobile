@@ -32,7 +32,7 @@ export default class BasicProgressExample extends React.Component<any, any> {
         </View>
         <WhiteSpace/>
         <WhiteSpace/>
-        <WingBlank style={{ marginTop: 120 }}  style={{ flexDirection: 'row' }}>
+        <WingBlank style={{ marginTop: 120, flexDirection: 'row' }}>
             <Button type={'default'} onPress={this.onAdd}>
               +
             </Button>

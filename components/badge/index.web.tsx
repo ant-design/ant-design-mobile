@@ -3,8 +3,9 @@ import { PropTypes } from 'react';
 import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
+import BadgeProps from './BadgePropsType';
 
-export default class Badge extends React.Component {
+export default class Badge extends React.Component<BadgeProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     text: PropTypes.oneOfType([
@@ -59,7 +60,7 @@ export default class Badge extends React.Component {
     });
 
     return (
-      <span className={badgeCls} title={text} {...this.props} style={null}>
+      <span className={badgeCls} title={text} style={null}>
         {children}
         <Animate component=""
           showProp="data-show"
