@@ -7,7 +7,7 @@ import {
   Platform,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { List } from 'antm';
+import { List } from 'antd-mobile';
 
 export default class Home extends React.Component {
   render() {

@@ -22,7 +22,7 @@ module.exports = {
   },
   webpackConfig(config) {
     config.resolve.alias = {
-      antm: process.cwd(),
+      'antd-mobile': process.cwd(),
       site: path.join(process.cwd(), 'site'),
     };
 

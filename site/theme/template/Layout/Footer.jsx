@@ -70,7 +70,7 @@ export default class Footer extends React.Component {
               <a target="_blank " href="http://github.com/ant-design">antd</a>
             </div>
             <div>
-              <a target="_blank " href="http://gitlab.alibaba-inc.com/react-ui/ant-mobile">antm</a>
+              <a target="_blank " href="http://gitlab.alibaba-inc.com/react-ui/ant-mobile">antd-mobile</a>
             </div>
             <div>
               <a target="_blank" href="https://github.com/react-component">react-component</a>
