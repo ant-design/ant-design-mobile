@@ -8,32 +8,16 @@ function noop() { }
 
 export default class InputItem extends React.Component<InputItemProps, any> {
   static propTypes = {
-    prefixCls: PropTypes.string,
-    prefixListCls: PropTypes.string,
-    style: PropTypes.object,
     type: PropTypes.oneOf(['hasLine']),
     format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
-    editable: PropTypes.bool,
-    name: PropTypes.string,
-    value: PropTypes.string,
-    placeholder: PropTypes.string,
-    clear: PropTypes.bool,
-    maxLength: PropTypes.number,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-    onFocus: PropTypes.func,
     extra: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node,
     ]),
-    onExtraPress: PropTypes.func,
-    error: PropTypes.bool,
-    onErrorPress: PropTypes.func,
     size: PropTypes.oneOf(['large', 'small']),
     labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
     labelPosition: PropTypes.oneOf(['left', 'top']),
     textAlign: PropTypes.oneOf(['left', 'center']),
-    last: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -122,7 +106,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   };
 
     const extraStyle = {
-      width: extra.length > 0 ? extra.length * 4.5 * variables.grid : 0,
+      width: typeof extra === 'string' && extra.length > 0 ? extra.length * 4.5 * variables.grid : 0,
     };
 
     return (

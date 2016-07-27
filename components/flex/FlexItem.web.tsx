@@ -1,34 +1,28 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 
 export interface FlexItemProps {
+  /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
+  /** web only */
+  className?: string;
+  onClick?: Function;
+  children?: any;
 }
 
 export default class FlexItem extends React.Component<FlexItemProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    style: PropTypes.object,
-  };
-
   static defaultProps = {
     prefixCls: 'am-flexbox',
   };
   render() {
-    let[{ children, className, prefixCls }, restProps] = splitObject(this.props,
-      ['children', 'className', 'prefixCls']);
+    let{ children, className, prefixCls, style, onClick } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [className]: className,
     });
     return (
-      <div
-        {...restProps}
-        className={wrapCls}
-      >{children}</div>
+      <div className={wrapCls} style={style} onClick={onClick}>{children}</div>
     );
   }
 }

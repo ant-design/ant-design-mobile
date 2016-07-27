@@ -3,27 +3,7 @@ import { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
-export interface TextareaItemProps {
-  prefixCls?: string;
-  prefixListCls?: string;
-  style?: React.CSSProperties;
-  type?: 'hasLine';
-  title?: React.ReactNode;
-  name?: string;
-  value?: string;
-  placeholder?: string;
-  clear?: boolean;
-  rows?: number;
-  count?: number;
-  onChange?: Function;
-  onBlur?: Function;
-  onFocus?: Function;
-  error?: boolean;
-  onExtraClick?: Function;
-  autoHeight?: boolean;
-  editable?: boolean;
-  labelNumber?: number;
-}
+import TextareaItemProps from './TextAreaItemPropsType';
 
 export interface TextareaItemState {
   focus: boolean;
@@ -31,24 +11,8 @@ export interface TextareaItemState {
 
 export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
   static propTypes = {
-    prefixCls: PropTypes.string,
-    prefixListCls: PropTypes.string,
-    style: PropTypes.object,
     type: PropTypes.oneOf(['hasLine']),
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    name: PropTypes.string,
-    value: PropTypes.string,
-    placeholder: PropTypes.string,
-    clear: PropTypes.bool,
-    rows: PropTypes.number,
-    count: PropTypes.number,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-    onFocus: PropTypes.func,
-    error: PropTypes.bool,
-    onErrorClick: PropTypes.func,
-    autoHeight: PropTypes.bool,
-    editable: PropTypes.bool,
     labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
   };
 
@@ -154,7 +118,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     });
 
     return (
-      <div className={wrapCls} style={style} onClick={this._handleClick}>
+      <div className={wrapCls} style={style}>
         {title ? (<div className={labelCls}>{title}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <textarea

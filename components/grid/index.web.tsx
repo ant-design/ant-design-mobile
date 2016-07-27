@@ -6,8 +6,11 @@ import Carousel from '../carousel';
 function noop() {}
 
 export interface GridProps {
+  /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
+  /** web only */
+  className?: string;
   data?: Array<{}>;
   onClick?: Function;
   hasLine?: boolean;
@@ -17,6 +20,7 @@ export interface GridProps {
 
 export interface GridState {
   hover: boolean;
+  hoverIndex?: number;
 }
 
 export default class Grid extends React.Component<GridProps, GridState> {

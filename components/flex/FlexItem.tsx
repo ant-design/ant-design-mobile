@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import splitObject from '../_util/splitObject';
 
 export interface FlexItemProps {
   flex?: number;
+  style?: React.CSSProperties;
+  children?: any;
 }
 
 export default class FlexItem extends React.Component<FlexItemProps, any> {
@@ -11,13 +12,12 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
     flex: 1,
   };
   render() {
-    let[{ style, children, flex }, restProps] = splitObject(this.props,
-      ['style', 'children', 'flex']);
+    let { style, children, flex } = this.props;
     const flexItemStyle = {
       flex: flex || 1,
     };
     return (
-      <View style={[flexItemStyle, style]} {...restProps}>
+      <View style={[flexItemStyle, style]}>
         {children}
       </View>
     );

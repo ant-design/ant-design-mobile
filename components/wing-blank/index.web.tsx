@@ -1,12 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-
-export interface WingBlankProps {
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  size?: number;
-  className?: string;
-}
+import WingBlankProps from './WingBlankPropsType';
 
 export default class WingBlank extends React.Component<WingBlankProps, any> {
   static defaultProps = {

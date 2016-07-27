@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
-import splitObject from '../_util/splitObject';
 import { View } from 'react-native';
 import FlexProps from './FlexPropTypes';
 
@@ -18,11 +17,11 @@ export default class Flex extends React.Component<FlexProps, any> {
     wrap: 'nowrap',
     justify: 'start',
     align: 'center',
+    onPress: () => {},
   };
 
   render() {
-    let[{ style, direction, wrap, justify, align }, restProps] = splitObject(this.props,
-      ['style', 'direction', 'wrap', 'justify', 'align']);
+    let { style, direction, wrap, justify, align, children, onPress } = this.props;
     let transferConst = [justify, align];
     transferConst = transferConst.map((el) => {
       let tempTxt = el;
@@ -52,10 +51,8 @@ export default class Flex extends React.Component<FlexProps, any> {
       alignItems: transferConst[1],
     };
 
-    let { children } = this.props;
-
     return (
-      <View style={[flexStyle, style]} {...restProps}>
+      <View style={[flexStyle, style]} onPress={onPress}>
         {children}
       </View>
     );

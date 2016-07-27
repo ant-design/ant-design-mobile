@@ -1,7 +1,11 @@
 interface InputItemProps {
+    /** web only */
     prefixCls?: string;
+    /** web only */
     prefixListCls?: string;
     style?: React.CSSProperties;
+    /** web only */
+    className?: string;
     type?: 'hasLine';
     format?: 'text'|'bankCard'|'phone'|'password'|'number';
     editable?: boolean;
@@ -23,6 +27,9 @@ interface InputItemProps {
     labelNumber?: number;
     labelPosition?: 'left'|'top';
     textAlign?: 'left'|'center';
+    /** rn only */
+    last?: boolean;
+    children?: any;
 }
 
 export default InputItemProps;
