@@ -18,7 +18,7 @@ module.exports = {
     '0.5.x': 'http://05x.antm.alipay.net',
     '0.6.x': 'http://06x.antm.alipay.net',
   },
-  routes: {
+  routes: [{
     path: '/',
     component: './template/Layout/index',
     indexRoute: { component: './template/Home/index' },
@@ -37,12 +37,13 @@ module.exports = {
     }, {
       path: '/components/:children',
       component: contentTmpl,
-    }, {
-      path: '/kitchen-sink',
-      component: './template/KitchenSink/index', // p.s 这里需要隔离'./template/Layout/index'的影响
-    }, {
-      path: '/kitchen-sink/:component/:index',
-      component: './template/KitchenSink/Demo', // 同上
     }],
-  },
+  }, {
+    path: '/kitchen-sink',
+    component: './template/KitchenSink/index', // p.s 这里需要隔离'./template/Layout/index'的影响
+  }, {
+    path: '/kitchen-sink/:component/:index',
+    dataPath: '/components/:component/demo/:index',
+    component: './template/KitchenSink/Demo', // 同上
+  }],
 };

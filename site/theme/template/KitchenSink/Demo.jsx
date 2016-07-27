@@ -18,7 +18,7 @@ export function collect(nextProps, callback) {
   ];
 
   // const componentName = nextProps.params.component;
-  const componentName = nextProps.location.query.component;
+  const componentName = nextProps.params.component;
   const demos = nextProps.utils.get(nextProps.data, ['components', componentName, 'demo']);
 
   const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
