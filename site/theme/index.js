@@ -40,10 +40,14 @@ module.exports = {
     }],
   }, {
     path: '/kitchen-sink',
-    component: './template/KitchenSink/index', // p.s 这里需要隔离'./template/Layout/index'的影响
+    component: './template/KitchenSink/index',
+  }, {
+    path: '/kitchen-sink/:component',
+    dataPath: '/components/:component',
+    component: './template/KitchenSink/Demo',
   }, {
     path: '/kitchen-sink/:component/:index',
     dataPath: '/components/:component/demo/:index',
-    component: './template/KitchenSink/Demo', // 同上
+    component: './template/KitchenSink/Demo',
   }],
 };

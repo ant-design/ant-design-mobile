@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import { Button, Icon, Popover } from 'antd';
-import scrollIntoView from 'dom-scroll-into-view';
 import QRCode from 'qrcode.react';
 
 function getOffsetTop(dom) {
@@ -39,7 +38,7 @@ export default class ComponentDoc extends React.Component {
   }
 
   getIndex(props) {
-    const linkTo = props.location.query.linkTo;
+    const linkTo = props.location.hash.replace('#', '');
 
     // const { meta } = props.doc;
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
@@ -61,31 +60,6 @@ export default class ComponentDoc extends React.Component {
       codeExpandList: [],
       toggle: false,
     });
-  }
-
-  linkToAnchor(props) {
-    this.setState({
-      toggle: false,
-    });
-    const linkTo = props.location.query.linkTo;
-    if (linkTo !== undefined) {
-      const target = document.getElementById(linkTo);
-      const demoTitle = document.getElementById('demoTitle');
-      const offsetTop = target.offsetTop - demoTitle.offsetTop;
-      if (target !== null) {
-        scrollIntoView(
-          target,
-          document,
-          {
-            offsetTop,
-            alignWithTop: true,
-            onlyScrollIfNeeded: false,
-          }
-        );
-      }
-    } else {
-      scrollIntoView(document.body, document, { alignWithTop: true });
-    }
   }
 
   togglePreview = (e) => {
@@ -138,9 +112,7 @@ export default class ComponentDoc extends React.Component {
   }
 
   componentDidMount() {
-    this.linkToAnchor(this.props);
     window.addEventListener('scroll', this.onScrollEvent);
-    // this.componentDidUpdate();
   }
 
   render() {
@@ -157,7 +129,6 @@ export default class ComponentDoc extends React.Component {
     let linkButtons = [];
 
     const currentIndex = this.state.currentIndex;
-    const linkTo = location.query.linkTo;
 
     const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
 
@@ -169,12 +140,9 @@ export default class ComponentDoc extends React.Component {
     demos.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         linkButtons.push(
-          <Link
-            className={demoData.meta.id === linkTo ? 'link-current' : ''}
-            to={`${location.pathname}?linkTo=${demoData.meta.id}`} key={index}
-          >
+          <a href={`#${demoData.meta.id}`} key={index}>
             <Button>{demoData.meta.title}</Button>
-          </Link>
+          </a>
         );
 
         leftChildren.push(
