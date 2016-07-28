@@ -9,12 +9,18 @@ function noop() {}
 const ListItem = List.Item;
 
 export interface CheckboxItemProps {
+  /** web only */
   prefixCls?: string;
+  /** web only */
+  listPrefixCls?: string;
   style?: React.CSSProperties;
+  /** web only */
+  className?: string;
   name?: string;
   checked?: boolean;
   disabled?: boolean;
   onChange?: Function;
+  children?: any;
 }
 
 export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
