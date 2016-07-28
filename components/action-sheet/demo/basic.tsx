@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Platform } from 'react-native';
 import { ActionSheet } from 'antd-mobile';
 
 const BUTTONS = [
-  'Option 0',
-  'Option 1',
-  'Option 2',
-  'Delete',
-  'Cancel',
+  '操作 0',
+  '操作 1',
+  '操作 2',
+  '删除',
+  '取消',
 ];
 const DESTRUCTIVE_INDEX = 3;
 const CANCEL_INDEX = 4;
@@ -16,6 +16,7 @@ export default React.createClass({
   getInitialState() {
     return {
       clicked: 'none',
+      text: '',
     };
   },
   render() {
@@ -27,17 +28,51 @@ export default React.createClass({
         <Text>
           Clicked button: {this.state.clicked}
         </Text>
+        <Text onPress={this.showShareActionSheet} style={style.button}>
+          Click to show the Share ActionSheet
+        </Text>
+        <Text>
+          {this.state.text}
+        </Text>
       </View>
     );
   },
   showActionSheet() {
     ActionSheet.showActionSheetWithOptions({
+      title: '标题',
+      message: '我是描述我是描述',
       options: BUTTONS,
       cancelButtonIndex: CANCEL_INDEX,
       destructiveButtonIndex: DESTRUCTIVE_INDEX,
     },
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });
+    });
+  },
+  showShareActionSheet() {
+    const opts = {
+      url: 'https://www.alipay.com/',
+      message: 'message to go with the shared url',
+      excludedActivityTypes: [
+        <Text>excludedActivityTypes</Text>,
+      ],
+    };
+    if (Platform.OS === 'ios') {
+      opts.subject = 'a subject to go in the email heading';
+      opts.excludedActivityTypes = [
+        'com.apple.UIKit.activity.PostToTwitter',
+      ];
+    }
+    ActionSheet.showShareActionSheetWithOptions(opts,
+    (error) => alert(error),
+    (success, method) => {
+      let text;
+      if (success) {
+        text = `Shared via ${method}`;
+      } else {
+        text = 'You didn\'t share';
+      }
+      this.setState({text});
     });
   },
 });

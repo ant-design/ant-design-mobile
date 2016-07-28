@@ -12,8 +12,6 @@ import * as utils from '../utils';
 // Expose to iframe
 window.react = React;
 window['react-dom'] = ReactDOM;
-// window.antd = antd;
-window.antd = require('antd');
 
 // Polyfill
 const areIntlLocalesSupported = require('intl-locales-supported');
@@ -43,7 +41,7 @@ if (global.Intl) {
   /* eslint-enable global-require */
 }
 
-const isZhCN = (typeof localStorage !== 'undefined' && localStorage.getItem('locale') !== 'en-US');
+const isZhCN = (window.localStorage && localStorage.getItem('locale') !== 'en-US');
   // (typeof localStorage !== 'undefined' && localStorage.getItem('locale') === 'zh-CN') ||
   // (navigator.language === 'zh-CN');
 

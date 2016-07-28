@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Menu, Row, Col } from 'antd';
+import Menu from 'antd/lib/menu';
+import Row from 'antd/lib/row';
+import Col from 'antd/lib/col';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Modal, Button } from 'antd';
+import Button from 'antd/lib/button';
+import Modal from 'antd/lib/modal';
 
 export default class Demo extends React.Component {
   static contextTypes = {

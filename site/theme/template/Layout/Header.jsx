@@ -3,7 +3,11 @@ import { Link } from 'react-router';
 import enquire from 'enquire.js';
 import debounce from 'lodash.debounce';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon } from 'antd';
+import Menu from 'antd/lib/menu';
+import Row from 'antd/lib/row';
+import Col from 'antd/lib/col';
+import Icon from 'antd/lib/icon';
+import Select from 'antd/lib/select';
 const Option = Select.Option;
 
 export default class Header extends React.Component {
