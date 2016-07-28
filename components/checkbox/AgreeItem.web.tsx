@@ -4,12 +4,16 @@ import Checkbox from './Checkbox.web';
 function noop() {}
 
 export interface AgreeItemProps {
+  /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
+  /** web only */
+  className?: string;
   name?: string;
   checked?: boolean;
   disabled?: boolean;
   onChange?: Function;
+  children?: any;
 }
 
 export default class AgreeItem extends React.Component<AgreeItemProps, any> {

@@ -42,6 +42,8 @@ export default class Grid extends React.Component<GridProps, GridState> {
     isCarousel: false,
   };
 
+  clientWidth: any;
+
   constructor(props) {
     super(props);
     this.state = {

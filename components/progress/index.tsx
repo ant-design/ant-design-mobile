@@ -51,7 +51,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
       height: 0,
     };
 
-    return (<View onLayout={(e) => {this.onLayout(e);}} flex={1} style={[ProgressStyle.progressOuter, positionStyle]}>
+    return (<View onLayout={(e) => {this.onLayout(e);}} style={[ProgressStyle.progressOuter, positionStyle]}>
       <View style={[ProgressStyle.progressBar, percentStyle]}></View>
     </View>);
   }

@@ -27,7 +27,7 @@ let Test = React.createClass({
                 valuePropName: 'checked',
               })}
             >
-              使用 Ant Desgin Component
+              签约
             </CheckboxItem>
             <CheckboxItem
               {...getFieldProps('f2', {
@@ -35,7 +35,7 @@ let Test = React.createClass({
                 valuePropName: 'checked',
               })}
             >
-              使用 Ant Desgin Component
+              物料铺设
             </CheckboxItem>
             <CheckboxItem
               disabled
@@ -44,7 +44,7 @@ let Test = React.createClass({
                 valuePropName: 'checked',
               })}
             >
-              未选中，不可编辑
+              机具维护（不能选）
             </CheckboxItem>
             <CheckboxItem
               disabled
@@ -53,7 +53,7 @@ let Test = React.createClass({
                 valuePropName: 'checked',
               })}
             >
-              强制选中,不可编辑
+              产品问题解决（必选）
             </CheckboxItem>
           </List.Body>
         </List>

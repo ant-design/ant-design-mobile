@@ -4,6 +4,8 @@ import { View } from 'react-native';
 import FlexProps from './FlexPropTypes';
 
 export default class Flex extends React.Component<FlexProps, any> {
+  static Item: any;
+
   static propTypes = {
     style: PropTypes.object,
     direction: PropTypes.oneOf(['row', 'column']),

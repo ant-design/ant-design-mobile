@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import classNames from 'classnames';
 import { Modal, Button } from 'antd';
 
@@ -50,9 +49,7 @@ export default class Demo extends React.Component {
       content,
       highlightedCode,
       highlightedStyle,
-      id,
       className,
-      pathname,
     } = props;
 
     const codeExpand = this.props.codeExpand;
@@ -68,12 +65,8 @@ export default class Demo extends React.Component {
     const introChildren = props.utils
             .toReactComponent(['div'].concat(localizeIntro));
 
-    // const highlightClass = classNames({
-    //   'highlight-wrapper': true,
-    //   'highlight-wrapper-expand': codeExpand,
-    // });
     return (
-      <section className={codeBoxClass} id={id} onClick={this.handleClick} >
+      <section className={codeBoxClass} id={meta.id} onClick={this.handleClick} >
         <Modal ref="modal"
           visible={this.state.fullscreen}
           title={meta.title} onCancel={this.handleCancel}
@@ -89,9 +82,9 @@ export default class Demo extends React.Component {
 
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <Link to={{ pathname, query: { scrollTo: id } }}>
+            <a href={`#${meta.id}`}>
               {localizedTitle}
-            </Link>
+            </a>
           </div>
           {introChildren}
 

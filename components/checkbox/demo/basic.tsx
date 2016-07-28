@@ -5,7 +5,7 @@ import Checkbox from '../index';
 import CheckStyle from '../style/index';
 const styles = CheckStyle.CheckboxItem;
 
-export default class BasicCheckboxExample extends React.Component {
+export default class BasicCheckboxExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {

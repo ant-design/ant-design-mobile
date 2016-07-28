@@ -1,21 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as antd from '../../../../index';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US.js';
 import cnLocale from '../../zh-CN.js';
 import '../../static/style';
+import Promise from 'bluebird';
+import * as utils from '../utils';
 
 // Expose to iframe
 window.react = React;
 window['react-dom'] = ReactDOM;
-window.antd = antd;
+// window.antd = antd;
+window.antd = require('antd');
 
 // Polyfill
 const areIntlLocalesSupported = require('intl-locales-supported');
 const localesMyAppSupports = ['zh-CN', 'en-US'];
+
+export function collect(nextProps, callback) {
+  const componentsList = utils.collectDocs(nextProps.data.components);
+  Promise.all(componentsList)
+    .then((list) => callback(null, { ...nextProps, components: list }));
+}
 
 if (global.Intl) {
     // Determine if the built-in `Intl` has the locale data we need.

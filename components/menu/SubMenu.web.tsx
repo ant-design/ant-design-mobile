@@ -39,9 +39,11 @@ export default class SubMenu extends React.Component<SubMenuProps, SubMenuState>
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      data: nextProps.data,
-    });
+    if ('data' in nextProps) {
+      this.setState({
+        data: nextProps.data,
+      });
+    }
   }
 
   onClick = (el) => {

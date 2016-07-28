@@ -9,7 +9,7 @@ function getNumberArray(num) {
     num.toString().split('').reverse().map(i => Number(i)) : [];
 }
 
-export default class ScrollNumber extends React.Component {
+export default class ScrollNumber extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'am-scroll-number',
     count: null,
@@ -28,6 +28,8 @@ export default class ScrollNumber extends React.Component {
     onAnimated: React.PropTypes.func,
     height: React.PropTypes.number,
   };
+
+  lastCount: any;
 
   constructor(props) {
     super(props);

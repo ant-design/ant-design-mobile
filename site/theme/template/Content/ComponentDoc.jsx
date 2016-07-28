@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import { Button, Icon, Popover } from 'antd';
-import scrollIntoView from 'dom-scroll-into-view';
 import QRCode from 'qrcode.react';
 
 function getOffsetTop(dom) {
@@ -39,7 +38,7 @@ export default class ComponentDoc extends React.Component {
   }
 
   getIndex(props) {
-    const linkTo = props.location.query.linkTo;
+    const linkTo = props.location.hash.replace('#', '');
 
     // const { meta } = props.doc;
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
@@ -55,29 +54,12 @@ export default class ComponentDoc extends React.Component {
     return linkIndex;
   }
 
-  linkToAnchor(props) {
+  componentWillReceiveProps = () => {
     this.setState({
+      currentIndex: 0,
+      codeExpandList: [],
       toggle: false,
     });
-    const linkTo = props.location.query.linkTo;
-    if (linkTo !== undefined) {
-      const target = document.getElementById(linkTo);
-      const demoTitle = document.getElementById('demoTitle');
-      const offsetTop = target.offsetTop - demoTitle.offsetTop;
-      if (target !== null) {
-        scrollIntoView(
-          target,
-          document,
-          {
-            offsetTop,
-            alignWithTop: true,
-            onlyScrollIfNeeded: false,
-          }
-        );
-      }
-    } else {
-      scrollIntoView(document.body, document, { alignWithTop: true });
-    }
   }
 
   togglePreview = (e) => {
@@ -130,9 +112,7 @@ export default class ComponentDoc extends React.Component {
   }
 
   componentDidMount() {
-    this.linkToAnchor(this.props);
     window.addEventListener('scroll', this.onScrollEvent);
-    // this.componentDidUpdate();
   }
 
   render() {
@@ -141,7 +121,6 @@ export default class ComponentDoc extends React.Component {
     const { content, meta } = doc;
     // const locale = this.context.intl.locale;
 
-    // console.log(props);
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
@@ -150,18 +129,18 @@ export default class ComponentDoc extends React.Component {
     let linkButtons = [];
 
     const currentIndex = this.state.currentIndex;
-    const linkTo = location.query.linkTo;
 
-    // console.log(demos)
+    const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
+
+    const fileArr = demoSort[currentIndex].meta.filename.split('/');
+    const filename = fileArr[fileArr.length - 1].split('.')[0];
+
     demos.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         linkButtons.push(
-          <Link
-            className={demoData.meta.id === linkTo ? 'link-current' : ''}
-            to={`${location.pathname}?linkTo=${demoData.meta.id}`} key={index}
-          >
+          <a href={`#${demoData.meta.id}`} key={index}>
             <Button>{demoData.meta.title}</Button>
-          </Link>
+          </a>
         );
 
         leftChildren.push(
@@ -172,6 +151,7 @@ export default class ComponentDoc extends React.Component {
             codeExpand={this.state.codeExpandList[index]}
             className={currentIndex === index ? 'code-box-target' : ''}
             key={index}
+            index={index}
             utils={props.utils}
             expand={expand} pathname={location.pathname}
           />
@@ -182,8 +162,9 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger-active': expand,
     });
 
+
     const path = doc.meta.filename.split('/')[1];
-    const demoUrl = `${window.location.protocol}//${window.location.host}/mobile?component=${path}`;
+    const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}`;
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
@@ -192,7 +173,7 @@ export default class ComponentDoc extends React.Component {
 
     const { title, subtitle, chinese, english } = meta;
 
-    const iframeUrl = `${window.location.protocol}////${window.location.host}/mobile?component=${path}&index=${currentIndex}`;
+    const iframeUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}/${filename}`;
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
