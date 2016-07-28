@@ -1,7 +1,7 @@
 ---
 order: 0
 english: Ant Design Mobile of React
------------------------------
+---
 
 `antd-mobile` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
 
