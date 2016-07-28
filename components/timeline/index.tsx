@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import RNTimelineItem from './RNTimelineItem';
+import RNTimelineItem from './TimelineItem';
 import TimelineProps from './TimelinePropsType';
 
 export default class Timeline extends React.Component<TimelineProps, any> {
+  static Item: any;
 
   static defaultProps = {
     color: 'blue',
@@ -14,7 +15,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     return (
       <View>
       {
-        React.Children.map(children, (ele, idx) =>
+        React.Children.map(children, (ele: any, idx) =>
           React.cloneElement(ele, {
             last: idx === children.length - 1,
           })
