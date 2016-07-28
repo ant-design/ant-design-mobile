@@ -1,205 +1,52 @@
-# AntD Mobile
+# Ant Design Mobile
 
-## 环境
+Ant Design 移动端设计规范。
 
+`antd-mobile` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
+
+## 特性
+
+- 基于 Ant Design 移动设计规范。
+- 规则化的视觉样式配置，适应各类产品风格。
+- 基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。
+- 基于 React Native 的多平台支持。
+- 使用 TypeScript 开发，提供类型定义文件。
+
+## 安装
+
+```bash
+$ npm install antd-mobile --save
 ```
-node = 4.x
+
+## 使用
+
+```jsx
+import { Button } from 'antd-mobile';
+ReactDOM.render(<Button>按钮</Button>, mountNode);
 ```
 
-## 代码风格
-
-typescript
-
-```
-npm run ts-lint
-```
-
-### API 规范
-
-设计原则
-
-1. 尽量和 react-native 一致
-2. react-native 没有的组件, 参考 antd
-3. antd 也没有的, 发 issue 讨论
-
-
-组件名以 `-` 分割, 例如 `date-picker`,文件后缀名统一为 `.tsx`
-
-
-### web 组件规范
-
-components/button/index.web.tsx
+无需单独引入样式，使用 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 按需加载，并引入相关样式。
 
 ```js
-import React from 'react';
-class Button extends React.Component {
- static propTypes={};
-
- static defaultProps={};
-
- onClick = () => {
- };
-
- render() {
-   return <a onClick={this.onClick}>;
- }
-}
-export default Button;
-```
-
-components/button/style/index.web.tsx
-
-```js
-import '../../style/';
-import './index.less';
-```
-
-components/button/style/index.less
-
-```less
-@import '../../../style/variables';
-@import '../../../style/mixins';
-@buttonPrefixClass: am-button
-
-@{buttonPrefixClass} {
-  .button();
+{
+  "plugins": [["antd", {
+    style: 'css',  // 'less',
+    libraryName: 'antd-mobile',
+  }]]
 }
 ```
 
-### react-native 组件规范
+## 浏览器支持
 
-无特殊情况(ios android 代码完全一致)不用带后缀.
+- `iOS`
+- `Android 4.0+`
 
-components/button/index.tsx
+## 链接
 
-```
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+- [首页](http://mobile.ant.design)
+- [开发文档](development.md)
+- [底层 React 模块](http://github.com/react-component)
 
-// 可独立到 components/button/style/index.ios.js
-const styles = StyleSheet.create({
-  button: {
-    borderRadius: 4,
-    borderWidth: 0.5,
-    borderColor: '#d6d7da',
-  },
-});
+## 欢迎参与
 
-class Button extends React.Component {
-  render() {
-    return (<View style={[styles.button]}>
-      {this.props.children}
-    </View>);
-  }
-}
-
-export default Button;
-
-```
-
-
-components/button/demo/basic.js
-
-```
-import { Button } from 'antm';
-import React from 'react';
-import { Text, View } from 'react-native';
-
-
-class BasicButtonExample extends React.Component {
-  render() {
-    return <Button><Text>basic button</Text></Button>;
-  }
-}
-
-exports.title = 'Button';
-exports.description = 'button example';
-exports.demo = BasicButtonExample;
-
-```
-
-## 开发流程
-
-```
-npm install typings -g
-npm install tnpm@release-3 -g --registry=http://registry.npm.alibaba-inc.com
-tnpm install`
-typings install
-```
-
-### web 流程
-
-```
-npm start
-```
-
-测试单个组件使用 COMPONENT_STYLE 环境变量, 例如
-
-```
-COMPONENT_STYLE=button npm start
-```
-
-http://localhost:8001/
-
-### react-native 流程
-
-```
-npm run ios
-npm run android
-```
-
-### 提交代码
-
-自己从 master 新开一个分支开发
-
-```
-git checkout -b xx-feature
-```
-
-开发完成后,
-
-```
-git add --all
-git commit -am "描述"
-git pull --rebase origin master
-// 解决冲突
-git push origin xx-feature:xx-feature
-```
-
-提交 mr, 指定相应人员 review, 根据反馈进一步修改提交.
-
-由 review 人合并进主干后
-
-```
-git checkout master
-git pull
-```
-
-
-更新自己主干结束本次需求开发。
-
-
-## 发布流程
-
-### 发布网站
-
-```
-git push origin master:deploy
-```
-
-代码推送到 deploy 分支即完成部署
-
-### 发布
-
-发布日志参考: http://www.atatech.org/articles/37414   http://www.atatech.org/articles/54610
-
-发布日志先发到: http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=
-
-大家 review 通过后, 再发到 http://www.atatech.org/articles/new/?group=1338
-
-最后发个邮件, done!
-
-
-```
-RUN_ENV_USER=chengyu RUN_ENV_EMAIL=chengyu@taobao.com npm run pub // 替换成自己帐户发布
-```
+有任何建议或意见您可以进行 [提问](http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues)。

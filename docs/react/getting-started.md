@@ -32,9 +32,9 @@ AntD Mobile 致力于提供给程序员**愉悦**的无线端开发体验。
 $ tnpm install @alipay/antm-init -g
 ```
 
-目前 antm-init 版， 基于antd-init 1.0.0版本开发， 适配@alipay/antm，方便初始化基于Antd Mobile开发的项目，[更多使用参考antd-init说明](https://github.com/ant-design/antd-init#使用说明)。
+`antm-init` 基于 `antd-init@1.0.0` 版本开发，方便初始化基于 antd-mobile 开发的项目，[更多使用参考 antd-init 说明](https://github.com/ant-design/antd-init#使用说明)。
 
-`./webpack.config.js`里第三行 `style: true` 可以修改为 `style: 'css'`，区别为引入的默认antm 模块样式文件后缀，一个是less，一个是css.
+`./webpack.config.js`里第三行 `style: true` 可以修改为 `style: 'css'`，区别为引入的默认 antm 模块样式文件后缀，一个是 less，一个是 css。
 
 ### 2. 创建一个项目
 
@@ -54,7 +54,7 @@ $ antm-init -i {{appid}}
 
 ```jsx
 import React from 'react';
-import { List } from '@alipay/antm';
+import { List } from 'antd-mobile';
 const { Header, Footer, Body, Item } = List;
 
 const App = React.createClass({

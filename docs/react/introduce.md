@@ -39,10 +39,16 @@ english: Ant Design Mobile of React
 - 基于 React Native 的多平台支持。
 - 使用 TypeScript 开发，提供类型定义文件。
 
-## 示例
+## 安装
+
+```bash
+$ npm install antd-mobile --save
+```
+
+## 使用
 
 ```jsx
-import { Button } from '@alipay/antm';
+import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>按钮</Button>, mountNode);
 ```
 
@@ -54,15 +60,15 @@ ReactDOM.render(<Button>按钮</Button>, mountNode);
 {
   "plugins": [["antd", {
     style: 'css',  // 'less',
-    libraryName: '@alipay/antm',
+    libraryName: 'antd-mobile',
   }]]
 }
 ```
 
 ## 版本
 
-- 稳定版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
-- 开发版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/@alipay/antm.svg?tag=beta&style=flat-square)](http://web.npm.alibaba-inc.com/package/@alipay/antm)
+- 稳定版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/antd-mobile.svg?style=flat-square)](http://web.npm.alibaba-inc.com/package/antd-mobile)
+- 开发版：[![npm package](http://web.npm.alibaba-inc.com/badge/v/antd-mobile.svg?tag=beta&style=flat-square)](http://web.npm.alibaba-inc.com/package/antd-mobile)
 
 ## 体积
 
