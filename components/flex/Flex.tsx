@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
-import { View } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import FlexProps from './FlexPropTypes';
 
 export default class Flex extends React.Component<FlexProps, any> {
@@ -54,9 +54,11 @@ export default class Flex extends React.Component<FlexProps, any> {
     };
 
     return (
-      <View style={[flexStyle, style]} onPress={onPress}>
-        {children}
-      </View>
+      <TouchableWithoutFeedback onPress={onPress}>
+        <View style={[flexStyle, style]}>
+          {children}
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

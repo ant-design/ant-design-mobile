@@ -3,7 +3,6 @@ import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
 import List from '../list';
-import splitObject from '../_util/splitObject';
 function noop() {}
 
 const ListItem = List.Item;
@@ -21,6 +20,7 @@ export interface CheckboxItemProps {
   disabled?: boolean;
   onChange?: Function;
   children?: any;
+  extra?: any;
 }
 
 export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
@@ -43,10 +43,9 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
   };
 
   render() {
-    let[{
-      prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange,
-    }, restProps] = splitObject(this.props,
-      ['prefixCls', 'listPrefixCls', 'style', 'name', 'checked', 'disabled', 'children', 'className', 'onChange']);
+    let {
+      prefixCls, listPrefixCls, style, className, name, checked, disabled, children, extra, onChange,
+    } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
@@ -57,7 +56,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
       prefixCls={listPrefixCls}
       style={style}
       className={wrapCls}
-      {...restProps}
+      extra={extra}
       thumb={<Checkbox
         prefixCls={prefixCls}
         checked={checked}

@@ -3,6 +3,8 @@ import * as React from 'react';
 export interface RadioProps {
   /** web only */
   prefixCls?: string;
+  /** web only */
+  listPrefixCls?: string;
   style?: React.CSSProperties;
   /** web only */
   className?: string;
