@@ -1,17 +1,13 @@
 ---
 category: Components
 type: Components
-chinese: 结果页面
+chinese: 结果页
 english: PageResult
 ---
 
-
 ### 定义／Definition
-列表项
 
-### 规则 / Rule
-列表项
-
+用于系统繁忙，网络异常，返回空结果等异常页面，结果页的插画可以自定义。
 
 ## API
 
