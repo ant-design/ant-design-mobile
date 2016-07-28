@@ -13,7 +13,7 @@ export interface MenuProps {
   className?: string;
   style?: React.CSSProperties;
   data?: Array<{}>;
-  value: Array<{}>;
+  value?: Array<{}>;
   onChange?: Function;
   level?: number;
   height?: number;
