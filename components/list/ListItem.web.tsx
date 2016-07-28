@@ -25,6 +25,8 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     prefixCls: 'am-list',
     thumb: '',
     arrow: '',
+    children: '',
+    extra: '',
     error: false,
     align: 'middle',
   };
@@ -119,8 +121,8 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
       >
         {thumbDom}
         <div className={`${prefixCls}-line`}>
-          {children ? <div className={`${prefixCls}-content`}>{children}</div> : null}
-          {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
+          {children !== '' ? <div className={`${prefixCls}-content`}>{children}</div> : null}
+          {extra !== '' ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
           {arrowDom}
         </div>
       </div>

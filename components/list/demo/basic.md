@@ -16,9 +16,12 @@ let ListExample = React.createClass({
       <List>
         <List.Header>列表头部,List.Header</List.Header>
         <List.Body>
-          <List.Item>标题文字,没有配置onClick则点击无反馈</List.Item>
+          <List.Item
+            extra={null}
+          >标题文字,没有配置onClick则点击无反馈</List.Item>
           <List.Item
             onClick={() => {}}
+            extra={undefined}
           >标题文字</List.Item>
           <List.Item
             extra="内容内容"

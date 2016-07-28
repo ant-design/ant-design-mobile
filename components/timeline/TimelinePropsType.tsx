@@ -1,11 +1,11 @@
 export interface TimelinePropsType {
-  color?: 'blue' | 'orang' | 'green';
   /** web only */
   prefixCls?: string;
   /** web only */
+  color?: 'blue' | 'orange' | 'green';
   className?: string;
-  /** web only */
   pending?: boolean;
+  children?: any;
 }
 
 export default TimelinePropsType;

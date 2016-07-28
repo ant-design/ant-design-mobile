@@ -20,10 +20,12 @@ declare module 'antd-mobile'{
     RefreshControl: any;
     Slider: any;
     Stepper: any;
+    Steps: any;
     SwipeAction: any;
     Switch: any;
     Tag: any;
     TextAreaItem: any;
+    Timeline: any;
     Toast: any;
     TopNotice: any;
     Uploader: any;
@@ -61,6 +63,11 @@ declare module 'rc-checkbox'{
 }
 
 declare module 'rc-animate'{
+  var exports:() => any
+  export default exports
+}
+
+declare module 'rc-steps'{
   var exports:() => any
   export default exports
 }
@@ -114,6 +121,11 @@ declare module 'rc-swipeout/lib/Swipeout'{
 }
 
 declare module 'react-hammerjs'{
+  var exports:(...any) => any
+  export default exports
+}
+
+declare module 'react-slick'{
   var exports:(...any) => any
   export default exports
 }

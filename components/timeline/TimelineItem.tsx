@@ -1,29 +1,27 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-export default class TimelineItem extends React.Component {
-  static defaultProps = {
-    prefixCls: 'am-timeline',
-    color: 'blue',
-    last: false,
-    pending: false,
-  };
+import { View, Text } from 'react-native';
+import styles from './style';
+
+export interface TimelineItemProps {
+  color?: string;
+  last?: boolean;
+  children?: any;
+  pending?: boolean;
+}
+
+export default class TimelineItem extends React.Component<TimelineItemProps, any> {
 
   render() {
-    let [{prefixCls, color, last, children, pending, className}, restProps] = splitObject(this.props,
-      ['prefixCls', 'color', 'last', 'children', 'pending', 'className']);
-    const itemClassName = classNames({
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-last`]: last,
-      [`${prefixCls}-item-pending`]: pending,
-      [className]: className,
-    });
+    const { color, last, children } = this.props;
+    const headColorStyle = `head_${color}`;
     return (
-      <li {...restProps} className={itemClassName}>
-        <div className={`${prefixCls}-item-tail`}/>
-        <div className={`${prefixCls}-item-head ${prefixCls}-item-head-${color}`}/>
-        <div className={`${prefixCls}-item-content`}>{children}</div>
-      </li>
+      <View style={[styles.container]}>
+        { !last && <View style={[styles.tail]}></View> }
+        <View style={[styles.head, styles[headColorStyle]]}></View>
+        <View style={styles.content}>
+          <Text>{ children }</Text>
+        </View>
+      </View>
     );
   }
 }

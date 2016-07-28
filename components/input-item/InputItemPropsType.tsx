@@ -11,7 +11,7 @@ interface InputItemProps {
     editable?: boolean;
     name?: string;
     value?: string;
-    placeholder?: string;
+    placeholder: string;
     clear?: boolean;
     maxLength?: number;
     onChange?: Function;

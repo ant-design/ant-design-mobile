@@ -15,6 +15,8 @@ import enUs from 'antd-mobile/components/date-picker/locale/en_US';
 let Test = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
+    const now = moment();
+    now.locale('en-gb').utcOffset(0);
     return (<div>
       <List>
         <List.Header>选择时间</List.Header>
@@ -51,7 +53,9 @@ let Test = React.createClass({
             mode="datetime"
             format={'YYYY-MM-DD + HH:mm'}
             locale={enUs}
-            { ...getFieldProps('customformat')}
+            { ...getFieldProps('customformat', {
+              initialValue: now,
+            })}
           >
             <List.Item arrow="horizontal">datetime(en_US)</List.Item>
           </DatePicker>

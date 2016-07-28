@@ -1,7 +1,7 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = function matchMediaPolyfill() {
+  const matchMediaPolyfill = function matchMediaPolyfill(): any  {
     return {
       matches: false,
       addListener() {
