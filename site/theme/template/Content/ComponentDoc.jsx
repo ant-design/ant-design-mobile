@@ -173,7 +173,7 @@ export default class ComponentDoc extends React.Component {
 
     const { title, subtitle, chinese, english } = meta;
 
-    const iframeUrl = `${window.location.protocol}////${window.location.host}/kitchen-sink/${path}/${filename}`;
+    const iframeUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}/${filename}`;
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
