@@ -27,6 +27,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     loading: false,
   };
   mTextColor: string;
+  mBorderColor: string;
   mTextHighlightColor: string;
   mBorderHighlightColor: string;
   constructor(props) {
@@ -49,7 +50,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       return { borderColor: this.mBorderHighlightColor };
     }
 
-    return {borderColor: undefined};
+    return {borderColor: this.mBorderColor};
   }
 
   onPressIn = (...args) => {
@@ -185,6 +186,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     };
 
     this.mTextColor = textColor;
+    this.mBorderColor = borderColor;
     this.mTextHighlightColor = highlightTextColor;
     if (highlightBorderColor) {
       this.mBorderHighlightColor = highlightBorderColor;

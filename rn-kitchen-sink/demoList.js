@@ -99,6 +99,12 @@ module.exports = {
       module: require('../components/modal/demo/basic'), // 必须
     },
     {
+      title: 'Pagination', // 必须
+      description: 'Pagination Example',
+      icon: 'https://zos.alipayobjects.com/rmsportal/VmTKwvaRaIWOXrh.png',
+      module: require('../components/pagination/demo/basic'), // 必须
+    },
+    {
       title: 'Picker', // 必须
       description: 'Picker Example',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',

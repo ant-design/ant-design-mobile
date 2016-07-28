@@ -18,7 +18,7 @@ let App = React.createClass({
             <p className="title">按钮内带文本</p>
             <Pagination
               total={5}
-              activeIndex={1}
+              current={1}
               prevText="上一步"
               nextText="下一步"
             />
@@ -29,9 +29,10 @@ let App = React.createClass({
             <Pagination
               total={5}
               showNumber={false}
-              activeIndex={1}
-              prevText={<span><Icon type="left" />上一步</span>}
-              nextText={<span>下一步<Icon type="right" /></span>}
+              current={1}
+              simple
+              prevText={<div><Icon type="left" />上一步</div>}
+              nextText={<div>下一步<Icon type="right" /></div>}
             />
           </WingBlank>
           <WhiteSpace size={20} />
@@ -39,8 +40,8 @@ let App = React.createClass({
             <p className="title">仅icon</p>
             <Pagination
               total={5}
-              showNumber
-              activeIndex={1}
+              simple
+              current={1}
               prevText={<Icon type="left" />}
               nextText={<Icon type="right" />}
             />
@@ -50,8 +51,8 @@ let App = React.createClass({
             <p className="title">隐藏数字</p>
             <Pagination
               total={5}
-              showNumber={false}
-              activeIndex={1}
+              simple={false}
+              current={1}
               prevText="上一步"
               nextText="下一步"
             />
@@ -70,7 +71,7 @@ let App = React.createClass({
             <Pagination
               total={5}
               size="small"
-              showNumber={false}
+              simple
               activeIndex={1}
             />
           </WingBlank>
