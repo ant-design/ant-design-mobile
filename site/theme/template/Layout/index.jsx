@@ -43,7 +43,7 @@ if (global.Intl) {
   /* eslint-enable global-require */
 }
 
-const isZhCN = (typeof localStorage !== 'undefined' && localStorage.getItem('locale') !== 'en-US');
+const isZhCN = (window.localStorage && localStorage.getItem('locale') !== 'en-US');
   // (typeof localStorage !== 'undefined' && localStorage.getItem('locale') === 'zh-CN') ||
   // (navigator.language === 'zh-CN');
 
