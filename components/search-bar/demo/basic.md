@@ -21,7 +21,7 @@ let SearchBarExample = React.createClass({
       <div>
         <SearchBar
           {...getFieldProps('SearchBar1', {
-            initialValue: '美食'
+            initialValue: '美食',
           })}
           placeholder="搜索"
           onSubmit={(value) => { console.log(`onSubmit${value}`); }}
