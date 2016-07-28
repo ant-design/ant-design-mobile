@@ -8,10 +8,13 @@ declare module 'antd-mobile'{
     List: any;
     ListView: any;
     Modal: any;
+    Progress: any;
+    Slider: any;
     Stepper: any;
     SwipeAction: any;
     Switch: any;
     Tag: any;
+    TextAreaItem: any;
     Toast: any;
     TopNotice: any;
     Uploader: any;
@@ -84,6 +87,11 @@ declare module 'css-vendor'{
   export = exports
 }
 
+declare module 'rc-slider'{
+  var exports:(...any) => any
+  export default exports
+}
+
 declare module 'rc-swipeout'{
   var exports:(...any) => any
   export default exports
@@ -100,6 +108,11 @@ declare module 'react-hammerjs'{
 }
 
 declare module 'rc-tabs'{
+  var exports:(...any) => any
+  export default exports
+}
+
+declare module 'rc-table'{
   var exports:(...any) => any
   export default exports
 }

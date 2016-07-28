@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
-export default class Progress extends React.Component {
+import ProgressProps from './ProgressPropsType';
+
+export default class Progress extends React.Component<ProgressProps, any> {
   static propTypes = {
+    prefixCls: PropTypes.string,
     position: PropTypes.oneOf(['fixed', 'normal']),
     percent: PropTypes.number,
   };
@@ -22,8 +24,7 @@ export default class Progress extends React.Component {
   }
 
   render() {
-    let [{prefixCls, percent, position}, restProps] = splitObject(this.props,
-      ['prefixCls', 'percent', 'position']);
+    const {prefixCls, percent, position} = this.props;
     const percentStyle = {
       width: `${percent}%`,
       height: 0,
@@ -35,7 +36,7 @@ export default class Progress extends React.Component {
     });
 
     return (
-      <div className={wrapCls} {...restProps}>
+      <div className={wrapCls}>
         <div className={`${prefixCls}-bar`} style={percentStyle}></div>
       </div>
     );
