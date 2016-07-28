@@ -4,7 +4,6 @@
     "registry": "http://registry.npm.alibaba-inc.com"
   },
   "version": "0.7.0-alpha.8",
-  "title": "AntD Mobile",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://antm.alipay.net/",
   "keywords": [
@@ -17,9 +16,6 @@
     "ui",
     "framework",
     "frontend"
-  ],
-  "contributors": [
-    "ant"
   ],
   "repository": {
     "type": "git",
