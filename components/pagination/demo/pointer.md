@@ -42,7 +42,6 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 ````css
-
 .loading-example .title {
   margin-right: 20px;
 }
