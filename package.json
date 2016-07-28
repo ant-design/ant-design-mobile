@@ -1,8 +1,5 @@
 {
   "name": "antd-mobile",
-  "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
-  },
   "version": "0.7.0-alpha.8",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
@@ -19,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://gitlab.alibaba-inc.com/react-ui/ant-mobile"
+    "url": "http://github.com/ant-design/ant-design-mobile"
   },
   "bugs": {
-    "url": "http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues"
+    "url": "http://github.com/ant-design/ant-design-mobile/issues"
   },
   "files": [
     "dist",

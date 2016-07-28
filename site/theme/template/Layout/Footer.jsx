@@ -71,7 +71,7 @@ export default class Footer extends React.Component {
               <a target="_blank " href="http://github.com/ant-design">antd</a>
             </div>
             <div>
-              <a target="_blank " href="http://gitlab.alibaba-inc.com/react-ui/ant-mobile">antd-mobile</a>
+              <a target="_blank " href="http://github.com/ant-design/ant-design-mobile">antd-mobile</a>
             </div>
             <div>
               <a target="_blank" href="https://github.com/react-component">react-component</a>
@@ -86,7 +86,7 @@ export default class Footer extends React.Component {
           </li>
           <li>
             <h2>联系我们</h2>
-            <a target="_blank" href="http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues">
+            <a target="_blank" href="http://github.com/ant-design/ant-design-mobile/issues">
               反馈和建议
             </a>
           </li>

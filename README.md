@@ -49,4 +49,4 @@ ReactDOM.render(<Button>按钮</Button>, mountNode);
 
 ## 欢迎参与
 
-有任何建议或意见您可以进行 [提问](http://gitlab.alibaba-inc.com/react-ui/ant-mobile/issues)。
+有任何建议或意见您可以进行 [提问](http://github.com/ant-design/ant-design-mobile/issues)。

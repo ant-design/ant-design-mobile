@@ -12,7 +12,7 @@ export interface StepsProps {
 }
 
 export default class Steps extends React.Component<StepsProps, any> {
-  static Step = RcSteps.Step;
+  static Step = (RcSteps as any).Step;
 
   static defaultProps = {
     prefixCls: 'am-steps',
