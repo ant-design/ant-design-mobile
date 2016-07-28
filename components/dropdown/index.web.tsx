@@ -3,10 +3,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import assign from 'object-assign';
-let closeFn = () => {
-};
 
-function create(instanceId, config, content, afterClose = closeFn) {
+function create(instanceId, config, content, afterClose = (any) => { }) {
   const props = assign({}, {
     prefixCls: 'am-dropdown',
   }, config);

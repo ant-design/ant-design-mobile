@@ -11,12 +11,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class DrawerExample extends React.Component {
+export default class DrawerExample extends React.Component<any, any> {
   onOpenChange = (isOpen) => {
     /* tslint:disable: no-console */
     console.log('是否打开了 Drawer', (isOpen).toString());
     /* tslint:enable: no-console */
   }
+  drawer: any;
+  static drawer: any;
   render() {
     const sidebar = (<View style={[styles.container, { backgroundColor: '#fff' }]}>
       <List>
@@ -47,7 +49,8 @@ export default class DrawerExample extends React.Component {
   }
 }
 
-export class DrawerMain extends React.Component {
+export class DrawerMain extends React.Component<any, any> {
+  drawer: any;
   componentDidMount() {
     setTimeout(() => {
       this.drawer = this.props.drawerComponent.drawer.drawer;

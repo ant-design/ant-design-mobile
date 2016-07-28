@@ -13,7 +13,6 @@ import topView from 'rn-topview';
 const WIN_HEIGHT = Dimensions.get('window').height;
 
 export interface DropdownProps {
-  children: any;
   maskClosable?: boolean;
 }
 

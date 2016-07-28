@@ -15,6 +15,8 @@ export default class Drawer extends React.Component<tsPropsType, any> {
     drawerWidth: 300,
     // drawerBackgroundColor: 'rgba(0,0,0,0.3)',
   };
+  drawer: any;
+  
   render() {
     let [{
       children, sidebar, onOpenChange, position,

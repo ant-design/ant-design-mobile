@@ -5,6 +5,10 @@ declare module 'antd-mobile'{
     Badge: any;
     Button: any;
     Card: any;
+    DatePicker: any;
+    Drawer: any;
+    Dropdown: any;
+    FloatMenu: any;
     List: any;
     ListView: any;
     Modal: any;
@@ -133,5 +137,39 @@ declare module 'rc-notification'{
 
 declare module 'react-native-camera-roll-picker'{
   var exports:(...any) => any
+  export default exports
+}
+
+declare module 'gregorian-calendar'{
+  var exports:(...any) => void
+  export default exports
+}
+
+declare module 'gregorian-calendar-format'{
+  var exports:(...any) => void
+  export default exports
+}
+
+declare module 'array-tree-filter'{
+  var exports:(...any) => any
+  export default exports
+}
+
+declare module 'react-native-drawer-layout'{
+  var exports:(...any) => any
+  export default exports
+}
+
+declare module 'rc-drawer'{
+  var exports:(...any) => any
+  export default exports
+}
+
+declare module 'react-native-menu' {
+  var exports: (...any) => any
+  export const MenuContext: any;
+  export const MenuOptions: any;
+  export const MenuOption: any;
+  export const MenuTrigger: any;
   export default exports
 }

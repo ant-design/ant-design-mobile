@@ -36,11 +36,11 @@ export default class Picker extends React.Component<tsPropsType, any> {
     }));
   }
   render() {
-    const { data, value, okText, dismissText, title, extra } = this.props;
+    const { children, data, value, okText, dismissText, title, extra } = this.props;
     const extraProps = {
       extra: this.getSel() || extra,
     };
-    const childEl = React.cloneElement(this.props.children, extraProps);
+    const childEl = React.cloneElement(children, extraProps);
     return (<PopupCascader
       {...this.props}
       styles={PopupStyles}

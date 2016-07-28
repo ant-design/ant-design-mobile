@@ -2,7 +2,6 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
-function noop() {}
 import splitObject from '../_util/splitObject';
 import ButtonProps from './ButtonPropsType';
 
@@ -48,7 +47,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     inline: false,
     disabled: false,
     loading: false,
-    onClick: noop,
+    onClick: () => { },
   };
 
   onClick = () => {

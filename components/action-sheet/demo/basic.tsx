@@ -55,7 +55,8 @@ export default React.createClass({
       message: 'message to go with the shared url',
       excludedActivityTypes: [
         <Text>excludedActivityTypes</Text>,
-      ],
+      ] as any[],
+      subject: null as string,
     };
     if (Platform.OS === 'ios') {
       opts.subject = 'a subject to go in the email heading';
@@ -80,7 +81,7 @@ export default React.createClass({
 const style = StyleSheet.create({
   button: {
     marginBottom: 10,
-    fontWeight: '500',
+    fontWeight: '500' as any,
   },
 });
 

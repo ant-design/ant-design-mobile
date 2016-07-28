@@ -1,8 +1,8 @@
-/* eslint no-console:0 */
 import * as React from 'react';
 import { PropTypes } from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
+import tsPropsType from './PropsType';
 
 function getDefaultProps() {
   const defaultFormat = (values) => {
@@ -23,7 +23,7 @@ function getDefaultProps() {
   };
 }
 
-export default class Picker extends React.Component {
+export default class Picker extends React.Component<tsPropsType, any> {
   static propTypes = {
     format: PropTypes.func,
   };
@@ -40,20 +40,21 @@ export default class Picker extends React.Component {
     }));
   }
   render() {
-    const { data, value, okText, dismissText, title, extra } = this.props;
+    const { children, data, value, okText, dismissText, title, extra } = this.props;
     const extraProps = {
       extra: this.getSel() || extra,
     };
-    const childEl = React.cloneElement(this.props.children, extraProps);
+    const childEl = React.cloneElement(children, extraProps);
     return (<PopupCascader
       WrapComponent="div"
       popupTransitionName="am-slide-fade"
       maskTransitionName="am-fade"
+      {...this.props}
       data={data}
       value={value}
       dismissText={dismissText}
       title={title}
       okText={okText}
-      {...this.props} >{childEl}</PopupCascader>);
+    >{childEl}</PopupCascader>);
   }
 }

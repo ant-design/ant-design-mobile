@@ -4,7 +4,7 @@ import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
-export default class Item extends React.Component {
+export default class Item extends React.Component<any, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     iconName: PropTypes.string,

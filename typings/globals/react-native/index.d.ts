@@ -3587,6 +3587,8 @@ declare namespace  __React {
 
     export interface DeviceEventEmitterStatic {
         addListener<T>( type: string, onReceived: ( data: T ) => void ): DeviceEventSubscription;
+        removeAllListeners<T>( type: string, onReceived?: ( data: T ) => void ): DeviceEventSubscription;
+        emit<T>( type: string, onReceived?: ( data: T ) => void ): DeviceEventSubscription;
     }
 
     // Used by Dimensions below

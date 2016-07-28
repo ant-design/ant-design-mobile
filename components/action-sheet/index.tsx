@@ -17,7 +17,6 @@ import topView from 'rn-topview';
 const WIN_HEIGHT = Dimensions.get('window').height;
 
 export interface Props {
-  children: any;
   maskClosable?: boolean;
 }
 
@@ -111,7 +110,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
 }
 
 class ActionSheetCross {
-  static showActionSheetWithOptions = (config, callback = () => { }) => {
+  static showActionSheetWithOptions = (config, callback = (any) => { }) => {
     const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = config;
     const titleMsg = [
       title ? <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View> : null,
@@ -125,8 +124,8 @@ class ActionSheetCross {
       <View>
         {titleMsg}
         <View>
-          {options.map((item, index) => {
-            return (<View style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
+          {options.map((item, index) => (
+            <View style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
               <TouchableHighlight
                 key={index}
                 style={[
@@ -144,8 +143,8 @@ class ActionSheetCross {
                 </Text>
               </TouchableHighlight>
               {cancelButtonIndex === index ? <View style={styles.cancelBtnMask} /> : null}
-            </View>);
-          }}
+            </View>
+          ))}
         </View>
       </View>
     );
@@ -165,9 +164,7 @@ class ActionSheetCross {
       <View>
         {titleMsg}
         <View>
-          {excludedActivityTypes.map((item, index) => {
-            return <View key={index}>{item}</View>;
-          }}
+          {excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)}
         </View>
       </View>
     );

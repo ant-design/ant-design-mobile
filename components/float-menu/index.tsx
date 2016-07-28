@@ -11,6 +11,7 @@ export default class FloatMenu extends React.Component<tsPropsType, any> {
   static defaultProps = {
     onSelect: () => { },
   };
+  static Item = MenuOption;
   render() {
     const { children, onSelect, overlay, disabled,
       name, style, triggerStyle, overlayStyle, contextStyle, renderOverlayComponent } = this.props;
@@ -30,5 +31,3 @@ export default class FloatMenu extends React.Component<tsPropsType, any> {
     </MenuContext>);
   }
 }
-
-FloatMenu.Item = MenuOption;

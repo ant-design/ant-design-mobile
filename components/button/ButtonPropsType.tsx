@@ -7,7 +7,7 @@ interface ButtonProps {
   inline?: boolean;
   loading?: boolean;
   style?: {};
-  onClick?: () => void;
+  onClick?: (any) => void;
   /** web only */
   prefixCls?: string;
 }

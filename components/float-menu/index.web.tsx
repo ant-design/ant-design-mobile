@@ -4,6 +4,7 @@ import { PropTypes } from 'react';
 import Tooltip from 'rc-tooltip';
 import Item from './item';
 import splitObject from '../_util/splitObject';
+import tsPropsType from './PropsType';
 
 function recursiveCloneChildren(children, cb = ch => ch) {
   return React.Children.map(children, child => {
@@ -15,7 +16,7 @@ function recursiveCloneChildren(children, cb = ch => ch) {
   });
 }
 
-export default class FloatMenu extends React.Component {
+export default class FloatMenu extends React.Component<tsPropsType, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     placement: PropTypes.string,
@@ -32,12 +33,16 @@ export default class FloatMenu extends React.Component {
     onSelect: () => {},
   };
 
+  static Item = Item;
+
   render() {
     let[{ children, prefixCls, placement, trigger, overlay, onSelect, popupAlign }, restProps] = splitObject(this.props,
       ['children', 'prefixCls', 'placement', 'trigger', 'overlay', 'onSelect', 'popupAlign']);
 
     const newChildren = recursiveCloneChildren(overlay, (child) => {
-      const extraProps = {};
+      const extraProps = {
+        onClick: () => {},
+      };
       if (child && child.type && child.type.FloatMenuItem && !child.props.disabled) {
         extraProps.onClick = () => {
           onSelect(child);
@@ -58,4 +63,3 @@ export default class FloatMenu extends React.Component {
     </Tooltip>);
   }
 }
-FloatMenu.Item = Item;

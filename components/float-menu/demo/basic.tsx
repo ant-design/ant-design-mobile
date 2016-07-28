@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ViewStyle } from 'react-native';
 import { FloatMenu } from 'antd-mobile';
 
 const Item = FloatMenu.Item;
 
-export default class FloatMenuExample extends React.Component {
+export default class FloatMenuExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     height: 400,
     paddingHorizontal: 5,
     paddingVertical: 10,
-  },
+  } as ViewStyle,
   triggerStyle: {
     flexDirection: 'row',
     paddingHorizontal: 10,
