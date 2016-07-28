@@ -1,4 +1,4 @@
-declare module 'antd-mobile'{
+declare module 'antd-mobile' {
   var exports:{
     ActionSheet: any;
     ActivityIndicator: any;
@@ -35,112 +35,112 @@ declare module 'antd-mobile'{
   export = exports
 }
 
-declare module 'rc-dialog'{
-  var exports:() => any
+declare module 'rc-dialog' {
+  var exports: () => any
   export default exports
 }
 
-declare module 'rmc-list-view'{
-  var exports:any;
+declare module 'rmc-list-view' {
+  var exports: any;
   export default exports
 }
 
-declare module 'rc-collapse'{
+declare module 'rc-collapse' {
   var exports: {
     Panel: any;
   };
   export default exports
 }
 
-declare module 'rc-tooltip'{
-  var exports:() => any
+declare module 'rc-tooltip' {
+  var exports: () => any
   export default exports
 }
 
-declare module 'rc-checkbox'{
-  var exports:() => any
+declare module 'rc-checkbox' {
+  var exports: () => any
   export default exports
 }
 
-declare module 'rc-animate'{
-  var exports:() => any
+declare module 'rc-animate' {
+  var exports: () => any
   export default exports
 }
 
-declare module 'rc-steps'{
-  var exports:() => any
+declare module 'rc-steps' {
+  var exports: () => any
   export default exports
 }
 
-declare module 'classnames'{
-  var exports:(...any) => any
+declare module 'classnames' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'object-assign'{
-  var exports:(...any) => any
+declare module 'object-assign' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rc-input-number'{
-  var exports:(...any) => any
+declare module 'rc-input-number' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rc-input-number/lib'{
-  var exports:(...any) => any
+declare module 'rc-input-number/lib' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rc-input-number/lib/styles'{
-  var exports:(...any) => any
+declare module 'rc-input-number/lib/styles' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'css-vendor'{
+declare module 'css-vendor' {
   var exports:{
-    supportedProperty:(property: string) => string;
-    supportedValue:(property: string, value: string) => string;
+    supportedProperty: (property: string) => string;
+    supportedValue: (property: string, value: string) => string;
   }
   export = exports
 }
 
-declare module 'rc-slider'{
-  var exports:(...any) => any
+declare module 'rc-slider' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rc-swipeout'{
-  var exports:(...any) => any
+declare module 'rc-swipeout' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rc-swipeout/lib/Swipeout'{
-  var exports:(...any) => any
+declare module 'rc-swipeout/lib/Swipeout' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'react-hammerjs'{
-  var exports:(...any) => any
+declare module 'react-hammerjs' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'react-slick'{
-  var exports:(...any) => any
+declare module 'react-slick' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rc-tabs'{
-  var exports:(...any) => any
+declare module 'rc-tabs' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rc-table'{
-  var exports:(...any) => any
+declare module 'rc-table' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rn-topview'{
+declare module 'rn-topview' {
   var exports:{
     set:(element: any) => void;
     remove:() => void;
@@ -148,38 +148,38 @@ declare module 'rn-topview'{
   export default exports
 }
 
-declare module 'rc-notification'{
-  var exports:(...any) => any
+declare module 'rc-notification' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'react-native-camera-roll-picker'{
-  var exports:(...any) => any
+declare module 'react-native-camera-roll-picker' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'gregorian-calendar'{
-  var exports:(...any) => void
+declare module 'gregorian-calendar' {
+  var exports: (...any) => void
   export default exports
 }
 
-declare module 'gregorian-calendar-format'{
-  var exports:(...any) => void
+declare module 'gregorian-calendar-format' {
+  var exports: (...any) => void
   export default exports
 }
 
-declare module 'array-tree-filter'{
-  var exports:(...any) => any
+declare module 'array-tree-filter' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'react-native-drawer-layout'{
-  var exports:(...any) => any
+declare module 'react-native-drawer-layout' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'rc-drawer'{
-  var exports:(...any) => any
+declare module 'rc-drawer' {
+  var exports: (...any) => any
   export default exports
 }
 
@@ -193,6 +193,6 @@ declare module 'react-native-menu' {
 }
 
 declare module 'rmc-pull-to-refresh' {
-  var exports:(...any) => any
+  var exports: (...any) => any
   export default exports
 }
