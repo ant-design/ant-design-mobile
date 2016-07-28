@@ -45,7 +45,7 @@ const ButtonExample = React.createClass({
           <div style={{ margin: '32px 0' }}>
             <p className="demo-p">type="primary" - 用于主要操作或必须点击才能完成流程的操作</p>
             <div style={{ height: 8 }} />
-            <Button type="primary">primary按钮</Button>
+            <Button type="primary" onClick={e => console.log(e)}>primary按钮</Button>
           </div>
 
           <div style={{ margin: '32px 0' }}>

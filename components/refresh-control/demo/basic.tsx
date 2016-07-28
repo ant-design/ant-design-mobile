@@ -13,17 +13,17 @@ const styles = StyleSheet.create({
   text: {
     alignSelf: 'center',
     color: '#fff',
-  },
+  } as any,
   scrollview: {
     flex: 1,
   },
 });
 
-const Row = React.createClass({
-  _onClick: function() {
+class Row extends React.Component<any, any> {
+  _onClick() {
     this.props.onClick(this.props.data);
-  },
-  render: function() {
+  }
+  render() {
     return (
      <TouchableWithoutFeedback onPress={this._onClick} >
         <View style={styles.row}>
@@ -33,8 +33,8 @@ const Row = React.createClass({
         </View>
       </TouchableWithoutFeedback>
     );
-  },
-});
+  }
+}
 
 export default React.createClass({
   getInitialState() {

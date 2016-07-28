@@ -1,8 +1,11 @@
 interface Props {
   defaultDate: any;
   value?: any;
-  format?: string;
+  format?: (x: any) => void;
   cols?: number;
+  mode?: string;
+  extra?: string;
+  children?: any;
   /** rn only */
   triggerTypes?: string;
   /** web only */

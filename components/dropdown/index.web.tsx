@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import assign from 'object-assign';
 
-function create(instanceId, config, content, afterClose = (any) => { }) {
+function create(instanceId, config, content, afterClose = (x: any) => { }) {
   const props = assign({}, {
     prefixCls: 'am-dropdown',
   }, config);

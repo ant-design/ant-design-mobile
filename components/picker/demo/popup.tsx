@@ -27,7 +27,7 @@ const data = [{
   }],
 }];
 
-export default class PopupExample extends React.Component {
+export default class PopupExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {

@@ -110,7 +110,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
 }
 
 class ActionSheetCross {
-  static showActionSheetWithOptions = (config, callback = (any) => { }) => {
+  static showActionSheetWithOptions = (config, callback = (x: any) => { }) => {
     const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = config;
     const titleMsg = [
       title ? <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View> : null,

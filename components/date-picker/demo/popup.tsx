@@ -1,10 +1,12 @@
 /* tslint:disable:no-console */
-import { View, TouchableWithoutFeedback } from 'react-native';
+import { View } from 'react-native';
 import { DatePicker, List } from 'antd-mobile';
 import * as React from 'react';
 import moment from 'moment';
 
-export default class PopupExample extends React.Component {
+export default class PopupExample extends React.Component<any, any> {
+  date1MinDate: any;
+  date1MaxDate: any;
   constructor(props) {
     super(props);
     this.state = {

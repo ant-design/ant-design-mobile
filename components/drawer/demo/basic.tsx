@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
 });
 
 export default class DrawerExample extends React.Component<any, any> {
+  static drawer: any;
+  drawer: any;
   onOpenChange = (isOpen) => {
     /* tslint:disable: no-console */
     console.log('是否打开了 Drawer', (isOpen).toString());
     /* tslint:enable: no-console */
   }
-  drawer: any;
-  static drawer: any;
   render() {
     const sidebar = (<View style={[styles.container, { backgroundColor: '#fff' }]}>
       <List>

@@ -4,7 +4,9 @@ import { PropTypes } from 'react';
 import PullToRefresh from 'rmc-pull-to-refresh';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
-export default class RefreshControl extends React.Component {
+import tsPropsType from './PropsType';
+
+export default class RefreshControl extends React.Component<tsPropsType, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     children: PropTypes.any,

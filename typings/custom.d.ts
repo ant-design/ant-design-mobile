@@ -15,7 +15,9 @@ declare module 'antd-mobile'{
     ListView: any;
     Modal: any;
     Pagination: any;
+    Picker: any;
     Progress: any;
+    RefreshControl: any;
     Slider: any;
     Stepper: any;
     SwipeAction: any;
@@ -175,5 +177,10 @@ declare module 'react-native-menu' {
   export const MenuOptions: any;
   export const MenuOption: any;
   export const MenuTrigger: any;
+  export default exports
+}
+
+declare module 'rmc-pull-to-refresh' {
+  var exports:(...any) => any
   export default exports
 }
