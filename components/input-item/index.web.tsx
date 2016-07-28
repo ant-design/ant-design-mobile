@@ -5,32 +5,18 @@ function noop() { }
 import InputItemProps from './InputItemPropsType';
 
 export interface InputItemState {
-  focus: boolean;
+  focus?: boolean;
+  placeholder?: string;
 }
 
 export default class InputItem extends React.Component<InputItemProps, InputItemState> {
   static propTypes = {
-    prefixCls: PropTypes.string,
-    prefixListCls: PropTypes.string,
-    style: PropTypes.object,
     type: PropTypes.oneOf(['hasLine']),
     format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
-    editable: PropTypes.bool,
-    name: PropTypes.string,
-    value: PropTypes.string,
-    placeholder: PropTypes.string,
-    clear: PropTypes.bool,
-    maxLength: PropTypes.number,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-    onFocus: PropTypes.func,
     extra: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node,
     ]),
-    onExtraClick: PropTypes.func,
-    error: PropTypes.bool,
-    onErrorClick: PropTypes.func,
     size: PropTypes.oneOf(['large', 'small']),
     labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
     labelPosition: PropTypes.oneOf(['left', 'top']),
@@ -65,7 +51,16 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     super(props);
     this.state = {
       focus: false,
+      placeholder: this.props.placeholder,
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ('placeholder' in nextProps && this.state.placeholder !== nextProps.placeholder) {
+      this.setState({
+        placeholder: nextProps.placeholder,
+      });
+    }
   }
 
   onInputChange = (e) => {
@@ -136,14 +131,17 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   clearInput = () => {
+    this.setState({
+      placeholder: this.props.value,
+    });
     this.props.onChange('');
   };
 
   render() {
     const {
-      prefixCls, prefixListCls, format, type, name, editable, value, placeholder, style, clear, children,
+      prefixCls, prefixListCls, format, type, name, editable, value, style, clear, children,
       error, className, extra, labelNumber } = this.props;
-    const { focus } = this.state;
+    const { focus, placeholder } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: type === 'hasLine',
       [`${prefixCls}-item`]: true,
@@ -186,7 +184,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
           />
         </div>
         {clear && editable && value.length > 0 ?
-          <div className={`${prefixCls}-clear`} onClick={() => this.props.onChange('')} />
+          <div className={`${prefixCls}-clear`} onClick={this.clearInput} />
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
         {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
