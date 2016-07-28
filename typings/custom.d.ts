@@ -162,6 +162,11 @@ declare module 'react-timer-mixin'{
   export default exports
 }
 
+declare module 'react-timer-mixin'{
+  var exports: (...any) => void
+  export default exports
+}
+
 declare module 'gregorian-calendar'{
   var exports:(...any) => void
   export default exports
