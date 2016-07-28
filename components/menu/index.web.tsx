@@ -42,9 +42,9 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
 
     const { data, value, level } = this.props;
     if (level === 2) {
-      let SubMenuData =
-        (data.filter((el) => {
-          return el.value === (value.length > 0 && value[0] || null); }))[0].children || [];
+      let SubMenuData = (data.filter((el) => {
+        return el.value === (value.length > 0 && value[0] || null);
+      }))[0].children || [];
       this.state = {
         SubMenuData,
         firstValue: value[0] || '',

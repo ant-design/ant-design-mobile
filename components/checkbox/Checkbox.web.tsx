@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import RcCheckbox from 'rc-checkbox';
-import splitObject from '../_util/splitObject';
 function noop() {}
 
 export interface CheckboxProps {
+  /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
+  /** web only */
+  className?: string;
   name?: string;
   checked?: boolean;
   disabled?: boolean;
@@ -14,15 +15,6 @@ export interface CheckboxProps {
 }
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    style: PropTypes.object,
-    name: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-
   static defaultProps = {
     prefixCls: 'am-checkbox',
     name: '',
@@ -32,11 +24,9 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
   };
 
   render() {
-    let[{ prefixCls, style, name, checked, disabled, className, onChange }, restProps] = splitObject(this.props,
-      ['prefixCls', 'style', 'name', 'checked', 'disabled', 'className', 'onChange']);
+    let { prefixCls, style, name, checked, disabled, className, onChange } = this.props;
 
     return (<RcCheckbox
-      {...restProps}
       prefixCls={prefixCls}
       className={className}
       style={style}

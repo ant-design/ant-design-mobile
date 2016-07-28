@@ -5,9 +5,11 @@ import CheckboxStyle from './style/index';
 const CheckboxItemStyle = CheckboxStyle.Checkbox;
 
 export interface CheckboxItemProps {
+  style?: React.CSSProperties;
   disabled?: boolean;
   checked?: boolean;
   onChange?: Function;
+  size?: string;
 }
 
 export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
