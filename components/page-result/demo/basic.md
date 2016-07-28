@@ -8,10 +8,9 @@ PageResult
 
 ````jsx
 import { PageResult, Tabs, WhiteSpace } from 'antd-mobile';
-
 const TabPane = Tabs.TabPane;
 
-let PageResultExample = React.createClass({
+const PageResultExample = React.createClass({
   render() {
     return (
       <div className="button-container">
@@ -19,21 +18,21 @@ let PageResultExample = React.createClass({
           imgUrl="https://os.alipayobjects.com/rmsportal/SgCjcxAQTmmNUWi.png"
           title="加载出错"
           buttonTxt="重新加载"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/awwrfcIKXAKwGyx.png"
           title="系统繁忙"
           buttonTxt="重新加载"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
           imgUrl="https://os.alipayobjects.com/rmsportal/YUeWSaeIeRjuvQb.png"
           title="404"
           buttonTxt="重新加载"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
@@ -41,7 +40,7 @@ let PageResultExample = React.createClass({
           title="空白页"
           brief="可各业务自定义文案"
           buttonTxt="重新加载"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
@@ -49,7 +48,7 @@ let PageResultExample = React.createClass({
           title="加载错误"
           brief="可各业务自定义文案"
           buttonTxt="重新加载"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
@@ -57,7 +56,7 @@ let PageResultExample = React.createClass({
           title="网络无法连接"
           brief="请查看网络连接或稍后重试"
           buttonTxt="刷新"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
@@ -65,7 +64,7 @@ let PageResultExample = React.createClass({
           title="内容为空"
           brief="可各业务自定义文案"
           buttonTxt="重新尝试"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
@@ -73,7 +72,7 @@ let PageResultExample = React.createClass({
           title="警示"
           brief="可各业务自定义文案"
           buttonTxt="重新加载"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <PageResult
@@ -81,7 +80,7 @@ let PageResultExample = React.createClass({
           title="网络不给力"
           brief="请查看网络连接或稍后重试"
           buttonTxt="重新尝试"
-          buttonClick={() => {alert('点击了按钮');}}
+          buttonClick={() => alert('点击了按钮')}
         />
         <div style={{ backgroundColor: '#def' }}><WhiteSpace /></div>
         <Tabs defaultActiveKey="1">
@@ -91,7 +90,7 @@ let PageResultExample = React.createClass({
               title="网络不给力"
               brief="请查看网络连接或稍后重试"
               buttonTxt="重新尝试"
-              buttonClick={() => {alert('点击了按钮');}}
+              buttonClick={() => alert('点击了按钮')}
             />
           </TabPane>
           <TabPane tab="选项卡二" key="2">
@@ -100,7 +99,7 @@ let PageResultExample = React.createClass({
               title="警示"
               brief="可各业务自定义文案"
               buttonTxt="重新加载"
-              buttonClick={() => {alert('点击了按钮');}}
+              buttonClick={() => alert('点击了按钮')}
             />
           </TabPane>
           <TabPane tab="选项卡三" key="3">
@@ -109,13 +108,13 @@ let PageResultExample = React.createClass({
               title="内容为空"
               brief="可各业务自定义文案"
               buttonTxt="重新尝试"
-              buttonClick={() => {alert('点击了按钮');}}
+              buttonClick={() => alert('点击了按钮')}
             />
           </TabPane>
         </Tabs>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<PageResultExample />, mountNode);
