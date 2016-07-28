@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 
 export interface FlexItemProps {
   flex?: number;
   style?: React.CSSProperties;
+  onPress?: Function;
   children?: any;
 }
 
@@ -12,14 +13,16 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
     flex: 1,
   };
   render() {
-    let { style, children, flex } = this.props;
+    let { style, children, flex, onPress } = this.props;
     const flexItemStyle = {
       flex: flex || 1,
     };
     return (
-      <View style={[flexItemStyle, style]}>
-        {children}
-      </View>
+      <TouchableWithoutFeedback onPress={onPress}>
+        <View style={[flexItemStyle, style]}>
+          {children}
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

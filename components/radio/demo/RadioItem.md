@@ -14,20 +14,22 @@ let Test = React.createClass({
   getInitialState() {
     return {
       disabled: false,
-      checked: null,
-      r: 'a',
-      s: 'e',
+      value: 1,
     };
   },
   handleChange(e) {
-    this.setState({
-      r: e.target.value,
-    });
+    if (e.target.checked) {
+      this.setState({
+        value: 1,
+      });
+    }
   },
   handleChange2(e) {
-    this.setState({
-      s: e.target.value,
-    });
+    if (e.target.checked) {
+      this.setState({
+        value: 2,
+      });
+    }
   },
   render() {
     return (
@@ -36,23 +38,20 @@ let Test = React.createClass({
           <List.Header>表单单选框，普通列表中单选</List.Header>
           <List.Body>
             <RadioItem
-              value="a"
-              checked={this.state.r === 'a'}
+              checked={this.state.value === 1}
               onChange={this.handleChange}
               disabled={this.state.disabled}
             >
               使用 Ant Desgin Component
             </RadioItem>
             <RadioItem
-              value="b"
-              checked={this.state.r === 'b'}
-              onChange={this.handleChange}
+              checked={this.state.value === 2}
+              onChange={this.handleChange2}
               disabled={this.state.disabled}
             >
               使用 Ant Desgin Component
             </RadioItem>
             <RadioItem
-              value="c"
               checked
               onChange={this.handleChange}
               disabled
@@ -60,7 +59,6 @@ let Test = React.createClass({
               个性化调整disabled
             </RadioItem>
             <RadioItem
-              value="d"
               checked={false}
               onChange={this.handleChange}
               disabled

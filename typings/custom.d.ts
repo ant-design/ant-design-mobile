@@ -9,6 +9,7 @@ declare module 'antd-mobile'{
     Drawer: any;
     Dropdown: any;
     FloatMenu: any;
+    Flex: any;
     InputItem: any;
     List: any;
     ListView: any;

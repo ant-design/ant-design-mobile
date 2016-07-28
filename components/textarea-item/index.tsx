@@ -104,7 +104,6 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
           numberOfLines = {rows}
           maxLength = {maxLength}
           clearButtonMode = {clear ? 'while-editing' : 'never'}
-          autoHeight = {autoHeight}
           editable = {editable}
         />
 

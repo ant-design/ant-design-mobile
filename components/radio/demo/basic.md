@@ -12,20 +12,22 @@ let Test = React.createClass({
   getInitialState() {
     return {
       disabled: false,
-      checked: null,
-      r: 'a',
-      s: 'e',
+      value: 1,
     };
   },
   handleChange(e) {
-    this.setState({
-      r: e.target.value,
-    });
+    if (e.target.checked) {
+      this.setState({
+        value: 1,
+      });
+    }
   },
   handleChange2(e) {
-    this.setState({
-      s: e.target.value,
-    });
+    if (e.target.checked) {
+      this.setState({
+        value: 2,
+      });
+    }
   },
   render() {
     return (
@@ -33,15 +35,13 @@ let Test = React.createClass({
         <div style={{ position: 'relative', paddingTop: '5px' }}>
           <span style={{ borderWidth: '1px', borderColor: 'red', borderStyle: 'solid', margin: '10px 4px' }}>
             <Radio
-              value="e"
-              checked={this.state.s === 'e'}
-              onChange={this.handleChange2}
+              checked={this.state.value === 1}
+              onChange={this.handleChange}
             />
           </span>
           <span style={{ borderWidth: '1px', borderColor: 'rgba(45, 183, 245, 0.7)', borderStyle: 'solid', margin: '10px 4px' }}>
             <Radio
-              value="f"
-              checked={this.state.s === 'f'}
+              checked={this.state.value === 2}
               onChange={this.handleChange2}
             />
           </span>
