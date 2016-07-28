@@ -24,24 +24,21 @@ const Test = React.createClass({
           icon: <img src="https://os.alipayobjects.com/rmsportal/zfQfLxUmXfgWech.png" style={{
             height: 27,
             verticalAlign: 'top',
-          }}
-          />,
+          }} />,
           title: '支付宝',
         },
         {
           icon: <img src="https://os.alipayobjects.com/rmsportal/pTINxOHGLBxzEAG.png" style={{
             height: 27,
             verticalAlign: 'top',
-          }}
-          />,
+          }} />,
           title: '微信好友',
         },
         {
           icon: <img src="https://os.alipayobjects.com/rmsportal/VMjNbIuafpXfjQE.png" style={{
             height: 27,
             verticalAlign: 'top',
-          }}
-          />,
+          }} />,
           title: 'QQ',
         },
         { iconName: 'android', title: '用Android' },

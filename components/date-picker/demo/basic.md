@@ -26,7 +26,7 @@ let Test = React.createClass({
             mode="date"
             title="选择日期"
             extra="可选,小于结束日期"
-            { ...getFieldProps('date1', {
+            {...getFieldProps('date1', {
               initialValue: (this.date1 || (this.date1 = moment('2015-08-06', 'YYYY-MM-DD'))),
             })}
             minDate={this.date1MinDate || (this.date1MinDate = moment('2015-08-06', 'YYYY-MM-DD'))}
@@ -34,10 +34,10 @@ let Test = React.createClass({
           >
             <List.Item arrow="horizontal">日期</List.Item>
           </DatePicker>
-          <DatePicker mode="time" { ...getFieldProps('time1')}>
+          <DatePicker mode="time" {...getFieldProps('time1')}>
             <List.Item arrow="horizontal">时间,不限定上下限</List.Item>
           </DatePicker>
-          <DatePicker mode="time" { ...getFieldProps('time')}
+          <DatePicker mode="time" {...getFieldProps('time')}
             minDate={this.timeMinDate || (this.timeMinDate = moment('00:30', 'HH:mm'))}
             maxDate={this.timeMaxDate || (this.timeMaxDate = moment('22:00', 'HH:mm'))}
           >
@@ -45,7 +45,7 @@ let Test = React.createClass({
           </DatePicker>
           <DatePicker
             mode="datetime"
-            { ...getFieldProps('datetime')}
+            {...getFieldProps('datetime')}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
           </DatePicker>
@@ -53,7 +53,7 @@ let Test = React.createClass({
             mode="datetime"
             format={'YYYY-MM-DD + HH:mm'}
             locale={enUs}
-            { ...getFieldProps('customformat', {
+            {...getFieldProps('customformat', {
               initialValue: now,
             })}
           >

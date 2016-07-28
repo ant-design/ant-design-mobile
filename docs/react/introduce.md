@@ -35,7 +35,6 @@ english: Ant Design Mobile of React
 
 - 基于 Ant Design 移动设计规范。
 - 规则化的视觉样式配置，适应各类产品风格。
-- 基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。
 - 基于 React Native 的多平台支持。
 - 使用 TypeScript 开发，提供类型定义文件。
 
@@ -49,19 +48,20 @@ $ npm install antd-mobile --save
 
 ```jsx
 import { Button } from 'antd-mobile';
+
 ReactDOM.render(<Button>按钮</Button>, mountNode);
 ```
-
-引入样式：
 
 无需单独引入样式，使用 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 按需加载，并引入相关样式。
 
 ```js
 {
-  "plugins": [["antd", {
-    style: 'css',  // 'less',
-    libraryName: 'antd-mobile',
-  }]]
+  "plugins": [
+    ["antd", {
+      style: 'css',  // 'less',
+      libraryName: 'antd-mobile',
+    }]
+  ]
 }
 ```
 
@@ -83,6 +83,7 @@ ReactDOM.render(<Button>按钮</Button>, mountNode);
 ## 链接
 
 - [首页](/)
+- [开发文档](http://github.com/ant-design/ant-design-mobile/blob/master/development.md)
 - [React 模块](http://github.com/react-component)
 
 ## 谁在使用

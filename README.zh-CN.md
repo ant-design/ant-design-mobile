@@ -6,22 +6,24 @@
 
 # Ant Design Mobile [![](https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design-mobile) [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd-mobile) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd-mobile) [![Dependency Status](https://david-dm.org/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-mobile)
 
-A configurable Mobile UI specification and React-based implementation.
+Ant Design 移动端设计规范。
 
-## Features
+`antd-mobile` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
 
-- Follow Ant Design Mobile UI specification.
-- Configurable UI style for different products.
-- Support web and native usages based on React Native.
-- Develop in TypeScript.
+## 特性
 
-## Install
+- 基于 Ant Design 移动设计规范。
+- 规则化的视觉样式配置，适应各类产品风格。
+- 基于 React Native 的多平台支持。
+- 使用 TypeScript 开发，提供类型定义文件。
+
+## 安装
 
 ```bash
 $ npm install antd-mobile --save
 ```
 
-## Usage
+## 使用
 
 ```jsx
 import { Button } from 'antd-mobile';
@@ -43,17 +45,17 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
-## Browser Support
+## 浏览器支持
 
 - `iOS`
 - `Android 4.0+`
 
-## Links
+## 链接
 
-- [Home Page](http://mobile.ant.design)
-- [Developer Instruction](http://github.com/ant-design/ant-design-mobile/blob/master/development.md)
-- [React components](http://github.com/react-component/)
+- [首页](http://mobile.ant.design)
+- [开发文档](development.md)
+- [底层 React 模块](http://github.com/react-component)
 
-## Contributing
+## 欢迎贡献
 
-We welcome all contributions, please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design-mobile/pulls) or as a [GitHub issue](https://github.com/ant-design/ant-design-mobile/issues). If you'd like to improve code, check out the [Development Instruction](https://github.com/ant-design/ant-design-mobile/blob/master/development.md) and have a good time! :)
+有任何建议或意见您可以进行 [提问](http://github.com/ant-design/ant-design-mobile/issues)。

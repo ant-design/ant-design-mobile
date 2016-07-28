@@ -32,8 +32,7 @@ const ButtonExample = React.createClass({
         <NavBar iconName={false} rightContent={<span
           style={{ cursor: 'pointer' }}
           onClick={this.switchDark}
-        >{this.state.dark ? '白天' : '夜间'}</span>}
-        >
+        >{this.state.dark ? '白天' : '夜间'}</span>}>
           尺寸/行内
         </NavBar>
         <div style={{ margin: '0 8px' }}>

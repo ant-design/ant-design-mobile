@@ -36,8 +36,7 @@ const ButtonExample = React.createClass({
           >
             {this.state.dark ? '白天' : '夜间'}
           </span>
-          )}
-        >
+          )}>
           类型/type
         </NavBar>
 
