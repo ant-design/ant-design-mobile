@@ -5,6 +5,7 @@ declare module 'antd-mobile'{
     Badge: any;
     Button: any;
     Card: any;
+    Flex: any;
     InputItem: any;
     List: any;
     ListView: any;
