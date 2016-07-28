@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import classNames from 'classnames';
 import { Modal, Button } from 'antd';
 
@@ -51,7 +50,6 @@ export default class Demo extends React.Component {
       highlightedCode,
       highlightedStyle,
       className,
-      pathname,
     } = props;
 
     const codeExpand = this.props.codeExpand;
@@ -84,9 +82,9 @@ export default class Demo extends React.Component {
 
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <Link to={{ pathname, query: { scrollTo: meta.id } }}>
+            <a href={`#${meta.id}`}>
               {localizedTitle}
-            </Link>
+            </a>
           </div>
           {introChildren}
 

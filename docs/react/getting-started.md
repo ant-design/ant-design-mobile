@@ -83,7 +83,7 @@ const App = React.createClass({
 export default App;
 ```
 
-你可以在 [这里](#/components/action-sheet) 选用更多组件。
+你可以在 [这里](/components/action-sheet) 选用更多组件。
 
 ### 4. 开发调试
 
