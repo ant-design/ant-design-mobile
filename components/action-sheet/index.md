@@ -48,6 +48,7 @@ english: ActionSheet
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
 
 #### static showActionSheetWithCustom(options: Object, callback: Function)
+> web only
 
 `options`对象必须包含以下的一个或者多个：
 
@@ -57,7 +58,6 @@ english: ActionSheet
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
 
 #### static close()
+> web only
 
 programmatically close.
-
-> 参考 RN API：https://facebook.github.io/react-native/docs/actionsheetios.html#content
