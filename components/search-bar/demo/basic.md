@@ -16,30 +16,31 @@ let SearchBarExample = React.createClass({
   },
   render() {
     const { getFieldProps } = this.props.form;
+    console.log(this.props.form.getFieldsValue());
     return (
       <div>
         <SearchBar
-          value=""
+          {...getFieldProps('SearchBar1', {
+            initialValue: '美食',
+          })}
           placeholder="搜索"
           onSubmit={(value) => { console.log(`onSubmit${value}`); }}
-          onChange={(value) => { console.log(value); }}
           onClear={() => { console.log('onClear'); }}
           onCancel={() => { console.log('onCancel'); }}
           onFocus={() => { console.log('onFocus'); }}
           onBlur={() => { console.log('onBlur'); }}
         />
         <SearchBar
-          {...getFieldProps('SearchBar')}
-          placeholder="搜索"
+          {...getFieldProps('SearchBar2')}
+          placeholder="地图搜索"
           onSubmit={(value) => { console.log(`onSubmit${value}`); }}
           onClear={() => { console.log('onClear'); }}
           onCancel={() => { console.log('onCancel'); }}
         />
         <SearchBar
-          value=""
+          {...getFieldProps('SearchBar3')}
           placeholder="取消按钮总是显示"
           onSubmit={(value) => { console.log(`onSubmit${value}`); }}
-          onChange={(value) => { console.log(value); }}
           onClear={() => { console.log('onClear'); }}
           onCancel={() => { console.log('onCancel'); }}
           showCancelButton

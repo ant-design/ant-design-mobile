@@ -6,21 +6,35 @@ import SubMenu from './SubMenu.web';
 import List from '../list';
 import Flex from '../flex';
 
+export interface DataItem {
+  label?: any;
+  value?: any;
+  children?: any;
+  isLeaf?: boolean;
+  [key: string]: any;
+}
+
+export interface SubDataItem {
+  label?: any;
+  value?: any;
+  [key: string]: any;
+}
+
 export interface MenuProps {
   /** web only */
   prefixCls?: string;
   /** web only */
   className?: string;
   style?: React.CSSProperties;
-  data?: Array<{}>;
-  value?: Array<{}>;
+  data?: Array<DataItem>;
+  value?: Array<string>;
   onChange?: Function;
   level?: number;
   height?: number;
 }
 
 export interface MenuState {
-  SubMenuData: Array<{}>;
+  SubMenuData: Array<SubDataItem>;
   firstValue?: any;
 }
 

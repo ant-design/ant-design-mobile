@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RcCollapse from 'rc-collapse';
+import RcCollapse, { Panel } from 'rc-collapse';
 
 export interface CollapseProps {
   prefixCls?: string;
@@ -7,7 +7,7 @@ export interface CollapseProps {
 }
 
 export default class Collapse extends React.Component<CollapseProps, any> {
-  static Panel = RcCollapse.Panel;
+  static Panel = Panel;
 
   static defaultProps = {
     prefixCls: 'am-collapse',
