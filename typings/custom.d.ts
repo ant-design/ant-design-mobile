@@ -8,6 +8,7 @@ declare module 'antd-mobile'{
     List: any;
     ListView: any;
     Modal: any;
+    Pagination: any;
     Progress: any;
     Slider: any;
     Stepper: any;

@@ -1,18 +1,20 @@
+/* tslint:disable:no-switch-case-fall-through */
 import * as React from 'react';
-import classNames from 'classnames';
-import Button from '../button';
+import { View, Text } from 'react-native';
 import Flex from '../flex';
+import Button from '../button';
 import PaginationProps from './PaginationPropTypes';
+import styles from './style/index';
 
 function noop() {
+
 }
 
 export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
-    prefixCls: 'am-pagination',
     mode: 'button',
-    size: 'large',
     current: 0,
+    size: 'large',
     simple: false,
     prevText: 'Prev',
     nextText: 'Next',
@@ -67,80 +69,75 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   render() {
-    const { prefixCls, className, mode, total, size, simple,
+    const { mode, size, style, simple, total,
       prevText, nextText } = this.props;
     const current = this.state.current;
-    const numWrapCls = classNames({
-      className,
-      [`${prefixCls}-wrap`]: true,
-      [`${prefixCls}-wrap-lg`]: size === 'large',
-      [`${prefixCls}-wrap-sm`]: size === 'small',
-    });
     let markup;
     switch (mode) {
       case 'button':
         markup = (
           <Flex>
-            <Flex.Item className={`${prefixCls}-wrap-btn`}>
+            <Flex.Item>
               <Button
+                type="default"
                 size={size}
                 inline
                 disabled={current <= 0}
-                onClick={this.onPrev}
+                onPress={this.onPrev}
               >
                 {prevText}
               </Button>
             </Flex.Item>
-            {this.props.children ? (<Flex.Item>{this.props.children}</Flex.Item>) : (!simple &&
-              <Flex.Item className={numWrapCls}>
-                <span className="active">{current + 1}</span>/<span>{total}</span>
-              </Flex.Item>)
+            {!simple ?
+              <Flex.Item>
+                <View style={[styles.numberStyle]}>
+                  <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
+                  <Text style={[styles.totalStyle]}>/{total}</Text>
+                </View>
+              </Flex.Item> : <Flex.Item />
             }
             <Flex.Item>
               <Button
+                type="default"
                 size={size}
                 disabled={current >= total - 1}
                 inline
-                onClick={this.onNext}>{nextText}
+                onPress={this.onNext}
+              >
+              {nextText}
               </Button>
             </Flex.Item>
           </Flex>
         );
         break;
-        case 'number':
-          markup = (
-            <div className={numWrapCls}>
-              <span className="active">{current + 1}</span>/<span>{total}</span>
-            </div>
+      case 'number':
+        markup = (
+          <View style={[styles.numberStyle]}>
+            <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
+            <Text style={[styles.totalStyle]}>/{total}</Text>
+          </View>
+        );
+        break;
+      case 'point':
+        const indexes = this.getIndexes(total);
+        const spaceStyle = size === 'large'
+          ? styles.spaceLargeStyle : styles.spaceSmallStyle;
+        const pointer = indexes.map((index) => {
+          const activeStyle = index === current ? styles.pointActiveStyle : null;
+          return (
+            <View style={[styles.pointStyle, spaceStyle, activeStyle]} key={`point-${index}`}></View>
           );
-          break;
-        case 'pointer':
-          const indexes = this.getIndexes(total);
-          markup = (
-            <div className={numWrapCls}>
-              { indexes.map(function(index) {
-                  const dotCls = classNames({
-                    [`${prefixCls}-wrap-dot`]: true,
-                    [`${prefixCls}-wrap-dot-active`]: index === current,
-                  });
-                  return (
-                    <div className={dotCls} key={`dot-${index}`}>
-                      <span></span>
-                    </div>
-                  );
-                })
-              }
-            </div>
-          );
-          break;
+        });
+        markup = (<View style={[styles.indicatorStyle]}>{pointer}</View>);
+        break;
       default:
         markup = false;
         break;
     }
     return (
-      <div className={prefixCls}>
+      <View style={[style]}>
         {markup}
-      </div>
+      </View>
     );
   }
 }
