@@ -6,31 +6,49 @@ import theme from './style/index';
 const THEMES = theme.ThemesList;
 const ASSETS = theme.AssetsList;
 
-class Content extends React.Component<any, any> {
+export interface CommonProps {
+  style?: React.CSSProperties;
+  children?: any;
+}
+
+export interface ListItemProps {
+  style?: React.CSSProperties;
+  onClick?: any;
+  line?: number;
+  thumb?: any;
+  children?: any;
+  extra?: any;
+  arrow?: 'horizontal'|'down'|'up'|'';
+  error?: boolean;
+  lazy?: boolean;
+  last?: boolean;
+}
+
+class Content extends React.Component<CommonProps, any> {
   render() {
     return (<Text style={[THEMES.Content, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
   }
 }
 
-class AffiliatedContent extends React.Component<any, any> {
+class AffiliatedContent extends React.Component<CommonProps, any> {
   render() {
     return (<Text style={[THEMES.AffiliatedContent, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
   }
 }
 
-class Extra extends React.Component<any, any> {
+class Extra extends React.Component<CommonProps, any> {
   render() {
     return (<View style={{ alignItems: 'flex-end' }}>{this.props.children}</View>);
   }
 }
 
-class Detail extends React.Component<any, any> {
+class Detail extends React.Component<CommonProps, any> {
   render() {
     return (<Text style={[THEMES.Detail, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
   }
 }
 
-export default class Item extends React.Component<any, any> {
+export default class Item extends React.Component<ListItemProps, any> {
   static propTypes = {
     extra(props, propName) {
       if (props[propName]) {
@@ -39,12 +57,7 @@ export default class Item extends React.Component<any, any> {
         }
       }
     },
-    onClick: PropTypes.func,
-    line: PropTypes.number,
-    arrow: PropTypes.oneOf(['horizontal', 'down', 'up']),
-    error: PropTypes.bool,
-    lazy: PropTypes.bool,
-    last: PropTypes.bool,
+    arrow: PropTypes.oneOf(['horizontal', 'down', 'up', '']),
   };
 
   static defaultProps = {
@@ -53,7 +66,12 @@ export default class Item extends React.Component<any, any> {
     line: 1,
   };
 
-  mixins: [TimerMixin];
+  static Content: any;
+  static AffiliatedContent: any;
+  static Extra: any;
+  static Detail: any;
+
+  mixins: [ TimerMixin ];
 
   constructor(props) {
     super(props);
@@ -64,7 +82,7 @@ export default class Item extends React.Component<any, any> {
 
   componentWillMount() {
     if (this.state.__lazy) {
-      this.setTimeout(() => this.setState({ __lazy: false }), 500);
+      setTimeout(() => this.setState({ __lazy: false }), 500);
     }
   }
 
@@ -72,10 +90,10 @@ export default class Item extends React.Component<any, any> {
     if (this.state.__lazy) {
       return (<View />);
     }
-    let thumbDom = [];
-    let contentDom = [];
-    let extraDom = [];
-    let arrowDom = [];
+    let thumbDom = null;
+    let contentDom = null;
+    let extraDom = null;
+    let arrowDom = null;
 
     if (this.props.thumb) {
       thumbDom = (<Image source={{ uri: this.props.thumb }} style={[THEMES.Thumb,

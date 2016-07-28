@@ -29,23 +29,23 @@ export default class BasicListExample extends React.Component<any, any> {
             <List.Item
               thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
               arrow="horizontal"
-              onClick={window.openurl}
+              onClick={() => {}}
             >icon</List.Item>
             <List.Item
               thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
-              onClick={window.clickItem}
+              onClick={() => {}}
             >icon</List.Item>
             <List.Item
               icon=""
               extra={
                 <Image
                   source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }}
-                  width="28"
-                  height="28" />
+                  style={{width: 28, height: 28}}
+                />
               }
               arrow="horizontal"
               last
-              onClick={window.clickItem}
+              onClick={() => {}}
             >扩展信息传入icon</List.Item>
           </List.Body>
         </List>
@@ -146,9 +146,9 @@ export default class BasicListExample extends React.Component<any, any> {
             <List.Item
               extra={
                 <Image
-                source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }}
-                width="29"
-                height="29" />
+                  source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }}
+                  style={{width: 29, height: 29}}
+                />
               }
               arrow="horizontal"
             >员工二维码</List.Item>

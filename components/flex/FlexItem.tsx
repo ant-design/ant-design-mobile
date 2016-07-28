@@ -4,7 +4,7 @@ import { View, TouchableWithoutFeedback } from 'react-native';
 export interface FlexItemProps {
   flex?: number;
   style?: React.CSSProperties;
-  onPress?: Function;
+  onPress?: any;
   children?: any;
 }
 

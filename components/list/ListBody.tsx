@@ -9,6 +9,8 @@ function makeArray(array) {
 
 export interface ListBodyProps {
   error?: boolean;
+  style?: React.CSSProperties;
+  children?: any;
 }
 
 export default class Body extends React.Component<ListBodyProps, any> {

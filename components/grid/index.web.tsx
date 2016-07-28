@@ -5,13 +5,19 @@ import Flex from '../flex';
 import Carousel from '../carousel/index.web';
 function noop() {}
 
+export interface DataItem {
+  icon?: any;
+  text?: any;
+  [key: string]: any;
+}
+
 export interface GridProps {
   /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
   /** web only */
   className?: string;
-  data?: Array<{}>;
+  data?: Array<DataItem>;
   onClick?: Function;
   hasLine?: boolean;
   needActive?: boolean;
@@ -54,10 +60,6 @@ export default class Grid extends React.Component<GridProps, GridState> {
   componentWillMount() {
     this.clientWidth = document.documentElement.clientWidth;
   }
-
-  onClick = (el, index) => {
-    this.props.onClick(el, index);
-  };
 
   onTouchStart = (index) => {
     if (this.props.needActive) {
@@ -108,7 +110,7 @@ export default class Grid extends React.Component<GridProps, GridState> {
           flexContent.push(<Flex.Item
             className={itemCls}
             style={flexItemStyle}
-            onClick={this.onClick.bind(this, data[i * 4 + j], (i * 4 + j))}
+            onClick={() => {this.props.onClick(data[i * 4 + j], (i * 4 + j));}}
             key={`griditem-${i * 4 + j}`}
           >
             <div className={`${prefixCls}-icon`} style={{ backgroundImage: `url(${data[i * 4 + j].icon})` }} />
@@ -154,7 +156,7 @@ export default class Grid extends React.Component<GridProps, GridState> {
     return (
       <div
         className={wrapCls}
-      >{isCarousel === true ? <Carousel mode="banner" infinite={false}>
+      >{isCarousel ? <Carousel mode="banner" infinite={false}>
           {carouselContent}
         </Carousel> : gridContent}
       </div>

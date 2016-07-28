@@ -13,7 +13,7 @@ interface FlexPropsType {
   alignContent?: string;
   children?: any;
   /** rn only */
-  onPress?: Function;
+  onPress?: any;
   /** web only */
   onClick?: Function;
 }

@@ -59,10 +59,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     disablSearch: false,
   };
 
-  refs: {
-    searchInput: any;
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -121,7 +117,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     this.setState({
       value: '',
     });
-    this.refs.searchInput.focus();
+    (this.refs as any).searchInput.focus();
     this.props.onClear('');
     this.props.onChange('');
   };

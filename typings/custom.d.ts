@@ -46,9 +46,8 @@ declare module 'rmc-list-view'{
 }
 
 declare module 'rc-collapse'{
-  var exports: {
-    Panel: any;
-  };
+  var exports:() => any
+  export const Panel: any;
   export default exports
 }
 
@@ -155,6 +154,11 @@ declare module 'rc-notification'{
 
 declare module 'react-native-camera-roll-picker'{
   var exports:(...any) => any
+  export default exports
+}
+
+declare module 'react-timer-mixin'{
+  var exports: (...any) => void
   export default exports
 }
 
