@@ -4,8 +4,11 @@ import classNames from 'classnames';
 function noop() {}
 
 export interface SearchBarProps {
+  /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
+  /** web only */
+  className?: string;
   value?: string;
   placeholder?: string;
   onSubmit?: Function;
@@ -54,6 +57,10 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     showCancelButton: false,
     cancelTxt: '取消',
     disablSearch: false,
+  };
+
+  refs: {
+    searchInput: any;
   };
 
   constructor(props) {
