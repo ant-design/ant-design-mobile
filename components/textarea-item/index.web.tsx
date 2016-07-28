@@ -37,6 +37,8 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     labelNumber: 4,
   };
 
+  initialTextHeight: number;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -46,14 +48,14 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   componentDidMount = () => {
     if (this.props.autoHeight) {
-      this.initialTextHeight = this.refs.textarea.offsetHeight;
+      this.initialTextHeight = (this.refs as any).textarea.offsetHeight;
       this.componentDidUpdate();
     }
   };
 
   componentDidUpdate = () => {
     if (this.props.autoHeight) {
-      let textareaDom = this.refs.textarea;
+      let textareaDom = (this.refs as any).textarea;
       textareaDom.style.height = '';
       textareaDom.style.height = `${Math.max(this.initialTextHeight, textareaDom.scrollHeight)}px`;
     }
