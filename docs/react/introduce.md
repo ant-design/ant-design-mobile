@@ -6,20 +6,23 @@ english: Ant Design Mobile of React
 `antd-mobile` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
 
 <div class="pic-plus">
-  <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
+  <img width="160" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png">
   <span>+</span>
   <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
 </div>
 
 <style>
 .pic-plus > * {
-  display: inline-block!important;
+  display: inline-block;
   vertical-align: middle;
+}
+.pic-plus {
+  margin: 40px 0;
 }
 .pic-plus span {
   font-size: 30px;
   color: #aaa;
-  margin: 0 20px;
+  margin: 0 40px;
 }
 </style>
 
