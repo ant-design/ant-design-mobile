@@ -12,8 +12,6 @@ import * as utils from '../utils';
 // Expose to iframe
 window.react = React;
 window['react-dom'] = ReactDOM;
-// window.antd = antd;
-window.antd = require('antd');
 
 // Polyfill
 const areIntlLocalesSupported = require('intl-locales-supported');

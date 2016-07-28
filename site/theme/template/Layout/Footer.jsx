@@ -1,5 +1,6 @@
 import React from 'react';
-import { Select, Modal } from 'antd';
+import Select from 'antd/lib/select';
+import Modal from 'antd/lib/modal';
 import { version as packageVersions } from 'antd-mobile/package.json';
 import { docVersions } from '../../';
 const Option = Select.Option;

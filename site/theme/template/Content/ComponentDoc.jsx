@@ -4,7 +4,8 @@ import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
-import { Button, Icon, Popover } from 'antd';
+import Icon from 'antd/lib/icon';
+import Popover from 'antd/lib/popover';
 import QRCode from 'qrcode.react';
 
 function getOffsetTop(dom) {
@@ -126,7 +127,6 @@ export default class ComponentDoc extends React.Component {
     const expand = this.state.expandAll;
 
     const leftChildren = [];
-    let linkButtons = [];
 
     const currentIndex = this.state.currentIndex;
 
@@ -137,12 +137,6 @@ export default class ComponentDoc extends React.Component {
 
     demos.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
-        linkButtons.push(
-          <a href={`#${demoData.meta.id}`} key={index}>
-            <Button>{demoData.meta.title}</Button>
-          </a>
-        );
-
         leftChildren.push(
           <Demo
             togglePreview={this.togglePreview}
@@ -161,7 +155,6 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger': true,
       'code-box-expand-trigger-active': expand,
     });
-
 
     const path = doc.meta.filename.split('/')[1];
     const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}`;
@@ -198,20 +191,14 @@ export default class ComponentDoc extends React.Component {
                   title="展开全部代码" onClick={this.handleExpandToggle}
                 />
               </h2>
-              {
-              demos.length > 1 &&
-                <div id="linkButtons" className="link-buttons" style={{ marginBottom: 12 }}>
-                {linkButtons}
-                </div>
-              }
             </section>
           </section>
 
-          <div id="demo-code" className="clearfix" style={{ paddingRight: 380 }}>
+          <div id="demo-code" className="clearfix" style={{ paddingRight: 350 }}>
             <div style={{ width: '100%', float: 'left' }}>
             {leftChildren}
             </div>
-            <div style={{ width: 380, padding: '0 30px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-380px' }}>
+            <div style={{ width: 350, padding: '0 0 0 30px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-350px' }}>
               <div id="aside-demo" className="aside-demo">
                 <div style={{ width: '320px', height: '568px' }}>
                   <div className="demo-preview-wrapper">
