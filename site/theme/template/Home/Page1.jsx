@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import TweenOne from 'rc-tween-one';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { Icon, Button } from 'antd';
+import Button from 'antd/lib/button';
+import Icon from 'antd/lib/icon';
 import QueueAnim from 'rc-queue-anim';
 
 const clientHeight = document.documentElement.clientHeight;

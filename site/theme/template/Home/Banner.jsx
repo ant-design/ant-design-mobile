@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import TweenOne from 'rc-tween-one';
-import { Icon } from 'antd';
+import Icon from 'antd/lib/icon';
 import QueueAnim from 'rc-queue-anim';
 
 export default class Banner extends React.Component {
