@@ -41,18 +41,39 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     super(props);
 
     const { data, value, level } = this.props;
-    if (level === 2) {
-      let SubMenuData = (data.filter((el) => {
-        return el.value === (value.length > 0 && value[0] || null);
-      }))[0].children || [];
-      this.state = {
-        SubMenuData,
-        firstValue: value[0] || '',
-      };
+    if (value.length > 0) {
+      if (level === 2) {
+        let SubMenuData = (data.filter((el) => {
+            return el.value === (value.length > 0 && value[0] || null);
+          }))[0].children || [];
+        this.state = {
+          SubMenuData,
+          firstValue: value[0] || '',
+        };
+      } else {
+        this.state = {
+          SubMenuData: data,
+        };
+      }
     } else {
-      this.state = {
-        SubMenuData: data,
-      };
+      if (level === 2) {
+        let SubMenuData = data[0].children || [];
+        if (data[0].isLeaf) {
+          this.state = {
+            SubMenuData: [],
+            firstValue: '',
+          };
+        } else {
+          this.state = {
+            SubMenuData,
+            firstValue: data[0].value,
+          };
+        }
+      } else {
+        this.state = {
+          SubMenuData: data,
+        };
+      }
     }
   }
 

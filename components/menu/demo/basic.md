@@ -10,10 +10,6 @@ import { Menu, Toast } from 'antd-mobile';
 
 let data1 = [
   {
-    value: '1',
-    label: '全部分类',
-    isLeaf: true,
-  }, {
     value: '2',
     label: '美食',
     children: [
@@ -58,6 +54,10 @@ let data1 = [
         label: '粤菜',
         value: '213',
       }],
+  }, {
+    value: '1',
+    label: '全部分类',
+    isLeaf: true,
   }, {
     value: '3',
     label: '超市',
@@ -128,7 +128,7 @@ let MenuExample1 = React.createClass({
   getInitialState() {
     return {
       visiable: true,
-      value: ['4', '41'],
+      value: [],
     };
   },
   onChange(value) {
@@ -146,8 +146,8 @@ let MenuExample1 = React.createClass({
   render() {
     return (<div>
       {this.state.visiable ? (<Menu
-        onChange={this.onChange}
         value={this.state.value}
+        onChange={this.onChange}
         data={data1}
       />) : null}
     </div>);
