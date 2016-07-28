@@ -1,4 +1,7 @@
 interface ActivityIndicatorPropTypes {
+  /** web only */
+  prefixCls?: string;
+  className?: string;
   animating?: boolean;
   toast?: boolean;
   color?: 'gray' | 'white';

@@ -6,10 +6,6 @@ import Button from '../button';
 import PaginationProps from './PaginationPropTypes';
 import styles from './style/index';
 
-function noop() {
-
-}
-
 export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
     mode: 'button',
@@ -18,7 +14,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     simple: false,
     prevText: 'Prev',
     nextText: 'Next',
-    onChange: noop,
+    onChange: () => {},
   };
 
   constructor(props) {
