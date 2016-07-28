@@ -9,6 +9,7 @@ declare module 'antd-mobile'{
     Drawer: any;
     Dropdown: any;
     FloatMenu: any;
+    InputItem: any;
     List: any;
     ListView: any;
     Modal: any;
@@ -40,7 +41,9 @@ declare module 'rmc-list-view'{
 }
 
 declare module 'rc-collapse'{
-  var exports:() => any
+  var exports: {
+    Panel: any;
+  };
   export default exports
 }
 

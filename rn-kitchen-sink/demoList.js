@@ -45,12 +45,6 @@ module.exports = {
       module: require('../components/card/demo/basic'), // 必须
     },
     {
-      title: 'Checkbox', // 必须
-      description: '复选框',
-      icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
-      module: require('../components/checkbox/demo/basic'), // 必须
-    },
-    {
       title: 'DatePicker', // 必须
       description: '日期选择',
       icon: 'https://os.alipayobjects.com/rmsportal/XjBSEKVWMeIulGv.png',
