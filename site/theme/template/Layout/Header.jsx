@@ -78,11 +78,11 @@ export default class Header extends React.Component {
   )
 
   render() {
-    const { routes, components } = this.props;
-    const route = routes[0].path.replace(/^\//, '');
-    let activeMenuItem = route.slice(0, route.indexOf(':') - 1) || 'home';
+    const { location, components } = this.props;
+    const module = location.pathname.split('/').slice(0, -1).join('/');
+    let activeMenuItem = module || 'home';
 
-    if (activeMenuItem === 'components' || activeMenuItem === 'docs/react' || route === 'changelog') {
+    if (activeMenuItem === 'components' || activeMenuItem === 'docs/react' || location.pathname === 'changelog') {
       activeMenuItem = 'components';
     }
 

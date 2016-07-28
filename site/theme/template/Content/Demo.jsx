@@ -50,7 +50,6 @@ export default class Demo extends React.Component {
       content,
       highlightedCode,
       highlightedStyle,
-      id,
       className,
       pathname,
     } = props;
@@ -68,12 +67,8 @@ export default class Demo extends React.Component {
     const introChildren = props.utils
             .toReactComponent(['div'].concat(localizeIntro));
 
-    // const highlightClass = classNames({
-    //   'highlight-wrapper': true,
-    //   'highlight-wrapper-expand': codeExpand,
-    // });
     return (
-      <section className={codeBoxClass} id={id} onClick={this.handleClick} >
+      <section className={codeBoxClass} id={meta.id} onClick={this.handleClick} >
         <Modal ref="modal"
           visible={this.state.fullscreen}
           title={meta.title} onCancel={this.handleCancel}
@@ -89,7 +84,7 @@ export default class Demo extends React.Component {
 
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <Link to={{ pathname, query: { scrollTo: id } }}>
+            <Link to={{ pathname, query: { scrollTo: meta.id } }}>
               {localizedTitle}
             </Link>
           </div>

@@ -19,16 +19,36 @@ module.exports = {
     '0.5.x': 'http://05x.antm.alipay.net',
     '0.6.x': 'http://06x.antm.alipay.net',
   },
-  routes: {
-    '/': './template/Home/index',
-    '/docs/practice/:children': contentTmpl,
-    '/docs/pattern/:children': contentTmpl,
-    '/docs/react/:children': contentTmpl,
-    '/changelog': contentTmpl,
-    '/components/:children': contentTmpl,
-    '/kitchen-sink/:component': './template/KitchenSink/Demo',
-    '/kitchen-sink': './template/KitchenSink/index',
-    '/kitchen-sink/test': './template/Home/index',
-    '/mobile': './template/KitchenSink/Demo',
-  },
+  routes: [{
+    path: '/',
+    component: './template/Layout/index',
+    indexRoute: { component: './template/Home/index' },
+    childRoutes: [{
+      path: '/docs/practice/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/pattern/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/react/:children',
+      component: contentTmpl,
+    }, {
+      path: '/changelog',
+      component: contentTmpl,
+    }, {
+      path: '/components/:children',
+      component: contentTmpl,
+    }],
+  }, {
+    path: '/kitchen-sink',
+    component: './template/KitchenSink/index',
+  }, {
+    path: '/kitchen-sink/:component',
+    dataPath: '/components/:component',
+    component: './template/KitchenSink/Demo',
+  }, {
+    path: '/kitchen-sink/:component/:index',
+    dataPath: '/components/:component/demo/:index',
+    component: './template/KitchenSink/Demo',
+  }],
 };

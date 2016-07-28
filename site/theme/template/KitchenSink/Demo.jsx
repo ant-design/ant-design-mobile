@@ -17,7 +17,8 @@ export function collect(nextProps, callback) {
     /* eslint-enable new-cap */
   ];
 
-  const componentName = nextProps.location.query.component;
+  // const componentName = nextProps.params.component;
+  const componentName = nextProps.params.component;
   const demos = nextProps.utils.get(nextProps.data, ['components', componentName, 'demo']);
 
   const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
@@ -48,13 +49,31 @@ export default class Home extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      current: this.props.location.query.index || 0,
+      current: this.getCurrent(props.params.index) || 0,
       name: this.props.location.query.component,
       customNavBar: null,
       NavBarChange: false,
       hideNavBar: false,
     };
+  }
+
+  getCurrent = (name) => {
+    const demoSort = this.props.demos.sort((a, b) => (
+      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
+    ));
+
+    let currentIndex;
+    demoSort.forEach((i, index) => {
+      const fileArr = i.meta.filename.split('/');
+      const filename = fileArr[fileArr.length - 1].split('.')[0];
+      if (filename === name) {
+        currentIndex = index;
+      }
+    });
+
+    return currentIndex;
   }
 
   showActionSheet =() => {
@@ -145,7 +164,7 @@ export default class Home extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     this.setState({
-      current: nextProps.params.index,
+      current: this.getCurrent(nextProps.params.index),
       customNavBar: this.getNavBar(nextProps.params.index),
     });
   }

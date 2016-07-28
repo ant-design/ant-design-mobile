@@ -95,8 +95,7 @@ export default class Home extends React.Component {
     });
 
     return (
-      /* eslint react/jsx-boolean-value: 0 */
-      <Page logo="https://zos.alipayobjects.com/rmsportal/EMcaWpnrUZqsOQt.png" title="AntD Mobile" subtitle="移动端UI组件库" isIndex={true}>
+      <Page logo="https://zos.alipayobjects.com/rmsportal/EMcaWpnrUZqsOQt.png" title="AntD Mobile" subtitle="移动端UI组件库" isIndex>
         {Object.keys(lists).map((cate, index) => (
           <List key={index}>
             <List.Header>{cate}</List.Header>
@@ -112,7 +111,7 @@ export default class Home extends React.Component {
                     logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
                     title={ii.chinese}
                     subtitle={ii.english}
-                    onClick={() => { location.href = `${window.location.protocol}//${window.location.host}/mobile?component=${fileName}`; }}
+                    onClick={() => { location.href = `${window.location.protocol}//${window.location.host}/kitchen-sink/${fileName}`; }}
                     style={itemStyle}
                     key={`flexitem-${i}`}
                   />);
