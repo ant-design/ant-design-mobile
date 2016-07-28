@@ -9,6 +9,8 @@ title: 基本
 
 import { DatePicker, List } from 'antd-mobile';
 import { createForm } from 'rc-form';
+import moment from 'moment';
+import enUs from 'antd-mobile/components/date-picker/locale/en_US';
 
 let Test = React.createClass({
   render() {
@@ -23,42 +25,34 @@ let Test = React.createClass({
             title="选择日期"
             extra="可选,小于结束日期"
             { ...getFieldProps('date1', {
-              initialValue: '2015-08-06',
+              initialValue: (this.date1 || (this.date1 = moment('2015-08-06','YYYY-MM-DD'))),
             })}
-            minDate="2014-08-06"
-            maxDate="2016-12-3"
+            minDate={this.date1MinDate || (this.date1MinDate = moment('2015-08-06','YYYY-MM-DD'))}
+            maxDate={this.date1MaxDate || (this.date1MaxDate = moment('2016-12-03','YYYY-MM-DD'))}
           >
             <List.Item arrow="horizontal">日期</List.Item>
           </DatePicker>
-          <DatePicker mode="time" { ...getFieldProps('time1', {
-            initialValue: '',
-          })}
+          <DatePicker mode="time" { ...getFieldProps('time1')}
           >
             <List.Item arrow="horizontal">时间,不限定上下限</List.Item>
           </DatePicker>
-          <DatePicker mode="time" { ...getFieldProps('time', {
-            initialValue: '',
-          })}
-            minDate="00:30"
-            maxDate="22:00"
+          <DatePicker mode="time" { ...getFieldProps('time')}
+            minDate={this.timeMinDate || (this.timeMinDate = moment('00:30','HH:mm'))}
+            maxDate={this.timeMaxDate || (this.timeMaxDate = moment('22:00','HH:mm'))}
           >
             <List.Item arrow="horizontal">时间</List.Item>
           </DatePicker>
           <DatePicker
             mode="datetime"
-            { ...getFieldProps('datetime', {
-              initialValue: '',
-            })}
+            { ...getFieldProps('datetime')}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
           </DatePicker>
           <DatePicker
             mode="datetime"
-            format={val => `dt: ${val}`}
-            locale={DatePicker.locale.en_US}
-            { ...getFieldProps('customformat', {
-              initialValue: '',
-            })}
+            format={'YYYY-MM-DD + HH:mm'}
+            locale={enUs}
+            { ...getFieldProps('customformat')}
           >
             <List.Item arrow="horizontal">datetime(en_US)</List.Item>
           </DatePicker>

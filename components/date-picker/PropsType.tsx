@@ -1,8 +1,10 @@
 interface Props {
-  data: Array<Object>;
-  value?: Array<string|number>;
-  format?: (values) => void;
+  defaultDate: any;
+  value?: any;
+  format?: string;
   cols?: number;
+  /** rn only */
+  triggerTypes?: string;
   /** web only */
   prefixCls?: string;
 }
