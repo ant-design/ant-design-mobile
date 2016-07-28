@@ -23,6 +23,9 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     onChange: noop,
   };
 
+  static CheckboxItem: any;
+  static AgreeItem: any;
+
   render() {
     let { prefixCls, style, name, checked, disabled, className, onChange } = this.props;
 
