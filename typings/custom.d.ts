@@ -1,5 +1,5 @@
 declare module 'antd-mobile' {
-  var exports:{
+  var exports: {
     ActionSheet: any;
     ActivityIndicator: any;
     Badge: any;
@@ -98,7 +98,7 @@ declare module 'rc-input-number/lib/styles' {
 }
 
 declare module 'css-vendor' {
-  var exports:{
+  var exports: {
     supportedProperty: (property: string) => string;
     supportedValue: (property: string, value: string) => string;
   }
@@ -141,7 +141,7 @@ declare module 'rc-table' {
 }
 
 declare module 'rn-topview' {
-  var exports:{
+  var exports: {
     set:(element: any) => void;
     remove:() => void;
   }
