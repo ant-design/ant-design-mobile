@@ -7,7 +7,7 @@ PageResult
 
 
 ````jsx
-import { PageResult, Tabs, WhiteSpace } from 'antm';
+import { PageResult, Tabs, WhiteSpace } from 'antd-mobile';
 
 const TabPane = Tabs.TabPane;
 
