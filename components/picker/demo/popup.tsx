@@ -54,7 +54,7 @@ export default class PopupExample extends React.Component {
           <Picker data={this.state.data} cols={2} triggerType="onClick"
             value={this.state.value} onChange={this.onChange}
           >
-            <List.Item arrow="horizontal" onClick={this.onClick}>省市选择(异步加载)</List.Item>
+            <List.Item arrow="horizontal" last onClick={this.onClick}>省市选择(异步加载)</List.Item>
           </Picker>
         </List.Body>
       </List>
