@@ -3,6 +3,13 @@ import classNames from 'classnames';
 import List from '../list/index';
 import Radio from '../radio/index.web';
 
+export interface SubDataItem {
+  label?: string;
+  value?: any;
+  disabled?: boolean;
+  [key: string]: any;
+}
+
 export interface SubMenuProps {
   /** web only */
   prefixCls?: string;
@@ -11,14 +18,14 @@ export interface SubMenuProps {
   /** web only */
   className?: string;
   style?: React.CSSProperties;
-  value?: Array<{}>;
-  data?: Array<{}>;
+  value?: Array<SubDataItem>;
+  data?: Array<SubDataItem>;
   onChange?: Function;
 }
 
 export interface SubMenuState {
-  value?: Array<{}>;
-  data?: Array<{}>;
+  value?: Array<SubDataItem>;
+  data?: Array<SubDataItem>;
 }
 
 export default class SubMenu extends React.Component<SubMenuProps, SubMenuState> {
@@ -73,7 +80,6 @@ export default class SubMenu extends React.Component<SubMenuProps, SubMenuState>
         className={listItemCls}
         key={idx}
         extra={<Radio
-          value={el.value}
           checked={value.length > 0 && value[0].value === el.value}
           disabled={el.disabled}
           onChange={this.onClick.bind(this, el)}
