@@ -115,8 +115,7 @@ export default class Demo extends React.Component {
                 <pre>
                   <code className="css" dangerouslySetInnerHTML={{
                     __html: highlightedStyle,
-                  }}
-                  />
+                  }} />
                 </pre>
               </div> :
               null

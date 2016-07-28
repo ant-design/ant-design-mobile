@@ -219,8 +219,7 @@ export default class Home extends React.Component {
         */}
 
         <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0,
-          display: this.state.hideNavBar ? 'none' : 'block' }}
-        >
+          display: this.state.hideNavBar ? 'none' : 'block' }}>
           {
             !customNavFlag ?
             this.state.customNavBar :
