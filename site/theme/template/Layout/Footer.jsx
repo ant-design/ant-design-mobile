@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select, Modal } from 'antd';
-import { version as antmVersion } from 'antd-mobile/package.json';
+import { version as packageVersions } from 'antd-mobile/package.json';
 import { docVersions } from '../../';
 const Option = Select.Option;
 
@@ -16,7 +16,7 @@ function isLocalStorageNameSupported() {
   }
 }
 
-docVersions[antmVersion] = antmVersion;
+docVersions[packageVersions] = packageVersions;
 
 export default class Footer extends React.Component {
   componentDidMount() {
@@ -90,13 +90,14 @@ export default class Footer extends React.Component {
             </a>
           </li>
           <li>
-            <div style={{ margin: '10px auto 5px' }}>©2016 蚂蚁金服体验技术部 & 口碑终端技术部</div>
-            <div style={{ marginTop: 0 }}>
+            <div>©2016 蚂蚁金服体验技术部出品</div>
+            <div>Powered by <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
+            <div>
               文档版本：
               <Select
                 size="small"
                 dropdownMatchSelectWidth={false}
-                defaultValue={antmVersion}
+                defaultValue={packageVersions}
                 onChange={this.handleVersionChange}
               >
                 {options}
