@@ -65,7 +65,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.value !== nextProps.value) {
+    if ('value' in nextProps && this.state.value !== nextProps.value) {
       this.setState({
         value: nextProps.value,
       });
