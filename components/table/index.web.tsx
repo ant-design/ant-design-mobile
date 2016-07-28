@@ -9,12 +9,10 @@ export default class Table extends React.Component<any, any> {
 
   render() {
     const { columns, dataSource, direction, scrollX, titleFixed } = this.props;
-
-    // const [{ style, className }, restProps] = splitObject(this.props, ['style', 'className']);
     const { style, className } = this.props;
 
     const restProps = Object.assign({}, this.props);
-    [style, className].forEach(prop => {
+    ['style', 'className'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
