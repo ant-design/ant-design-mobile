@@ -10,14 +10,12 @@ english: 更新日志
 * 新增 `Tooltips`、`Card`、`Pagination`、`Loading`、`Table` 组件；
 * `ListAction` 更名为 `SwipeAction`；
 * `WhiteSpace` 和 `WingBlank` 组件的 mode 属性修改为 size;
-*  `InputItem`、`TextareaItem` 的左边label字数可以配置，有默认值;
+* `InputItem`、`TextareaItem` 的左边label字数可以配置，有默认值;
+* `DatePicker` value 类型更改;
 * typescript 支持；
-* 完成 30+ 组件 对应的 react native 组件；扫码下载对应组件 demo app：
-
-  ![demo app](https://zos.alipayobjects.com/rmsportal/pqSGjgXJCojReWW.png)
-* demo app 支持扫码预览 web & rn 项目；
+* 完成 30+ 组件 对应的 react native 组件；稍后会放出 demo app 二维码：
+* demo app 支持扫码预览 web & react native 项目；
 * [官方网站](http://mobile.ant.design)优化；
-
 
 ## 0.6.0
 
