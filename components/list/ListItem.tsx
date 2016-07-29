@@ -71,7 +71,7 @@ export default class Item extends React.Component<ListItemProps, any> {
   static Extra: any;
   static Detail: any;
 
-  mixins: [ TimerMixin ];
+  mixins: [TimerMixin];
 
   constructor(props) {
     super(props);

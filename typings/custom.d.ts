@@ -45,7 +45,7 @@ declare module 'rmc-list-view' {
   export default exports
 }
 
-declare module 'rc-collapse'{
+declare module 'rc-collapse' {
   var exports:() => any
   export const Panel: any;
   export default exports
@@ -141,8 +141,8 @@ declare module 'rc-table' {
 
 declare module 'rn-topview' {
   var exports: {
-    set:(element: any) => void;
-    remove:() => void;
+    set: (element: any) => void;
+    remove: () => void;
   }
   export default exports
 }
@@ -157,12 +157,12 @@ declare module 'react-native-camera-roll-picker' {
   export default exports
 }
 
-declare module 'react-timer-mixin'{
-  var exports: (...any) => void
+declare module 'react-timer-mixin' {
+  var exports: (...any) => any
   export default exports
 }
 
-declare module 'gregorian-calendar'{
+declare module 'gregorian-calendar' {
   var exports:(...any) => void
   export default exports
 }

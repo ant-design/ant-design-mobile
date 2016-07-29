@@ -13,7 +13,6 @@ export default class Drawer extends React.Component<tsPropsType, any> {
     position: 'left',
     onOpenChange: () => { },
     drawerWidth: 300,
-    // drawerBackgroundColor: 'rgba(0,0,0,0.3)',
   };
   drawer: any;
   render() {

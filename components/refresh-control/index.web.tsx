@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
-// import classNames from 'classnames';
 import PullToRefresh from 'rmc-pull-to-refresh';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
