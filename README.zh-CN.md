@@ -28,6 +28,7 @@ $ npm install antd-mobile --save
 ### Web
 
 ```jsx
+import 'antd-mobile/lib/button/style';
 import Button from 'antd-mobile/lib/button';
 
 ReactDOM.render(<Button>Start</Button>, mountNode);
@@ -37,7 +38,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 
 ```
 resolve: {
-  modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
+  modulesDirectories: ['node_modules', path.join(__dirname, '../node_modules')],
   extensions: ['', '.web.js', '.js', '.json'],
 },
 ```
