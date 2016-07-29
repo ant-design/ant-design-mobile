@@ -81,6 +81,11 @@ declare module 'object-assign' {
   export default exports
 }
 
+declare module 'object-omit' {
+  var exports: any
+  export default exports
+}
+
 declare module 'rc-input-number' {
   var exports: any
   export default exports
@@ -156,7 +161,7 @@ declare module 'react-native-camera-roll-picker' {
   var exports: any
   export default exports
 }
-  
+
 declare module 'react-timer-mixin'{
   var exports: any
   export default exports

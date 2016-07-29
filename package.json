@@ -33,6 +33,7 @@
     "moment": "^2.14.1",
     "normalize.css": "~4.2.0",
     "object-assign": "~4.1.0",
+    "object-omit": "^1.0.0",
     "rc-animate": "~2.3.0",
     "rc-checkbox": "~1.4.0",
     "rc-collapse": "~1.6.6",
