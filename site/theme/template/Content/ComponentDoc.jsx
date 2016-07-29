@@ -146,6 +146,7 @@ export default class ComponentDoc extends React.Component {
             className={currentIndex === index ? 'code-box-target' : ''}
             key={index}
             index={index}
+            currentIndex={currentIndex}
             utils={props.utils}
             expand={expand} pathname={location.pathname}
           />
