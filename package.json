@@ -118,7 +118,7 @@
     "lesshint": "lesshint components/ -r scripts/lesshint-report.js",
     "eslint-fix": "eslint --fix site scripts ./*.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
     "prepublish": "antd-tools run guard",
-    "test": "npm run lint && npm run dist",
+    "test": "npm run lint && tsc && npm run dist",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt",
     "dist": "antd-tools run dist",
     "compile": "antd-tools run compile",
