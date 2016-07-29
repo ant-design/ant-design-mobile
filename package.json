@@ -101,7 +101,7 @@
     "react-copy-to-clipboard": "^4.0.1",
     "react-document-title": "^2.0.1",
     "react-dom": "^15.2.0",
-    "react-github-button": "^0.1.1",
+    "react-github-button": "^0.1.9",
     "react-intl": "^2.0.1",
     "react-native": "~0.30.0",
     "react-native-code-push": "^1.13.5-beta",

@@ -27,7 +27,7 @@
   width: 100%;
   background: url("https://os.alipayobjects.com/rmsportal/BlNtAoLQZdghDlD.png") no-repeat center / cover;
 }
-.banner-text-wrapper { 
+.banner-text-wrapper {
   position: absolute;
   top: 25%;
   left: 50%;
@@ -54,8 +54,9 @@
 
 .banner-text-wrapper  .start-button-wrap {
   height: 56px;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 }
+
 .banner-text-wrapper  .start-button-wrap a {
   color: #2DB7F5;
   font-size: 18px;
@@ -67,6 +68,13 @@
   }
 }
 
+.github-button-wrap {
+  text-align: center;
+  > span {
+    display: inline-block;
+  }
+}
+
 .down {
   text-align: center;
   position: absolute;
@@ -74,6 +82,7 @@
   color: rgba(255, 255, 255, .75);
   left: 50%;
   margin-left: -7px;
+  animation: upDownMove 1.2s ease-in-out infinite;
 }
 
 .page {

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
-import TweenOne from 'rc-tween-one';
+import GitHubButton from 'react-github-button';
+import 'react-github-button/assets/style.css';
 import Icon from 'antd/lib/icon';
 import QueueAnim from 'rc-queue-anim';
 
@@ -26,10 +27,16 @@ export default class Banner extends React.Component {
                 开始探索
               </Link>
             </div>
+            <div className="github-button-wrap" key="github">
+              <GitHubButton
+                key="github-button"
+                type="stargazers"
+                namespace="ant-design"
+                repo="ant-design-mobile"
+              />
+            </div>
           </QueueAnim>
-          <TweenOne className="down" animation={[{ opacity: 1 }, { y: 10, duration: 800, yoyo: true, repeat: -1 }]}>
-            <Icon type="down" />
-          </TweenOne>
+          <Icon type="down" className="down" />
         </ScrollElement>
       </section>
     );
