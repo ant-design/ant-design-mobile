@@ -125,6 +125,7 @@
     "clean": "antd-tools run clean",
     "start": "bisheng start -c ./site/bisheng.config.js",
     "site": "bisheng build -c ./site/bisheng.config.js",
+    "pre-deploy": "mkdir -p _site && cp CNAME _site",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
     "pub": "antd-tools run update-self && NPM_CLI=tnpm PUBLISH_NPM_CLI=tnpm antd-tools run pub",
