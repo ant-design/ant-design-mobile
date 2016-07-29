@@ -126,7 +126,7 @@
     "start": "bisheng start -c ./site/bisheng.config.js",
     "site": "bisheng build -c ./site/bisheng.config.js",
     "pre-deploy": "mkdir -p _site && cp CNAME _site",
-    "deploy": "npm run pre-deploy && bisheng gh-pages -c ./site/bisheng.config.js",
+    "deploy": "npm run clean && npm run pre-deploy && bisheng gh-pages -c ./site/bisheng.config.js",
     "pub": "antd-tools run update-self && antd-tools run pub",
     "rn-start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "concurrently \"antd-tools run watch-tsc\" \"npm run _ios\"",
