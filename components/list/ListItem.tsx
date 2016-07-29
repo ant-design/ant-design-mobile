@@ -1,7 +1,6 @@
-import { PropTypes } from 'react';
+import {PropTypes} from 'react';
 import * as React from 'react';
-import { Image, View, TouchableHighlight, Text } from 'react-native';
-import TimerMixin from 'react-timer-mixin';
+import {Image, View, TouchableHighlight, Text} from 'react-native';
 import theme from './style/index';
 const THEMES = theme.ThemesList;
 const ASSETS = theme.AssetsList;
@@ -71,7 +70,7 @@ export default class Item extends React.Component<ListItemProps, any> {
   static Extra: any;
   static Detail: any;
 
-  mixins: [TimerMixin];
+  timer: any;
 
   constructor(props) {
     super(props);
@@ -82,7 +81,13 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   componentWillMount() {
     if (this.state.__lazy) {
-      setTimeout(() => this.setState({ __lazy: false }), 500);
+      this.timer = setTimeout(() => this.setState({__lazy: false}), 500);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.timer) {
+      clearTimeout(this.timer);
     }
   }
 
@@ -97,7 +102,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     if (this.props.thumb) {
       thumbDom = (<Image source={{ uri: this.props.thumb }} style={[THEMES.Thumb,
-        this.props.line === 2 ? THEMES.Line2.Thumb : {}]} />);
+        this.props.line === 2 ? THEMES.Line2.Thumb : {}]}/>);
     }
     if ((this.props.line === 2) && React.isValidElement(this.props.children)) {
       contentDom = <View style={{ flex: 1 }}>{this.props.children}</View>;
@@ -114,28 +119,28 @@ export default class Item extends React.Component<ListItemProps, any> {
     if (this.props.arrow) {
       switch (this.props.arrow) {
         case 'horizontal':
-          arrowDom = <Image source={{ uri: ASSETS.arrowH }} style={THEMES.Arrow} />;
+          arrowDom = <Image source={{ uri: ASSETS.arrowH }} style={THEMES.Arrow}/>;
           break;
         case 'down':
-          arrowDom = <Image source={{ uri: ASSETS.arrowDown }} style={THEMES.Arrow} />;
+          arrowDom = <Image source={{ uri: ASSETS.arrowDown }} style={THEMES.Arrow}/>;
           break;
         case 'up':
-          arrowDom = <Image source={{ uri: ASSETS.arrowUp }} style={THEMES.Arrow} />;
+          arrowDom = <Image source={{ uri: ASSETS.arrowUp }} style={THEMES.Arrow}/>;
           break;
         default:
-          arrowDom = <View style={THEMES.Arrow} />;
+          arrowDom = <View style={THEMES.Arrow}/>;
           break;
       }
     }
     const itemStyle = [THEMES.Item,
-        this.props.line === 2 ? THEMES.Line2.Item : {},
-        this.props.last ? THEMES.Last.Item : {},
-        this.props.error ? THEMES.Error.Item : {},
-        this.props.style];
+      this.props.line === 2 ? THEMES.Line2.Item : {},
+      this.props.last ? THEMES.Last.Item : {},
+      this.props.error ? THEMES.Error.Item : {},
+      this.props.style];
 
     const itemView = (<View {...this.props} style={itemStyle}>
-        {thumbDom}{contentDom}{extraDom}{arrowDom}
-      </View>);
+      {thumbDom}{contentDom}{extraDom}{arrowDom}
+    </View>);
 
     if (this.props.onClick) {
       return (

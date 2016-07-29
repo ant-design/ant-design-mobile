@@ -61,7 +61,7 @@ export default React.createClass({
       <ScrollView
         style={styles.scrollview}
         refreshControl={
-          <RefreshControl
+          (<RefreshControl
             refreshing={this.state.isRefreshing}
             onRefresh={this._onRefresh}
             tintColor="#ff0000"
@@ -69,7 +69,7 @@ export default React.createClass({
             titleColor="#00ff00"
             colors={['#ff0000', '#00ff00', '#0000ff']}
             progressBackgroundColor="#ffff00"
-          />
+          /> as any)
         }>
         {<Text>因为router，此demo不能正常工作，单独引用正常</Text>}
         {rows}

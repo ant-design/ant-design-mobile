@@ -36,7 +36,7 @@ declare module 'antd-mobile' {
 }
 
 declare module 'rc-dialog' {
-  var exports: () => any
+  var exports: any
   export default exports
 }
 
@@ -45,54 +45,59 @@ declare module 'rmc-list-view' {
   export default exports
 }
 
+<<<<<<< 9df4046f178f137984e90a154eccd8dd24b3f3a8
 declare module 'rc-collapse' {
   var exports:() => any
+=======
+declare module 'rc-collapse'{
+  var exports: any
+>>>>>>> fix ts
   export const Panel: any;
   export default exports
 }
 
 declare module 'rc-tooltip' {
-  var exports: () => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-checkbox' {
-  var exports: () => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-animate' {
-  var exports: () => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-steps' {
-  var exports: () => any
+  var exports: any
   export default exports
 }
 
 declare module 'classnames' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'object-assign' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-input-number' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-input-number/lib' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-input-number/lib/styles' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
@@ -105,58 +110,64 @@ declare module 'css-vendor' {
 }
 
 declare module 'rc-slider' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-swipeout' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-swipeout/lib/Swipeout' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'react-hammerjs' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'react-slick' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-tabs' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-table' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rn-topview' {
   var exports: {
+<<<<<<< 9df4046f178f137984e90a154eccd8dd24b3f3a8
     set: (element: any) => void;
     remove: () => void;
+=======
+    set:(element: any) => void;
+    remove:() => any;
+>>>>>>> fix ts
   }
   export default exports
 }
 
 declare module 'rc-notification' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'react-native-camera-roll-picker' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
+<<<<<<< 9df4046f178f137984e90a154eccd8dd24b3f3a8
 declare module 'react-timer-mixin' {
   var exports: (...any) => any
   export default exports
@@ -169,26 +180,35 @@ declare module 'gregorian-calendar' {
 
 declare module 'gregorian-calendar-format' {
   var exports: (...any) => void
+=======
+declare module 'react-timer-mixin'{
+  var exports: any
+>>>>>>> fix ts
   export default exports
 }
 
 declare module 'array-tree-filter' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'react-native-drawer-layout' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
 
 declare module 'rc-drawer' {
-  var exports: (...any) => any
+  var exports: any
+  export default exports
+}
+
+declare module 'moment' {
+  var exports: any
   export default exports
 }
 
 declare module 'react-native-menu' {
-  var exports: (...any) => any
+  var exports: any
   export const MenuContext: any;
   export const MenuOptions: any;
   export const MenuOption: any;
@@ -197,6 +217,6 @@ declare module 'react-native-menu' {
 }
 
 declare module 'rmc-pull-to-refresh' {
-  var exports: (...any) => any
+  var exports: any
   export default exports
 }
