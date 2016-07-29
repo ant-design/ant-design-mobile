@@ -46,16 +46,12 @@ export function collect(nextProps, callback) {
 }
 
 export default class Home extends React.Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       current: this.getCurrent(props.params.index) || 0,
-      name: this.props.location.query.component,
       customNavBar: null,
-      NavBarChange: false,
-      hideNavBar: false,
     };
   }
 
@@ -148,7 +144,7 @@ export default class Home extends React.Component {
         {
           demoSort.length > 1 ?
             <span onClick={this.showActionSheet} style={{ cursor: 'pointer' }}>
-              {`${demoSort[index].meta.title}`} <Icon type="down" />
+              {`${demoSort[index].meta.title}`} <Icon type="down" className="nav-arrow-down" />
             </span> :
             <span>
               {`${demoSort[index].meta.title}`}
@@ -156,9 +152,6 @@ export default class Home extends React.Component {
         }
       </NavBar>
     );
-    // if (demoSort && demoSort[index].preview.type.customNavBar) {
-    //   customNavBar = demoSort[index].preview.type.customNavBar;
-    // }
     return customNavBar;
   }
 
@@ -169,11 +162,13 @@ export default class Home extends React.Component {
     });
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    if (prevState.NavBarChange === !this.state.NavBarChange) {
-      this.setState({
-        customNavBar: this.getNavBar(this.state.current),
-      });
+  componentDidMount = () => {
+    const current = this.state.current;
+    this.setState({
+      customNavBar: this.getNavBar(current),
+    });
+    if (ActionSheet.close) {
+      ActionSheet.close();
     }
   }
 
@@ -182,23 +177,15 @@ export default class Home extends React.Component {
     this.setState({
       customNavBar: this.getNavBar(current),
     });
-    /* eslint-disable no-unused-expressions */
-    ActionSheet && ActionSheet.close && ActionSheet.close();
-  }
-
-  componentDidMount = () => {
-    const current = this.state.current;
-
-    this.setState({
-      customNavBar: this.getNavBar(current),
-    });
-    /* eslint-disable no-unused-expressions */
-    ActionSheet && ActionSheet.close && ActionSheet.close();
+    if (ActionSheet.close) {
+      ActionSheet.close();
+    }
   }
 
   render() {
     const { demos } = this.props;
-    const { name, current } = this.state;
+    const { current } = this.state;
+    const name = this.props.params.component;
 
     const demoSort = demos.sort((a, b) => (
       parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
@@ -209,17 +196,7 @@ export default class Home extends React.Component {
 
     return (
       <div id={name}>
-        {/*
-        !customNavFlag &&
-          <span style={{ position: 'fixed', zIndex: 9999, top: 0, left: 100, color: '#999' }}
-            onClick={() => this.setState({ hideNavBar: !this.state.hideNavBar })}
-          >
-            {this.state.hideNavBar ? '⬇️' : '⬆️'}
-          </span>
-        */}
-
-        <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0,
-          display: this.state.hideNavBar ? 'none' : 'block' }}>
+        <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0 }}>
           {
             !customNavFlag ?
             this.state.customNavBar :
@@ -236,26 +213,18 @@ export default class Home extends React.Component {
 
           const previewItemClass = classNames({
             'demo-preview-item': true,
-            'demo-preview-item-custom': customNavFlag,
+            'demo-preview-item-custom': !!customNavFlag,
             show: isShow,
             hide: !isShow,
           });
 
-          return (<div className={previewItemClass}
-            id={`${name}-demo-${index}`} key={index}
-          >
-            {!i.meta.destroyComponent || isShow ?
-              React.cloneElement(i.preview(React, ReactDOM), {
-                // onNavBarChange: () => { this.setState({ NavBarChange: !this.state.NavBarChange }); },
-              }) :
-            null}
-            {
-            !!i.style ?
-              <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null
-            }
-          </div>);
+          return (
+            <div className={previewItemClass} id={`${name}-demo-${index}`} key={index}>
+              {!i.meta.destroyComponent || isShow ? i.preview(React, ReactDOM) : null}
+              {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+            </div>
+          );
         })}
-
       </div>
     );
   }
