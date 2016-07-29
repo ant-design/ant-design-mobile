@@ -26,7 +26,7 @@ $ npm install antd-mobile --save
 ### Web
 
 ```jsx
-import { Button } from 'antd-mobile';
+import Button from 'antd-mobile/lib/button';
 
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
@@ -38,15 +38,6 @@ resolve: {
   modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
   extensions: ['', '.web.js', '.js', '.json'],
 },
-```
-
-Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recommended) to reduce bundle size.
-
-```js
-// .babelrc
-{
- "plugins": [["antd", { style: "css", libraryName: "antd-mobile" }]]
-}
 ```
 
 ### React-Native
@@ -65,12 +56,15 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
-Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recommended)
+### Use babel-plugin-antd
+
+Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recommended) to reduce bundle size.
 
 ```js
 // .babelrc
+// no need to set style property in react-native
 {
- "plugins": [["antd", { libraryName: "antd-mobile" }]]
+ "plugins": [["antd", { style: "css", libraryName: "antd-mobile" }]]
 }
 ```
 

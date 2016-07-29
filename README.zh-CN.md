@@ -25,16 +25,29 @@ $ npm install antd-mobile --save
 
 ## 使用
 
+### Web
+
 ```jsx
-import { Button } from 'antd-mobile';
+import Button from 'antd-mobile/lib/button';
 
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
+需要在 webpack 中设置访问 `.web.js` 后缀的模块。
+
+```
+resolve: {
+  modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
+  extensions: ['', '.web.js', '.js', '.json'],
+},
+```
+
+### React-Native
+
 ```jsx
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import { Button } from 'antd-mobile';
+import Button from 'antd-mobile/lib/button';
 
 class HelloWorldApp extends Component {
   render() {
@@ -43,6 +56,25 @@ class HelloWorldApp extends Component {
 }
 
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
+```
+
+### 按需加载
+
+推荐使用 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 来降低打包体积。
+
+```js
+// .babelrc
+// react-native 中无需设置 style 属性
+{
+ "plugins": [["antd", { style: "css", libraryName: "antd-mobile" }]]
+}
+```
+
+并且可以直接用下面的语法加载模块。
+
+```jsx
+// import js and css modularly, parsed by babel-plugin-antd
+import { Button } from 'antd-mobile';
 ```
 
 ## 浏览器支持
