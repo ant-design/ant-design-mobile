@@ -23,16 +23,38 @@ $ npm install antd-mobile --save
 
 ## Usage
 
+### Web
+
 ```jsx
 import { Button } from 'antd-mobile';
 
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
+Set webpack to resolve .web.js suffix
+
+```
+resolve: {
+  modulesDirectories: ['node_modules', join(__dirname, '../node_modules')],
+  extensions: ['', '.web.js', '.js', '.json'],
+},
+```
+
+Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recommended) to reduce bundle size.
+
+```js
+// .babelrc
+{
+ "plugins": [["antd", { style: "css", libraryName: "antd-mobile" }]]
+}
+```
+
+### React-Native
+
 ```jsx
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import { Button } from 'antd-mobile';
+import Button from 'antd-mobile/lib/button';
 
 class HelloWorldApp extends Component {
   render() {
@@ -41,6 +63,22 @@ class HelloWorldApp extends Component {
 }
 
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
+```
+
+Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recommended)
+
+```js
+// .babelrc
+{
+ "plugins": [["antd", { libraryName: "antd-mobile" }]]
+}
+```
+
+Then you can import components from antd-mobile directly.
+
+```jsx
+// import js and css modularly, parsed by babel-plugin-antd
+import { Button } from 'antd-mobile';
 ```
 
 ## Browser Support
