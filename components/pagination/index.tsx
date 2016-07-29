@@ -79,7 +79,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
                 size={size}
                 inline
                 disabled={current <= 0}
-                onPress={this.onPrev}
+                onClick={this.onPrev}
               >
                 {prevText}
               </Button>
@@ -98,7 +98,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
                 size={size}
                 disabled={current >= total - 1}
                 inline
-                onPress={this.onNext}
+                onClick={this.onNext}
               >
               {nextText}
               </Button>
