@@ -145,6 +145,8 @@ $ npm run rn-start
 $ npm run ios / android
 ```
 
+If you need to add a new component, then modify `rn-kitchen-sink/demoList.js` and `./index.js`.
+
 ### 提交代码
 
 自己从 master 新开一个分支开发.
