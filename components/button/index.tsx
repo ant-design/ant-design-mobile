@@ -15,6 +15,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     ghost: PropTypes.bool,
     inline: PropTypes.bool,
     loading: PropTypes.bool,
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -25,6 +26,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     disabled: false,
     inline: false,
     loading: false,
+    onClick: (x: any) => {},
   };
   mTextColor: string;
   mBorderColor: string;
@@ -203,6 +205,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     return (
       <TouchableHighlight
         activeOpacity={1}
+        onPress={() => this.props.onClick(this)}
         delayPressOut={1} { ...this.props } { ...touchableProps }
         style={[style, this.pressBorderColor(), this.props.style]}
         underlayColor={highlightBackgroundColor}
