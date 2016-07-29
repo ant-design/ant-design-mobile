@@ -72,7 +72,7 @@ import './index.less';
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-// 可独立到 components/button/style/index.ios.js
+// 可独立到 components/button/style/index.tsx
 const styles = StyleSheet.create({
   button: {
     borderRadius: 4,
@@ -94,7 +94,7 @@ class Button extends React.Component {
 export default Button;
 ```
 
-- `components/button/demo/basic.js`
+- `components/button/demo/basic.tsx`
 
 ```jsx
 import { Button } from 'antm';
@@ -137,8 +137,11 @@ $ COMPONENT_STYLE=button npm start
 ### react-native 流程
 
 ```bash
-$ npm run ios
-$ npm run android
+# In one terminal tab
+$ npm run rn-start
+
+# Open another terminal tab
+$ npm run ios / android
 ```
 
 ### 提交代码
