@@ -30,5 +30,5 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 <style>
-  .demo-preview-wrapper .demo-preview-scroller * { box-sizing: border-box; }
+  .demo-preview-item * { box-sizing: border-box; }
 </style>
