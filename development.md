@@ -140,6 +140,7 @@ $ COMPONENT_STYLE=button npm start
 # In one terminal tab
 $ npm run rn-start
 
+# Open one ios/android simulator
 # Open another terminal tab
 $ npm run ios / android
 ```
