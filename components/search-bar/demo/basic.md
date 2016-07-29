@@ -20,9 +20,7 @@ let SearchBarExample = React.createClass({
     return (
       <div>
         <SearchBar
-          {...getFieldProps('SearchBar1', {
-            initialValue: '美食',
-          })}
+          value="美食"
           placeholder="搜索"
           onSubmit={(value) => { console.log(`onSubmit${value}`); }}
           onClear={() => { console.log('onClear'); }}
@@ -38,7 +36,7 @@ let SearchBarExample = React.createClass({
           onCancel={() => { console.log('onCancel'); }}
         />
         <SearchBar
-          {...getFieldProps('SearchBar3')}
+          value=""
           placeholder="取消按钮总是显示"
           onSubmit={(value) => { console.log(`onSubmit${value}`); }}
           onClear={() => { console.log('onClear'); }}
