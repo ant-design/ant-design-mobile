@@ -36,4 +36,4 @@ english: ActivityIndicator
 |  color  | spinner颜色 | string | gray or white | gray  |
 |  size  | spinner大小 | string | small or large | small  |
 |  toast  | loading样式类型 | boolean | true or false | false  |
-|  text  | loading文本 | string | 无 | ''  |
+|  text  | loading文本 | string |    |    |

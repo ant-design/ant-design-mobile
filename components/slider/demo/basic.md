@@ -41,6 +41,9 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 <style>
+.demo-preview-item * {
+  box-sizing: border-box;
+}
 .code-box-demo .am-slider {
   margin-bottom: 80px;
 }
