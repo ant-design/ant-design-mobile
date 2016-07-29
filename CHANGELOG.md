@@ -13,7 +13,10 @@ english: 更新日志
 * `InputItem`、`TextareaItem` 的左边label字数可以配置，有默认值;
 * `DatePicker` value 类型更改;
 * typescript 支持；
-* 完成 30+ 组件 对应的 react native 组件；稍后会放出 demo app 二维码：
+* 完成 30+ 组件 对应的 react native 组件；demo app beta版二维码：
+
+  ![demo app](https://zos.alipayobjects.com/rmsportal/qYVpyTZzcWMGerJ.png)
+
 * demo app 支持扫码预览 web & react native 项目；
 * [官方网站](http://mobile.ant.design)优化；
 
