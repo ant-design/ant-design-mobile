@@ -15,11 +15,23 @@ A configurable Mobile UI specification and React-based implementation.
 - Support web and native usages based on React Native.
 - Develop in TypeScript.
 
+## Demo
+
+### Online demo
+
+http://mobile.ant.design/kitchen-sink/
+
+### App demo
+
+<img src="https://pbs.twimg.com/media/CohXOutUkAAeuvI.jpg:large" />
+
+
 ## Install
 
 ```bash
 $ npm install antd-mobile --save
 ```
+
 
 ## Usage
 

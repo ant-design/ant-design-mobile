@@ -17,6 +17,16 @@ Ant Design 移动端设计规范。
 - 基于 React Native 的多平台支持。
 - 使用 TypeScript 开发，提供类型定义文件。
 
+## 演示
+
+### 在线演示
+
+http://mobile.ant.design/kitchen-sink/
+
+### 客户端应用
+
+<img src="https://pbs.twimg.com/media/CohXOutUkAAeuvI.jpg:large" />
+
 ## 安装
 
 ```bash
