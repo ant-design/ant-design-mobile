@@ -144,14 +144,14 @@ export default class Header extends React.Component {
                   首页
                 </Link>
               </Menu.Item>
-              <Menu.Item key="docs/pattern">
-                <Link to="/docs/pattern/color">
-                  设计基础
-                </Link>
-              </Menu.Item>
               <Menu.Item key="components">
                 <Link to="/docs/react/introduce">
                   组件
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="docs/pattern">
+                <Link to="/docs/pattern/color">
+                  设计基础
                 </Link>
               </Menu.Item>
             </Menu>
