@@ -54,6 +54,7 @@ export default StyleSheet.create({
   } as ViewStyle,
   destructiveBtn: {
     color: variables.function_error_2,
+    fontSize: variables.font_size_6,
   } as ViewStyle,
   cancelBtn: {
     marginTop: 2 * variables.grid,

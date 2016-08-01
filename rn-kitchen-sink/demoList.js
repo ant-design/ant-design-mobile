@@ -1,6 +1,12 @@
 module.exports = {
   APIS: [
     {
+      title: 'ActionSheet', // 必须
+      description: '动作面板',
+      icon: 'https://zos.alipayobjects.com/rmsportal/sTvsgvivVKnqQtS.png',
+      module: require('../components/action-sheet/demo/basic'), // 必须
+    },
+    {
       title: 'Dropdown', // 必须
       description: '下拉菜单',
       icon: 'https://os.alipayobjects.com/rmsportal/PMIYKpJIhmqwyXI.png',
@@ -14,12 +20,6 @@ module.exports = {
     },
   ],
   COMPONENTS: [
-    {
-      title: 'ActionSheet', // 必须
-      description: '动作面板',
-      icon: 'https://zos.alipayobjects.com/rmsportal/sTvsgvivVKnqQtS.png',
-      module: require('../components/action-sheet/demo/basic'), // 必须
-    },
     {
       title: 'ActivityIndicator', // 必须
       description: '活动指示器',

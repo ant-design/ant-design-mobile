@@ -125,9 +125,8 @@ class ActionSheetCross {
         {titleMsg}
         <View>
           {options.map((item, index) => (
-            <View style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
+            <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
               <TouchableHighlight
-                key={index}
                 style={[
                   styles.btn,
                 ]}

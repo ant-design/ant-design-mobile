@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Platform } from 'react-native';
-import { ActionSheet } from 'antd-mobile';
+import { View, Text, Platform } from 'react-native';
+import { ActionSheet, Button } from 'antd-mobile';
 
 const BUTTONS = [
   '操作 0',
@@ -22,16 +22,16 @@ export default React.createClass({
   render() {
     return (
       <View>
-        <Text onPress={this.showActionSheet} style={style.button}>
-          Click to show the ActionSheet
+        <View style={[{ padding: 8 }]}>
+          <Button type="primary" onClick={this.showActionSheet}>默认状态操作列表</Button>
+        </View>
+        <Text style={[{ padding: 8 }]}>
+          点击过的按钮: {this.state.clicked}
         </Text>
-        <Text>
-          Clicked button: {this.state.clicked}
-        </Text>
-        <Text onPress={this.showShareActionSheet} style={style.button}>
-          Click to show the Share ActionSheet
-        </Text>
-        <Text>
+        <View style={[{ padding: 8 }]}>
+          <Button type="primary" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
+        </View>
+        <Text style={[{ padding: 8 }]}>
           {this.state.text}
         </Text>
       </View>
@@ -69,19 +69,12 @@ export default React.createClass({
     (success, method) => {
       let text;
       if (success) {
-        text = `Shared via ${method}`;
+        text = `通过 ${method} 分享`;
       } else {
-        text = 'You didn\'t share';
+        text = '您没有分享';
       }
       this.setState({text});
     });
-  },
-});
-
-const style = StyleSheet.create({
-  button: {
-    marginBottom: 10,
-    fontWeight: '500' as any,
   },
 });
 
