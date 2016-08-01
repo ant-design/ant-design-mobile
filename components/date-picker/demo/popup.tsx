@@ -30,6 +30,7 @@ export default class PopupExample extends React.Component<any, any> {
               <List.Item
                 arrow="horizontal"
                 extra={this.state.value}
+                last
               >
                 选择时间
               </List.Item>
