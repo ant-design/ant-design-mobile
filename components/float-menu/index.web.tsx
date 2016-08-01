@@ -26,7 +26,7 @@ export default class FloatMenu extends React.Component<tsPropsType, any> {
   };
 
   static defaultProps = {
-    prefixCls: 'am-floatmenu',
+    prefixCls: 'am-float-menu',
     placement: 'bottomRight',
     popupAlign: { overflow: { adjustY: 0, adjustX: 0 } },
     trigger: ['click'],

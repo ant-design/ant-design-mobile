@@ -47,7 +47,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
     const childEl = React.cloneElement(children, extraProps);
     return (<PopupCascader
       WrapComponent="div"
-      popupTransitionName="am-slide-fade"
+      popupTransitionName="am-slide-up"
       maskTransitionName="am-fade"
       {...this.props}
       data={data}
