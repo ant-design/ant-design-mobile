@@ -97,10 +97,6 @@ const Test = React.createClass({
         <div style={{ padding: '8px 0' }}>
           <Button type="primary" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
         </div>
-        {/*
-        <p className="demo-p">点击过的icon: &nbsp;
-          <span style={{ color: '#222' }}>{this.state.clicked1}</span>
-        </p>*/}
       </div>
 
       <div style={{ margin: '32px 0' }}>

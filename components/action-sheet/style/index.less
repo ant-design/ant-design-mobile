@@ -70,12 +70,15 @@
     -webkit-overflow-scrolling: touch;
     > li {
       margin-right: 5 * @grid;
-      min-width: 80px;
     }
   }
   &-share-item-icon {
-    max-height: 40px;
-    text-align: center;
+    margin: 0;
+    width: 12 * @grid;
+    height: 12 * @grid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .anticon {
       font-size: 26px;
     }
