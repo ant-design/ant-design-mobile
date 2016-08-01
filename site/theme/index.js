@@ -8,7 +8,7 @@ module.exports = {
   },
   docVersions: {
   },
-  routes: [{
+  routes: {
     path: '/',
     component: './template/Layout/index',
     indexRoute: { component: './template/Home/index' },
@@ -28,16 +28,5 @@ module.exports = {
       path: '/components/:children',
       component: contentTmpl,
     }],
-  }, {
-    path: '/kitchen-sink',
-    component: './template/KitchenSink/index',
-  }, {
-    path: '/kitchen-sink/:component',
-    dataPath: '/components/:component',
-    component: './template/KitchenSink/Demo',
-  }, {
-    path: '/kitchen-sink/:component/:index',
-    dataPath: '/components/:component/demo/:index',
-    component: './template/KitchenSink/Demo',
-  }],
+  },
 };

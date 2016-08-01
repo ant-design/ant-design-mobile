@@ -8,8 +8,16 @@ module.exports = {
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
   lazyLoad: true,
-  theme: './site/theme',
-  htmlTemplate: './site/theme/static/template.html',
+  entry: {
+    index: {
+      theme: './site/theme',
+      htmlTemplate: './site/theme/static/template.html',
+    },
+    'kitchen-sink': {
+      theme: './site/mobile',
+      htmlTemplate: './site/mobile/static/template.html',
+    },
+  },
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2',

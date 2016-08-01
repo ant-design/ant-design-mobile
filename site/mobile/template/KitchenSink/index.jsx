@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Promise from 'bluebird';
-import * as utils from '../utils';
+import * as utils from '../../../theme/template/utils';
 import Page from './Page';
 import Item from './Item';
 import { List, Flex } from 'antd-mobile';
