@@ -32,8 +32,8 @@ function create(instanceId, config, content, afterClose = (x: any) => { }) {
     visible
     title=""
     footer=""
-    transitionName={transitionName || `${prefixCls}-slide-fade`}
-    maskTransitionName={maskTransitionName || `${prefixCls}-fade`}
+    transitionName={transitionName || `am-slide-down`}
+    maskTransitionName={maskTransitionName || `am-fade`}
     onClose={close}
     maskClosable={maskClosable}
   >{content}</Dialog>, div, function () {

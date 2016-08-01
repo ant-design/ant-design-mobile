@@ -12,7 +12,7 @@ export default class Item extends React.Component<any, any> {
   };
 
   static defaultProps = {
-    prefixCls: 'am-floatmenu',
+    prefixCls: 'am-float-menu',
     disabled: false,
   };
 

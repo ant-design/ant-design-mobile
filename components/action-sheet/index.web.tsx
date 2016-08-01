@@ -101,8 +101,8 @@ function createActionSheet(flag, config, callback) {
     visible
     title=""
     footer=""
-    transitionName={transitionName || `${prefixCls}-slide-fade`}
-    maskTransitionName={maskTransitionName || `${prefixCls}-fade`}
+    transitionName={transitionName || `am-slide-up`}
+    maskTransitionName={maskTransitionName || `am-fade`}
     onClose={close}
     maskClosable={maskClosable}
   >{children}</Dialog>, div, function () {

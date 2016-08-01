@@ -30,7 +30,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     return (
       <PopupDatePicker {...this.props}
         WrapComponent="div"
-        popupTransitionName="am-slide-fade"
+        popupTransitionName="am-slide-up"
         maskTransitionName="am-fade"
         date={value || defaultDate}
       >
