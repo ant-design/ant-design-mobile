@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
 import classNames from 'classnames';
-import * as utils from '../utils';
+import * as utils from '../../../theme/template/utils';
 
 import { NavBar, ActionSheet, Icon } from 'antd-mobile';
 
