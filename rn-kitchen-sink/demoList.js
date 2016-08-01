@@ -177,8 +177,8 @@ module.exports = {
       module: require('../components/white-space/demo/basic'), // 必须
     },
     {
-      title: '两翼留白', // 必须
-      description: 'WingBlank Example',
+      title: 'WingBlank', // 必须
+      description: '两翼留白',
       icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
       module: require('../components/wing-blank/demo/basic'), // 必须
     },
