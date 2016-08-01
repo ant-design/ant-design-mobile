@@ -26,6 +26,10 @@ function loadingToast() {
 }
 
 export default class ToastExample extends React.Component<any, any> {
+  componentWillUnmount () {
+    Toast.hide();
+  }
+
   render() {
     return (
       <View style={{marginTop: 30}}>
