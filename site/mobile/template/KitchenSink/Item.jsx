@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import './Item.less';
+import { Link } from 'react-router';
 
 const Item = React.createClass({
   PropTypes: {
@@ -23,11 +24,10 @@ const Item = React.createClass({
     this.refs.demoitem.style.backgroundColor = '#fff';
   },
   render() {
-    const { logo, title, subtitle, onClick, style } = this.props;
+    const { logo, title, subtitle, linkTo, style } = this.props;
     return (
       <section
         className="am-demo-item"
-        onClick={onClick}
         onTouchStart={this.handleTouchStart}
         onTouchEnd={this.handleTouchEnd}
         onTouchCancel={this.handleTouchEnd}
@@ -35,9 +35,11 @@ const Item = React.createClass({
         style={style}
       >
         <div className="am-demo-item-inner">
-          <div className="am-demo-item-logo" style={{ backgroundImage: `url(${logo})` }} />
-          <h1 className="am-demo-item-title">{title}</h1>
-          <h2 className="am-demo-item-subtitle">{subtitle}</h2>
+          <Link to={linkTo}>
+            <div className="am-demo-item-logo" style={{ backgroundImage: `url(${logo})` }} />
+            <h1 className="am-demo-item-title">{title}</h1>
+            <h2 className="am-demo-item-subtitle">{subtitle}</h2>
+          </Link>
         </div>
       </section>
     );
