@@ -13,12 +13,7 @@ function create(instanceId, config, content, afterClose = (x: any) => { }) {
   let div = document.createElement('div');
   document.body.appendChild(div);
 
-  let d;
-
   function close() {
-    d.setState({
-      visible: false,
-    });
     if (div) {
       ReactDOM.unmountComponentAtNode(div);
       div.parentNode.removeChild(div);
@@ -36,9 +31,7 @@ function create(instanceId, config, content, afterClose = (x: any) => { }) {
     maskTransitionName={maskTransitionName || `am-fade`}
     onClose={close}
     maskClosable={maskClosable}
-  >{content}</Dialog>, div, function () {
-    d = this;
-  });
+  >{content}</Dialog>, div);
 
   return {
     instanceId,

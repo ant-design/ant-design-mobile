@@ -19,12 +19,7 @@ function createActionSheet(flag, config, callback) {
   let div = document.createElement('div');
   document.body.appendChild(div);
 
-  let d;
-
   function close() {
-    d.setState({
-      visible: false,
-    });
     if (div) {
       ReactDOM.unmountComponentAtNode(div);
       div.parentNode.removeChild(div);
@@ -105,9 +100,7 @@ function createActionSheet(flag, config, callback) {
     maskTransitionName={maskTransitionName || `am-fade`}
     onClose={close}
     maskClosable={maskClosable}
-  >{children}</Dialog>, div, function () {
-    d = this;
-  });
+  >{children}</Dialog>, div);
 }
 
 export default class ActionSheet {
