@@ -136,7 +136,7 @@
     "_ios": "node node_modules/react-native/local-cli/cli.js run-ios --entry-file rn-kitchen-sink/index.ios.js --project-path rn-kitchen-sink/ios",
     "_android": "node node_modules/react-native/local-cli/cli.js run-android --entry-file rn-kitchen-sink/index.android.js --root rn-kitchen-sink",
     "build-rn-ios": "node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file rn-kitchen-sink/index.ios.js --bundle-output rn-kitchen-sink/ios/bundle/index.ios.bundle --assets-dest rn-kitchen-sink/ios/bundle",
-    "build-rn-android": "node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file rn-kitchen-sink/index.android.js --bundle-output rn-kitchen-sink/android/app/src/main/assets/index.android.bundle --assets-dest rn-kitchen-sink/android/app/src/main/res",
+    "build-rn-android": "node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file rn-kitchen-sink/index.android.js --bundle-output rn-kitchen-sink/android/bundle/index.android.bundle --assets-dest rn-kitchen-sink/android/bundle",
     "build-rn": "antd-tools run tsc && npm run build-rn-ios && npm run build-rn-android"
   },
   "config": {

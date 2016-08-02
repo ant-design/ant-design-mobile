@@ -27,7 +27,8 @@ elasticsearch-*
 config/base.yaml
 _data
 rn-kitchen-sink/ios/build
-rn-kitchen-sink/ios/bundle/*
+rn-kitchen-sink/ios/bundle
+rn-kitchen-sink/android/bundle
 rn-kitchen-sink/android/.gradle
 rn-kitchen-sink/android/app/build
 rn-kitchen-sink/android/build
