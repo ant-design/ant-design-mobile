@@ -55,8 +55,8 @@ export default class Modal extends React.Component<ModalProps, any> {
       wrapClassName,
       transparent,
       animated,
-      animation,
-      maskAnimation,
+      transitionName,
+      maskTransitionName,
       closable,
       maskClosable,
       style,
@@ -72,8 +72,8 @@ export default class Modal extends React.Component<ModalProps, any> {
       [`${prefixCls}-transparent`]: transparent,
     });
 
-    let anim = animation || (animated ? 'slide' : null);
-    let maskAnim = maskAnimation || (animated ? 'slide' : null);
+    let anim = transitionName || (animated ? 'am-slide-up' : null);
+    let maskAnim = maskTransitionName || (animated ? 'am-slide-up' : null);
 
     // transparent 模式下, 内容默认居中
     const rootStyle = transparent ? assign({
@@ -89,8 +89,8 @@ export default class Modal extends React.Component<ModalProps, any> {
         prefixCls={prefixCls}
         className={wrapCls}
         wrapClassName={wrapClassName}
-        animation={anim}
-        maskAnimation={maskAnim}
+        transitionName={anim}
+        maskTransitionName={maskAnim}
         style={rootStyle}
         bodyStyle={bodyStyle}
         visible={visible}

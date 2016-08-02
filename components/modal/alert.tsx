@@ -47,9 +47,9 @@ export default function (...args) {
     transparent
     prefixCls={prefixCls}
     title={title}
-    animation="zoom"
+    transitionName="am-zoom"
     footer={footer}
-    maskAnimation="fade">
+    maskTransitionName="am-fade">
     <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
   </Modal>, div, function () {
     d = this;
