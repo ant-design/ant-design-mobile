@@ -13,8 +13,8 @@ interface ModalProps {
   onRequestClose?: () => void;
   /** web only */
   prefixCls?: string;
-  animation?: string;
-  maskAnimation?: string;
+  transitionName?: string;
+  maskTransitionName?: string;
   className?: string;
   wrapClassName?: string;
   bodyStyle?: {};

@@ -9,6 +9,7 @@ function getMessageInstance() {
   messageInstance = (Notification as any).newInstance({
     prefixCls,
     style: { top: 0 },
+    transitionName: 'am-fade',
   });
   return messageInstance;
 }
