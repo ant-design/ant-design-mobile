@@ -113,7 +113,7 @@ export default class Home extends React.Component {
                     subtitle={ii.english}
                     style={itemStyle}
                     key={`flexitem-${i}`}
-                    linkTo={`/${fileName}`}
+                    linkTo={`/${fileName}/`}
                   />);
                 }
                 flexs.push(<Flex wrap="wrap" className="antm-demo-flex" key={`flex-${index}`}>
