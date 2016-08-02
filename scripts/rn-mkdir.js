@@ -5,7 +5,7 @@ if (!fs.existsSync(iosDir)) {
   fs.mkdirSync(iosDir);
 }
 
-const androidDir = path.join(__dirname, '../rn-kitchen-sink/android/app/src/main/assets/');
+const androidDir = path.join(__dirname, '../rn-kitchen-sink/android/bundle');
 if (!fs.existsSync(androidDir)) {
   fs.mkdirSync(androidDir);
 }

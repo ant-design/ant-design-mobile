@@ -35,7 +35,14 @@ const styles = StyleSheet.create({
 
 class AntmRnApp extends React.Component {
   componentDidMount() {
-    codePush.sync();
+    codePush.sync({
+      updateDialog: {
+        updateTitle: '检测有更新',
+        optionalUpdateMessage: 'demo app 有新版本，是否安装？',
+        optionalIgnoreButtonLabel: 'No',
+        optionalInstallButtonLabel: 'Yes',
+      },
+    });
   }
 
   render() {
