@@ -29,6 +29,7 @@ module.exports = {
     plugins: ['dora-plugin-upload'],
   },
   webpackConfig(config) {
+    config.module.noParse = [/moment.js/];
     config.resolve.alias = {
       'antd-mobile': process.cwd(),
       site: path.join(process.cwd(), 'site'),
