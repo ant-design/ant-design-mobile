@@ -111,9 +111,9 @@ export default class Home extends React.Component {
                     logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
                     title={ii.chinese}
                     subtitle={ii.english}
-                    onClick={() => { location.href = `${window.location.protocol}//${window.location.host}/kitchen-sink/${fileName}`; }}
                     style={itemStyle}
                     key={`flexitem-${i}`}
+                    linkTo={`/${fileName}`}
                   />);
                 }
                 flexs.push(<Flex wrap="wrap" className="antm-demo-flex" key={`flex-${index}`}>
