@@ -1,6 +1,6 @@
 import { Button, Flex, WingBlank, WhiteSpace } from 'antd-mobile';
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
 const Circle = React.createClass({
   render() {
@@ -22,7 +22,12 @@ const Circle = React.createClass({
 export default class FlexExample extends React.Component<any, any> {
   render() {
     return (
-      <View>
+      <ScrollView
+        style={{ flex: 1 }}
+        automaticallyAdjustContentInsets={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
         <WingBlank style={{ marginTop: 20, marginBottom: 5 }}>
           <Text style={{ marginBottom: 10 }}>项目的排列方向</Text>
           <Text>direction="row":主轴为水平方向，起点在左端</Text>
@@ -176,7 +181,7 @@ export default class FlexExample extends React.Component<any, any> {
           </Flex>
         </WingBlank>
         <WhiteSpace />
-      </View>
+      </ScrollView>
     );
   }
 }

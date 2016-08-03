@@ -127,7 +127,7 @@ const MenuExample = React.createClass({
     Toast.info(`选中了 ${value.toString()}`);
   },
   render() {
-    return <Menu data={data} onChange={this.onChange} />
+    return <Menu data={data} onChange={this.onChange} />;
   },
 });
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { InputItem, List } from 'antd-mobile';
 
 export default class BasicInputItemExample extends React.Component<any, any> {
@@ -27,7 +27,12 @@ export default class BasicInputItemExample extends React.Component<any, any> {
 
   render() {
     return (
-      <View>
+      <ScrollView
+        style={{ flex: 1 }}
+        automaticallyAdjustContentInsets={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
         <List>
           <List.Body>
             <InputItem
@@ -218,7 +223,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             >数字</InputItem>
           </List.Body>
         </List>
-      </View>
+      </ScrollView>
     );
   }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Dimensions } from 'react-native';
-import { Drawer, List, Button } from 'antd-mobile';
-import { DefaultRenderer } from 'react-native-router-flux';
+import { Drawer, List, Button, WingBlank, WhiteSpace } from 'antd-mobile';
+import { DefaultRenderer, Actions } from 'react-native-router-flux';
 
 const styles = StyleSheet.create({
   container: {
@@ -59,8 +59,18 @@ export class DrawerMain extends React.Component<any, any> {
   render() {
     return (
       <View style={{ height: Dimensions.get('window').height }}>
-        <Button type="primary" inline onPress={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
-        <Text style={{ color: 'red' }}>主内容</Text>
+        <View>
+          <WingBlank size={16}>
+            <Button type="primary" inline onPress={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
+          </WingBlank>
+          <Text style={{ color: 'red', textAlign: 'center', marginTop: 40 }}>主内容</Text>
+          <WhiteSpace size={60} />
+          <WingBlank size={16}>
+            <Button ghost inline onPress={() => {
+              Actions.pop();
+            }}>返回 demo list</Button>
+          </WingBlank>
+        </View>
       </View>
     );
   }

@@ -16,7 +16,7 @@ export default class SwitchExample extends React.Component<any, any> {
   }
   render() {
     return (
-      <List style={{marginTop: 80}}>
+      <List style={{ marginTop: 20 }}>
         <List.Body>
           <List.Item extra={<Switch checked />}>默认开</List.Item>
           <List.Item extra={<Switch />}>默认关</List.Item>
