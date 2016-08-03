@@ -155,25 +155,16 @@ export default class Home extends React.Component {
     return customNavBar;
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps(nextProps) {
     this.setState({
       current: this.getCurrent(nextProps.params.index),
       customNavBar: this.getNavBar(nextProps.params.index),
     });
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     const current = this.state.current;
-    this.setState({
-      customNavBar: this.getNavBar(current),
-    });
-    if (ActionSheet.close) {
-      ActionSheet.close();
-    }
-  }
-
-  componentDidMount = () => {
-    const current = this.state.current;
+    /* eslint react/no-did-mount-set-state:0 */
     this.setState({
       customNavBar: this.getNavBar(current),
     });
