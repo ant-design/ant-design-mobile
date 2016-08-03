@@ -15,14 +15,12 @@ export default function (...args) {
   let inputDom;
   const type = args[3] || 'default';
 
-  let d;
+  let data: any = {};
 
   function onChange(e) {
     const target = e.target;
     const inputType = target.getAttribute('type');
-    d.setState({
-      [inputType]: target.value,
-    });
+    data[inputType] =  target.value;
   }
 
   switch (type) {
@@ -71,16 +69,13 @@ export default function (...args) {
   document.body.appendChild(div);
 
   function close() {
-    d.setState({
-      visible: false,
-    });
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);
   }
 
   function getArgs(func) {
-    const text = d.state && d.state.text || '';
-    const password = d.state && d.state.password || '';
+    const text = data.text || '';
+    const password = data.password || '';
     if (type === 'login-password') {
       return func(text, password);
     } else if (type === 'secure-text') {
@@ -133,7 +128,5 @@ export default function (...args) {
     footer={footer}
     maskTransitionName="am-fade">
     <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
-  </Modal>, div, function () {
-    d = this;
-  });
+  </Modal>, div);
 }

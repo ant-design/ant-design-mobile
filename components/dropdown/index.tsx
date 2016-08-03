@@ -4,6 +4,7 @@ import {
   Modal,
   TouchableWithoutFeedback,
   Animated,
+  Platform,
   Dimensions,
   DeviceEventEmitter,
 } from 'react-native';
@@ -67,7 +68,7 @@ class Dropdown extends React.Component<DropdownProps, any> {
     }
   };
 
-  animatedHide() {
+  animatedHide = () => {
     this.state.translateY.setValue(0);
     this.anim = Animated.timing(this.state.translateY, {
       duration: 200,
@@ -78,7 +79,7 @@ class Dropdown extends React.Component<DropdownProps, any> {
       this.anim = null;
       topView.remove();
     });
-  }
+  };
 
   render() {
     return (
@@ -87,7 +88,7 @@ class Dropdown extends React.Component<DropdownProps, any> {
           animationType={'none'}
           transparent
           visible
-          onRequestClose={() => {}}
+          onRequestClose={Platform.OS === 'android' ? this.animatedHide : undefined}
         >
           <TouchableWithoutFeedback onPress={this.onMaskClose}>
             <View style={styles.mask}/>

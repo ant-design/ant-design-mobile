@@ -16,11 +16,7 @@ export default function (...args) {
   let div = document.createElement('div');
   document.body.appendChild(div);
 
-  let d;
   function close() {
-    d.setState({
-      visible: false,
-    });
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);
   }
@@ -51,7 +47,5 @@ export default function (...args) {
     footer={footer}
     maskTransitionName="am-fade">
     <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
-  </Modal>, div, function () {
-    d = this;
-  });
+  </Modal>, div);
 }
