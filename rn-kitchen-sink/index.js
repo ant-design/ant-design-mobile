@@ -52,14 +52,7 @@ class AntmRnApp extends React.Component {
         render() {
           return (
             <View style={styles.content}>
-              <ScrollView
-                style={styles.scrollView}
-                automaticallyAdjustContentInsets={false}
-                showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={false}
-              >
-                <Module />
-              </ScrollView>
+              <Module />
             </View>
           );
         },

@@ -1,11 +1,16 @@
 import * as React from 'react';
-import { Image, View } from 'react-native';
+import { Image, ScrollView } from 'react-native';
 import { List, Button } from 'antd-mobile';
 
 export default class BasicListExample extends React.Component<any, any> {
   render() {
     return (
-      <View>
+      <ScrollView
+        style={{ flex: 1 }}
+        automaticallyAdjustContentInsets={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
         <List>
           {/* 基本用法 Demo */}
           <List.Header>基本用法 Demo</List.Header>
@@ -165,7 +170,7 @@ export default class BasicListExample extends React.Component<any, any> {
             ><List.Item.Content>垂直居中对齐</List.Item.Content></List.Item>
           </List.Body>
         </List>
-      </View>
+      </ScrollView>
     );
   }
 }
