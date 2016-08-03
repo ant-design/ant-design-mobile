@@ -126,7 +126,7 @@ export default class Home extends React.Component {
       parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
     ));
     /* eslint-disable no-nested-ternary */
-    let leftContent = self === top ?
+    let leftContent = self === top || top.name === '__spe' ?
       <a href="/kitchen-sink" style={{ color: '#2db7f5', textDecoration: 'none', transition: 'color .3s ease' }}>首页</a> :
         (index > 0 ?
           <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={this.demoPrev}>
