@@ -3,6 +3,23 @@ order: 2
 english: 更新日志
 ---
 
+## 0.7.2
+
+`2016-08-02`
+
+* 修复 iconfont 重复引用问题；
+* 各组件动画设置统一到`components/style/anim.less`里；
+* 网站的移动版展示优化；
+
+## 0.7.1
+
+`2016-08-01`
+
+* `Toast`组件`z-index`优化；
+* 纠正文档中错误的 `DatePicker` value / minDate / maxDate 类型，修复 rn 点击不能打开问题;
+* `ActionSheet` 分享功能的 icon 样式优化，rn demo 展示优化；
+* 工具增加`babel-runtime`支持；
+
 ## 0.7.0
 
 `2016-07-29`
