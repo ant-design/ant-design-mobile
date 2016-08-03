@@ -1,7 +1,7 @@
 ---
 order: 1
 title: IndexedList
-destroyComponent: true
+destroyComponent: false
 ---
 
 用于通讯薄等场景
