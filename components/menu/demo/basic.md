@@ -1,14 +1,12 @@
 ---
-order: 0
+order: 1
 title: 二级菜单
 ---
-
-
 
 ````jsx
 import { Menu, Toast } from 'antd-mobile';
 
-let data1 = [
+const data = [
   {
     value: '2',
     label: '美食',
@@ -124,36 +122,14 @@ let data1 = [
   },
 ];
 
-let MenuExample1 = React.createClass({
-  getInitialState() {
-    return {
-      visiable: true,
-      value: [],
-    };
-  },
+const MenuExample = React.createClass({
   onChange(value) {
     Toast.info(`选中了 ${value.toString()}`);
-    this.setState({
-      visiable: false,
-    });
-    setTimeout(() => {
-      this.setState({
-        visiable: true,
-        value: ['2', '23'],
-      });
-    }, 500);
   },
   render() {
-    return (<div>
-      {this.state.visiable ? (<Menu
-        value={this.state.value}
-        onChange={this.onChange}
-        data={data1}
-      />) : null}
-    </div>);
+    return <Menu data={data} onChange={this.onChange} />
   },
 });
 
-
-ReactDOM.render(<MenuExample1 />, mountNode);
+ReactDOM.render(<MenuExample />, mountNode);
 ````

@@ -6,7 +6,7 @@ title: 单级菜单
 ````jsx
 import { Menu, Toast } from 'antd-mobile';
 
-let data2 = [
+const data = [
   {
     label: '中餐',
     value: '21',
@@ -50,37 +50,14 @@ let data2 = [
   },
 ];
 
-let MenuExample2 = React.createClass({
-  getInitialState() {
-    return {
-      visiable: true,
-      value: ['21'],
-    };
-  },
+const MenuExample = React.createClass({
   onChange(value) {
     Toast.info(`选中了 ${value.toString()}`);
-    this.setState({
-      visiable: false,
-    });
-    setTimeout(() => {
-      this.setState({
-        visiable: true,
-        value: ['23'],
-      });
-    }, 500);
   },
   render() {
-    return (<div>
-      {this.state.visiable ? (<Menu
-        level={1}
-        onChange={this.onChange}
-        value={this.state.value}
-        data={data2}
-      />) : null}
-    </div>);
+    return <Menu data={data} level={1} onChange={this.onChange} />
   },
 });
 
-
-ReactDOM.render(<MenuExample2 />, mountNode);
+ReactDOM.render(<MenuExample />, mountNode);
 ````
