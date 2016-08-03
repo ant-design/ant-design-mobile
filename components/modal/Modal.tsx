@@ -30,11 +30,11 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     }
   }
 
-  onRequestClose(visible) {
+  onRequestClose = () => {
     this.setState({
-      visible,
+      visible: false,
     });
-  }
+  };
 
   onClosePress = () => {
     this.props.onClose();
@@ -46,6 +46,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
   render() {
     const {
       title, closable, maskClosable, footer, animated, onShow, transparent, children, style,
+      onRequestClose,
     } = this.props;
 
     let showModal = this.state.visible;
@@ -55,7 +56,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     return (
       <Modal
         animationType={animationType}
-        onRequestClose={() => {this.onRequestClose(false);}}
+        onRequestClose={onRequestClose || this.onRequestClose}
         onShow={onShow}
         transparent={transparent}
         visible={showModal}

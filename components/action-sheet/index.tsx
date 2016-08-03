@@ -71,7 +71,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
     }
   };
 
-  animatedHide() {
+  animatedHide = () => {
     this.state.translateY.setValue(0);
     this.anim = Animated.timing(this.state.translateY, {
       duration: 200,
@@ -82,7 +82,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
       this.anim = null;
       topView.remove();
     });
-  }
+  };
 
   render() {
     return (
@@ -91,7 +91,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
           animationType={'none'}
           transparent
           visible
-          onRequestClose={() => {}}
+          onRequestClose={Platform.OS === 'android' ? this.animatedHide : undefined}
           >
           <TouchableWithoutFeedback onPress={this.onMaskClose}>
             <View style={styles.mask}/>
