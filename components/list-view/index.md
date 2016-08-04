@@ -41,10 +41,12 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 - renderBodyComponent 渲染自定义的 body 组件
 
 ### ListView.IndexedList (beta)
-> 注意：由于需要直接scroll到任意位置、所以列表不再支持分步渲染，列表数据量过大时、性能会有影响
+> 注意：由于需要直接scroll到任意位置、只支持分两步渲染，所以列表数据量过大时、性能会有影响
 
 支持右侧导航功能
 
 - quickSearchBarTop (object{value:string, label:string}, 默认为'#') - 快捷导航栏置顶按钮
 - quickSearchBarStyle (object) - quickSearchBar 的 style
-- onQuickSearch (function())
+- onQuickSearch (function()) 快捷导航切换时触发
+- delayTime (number) - 默认 100ms, 延迟渲染时间设置（用于首屏优化，一开始渲染`initialListSize`数量的数据，在此时间后、延迟渲染剩余的数据项、即`totalRowCount - initialListSize`）
+- delayActivityIndicator (react node) - 延迟渲染的 loading 指示器
