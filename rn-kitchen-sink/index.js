@@ -68,6 +68,10 @@ class AntmRnApp extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('hardwareBackPress');
+  }
+
   render() {
     const scenes = APIS.concat(COMPONENTS).map(component => {
       const Module = component.module.default;
