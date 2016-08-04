@@ -4,11 +4,11 @@ import {
   StyleSheet,
   View,
   StatusBar,
-  ScrollView,
   Platform,
+  BackAndroid,
 } from 'react-native';
 import codePush from 'react-native-code-push';
-import { Scene, Router } from 'react-native-router-flux';
+import { Scene, Router, Reducer, Actions, ActionConst } from 'react-native-router-flux';
 
 import Home from './components/Home';
 import RnIndex from './components/RnIndex';
@@ -31,9 +31,38 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
+  navigationBarStyle: {
+    backgroundColor: '#2e2e2e',
+  },
+  titleStyle: {
+    color: 'white',
+  },
 });
 
+let isMainScreen = false;
+const reducerCreate = params => {
+  const defaultReducer = new Reducer(params);
+  return (state, action) => {
+    if (action.type === ActionConst.FOCUS && action.scene && action.scene.initial) {
+      isMainScreen = true;
+    } else {
+      isMainScreen = false;
+    }
+    return defaultReducer(state, action);
+  };
+};
+
 class AntmRnApp extends React.Component {
+  componentWillMount() {
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      if (!isMainScreen) {
+        Actions.pop();
+        return true;
+      }
+      return false;
+    });
+  }
+
   componentDidMount() {
     codePush.sync({
       updateDialog: {
@@ -43,6 +72,10 @@ class AntmRnApp extends React.Component {
         optionalInstallButtonLabel: 'Yes',
       },
     });
+  }
+
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('hardwareBackPress');
   }
 
   render() {
@@ -57,17 +90,8 @@ class AntmRnApp extends React.Component {
           );
         },
       });
-      if (component.module.title === 'Drawer') {
-        // drawer 不能放到 ScrollView 里
-        Component = React.createClass({
-          render() {
-            return (
-              <View style={styles.content}>
-                <Module onNavigate={this.props.onNavigate} navigationState={this.props.navigationState} />
-              </View>
-            );
-          },
-        });
+
+      if (component.title === 'Drawer') {
         const DrawerMainComponent = React.createClass({
           render() {
             return (
@@ -76,9 +100,9 @@ class AntmRnApp extends React.Component {
           },
         });
         return (
-          <Scene key={component.title} component={Component} title={component.title}>
-            <Scene key="main" tabs>
-              <Scene key={`${component.title}Sub`} hideNavBar component={DrawerMainComponent} />
+          <Scene key="Drawer" component={Module} duration={200} direction="vertical">
+            <Scene key="main" navigationBarStyle={styles.navigationBarStyle} titleStyle={styles.titleStyle}>
+              <Scene key={`${component.title}Sub`} component={DrawerMainComponent} title={component.title} />
             </Scene>
           </Scene>
         );
@@ -89,8 +113,8 @@ class AntmRnApp extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
-        <Router>
-          <Scene key="root" navigationBarStyle={{ backgroundColor: '#2e2e2e' }} titleStyle={{ color: 'white' }}>
+        <Router createReducer={reducerCreate}>
+          <Scene key="root" navigationBarStyle={styles.navigationBarStyle} titleStyle={styles.titleStyle}>
             <Scene key="home" component={Home} title="Ant Design Mobile" initial />
             <Scene key="web" component={WebIndex} title="Antm Web Component" />
             <Scene key="native" component={RnIndex} title="Antm React Native" />
