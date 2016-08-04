@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Drawer, List, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 import { DefaultRenderer, Actions } from 'react-native-router-flux';
 
@@ -17,7 +17,7 @@ export default class DrawerExample extends React.Component<any, any> {
   onOpenChange = (isOpen) => {
     /* tslint:disable: no-console */
     console.log('是否打开了 Drawer', (isOpen).toString());
-    /* tslint:enable: no-console */
+    Actions.refresh({ key: this.props.navigationState.key, open: isOpen });
   }
   render() {
     const sidebar = (<View style={[styles.container, { backgroundColor: '#fff' }]}>
@@ -58,7 +58,7 @@ export class DrawerMain extends React.Component<any, any> {
   }
   render() {
     return (
-      <View style={{ height: Dimensions.get('window').height }}>
+      <View style={{ flex: 1, marginTop: 114 }}>
         <View>
           <WingBlank size={16}>
             <Button type="primary" inline onPress={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
@@ -75,6 +75,3 @@ export class DrawerMain extends React.Component<any, any> {
     );
   }
 };
-
-export const title = 'Drawer';
-export const description = 'Drawer example';

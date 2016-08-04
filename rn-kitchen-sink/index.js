@@ -4,7 +4,6 @@ import {
   StyleSheet,
   View,
   StatusBar,
-  ScrollView,
   Platform,
 } from 'react-native';
 import codePush from 'react-native-code-push';
@@ -30,6 +29,12 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: 'white',
+  },
+  navigationBarStyle: {
+    backgroundColor: '#2e2e2e',
+  },
+  titleStyle: {
+    color: 'white',
   },
 });
 
@@ -57,17 +62,8 @@ class AntmRnApp extends React.Component {
           );
         },
       });
-      if (component.module.title === 'Drawer') {
-        // drawer 不能放到 ScrollView 里
-        Component = React.createClass({
-          render() {
-            return (
-              <View style={styles.content}>
-                <Module onNavigate={this.props.onNavigate} navigationState={this.props.navigationState} />
-              </View>
-            );
-          },
-        });
+
+      if (component.title === 'Drawer') {
         const DrawerMainComponent = React.createClass({
           render() {
             return (
@@ -76,9 +72,9 @@ class AntmRnApp extends React.Component {
           },
         });
         return (
-          <Scene key={component.title} component={Component} title={component.title}>
-            <Scene key="main" tabs>
-              <Scene key={`${component.title}Sub`} hideNavBar component={DrawerMainComponent} />
+          <Scene key="Drawer" component={Module} duration={200} direction="vertical">
+            <Scene key="main" navigationBarStyle={styles.navigationBarStyle} titleStyle={styles.titleStyle}>
+              <Scene key={`${component.title}Sub`} component={DrawerMainComponent} title={component.title} />
             </Scene>
           </Scene>
         );
@@ -90,7 +86,7 @@ class AntmRnApp extends React.Component {
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
         <Router>
-          <Scene key="root" navigationBarStyle={{ backgroundColor: '#2e2e2e' }} titleStyle={{ color: 'white' }}>
+          <Scene key="root" navigationBarStyle={styles.navigationBarStyle} titleStyle={styles.titleStyle}>
             <Scene key="home" component={Home} title="Ant Design Mobile" initial />
             <Scene key="web" component={WebIndex} title="Antm Web Component" />
             <Scene key="native" component={RnIndex} title="Antm React Native" />

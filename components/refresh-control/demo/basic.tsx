@@ -71,7 +71,6 @@ export default React.createClass({
             progressBackgroundColor="#ffff00"
           /> as any)
         }>
-        {<Text>因为router，此demo不能正常工作，单独引用正常</Text>}
         {rows}
       </ScrollView>
     );
