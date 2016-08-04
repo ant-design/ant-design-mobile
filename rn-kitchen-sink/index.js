@@ -5,10 +5,9 @@ import {
   View,
   StatusBar,
   Platform,
-  BackAndroid,
 } from 'react-native';
 import codePush from 'react-native-code-push';
-import { Scene, Router, Reducer, Actions, ActionConst } from 'react-native-router-flux';
+import { Scene, Router } from 'react-native-router-flux';
 
 import Home from './components/Home';
 import RnIndex from './components/RnIndex';
@@ -39,30 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-let isMainScreen = false;
-const reducerCreate = params => {
-  const defaultReducer = new Reducer(params);
-  return (state, action) => {
-    if (action.type === ActionConst.FOCUS && action.scene && action.scene.initial) {
-      isMainScreen = true;
-    } else {
-      isMainScreen = false;
-    }
-    return defaultReducer(state, action);
-  };
-};
-
 class AntmRnApp extends React.Component {
-  componentWillMount() {
-    BackAndroid.addEventListener('hardwareBackPress', () => {
-      if (!isMainScreen) {
-        Actions.pop();
-        return true;
-      }
-      return false;
-    });
-  }
-
   componentDidMount() {
     codePush.sync({
       updateDialog: {
@@ -72,10 +48,6 @@ class AntmRnApp extends React.Component {
         optionalInstallButtonLabel: 'Yes',
       },
     });
-  }
-
-  componentWillUnmount() {
-    BackAndroid.removeEventListener('hardwareBackPress');
   }
 
   render() {
@@ -113,7 +85,7 @@ class AntmRnApp extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="light-content" />
-        <Router createReducer={reducerCreate}>
+        <Router>
           <Scene key="root" navigationBarStyle={styles.navigationBarStyle} titleStyle={styles.titleStyle}>
             <Scene key="home" component={Home} title="Ant Design Mobile" initial />
             <Scene key="web" component={WebIndex} title="Antm Web Component" />
