@@ -5,6 +5,7 @@ import * as utils from '../../../theme/template/utils';
 import Page from './Page';
 import Item from './Item';
 import { List, Flex } from 'antd-mobile';
+import './Base.less';
 
 const hashImgObj = {
   'action-sheet': 'sTvsgvivVKnqQtS',
