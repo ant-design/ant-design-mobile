@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {
   View,
-  Modal,
   Text,
   Image,
   ActivityIndicator,
+  Animated,
 } from 'react-native';
 import topView from 'rn-topview';
 import styles from './style/';
@@ -22,18 +22,41 @@ class ToastContainer extends React.Component<ToastProps, any> {
     onClose() {},
   };
 
-  timer: number;
+  anim: any;
 
   constructor(props) {
     super(props);
-    this.timer = setTimeout(() => {
-      props.onClose();
+    this.state = {
+     fadeAnim: new Animated.Value(0),
+    };
+  }
+
+  componentDidMount() {
+    const {onClose, duration} = this.props;
+    const timing = Animated.timing;
+    this.anim = Animated.sequence([
+      timing(
+        this.state.fadeAnim,
+        {toValue: 1, duration: 200}
+      ),
+      Animated.delay(duration * 1000),
+      timing(
+        this.state.fadeAnim,
+        {toValue: 0, duration: 200}
+      ),
+    ]);
+    this.anim.start(() => {
+      this.anim = null;
+      onClose();
       topView.remove();
-    }, props.duration * 1000);
+    });
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timer);
+    if (this.anim) {
+      this.anim.stop();
+      this.anim = null;
+    }
   }
 
   render() {
@@ -63,19 +86,14 @@ class ToastContainer extends React.Component<ToastProps, any> {
 
     return (
       <View style={[styles.container]}>
-        <Modal
-          animationType="fade"
-          transparent
-          visible
-          onRequestClose={() => {}}
-        >
-          <View style={[styles.innerContainer]}>
+        <View style={[styles.innerContainer]}>
+          <Animated.View style={{opacity: this.state.fadeAnim}}>
             <View style={[styles.innnerWrap]}>
               {iconDom}
               <Text style={styles.content}>{content}</Text>
             </View>
-          </View>
-        </Modal>
+          </Animated.View>
+        </View>
       </View>
     );
   }
@@ -86,6 +104,7 @@ function notice(content, type, duration = 3, onClose) {
     onClose = duration;
     duration = 3;
   }
+
   topView.set(
     <ToastContainer content={content} duration={duration} onClose={onClose} type={type} />
   );

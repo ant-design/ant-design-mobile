@@ -6,6 +6,7 @@ import {
   StatusBar,
   Platform,
   BackAndroid,
+  DeviceEventEmitter,
 } from 'react-native';
 import codePush from 'react-native-code-push';
 import { Scene, Router, Reducer, Actions, ActionConst } from 'react-native-router-flux';
@@ -47,6 +48,9 @@ const reducerCreate = params => {
       isMainScreen = true;
     } else {
       isMainScreen = false;
+    }
+    if (action.type === ActionConst.BACK_ACTION || action.type === ActionConst.BACK) {
+      DeviceEventEmitter.emit('navigatorBack');
     }
     return defaultReducer(state, action);
   };
