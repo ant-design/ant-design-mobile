@@ -104,6 +104,7 @@ function notice(content, type, duration = 3, onClose) {
     onClose = duration;
     duration = 3;
   }
+
   topView.set(
     <ToastContainer content={content} duration={duration} onClose={onClose} type={type} />
   );
