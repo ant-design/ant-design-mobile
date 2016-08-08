@@ -3,6 +3,14 @@ order: 2
 english: 更新日志
 ---
 
+## 0.7.3
+
+``
+
+* `ListView` 非 sticky 模式功能问题修复，并增加更多 demo
+* `DatePicker` 修正并扩展 format 函数功能
+* `InputNumber` `Dialog` `Menu` `ActivityIndicator` 等细节优化
+
 ## 0.7.2
 
 `2016-08-02`
