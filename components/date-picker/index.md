@@ -28,6 +28,6 @@ english: DatePicker
 | okText   | 选中的文案 | String |  `确定`  |
 | dismissText  | 取消选中的文案 | String |  `取消`  |
 | title  | 弹框的标题 | String |  无  |
-| format  | 格式化选中的值, 参数为 [moment](http://momentjs.com/) 类型, 例如`val => val.format('YYYY-MM-DD + HH:mm')`  | Function | - |
+| format  | 格式化选中的值 | (value:moment) => string/string | `(val) => { return val; }`  |
 | extra   | Children如果是List.Item,则是extra属性的默认值, 如果是其它的UI组件,则value或者extra属性会经过format方法处理后传给children的extra属性,用户需要自己实现这个属性 | String  |  `请选择`  |
 | style   | 自定义内联样式 | Object |  {}  |
