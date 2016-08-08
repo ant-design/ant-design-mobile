@@ -1,18 +1,16 @@
 ---
 order: 1
 title: IndexedList
-destroyComponent: false
+destroyComponent: true
 ---
 
 用于通讯薄等场景
 
 
 ````jsx
+import province from 'site/data/province';
 import { ListView, List, SearchBar } from 'antd-mobile';
 const { Item } = List;
-
-const NUM_SECTIONS = 26;
-const NUM_ROWS_PER_SECTION = 10;
 
 const Demo = React.createClass({
   getInitialState() {
@@ -29,18 +27,16 @@ const Demo = React.createClass({
     const dataBlob = {};
     const sectionIDs = [];
     const rowIDs = [];
-    for (let ii = 0; ii < NUM_SECTIONS; ii++) {
-      const sectionName = String.fromCharCode(65 + ii);
-      sectionIDs.push(sectionName);
-      dataBlob[sectionName] = sectionName;
-      rowIDs[ii] = [];
+    Object.keys(province).forEach((item, index) => {
+      sectionIDs.push(item);
+      dataBlob[item] = item;
+      rowIDs[index] = [];
 
-      for (let jj = 0; jj < NUM_ROWS_PER_SECTION; jj++) {
-        const rowName = `S${ii}, R${jj}`;
-        rowIDs[ii].push(rowName);
-        dataBlob[rowName] = rowName;
-      }
-    }
+      province[item].forEach(jj => {
+        rowIDs[index].push(jj.value);
+        dataBlob[jj.value] = jj.label;
+      });
+    });
     return {
       dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
       headerPressCount: 0,
@@ -66,7 +62,7 @@ const Demo = React.createClass({
         renderHeader={() => <span>头部内容请自定义</span>}
         renderFooter={() => <span>尾部内容请自定义</span>}
         renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
-        renderRow={(rowData) => (<Item>Hello: {rowData}</Item>)}
+        renderRow={(rowData) => (<Item>{rowData}</Item>)}
         stickyHeader
         stickyProps={{
           stickyStyle: { zIndex: 999, top: 83 },
@@ -75,6 +71,8 @@ const Demo = React.createClass({
         quickSearchBarStyle={{
           top: 85,
         }}
+        delayTime={10}
+        delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}
       />
     </div>);
   },
