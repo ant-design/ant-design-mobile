@@ -23,8 +23,9 @@ Radio提供了一个简单的方法来从一个预定义集合中选取单个值
 |------------|----------------|----------|----------|--------------|
 | type    | 复选框类型 | String |  `normal`、 `agree` |   'normal'  |
 | name    |         | String |   | 无  |
-| checked    |        | String |   | 无  |
-| disabled      |         | String | |  无  |
+| defaultChecked |   初始是否选中   | Boolean |   | 无  |
+| checked    |   指定当前是否选中  | Boolean |   | 无  |
+| disabled      |         | Boolean | |  无  |
 | onChange    | change事件触发的回调函数,参数是event对象 | Function | |   无  |
 
 ### Radio.RadioItem
