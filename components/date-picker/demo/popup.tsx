@@ -26,10 +26,10 @@ export default class PopupExample extends React.Component<any, any> {
             minDate={this.date1MinDate || (this.date1MinDate = moment('2015-08-06','YYYY-MM-DD'))}
             maxDate={this.date1MaxDate || (this.date1MaxDate = moment('2016-12-06','YYYY-MM-DD'))}
             onChange={this.onChange}
+            format={val => val.fromNow()}
           >
               <List.Item
                 arrow="horizontal"
-                extra={this.state.value}
                 last
               >
                 选择时间
