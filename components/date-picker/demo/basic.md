@@ -51,7 +51,9 @@ let Test = React.createClass({
           </DatePicker>
           <DatePicker
             mode="datetime"
-            format={'YYYY-MM-DD + HH:mm'}
+            format={val => val.format('YYYY-MM-DD + HH:mm')}
+            okText="Ok"
+            dismissText="Cancel"
             locale={enUs}
             {...getFieldProps('customformat', {
               initialValue: now,
