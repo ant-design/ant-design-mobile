@@ -33,6 +33,7 @@ export { default as SearchBar } from './search-bar/index.web';
 
 export { default as Slider } from './slider/index.web';
 export { default as Stepper } from './stepper/index.web';
+export { default as Steps } from './steps/index.web';
 export { default as SwipeAction } from './swipe-action/index.web';
 export { default as Switch } from './switch/index.web';
 export { default as Table } from './table/index.web';
