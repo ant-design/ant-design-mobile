@@ -163,7 +163,8 @@ export default class MainContent extends React.Component {
           </Col>
           <Col lg={19} md={18} sm={24} xs={24} className="main-container">
             {
-              props.utils.get(props, 'pageData.demo') ?
+              // icon组件特殊处理，区分pc和mobile demo
+              props.utils.get(props, 'pageData.demo') && activeMenuItem !== 'icon' ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
                 <Article {...props} content={localizedPageData} />
             }
