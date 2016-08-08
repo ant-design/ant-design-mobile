@@ -1,13 +1,13 @@
 ---
-order: 0
-title: 基本
+order: 1
+title: sticky
 destroyComponent: true
 ---
 
-无尽列表
+无尽列表 sticky
 
 ````jsx
-import { ListView, Toast, Button } from 'antd-mobile';
+import { ListView, Toast } from 'antd-mobile';
 
 const data = [
   {
@@ -85,7 +85,6 @@ const Demo = React.createClass({
       });
     }, 1000);
   },
-
   render() {
     const separator = (sectionID, rowID) => (
       <div key={`${sectionID}-${rowID}`} style={{
@@ -122,8 +121,7 @@ const Demo = React.createClass({
         </div>
       );
     };
-    this.ctrlBodyScroll(false, true);
-    return (<div style={{ margin: '0 auto', width: '96%' }}>
+    return (<div>
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
@@ -136,25 +134,17 @@ const Demo = React.createClass({
         renderRow={row}
         renderSeparator={separator}
         pageSize={4}
-        scrollRenderAheadDistance={500}
         scrollEventThrottle={20}
         onScroll={() => { console.log('scroll'); }}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        style={{ height: 300, overflow: 'auto', border: '1px solid #ddd', margin: '10px 0' }}
+        stickyHeader
+        stickyProps={{
+          stickyStyle: { zIndex: 999, top: 43 },
+          topOffset: -43,
+        }}
       />
-      <div>
-        <p>切换`body`的`overflow`样式：</p>
-        <Button inline size="small" onClick={() => { this.ctrlBodyScroll(true); }}>auto</Button>&nbsp;
-        <Button inline size="small" onClick={() => { this.ctrlBodyScroll(false); }}>hidden</Button>
-      </div>
     </div>);
-  },
-  ctrlBodyScroll(flag, init) {
-    document.body.style.overflowY = flag ? 'auto' : 'hidden';
-    if (parent && parent !== self && !init) {
-      parent.document.body.style.overflowY = flag ? 'auto' : 'hidden';
-    }
   },
 });
 

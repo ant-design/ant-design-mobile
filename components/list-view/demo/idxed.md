@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title: IndexedList
 destroyComponent: true
 ---
@@ -57,23 +57,22 @@ const Demo = React.createClass({
           onBlur={() => { console.log('onBlur'); }}
         />
       </div>
-      <ListView.IndexedList
-        dataSource={this.state.dataSource}
-        renderHeader={() => <span>头部内容请自定义</span>}
-        renderFooter={() => <span>尾部内容请自定义</span>}
-        renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
-        renderRow={(rowData) => (<Item>{rowData}</Item>)}
-        stickyHeader
-        stickyProps={{
-          stickyStyle: { zIndex: 999, top: 83 },
-          topOffset: -83,
-        }}
-        quickSearchBarStyle={{
-          top: 85,
-        }}
-        delayTime={10}
-        delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}
-      />
+      <div style={{ position: 'relative' }}>
+        <ListView.IndexedList
+          dataSource={this.state.dataSource}
+          renderHeader={() => <span>头部内容请自定义</span>}
+          renderFooter={() => <span>尾部内容请自定义</span>}
+          renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
+          renderRow={(rowData) => (<Item>{rowData}</Item>)}
+          style={{ height: 400, overflow: 'auto' }}
+          quickSearchBarStyle={{
+            position: 'absolute',
+            top: 20, right: 10,
+          }}
+          delayTime={10}
+          delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}
+        />
+      </div>
     </div>);
   },
 });
