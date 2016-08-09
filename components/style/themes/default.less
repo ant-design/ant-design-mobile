@@ -21,6 +21,8 @@
 @fill-disabled: #ddd;                       // 通用失效背景
 @fill-mask: rgba(0, 0, 0, .5);              // 遮罩背景
 @fill-overlay-inverse: rgba(0, 0, 0, .8);   // 浮层背景 - 反色，用于 toast
+@top-notice-fill: #fefcec;
+@default-button-fill: @fill-base;
 
 // 全局/品牌色
 @brand-primary: #108ee9;
@@ -32,11 +34,7 @@
 
 // 边框色
 @border-color-base: #ddd;
-
-// 组件定制色
 @tabs-current-border-color: @brand-primary;
-@default-button-fill: @fill-base;
-
 
 // 字体尺寸
 // ---
@@ -49,8 +47,6 @@
 @font-size-display-md: 42px;
 @font-size-display-lg: 48px;
 @font-size-display-xl: 60px;
-
-// 组件定制字体尺寸
 @small-button-font-size: 24px;
 @button-font-size: 36px;
 @input-font-size: 28px;
@@ -108,3 +104,8 @@
 @icon-size-sm: 42px;
 @icon-size-md: 44px;       // 导航条上的图标
 @icon-size-lg: 72px;
+
+
+// 动画缓动
+// ---
+@ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
