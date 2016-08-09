@@ -7,7 +7,6 @@ export { default as Carousel } from './carousel/index.web';
 export { default as Checkbox } from './checkbox/index.web';
 export { default as DatePicker } from './date-picker/index.web';
 export { default as Drawer } from './drawer/index.web';
-export { default as Dropdown } from './dropdown/index.web';
 export { default as Flex } from './flex/index.web';
 export { default as FloatMenu } from './float-menu/index.web';
 

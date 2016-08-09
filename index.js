@@ -5,7 +5,6 @@ export { default as Button } from './components/button/';
 export { default as Card } from './components/card/';
 export { default as DatePicker } from './components/date-picker/';
 export { default as Drawer } from './components/drawer/';
-export { default as Dropdown } from './components/dropdown/';
 export { default as Flex } from './components/flex/';
 export { default as FloatMenu } from './components/float-menu/';
 export { default as InputItem } from './components/input-item/';

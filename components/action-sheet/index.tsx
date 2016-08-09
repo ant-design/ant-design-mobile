@@ -16,6 +16,9 @@ import topView from 'rn-topview';
 
 const WIN_HEIGHT = Dimensions.get('window').height;
 
+function noop(a: any) {
+}
+
 export interface Props {
   maskClosable?: boolean;
 }
@@ -37,7 +40,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
   }
 
   componentWillMount() {
-    DeviceEventEmitter.addListener('dropdownHide', () => {
+    DeviceEventEmitter.addListener('antActionSheetHide', () => {
       this.animatedHide();
     });
   }
@@ -62,7 +65,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
       this.anim.stop();
       this.anim = null;
     }
-    DeviceEventEmitter.removeAllListeners('dropdownHide');
+    DeviceEventEmitter.removeAllListeners('antActionSheetHide');
   }
 
   onMaskClose = () => {
@@ -92,7 +95,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
           transparent
           visible
           onRequestClose={Platform.OS === 'android' ? this.animatedHide : undefined}
-          >
+        >
           <TouchableWithoutFeedback onPress={this.onMaskClose}>
             <View style={styles.mask}/>
           </TouchableWithoutFeedback>
@@ -109,15 +112,15 @@ class ActionSheetAndroid extends React.Component<Props, any> {
   }
 }
 
-class ActionSheetCross {
-  static showActionSheetWithOptions = (config, callback = (x: any) => { }) => {
-    const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = config;
+const ActionSheetCross = {
+  showActionSheetWithOptions(config, callback = noop) {
+    const {title, message, options, destructiveButtonIndex, cancelButtonIndex} = config;
     const titleMsg = [
       title ? <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View> : null,
       message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,
     ];
     const cb = (index) => {
-      DeviceEventEmitter.emit('dropdownHide');
+      DeviceEventEmitter.emit('antActionSheetHide');
       callback(index);
     };
     const children = (
@@ -132,16 +135,16 @@ class ActionSheetCross {
                 ]}
                 underlayColor={variables.neutral_2}
                 onPress={() => cb(index) }
-                >
+              >
                 <Text
                   style={[
                     destructiveButtonIndex === index ? styles.destructiveBtn : null,
                   ]}
-                  >
+                >
                   {item}
                 </Text>
               </TouchableHighlight>
-              {cancelButtonIndex === index ? <View style={styles.cancelBtnMask} /> : null}
+              {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
             </View>
           ))}
         </View>
@@ -152,9 +155,9 @@ class ActionSheetCross {
         {children}
       </ActionSheetAndroid>
     );
-  }
-  static showShareActionSheetWithOptions = (config, callback = () => {}) => {
-    const { url, message, excludedActivityTypes } = config;
+  },
+  showShareActionSheetWithOptions(config) {
+    const {url, message, excludedActivityTypes} = config;
     const titleMsg = [
       url ? <View style={styles.title} key="0"><Text>{url}</Text></View> : null,
       message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,
@@ -172,8 +175,8 @@ class ActionSheetCross {
         {children}
       </ActionSheetAndroid>
     );
-  }
-}
+  },
+};
 
 let ActionSheet;
 if (Platform.OS === 'ios') {
