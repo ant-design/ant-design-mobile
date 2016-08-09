@@ -5,11 +5,11 @@ english: 更新日志
 
 ## 0.7.3
 
-``
+`2016-08-09`
 
-* `ListView` 非 sticky 模式功能问题修复，并增加更多 demo
+* `ListView` 非 sticky 模式功能问题修复，并增加更多 demo （rn demo优化）
 * `DatePicker` 修正并扩展 format 函数功能
-* `InputNumber` `Dialog` `Menu` `ActivityIndicator` 等细节优化
+* `InputNumber` `Dialog` `Menu` `ActivityIndicator` `Checkbox` 等细节优化
 
 ## 0.7.2
 
