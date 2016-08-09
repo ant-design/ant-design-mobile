@@ -1,6 +1,5 @@
 import * as React from 'react';
 import RcCheckbox from 'rc-checkbox';
-function noop() {}
 
 export interface CheckboxProps {
   /** web only */
@@ -9,6 +8,7 @@ export interface CheckboxProps {
   /** web only */
   className?: string;
   name?: string;
+  defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
   onChange?: Function;
@@ -17,23 +17,20 @@ export interface CheckboxProps {
 export default class Checkbox extends React.Component<CheckboxProps, any> {
   static defaultProps = {
     prefixCls: 'am-checkbox',
-    name: '',
-    checked: false,
-    disabled: false,
-    onChange: noop,
   };
 
   static CheckboxItem: any;
   static AgreeItem: any;
 
   render() {
-    let { prefixCls, style, name, checked, disabled, className, onChange } = this.props;
+    let { prefixCls, style, name, defaultChecked, checked, disabled, className, onChange } = this.props;
 
     return (<RcCheckbox
       prefixCls={prefixCls}
       className={className}
       style={style}
-      defaultChecked={checked}
+      checked={checked}
+      defaultChecked={defaultChecked}
       name={name}
       onChange={onChange}
       disabled={disabled}

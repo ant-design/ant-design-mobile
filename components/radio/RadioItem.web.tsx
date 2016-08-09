@@ -11,15 +11,11 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   static defaultProps = {
     prefixCls: 'am-radio',
     listPrefixCls: 'am-list',
-    name: '',
-    checked: false,
-    disabled: false,
-    onChange: () => {},
   };
 
   render() {
     let {
-      prefixCls, listPrefixCls, style, name, checked, disabled, children, className, onChange,
+      prefixCls, listPrefixCls, style, name, defaultChecked, checked, disabled, children, className, onChange,
     } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
@@ -32,6 +28,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       style={style}
       className={wrapCls}
       extra={<Radio
+        defaultChecked={defaultChecked}
         checked={checked}
         name={name}
         onChange={onChange}

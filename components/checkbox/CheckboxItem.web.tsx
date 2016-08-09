@@ -3,7 +3,6 @@ import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
 import List from '../list';
-function noop() {}
 
 const ListItem = List.Item;
 
@@ -16,6 +15,7 @@ export interface CheckboxItemProps {
   /** web only */
   className?: string;
   name?: string;
+  defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
   onChange?: Function;
@@ -36,15 +36,11 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
   static defaultProps = {
     prefixCls: 'am-checkbox',
     listPrefixCls: 'am-list',
-    name: '',
-    checked: false,
-    disabled: false,
-    onChange: noop,
   };
 
   render() {
     let {
-      prefixCls, listPrefixCls, style, className, name, checked, disabled, children, extra, onChange,
+      prefixCls, listPrefixCls, style, className, name, defaultChecked, checked, disabled, children, extra, onChange,
     } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
@@ -59,6 +55,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
       extra={extra}
       thumb={<Checkbox
         prefixCls={prefixCls}
+        defaultChecked={defaultChecked}
         checked={checked}
         name={name}
         onChange={onChange}
