@@ -1,6 +1,5 @@
 import * as React from 'react';
 import RcCheckbox from 'rc-checkbox';
-function noop() {}
 
 export interface CheckboxProps {
   /** web only */
@@ -18,11 +17,6 @@ export interface CheckboxProps {
 export default class Checkbox extends React.Component<CheckboxProps, any> {
   static defaultProps = {
     prefixCls: 'am-checkbox',
-    name: '',
-    defaultChecked: false,
-    checked: false,
-    disabled: false,
-    onChange: noop,
   };
 
   static CheckboxItem: any;
