@@ -1,102 +1,34 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, TouchableHighlight, Image } from 'react-native';
-import { ListView } from 'antd-mobile';
+import { View, Text, TouchableHighlight, Image } from 'react-native';
+import { ListView, Toast } from 'antd-mobile';
 
-const styles = StyleSheet.create({
-  buttonContents: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 5,
+const data = [
+  {
+    img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
+    title: '相约酒店',
+    des: '不是所有的兼职汪都需要风吹日晒',
   },
-  img: {
-    width: 64,
-    height: 64,
+  {
+    img: 'https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png',
+    title: '麦当劳邀您过周末',
+    des: '不是所有的兼职汪都需要风吹日晒',
   },
-});
-
-const victory = 'https://os.alipayobjects.com/rmsportal/kwihkdUVljwUURM.png';
-const superlike = 'https://os.alipayobjects.com/rmsportal/pmXtSKUFLsIEJLh.png';
-const poke = 'https://os.alipayobjects.com/rmsportal/ZlYzyBcrtLqnbjN.png';
-const party = 'https://os.alipayobjects.com/rmsportal/mIrghdvucaPOLhc.png';
-const liking = 'https://os.alipayobjects.com/rmsportal/DrcLpisGZWASeoj.png';
-const like = 'https://os.alipayobjects.com/rmsportal/jloFMiDVGaHrHIO.png';
-const heart = 'https://os.alipayobjects.com/rmsportal/QFjTyLzmuJQIflm.png';
-const flowers = 'https://os.alipayobjects.com/rmsportal/rgahTjFqZATwqqL.png';
-const fist = 'https://os.alipayobjects.com/rmsportal/KcyBnnVZlfIDgci.png';
-const dislike = 'https://os.alipayobjects.com/rmsportal/FmMzrxqOhiogBOX.png';
-const call = 'https://os.alipayobjects.com/rmsportal/TKlynYhJACDNwKw.png';
-const bandaged = 'https://os.alipayobjects.com/rmsportal/htJwTSIUpppWwSb.png';
-
-const THUMB_URLS = [
-  like,
-  dislike,
-  call,
-  fist,
-  bandaged,
-  flowers,
-  heart,
-  liking,
-  party,
-  poke,
-  superlike,
-  victory,
+  {
+    img: 'https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png',
+    title: '食惠周',
+    des: '不是所有的兼职汪都需要风吹日晒',
+  },
 ];
+let index = data.length - 1;
 
-interface ThumbProps {
-  rowData: any;
-  sectionID: any;
-  rowID: any;
-  highlightRow: any;
-}
-
-const Thumb = React.createClass<ThumbProps, any>({
-  getInitialState() {
-    return { thumbIndex: this._getThumbIdx(), dir: 'row' };
-  },
-  _getThumbIdx() {
-    return Math.floor(Math.random() * THUMB_URLS.length);
-  },
-  _onPressThumb() {
-    this.props.highlightRow(this.props.sectionID, this.props.rowID);
-    this.setState({
-      thumbIndex: this._getThumbIdx(),
-      dir: this.state.dir === 'row' ? 'column' : 'row',
-    });
-  },
-  render() {
-    return (
-      <TouchableHighlight
-        onPress={this._onPressThumb}
-      >
-        <View style={[styles.buttonContents, { flexDirection: this.state.dir }]}>
-          <Image style={styles.img} source={{ uri: THUMB_URLS[this.state.thumbIndex] }} />
-          <Image style={styles.img} source={{ uri: THUMB_URLS[this.state.thumbIndex] }} />
-          <Image style={styles.img} source={{ uri: THUMB_URLS[this.state.thumbIndex] }} />
-          {this.state.dir === 'column' ?
-            <Text>
-              {this.props.highlightRow}
-            </Text> :
-            null
-          }
-        </View>
-      </TouchableHighlight>
-    );
-  },
-});
-
-const NUM_SECTIONS = 20;
-const NUM_ROWS_PER_SECTION = 10;
+const NUM_SECTIONS = 5;
+const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
 export default  React.createClass({
   getInitialState() {
-    const getSectionData = (dataBlob, sectionID) => {
-      return dataBlob[sectionID];
-    };
-    const getRowData = (dataBlob, sectionID, rowID) => {
-      return dataBlob[rowID];
-    };
+    const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
+    const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
     const dataSource = new ListView.DataSource({
       getRowData,
@@ -132,36 +64,86 @@ export default  React.createClass({
       headerPressCount: 0,
     };
   },
-  renderRow(rowData, sectionID, rowID, highlightRow = () => {}) {
-    return (<Thumb rowData={rowData} sectionID={sectionID} rowID={rowID} highlightRow={highlightRow} />);
-  },
-  renderSectionHeader(sectionData) {
-    return (
-      <Text style={[{ color: 'blue' }]}>
-        {sectionData}
-      </Text>
-    );
+  onEndReached(event) {
+    // load new data
+    Toast.info('加载新数据');
+    this.setState({ isLoading: true });
+    setTimeout(() => {
+      this._genData(++pageIndex);
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+        isLoading: false,
+      });
+    }, 1000);
   },
   render() {
+    const separator = (sectionID, rowID) => (
+      <View key={`${sectionID}-${rowID}`} style={{
+        backgroundColor: '#F5F5F9',
+        height: 8,
+        borderStyle: 'solid',
+        borderTopWidth: 1,
+        borderTopColor: '#ECECED',
+        borderBottomWidth: 1,
+        borderBottomColor: '#ECECED',
+      }}></View>
+    );
+    const row = (rowData, sectionID, rowID, highlightRow = (sId, rId) => {}) => {
+      if (index < 0) {
+        index = data.length - 1;
+      }
+      const obj = data[index--];
+      return (<View key={rowID}>
+        <TouchableHighlight underlayColor={'rgba(100,100,100,0.2)'}
+          style={[{
+            padding: 8,
+            backgroundColor: 'white',
+          }]}
+          onPress={() => {
+            highlightRow(sectionID, rowID);
+          }}
+        >
+          <View>
+            <View style={[{
+              marginBottom: 8,
+              borderStyle: 'solid',
+              borderBottomWidth: 1,
+              borderBottomColor: '#F6F6F6',
+            }]}>
+              <Text style={{
+                fontSize: 18,
+                fontWeight: '500',
+                padding: 2,
+              }}>{obj.title}</Text>
+            </View>
+            <View style={[{
+              flexDirection: 'row',
+            }]}>
+              <Image style={[{ height: 64, width: 64, marginRight: 8 }]} source={{ uri: obj.img }} />
+              <View>
+                <Text>{obj.des}</Text>
+                <Text>{this.props.highlightRow}</Text>
+                <Text><Text style={[{ fontSize: 24, color: '#FF6E27' }]}>35</Text>元/任务</Text>
+              </View>
+            </View>
+          </View>
+        </TouchableHighlight>
+      </View>);
+    };
     return (
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <Text>header</Text>}
         renderFooter={() => <Text>footer</Text>}
-        renderSectionHeader={this.renderSectionHeader}
-        renderRow={this.renderRow}
+        renderSectionHeader={(sectionData) => <Text style={[{ padding: 8, color: 'blue' }]}>
+            {`任务 ${sectionData.split(' ')[1]}`}
+          </Text>}
+        renderRow={row}
+        renderSeparator={separator}
         pageSize={4}
-        onEndReached={this._onEndReached}
+        onEndReached={this.onEndReached}
       />
     );
-  },
-
-  _onEndReached(event) {
-    // load new data
-    this._genData(++pageIndex);
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
-    });
   },
 });
 
