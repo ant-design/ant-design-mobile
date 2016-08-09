@@ -46,7 +46,7 @@ ReactDOM.render(
     </div>
     <div style={{ clear: 'both' }}>
       <Tooltip placement="bottomLeft" title={text}>
-        <span>上右</span>
+        <span>下右</span>
       </Tooltip>
       <Tooltip placement="bottom" title={text}>
         <span>下边</span>
