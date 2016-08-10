@@ -3,24 +3,24 @@
 
 @sliderPrefixCls: am-slider;
 
-@border-radius-base: 6px;
-
 // tooltip
-@slider-tooltip-color: #fff;
-@slider-tooltip-bg: tint(#666, 4%);
-@slider-tooltip-arrow-width: 4px;
-@slider-tooltip-distance: @slider-tooltip-arrow-width+4;
-@slider-tooltip-arrow-color: @slider-tooltip-bg;
+@tooltip-color: #fff;
+@tooltip-bg: tint(#666, 4%);
+@tooltip-arrow-width: @grid;
+@tooltip-distance: @tooltip-arrow-width + 4;
+@tooltip-arrow-color: @tooltip-bg;
 
 .borderBox() {
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); //  remove tap highlight color for mobile safari
 }
 
+@import './tooltip.less';
+
 .@{sliderPrefixCls} {
   position: relative;
-  margin: 15px 8px;
-  height: 2px;
+  margin: 4 * @grid 2 * @grid;
+  height: 0.5 * @grid;
   background-color: @neutral-6;
 
   .borderBox();
@@ -28,21 +28,21 @@
   &-track {
     position: absolute;
     left: 0;
-    height: 2px;
-    border-radius: @border-radius-base;
+    height: 0.5 * @grid;
+    border-radius: @radius-2;
     background-color: @brand-6;
     z-index: 1;
   }
 
   &-handle {
     position: absolute;
-    margin-left: -12px;
-    margin-top: -12px;
+    margin-left: -3 * @grid;
+    margin-top: -3 * @grid;
     width: @grid * 6;
     height: @grid * 6;
     cursor: pointer;
     border-radius: 50%;
-    border: 2px solid @brand-6;
+    border: 0.5 * @grid solid @brand-6;
     background-color: #fff;
     z-index: 2;
 
@@ -61,7 +61,7 @@
 
   &-mark {
     position: absolute;
-    top: 24px;
+    top: 6 * @grid;
     left: 0;
     width: 100%;
     font-size: @font-size-2;
@@ -84,7 +84,7 @@
   &-step {
     position: absolute;
     width: 100%;
-    height: 4px;
+    height: @grid;
     background: transparent;
     z-index: 1;
   }
@@ -101,10 +101,10 @@
     border-radius: 50%;
     vertical-align: middle;
     &:first-child {
-      margin-left: -4px;
+      margin-left: -@grid;
     }
     &:last-child {
-      margin-left: -4px;
+      margin-left: -@grid;
     }
     &-active {
       border-color: @brand-6;
