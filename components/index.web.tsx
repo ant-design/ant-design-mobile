@@ -42,7 +42,6 @@ export { default as Text } from './text/index.web';
 export { default as TextAreaItem } from './textarea-item/index.web';
 export { default as Timeline } from './timeline/index.web';
 export { default as Toast } from './toast/index.web';
-export { default as Tooltip } from './tooltip/index.web';
 export { default as TopNotice } from './top-notice/index.web';
 export { default as Uploader } from './uploader/index.web';
 export { default as View } from './view/index.web';
