@@ -7,12 +7,6 @@ module.exports = {
       module: require('../components/action-sheet/demo/basic'), // 必须
     },
     {
-      title: 'Dropdown', // 必须
-      description: '下拉菜单',
-      icon: 'https://os.alipayobjects.com/rmsportal/PMIYKpJIhmqwyXI.png',
-      module: require('../components/dropdown/demo/basic'), // 必须
-    },
-    {
       title: 'Toast', // 必须
       description: '轻提示',
       icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
