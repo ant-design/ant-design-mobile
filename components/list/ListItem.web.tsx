@@ -40,14 +40,6 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
 
   onClick = (e) => {
     if (this.props.onClick) {
-      this.setState({
-        hover: true,
-      });
-      setTimeout(() => {
-        this.setState({
-          hover: false,
-        });
-      }, 200);
       this.props.onClick(e);
     }
   };
