@@ -9,47 +9,6 @@ title: 基本
 import { Picker, List, Button } from 'antd-mobile';
 
 import district from 'site/data/district';
-
-function loop(tree, fn) {
-  tree.forEach((t) => {
-    fn(t);
-    if (t.c) {
-      loop(t.c, fn);
-    }
-  });
-}
-
-loop(district, (d) => {
-  d.value = d.i;
-  d.label = d.n;
-  d.children = d.c;
-});
-
-const data = [{
-  value: 'zhejiang',
-  label: '浙江',
-  children: [{
-    value: 'hangzhou',
-    label: '杭州',
-    children: [{
-      value: 'xihu',
-      label: '西湖',
-    }],
-  }],
-}, {
-  value: 'jiangsu',
-  label: '江苏',
-  disabled: true,
-  children: [{
-    value: 'nanjing',
-    label: '南京',
-    children: [{
-      value: 'zhonghuamen',
-      label: '中华门',
-    }],
-  }],
-}];
-
 import { createForm } from 'rc-form';
 
 let Test = React.createClass({
@@ -62,7 +21,7 @@ let Test = React.createClass({
     console.log('start loading data');
     setTimeout(() => {
       this.setState({
-        data,
+        data: district,
       });
     }, 500);
   },
