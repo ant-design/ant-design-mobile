@@ -118,7 +118,7 @@ module.exports = {
     },
     {
       title: 'SegmentedControl', // 必须
-      description: '滑动输入条',
+      description: '分段控制',
       icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
       module: require('../components/segmented-control/demo/basic'), // 必须
     },
