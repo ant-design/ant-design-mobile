@@ -30,6 +30,7 @@ export { default as Progress } from './progress/index.web';
 export { default as RefreshControl } from './refresh-control/index.web';
 export { default as SearchBar } from './search-bar/index.web';
 
+export { default as SegmentedControl } from './segmented-control/index.web';
 export { default as Slider } from './slider/index.web';
 export { default as Stepper } from './stepper/index.web';
 export { default as Steps } from './steps/index.web';

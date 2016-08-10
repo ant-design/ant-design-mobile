@@ -16,8 +16,6 @@ import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { APIS, COMPONENTS } from './demoList';
 
-import SegmentedControl from '../components/segmented-control/demo/basic';
-
 const styles = StyleSheet.create({
   content: {
     ...Platform.select({
@@ -121,7 +119,7 @@ class AntmRnApp extends React.Component {
         <StatusBar barStyle="light-content" />
         <Router createReducer={reducerCreate}>
           <Scene key="root" navigationBarStyle={styles.navigationBarStyle} titleStyle={styles.titleStyle}>
-            <Scene key="home" component={SegmentedControl} title="Ant Design Mobile" initial />
+            <Scene key="home" component={Home} title="Ant Design Mobile" initial />
             <Scene key="web" component={WebIndex} title="Antm Web Component" />
             <Scene key="native" component={RnIndex} title="Antm React Native" />
             {scenes}

@@ -12,15 +12,13 @@
   border-color: @brand-6;
   overflow: hidden;
   &-item {
-    position: relative;
-    display: block;
+    display: flex;
     .box-flex(1);
+    justify-content: center;
+    align-items: center;
     color: @brand-6;
     font-size: @font-size-2;
-    text-align: center;
-    width: 100%;
-    height: 7.5 * @grid;
-    line-height: 7.5 * @grid;
+    padding: 1.5 * @grid 0;
     border-right: 1px solid @brand-6;
     .box-sizing();
 

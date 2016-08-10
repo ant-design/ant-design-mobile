@@ -16,6 +16,7 @@ english: SegmentedControl
 |------------|----------------|--------------------|--------------|
 | prefixCls(`web only`)  | 样式前缀        | String |  `am-segment`  |
 | className(`web only`) | 样式类        | String |    |
+| style | 自定义样式        | Object | `{}`   |
 | tintColor  | 组件主色调        | String |  `#2DB7F5`  |
 | enabled  | 是否启用        | Boolean |  true  |
 | selectedIndex  | 选中项在数组中的索引        | Number |  0  |

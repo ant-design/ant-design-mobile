@@ -3,8 +3,9 @@ interface SegmentedControlProps {
   enabled?: boolean;
   selectedIndex?: number;
   values?: Array<string>;
-  onChange?: (e: Event) => void;
+  onChange?: (e: React.NativeSyntheticEvent<any> | React.SyntheticEvent) => void;
   onValueChange?: (value: string) => void;
+  style?: any;
   /* web only */
   prefixCls?: string;
   className?: string;

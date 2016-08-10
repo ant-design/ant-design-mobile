@@ -117,6 +117,12 @@ module.exports = {
       module: require('../components/refresh-control/demo/basic'), // 必须
     },
     {
+      title: 'SegmentedControl', // 必须
+      description: '滑动输入条',
+      icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
+      module: require('../components/segmented-control/demo/basic'), // 必须
+    },
+    {
       title: 'Slider', // 必须
       description: '滑动输入条',
       icon: 'https://os.alipayobjects.com/rmsportal/ViixEhXOewlupTr.png',
