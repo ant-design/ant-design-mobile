@@ -42,7 +42,7 @@
     height: @grid * 6;
     cursor: pointer;
     border-radius: 50%;
-    border: 0.5 * @grid solid @brand-6;
+    border: 2px solid @brand-6;
     background-color: #fff;
     z-index: 2;
 
@@ -91,10 +91,10 @@
 
   &-dot {
     position: absolute;
-    bottom: -3px;
-    margin-left: -4px;
-    width: 12px;
-    height: 12px;
+    bottom: -0.75 * @grid;
+    margin-left: -@grid;
+    width: 3 * @grid;
+    height: 3 * @grid;
     border: 2px solid #e9e9e9;
     background-color: #fff;
     cursor: pointer;
@@ -115,7 +115,7 @@
     background-color: #e9e9e9;
 
     .@{sliderPrefixCls}-track {
-      height: 2px;
+      height: 0.5 * @grid;
       background-color: @neutral-6;
     }
 
