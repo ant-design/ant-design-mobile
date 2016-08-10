@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
 import classNames from 'classnames';
 import * as utils from '../../../theme/template/utils';
-
-import { NavBar, ActionSheet, Icon } from 'antd-mobile';
+import { Link } from 'react-router';
+import { Drawer, List, Icon } from 'antd-mobile';
 
 export function collect(nextProps, callback) {
   const componentsList = utils.collectDocs(nextProps.data.components);
@@ -52,6 +52,8 @@ export default class Home extends React.Component {
     this.state = {
       current: this.getCurrent(props.params.index) || 0,
       customNavBar: null,
+      open: false,
+      position: 'left',
     };
   }
 
@@ -72,105 +74,8 @@ export default class Home extends React.Component {
     return currentIndex;
   }
 
-  showActionSheet =() => {
-    if (this.actionSheetShown) {
-      ActionSheet.close();
-      this.actionSheetShown = false;
-      return;
-    }
-
-    const actionArr = [];
-    const demoSort = this.props.demos.sort((a, b) => (
-      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
-    ));
-    demoSort.forEach((demo, index) => {
-      actionArr[index] = demo.meta.title;
-    });
-    actionArr.push('取消');
-
-    this.actionSheetShown = true;
-    ActionSheet.showActionSheetWithOptions({
-      options: actionArr,
-      cancelButtonIndex: actionArr.length - 1,
-      maskClosable: true,
-    },
-    (buttonIndex) => {
-      if (buttonIndex < actionArr.length - 1) {
-        this.setState({
-          current: buttonIndex,
-          customNavBar: this.getNavBar(buttonIndex),
-        });
-      }
-    });
-  }
-
-  demoPrev = () => {
-    const current = this.state.current - 1;
-    this.setState({
-      current,
-      customNavBar: this.getNavBar(current),
-    });
-  }
-
-  demoNext = () => {
-    const current = this.state.current * 1 + 1;
-    this.setState({
-      current,
-      customNavBar: this.getNavBar(current),
-    });
-  }
-
-  getNavBar(index) {
-    const demos = this.props.demos;
-    const demoSort = demos.sort((a, b) => (
-      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
-    ));
-    /* eslint-disable no-nested-ternary */
-    let leftContent = self === top || top.name === '__spe' ?
-      <a href="/kitchen-sink" style={{ color: '#2db7f5', textDecoration: 'none', transition: 'color .3s ease' }}>首页</a> :
-        (index > 0 ?
-          <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={this.demoPrev}>
-            上页
-          </span> :
-          null
-        );
-
-    let rightContent = index < demos.length - 1 ?
-      <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={this.demoNext}>下页</span> :
-      null;
-
-    const customNavBar = (
-      <NavBar iconName={false} leftContent={leftContent} rightContent={rightContent}>
-        {
-          demoSort.length > 1 ?
-            <span onClick={this.showActionSheet} style={{ cursor: 'pointer' }}>
-              {`${demoSort[index].meta.title}`} <Icon type="down" className="nav-arrow-down" />
-            </span> :
-            <span>
-              {`${demoSort[index].meta.title}`}
-            </span>
-        }
-      </NavBar>
-    );
-    return customNavBar;
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      current: this.getCurrent(nextProps.params.index),
-      customNavBar: this.getNavBar(nextProps.params.index),
-    });
-  }
-
-  componentDidMount() {
-    const current = this.state.current;
-    /* eslint react/no-did-mount-set-state:0 */
-    this.setState({
-      customNavBar: this.getNavBar(current),
-    });
-    if (ActionSheet.close) {
-      ActionSheet.close();
-    }
+  onOpenChange = () => {
+    this.setState({ open: !this.state.open });
   }
 
   render() {
@@ -185,37 +90,96 @@ export default class Home extends React.Component {
     demoSort[current].preview.call(this);
     const customNavFlag = this.customNavFlag;
 
+    const lists = {};
+    this.props.components.forEach(i => {
+      const meta = i.meta;
+      if (!lists[meta.category]) {
+        lists[meta.category] = [];
+      }
+      lists[meta.category].push(meta);
+    });
+
+    const componentList = lists.Components;
+
+    let demoMeta;
+    componentList.forEach((item) => {
+      if (item.filename.split('/')[1] === name) {
+        demoMeta = item;
+      }
+    });
+
+    const sidebar = (<div>
+      {Object.keys(lists).map((cate, index) => (
+        <List key={index}>
+          <List.Header>{cate}</List.Header>
+          <List.Body>
+            {
+              lists[cate].map((item, ii) => {
+                const fileName = item.filename.split('/')[1];
+                return (<List.Item key={ii}>
+                  <Link to={`/${fileName}/`}>{item.chinese}</Link>
+                </List.Item>);
+              })
+            }
+          </List.Body>
+        </List>
+      ))}
+    </div>);
+
+    const drawerProps = {
+      open: this.state.open,
+      position: this.state.position,
+      onOpenChange: this.onOpenChange,
+    };
+
     return (
       <div id={name}>
-        <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0 }}>
-          {
-            !customNavFlag ?
-            this.state.customNavBar :
-            null
-          }
+        <div className="demo-drawer-trigger">
+          <span onClick={this.onOpenChange}><Icon type="bars" /></span>
         </div>
-
-        {demoSort.map((i, index) => {
-          let isShow = current - index === 0;
-          // ListView 组件要占用全屏、不能多实例共存（用 destroyComponent 做标记）
-          if (i.meta.destroyComponent && window.name !== 'demoFrame') {
-            isShow = this.props.params.index === undefined && current === index;
-          }
-
-          const previewItemClass = classNames({
-            'demo-preview-item': true,
-            'demo-preview-item-custom': !!customNavFlag,
-            show: isShow,
-            hide: !isShow,
-          });
-
-          return (
-            <div className={previewItemClass} id={`${name}-demo-${index}`} key={index}>
-              {!i.meta.destroyComponent || isShow ? i.preview(React, ReactDOM) : null}
-              {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+        <div className="demo-drawer-container">
+          <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
+            <div className="demoName">
+              {demoMeta.chinese}
+              <p>{demoMeta.english}</p>
             </div>
-          );
-        })}
+
+            <div className="demoLinks">
+              <ul>
+                {
+                  demoSort.map((item, index) => (
+                    <li key={index}>
+                      <a href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            {demoSort.map((i, index) => {
+              let isShow = current - index === 0;
+              // ListView 组件要占用全屏、不能多实例共存（用 destroyComponent 做标记）
+              if (i.meta.destroyComponent && window.name !== 'demoFrame') {
+                isShow = this.props.params.index === undefined && current === index;
+              }
+
+              const previewItemClass = classNames({
+                'demo-preview-item': true,
+                'demo-preview-item-custom': !!customNavFlag,
+                show: true,
+                hide: true,
+              });
+
+              return (
+                <div className={previewItemClass} id={`${name}-demo-${index}`} key={index}>
+                  <div className="demoTitle">{i.meta.title}</div>
+                  {!i.meta.destroyComponent || isShow ? i.preview(React, ReactDOM) : null}
+                  {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+                </div>
+              );
+            })}
+          </Drawer>
+        </div>
       </div>
     );
   }
