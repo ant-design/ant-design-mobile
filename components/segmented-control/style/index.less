@@ -6,70 +6,31 @@
 .@{segment-prefix-cls} {
   .display-box;
   background-color: #fff;
-  height: 44px;
-  padding: 0 15px;
-  position: relative;
-  &:after {
-    content: " ";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 0;
-    border-bottom: 1px solid #e5e5e5;
-    -webkit-transform: scaleY(.5);
-    transform: scaleY(.5);
-  }
+  border-width: 1px;
+  border-style: solid;
+  border-radius: @radius-1;
+  border-color: @brand-6;
+  overflow: hidden;
   &-item {
     position: relative;
     display: block;
     .box-flex(1);
-    color: #0ae;
-    font-size: 14px;
+    color: @brand-6;
+    font-size: @font-size-2;
     text-align: center;
     width: 100%;
-    height: 28px;
-    line-height: 28px;
-    margin-top: 8px;
+    height: 7.5 * @grid;
+    line-height: 7.5 * @grid;
+    border-right: 1px solid @brand-6;
     .box-sizing();
-    &:after {
-      content: " ";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 200%;
-      height: 200%;
-      border-bottom: 1px solid #e5e5e5;
-      -webkit-transform: scale(.5);
-      transform: scale(.5);
-      border-top: 1px solid #0ae;
-      border-bottom: 1px solid #0ae;
-      border-right: 1px solid #0ae;
-      -webkit-transform-origin: -1px -1px;
-      transform-origin: -1px -1px;
-    }
-    &-selected {
-      background: #0ae;
-      color: #fff;
-    }
-    &:first-child {
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-      &:after {
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
-        border-left: 1px solid #0ae;
 
-      }
-    }
     &:last-child {
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      &:after {
-        border-top-right-radius: 12px;
-        border-bottom-right-radius: 12px;
-        border-right: 1px solid #0ae;
-      }
+      border-right: 0;
+    }
+
+    &-selected {
+      background: @brand-6;
+      color: #fff;
     }
   }
 }

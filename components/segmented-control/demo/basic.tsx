@@ -3,8 +3,13 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { SegmentedControl } from 'antd-mobile';
 
-function onChange(index) {
-  console.log(index);
+function onChange(e) {
+  console.log(e.nativeEvent);
+}
+
+function onValueChange(value) {
+  console.log('onValueChange');
+  console.log(value);
 }
 
 export default class BasicTagExample extends React.Component<any, any> {
@@ -15,7 +20,7 @@ export default class BasicTagExample extends React.Component<any, any> {
           selectedIndex={1}
           values={['切换一', '切换二']}
           onChange={onChange}
-          tintColor="#b2c3f8"
+          onValueChange={onValueChange}
         />
       </View>
     );
