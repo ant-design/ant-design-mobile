@@ -2,26 +2,19 @@ import { PropTypes } from 'react';
 import * as React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
 import variables from '../style/variables';
-import ButtonProps from './ButtonPropsType';
+import tsProps from './PropsType';
 
-export default class Button extends React.Component<ButtonProps, any> {
+export default class Button extends React.Component<tsProps, any> {
   static propTypes = {
     pressIn: PropTypes.bool,
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
-    disabled: PropTypes.bool,
     size: PropTypes.oneOf(['large', 'small']),
-    type: PropTypes.oneOf(['primary', 'default']),
-    ghost: PropTypes.bool,
-    inline: PropTypes.bool,
-    loading: PropTypes.bool,
-    onClick: PropTypes.func,
   };
 
   static defaultProps = {
     pressIn: false,
     size: 'large',
-    type: 'primary',
     ghost: false,
     disabled: false,
     inline: false,
@@ -64,55 +57,40 @@ export default class Button extends React.Component<ButtonProps, any> {
   };
 
   render() {
-    const size = this.props.size;
-    const type = this.props.type;
-    const disabled = this.props.disabled;
-    const ghost = this.props.ghost;
+    const { size, type, disabled, ghost } = this.props;
 
     let height;
     let fontSize;
+    let paddingLeft;
+    let paddingRight;
     let backgroundColor;
     let textColor;
-    let borderWidth;
     let borderColor;
-    let borderRadius;
 
     let highlightBackgroundColor;
     let highlightTextColor;
     let highlightBorderColor;
-    let paddingLeft;
-    let paddingRight;
-
-    const largeHeight = 11 * variables.grid;
-    const smallHeight = 7 * variables.grid;
-    const largePadding = 4 * variables.grid;
-    const smallPadding = 3 * variables.grid;
-    const largeFontSize = variables.font_size_6;
-    const smallFontSize = variables.font_size_3;
 
     switch (size) {
       case 'large':
-        height = largeHeight;
-        fontSize = largeFontSize;
-        paddingLeft = paddingRight = largePadding;
+        height = 11 * variables.grid;
+        fontSize = variables.font_size_6;
+        paddingLeft = paddingRight = 4 * variables.grid;
         break;
       case 'small':
-        height = smallHeight;
-        fontSize = smallFontSize;
-        paddingLeft = paddingRight = smallPadding;
+        height = 7 * variables.grid;
+        fontSize = variables.font_size_3;
+        paddingLeft = paddingRight = 3 * variables.grid;
         break;
       default:
         break;
     }
 
     if (type === 'primary') {
-      backgroundColor = variables.brand_6;
       textColor = variables.neutral_1;
-      borderWidth = 1;
+      backgroundColor = variables.brand_6;
       borderColor = variables.brand_6;
-      borderRadius = variables.radius_2;
 
-      highlightBorderColor = variables.brand_7;
       highlightTextColor = variables.neutral_1;
       highlightBorderColor = variables.brand_7;
       highlightBackgroundColor = variables.brand_7;
@@ -137,12 +115,15 @@ export default class Button extends React.Component<ButtonProps, any> {
           borderColor = backgroundColor;
         }
       }
-    } else if (type === 'default') {
-      backgroundColor = variables.neutral_1;
+    } else if (type === 'warning') {
+      textColor = variables.function_error_2;
+      backgroundColor = variables.red_1;
+      borderColor = variables.red_4;
+      highlightBackgroundColor = variables.red_2;
+    } else {
       textColor = variables.neutral_10;
-      borderWidth = 1;
+      backgroundColor = variables.neutral_1;
       borderColor = variables.neutral_5;
-      borderRadius = variables.radius_2;
 
       highlightBackgroundColor = variables.neutral_2;
       highlightTextColor = textColor;
@@ -181,8 +162,8 @@ export default class Button extends React.Component<ButtonProps, any> {
       paddingLeft,
       paddingRight,
       backgroundColor,
-      borderRadius,
-      borderWidth,
+      borderRadius: variables.radius_2,
+      borderWidth: 1,
       borderColor,
       justifyContent: 'center',
     };
