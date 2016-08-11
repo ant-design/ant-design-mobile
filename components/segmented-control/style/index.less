@@ -1,0 +1,34 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+@segment-prefix-cls: am-segment;
+
+.@{segment-prefix-cls} {
+  .display-box;
+  background-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: @radius-1;
+  border-color: @brand-6;
+  overflow: hidden;
+  &-item {
+    display: flex;
+    .box-flex(1);
+    justify-content: center;
+    align-items: center;
+    color: @brand-6;
+    font-size: @font-size-2;
+    padding: 1.5 * @grid 0;
+    border-right: 1px solid @brand-6;
+    .box-sizing();
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    &-selected {
+      background: @brand-6;
+      color: #fff;
+    }
+  }
+}

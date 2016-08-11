@@ -18,6 +18,7 @@ declare module 'antd-mobile' {
     Picker: any;
     Progress: any;
     RefreshControl: any;
+    SegmentedControl: any;
     Slider: any;
     Stepper: any;
     Steps: any;
