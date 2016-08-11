@@ -19,9 +19,10 @@
     top: 0;
     bottom: auto;
     right: auto;
-    height: 0;
+    height: 2px;
     width: 100%;
-    border-bottom: 1px solid @color;
+    background-color: transparent;
+    border-top: 1px solid @color;
     display: block;
     z-index: 15;
     .transform-origin(50% 0%);
@@ -46,7 +47,7 @@
     right: auto;
     width: 1px;
     height: 100%;
-    border-bottom: 1px solid @color;
+    background-color: @color;
     display: block;
     z-index: 15;
     .transform-origin(0% 50%);
@@ -66,13 +67,12 @@
     content: '';
     position: absolute;
     left: @left;
-    //left: calc(~"100% - 15px");
     bottom: 0;
     right: auto;
     top: auto;
-    height: 0;
+    height: 2px;
     width: 100%;
-    //background-color: @color;
+    background-color: transparent;
     border-bottom: 1px solid @color;
     display: block;
     z-index: 15;
