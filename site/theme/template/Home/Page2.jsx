@@ -25,7 +25,7 @@ export default function Page2() {
         </div>
       </QueueAnim>
       <TweenOne key="image" className="image2 image-wrapper" animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
-        style={{ transform: 'translateX(100px)', opacity: 0 }} hideProps={{ reverse: true }}
+        style={{ transform: 'translateX(100Px)', opacity: 0 }} hideProps={{ reverse: true }}
       />
     </ScrollOverPack>
   );

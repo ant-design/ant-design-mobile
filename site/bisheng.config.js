@@ -1,5 +1,5 @@
 const path = require('path');
-
+const pxtorem = require('postcss-pxtorem');
 module.exports = {
   port: 8001,
   source: [
@@ -34,6 +34,12 @@ module.exports = {
       'antd-mobile': process.cwd(),
       site: path.join(process.cwd(), 'site'),
     };
+
+    config.postcss.push(pxtorem({
+      rootValue: 100,
+      propWhiteList: [],
+      selectorBlackList: [/^html$/, /^\.ant-/, /^\.github-/, /^\.gh-/],
+    }));
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-antd'),

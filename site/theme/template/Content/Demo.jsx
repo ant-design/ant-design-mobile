@@ -76,7 +76,7 @@ export default class Demo extends React.Component {
             <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>返 回</Button>,
           ]}
         >
-          <div className="highlight" style={{ padding: '16px', backgroundColor: '#F7F7F7', height: '500px', overflowY: 'scroll' }}>
+          <div className="highlight" style={{ padding: '16Px', backgroundColor: '#F7F7F7', height: '500Px', overflowY: 'scroll' }}>
             {props.utils.toReactComponent(highlightedCode)}
           </div>
         </Modal>

@@ -28,13 +28,13 @@ export default class Home extends React.Component {
         padding: 0;
         overflow: unset;
         display: inline;
-        min-height: 600px;
+        min-height: 600Px;
       }
       #header {
         position: fixed;
         z-index: 999;
         background: rgba(0, 0, 0, 0.25);
-        border-bottom: 1px solid transparent;
+        border-bottom: 1Px solid transparent;
         transition: border .5s cubic-bezier(0.455, 0.03, 0.515, 0.955), background .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
       }
       #header .ant-select-selection,
@@ -53,11 +53,11 @@ export default class Home extends React.Component {
       }
       .nav-phone-icon:before {
         background: #eee;
-        box-shadow: 0 7px 0 0 #eee, 0 14px 0 0 #eee;
+        box-shadow: 0 7Px 0 0 #eee, 0 14Px 0 0 #eee;
       }
       .home-nav-white .nav-phone-icon:before {
         background: #777;
-        box-shadow: 0 7px 0 0 #777, 0 14px 0 0 #777;
+        box-shadow: 0 7Px 0 0 #777, 0 14Px 0 0 #777;
       }
       #lang,
       #nav a {

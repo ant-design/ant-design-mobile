@@ -161,12 +161,11 @@ export default class ComponentDoc extends React.Component {
     const demoUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}/`;
 
     const PopoverContent = (<div>
-      <h4 style={{ margin: '8px 0 12px' }}>扫二维码查看演示效果</h4>
+      <h4 style={{ margin: '8Px 0 12Px' }}>扫二维码查看演示效果</h4>
       <QRCode size={144} value={demoUrl} />
     </div>);
 
     const { title, subtitle, chinese, english } = meta;
-
     const iframeUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}/${filename}`;
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
@@ -195,23 +194,23 @@ export default class ComponentDoc extends React.Component {
             </section>
           </section>
 
-          <div id="demo-code" className="clearfix" style={{ paddingRight: 350 }}>
+          <div id="demo-code" className="clearfix" style={{ paddingRight: 405 }}>
             <div style={{ width: '100%', float: 'left' }}>
             {leftChildren}
             </div>
-            <div style={{ width: 350, padding: '0 0 0 30px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-350px' }}>
+            <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
               <div id="aside-demo" className="aside-demo">
-                <div style={{ width: '320px', height: '568px' }}>
+                <div style={{ width: '375Px', height: '568Px' }}>
                   <div className="demo-preview-wrapper">
                     <div className="demo-preview-header">
                       <div className="demo-preview-statbar">
-                        <img width="290px" role="presentation" style={{ margin: '0 2px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                        <img width="290Px" role="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
                       </div>
                     </div>
                     <div className="demo-preview-scroller">
                       <section className="code-box code-box-preview">
                         <section className="code-box-demo code-box-demo-preview">
-                          <iframe id="demoFrame" name="demoFrame" style={{ width: '320px', height: '548px' }} src={iframeUrl} />
+                          <iframe id="demoFrame" name="demoFrame" style={{ width: '375Px', height: '548Px' }} src={iframeUrl} />
                         </section>
                       </section>
                     </div>
