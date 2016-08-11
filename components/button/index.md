@@ -25,6 +25,6 @@ english: Button
 | ghost     | 是否是幽灵按钮  | boolean |  false  |
 | size       | 设置按钮大小，可选值为`large`、`small`  | string | `large`|
 | loading(web)	   | 设置按钮载入状态	  | boolean	 | false |
-| inline     | 是否是行内按钮   | boolean |   false  |
+| inline(web)     | 是否是行内按钮   | boolean |   false  |
 | disabled   | 是否不可用      | boolean |    false  |
 | onClick    | 点击按钮的回调函数 | Function|   无  |

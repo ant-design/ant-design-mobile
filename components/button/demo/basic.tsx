@@ -5,9 +5,11 @@ import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 export default () => (
   <View>
     <WhiteSpace />
-    <WingBlank style={{ flexDirection: 'row' }}>
+    <WingBlank style={{
+      flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+    }}>
       <Button type="primary">primary button</Button>
-      <View style={{ flex: 1 }} />
+      <Button type="primary" size="small">primary small button</Button>
     </WingBlank>
 
     <WhiteSpace />
@@ -48,11 +50,6 @@ export default () => (
     <WhiteSpace />
     <WingBlank>
       <Button goast disabled>default goast disable button</Button>
-    </WingBlank>
-
-    <WhiteSpace />
-    <WingBlank>
-      <Button type="primary" size="small">primary small button</Button>
     </WingBlank>
   </View>
 );
