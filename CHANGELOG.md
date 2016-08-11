@@ -3,6 +3,20 @@ order: 2
 english: 更新日志
 ---
 
+## 0.7.5
+
+`2016-08-11`
+
+* `List` 1px问题优化,`List`的容器设定了固定高度，`overflow`设置为`scroll`，`List.Item`的边框会消失。
+* `Grid` 处理`Grid`的`icon`图片不是正方形的显示问题。
+
+## 0.7.4
+
+`2016-08-10`
+
+* `List.Item` 解决`onClick`时组件`unmount`而同时在更新组件内部state引起的报错。
+* `SearchBar` 修复在部分Android机型下宽度异常。
+
 ## 0.7.3
 
 `2016-08-09`
