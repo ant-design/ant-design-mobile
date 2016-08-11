@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
 import splitObject from '../_util/splitObject';
-import ButtonProps from './ButtonPropsType';
+import tsProps from './PropsType';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -26,18 +26,12 @@ function insertSpace(child) {
   return child;
 }
 
-export default class Button extends React.Component<ButtonProps, any> {
+export default class Button extends React.Component<tsProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
-    type: PropTypes.string,
     size: PropTypes.oneOf(['large', 'small']),
     htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
-    ghost: PropTypes.bool,
-    inline: PropTypes.bool,
-    disabled: PropTypes.bool,
-    loading: PropTypes.bool,
     icon: PropTypes.bool,
-    onClick: PropTypes.func,
   };
 
   static defaultProps = {
