@@ -81,7 +81,7 @@ export default class Home extends React.Component {
     const customWidth = (document.documentElement.clientWidth / 3);
     const itemStyle = {
       width: '33.33%',
-      height: `${customWidth >= 138 ? 138 : customWidth}px`,
+      height: `${customWidth >= 138 * window.devicePixelRatio ? 138 * window.devicePixelRatio : customWidth}px`,
     };
 
     const props = this.props;
