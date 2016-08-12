@@ -1,0 +1,25 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+@tab-prefix-cls: am-tabbar;
+
+.@{tab-prefix-cls} {
+  &-tabs {
+    .display-box();
+    height: 12 * @grid;
+    border-top: 1px solid @neutral-5;
+    &-item {
+      flex: 1;
+      text-align: center;
+      img {
+        margin-top: 0.5 * @grid;
+        width: 7 * @grid;
+        height: 7 * @grid;
+        vertical-align: middle;
+      }
+      p {
+        font-size: @font-size-1;
+      }
+    }
+  }
+}

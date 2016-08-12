@@ -9,9 +9,7 @@ title: APP型选项卡
 /* tslint:disable:no-var-requires */
 import { TabBar } from 'antd-mobile';
 
-const base64Icon = '';
-
-let TabExample = React.createClass({
+let TabBarExample = React.createClass({
   getInitialState() {
     return {
       selectedTab: 'redTab',
@@ -31,13 +29,14 @@ let TabExample = React.createClass({
     return (
       <div>
         <TabBar
-          unselectedTintColor="yellow"
-          tintColor="white"
-          barTintColor="darkslateblue"
+          unselectedTintColor="#949494"
+          tintColor="#33A3F4"
+          barTintColor="#ccc"
         >
           <TabBar.Item
-            title="Blue Tab"
-            icon={{ uri: base64Icon, scale: 3 }}
+            title="生活"
+            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/oeVevmOmdPsBYSK.png' }}
+            selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/azAQQgnhgzfERRp.png' }}
             selected={this.state.selectedTab === 'blueTab'}
             onPress={() => {
               this.setState({
@@ -48,7 +47,9 @@ let TabExample = React.createClass({
             {this.renderContent('#414A8C', 'Blue Tab')}
           </TabBar.Item>
           <TabBar.Item
-            systemIcon="history"
+            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/QAglGPbVUVEzLab.png' }}
+            selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/NXsJBFNYxNVIdkR.png' }}
+            title="口碑"
             badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
             selected={this.state.selectedTab === 'redTab'}
             onPress={() => {
@@ -61,10 +62,9 @@ let TabExample = React.createClass({
             {this.renderContent('#783E33', 'Red Tab', this.state.notifCount)}
           </TabBar.Item>
           <TabBar.Item
-            icon={require('./flux.png')}
-            selectedIcon={require('./relay.png')}
-            renderAsOriginal
-            title="More"
+            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/UGWsgiXJaYBYzgX.png' }}
+            selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/VepaJAclXLFGeDr.png' }}
+            title="朋友"
             selected={this.state.selectedTab === 'greenTab'}
             onPress={() => {
               this.setState({
@@ -81,5 +81,5 @@ let TabExample = React.createClass({
   },
 });
 
-ReactDOM.render(<TabExample />, mountNode);
+ReactDOM.render(<TabBarExample />, mountNode);
 ````
