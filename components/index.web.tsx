@@ -37,6 +37,7 @@ export { default as Steps } from './steps/index.web';
 export { default as SwipeAction } from './swipe-action/index.web';
 export { default as Switch } from './switch/index.web';
 export { default as Table } from './table/index.web';
+export { default as TabBar } from './tab-bar/index.web';
 export { default as Tag } from './tag/index.web';
 export { default as Tabs } from './tabs/index.web';
 export { default as Text } from './text/index.web';
