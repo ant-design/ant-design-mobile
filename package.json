@@ -126,7 +126,7 @@
     "dist": "antd-tools run dist",
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
-    "start": "bisheng start -c ./site/bisheng.config.js",
+    "start": "bisheng start -c ./site/bisheng.config.js --no-livereload",
     "site": "bisheng build -c ./site/bisheng.config.js",
     "pre-deploy": "mkdir -p _site && cp CNAME _site",
     "just-deploy": "npm run clean && npm run pre-deploy && bisheng gh-pages -c ./site/bisheng.config.js",

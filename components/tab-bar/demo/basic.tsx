@@ -2,8 +2,6 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { TabBar } from 'antd-mobile';
 
-const base64Icon = '';
-
 export default class BasicTabBarExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
@@ -28,10 +26,10 @@ export default class BasicTabBarExample extends React.Component<any, any> {
       <TabBar
         unselectedTintColor="yellow"
         tintColor="white"
-        barTintColor="darkslateblue">
+        barTintColor="darkslateblue"
+      >
         <TabBar.Item
           title="Blue Tab"
-          icon={{uri: base64Icon, scale: 3}}
           selected={this.state.selectedTab === 'blueTab'}
           onPress={() => {
             this.setState({
@@ -53,8 +51,6 @@ export default class BasicTabBarExample extends React.Component<any, any> {
           {this.renderContent('#783E33', 'Red Tab', this.state.notifCount)}
         </TabBar.Item>
         <TabBar.Item
-          icon={require('./flux.png')}
-          selectedIcon={require('./relay.png')}
           renderAsOriginal
           title="More"
           selected={this.state.selectedTab === 'greenTab'}
