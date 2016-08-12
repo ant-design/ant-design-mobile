@@ -27,6 +27,7 @@ declare module 'antd-mobile' {
     SwipeAction: any;
     Switch: any;
     Tag: any;
+    TabBar: any;
     TextAreaItem: any;
     Timeline: any;
     Toast: any;
