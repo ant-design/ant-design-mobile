@@ -1,5 +1,5 @@
-import TabBar from './TabBar.web';
-import TabBarItem from './TabBarItem.web';
+import TabBar from './TabBar';
+import TabBarItem from './TabBarItem';
 
 TabBar.Item = TabBarItem;
 
