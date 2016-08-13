@@ -3,6 +3,12 @@ order: 2
 english: 更新日志
 ---
 
+## 0.7.6
+
+`2016-08-12`
+
+* `Tabs` `Object.assign`使用`object-assign`替代。
+
 ## 0.7.5
 
 `2016-08-11`
