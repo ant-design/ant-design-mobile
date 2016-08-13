@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import assign from 'object-assign';
 import RcTabs from 'rc-tabs';
 
 export interface TabsProps {
@@ -39,7 +40,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     const position = type !== 'tabbar' ? tabPosition : 'bottom';
     const anim = (type === 'tabbar' || !animation) ? '' : animation;
 
-    const restProps = Object.assign({}, this.props);
+    const restProps = assign({}, this.props);
     ['className', 'prefixCls', 'type', 'animation', 'mode', 'tabPosition', 'children'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
