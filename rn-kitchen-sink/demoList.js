@@ -153,6 +153,12 @@ module.exports = {
       module: require('../components/switch/demo/basic'), // 必须
     },
     {
+      title: 'TabBar', // 必须
+      description: '页卡栏',
+      icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
+      module: require('../components/tab-bar/demo/basic'), // 必须
+    },
+    {
       title: 'Tag', // 必须
       description: '标签',
       icon: 'https://os.alipayobjects.com/rmsportal/AkXOzPmaytaVYLD.png',
