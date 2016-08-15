@@ -1,4 +1,4 @@
-@import '../../style/variables';
+@import '../../style/themes/default';
 @import '../../style/mixins';
 
 @tab-prefix-cls: am-tabbar;
@@ -7,24 +7,24 @@
   &-tabs {
     .display-box();
     height: 12 * @grid;
-    border-top: 1px solid @neutral-5;
+    border-top: @border-width-sm solid @border-color-base;
     position: fixed;
     bottom: 0;
     width: 100%;
     &-item {
       flex: 1;
       text-align: center;
-      img {
+      &-icon {
         margin-top: 0.5 * @grid;
         width: 7 * @grid;
         height: 7 * @grid;
         vertical-align: middle;
       }
       &-title {
-        font-size: @font-size-1;
+        font-size: @font-size-icontext;
       }
+      // TODO 临时写的 badge 样式，需要 badge 出新的类型定义
       &-badge {
-        // TODO issue badge 需要开放 text 的 class 适配高清方案
         .am-badge-text {
           top: 0.5 * @grid;
           right: -5 * @grid;
@@ -42,22 +42,6 @@
     }
     &-item-active {
       display: block;
-    }
-  }
-  &-badge-container {
-    background-color: @orange-8;
-    height: 5 * @grid;
-    padding: 0 3 * @grid;
-    position: relative;
-
-  }
-  &-badge-text {
-    color: @neutral-1;
-    font-size: @font-size-4;
-    position: absolute;
-      p {
-        font-size: @font-size-1;
-      }
     }
   }
 }
