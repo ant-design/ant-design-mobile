@@ -1,5 +1,5 @@
 @import '../../style/mixins';
-@import '../../style/variables';
+@import '../../style/themes/default';
 
 @collapsePrefixCls: am-collapse;
 @listPrefixCls: am-list;
@@ -62,7 +62,6 @@
         position: relative;
         font-size: @font-size-4;
         line-height: 5*@grid;
-        font-weight: @font-weight-1;
         color: @neutral-9;
         .hairline-bottom(@neutral-5);
         .@{listPrefixCls}-item {
