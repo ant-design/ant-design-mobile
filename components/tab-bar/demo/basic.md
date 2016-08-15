@@ -6,7 +6,6 @@ title: APP型选项卡
 多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。
 
 ````jsx
-/* tslint:disable:no-var-requires */
 import { TabBar } from 'antd-mobile';
 
 let TabBarExample = React.createClass({

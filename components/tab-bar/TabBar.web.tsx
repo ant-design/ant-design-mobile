@@ -13,7 +13,7 @@ class TabBar extends React.Component<TabBarProps, any> {
   static Item: any;
 
   getPanes(content) {
-    const { tintColor, unselectedTintColor, children, prefixCls} = this.props;
+    const { tintColor, unselectedTintColor, children, prefixCls } = this.props;
     // ios 规则： selected 为多个则只选中最后一个， selected 为 0 个则选中第一个;
     let selectedIndex = 0;
     children.forEach((child, idx) => {
