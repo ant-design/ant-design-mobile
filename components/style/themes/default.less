@@ -15,6 +15,12 @@
 // 阴影色
 @color-shadow: rgba(100, 100, 100, .2);  // 阴影色
 
+// 输入框图标
+@input-color-icon: #ccc;
+@input-color-icon-top: @brand-primary;
+@input-color-icon-inverse: rgba(255, 255, 255, .6);
+@input-color-icon-tap-inverse: rgba(255, 255, 255, .4);
+
 // 背景色
 @fill-base: #fff;                           // 组件默认背景
 @fill-body: #f5f5f9;                        // 页面背景
@@ -22,8 +28,16 @@
 @fill-disabled: #ddd;                       // 通用失效背景
 @fill-mask: rgba(0, 0, 0, .5);              // 遮罩背景
 @fill-overlay-inverse: rgba(0, 0, 0, .8);   // 浮层背景 - 反色，用于 toast
+
+// 组件
 @notice-bar-fill: #fffada;
+@tabs-current-border-color: @brand-primary;
 @default-button-fill: @fill-base;
+@switch-fill: #4dd865;
+@segmented-control-fill-tap: fade(@brand-primary, 10%);
+
+// 透明度
+@opacity-disabled: 0.3;   // switch checkbox radio 等组件禁用的透明度
 
 // 全局/品牌色
 @brand-primary: #108ee9;
@@ -40,19 +54,21 @@
 // 字体尺寸
 // ---
 @font-size-icontext: 20px;
-@font-size-caption: 24px;
+@font-size-caption-sm: 24px;
 @font-size-base: 26px;
 @font-size-subhead: 28px;
+@font-size-caption: 30px;
 @font-size-heading: 34px;
 @font-size-display-sm: 36px;
 @font-size-display-md: 42px;
 @font-size-display-lg: 48px;
 @font-size-display-xl: 60px;
+
 @small-button-font-size: 24px;
+@link-button-font-size: 32px;
 @button-font-size: 36px;
 @input-font-size: 28px;
-@link-button-font-size: 20px;
-
+@tabs-font-size-heading: 30px;
 
 // 字体家族
 // ---
@@ -92,17 +108,23 @@
 
 // 高度
 // ---
-@segmented-control-height: 52px;
-@notice-bar-height: 72px;
+@small-button-height： 46px;
 @button-height: 72px;
+
+@list-title-height: 60px;
+@list-item-height: 90px;        // 列表项高度
+
+@segmented-control-height: 54px;
+@notice-bar-height: 72px;
 @tabs-height: 72px;
-@option-height: 72px;      // action-sheet、picker 的选项高度
-@list-height: 90px;        // 列表高度
+@option-height: 72px;           // action-sheet、picker 的选项高度
+@tab-bar-height: 100px;
 
 
 // 图标尺寸
 // ---
-@icon-size-xs: 30px;
+@icon-size-xxs: 30px;
+@icon-size-xs: 36px;
 @icon-size-sm: 42px;
 @icon-size-md: 44px;       // 导航条上的图标
 @icon-size-lg: 72px;
