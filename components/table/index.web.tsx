@@ -1,4 +1,5 @@
 import * as React from 'react';
+import assign from 'object-assign';
 import RcTable from 'rc-table';
 
 export default class Table extends React.Component<any, any> {
@@ -11,7 +12,7 @@ export default class Table extends React.Component<any, any> {
     const { columns, dataSource, direction, scrollX, titleFixed } = this.props;
     const { style, className } = this.props;
 
-    const restProps = Object.assign({}, this.props);
+    const restProps = assign({}, this.props);
     ['style', 'className'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];

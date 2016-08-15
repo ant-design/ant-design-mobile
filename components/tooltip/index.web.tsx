@@ -1,4 +1,5 @@
 import * as React from 'react';
+import assign from 'object-assign';
 import RcTooltip from 'rc-tooltip';
 
 export interface TooltipProps {
@@ -46,7 +47,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       visible = this.props.visible;
     }
 
-    const restProps = Object.assign({}, this.props);
+    const restProps = assign({}, this.props);
     ['prefixCls', 'overlay', 'visible', 'trigger', 'onVisibleChange', 'children'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];

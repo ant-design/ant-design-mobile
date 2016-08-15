@@ -11,7 +11,7 @@ export interface PageResultProps {
   title?: string;
   message?: string;
   buttonTxt?: string;
-  buttonType?: 'default' | 'primary';
+  buttonType?: 'primary'|'warning'|'';
   buttonGhost?: boolean;
   buttonClick?: () => void;
 }
@@ -23,7 +23,7 @@ export default class PageResult extends React.Component<PageResultProps, any> {
     title: '',
     message: '',
     buttonTxt: '',
-    buttonType: 'default',
+    buttonType: '',
     buttonGhost: false,
     buttonClick: noop,
   };
