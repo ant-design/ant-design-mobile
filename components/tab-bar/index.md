@@ -15,18 +15,19 @@ english: TabBar
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
-| activeKey        | 当前激活 tab 面板的 key                      | String   | 无            |
-| defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板    |
-| onChange         | 切换面板的回调                               | Function | 无            |
-| onTabClick       | tab 被点击的回调                             | Function | 无            |
-| type | 页签的基本样式，可选 `line`、`capsule`、`tabbar` 类型   | String   | 'line'      |
-| animation | 内容区域动画, 目前仅支持 `slide-horizontal`, 设为 false 禁用动画    |  String   |    `slide-horizontal`    |
-| mode |  `dark`、`light` 仅当 type 为 tabbar 有效   | String   | 'light'      |
+| barTintColor        | tabbar 背景色                     | String   | `white`            |
+| tintColor         | 选中的字体颜色                               | String | `#108ee9`         |
+| unselectedTintColor       | 未选中的字体颜色  | String | '#888'           |
+| prefixCls(`web only`) | 样式前缀  | String   | 'am-tabbar'      |
 
 
 ### TabBar.Item
 
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
-| key  | 对应 activeKey   | String                  | 无     |
-| tab  | 选项卡头显示文字 | React.Element or String | 无     |
+| badge  | 徽标数  | Number \ String           | 无     |
+| onPress  | bar 点击触发，需要自己改变组件 state & selecte={true} | Function | `(){}`     |
+| selected  | 是否选中 | Boolean | false     |
+| icon  | 默认展示图片 | Image Source(rn) \ {uri: String} (web) |      |
+| selectedIcon  |  选中后的展示图片 | Image Source(rn) \ {uri: String} (web) |      |
+| title  |  标题文字 | String |      |

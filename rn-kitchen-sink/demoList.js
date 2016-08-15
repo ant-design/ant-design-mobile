@@ -154,7 +154,7 @@ module.exports = {
     },
     {
       title: 'TabBar', // 必须
-      description: '页卡栏',
+      description: 'APP 选项卡',
       icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
       module: require('../components/tab-bar/demo/basic'), // 必须
     },
