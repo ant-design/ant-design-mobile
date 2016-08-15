@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import TabBarItemProps from './TabBarItemPropTypes';
+import Badge from '../badge/';
 
 class TabBarItem extends React.Component<TabBarItemProps, any> {
   static defaultProps = {
@@ -10,7 +11,7 @@ class TabBarItem extends React.Component<TabBarItemProps, any> {
   render() {
     const {
       title, selected, tintColor, unselectedTintColor, icon, selectedIcon, onPress,
-      rootPrefixCls, className,
+      rootPrefixCls, className, badge,
     } = this.props;
 
     const cls = classNames({
@@ -21,8 +22,17 @@ class TabBarItem extends React.Component<TabBarItemProps, any> {
 
     return (
       <div className={cls} onClick={onPress}>
-        <img src={selected ? selectedIcon.uri : icon.uri} alt={title} />
-        <p style={{ color: selected ? tintColor : unselectedTintColor }}>{title}</p>
+        { badge ? (
+            <Badge text={badge} className={`${rootPrefixCls}-tabs-item-badge`}>
+              <img src={selected ? selectedIcon.uri : icon.uri} alt={title} />
+            </Badge>
+          ) : (
+            <img src={selected ? selectedIcon.uri : icon.uri} alt={title} />
+          )
+        }
+        <p className={`${rootPrefixCls}-tabs-item-title`} style={{
+          color: selected ? tintColor : unselectedTintColor,
+        }}>{title}</p>
       </div>
     );
   }

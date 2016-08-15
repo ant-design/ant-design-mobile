@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { TabBar } from 'antd-mobile';
 
-export default class BasicTabBarExample extends React.Component<any, any> {
+export default class BasicTabBarExample extends React.Component <any, any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,22 +24,26 @@ export default class BasicTabBarExample extends React.Component<any, any> {
   render() {
     return (
       <TabBar
-        unselectedTintColor="yellow"
-        tintColor="white"
-        barTintColor="darkslateblue"
+        unselectedTintColor="#949494"
+        tintColor="#33A3F4"
+        barTintColor="#ccc"
       >
         <TabBar.Item
-          title="Blue Tab"
+          title="生活"
+          icon={require('./TabBar_HomeBar.png')}
+          selectedIcon={require('./TabBar_HomeBar_Sel.png')}
           selected={this.state.selectedTab === 'blueTab'}
           onPress={() => {
             this.setState({
               selectedTab: 'blueTab',
             });
           }}>
-          {this.renderContent('#414A8C', 'Blue Tab')}
+          {this.renderContent('#414A8C', '生活 Tab')}
         </TabBar.Item>
         <TabBar.Item
-          systemIcon="history"
+          icon={require('./TabBar_Businesses.png')}
+          selectedIcon={require('./TabBar_Businesses_Sel.png')}
+          title="口碑"
           badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => {
@@ -48,11 +52,12 @@ export default class BasicTabBarExample extends React.Component<any, any> {
               notifCount: this.state.notifCount + 1,
             });
           }}>
-          {this.renderContent('#783E33', 'Red Tab', this.state.notifCount)}
+          {this.renderContent('#783E33', '口碑 Tab', this.state.notifCount)}
         </TabBar.Item>
         <TabBar.Item
-          renderAsOriginal
-          title="More"
+          icon={require('./TabBar_Friends.png')}
+          selectedIcon={require('./TabBar_Friends_Sel.png')}
+          title="朋友"
           selected={this.state.selectedTab === 'greenTab'}
           onPress={() => {
             this.setState({
@@ -60,7 +65,7 @@ export default class BasicTabBarExample extends React.Component<any, any> {
               presses: this.state.presses + 1,
             });
           }}>
-          {this.renderContent('#21551C', 'Green Tab', this.state.presses)}
+          {this.renderContent('#21551C', '朋友 Tab', this.state.presses)}
         </TabBar.Item>
       </TabBar>
     );
