@@ -1,6 +1,7 @@
+import assign from 'object-assign';
 import colorPalette from './color-palette';
 
-export default Object.assign({}, colorPalette, {
+export default assign({}, colorPalette, {
   /* 中性色版(neutral) */
   neutral_1: '#fff',
   neutral_2: '#f7f7f7',
