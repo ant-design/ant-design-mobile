@@ -14,6 +14,7 @@ declare module 'antd-mobile' {
     List: any;
     ListView: any;
     Modal: any;
+    Menu: any;
     Pagination: any;
     Picker: any;
     Progress: any;

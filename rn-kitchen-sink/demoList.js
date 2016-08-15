@@ -81,6 +81,12 @@ module.exports = {
       module: require('../components/list-view/demo/basic'), // 必须
     },
     {
+      title: 'Menu', // 必须
+      description: '菜单',
+      icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
+      module: require('../components/menu/demo/basic'), // 必须
+    },
+    {
       title: 'Modal', // 必须
       description: '对话框',
       icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
