@@ -1,45 +1,44 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
-@floatMenuPrefixCls: am-float-menu;
+@popoverPrefixCls: am-popover;
 
 @import './base';
 
 // Wrapper for the tooltip content
-.@{floatMenuPrefixCls}-inner {
-  color: #fff;
-  text-align: left;
-  text-decoration: none;
-  background-color: fade(@neutral-9, 90%);
-  border-radius: @radius-1;
-  // box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
-  min-height: 34px;
+.@{popoverPrefixCls}-inner {
+  font-size: @font-size-base;
+  color: @color-text-base;
+  background-color: @fill-base;
+  border: @border-width-sm solid @border-color-base;
+  border-radius: @radius-sm;
+  box-shadow: 0 0 4px @color-shadow;
 }
 
-.@{floatMenuPrefixCls} {
+.@{popoverPrefixCls} {
   & &-item {
-    font-size: @font-size-5;
-    color: @neutral-1;
-    padding: 2 * @grid 8 * @grid;
-    border-bottom: 1px solid @neutral-8;
+    display: flex;
+    align-items: center;
+    margin: 0 @h-spacing-md;
+    padding: @h-spacing-md;
+    border-bottom: @border-width-sm solid @border-color-base;
     &:last-child {
       border-bottom: 0;
     }
     &:active {
-      border-radius: @radius-1;
-      background-color: @neutral-9;
+      margin: 0;
+      margin-top: -@border-width-sm;
+      padding: @h-spacing-md 2*@h-spacing-md;
+      background-color: @border-color-base;
     }
-    &.@{floatMenuPrefixCls}-item-disabled {
-      color: @neutral-7;
-      &.@{floatMenuPrefixCls}-item:active {
+    &.@{popoverPrefixCls}-item-disabled {
+      color: @color-text-disabled;
+      &.@{popoverPrefixCls}-item:active {
         background-color: transparent;
       }
     }
     &-icon {
-      margin-right: 2 * @grid;
-      font-size: 22px;
-    }
-    &-content {
-      vertical-align: top;
+      margin-right: @h-spacing-md;
+      font-size: @icon-size-md;
     }
   }
 }
