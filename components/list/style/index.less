@@ -4,31 +4,32 @@
 @listPrefixCls: am-list;
 
 .@{listPrefixCls} {
-  padding: 2*@grid 0;
-  background-color: transparent;
+  padding: @v-spacing-xs 0;
+  background-color: @fill-body;
   & &-header {
-    padding: 6*@grid 4*@grid 2*@grid 4*@grid;
-    font-size: @font-size-2;
-    color: @neutral-7;
+    padding: @v-spacing-lg @h-spacing-lg @v-spacing-md @h-spacing-lg;
+    font-size: @font-size-base;
+    color: @color-text-caption;
     display: inline-block;
     width: 100%;
     -webkit-box-sizing: border-box;
+    background-color: @fill-body;
   }
   & &-footer {
-    padding: 2*@grid 4*@grid;
-    font-size: @font-size-2;
-    color: @neutral-7;
-    line-height: @line-height-2;
+    padding: @v-spacing-md @h-spacing-lg @v-spacing-lg @h-spacing-lg;
+    font-size: @font-size-base;
+    color: @color-text-caption;
+    background-color: @fill-body;
   }
   & &-body {
     position: relative;
-    .hairline-top(@neutral-5);
+    .hairline-top(@border-color-base);
   }
   & &-item {
     position: relative;
-    padding-left: 4*@grid;
-    min-height: 8*@grid;
-    background-color: @neutral-1;
+    padding-left: @v-spacing-lg;
+    min-height: @list-item-height;
+    background-color: @fill-base;
     box-sizing: content-box;
     vertical-align: middle;
     overflow: hidden;
@@ -38,14 +39,14 @@
     /*list左图片显示*/
     .@{listPrefixCls}-thumb {
       &:first-child {
-        margin-right: 2 * @grid;
+        margin-right: @h-spacing-lg;
       }
       &:last-child {
-        margin-left: 2 * @grid;
+        margin-left: @h-spacing-md;
       }
       img {
-        width: 7 * @grid;
-        height: 7 * @grid;
+        width: @h-spacing-lg;
+        height: @h-spacing-lg;
         vertical-align: middle;
       }
     }
@@ -56,37 +57,39 @@
       height: 100%;
       padding: 0;
       border: 0;
-      font-size: @font-size-5;
+      font-size: @font-size-heading;
       appearance: none;
       background-color: transparent;
     }
     .@{listPrefixCls}-line {
       position: relative;
-      padding: 1.5*@grid 4*@grid 1.5*@grid 0;
-      min-height: 8*@grid;
+      padding-right: @h-spacing-lg;
       .display-box;
       .box-flex;
+      align-self: stretch;
       overflow: hidden;
-      .hairline-bottom(@neutral-5);
+      .hairline-bottom(@border-color-base);
+      &-multiple {
+        padding: @v-spacing-lg @h-spacing-lg @v-spacing-lg 0;
+      }
       /*list左侧主内容*/
       .@{listPrefixCls}-content {
         .box-flex;
-        color: @neutral-10;
-        font-size: @font-size-5;
-        //font-weight: @line-weight-1;
-        line-height: @line-height-2;
+        color: @color-text-base;
+        font-size: @font-size-heading;
+        line-height: 1;
         .ellipsis();
       }
       /*list右补充内容*/
       .@{listPrefixCls}-extra {
         .box-flex(1);
-        color: @neutral-8;
-        font-size: @font-size-4;
-        line-height: @line-height-2;
+        color: @color-text-caption;
+        font-size: @font-size-heading;
+        line-height: 1;
         text-align: right;
         .ellipsis();
         .am-list-brief {
-          font-size: @font-size-2;
+          font-size: @font-size-subhead;
         }
       }
       .@{listPrefixCls}-title {
@@ -94,57 +97,27 @@
       }
       /*list左侧主内容多行时，辅助性文字*/
       .@{listPrefixCls}-brief {
-        color: @neutral-7;
-        font-size: @font-size-4;
-        line-height: @line-height-2;
-        margin-top: @grid;
+        color: @color-text-caption;
+        font-size: @font-size-subhead;
+        line-height: 1;
+        margin-top: @v-spacing-sm;
         .ellipsis();
       }
       /*list右侧箭头*/
       .@{listPrefixCls}-arrow {
-        margin-left: 14px;
-        margin-right: -4px;
-        width: 4*@grid;
-        &-horizontal,
-        &-vertical {
-          display: block;
-          width: 4*@grid;
-          height: 4*@grid;
-          overflow: hidden;
-          &:before {
-            content: "";
-            display: block;
-            width: 18px;
-            height: 18px;
-            margin-left: 0;
-            border: solid 1px @neutral-7;
-            border-top: 0 none;
-            border-left: 0 none;
-          }
-        }
-        &-horizontal {
-          &:before {
-            margin-top: 0.5*@grid;
-            .transform(rotate(315deg));
-          }
-        }
-        &-vertical {
-          &:before {
-            margin-left: 0.5*@grid;
-            .transform(rotate(45deg));
-          }
-        }
+        display: block;
+        width: @icon-size-xxs;
+        height: @icon-size-xxs;
+        margin-left: @h-spacing-md;
+        .encoded-svg-background("<svg width='16' height='27' viewBox='0 0 16 27' version='1.1' xmlns='http://www.w3.org/2000/svg'><g transform='translate(-704.000000, -261.000000)' fill='#CCCCCC'><g  transform='translate(0.000000, 204.000000)'><path d='M719.533036,70.040985 L719.571414,70.0026067 L706.568807,57 L704,59.5688074 L714.472178,70.040985 L704,80.5131625 L706.568807,83.08197 L719.571414,70.0793633 L719.533036,70.040985 Z'></path></g></g></svg>");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
         &-vertical-up {
-          &:before {
-            margin: @grid 0 0 0.5*@grid;
-            .transform(rotate(225deg));
-          }
+          .transform(rotate(270deg));
         }
         &-vertical-down {
-          &:before {
-            margin-left: 0.5*@grid;
-            .transform(rotate(45deg));
-          }
+          .transform(rotate(90deg));
         }
       }
     }
@@ -177,13 +150,13 @@
       }
     }
     &:last-child {
-      .hairline-bottom(@neutral-5);
+      .hairline-bottom(@border-color-base);
       .@{listPrefixCls}-line {
         .hairline-remove-right-bottom();
       }
     }
     &.@{listPrefixCls}-item-hover {
-      background-color: @neutral-5;
+      background-color: @fill-tap;
     }
     img {
       vertical-align: middle;

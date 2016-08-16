@@ -13,6 +13,7 @@ export interface ListItemProps {
   align?: string;
   onClick?: Function;
   error?: boolean;
+  multipleLine?: boolean;
   children?: any;
 }
 
@@ -28,6 +29,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     children: '',
     extra: '',
     error: false,
+    multipleLine: false,
     align: 'middle',
   };
 
@@ -61,7 +63,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
   };
 
   render() {
-    let { prefixCls, thumb, arrow, error, children, extra, className, align, style } = this.props;
+    let { prefixCls, thumb, arrow, error, children, extra, className, align, multipleLine, style } = this.props;
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;
@@ -76,7 +78,13 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
       [className]: className,
     });
 
+    const lineCls = classNames({
+      [`${prefixCls}-line`]: true,
+      [`${prefixCls}-line-multiple`]: multipleLine,
+    });
+
     const arrowCls = classNames({
+      [`${prefixCls}-arrow`]: true,
       [`${prefixCls}-arrow-horizontal`]: arrow === 'horizontal',
       [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
@@ -92,12 +100,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
 
     /* arrow有值，则保留这个dom坑位 */
     if (arrow !== '') {
-      /* 当值是horizontal时,渲染水平箭头 */
-      if (arrow === 'empty') {
-        arrowDom = (<div className={`${prefixCls}-arrow`} />);
-      } else {
-        arrowDom = (<div className={`${prefixCls}-arrow`}><span className={arrowCls} /></div>);
-      }
+      arrowDom = (<div className={arrowCls} />);
     } else {
       arrowDom = null;
     }
@@ -112,7 +115,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
         style={style}
       >
         {thumbDom}
-        <div className={`${prefixCls}-line`}>
+        <div className={lineCls}>
           {children !== '' ? <div className={`${prefixCls}-content`}>{children}</div> : null}
           {extra !== '' ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
           {arrowDom}

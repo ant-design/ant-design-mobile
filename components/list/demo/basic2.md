@@ -36,22 +36,26 @@ ReactDOM.render(
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
           arrow="horizontal"
           onClick={() => {}}
+          multipleLine
         ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
           arrow="down"
           onClick={() => {}}
+          multipleLine
         ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
         <List.Item
           extra={<div>内容内容<div className="am-list-brief">辅助文字内容</div></div>}
           arrow="up"
           error
           onClick={() => {}}
+          multipleLine
         ><div className="am-list-title">标题文字</div><div className="am-list-brief">辅助文字内容</div></List.Item>
         <List.Item
           extra="empty,有箭头坑位"
           arrow="empty"
           onClick={() => {}}
+          multipleLine
         >内容内容</List.Item>
         <List.Item
           extra="校验报错"
