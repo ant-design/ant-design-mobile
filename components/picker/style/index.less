@@ -8,11 +8,12 @@
 @import './picker';
 @import './picker-popup';
 
+@picker-item-height: 68px;
+
 .@{pickerPrefixCls} {
   display: flex;
-  box-align: center;
   align-items: center;
-  padding: 10px 0;
+  padding: @v-spacing-sm 0;
 
   &-main-item {
     flex: 1;

@@ -8,10 +8,12 @@
 @import './picker';
 @import './picker-popup';
 
+@picker-item-height: 68px;
+
 .@{datePickerPrefixCls} {
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  padding: @v-spacing-sm 0;
 
   &-item {
     flex: 1;

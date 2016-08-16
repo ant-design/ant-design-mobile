@@ -1,7 +1,7 @@
 .@{pickerPickerPrefixCls} {
   display: block;
   position: relative;
-  height: 238px;
+  height: 7*@picker-item-height;
   overflow: hidden;
   width: 100%;
 
@@ -11,6 +11,18 @@
     top: 0;
     width: 100%;
     z-index: 1;
+  }
+
+  &-item {
+    touch-action: manipulation;
+    text-align: center;
+    font-size: @font-size-caption;
+    height: @picker-item-height;
+    line-height: @picker-item-height;
+    color: @color-text-base;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    direction: rtl;
   }
 
   &-mask {
@@ -26,28 +38,16 @@
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)),
     linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
     background-position: top, bottom;
-    background-size: 100% 102px;
+    background-size: 100% 3*@picker-item-height;
     background-repeat: no-repeat;
-  }
-
-  &-item {
-    touch-action: manipulation;
-    text-align: center;
-    font-size: 16px;
-    height: 34px;
-    line-height: 34px;
-    color: #000;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    direction: rtl;
   }
 
   &-indicator {
     width: 100%;
-    height: 34px;
+    height: @picker-item-height;
     position: absolute;
     left: 0;
-    top: 102px;
+    top: 3*@picker-item-height;
     z-index: 3;
     background-image: -webkit-linear-gradient(top, #d0d0d0, #d0d0d0, transparent, transparent),
     -webkit-linear-gradient(bottom, #d0d0d0, #d0d0d0, transparent, transparent);
