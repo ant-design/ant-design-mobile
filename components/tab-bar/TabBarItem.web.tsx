@@ -24,10 +24,12 @@ class TabBarItem extends React.Component<TabBarItemProps, any> {
       <div className={cls} onClick={onPress}>
         { badge ? (
             <Badge text={badge} className={`${rootPrefixCls}-tabs-item-badge`}>
-              <img src={selected ? selectedIcon.uri : icon.uri} alt={title} />
+              <img className={`${rootPrefixCls}-tabs-item-icon`}
+                src={selected ? selectedIcon.uri : icon.uri} alt={title} />
             </Badge>
           ) : (
-            <img src={selected ? selectedIcon.uri : icon.uri} alt={title} />
+            <img className={`${rootPrefixCls}-tabs-item-icon`}
+              src={selected ? selectedIcon.uri : icon.uri} alt={title} />
           )
         }
         <p className={`${rootPrefixCls}-tabs-item-title`} style={{
