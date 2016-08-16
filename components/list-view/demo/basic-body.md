@@ -1,10 +1,10 @@
 ---
-order: 2
+order: 1
 title: 无尽列表
 destroyComponent: true
 ---
 
-区块标题 “吸顶”(sticky) 功能示例
+使用 html 的 `body` 作为滚动容器
 
 ````jsx
 import { ListView, Toast } from 'antd-mobile';
@@ -28,46 +28,26 @@ const data = [
 ];
 let index = data.length - 1;
 
-const NUM_SECTIONS = 5;
-const NUM_ROWS_PER_SECTION = 5;
+const NUM_ROWS = 20;
 let pageIndex = 0;
 
 const Demo = React.createClass({
   getInitialState() {
-    const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
-    const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
-
     const dataSource = new ListView.DataSource({
-      getRowData,
-      getSectionHeaderData: getSectionData,
       rowHasChanged: (row1, row2) => row1 !== row2,
-      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
     });
 
-    this.dataBlob = {};
-    this.sectionIDs = [];
-    this.rowIDs = [];
     this.genData = (pIndex = 0) => {
-      for (let i = 0; i < NUM_SECTIONS; i++) {
-        const ii = pIndex * NUM_SECTIONS + i;
-        const sectionName = `Section ${ii}`;
-        this.sectionIDs.push(sectionName);
-        this.dataBlob[sectionName] = sectionName;
-        this.rowIDs[ii] = [];
-
-        for (let jj = 0; jj < NUM_ROWS_PER_SECTION; jj++) {
-          const rowName = `S${ii}, R${jj}`;
-          this.rowIDs[ii].push(rowName);
-          this.dataBlob[rowName] = rowName;
-        }
+      const dataBlob = {};
+      for (let i = 0; i < NUM_ROWS; i++) {
+        const ii = pIndex * NUM_ROWS + i;
+        dataBlob[`${ii}`] = `row - ${ii}`;
       }
-      // new object ref
-      this.sectionIDs = [].concat(this.sectionIDs);
-      this.rowIDs = [].concat(this.rowIDs);
+      return dataBlob;
     };
-    this.genData();
+    this.rData = {};
     return {
-      dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+      dataSource: dataSource.cloneWithRows(this.genData()),
       isLoading: false,
     };
   },
@@ -78,13 +58,14 @@ const Demo = React.createClass({
     Toast.info('加载新数据');
     this.setState({ isLoading: true });
     setTimeout(() => {
-      this.genData(++pageIndex);
+      this.rData = { ...this.rData, ...this.genData(++pageIndex) };
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,
       });
     }, 1000);
   },
+
   render() {
     const separator = (sectionID, rowID) => (
       <div key={`${sectionID}-${rowID}`} style={{
@@ -128,22 +109,15 @@ const Demo = React.createClass({
         renderFooter={() => <div style={{ padding: 30, textAlign: 'center' }}>
           {this.state.isLoading ? '加载中...' : '加载完毕'}
         </div>}
-        renderSectionHeader={(sectionData) => (
-          <div>{`任务 ${sectionData.split(' ')[1]}`}</div>
-        )}
         renderRow={row}
         renderSeparator={separator}
         pageSize={4}
+        scrollRenderAheadDistance={500}
         scrollEventThrottle={20}
         onScroll={() => { console.log('scroll'); }}
+        useBodyScroll
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        stickyHeader
-        stickyProps={{
-          stickyStyle: { zIndex: 999, top: 43 },
-          topOffset: -43,
-          // isActive: false, // 关闭 sticky 效果
-        }}
       />
     </div>);
   },

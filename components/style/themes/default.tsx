@@ -55,22 +55,22 @@ export default {
 
   // 字体尺寸
   // ---
-  font_size_icontext: 20,
-  font_size_caption_sm: 24,
-  font_size_base: 26,
-  font_size_subhead: 28,
-  font_size_caption: 30,
-  font_size_heading: 34,
-  font_size_display_sm: 36,
-  font_size_display_md: 42,
-  font_size_display_lg: 48,
-  font_size_display_xl: 60,
+  font_size_icontext: 10,
+  font_size_caption_sm: 12,
+  font_size_base: 13,
+  font_size_subhead: 14,
+  font_size_caption: 15,
+  font_size_heading: 17,
+  font_size_display_sm: 18,
+  font_size_display_md: 21,
+  font_size_display_lg: 24,
+  font_size_display_xl: 30,
 
-  small_button_font_size: 24,
-  link_button_font_size: 32,
-  button_font_size: 36,
-  input_font_size: 28,
-  tabs_font_size_heading: 30,
+  small_button_font_size: 12,
+  link_button_font_size: 16,
+  button_font_size: 18,
+  input_font_size: 14,
+  tabs_font_size_heading: 15,
 
   // 字体家族
   // ---
@@ -80,16 +80,16 @@ export default {
 
   // 圆角
   // ---
-  radius_xs: 4,
-  radius_sm: 6,
-  radius_md: 10,
-  radius_lg: 14,
+  radius_xs: 2,
+  radius_sm: 3,
+  radius_md: 5,
+  radius_lg: 7,
 
   // 边框尺寸
   // ---
-  border_width_sm: 1,
-  border_width_md: 2,
-  border_width_lg: 4,
+  border_width_sm: 0.5,
+  border_width_md: 1,
+  border_width_lg: 2,
 
   // 间距
   // ---
@@ -99,31 +99,31 @@ export default {
   h_spacing_lg: 30,
 
   // 垂直间距
-  v_spacing_xs: 6,
-  v_spacing_sm: 12,
-  v_spacing_md: 18,
-  v_spacing_lg: 30,
-  v_spacing_xl: 42,
+  v_spacing_xs: 3,
+  v_spacing_sm: 6,
+  v_spacing_md: 9,
+  v_spacing_lg: 15,
+  v_spacing_xl: 21,
 
   // 高度
   // ---
-  small_button_height: 46,
-  button_height: 72,
-  list_title_height: 60,
-  list_item_height: 90,        // 列表项高度
-  segmented_control_height: 54,
-  notice_bar_height: 72,
-  tabs_height: 72,
-  option_height: 72,           // action_sheet、picker 的选项高度
-  tab_bar_height: 100,
+  small_button_height: 23,
+  button_height: 36,
+  list_title_height: 30,
+  list_item_height: 45,        // 列表项高度
+  segmented_control_height: 27,
+  notice_bar_height: 36,
+  tabs_height: 36,
+  option_height: 36,           // action_sheet、picker 的选项高度
+  tab_bar_height: 50,
 
   // 图标尺寸
   // ---
-  icon_size_xxs: 30,
-  icon_size_xs: 36,
-  icon_size_sm: 42,
-  icon_size_md: 44,       // 导航条上的图标
-  icon_size_lg: 72,
+  icon_size_xxs: 15,
+  icon_size_xs: 18,
+  icon_size_sm: 21,
+  icon_size_md: 22,       // 导航条上的图标
+  icon_size_lg: 36,
 
   // 动画缓动
   // ---

@@ -55,7 +55,7 @@
     "react-slick": "~0.12.2",
     "rmc-cascader": "~2.2.3",
     "rmc-date-picker": "~4.0.1",
-    "rmc-list-view": "~0.5.13",
+    "rmc-list-view": "~0.6.1",
     "rmc-pull-to-refresh": "~0.3.2",
     "rn-topview": "^0.1.0"
   },

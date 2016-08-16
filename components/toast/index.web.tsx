@@ -19,7 +19,7 @@ function notice(content, type, duration = 3, onClose) {
     info: '',
     success: 'check-circle-o',
     fail: 'cross-circle-o',
-    network: 'frown',
+    offline: 'frown',
     loading: 'loading',
   })[type];
 
@@ -32,9 +32,13 @@ function notice(content, type, duration = 3, onClose) {
   instance.notice({
     duration,
     style: {},
-    content: (
+    content: !!iconType ? (
+      <div className={`${prefixCls}-text ${prefixCls}-text-icon`}>
+        <Icon type={iconType} />
+        <div>{content}</div>
+      </div>
+    ) : (
       <div className={`${prefixCls}-text`}>
-        {!!iconType && <Icon type={iconType} />}
         <div>{content}</div>
       </div>
     ),

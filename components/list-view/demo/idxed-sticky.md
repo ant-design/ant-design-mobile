@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: IndexedList sticky
 destroyComponent: true
 ---

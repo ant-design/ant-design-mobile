@@ -16,18 +16,24 @@
     margin-top: -15*@grid;
   }
   &-text {
+    min-width: 15 * @grid;
     display: inline-block;
     margin: auto 6*@grid;
-    padding: 4*@grid;
-    .border-radius(6px);
-    color: #fff;
-    background-color: fade(@neutral-10, 60%);
-    font-size: @font-size-4;
-    line-height: 5*@grid;
+    border-radius: @radius-sm;
+    color: @color-text-base-inverse;
+    background-color: @fill-overlay-inverse;
+    font-size: @font-size-base;
+    line-height: 1.18;
+    padding: @v-spacing-md @h-spacing-lg;
+  }
+
+  &-text-icon {
+    border-radius: @radius-lg;
+    padding: @v-spacing-lg;
   }
 
   .anticon {
-    font-size: 8*@grid;
-    margin-bottom: @grid;
+    font-size: @icon-size-lg;
+    margin-bottom: @v-spacing-md;
   }
 }
