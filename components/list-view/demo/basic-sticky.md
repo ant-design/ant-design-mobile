@@ -142,6 +142,7 @@ const Demo = React.createClass({
         stickyProps={{
           stickyStyle: { zIndex: 999, top: 43 },
           topOffset: -43,
+          // isActive: false, // 关闭 sticky 效果
         }}
       />
     </div>);
