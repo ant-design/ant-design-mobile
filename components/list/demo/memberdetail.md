@@ -51,6 +51,7 @@ ReactDOM.render(
           extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
           arrow="horizontal"
           onClick={() => {}}
+          multipleLine
         >垂直居中对齐</List.Item>
         <List.Item
           extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
@@ -63,12 +64,14 @@ ReactDOM.render(
           arrow="horizontal"
           align="bottom"
           onClick={() => {}}
+          multipleLine
         >底部对齐</List.Item>
         <List.Item
           extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
           arrow="horizontal"
           align="top"
           onClick={() => {}}
+          multipleLine
         ><div className="am-list-title am-list-multiline">zhifubao@alipay.com#zh#</div></List.Item>
       </List.Body>
     </List>

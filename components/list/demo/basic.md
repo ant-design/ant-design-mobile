@@ -26,6 +26,17 @@ let ListExample = React.createClass({
           <List.Item
             extra="内容内容"
             onClick={() => {}}
+            arrow="horizontal"
+          >标题文字</List.Item>
+          <List.Item
+            extra="内容内容"
+            onClick={() => {}}
+            arrow="up"
+          >标题文字</List.Item>
+          <List.Item
+            extra="内容内容"
+            onClick={() => {}}
+            arrow="down"
           >标题文字</List.Item>
         </List.Body>
         <List.Footer>列表尾部,List.Footer</List.Footer>

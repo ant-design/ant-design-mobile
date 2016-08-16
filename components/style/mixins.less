@@ -1,3 +1,5 @@
+@import "./themes/default";
+
 .transform(@t) {
   -webkit-transform: @t;
   transform: @t;
@@ -10,7 +12,7 @@
   -webkit-transition: @value;
 }
 .hairline-top(@color) {
-  border-top: 1PX solid @color;
+  border-top: @border-width-sm solid @color;
 }
 .hairline-top-bak(@color) {
   &:before {
@@ -22,7 +24,7 @@
     right: auto;
     height: 0;
     width: 100%;
-    border-bottom: 1PX solid @color;
+    border-bottom: @border-width-sm solid @color;
     display: block;
     z-index: 15;
     .transform-origin(50% 0%);
@@ -45,9 +47,9 @@
     top: 0;
     bottom: auto;
     right: auto;
-    width: 1PX;
+    width: @border-width-sm;
     height: 100%;
-    border-bottom: 1PX solid @color;
+    border-bottom: @border-width-sm solid @color;
     display: block;
     z-index: 15;
     .transform-origin(0% 50%);
@@ -63,7 +65,18 @@
   }
 }
 .hairline-bottom(@color, @left:0) {
-  border-bottom: 1PX solid @color;
+  &:after {
+    display: block;
+    position: absolute;
+    content: '';
+    left: @left;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    width: 100%;
+    border-bottom: @border-width-sm solid @color;
+    z-index: 15;
+  }
 }
 .hairline-bottom-bak(@color, @left:0) {
   &:after {
@@ -77,7 +90,7 @@
     height: 0;
     width: 100%;
     //background-color: @color;
-    border-bottom: 1PX solid @color;
+    border-bottom: @border-width-sm solid @color;
     display: block;
     z-index: 15;
     .transform-origin(50% 100%);
@@ -100,7 +113,7 @@
     top: 0;
     left: auto;
     bottom: auto;
-    width: 1PX;
+    width: @border-width-sm;
     height: 100%;
     background-color: @color;
     display: block;
@@ -120,6 +133,9 @@
 // For right and bottom
 .hairline-remove-right-bottom {
   border-bottom: 0;
+  &:after {
+    display: none;
+  }
 }
 .hairline-remove-right-bottom-bak {
   &:after {
@@ -203,16 +219,16 @@
   background: left bottom repeat-x;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(.5, transparent), color-stop(.5, @color), to(@color));
   background-image: linear-gradient(left top, left bottom, color-stop(.5, transparent), color-stop(.5, @color), to(@color));
-  -webkit-background-size: 100% 1PX;
-  background-size: 100% 1PX;
+  -webkit-background-size: 100% @border-width-sm;
+  background-size: 100% @border-width-sm;
 }
 
 .border-1px-top(@color: #d2d2d2) {
   background: left top repeat-x;
   background-image: -webkit-gradient(linear, left top, left bottom, from(@color), color-stop(.5, @color), color-stop(.5, transparent));
   background-image: linear-gradient(left top, left bottom, from(@color), color-stop(.5, @color), color-stop(.5, transparent));
-  -webkit-background-size: 100% 1PX;
-  background-size: 100% 1PX;
+  -webkit-background-size: 100% @border-width-sm;
+  background-size: 100% @border-width-sm;
 }
 
 .border-1px-both(@color: #d2d2d2) {
@@ -220,8 +236,8 @@
   background-repeat: repeat-x, repeat-x;
   background-image: -webkit-gradient(linear, left top, left bottom, from(@color), color-stop(.5, @color), color-stop(.5, transparent)), -webkit-gradient(linear, left top, left bottom, color-stop(.5, transparent), color-stop(.5, @color), to(@color));
   background-image: linear-gradient(left top, left bottom, from(@color), color-stop(.5, @color), color-stop(.5, transparent)), linear-gradient(left top, left bottom, color-stop(.5, transparent), color-stop(.5, @color), to(@color));
-  -webkit-background-size: 100% 1PX, 100% 1PX;
-  background-size: 100% 1PX, 100% 1PX;
+  -webkit-background-size: 100% @border-width-sm, 100% @border-width-sm;
+  background-size: 100% @border-width-sm, 100% @border-width-sm;
 }
 
 .border-1px-scale(@color: #d2d2d2) {
@@ -229,10 +245,10 @@
   &:before {
     content: '';
     position: absolute;
-    bottom: -1PX;
+    bottom: -@border-width-sm;
     left: 0px;
     right: 0px;
-    border-bottom: 1PX solid @color;
+    border-bottom: @border-width-sm solid @color;
     -webkit-transform: scaleY(.5);
     -webkit-transform-origin: 0px 0px;
   }
