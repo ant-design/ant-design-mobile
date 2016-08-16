@@ -33,108 +33,85 @@
   }
 
   // default
-  color: @neutral-10;
-  background-color: @neutral-1;
+  color: @color-text-base;
+  background-color: @fill-base;
   &:after {
-    border: 1px solid @neutral-5;
+    border: @border-width-sm solid @border-color-base;
   }
   &:active {
-    background-color: @neutral-2;
+    background-color: @fill-tap;
   }
   // ghost
-  &-ghost {
-    background-color: transparent;
-    &:after {
-      border: 1px solid @neutral-4;
-    }
-    &:active {
-      // color: @brand-6;
-      background-color: fade(@neutral-3, 20%);
-    }
-  }
+  // &-ghost {
+  //   background-color: transparent;
+  //   &:after {
+  //     border: @border-width-sm solid @brand-primary;
+  //   }
+  //   &:active {
+  //     background-color: fade(@neutral-3, 20%);
+  //   }
+  // }
 
   &-primary {
-    color: @neutral-1;
-    background-color: @brand-6;
+    color: @color-text-base-inverse;
+    background-color: @brand-primary;
     &:after {
-      border: 1px solid @brand-6;
+      border: @border-width-sm solid @brand-primary;
     }
     &:active {
-      color: @neutral-1;
-      background-color: @brand-7;
+      background-color: @brand-primary-tap;
     }
     &.@{buttonPrefixCls}-ghost {
-      color: @brand-6;
+      color: @color-link;
       background-color: transparent;
       &:active {
-        // color: @brand-7;
-        background-color: fade(@brand-3, 20%);
-        &:after {
-          border: 1px solid @brand-7;
-        }
+        // background-color: fade(@brand-3, 20%);
+        background-color: @brand-primary-tap;
+        // &:after {
+        //   border: @border-width-sm solid @brand-7;
+        // }
       }
-    }
-  }
-
-  &-warning {
-    color: @function-error-2;
-    background-color: @red-1;
-    &:after {
-      border: 1px solid @red-4;
-    }
-    &:active {
-      background-color: @red-2;
     }
   }
 
   &-disabled {
     &:disabled {
-      color: @neutral-6;
-      background-color: @neutral-3;
+      color: @color-text-disabled;
+      background-color: @fill-disabled;
       &:after {
-        border: 1px solid @neutral-4;
+        border: 0;
       }
-      &.@{buttonPrefixCls}-ghost {
-        color: fade(@neutral-6, 60%);
-        background-color: fade(@neutral-3, 20%);
-        &:after {
-          border: 1px solid fade(@neutral-6, 60%);
-        }
-      }
-
-      &.@{buttonPrefixCls}-primary {
-        color: @neutral-1;
-        background-color: @brand-3;
-        &:after {
-          border: 1px solid @brand-1;
-        }
-        &.@{buttonPrefixCls}-ghost {
-          color: fade(@brand-3, 60%);
-          background-color: fade(@brand-3, 20%);
-          &:after {
-            border: 1px solid fade(@brand-3, 60%);
-          }
-        }
-      }
+      // &.@{buttonPrefixCls}-ghost {
+      // }
 
       &.@{buttonPrefixCls}-warning {
-        color: fade(@neutral-6, 60%);
-        background-color: fade(@neutral-3, 20%);
+        color: @color-text-tap;
+        // background-color: fade(@neutral-3, 20%);
       }
     }
   }
 
   &-small {
-    font-size: @font-size-3;
-    padding: 0 3 * @grid;
-    height: 7 * @grid;
-    line-height: 7 * @grid;
-    .border-radius(@radius-2);
+    font-size: @small-button-font-size;
+    height: @small-button-height;
+    line-height: @small-button-height;
+    .border-radius(@radius-xs);
   }
 
   &-inline {
     width: auto;
-    padding: 0 4 * @grid;
+    padding: 0 @h-spacing-sm;
+  }
+
+  &-warning {
+    color: @brand-warning;
+    background-color: @fill-base;
+    &:after {
+      border: @border-width-sm solid #f88b88;
+    }
+    &:active {
+      background-color: #fdcccb;
+    }
   }
 
   // To ensure that a space will be placed between character and `Icon`.
