@@ -12,7 +12,7 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
 
   render() {
     return (
-      <View style={[styles.container]}>
+      <View style={[styles.demo]}>
         <ActivityIndicator />
         <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
         <ActivityIndicator
@@ -31,9 +31,6 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
         />
         <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
         <View style={[styles.centering]}>
-          <ActivityIndicator
-            toast
-          />
           <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
           <ActivityIndicator
             toast
@@ -48,7 +45,7 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
 }
 
 const styles = StyleSheet.create({
-  container: {
+  demo: {
     marginTop: 20,
   },
   centering: {

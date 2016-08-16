@@ -1,6 +1,7 @@
 interface ActivityIndicatorPropTypes {
   /** web only */
   prefixCls?: string;
+  /** web only */
   className?: string;
   animating?: boolean;
   toast?: boolean;
