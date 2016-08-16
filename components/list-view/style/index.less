@@ -6,15 +6,13 @@
   // position: relative;
 
   .am-list-header {
-    padding: @grid 4 * @grid;
+    min-height: @list-title-height;
     font-size: inherit;
     color: inherit;
   }
 
   &-section-header {
     .am-list-item {
-      font-size: @font-size-2;
-      height: 34px;
       background-color: #F7F7F7;
     }
   }
@@ -30,10 +28,10 @@
     list-style: none;
     padding: 0;
     li {
-      padding: 0 10px;
+      padding: 0 @h-spacing-lg;
     }
     &-over {
-      background-color: rgba(128, 128, 128, 0.2);
+      background-color: @fill-mask;
     }
   }
 }

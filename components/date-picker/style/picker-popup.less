@@ -23,7 +23,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: @color-shadow;
+    background-color: @fill-mask;
     height: 100%;
     z-index: 1050;
     &-hidden {
@@ -39,6 +39,7 @@
     background-repeat: no-repeat;
     .display-box;
     .box-align;
+    border-bottom: @border-width-sm solid @border-color-base;
     &-left {
       margin-left: @h-spacing-lg;
     }
