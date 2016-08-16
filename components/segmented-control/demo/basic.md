@@ -15,27 +15,27 @@ let SegmentedControlExample = React.createClass({
   },
   render() {
     return (
-      <div style={{ padding: 16 }}>
-        <div>禁用/enabled=false</div>
+      <div>
+        <div style={{ padding: 16 }}>禁用/enabled=false</div>
         <SegmentedControl
           values={['切换一', '切换二']}
           enabled={false}
         />
         <WhiteSpace size={20} />
-        <div>设置 tintColor/style </div>
+        <div style={{ padding: 16 }}>设置 tintColor/style </div>
         <SegmentedControl
           values={['切换一', '切换二', '切换三']}
           tintColor={'#ff0000'}
-          style={{ height: 40, width: 280 }}
+          style={{ height: '0.8rem', width: '5rem' }}
         />
         <WhiteSpace size={20} />
-        <div>设置默认选中 selectedIndex </div>
+        <div style={{ padding: 16 }}>设置默认选中 selectedIndex </div>
         <SegmentedControl
           selectedIndex={1}
           values={['切换一', '切换二', '切换三']}
         />
         <WhiteSpace size={20} />
-        <div>事件 onChange/onValueChange </div>
+        <div style={{ padding: 16 }}>事件 onChange/onValueChange </div>
         <SegmentedControl
           values={['切换一', '切换二', '切换三']}
           onChange={this.onChange}
