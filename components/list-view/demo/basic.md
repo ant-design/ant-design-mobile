@@ -1,10 +1,10 @@
 ---
 order: 0
-title: 基本
+title: 无尽列表
 destroyComponent: true
 ---
 
-无尽列表
+> 注意：需要设置 ListView 的 style 的 `height`/`overflow`，以此作为滚动容器
 
 ````jsx
 import { ListView, Toast, Button } from 'antd-mobile';
