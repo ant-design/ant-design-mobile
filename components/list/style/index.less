@@ -36,91 +36,7 @@
     .display-box;
     .box-align;
     .transition(background-color 200ms);
-    /*list左图片显示*/
-    .@{listPrefixCls}-thumb {
-      &:first-child {
-        margin-right: @h-spacing-lg;
-      }
-      &:last-child {
-        margin-left: @h-spacing-md;
-      }
-      img {
-        width: @h-spacing-lg;
-        height: @h-spacing-lg;
-        vertical-align: middle;
-      }
-    }
-    select {
-      position: relative;
-      display: block;
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      border: 0;
-      font-size: @font-size-heading;
-      appearance: none;
-      background-color: transparent;
-    }
-    .@{listPrefixCls}-line {
-      position: relative;
-      padding-right: @h-spacing-lg;
-      .display-box;
-      .box-flex;
-      align-self: stretch;
-      overflow: hidden;
-      .hairline-bottom(@border-color-base);
-      &-multiple {
-        padding: @v-spacing-lg @h-spacing-lg @v-spacing-lg 0;
-      }
-      /*list左侧主内容*/
-      .@{listPrefixCls}-content {
-        .box-flex;
-        color: @color-text-base;
-        font-size: @font-size-heading;
-        line-height: 1;
-        .ellipsis();
-      }
-      /*list右补充内容*/
-      .@{listPrefixCls}-extra {
-        .box-flex(1);
-        color: @color-text-caption;
-        font-size: @font-size-heading;
-        line-height: 1;
-        text-align: right;
-        .ellipsis();
-        .am-list-brief {
-          font-size: @font-size-subhead;
-        }
-      }
-      .@{listPrefixCls}-title {
-        .ellipsis();
-      }
-      /*list左侧主内容多行时，辅助性文字*/
-      .@{listPrefixCls}-brief {
-        color: @color-text-caption;
-        font-size: @font-size-subhead;
-        line-height: 1;
-        margin-top: @v-spacing-sm;
-        .ellipsis();
-      }
-      /*list右侧箭头*/
-      .@{listPrefixCls}-arrow {
-        display: block;
-        width: @icon-size-xxs;
-        height: @icon-size-xxs;
-        margin-left: @h-spacing-md;
-        .encoded-svg-background("<svg width='16' height='27' viewBox='0 0 16 27' version='1.1' xmlns='http://www.w3.org/2000/svg'><g transform='translate(-704.000000, -261.000000)' fill='#CCCCCC'><g  transform='translate(0.000000, 204.000000)'><path d='M719.533036,70.040985 L719.571414,70.0026067 L706.568807,57 L704,59.5688074 L714.472178,70.040985 L704,80.5131625 L706.568807,83.08197 L719.571414,70.0793633 L719.533036,70.040985 Z'></path></g></g></svg>");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        &-vertical-up {
-          .transform(rotate(270deg));
-        }
-        &-vertical-down {
-          .transform(rotate(90deg));
-        }
-      }
-    }
+
     &.@{listPrefixCls}-item-top {
       .@{listPrefixCls}-line {
         .box-align(flex-start);
@@ -160,6 +76,93 @@
     }
     img {
       vertical-align: middle;
+    }
+  }
+}
+.@{listPrefixCls}-item {
+  /*list左图片显示*/
+  .@{listPrefixCls}-thumb {
+    &:first-child {
+      margin-right: @h-spacing-lg;
+    }
+    &:last-child {
+      margin-left: @h-spacing-md;
+    }
+    img {
+      width: @h-spacing-lg;
+      height: @h-spacing-lg;
+      vertical-align: middle;
+    }
+  }
+  select {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    font-size: @font-size-heading;
+    appearance: none;
+    background-color: transparent;
+  }
+  .@{listPrefixCls}-line {
+    position: relative;
+    padding-right: @h-spacing-lg;
+    .display-box;
+    .box-flex;
+    align-self: stretch;
+    overflow: hidden;
+    .hairline-bottom(@border-color-base);
+    &-multiple {
+      padding: @v-spacing-lg @h-spacing-lg @v-spacing-lg 0;
+    }
+    /*list左侧主内容*/
+    .@{listPrefixCls}-content {
+      .box-flex;
+      color: @color-text-base;
+      font-size: @font-size-heading;
+      line-height: 1;
+      .ellipsis();
+    }
+    /*list右补充内容*/
+    .@{listPrefixCls}-extra {
+      .box-flex(1);
+      color: @color-text-caption;
+      font-size: @font-size-heading;
+      line-height: 1;
+      text-align: right;
+      .ellipsis();
+      .am-list-brief {
+        font-size: @font-size-subhead;
+      }
+    }
+    .@{listPrefixCls}-title {
+      .ellipsis();
+    }
+    /*list左侧主内容多行时，辅助性文字*/
+    .@{listPrefixCls}-brief {
+      color: @color-text-caption;
+      font-size: @font-size-subhead;
+      line-height: 1;
+      margin-top: @v-spacing-sm;
+      .ellipsis();
+    }
+    /*list右侧箭头*/
+    .@{listPrefixCls}-arrow {
+      display: block;
+      width: @icon-size-xxs;
+      height: @icon-size-xxs;
+      margin-left: @h-spacing-md;
+      .encoded-svg-background("<svg width='16' height='27' viewBox='0 0 16 27' version='1.1' xmlns='http://www.w3.org/2000/svg'><g transform='translate(-704.000000, -261.000000)' fill='#CCCCCC'><g  transform='translate(0.000000, 204.000000)'><path d='M719.533036,70.040985 L719.571414,70.0026067 L706.568807,57 L704,59.5688074 L714.472178,70.040985 L704,80.5131625 L706.568807,83.08197 L719.571414,70.0793633 L719.533036,70.040985 Z'></path></g></g></svg>");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      &-vertical-up {
+        .transform(rotate(270deg));
+      }
+      &-vertical-down {
+        .transform(rotate(90deg));
+      }
     }
   }
 }

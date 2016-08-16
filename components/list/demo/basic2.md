@@ -26,8 +26,9 @@ window.openurl = (e) => {
 };
 ReactDOM.render(
   <div>
-    <List>
-      <List.Header>箭头</List.Header>
+    <List
+      title="箭头"
+    >
       <List.Body>
         <List.Item extra="horizontal,箭头向右" arrow="horizontal" onClick={() => {}}>标题文字</List.Item>
         <List.Item extra="down,箭头向下" arrow="down" onClick={() => {}}>标题文字</List.Item>

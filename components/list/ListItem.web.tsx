@@ -21,7 +21,17 @@ export interface ListItemState {
   hover: boolean;
 }
 
+class Brief extends React.Component<any, any> {
+  render() {
+    return (
+      <div className="am-list-brief">{this.props.children}</div>
+    );
+  }
+}
+
 export default class ListItem extends React.Component<ListItemProps, ListItemState> {
+  static Brief = Brief;
+
   static defaultProps = {
     prefixCls: 'am-list',
     thumb: '',
