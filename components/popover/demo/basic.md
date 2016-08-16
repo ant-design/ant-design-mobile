@@ -64,13 +64,14 @@ const App = React.createClass({
         Popover
       </NavBar>
       <p>选中了 {this.state.selected}</p>
-      <div style={{ paddingTop: 80, paddingLeft: 100 }}>
+      <div style={{ paddingTop: 140, paddingLeft: 100 }}>
         <Popover
           visible={this.state.visible1}
           overlay={[
-            <Item key="0" value="0">item 0</Item>,
-            <Item key="1" value="1">item 1</Item>,
-            <Item key="2" value="1">item 1</Item>,
+            <Item key="0" value="0">添加朋友</Item>,
+            <Item key="1" value="1">发起群聊</Item>,
+            <Item key="2" value="2">扫一扫</Item>,
+            <Item key="3" value="3">我的二维码</Item>,
           ]}
           placement="topRight"
           onVisibleChange={v => this.setState({ visible1: v })}

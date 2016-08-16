@@ -26,7 +26,7 @@ export default class Popover extends React.Component<tsPropsType, any> {
   };
 
   static defaultProps = {
-    prefixCls: 'am-float-menu',
+    prefixCls: 'am-popover',
     placement: 'bottomRight',
     popupAlign: { overflow: { adjustY: 0, adjustX: 0 } },
     trigger: ['click'],
