@@ -6,29 +6,30 @@
 .@{segment-prefix-cls} {
   .display-box;
   background-color: #fff;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
-  border-radius: @radius-1;
-  border-color: @brand-6;
+  border-radius: @radius-md;
+  border-color: @brand-primary;
   overflow: hidden;
+  margin: 0 @h-spacing-lg;
   &-item {
-    display: flex;
     .box-flex(1);
+    display: flex;
     justify-content: center;
     align-items: center;
-    color: @brand-6;
-    font-size: @font-size-2;
-    padding: 1.5 * @grid 0;
-    border-right: 1px solid @brand-6;
-    .box-sizing();
+    color: @brand-primary;
+    font-size: @font-size-base;
+    padding: @h-spacing-sm 0;
+    border-right: 2px solid @brand-primary;
+    line-height: 1;
 
     &:last-child {
       border-right: 0;
     }
 
     &-selected {
-      background: @brand-6;
-      color: #fff;
+      background: @brand-primary;
+      color: @color-text-base-inverse;
     }
   }
 }
