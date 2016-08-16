@@ -2,7 +2,7 @@
 category: Components
 type: Components
 chinese: 浮动菜单
-english: FloatMenu
+english: Popover
 ---
 
 ### 定义／Definition
@@ -15,7 +15,7 @@ english: FloatMenu
 
 ## API
 
-### FloatMenu
+### Popover
 | 成员        | 说明           | 类型         | 默认值       |
 |------------|----------------|-------------|--------------|
 | visible(web)   | 当前显隐状态    | Boolean |  false   |
@@ -32,7 +32,7 @@ english: FloatMenu
 | name(ios/android)   | menu名字，用于手动触发开关menu    | String |  -   |
 | openMenu/closeMenu/toggleMenu(ios/android)   | 用于手动开关 menu，参数为上边 menu 的 name . 使用示例：`this.refs.mc.refs.menuContext.toggleMenu('m')` 见 demo  | Function(name) |  -   |
 
-### FloatMenu.Item
+### Popover.Item
 | 成员        | 说明           | 类型         | 默认值       |
 |------------|----------------|-------------|--------------|
 | children   | 节点内容    | String/React.node |  -   |

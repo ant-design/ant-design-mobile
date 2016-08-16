@@ -16,7 +16,7 @@ export default class Item extends React.Component<any, any> {
     disabled: false,
   };
 
-  static FloatMenuItem = true;
+  static PopoverItem = true;
 
   render() {
     let[{ children, className, prefixCls, iconName, disabled }, restProps] = splitObject(this.props,

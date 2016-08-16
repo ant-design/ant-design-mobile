@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, ViewStyle } from 'react-native';
-import { FloatMenu } from 'antd-mobile';
+import { Popover } from 'antd-mobile';
 
-const Item = FloatMenu.Item;
+const Item = Popover.Item;
 
-export default class FloatMenuExample extends React.Component<any, any> {
+export default class PopoverExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +41,7 @@ export default class FloatMenuExample extends React.Component<any, any> {
         <Text style={{ marginTop: 30, marginLeft: 100 }}>选择了：{this.state.selected}</Text>
       </View>
       <View style={styles.menuContainer}>
-        <FloatMenu ref="mc" name="m"
+        <Popover ref="mc" name="m"
           overlay={overlay}
           contextStyle={styles.contextStyle}
           overlayStyle={styles.overlayStyle}
@@ -49,7 +49,7 @@ export default class FloatMenuExample extends React.Component<any, any> {
           onSelect={this.onSelect}
         >
           <Text>菜单</Text>
-        </FloatMenu>
+        </Popover>
       </View>
     </View>);
   }
@@ -77,5 +77,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export const title = 'FloatMenu';
-export const description = 'FloatMenu example';
+export const title = 'Popover';
+export const description = 'Popover example';

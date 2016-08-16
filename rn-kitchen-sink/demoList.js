@@ -57,10 +57,10 @@ module.exports = {
       module: require('../components/flex/demo/basic'), // 必须
     },
     {
-      title: 'FloatMenu', // 必须
+      title: 'Popover', // 必须
       description: '浮动菜单',
       icon: 'https://os.alipayobjects.com/rmsportal/HhilRXHawmUwlML.png',
-      module: require('../components/float-menu/demo/basic'), // 必须
+      module: require('../components/popover/demo/basic'), // 必须
     },
     {
       title: 'InputItem', // 必须

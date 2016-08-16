@@ -5,15 +5,17 @@
 .@{indexedList} {
   // position: relative;
 
-  .am-list-header {
-    min-height: @list-title-height;
-    font-size: inherit;
-    color: inherit;
-  }
+  // .am-list-header {
+  // }
 
   &-section-header {
     .am-list-item {
+      min-height: @list-title-height;
       background-color: #F7F7F7;
+      .am-list-content {
+        font-size: @font-size-base !important;
+        color: @color-text-caption !important;
+      }
     }
   }
 

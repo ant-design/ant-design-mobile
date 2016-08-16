@@ -16,7 +16,7 @@ function recursiveCloneChildren(children, cb = ch => ch) {
   });
 }
 
-export default class FloatMenu extends React.Component<tsPropsType, any> {
+export default class Popover extends React.Component<tsPropsType, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     placement: PropTypes.string,
@@ -43,7 +43,7 @@ export default class FloatMenu extends React.Component<tsPropsType, any> {
       const extraProps = {
         onClick: () => {},
       };
-      if (child && child.type && child.type.FloatMenuItem && !child.props.disabled) {
+      if (child && child.type && child.type.PopoverItem && !child.props.disabled) {
         extraProps.onClick = () => {
           onSelect(child);
         };

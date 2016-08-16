@@ -3,7 +3,7 @@ import { PropTypes } from 'react';
 import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
 import tsPropsType from './PropsType';
 
-export default class FloatMenu extends React.Component<tsPropsType, any> {
+export default class Popover extends React.Component<tsPropsType, any> {
   static propTypes = {
     children: PropTypes.any,
   };

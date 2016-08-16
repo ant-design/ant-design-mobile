@@ -1,6 +1,6 @@
 ---
 order: 0
-title: FloatMenu
+title: Popover
 ---
 
 
@@ -9,8 +9,8 @@ title: FloatMenu
 this.customNavFlag = true;
 
 
-import { FloatMenu, Button, NavBar } from 'antd-mobile';
-const Item = FloatMenu.Item;
+import { Popover, Button, NavBar } from 'antd-mobile';
+const Item = Popover.Item;
 
 const App = React.createClass({
   getInitialState() {
@@ -49,7 +49,7 @@ const App = React.createClass({
 
     return (<div>
       <NavBar iconName={false}
-        rightContent={<FloatMenu
+        rightContent={<Popover
           visible={this.state.visible}
           overlay={overlay}
           popupAlign={{
@@ -59,13 +59,13 @@ const App = React.createClass({
           onSelect={this.onSelect}
         >
           <a href="#" style={{ color: 'white' }}>菜单</a>
-        </FloatMenu>}
+        </Popover>}
       >
-        FloatMenu
+        Popover
       </NavBar>
       <p>选中了 {this.state.selected}</p>
       <div style={{ paddingTop: 80, paddingLeft: 100 }}>
-        <FloatMenu
+        <Popover
           visible={this.state.visible1}
           overlay={[
             <Item key="0" value="0">item 0</Item>,
@@ -76,7 +76,7 @@ const App = React.createClass({
           onVisibleChange={v => this.setState({ visible1: v })}
         >
           <a href="#">菜单</a>
-        </FloatMenu>
+        </Popover>
       </div>
     </div>);
   },
