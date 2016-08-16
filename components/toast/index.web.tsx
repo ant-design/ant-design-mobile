@@ -48,6 +48,7 @@ function notice(content, type, duration = 3, onClose) {
       }
       instance.destroy();
       instance = null;
+      messageInstance = null;
     },
   });
 }
