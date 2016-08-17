@@ -22,7 +22,6 @@ let FormatExample = React.createClass({
           format="bankCard"
           placeholder="8888 8888 8888 8888"
           clear
-          maxLength={22}
           onBlur={function (e) { console.log('onBlur'); console.log(e); }}
           onFocus={function (e) { console.log('onFocus'); console.log(e); }}
         >银行卡</InputItem>
@@ -33,7 +32,6 @@ let FormatExample = React.createClass({
           format="phone"
           placeholder="186 1234 1234"
           clear
-          maxLength={22}
           onBlur={function (e) { console.log('onBlur'); console.log(e); }}
           onFocus={function (e) { console.log('onFocus'); console.log(e); }}
         >手机号码</InputItem>
@@ -44,7 +42,6 @@ let FormatExample = React.createClass({
           format="password"
           placeholder="****"
           clear
-          maxLength={22}
           onBlur={function (e) { console.log('onBlur'); console.log(e); }}
           onFocus={function (e) { console.log('onFocus'); console.log(e); }}
         >密码</InputItem>
@@ -55,7 +52,6 @@ let FormatExample = React.createClass({
           format="number"
           placeholder="123131"
           clear
-          maxLength={22}
           onBlur={function (e) { console.log('onBlur'); console.log(e); }}
           onFocus={function (e) { console.log('onFocus'); console.log(e); }}
         >数字键盘</InputItem>
