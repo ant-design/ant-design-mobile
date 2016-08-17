@@ -14,8 +14,8 @@ ReactDOM.render(
     <Badge text={'new'} corner>
       <span className="head-example"></span>
     </Badge>
-    <Badge text={'限时优惠'} corner size="large">
-      <span className="head-example head-example-l"></span>
+    <Badge text={'优惠'} corner>
+      <span className="head-example"></span>
     </Badge>
   </div>
 , mountNode);
@@ -23,8 +23,8 @@ ReactDOM.render(
 
 ````css
 .head-example {
-  width: 52px;
-  height: 52px;
+  width: 1.04rem;
+  height: 1.04rem;
   background: rgba(255, 140, 101, 0.15);
   display: inline-block;
 }
@@ -32,7 +32,7 @@ ReactDOM.render(
   margin-right: 8px;
 }
 .head-example-l {
-  width: 72px;
-  height: 72px;
+  width: 1.44rem;
+  height: 1.44rem;
 }
 ````

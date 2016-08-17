@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
-import Animate from 'rc-animate';
-import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 import BadgeProps from './BadgePropsType';
 
@@ -62,16 +60,12 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return (
       <span className={badgeCls} title={text}>
         {children}
-        <Animate component=""
-          showProp="data-show"
-          transitionName={`${prefixCls}-zoom`}
-          transitionAppear>
-          {
-            hidden ? null :
-              <ScrollNumber data-show={!hidden} className={scrollNumberCls}
-                count={text} style={style} />
-          }
-        </Animate>
+        {
+          !hidden &&
+          <sup className={scrollNumberCls} style={style} >
+            {text}
+          </sup>
+        }
       </span>);
   }
 }
