@@ -1,73 +1,41 @@
-// Tooltips
-
-//** Tooltip arrow width
-@popover-arrow-width: 10px;
-//** Tooltip distance with trigger
-@popover-distance: @popover-arrow-width + 4;
-//** Tooltip arrow color
-@popover-arrow-color: @fill-mask;
+@popover-arrow-width: 20px;
 
 // Base class
 .@{popoverPrefixCls} {
   position: absolute;
   z-index: 1070;
-  display: block;
-  visibility: visible;
-  opacity: 0.9;
-
   &-hidden {
     display: none;
-  }
-
-  &-placement-top,
-  &-placement-topLeft,
-  &-placement-topRight {
-    padding: @popover-arrow-width 0 @popover-distance 0;
-  }
-  &-placement-right,
-  &-placement-rightTop,
-  &-placement-rightBottom {
-    padding: 0 @popover-arrow-width 0 @popover-distance;
-  }
-  &-placement-bottom,
-  &-placement-bottomLeft,
-  &-placement-bottomRight {
-    padding: @popover-distance 0 @popover-arrow-width 0;
-  }
-  &-placement-left,
-  &-placement-leftTop,
-  &-placement-leftBottom {
-    padding: 0 @popover-distance 0 @popover-arrow-width;
   }
 }
 
 // Arrows
 .@{popoverPrefixCls}-arrow {
   position: absolute;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
+  width: @popover-arrow-width;
+  height: @popover-arrow-width;
+  border-top: 1px solid @border-color-base;
+  border-left: 1px solid @border-color-base;
+  border-bottom: 0;
+  border-right: 0;
+  background-color: @fill-base;
+  transform: rotate(45deg);
 }
 
 .@{popoverPrefixCls} {
   &-placement-top &-arrow,
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {
-    bottom: @popover-distance - @popover-arrow-width;
-    margin-left: -@popover-arrow-width;
-    border-width: @popover-arrow-width @popover-arrow-width 0;
-    border-top-color: @popover-arrow-color;
+    transform: rotate(225deg);
+    bottom: -@popover-arrow-width/2;
   }
 
   &-placement-top &-arrow {
     left: 50%;
   }
-
   &-placement-topLeft &-arrow {
     left: 15%;
   }
-
   &-placement-topRight &-arrow {
     right: 15%;
   }
@@ -75,21 +43,16 @@
   &-placement-right &-arrow,
   &-placement-rightTop &-arrow,
   &-placement-rightBottom &-arrow {
-    left: @popover-distance - @popover-arrow-width;
-    margin-top: -@popover-arrow-width;
-    border-width: @popover-arrow-width @popover-arrow-width @popover-arrow-width 0;
-    border-right-color: @popover-arrow-color;
+    transform: rotate(-45deg);
+    left: -@popover-arrow-width/2;
   }
 
   &-placement-right &-arrow {
     top: 50%;
   }
-
   &-placement-rightTop &-arrow {
     top: 15%;
-    margin-top: 0;
   }
-
   &-placement-rightBottom &-arrow {
     bottom: 15%;
   }
@@ -97,21 +60,16 @@
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
-    right: @popover-distance - @popover-arrow-width;
-    margin-top: -@popover-arrow-width;
-    border-width: @popover-arrow-width 0 @popover-arrow-width @popover-arrow-width;
-    border-left-color: @popover-arrow-color;
+    transform: rotate(135deg);
+    right: -@popover-arrow-width/2;
   }
 
   &-placement-left &-arrow {
     top: 50%;
   }
-
   &-placement-leftTop &-arrow {
     top: 15%;
-    margin-top: 0;
   }
-
   &-placement-leftBottom &-arrow {
     bottom: 15%;
   }
@@ -119,20 +77,15 @@
   &-placement-bottom &-arrow,
   &-placement-bottomLeft &-arrow,
   &-placement-bottomRight &-arrow {
-    top: @popover-distance - @popover-arrow-width;
-    margin-left: -@popover-arrow-width;
-    border-width: 0 @popover-arrow-width @popover-arrow-width;
-    border-bottom-color: @popover-arrow-color;
+    top: -@popover-arrow-width/2;
   }
 
   &-placement-bottom &-arrow {
     left: 50%;
   }
-
   &-placement-bottomLeft &-arrow {
     left: 15%;
   }
-
   &-placement-bottomRight &-arrow {
     right: 15%;
   }

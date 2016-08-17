@@ -64,7 +64,7 @@ const App = React.createClass({
         Popover
       </NavBar>
       <p>选中了 {this.state.selected}</p>
-      <div style={{ paddingTop: 140, paddingLeft: 100 }}>
+      <div style={{ paddingTop: 140, paddingLeft: 130 }}>
         <Popover
           visible={this.state.visible1}
           overlay={[
@@ -73,6 +73,9 @@ const App = React.createClass({
             <Item key="2" value="2">扫一扫</Item>,
             <Item key="3" value="3">我的二维码</Item>,
           ]}
+          popupAlign={{
+            offset: [-5, -14],
+          }}
           placement="topRight"
           onVisibleChange={v => this.setState({ visible1: v })}
         >
