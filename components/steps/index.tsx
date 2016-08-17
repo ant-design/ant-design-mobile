@@ -7,6 +7,10 @@ import styles from './style';
 export default class Steps extends React.Component<StepsProps, any> {
   static Step: any;
 
+  static defaultProps = {
+    direction: '',
+  };
+
   constructor(props) {
     super(props);
     this.state = {

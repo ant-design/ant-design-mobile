@@ -1,5 +1,5 @@
 interface StepsProps {
-  direction?: 'vertical' | '' | 'horizon';
+  direction?: 'vertical' | 'horizon';
   current?: number;
   width?: number;
   size?: string;

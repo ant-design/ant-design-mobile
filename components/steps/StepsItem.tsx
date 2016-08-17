@@ -41,7 +41,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
           {
             index < current || status === 'finish'  ?
               <Image
-                source={{ uri: 'https://zos.alipayobjects.com/rmsportal/XIjhaFdmyzZXgUE.png' }}
+                source={require('./images/success.png')}
                 style={imgStyle}
               /> :
               <Text style={[styles[dotTextSize], styles[textCurrent], styles[textWait]]}>{index + 1}</Text>
@@ -58,7 +58,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
             {
               index < current || status === 'finish' ?
               size !== 'pointer' && <Image
-                source={{ uri: 'https://zos.alipayobjects.com/rmsportal/XIjhaFdmyzZXgUE.png' }}
+                source={require('./images/success.png')}
                 style={{ width: 14, height:14 }}
               /> :
               size !== 'pointer' &&
