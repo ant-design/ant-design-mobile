@@ -9,7 +9,6 @@ export interface TabsProps {
   onTabClick?: (key) => void;
   animation?: boolean;
   tabPosition?: 'top' | 'bottom';
-  transitionName?: string;
   className?: string;
   prefixCls?: string;
   underlineColor?: string;
@@ -38,6 +37,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     activeUnderlineColor: '#108ee9',
     textColor: '#000',
     activeTextColor: '#108ee9',
+    tabPosition: 'top',
   };
 
   static TabPane: any;
@@ -170,12 +170,10 @@ export default class Tabs extends React.Component<TabsProps, any> {
   }
 
   setInkBarStyle(num, index) {
-    if (this.props.animation) {
-      const left = `${index * (100 / num)}%`;
-      const right = `${(num - index - 1) * (100 / num)}%`;
-      (this.refs as any).inkbar.style.left = left;
-      (this.refs as any).inkbar.style.right = right;
-    }
+    const left = `${index * (100 / num)}%`;
+    const right = `${(num - index - 1) * (100 / num)}%`;
+    (this.refs as any).inkbar.style.left = left;
+    (this.refs as any).inkbar.style.right = right;
   }
 
   render() {
@@ -184,13 +182,13 @@ export default class Tabs extends React.Component<TabsProps, any> {
     } = this.props;
     const inkBarCls = classNames({
       [`${prefixCls}-ink-bar`]: true,
-      [`${prefixCls}-ink-bar-transition-${this.state.tabMovingDirection}`]: true,
+      [`${prefixCls}-ink-bar-transition-${this.state.tabMovingDirection}`]: animation,
     });
-    const inkbar = animation ? (
+    const inkbar = (
       <div ref="inkbar" key="inkbar" className={inkBarCls} style={{
         backgroundColor: activeUnderlineColor,
       }} />
-    ) : null;
+    );
     const panes = [
       this.getPanes(),
       inkbar,
@@ -221,6 +219,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     const tabCls = classNames({
       [className]: !!className,
       [`${prefixCls}`]: true,
+      [`${prefixCls}-bottom`]: tabPosition === 'bottom',
       [`${prefixCls}-no-animation`]: !animation,
     });
 
