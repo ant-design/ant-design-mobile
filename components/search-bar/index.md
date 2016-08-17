@@ -33,4 +33,4 @@ english: SearchBar
 | onClear    |    点击clear图标     | Func |    |
 | showCancelButton    |    是否一直显示`取消`按钮     | bool |  `false`  |
 | cancelTxt    |   定制`取消`按钮的文字,     | bool |  `取消`  |
-| disablSearch    |    禁用搜索栏,搜索栏只用于显示     | bool |  `false`  |
+| disabled    |    禁用搜索栏,搜索栏只用于显示     | bool |  `false`  |
