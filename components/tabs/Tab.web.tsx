@@ -115,21 +115,36 @@ export default class Tabs extends React.Component<TabsProps, any> {
       textColor, activeTextColor,
     } = this.props;
     const newChildren = [];
-    const activeKey = this.state.activeKey;
+    // TODO 解决 private props 问题
     React.Children.forEach(children, (child: any, idx) => {
-      const cls = classNames({
-        [`${prefixCls}-tabpane-item-active`]: activeKey === child.key,
-        [`${prefixCls}-tabpane-item`]: true,
-      });
-      newChildren.push(
-        <div className={cls} onClick={() => this.onTabClick(child.key)} style={{
-          color: activeKey === child.key ? activeTextColor : textColor,
-          borderBottomColor: animation || activeKey !== child.key ? underlineColor : activeUnderlineColor,
-        }}>
-          {child.props.tab}
-        </div>
-      );
+      newChildren.push(React.cloneElement(child, {
+        rootPrefixCls: prefixCls,
+        activeKey: this.state.activeKey,
+        onTabClick: this.onTabClick,
+        itemKey: child.key,
+        animation,
+        key: child.key,
+        underlineColor,
+        activeUnderlineColor,
+        textColor,
+        activeTextColor,
+      }));
     });
+    // const activeKey = this.state.activeKey;
+    // React.Children.forEach(children, (child: any, idx) => {
+    //   const cls = classNames({
+    //     [`${prefixCls}-tabpane-item-active`]: activeKey === child.key,
+    //     [`${prefixCls}-tabpane-item`]: true,
+    //   });
+    //   newChildren.push(
+    //     <div className={cls} onClick={() => this.onTabClick(child.key)} style={{
+    //       color: activeKey === child.key ? activeTextColor : textColor,
+    //       borderBottomColor: animation || activeKey !== child.key ? underlineColor : activeUnderlineColor,
+    //     }}>
+    //       {child.props.tab}
+    //     </div>
+    //   );
+    // });
     return newChildren;
   }
 
