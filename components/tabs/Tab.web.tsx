@@ -7,11 +7,15 @@ export interface TabsProps {
   defaultActiveKey?: string;
   onChange?: (key) => void;
   onTabClick?: (key) => void;
-  animation?: string | boolean;
+  animation?: boolean;
   tabPosition?: 'top' | 'bottom';
   transitionName?: string;
   className?: string;
   prefixCls?: string;
+  underlineColor?: string;
+  activeUnderlineColor?: string;
+  textColor?: string;
+  activeTextColor?: string;
 }
 
 function getDefaultActiveKey(props) {
@@ -30,6 +34,10 @@ export default class Tabs extends React.Component<TabsProps, any> {
     onChange(key) {},
     onTabClick(key) {},
     animation: true,
+    underlineColor: '#ddd',
+    activeUnderlineColor: '#108ee9',
+    textColor: '#000',
+    activeTextColor: '#108ee9',
   };
 
   static TabPane: any;
@@ -47,20 +55,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
     this.state = {
       activeKey,
       tabMovingDirection: 'forward',
-      itemWidth: 0,
     };
   }
 
   componentDidMount() {
     const activeKey = this.state.activeKey;
     let {
-      currentIndex, nextIndex, paneLength,
+      nextIndex, paneLength,
     } = this.getIndexPair(this.props, activeKey, activeKey);
     this.setInkBarStyle(paneLength, nextIndex);
-    const itemWidth = (this.refs as any).tabpane.offsetWidth;
-    this.setState({
-      itemWidth,
-    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -103,13 +106,14 @@ export default class Tabs extends React.Component<TabsProps, any> {
     });
     const currentIndex = keys.indexOf(currentActiveKey);
     const nextIndex = keys.indexOf(activeKey);
-    return {
-      currentIndex, nextIndex, paneLength: keys.length,
-    };
+    return { currentIndex, nextIndex, paneLength: keys.length };
   }
 
   getPanes() {
-    const { children, prefixCls, onTabClick } = this.props;
+    const {
+      children, prefixCls, animation, underlineColor, activeUnderlineColor,
+      textColor, activeTextColor,
+    } = this.props;
     const newChildren = [];
     React.Children.forEach(children, (child: any, idx) => {
       newChildren.push(React.cloneElement(child, {
@@ -117,13 +121,18 @@ export default class Tabs extends React.Component<TabsProps, any> {
         activeKey: this.state.activeKey,
         onTabClick: this.onTabClick,
         itemKey: child.key,
+        animation,
         key: child.key,
+        underlineColor,
+        activeUnderlineColor,
+        textColor,
+        activeTextColor,
       }));
     });
     return newChildren;
   }
 
-  setActiveKey(activeKey, ps?: {}) {
+  setActiveKey(activeKey, ps?: any) {
     const props = ps || this.props;
     const currentActiveKey = this.state.activeKey;
     if (currentActiveKey === activeKey || (('activeKey' in props) && (props === this.props))) {
@@ -139,34 +148,69 @@ export default class Tabs extends React.Component<TabsProps, any> {
       this.setState({
         activeKey,
         tabMovingDirection,
-      }, () => {
-        this.setInkBarStyle(paneLength, nextIndex);
       });
+      this.setInkBarStyle(paneLength, nextIndex);
     }
   }
 
-  setInkBarStyle(number, index) {
-    const left = `${index * (100 / number)}%`;
-    const right = `${(number - index - 1) * (100 / number)}%`;
-    (this.refs as any).inkbar.style.left = left;
-    (this.refs as any).inkbar.style.right = right;
+  setInkBarStyle(num, index) {
+    if (this.props.animation) {
+      const left = `${index * (100 / num)}%`;
+      const right = `${(num - index - 1) * (100 / num)}%`;
+      (this.refs as any).inkbar.style.left = left;
+      (this.refs as any).inkbar.style.right = right;
+    }
   }
 
   render() {
-    const { animation, children, prefixCls, tabPosition } = this.props;
+    const {
+      className, animation, children, prefixCls, tabPosition, activeUnderlineColor,
+    } = this.props;
+    const inkBarCls = classNames({
+      [`${prefixCls}-ink-bar`]: true,
+      [`${prefixCls}-ink-bar-transition-${this.state.tabMovingDirection}`]: true,
+    });
+    const inkbar = animation ? (
+      <div ref="inkbar" key="inkbar" className={inkBarCls} style={{
+        backgroundColor: activeUnderlineColor,
+      }} />
+    ) : null;
+    const panes = [
+      this.getPanes(),
+      inkbar,
+    ];
+
+    if (tabPosition === 'bottom') {
+      panes.reverse();
+    }
+
+    const tabContent = [
+      <div key="pane" className={`${prefixCls}-tabpane`}>
+        {panes}
+      </div>,
+      <TabContent
+        key="content"
+        rootPrefixCls={prefixCls}
+        activeKey={this.state.activeKey}
+        contents={children}
+        animation={animation}
+        tabMovingDirection={this.state.tabMovingDirection}
+      />,
+    ];
+
+    if (tabPosition === 'bottom') {
+      tabContent.reverse();
+    }
+
+    const tabCls = classNames({
+      [className]: !!className,
+      [`${prefixCls}`]: true,
+      [`${prefixCls}-no-animation`]: !animation,
+    });
+
     return (
-      <div className="am-tab am-tab-no-animation">
-        <div ref="tabpane" className="am-tab-tabpane">
-          {this.getPanes()}
-          <div ref="inkbar" className={`am-tab-ink-bar am-tab-ink-bar-transition-${this.state.tabMovingDirection}`}></div>
-        </div>
-        <TabContent
-          itemWidth={this.state.itemWidth}
-          rootPrefixCls={prefixCls}
-          activeKey={this.state.activeKey}
-          contents={children}
-          animation={true}
-        />
+      <div className={tabCls}>
+        {tabContent}
       </div>
     );
   }
