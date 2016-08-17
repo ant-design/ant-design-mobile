@@ -65,27 +65,18 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
   onInputChange = (e) => {
     let value = e.target.value;
-    const { maxLength, onChange, format } = this.props;
+    const { onChange, format } = this.props;
 
     switch (format) {
       case 'text':
-        if (maxLength > 0) {
-          value = value.substring(0, maxLength);
-        }
         break;
       case 'bankCard':
 
         value = value.replace(/\D/g, '');
-        if (maxLength > 0) {
-          value = value.substring(0, maxLength);
-        }
         value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
         value = value.replace(/\D/g, '');
-        if (maxLength > 0) {
-          value = value.substring(0, 11);
-        }
         const valueLen = value.length;
         if (valueLen > 3 && valueLen < 8) {
           value = `${value.substr(0, 3)} ${value.substr(3)}`;
@@ -140,7 +131,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   render() {
     const {
       prefixCls, prefixListCls, format, type, name, editable, value, style, clear, children,
-      error, className, extra, labelNumber } = this.props;
+      error, className, extra, labelNumber, maxLength } = this.props;
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: type === 'hasLine',
@@ -173,6 +164,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
         <div className={`${prefixCls}-control`}>
           <input
             type={inputType}
+            maxLength={maxLength}
             name={name}
             placeholder={placeholder}
             value={value}
