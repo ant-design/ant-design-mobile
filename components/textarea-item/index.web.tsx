@@ -28,7 +28,6 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     placeholder: '',
     clear: false,
     rows: 1,
-    count: 0,
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
