@@ -20,7 +20,7 @@ export default {
 
   // 输入框图标
   input_color_icon: '#ccc',
-  input_color_icon_top: brandPrimary,
+  input_color_icon_tap: brandPrimary,
   input_color_icon_inverse: 'rgba(255, 255, 255, .6)',
   input_color_icon_tap_inverse: 'rgba(255, 255, 255, .4)',
 
@@ -116,6 +116,8 @@ export default {
   tabs_height: 36,
   option_height: 36,           // action_sheet、picker 的选项高度
   tab_bar_height: 50,
+
+  input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
 
   // 图标尺寸
   // ---
