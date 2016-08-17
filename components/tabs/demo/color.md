@@ -1,9 +1,9 @@
 ---
-order: 1
-title: 无动画
+order: 3
+title: 自定义颜色
 ---
 
-禁用切换动画效果
+text & line 颜色自定义
 
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
@@ -17,8 +17,13 @@ let TabExample = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace />
-        <Tabs defaultActiveKey="1" animation={false} onChange={callback}>
+        <Tabs defaultActiveKey="1"
+          underlineColor="blue"
+          activeUnderlineColor="red"
+          textColor="yellow"
+          activeTextColor="green"
+          onChange={callback}
+        >
           <TabPane tab="选项卡一" key="1">
             <div style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', height: 100,

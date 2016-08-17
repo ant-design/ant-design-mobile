@@ -16,7 +16,7 @@ class TabPane extends React.Component<TabPaneProps, any> {
     return (
       <div className={cls} onClick={() => onTabClick(itemKey)} style={{
         color: activeKey === itemKey ? activeTextColor : textColor,
-        borderBottomColor: animation || activeKey !== itemKey ? underlineColor : activeUnderlineColor,
+        borderColor: animation || activeKey !== itemKey ? underlineColor : activeUnderlineColor,
       }}>
         {tab}
       </div>
