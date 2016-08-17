@@ -51,7 +51,6 @@ export default class ComponentDoc extends React.Component {
     });
 
     const linkIndex = linkTo ? demoSort.filter((item) => (item.meta.id === linkTo))[0].index : 0;
-
     return linkIndex;
   }
 
@@ -202,7 +201,7 @@ export default class ComponentDoc extends React.Component {
             </div>
             <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
               <div id="aside-demo" className="aside-demo">
-                <div style={{ width: '377Px', height: '612Px' }}>
+                <div style={{ width: '377Px', height: '620Px', boxShadow: '0 0 4Px #ebebeb' }}>
                   <div className="demo-preview-wrapper">
                     <div className="demo-preview-header">
                       <div className="demo-preview-statbar">

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
-import classNames from 'classnames';
 import * as utils from '../../../theme/template/utils';
 import { Link } from 'react-router';
 import { Drawer, List, Icon } from 'antd-mobile';
@@ -50,8 +49,6 @@ export default class Home extends React.Component {
     super(props);
 
     this.state = {
-      current: this.getCurrent(props.params.index) || 0,
-      customNavBar: null,
       open: false,
       position: 'left',
     };
@@ -63,38 +60,17 @@ export default class Home extends React.Component {
     });
   }
 
-  getCurrent = (name) => {
-    const demoSort = this.props.demos.sort((a, b) => (
-      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
-    ));
-
-    let currentIndex;
-    demoSort.forEach((i, index) => {
-      const fileArr = i.meta.filename.split('/');
-      const filename = fileArr[fileArr.length - 1].split('.')[0];
-      if (filename === name) {
-        currentIndex = index;
-      }
-    });
-
-    return currentIndex;
-  }
-
   onOpenChange = () => {
     this.setState({ open: !this.state.open });
   }
 
   render() {
     const { demos } = this.props;
-    const { current } = this.state;
     const name = this.props.params.component;
 
     const demoSort = demos.sort((a, b) => (
       parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
     ));
-
-    demoSort[current].preview.call(this);
-    const customNavFlag = this.customNavFlag;
 
     const lists = {};
     this.props.components.forEach(i => {
@@ -167,28 +143,15 @@ export default class Home extends React.Component {
               </div>
             }
 
-            {demoSort.map((i, index) => {
-              let isShow = current - index === 0;
-              // ListView 组件要占用全屏、不能多实例共存（用 destroyComponent 做标记）
-              if (i.meta.destroyComponent && window.name !== 'demoFrame') {
-                isShow = this.props.params.index === undefined && current === index;
-              }
-
-              const previewItemClass = classNames({
-                'demo-preview-item': true,
-                'demo-preview-item-custom': !!customNavFlag,
-                show: true,
-                hide: true,
-              });
-
-              return (
-                <div className={previewItemClass} id={`${name}-demo-${index}`} key={index}>
+            {
+              demoSort.map((i, index) => (
+                <div className="demo-preview-item"id={`${name}-demo-${index}`} key={index}>
                   <div className="demoTitle">{i.meta.title}</div>
-                  {!i.meta.destroyComponent || isShow ? i.preview(React, ReactDOM) : null}
+                  {i.preview(React, ReactDOM)}
                   {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
                 </div>
-              );
-            })}
+              ))
+            }
           </Drawer>
         </div>
       </div>
