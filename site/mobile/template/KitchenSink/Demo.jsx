@@ -119,8 +119,7 @@ export default class Home extends React.Component {
         <Link to="/">Ant Design Mobile</Link>
       </div>
       {Object.keys(lists).map((cate, index) => (
-        <List key={index}>
-          <List.Header>{cate}</List.Header>
+        <List key={index} title={cate}>
           <List.Body>
             {
               lists[cate].map((item, ii) => {
