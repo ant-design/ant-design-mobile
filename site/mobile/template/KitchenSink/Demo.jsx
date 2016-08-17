@@ -57,6 +57,12 @@ export default class Home extends React.Component {
     };
   }
 
+  componentWillReceiveProps = () => {
+    this.setState({
+      open: false,
+    });
+  }
+
   getCurrent = (name) => {
     const demoSort = this.props.demos.sort((a, b) => (
       parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
@@ -99,7 +105,7 @@ export default class Home extends React.Component {
       lists[meta.category].push(meta);
     });
 
-    const componentList = lists.Components;
+    const componentList = lists.APIS.concat(lists.Components);
 
     let demoMeta;
     componentList.forEach((item) => {
@@ -109,6 +115,9 @@ export default class Home extends React.Component {
     });
 
     const sidebar = (<div>
+      <div className="demo-drawer-home">
+        <Link to="/">Ant Design Mobile</Link>
+      </div>
       {Object.keys(lists).map((cate, index) => (
         <List key={index}>
           <List.Header>{cate}</List.Header>
@@ -144,17 +153,20 @@ export default class Home extends React.Component {
               <p>{demoMeta.english}</p>
             </div>
 
-            <div className="demoLinks">
-              <ul>
-                {
-                  demoSort.map((item, index) => (
-                    <li key={index}>
-                      <a href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
+            {
+            demoSort.length > 1 &&
+              <div className="demoLinks">
+                <ul>
+                  {
+                    demoSort.map((item, index) => (
+                      <li key={index}>
+                        <a href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            }
 
             {demoSort.map((i, index) => {
               let isShow = current - index === 0;

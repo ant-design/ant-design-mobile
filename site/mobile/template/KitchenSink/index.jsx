@@ -108,6 +108,9 @@ export default class App extends React.Component {
     });
 
     const sidebar = (<div>
+      <div className="demo-drawer-home">
+        <Link to="/">Ant Design Mobile</Link>
+      </div>
       {Object.keys(lists).map((cate, index) => (
         <List key={index}>
           <List.Header>{cate}</List.Header>
