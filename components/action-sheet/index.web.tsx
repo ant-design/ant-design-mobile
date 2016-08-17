@@ -8,32 +8,41 @@ import assign from 'object-assign';
 
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
-let closeFn = () => {};
+
+function noop() {
+}
+
+const queue = [];
 
 function createActionSheet(flag, config, callback) {
   const props = assign({}, {
     prefixCls: 'am-action-sheet',
   }, config);
-  const { prefixCls, transitionName, maskTransitionName, maskClosable = true } = props;
+  const {prefixCls, transitionName, maskTransitionName, maskClosable = true} = props;
 
   let div = document.createElement('div');
   document.body.appendChild(div);
+
+  queue.push(div);
 
   function close() {
     if (div) {
       ReactDOM.unmountComponentAtNode(div);
       div.parentNode.removeChild(div);
       div = null;
+      const index = queue.indexOf(close);
+      if (index !== -1) {
+        queue.splice(index, 1);
+      }
     }
   }
-  closeFn = close;
 
   function cb(info) {
     callback(info);
     close();
   }
 
-  const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = props;
+  const {title, message, options, destructiveButtonIndex, cancelButtonIndex} = props;
   const titleMsg = [
     title ? <h3 key="0" className={`${prefixCls}-title`}>{title}</h3> : null,
     message ? <div key="1" className={`${prefixCls}-message`}>{message}</div> : null,
@@ -68,17 +77,17 @@ function createActionSheet(flag, config, callback) {
       children = (<div className={`${prefixCls}-share`}>
         {titleMsg}
         <ul className={`${prefixCls}-share-content`}>
-        {options.map((item, index) => {
-          const extraProp = {
-            onClick: () => cb(index),
-          };
-          return (<li key={index} {...extraProp}>
-            <p className={`${prefixCls}-share-item-icon`}>
-              {item.iconName ? <Icon type={item.iconName} /> : item.icon}
-            </p>
-            <p className={`${prefixCls}-share-item-title`}>{item.title}</p>
-          </li>);
-        })}
+          {options.map((item, index) => {
+            const extraProp = {
+              onClick: () => cb(index),
+            };
+            return (<li key={index} {...extraProp}>
+              <p className={`${prefixCls}-share-item-icon`}>
+                {item.iconName ? <Icon type={item.iconName}/> : item.icon}
+              </p>
+              <p className={`${prefixCls}-share-item-title`}>{item.title}</p>
+            </li>);
+          })}
         </ul>
       </div>);
       break;
@@ -101,19 +110,23 @@ function createActionSheet(flag, config, callback) {
     onClose={close}
     maskClosable={maskClosable}
   >{children}</Dialog>, div);
+
+  return {
+    close,
+  };
 }
 
-export default class ActionSheet {
-  static showActionSheetWithOptions = (config, callback = () => {}) => {
+export default {
+  showActionSheetWithOptions(config, callback = noop) {
     createActionSheet(NORMAL, config, callback);
-  }
-  static showShareActionSheetWithOptions = (config, callback = () => {}) => {
+  },
+  showShareActionSheetWithOptions(config, callback = noop) {
     createActionSheet(SHARE, config, callback);
-  }
-  static showActionSheetWithCustom = (config, callback = () => {}) => {
+  },
+  showActionSheetWithCustom(config, callback = noop) {
     createActionSheet(null, config, callback);
-  }
-  static close = () => {
-    closeFn();
-  }
-}
+  },
+  close() {
+    queue.forEach(q => q());
+  },
+};

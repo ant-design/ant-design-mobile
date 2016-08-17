@@ -1,0 +1,43 @@
+@import '../../style/mixins';
+@import '../../style/themes/default';
+@popoverPrefixCls: am-popover;
+
+@import './base';
+
+.@{popoverPrefixCls}-inner {
+  font-size: @font-size-base;
+  color: @color-text-base;
+  background-color: @fill-base;
+  border: @border-width-sm solid @border-color-base;
+  border-radius: @radius-sm;
+  box-shadow: 0 0 4px @color-shadow;
+}
+
+.@{popoverPrefixCls} {
+  & &-item {
+    display: flex;
+    align-items: center;
+    margin: 0 @h-spacing-md;
+    padding: @h-spacing-md;
+    border-bottom: @border-width-sm solid @border-color-base;
+    &:last-child {
+      border-bottom: 0;
+    }
+    &:active {
+      margin: 0;
+      margin-top: -@border-width-sm;
+      padding: @h-spacing-md 2*@h-spacing-md;
+      background-color: @border-color-base;
+    }
+    &.@{popoverPrefixCls}-item-disabled {
+      color: @color-text-disabled;
+      &.@{popoverPrefixCls}-item:active {
+        background-color: transparent;
+      }
+    }
+    &-icon {
+      margin-right: @h-spacing-md;
+      font-size: @icon-size-md;
+    }
+  }
+}

@@ -7,12 +7,6 @@ module.exports = {
       module: require('../components/action-sheet/demo/basic'), // 必须
     },
     {
-      title: 'Dropdown', // 必须
-      description: '下拉菜单',
-      icon: 'https://os.alipayobjects.com/rmsportal/PMIYKpJIhmqwyXI.png',
-      module: require('../components/dropdown/demo/basic'), // 必须
-    },
-    {
       title: 'Toast', // 必须
       description: '轻提示',
       icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
@@ -63,10 +57,10 @@ module.exports = {
       module: require('../components/flex/demo/basic'), // 必须
     },
     {
-      title: 'FloatMenu', // 必须
+      title: 'Popover', // 必须
       description: '浮动菜单',
       icon: 'https://os.alipayobjects.com/rmsportal/HhilRXHawmUwlML.png',
-      module: require('../components/float-menu/demo/basic'), // 必须
+      module: require('../components/popover/demo/basic'), // 必须
     },
     {
       title: 'InputItem', // 必须
@@ -85,6 +79,12 @@ module.exports = {
       description: '长列表',
       icon: 'https://os.alipayobjects.com/rmsportal/wlNeoTpEKIpTcOW.png',
       module: require('../components/list-view/demo/basic'), // 必须
+    },
+    {
+      title: 'Menu', // 必须
+      description: '菜单',
+      icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
+      module: require('../components/menu/demo/basic'), // 必须
     },
     {
       title: 'Modal', // 必须
@@ -115,6 +115,12 @@ module.exports = {
       description: '下拉刷新',
       icon: 'https://os.alipayobjects.com/rmsportal/kmDibjGUbFrdeeY.png',
       module: require('../components/refresh-control/demo/basic'), // 必须
+    },
+    {
+      title: 'SegmentedControl', // 必须
+      description: '分段控制',
+      icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
+      module: require('../components/segmented-control/demo/basic'), // 必须
     },
     {
       title: 'Slider', // 必须

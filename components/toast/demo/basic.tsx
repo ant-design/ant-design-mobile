@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 import * as React from 'react';
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
-import { View } from 'react-native';
+import { View, DeviceEventEmitter } from 'react-native';
 
 function showToast() {
   Toast.info('这是一个 toast 提示!!!');
@@ -26,6 +26,16 @@ function loadingToast() {
 }
 
 export default class ToastExample extends React.Component<any, any> {
+  componentDidMount() {
+    DeviceEventEmitter.addListener('navigatorBack', () => {
+      Toast.hide();
+    });
+  }
+
+  componentWillUnmount () {
+    DeviceEventEmitter.removeAllListeners('navigatorBack');
+  }
+
   render() {
     return (
       <View style={{marginTop: 30}}>

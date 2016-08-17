@@ -1,7 +1,7 @@
 /* eslint no-console:0 */
 import * as React from 'react';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
-import { getFormatter, getProps } from './utils';
+import { formatFn, getProps } from './utils';
 import assign from 'object-assign';
 import tsPropsType from './PropsType';
 
@@ -17,15 +17,10 @@ function getDefaultProps() {
 export default class DatePicker extends React.Component<tsPropsType, any> {
   static defaultProps = getDefaultProps();
 
-  format(v) {
-    const { format = getFormatter(this.props.mode) } = this.props;
-    return v.format(format);
-  }
-
   render() {
     const { children, extra, value, defaultDate } = this.props;
     const extraProps = {
-      extra: value ? this.format(value) : extra,
+      extra: value ? formatFn(this, value) : extra,
     };
     return (
       <PopupDatePicker {...this.props}

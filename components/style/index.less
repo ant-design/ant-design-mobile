@@ -1,4 +1,4 @@
-@import './variables';
+@import './themes/default';
 @import './anim';
 
 *,
@@ -8,7 +8,6 @@
 }
 
 body {
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -17,14 +16,13 @@ body {
 }
 
 a {
-  color: @brand-6;
+  color: @brand-primary;
   background: transparent;
   text-decoration: none;
   outline: none;
-  -webkit-transition: color .3s ease;
   transition: color .3s ease;
   &:active,
   &:hover {
-    color: @brand-7;
+    color: @brand-primary-tap;
   }
 }

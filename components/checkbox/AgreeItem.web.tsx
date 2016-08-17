@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
-function noop() {}
 
 export interface AgreeItemProps {
   /** web only */
@@ -10,6 +9,7 @@ export interface AgreeItemProps {
   /** web only */
   className?: string;
   name?: string;
+  defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
   onChange?: Function;
@@ -19,14 +19,10 @@ export interface AgreeItemProps {
 export default class AgreeItem extends React.Component<AgreeItemProps, any> {
   static defaultProps = {
     prefixCls: 'am-checkbox',
-    name: '',
-    checked: false,
-    disabled: false,
-    onChange: noop,
   };
 
   render() {
-    let { prefixCls, style, name, checked, disabled, children, onChange, className } = this.props;
+    let { prefixCls, style, name, defaultChecked, checked, disabled, children, onChange, className } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-agree`]: true,
       [className]: className,
@@ -37,6 +33,7 @@ export default class AgreeItem extends React.Component<AgreeItemProps, any> {
       style={style}>
       {<Checkbox
         prefixCls={prefixCls}
+        defaultChecked={defaultChecked}
         checked={checked}
         name={name}
         onChange={onChange}

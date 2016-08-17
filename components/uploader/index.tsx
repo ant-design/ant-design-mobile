@@ -86,9 +86,9 @@ export default class Uploader extends React.Component<UploaderProps, any> {
     //     }
     //   });
     // } else {
-      this.setState({
-        visible: true,
-      });
+    this.setState({
+      visible: true,
+    });
     // }
   }
 
@@ -122,21 +122,19 @@ export default class Uploader extends React.Component<UploaderProps, any> {
     return (
       <View style={styles.container}>
         {
-          files.map((item: any, index) => {
-            return (
-              <View key={index} style={[styles.item, styles.size]}>
-                <Image
-                  source={{uri: item.url}}
-                  style={[styles.size, styles.image]}
-                />
-                <TouchableWithoutFeedback onPress={() => this.removeImage(index)}>
-                  <View style={styles.closeWrap}>
-                    <Text style={styles.closeText}>×</Text>
-                  </View>
-                </TouchableWithoutFeedback>
-              </View>
-            );
-          })
+          files.map((item: any, index) => (
+            <View key={index} style={[styles.item, styles.size]}>
+              <Image
+                source={{ uri: item.url }}
+                style={[styles.size, styles.image]}
+              />
+              <TouchableWithoutFeedback onPress={() => this.removeImage(index)}>
+                <View style={styles.closeWrap}>
+                  <Text style={styles.closeText}>×</Text>
+                </View>
+              </TouchableWithoutFeedback>
+            </View>
+          ))
         }
 
         <TouchableWithoutFeedback
@@ -144,12 +142,14 @@ export default class Uploader extends React.Component<UploaderProps, any> {
           onPressIn={this.onPressIn}
           onPressOut={this.onPressOut}
         >
-          <View ref={
-            conponent => this.plusWrap = conponent
-          } style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}>
+          <View
+            ref={conponent => this.plusWrap = conponent}
+            style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
+          >
             <Text
-              ref={conponent => this.plusText = conponent
-              } style={[styles.plusNormal, styles.plusText]}>+</Text>
+              ref={conponent => this.plusText = conponent}
+              style={[styles.plusNormal, styles.plusText]}
+            >+</Text>
           </View>
         </TouchableWithoutFeedback>
 

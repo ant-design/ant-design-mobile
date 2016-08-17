@@ -47,3 +47,4 @@ english: List
 | align    |    Flex 子元素垂直对齐     | String    | `top` `middle` `bottom` | `middle` |
 | onClick    | 点击事件的回调函数 | Function |  | 无  |
 | error    | 报错样式,右侧文字颜色变成橙色 | Boolean |  `true`、`false` | `false`  |
+| multipleLine    | 多行 | Boolean |  `true`、`false` | `false`  |

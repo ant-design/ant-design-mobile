@@ -139,7 +139,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           >
             <View style={[InputItemStyle.errorIcon]}>
               <Image
-                source={require('./images/error.png')}
+                source={require('../style/images/error.png')}
                 style={{ width: 16, height: 16 }}
               />
             </View>

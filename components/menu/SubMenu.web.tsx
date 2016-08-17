@@ -2,31 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import List from '../list/index';
 import Radio from '../radio/index.web';
-
-export interface SubDataItem {
-  label?: string;
-  value?: any;
-  disabled?: boolean;
-  [key: string]: any;
-}
-
-export interface SubMenuProps {
-  /** web only */
-  prefixCls?: string;
-  /** web only */
-  radioPrefixCls?: string;
-  /** web only */
-  className?: string;
-  style?: React.CSSProperties;
-  value?: Array<SubDataItem>;
-  data?: Array<SubDataItem>;
-  onChange?: Function;
-}
-
-export interface SubMenuState {
-  value?: Array<SubDataItem>;
-  data?: Array<SubDataItem>;
-}
+import { SubMenuProps, SubMenuState } from './propTypes';
 
 export default class SubMenu extends React.Component<SubMenuProps, SubMenuState> {
   static defaultProps = {

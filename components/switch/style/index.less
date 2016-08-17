@@ -1,24 +1,23 @@
 @import '../../style/mixins';
-@import '../../style/variables';
+@import '../../style/themes/default';
 
 @switchPrefixCls: am-switch;
 
 .@{switchPrefixCls} {
   display: inline-block;
   vertical-align: middle;
-  width: 13*@grid;
-  height: 8*@grid;
-  border-radius: 4*@grid;
+  width: 102px;
+  height: 62px;
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
   .align-self(center);
   .checkbox {
-    width: 13*@grid;
-    height: 8*@grid;
-    border-radius: 4*@grid;
+    width: 102px;
+    height: 62px;
+    border-radius: 62px;
     box-sizing: border-box;
-    background: @neutral-6;
+    background: #e5e5e5;
     z-index: 0;
     margin: 0;
     padding: 0;
@@ -30,29 +29,30 @@
     &:before {
       content: ' ';
       position: absolute;
-      left: 0.5*@grid;
-      top: 0.5*@grid;
-      width: 12*@grid;
-      border-radius: 4*@grid;
+      left: 3px;
+      top: 3px;
+      width: 96px;
+      height: 56px;
+      border-radius: 56px;
       box-sizing: border-box;
-      height: 7*@grid;
-      background: @neutral-6;
+      background: @fill-base;
       z-index: 1;
       .transition(200ms);
       .transform(scale(1));
     }
     &:after {
       content: ' ';
-      height: 7*@grid;
-      width: 7*@grid;
-      border-radius: 7*@grid;
-      background: @neutral-1;
+      height: 56px;
+      width: 56px;
+      border-radius: 56px;
+      background: @fill-base;
       position: absolute;
       z-index: 2;
-      top: 0.5*@grid;
-      left: 0.5*@grid;
+      left: 3px;
+      top: 3px;
       .transform(translateX(0px));
       .transition(200ms);
+      .box-shadow(4px 4px 8px @color-shadow);
     }
   }
   input[type="checkbox"] {
@@ -67,26 +67,18 @@
     -webkit-appearance: none;
     &:checked {
       &+ .checkbox {
-        background: @green-6;
+        background: @switch-fill;
         &:before {
           .transform(scale(0));
         }
         &:after {
-          .transform(translateX(5*@grid));
+          .transform(translateX(40px));
         }
       }
     }
     &:disabled {
       &+ .checkbox {
-        background: @neutral-4;
-        &:before {
-          background: @neutral-4;
-        }
-      }
-      &:checked {
-        &+ .checkbox {
-          background: @green-3;
-        }
+        opacity: @opacity-disabled;
       }
     }
   }

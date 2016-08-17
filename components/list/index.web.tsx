@@ -11,6 +11,8 @@ export interface ListProps {
   style?: React.CSSProperties;
   /** web only */
   className?: string;
+  title?: React.ReactNode;
+  footer?: React.ReactNode;
   children?: any;
 }
 
@@ -25,7 +27,7 @@ class List extends React.Component<ListProps, any> {
   };
 
   render() {
-    let { prefixCls, children, className, style } = this.props;
+    let { prefixCls, children, className, style, title, footer } = this.props;
     const wrapCls = classNames({
       [prefixCls]: true,
       [className]: className,
@@ -33,7 +35,9 @@ class List extends React.Component<ListProps, any> {
 
     return (
       <div className={wrapCls} style={style}>
+        {title ? <Header>{title}</Header> : null}
         {children}
+        {footer ? <Footer>{footer}</Footer> : null}
       </div>
     );
   }

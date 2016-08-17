@@ -1,0 +1,35 @@
+@import '../../style/themes/default';
+@import '../../style/mixins';
+
+@segment-prefix-cls: am-segment;
+
+.@{segment-prefix-cls} {
+  .display-box;
+  background-color: #fff;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: @radius-md;
+  border-color: @brand-primary;
+  overflow: hidden;
+  margin: 0 @h-spacing-lg;
+  &-item {
+    .box-flex(1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @brand-primary;
+    font-size: @font-size-base;
+    padding: @h-spacing-sm 0;
+    border-right: 2px solid @brand-primary;
+    line-height: 1;
+
+    &:last-child {
+      border-right: 0;
+    }
+
+    &-selected {
+      background: @brand-primary;
+      color: @color-text-base-inverse;
+    }
+  }
+}

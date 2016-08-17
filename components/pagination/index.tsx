@@ -75,7 +75,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
           <Flex>
             <Flex.Item>
               <Button
-                type="default"
                 size={size}
                 inline
                 disabled={current <= 0}
@@ -94,7 +93,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
             }
             <Flex.Item>
               <Button
-                type="default"
                 size={size}
                 disabled={current >= total - 1}
                 inline

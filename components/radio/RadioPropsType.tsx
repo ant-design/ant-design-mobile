@@ -10,6 +10,7 @@ export interface RadioProps {
   className?: string;
   /** web only */
   name?: string;
+  defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
   onChange?: Function;

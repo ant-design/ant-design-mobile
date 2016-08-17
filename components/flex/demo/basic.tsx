@@ -35,13 +35,13 @@ export default class FlexExample extends React.Component<any, any> {
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex>
             <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-              <Button mode="white" size="small">按钮1</Button>
+              <Button size="small">按钮1</Button>
             </Flex.Item>
             <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-              <Button mode="white" size="small">按钮2</Button>
+              <Button size="small">按钮2</Button>
             </Flex.Item>
             <Flex.Item style={{ paddingLeft: 4, paddingRight: 4 }}>
-              <Button mode="white" size="small">按钮3</Button>
+              <Button size="small">按钮3</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -50,9 +50,9 @@ export default class FlexExample extends React.Component<any, any> {
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex direction="column">
-            <Flex.Item style={{ paddingBottom: 4 }}><Button mode="white" size="small">按钮1</Button></Flex.Item>
-            <Flex.Item style={{ paddingBottom: 4 }}><Button mode="white" size="small">按钮2</Button></Flex.Item>
-            <Flex.Item style={{ paddingBottom: 4 }}><Button mode="white" size="small">按钮3</Button></Flex.Item>
+            <Flex.Item style={{ paddingBottom: 4 }}><Button size="small">按钮1</Button></Flex.Item>
+            <Flex.Item style={{ paddingBottom: 4 }}><Button size="small">按钮2</Button></Flex.Item>
+            <Flex.Item style={{ paddingBottom: 4 }}><Button size="small">按钮3</Button></Flex.Item>
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>

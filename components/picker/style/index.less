@@ -1,5 +1,5 @@
 @import '../../style/mixins';
-@import '../../style/variables';
+@import '../../style/themes/default';
 
 @pickerPrefixCls: am-picker;
 @pickerPickerPrefixCls: am-picker-picker;
@@ -8,11 +8,12 @@
 @import './picker';
 @import './picker-popup';
 
+@picker-item-height: 68px;
+
 .@{pickerPrefixCls} {
   display: flex;
-  box-align: center;
   align-items: center;
-  padding: 10px 0;
+  padding: @v-spacing-sm 0;
 
   &-main-item {
     flex: 1;
