@@ -63,10 +63,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   onChange = (e) => {
     let value = e.target.value;
-    const { count, onChange } = this.props;
-    if (count > 0) {
-      value = value.substring(0, count);
-    }
+    const { onChange } = this.props;
     onChange(value);
   };
 
@@ -128,6 +125,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
             name={name}
             rows={rows}
             placeholder={placeholder}
+            maxLength={count}
             onChange={this.onChange}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
