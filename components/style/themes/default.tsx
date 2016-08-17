@@ -67,7 +67,7 @@ export default {
   font_size_display_lg: 24,
   font_size_display_xl: 30,
 
-  small_button_font_size: 12,
+  button_font_size_sm: 12,
   link_button_font_size: 16,
   button_font_size: 18,
   input_font_size: 14,
@@ -108,7 +108,7 @@ export default {
 
   // 高度
   // ---
-  small_button_height: 23,
+  button_height_sm: 23,
   button_height: 36,
   list_title_height: 30,
   list_item_height: 45,        // 列表项高度
