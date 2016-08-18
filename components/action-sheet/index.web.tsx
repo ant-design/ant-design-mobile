@@ -23,7 +23,7 @@ function createActionSheet(flag, config, callback) {
   let div = document.createElement('div');
   document.body.appendChild(div);
 
-  queue.push(div);
+  queue.push(close);
 
   function close() {
     if (div) {
