@@ -1,11 +1,10 @@
 import React from 'react';
-
 import Promise from 'bluebird';
 import * as utils from '../../../theme/template/utils';
 import Page from './Page';
 import Item from './Item';
-import { List, Flex } from 'antd-mobile';
-import './Base.less';
+import { Link } from 'react-router';
+import { Icon, Drawer, List, Flex } from 'antd-mobile';
 
 const hashImgObj = {
   'action-sheet': 'sTvsgvivVKnqQtS',
@@ -76,7 +75,20 @@ export function collect(nextProps, callback) {
     }));
 }
 
-export default class Home extends React.Component {
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false,
+      position: 'left',
+    };
+  }
+
+  onOpenChange = () => {
+    this.setState({ open: !this.state.open });
+  }
+
   render() {
     const customWidth = (document.documentElement.clientWidth / 3);
     const itemStyle = {
@@ -95,37 +107,70 @@ export default class Home extends React.Component {
       lists[meta.category].push(meta);
     });
 
-    return (
-      <Page logo="https://zos.alipayobjects.com/rmsportal/EMcaWpnrUZqsOQt.png" title="AntD Mobile" subtitle="移动端UI组件库" isIndex>
-        {Object.keys(lists).map((cate, index) => (
-          <List key={index}>
-            <List.Header>{cate}</List.Header>
-            <List.Body>
-              {(() => {
-                const flexs = [];
-                let flexItems = [];
-                for (let i = 0; i < lists[cate].length; i++) {
-                  const ii = lists[cate][i];
-                  const fileName = ii.filename.split('/')[1];
-                  const img = hashImgObj[fileName] || 'IptWdCkrtkAUfjE';
-                  flexItems.push(<Item
-                    logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
-                    title={ii.chinese}
-                    subtitle={ii.english}
-                    style={itemStyle}
-                    key={`flexitem-${i}`}
-                    linkTo={`/${fileName}/`}
-                  />);
-                }
-                flexs.push(<Flex wrap="wrap" className="antm-demo-flex" key={`flex-${index}`}>
-                  {flexItems}
-                </Flex>);
-                return flexs;
-              })()}
-            </List.Body>
-          </List>
-        ))}
-      </Page>
-    );
+    const sidebar = (<div>
+      <div className="demo-drawer-home">
+        <Link to="/">Ant Design Mobile</Link>
+      </div>
+      {Object.keys(lists).map((cate, index) => (
+        <List key={index} title={cate}>
+          <List.Body>
+            {
+              lists[cate].map((item, ii) => {
+                const fileName = item.filename.split('/')[1];
+                return (<List.Item key={ii}>
+                  <Link to={`/${fileName}/`}>{item.chinese}</Link>
+                </List.Item>);
+              })
+            }
+          </List.Body>
+        </List>
+      ))}
+    </div>);
+
+    const drawerProps = {
+      open: this.state.open,
+      position: this.state.position,
+      onOpenChange: this.onOpenChange,
+    };
+
+    return (<div>
+      <div className="demo-drawer-trigger">
+        <span onClick={this.onOpenChange}><Icon type="bars" /></span>
+      </div>
+      <div className="demo-drawer-container">
+        <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
+          <Page logo="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" title="Ant Design Mobile" subtitle="服务于蚂蚁大中台无线业务的react组件" isIndex>
+            {Object.keys(lists).map((cate, index) => (
+              <List key={index}>
+                <List.Header>{cate}</List.Header>
+                <List.Body>
+                  {(() => {
+                    const flexs = [];
+                    let flexItems = [];
+                    for (let i = 0; i < lists[cate].length; i++) {
+                      const ii = lists[cate][i];
+                      const fileName = ii.filename.split('/')[1];
+                      const img = hashImgObj[fileName] || 'IptWdCkrtkAUfjE';
+                      flexItems.push(<Item
+                        logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
+                        title={ii.chinese}
+                        subtitle={ii.english}
+                        style={itemStyle}
+                        key={`flexitem-${i}`}
+                        linkTo={`/${fileName}/`}
+                      />);
+                    }
+                    flexs.push(<Flex wrap="wrap" className="antm-demo-flex" key={`flex-${index}`}>
+                      {flexItems}
+                    </Flex>);
+                    return flexs;
+                  })()}
+                </List.Body>
+              </List>
+            ))}
+          </Page>
+        </Drawer>
+      </div>
+    </div>);
   }
 }

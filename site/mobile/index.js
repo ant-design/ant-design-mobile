@@ -6,9 +6,5 @@ module.exports = {
     path: '/:component/',
     dataPath: '/components/:component',
     component: './template/KitchenSink/Demo',
-  }, {
-    path: '/:component/:index',
-    dataPath: '/components/:component/demo/:index',
-    component: './template/KitchenSink/Demo',
   }],
 };
