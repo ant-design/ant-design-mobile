@@ -13,6 +13,7 @@ export default class Link extends React.Component {
         <ScrollLink className="list-point" location="banner" />
         <ScrollLink className="list-point" location="page1" />
         <ScrollLink className="list-point" location="page2" />
+        <ScrollLink className="list-point" location="page3" />
       </div>
     );
   }
