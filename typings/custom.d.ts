@@ -8,7 +8,7 @@ declare module 'antd-mobile' {
     DatePicker: any;
     Drawer: any;
     Dropdown: any;
-    FloatMenu: any;
+    Popover: any;
     Flex: any;
     InputItem: any;
     List: any;
