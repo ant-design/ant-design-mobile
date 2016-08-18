@@ -67,7 +67,7 @@ ReactDOM.render(
   height: 24px;
   line-height: 1;
   font-size: 24px;
-  color: #ccc;
+  color: #000;
 }
 
 .iconWrapper .anticon:first-child {

@@ -41,7 +41,7 @@ ReactDOM.render(
       </List.Body>
     </List>
     <List>
-      <List.Header>大号</List.Header>
+      <List.Header>大号带数字</List.Header>
       <List.Body>
         <List.Item>
           <Stepper size="large" showNumber max={10} min={1} defaultValue={1} onChange={onChange} />
