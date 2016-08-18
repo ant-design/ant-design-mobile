@@ -1,10 +1,10 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 import { StyleSheet, Platform } from 'react-native';
 
 export default StyleSheet.create({
   container: {
     position: 'absolute',
-    top: variables.grid * (Platform.OS === 'ios' ? 16 : 13.5),
+    top: Platform.OS === 'ios' ? 64 : 54,
     left: 0,
     bottom: 0,
     right: 0,
@@ -17,24 +17,31 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',
   },
   innnerWrap: {
-    borderRadius: variables.radius_2,
     alignItems: 'center',
-    backgroundColor: 'rgba(34, 34, 34, 0.6)',
-    padding: variables.grid * 4,
+    backgroundColor: variables.fill_overlay_inverse,
     minWidth: 100,
   },
+  iconToast: {
+    borderRadius: variables.radius_lg,
+    padding: variables.v_spacing_lg,
+  },
+  textToast: {
+    borderRadius: variables.radius_sm,
+    paddingVertical: variables.v_spacing_md,
+    paddingHorizontal: variables.v_spacing_lg,
+  },
   content: {
-    color: variables.neutral_1,
-    fontSize: variables.font_size_4,
+    color: variables.color_text_base_inverse,
+    fontSize: variables.font_size_subhead,
   },
   image: {
-    width: variables.grid * 8,
-    height: variables.grid * 8,
-    marginBottom: variables.grid,
+    width: variables.icon_size_lg,
+    height: variables.icon_size_lg,
+    marginBottom: variables.v_spacing_xs,
   },
   centering: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 8,
+    padding: variables.v_spacing_md,
   },
 });

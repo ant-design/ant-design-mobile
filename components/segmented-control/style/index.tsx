@@ -1,17 +1,17 @@
 import { StyleSheet } from 'react-native';
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 
 export default StyleSheet.create({
   segment: {
     flexDirection: 'row',
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: variables.brand_6,
-    borderRadius: variables.radius_1,
+    borderColor: variables.brand_primary,
+    borderRadius: variables.radius_md,
   },
   item: {
     flex: 1,
-    paddingVertical: 1.5 * variables.grid,
+    paddingVertical: variables.h_spacing_sm,
     borderLeftWidth: 1,
     borderRightWidth: 1,
     borderStyle: 'solid',
@@ -19,15 +19,15 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   itemLeftRadius: {
-    borderTopLeftRadius: variables.grid,
-    borderBottomLeftRadius: variables.grid,
+    borderTopLeftRadius: variables.radius_md,
+    borderBottomLeftRadius: variables.radius_md,
   },
   itemRightRadius: {
-    borderTopRightRadius: variables.grid,
-    borderBottomRightRadius: variables.grid,
+    borderTopRightRadius: variables.radius_md,
+    borderBottomRightRadius: variables.radius_md,
   },
   itemText: {
     textAlign: 'center',
-    fontSize: variables.font_size_2,
+    fontSize: variables.font_size_caption_sm,
   },
 });

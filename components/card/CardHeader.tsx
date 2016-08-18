@@ -25,13 +25,19 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
       <Text style={CardStyle.headerContent}>{title}</Text>
     );
 
+    const extraDom = React.isValidElement(extra) ? (
+      <View style={{ flex: 1 }}>{extra}</View>
+    ) : (
+      <Text style={[CardStyle.headerExtra]}>{extra}</Text>
+    );
+
     return (
       <View style={[CardStyle.headerWrap, style]}>
         <View style={[CardStyle.headerTitle]}>
           { thumb ? <Image source={{ uri: thumb }} style={[CardStyle.headerImage, thumbStyle]} /> : null }
           {titleDom}
         </View>
-        { extra ? <View style={CardStyle.headerExtra}>{extra}</View> : null }
+        { extra ? extraDom : null }
       </View>
     );
   }

@@ -12,8 +12,9 @@ export default {
   color_text_placeholder: '#ccc',           // 文本框提示
   color_text_disabled: '#bbb',              // 失效
   color_text_caption: '#888',               // 辅助描述
-  color_text_paragraph: '#888',             // 段落
+  color_text_paragraph: '#333',             // 段落
   color_link: '#108ee9',                    // 链接
+  color_text_tap: '#BCBCBC',
 
   // 阴影色
   color_shadow: 'rgba(100, 100, 100, .2)',  // 阴影色
@@ -95,9 +96,9 @@ export default {
   // 间距
   // ---
   // 水平间距
-  h_spacing_sm: 12,
-  h_spacing_md: 18,
-  h_spacing_lg: 30,
+  h_spacing_sm: 6,
+  h_spacing_md: 9,
+  h_spacing_lg: 15,
 
   // 垂直间距
   v_spacing_xs: 3,

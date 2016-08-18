@@ -1,37 +1,37 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   notice: {
-    backgroundColor: variables.function_warning_1,
-    height: 9 * variables.grid,
+    backgroundColor: variables.notice_bar_fill,
+    height: variables.notice_bar_height,
     overflow: 'hidden',
     flexDirection: 'row',
     alignItems: 'center',
   },
   content: {
     flex: 1,
-    fontSize: variables.font_size_2,
-    color: variables.red_6,
-    marginRight: 3 * variables.grid,
+    fontSize: variables.font_size_subhead,
+    color: variables.brand_warning,
+    marginRight: variables.h_spacing_lg,
   },
-  left8: {
-    marginLeft: 2 * variables.grid,
+  left6: {
+    marginLeft: variables.h_spacing_sm,
   },
-  left12: {
-    marginLeft: 3 * variables.grid,
+  left15: {
+    marginLeft: variables.h_spacing_lg,
   },
   close: {
-    color: variables.red_6,
-    fontSize: variables.font_size_6,
-    marginRight: 2 * variables.grid,
+    color: variables.brand_warning,
+    fontSize: variables.font_size_display_sm,
+    marginRight: variables.h_spacing_lg,
     fontWeight: '200',
   },
   link: {
     transform: [{ rotate: '225deg' }],
-    color: variables.red_6,
-    fontSize: variables.font_size_1,
+    color: variables.brand_warning,
+    fontSize: variables.font_size_icontext,
     fontWeight: '500',
-    marginRight: 3 * variables.grid,
+    marginRight: variables.h_spacing_lg,
   },
 });

@@ -30,7 +30,7 @@ const App = React.createClass({
           <Button type="primary" onClick={this.showModal}>
             可关闭对话框
           </Button>
-          <Modal title="1313123" animated={false} transparent closable maskClosable onClose={this.onClose} visible={this.state.visible}>
+          <Modal title="这是 title" animated={false} transparent closable maskClosable onClose={this.onClose} visible={this.state.visible}>
             这是内容...<br />
             这是内容...<br />
           </Modal>
