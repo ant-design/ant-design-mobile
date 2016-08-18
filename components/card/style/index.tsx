@@ -15,8 +15,6 @@ export default StyleSheet.create({
     paddingVertical: variables.v_spacing_md,
     paddingRight: variables.h_spacing_lg,
     marginLeft: variables.h_spacing_lg,
-    // borderBottomWidth: variables.border_width_md,
-    // borderColor: variables.neutral_5,
     alignItems: 'center',
   },
   headerTitle: {
