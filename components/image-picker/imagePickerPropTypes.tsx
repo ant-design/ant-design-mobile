@@ -1,4 +1,4 @@
-interface UploaderProps {
+interface ImagePickerPropTypes {
   style?: {};
   files?: Array<{}>;
   onChange?: (files: Array<{}>) => void;
@@ -9,4 +9,4 @@ interface UploaderProps {
   className?: string;
 }
 
-export default UploaderProps;
+export default ImagePickerPropTypes;

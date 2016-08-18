@@ -10,6 +10,7 @@ declare module 'antd-mobile' {
     Dropdown: any;
     Popover: any;
     Flex: any;
+    ImagePicker: any;
     InputItem: any;
     List: any;
     ListView: any;
@@ -30,7 +31,6 @@ declare module 'antd-mobile' {
     Timeline: any;
     Toast: any;
     TopNotice: any;
-    Uploader: any;
     WhiteSpace: any;
     WingBlank: any;
   };

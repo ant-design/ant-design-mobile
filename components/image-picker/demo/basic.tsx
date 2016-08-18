@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ImagePicker, WhiteSpace } from 'antd-mobile';
 import { View } from 'react-native';
 
-export default class UploaderExample extends React.Component<any, any> {
+export default class ImagePickerExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {

@@ -63,6 +63,12 @@ module.exports = {
       module: require('../components/popover/demo/basic'), // 必须
     },
     {
+      title: 'ImagePicker', // 必须
+      description: '图片选择',
+      icon: 'https://os.alipayobjects.com/rmsportal/CVHyVxhFqkhZfYs.png',
+      module: require('../components/image-picker/demo/basic'), // 必须
+    },
+    {
       title: 'InputItem', // 必须
       description: '文本输入',
       icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
@@ -169,12 +175,6 @@ module.exports = {
       description: '顶部提示',
       icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
       module: require('../components/top-notice/demo/basic'), // 必须
-    },
-    {
-      title: 'ImagePicker', // 必须
-      description: '图片选择',
-      icon: 'https://os.alipayobjects.com/rmsportal/CVHyVxhFqkhZfYs.png',
-      module: require('../components/image-picker/demo/basic'), // 必须
     },
     {
       title: 'WhiteSpace', // 必须

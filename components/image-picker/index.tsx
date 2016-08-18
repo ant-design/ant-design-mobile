@@ -10,12 +10,12 @@ import {
   // ActionSheetIOS,
 } from 'react-native';
 import ImagePickerPropTypes from './ImagePickerPropTypes';
-import uploaderStyles from './style/';
+import imagePickerStyles from './style/';
 import ImageRoll from './ImageRoll';
 
 export default class ImagePicker extends React.Component<ImagePickerPropTypes, any> {
   static defaultProps = {
-    styles: uploaderStyles,
+    styles: imagePickerStyles,
     onChange() {},
     files: [],
   };
