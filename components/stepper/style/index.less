@@ -19,26 +19,16 @@
   }
 }
 
-.handler-disabled() {
-  opacity: 0.72;
-  background-color: @neutral-3;
-  color: @neutral-6 !important;
-  border-color: @neutral-5;
-  &:active {
-    color: @neutral-6;
-  }
-}
-
 .@{stepperPrefixCls} {
   position: relative;
   margin: 0;
   padding: 4px 0;
   display: inline-block;
   box-sizing: content-box;
-  width: @grid * 14.5 + 1;
-  height: @grid * 7;
-  font-size: @font-size-2;
-  line-height: @grid * 7;
+  width: @segmented-control-height * 2 + 6;
+  height: @segmented-control-height;
+  font-size: @font-size-base;
+  line-height: @segmented-control-height;
   vertical-align: middle;
   overflow: hidden;
 
@@ -50,28 +40,26 @@
   &-handler,
   &-handler-up-inner,
   &-handler-down-inner {
-    width: @grid * 7;
-    height: @grid * 7;
-    line-height: @grid * 7;
+    width: @segmented-control-height;
+    height: @segmented-control-height;
+    line-height: @segmented-control-height;
   }
 
   &-handler {
     text-align: center;
-    border: 1px solid @border-color-base;
-    border-radius: @radius-2;
+    border: @border-width-md solid @input-color-icon;
+    border-radius: @radius-md;
     overflow: hidden;
-    color: #999;
+    color: @color-text-base;
     position: absolute;
     display: inline-block;
     box-sizing: content-box;
     &:active {
-      border-color: @brand-6;
       z-index: 2;
     }
     &:active &-up-inner,
     &:active &-down-inner {
-      border-color: @brand-6;
-      color: @brand-6;
+      background: @fill-tap;
     }
   }
   &-handler-up {
@@ -93,64 +81,60 @@
   &-input-wrap {
     display: none;
     width: 100%;
-    height: @grid * 7;
-    line-height: @grid * 7;
+    height: @segmented-control-height;
+    line-height: @segmented-control-height;
     text-align: center;
     overflow: hidden;
   }
 
   &-input {
     display: none;
-    width: @grid * 14;
-    font-size: @font-size-5;
-    color: @neutral-10;
+    width: @segmented-control-height * 2;
+    font-size: @font-size-base;
+    color: @color-text-base;
     text-align: center;
     border: 0;
     padding: 0;
     background: none;
     &:disabled {
-      opacity: 1;
+      opacity: @opacity-disabled;
     }
   }
 
   &.showNumber {
-    width: @grid * 29;
+    width: @segmented-control-height * 2 + 112;
     .@{stepperPrefixCls}-input-wrap {
       display: inline-block;
     }
     .@{stepperPrefixCls}-input {
       display: inline-block;
     }
-    .@{stepperPrefixCls}-handler {
-      &:active {
-        border-color: @brand-6;
-      }
-    }
     .@{stepperPrefixCls}-handler-up {
-      border-top-left-radius: @radius-2;
-      border-bottom-left-radius: @radius-2;
+      border-top-left-radius: @radius-md;
+      border-bottom-left-radius: @radius-md;
     }
     .@{stepperPrefixCls}-handler-down {
-      border-top-right-radius: @radius-2;
-      border-bottom-right-radius: @radius-2;
-      border-right: 1px solid @border-color-base;
+      border-top-right-radius: @radius-md;
+      border-bottom-right-radius: @radius-md;
+      border-right: @border-width-md solid @input-color-icon;
     }
     .@{stepperPrefixCls}-handler-down-disabled {
-      right: -1px;
+      right: -2px;
     }
   }
 
   &-lg {
-    width: @grid * 22.5 + 1;
-    height: @grid * 11;
-    line-height: @grid * 11;
+    width: @button-height * 2 + 6;
+    height: @button-height;
+    line-height: @button-height;
+    font-size: @font-size-display-sm;
     .@{stepperPrefixCls}-handler-wrap,
     .@{stepperPrefixCls}-handler,
     .@{stepperPrefixCls}-handler-up-inner,
     .@{stepperPrefixCls}-handler-down-inner {
-      width: @grid * 11;
-      height: @grid * 11;
-      line-height: @grid * 11;
+      width: @button-height;
+      height: @button-height;
+      line-height: @button-height;
     }
 
     .@{stepperPrefixCls}-handler-wrap {
@@ -159,24 +143,24 @@
     }
 
     .@{stepperPrefixCls}-input-wrap {
-      height: @grid * 11;
-      line-height: @grid * 11;
+      height: @button-height;
+      line-height: @button-height;
     }
 
     &.showNumber {
-      width: @grid * 45;
+      width: @button-height * 2 + 172;
     }
 
     input {
-      font-size: @font-size-6;
-      width: @grid * 22;
-      height: @grid * 11;
-      line-height: @grid * 11;
-      vertical-align: top;
+      font-size: @font-size-display-sm;
+      width: @button-height * 2;
+      height: @button-height;
+      line-height: @button-height;
+      vertical-align: middle;
     }
 
     .@{stepperPrefixCls}-handler-down:active .@{stepperPrefixCls}-handler-down-inner {
-      color: @brand-6;
+      background-color: @fill-tap;
     }
   }
 
@@ -207,20 +191,13 @@
   &-disabled {
     .@{stepperPrefixCls}-handler-down-inner,
     .@{stepperPrefixCls}-handler-up-inner {
-      .handler-disabled();
+      opacity: @opacity-disabled;
     }
   }
 
   &-disabled {
-    .@{stepperPrefixCls}-input {
-      opacity: 1;
-      -webkit-text-fill-color: @neutral-6;
-      cursor: not-allowed;
-      background: none;
-      color: @neutral-6;
-    }
     .@{stepperPrefixCls}-handler {
-      .handler-disabled();
+      opacity: @opacity-disabled;
     }
   }
 }

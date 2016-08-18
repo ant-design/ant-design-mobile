@@ -97,15 +97,15 @@
   .slick-next {
     position: absolute;
     display: block;
-    height: @grid * 5;
-    width: @grid * 5;
+    height: 40px;
+    width: 40px;
     line-height: 0;
     font-size: 0;
     cursor: pointer;
     background: transparent;
     color: transparent;
     top: 50%;
-    margin-top: -10px;
+    margin-top: -20px;
     padding: 0;
     border: 0;
     outline: none;
@@ -124,14 +124,14 @@
   }
 
   .slick-prev {
-    left: -25px;
+    left: -50px;
     &:before {
       content: "←";
     }
   }
 
   .slick-next {
-    right: -25px;
+    right: -50px;
     &:before {
       content: "→";
     }
@@ -141,7 +141,7 @@
 
   .slick-dots {
     position: absolute;
-    bottom: @grid;
+    bottom: 16px;
     list-style: none;
     display: block;
     text-align: center;
@@ -151,22 +151,22 @@
     li {
       position: relative;
       display: inline-block;
-      height: @grid * 5;
-      width: @grid * 5;
-      margin: 0 5px;
+      height: 40px;
+      width: 40px;
+      margin: 0 10px;
       padding: 0;
       cursor: pointer;
       button {
         border: 0;
         background: transparent;
         display: block;
-        height: @grid * 5;
-        width: @grid * 5;
+        height: 40px;
+        width: 40px;
         outline: none;
         line-height: 0;
         font-size: 0;
         color: transparent;
-        padding: 5px;
+        padding: 10px;
         cursor: pointer;
         &:hover,
         &:focus {
@@ -180,13 +180,13 @@
           top: 0;
           left: 0;
           content: "•";
-          width: @grid * 5;
-          height: @grid * 5;
-          font-size: @grid * 7;
+          width: 40px;
+          height: 40px;
+          font-size: @font-size-display-lg;
           font-family: arial, sans-serif;
-          line-height: @grid * 5;
+          line-height: 80px;
           text-align: center;
-          color: gray;
+          color: @input-color-icon;
           transition: all .3s;
           opacity: 0.25;
           -webkit-font-smoothing: antialiased;
@@ -194,7 +194,7 @@
         }
       }
       &.slick-active button:before {
-        color: @brand-6;
+        color: #888;
         opacity: 0.75;
       }
     }
@@ -207,38 +207,38 @@
   }
   .slick-dots {
     margin: 0;
-    width: @grid * 5;
+    width: 40px;
     bottom: auto;
-    right: -35px;
+    right: -70px;
     top: 0;
   }
 }
 
 .am-carousel-banner .slick-slider {
   padding-bottom: 0;
-  background: #fff;
+  background: @fill-base;
 }
 .am-carousel-banner .slick-dots li {
   // width: 12px;
   margin: 0;
 }
 .am-carousel-banner .slick-slide h3 {
-  background: #fff;
+  background: @fill-base;
   color: #5B5B5B;
 }
 .am-carousel.am-carousel-card {
   .slick-slider {
-    height: @grid * 88;
+    height: 704px;
   }
   .slick-slide {
-    background: #fff;
-    height: @grid * 88;
-    line-height: @grid * 88;
+    background: @fill-base;
+    height: 704px;
+    line-height: 704px;
   }
   .slick-dots {
-    bottom: -@grid * 8;
+    bottom: -64px;
     li {
-      margin: 0 8px;
+      margin: 0 16px;
     }
   }
 }

@@ -4,8 +4,7 @@
   top: -9999px;
   z-index: 4;
   visibility: visible;
-
-  .borderBox();
+  box-sizing: border-box;
 
   &-hidden {
     display: none;
@@ -16,17 +15,17 @@
   }
 
   &-inner {
-    padding: 1.5 * @grid 0.5 * @grid;
-    min-width: 6 * @grid;
-    height: 4 * @grid;
-    font-size: 3 * @grid;
+    padding: 12px 4px;
+    min-width: 48px;
+    height: 32px;
+    font-size: @font-size-subhead;
     line-height: 1;
     color: @tooltip-color;
     text-align: center;
     text-decoration: none;
     background-color: @tooltip-bg;
-    border-radius: @radius-2;
-    box-shadow: 0 0 @grid #d9d9d9;
+    border-radius: @radius-xs;
+    // box-shadow: 0 0 4px #d9d9d9;
   }
 
   &-arrow {
