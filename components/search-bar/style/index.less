@@ -6,13 +6,16 @@
 /* 默认搜索bar */
 .@{searchPrefixCls} {
   position: relative;
-  padding: @h-spacing-lg;
+  padding-left: @h-spacing-md;
+  padding-right: @h-spacing-md;
+  padding-top: 16px;
+  padding-bottom: 16px;
   display: flex;
-  background: #DFDFE2;
+  background: #ddd;
   & &-input {
     position: relative;
     width: 100%;
-    height: @list-item-height;
+    height: @search-bar-input-height;
     line-height: 1;
     margin: 0 auto;
     background-color: @fill-base;
@@ -25,9 +28,10 @@
       text-align: left;
       display: block;
       color: @color-text-base;
-      //height: 5*@grid;
+      height: @search-bar-input-height;
       line-height: 1;
-      padding: @h-spacing-lg 8.5*@grid;
+      padding-left: @h-spacing-lg + @icon-size-xxs + @h-spacing-sm;
+      padding-right: @h-spacing-lg + @icon-size-xxs + @h-spacing-sm;
       border: 0;
       font-size: @font-size-base;
       .box-flex(1);
@@ -35,7 +39,7 @@
       background-repeat: no-repeat;
       background-position: @h-spacing-lg center;
       .encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' enable-background='new 0 0 14 14'><g><path fill='#ccc' d='M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1 M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0 L5,0z'/></g><line stroke='#ccc' stroke-miterlimit='10' x1='12.6' y1='12.6' x2='8.2' y2='8.2'/></svg>");
-      background-size: @icon-size-sm auto;
+      background-size: @icon-size-xxs auto;
       .border-radius(@radius-sm);
       &::-webkit-input-placeholder {
         text-align: left;
@@ -45,7 +49,7 @@
         width: auto;
         display: inline-block;
         text-align: center;
-        color: @neutral-6;
+        color: @color-text-placeholder;
       }
       &::-webkit-search-cancel-button {
         -webkit-appearance: none;
@@ -53,17 +57,17 @@
     }
     .@{searchPrefixCls}-clear {
       position: absolute;
-      width: @icon-size-sm;
-      height: @icon-size-sm;
+      width: @icon-size-xxs;
+      height: @icon-size-xxs;
       border-radius: 50%;
-      right: 0;
-      top: 0;
+      right: @h-spacing-sm;
+      top: 13px;
       opacity: 0;
       background-color: @input-color-icon;
       background-position: center;
       background-repeat: no-repeat;
       .encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><circle cx='14' cy='14' r='14' fill='#b2b2b2'/><line stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='8' y1='8' x2='20' y2='20'/><line fill='none' stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='20' y1='8' x2='8' y2='20'/></svg>");
-      background-size: @icon-size-sm auto;
+      background-size: @icon-size-xxs auto;
       .transition(300ms);
     }
     &.@{searchPrefixCls}-start {
@@ -74,9 +78,10 @@
   }
   & &-cancel {
     display: none;
-    height: @font-size-display-lg;
+    height: @search-bar-input-height;
+    line-height: @search-bar-input-height;
     color: @brand-primary;
-    font-size: @font-size-display-lg;
+    font-size: @search-bar-font-size-cancel;
     margin-left: @h-spacing-lg;
     text-align: center;
     border: 0;
