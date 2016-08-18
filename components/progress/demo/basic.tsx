@@ -25,7 +25,7 @@ export default class BasicProgressExample extends React.Component<any, any> {
   render() {
     return (
       <View>
-        <Progress percent={100} position="fixed" />
+        <Progress percent={90} position="fixed" />
 
         <View style={{ marginTop: 80 }}>
           <Progress percent={ this.state.percent } />
@@ -43,7 +43,7 @@ export default class BasicProgressExample extends React.Component<any, any> {
         </WingBlank>
         <WhiteSpace/>
         <WhiteSpace/>
-        <View style={{ marginTop: 80, width: 200 }}>
+        <View style={{ marginTop: 80 }}>
           <Progress percent={5} />
         </View>
 
