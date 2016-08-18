@@ -1,10 +1,9 @@
 ---
-order: 0
-title: 选项卡
+order: 2
+title: 底部选项卡
 ---
 
-多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。
-
+tabPosition: bottom
 
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
@@ -18,7 +17,7 @@ let TabExample = React.createClass({
   render() {
     return (
       <div>
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs defaultActiveKey="1" tabPosition="bottom" onChange={callback}>
           <TabPane tab="选项卡一" key="1">
             <div style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', height: 100,
