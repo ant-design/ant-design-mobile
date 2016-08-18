@@ -171,10 +171,10 @@ module.exports = {
       module: require('../components/top-notice/demo/basic'), // 必须
     },
     {
-      title: 'Uploader', // 必须
-      description: '图片上传',
+      title: 'ImagePicker', // 必须
+      description: '图片选择',
       icon: 'https://os.alipayobjects.com/rmsportal/CVHyVxhFqkhZfYs.png',
-      module: require('../components/uploader/demo/basic'), // 必须
+      module: require('../components/image-picker/demo/basic'), // 必须
     },
     {
       title: 'WhiteSpace', // 必须
