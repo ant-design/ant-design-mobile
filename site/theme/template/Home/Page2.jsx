@@ -8,13 +8,14 @@ import QueueAnim from 'rc-queue-anim';
 
 export default function Page2() {
   return (
-    <ScrollOverPack scrollName="page2" className="content-wrapper page" playScale={1} replay>
+    <ScrollOverPack id="page2" scrollName="page2" className="content-wrapper page" playScale={1} replay>
       <QueueAnim className="text-wrapper left-text" delay={300} key="text" duration={550} type="bottom"
         leaveReverse
         hideProps={{ child: null }}
       >
-        <h2 key="h2">设计模式</h2>
-        <p key="p" style={{ maxWidth: 260 }}>总结中后台设计中反复出现的问题，并提供相应的解决方案。</p>
+        <h2 key="h2">一套可灵活配置的组件库</h2>
+        <p key="p">Ant Design Mobile提供了37个通用组件，并抽象出组件的通用属性，使用者可根据需求选择需要的属性进行配置，也可在此基础上自行拓展。
+        </p>
         <div key="button">
           <Link to="/docs/react/introduce">
             <Button type="primary" size="large">
