@@ -95,11 +95,12 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   render() {
     let {
       prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count,
-      editable, error, className, labelNumber } = this.props;
+      editable, error, className, labelNumber, autoHeight } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-single-line`]: rows === 1 && !autoHeight,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
       [className]: className,

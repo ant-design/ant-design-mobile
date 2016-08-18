@@ -27,13 +27,13 @@
   }
   & &-item {
     position: relative;
+    display: flex;
     padding-left: @v-spacing-lg;
     min-height: @list-item-height;
     background-color: @fill-base;
     box-sizing: content-box;
     vertical-align: middle;
     overflow: hidden;
-    .display-box;
     .box-align;
     .transition(background-color 200ms);
 
@@ -107,8 +107,8 @@
   }
   .@{listPrefixCls}-line {
     position: relative;
+    display: flex;
     padding-right: @h-spacing-lg;
-    .display-box;
     .box-flex;
     align-self: stretch;
     overflow: hidden;

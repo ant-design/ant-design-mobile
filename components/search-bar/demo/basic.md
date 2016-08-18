@@ -6,7 +6,7 @@ title: 基本
 
 
 ````jsx
-import { SearchBar } from 'antd-mobile';
+import { SearchBar, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 let SearchBarExample = React.createClass({
   getInitialState() {
@@ -28,6 +28,7 @@ let SearchBarExample = React.createClass({
           onFocus={() => { console.log('onFocus'); }}
           onBlur={() => { console.log('onBlur'); }}
         />
+        <WhiteSpace />
         <SearchBar
           {...getFieldProps('SearchBar2')}
           placeholder="地图搜索"
@@ -35,6 +36,7 @@ let SearchBarExample = React.createClass({
           onClear={() => { console.log('onClear'); }}
           onCancel={() => { console.log('onCancel'); }}
         />
+        <WhiteSpace />
         <SearchBar
           value=""
           placeholder="取消按钮总是显示"
@@ -43,7 +45,8 @@ let SearchBarExample = React.createClass({
           onCancel={() => { console.log('onCancel'); }}
           showCancelButton
         />
-        <SearchBar placeholder="搜索框被禁用" disablSearch />
+        <WhiteSpace />
+        <SearchBar placeholder="搜索框被禁用" disabled />
       </div>
     );
   },
