@@ -12,8 +12,8 @@ const alert = Modal.alert;
 
 function showAlert() {
   alert('删除', '确定删除么???', [
-    { text: '取消', onPress: () => console.log('cancel') },
-    { text: '确定', onPress: () => console.log('ok') },
+    { text: 'cancel', onPress: () => console.log('cancel') },
+    { text: 'ok', onPress: () => console.log('ok') },
   ]);
 }
 

@@ -7,97 +7,9 @@
     bottom: 0;
     height: 100%;
     z-index: 1050;
-    background-color: fade(@neutral-10, 60%);
+    background-color: @fill-overlay-inverse;
     &-hidden {
       display: none;
-    }
-  }
-
-  .fade-effect() {
-    animation-duration: 0.3s;
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-  }
-
-  &-fade-enter,
-  &-fade-appear {
-    opacity: 0;
-    .fade-effect();
-    animation-play-state: paused;
-  }
-
-  &-fade-leave {
-    .fade-effect();
-    animation-play-state: paused;
-  }
-
-  &-fade-enter&-fade-enter-active,
-  &-fade-appear&-fade-appear-active {
-    animation-name: rcDialogFadeIn;
-    animation-play-state: running;
-  }
-
-  &-fade-leave&-fade-leave-active {
-    animation-name: rcDialogFadeOut;
-    animation-play-state: running;
-  }
-
-  &-slide-enter,
-  &-slide-appear {
-    top: 100%;
-    .fade-effect();
-    animation-play-state: paused;
-  }
-
-  &-slide-leave {
-    .fade-effect();
-    animation-play-state: paused;
-  }
-
-  &-slide-enter&-slide-enter-active,
-  &-slide-appear&-slide-appear-active {
-    animation-name: rcDialogSlideUp;
-    animation-play-state: running;
-  }
-
-  &-slide-leave&-slide-leave-active {
-    animation-name: rcDialogSlideDown;
-    animation-play-state: running;
-  }
-
-  @keyframes rcDialogFadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes rcDialogFadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes rcDialogSlideUp {
-    0% {
-      top: 100%;
-    }
-    100% {
-      top: 0;
-    }
-  }
-
-  @keyframes rcDialogSlideDown {
-    0% {
-      top: 0;
-    }
-    100% {
-      top: 100%;
     }
   }
 }

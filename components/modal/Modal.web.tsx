@@ -60,6 +60,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       closable,
       maskClosable,
       style,
+      title,
       bodyStyle,
       visible,
       children,
@@ -77,7 +78,7 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     // transparent 模式下, 内容默认居中
     const rootStyle = transparent ? assign({
-      width: '286px',
+      width: '5.4rem',
       height: 'auto',
     }, style) : assign({
       width: '100%',
@@ -88,6 +89,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       <Dialog
         prefixCls={prefixCls}
         className={wrapCls}
+        title={title}
         wrapClassName={wrapClassName}
         transitionName={anim}
         maskTransitionName={maskAnim}

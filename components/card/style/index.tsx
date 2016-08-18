@@ -1,22 +1,22 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   card: {
-    borderWidth: 1,
-    borderColor: variables.neutral_5,
-    borderRadius: variables.radius_1,
-    paddingBottom: 2 * variables.grid,
+    borderWidth: variables.border_width_md,
+    borderColor: variables.border_color_base,
+    borderRadius: variables.radius_md,
+    paddingBottom: variables.h_spacing_md,
     flexDirection: 'column',
-    backgroundColor: variables.neutral_1,
+    backgroundColor: variables.fill_base,
   },
   headerWrap: {
     flexDirection: 'row',
-    paddingVertical: 2 * variables.grid,
-    paddingRight: 4 * variables.grid,
-    marginLeft: 4 * variables.grid,
-    borderBottomWidth: 1,
-    borderColor: variables.neutral_5,
+    paddingVertical: variables.v_spacing_md,
+    paddingRight: variables.h_spacing_lg,
+    marginLeft: variables.h_spacing_lg,
+    // borderBottomWidth: variables.border_width_md,
+    // borderColor: variables.neutral_5,
     alignItems: 'center',
   },
   headerTitle: {
@@ -25,33 +25,38 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   headerImage: {
-    marginRight: 2 * variables.grid,
+    marginRight: variables.h_spacing_sm,
   },
   headerContent: {
-    color: variables.neutral_10,
-    fontSize: variables.font_size_5,
+    color: variables.color_text_base,
+    fontSize: variables.font_size_heading,
     flex: 1,
   },
   headerExtra: {
     flex: 1,
+    fontSize: variables.font_size_heading,
+    color: variables.color_text_caption,
+    textAlign: 'right',
   },
   body: {
     flex: 1,
-    paddingVertical: 2 * variables.grid,
-    minHeight: 12 * variables.grid,
+    paddingVertical: variables.v_spacing_md,
+    minHeight: 48,
+    borderTopWidth: variables.border_width_md,
+    borderColor: variables.border_color_base,
   },
   footerWrap: {
     flexDirection: 'row',
-    paddingHorizontal: 4 * variables.grid,
+    paddingHorizontal: variables.h_spacing_lg,
   },
   footerContent: {
     flex: 1,
-    fontSize: variables.font_size_2,
-    color: variables.neutral_7,
+    fontSize: variables.font_size_base,
+    color: variables.color_text_caption,
   },
   footerExtra: {
     textAlign: 'right',
-    fontSize: variables.font_size_2,
-    color: variables.neutral_7,
+    fontSize: variables.font_size_base,
+    color: variables.color_text_caption,
   },
 });

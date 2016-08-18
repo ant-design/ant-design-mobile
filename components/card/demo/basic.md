@@ -16,7 +16,7 @@ ReactDOM.render(
         extra={<span>this is extra</span>}
       />
       <Card.Body>
-        <div style={{ marginLeft: 16 }}>这是卡片内容</div>
+        <div>这是卡片内容</div>
       </Card.Body>
       <Card.Footer content="这是卡尾" extra={<div>这是尾部介绍</div>} />
     </Card>
