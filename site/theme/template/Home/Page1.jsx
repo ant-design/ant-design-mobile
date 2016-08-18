@@ -39,11 +39,13 @@ export default function Page1() {
           </Link>
         </div>
       </QueueAnim>
-      <TweenOne key="image1" className="image11 image-wrapper1"
+
+      <TweenOne key="image" className="image1 image-wrapper"
         animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
         style={{ transform: 'translateX(100Px)', opacity: 0 }}
       />
-      <TweenOne key="image" className="image1 image-wrapper"
+
+      <TweenOne key="image1" className="image11 image-wrapper1"
         animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
         style={{ transform: 'translateX(100Px)', opacity: 0 }}
       />

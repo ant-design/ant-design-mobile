@@ -4,6 +4,7 @@ import Link from './Link';
 import Banner from './Banner';
 import Page1 from './Page1';
 import Page2 from './Page2';
+import Page3 from './Page3';
 
 export default class Home extends React.Component {
   componentWillMount() {
@@ -86,6 +87,18 @@ export default class Home extends React.Component {
       .down {
         animation: upDownMove 1.2s ease-in-out infinite;
       }
+      #nav li.ant-menu-item-selected a {
+        color: #fff;
+      }
+      .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-item:hover {
+        border-bottom: 2Px solid #fff;
+      }
+      .home-nav-white #nav li.ant-menu-item-selected a {
+        color: #2db7f5;
+      }
+      .home-nav-white .ant-menu-horizontal > .ant-menu-item-selected, .home-nav-white .ant-menu-horizontal > .ant-menu-item:hover {
+        border-bottom: 2Px solid #2db7f5;
+      }
     `;
   }
 
@@ -97,6 +110,7 @@ export default class Home extends React.Component {
           <Banner />
           <Page1 />
           <Page2 />
+          <Page3 />
           <style dangerouslySetInnerHTML={{ __html: this.getStyle() }} />
         </div>
       </DocumentTitle>

@@ -9,9 +9,8 @@ import QueueAnim from 'rc-queue-anim';
 export default function Page2() {
   return (
     <ScrollOverPack id="page2" scrollName="page2" className="content-wrapper page" playScale={1} replay>
-      <QueueAnim className="text-wrapper left-text" delay={300} key="text" duration={550} type="bottom"
+      <QueueAnim className="text-wrapper left-text" delay={300} duration={550} type="bottom"
         leaveReverse
-        hideProps={{ child: null }}
       >
         <h2 key="h2">一套可灵活配置的组件库</h2>
         <p key="p">Ant Design Mobile提供了37个通用组件，并抽象出组件的通用属性，使用者可根据需求选择需要的属性进行配置，也可在此基础上自行拓展。
@@ -25,8 +24,8 @@ export default function Page2() {
           </Link>
         </div>
       </QueueAnim>
-      <TweenOne key="image" className="image2 image-wrapper" animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
-        style={{ transform: 'translateX(100Px)', opacity: 0 }} hideProps={{ reverse: true }}
+      <TweenOne className="image2 image-wrapper" animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
+        style={{ transform: 'translateX(100Px)', opacity: 0 }}
       />
     </ScrollOverPack>
   );
