@@ -6,72 +6,61 @@
 
 .@{collapsePrefixCls} {
   position: relative;
-  .hairline-top(@neutral-5);
+  .hairline-top(@border-color-base);
   &-anim-active {
     transition: all .2s ease-out;
   }
   & &-item {
     .@{collapsePrefixCls}-header {
       position: relative;
-      height: 8*@grid;
-      line-height: 8*@grid;
-      background-color: @neutral-1;
+      color: @color-text-base;
+      font-size: @font-size-heading;
+      height: @list-item-height;
+      line-height: @list-item-height;
+      background-color: @fill-base;
       box-sizing: content-box;
-      vertical-align: middle;
       overflow: hidden;
-      color: @neutral-10;
-      padding: 1.5*@grid 4*@grid;
-      padding-right: 9*@grid;
-      .hairline-bottom(@neutral-5);
+      padding-left: @h-spacing-lg;
+      padding-right: 2 * @h-spacing-lg;
+      .hairline-bottom(@border-color-base);
       .ellipsis();
       i {
         position: absolute;
         display: block;
-        top: 3.5*@grid;
-        right: 4*@grid;
-        width: 4*@grid;
-        height: 4*@grid;
-        margin-left: 7px;
-        margin-right: -2px;
-        overflow: hidden;
-        &:before {
-          content: "";
-          display: block;
-          width: 9px;
-          height: 9px;
-          border: solid 1px @neutral-7;
-          border-top: 0;
-          border-left: 0;
-          margin: @grid 0 0 0.5*@grid;
-          .transform(rotate(225deg));
-        }
+        top: @h-spacing-lg;
+        right: @h-spacing-lg;
+        width: @icon-size-xxs;
+        height: @icon-size-xxs;
+        .encoded-svg-background("<svg width='16' height='27' viewBox='0 0 16 27' version='1.1' xmlns='http://www.w3.org/2000/svg'><g transform='translate(-704.000000, -261.000000)' fill='#CCCCCC'><g  transform='translate(0.000000, 204.000000)'><path d='M719.533036,70.040985 L719.571414,70.0026067 L706.568807,57 L704,59.5688074 L714.472178,70.040985 L704,80.5131625 L706.568807,83.08197 L719.571414,70.0793633 L719.533036,70.040985 Z'></path></g></g></svg>");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        .transform(rotate(90deg));
       }
       &[aria-expanded~="true"] {
         i {
-          &:before {
-            margin-left: 0.5*@grid;
-            .transform(rotate(45deg));
-          }
+          .transform(rotate(270deg));
         }
       }
     }
     .@{collapsePrefixCls}-content {
-      background: @neutral-2;
-      overflow: hidden;
+      background: @fill-base;
       .@{collapsePrefixCls}-content-box {
-        position: relative;
-        font-size: @font-size-4;
-        line-height: 5*@grid;
-        color: @neutral-9;
-        .hairline-bottom(@neutral-5);
+        font-size: @font-size-subhead;
+        color: @color-text-paragraph;
+        .hairline-bottom(@border-color-base);
         .@{listPrefixCls}-item {
-          margin-left: 4*@grid;
-          background: @neutral-2;
-          padding: 3*@grid 4*@grid 3*@grid 0;
-          position: relative;
-          .hairline-bottom(@neutral-5);
-          &:last-child {
-            .hairline-remove-right-bottom();
+          .am-list-line {
+            .am-list-content,
+            .am-list-extra {
+              font-size: @font-size-subhead;
+              color: @color-text-paragraph;
+              line-height: 50px;
+              padding: 20px 0;
+              overflow: auto;
+              text-overflow: clip;
+              white-space: normal;
+            }
           }
         }
       }

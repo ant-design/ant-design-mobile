@@ -25,62 +25,60 @@
     position: relative;
     .hairline-top(@border-color-base);
   }
-  & &-item {
-    position: relative;
-    display: flex;
-    padding-left: @v-spacing-lg;
-    min-height: @list-item-height;
-    background-color: @fill-base;
-    box-sizing: content-box;
-    vertical-align: middle;
-    overflow: hidden;
-    .box-align;
-    .transition(background-color 200ms);
-    &.@{listPrefixCls}-item-top {
-      .@{listPrefixCls}-line {
-        .box-align(flex-start);
-        .@{listPrefixCls}-arrow {
-          margin-top: 4px;
-        }
-      }
-    }
-    &.@{listPrefixCls}-item-middle {
-      .@{listPrefixCls}-line {
-        .box-align(center);
-      }
-    }
-    &.@{listPrefixCls}-item-bottom {
-      .@{listPrefixCls}-line {
-        .box-align(flex-end);
-      }
-    }
-    &.@{listPrefixCls}-item-error {
-      .@{listPrefixCls}-line {
-        .@{listPrefixCls}-extra {
-          color: #f50;
-          .@{listPrefixCls}-brief {
-            color: #f50;
-          }
-        }
-      }
-    }
-    &:last-child {
-      .hairline-bottom(@border-color-base);
-      .@{listPrefixCls}-line {
-        .hairline-remove-right-bottom();
-      }
-    }
-    &.@{listPrefixCls}-item-hover {
-      background-color: @fill-tap;
-    }
-    img {
-      width: @icon-size-md;
-      height: @icon-size-md;
-      vertical-align: middle;
-    }
-  }
 }
 .@{listPrefixCls}-item {
+  position: relative;
+  display: flex;
+  padding-left: @v-spacing-lg;
+  min-height: @list-item-height;
+  background-color: @fill-base;
+  box-sizing: content-box;
+  vertical-align: middle;
+  overflow: hidden;
+  .box-align;
+  .transition(background-color 200ms);
+  &.@{listPrefixCls}-item-top {
+    .@{listPrefixCls}-line {
+      .box-align(flex-start);
+      .@{listPrefixCls}-arrow {
+        margin-top: 4px;
+      }
+    }
+  }
+  &.@{listPrefixCls}-item-middle {
+    .@{listPrefixCls}-line {
+      .box-align(center);
+    }
+  }
+  &.@{listPrefixCls}-item-bottom {
+    .@{listPrefixCls}-line {
+      .box-align(flex-end);
+    }
+  }
+  &.@{listPrefixCls}-item-error {
+    .@{listPrefixCls}-line {
+      .@{listPrefixCls}-extra {
+        color: #f50;
+        .@{listPrefixCls}-brief {
+          color: #f50;
+        }
+      }
+    }
+  }
+  &:last-child {
+    .hairline-bottom(@border-color-base);
+    .@{listPrefixCls}-line {
+      .hairline-remove-right-bottom();
+    }
+  }
+  &.@{listPrefixCls}-item-hover {
+    background-color: @fill-tap;
+  }
+  img {
+    width: @icon-size-md;
+    height: @icon-size-md;
+    vertical-align: middle;
+  }
   /* list左图片显示*/
   .@{listPrefixCls}-thumb {
     &:first-child {

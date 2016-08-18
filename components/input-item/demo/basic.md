@@ -57,7 +57,7 @@ let BasicInput = React.createClass({
             name="camera"
             placeholder="注释可以是node"
             clear
-            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" style={{ width: '0.44rem', height: '0.44rem' }} />}
+            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" />}
           >带注释</InputItem>
           <InputItem
             {...getFieldProps('input6', {
@@ -83,7 +83,7 @@ let BasicInput = React.createClass({
             onErrorClick={() => { alert(111); }}
             placeholder="内容"
             clear
-            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" style={{ width: '0.44rem', height: '0.44rem' }} />}
+            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" />}
           >报错样式</InputItem>
         </List.Body>
       </List>
