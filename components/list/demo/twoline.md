@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title: 对齐
 ---
 
@@ -56,7 +56,6 @@ ReactDOM.render(
           multipleLine
         ><div>底部对齐<Brief>辅助文字内容</Brief></div></List.Item>
         <List.Item
-          onClick={() => {}}
           extra={<Button
             size="small"
             inline

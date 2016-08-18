@@ -11,12 +11,7 @@ export interface InputItemState {
 
 export default class InputItem extends React.Component<InputItemProps, InputItemState> {
   static propTypes = {
-    type: PropTypes.oneOf(['hasLine']),
     format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
-    extra: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node,
-    ]),
     size: PropTypes.oneOf(['large', 'small']),
     labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
     labelPosition: PropTypes.oneOf(['left', 'top']),
@@ -26,7 +21,6 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
-    type: 'hasLine',
     format: 'text',
     editable: true,
     name: '',
@@ -130,11 +124,11 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
   render() {
     const {
-      prefixCls, prefixListCls, format, type, name, editable, value, style, clear, children,
+      prefixCls, prefixListCls, format, name, editable, value, style, clear, children,
       error, className, extra, labelNumber, maxLength } = this.props;
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({
-      [`${prefixListCls}-item`]: type === 'hasLine',
+      [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,

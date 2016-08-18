@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 title: 基本
 ---
 
@@ -18,9 +18,7 @@ let ListExample = React.createClass({
         footer="列表尾部"
       >
         <List.Body>
-          <List.Item
-            extra={null}
-          >标题文字,没有配置onClick则点击无反馈</List.Item>
+          <List.Item>标题文字,没有设置onClick则点击无反馈效果</List.Item>
           <List.Item
             onClick={() => {}}
             extra={undefined}
@@ -132,7 +130,7 @@ let ListExample = React.createClass({
             icon=""
             extra={<img src="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png" width="28" height="28" />}
             arrow="horizontal"
-          >extra为&lt;img /&gt;标签</List.Item>
+          >extra为img标签</List.Item>
         </List.Body>
       </List>
     </form>);

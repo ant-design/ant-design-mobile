@@ -20,7 +20,6 @@ english: InputItem
 | 成员        | 说明           | 类型     |     可选值        | 默认值       |
 |------------|----------------|--------------------|--------------|
 | prefixListCls    |         | String | |  `am-list`  |
-| type    |  文本框样式类型 | String | 线型`hasLine`,有边框`hasBorder`,本期只支持`hasLine` |  `hasLine`  |
 | format    |  格式  | String | 银行卡输入`bankCard`,手机号输入`phone`（此时最大长度固定为11,`maxLength`设置无效）,密码输入`password`,文本输入`text`, 数字输入`number`（尽量唤起数字键盘） |  `text`  |
 | editable    | 输入框是否可输入        | bool | |  true  |
 | name    | input的name        | String | |  无  |

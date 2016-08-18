@@ -40,19 +40,19 @@
     overflow: hidden;
     z-index: 99;
     &-text {
-      padding: 0 3*@grid;
+      padding: 0 @h-spacing-sm;
     }
   }
   &-android-actions {
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: @brand-6;
-    font-size: @font-size-6;
+    color: @brand-primary;
+    font-size: @font-size-base;
   }
   &-android-btn {
-    .hairline-top(@neutral-5);
-    padding: 3*@grid;
+    .hairline-top(@border-color-base);
+    padding: @h-spacing-sm;
     position: relative;
     .ellipsis();
     line-height: 1;
