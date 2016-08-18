@@ -6,7 +6,7 @@
 .@{tab-prefix-cls} {
   &-tabs {
     .display-box();
-    height: 12 * @grid;
+    height: @tab-bar-height;
     border-top: @border-width-sm solid @border-color-base;
     position: fixed;
     bottom: 0;
@@ -15,24 +15,17 @@
       flex: 1;
       text-align: center;
       &-icon {
-        margin-top: 0.5 * @grid;
-        width: 7 * @grid;
-        height: 7 * @grid;
+      	padding-top: @v-spacing-sm;
+    	}
+    	&-image {
+        width: @icon-size-md;
+        height: @icon-size-md;
         vertical-align: middle;
       }
       &-title {
         font-size: @font-size-icontext;
-      }
-      // TODO 临时写的 badge 样式，需要 badge 出新的类型定义
-      &-badge {
-        .am-badge-text {
-          top: 0.5 * @grid;
-          right: -5 * @grid;
-          height: 4.5 * @grid;
-          font-size: 3.5 * @grid;
-          padding: 0 1.25 * @grid;
-          border-radius: 2.5 * @grid;
-        }
+        margin-top: @v-spacing-xs;
+        line-height: 1;
       }
     }
   }

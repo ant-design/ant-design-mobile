@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 
 export default StyleSheet.create({
   tabbar: {
@@ -9,9 +9,9 @@ export default StyleSheet.create({
     flex: 1,
   },
   tabs: {
-    height: 48,
-    borderTopWidth: 1,
-    borderColor: '#d9d9d9',
+    height: variables.tab_bar_height,
+    borderTopWidth: variables.border_width_md,
+    borderColor: variables.border_color_base,
     borderStyle: 'solid',
     flexDirection: 'row',
   },
@@ -22,13 +22,13 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   barIcon: {
-    width: 7 * variables.grid,
-    height: 7 * variables.grid,
+    width: variables.icon_size_md,
+    height: variables.icon_size_md,
   },
   barItemSelected: {
   },
   barItemTitle: {
-    fontSize: variables.font_size_1,
+    fontSize: variables.font_size_icontext,
   },
   contentItem: {
     zIndex: 1,
