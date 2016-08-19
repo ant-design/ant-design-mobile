@@ -19,6 +19,8 @@ export function collect(nextProps, callback) {
   // const componentName = nextProps.params.component;
   const componentName = nextProps.params.component;
   const demos = nextProps.utils.get(nextProps.data, ['components', componentName, 'demo']);
+  const listDemos = nextProps.utils.get(nextProps.data, ['components', 'list-view', 'demo']);
+  const drawerDemos = nextProps.utils.get(nextProps.data, ['components', 'drawer', 'demo']);
 
   const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
 
@@ -35,12 +37,36 @@ export function collect(nextProps, callback) {
     ));
   }
 
+  promises.push(Promise.all(
+    Object.keys(listDemos).map((key) => {
+      if (typeof listDemos[key] === 'function') {
+        return listDemos[key]();
+      /* eslint-disable no-else-return */
+      } else {
+        return listDemos[key].web();
+      }
+    }))
+  );
+
+  promises.push(Promise.all(
+    Object.keys(drawerDemos).map((key) => {
+      if (typeof drawerDemos[key] === 'function') {
+        return drawerDemos[key]();
+      /* eslint-disable no-else-return */
+      } else {
+        return drawerDemos[key].web();
+      }
+    }))
+  );
+
   Promise.all(promises)
     .then((list) => callback(null, {
       ...nextProps,
       components: list[0],
       moduleData: list[1],
       demos: list[2],
+      listDemos: list[3],
+      drawerDemos: list[4],
     }));
 }
 
@@ -64,7 +90,7 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const { demos } = this.props;
+    const { demos, listDemos, drawerDemos } = this.props;
     const name = this.props.params.component;
 
     const demoSort = demos.sort((a, b) => (
@@ -101,16 +127,26 @@ export default class Home extends React.Component {
             {
               lists[cate].map((item, ii) => {
                 const fileName = item.filename.split('/')[1];
-                const subs = (<List>
-                  <List.Header>{item.chinese}</List.Header>
-                  {demoSort.map((item1, index1) => (
-                    <List.Item key={index1}>
-                      <Link to={`/${fileName}/#${fileName}-demo-${index}`}>{item1.meta.title}</Link>
-                    </List.Item>
-                  ))}
-                </List>);
+                let subDemos;
+                if (fileName === 'drawer') {
+                  subDemos = drawerDemos;
+                } else {
+                  subDemos = listDemos;
+                }
                 return (<List.Item key={ii}>
-                  {whiteList.indexOf(fileName) > -1 ? subs : <Link to={`/${fileName}/`}>{item.chinese}</Link>}
+                  {
+                    whiteList.indexOf(fileName) > -1 ?
+                      (<List>
+                        <List.Header>{item.chinese}</List.Header>
+                        {
+                          subDemos.map((item1, index1) => (
+                            <List.Item key={index1}>
+                              <Link to={`/${fileName}/#${fileName}-demo-${index}`}>{item1.meta.title}</Link>
+                            </List.Item>
+                          ))
+                        }
+                      </List>) :
+                      <Link to={`/${fileName}/`}>{item.chinese}</Link>}
                 </List.Item>);
               })
             }
