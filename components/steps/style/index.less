@@ -28,10 +28,10 @@
 @finish-description-color: @color-text-placeholder;
 @finish-tail-color: @process-icon-color;
 
-@error-icon-color: @function-error-2;
+@error-icon-color: @brand-error;
 @error-title-color: @color-text-base;
 @error-description-color: @color-text-placeholder;
-@error-tail-color: @function-error-2;
+@error-tail-color: @brand-error;
 
 .@{stepsPrefixCls} {
   font-size: 0;
@@ -124,7 +124,7 @@
         color: @error-description-color;
       }
       .@{stepsPrefixCls}-tail > i {
-        background-color: @process-tail-color;
+        background-color: @error-tail-color;
       }
     }
 
