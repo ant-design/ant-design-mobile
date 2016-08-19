@@ -13,22 +13,22 @@
     -moz-osx-font-smoothing: grayscale;
     position: absolute;
     transform: translateX(-50%);
-    top: -10px;
-    height: 24px;
-    border-radius: 12px;
-    line-height: @line-height-2;
+    top: -1 * @v-spacing-sm;
+    height: @v-spacing-lg;
+    border-radius: 2 * @v-spacing-sm;
+    line-height: 1.2;
     text-align: center;
-    padding: 0 8px;
-    font-size: @font-size-5;
-    background-color: @orange-8;
+    padding: 0 @h-spacing-sm @radius-md;
+    font-size: @link-button-font-size;
+    background-color: @brand-important;
     white-space: nowrap;
     transform-origin: -10% center;
     z-index: 10;
     font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
-    color: @neutral-1;
+    color: @color-text-base-inverse;
     a,
     a:hover {
-      color: #fff;
+      color: @color-text-base-inverse;
     }
     p {
       margin: 0;
@@ -40,27 +40,12 @@
   	position: absolute;
   	transform: translateX(-50%);
   	transform-origin: 0 center;
-    top: -4px;
-    height: 8px;
-    width: 8px;
+    top: -2 * @border-width-lg;
+    height: 0.5 * @link-button-font-size;
+    width: 0.5 * @link-button-font-size;
     border-radius: 100%;
-    background: @orange-8;
+    background: @brand-important;
     z-index: 10;
-    &-large {
-      height: 16px;
-      width: 16px;
-    }
-  }
-
-  &-zoom-appear,
-  &-zoom-enter {
-    animation: antZoomBadgeIn .3s cubic-bezier(0.12, 0.4, 0.29, 1.46);
-    animation-fill-mode: both;
-  }
-
-  &-zoom-leave {
-    animation: antZoomBadgeOut .3s cubic-bezier(0.71, -0.46, 0.88, 0.6);
-    animation-fill-mode: both;
   }
 
   &-not-a-wrapper &-text,
@@ -72,21 +57,17 @@
   }
 
   &-corner {
-  	width: 80px;
-  	padding: 8px;
+  	width: 5 * @link-button-font-size;
+  	padding: 0.5 * @link-button-font-size;
   	position: absolute;
-  	right: -32px;
-  	top: 8px;
-  	background-color: @orange-8;
-  	color: @neutral-1;
+  	right: -2 * @link-button-font-size;
+  	top: 0.5 * @link-button-font-size;
+  	background-color: @brand-important;
+  	color: @color-text-base-inverse;
   	white-space: nowrap;
   	transform: rotate(45deg);
   	text-align: center;
-  	&-large {
-  	  width: 100px;
-  	  right: -32px;
-  	  top: 20px;
-  	}
+    font-size: @font-size-subhead;
   	&-wrapper {
   	  overflow: hidden;
   	}
@@ -109,25 +90,5 @@ a & {
   	  display: inline-block;
   	  transition: transform .3s cubic-bezier(0.645,0.045,0.355,1);
   	}
-  }
-}
-
-@keyframes antZoomBadgeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0) translateX(-50%);
-  }
-  100% {
-    transform: scale(1) translateX(-50%);
-  }
-}
-
-@keyframes antZoomBadgeOut {
-  0% {
-    transform: scale(1) translateX(-50%);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0) translateX(-50%);
   }
 }
