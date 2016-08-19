@@ -29,7 +29,6 @@ declare module 'antd-mobile' {
     Tag: any;
     TabBar: any;
     TextAreaItem: any;
-    Timeline: any;
     Toast: any;
     TopNotice: any;
     WhiteSpace: any;

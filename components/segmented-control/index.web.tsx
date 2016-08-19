@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import assign from 'object-assign';
 import SegmentedControlProps from './SegmentedControlPropTypes';
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
@@ -66,7 +67,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     });
 
     const enabledOpacity = enabled ? 1 : 0.5;
-    const segmentedStyle = Object.assign({}, style, {
+    const segmentedStyle = assign({}, style, {
       opacity: enabledOpacity,
       borderColor: tintColor,
     });
