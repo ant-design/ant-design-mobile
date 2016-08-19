@@ -2,7 +2,7 @@
 category: UI Views
 type: UI Views
 chinese: 结果页
-english: PageResult
+english: Result
 ---
 
 ### 定义／Definition
@@ -11,7 +11,7 @@ english: PageResult
 
 ## API
 
-### PageResult
+### Result
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | imgUrl    | 插图URL        | string |    |

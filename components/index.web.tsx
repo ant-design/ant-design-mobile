@@ -23,7 +23,7 @@ export { default as Menu } from './menu/index.web';
 export { default as Modal } from './modal/index.web';
 export { default as NavBar } from './nav-bar/index.web';
 
-export { default as PageResult } from './page-result/index.web';
+export { default as Result } from './result/index.web';
 export { default as Pagination } from './pagination/index.web';
 
 export { default as Picker } from './picker/index.web';

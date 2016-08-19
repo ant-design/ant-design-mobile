@@ -4,10 +4,10 @@ title: 空白页
 ---
 
 ````jsx
-import { PageResult } from 'antd-mobile';
+import { Result } from 'antd-mobile';
 
-const PageResultExample = () => (
-  <PageResult
+const ResultExample = () => (
+  <Result
     imgUrl="https://os.alipayobjects.com/rmsportal/dlMevdYPbXUwgCQ.png"
     title="空白页"
     brief="可各业务自定义文案"
@@ -16,5 +16,5 @@ const PageResultExample = () => (
   />
 );
 
-ReactDOM.render(<PageResultExample />, mountNode);
+ReactDOM.render(<ResultExample />, mountNode);
 ````

@@ -4,10 +4,10 @@ title: 出错
 ---
 
 ````jsx
-import { PageResult } from 'antd-mobile';
+import { Result } from 'antd-mobile';
 
-const PageResultExample = () => (
-  <PageResult
+const ResultExample = () => (
+  <Result
     imgUrl="https://os.alipayobjects.com/rmsportal/SgCjcxAQTmmNUWi.png"
     title="加载出错"
     buttonTxt="重新加载"
@@ -15,5 +15,5 @@ const PageResultExample = () => (
   />
 );
 
-ReactDOM.render(<PageResultExample />, mountNode);
+ReactDOM.render(<ResultExample />, mountNode);
 ````
