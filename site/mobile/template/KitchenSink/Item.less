@@ -1,3 +1,11 @@
+#react-content{
+  height: 100%;
+}
+#react-content > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;   
+}
 .am-demo-item {
   &-inner {
     transform: translateY(-50%);
@@ -37,8 +45,9 @@
 }
 .demo-drawer-container {
   position: relative;
-  height: 1000px;
+  /*min-height: 1000px;*/
   background-color: #fff;
+  flex: 1;
   .am-drawer-sidebar {
     max-width: 520px;
     background-color: #fff;
