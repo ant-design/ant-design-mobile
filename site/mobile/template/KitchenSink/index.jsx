@@ -44,7 +44,7 @@ const hashImgObj = {
   'textarea-item': 'aDugjLTLBeQffgX',
   timeline: 'aIomfcRsRHmPyNo',
   toast: 'IptWdCkrtkAUfjE',
-  'top-notice': 'AraRKTSdXQbKkGv',
+  'notice-bar': 'AraRKTSdXQbKkGv',
   'white-space': 'mioJMWDMAmiurTR',
   'wing-blank': 'WzZoGzTRKzQgMWi',
   card: 'kkQBRgZgcqSyMPS',

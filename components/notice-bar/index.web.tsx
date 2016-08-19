@@ -2,11 +2,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
-import TopNoticeProps from './TopNoticePropsType';
+import NoticeBarProps from './NoticeBarPropsType';
 
-export default class TopNotice extends React.Component<TopNoticeProps, any> {
+export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {
-    prefixCls: 'am-top-notice',
+    prefixCls: 'am-notice-bar',
     mode: '',
     onClick() {},
   };
@@ -39,14 +39,14 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
     switch (mode) {
       case 'closable':
         operationDom = (
-          <div className="am-top-notice-operation" onClick={() => this.onClick()}>
+          <div className={`${prefixCls}-operation`} onClick={() => this.onClick()}>
             <Icon type="cross" />
           </div>
         );
         break;
       case 'link':
         operationDom = (
-          <div className="am-top-notice-operation" onClick={onClick}>
+          <div className={`${prefixCls}-operation`} onClick={onClick}>
             <Icon type="right" />
           </div>
         );
@@ -76,14 +76,14 @@ export default class TopNotice extends React.Component<TopNoticeProps, any> {
         break;
     }
 
-    const iconDom = type ? <div className="am-top-notice-icon">
+    const iconDom = type ? <div className={`${prefixCls}-icon`}>
       <Icon type={iconType} />
     </div> : null;
 
     return this.state.show ? (
       <div className={wrapCls}>
         {iconDom}
-        <div className="am-top-notice-content">{children}</div>
+        <div className={`${prefixCls}-content`}>{children}</div>
         {operationDom}
       </div>
     ) : null;

@@ -99,6 +99,12 @@ module.exports = {
       module: require('../components/modal/demo/basic'), // 必须
     },
     {
+      title: 'NoticeBar', // 必须
+      description: '顶部提示',
+      icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
+      module: require('../components/notice-bar/demo/basic'), // 必须
+    },
+    {
       title: 'Pagination', // 必须
       description: '分页器',
       icon: 'https://zos.alipayobjects.com/rmsportal/VmTKwvaRaIWOXrh.png',
@@ -169,12 +175,6 @@ module.exports = {
       description: '多行输入',
       icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
       module: require('../components/textarea-item/demo/basic'), // 必须
-    },
-    {
-      title: 'TopNotice', // 必须
-      description: '顶部提示',
-      icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
-      module: require('../components/top-notice/demo/basic'), // 必须
     },
     {
       title: 'WhiteSpace', // 必须

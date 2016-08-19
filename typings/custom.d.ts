@@ -30,7 +30,7 @@ declare module 'antd-mobile' {
     TabBar: any;
     TextAreaItem: any;
     Toast: any;
-    TopNotice: any;
+    NoticeBar: any;
     WhiteSpace: any;
     WingBlank: any;
   };
