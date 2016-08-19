@@ -3,6 +3,50 @@ order: 2
 english: 更新日志
 ---
 
+## 1.0.0-alpha.0
+
+`2016-08-19`
+
+> UI 风格更换为 alipay 官方风格！
+
+- 修复 `Object.assign` 兼容问题 #87
+- DatePicker 去掉 moment 必选依赖 #111
+- InputItem 和 TextareaItem API `format` 改为 `type`，移除原来`type`；修复 maxLength bug #106 #105
+- web demo 采用 rem 和页面 scale 缩放方案、达到页面高清效果
+- rn demo 的一系列优化
+
+### 组件变更 (#50)
+- Timeline 移除，相关演示整合到 Steps
+- Tooltip 移除
+- Tab 组件独立出两个相关组件：SegmentedControl / TabBar
+
+### 组件更名 (#50)
+- FloatMenu => Popover
+- Collapse => Collapse
+- PageResult => Result
+- TopNotice => NoticeBar
+- Uploader => ImagePicker
+
+## 0.7.6
+
+`2016-08-12`
+
+* `Tabs` `Object.assign`使用`object-assign`替代。
+
+## 0.7.5
+
+`2016-08-11`
+
+* `List` 1px问题优化,`List`的容器设定了固定高度，`overflow`设置为`scroll`，`List.Item`的边框会消失。
+* `Grid` 处理`Grid`的`icon`图片不是正方形的显示问题。
+
+## 0.7.4
+
+`2016-08-10`
+
+* `List.Item` 解决`onClick`时组件`unmount`而同时在更新组件内部state引起的报错。
+* `SearchBar` 修复在部分Android机型下宽度异常。
+
 ## 0.7.3
 
 `2016-08-09`
