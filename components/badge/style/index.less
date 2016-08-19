@@ -14,13 +14,13 @@
     position: absolute;
     transform: translateX(-50%);
     top: -1 * @v-spacing-sm;
-    height: 4 * @v-spacing-sm;
+    height: @v-spacing-lg;
     border-radius: 2 * @v-spacing-sm;
-    line-height: 1.5;
+    line-height: 1.2;
     text-align: center;
-    padding: 0 0.5 * @link-button-font-size;
+    padding: 0 @h-spacing-sm @radius-md;
     font-size: @link-button-font-size;
-    background-color: @brand-warning;
+    background-color: @brand-important;
     white-space: nowrap;
     transform-origin: -10% center;
     z-index: 10;
@@ -28,7 +28,7 @@
     color: @color-text-base-inverse;
     a,
     a:hover {
-      color: #fff;
+      color: @color-text-base-inverse;
     }
     p {
       margin: 0;
@@ -41,26 +41,11 @@
   	transform: translateX(-50%);
   	transform-origin: 0 center;
     top: -2 * @border-width-lg;
-    height: @v-spacing-md;
-    width: @v-spacing-md;
+    height: 0.5 * @link-button-font-size;
+    width: 0.5 * @link-button-font-size;
     border-radius: 100%;
-    background: @brand-warning;
+    background: @brand-important;
     z-index: 10;
-    &-large {
-      height: 16px;
-      width: 16px;
-    }
-  }
-
-  &-zoom-appear,
-  &-zoom-enter {
-    animation: antZoomBadgeIn .3s cubic-bezier(0.12, 0.4, 0.29, 1.46);
-    animation-fill-mode: both;
-  }
-
-  &-zoom-leave {
-    animation: antZoomBadgeOut .3s cubic-bezier(0.71, -0.46, 0.88, 0.6);
-    animation-fill-mode: both;
   }
 
   &-not-a-wrapper &-text,
@@ -77,12 +62,12 @@
   	position: absolute;
   	right: -2 * @link-button-font-size;
   	top: 0.5 * @link-button-font-size;
-  	background-color: @brand-warning;
+  	background-color: @brand-important;
   	color: @color-text-base-inverse;
   	white-space: nowrap;
   	transform: rotate(45deg);
   	text-align: center;
-    font-size: @small-button-font-size;
+    font-size: @font-size-subhead;
   	&-wrapper {
   	  overflow: hidden;
   	}
@@ -105,25 +90,5 @@ a & {
   	  display: inline-block;
   	  transition: transform .3s cubic-bezier(0.645,0.045,0.355,1);
   	}
-  }
-}
-
-@keyframes antZoomBadgeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0) translateX(-50%);
-  }
-  100% {
-    transform: scale(1) translateX(-50%);
-  }
-}
-
-@keyframes antZoomBadgeOut {
-  0% {
-    transform: scale(1) translateX(-50%);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0) translateX(-50%);
   }
 }
