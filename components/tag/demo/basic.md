@@ -8,18 +8,21 @@ title: 标签类型
 ````jsx
 import { Tag, WingBlank, WhiteSpace } from 'antd-mobile';
 
+function onChange(selected) {
+  console.log(`tag selected: ${selected}`);
+}
+
 ReactDOM.render(
   <div className="tag-container">
     <WhiteSpace />
     <WingBlank size={20}>
-      <Tag type="action" size="large">大号标签</Tag>
+      <Tag>通用标签</Tag>
       <WhiteSpace />
-      <Tag type="action" size="small">小号标签</Tag>
+      <Tag disabled>失效标签</Tag>
       <WhiteSpace />
-      <Tag type="read" size="large">只读标签大</Tag>
+      <Tag selected>默认选中</Tag>
       <WhiteSpace />
-      <Tag type="read" size="small">只读标签小</Tag>
-      <WhiteSpace />
+      <Tag onChange={onChange}>事件回调</Tag>
     </WingBlank>
     <WhiteSpace />
   </div>

@@ -1,99 +1,45 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   tag: {
-    borderRadius: variables.radius_2,
+    borderRadius: variables.radius_sm,
     backgroundColor: 'transparent',
     flexDirection: 'row',
     overflow: 'hidden',
   },
   wrap: {
     overflow: 'hidden',
-    borderRadius: variables.radius_2,
-    borderWidth: 1,
+    borderRadius: variables.radius_sm,
+    borderWidth: variables.border_width_sm,
     borderStyle: 'solid',
+    paddingVertical: variables.v_spacing_sm,
+    paddingHorizontal: variables.h_spacing_lg,
+  },
+  text: {
+    fontSize: variables.button_font_size_sm,
+    minWidth: 80,
+    textAlign: 'center',
   },
   normalWrap: {
-    backgroundColor: variables.neutral_1,
-    borderColor: variables.neutral_5,
+    backgroundColor: variables.fill_base,
+    borderColor: variables.border_color_base,
   },
   normalText: {
-    color: variables.neutral_10,
+    color: variables.color_text_caption,
   },
   activeWrap: {
-    backgroundColor: variables.neutral_1,
-    borderColor: variables.brand_6,
+    backgroundColor: variables.fill_base,
+    borderColor: variables.tabs_current_border_color,
   },
   activeText: {
-    color: variables.brand_6,
-  },
-  readWrap: {
-    backgroundColor: variables.neutral_3,
-    borderColor: variables.neutral_3,
-  },
-  readText: {
-    color: variables.neutral_10,
+    color: variables.color_link,
   },
   disabledWrap: {
-    backgroundColor: variables.neutral_2,
-    borderColor: variables.neutral_5,
+    backgroundColor: variables.fill_disabled,
+    borderWidth: 0,
   },
   disabledText: {
-    color: variables.neutral_6,
-  },
-  largeWrap: {
-    paddingVertical: variables.grid,
-    paddingHorizontal: 4 * variables.grid,
-  },
-  largeText: {
-    fontSize: variables.font_size_2,
-    textAlign: 'center',
-  },
-  smallWrap: {
-    paddingVertical: variables.grid,
-    paddingHorizontal: 2 * variables.grid,
-  },
-  smallText: {
-    fontSize: variables.font_size_1,
-    textAlign: 'center',
-  },
-  closeWrap: {
-    position: 'absolute',
-    right: 0,
-    top: -1.5 * variables.grid,
-    width: 2 * variables.grid,
-    height: 7 * variables.grid,
-    backgroundColor: variables.brand_6,
-    transform: [{
-      rotate: '45deg',
-    }],
-    overflow: 'hidden',
-  },
-  closeDom: {
-    backgroundColor: 'transparent',
-    position: 'absolute',
-    right: 0,
-    bottom: 0,
-    height: 4 * variables.grid,
-    width: 4 * variables.grid,
-  },
-  closeX: {
-    transform: [{
-      rotate: '-45deg',
-    }],
-    color: 'white',
-    marginLeft: 0,
-    marginTop: 1.8 * variables.grid,
-  },
-  fixAndroid: {
-    position: 'absolute',
-    right: 0,
-    bottom: 0,
-    width: 2.5 * variables.grid,
-    height: 2.5 * variables.grid,
-    borderBottomRightRadius: variables.radius_2,
-    borderTopLeftRadius: variables.radius_2,
-    backgroundColor: variables.brand_6,
+    color: variables.color_text_disabled,
   },
 });
