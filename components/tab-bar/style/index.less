@@ -1,10 +1,14 @@
 @import '../../style/themes/default';
 @import '../../style/mixins';
 
-@tab-prefix-cls: am-tabbar;
+@tab-prefix-cls: am-tab-bar;
 
 .@{tab-prefix-cls} {
-  &-tabs {
+  &-ink-bar {
+    position: absolute;
+    opacity: 0;
+  }
+  &-nav {
     height: @tab-bar-height;
     border-top: @border-width-sm solid @border-color-base;
     position: fixed;
@@ -12,12 +16,16 @@
     width: 100%;
     display: flex;
     .box-sizing();
-    &-item {
+    .@{tab-prefix-cls}-tab {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+
+      &-active .@{tab-prefix-cls}-tab-title {
+        color: #108ee9;
+      }
       &-image {
         width: @icon-size-md;
         height: @icon-size-md;
@@ -27,15 +35,11 @@
         font-size: @font-size-icontext;
         margin-top: @v-spacing-xs;
         line-height: 1;
+        color: #888;
       }
     }
   }
-  &-content {
-    &-item {
-      display: none;
-    }
-    &-item-active {
-      display: block;
-    }
+  .@{tab-prefix-cls}-tabpane-hidden {
+    display: none;
   }
 }

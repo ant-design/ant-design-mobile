@@ -33,6 +33,7 @@ let TabBarExample = React.createClass({
       >
         <TabBar.Item
           title="生活"
+          key="生活"
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/XLdKiKAwDRXQNhC.png' }}
           selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/iKfBQdGdTMubhXy.png' }}
           selected={this.state.selectedTab === 'blueTab'}
@@ -48,6 +49,7 @@ let TabBarExample = React.createClass({
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/UNQhIatjpNZHjVf.png' }}
           selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/HLkBvJOKnmOfBPO.png' }}
           title="口碑"
+          key="口碑"
           badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => {
@@ -63,6 +65,7 @@ let TabBarExample = React.createClass({
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png' }}
           selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/LWNaMdwAFSmYBFw.png' }}
           title="朋友"
+          key="朋友"
           selected={this.state.selectedTab === 'greenTab'}
           onPress={() => {
             this.setState({
