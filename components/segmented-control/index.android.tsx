@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import assign from 'object-assign';
 import SegmentedControlProps from './SegmentedControlPropTypes';
 import styles from './style/';
 
@@ -62,7 +63,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     });
 
     const enabledOpacity = enabled ? 1 : 0.5;
-    const segmentedStyle = Object.assign({}, style, {
+    const segmentedStyle = assign({}, style, {
       opacity: enabledOpacity,
       borderColor: tintColor,
     });

@@ -19,7 +19,7 @@ export default class Stepper extends React.Component<StepProps, any> {
       top: 6,
       paddingTop: 0,
     } : {};
-    const inputStyle = Object.assign({}, inputAndroidStyle, this.props.inputStyle);
+    const inputStyle = objectAssign({}, inputAndroidStyle, this.props.inputStyle);
     delete restProps.inputStyle;
 
     return (
