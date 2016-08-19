@@ -110,14 +110,15 @@ export default {
   // 高度
   // ---
   button_height_sm: 23,
-  button_height: 36,
+  button_height: 42,
   list_title_height: 30,
   list_item_height: 45,        // 列表项高度
   segmented_control_height: 27,
   notice_bar_height: 36,
-  tabs_height: 36,
-  option_height: 36,           // action_sheet、picker 的选项高度
+  tabs_height: 42,
+  option_height: 42,           // action_sheet、picker 的选项高度
   tab_bar_height: 50,
+  search_bar_input_height: 28,
 
   input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
 
