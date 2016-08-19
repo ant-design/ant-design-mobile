@@ -11,7 +11,6 @@ export interface TextareaItemState {
 
 export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
   static propTypes = {
-    type: PropTypes.oneOf(['hasLine']),
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
   };
@@ -20,7 +19,6 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     prefixCls: 'am-textarea',
     prefixListCls: 'am-list',
     title: '',
-    type: 'hasLine',
     autoHeight: false,
     editable: true,
     name: '',

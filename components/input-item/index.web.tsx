@@ -11,7 +11,7 @@ export interface InputItemState {
 
 export default class InputItem extends React.Component<InputItemProps, InputItemState> {
   static propTypes = {
-    format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
+    type: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
     size: PropTypes.oneOf(['large', 'small']),
     labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
     labelPosition: PropTypes.oneOf(['left', 'top']),
@@ -21,7 +21,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
-    format: 'text',
+    type: 'text',
     editable: true,
     name: '',
     value: '',
@@ -59,9 +59,9 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
   onInputChange = (e) => {
     let value = e.target.value;
-    const { onChange, format } = this.props;
+    const { onChange, type } = this.props;
 
-    switch (format) {
+    switch (type) {
       case 'text':
         break;
       case 'bankCard':
@@ -124,7 +124,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
   render() {
     const {
-      prefixCls, prefixListCls, format, name, editable, value, style, clear, children,
+      prefixCls, prefixListCls, type, name, editable, value, style, clear, children,
       error, className, extra, labelNumber, maxLength } = this.props;
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({
@@ -146,9 +146,9 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     });
 
     let inputType = 'text';
-    if (format === 'bankCard' || format === 'phone') {
+    if (type === 'bankCard' || type === 'phone') {
       inputType = 'tel';
-    } else if (format === 'password') {
+    } else if (type === 'password') {
       inputType = 'password';
     }
 
@@ -166,7 +166,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
             onBlur={this.onInputBlur}
             onFocus={this.onInputFocus}
             readOnly={!editable}
-            pattern={format === 'number' ? '[0-9]*' : ''}
+            pattern={type === 'number' ? '[0-9]*' : ''}
           />
         </div>
         {clear && editable && value.length > 0 ?

@@ -6,8 +6,7 @@ interface InputItemProps {
     style?: React.CSSProperties;
     /** web only */
     className?: string;
-    type?: 'hasLine';
-    format?: 'text'|'bankCard'|'phone'|'password'|'number';
+    type?: 'text'|'bankCard'|'phone'|'password'|'number';
     editable?: boolean;
     name?: string;
     value?: string;
