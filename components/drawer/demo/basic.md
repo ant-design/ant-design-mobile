@@ -23,7 +23,7 @@ const App1 = React.createClass({
   render() {
     const sidebar = (<List>
       <List.Body>
-        {[1, 2, 3, 4, 5, 6].map((i, index) => {
+        {[...Array(20).keys()].map((i, index) => {
           if (index === 0) {
             return (<List.Item key={index}
               thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
@@ -43,7 +43,7 @@ const App1 = React.createClass({
       position: this.state.position,
       onOpenChange: this.onOpenChange,
     };
-    return (<div>
+    return (<div style={{ height: '100%' }}>
       <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>
         基本
       </NavBar>
@@ -62,11 +62,15 @@ ReactDOM.render(<App1 />, mountNode);
 <style>
 .drawer-container {
   position: relative;
-  height: 1000px;
+  height: 100%;
+}
+.am-drawer {
+  overflow: auto;
 }
 .am-drawer-sidebar {
   max-width: 260px;
   background-color: #fff;
+  overflow: auto;
 }
 .am-drawer-sidebar .am-list {
   padding: 0;

@@ -161,7 +161,7 @@ export default class Home extends React.Component {
       onOpenChange: this.onOpenChange,
     };
 
-    let drawerContent = (<div>
+    let drawerContent = (<div style={{ height: '100%' }}>
       <div className="demoName">
         {demoMeta.chinese}
         <p>{demoMeta.english}</p>
@@ -194,7 +194,7 @@ export default class Home extends React.Component {
     if (whiteList.indexOf(name) > -1) {
       const arr = location.hash.substr(1).split('-demo-');
       const i = demoSort[arr.length > 1 ? arr[1] : 0];
-      drawerContent = (<div>
+      drawerContent = (<div style={{ height: '100%' }}>
         {i.preview(React, ReactDOM)}
         {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
       </div>);
