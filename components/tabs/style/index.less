@@ -1,19 +1,24 @@
 @import '../../style/themes/default';
 @import '../../style/mixins';
 
-@tab-prefix-cls: am-tab;
+@tab-prefix-cls: am-tabs;
 
 .@{tab-prefix-cls} {
-  &-tabpane {
+  overflow: hidden;
+  &-nav {
     display: flex;
     position: relative;
-    &-item {
+    .@{tab-prefix-cls}-tab {
       flex: 1;
       text-align: center;
       border-bottom: @border-width-sm solid @border-color-base;
       font-size: @font-size-caption;
       line-height: 1.6;
       padding: @v-spacing-md @h-spacing-sm;
+
+      &-active {
+        color: rgb(16, 142, 233);
+      }
     }
   }
 
@@ -25,10 +30,8 @@
   }
 
   &.@{tab-prefix-cls}-no-animation {
-    .@{tab-prefix-cls}-tabpane {
-      &-item-active {
-        border-bottom-width: @border-width-lg;
-      }
+    .@{tab-prefix-cls}-tab-active {
+      border-bottom-width: @border-width-lg;
     }
   }
   &.@{tab-prefix-cls}-bottom {
@@ -36,7 +39,7 @@
       bottom: auto;
       top: 0;
     }
-    .@{tab-prefix-cls}-tabpane {
+    .@{tab-prefix-cls}-nav {
       &-item {
         border-top: @border-width-sm solid @border-color-base;
         border-bottom: 0;
@@ -45,12 +48,11 @@
   }
   &-content {
     position: relative;
-    &-item {
+    .@{tab-prefix-cls}-tabpane {
       background-color: @fill-base;
-      display: none;
-    }
-    &-item-active {
-      display: block;
+      &-hidden {
+        display: none;
+      }
     }
   }
 

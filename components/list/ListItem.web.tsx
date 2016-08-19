@@ -21,7 +21,7 @@ export interface ListItemState {
   hover: boolean;
 }
 
-class Brief extends React.Component<any, any> {
+export class Brief extends React.Component<any, any> {
   render() {
     return (
       <div className="am-list-brief">{this.props.children}</div>

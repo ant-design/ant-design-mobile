@@ -32,10 +32,6 @@ english: Tabs
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
 | animation |  是否动画    |  boolean   |    `true`    |
 | tabPosition |    tab 位置 top/bottom        |  string    |    `top`        |
-| underlineColor |    pane 默认线条色        |  string    |    `#ddd`        |
-| activeUnderlineColor |    pane 选中线条色        |  string    |    `#108ee9`        |
-| textColor |    pane 默认线条色        |  string    |    `#000`        |
-| activeTextColor |    pane 选中文字颜色        |  string    |    `#108ee9`        |
 
 
 ### Tabs.TabPane
