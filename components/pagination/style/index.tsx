@@ -1,4 +1,4 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -7,28 +7,29 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   totalStyle: {
-    fontSize: variables.font_size_6,
+    fontSize: variables.font_size_display_sm,
+    color: variables.color_text_base,
   },
   activeTextStyle: {
-    fontSize: variables.font_size_6,
-    color: variables.brand_6,
+    fontSize: variables.font_size_display_sm,
+    color: variables.color_link,
   },
   indicatorStyle: {
     flexDirection: 'row',
   },
   pointStyle: {
-    width: 2 * variables.grid,
-    height: 2 * variables.grid,
-    borderRadius: variables.grid,
-    backgroundColor: variables.neutral_6,
+    width: 8,
+    height: 8,
+    borderRadius: 8,
+    backgroundColor: variables.input_color_icon,
   },
   pointActiveStyle: {
-    backgroundColor: variables.brand_6,
+    backgroundColor: '#888',
   },
   spaceLargeStyle: {
-    marginRight: 6 * variables.grid,
+    marginRight: 4 * variables.h_spacing_sm,
   },
   spaceSmallStyle: {
-    marginRight: variables.grid,
+    marginRight: variables.h_spacing_sm,
   },
 });
