@@ -9,10 +9,6 @@ title: 尺寸/size、行内按钮/inline
 
 
 ````jsx
-// 此处用作demo展示，不要用在生产环境
-this.customNavFlag = true;
-
-
 import { Button, NavBar } from 'antd-mobile';
 
 const ButtonExample = React.createClass({

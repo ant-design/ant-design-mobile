@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Bars
+type: UI Bars
 chinese: 搜索栏
 english: SearchBar
 ---

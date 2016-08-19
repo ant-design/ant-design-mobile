@@ -7,10 +7,6 @@ title: 失效状态/disabled
 
 
 ````jsx
-// 此处用作demo展示，不要用在生产环境
-this.customNavFlag = true;
-
-
 import { Button, NavBar } from 'antd-mobile';
 
 const ButtonExample = React.createClass({

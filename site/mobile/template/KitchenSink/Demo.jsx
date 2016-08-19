@@ -50,7 +50,6 @@ export default class Home extends React.Component {
 
     this.state = {
       open: false,
-      position: 'left',
     };
   }
 
@@ -81,7 +80,8 @@ export default class Home extends React.Component {
       lists[meta.category].push(meta);
     });
 
-    const componentList = lists.APIS.concat(lists.Components);
+    const componentList = lists['UI Views'].concat(lists['UI Bars'])
+    .concat(lists['UI Controls']).concat(lists.Other);
 
     let demoMeta;
     componentList.forEach((item) => {
@@ -90,6 +90,7 @@ export default class Home extends React.Component {
       }
     });
 
+    const whiteList = ['drawer', 'list-view'];
     const sidebar = (<div>
       <div className="demo-drawer-home">
         <Link to="/">Ant Design Mobile</Link>
@@ -100,8 +101,16 @@ export default class Home extends React.Component {
             {
               lists[cate].map((item, ii) => {
                 const fileName = item.filename.split('/')[1];
+                const subs = (<List>
+                  <List.Header>{item.chinese}</List.Header>
+                  {demoSort.map((item1, index1) => (
+                    <List.Item key={index1}>
+                      <Link to={`/${fileName}/#${fileName}-demo-${index}`}>{item1.meta.title}</Link>
+                    </List.Item>
+                  ))}
+                </List>);
                 return (<List.Item key={ii}>
-                  <Link to={`/${fileName}/`}>{item.chinese}</Link>
+                  {whiteList.indexOf(fileName) > -1 ? subs : <Link to={`/${fileName}/`}>{item.chinese}</Link>}
                 </List.Item>);
               })
             }
@@ -112,9 +121,51 @@ export default class Home extends React.Component {
 
     const drawerProps = {
       open: this.state.open,
-      position: this.state.position,
+      position: 'left',
       onOpenChange: this.onOpenChange,
     };
+
+    let drawerContent = (<div>
+      <div className="demoName">
+        {demoMeta.chinese}
+        <p>{demoMeta.english}</p>
+      </div>
+      {
+        demoSort.length > 1 &&
+          <div className="demoLinks">
+            <ul>
+              {
+                demoSort.map((item, index) => (
+                  <li key={index}>
+                    <a href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+      }
+      {
+        demoSort.map((i, index) => (
+          <div className="demo-preview-item"id={`${name}-demo-${index}`} key={index}>
+            <div className="demoTitle">{i.meta.title}</div>
+            {i.preview(React, ReactDOM)}
+            {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+          </div>
+        ))
+      }
+    </div>);
+
+    if (whiteList.indexOf(name) > -1) {
+      const arr = location.hash.substr(1).split('-demo-');
+      const i = demoSort[arr.length > 1 ? arr[1] : 0];
+      drawerContent = (<div>
+        {i.preview(React, ReactDOM)}
+        {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+      </div>);
+      if (name === 'list-view') {
+        drawerProps.className = 'spe-drawer';
+      }
+    }
 
     return (
       <div id={name}>
@@ -123,35 +174,7 @@ export default class Home extends React.Component {
         </div>
         <div className="demo-drawer-container">
           <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-            <div className="demoName">
-              {demoMeta.chinese}
-              <p>{demoMeta.english}</p>
-            </div>
-
-            {
-            demoSort.length > 1 &&
-              <div className="demoLinks">
-                <ul>
-                  {
-                    demoSort.map((item, index) => (
-                      <li key={index}>
-                        <a href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
-            }
-
-            {
-              demoSort.map((i, index) => (
-                <div className="demo-preview-item"id={`${name}-demo-${index}`} key={index}>
-                  <div className="demoTitle">{i.meta.title}</div>
-                  {i.preview(React, ReactDOM)}
-                  {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
-                </div>
-              ))
-            }
+            {drawerContent}
           </Drawer>
         </div>
       </div>

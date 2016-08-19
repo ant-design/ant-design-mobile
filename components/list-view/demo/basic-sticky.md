@@ -1,7 +1,6 @@
 ---
 order: 2
 title: 无尽列表
-destroyComponent: true
 ---
 
 区块标题 “吸顶”(sticky) 功能示例

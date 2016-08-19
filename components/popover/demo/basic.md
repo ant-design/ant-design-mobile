@@ -5,11 +5,7 @@ title: Popover
 
 
 ````jsx
-// 此处用作demo展示，不要用在生产环境
-this.customNavFlag = true;
-
-
-import { Popover, Button, NavBar } from 'antd-mobile';
+import { Popover, Button } from 'antd-mobile';
 const Item = Popover.Item;
 
 const App = React.createClass({
@@ -48,22 +44,18 @@ const App = React.createClass({
     ]);
 
     return (<div>
-      <NavBar iconName={false}
-        rightContent={<Popover
-          visible={this.state.visible}
-          overlay={overlay}
-          popupAlign={{
-            offset: [5, 14],
-          }}
-          onVisibleChange={this.handleVisibleChange}
-          onSelect={this.onSelect}
-        >
-          <a href="#" style={{ color: 'white' }}>菜单</a>
-        </Popover>}
+      <Popover
+        visible={this.state.visible}
+        overlay={overlay}
+        popupAlign={{
+          offset: [5, 14],
+        }}
+        onVisibleChange={this.handleVisibleChange}
+        onSelect={this.onSelect}
       >
-        Popover
-      </NavBar>
-      <p>选中了 {this.state.selected}</p>
+        <a href="#" style={{ float: 'right', marginRight: 100 }}>菜单</a>
+      </Popover>
+      {/* <p>选中了 {this.state.selected}</p> */}
       <div style={{ paddingTop: 140, paddingLeft: 130 }}>
         <Popover
           visible={this.state.visible1}

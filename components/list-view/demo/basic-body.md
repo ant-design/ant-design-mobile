@@ -1,7 +1,6 @@
 ---
 order: 1
 title: 无尽列表
-destroyComponent: true
 ---
 
 使用 html 的 `body` 作为滚动容器
