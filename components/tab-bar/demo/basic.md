@@ -33,8 +33,8 @@ let TabBarExample = React.createClass({
       >
         <TabBar.Item
           title="生活"
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/oeVevmOmdPsBYSK.png' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/azAQQgnhgzfERRp.png' }}
+          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/XLdKiKAwDRXQNhC.png' }}
+          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/iKfBQdGdTMubhXy.png' }}
           selected={this.state.selectedTab === 'blueTab'}
           onPress={() => {
             this.setState({
@@ -45,8 +45,8 @@ let TabBarExample = React.createClass({
           {this.renderContent('#414A8C', '生活 Tab')}
         </TabBar.Item>
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/QAglGPbVUVEzLab.png' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/NXsJBFNYxNVIdkR.png' }}
+          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/UNQhIatjpNZHjVf.png' }}
+          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/HLkBvJOKnmOfBPO.png' }}
           title="口碑"
           badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === 'redTab'}
@@ -60,8 +60,8 @@ let TabBarExample = React.createClass({
           {this.renderContent('#783E33', '口碑 Tab', this.state.notifCount)}
         </TabBar.Item>
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/UGWsgiXJaYBYzgX.png' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/VepaJAclXLFGeDr.png' }}
+          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png' }}
+          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/LWNaMdwAFSmYBFw.png' }}
           title="朋友"
           selected={this.state.selectedTab === 'greenTab'}
           onPress={() => {

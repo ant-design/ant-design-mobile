@@ -63,25 +63,27 @@
 
 .@{checkboxWarpPrefixCls}-agree {
   position: relative;
+  display: flex;
+  align-items: stretch;
   margin-left: @h-spacing-lg;
-  line-height: 1;
-  padding-top: @h-spacing-lg;
   .@{checkboxWarpPrefixCls} {
     position: absolute;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    line-height: 1;
     &-inner {
       left: 0;
-      top: 2px;
+      top: @v-spacing-xs;
     }
   }
   .@{checkboxWarpPrefixCls}-agree-label {
-    margin-left: @v-spacing-sm;
     font-size: @font-size-subhead;
-    padding-left: @v-spacing-xl;
+    color: @color-text-base;
     line-height: 1.8;
+    padding-left: 2 * @h-spacing-lg;
+    margin-top: 0;
+    margin-left: 0;
     a {
       position: relative;
       z-index: 99;
