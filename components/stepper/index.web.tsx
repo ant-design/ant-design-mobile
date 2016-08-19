@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import objectAssign from 'object-assign';
 import RcInputNumber from 'rc-input-number';
 import StepProps from './StepPropTypes';
 
@@ -25,7 +26,7 @@ export default class Stepper extends React.Component<StepProps, any> {
       ['showNumber']: !!showNumber,
     });
 
-    const restProps = Object.assign({}, this.props);
+    const restProps = objectAssign({}, this.props);
     ['className', 'prefixCls', 'size', 'showNumber'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];

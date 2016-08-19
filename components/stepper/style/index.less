@@ -96,9 +96,6 @@
     border: 0;
     padding: 0;
     background: none;
-    &:disabled {
-      opacity: @opacity-disabled;
-    }
   }
 
   &.showNumber {
@@ -196,7 +193,8 @@
   }
 
   &-disabled {
-    .@{stepperPrefixCls}-handler {
+    .@{stepperPrefixCls}-handler,
+    .@{stepperPrefixCls}-input-wrap {
       opacity: @opacity-disabled;
     }
   }
