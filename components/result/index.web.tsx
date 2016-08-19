@@ -3,7 +3,7 @@ import Button from '../button';
 import classNames from 'classnames';
 function noop() {}
 
-export interface PageResultProps {
+export interface ResultProps {
   prefixCls?: string;
   style?: React.CSSProperties;
   className?: string;
@@ -16,9 +16,9 @@ export interface PageResultProps {
   buttonClick?: () => void;
 }
 
-export default class PageResult extends React.Component<PageResultProps, any> {
+export default class Result extends React.Component<ResultProps, any> {
   static defaultProps = {
-    prefixCls: 'am-page-result',
+    prefixCls: 'am-result',
     imgUrl: '',
     title: '',
     message: '',

@@ -29,7 +29,7 @@ const hashImgObj = {
   menu: 'NRpaVQhCssmCMvT',
   modal: 'AMszKQQdMvMmYng',
   'nav-bar': 'VrOSRjcBgRlvffN',
-  'page-result': 'nQbMEPIMUYIxyfW',
+  result: 'nQbMEPIMUYIxyfW',
   picker: 'WYAMQVIuqdtAGqK',
   progress: 'aIomfcRsRHmPyNo',
   radio: 'MHMIvHaTJRwnFeV',
