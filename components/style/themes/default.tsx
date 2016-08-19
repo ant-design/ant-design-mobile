@@ -12,15 +12,16 @@ export default {
   color_text_placeholder: '#ccc',           // 文本框提示
   color_text_disabled: '#bbb',              // 失效
   color_text_caption: '#888',               // 辅助描述
-  color_text_paragraph: '#888',             // 段落
+  color_text_paragraph: '#333',             // 段落
   color_link: '#108ee9',                    // 链接
+  color_text_tap: '#BCBCBC',
 
   // 阴影色
   color_shadow: 'rgba(100, 100, 100, .2)',  // 阴影色
 
   // 输入框图标
   input_color_icon: '#ccc',
-  input_color_icon_top: brandPrimary,
+  input_color_icon_tap: brandPrimary,
   input_color_icon_inverse: 'rgba(255, 255, 255, .6)',
   input_color_icon_tap_inverse: 'rgba(255, 255, 255, .4)',
 
@@ -48,7 +49,8 @@ export default {
   brand_success: '#6abf47',
   brand_warning: '#f86e21',
   brand_error: '#f4333c',
-  brand_important: '#f96268',
+  brand_hot: '#f96268',        // 用于推荐/促销/折扣
+  brand_important: '#ff3b30',  // 用于小红点
 
   // 边框色
   border_color_base: '#ddd',
@@ -66,7 +68,7 @@ export default {
   font_size_display_lg: 24,
   font_size_display_xl: 30,
 
-  small_button_font_size: 12,
+  button_font_size_sm: 12,
   link_button_font_size: 16,
   button_font_size: 18,
   input_font_size: 14,
@@ -94,9 +96,9 @@ export default {
   // 间距
   // ---
   // 水平间距
-  h_spacing_sm: 12,
-  h_spacing_md: 18,
-  h_spacing_lg: 30,
+  h_spacing_sm: 6,
+  h_spacing_md: 9,
+  h_spacing_lg: 15,
 
   // 垂直间距
   v_spacing_xs: 3,
@@ -107,7 +109,7 @@ export default {
 
   // 高度
   // ---
-  small_button_height: 23,
+  button_height_sm: 23,
   button_height: 36,
   list_title_height: 30,
   list_item_height: 45,        // 列表项高度
@@ -116,6 +118,8 @@ export default {
   tabs_height: 36,
   option_height: 36,           // action_sheet、picker 的选项高度
   tab_bar_height: 50,
+
+  input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
 
   // 图标尺寸
   // ---

@@ -100,7 +100,7 @@ export default class Grid extends React.Component<GridProps, GridState> {
 
     const flexItemStyle = {
       height: `${this.clientWidth / 4}px`,
-      paddingTop: `${(this.clientWidth / 4 - 40) / 2}px`,
+      paddingTop: `${this.clientWidth / 16}px`,
     };
 
     for (let i = 0; i < FlexCount; i ++) {

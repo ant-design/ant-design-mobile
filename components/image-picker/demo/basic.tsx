@@ -1,17 +1,11 @@
----
-order: 0
-title: 图片上传
------------
+import * as React from 'react';
+import { ImagePicker, WhiteSpace } from 'antd-mobile';
+import { View } from 'react-native';
 
-简单的图片上传组件
----------
-
-````jsx
-import { Uploader, WhiteSpace } from 'antd-mobile';
-
-const UploaderExample = React.createClass({
-  getInitialState() {
-    return {
+export default class ImagePickerExample extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
       files: [{
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
         id: '2121',
@@ -33,13 +27,13 @@ const UploaderExample = React.createClass({
       }],
       files2: [],
     };
-  },
+  }
+
   render() {
     return (
-      <div>
-        <Uploader
+      <View style={{ marginTop: 20, marginLeft: 20 }}>
+        <ImagePicker
           onChange={(files) => {
-            console.log(files);
             this.setState({
               files,
             });
@@ -47,19 +41,15 @@ const UploaderExample = React.createClass({
           files={this.state.files}
         />
         <WhiteSpace />
-        <Uploader
+        <ImagePicker
           onChange={(files2) => {
-            console.log(files2);
             this.setState({
               files2,
             });
           }}
           files={this.state.files2}
         />
-      </div>
+      </View>
     );
-  },
-});
-
-ReactDOM.render(<UploaderExample />, mountNode);
-````
+  }
+}

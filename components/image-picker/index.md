@@ -1,9 +1,9 @@
 ---
 category: Components
 type: Components
-chinese: 图片上传
-english: Uploader
----
+chinese: 图片选择
+english: ImagePicker
+--------------------
 
 简单的图片上传,可以删除已选照片,或者选择新图片,通过onChange事件将新的图片数组传递给父组件,父组件处理完后,将结果更新到files。
 

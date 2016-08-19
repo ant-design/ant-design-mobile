@@ -17,8 +17,7 @@ let TextareaItemExample = React.createClass({
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List>
-          <List.Header>多行输入,TextareaItem</List.Header>
+        <List title="多行输入,TextareaItem">
           <List.Body>
             <TextareaItem
               {...getFieldProps('note', {
@@ -32,7 +31,7 @@ let TextareaItemExample = React.createClass({
               onFocus={(e) => { console.log('onFocus'); console.log(e); }}
             />
             <TextareaItem
-              {...getFieldProps('note3', {
+              {...getFieldProps('note1', {
                 initialValue: '',
                 valuePropName: 'value',
               })}
@@ -44,7 +43,7 @@ let TextareaItemExample = React.createClass({
               onFocus={(e) => { console.log('onFocus'); console.log(e); }}
             />
             <TextareaItem
-              {...getFieldProps('note1', {
+              {...getFieldProps('note2', {
                 initialValue: '',
                 valuePropName: 'value',
               })}
@@ -57,7 +56,7 @@ let TextareaItemExample = React.createClass({
               onFocus={(e) => { console.log('onFocus'); console.log(e); }}
             />
             <TextareaItem
-              {...getFieldProps('note2', {
+              {...getFieldProps('note3', {
                 initialValue: '',
                 valuePropName: 'value',
               })}
@@ -84,7 +83,7 @@ let TextareaItemExample = React.createClass({
                 initialValue: '',
                 valuePropName: 'value',
               })}
-              title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="28" height="28" />}
+              title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" style={{ width: '0.56rem', height: '0.56rem' }} />}
               labelNumber={4}
               clear
               placeholder="title类型可以是node"

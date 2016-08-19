@@ -25,62 +25,61 @@
     position: relative;
     .hairline-top(@border-color-base);
   }
-  & &-item {
-    position: relative;
-    padding-left: @v-spacing-lg;
-    min-height: @list-item-height;
-    background-color: @fill-base;
-    box-sizing: content-box;
-    vertical-align: middle;
-    overflow: hidden;
-    .display-box;
-    .box-align;
-    .transition(background-color 200ms);
-
-    &.@{listPrefixCls}-item-top {
-      .@{listPrefixCls}-line {
-        .box-align(flex-start);
-        .@{listPrefixCls}-arrow {
-          margin-top: 4px;
-        }
-      }
-    }
-    &.@{listPrefixCls}-item-middle {
-      .@{listPrefixCls}-line {
-        .box-align(center);
-      }
-    }
-    &.@{listPrefixCls}-item-bottom {
-      .@{listPrefixCls}-line {
-        .box-align(flex-end);
-      }
-    }
-    &.@{listPrefixCls}-item-error {
-      .@{listPrefixCls}-line {
-        .@{listPrefixCls}-extra {
-          color: #f50;
-          .@{listPrefixCls}-brief {
-            color: #f50;
-          }
-        }
-      }
-    }
-    &:last-child {
-      .hairline-bottom(@border-color-base);
-      .@{listPrefixCls}-line {
-        .hairline-remove-right-bottom();
-      }
-    }
-    &.@{listPrefixCls}-item-hover {
-      background-color: @fill-tap;
-    }
-    img {
-      vertical-align: middle;
-    }
-  }
 }
 .@{listPrefixCls}-item {
-  /*list左图片显示*/
+  position: relative;
+  display: flex;
+  padding-left: @v-spacing-lg;
+  min-height: @list-item-height;
+  background-color: @fill-base;
+  // box-sizing: content-box;
+  vertical-align: middle;
+  overflow: hidden;
+  .box-align;
+  .transition(background-color 200ms);
+  &.@{listPrefixCls}-item-top {
+    .@{listPrefixCls}-line {
+      .box-align(flex-start);
+      .@{listPrefixCls}-arrow {
+        margin-top: 4px;
+      }
+    }
+  }
+  &.@{listPrefixCls}-item-middle {
+    .@{listPrefixCls}-line {
+      .box-align(center);
+    }
+  }
+  &.@{listPrefixCls}-item-bottom {
+    .@{listPrefixCls}-line {
+      .box-align(flex-end);
+    }
+  }
+  &.@{listPrefixCls}-item-error {
+    .@{listPrefixCls}-line {
+      .@{listPrefixCls}-extra {
+        color: #f50;
+        .@{listPrefixCls}-brief {
+          color: #f50;
+        }
+      }
+    }
+  }
+  &:last-child {
+    .hairline-bottom(@border-color-base);
+    .@{listPrefixCls}-line {
+      .hairline-remove-right-bottom();
+    }
+  }
+  &.@{listPrefixCls}-item-hover {
+    background-color: @fill-tap;
+  }
+  img {
+    width: @icon-size-md;
+    height: @icon-size-md;
+    vertical-align: middle;
+  }
+  /* list左图片显示*/
   .@{listPrefixCls}-thumb {
     &:first-child {
       margin-right: @h-spacing-lg;
@@ -88,66 +87,47 @@
     &:last-child {
       margin-left: @h-spacing-md;
     }
-    img {
-      width: @h-spacing-lg;
-      height: @h-spacing-lg;
-      vertical-align: middle;
-    }
-  }
-  select {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    border: 0;
-    font-size: @font-size-heading;
-    appearance: none;
-    background-color: transparent;
   }
   .@{listPrefixCls}-line {
     position: relative;
-    padding-right: @h-spacing-lg;
-    .display-box;
-    .box-flex;
+    display: flex;
+    flex: 1;
     align-self: stretch;
+    padding-right: @h-spacing-lg;
     overflow: hidden;
     .hairline-bottom(@border-color-base);
     &-multiple {
       padding: @v-spacing-lg @h-spacing-lg @v-spacing-lg 0;
     }
-    /*list左侧主内容*/
+    /* list左侧主内容*/
     .@{listPrefixCls}-content {
-      .box-flex;
+      flex: 1;
       color: @color-text-base;
       font-size: @font-size-heading;
-      line-height: 1;
+      line-height: 1.2;
       .ellipsis();
     }
-    /*list右补充内容*/
+    /* list右补充内容*/
     .@{listPrefixCls}-extra {
-      .box-flex(1);
+      flex: 1;
       color: @color-text-caption;
       font-size: @font-size-heading;
-      line-height: 1;
+      line-height: 1.2;
       text-align: right;
       .ellipsis();
-      .am-list-brief {
-        font-size: @font-size-subhead;
-      }
     }
     .@{listPrefixCls}-title {
       .ellipsis();
     }
-    /*list左侧主内容多行时，辅助性文字*/
+    /* 辅助性文字*/
     .@{listPrefixCls}-brief {
       color: @color-text-caption;
       font-size: @font-size-subhead;
-      line-height: 1;
+      line-height: 1.2;
       margin-top: @v-spacing-sm;
       .ellipsis();
     }
-    /*list右侧箭头*/
+    /* list右侧箭头*/
     .@{listPrefixCls}-arrow {
       display: block;
       width: @icon-size-xxs;
@@ -164,5 +144,16 @@
         .transform(rotate(90deg));
       }
     }
+  }
+  select {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    font-size: @font-size-heading;
+    appearance: none;
+    background-color: transparent;
   }
 }

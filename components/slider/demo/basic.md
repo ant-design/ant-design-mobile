@@ -19,7 +19,7 @@ let App = React.createClass({
         <WhiteSpace size={32} />
         <WingBlank size={20}>
           <p className="title">单模块</p>
-          <Slider defaultValue={26} />
+          <Slider defaultValue={26} min={0} max={100} />
         </WingBlank>
         <WhiteSpace size={32} />
         <WingBlank size={20}>

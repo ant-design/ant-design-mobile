@@ -1,68 +1,67 @@
 @import '../../style/themes/default';
 @import '../../style/mixins';
 
-@uploaderPrefixCls: am-uploader;
+@imagePickerPrefixCls: am-image-picker;
 
-.@{uploaderPrefixCls} {
+.@{imagePickerPrefixCls} {
   & &-list {
-    margin-top: 4*@grid;
-    margin-bottom: 2*@grid;
-    .@{uploaderPrefixCls}-item {
+    padding-top: @v-spacing-md;
+    margin-bottom: @h-spacing-lg;
+    .@{imagePickerPrefixCls}-item {
       position: relative;
-      margin-right: 2*@grid;
-      margin-bottom: 2*@grid;
-
+      margin-right: @h-spacing-sm;
+      margin-bottom: @v-spacing-sm;
       &:nth-child(4n) {
         margin-right: 0;
       }
-      .@{uploaderPrefixCls}-item-remove {
-        width: 4*@grid;
-        height: 4*@grid;
+      .@{imagePickerPrefixCls}-item-remove {
+        width: @icon-size-xxs;
+        height: @icon-size-xxs;
         position: absolute;
-        right: @grid;
-        top: @grid;
+        right: 12px;
+        top: 12px;
         text-align: right;
         vertical-align: top;
         z-index: 2;
         .encoded-svg-background("<svg width='16' height='16' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg'><g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><circle id='Oval-98' fill-opacity='0.4' fill='#404040' cx='8' cy='8' r='8'></circle><path d='M11.8979743,11.8990375 L11.8979743,11.8990375 C11.7633757,12.0336542 11.5447877,12.0336542 11.4101891,11.8990375 L8,8.48838931 L4.5887341,11.8990375 C4.45413554,12.0336542 4.23554748,12.0336542 4.10094892,11.8990375 L4.10094892,11.8990375 C3.96635036,11.7644208 3.96635036,11.5458033 4.10094892,11.4111866 L7.51221482,8.00053847 L4.10202571,4.58881335 C3.96742715,4.45419667 3.96742715,4.23557919 4.10202571,4.10096251 L4.10202571,4.10096251 C4.23662427,3.96634583 4.45521233,3.96634583 4.58981089,4.10096251 L8,7.51268762 L11.4112659,4.10203944 C11.5458645,3.96742276 11.7644525,3.96742276 11.8990511,4.10203944 L11.8990511,4.10203944 C12.0336496,4.23665612 12.0336496,4.45527361 11.8990511,4.58989029 L8.48778518,8.00053847 L11.8979743,11.4122636 C12.0325729,11.5468803 12.0325729,11.7644208 11.8979743,11.8990375 L11.8979743,11.8990375 Z' id='Shape' fill='#FFFFFF' transform='translate(8.000000, 8.000000) scale(1, -1) translate(-8.000000, -8.000000) '></path></g></svg>");
-        .backgroundSize(4*@grid, auto);
+        background-size: @icon-size-xxs auto;
       }
-      .@{uploaderPrefixCls}-item-content {
+      .@{imagePickerPrefixCls}-item-content {
         height: 100%;
         width: 100%;
-        border-radius: @grid;
+        border-radius: @radius-sm;
         background-size: cover;
       }
       img {
         width: 100%;
       }
-      &.@{uploaderPrefixCls}-upload-btn {
-        border-radius: @grid;
-        border: 1px solid @neutral-5;
-        background-color: @neutral-1;
+      &.@{imagePickerPrefixCls}-upload-btn {
+        border-radius: @radius-sm;
+        border: @border-width-sm solid @border-color-base;
+        background-color: @fill-base;
         &:before,
         &:after {
-          width: 0.5*@grid;
-          height: 8*@grid;
+          width: @border-width-md;
+          height: 50px;
           content: " ";
           position: absolute;
           top: 50%;
           left: 50%;
           -webkit-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
-          background-color: @neutral-5;
+          background-color: @border-color-base;
         }
         &:after {
-          width: 8*@grid;
-          height: 0.5*@grid;
+          width: 50px;
+          height: @border-width-md;
         }
         &:active {
-          border-color: @neutral-6;
+          //background-color: @fill-tap;
           &:before {
-            background-color: @neutral-6;
+            background-color: @border-color-base;
           }
           &:after {
-            background-color: @neutral-6;
+            background-color: @border-color-base;
           }
         }
 

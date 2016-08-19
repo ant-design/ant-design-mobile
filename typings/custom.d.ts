@@ -8,8 +8,9 @@ declare module 'antd-mobile' {
     DatePicker: any;
     Drawer: any;
     Dropdown: any;
-    FloatMenu: any;
+    Popover: any;
     Flex: any;
+    ImagePicker: any;
     InputItem: any;
     List: any;
     ListView: any;
@@ -26,11 +27,11 @@ declare module 'antd-mobile' {
     SwipeAction: any;
     Switch: any;
     Tag: any;
+    TabBar: any;
     TextAreaItem: any;
     Timeline: any;
     Toast: any;
     TopNotice: any;
-    Uploader: any;
     WhiteSpace: any;
     WingBlank: any;
   };

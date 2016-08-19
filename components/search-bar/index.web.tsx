@@ -19,7 +19,7 @@ export interface SearchBarProps {
   onClear?: Function;
   showCancelButton?: boolean;
   cancelTxt?: string;
-  disablSearch?: boolean;
+  disabled?: boolean;
 }
 
 export interface SearchBarState {
@@ -41,7 +41,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     onClear: PropTypes.func,
     showCancelButton: PropTypes.bool,
     cancelTxt: PropTypes.string,
-    disablSearch: PropTypes.bool,
+    disabled: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -56,7 +56,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     onClear: noop,
     showCancelButton: false,
     cancelTxt: '取消',
-    disablSearch: false,
+    disabled: false,
   };
 
   constructor(props) {
@@ -87,7 +87,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   onFocus = (e) => {
-    if (this.props.disablSearch) {
+    if (this.props.disabled) {
       e.preventDefault();
       e.stopPropagation();
       return;
@@ -123,7 +123,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   render() {
-    const { prefixCls, showCancelButton, disablSearch, placeholder, cancelTxt, className } = this.props;
+    const { prefixCls, showCancelButton, disabled, placeholder, cancelTxt, className } = this.props;
     const { value, focus } = this.state;
 
     const wrapCls = classNames({
@@ -146,7 +146,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
             <input type="search"
               className={`${prefixCls}-value`}
               value={value}
-              disabled={disablSearch}
+              disabled={disabled}
               placeholder={placeholder}
               onChange={this.onChange}
               onFocus={this.onFocus}

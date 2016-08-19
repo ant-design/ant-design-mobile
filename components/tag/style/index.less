@@ -3,34 +3,36 @@
 
 @pickerPrefixCls: am-tag;
 
+// TODO 设计师还没有设计出标注
+
 .@{pickerPrefixCls} {
-  border-radius: @radius-2;
+  border-radius: @radius-sm;
   display: inline-block;
   position: relative;
   overflow: hidden;
   vertical-align: middle;
   &-normal {
-    background-color: @neutral-1;
-    color: @neutral-10;
-    border: 1px solid @neutral-5;
+    background-color: @fill-base;
+    color: @color-text-base;
+    border: @border-width-sm solid @border-color-base;
   }
 
   &-active {
-    background-color: @neutral-1;
-    color: @brand-6;
-    border: 1px solid @brand-6;
+    background-color: @fill-base;
+    color: @brand-primary;
+    border: @border-width-sm solid @brand-primary;
   }
 
   &-disabled {
-    color: @neutral-6;
-    background-color: @neutral-2;
-    border: 1px solid @neutral-5;
+    color: @color-text-disabled;
+    background-color: @fill-disabled;
+    border: @border-width-sm solid @border-color-base;
   }
 
   &-read {
     background-color: @neutral-3;
     color: @neutral-10;
-    border: 1px solid @neutral-3;
+    border: @border-width-sm solid @neutral-3;
   }
 
   &-size-large {

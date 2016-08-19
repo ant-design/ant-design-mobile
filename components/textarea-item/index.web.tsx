@@ -28,7 +28,6 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     placeholder: '',
     clear: false,
     rows: 1,
-    count: 0,
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
@@ -63,10 +62,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   onChange = (e) => {
     let value = e.target.value;
-    const { count, onChange } = this.props;
-    if (count > 0) {
-      value = value.substring(0, count);
-    }
+    const { onChange } = this.props;
     onChange(value);
   };
 
@@ -99,11 +95,12 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   render() {
     let {
       prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count,
-      editable, error, className, labelNumber } = this.props;
+      editable, error, className, labelNumber, autoHeight } = this.props;
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-single-line`]: rows === 1 && !autoHeight,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
       [className]: className,
@@ -128,6 +125,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
             name={name}
             rows={rows}
             placeholder={placeholder}
+            maxLength={count}
             onChange={this.onChange}
             onBlur={this.onBlur}
             onFocus={this.onFocus}

@@ -1,7 +1,7 @@
 ---
 order: 0
-title: 表单
----------
+title: 列表项类表单组件大集合
+----
 
 表单集合
 
@@ -35,37 +35,37 @@ let BasicInput = React.createClass({
     const { getFieldProps } = this.props.form;
 
     return (<div>
-      <List>
-        <List.Header>表单输入项</List.Header>
+      <List title="表单输入项">
         <List.Body>
           <InputItem
             {...getFieldProps('input3', {
               initialValue: '小蚂蚁',
             })}
             clear
-            placeholder=""
           >帐号</InputItem>
           <InputItem
             {...getFieldProps('input4')}
             clear
             placeholder="请输入密码"
+            format="password"
           >密码</InputItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>表单展示项</List.Header>
+      <List
+        title="表单展示项"
+      >
         <List.Body>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
           >我的钱包</List.Item>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-            onClick={() => {}}
           >我的花销占比</List.Item>
         </List.Body>
       </List>
-      <List>
-        <List.Header>表单开关项</List.Header>
+      <List
+        title="表单开关项"
+      >
         <List.Body>
           <List.Item
             extra={<Switch
@@ -80,13 +80,14 @@ let BasicInput = React.createClass({
             arrow="horizontal"
           >个性化调整</List.Item>
           <List.Item
-            extra={<img src="https://zos.alipayobjects.com/rmsportal/zvUHiplIUVXxLwr.png" width="28" height="28" />}
+            extra={<img src="https://zos.alipayobjects.com/rmsportal/zvUHiplIUVXxLwr.png" />}
             arrow="horizontal"
           >个性化调整</List.Item>
         </List.Body>
       </List>
-      <List>
-        <List.Header>表单计数项</List.Header>
+      <List
+        title="表单计数项"
+      >
         <List.Body>
           <List.Item
             extra={<Stepper showNumber size="small" max={10} min={1} defaultValue={1} onChange={() => {}} />}
@@ -96,8 +97,9 @@ let BasicInput = React.createClass({
           </List.Item>
         </List.Body>
       </List>
-      <List>
-        <List.Header>表单单选项</List.Header>
+      <List
+        title="表单单选项"
+      >
         <List.Body>
           <Radio.RadioItem
             value="a"
@@ -133,8 +135,9 @@ let BasicInput = React.createClass({
           </Radio.RadioItem>
         </List.Body>
       </List>
-      <List >
-        <List.Header>表单多选项，普通列表中多选项</List.Header>
+      <List
+        title="表单多选项，普通列表中多选项"
+      >
         <List.Body>
           <Checkbox.CheckboxItem
             {...getFieldProps('f1', {
@@ -172,8 +175,9 @@ let BasicInput = React.createClass({
           </Checkbox.CheckboxItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>多行输入,TextareaItem</List.Header>
+      <List
+        title="多行输入,TextareaItem"
+      >
         <List.Body>
           <TextareaItem
             {...getFieldProps('note7', {

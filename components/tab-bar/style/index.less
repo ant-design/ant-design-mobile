@@ -1,0 +1,40 @@
+@import '../../style/themes/default';
+@import '../../style/mixins';
+
+@tab-prefix-cls: am-tabbar;
+
+.@{tab-prefix-cls} {
+  &-tabs {
+    .display-box();
+    height: @tab-bar-height;
+    border-top: @border-width-sm solid @border-color-base;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    &-item {
+      flex: 1;
+      text-align: center;
+      &-icon {
+      	padding-top: @v-spacing-sm;
+    	}
+    	&-image {
+        width: @icon-size-md;
+        height: @icon-size-md;
+        vertical-align: middle;
+      }
+      &-title {
+        font-size: @font-size-icontext;
+        margin-top: @v-spacing-xs;
+        line-height: 1;
+      }
+    }
+  }
+  &-content {
+    &-item {
+      display: none;
+    }
+    &-item-active {
+      display: block;
+    }
+  }
+}

@@ -1,11 +1,17 @@
-import * as React from 'react';
-import { Uploader, WhiteSpace } from 'antd-mobile';
-import { View } from 'react-native';
+---
+order: 0
+title: 图片选择
+-----------
 
-export default class UploaderExample extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = {
+简单的图片上传组件
+---------
+
+````jsx
+import { ImagePicker, WhiteSpace } from 'antd-mobile';
+
+const ImagePickerExample = React.createClass({
+  getInitialState() {
+    return {
       files: [{
         url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
         id: '2121',
@@ -27,13 +33,13 @@ export default class UploaderExample extends React.Component<any, any> {
       }],
       files2: [],
     };
-  }
-
+  },
   render() {
     return (
-      <View style={{ marginTop: 20, marginLeft: 20 }}>
-        <Uploader
+      <div>
+        <ImagePicker
           onChange={(files) => {
+            console.log(files);
             this.setState({
               files,
             });
@@ -41,15 +47,19 @@ export default class UploaderExample extends React.Component<any, any> {
           files={this.state.files}
         />
         <WhiteSpace />
-        <Uploader
+        <ImagePicker
           onChange={(files2) => {
+            console.log(files2);
             this.setState({
               files2,
             });
           }}
           files={this.state.files2}
         />
-      </View>
+      </div>
     );
-  }
-}
+  },
+});
+
+ReactDOM.render(<ImagePickerExample />, mountNode);
+````

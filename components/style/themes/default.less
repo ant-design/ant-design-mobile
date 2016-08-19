@@ -11,7 +11,7 @@
 @color-text-placeholder: #ccc;           // 文本框提示
 @color-text-disabled: #bbb;              // 失效
 @color-text-caption: #888;               // 辅助描述
-@color-text-paragraph: #888;             // 段落
+@color-text-paragraph: #333;             // 段落
 @color-text-tap: #BCBCBC;
 @color-link: #108ee9;                    // 链接
 
@@ -37,7 +37,7 @@
 @tabs-current-border-color: @brand-primary;
 @default-button-fill: @fill-base;
 @switch-fill: #4dd865;
-@segmented-control-fill-tap: fade(@brand-primary, 10%);
+@segmented-control-fill-tap: fade(@brand-primary, 0.1);
 
 // 透明度
 @opacity-disabled: 0.3;   // switch checkbox radio 等组件禁用的透明度
@@ -48,7 +48,9 @@
 @brand-success: #6abf47;
 @brand-warning: #f86e21;
 @brand-error: #f4333c;
-@brand-important: #f96268;
+@brand-hot: #f96268;        // 用于推荐/促销/折扣
+@brand-important: #ff3b30;  // 用于小红点
+
 
 // 边框色
 @border-color-base: #ddd;
@@ -66,11 +68,12 @@
 @font-size-display-lg: 48px;
 @font-size-display-xl: 60px;
 
-@small-button-font-size: 24px;
+@button-font-size-sm: 24px;
 @link-button-font-size: 32px;
 @button-font-size: 36px;
 @input-font-size: 28px;
 @tabs-font-size-heading: 30px;
+@search-bar-font-size-cancel: 32px;
 
 // 字体家族
 // ---
@@ -110,7 +113,7 @@
 
 // 高度
 // ---
-@small-button-height: 46px;
+@button-height-sm: 46px;
 @button-height: 72px;
 
 @list-title-height: 60px;
@@ -120,7 +123,10 @@
 @notice-bar-height: 72px;
 @tabs-height: 72px;
 @option-height: 72px;           // action-sheet、picker 的选项高度
-@tab-bar-height: 100px;
+@tab-bar-height: 96px;
+@search-bar-input-height: 56px;
+
+@input-label-width: 34px;       // InputItem、TextareaItem 文字长度基础值
 
 
 // 图标尺寸
@@ -128,10 +134,8 @@
 @icon-size-xxs: 30px;
 @icon-size-xs: 36px;
 @icon-size-sm: 42px;
-@icon-size-md: 44px;       // 导航条上的图标
+@icon-size-md: 44px;       // 导航条上的图标、grid的图标大小
 @icon-size-lg: 72px;
-
-@input-label-width: 34px;  // InputItem、TextareaItem文字长度基础值
 
 // 动画缓动
 // ---

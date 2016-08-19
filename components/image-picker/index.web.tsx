@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
-import UploaderProps from './UploaderPropTypes';
+import ImagePickerPropTypes from './ImagePickerPropTypes';
 
 function noop() { }
 
-export default class Uploader extends React.Component<UploaderProps, any> {
+export default class ImagePicker extends React.Component<ImagePickerPropTypes, any> {
   static defaultProps = {
-    prefixCls: 'am-uploader',
+    prefixCls: 'am-image-picker',
     files: [],
     onChange: noop,
   };
@@ -102,8 +102,9 @@ export default class Uploader extends React.Component<UploaderProps, any> {
 
   render() {
     const { prefixCls, style, className, files } = this.props;
+    const dpr = window.devicePixelRatio || 1;
     const imgItemList = [];
-    const customWidth = ((document.documentElement.clientWidth - 32 - 24) / 4);
+    const customWidth = ((document.documentElement.clientWidth - 16 * dpr - 6 * dpr * 3) / 4);
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,

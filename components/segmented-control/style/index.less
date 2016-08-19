@@ -5,8 +5,8 @@
 
 .@{segment-prefix-cls} {
   .display-box;
-  background-color: #fff;
-  border-width: 2px;
+  background-color: @fill-base;
+  border-width: @border-width-md;
   border-style: solid;
   border-radius: @radius-md;
   border-color: @brand-primary;
@@ -20,7 +20,7 @@
     color: @brand-primary;
     font-size: @font-size-base;
     padding: @h-spacing-sm 0;
-    border-right: 2px solid @brand-primary;
+    border-right: @border-width-md solid @brand-primary;
     line-height: 1;
 
     &:last-child {
