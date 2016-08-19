@@ -48,32 +48,32 @@ ReactDOM.render(
           onClick={() => {}}
         >员工二维码</List.Item>
         <List.Item
-          extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
+          extra={<div>zhifubao@alipay.com#<List.Item.Brief>001</List.Item.Brief></div>}
           arrow="horizontal"
           onClick={() => {}}
           multipleLine
         >垂直居中对齐</List.Item>
         <List.Item
-          extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
+          extra={<div>zhifubao@alipay.com#<List.Item.Brief>001</List.Item.Brief></div>}
           arrow="horizontal"
           align="top"
           onClick={() => {}}
           multipleLine
         >顶部对齐</List.Item>
         <List.Item
-          extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
+          extra={<div>zhifubao@alipay.com#<List.Item.Brief>001</List.Item.Brief></div>}
           arrow="horizontal"
           align="bottom"
           onClick={() => {}}
           multipleLine
         >底部对齐</List.Item>
         <List.Item
-          extra={<div><div className="am-list-title">zhifubao@alipay.com#</div><div className="am-list-brief">001</div></div>}
+          extra={<div>zhifubao@alipay.com#<List.Item.Brief>001</List.Item.Brief></div>}
           arrow="horizontal"
           align="top"
           onClick={() => {}}
           multipleLine
-        ><div className="am-list-title am-list-multiline">zhifubao@alipay.com#zh#</div></List.Item>
+        >zhifubao@alipay.com#zh</List.Item>
       </List.Body>
     </List>
   </div>
