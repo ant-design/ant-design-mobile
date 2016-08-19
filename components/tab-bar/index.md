@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Bars
+type: UI Bars
 chinese: APP选项卡
 english: TabBar
 ---

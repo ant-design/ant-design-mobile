@@ -34,7 +34,7 @@ const MyProgress = React.createClass({
       <div className="progress-container">
         {this.state.percent === 100 ? null :
           <div>
-            <NavBar iconName={false}>NavBar</NavBar>
+            <NavBar iconName={false} mode="light">NavBar</NavBar>
             <Progress percent={this.state.percent} position="fixed" />
           </div>
         }

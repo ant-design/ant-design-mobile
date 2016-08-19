@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Bars
+type: UI Bars
 chinese: 顶部提示
 english: TopNotice
 ---

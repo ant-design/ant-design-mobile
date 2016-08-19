@@ -1,6 +1,6 @@
 ---
-category: APIS
-type: APIS
+category: UI Views
+type: UI Views
 chinese: 轻提示
 noinstant: true
 english: Toast

@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Bars
+type: UI Bars
 chinese: 顶部导航
 english: NavBar
 display: false
