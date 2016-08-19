@@ -1,7 +1,6 @@
 ---
 order: 0
 title: 无尽列表
-destroyComponent: true
 ---
 
 > 注意：需要设置 ListView 的 style 的 `height`/`overflow`，以此作为滚动容器

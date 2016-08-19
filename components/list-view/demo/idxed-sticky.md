@@ -1,7 +1,6 @@
 ---
 order: 4
 title: IndexedList sticky
-destroyComponent: true
 ---
 
 用于通讯薄等场景 sticky

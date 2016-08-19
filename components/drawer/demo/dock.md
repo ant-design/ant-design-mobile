@@ -7,10 +7,6 @@ title: 嵌入文档模式
 
 
 ````jsx
-// 此处用作demo展示，不要用在生产环境
-this.customNavFlag = true;
-
-
 import { Drawer, List, NavBar } from 'antd-mobile';
 
 const App = React.createClass({
