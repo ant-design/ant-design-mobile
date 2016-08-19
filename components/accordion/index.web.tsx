@@ -1,16 +1,16 @@
 import * as React from 'react';
 import RcCollapse, { Panel } from 'rc-collapse';
 
-export interface CollapseProps {
+export interface AccordionProps {
   prefixCls?: string;
   style?: React.CSSProperties;
 }
 
-export default class Collapse extends React.Component<CollapseProps, any> {
+export default class Accordion extends React.Component<AccordionProps, any> {
   static Panel = Panel;
 
   static defaultProps = {
-    prefixCls: 'am-collapse',
+    prefixCls: 'am-accordion',
   };
 
   render() {

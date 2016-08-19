@@ -1,17 +1,17 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
 
-@collapsePrefixCls: am-collapse;
+@accordionPrefixCls: am-accordion;
 @listPrefixCls: am-list;
 
-.@{collapsePrefixCls} {
+.@{accordionPrefixCls} {
   position: relative;
   .hairline-top(@border-color-base);
   &-anim-active {
     transition: all .2s ease-out;
   }
   & &-item {
-    .@{collapsePrefixCls}-header {
+    .@{accordionPrefixCls}-header {
       position: relative;
       color: @color-text-base;
       font-size: @font-size-heading;
@@ -43,9 +43,9 @@
         }
       }
     }
-    .@{collapsePrefixCls}-content {
+    .@{accordionPrefixCls}-content {
       background: @fill-base;
-      .@{collapsePrefixCls}-content-box {
+      .@{accordionPrefixCls}-content-box {
         font-size: @font-size-subhead;
         color: @color-text-paragraph;
         overflow: hidden;
@@ -65,7 +65,7 @@
           }
         }
       }
-      &.@{collapsePrefixCls}-content-inactive {
+      &.@{accordionPrefixCls}-content-inactive {
         display: none;
       }
     }

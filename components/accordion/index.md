@@ -1,8 +1,8 @@
 ---
 category: UI Views
 type: UI Views
-chinese: 折叠面板
-english: Collapse
+chinese: 手风琴
+english: Accordion
 ---
 
 
@@ -16,7 +16,7 @@ english: Collapse
 
 ## API
 
-### Collapse
+### Accordion
 
 | 成员        | 说明           | 类型       | 默认值       |
 |------------|----------------|----------|-------------|
@@ -25,7 +25,7 @@ english: Collapse
 | accordion    | `手风琴`模式 | Boolean | false  |
 | onChange      |   切换面板的回调   | Function(key) |  noop  |
 
-### Collapse.Panel
+### Accordion.Panel
 
 | 成员        | 说明           | 类型       | 默认值       |
 |------------|----------------|----------|-------------|
