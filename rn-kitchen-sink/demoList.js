@@ -171,12 +171,6 @@ module.exports = {
       module: require('../components/textarea-item/demo/basic'), // 必须
     },
     {
-      title: 'Timeline', // 必须
-      description: '时间轴',
-      icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
-      module: require('../components/timeline/demo/basic'), // 必须
-    },
-    {
       title: 'TopNotice', // 必须
       description: '顶部提示',
       icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
