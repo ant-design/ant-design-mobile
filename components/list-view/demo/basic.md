@@ -1,12 +1,14 @@
 ---
 order: 0
-title: 无尽列表
+title: 子容器
 ---
 
-> 注意：需要设置 ListView 的 style 的 `height`/`overflow`，以此作为滚动容器
+> 注意：需要设置 ListView 的 style 的 `height`/`overflow`，以此作为滚动容器。
+
+> 同时建议设置`body`的`overflow: hidden`
 
 ````jsx
-import { ListView, Toast, Button } from 'antd-mobile';
+import { ListView, Toast } from 'antd-mobile';
 
 const data = [
   {
@@ -121,7 +123,6 @@ const Demo = React.createClass({
         </div>
       );
     };
-    // this.ctrlBodyScroll(false, true);
     return (<div style={{ margin: '0 auto', width: '96%' }}>
       <ListView
         dataSource={this.state.dataSource}
@@ -142,18 +143,7 @@ const Demo = React.createClass({
         onEndReachedThreshold={10}
         style={{ height: 300, overflow: 'auto', border: '1px solid #ddd', margin: '10px 0' }}
       />
-      <div>
-        <p>切换`body`的`overflow`样式：</p>
-        <Button inline size="small" onClick={() => { this.ctrlBodyScroll(true); }}>auto</Button>&nbsp;
-        <Button inline size="small" onClick={() => { this.ctrlBodyScroll(false); }}>hidden</Button>
-      </div>
     </div>);
-  },
-  ctrlBodyScroll(flag, init) {
-    document.body.style.overflowY = flag ? 'auto' : 'hidden';
-    if (parent && parent !== self && !init) {
-      parent.document.body.style.overflowY = flag ? 'auto' : 'hidden';
-    }
   },
 });
 

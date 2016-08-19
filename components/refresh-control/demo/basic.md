@@ -57,7 +57,7 @@ const App = React.createClass({
         }}
       >
         <h3>下拉刷新</h3>
-        <div style={{ minHeight: 300 }}>
+        <div style={{ minHeight: 300 }} onClick={() => alert('cli')}>
           {this.state.items}
         </div>
       </RefreshControl>
