@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: Other
+type: Other
 chinese: 上下留白
 english: WhiteSpace
 ---

@@ -1,6 +1,6 @@
 ---
-category: APIS
-type: APIS
+category: UI Views
+type: UI Views
 chinese: 动作面板
 english: ActionSheet
 ---

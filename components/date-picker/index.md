@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Controls
+type: UI Controls
 chinese: 日期选择
 english: DatePicker
 ---

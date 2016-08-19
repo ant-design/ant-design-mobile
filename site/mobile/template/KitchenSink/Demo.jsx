@@ -81,7 +81,8 @@ export default class Home extends React.Component {
       lists[meta.category].push(meta);
     });
 
-    const componentList = lists.APIS.concat(lists.Components);
+    const componentList = lists['UI Views'].concat(lists['UI Bars'])
+    .concat(lists['UI Controls']).concat(lists.Other);
 
     let demoMeta;
     componentList.forEach((item) => {

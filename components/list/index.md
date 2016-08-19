@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Views
+type: UI Views
 chinese: 列表
 english: List
 ---
