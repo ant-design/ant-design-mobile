@@ -43,7 +43,7 @@ const App = React.createClass({
       open: false,
       position: 'left',
     };
-    return (<div>
+    return (<div style={{ height: '100%' }}>
       <NavBar iconName="ellipsis" onLeftClick={() => this.onDock('docked')}>嵌入文档</NavBar>
       <div className="drawer-container">
         <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
@@ -62,9 +62,13 @@ ReactDOM.render(<App />, mountNode);
   position: relative;
   height: 100%;
 }
+.am-drawer {
+  overflow: auto;
+}
 .am-drawer-sidebar {
   max-width: 260px;
   background-color: #fff;
+  overflow: auto;
 }
 .am-drawer-sidebar .am-list {
   padding: 0;

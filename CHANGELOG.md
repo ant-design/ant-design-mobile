@@ -12,7 +12,8 @@ english: 更新日志
 - 修复 `Object.assign` 兼容问题 #87
 - DatePicker 去掉 moment 必选依赖 #111
 - InputItem 和 TextareaItem API `format` 改为 `type`，移除原来`type`；修复 maxLength bug #106 #105
-- web demo 采用 rem 和页面 scale 缩放方案、达到页面高清效果
+- ListView 增加`useBodyScroll`API, IndexedList 支持分两步渲染
+- web demo 采用 rem 和页面 scale 缩放方案、达到页面高清效果；demo 分类优化
 - rn demo 的一系列优化
 
 ### 组件变更 (#50)
