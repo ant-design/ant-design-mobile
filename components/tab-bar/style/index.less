@@ -5,19 +5,19 @@
 
 .@{tab-prefix-cls} {
   &-tabs {
-    .display-box();
     height: @tab-bar-height;
     border-top: @border-width-sm solid @border-color-base;
     position: fixed;
     bottom: 0;
     width: 100%;
+    display: flex;
     &-item {
       flex: 1;
-      text-align: center;
-      &-icon {
-      	padding-top: @v-spacing-sm;
-    	}
-    	&-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &-image {
         width: @icon-size-md;
         height: @icon-size-md;
         vertical-align: middle;
