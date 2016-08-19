@@ -25,7 +25,6 @@ export { default as Switch } from './components/switch/';
 export { default as TabBar } from './components/tab-bar/';
 export { default as Tag } from './components/tag/';
 export { default as TextAreaItem } from './components/textarea-item/';
-export { default as Timeline } from './components/timeline/';
 export { default as Toast } from './components/toast/';
 export { default as TopNotice } from './components/top-notice/';
 export { default as WhiteSpace } from './components/white-space/';
