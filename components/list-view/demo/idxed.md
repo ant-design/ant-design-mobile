@@ -44,7 +44,7 @@ const Demo = React.createClass({
 
   render() {
     return (<div style={{ paddingTop: 40 }}>
-      <div style={{ position: 'fixed', zIndex: 999, top: 43, left: 0, right: 0 }}>
+      <div style={{ position: 'fixed', top: 33, left: 0, right: 0 }}>
         <SearchBar
           value=""
           placeholder="搜索"

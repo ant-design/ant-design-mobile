@@ -11,22 +11,22 @@ import { createForm } from 'rc-form';
 let SearchBarExample = React.createClass({
   getInitialState() {
     return {
-      value: '蚂蚁中台',
+      value: '美食',
     };
   },
   render() {
     const { getFieldProps } = this.props.form;
-    console.log(this.props.form.getFieldsValue());
     return (
       <div>
         <SearchBar
-          value="美食"
+          value={this.state.value}
           placeholder="搜索"
           onSubmit={(value) => { console.log(`onSubmit${value}`); }}
-          onClear={() => { console.log('onClear'); }}
-          onCancel={() => { console.log('onCancel'); }}
+          onClear={(value) => { console.log(value, 'onClear'); }}
+          onCancel={(value) => { console.log(value, 'onCancel'); this.setState({ value: '' }); }}
           onFocus={() => { console.log('onFocus'); }}
           onBlur={() => { console.log('onBlur'); }}
+          cancelTxt="自定义"
         />
         <WhiteSpace />
         <SearchBar
