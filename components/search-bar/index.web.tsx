@@ -68,7 +68,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
 
   componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps && this.props.value !== nextProps.value) {
+    if ('value' in nextProps && (this.state.value !== nextProps.value || this.props.value !== nextProps.value)) {
       this.setState({
         value: nextProps.value,
       });
@@ -108,9 +108,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   onCancel = () => {
-    this.setState({ value: '' });
-    this.props.onCancel('');
-    this.props.onChange('');
+    this.props.onCancel(this.state.value);
   };
 
   onClear = () => {
