@@ -56,3 +56,17 @@ const App = React.createClass({
 
 ReactDOM.render(<App />, mountNode);
 ````
+
+<style>
+.drawer-container {
+  position: relative;
+  height: 1000px;
+}
+.am-drawer-sidebar {
+  max-width: 260px;
+  background-color: #fff;
+}
+.am-drawer-sidebar .am-list {
+  padding: 0;
+}
+</style>

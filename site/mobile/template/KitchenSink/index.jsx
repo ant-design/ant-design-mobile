@@ -81,7 +81,6 @@ export default class App extends React.Component {
 
     this.state = {
       open: false,
-      position: 'left',
     };
   }
 
@@ -129,7 +128,7 @@ export default class App extends React.Component {
 
     const drawerProps = {
       open: this.state.open,
-      position: this.state.position,
+      position: 'left',
       onOpenChange: this.onOpenChange,
     };
 

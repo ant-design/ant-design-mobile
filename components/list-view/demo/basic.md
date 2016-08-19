@@ -121,7 +121,7 @@ const Demo = React.createClass({
         </div>
       );
     };
-    this.ctrlBodyScroll(false, true);
+    // this.ctrlBodyScroll(false, true);
     return (<div style={{ margin: '0 auto', width: '96%' }}>
       <ListView
         dataSource={this.state.dataSource}
