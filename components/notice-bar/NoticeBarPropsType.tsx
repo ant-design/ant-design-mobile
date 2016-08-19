@@ -1,4 +1,4 @@
-interface TopNoticePropsType {
+interface NoticeBarPropsType {
   mode?: 'closable' | 'link';
   onClick?: () => void;
   type?: 'success' | 'error' | 'warn' | 'question' | 'info';
@@ -8,4 +8,4 @@ interface TopNoticePropsType {
   prefixCls?: string;
 }
 
-export default TopNoticePropsType;
+export default NoticeBarPropsType;

@@ -22,6 +22,7 @@ export { default as Menu } from './menu/index.web';
 
 export { default as Modal } from './modal/index.web';
 export { default as NavBar } from './nav-bar/index.web';
+export { default as NoticeBar } from './notice-bar/index.web';
 
 export { default as Result } from './result/index.web';
 export { default as Pagination } from './pagination/index.web';
@@ -44,7 +45,6 @@ export { default as Tabs } from './tabs/index.web';
 export { default as Text } from './text/index.web';
 export { default as TextAreaItem } from './textarea-item/index.web';
 export { default as Toast } from './toast/index.web';
-export { default as TopNotice } from './top-notice/index.web';
 export { default as View } from './view/index.web';
 export { default as WhiteSpace } from './white-space/index.web';
 export { default as WingBlank } from './wing-blank/index.web';
