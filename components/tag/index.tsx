@@ -19,6 +19,14 @@ export default class Modal extends React.Component<TagProps, any> {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.selected !== nextProps.selected) {
+      this.setState({
+        selected: nextProps.selected,
+      });
+    }
+  }
+
   onClick = () => {
     const { disabled, onChange } = this.props;
     if (disabled) {
