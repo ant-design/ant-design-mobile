@@ -32,16 +32,12 @@ export default class Tabs extends React.Component<TabsProps, any> {
   };
 
   render() {
-    const {className, prefixCls, type, children, animation, mode, tabPosition} = this.props;
+    const {className, prefixCls, type, children, animation, tabPosition} = this.props;
     let cls = classNames({
       [className]: !!className,
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-no-animation`]: animation === false,
-      [`${prefixCls}-${mode}`]: type === 'tabbar',
     });
-
-    const position = type !== 'tabbar' ? tabPosition : 'bottom';
-    const anim = (type === 'tabbar' || !animation) ? '' : animation;
 
     const restProps = assign({}, this.props);
     ['className', 'prefixCls', 'type', 'animation', 'mode', 'tabPosition', 'children'].forEach(prop => {
@@ -52,10 +48,11 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
     return (
       <RcTabs
+        allowScrollBar={false}
         prefixCls={prefixCls}
         className={cls}
-        tabPosition={position}
-        animation={anim}
+        tabPosition={tabPosition}
+        animation={animation || ''}
         {...restProps}
       >
         {children}

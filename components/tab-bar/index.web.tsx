@@ -52,6 +52,8 @@ const TabBar = React.createClass({
     return (
       // TODO support navStyle in rc-tabs
       <Tabs
+        allowScrollBar={false}
+        allowInkBar={false}
         tabPosition="bottom"
         prefixCls={this.props.prefixCls}
         activeKey={activeKey}

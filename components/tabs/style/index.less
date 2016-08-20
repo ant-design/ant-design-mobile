@@ -5,7 +5,7 @@
 
 .@{tab-prefix-cls} {
   overflow: hidden;
-  &-nav {
+  &-bar {
     display: flex;
     position: relative;
     .@{tab-prefix-cls}-tab {
@@ -39,11 +39,9 @@
       bottom: auto;
       top: 0;
     }
-    .@{tab-prefix-cls}-nav {
-      &-item {
-        border-top: @border-width-sm solid @border-color-base;
-        border-bottom: 0;
-      }
+    .@{tab-prefix-cls}-tab {
+      border-top: @border-width-sm solid @border-color-base;
+      border-bottom: 0;
     }
   }
   &-content {
