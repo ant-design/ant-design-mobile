@@ -73,13 +73,13 @@ export default class Button extends React.Component<tsProps, any> {
     switch (size) {
       case 'large':
         height = variables.button_height;
-        fontSize = variables.font_size_display_sm;
-        paddingLeft = paddingRight = 0;
+        fontSize = variables.button_font_size;
+        paddingLeft = paddingRight = variables.h_spacing_sm;
         break;
       case 'small':
         height = variables.button_height_sm;
-        fontSize = variables.font_size_display_sm;
-        paddingLeft = paddingRight = 0;
+        fontSize = variables.button_font_size_sm;
+        paddingLeft = paddingRight = variables.h_spacing_sm;
         break;
       default:
         break;
