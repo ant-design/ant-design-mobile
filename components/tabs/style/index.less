@@ -17,7 +17,7 @@
       padding: @v-spacing-md @h-spacing-sm;
 
       &-active {
-        color: rgb(16, 142, 233);
+        color: @color-link;
       }
     }
   }
@@ -29,12 +29,7 @@
     background-color: @tabs-current-border-color;
   }
 
-  &.@{tab-prefix-cls}-no-animation {
-    .@{tab-prefix-cls}-tab-active {
-      border-bottom-width: @border-width-lg;
-    }
-  }
-  &.@{tab-prefix-cls}-bottom {
+  &&-bottom {
     .@{tab-prefix-cls}-ink-bar {
       bottom: auto;
       top: 0;
@@ -44,6 +39,7 @@
       border-bottom: 0;
     }
   }
+
   &-content {
     position: relative;
     .@{tab-prefix-cls}-tabpane {
@@ -54,11 +50,16 @@
     }
   }
 
-  &-ink-bar-transition-forward {
-    transition: right .3s @ease-in-out-quint, left .3s @ease-in-out-quint .09s;
-  }
+  &-ink-bar-transition-forward,
   &-ink-bar-transition-backward {
-    transition: right .3s @ease-in-out-quint .09s, left .3s @ease-in-out-quint;
+    transition: transform .3s @ease-in-out-quint;
+  }
+
+  &&-no-animation {
+    .@{tab-prefix-cls}-ink-bar-transition-forward,
+    .@{tab-prefix-cls}-ink-bar-transition-backward {
+      transition-duration: 0s;
+    }
   }
 
   &-slide-horizontal-backward-enter {
