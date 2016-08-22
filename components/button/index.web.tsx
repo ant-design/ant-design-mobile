@@ -37,7 +37,6 @@ export default class Button extends React.Component<tsProps, any> {
   static defaultProps = {
     prefixCls: 'am-button',
     size: 'large',
-    ghost: false,
     inline: false,
     disabled: false,
     loading: false,
@@ -49,16 +48,16 @@ export default class Button extends React.Component<tsProps, any> {
   }
 
   render() {
-    let[{ children, className, prefixCls, type, size, ghost, inline, disabled,
+    let[{ children, className, prefixCls, type, size, inline, disabled,
       htmlType, icon, loading }, restProps] = splitObject(this.props,
-    ['children', 'className', 'prefixCls', 'type', 'size', 'ghost', 'inline',
+    ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
       'disabled', 'htmlType', 'icon', 'loading']);
 
     const wrapCls = classNames({
       [className]: className,
       [prefixCls]: true,
       [`${prefixCls}-primary`]: type === 'primary',
-      [`${prefixCls}-ghost`]: ghost,
+      [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
       [`${prefixCls}-small`]: size === 'small' && inline,
       [`${prefixCls}-loading`]: loading,

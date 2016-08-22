@@ -3,6 +3,14 @@ order: 2
 english: 更新日志
 ---
 
+## 1.0.0-alpha.
+
+``
+
+- Picker / DatePicker 添加 disabled 支持 #90 #119
+- Button `ghost`从原来的单独属性，变为`type`下的属性值
+
+
 ## 1.0.0-alpha.0
 
 `2016-08-19`

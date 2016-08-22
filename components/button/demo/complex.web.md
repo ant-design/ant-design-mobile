@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 1
 title: 应用场景示例
 ---
 
@@ -7,32 +7,13 @@ title: 应用场景示例
 
 
 ````jsx
-import { Button, Flex, List } from 'antd-mobile';
+import { Button, List } from 'antd-mobile';
 ReactDOM.render(
   <div className="button-container">
-    <div style={{ margin: '32px 8px 8px' }}>
-      <Flex>
-        <Flex.Item>
-          <Button type="primary" size="small">primary按钮</Button>
-        </Flex.Item>
-        <Flex.Item>
-          <Button type="primary" ghost size="small">primary ghost 按钮</Button>
-        </Flex.Item>
-      </Flex>
-
-      <div style={{ height: 8 }} />
-
-      <Flex>
-        <Flex.Item>
-          <Button size="small" inline>small</Button>
-        </Flex.Item>
-      </Flex>
-    </div>
-
     <List >
       <List.Body>
         <List.Item
-          extra={<Button type="primary" size="small" inline>small</Button>}
+          extra={<Button type="ghost" size="small" inline>small</Button>}
           multipleLine
         >
           区域经理

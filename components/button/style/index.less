@@ -41,16 +41,6 @@
   &:active {
     background-color: @fill-tap;
   }
-  // ghost
-  // &-ghost {
-  //   background-color: transparent;
-  //   &:after {
-  //     border: @border-width-sm solid @brand-primary;
-  //   }
-  //   &:active {
-  //     background-color: fade(@neutral-3, 20%);
-  //   }
-  // }
 
   &-primary {
     color: @color-text-base-inverse;
@@ -61,15 +51,19 @@
     &:active {
       background-color: @brand-primary-tap;
     }
-    &.@{buttonPrefixCls}-ghost {
-      color: @color-link;
-      background-color: transparent;
-      &:active {
-        // background-color: fade(@brand-3, 20%);
-        background-color: @brand-primary-tap;
-        // &:after {
-        //   border: @border-width-sm solid @brand-7;
-        // }
+  }
+
+  &-ghost {
+    color: @color-link;
+    background-color: transparent;
+    &:after {
+      border: @border-width-md solid @tabs-current-border-color;
+    }
+    &:active {
+      color: @color-text-base-inverse;
+      background-color: @brand-primary-tap;
+      &:after {
+        border: @border-width-sm solid @brand-primary;
       }
     }
   }
@@ -81,9 +75,6 @@
       &:after {
         border: 0;
       }
-      // &.@{buttonPrefixCls}-ghost {
-      // }
-
       &.@{buttonPrefixCls}-warning {
         color: @color-text-tap;
         // background-color: fade(@neutral-3, 20%);

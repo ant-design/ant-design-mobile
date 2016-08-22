@@ -2,7 +2,7 @@ interface ButtonProps {
   /** whether button is disabled*/
   disabled?: boolean;
   size?: 'large' | 'small';
-  type?: 'primary' | 'warning' | 'default';
+  type?: 'primary' | 'warning' | 'ghost';
   ghost?: boolean;
   inline?: boolean;
   loading?: boolean;
