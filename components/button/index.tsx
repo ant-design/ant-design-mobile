@@ -96,7 +96,7 @@ export default class Button extends React.Component<tsProps, any> {
     } else if (type === 'ghost') {
       backgroundColor = 'transparent';
       textColor = variables.color_link;
-      borderColor = variables.tabs_current_border_color;
+      borderColor = variables.tabs_color;
       highlightTextColor = variables.color_text_base_inverse;
       highlightBackgroundColor = variables.brand_primary_tap;
       highlightBorderColor = variables.brand_primary;

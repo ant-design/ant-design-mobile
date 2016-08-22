@@ -57,7 +57,7 @@
     color: @color-link;
     background-color: transparent;
     &:after {
-      border: @border-width-md solid @tabs-current-border-color;
+      border: @border-width-md solid @tabs-color;
     }
     &:active {
       color: @color-text-base-inverse;
@@ -75,9 +75,9 @@
       &:after {
         border: 0;
       }
-      &.@{buttonPrefixCls}-warning {
-        // background-color: fade(@neutral-3, 20%);
-      }
+      // &.@{buttonPrefixCls}-warning {
+      //   // background-color: fade(@neutral-3, 20%);
+      // }
     }
   }
 
