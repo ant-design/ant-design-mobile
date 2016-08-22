@@ -37,6 +37,7 @@ english: ActionSheet
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
+- androidActionSheetName (string) - android 平台下可以传入一个名字
 
 #### static showShareActionSheetWithOptions(options: Object, callback: Function)
 
@@ -46,9 +47,9 @@ english: ActionSheet
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
+- androidActionSheetName (string) - android 平台下可以传入一个名字
 
-#### static showActionSheetWithCustom(options: Object, callback: Function)
-> web only
+#### static showActionSheetWithCustom(options: Object, callback: Function) - (web only)
 
 `options`对象必须包含以下的一个或者多个：
 
@@ -57,7 +58,5 @@ english: ActionSheet
 - component - 自定义的任何组件
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
 
-#### static close()
-> web only
-
-programmatically close.
+#### static close() -  (web only) programmatically close.
+#### static close(androidActionSheetName) - (android only) programmatically close.

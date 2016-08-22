@@ -1,4 +1,4 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 import { StyleSheet, ViewStyle } from 'react-native';
 
 export const vars = variables;
@@ -16,7 +16,7 @@ export default StyleSheet.create({
     right: 0,
     bottom: 0,
     backgroundColor: 'white',
-    paddingTop: 5 * variables.grid,
+    // paddingTop: 5 * variables.grid,
   } as ViewStyle,
   mask: {
     position: 'absolute',
@@ -30,8 +30,8 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     // justifyContent: 'center',
-    marginTop: 4 * variables.grid,
-    marginBottom: 4 * variables.grid,
+    marginTop: variables.h_spacing_lg,
+    marginBottom: variables.h_spacing_lg,
   } as ViewStyle,
   titleText: {
     fontWeight: '500',
@@ -40,35 +40,35 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     // justifyContent: 'center',
-    marginBottom: 4 * variables.grid,
+    marginBottom: variables.h_spacing_lg,
   } as ViewStyle,
   btn: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 11 * variables.grid,
+    height: variables.button_height,
     borderStyle: 'solid',
     borderTopWidth: 1,
-    borderTopColor: variables.neutral_5,
+    borderTopColor: variables.border_color_base,
     backgroundColor: 'white',
   } as ViewStyle,
-  destructiveBtn: {
-    color: variables.function_error_2,
-    fontSize: variables.font_size_6,
-  } as ViewStyle,
   cancelBtn: {
-    marginTop: 2 * variables.grid,
+    marginTop: variables.v_spacing_md,
     position: 'relative',
   } as ViewStyle,
   cancelBtnMask: {
     position: 'absolute',
-    top: -2 * variables.grid,
+    top: -variables.v_spacing_md,
     left: 0,
     right: 0,
-    height: 2 * variables.grid,
+    height: variables.v_spacing_md,
     backgroundColor: '#F7F7F7',
     borderStyle: 'solid',
     borderTopWidth: 1,
-    borderTopColor: variables.neutral_5,
+    borderTopColor: variables.border_color_base,
+  } as ViewStyle,
+  destructiveBtn: {
+    color: variables.brand_error,
+    fontSize: variables.font_size_heading,
   } as ViewStyle,
 });

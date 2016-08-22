@@ -9,6 +9,7 @@ english: 更新日志
 
 - Picker / DatePicker 添加 disabled 支持 #90 #119
 - Button `ghost`从原来的单独属性，变为`type`下的属性值
+- ActionSheet react-native android 下新增`close`API，支持自定义内容下的编程关闭 ActionSheet
 
 
 ## 1.0.0-alpha.0
