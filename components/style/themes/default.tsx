@@ -158,4 +158,7 @@ export default {
 
   // switch
   switch_fill: '#4dd865',
+
+  // tag
+  tag_height: 18,
 };
