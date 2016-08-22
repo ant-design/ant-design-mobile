@@ -30,7 +30,7 @@ export default StyleSheet.create({
   },
   activeWrap: {
     backgroundColor: variables.fill_base,
-    borderColor: variables.tabs_current_border_color,
+    borderColor: variables.brand_primary,
   },
   activeText: {
     color: variables.color_link,
