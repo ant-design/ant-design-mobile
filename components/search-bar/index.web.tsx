@@ -62,7 +62,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.value,
+      value: props.value,
       focus: false,
     };
   }
