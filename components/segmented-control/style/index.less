@@ -9,7 +9,7 @@
   border-width: @border-width-md;
   border-style: solid;
   border-radius: @radius-md;
-  border-color: @brand-primary;
+  border-color: @segmented-control-color;
   overflow: hidden;
   margin: 0 @h-spacing-lg;
   &-item {
@@ -17,10 +17,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: @brand-primary;
+    color: @segmented-control-color;
     font-size: @font-size-base;
     padding: @h-spacing-sm 0;
-    border-right: @border-width-md solid @brand-primary;
+    border-right: @border-width-md solid @segmented-control-color;
     line-height: 1;
 
     &:last-child {
@@ -28,7 +28,7 @@
     }
 
     &-selected {
-      background: @brand-primary;
+      background: @segmented-control-color;
       color: @color-text-base-inverse;
     }
   }
