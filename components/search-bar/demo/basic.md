@@ -26,7 +26,7 @@ let SearchBarExample = React.createClass({
           onCancel={(value) => { console.log(value, 'onCancel'); this.setState({ value: '' }); }}
           onFocus={() => { console.log('onFocus'); }}
           onBlur={() => { console.log('onBlur'); }}
-          cancelTxt="自定义"
+          cancelText="自定义"
         />
         <WhiteSpace />
         <SearchBar

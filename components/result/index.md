@@ -17,7 +17,7 @@ english: Result
 | imgUrl    | 插图URL        | string |    |
 | title    |    title文案     | string |    |
 | brief    |    brief文案     | string |    |
-| buttonTxt    |    按钮文案     | string |    |
+| buttonText    |    按钮文案     | string |    |
 | buttonType    |    请参考button的配置     | string |    |
 | buttonGhost    |    请参考button的配置     | bool |    |
 | buttonClick    |    按钮回调函数     | Func |    ||

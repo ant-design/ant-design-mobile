@@ -10,7 +10,7 @@ export interface ResultProps {
   imgUrl?: string;
   title?: string;
   message?: string;
-  buttonTxt?: string;
+  buttonText?: string;
   buttonType?: 'default' | 'primary';
   buttonGhost?: boolean;
   buttonClick?: () => void;
@@ -22,14 +22,14 @@ export default class Result extends React.Component<ResultProps, any> {
     imgUrl: '',
     title: '',
     message: '',
-    buttonTxt: '',
+    buttonText: '',
     buttonType: 'default',
     buttonGhost: false,
     buttonClick: noop,
   };
 
   render() {
-    let { prefixCls, imgUrl, title, message, buttonTxt, buttonClick, buttonType, buttonGhost, className } = this.props;
+    let { prefixCls, imgUrl, title, message, buttonText, buttonClick, buttonType, buttonGhost, className } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className]: className,
@@ -40,8 +40,8 @@ export default class Result extends React.Component<ResultProps, any> {
         <div className={`${prefixCls}-pic`} style={{ backgroundImage: `url(${imgUrl})` }}></div>
         { title !== '' ? (<div className={`${prefixCls}-title`}>{title}</div>) : null }
         { message !== '' ? (<div className={`${prefixCls}-message`}>{message}</div>) : null }
-        { buttonTxt !== '' ? (<div className={`${prefixCls}-button`}>
-          <Button type={buttonType} ghost={buttonGhost} onClick={buttonClick}>{buttonTxt}</Button>
+        { buttonText !== '' ? (<div className={`${prefixCls}-button`}>
+          <Button type={buttonType} ghost={buttonGhost} onClick={buttonClick}>{buttonText}</Button>
         </div>) : null }
       </div>
     );

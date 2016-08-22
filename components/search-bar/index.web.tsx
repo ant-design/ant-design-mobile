@@ -18,7 +18,7 @@ export interface SearchBarProps {
   onCancel?: Function;
   onClear?: Function;
   showCancelButton?: boolean;
-  cancelTxt?: string;
+  cancelText?: string;
   disabled?: boolean;
 }
 
@@ -40,7 +40,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     onCancel: PropTypes.func,
     onClear: PropTypes.func,
     showCancelButton: PropTypes.bool,
-    cancelTxt: PropTypes.string,
+    cancelText: PropTypes.string,
     disabled: PropTypes.bool,
   };
 
@@ -55,7 +55,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     onCancel: noop,
     onClear: noop,
     showCancelButton: false,
-    cancelTxt: '取消',
+    cancelText: '取消',
     disabled: false,
   };
 
@@ -119,7 +119,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   render() {
-    const { prefixCls, showCancelButton, disabled, placeholder, cancelTxt, className } = this.props;
+    const { prefixCls, showCancelButton, disabled, placeholder, cancelText, className } = this.props;
     const { value, focus } = this.state;
 
     const wrapCls = classNames({
@@ -153,7 +153,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           <div
             className={`${prefixCls}-cancel`}
             style={showCancelButton ? { display: 'block' } : cancelStyle}
-            onClick={this.onCancel}>{cancelTxt}
+            onClick={this.onCancel}>{cancelText}
           </div>
         </div>
       </form>
