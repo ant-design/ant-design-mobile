@@ -56,7 +56,6 @@ const TabBar = React.createClass({
           {cProps.children}
         </TabPane>);
     });
-    // TODO rc-tabs barStyle
     return (
       <Tabs
         allowScrollBar={false}
@@ -65,8 +64,8 @@ const TabBar = React.createClass({
         prefixCls={this.props.prefixCls}
         activeKey={activeKey}
         onChange={this.onChange}
-        barStyle={{
-          backgroundColor: barTintColor,
+        styles={{
+          bar: { backgroundColor: barTintColor },
         }}
       >
         {panels}
