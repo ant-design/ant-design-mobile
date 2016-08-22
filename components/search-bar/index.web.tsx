@@ -92,19 +92,17 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       e.stopPropagation();
       return;
     }
-    let value = e.target.value;
     this.setState({
       focus: true,
     });
-    this.props.onFocus(value);
+    this.props.onFocus(e.target.value);
   };
 
   onBlur = (e) => {
-    let value = e.target.value;
     this.setState({
       focus: false,
     });
-    this.props.onBlur(value);
+    this.props.onBlur(e.target.value);
   };
 
   onCancel = () => {
@@ -135,7 +133,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       [`${prefixCls}-start`]: value.length > 0,
     });
 
-    let cancelStyle = value.length > 0 ? { display: 'block' } : { display: 'none' };
+    const cancelStyle = value.length > 0 ? { display: 'block' } : { display: 'none' };
 
     return (
       <form onSubmit={this.onSubmit}>
