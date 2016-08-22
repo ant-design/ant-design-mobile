@@ -1,7 +1,8 @@
-import Tabs from 'rc-tabs';
 import * as React from 'react';
-const {TabPane} = Tabs;
+import Tabs from 'rc-tabs';
 import Tab from './Tab.web';
+
+const { TabPane } = Tabs;
 
 const TabBar = React.createClass({
   statics: {
@@ -11,6 +12,9 @@ const TabBar = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'am-tab-bar',
+      barTintColor: 'white',
+      tintColor: '#108ee9',
+      unselectedTintColor: '#888',
     };
   },
 
@@ -31,6 +35,7 @@ const TabBar = React.createClass({
       }
       children.push(c);
     });
+    const { tintColor, unselectedTintColor, barTintColor } = this.props;
     const panels = children.map((c: any) => {
       const cProps = c.props;
       const tab = (<Tab
@@ -38,8 +43,10 @@ const TabBar = React.createClass({
         badge={cProps.badge}
         selected={cProps.selected}
         icon={cProps.icon}
-        selectedIcon={cProps.icon}
+        selectedIcon={cProps.selectedIcon}
         title={cProps.title}
+        tintColor={tintColor}
+        unselectedTintColor={unselectedTintColor}
       />);
       return (
         <TabPane
@@ -49,8 +56,8 @@ const TabBar = React.createClass({
           {cProps.children}
         </TabPane>);
     });
+    // TODO rc-tabs barStyle
     return (
-      // TODO support navStyle in rc-tabs
       <Tabs
         allowScrollBar={false}
         allowInkBar={false}
@@ -58,6 +65,9 @@ const TabBar = React.createClass({
         prefixCls={this.props.prefixCls}
         activeKey={activeKey}
         onChange={this.onChange}
+        barStyle={{
+          backgroundColor: barTintColor,
+        }}
       >
         {panels}
       </Tabs>

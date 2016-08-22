@@ -4,10 +4,8 @@ import Badge from '../badge/';
 class Tab extends React.Component<any, any> {
   render() {
     const {
-      title, icon, selectedIcon,
-      prefixCls, badge, selected,
+      title, icon, selectedIcon, prefixCls, badge, selected, unselectedTintColor, tintColor,
     } = this.props;
-
     return (
       <div>
         <div className={`${prefixCls}-icon`}>
@@ -22,8 +20,10 @@ class Tab extends React.Component<any, any> {
             )
           }
         </div>
-        <p className={`${prefixCls}-title`}>{title}</p>
-        </div>
+        <p className={`${prefixCls}-title`} style={{
+           color: selected ? tintColor : unselectedTintColor,
+        }}>{title}</p>
+      </div>
     );
   }
 }
