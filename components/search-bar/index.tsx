@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
-import classNames from 'classnames';
+import { View, TextInput, Text } from 'react-native';
 import { SearchBarProps, SearchBarState } from './SearchBarPropTypes';
+import styles from './style/index';
 
 function noop() {}
 
@@ -97,44 +98,24 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   render() {
-    const { prefixCls, showCancelButton, disabled, placeholder, cancelText, className } = this.props;
+    const { showCancelButton, disabled, placeholder, cancelText } = this.props;
     const { value, focus } = this.state;
 
-    const wrapCls = classNames({
-      [`${prefixCls}`]: true,
-      [className]: className,
-    });
-
-    const inputCls = classNames({
-      [`${prefixCls}-input`]: true,
-      [`${prefixCls}-input-focus`]: focus,
-      [`${prefixCls}-start`]: value.length > 0,
-    });
-
     return (
-      <form onSubmit={this.onSubmit}>
-        <div className={wrapCls}>
-          <div className={inputCls}>
-            <input type="search"
-              className={`${prefixCls}-value`}
-              value={value}
-              disabled={disabled}
-              placeholder={placeholder}
-              onChange={this.onChange}
-              onFocus={this.onFocus}
-              onBlur={this.onBlur}
-              ref="searchInput" />
-            <a onClick={this.onClear} className={`${prefixCls}-clear`} />
-          </div>
-          <div
-            className={`${prefixCls}-cancel`}
-            style={{ display: (showCancelButton || value) ? 'block' : 'none' }}
-            onClick={this.onCancel}
-          >
-            {cancelText}
-          </div>
-        </div>
-      </form>
+      <View style={styles.wrapper}>
+        <TextInput
+          autoCorrect={false}
+          value={value}
+          placeholder={placeholder}
+          onChange={this.onChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          style={styles.input}
+          ref="searchInput"
+          onSubmitEditing={this.onSubmit}
+          clearButtonMode="always"
+        />
+      </View>
     );
   }
 }

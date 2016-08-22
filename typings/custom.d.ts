@@ -22,6 +22,7 @@ declare module 'antd-mobile' {
     Progress: any;
     RefreshControl: any;
     SegmentedControl: any;
+    SearchBar: any;
     Slider: any;
     Stepper: any;
     Steps: any;

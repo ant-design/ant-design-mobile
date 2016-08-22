@@ -685,7 +685,7 @@ declare namespace  __React {
         /**
          * Callback that is called when the text input is blurred
          */
-        onBlur?: () => void
+        onBlur?: (event: {nativeEvent: {text: string}}) => void
 
         /**
          * Callback that is called when the text input's text changes.
@@ -706,7 +706,7 @@ declare namespace  __React {
         /**
          * Callback that is called when the text input is focused
          */
-        onFocus?: () => void
+        onFocus?: (event: {nativeEvent: {text: string}}) => void
 
         /**
          * Invoked on mount and layout changes with {x, y, width, height}.
