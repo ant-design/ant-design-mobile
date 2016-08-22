@@ -40,6 +40,6 @@ export default StyleSheet.create({
   close: {
     fontSize: 40,
     fontWeight: '200',
-    color: variables.color_text_tap,
+    color: '#bcbcbc',
   },
 });

@@ -1,4 +1,5 @@
 const brandPrimary = '#108ee9';
+const brandPrimaryTap = '1284d6';
 
 export default {
   // 支付宝钱包默认主题
@@ -13,17 +14,10 @@ export default {
   color_text_disabled: '#bbb',              // 失效
   color_text_caption: '#888',               // 辅助描述
   color_text_paragraph: '#333',             // 段落
-  color_link: '#108ee9',                    // 链接
-  color_text_tap: '#BCBCBC',
+  color_link: brandPrimary,                 // 链接
 
   // 阴影色
   color_shadow: 'rgba(100, 100, 100, .2)',  // 阴影色
-
-  // 输入框图标
-  input_color_icon: '#ccc',
-  input_color_icon_tap: brandPrimary,
-  input_color_icon_inverse: 'rgba(255, 255, 255, .6)',
-  input_color_icon_tap_inverse: 'rgba(255, 255, 255, .4)',
 
   // 背景色
   fill_base: '#fff',                           // 组件默认背景
@@ -33,19 +27,12 @@ export default {
   fill_mask: 'rgba(0, 0, 0, .5)',              // 遮罩背景
   fill_overlay_inverse: 'rgba(0, 0, 0, .8)',   // 浮层背景 _ 反色，用于 toast
 
-  // 组件
-  notice_bar_fill: '#fffada',
-  tabs_current_border_color: brandPrimary,
-  default_button_fill: 'fill_base',
-  switch_fill: '#4dd865',
-  segmented_control_fill_tap: `${brandPrimary}10`,
-
   // 透明度
   opacity_disabled: '0.3',   // switch checkbox radio 等组件禁用的透明度
 
   // 全局/品牌色
   brand_primary: brandPrimary,
-  brand_primary_tap: '#1284d6',
+  brand_primary_tap: brandPrimaryTap,
   brand_success: '#6abf47',
   brand_warning: '#f86e21',
   brand_error: '#f4333c',
@@ -68,15 +55,9 @@ export default {
   font_size_display_lg: 24,
   font_size_display_xl: 30,
 
-  button_font_size_sm: 12,
-  link_button_font_size: 16,
-  button_font_size: 18,
-  input_font_size: 14,
-  tabs_font_size_heading: 15,
-
   // 字体家族
   // ---
-  // tslint:disable-next-line
+  // tslint:disable_next_line
   font_family_base: '_apple_system,"SF UI Text",Roboto,Noto,"Helvetica Neue",`elvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans_serif',
   font_family_code: 'Consolas,Menlo,Courier,monospace',
 
@@ -109,18 +90,7 @@ export default {
 
   // 高度
   // ---
-  button_height_sm: 23,
-  button_height: 42,
-  list_title_height: 30,
-  list_item_height: 45,        // 列表项高度
-  segmented_control_height: 27,
-  notice_bar_height: 36,
-  tabs_height: 42,
   option_height: 42,           // action_sheet、picker 的选项高度
-  tab_bar_height: 50,
-  search_bar_input_height: 28,
-
-  input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
 
   // 图标尺寸
   // ---
@@ -133,4 +103,61 @@ export default {
   // 动画缓动
   // ---
   ease_in_out_quint: 'cubic_bezier(0.86, 0, 0.07, 1)',
+
+  // 组件
+  // ---
+
+  // button
+  button_height: 42,
+  button_font_size: 18,
+
+  button_height_sm: 23,
+  button_font_size_sm: 12,
+
+  primary_button_fill: brandPrimary,
+  primary_button_fill_tap: brandPrimaryTap,
+
+  ghost_button_color: brandPrimary,    // 同时应用于背景、文字颜色、边框色
+  ghost_button_fill_tap: brandPrimaryTap,
+
+  link_button_fill_tap: '#ddd',
+  link_button_font_size: 16,
+
+  // list
+  list_title_height: 30,
+  list_item_height: 45,
+
+  // input
+  input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
+  input_font_size: 14,
+  input_color_icon: '#ccc',
+  input_color_icon_tap: brandPrimary,
+  input_color_icon_inverse: 'rgba(255, 255, 255, .6)',
+  input_color_icon_tap_inverse: 'rgba(255, 255, 255, .4)',
+
+  // tabs
+  tabs_color: brandPrimary,
+  tabs_height: 42,
+  tabs_font_size_heading: 15,
+
+  // segmented_control
+  segmented_control_color: brandPrimary,  // 同时应用于背景、文字颜色、边框色
+  segmented_control_height: 27,
+  segmented_control_fill_tap: `${brandPrimary}10`,
+
+  // tab_bar
+  tab_bar_height: 50,
+
+  // search_bar
+  search_bar_input_height: 28,
+
+  // notice_bar
+  notice_bar_fill: '#fffada',
+  notice_bar_height: 36,
+
+  // switch
+  switch_fill: '#4dd865',
+
+  // tag
+  tag_height: 18,
 };
