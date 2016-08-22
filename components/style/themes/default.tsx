@@ -57,7 +57,7 @@ export default {
 
   // 字体家族
   // ---
-  // tslint:disable_next_line
+  // tslint:disable-next-line
   font_family_base: '_apple_system,"SF UI Text",Roboto,Noto,"Helvetica Neue",`elvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans_serif',
   font_family_code: 'Consolas,Menlo,Courier,monospace',
 
