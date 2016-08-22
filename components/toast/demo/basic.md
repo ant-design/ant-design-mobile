@@ -40,7 +40,7 @@ const ToastExample = React.createClass({
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" ghost onClick={successToast}>成功 toast</Button>
+          <Button type="ghost" onClick={successToast}>成功 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
@@ -48,7 +48,7 @@ const ToastExample = React.createClass({
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" ghost onClick={offline}>网络 toast</Button>
+          <Button type="ghost" onClick={offline}>网络 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>

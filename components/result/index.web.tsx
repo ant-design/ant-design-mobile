@@ -11,8 +11,7 @@ export interface ResultProps {
   title?: string;
   message?: string;
   buttonText?: string;
-  buttonType?: 'default' | 'primary';
-  buttonGhost?: boolean;
+  buttonType?: 'primary' | 'ghost';
   buttonClick?: () => void;
 }
 
@@ -23,13 +22,12 @@ export default class Result extends React.Component<ResultProps, any> {
     title: '',
     message: '',
     buttonText: '',
-    buttonType: 'default',
-    buttonGhost: false,
+    buttonType: '',
     buttonClick: noop,
   };
 
   render() {
-    let { prefixCls, imgUrl, title, message, buttonText, buttonClick, buttonType, buttonGhost, className } = this.props;
+    let { prefixCls, imgUrl, title, message, buttonText, buttonClick, buttonType, className } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className]: className,
@@ -41,7 +39,7 @@ export default class Result extends React.Component<ResultProps, any> {
         { title !== '' ? (<div className={`${prefixCls}-title`}>{title}</div>) : null }
         { message !== '' ? (<div className={`${prefixCls}-message`}>{message}</div>) : null }
         { buttonText !== '' ? (<div className={`${prefixCls}-button`}>
-          <Button type={buttonType} ghost={buttonGhost} onClick={buttonClick}>{buttonText}</Button>
+          <Button type={buttonType} onClick={buttonClick}>{buttonText}</Button>
         </div>) : null }
       </div>
     );
