@@ -120,7 +120,6 @@ export default {
   ghost_button_color: brandPrimary,    // 同时应用于背景、文字颜色、边框色
   ghost_button_fill_tap: brandPrimaryTap,
 
-  link_button_fill: '#fff',
   link_button_fill_tap: '#ddd',
   link_button_font_size: 16,
 
