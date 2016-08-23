@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   View,
   Text,
-  Modal,
   ActivityIndicator,
 } from 'react-native';
 import styles from './style';
@@ -20,18 +19,15 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
   _renderToast() {
     return (
       <View style={[styles.container]}>
-        <Modal
-          animationType="fade"
-          transparent
-          visible
-        >
-          <View style={[styles.innerContainer]}>
-            <View style={[styles.wrapper]}>
-             <ActivityIndicator color="white" size="large" />
-             { this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>) }
-            </View>
+        <View style={[styles.innerContainer]}>
+          <View style={[styles.wrapper]}>
+            <ActivityIndicator
+              color="white"
+              size="large"
+            />
+            { this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>) }
           </View>
-        </Modal>
+        </View>
       </View>
     );
   }
@@ -57,7 +53,7 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
   render() {
     if (this.props.animating) {
       return (
-        <View>{ this.props.toast ? this._renderToast() : this._renderSpinner() }</View>
+        this.props.toast ? this._renderToast() : this._renderSpinner()
       );
     }
   }
