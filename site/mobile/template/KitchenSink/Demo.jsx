@@ -137,7 +137,7 @@ export default class Home extends React.Component {
                   {
                     whiteList.indexOf(fileName) > -1 ?
                       (<List>
-                        <List.Header>{item.chinese}</List.Header>
+                        <List.Header style={{ padding: '5px 0' }}>{item.chinese}</List.Header>
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
