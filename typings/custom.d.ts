@@ -28,6 +28,7 @@ declare module 'antd-mobile' {
     Switch: any;
     Tag: any;
     TabBar: any;
+    Tabs: any;
     TextAreaItem: any;
     Toast: any;
     NoticeBar: any;
@@ -200,5 +201,12 @@ declare module 'react-native-menu' {
 
 declare module 'rmc-pull-to-refresh' {
   var exports: any
+  export default exports
+}
+
+declare module 'react-native-scrollable-tab-view' {
+  var exports: any
+  export const DefaultTabBar: any;
+  export const ScrollableTabBar: any;
   export default exports
 }

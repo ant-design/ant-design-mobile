@@ -24,6 +24,7 @@ export { default as Stepper } from './components/stepper/';
 export { default as SwipeAction } from './components/swipe-action/';
 export { default as Switch } from './components/switch/';
 export { default as TabBar } from './components/tab-bar/';
+export { default as Tabs } from './components/tabs/';
 export { default as Tag } from './components/tag/';
 export { default as TextAreaItem } from './components/textarea-item/';
 export { default as Toast } from './components/toast/';
