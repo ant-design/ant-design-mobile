@@ -141,7 +141,7 @@ const Demo = React.createClass({
         onScroll={() => { console.log('scroll'); }}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        style={{ height: 300, overflow: 'auto', border: '1px solid #ddd', margin: '10px 0' }}
+        style={{ height: 500, overflow: 'auto', border: '1px solid #ddd', margin: '10px 0' }}
       />
     </div>);
   },

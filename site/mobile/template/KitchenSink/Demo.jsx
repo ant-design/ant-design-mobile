@@ -202,14 +202,17 @@ export default class Home extends React.Component {
         drawerProps.className = 'spe-drawer';
       }
     }
-
+    // document.documentElement.clientHeight to
+    // remove height of toolbars, address bars and navigation (android)
     return (
       <div id={name}>
         <div className="demo-drawer-trigger">
           <span onClick={this.onOpenChange}><Icon type="bars" /></span>
         </div>
         <div className="demo-drawer-container">
-          <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
+          <Drawer style={{ minHeight: document.documentElement.clientHeight }}
+            sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}
+          >
             {drawerContent}
           </Drawer>
         </div>
