@@ -32,7 +32,10 @@ english: Tabs
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
 | animation |  是否动画    |  boolean   |    `true`    |
 | tabPosition |    tab 位置 top/bottom        |  string    |    `top`        |
-
+| underlineColor(`react-native only`) |   线条颜色       |  string    |    `#ddd`        |
+| activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |
+| textColor(`react-native only`) |   文字颜色       |  string    |    `#000`        |
+| activeTextColor(`react-native only`) |   选中文字颜色       |  string    |    `#108ee9`        |
 
 ### Tabs.TabPane
 
