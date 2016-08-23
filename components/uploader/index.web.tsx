@@ -95,6 +95,8 @@ export default class Uploader extends React.Component<UploaderProps, any> {
             orientation,
           });
         });
+
+        fileSelectorEl.value = '';
       };
       reader.readAsDataURL(file);
     }
