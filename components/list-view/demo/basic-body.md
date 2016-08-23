@@ -92,10 +92,10 @@ const Demo = React.createClass({
             borderBottom: '1px solid #F6F6F6',
           }}>{obj.title}</h3>
           <div style={{ display: 'flex' }}>
-            <img style={{ height: 64, marginRight: 8 }} src={obj.img} />
+            <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
             <div>
               <p>{obj.des}</p>
-              <p><span style={{ fontSize: 24, color: '#FF6E27' }}>35</span>元/任务</p>
+              <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
             </div>
           </div>
         </div>

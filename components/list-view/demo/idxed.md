@@ -8,7 +8,7 @@ title: IndexedList
 
 ````jsx
 import province from 'site/data/province';
-import { ListView, List, SearchBar } from 'antd-mobile';
+import { ListView, List } from 'antd-mobile';
 const { Item } = List;
 
 const Demo = React.createClass({
@@ -43,19 +43,7 @@ const Demo = React.createClass({
   },
 
   render() {
-    return (<div style={{ paddingTop: 40 }}>
-      <div style={{ position: 'fixed', top: 33, left: 0, right: 0 }}>
-        <SearchBar
-          value=""
-          placeholder="搜索"
-          onSubmit={(value) => { console.log(`onSubmit${value}`); }}
-          onChange={(value) => { console.log(value); }}
-          onClear={() => { console.log('onClear'); }}
-          onCancel={() => { console.log('onCancel'); }}
-          onFocus={() => { console.log('onFocus'); }}
-          onBlur={() => { console.log('onBlur'); }}
-        />
-      </div>
+    return (<div>
       <div style={{ position: 'relative' }}>
         <ListView.IndexedList
           dataSource={this.state.dataSource}
@@ -63,7 +51,7 @@ const Demo = React.createClass({
           renderFooter={() => <span>尾部内容请自定义</span>}
           renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
           renderRow={(rowData) => (<Item>{rowData}</Item>)}
-          style={{ height: 400, overflow: 'auto' }}
+          style={{ height: 800, overflow: 'auto' }}
           quickSearchBarStyle={{
             position: 'absolute',
             top: 20, right: 10,
