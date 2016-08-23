@@ -42,14 +42,11 @@
       background-size: @icon-size-xxs auto;
       .border-radius(@radius-sm);
       &::-webkit-input-placeholder {
-        text-align: left;
+        transition: all 300ms;
         background: none;
-      }
-      &::-webkit-input-placeholder {
-        width: auto;
-        display: inline-block;
         text-align: center;
         color: @color-text-placeholder;
+        line-height: 1.4;
       }
       &::-webkit-search-cancel-button {
         -webkit-appearance: none;
@@ -68,7 +65,14 @@
       background-repeat: no-repeat;
       .encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><circle cx='14' cy='14' r='14' fill='#b2b2b2'/><line stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='8' y1='8' x2='20' y2='20'/><line fill='none' stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='20' y1='8' x2='8' y2='20'/></svg>");
       background-size: @icon-size-xxs auto;
-      .transition(300ms);
+      transition: all 300ms;
+    }
+    &.@{searchPrefixCls}-input-focus {
+      input[type="search"] {
+        &::-webkit-input-placeholder {
+          text-align: left;
+        }
+      }
     }
     &.@{searchPrefixCls}-start {
       .@{searchPrefixCls}-clear {
