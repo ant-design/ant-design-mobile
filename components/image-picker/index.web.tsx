@@ -94,6 +94,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             url: dataURL,
             orientation,
           });
+
+          fileSelectorEl.value = '';
         });
       };
       reader.readAsDataURL(file);
@@ -115,10 +117,6 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       width: `${customWidth}px`,
       height: `${customWidth}px`,
     };
-    const inputWrapStyle = {
-      width: `${customWidth - 2}px`,
-      height: `${customWidth - 2}px`,
-    };
     files.forEach((image: any, index: number) => {
       imgItemList.push(
         <div key={index} className={`${prefixCls}-item`} style={itemStyle}>
@@ -134,7 +132,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           <WingBlank size={16}>
             <Flex wrap="wrap">
               {imgItemList}
-              <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={inputWrapStyle}>
+              <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={itemStyle}>
                 <input
                   style={itemStyle}
                   ref="fileSelectorInput"

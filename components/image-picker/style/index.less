@@ -36,8 +36,9 @@
         width: 100%;
       }
       &.@{imagePickerPrefixCls}-upload-btn {
+        box-sizing: border-box;
         border-radius: @radius-sm;
-        border: @border-width-sm solid @border-color-base;
+        border: @border-width-md solid @border-color-base;
         background-color: @fill-base;
         &:before,
         &:after {
@@ -47,7 +48,6 @@
           position: absolute;
           top: 50%;
           left: 50%;
-          -webkit-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
           background-color: @border-color-base;
         }
