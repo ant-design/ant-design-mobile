@@ -24,11 +24,6 @@ class Tabs extends React.Component<TabsProps, any> {
     this.activeIndex = 0;
   }
 
-  onChange = ({i}) => {
-    const key = this.getKey(i);
-    this.props.onChange(key);
-  }
-
   onTabClick = ({i}) => {
     const key = this.getKey(i);
     const { onTabClick, onChange } = this.props;

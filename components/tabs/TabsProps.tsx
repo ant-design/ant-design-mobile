@@ -10,6 +10,7 @@ interface TabsProps {
   activeUnderlineColor?: string;
   textColor?: string;
   activeTextColor?: string;
+  styles: any;
   /*web only*/
   className?: string;
   prefixCls?: string;
