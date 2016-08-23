@@ -1,30 +1,31 @@
 @import '../../style/mixins';
+@import '../../style/themes/default';
 
 @flexPrefixCls: am-flexbox;
 @gridPrefixCls: am-grid;
 /* flexbox */
 .@{gridPrefixCls} {
   .@{flexPrefixCls} {
-    background: @neutral-1;
+    background: @fill-base;
     .@{flexPrefixCls}-item {
       margin-left: 0;
       .@{gridPrefixCls}-icon {
-        width: 6*@grid;
-        height: 6*@grid;
+        width: @icon-size-md;
+        height: @icon-size-md;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
         margin: 0 auto;
       }
       .@{gridPrefixCls}-text {
-        margin-top: 2*@grid;
-        font-size: @font-size-1;
-        color: @neutral-10;
+        margin-top: @v-spacing-md;
+        font-size: @font-size-caption-sm;
+        color: @color-text-base;
         text-align: center;
       }
       &.@{gridPrefixCls}-item-hover {
         &:active {
-          background-color: @neutral-5;
+          background-color: @fill-tap;
         }
       }
     }
@@ -32,10 +33,10 @@
   &.@{gridPrefixCls}-line {
     .@{flexPrefixCls} {
       position: relative;
-      .hairline-bottom(@neutral-5);
+      .hairline-bottom(@border-color-base);
       .@{flexPrefixCls}-item {
         position: relative;
-        .hairline-right(@neutral-5);
+        .hairline-right(@border-color-base);
         &:last-child {
           .hairline-remove-right-bottom();
         }

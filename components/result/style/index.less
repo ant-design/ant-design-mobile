@@ -1,0 +1,36 @@
+@import '../../style/mixins';
+@import '../../style/themes/default';
+
+@resultPrefixCls: am-result;
+
+.@{resultPrefixCls} {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 24%;
+  & &-pic {
+    width: 135px;
+    height: 135px;
+    margin: 0 auto;
+    line-height: 135px;
+    background-size: 135px 135px;
+  }
+  & &-title,
+  & &-message {
+    font-size: @font-size-5;
+    line-height: @line-height-2;
+    color: #999;
+    padding-left: 12*@grid;
+    padding-right: 12*@grid;
+  }
+  & &-title {
+    margin-top: 6*@grid;
+  }
+  & &-message {
+    margin-top: 1.5*@grid;
+  }
+  & &-button {
+    padding: 0 2.5*@grid 15%;
+    margin-top: 10*@grid;
+  }
+}

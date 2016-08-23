@@ -51,13 +51,13 @@ const App = React.createClass({
           touchAction: 'auto',
           recognizers: {
             pan: {
-              threshold: 100,
+              threshold: 10,
             },
           },
         }}
       >
         <h3>下拉刷新</h3>
-        <div style={{ minHeight: 300 }}>
+        <div style={{ minHeight: 300 }} onClick={() => alert('cli')}>
           {this.state.items}
         </div>
       </RefreshControl>

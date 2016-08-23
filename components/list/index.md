@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Views
+type: UI Views
 chinese: 列表
 english: List
 ---
@@ -19,21 +19,12 @@ english: List
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-|无| | | |
+| title       | 简化API,等价于上一版的List.Header  | String/HTML |  | 无  |
+| footer       | 简化API,等价于上一版的List.Footer  | String/HTML |  | 无  |
 
-### List.Header
-| 成员        | 说明           | 类型               | 默认值       |
-|-------------|----------------|------------------|--------------|
-|无| | | |
 
 ### List.Body
 | 成员        | 说明           | 类型               | 默认值       |
-|-------------|----------------|--------------------|--------------|
-|无| | | |
-
-### List.Footer
-
-| 成员        | 说明           | 类型        |   默认值       |
 |-------------|----------------|--------------------|--------------|
 |无| | | |
 
@@ -47,3 +38,15 @@ english: List
 | align    |    Flex 子元素垂直对齐     | String    | `top` `middle` `bottom` | `middle` |
 | onClick    | 点击事件的回调函数 | Function |  | 无  |
 | error    | 报错样式,右侧文字颜色变成橙色 | Boolean |  `true`、`false` | `false`  |
+| multipleLine    | 多行 | Boolean |  `true`、`false` | `false`  |
+
+### List.Item.Brief
+
+辅助说明
+
+| 成员        | 说明           | 类型               | 默认值       |
+|-------------|----------------|--------------------|--------------|
+|无| | | |
+
+
+

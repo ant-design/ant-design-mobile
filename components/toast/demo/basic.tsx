@@ -45,7 +45,7 @@ export default class ToastExample extends React.Component<any, any> {
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" ghost onPress={successToast}>成功 toast</Button>
+          <Button type="ghost" onPress={successToast}>成功 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
@@ -53,7 +53,7 @@ export default class ToastExample extends React.Component<any, any> {
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" ghost onPress={offline}>网络 toast</Button>
+          <Button type="ghost" onPress={offline}>网络 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>

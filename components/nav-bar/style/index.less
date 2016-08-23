@@ -1,22 +1,22 @@
 @import '../../style/mixins';
-@import '../../style/variables.less';
+@import '../../style/themes/default';
 
 @navbarPrefixCls: am-navbar;
 .@{navbarPrefixCls} {
   .display-box;
   .box-align;
-  padding: 2 * @grid 4 * @grid;
-  background-color: @neutral-10;
-  color: @neutral-1;
+  padding: @h-spacing-sm @h-spacing-lg;
+  background-color: @brand-primary;
+  color: #fff;
   &-light {
     background-color: #fff;
-    color: @neutral-10;
+    color: @brand-primary;
   }
   &-left {
     .box-flex(1);
-    font-size: @font-size-5;
+    font-size: @font-size-display-sm;
     &-icon {
-      margin-right: 2 * @grid;
+      margin-right: @h-spacing-sm;
     }
   }
   &-title {
@@ -24,21 +24,21 @@
     .ellipsis;
     max-width: 80%;
     text-align: center;
-    font-size: @font-size-6;
-    line-height: @line-height-2;
+    font-size: @font-size-display-md;
+    line-height: 1.5;
   }
   &-right {
     .box-flex(1);
-    font-size: @font-size-5;
+    font-size: @font-size-display-sm;
     text-align: right;
     .anticon {
-      margin-right: 4 * @grid;
+      margin-right: @h-spacing-sm;
       &:last-child {
         margin-right: 0;
       }
     }
     &-content {
-      margin-right: 4 * @grid;
+      margin-right: @h-spacing-sm;
     }
   }
 }

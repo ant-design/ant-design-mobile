@@ -1,5 +1,5 @@
 @import '../../style/mixins';
-@import '../../style/variables';
+@import '../../style/themes/default';
 
 @listPrefixCls: am-list;
 @checkboxWarpPrefixCls: am-checkbox;
@@ -9,28 +9,27 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  width: 5*@grid;
-  height: 5*@grid;
-  line-height: 5*@grid;
+  width: @icon-size-sm;
+  height: @icon-size-sm;
   &-inner {
     position: absolute;
     right: 0;
-    width: 5*@grid;
-    height: 5*@grid;
-    border: 1Px solid @neutral-5;
-    .border-radius(5*@grid);
+    width: @icon-size-sm;
+    height: @icon-size-sm;
+    border: 3px solid @color-text-caption;
+    .border-radius(50%);
     .box-sizing();
     .transform(rotate(0deg));
     &:after {
       position: absolute;
       display: none;
-      top: 6px;
-      right: 14px;
+      top: 4px;
+      right: 12px;
       z-index: 999;
       width: 10px;
       height: 22px;
       border-style: solid;
-      border-width: 0 1Px 1Px 0;
+      border-width: 0 3px 3px 0;
       content: '\0020';
       .transform(rotate(45deg));
     }
@@ -48,52 +47,43 @@
   }
   &.@{checkboxWarpPrefixCls}-checked {
     .@{checkboxInnerPrefixCls} {
-      border-width: 0;
-      background-color: @brand-6;
+      border-color: @brand-primary;
+      background-color: @fill-base;
       &:after {
         display: block;
-        border-color: @neutral-1;
+        border-color: @brand-primary;
       }
     }
   }
   &.@{checkboxWarpPrefixCls}-disabled {
-    .@{checkboxInnerPrefixCls} {
-      background-color: @neutral-4;
-    }
-    &.@{checkboxWarpPrefixCls}-checked {
-      .@{checkboxInnerPrefixCls} {
-        border-width: 1Px;
-        &:after {
-          display: block;
-          border-color: @neutral-5;
-        }
-      }
-    }
+    opacity: @opacity-disabled;
   }
 }
 
 
 .@{checkboxWarpPrefixCls}-agree {
   position: relative;
-  margin-left: 4*@grid;
-  line-height: 7*@grid;
-  padding-top: @grid;
+  display: flex;
+  align-items: stretch;
+  margin-left: @h-spacing-lg;
   .@{checkboxWarpPrefixCls} {
     position: absolute;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    line-height: 5*@grid;
     &-inner {
       left: 0;
-      top: @grid;
+      top: @v-spacing-xs;
     }
   }
   .@{checkboxWarpPrefixCls}-agree-label {
-    margin-left: @grid;
-    font-size: @font-size-4;
-    padding-left: 6*@grid;
-    line-height: 6*@grid;
+    font-size: @font-size-subhead;
+    color: @color-text-base;
+    line-height: 1.8;
+    padding-left: 2 * @h-spacing-lg;
+    margin-top: 0;
+    margin-left: 0;
     a {
       position: relative;
       z-index: 99;
@@ -105,8 +95,8 @@
   & &-item {
     &.@{checkboxWarpPrefixCls}-item {
       .@{listPrefixCls}-thumb {
-        width: 5*@grid;
-        height: 5*@grid;
+        width: @icon-size-sm;
+        height: @icon-size-sm;
         .@{checkboxWarpPrefixCls} {
           position: absolute;
           top: 0;
@@ -114,16 +104,16 @@
           right: 0;
           bottom: 0;
           width: 100%;
-          height: 11*@grid;
+          height: @list-item-height;
           &-inner {
-            left: 4*@grid;
-            top: 22px;
+            left: @h-spacing-lg;
+            top: 24px;
           }
         }
       }
       &.@{checkboxWarpPrefixCls}-item-disabled {
         .@{listPrefixCls}-content {
-          color: @neutral-6;
+          color: @color-text-disabled;
         }
       }
     }

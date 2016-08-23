@@ -1,67 +1,33 @@
 @import '../../style/mixins';
-@import '../../style/variables';
+@import '../../style/themes/default';
 
 @pickerPrefixCls: am-tag;
 
+// TODO 设计师还没有设计出标注
+
 .@{pickerPrefixCls} {
-  border-radius: @radius-2;
+  border-radius: @radius-sm;
   display: inline-block;
   position: relative;
   overflow: hidden;
-  vertical-align: middle;
+  font-size: @button-font-size-sm;
+  padding: @v-spacing-sm @h-spacing-lg;
+  min-width: 1.6rem;
+  text-align: center;
   &-normal {
-    background-color: @neutral-1;
-    color: @neutral-10;
-    border: 1px solid @neutral-5;
+    background-color: @fill-base;
+    color: @color-text-caption;
+    border: @border-width-md solid @border-color-base;
   }
 
   &-active {
-    background-color: @neutral-1;
-    color: @brand-6;
-    border: 1px solid @brand-6;
+    background-color: @fill-base;
+    color: @color-link;
+    border: @border-width-md solid @brand-primary;
   }
 
   &-disabled {
-    color: @neutral-6;
-    background-color: @neutral-2;
-    border: 1px solid @neutral-5;
-  }
-
-  &-read {
-    background-color: @neutral-3;
-    color: @neutral-10;
-    border: 1px solid @neutral-3;
-  }
-
-  &-size-large {
-    padding: @grid 4*@grid;
-    font-size: @font-size-2;
-    line-height: 4.5*@grid;
-  }
-
-  &-size-small {
-    padding: @grid 2*@grid;
-    font-size: @font-size-1;
-    line-height: 3.5*@grid;
-  }
-
-  &-close {
-    position: absolute;
-    bottom: -2*@grid;
-    right: -@grid;
-    width: 0;
-    height: 0;
-    border-bottom: 3*@grid solid transparent;
-    border-top: 3*@grid solid transparent;
-    border-left: 3*@grid solid @brand-6;
-    line-height: 0;
-    transform: rotate(45deg);
-    .anticon {
-      color: white;
-      position: absolute;
-      top: -@grid;
-      left: -3.5*@grid;
-      transform: rotate(-45deg) scale(0.5);
-    }
+    color: @color-text-disabled;
+    background-color: @fill-disabled;
   }
 }

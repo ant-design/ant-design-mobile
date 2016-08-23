@@ -51,7 +51,6 @@ export default class ComponentDoc extends React.Component {
     });
 
     const linkIndex = linkTo ? demoSort.filter((item) => (item.meta.id === linkTo))[0].index : 0;
-
     return linkIndex;
   }
 
@@ -130,10 +129,10 @@ export default class ComponentDoc extends React.Component {
 
     const currentIndex = this.state.currentIndex;
 
-    const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
+    // const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
 
-    const fileArr = demoSort[currentIndex].meta.filename.split('/');
-    const filename = fileArr[fileArr.length - 1].split('.')[0];
+    // const fileArr = demoSort[currentIndex].meta.filename.split('/');
+    // const filename = fileArr[fileArr.length - 1].split('.')[0];
 
     demos.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
@@ -166,7 +165,9 @@ export default class ComponentDoc extends React.Component {
     </div>);
 
     const { title, subtitle, chinese, english } = meta;
-    const iframeUrl = `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}/${filename}`;
+    const iframeUrl = currentIndex === 0 ?
+    `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}/` :
+    `${window.location.protocol}//${window.location.host}/kitchen-sink/${path}/#${path}-demo-${currentIndex}`;
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
@@ -200,20 +201,21 @@ export default class ComponentDoc extends React.Component {
             </div>
             <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
               <div id="aside-demo" className="aside-demo">
-                <div style={{ width: '375Px', height: '568Px' }}>
+                <div style={{ width: '377Px', height: '620Px', boxShadow: '0 0 4Px #ebebeb' }}>
                   <div className="demo-preview-wrapper">
                     <div className="demo-preview-header">
                       <div className="demo-preview-statbar">
-                        <img width="290Px" role="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                        <img width="350Px" role="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                      </div>
+                      <div style={{ height: '40Px' }}>
+                        <div style={{ width: '350Px', height: '28Px', lineHeight: '28Px', color: '#fff', backgroundColor: '#A2A2A2', margin: '0 auto', borderRadius: '4Px' }}>
+                          http://mobile.ant.design/kitchen-sink
+                        </div>
                       </div>
                     </div>
-                    <div className="demo-preview-scroller">
-                      <section className="code-box code-box-preview">
-                        <section className="code-box-demo code-box-demo-preview">
-                          <iframe id="demoFrame" name="demoFrame" style={{ width: '375Px', height: '548Px' }} src={iframeUrl} />
-                        </section>
-                      </section>
-                    </div>
+                    <section className="code-box-demo code-box-demo-preview">
+                      <iframe id="demoFrame" name="demoFrame" style={{ width: '375Px', height: '548Px' }} src={iframeUrl} />
+                    </section>
                   </div>
                 </div>
               </div>

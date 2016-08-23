@@ -1,10 +1,9 @@
 ---
-order: 3
-title: IndexedList sticky
-destroyComponent: true
+order: 4
+title: IndexedList 吸顶
 ---
 
-用于通讯薄等场景 sticky
+用于通讯薄等场景 “吸顶”(sticky)
 
 
 ````jsx
@@ -45,7 +44,7 @@ const Demo = React.createClass({
 
   render() {
     return (<div style={{ paddingTop: 40 }}>
-      <div style={{ position: 'fixed', zIndex: 999, top: 43, left: 0, right: 0 }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
         <SearchBar
           value=""
           placeholder="搜索"
@@ -65,8 +64,7 @@ const Demo = React.createClass({
         renderRow={(rowData) => (<Item>{rowData}</Item>)}
         stickyHeader
         stickyProps={{
-          stickyStyle: { zIndex: 999, top: 83 },
-          topOffset: -83,
+          stickyStyle: { zIndex: 999 },
         }}
         quickSearchBarStyle={{
           top: 85,

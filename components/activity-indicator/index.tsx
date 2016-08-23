@@ -2,11 +2,13 @@ import * as React from 'react';
 import {
   View,
   Text,
+  Modal,
   ActivityIndicator,
 } from 'react-native';
 import styles from './style';
+import PropTypes from './ActivityIndicatorPropTypes';
 
-export default class RNActivityIndicator extends React.Component<any, any> {
+export default class RNActivityIndicator extends React.Component<PropTypes, any> {
   static defaultProps = {
     animating: true,
     color: 'gray',
@@ -17,21 +19,19 @@ export default class RNActivityIndicator extends React.Component<any, any> {
 
   _renderToast() {
     return (
-      <View
-        style={[{
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: 89,
-          height: 89,
-          borderRadius: 6,
-          backgroundColor: 'rgba(34,34,34,0.6)',
-        }]}
-      >
-        <ActivityIndicator
-          color="white"
-          size="large"
-        />
-        { this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>) }
+      <View style={[styles.container]}>
+        <Modal
+          animationType="fade"
+          transparent
+          visible
+        >
+          <View style={[styles.innerContainer]}>
+            <View style={[styles.wrapper]}>
+             <ActivityIndicator color="white" size="large" />
+             { this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>) }
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }
@@ -57,9 +57,7 @@ export default class RNActivityIndicator extends React.Component<any, any> {
   render() {
     if (this.props.animating) {
       return (
-        <View>
-        { !!this.props.toast ? this._renderToast() : this._renderSpinner() }
-        </View>
+        <View>{ this.props.toast ? this._renderToast() : this._renderSpinner() }</View>
       );
     }
   }

@@ -18,8 +18,8 @@ export interface SearchBarProps {
   onCancel?: Function;
   onClear?: Function;
   showCancelButton?: boolean;
-  cancelTxt?: string;
-  disablSearch?: boolean;
+  cancelText?: string;
+  disabled?: boolean;
 }
 
 export interface SearchBarState {
@@ -40,8 +40,8 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     onCancel: PropTypes.func,
     onClear: PropTypes.func,
     showCancelButton: PropTypes.bool,
-    cancelTxt: PropTypes.string,
-    disablSearch: PropTypes.bool,
+    cancelText: PropTypes.string,
+    disabled: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -55,20 +55,20 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     onCancel: noop,
     onClear: noop,
     showCancelButton: false,
-    cancelTxt: '取消',
-    disablSearch: false,
+    cancelText: '取消',
+    disabled: false,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.value,
+      value: props.value,
       focus: false,
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps && this.props.value !== nextProps.value) {
+    if ('value' in nextProps) {
       this.setState({
         value: nextProps.value,
       });
@@ -87,30 +87,26 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   onFocus = (e) => {
-    if (this.props.disablSearch) {
+    if (this.props.disabled) {
       e.preventDefault();
       e.stopPropagation();
       return;
     }
-    let value = e.target.value;
     this.setState({
       focus: true,
     });
-    this.props.onFocus(value);
+    this.props.onFocus(e.target.value);
   };
 
   onBlur = (e) => {
-    let value = e.target.value;
     this.setState({
       focus: false,
     });
-    this.props.onBlur(value);
+    this.props.onBlur(e.target.value);
   };
 
   onCancel = () => {
-    this.setState({ value: '' });
-    this.props.onCancel('');
-    this.props.onChange('');
+    this.props.onCancel(this.state.value);
   };
 
   onClear = () => {
@@ -123,7 +119,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   render() {
-    const { prefixCls, showCancelButton, disablSearch, placeholder, cancelTxt, className } = this.props;
+    const { prefixCls, showCancelButton, disabled, placeholder, cancelText, className } = this.props;
     const { value, focus } = this.state;
 
     const wrapCls = classNames({
@@ -137,7 +133,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       [`${prefixCls}-start`]: value.length > 0,
     });
 
-    let cancelStyle = value.length > 0 ? { display: 'block' } : { display: 'none' };
+    const cancelStyle = value.length > 0 ? { display: 'block' } : { display: 'none' };
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -146,7 +142,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
             <input type="search"
               className={`${prefixCls}-value`}
               value={value}
-              disabled={disablSearch}
+              disabled={disabled}
               placeholder={placeholder}
               onChange={this.onChange}
               onFocus={this.onFocus}
@@ -157,7 +153,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           <div
             className={`${prefixCls}-cancel`}
             style={showCancelButton ? { display: 'block' } : cancelStyle}
-            onClick={this.onCancel}>{cancelTxt}
+            onClick={this.onCancel}>{cancelText}
           </div>
         </div>
       </form>

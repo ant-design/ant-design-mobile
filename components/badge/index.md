@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Controls
+type: UI Controls
 chinese: 徽标数
 english: Badge
 ---
@@ -22,4 +22,3 @@ english: Badge
 | dot   | 不展示数字，只有一个小红点   |   Boolean    |  false  |
 | corner     | 展示位角标样式  | Boolean |  false  |
 | overflowCount       | 展示封顶的数字值  | Number | 99|
-| size	   | 红点及角标状态下可选默认(null)或者大号(large)  | String	 | - |

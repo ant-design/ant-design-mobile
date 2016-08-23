@@ -44,14 +44,18 @@
 .demo-preview-item {
   padding-top: 86px;
   background: #fff;
-  min-height: 100vh;
 
   * {
     box-sizing: content-box;
   }
-}
-.demo-preview-item-custom {
-  padding-top: 0;
+
+  .am-checkbox * {
+    box-sizing: border-box;
+  }
+  .am-checkbox-agree,
+  .am-checkbox-agree * {
+    box-sizing: border-box;
+  }
 }
 
 html, body {

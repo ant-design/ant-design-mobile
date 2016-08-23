@@ -1,5 +1,5 @@
 @import '../../style/mixins';
-@import '../../style/variables';
+@import '../../style/themes/default';
 @ActionSheetPrefixCls: am-action-sheet;
 
 @import './base';
@@ -9,83 +9,80 @@
   bottom: 0;
   position: fixed;
   width: 100%;
-  background-color: @neutral-1;
+  background-color: @fill-base;
 
   &-title,
   &-message {
-    margin: 4 * @grid auto;
+    margin: @h-spacing-lg auto;
+    padding: 0 @h-spacing-lg;
     text-align: center;
   }
   &-title {
-    color: @neutral-10;
-    font-size: @font-size-5;
+    // color: @neutral-10;
+    font-size: @font-size-heading;
   }
   &-message {
-    color: @neutral-7;
-    font-size: @font-size-2;
+    color: @color-text-caption;
+    font-size: @font-size-base;
   }
   &-button-list {
     text-align: center;
-    color: @neutral-10;
+    // color: @neutral-10;
     > li {
       position: relative;
-      height: 11 * @grid;
-      line-height: 11 * @grid;
-      .hairline-top(@neutral-5);
+      height: @button-height;
+      line-height: @button-height;
+      // .hairline-top(@neutral-5);
+      border-top: @border-width-sm solid @border-color-base;
       &:active {
-        background-color: @neutral-2;
+        background-color: @fill-tap;
       }
     }
   }
   & &-cancel-button {
-    margin-top: 2 * @grid;
+    margin-top: @v-spacing-md;
     position: relative;
-    // &::before {
-    //   content: ' ';
-    //   border: 0;
-    // }
-    // &::after {
-    //   content: ' ';
-    // }
     &-mask {
       position: absolute;
-      top: -2 * @grid;
+      top: -@v-spacing-md;
       left: 0;
       width: 100%;
-      height: 2 * @grid;
+      height: @v-spacing-md;
       background-color: #F7F7F7;
-      .hairline-top(@neutral-5);
+      // .hairline-top(@neutral-5);
+      border-top: @border-width-sm solid @border-color-base;
+      border-bottom: @border-width-sm solid @border-color-base;
     }
   }
   &-destructive-button {
-    color: @function-error-2;
-    font-size: @font-size-6;
+    color: @brand-error;
+    font-size: @font-size-heading;
   }
 
   & &-share-content {
     display: flex;
-    padding-left: 6 * @grid;
+    padding-left: @h-spacing-lg;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     > li {
-      margin-right: 5 * @grid;
+      margin-right: 24px;
     }
   }
   &-share-item-icon {
     margin: 0;
-    width: 12 * @grid;
-    height: 12 * @grid;
+    width: 120px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     .anticon {
-      font-size: 26px;
+      font-size: @font-size-display-xl;
     }
   }
   &-share-item-title {
-    color: @neutral-8;
-    font-size: @font-size-2;
+    color: @color-text-caption;
+    font-size: @font-size-icontext;
     text-align: center;
-    margin: 2 * @grid auto;
+    margin: @v-spacing-md auto;
   }
 }

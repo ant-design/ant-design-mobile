@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
-import classNames from 'classnames';
 import * as utils from '../../../theme/template/utils';
-
-import { NavBar, ActionSheet, Icon } from 'antd-mobile';
+import { Link } from 'react-router';
+import { Drawer, List, Icon } from 'antd-mobile';
 
 export function collect(nextProps, callback) {
   const componentsList = utils.collectDocs(nextProps.data.components);
@@ -20,6 +19,8 @@ export function collect(nextProps, callback) {
   // const componentName = nextProps.params.component;
   const componentName = nextProps.params.component;
   const demos = nextProps.utils.get(nextProps.data, ['components', componentName, 'demo']);
+  const listDemos = nextProps.utils.get(nextProps.data, ['components', 'list-view', 'demo']);
+  const drawerDemos = nextProps.utils.get(nextProps.data, ['components', 'drawer', 'demo']);
 
   const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
 
@@ -36,12 +37,36 @@ export function collect(nextProps, callback) {
     ));
   }
 
+  promises.push(Promise.all(
+    Object.keys(listDemos).map((key) => {
+      if (typeof listDemos[key] === 'function') {
+        return listDemos[key]();
+      /* eslint-disable no-else-return */
+      } else {
+        return listDemos[key].web();
+      }
+    }))
+  );
+
+  promises.push(Promise.all(
+    Object.keys(drawerDemos).map((key) => {
+      if (typeof drawerDemos[key] === 'function') {
+        return drawerDemos[key]();
+      /* eslint-disable no-else-return */
+      } else {
+        return drawerDemos[key].web();
+      }
+    }))
+  );
+
   Promise.all(promises)
     .then((list) => callback(null, {
       ...nextProps,
       components: list[0],
       moduleData: list[1],
       demos: list[2],
+      listDemos: list[3],
+      drawerDemos: list[4],
     }));
 }
 
@@ -50,172 +75,144 @@ export default class Home extends React.Component {
     super(props);
 
     this.state = {
-      current: this.getCurrent(props.params.index) || 0,
-      customNavBar: null,
+      open: false,
     };
   }
 
-  getCurrent = (name) => {
-    const demoSort = this.props.demos.sort((a, b) => (
-      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
-    ));
-
-    let currentIndex;
-    demoSort.forEach((i, index) => {
-      const fileArr = i.meta.filename.split('/');
-      const filename = fileArr[fileArr.length - 1].split('.')[0];
-      if (filename === name) {
-        currentIndex = index;
-      }
-    });
-
-    return currentIndex;
-  }
-
-  showActionSheet =() => {
-    if (this.actionSheetShown) {
-      ActionSheet.close();
-      this.actionSheetShown = false;
-      return;
-    }
-
-    const actionArr = [];
-    const demoSort = this.props.demos.sort((a, b) => (
-      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
-    ));
-    demoSort.forEach((demo, index) => {
-      actionArr[index] = demo.meta.title;
-    });
-    actionArr.push('取消');
-
-    this.actionSheetShown = true;
-    ActionSheet.showActionSheetWithOptions({
-      options: actionArr,
-      cancelButtonIndex: actionArr.length - 1,
-      maskClosable: true,
-    },
-    (buttonIndex) => {
-      if (buttonIndex < actionArr.length - 1) {
-        this.setState({
-          current: buttonIndex,
-          customNavBar: this.getNavBar(buttonIndex),
-        });
-      }
-    });
-  }
-
-  demoPrev = () => {
-    const current = this.state.current - 1;
+  componentWillReceiveProps = () => {
     this.setState({
-      current,
-      customNavBar: this.getNavBar(current),
+      open: false,
     });
   }
 
-  demoNext = () => {
-    const current = this.state.current * 1 + 1;
-    this.setState({
-      current,
-      customNavBar: this.getNavBar(current),
-    });
-  }
-
-  getNavBar(index) {
-    const demos = this.props.demos;
-    const demoSort = demos.sort((a, b) => (
-      parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
-    ));
-    /* eslint-disable no-nested-ternary */
-    let leftContent = self === top || top.name === '__spe' ?
-      <a href="/kitchen-sink" style={{ color: '#2db7f5', textDecoration: 'none', transition: 'color .3s ease' }}>首页</a> :
-        (index > 0 ?
-          <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={this.demoPrev}>
-            上页
-          </span> :
-          null
-        );
-
-    let rightContent = index < demos.length - 1 ?
-      <span style={{ fontSize: 16, cursor: 'pointer' }} onClick={this.demoNext}>下页</span> :
-      null;
-
-    const customNavBar = (
-      <NavBar iconName={false} leftContent={leftContent} rightContent={rightContent}>
-        {
-          demoSort.length > 1 ?
-            <span onClick={this.showActionSheet} style={{ cursor: 'pointer' }}>
-              {`${demoSort[index].meta.title}`} <Icon type="down" className="nav-arrow-down" />
-            </span> :
-            <span>
-              {`${demoSort[index].meta.title}`}
-            </span>
-        }
-      </NavBar>
-    );
-    return customNavBar;
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      current: this.getCurrent(nextProps.params.index),
-      customNavBar: this.getNavBar(nextProps.params.index),
-    });
-  }
-
-  componentDidMount() {
-    const current = this.state.current;
-    /* eslint react/no-did-mount-set-state:0 */
-    this.setState({
-      customNavBar: this.getNavBar(current),
-    });
-    if (ActionSheet.close) {
-      ActionSheet.close();
-    }
+  onOpenChange = () => {
+    this.setState({ open: !this.state.open });
   }
 
   render() {
-    const { demos } = this.props;
-    const { current } = this.state;
+    const { demos, listDemos, drawerDemos } = this.props;
     const name = this.props.params.component;
 
     const demoSort = demos.sort((a, b) => (
       parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
     ));
 
-    demoSort[current].preview.call(this);
-    const customNavFlag = this.customNavFlag;
+    const lists = {};
+    this.props.components.forEach(i => {
+      const meta = i.meta;
+      if (!lists[meta.category]) {
+        lists[meta.category] = [];
+      }
+      lists[meta.category].push(meta);
+    });
+
+    const componentList = lists['UI Views'].concat(lists['UI Bars'])
+    .concat(lists['UI Controls']).concat(lists.Other);
+
+    let demoMeta;
+    componentList.forEach((item) => {
+      if (item.filename.split('/')[1] === name) {
+        demoMeta = item;
+      }
+    });
+
+    const whiteList = ['drawer', 'list-view'];
+    const sidebar = (<div>
+      <div className="demo-drawer-home">
+        <Link to="/">Ant Design Mobile</Link>
+      </div>
+      {Object.keys(lists).map((cate, index) => (
+        <List key={index} title={cate}>
+          <List.Body>
+            {
+              lists[cate].map((item, ii) => {
+                const fileName = item.filename.split('/')[1];
+                let subDemos;
+                if (fileName === 'drawer') {
+                  subDemos = drawerDemos;
+                } else {
+                  subDemos = listDemos;
+                }
+                return (<List.Item key={ii}>
+                  {
+                    whiteList.indexOf(fileName) > -1 ?
+                      (<List>
+                        <List.Header>{item.chinese}</List.Header>
+                        {
+                          subDemos.map((item1, index1) => (
+                            <List.Item key={index1}>
+                              <Link to={`/${fileName}/#${fileName}-demo-${index}`}>{item1.meta.title}</Link>
+                            </List.Item>
+                          ))
+                        }
+                      </List>) :
+                      <Link to={`/${fileName}/`}>{item.chinese}</Link>}
+                </List.Item>);
+              })
+            }
+          </List.Body>
+        </List>
+      ))}
+    </div>);
+
+    const drawerProps = {
+      open: this.state.open,
+      position: 'left',
+      onOpenChange: this.onOpenChange,
+    };
+
+    let drawerContent = (<div style={{ height: '100%' }}>
+      <div className="demoName">
+        {demoMeta.chinese}
+        <p>{demoMeta.english}</p>
+      </div>
+      {
+        demoSort.length > 1 &&
+          <div className="demoLinks">
+            <ul>
+              {
+                demoSort.map((item, index) => (
+                  <li key={index}>
+                    <a href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+      }
+      {
+        demoSort.map((i, index) => (
+          <div className="demo-preview-item"id={`${name}-demo-${index}`} key={index}>
+            <div className="demoTitle">{i.meta.title}</div>
+            {i.preview(React, ReactDOM)}
+            {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+          </div>
+        ))
+      }
+    </div>);
+
+    if (whiteList.indexOf(name) > -1) {
+      const arr = location.hash.substr(1).split('-demo-');
+      const i = demoSort[arr.length > 1 ? arr[1] : 0];
+      drawerContent = (<div style={{ height: '100%' }}>
+        {i.preview(React, ReactDOM)}
+        {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+      </div>);
+      if (name === 'list-view') {
+        drawerProps.className = 'spe-drawer';
+      }
+    }
 
     return (
       <div id={name}>
-        <div id="demoNavbar" style={{ position: 'fixed', width: '100%', zIndex: 9998, top: 0 }}>
-          {
-            !customNavFlag ?
-            this.state.customNavBar :
-            null
-          }
+        <div className="demo-drawer-trigger">
+          <span onClick={this.onOpenChange}><Icon type="bars" /></span>
         </div>
-
-        {demoSort.map((i, index) => {
-          let isShow = current - index === 0;
-          // ListView 组件要占用全屏、不能多实例共存（用 destroyComponent 做标记）
-          if (i.meta.destroyComponent && window.name !== 'demoFrame') {
-            isShow = this.props.params.index === undefined && current === index;
-          }
-
-          const previewItemClass = classNames({
-            'demo-preview-item': true,
-            'demo-preview-item-custom': !!customNavFlag,
-            show: isShow,
-            hide: !isShow,
-          });
-
-          return (
-            <div className={previewItemClass} id={`${name}-demo-${index}`} key={index}>
-              {!i.meta.destroyComponent || isShow ? i.preview(React, ReactDOM) : null}
-              {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
-            </div>
-          );
-        })}
+        <div className="demo-drawer-container">
+          <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
+            {drawerContent}
+          </Drawer>
+        </div>
       </div>
     );
   }

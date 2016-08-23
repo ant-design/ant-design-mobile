@@ -26,14 +26,14 @@ ReactDOM.render(
 <style>
 .am-carousel .slick-slide {
   text-align: center;
-  height: 120px;
-  line-height: 120px;
+  height: 480px;
+  line-height: 480px;
   background: #71B5DE;
   color: #fff;
   overflow: hidden;
 }
 .am-carousel h3 {
-  height: 120px;
+  height: 480px;
 }
 .am-carousel-card .slick-slide p, .am-carousel h3 {
   background: #71B5DE;
@@ -41,8 +41,8 @@ ReactDOM.render(
   text-align: center;
 }
 .am-carousel-card .slick-slide p {
-  height: 152px;
   margin: 0px 10px;
+  height: 152px;
   line-height: 152px;
 }
 </style>

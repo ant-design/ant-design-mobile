@@ -7,7 +7,7 @@ title: 基本
 
 
 ````jsx
-import { Progress, WhiteSpace, Button, Flex, WingBlank } from 'antd-mobile';
+import { NavBar, Progress, WhiteSpace, Button, Flex, WingBlank } from 'antd-mobile';
 
 const MyProgress = React.createClass({
   getInitialState() {
@@ -33,7 +33,10 @@ const MyProgress = React.createClass({
     return (
       <div className="progress-container">
         {this.state.percent === 100 ? null :
-          <Progress percent={this.state.percent} position="fixed" />
+          <div>
+            <NavBar iconName={false} mode="light">NavBar</NavBar>
+            <Progress percent={this.state.percent} position="fixed" />
+          </div>
         }
         <Progress percent={this.state.percent} position="normal" />
         <WhiteSpace size={20} />

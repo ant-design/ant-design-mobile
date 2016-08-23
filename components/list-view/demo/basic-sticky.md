@@ -1,10 +1,9 @@
 ---
-order: 1
-title: sticky
-destroyComponent: true
+order: 2
+title: 吸顶（body 容器）
 ---
 
-无尽列表 sticky
+区块标题 “吸顶”(sticky) 功能示例
 
 ````jsx
 import { ListView, Toast } from 'antd-mobile';
@@ -140,8 +139,9 @@ const Demo = React.createClass({
         onEndReachedThreshold={10}
         stickyHeader
         stickyProps={{
-          stickyStyle: { zIndex: 999, top: 43 },
-          topOffset: -43,
+          stickyStyle: { zIndex: 999 },
+          // topOffset: -43,
+          // isActive: false, // 关闭 sticky 效果
         }}
       />
     </div>);

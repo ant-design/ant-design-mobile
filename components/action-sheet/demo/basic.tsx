@@ -50,13 +50,15 @@ export default React.createClass({
     });
   },
   showShareActionSheet() {
+    const androidActionSheetName = 'acn';
     const opts = {
       url: 'https://www.alipay.com/',
       message: 'message to go with the shared url',
       excludedActivityTypes: [
-        <Text>excludedActivityTypes</Text>,
+        <Button onClick={() => ActionSheet.close(androidActionSheetName)}>close ActionSheet</Button>,
       ] as any[],
       subject: null as string,
+      androidActionSheetName,
     };
     if (Platform.OS === 'ios') {
       opts.subject = 'a subject to go in the email heading';

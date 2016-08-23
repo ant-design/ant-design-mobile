@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Controls
+type: UI Controls
 chinese: 多行输入
 english: TextareaItem
 ---
@@ -20,7 +20,6 @@ english: TextareaItem
 | 成员        | 说明           | 类型     |     可选值        | 默认值       |
 |------------|----------------|--------------------|--------------|
 | prefixListCls    |         | String | |  `am-list`  |
-| type    |  文本区域样式类型 | String | 线型`hasLine`,有边框`hasBorder`,本期只支持`hasLine` |  `hasLine`  |
 | title    | 文案说明        | String/node |     | '' |
 | name    | textarea的name        | String |  |  ''  |
 | value    | textarea的默认值        | String |  |   ''  |

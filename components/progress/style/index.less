@@ -1,11 +1,11 @@
 @import '../../style/mixins';
-@import '../../style/variables.less';
+@import '../../style/themes/default';
 
 @pickerPrefixClass: am-progress;
 
 .@{pickerPrefixClass} {
   &-outer {
-    background-color: @neutral-4;
+    background-color: @border-color-base;
     display: block;
   }
   &-fixed-outer {
@@ -16,7 +16,7 @@
     z-index: 999;
   }
   &-bar {
-    border: 2px solid @brand-6;
+    border: @border-width-lg solid @brand-primary;
     transition: all 0.3s linear 0s;
   }
 }

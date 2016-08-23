@@ -17,8 +17,9 @@ let BasicInput = React.createClass({
     const { getFieldProps } = this.props.form;
 
     return (<div>
-      <List>
-        <List.Header>线型</List.Header>
+      <List
+        title="线型"
+      >
         <List.Body>
           <InputItem
             {...getFieldProps('input1')}
@@ -33,7 +34,7 @@ let BasicInput = React.createClass({
               initialValue: '标签可以是node',
             })}
             placeholder="标签可以是node"
-          ><div style={{ backgroundImage: 'url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} /></InputItem>
+          ><div style={{ backgroundImage: 'url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)', backgroundSize: 'cover', height: '0.44rem', width: '0.44rem' }} /></InputItem>
           <InputItem
             value="仅供展示:editable={false}"
             editable={false}
@@ -56,7 +57,7 @@ let BasicInput = React.createClass({
             name="camera"
             placeholder="注释可以是node"
             clear
-            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="22" height="22" />}
+            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" />}
           >带注释</InputItem>
           <InputItem
             {...getFieldProps('input6', {
@@ -82,12 +83,13 @@ let BasicInput = React.createClass({
             onErrorClick={() => { alert(111); }}
             placeholder="内容"
             clear
-            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" width="22" height="22" />}
+            extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" />}
           >报错样式</InputItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>两个字标签</List.Header>
+      <List
+        title="两个字标签"
+      >
         <List.Body>
           <InputItem
             {...getFieldProps('label3')}
@@ -100,8 +102,9 @@ let BasicInput = React.createClass({
           >姓名</InputItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>三个字标签</List.Header>
+      <List
+        title="三个字标签"
+      >
         <List.Body>
           <InputItem
             {...getFieldProps('label3')}
@@ -114,8 +117,9 @@ let BasicInput = React.createClass({
           >校验码</InputItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>四个字标签(默认)</List.Header>
+      <List
+        title="四个字标签(默认)"
+      >
         <List.Body>
           <InputItem
             {...getFieldProps('label4')}
@@ -127,8 +131,9 @@ let BasicInput = React.createClass({
           >四字标签</InputItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>五个字标签</List.Header>
+      <List
+        title="五个字标签"
+      >
         <List.Body>
           <InputItem
             {...getFieldProps('label5')}
@@ -141,8 +146,9 @@ let BasicInput = React.createClass({
           >五个字标签</InputItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>六个字标签</List.Header>
+      <List
+        title="六个字标签"
+      >
         <List.Body>
           <InputItem
             {...getFieldProps('label6')}
@@ -155,8 +161,9 @@ let BasicInput = React.createClass({
           >六个字标签六</InputItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>七个字标签</List.Header>
+      <List
+        title="七个字标签"
+      >
         <List.Body>
           <InputItem
             {...getFieldProps('label6')}
@@ -169,8 +176,9 @@ let BasicInput = React.createClass({
           >七个字标签七个</InputItem>
         </List.Body>
       </List>
-      <List>
-        <List.Header>有边框,本期不实现</List.Header>
+      <List
+        title="有边框,本期不实现"
+      >
         <List.Body>
           <InputItem
             {...getFieldProps('zzzz', {

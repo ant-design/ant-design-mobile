@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Controls
+type: UI Controls
 chinese: 滑动或长按操作
 english: SwipeAction
 ---
@@ -17,7 +17,7 @@ english: SwipeAction
 
 ## API
 
-### ListAction
+### SwipeAction
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|

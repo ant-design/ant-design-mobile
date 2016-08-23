@@ -18,10 +18,10 @@ export default class RefreshControl extends React.Component<tsPropsType, any> {
     prefixCls: 'am-refresh-control',
     icon: <div>
       <div className="pull">
-        <Icon type="down" />
+        <Icon type="arrow-down" /> 下拉
       </div>
       <div className="release">
-        <Icon type="up" />
+        <Icon type="arrow-up" /> 释放
       </div>
     </div>,
     loading: <Icon type="loading" />,

@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 title: 基本
 ---
 
@@ -13,12 +13,12 @@ let ListExample = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (<form>
-      <List>
-        <List.Header>列表头部,List.Header</List.Header>
+      <List
+        title="列表头部"
+        footer="列表尾部"
+      >
         <List.Body>
-          <List.Item
-            extra={null}
-          >标题文字,没有配置onClick则点击无反馈</List.Item>
+          <List.Item>标题文字,没有设置onClick则点击无反馈效果</List.Item>
           <List.Item
             onClick={() => {}}
             extra={undefined}
@@ -26,12 +26,23 @@ let ListExample = React.createClass({
           <List.Item
             extra="内容内容"
             onClick={() => {}}
+            arrow="horizontal"
+          >标题文字</List.Item>
+          <List.Item
+            extra="内容内容"
+            onClick={() => {}}
+            arrow="up"
+          >标题文字</List.Item>
+          <List.Item
+            extra="内容内容"
+            onClick={() => {}}
+            arrow="down"
           >标题文字</List.Item>
         </List.Body>
-        <List.Footer>列表尾部,List.Footer</List.Footer>
       </List>
-      <List>
-        <List.Header>下拉框</List.Header>
+      <List
+        title="下拉框"
+      >
         <List.Body>
           <List.Item
             extra={<select style={{ direction: 'rtl' }}
@@ -64,8 +75,9 @@ let ListExample = React.createClass({
           </List.Item>
         </List.Body>
       </List>
-      <List>
-        <List.Header>滑动开关Switch</List.Header>
+      <List
+        title="滑动开关Switch"
+      >
         <List.Body>
           <List.Item
             extra={<Switch
@@ -103,8 +115,9 @@ let ListExample = React.createClass({
           >默认开,不可修改</List.Item>
         </List.Body>
       </List>
-      <List>
-        <List.Header>带缩略图</List.Header>
+      <List
+        title="带缩略图"
+      >
         <List.Body>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"
@@ -117,7 +130,7 @@ let ListExample = React.createClass({
             icon=""
             extra={<img src="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png" width="28" height="28" />}
             arrow="horizontal"
-          >extra为&lt;img /&gt;标签</List.Item>
+          >extra为img标签</List.Item>
         </List.Body>
       </List>
     </form>);

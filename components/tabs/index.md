@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Controls
+type: UI Controls
 chinese: 标签页
 english: Tabs
 ---
@@ -30,9 +30,8 @@ english: Tabs
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板    |
 | onChange         | 切换面板的回调                               | Function | 无            |
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
-| type | 页签的基本样式，可选 `line`、`capsule`、`tabbar` 类型   | String   | 'line'      |
-| animation | 内容区域动画, 目前仅支持 `slide-horizontal`, 设为 false 禁用动画    |  String   |    `slide-horizontal`    |
-| mode |  `dark`、`light` 仅当 type 为 tabbar 有效   | String   | 'light'      |
+| animation |  是否动画    |  boolean   |    `true`    |
+| tabPosition |    tab 位置 top/bottom        |  string    |    `top`        |
 
 
 ### Tabs.TabPane

@@ -6,7 +6,6 @@ interface TextAreaItemProps {
   /** web only */
   className?: string;
   style?: React.CSSProperties;
-  type?: 'hasLine';
   title?: React.ReactNode;
   /** web only */
   name?: string;

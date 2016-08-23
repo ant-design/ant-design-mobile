@@ -1,6 +1,7 @@
-import variables from '../../style/variables';
 import { StyleSheet } from 'react-native';
+import variables from '../../style/themes/default';
 
+const grid = 4;
 export default StyleSheet.create({
   wrap: {
     flexDirection: 'row',
@@ -9,44 +10,44 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   dot: {
-    width: 2 * variables.grid,
-    height: 2 * variables.grid,
-    borderRadius: variables.radius_1,
-    backgroundColor: '#f55404',
+    width: 2 * grid,
+    height: 2 * grid,
+    borderRadius: grid,
+    backgroundColor: variables.brand_important,
     position: 'absolute',
-    top: -1 * variables.grid,
-    right: -1 * variables.grid,
+    top: -1 * grid,
+    right: -1 * grid,
   },
   dotSizelarge: {
-    width: 4 * variables.grid,
-    height: 4 * variables.grid,
-    borderRadius: 2 * variables.radius_1,
+    width: 4 * grid,
+    height: 4 * grid,
+    borderRadius: 2 * grid,
   },
   textDom: {
-    paddingVertical: 0.5 * variables.grid,
-    paddingHorizontal: 2 * variables.grid,
-    backgroundColor: '#f55404',
-    borderRadius: 2 * variables.radius_2,
+    paddingVertical: 0.5 * grid,
+    paddingHorizontal: 2 * grid,
+    backgroundColor: variables.brand_important,
+    borderRadius: 4 * variables.radius_sm,
     borderStyle: 'solid',
     position: 'absolute',
     top: -10,
     right: -15,
   },
   textCorner: {
-    width: 18 * variables.grid,
-    backgroundColor: '#f55404',
+    width: 18 * grid,
+    backgroundColor: variables.brand_important,
     transform: [{
       rotate: '45deg',
     }],
     position: 'absolute',
-    top: 2 * variables.grid,
+    top: 2 * grid,
   },
   textCornerlarge: {
-    width: 26 * variables.grid,
-    top: 3 * variables.grid,
+    width: 26 * grid,
+    top: 3 * grid,
   },
   text: {
-    color: '#fff',
+    color: variables.color_text_base_inverse,
     textAlign: 'center',
   },
 });

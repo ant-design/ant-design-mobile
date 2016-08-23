@@ -8,8 +8,7 @@ function noop() { }
 
 export default class InputItem extends React.Component<InputItemProps, any> {
   static propTypes = {
-    type: PropTypes.oneOf(['hasLine']),
-    format: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
+    type: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
     extra: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node,
@@ -23,8 +22,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
-    type: 'hasLine',
-    format: 'text',
+    type: 'text',
     editable: true,
     name: '',
     value: '',
@@ -50,9 +48,9 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   }
 
   onChange = (text) => {
-    const { maxLength, onChange, format } = this.props;
+    const { maxLength, onChange, type } = this.props;
 
-    switch (format) {
+    switch (type) {
       case 'text':
         if (maxLength > 0) {
           text = text.substring(0, maxLength);
@@ -90,7 +88,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   };
 
   render() {
-    const { format, editable, value, placeholder, style,
+    const { type, editable, value, placeholder, style,
       clear, children, error, extra, labelNumber, last } = this.props;
 
     const containerStyle = {
@@ -115,13 +113,13 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         <TextInput
           style={[InputItemStyle.input, inputStyle]}
           value={value}
-          keyboardType={format === 'number' || format === 'bankCard' ? 'numeric' : 'default'}
+          keyboardType={type === 'number' || type === 'bankCard' ? 'numeric' : 'default'}
           onChange={(event) => this.onChange(event.nativeEvent.text)}
           onFocus={() => this.props.onFocus()}
           onBlur={() => this.props.onBlur()}
           placeholder={placeholder}
           autoCorrect={false}
-          secureTextEntry={format === 'password'}
+          secureTextEntry={type === 'password'}
           clearButtonMode = {clear ? 'while-editing' : 'never'}
           editable={editable}
         />

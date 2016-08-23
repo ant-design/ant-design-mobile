@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
-import variables from '../style/variables';
+import variables from '../style/themes/default';
 import tsProps from './PropsType';
 
 export default class Button extends React.Component<tsProps, any> {
@@ -15,7 +15,6 @@ export default class Button extends React.Component<tsProps, any> {
   static defaultProps = {
     pressIn: false,
     size: 'large',
-    ghost: false,
     disabled: false,
     inline: false,
     loading: false,
@@ -57,7 +56,7 @@ export default class Button extends React.Component<tsProps, any> {
   };
 
   render() {
-    const { size, type, disabled, ghost } = this.props;
+    const { size, type, disabled } = this.props;
 
     let height;
     let fontSize;
@@ -73,81 +72,51 @@ export default class Button extends React.Component<tsProps, any> {
 
     switch (size) {
       case 'large':
-        height = 11 * variables.grid;
-        fontSize = variables.font_size_6;
-        paddingLeft = paddingRight = 4 * variables.grid;
+        height = variables.button_height;
+        fontSize = variables.button_font_size;
+        paddingLeft = paddingRight = variables.h_spacing_sm;
         break;
       case 'small':
-        height = 7 * variables.grid;
-        fontSize = variables.font_size_3;
-        paddingLeft = paddingRight = 3 * variables.grid;
+        height = variables.button_height_sm;
+        fontSize = variables.button_font_size_sm;
+        paddingLeft = paddingRight = variables.h_spacing_sm;
         break;
       default:
         break;
     }
 
     if (type === 'primary') {
-      textColor = variables.neutral_1;
-      backgroundColor = variables.brand_6;
-      borderColor = variables.brand_6;
+      textColor = variables.color_text_base_inverse;
+      backgroundColor = variables.brand_primary;
+      borderColor = variables.brand_primary;
 
-      highlightTextColor = variables.neutral_1;
-      highlightBorderColor = variables.brand_7;
-      highlightBackgroundColor = variables.brand_7;
-
-      if (disabled) {
-        textColor = variables.neutral_1;
-        backgroundColor = variables.brand_3;
-        borderColor = variables.brand_1;
-      }
-
-      if (ghost) {
-        backgroundColor = 'transparent';
-        textColor = variables.brand_6;
-        borderColor = variables.brand_6;
-        highlightTextColor = variables.brand_7;
-        highlightBackgroundColor = variables.brand_3_f_20;
-        highlightBorderColor = variables.brand_7;
-
-        if (disabled) {
-          textColor = variables.brand_3_f_60;
-          backgroundColor = variables.brand_3_f_20;
-          borderColor = backgroundColor;
-        }
-      }
+      highlightTextColor = variables.color_text_base_inverse;
+      highlightBackgroundColor = variables.brand_primary;
+      highlightBorderColor = variables.brand_primary;
+    } else if (type === 'ghost') {
+      backgroundColor = 'transparent';
+      textColor = variables.color_link;
+      borderColor = variables.tabs_color;
+      highlightTextColor = variables.color_text_base_inverse;
+      highlightBackgroundColor = variables.brand_primary_tap;
+      highlightBorderColor = variables.brand_primary;
     } else if (type === 'warning') {
-      textColor = variables.function_error_2;
-      backgroundColor = variables.red_1;
-      borderColor = variables.red_4;
-      highlightBackgroundColor = variables.red_2;
+      textColor = variables.brand_warning;
+      backgroundColor = variables.fill_base;
+      borderColor = variables.brand_warning;
+      highlightBackgroundColor = variables.fill_base;
     } else {
-      textColor = variables.neutral_10;
-      backgroundColor = variables.neutral_1;
-      borderColor = variables.neutral_5;
+      textColor = variables.color_text_base;
+      backgroundColor = variables.fill_base;
+      borderColor = variables.border_color_base;
 
-      highlightBackgroundColor = variables.neutral_2;
+      highlightBackgroundColor = variables.fill_tap;
       highlightTextColor = textColor;
-
-      if (disabled) {
-        textColor = variables.neutral_6;
-        backgroundColor = variables.neutral_3;
-        borderColor = variables.neutral_4;
-      }
-
-      if (ghost) {
-        textColor = variables.neutral_10;
-        borderColor = variables.neutral_4;
-
-        highlightTextColor = variables.neutral_10;
-        highlightBackgroundColor = variables.neutral_3_f_20;
-        highlightBorderColor = variables.neutral_4;
-
-        if (disabled) {
-          textColor = variables.neutral_6_f_60;
-          backgroundColor = variables.neutral_3_f_20;
-          borderColor = textColor;
-        }
-      }
+    }
+    if (disabled) {
+      textColor = variables.color_text_disabled;
+      backgroundColor = variables.fill_disabled;
+      borderColor = variables.fill_disabled;
     }
 
     let touchableProps: any = {};
@@ -162,7 +131,7 @@ export default class Button extends React.Component<tsProps, any> {
       paddingLeft,
       paddingRight,
       backgroundColor,
-      borderRadius: variables.radius_2,
+      borderRadius: variables.radius_sm,
       borderWidth: 1,
       borderColor,
       justifyContent: 'center',

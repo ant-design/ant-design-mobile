@@ -6,28 +6,29 @@ title: 基本
 
 
 ````jsx
-import { SearchBar } from 'antd-mobile';
+import { SearchBar, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 let SearchBarExample = React.createClass({
   getInitialState() {
     return {
-      value: '蚂蚁中台',
+      value: '美食',
     };
   },
   render() {
     const { getFieldProps } = this.props.form;
-    console.log(this.props.form.getFieldsValue());
     return (
       <div>
         <SearchBar
-          value="美食"
+          value={this.state.value}
           placeholder="搜索"
           onSubmit={(value) => { console.log(`onSubmit${value}`); }}
-          onClear={() => { console.log('onClear'); }}
-          onCancel={() => { console.log('onCancel'); }}
+          onClear={(value) => { console.log(value, 'onClear'); }}
+          onCancel={(value) => { console.log(value, 'onCancel'); this.setState({ value: '' }); }}
           onFocus={() => { console.log('onFocus'); }}
           onBlur={() => { console.log('onBlur'); }}
+          cancelText="自定义"
         />
+        <WhiteSpace />
         <SearchBar
           {...getFieldProps('SearchBar2')}
           placeholder="地图搜索"
@@ -35,6 +36,7 @@ let SearchBarExample = React.createClass({
           onClear={() => { console.log('onClear'); }}
           onCancel={() => { console.log('onCancel'); }}
         />
+        <WhiteSpace />
         <SearchBar
           value=""
           placeholder="取消按钮总是显示"
@@ -43,7 +45,8 @@ let SearchBarExample = React.createClass({
           onCancel={() => { console.log('onCancel'); }}
           showCancelButton
         />
-        <SearchBar placeholder="搜索框被禁用" disablSearch />
+        <WhiteSpace />
+        <SearchBar placeholder="搜索框被禁用" disabled />
       </div>
     );
   },

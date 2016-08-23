@@ -1,6 +1,6 @@
 ---
-category: Components
-type: Components
+category: UI Views
+type: UI Views
 chinese: 长列表
 english: ListView
 ---
@@ -35,8 +35,9 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 
 - [View](https://facebook.github.io/react-native/docs/view.html#props) props: **注意：只支持`onLayout` prop**
 
-#### 新增API
-- stickyHeader 固定区块标题到页面顶部 (注意: 设置后，ScrollComponent 将被渲染到 body 的第一个元素里)
+#### 新增API (web)
+- useBodyScroll (boolean, false) - 使用 html 的 `body` 作为滚动容器
+- stickyHeader 固定区块标题到页面顶部 (注意: 设置后，ScrollComponent 将被渲染到 body 的第一个元素里，使用 html 的 `body` 作为滚动容器)
     - stickyProps / stickyContainerProps (see [react-sticky](https://github.com/captivationsoftware/react-sticky))
 - renderBodyComponent 渲染自定义的 body 组件
 

@@ -1,4 +1,5 @@
 @import '../../style/mixins';
+@import '../../style/themes/default';
 
 @menuPrefixCls: am-menu;
 @subMenuPrefixCls: am-sub-menu;
@@ -6,7 +7,7 @@
 @listPrefixCls: am-list;
 
 .@{menuPrefixCls} {
-  background-color: @neutral-3;
+  background-color: @fill-body;
   .@{flexPrefixCls} {
     .@{flexPrefixCls}-item {
       margin-left: 0;
@@ -18,7 +19,7 @@
         .@{listPrefixCls}-item {
           .@{listPrefixCls}-line {
             .@{listPrefixCls}-content {
-              font-size: @font-size-4;
+              font-size: @link-button-font-size;
             }
           }
         }
@@ -26,43 +27,42 @@
       &:first-child {
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
-            background-color: @neutral-3;
+            background-color: @fill-body;
             .@{listPrefixCls}-line {
               .hairline-remove-right-bottom();
               .@{listPrefixCls}-content {
-                color: @neutral-10;
+                color: @color-text-base;
               }
             }
             &:last-child {
               .hairline-remove-right-bottom();
             }
             &.@{menuPrefixCls}-selected {
-              background-color: @neutral-1;
+              background-color: @fill-tap;
             }
           }
         }
       }
       &:last-child {
-        background-color: @neutral-1;
+        background-color: @fill-base;
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
-            background-color: @neutral-1;
+            background-color: @fill-base;
             padding-left: 3*@grid;
             .hairline-remove-right-bottom();
             .@{listPrefixCls}-line {
-              .hairline-bottom(@neutral-5);
-            }
-            &.@{subMenuPrefixCls}-item-selected {
-              .@{listPrefixCls}-line {
-                .@{listPrefixCls}-content {
-                  color: @brand-6;
-                }
+              .hairline-bottom(@border-color-base);
+              .@{listPrefixCls}-extra {
+                flex: 0;
               }
             }
+            //&.@{subMenuPrefixCls}-item-selected {
+              //background-color: @input-color-icon-inverse;
+            //}
             &.@{subMenuPrefixCls}-item-disabled {
               .@{listPrefixCls}-line {
                 .@{listPrefixCls}-content {
-                  color: @neutral-5;
+                  color: @color-text-disabled;
                 }
               }
             }

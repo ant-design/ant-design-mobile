@@ -179,7 +179,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             >文本输入</InputItem>
             <InputItem
               clear
-              format="bankCard"
+              type="bankCard"
               value={this.state.bankcard}
               onChange={(value) => {
                   this.setState({
@@ -190,7 +190,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             >银行卡</InputItem>
             <InputItem
               clear
-              format="phone"
+              type="phone"
               value={this.state.phone}
               onChange={(value) => {
                   this.setState({
@@ -201,7 +201,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             >手机号</InputItem>
             <InputItem
               clear
-              format="password"
+              type="password"
               value={this.state.password}
               onChange={(value) => {
                   this.setState({
@@ -212,7 +212,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             >密码</InputItem>
             <InputItem
               clear
-              format="number"
+              type="number"
               value={this.state.number}
               onChange={(value) => {
                   this.setState({

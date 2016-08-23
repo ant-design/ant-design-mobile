@@ -1,4 +1,4 @@
-@import '../../style/variables';
+@import '../../style/themes/default';
 @import '../../style/mixins';
 
 @table-prefix-cls: am-table;
@@ -7,7 +7,6 @@
 .@{table-prefix-cls} {
   font-size: @font-size-4;
   color: @neutral-8;
-  font-weight: @font-weight-1;
   position: relative;
 
   &-body {
@@ -20,37 +19,39 @@
     border-spacing: 0;
     text-align: left;
     overflow: hidden;
-    background-color: @neutral-1;
+    background-color: #fff;
+    font-size: 28px;
+    color: #666;
   }
 
   th {
-    background-color: @table-head-background-color;
-    color: @neutral-11;
+    background-color: #f7f7f7;
+    color: #000;
     font-weight: bold;
     transition: background .3s ease;
     text-align: left;
-    line-height: @line-height-2;
-    font-size: @font-size-5;
+    line-height: 1.5;
+    font-size: 32px;
   }
 
   td {
-    border-bottom: 1px solid @neutral-5;
+    border-bottom: 1px solid #d9d9d9;
   }
 
   th,
   td {
-    padding: 10px 8px;
+    padding: 20px 16px;
     word-break: break-all;
   }
 
   &-horizonTitle {
-    background-color: @table-head-background-color;
+    background-color: #f7f7f7;
     color: @neutral-11;
     font-weight: bold;
     transition: background .3s ease;
     text-align: center;
-    line-height: @line-height-2;
-    font-size: @font-size-5;
+    line-height: 1.5;
+    font-size: 32px;
   }
 
   &-fixed-left {
@@ -63,7 +64,7 @@
     transition: box-shadow .3s ease;
     border-radius: 0;
     table {
-      background-color: @table-head-background-color;
+      background-color: #f7f7f7;
       color: @neutral-11;
       font-weight: bold;
       transition: background .3s ease;

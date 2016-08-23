@@ -66,7 +66,7 @@ export class DrawerMain extends React.Component<any, any> {
           <Text style={{ color: 'red', textAlign: 'center', marginTop: 40 }}>主内容</Text>
           <WhiteSpace size={60} />
           <WingBlank size={16}>
-            <Button ghost inline onPress={() => {
+            <Button type="ghost" inline onPress={() => {
               Actions.pop();
             }}>返回 demo list</Button>
           </WingBlank>

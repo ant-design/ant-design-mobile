@@ -20,8 +20,11 @@ function noop(a: any) {
 }
 
 export interface Props {
+  name?: string;
   maskClosable?: boolean;
 }
+
+let ActionSheet;
 
 class ActionSheetAndroid extends React.Component<Props, any> {
   static defaultProps = {
@@ -37,6 +40,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
     this.state = {
       translateY: new Animated.Value(0),
     };
+    ActionSheet.instances[props.name] = this;
   }
 
   componentWillMount() {
@@ -112,77 +116,79 @@ class ActionSheetAndroid extends React.Component<Props, any> {
   }
 }
 
-const ActionSheetCross = {
-  showActionSheetWithOptions(config, callback = noop) {
-    const {title, message, options, destructiveButtonIndex, cancelButtonIndex} = config;
-    const titleMsg = [
-      title ? <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View> : null,
-      message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,
-    ];
-    const cb = (index) => {
-      DeviceEventEmitter.emit('antActionSheetHide');
-      callback(index);
-    };
-    const children = (
-      <View>
-        {titleMsg}
-        <View>
-          {options.map((item, index) => (
-            <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
-              <TouchableHighlight
-                style={[
-                  styles.btn,
-                ]}
-                underlayColor={variables.neutral_2}
-                onPress={() => cb(index) }
-              >
-                <Text
-                  style={[
-                    destructiveButtonIndex === index ? styles.destructiveBtn : null,
-                  ]}
-                >
-                  {item}
-                </Text>
-              </TouchableHighlight>
-              {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
-            </View>
-          ))}
-        </View>
-      </View>
-    );
-    topView.set(
-      <ActionSheetAndroid>
-        {children}
-      </ActionSheetAndroid>
-    );
-  },
-  showShareActionSheetWithOptions(config) {
-    const {url, message, excludedActivityTypes} = config;
-    const titleMsg = [
-      url ? <View style={styles.title} key="0"><Text>{url}</Text></View> : null,
-      message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,
-    ];
-    const children = (
-      <View>
-        {titleMsg}
-        <View>
-          {excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)}
-        </View>
-      </View>
-    );
-    topView.set(
-      <ActionSheetAndroid>
-        {children}
-      </ActionSheetAndroid>
-    );
-  },
-};
-
-let ActionSheet;
 if (Platform.OS === 'ios') {
   ActionSheet = ActionSheetIOS;
 } else {
-  ActionSheet = ActionSheetCross;
+  ActionSheet = {
+    instances: {},
+    showActionSheetWithOptions(config, callback = noop) {
+      const {title, message, options, destructiveButtonIndex, cancelButtonIndex} = config;
+      const titleMsg = [
+        title ? <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View> : null,
+        message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,
+      ];
+      const cb = (index) => {
+        DeviceEventEmitter.emit('antActionSheetHide');
+        callback(index);
+      };
+      const children = (
+        <View>
+          {titleMsg}
+          <View>
+            {options.map((item, index) => (
+              <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
+                <TouchableHighlight
+                  style={[
+                    styles.btn,
+                  ]}
+                  underlayColor={variables.fill_tap}
+                  onPress={() => cb(index) }
+                >
+                  <Text
+                    style={[
+                      destructiveButtonIndex === index ? styles.destructiveBtn : null,
+                    ]}
+                  >
+                    {item}
+                  </Text>
+                </TouchableHighlight>
+                {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
+              </View>
+            ))}
+          </View>
+        </View>
+      );
+      topView.set(
+        <ActionSheetAndroid name={config.androidActionSheetName || 'defaultActionSheet'}>
+          {children}
+        </ActionSheetAndroid>
+      );
+    },
+    showShareActionSheetWithOptions(config) {
+      const {url, message, excludedActivityTypes} = config;
+      const titleMsg = [
+        url ? <View style={styles.title} key="0"><Text>{url}</Text></View> : null,
+        message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,
+      ];
+      const children = (
+        <View>
+          {titleMsg}
+          <View>
+            {excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)}
+          </View>
+        </View>
+      );
+      topView.set(
+        <ActionSheetAndroid name={config.androidActionSheetName || 'defaultShareActionSheet'}>
+          {children}
+        </ActionSheetAndroid>
+      );
+    },
+    close(androidActionSheetName) {
+      // ActionSheet.instances will cause memory leak?
+      ActionSheet.instances[androidActionSheetName].animatedHide();
+    },
+  };
 }
 
 export default ActionSheet;

@@ -1,13 +1,13 @@
-@import '../../style/variables';
+@import '../../style/themes/default';
 @import '../../style/mixins';
 
 @sliderPrefixCls: am-slider;
 
 // tooltip
-@tooltip-color: #fff;
-@tooltip-bg: tint(#666, 4%);
-@tooltip-arrow-width: @grid;
-@tooltip-distance: @tooltip-arrow-width + 4;
+@tooltip-color: @color-text-base-inverse;
+@tooltip-bg: @fill-mask;
+@tooltip-arrow-width: 8px;
+@tooltip-distance: @tooltip-arrow-width + @v-spacing-sm;
 @tooltip-arrow-color: @tooltip-bg;
 
 .borderBox() {
@@ -19,52 +19,52 @@
 
 .@{sliderPrefixCls} {
   position: relative;
-  margin: 4 * @grid 2 * @grid;
-  height: 0.5 * @grid;
-  background-color: @neutral-6;
-
-  .borderBox();
+  margin: 32px 16px;
+  height: 4px;
+  background-color: @border-color-base;
+  box-sizing: border-box;
 
   &-track {
     position: absolute;
     left: 0;
-    height: 0.5 * @grid;
+    height: 4px;
     border-radius: @radius-2;
-    background-color: @brand-6;
+    background-color: @brand-primary;
     z-index: 1;
   }
 
   &-handle {
     position: absolute;
-    margin-left: -3 * @grid;
-    margin-top: -3 * @grid;
-    width: @grid * 6;
-    height: @grid * 6;
+    margin-left: -24px;
+    margin-top: -24px;
+    width: 48px;
+    height: 48px;
     cursor: pointer;
     border-radius: 50%;
-    border: 2px solid @brand-6;
-    background-color: #fff;
+    border: @border-width-lg solid @brand-primary;
+    background-color: @fill-base;
     z-index: 2;
 
     &:focus {
-      background-color: tint(@brand-6, 20%);
+      background-color: tint(@brand-primary, 20%);
       background: #000;
     }
 
     &-active {
       &:active {
-        background-color: tint(@brand-6, 20%);
-        box-shadow: 0 0 5px tint(@brand-6, 20%);
+        background-color: tint(@brand-primary, 20%);
+        box-shadow: 0 0 5px tint(@brand-primary, 20%);
       }
     }
   }
 
   &-mark {
     position: absolute;
-    top: 6 * @grid;
+    // top: 48px;
+    top: 40px;
     left: 0;
     width: 100%;
-    font-size: @font-size-2;
+    font-size: @font-size-caption-sm;
     z-index: 3;
   }
 
@@ -74,61 +74,53 @@
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
-    color: #999;
+    color: @color-text-base;
 
     &-active {
-      color: #666;
+      opacity: @opacity-disabled;
     }
   }
 
   &-step {
     position: absolute;
     width: 100%;
-    height: @grid;
+    height: 8px;
     background: transparent;
     z-index: 1;
   }
 
   &-dot {
     position: absolute;
-    bottom: -0.75 * @grid;
-    margin-left: -@grid;
-    width: 3 * @grid;
-    height: 3 * @grid;
-    border: 2px solid #e9e9e9;
-    background-color: #fff;
+    bottom: -6px;
+    margin-left: -8px;
+    width: 24px;
+    height: 24px;
+    border: @border-width-lg solid @border-color-base;
+    background-color: @fill-base;
     cursor: pointer;
     border-radius: 50%;
     vertical-align: middle;
     &:first-child {
-      margin-left: -@grid;
+      margin-left: -8px;
     }
     &:last-child {
-      margin-left: -@grid;
+      margin-left: -8px;
     }
     &-active {
-      border-color: @brand-6;
+      border-color: @brand-primary;
     }
   }
 
   &-disabled {
-    background-color: #e9e9e9;
-
+    opacity: @opacity-disabled;
     .@{sliderPrefixCls}-track {
-      height: 0.5 * @grid;
-      background-color: @neutral-6;
+      height: 4px;
     }
 
     .@{sliderPrefixCls}-handle,
-    .@{sliderPrefixCls}-dot {
-      border-color: @neutral-6;
-      background-color: @neutral-4;
-      cursor: not-allowed;
-    }
-
     .@{sliderPrefixCls}-mark-text,
     .@{sliderPrefixCls}-dot {
-      cursor: not-allowed!important;
+      cursor: not-allowed;
     }
   }
 }

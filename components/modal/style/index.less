@@ -1,5 +1,5 @@
 @import '../../style/mixins';
-@import '../../style/variables.less';
+@import '../../style/themes/default';
 
 @modalPrefixClass: am-modal;
 
@@ -11,22 +11,20 @@
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: @brand-6;
-    font-size: @font-size-6;
-    padding: 3*@grid;
-    position: relative;
+    color: @color-link;
+    font-size: @link-button-font-size;
+    height: @button-height;
+    line-height: @button-height;
     .ellipsis();
-    line-height: 1;
   }
   &-button-group-h {
-    position: relative;
-    .hairline-top(@neutral-5);
+    border-top: @border-width-sm solid @border-color-base;
     .display-box();
     .@{modalPrefixClass}-button {
       .box-flex();
       .button-common();
       &:first-child {
-        .hairline-right(@neutral-5);
+        border-right: @border-width-sm solid @border-color-base;
       }
     }
   }
@@ -34,27 +32,31 @@
   &-button-group-v {
     .@{modalPrefixClass}-button {
       display: block;
-      .hairline-top(@neutral-5);
+      border-top: @border-width-sm solid @border-color-base;
       .button-common();
     }
   }
 
   &-input {
-    border-left: 1px solid @neutral-5;
-    border-right: 1px solid @neutral-5;
-    border-bottom: 1px solid @neutral-5;
+    border-left: @border-width-sm solid @border-color-base;
+    border-right: @border-width-sm solid @border-color-base;
+    border-bottom: @border-width-sm solid @border-color-base;
     &:first-child {
-      margin-top: 2*@grid;
-      border-top: 1px solid @neutral-5;
+      margin-top: @v-spacing-md;
+      border-top: @border-width-sm solid @border-color-base;
+      border-top-left-radius: @radius-sm;
+      border-top-right-radius: @radius-sm;
+    }
+    &:last-child {
+      border-bottom-left-radius: @radius-sm;
+      border-bottom-right-radius: @radius-sm;
     }
     input {
       border: 0;
-      width: 100%;
+      width: 98%;
       .box-sizing();
-      height: 7*@grid;
-      height: 7*@grid;
       margin: 0;
-      padding: @grid 2*@grid;
+      padding: @v-spacing-xs 0;
     }
   }
 }

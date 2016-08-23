@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
+import assign from 'object-assign';
 import theme from './style/index';
 const THEMES = theme.ThemesList;
 
@@ -22,7 +23,7 @@ export default class Body extends React.Component<ListBodyProps, any> {
       {
         childrenArray.map((item, index) => {
           if (index === childrenArray.length - 1) {
-            return React.cloneElement(item, Object.assign({}, item.props, {last: true, key: index}));
+            return React.cloneElement(item, assign({}, item.props, {last: true, key: index}));
           } else {
             return item;
           }

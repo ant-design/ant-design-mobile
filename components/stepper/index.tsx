@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RcInputNumber from 'rc-input-number/lib';
+import objectAssign from 'object-assign';
 import StepProps from './StepPropTypes';
 import styles from 'rc-input-number/lib/styles';
 import { Platform } from 'react-native';
@@ -13,12 +14,12 @@ export default class Stepper extends React.Component<StepProps, any> {
   };
 
   render() {
-    const restProps = Object.assign({}, this.props);
+    const restProps = objectAssign({}, this.props);
     const inputAndroidStyle = Platform.OS === 'android' ? {
       top: 6,
       paddingTop: 0,
     } : {};
-    const inputStyle = Object.assign({}, inputAndroidStyle, this.props.inputStyle);
+    const inputStyle = objectAssign({}, inputAndroidStyle, this.props.inputStyle);
     delete restProps.inputStyle;
 
     return (

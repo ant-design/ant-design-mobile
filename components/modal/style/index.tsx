@@ -1,4 +1,4 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -6,23 +6,23 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(34, 34, 34, 0.6)',
+    backgroundColor: variables.fill_overlay_inverse,
   },
   innerContainer: {
-    borderRadius: variables.radius_1,
+    borderRadius: variables.radius_md,
     width: 286,
-    paddingTop: 6 * variables.grid,
+    paddingTop: variables.v_spacing_xl,
   },
   header: {
-    fontSize: variables.font_size_6,
-    color: variables.neutral_10,
+    fontSize: variables.font_size_heading,
+    color: variables.color_text_base,
     textAlign: 'center',
-    paddingHorizontal: 6 * variables.grid,
+    paddingHorizontal: variables.h_spacing_lg,
   },
   body: {
     paddingTop: 0,
-    paddingBottom: 6 * variables.grid,
-    paddingHorizontal: 6 * variables.grid,
+    paddingBottom: variables.v_spacing_lg,
+    paddingHorizontal: variables.h_spacing_lg,
   },
   maskClosable: {
     position: 'absolute',
@@ -35,11 +35,11 @@ export default StyleSheet.create({
   closeWrap: {
     position: 'absolute',
     top: 0,
-    right: 4 * variables.grid,
+    left: variables.h_spacing_lg,
   },
   close: {
     fontSize: 40,
-    fontWeight: '300',
-    color: variables.neutral_7,
+    fontWeight: '200',
+    color: '#bcbcbc',
   },
 });

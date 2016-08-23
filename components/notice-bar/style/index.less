@@ -1,0 +1,31 @@
+@import '../../style/themes/default';
+@import '../../style/mixins';
+
+@noticeBarPrefixCls: am-notice-bar;
+
+.@{noticeBarPrefixCls} {
+  background-color: @notice-bar-fill;
+  height: @notice-bar-height;
+  overflow: hidden;
+  font-size: @font-size-subhead;
+  line-height: @notice-bar-height;
+  color: @brand-warning;
+  .display-box();
+  &-content {
+    .box-flex();
+    width: 100%;
+    .ellipsis();
+    margin: auto @h-spacing-lg;
+  }
+  &-icon {
+    margin-left: @h-spacing-lg;
+    & + div {
+      margin-left: @h-spacing-sm;
+    }
+  }
+  &-operation {
+    .anticon {
+      margin-right: @h-spacing-lg;
+    }
+  }
+}

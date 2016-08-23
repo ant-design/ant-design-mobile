@@ -24,6 +24,14 @@ $ npm run lint
 
 组件名以 `-` 分割, 例如 `date-picker`，文件后缀名统一为 `.tsx`。
 
+
+### 组件实现
+
+- 尽量使用 react-component/xx 的组件, 有问题 pr 到 react-component/xx
+- 尽量使用知名开源组件
+- 复杂组件拆分到 react-component/xx 单独维护
+- 不符合以上情况发帖讨论
+
 ### web 组件规范
 
 - `components/button/index.web.tsx`

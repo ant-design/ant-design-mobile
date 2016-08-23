@@ -88,7 +88,7 @@ class ToastContainer extends React.Component<ToastProps, any> {
       <View style={[styles.container]}>
         <View style={[styles.innerContainer]}>
           <Animated.View style={{opacity: this.state.fadeAnim}}>
-            <View style={[styles.innnerWrap]}>
+            <View style={[styles.innnerWrap, iconDom ? styles.iconToast : styles.textToast]}>
               {iconDom}
               <Text style={styles.content}>{content}</Text>
             </View>

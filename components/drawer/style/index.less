@@ -1,5 +1,5 @@
 @import '../../style/mixins';
-@import '../../style/variables';
+@import '../../style/themes/default';
 @drawerPrefixCls: am-drawer;
 
 .@{drawerPrefixCls} {
@@ -31,8 +31,8 @@
     bottom: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-out;
-    background-color: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease-out;
+    background-color: @fill-mask;
   }
   &-content {
     position: absolute;

@@ -1,15 +1,16 @@
-@import '../../style/variables';
+@import '../../style/themes/default';
 
 @paginationPrefixCls: am-pagination;
 
 .@{paginationPrefixCls} {
   &-wrap {
-    font-size: @font-size-6;
-    color: @neutral-10;
+    font-size: @font-size-display-sm;
+    color: @color-text-base;
+    background: @fill-base;
     text-align: center;
 
     .active {
-      color: @brand-6;
+      color: @color-link;
     }
     &-btn {
       text-align: center;
@@ -19,23 +20,23 @@
       zoom: 1;
       > span {
         display: block;
-        width: 2 * @grid;
-        height: 2 * @grid;
-        margin: @grid 3 * @grid;
+        width: 16px;
+        height: 16px;
+        margin: 8px 24px;
         border-radius: 50%;
-        background: #DCDEE3;
+        background: @input-color-icon;
       }
       &-active {
         > span {
-          background: @brand-6;
-          }
+          background: #888;
+        }
       }
     }
     &-sm {
-      font-size: @font-size-3;
+      font-size: @button-font-size-sm;
       .@{paginationPrefixCls}-wrap-dot {
         > span {
-          margin: @grid 2px;
+          margin: 8px 4px;
         }
       }
     }

@@ -7,10 +7,6 @@ title: 基本
 
 
 ````jsx
-// 此处用作demo展示，不要用在生产环境
-this.customNavFlag = true;
-
-
 import { Drawer, List, NavBar } from 'antd-mobile';
 
 const App1 = React.createClass({
@@ -27,17 +23,17 @@ const App1 = React.createClass({
   render() {
     const sidebar = (<List>
       <List.Body>
-        {[1, 2, 3, 4, 5, 6].map((i, index) => {
+        {[...Array(20).keys()].map((i, index) => {
           if (index === 0) {
             return (<List.Item key={index}
               thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
-              line={2}
-            ><div className="am-list-title">收银员</div><div className="am-list-brief">仅可进行收款、退款及查账操作</div></List.Item>);
+              multipleLine
+            >收银员<List.Item.Brief>仅可进行收款、退款及查账操作</List.Item.Brief></List.Item>);
           }
           return (<List.Item key={index}
             thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-            line={2}
-          ><div className="am-list-title">收银员</div><div className="am-list-brief">仅可进行收款、退款及查账操作</div></List.Item>);
+            multipleLine
+          >收银员<List.Item.Brief>仅可进行收款、退款及查账操作</List.Item.Brief></List.Item>);
         })}
       </List.Body>
     </List>);
@@ -47,7 +43,7 @@ const App1 = React.createClass({
       position: this.state.position,
       onOpenChange: this.onOpenChange,
     };
-    return (<div>
+    return (<div style={{ height: '100%' }}>
       <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>
         基本
       </NavBar>
@@ -66,11 +62,15 @@ ReactDOM.render(<App1 />, mountNode);
 <style>
 .drawer-container {
   position: relative;
-  height: 1000px;
+  height: 100%;
+}
+.am-drawer {
+  overflow: auto;
 }
 .am-drawer-sidebar {
   max-width: 260px;
   background-color: #fff;
+  overflow: auto;
 }
 .am-drawer-sidebar .am-list {
   padding: 0;
