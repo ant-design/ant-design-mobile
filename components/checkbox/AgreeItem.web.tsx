@@ -1,20 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
-
-export interface AgreeItemProps {
-  /** web only */
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
-  name?: string;
-  defaultChecked?: boolean;
-  checked?: boolean;
-  disabled?: boolean;
-  onChange?: Function;
-  children?: any;
-}
+import AgreeItemProps from './AgreeItemPropsType';
 
 export default class AgreeItem extends React.Component<AgreeItemProps, any> {
   static defaultProps = {
