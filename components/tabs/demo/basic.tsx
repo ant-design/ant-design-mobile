@@ -17,7 +17,7 @@ export default class BasicTabsExample extends React.Component <any, any> {
   render() {
     return (
       <View style={{ flex: 1, paddingTop: 80}}>
-        <Tabs defaultActiveKey="1" onChange={onChange} tabPosition="bottom" onTabClick={onTabClick}>
+        <Tabs defaultActiveKey="1" onChange={onChange} onTabClick={onTabClick}>
           <TabPane tab="选项卡一" key="1">
             <View style={{
               alignItems: 'center', justifyContent: 'center', height: 100,
