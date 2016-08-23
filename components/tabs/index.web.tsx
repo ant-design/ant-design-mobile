@@ -2,17 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import RcTabs from 'rc-tabs';
-
-export interface TabsProps {
-  activeKey?: string;
-  defaultActiveKey?: string;
-  onChange?: () => void;
-  onTabClick?: () => void;
-  animation?: boolean;
-  className?: string;
-  prefixCls?: string;
-  tabPosition?: 'top' | 'bottom';
-}
+import TabsProps from './TabsProps';
 
 export default class Tabs extends React.Component<TabsProps, any> {
   static TabPane = (RcTabs as any).TabPane;
