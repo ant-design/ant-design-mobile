@@ -114,6 +114,8 @@ export default {
   button_height_sm: 23,
   button_font_size_sm: 12,
 
+  across_button_height: 50,
+
   primary_button_fill: brandPrimary,
   primary_button_fill_tap: brandPrimaryTap,
 
@@ -125,6 +127,7 @@ export default {
 
   // list
   list_title_height: 30,
+  list_item_height_sm: 35,
   list_item_height: 45,
 
   // input
@@ -160,4 +163,7 @@ export default {
 
   // tag
   tag_height: 18,
+
+  // table
+  table_title_height: 30,
 };
