@@ -165,6 +165,12 @@ module.exports = {
       module: require('../components/tab-bar/demo/basic'), // 必须
     },
     {
+      title: 'Tabs', // 必须
+      description: '标签页',
+      icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
+      module: require('../components/tabs/demo/basic'), // 必须
+    },
+    {
       title: 'Tag', // 必须
       description: '标签',
       icon: 'https://os.alipayobjects.com/rmsportal/AkXOzPmaytaVYLD.png',
