@@ -31,14 +31,13 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
         />
         <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
         <View style={[styles.centering]}>
-          <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
+          <WhiteSpace size={32} style={{ backgroundColor: '#fff' }} />
           <ActivityIndicator
             toast
             size="large"
             text="正在加载"
           />
         </View>
-        <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
       </View>
     );
   }
