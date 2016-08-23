@@ -141,7 +141,7 @@ export default class Home extends React.Component {
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
-                              <Link to={`/${fileName}/#${fileName}-demo-${index}`}>{item1.meta.title}</Link>
+                              <Link to={`/${fileName}/#${fileName}-demo-${index1}`}>{item1.meta.title}</Link>
                             </List.Item>
                           ))
                         }
