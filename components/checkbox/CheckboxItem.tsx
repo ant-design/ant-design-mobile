@@ -18,7 +18,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
   };
 
   render() {
-    let {style, defaultChecked, checked, disabled, children, extra, line, onChange} = this.props;
+    let {style, checkboxStyle, defaultChecked, checked, disabled, children, extra, line, onChange} = this.props;
 
     return (<ListItem
       style={style}
@@ -27,7 +27,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
       extra={extra}
       thumb={<Checkbox
         ref={refCheckbox}
-        style={styles.checkboxItemCheckbox}
+        style={[styles.checkboxItemCheckbox, checkboxStyle]}
         defaultChecked={defaultChecked}
         checked={checked}
         onChange={onChange}

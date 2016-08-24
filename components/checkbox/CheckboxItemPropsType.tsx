@@ -6,6 +6,7 @@ interface CheckboxItemPropsType extends CheckboxProps {
   extra?: any;
   onClick?: () => any;
   line?: number;
+  checkboxStyle?: any; // rn only
 }
 
 export default CheckboxItemPropsType;
