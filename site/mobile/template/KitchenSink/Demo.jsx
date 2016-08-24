@@ -133,6 +133,7 @@ export default class Home extends React.Component {
                 } else {
                   subDemos = listDemos;
                 }
+
                 return (<List.Item key={ii}>
                   {
                     whiteList.indexOf(fileName) > -1 ?
@@ -141,7 +142,7 @@ export default class Home extends React.Component {
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
-                              <Link style={{ lineHeight: '90px' }} to={`/${fileName}/#${fileName}-demo-${index1}`}>{item1.meta.title}</Link>
+                              <Link style={{ lineHeight: '90px' }} to={`/${fileName}/#${fileName}-demo-${item1.meta.order}`}>{item1.meta.title}</Link>
                             </List.Item>
                           ))
                         }
