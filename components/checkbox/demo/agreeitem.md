@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 1
 title: 协议复选框
 ---
 
@@ -10,50 +10,26 @@ import { Checkbox } from 'antd-mobile';
 import { createForm } from 'rc-form';
 const AgreeItem = Checkbox.AgreeItem;
 
-let Test = React.createClass({
+let AgreeItemExample = React.createClass({
   onClick() {
     console.log(this.props.form.getFieldsValue());
   },
   render() {
     const { getFieldProps } = this.props.form;
     return (
-      <div>
-        <AgreeItem
-          {...getFieldProps('f5', {
-            initialValue: false,
-            valuePropName: 'checked',
-          })}
-        >同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意
-        </AgreeItem>
-        <AgreeItem
-          {...getFieldProps('f6', {
-            initialValue: true,
-            valuePropName: 'checked',
-          })}
-        >同意<a>《信用支付服务合同》</a>
-        </AgreeItem>
-        <AgreeItem
-          disabled
-          {...getFieldProps('f7', {
-            initialValue: false,
-            valuePropName: 'checked',
-          })}
-        >未选中，不可编辑<a>《信用支付服务合同》</a>
-        </AgreeItem>
-        <AgreeItem
-          disabled
-          {...getFieldProps('f8', {
-            initialValue: true,
-            valuePropName: 'checked',
-          })}
-        >强制选中,不可编辑<a>《信用支付服务合同信用支付服务合同信用支付服务合同》</a>
-        </AgreeItem>
-      </div>
+      <AgreeItem
+        {...getFieldProps('agreeitem1', {
+          initialValue: false,
+          valuePropName: 'checked',
+        })}
+      >
+        已阅读协议<a>《协议链接》</a>
+      </AgreeItem>
     );
   },
 });
 
-Test = createForm()(Test);
+AgreeItemExample = createForm()(AgreeItemExample);
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<AgreeItemExample />, mountNode);
 ````

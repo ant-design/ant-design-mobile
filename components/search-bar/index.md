@@ -33,5 +33,5 @@ english: SearchBar
 | onClear    |    点击clear图标     | Func |    |
 | onCancel    |    点击`取消`链接,只会触发onCancel事件,组件不再主动清除内部的value以及触发onChange事件。     | Func |    |
 | showCancelButton    |    是否一直显示`取消`按钮     | bool |  `false`  |
-| cancelText    |   定制`取消`按钮的文字,     | bool |  `取消`  |
+| cancelText    |   定制`取消`按钮的文字,     | String |  `取消`  |
 | disabled    |    禁用搜索栏,搜索栏只用于显示     | bool |  `false`  |
