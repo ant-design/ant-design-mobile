@@ -15,7 +15,7 @@ const SearchBarExample = React.createClass({
   onChange(value) {
     this.setState({ value });
   },
-  clear(value) {
+  clear() {
     this.setState({ value: '' });
   },
   render() {
@@ -23,7 +23,7 @@ const SearchBarExample = React.createClass({
       <SearchBar
         value={this.state.value}
         placeholder="搜索"
-        onSubmit={(value) => console.log(value, `onSubmit`)}
+        onSubmit={(value) => console.log(value, 'onSubmit')}
         onClear={(value) => console.log(value, 'onClear')}
         onFocus={() => console.log('onFocus')}
         onBlur={() => console.log('onBlur')}

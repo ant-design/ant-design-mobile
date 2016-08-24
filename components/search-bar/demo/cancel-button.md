@@ -15,7 +15,7 @@ const SearchBarExample = React.createClass({
   onChange(value) {
     this.setState({ value });
   },
-  clear(value) {
+  clear() {
     this.setState({ value: '' });
   },
   render() {
