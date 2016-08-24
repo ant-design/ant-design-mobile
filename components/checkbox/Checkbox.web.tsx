@@ -1,20 +1,20 @@
 import * as React from 'react';
 import RcCheckbox from 'rc-checkbox';
+import CheckboxPropsType from './CheckboxPropsType';
+import PropTypes = React.PropTypes;
 
-export interface CheckboxProps {
-  /** web only */
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
-  name?: string;
-  defaultChecked?: boolean;
-  checked?: boolean;
-  disabled?: boolean;
-  onChange?: Function;
-}
+export default class Checkbox extends React.Component<CheckboxPropsType, any> {
 
-export default class Checkbox extends React.Component<CheckboxProps, any> {
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    style: PropTypes.object,
+    name: PropTypes.string,
+    checked: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
+    disabled: PropTypes.bool,
+    onChange: PropTypes.func,
+  };
+
   static defaultProps = {
     prefixCls: 'am-checkbox',
   };

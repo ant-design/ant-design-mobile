@@ -7,6 +7,12 @@ module.exports = {
       module: require('../components/action-sheet/demo/basic'), // 必须
     },
     {
+      title: 'Popup', // 必须
+      description: '弹出层',
+      icon: 'https://zos.alipayobjects.com/rmsportal/sTvsgvivVKnqQtS.png',
+      module: require('../components/popup/demo/basic'), // 必须
+    },
+    {
       title: 'Toast', // 必须
       description: '轻提示',
       icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
@@ -37,6 +43,12 @@ module.exports = {
       description: '卡片',
       icon: 'https://os.alipayobjects.com/rmsportal/kkQBRgZgcqSyMPS.png',
       module: require('../components/card/demo/basic'), // 必须
+    },
+    {
+      title: 'Checkbox', // 必须
+      description: '复选框',
+      icon: 'https://os.alipayobjects.com/rmsportal/IznQRcXpGsRfHXX.png',
+      module: require('../components/checkbox/demo/basic'), // 必须
     },
     {
       title: 'DatePicker', // 必须

@@ -92,12 +92,7 @@ function createActionSheet(flag, config, callback) {
       </div>);
       break;
     default:
-      children = (<div className={`${prefixCls}-custom`}>
-        {titleMsg}
-        <div className={`${prefixCls}-custom-content`}>
-          {props.component}
-        </div>
-      </div>);
+      break;
   }
 
   ReactDOM.render(<Dialog
@@ -122,9 +117,6 @@ export default {
   },
   showShareActionSheetWithOptions(config, callback = noop) {
     createActionSheet(SHARE, config, callback);
-  },
-  showActionSheetWithCustom(config, callback = noop) {
-    createActionSheet(null, config, callback);
   },
   close() {
     queue.forEach(q => q());

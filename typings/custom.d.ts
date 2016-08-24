@@ -5,9 +5,10 @@ declare module 'antd-mobile' {
     Badge: any;
     Button: any;
     Card: any;
+    Checkbox: any;
     DatePicker: any;
     Drawer: any;
-    Dropdown: any;
+    Popup: any;
     Popover: any;
     Flex: any;
     ImagePicker: any;

@@ -15,8 +15,7 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'white',
-    // paddingTop: 5 * variables.grid,
+    backgroundColor: variables.fill_base,
   } as ViewStyle,
   mask: {
     position: 'absolute',
@@ -24,7 +23,7 @@ export default StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: 'rgba(34, 34, 34, 0.6)',
+    backgroundColor: variables.fill_mask,
   } as ViewStyle,
   title: {
     flex: 1,
