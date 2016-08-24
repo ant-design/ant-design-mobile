@@ -2,7 +2,7 @@ import * as React from 'react';
 import {View, Text} from 'react-native';
 import Radio from './Radio';
 import List from '../list';
-import RadioItemProps from './RadioPropsType';
+import RadioItemProps from './RadioItemPropsType';
 import styles from './style/index';
 
 const ListItem = List.Item;
@@ -16,7 +16,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   };
 
   render() {
-    let {style, defaultChecked, checked, disabled, children, onChange} = this.props;
+    let {style, radioStyle, defaultChecked, checked, disabled, children, onChange} = this.props;
 
     let contentDom = null;
     if (React.isValidElement(children)) {
@@ -33,6 +33,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       onClick={disabled ? null : this.handleClick}
       extra={<Radio
         ref={refRadio}
+        style={radioStyle}
         defaultChecked={defaultChecked}
         checked={checked}
         onChange={onChange}
