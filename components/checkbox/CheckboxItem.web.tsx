@@ -1,37 +1,12 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
-import List from '../list';
+import List from '../list/index.web';
+import CheckboxItemProps from './CheckboxItemPropsType';
 
 const ListItem = List.Item;
 
-export interface CheckboxItemProps {
-  /** web only */
-  prefixCls?: string;
-  /** web only */
-  listPrefixCls?: string;
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
-  name?: string;
-  defaultChecked?: boolean;
-  checked?: boolean;
-  disabled?: boolean;
-  onChange?: Function;
-  children?: any;
-  extra?: any;
-}
-
 export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    style: PropTypes.object,
-    name: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
 
   static defaultProps = {
     prefixCls: 'am-checkbox',

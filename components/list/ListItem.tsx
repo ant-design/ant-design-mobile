@@ -99,10 +99,15 @@ export default class Item extends React.Component<ListItemProps, any> {
     let contentDom = null;
     let extraDom = null;
     let arrowDom = null;
+    let thumb = this.props.thumb;
 
-    if (this.props.thumb) {
-      thumbDom = (<Image source={{ uri: this.props.thumb }} style={[THEMES.Thumb,
+    if (thumb) {
+      if (typeof thumb === 'string') {
+        thumbDom = (<Image source={{ uri: thumb }} style={[THEMES.Thumb,
         this.props.line === 2 ? THEMES.Line2.Thumb : {}]}/>);
+      } else {
+        thumbDom = thumb;
+      }
     }
     if ((this.props.line === 2) && React.isValidElement(this.props.children)) {
       contentDom = <View style={{ flex: 1 }}>{this.props.children}</View>;
