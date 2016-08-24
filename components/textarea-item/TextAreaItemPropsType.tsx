@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 interface TextAreaItemProps {
   /** web only */
   prefixCls?: string;

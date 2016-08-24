@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 interface CarouselProps {
   mode?: 'banner' | 'card';
   effect?: 'scrollx' | 'fade';
