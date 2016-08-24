@@ -1,6 +1,6 @@
 ---
-order: 0
-title: 基本
+order: 1
+title: 取消按钮
 ---
 
 ````jsx
@@ -23,11 +23,9 @@ const SearchBarExample = React.createClass({
       <SearchBar
         value={this.state.value}
         placeholder="搜索"
-        onSubmit={(value) => console.log(value, `onSubmit`)}
-        onClear={(value) => console.log(value, 'onClear')}
-        onFocus={() => console.log('onFocus')}
-        onBlur={() => console.log('onBlur')}
         onCancel={this.clear}
+        cancelText="自定义"
+        showCancelButton
         onChange={this.onChange}
       />
     );
