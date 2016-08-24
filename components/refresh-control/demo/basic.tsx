@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
 });
 
 class Row extends React.Component<any, any> {
-  _onClick() {
+  onClick = () => {
     this.props.onClick(this.props.data);
   }
   render() {
     return (
-     <TouchableWithoutFeedback onPress={this._onClick} >
+     <TouchableWithoutFeedback onPress={this.onClick} >
         <View style={styles.row}>
           <Text style={styles.text}>
             {this.props.data.text + ' (' + this.props.data.clicks + ' clicks)'}
@@ -46,7 +46,7 @@ export default React.createClass({
     };
   },
 
-  _onClick(row) {
+  onClick(row) {
     row.clicks++;
     this.setState({
       rowData: this.state.rowData,
@@ -55,7 +55,7 @@ export default React.createClass({
 
   render() {
     const rows = this.state.rowData.map((row, ii) => {
-      return <Row key={ii} data={row} onClick={this._onClick}/>;
+      return <Row key={ii} data={row} onClick={this.onClick} />;
     });
     return (
       <ScrollView
@@ -63,7 +63,7 @@ export default React.createClass({
         refreshControl={
           (<RefreshControl
             refreshing={this.state.isRefreshing}
-            onRefresh={this._onRefresh}
+            onRefresh={this.onRefresh}
             tintColor="#ff0000"
             title="Loading..."
             titleColor="#00ff00"
@@ -76,7 +76,7 @@ export default React.createClass({
     );
   },
 
-  _onRefresh() {
+  onRefresh() {
     this.setState({isRefreshing: true});
     setTimeout(() => {
       // prepend 10 items
@@ -92,7 +92,7 @@ export default React.createClass({
         isRefreshing: false,
         rowData: rowData,
       });
-    }, 5000);
+    }, 1000);
   },
 });
 
