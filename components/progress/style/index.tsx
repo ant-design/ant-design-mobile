@@ -1,13 +1,13 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 
 export default {
   progressOuter: {
-    backgroundColor: variables.neutral_5,
+    backgroundColor: variables. border_color_base,
     flex: 1,
   },
   progressBar: {
     borderBottomWidth: 4,
     borderStyle: 'solid',
-    borderColor: variables.brand_6,
+    borderColor: variables.brand_primary,
   },
 };
