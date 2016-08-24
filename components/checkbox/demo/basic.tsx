@@ -7,14 +7,16 @@ const CheckboxItem = Checkbox.CheckboxItem;
 export default class BasicCheckboxExample extends React.Component<any, any> {
   render() {
     return (
-      <View style={{ padding: 10 }}>
-        <Checkbox checked/>
-        <WhiteSpace />
-        <Checkbox />
-        <WhiteSpace />
-        <Checkbox checked disabled/>
-        <WhiteSpace />
-        <Checkbox disabled/>
+      <View>
+        <View style={{ padding: 10 }}>
+          <Checkbox checked/>
+          <WhiteSpace />
+          <Checkbox />
+          <WhiteSpace />
+          <Checkbox checked disabled/>
+          <WhiteSpace />
+          <Checkbox disabled/>
+        </View>
 
         <WhiteSpace />
         <AgreeItem>
