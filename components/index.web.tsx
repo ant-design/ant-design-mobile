@@ -9,6 +9,7 @@ export { default as DatePicker } from './date-picker/index.web';
 export { default as Drawer } from './drawer/index.web';
 export { default as Flex } from './flex/index.web';
 export { default as Popover } from './popover/index.web';
+export { default as Popup } from './popup/index.web';
 
 // export { default as Form } from './form/index.web';
 export { default as Grid } from './grid/index.web';

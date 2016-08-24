@@ -1,0 +1,18 @@
+@import '../../style/mixins';
+@import '../../style/themes/default';
+@PopupPrefixCls: am-popup;
+
+@import './base';
+
+.@{PopupPrefixCls} {
+  position: fixed;
+  left: 0;
+  &-slide-down {
+    top: 0;
+  }
+  &-slide-up {
+    bottom: 0;
+  }
+  width: 100%;
+  background-color: @fill-base;
+}

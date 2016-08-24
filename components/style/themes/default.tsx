@@ -1,5 +1,5 @@
 const brandPrimary = '#108ee9';
-const brandPrimaryTap = '1284d6';
+const brandPrimaryTap = '#1284d6';
 
 export default {
   // 支付宝钱包默认主题

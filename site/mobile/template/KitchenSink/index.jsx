@@ -16,7 +16,7 @@ const hashImgObj = {
   collapse: 'yIQQHiTULgYehij',
   'date-picker': 'XjBSEKVWMeIulGv',
   drawer: 'IptWdCkrtkAUfjE',
-  dropdown: 'PMIYKpJIhmqwyXI',
+  popup: 'PMIYKpJIhmqwyXI',
   flex: 'KZtGFWmnMUFpiSE',
   'float-menu': 'HhilRXHawmUwlML',
   grid: 'QbGTlZewFSvHlSS',

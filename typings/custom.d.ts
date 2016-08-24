@@ -7,7 +7,7 @@ declare module 'antd-mobile' {
     Card: any;
     DatePicker: any;
     Drawer: any;
-    Dropdown: any;
+    Popup: any;
     Popover: any;
     Flex: any;
     ImagePicker: any;
