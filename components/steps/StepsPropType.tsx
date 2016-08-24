@@ -3,5 +3,6 @@ interface StepsProps {
   current?: number;
   width?: number;
   size?: string;
+  finishIcon?: string;
 }
 export default StepsProps;

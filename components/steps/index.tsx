@@ -39,6 +39,7 @@ export default class Steps extends React.Component<StepsProps, any> {
             current: this.props.current,
             width: 1 / ((children as Array<any>).length - 1) * this.state.wrapWidth,
             size: this.props.size,
+            finishIcon: this.props.finishIcon,
           })
         )
       }

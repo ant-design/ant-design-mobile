@@ -12,12 +12,13 @@ export interface StepsItemProps {
   title?: string;
   description?: string;
   status?: string;
+  finishIcon?: string;
 }
 
 export default class StepsItem extends React.Component<StepsItemProps, any> {
 
   render() {
-    const { width, size, current, index, last, direction, title, description, status } = this.props;
+    const { width, size, current, index, last, direction, title, description, status, finishIcon } = this.props;
 
     const headSize = `head_${size || 'default'}`;
     const dotTextSize = `dotText_${size || 'default'}`;
@@ -41,7 +42,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
           {
             index < current || status === 'finish'  ?
               <Image
-                source={require('./images/check.png')}
+                source={ finishIcon || require('../style/images/check.png')}
                 style={imgStyle}
               /> :
               <Text style={[styles[dotTextSize], styles[textCurrent], styles[textWait]]}>{index + 1}</Text>
@@ -58,7 +59,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
             {
               index < current || status === 'finish' ?
               size !== 'pointer' && <Image
-                source={require('./images/check.png')}
+                source={ finishIcon || require('../style/images/check.png')}
                 style={{ width: 14, height:14 }}
               /> :
               size !== 'pointer' &&
