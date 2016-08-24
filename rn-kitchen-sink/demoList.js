@@ -159,6 +159,12 @@ module.exports = {
       module: require('../components/stepper/demo/basic'), // 必须
     },
     {
+      title: 'Steps', // 必须
+      description: '步骤条',
+      icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
+      module: require('../components/steps/demo/basic'), // 必须
+    },
+    {
       title: 'SwipeAction', // 必须
       description: '滑动或长按操作',
       icon: 'https://os.alipayobjects.com/rmsportal/OJgqKyrKGdIEfwp.png',
