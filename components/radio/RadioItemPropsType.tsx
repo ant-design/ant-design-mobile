@@ -4,4 +4,4 @@ export interface RadioItemProps extends RadioProps {
   radioStyle?: any; // rn only
 }
 
-export default RadioProps;
+export default RadioItemProps;
