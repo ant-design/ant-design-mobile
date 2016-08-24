@@ -16,11 +16,11 @@ let SwitchExample = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (
-      <List >
+      <List title="表单开关项">
         <List.Body>
           <List.Item
             extra={<Switch
-              {...getFieldProps('1', {
+              {...getFieldProps('Switch1', {
                 initialValue: true,
                 valuePropName: 'checked',
               })}
@@ -28,7 +28,7 @@ let SwitchExample = React.createClass({
           >默认开</List.Item>
           <List.Item
             extra={<Switch
-              {...getFieldProps('2', {
+              {...getFieldProps('Switch2', {
                 initialValue: false,
                 valuePropName: 'checked',
               })}
@@ -37,7 +37,7 @@ let SwitchExample = React.createClass({
           <List.Item
             needActive={false}
             extra={<Switch
-              {...getFieldProps('3', {
+              {...getFieldProps('Switch3', {
                 initialValue: false,
                 valuePropName: 'checked',
               })}
@@ -47,7 +47,7 @@ let SwitchExample = React.createClass({
           <List.Item
             needActive={false}
             extra={<Switch
-              {...getFieldProps('4', {
+              {...getFieldProps('Switch4', {
                 initialValue: true,
                 valuePropName: 'checked',
               })}
