@@ -8,6 +8,7 @@ export { default as Carousel } from './components/carousel/';
 export { default as DatePicker } from './components/date-picker/';
 export { default as Drawer } from './components/drawer/';
 export { default as Flex } from './components/flex/';
+export { default as Grid } from './components/grid';
 export { default as Popover } from './components/popover/';
 export { default as Popup } from './components/popup/';
 export { default as ImagePicker } from './components/image-picker/';
