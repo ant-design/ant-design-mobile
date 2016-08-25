@@ -37,8 +37,8 @@ export default StyleSheet.create({
   search: {
     tintColor: variables.input_color_icon,
     position: 'absolute',
+    left: variables.h_spacing_md + 8,
     top: (variables.search_bar_input_height - variables.icon_size_xxs) / 2 + 8,
-    marginLeft: variables.h_spacing_md,
     width: variables.icon_size_xxs,
     height: variables.icon_size_xxs,
   } as ViewStyle,
