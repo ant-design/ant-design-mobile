@@ -31,7 +31,7 @@ const App = React.createClass({
             >我是名称我是名称</List.Item>);
           }
           return (<List.Item key={index}
-            thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
+            thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
           >分类 - {index}</List.Item>);
         })}
       </List.Body>
