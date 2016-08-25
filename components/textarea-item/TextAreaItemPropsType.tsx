@@ -12,6 +12,7 @@ interface TextAreaItemProps {
   /** web only */
   name?: string;
   value?: string;
+  defaultValue?: string;
   placeholder?: string;
   clear?: boolean;
   rows?: number;
@@ -23,6 +24,7 @@ interface TextAreaItemProps {
   onErrorClick?: Function;
   autoHeight?: boolean;
   editable?: boolean;
+  disabled?: boolean;
   labelNumber?: number;
   /** rn only */
   keyboardType?: string;

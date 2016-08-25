@@ -4,16 +4,16 @@ import classNames from 'classnames';
 function noop() { }
 import InputItemProps from './InputItemPropsType';
 
-export interface InputItemState {
-  focus?: boolean;
-  placeholder?: string;
-}
-
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
   return value;
+}
+
+export interface InputItemState {
+  focus?: boolean;
+  placeholder?: string;
 }
 
 export default class InputItem extends React.Component<InputItemProps, InputItemState> {
