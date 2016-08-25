@@ -11,7 +11,7 @@ export default StyleSheet.create({
   wrap: {
     overflow: 'hidden',
     borderRadius: variables.radius_sm,
-    borderWidth: variables.border_width_sm,
+    borderWidth: variables.border_width_md,
     borderStyle: 'solid',
     paddingVertical: variables.v_spacing_sm,
     paddingHorizontal: variables.h_spacing_lg,
