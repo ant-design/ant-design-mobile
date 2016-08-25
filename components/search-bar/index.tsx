@@ -1,49 +1,23 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
-import { View, TextInput, Text } from 'react-native';
-import { SearchBarProps, SearchBarState } from './SearchBarPropTypes';
+import { View, TextInput, Text, Image } from 'react-native';
+import { SearchBarProps, SearchBarState, propTypes, defaultProps } from './SearchBarPropTypes';
 import styles from './style/index';
 
-function noop() {}
-
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    style: PropTypes.object,
-    value: PropTypes.string,
-    placeholder: PropTypes.string,
-    onSubmit: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onCancel: PropTypes.func,
-    onClear: PropTypes.func,
-    showCancelButton: PropTypes.bool,
-    cancelText: PropTypes.string,
-    disabled: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    prefixCls: 'am-search',
-    value: '',
-    placeholder: '',
-    onSubmit: noop,
-    onChange: noop,
-    onFocus: noop,
-    onBlur: noop,
-    onCancel: noop,
-    onClear: noop,
-    showCancelButton: false,
-    cancelText: '取消',
-    disabled: false,
-  };
+  static propTypes = propTypes;
+  static defaultProps = defaultProps;
 
   constructor(props) {
     super(props);
-    this.state = {
-      value: props.value,
-      focus: false,
-    };
+    let value;
+    if ('value' in props) {
+      value = props.value;
+    } else if ('defaultValue' in props) {
+      value = props.defaultValue;
+    } else {
+      value = '';
+    }
+    this.state = { value };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -59,47 +33,23 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     this.props.onSubmit(this.state.value);
   };
 
-  onChange = (e) => {
-    let value = e.target.value;
-    this.setState({ value });
-    this.props.onChange(value);
-  };
-
-  onFocus = (e) => {
-    if (this.props.disabled) {
-      e.preventDefault();
-      e.stopPropagation();
-      return;
+  onChangeText = (value) => {
+    if (!('value' in this.props)) {
+      this.setState({ value });
     }
-    this.setState({
-      focus: true,
-    });
-    this.props.onFocus(e.target.value);
-  };
-
-  onBlur = (e) => {
-    this.setState({
-      focus: false,
-    });
-    this.props.onBlur(e.target.value);
+    this.props.onChange(value);
   };
 
   onCancel = () => {
     this.props.onCancel(this.state.value);
   };
 
-  onClear = () => {
-    this.setState({
-      value: '',
-    });
-    (this.refs as any).searchInput.focus();
-    this.props.onClear('');
-    this.props.onChange('');
-  };
-
   render() {
-    const { showCancelButton, disabled, placeholder, cancelText } = this.props;
-    const { value, focus } = this.state;
+    const {
+      showCancelButton, placeholder, cancelText, onFocus, onBlur,
+    } = this.props;
+
+    const { value } = this.state;
 
     return (
       <View style={styles.wrapper}>
@@ -107,14 +57,28 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           autoCorrect={false}
           value={value}
           placeholder={placeholder}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
+          onChangeText={this.onChangeText}
+          onFocus={onFocus}
+          onBlur={onBlur}
           style={styles.input}
           ref="searchInput"
           onSubmitEditing={this.onSubmit}
           clearButtonMode="always"
         />
+        <Image
+          source={require('../style/images/search.png')}
+          style={styles.search}
+          resizeMode="stretch"
+        />
+        {
+          (showCancelButton && value) ? (
+            <View style={styles.cancelTextContainer}>
+              <Text style={styles.cancelText} onPress={this.onCancel}>
+                {cancelText}
+              </Text>
+            </View>
+          ) : null
+        }
       </View>
     );
   }
