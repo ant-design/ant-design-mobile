@@ -142,12 +142,12 @@ export default class Home extends React.Component {
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
-                              <Link style={{ lineHeight: '90px' }} to={`/${fileName}/#${fileName}-demo-${item1.meta.order}`}>{item1.meta.title}</Link>
+                              <Link to={`/${fileName}/#${fileName}-demo-${item1.meta.order}`}>{item1.meta.title}</Link>
                             </List.Item>
                           ))
                         }
                       </List>) :
-                      <Link style={{ lineHeight: '90px' }} to={`/${fileName}/`}>{item.chinese}</Link>}
+                      <Link to={`/${fileName}/`}>{item.chinese}</Link>}
                 </List.Item>);
               })
             }
