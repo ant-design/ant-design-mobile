@@ -8,11 +8,13 @@ export default class Progress extends React.Component<ProgressProps, any> {
   static propTypes = {
     percent: PropTypes.number,
     position: PropTypes.oneOf(['fixed', 'normal']),
+    unfilled: PropTypes.oneOf(['hide', 'show']),
   };
 
   static defaultProps = {
     percent: 0,
     position: 'normal',
+    unfilled: 'show',
   };
 
   constructor(props) {
@@ -30,7 +32,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
 
   render() {
     const { wrapWidth } = this.state;
-    const { percent, position } = this.props;
+    const { percent, position, unfilled } = this.props;
 
     let widthPercent;
     if (percent > 0) {
@@ -51,7 +53,14 @@ export default class Progress extends React.Component<ProgressProps, any> {
       height: 0,
     };
 
-    return (<View onLayout={(e) => {this.onLayout(e);}} style={[ProgressStyle.progressOuter, positionStyle]}>
+    const unfilledHideStyle =
+    unfilled === 'hide' ?
+    {
+      backgroundColor: 'transparent',
+    } : null;
+
+    return (<View onLayout={(e) => {this.onLayout(e);}}
+      style={[ProgressStyle.progressOuter, positionStyle, unfilledHideStyle]}>
       <View style={[ProgressStyle.progressBar, percentStyle]}></View>
     </View>);
   }
