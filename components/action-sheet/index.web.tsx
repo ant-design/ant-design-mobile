@@ -9,7 +9,16 @@ import assign from 'object-assign';
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
 
-function noop() {
+function noop() { }
+
+function getDataAttr(props) {
+  const dataAttrs = {};
+  Object.keys(props).forEach(i => {
+    if (i.indexOf('data-') === 0) {
+      dataAttrs[i] = props[i];
+    }
+  });
+  return dataAttrs;
 }
 
 const queue = [];
@@ -17,8 +26,9 @@ const queue = [];
 function createActionSheet(flag, config, callback) {
   const props = assign({}, {
     prefixCls: 'am-action-sheet',
+    cancelButtonText: '取消',
   }, config);
-  const {prefixCls, transitionName, maskTransitionName, maskClosable = true} = props;
+  const { prefixCls, className, transitionName, maskTransitionName, maskClosable = true } = props;
 
   let div = document.createElement('div');
   document.body.appendChild(div);
@@ -37,20 +47,22 @@ function createActionSheet(flag, config, callback) {
     }
   }
 
-  function cb(info) {
-    callback(info);
+  function cb(index, rowIndex = 0) {
+    callback(index, rowIndex);
     close();
   }
 
-  const {title, message, options, destructiveButtonIndex, cancelButtonIndex} = props;
+  const { title, message, options, destructiveButtonIndex, cancelButtonIndex, cancelButtonText } = props;
   const titleMsg = [
     title ? <h3 key="0" className={`${prefixCls}-title`}>{title}</h3> : null,
     message ? <div key="1" className={`${prefixCls}-message`}>{message}</div> : null,
   ];
   let children = null;
+  let mode = 'normal';
   switch (flag) {
     case NORMAL:
-      children = (<div className={`${prefixCls}-normal`}>
+      mode = 'normal';
+      children = (<div {...getDataAttr(props)}>
         {titleMsg}
         <ul className={`${prefixCls}-button-list`}>
           {options.map((item, index) => {
@@ -74,32 +86,47 @@ function createActionSheet(flag, config, callback) {
       </div>);
       break;
     case SHARE:
-      children = (<div className={`${prefixCls}-share`}>
+      mode = 'share';
+      const multipleLine = options.length && Array.isArray(options[0]) || false;
+      const createList = (item, index, rowIndex = 0) => (
+        <li key={index} onClick={() => cb(index, rowIndex) }>
+          <p className={`${prefixCls}-share-item-icon`}>
+            {item.iconName ? <Icon type={item.iconName}/> : item.icon}
+          </p>
+          <p className={`${prefixCls}-share-item-title`}>{item.title}</p>
+        </li>
+      );
+      children = (<div {...getDataAttr(props)}>
         {titleMsg}
-        <ul className={`${prefixCls}-share-content`}>
-          {options.map((item, index) => {
-            const extraProp = {
-              onClick: () => cb(index),
-            };
-            return (<li key={index} {...extraProp}>
-              <p className={`${prefixCls}-share-item-icon`}>
-                {item.iconName ? <Icon type={item.iconName}/> : item.icon}
-              </p>
-              <p className={`${prefixCls}-share-item-title`}>{item.title}</p>
-            </li>);
-          })}
-        </ul>
+        <div className={`${prefixCls}-share-content`}>
+          {multipleLine ? options.map((item, index) => (
+            <ul key={index} className={`${prefixCls}-share-content-list`}>
+              {item.map((ii, ind) => createList(ii, ind, index))}
+            </ul>
+          )) : (
+            <ul className={`${prefixCls}-share-content-list`}>
+                {options.map((item, index) => createList(item, index))}
+            </ul>
+          )}
+          <div className={`${prefixCls}-share-content-cancel-button`} onClick={() => cb(-1)}>{cancelButtonText}</div>
+        </div>
       </div>);
       break;
     default:
       break;
   }
 
+  const rootCls = classNames({
+    [className]: !!className,
+    [`${prefixCls}-${mode}`]: true,
+  });
+
   ReactDOM.render(<Dialog
-    prefixCls={prefixCls}
     visible
     title=""
     footer=""
+    prefixCls={prefixCls}
+    className={rootCls}
     transitionName={transitionName || `am-slide-up`}
     maskTransitionName={maskTransitionName || `am-fade`}
     onClose={close}

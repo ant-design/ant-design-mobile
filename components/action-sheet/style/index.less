@@ -10,6 +10,9 @@
   bottom: 0;
   width: 100%;
   background-color: @fill-base;
+  &&-share {
+    background-color: @fill-body;
+  }
 
   &-title,
   &-message {
@@ -18,7 +21,6 @@
     text-align: center;
   }
   &-title {
-    // color: @neutral-10;
     font-size: @font-size-heading;
   }
   &-message {
@@ -27,8 +29,11 @@
   }
   &-button-list {
     text-align: center;
-    // color: @neutral-10;
+    color: @color-text-base;
     > li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       position: relative;
       height: @button-height;
       line-height: @button-height;
@@ -38,41 +43,60 @@
         background-color: @fill-tap;
       }
     }
-  }
-  & &-cancel-button {
-    margin-top: @v-spacing-md;
-    position: relative;
-    &-mask {
-      position: absolute;
-      top: -@v-spacing-md;
-      left: 0;
-      width: 100%;
-      height: @v-spacing-md;
-      background-color: #F7F7F7;
-      .hairline-top(@border-color-base);
-      .hairline-bottom(@border-color-base);
-      // border-top: @border-width-sm solid @border-color-base;
-      // border-bottom: @border-width-sm solid @border-color-base;
+    .@{ActionSheetPrefixCls}-cancel-button {
+      margin-top: @v-spacing-md;
+      position: relative;
+      &-mask {
+        position: absolute;
+        top: -@v-spacing-md;
+        left: 0;
+        width: 100%;
+        height: @v-spacing-md;
+        background-color: #F7F7F7;
+        .hairline-top(@border-color-base);
+        .hairline-bottom(@border-color-base);
+        // border-top: @border-width-sm solid @border-color-base;
+        // border-bottom: @border-width-sm solid @border-color-base;
+      }
+    }
+    .@{ActionSheetPrefixCls}-destructive-button {
+      color: @brand-error;
+      font-size: @font-size-heading;
     }
   }
-  &-destructive-button {
-    color: @brand-error;
-    font-size: @font-size-heading;
-  }
 
-  & &-share-content {
-    display: flex;
-    padding-left: @h-spacing-lg;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    > li {
-      margin-right: 24px;
+  &-share-content {
+    &-list {
+      display: flex;
+      position: relative;
+      .hairline-top(@border-color-base);
+      padding: @v-spacing-xl 0 @v-spacing-xl @h-spacing-lg;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      > li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-right: 24px;
+      }
+    }
+    &-cancel-button {
+      height: @button-height;
+      line-height: @button-height;
+      text-align: center;
+      background-color: @fill-base;
+      color: @color-text-base;
+      font-size: @button-font-size;
+      position: relative;
+      .hairline-top(@border-color-base);
     }
   }
   &-share-item-icon {
-    margin: 0;
+    margin-bottom: @v-spacing-md;
     width: 120px;
     height: 120px;
+    background-color: @fill-base;
+    border-radius: @radius-sm;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,6 +108,5 @@
     color: @color-text-caption;
     font-size: @font-size-icontext;
     text-align: center;
-    margin: @v-spacing-md auto;
   }
 }

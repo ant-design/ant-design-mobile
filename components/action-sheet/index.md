@@ -43,11 +43,15 @@ english: ActionSheet
 
 `options`对象必须包含以下的一个或者多个：
 
-- options (array of `{icon:React.element, iconName:string, title:string}`) - 分享按钮列表 (required)，注意：`iconName`为antm-icon里的某一个icon的名字，优先级高于icon设置（icon用于设置自己特有的icon内容）
+- options (array of `{icon:React.node, iconName:string, title:string}`) - 分享按钮列表 (required)
+    - 注意：`iconName`为 icon 组件里的某一个 icon 的名字，优先级高于`icon`属性设置（`icon`属性用于设置自定义内容）
+    - options 可以是二维数组，能显示多行按钮，例如`[[{icon,title},{icon,title}], [{icon,title},{icon,title}]]`表示两行两列
+    - 当为二维数组时 callback 有两个参数，第一个为`列`序列、第二个为`行`序列
+- cancelButtonText (string) - (web only) 默认为`取消`
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
 - androidActionSheetName (string) - android 平台下可以传入一个名字
 
-#### static close() -  (web only) programmatically close.
+#### static close() - (web only) programmatically close.
 #### static close(androidActionSheetName) - (android only) programmatically close.
