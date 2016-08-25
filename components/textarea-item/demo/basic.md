@@ -5,6 +5,8 @@ title: 基本
 
 列表主体内容的容器。
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 import { List, TextareaItem } from 'antd-mobile';
 import { createForm } from 'rc-form';

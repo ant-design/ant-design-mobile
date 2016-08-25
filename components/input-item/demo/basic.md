@@ -5,6 +5,8 @@ title: 基本
 
 输入框。
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 import { List, InputItem } from 'antd-mobile';
 import { createForm } from 'rc-form';

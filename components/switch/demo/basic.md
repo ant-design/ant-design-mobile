@@ -5,6 +5,8 @@ title: 基本
 
 滑动开关。
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 import { List, Switch } from 'antd-mobile';
 import { createForm } from 'rc-form';

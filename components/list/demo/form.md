@@ -5,6 +5,8 @@ title: 列表项类表单组件大集合
 
 表单集合
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 import { List, InputItem, Switch, Stepper, Slider, Radio, Checkbox, TextareaItem, WingBlank, WhiteSpace, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
