@@ -23,17 +23,16 @@ const App = React.createClass({
   render() {
     const sidebar = (<List>
       <List.Body>
-        {[1, 2, 3, 4, 5, 6].map((i, index) => {
+        {[...Array(20).keys()].map((i, index) => {
           if (index === 0) {
             return (<List.Item key={index}
               thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
               multipleLine
-            >收银员<List.Item.Brief>仅可进行收款、退款及查账操作</List.Item.Brief></List.Item>);
+            >我是名称我是名称</List.Item>);
           }
           return (<List.Item key={index}
             thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-            multipleLine
-          >收银员<List.Item.Brief>仅可进行收款、退款及查账操作</List.Item.Brief></List.Item>);
+          >分类 - {index}</List.Item>);
         })}
       </List.Body>
     </List>);
@@ -46,7 +45,12 @@ const App = React.createClass({
     return (<div style={{ height: '100%' }}>
       <NavBar iconName="ellipsis" onLeftClick={() => this.onDock('docked')}>嵌入文档</NavBar>
       <div className="drawer-container">
-        <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
+        <Drawer sidebar={sidebar}
+          sidebarStyle={{ border: '1px solid #ddd' }}
+          contentStyle={{ marginLeft: 5 }}
+          dragHandleStyle={{ display: 'none' }}
+          {...drawerProps}
+        >
           请点击左上角
         </Drawer>
       </div>

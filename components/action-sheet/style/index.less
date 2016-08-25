@@ -32,8 +32,8 @@
       position: relative;
       height: @button-height;
       line-height: @button-height;
-      // .hairline-top(@neutral-5);
-      border-top: @border-width-sm solid @border-color-base;
+      .hairline-top(@border-color-base);
+      // border-top: @border-width-sm solid @border-color-base;
       &:active {
         background-color: @fill-tap;
       }
@@ -49,9 +49,10 @@
       width: 100%;
       height: @v-spacing-md;
       background-color: #F7F7F7;
-      // .hairline-top(@neutral-5);
-      border-top: @border-width-sm solid @border-color-base;
-      border-bottom: @border-width-sm solid @border-color-base;
+      .hairline-top(@border-color-base);
+      .hairline-bottom(@border-color-base);
+      // border-top: @border-width-sm solid @border-color-base;
+      // border-bottom: @border-width-sm solid @border-color-base;
     }
   }
   &-destructive-button {
