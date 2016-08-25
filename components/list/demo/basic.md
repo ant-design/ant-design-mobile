@@ -5,6 +5,8 @@ title: 基本
 
 最简单的用法。
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 import { List } from 'antd-mobile';
 import { createForm } from 'rc-form';

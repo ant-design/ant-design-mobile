@@ -5,6 +5,8 @@ title: 格式
 
 支持银行卡（type="bankCard"）,手机号码（type="phone"）,密码（type="password"）,数字（type="number",尽量唤起数字键盘）四种类型的格式
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 import { List, InputItem } from 'antd-mobile';
 import { createForm } from 'rc-form';

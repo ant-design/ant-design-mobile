@@ -7,6 +7,8 @@ interface SliderProps {
   max?: number;
   step?: number;
   disabled?: boolean;
+  /* web only */
+  prefixCls?: string;
 }
 
 export default SliderProps;

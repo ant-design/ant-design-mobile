@@ -5,6 +5,8 @@ title: 基本
 
 日期时间选择示例
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 
 import { DatePicker, List } from 'antd-mobile';
