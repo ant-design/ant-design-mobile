@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { Modal, Button } from 'antd-mobile';
+import { Modal, Button, WingBlank } from 'antd-mobile';
 
 export default class BasicModalExample extends React.Component<any, any> {
   constructor(props) {
@@ -22,9 +22,11 @@ export default class BasicModalExample extends React.Component<any, any> {
   render() {
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
-        <Button type="primary" size="small" inline onPress={this.showModal}>
-          显示对话框
-        </Button>
+        <WingBlank>
+          <Button type="ghost" onPress={this.showModal}>
+            显示对话框
+          </Button>
+        </WingBlank>
         {/*<Modal animated transparent={false} visible={this.state.visible} >
           <View style={{ paddingVertical: 220 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
