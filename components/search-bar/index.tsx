@@ -71,7 +71,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           resizeMode="stretch"
         />
         {
-          (showCancelButton && value) ? (
+          showCancelButton ? (
             <View style={styles.cancelTextContainer}>
               <Text style={styles.cancelText} onPress={this.onCancel}>
                 {cancelText}
