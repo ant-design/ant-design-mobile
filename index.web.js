@@ -6,7 +6,6 @@ function camelCase(name) {
 }
 
 const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.web\.tsx?$/);
-
 req.keys().forEach((mod) => {
   let v = req(mod);
   if (v && v.default) {

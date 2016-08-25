@@ -1,18 +1,25 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 export interface IconPropType {
   type: string;
   className?: string;
+  style?: React.CSSProperties;
+  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
 }
 
 export default class Icon extends React.Component<IconPropType, any> {
   static defaultProps = {
-    className: '',
+    size: 'md',
   };
   render() {
-    const { type, className } = this.props;
-    return (
-      <i className={`${className} anticon anticon-${type}`.trim()} />
-    );
+    const { type, className, style, size } = this.props;
+    const iconClassName = classNames({
+      'am-icon': true,
+      [`am-icon-${type}`]: true,
+      [`am-icon-${size}`]: true,
+      [className]: !!className,
+    });
+    return <i className={iconClassName} style={style} />;
   }
 }
