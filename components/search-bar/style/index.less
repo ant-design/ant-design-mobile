@@ -48,6 +48,9 @@
         color: @color-text-placeholder;
         line-height: 1.4;
       }
+      &:focus::-webkit-input-placeholder {
+        text-align: left;
+      }
       &::-webkit-search-cancel-button {
         appearance: none;
       }
@@ -68,13 +71,6 @@
       transition: all .3s;
       &:active {
         .encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><circle cx='14' cy='14' r='14' fill='@{input-color-icon-tap}'/><line stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='8' y1='8' x2='20' y2='20'/><line fill='none' stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='20' y1='8' x2='8' y2='20'/></svg>");
-      }
-    }
-    &.@{searchPrefixCls}-input-focus {
-      input[type="search"] {
-        &::-webkit-input-placeholder {
-          text-align: left;
-        }
       }
     }
     &.@{searchPrefixCls}-start {
