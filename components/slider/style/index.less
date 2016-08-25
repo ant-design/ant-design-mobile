@@ -19,10 +19,14 @@
 
 .@{sliderPrefixCls} {
   position: relative;
-  margin: 32px 16px;
+  margin: 32px 0px;
   height: 4px;
   background-color: @border-color-base;
   box-sizing: border-box;
+
+  &-wrapper {
+    padding: 0 32px;
+  }
 
   &-track {
     position: absolute;
@@ -30,7 +34,6 @@
     height: 4px;
     border-radius: @radius-2;
     background-color: @brand-primary;
-    z-index: 1;
   }
 
   &-handle {
@@ -43,7 +46,6 @@
     border-radius: 50%;
     border: @border-width-lg solid @brand-primary;
     background-color: @fill-base;
-    z-index: 2;
 
     &:focus {
       background-color: tint(@brand-primary, 20%);
@@ -60,12 +62,10 @@
 
   &-mark {
     position: absolute;
-    // top: 48px;
     top: 40px;
     left: 0;
     width: 100%;
     font-size: @font-size-caption-sm;
-    z-index: 3;
   }
 
   &-mark-text {
@@ -86,7 +86,6 @@
     width: 100%;
     height: 8px;
     background: transparent;
-    z-index: 1;
   }
 
   &-dot {
