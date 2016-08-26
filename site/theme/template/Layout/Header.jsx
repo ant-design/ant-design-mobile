@@ -23,7 +23,7 @@ export default class Header extends React.Component {
     this.onScroll = debounce(() => {
       const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
       const clientHeight = document.documentElement.clientHeight;
-      if (scrollTop < 2 * clientHeight && scrollTop >= clientHeight || scrollTop >= 3 * clientHeight) {
+      if ((scrollTop < 2 * clientHeight && scrollTop >= clientHeight) || scrollTop >= 3 * clientHeight) {
         this.setState({ isFirstFrame: false });
       } else {
         this.setState({ isFirstFrame: true });

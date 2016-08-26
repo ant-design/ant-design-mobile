@@ -50,7 +50,7 @@ const Demo = React.createClass({
     this.rowIDs = [];
     this.genData = (pIndex = 0) => {
       for (let i = 0; i < NUM_SECTIONS; i++) {
-        const ii = pIndex * NUM_SECTIONS + i;
+        const ii = (pIndex * NUM_SECTIONS) + i;
         const sectionName = `Section ${ii}`;
         this.sectionIDs.push(sectionName);
         this.dataBlob[sectionName] = sectionName;
