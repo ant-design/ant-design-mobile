@@ -5,6 +5,8 @@ title: 基本
 
 列表主体内容的容器。
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 import { List, TextareaItem } from 'antd-mobile';
 import { createForm } from 'rc-form';
@@ -17,118 +19,105 @@ let TextareaItemExample = React.createClass({
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List title="多行输入,TextareaItem">
+        <List title="多行输入">
           <List.Body>
             <TextareaItem
-              {...getFieldProps('note', {
-                initialValue: '',
-                valuePropName: 'value',
-              })}
-              name="yyy"
+              title="非受控"
+              defaultValue="非受控组件"
+              placeholder="非受控组件"
+            />
+            <TextareaItem
+              title="受控组件"
+              value=""
               placeholder="如果你有什么建议意见，欢迎你来吐槽"
               clear
-              onBlur={() => { console.log('onBlur'); }}
-              onFocus={(e) => { console.log('onFocus'); console.log(e); }}
             />
             <TextareaItem
               {...getFieldProps('note1', {
                 initialValue: '',
-                valuePropName: 'value',
               })}
-              name="yyy"
               rows={3}
               placeholder="固定行数,rows"
               clear
               onBlur={() => { console.log('onBlur'); }}
-              onFocus={(e) => { console.log('onFocus'); console.log(e); }}
+              onFocus={(value) => { console.log('onFocus'); console.log(value); }}
             />
             <TextareaItem
               {...getFieldProps('note2', {
                 initialValue: '',
-                valuePropName: 'value',
               })}
               title="带标题"
-              labelNumber={4}
-              name="yyy"
               placeholder="title"
               clear={false}
               onBlur={() => { console.log('onBlur'); }}
-              onFocus={(e) => { console.log('onFocus'); console.log(e); }}
+              onFocus={(value) => { console.log('onFocus'); console.log(value); }}
             />
             <TextareaItem
               {...getFieldProps('note3', {
                 initialValue: '',
-                valuePropName: 'value',
               })}
               title="自适应"
-              labelNumber={4}
               autoHeight
               clear
-              placeholder="高度自适应"
+              placeholder="autoHeight"
             />
             <TextareaItem
               {...getFieldProps('note4', {
                 initialValue: '',
-                valuePropName: 'value',
               })}
               title="最大长度"
-              labelNumber={4}
               count={30}
               clear
-              error
               placeholder="count"
             />
             <TextareaItem
               {...getFieldProps('note5', {
                 initialValue: '',
-                valuePropName: 'value',
               })}
               title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" style={{ width: '0.56rem', height: '0.56rem' }} />}
-              labelNumber={4}
               clear
               placeholder="title类型可以是node"
             />
             <TextareaItem
               {...getFieldProps('note6', {
                 initialValue: '不可编辑',
-                valuePropName: 'value',
               })}
               title="不可编辑"
-              labelNumber={4}
+              placeholder="editable"
+              editable={false}
+            />
+            <TextareaItem
+              value="禁用状态"
+              title="禁用状态"
+              disabled
               placeholder="editable"
               editable={false}
             />
             <TextareaItem
               {...getFieldProps('note7', {
                 initialValue: '多行输入,带计数功能,count+rows',
-                valuePropName: 'value',
               })}
               title="备注说明"
-              labelNumber={4}
-              name="yyy"
               rows={5}
               placeholder="计数功能"
               clear
               count={100}
               onBlur={() => { console.log('onBlur'); }}
-              onFocus={(e) => { console.log('onFocus'); console.log(e); }}
+              onFocus={(value) => { console.log('onFocus'); console.log(value); }}
             />
             <TextareaItem
               {...getFieldProps('note8', {
                 initialValue: '多行输入,带计数功能,count+rows',
-                valuePropName: 'value',
               })}
-              title="备注说明"
-              labelNumber={4}
-              name="yyy"
+              title="报错样式"
               rows={5}
               placeholder="计数功能"
               clear
               error
-              onErrorClick={() => { alert(21212); }}
+              onErrorClick={() => { alert('点击报错'); }}
               count={100}
               onBlur={() => { console.log('onBlur'); }}
-              onFocus={(e) => { console.log('onFocus'); console.log(e); }}
+              onFocus={(value) => { console.log('onFocus'); console.log(value); }}
             />
           </List.Body>
         </List>

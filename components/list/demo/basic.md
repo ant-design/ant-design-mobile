@@ -5,8 +5,10 @@ title: 基本
 
 最简单的用法。
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
-import { List, Switch } from 'antd-mobile';
+import { List } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let ListExample = React.createClass({
@@ -73,46 +75,6 @@ let ListExample = React.createClass({
               <option value="3">选项3</option>
             </select>
           </List.Item>
-        </List.Body>
-      </List>
-      <List
-        title="滑动开关Switch"
-      >
-        <List.Body>
-          <List.Item
-            extra={<Switch
-              {...getFieldProps('1', {
-                initialValue: true,
-                valuePropName: 'checked',
-              })}
-            />}
-          >默认开</List.Item>
-          <List.Item
-            extra={<Switch
-              {...getFieldProps('2', {
-                initialValue: false,
-                valuePropName: 'checked',
-              })}
-            />}
-          >默认关</List.Item>
-          <List.Item
-            extra={<Switch
-              {...getFieldProps('3', {
-                initialValue: false,
-                valuePropName: 'checked',
-              })}
-              disabled
-            />}
-          >默认关,不可修改</List.Item>
-          <List.Item
-            extra={<Switch
-              {...getFieldProps('4', {
-                initialValue: true,
-                valuePropName: 'checked',
-              })}
-              disabled
-            />}
-          >默认开,不可修改</List.Item>
         </List.Body>
       </List>
       <List

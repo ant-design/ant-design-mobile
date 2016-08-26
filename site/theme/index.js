@@ -7,6 +7,7 @@ module.exports = {
     COMPONENTS: 1,
   },
   docVersions: {
+    '0.7.x': 'http://07x.mobile.ant.design/',
   },
   routes: {
     path: '/',

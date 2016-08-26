@@ -5,6 +5,8 @@ title: 列表项类表单组件大集合
 
 表单集合
 
+[rc-form API](https://github.com/react-component/form)
+
 ````jsx
 import { List, InputItem, Switch, Stepper, Slider, Radio, Checkbox, TextareaItem, WingBlank, WhiteSpace, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
@@ -174,7 +176,7 @@ let BasicInput = React.createClass({
         </List.Body>
       </List>
       <List
-        title="多行输入,TextareaItem"
+        title="多行输入"
       >
         <List.Body>
           <TextareaItem

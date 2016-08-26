@@ -5,7 +5,7 @@ title: Popover
 
 
 ````jsx
-import { Popover, Button } from 'antd-mobile';
+import { Popover, NavBar, Icon, Badge } from 'antd-mobile';
 const Item = Popover.Item;
 
 const App = React.createClass({
@@ -28,33 +28,27 @@ const App = React.createClass({
     });
   },
   render() {
-    let overlay = [1, 2, 3].map((i, index) => <Item key={index} value={`option ${i}`}>option {i}</Item>);
-    overlay = overlay.concat([
-      <Item key="4" value="disabled" disabled>disabled opt</Item>,
-      <Item key="5" value="special" iconName="github">special opt</Item>,
-      <Item key="6" value="button ct" iconName="github">
-        <Button
-          size="small"
-          inline
-          onClick={() => this.handleVisibleChange(false)}
-        >
-          关闭
-        </Button>
-      </Item>,
-    ]);
-
     return (<div>
-      <Popover
-        visible={this.state.visible}
-        overlay={overlay}
-        popupAlign={{
-          offset: [5, 14],
-        }}
-        onVisibleChange={this.handleVisibleChange}
-        onSelect={this.onSelect}
-      >
-        <a href="#" style={{ float: 'right', marginRight: 100 }}>菜单</a>
-      </Popover>
+      <NavBar iconName={false} rightContent={
+        <Popover
+          visible={this.state.visible}
+          overlay={[
+            <Item key="4" value="scan" iconName="scan">扫一扫</Item>,
+            <Item key="5" value="special" iconName="qrcode" style={{ whiteSpace: 'nowrap' }}>我的二维码 / 收款</Item>,
+            <Item key="6" value="button ct" iconName="question-circle-o">
+              <span style={{ marginRight: 5 }}>帮助</span>
+              <Badge text={'..'} style={{ height: '0.1rem', lineHeight: 0.1 }} />
+            </Item>,
+          ]}
+          popupAlign={{
+            offset: [15, 20],
+          }}
+          onVisibleChange={this.handleVisibleChange}
+          onSelect={this.onSelect}
+        >
+          <span><Icon type="ellipsis" /></span>
+        </Popover>
+      }>NavBar</NavBar>
       {/* <p>选中了 {this.state.selected}</p> */}
       <div style={{ paddingTop: 140, paddingLeft: 130 }}>
         <Popover

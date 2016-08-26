@@ -19,3 +19,4 @@ english: Progress
 |----------|---------------|----------|---------------|
 | percent  | 进度百分比 | number | 0 |
 | position   | 进度条的位置，fixed将浮出固定在最顶层，可选：`fixed` `normal` | string   | `fixed` |
+| unfilled  | 是否隐藏未填充轨道，可选：`hide` `show` | string | `show` |

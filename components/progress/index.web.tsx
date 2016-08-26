@@ -8,12 +8,14 @@ export default class Progress extends React.Component<ProgressProps, any> {
     prefixCls: PropTypes.string,
     position: PropTypes.oneOf(['fixed', 'normal']),
     percent: PropTypes.number,
+    unfilled: PropTypes.string,
   };
 
   static defaultProps = {
     prefixCls: 'am-progress',
     percent: 0,
     position: 'fixed',
+    unfilled: 'show',
   };
 
   constructor(props) {
@@ -24,7 +26,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
   }
 
   render() {
-    const {prefixCls, percent, position} = this.props;
+    const {prefixCls, percent, position, unfilled} = this.props;
     const percentStyle = {
       width: `${percent}%`,
       height: 0,
@@ -33,6 +35,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
     const wrapCls = classNames({
       [`${prefixCls}-outer`]: true,
       [`${prefixCls}-fixed-outer`]: position === 'fixed',
+      [`${prefixCls}-hide-outer`]: unfilled === 'hide',
     });
 
     return (

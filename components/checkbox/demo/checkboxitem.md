@@ -1,16 +1,18 @@
 ---
-order: 1
+order: 0
 title: 列表项复选框
 ---
 
 Checkbox.CheckboxItem
+
+[rc-form API](https://github.com/react-component/form)
 
 ````jsx
 import { List, Checkbox } from 'antd-mobile';
 import { createForm } from 'rc-form';
 const CheckboxItem = Checkbox.CheckboxItem;
 
-let Test = React.createClass({
+let CheckboxItemExample = React.createClass({
   onClick() {
     console.log(this.props.form.getFieldsValue());
   },
@@ -18,42 +20,32 @@ let Test = React.createClass({
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List>
-          <List.Header>表单多选项，普通列表中多选项</List.Header>
+        <List title="多项选择操作">
           <List.Body>
             <CheckboxItem
-              {...getFieldProps('f1', {
+              {...getFieldProps('checkboxitem1', {
                 initialValue: true,
                 valuePropName: 'checked',
               })}
             >
-              签约
+              使用Ant Design Component
             </CheckboxItem>
             <CheckboxItem
-              {...getFieldProps('f2', {
+              {...getFieldProps('checkboxitem2', {
                 initialValue: false,
                 valuePropName: 'checked',
               })}
             >
-              物料铺设
+              个性化调整
             </CheckboxItem>
             <CheckboxItem
               disabled
-              {...getFieldProps('f3', {
-                initialValue: false,
-                valuePropName: 'checked',
-              })}
-            >
-              机具维护（不能选）
-            </CheckboxItem>
-            <CheckboxItem
-              disabled
-              {...getFieldProps('f4', {
+              {...getFieldProps('checkboxitem3', {
                 initialValue: true,
                 valuePropName: 'checked',
               })}
             >
-              产品问题解决（必选）
+              个性化调整
             </CheckboxItem>
           </List.Body>
         </List>
@@ -62,7 +54,7 @@ let Test = React.createClass({
   },
 });
 
-Test = createForm()(Test);
+CheckboxItemExample = createForm()(CheckboxItemExample);
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<CheckboxItemExample />, mountNode);
 ````

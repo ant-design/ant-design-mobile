@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 interface InputItemProps {
     /** web only */
     prefixCls?: string;
@@ -8,8 +10,10 @@ interface InputItemProps {
     className?: string;
     type?: 'text'|'bankCard'|'phone'|'password'|'number';
     editable?: boolean;
+    disabled?: boolean;
     name?: string;
     value?: string;
+    defaultValue?: string;
     placeholder: string;
     clear?: boolean;
     maxLength?: number;

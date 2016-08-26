@@ -23,6 +23,7 @@ declare module 'antd-mobile' {
     RefreshControl: any;
     Radio: any;
     SegmentedControl: any;
+    SearchBar: any;
     Slider: any;
     Stepper: any;
     Steps: any;

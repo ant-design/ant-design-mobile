@@ -9,6 +9,8 @@ export default class Slider extends React.Component<SliderProps, any> {
   };
 
   render() {
-    return <RcSlider { ...this.props } />;
+    return (
+      <div className={`${this.props.prefixCls}-wrapper`}><RcSlider { ...this.props } /></div>
+    );
   }
 }

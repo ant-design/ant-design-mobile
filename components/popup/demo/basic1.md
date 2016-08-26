@@ -1,9 +1,9 @@
 ---
 order: 1
-title: ActionSheet 效果
+title: 向上弹出效果
 ---
 
-Popup ActionSheet 效果
+Popup 向上弹出效果
 
 ````jsx
 import { Popup, Button } from 'antd-mobile';

@@ -6,7 +6,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1050;
+    z-index: @actionSheetZIndex;
     overflow-scrolling: touch;
     outline: 0;
   }
@@ -19,7 +19,7 @@
     bottom: 0;
     background-color: @fill-mask;
     height: 100%;
-    z-index: 1050;
+    z-index: @actionSheetZIndex;
     &-hidden {
       display: none;
     }
@@ -27,11 +27,5 @@
   // 隐藏掉 dialog 默认的 x 按钮
   &-close {
     display: none;
-  }
-  ul,
-  li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
   }
 }

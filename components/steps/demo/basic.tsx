@@ -1,7 +1,7 @@
 import { WhiteSpace, Steps, WingBlank } from 'antd-mobile';
 const Step = Steps.Step;
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
 export default class BasicTimelineExample extends React.Component<any, any> {
   constructor(props) {
@@ -21,7 +21,12 @@ export default class BasicTimelineExample extends React.Component<any, any> {
     };
   }
   render() {
-    return (<View>
+    return (<ScrollView
+      style={{ flex: 1 }}
+      automaticallyAdjustContentInsets={false}
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
+    >
       <View style={{width:300}}>
         <WhiteSpace size={32} style={{ backgroundColor: '#fff' }} />
         <WingBlank size={32}>
@@ -88,7 +93,6 @@ export default class BasicTimelineExample extends React.Component<any, any> {
           </Steps>
         </WingBlank>
       </View>
-
-    </View>);
+    </ScrollView>);
   }
 }

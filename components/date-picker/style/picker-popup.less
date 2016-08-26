@@ -12,7 +12,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1050;
+    z-index: @datePickerZIndex;
     overflow-scrolling: touch;
     outline: 0;
   }
@@ -25,7 +25,7 @@
     bottom: 0;
     background-color: @fill-mask;
     height: 100%;
-    z-index: 1050;
+    z-index: @datePickerZIndex;
     &-hidden {
       display: none;
     }
@@ -39,7 +39,9 @@
     background-repeat: no-repeat;
     .display-box;
     .box-align;
-    border-bottom: @border-width-sm solid @border-color-base;
+    // border-bottom: @border-width-sm solid @border-color-base;
+    position: relative;
+    .hairline-bottom(@border-color-base);
     &-left {
       margin-left: @h-spacing-lg;
     }

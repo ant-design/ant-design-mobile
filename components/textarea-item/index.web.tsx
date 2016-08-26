@@ -5,6 +5,13 @@ function noop() {}
 
 import TextareaItemProps from './TextAreaItemPropsType';
 
+function fixControlledValue(value) {
+  if (typeof value === 'undefined' || value === null) {
+    return '';
+  }
+  return value;
+}
+
 export interface TextareaItemState {
   focus: boolean;
 }
@@ -21,8 +28,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     title: '',
     autoHeight: false,
     editable: true,
+    disabled: false,
     name: '',
-    value: '',
+    defaultValue: '',
     placeholder: '',
     clear: false,
     rows: 1,
@@ -92,12 +100,25 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   render() {
     let {
-      prefixCls, prefixListCls, style, title, name, value, placeholder, clear, rows, count,
-      editable, error, className, labelNumber, autoHeight } = this.props;
+      prefixCls, prefixListCls, style, title, name, value, defaultValue, placeholder, clear, rows, count,
+      editable, disabled, error, className, labelNumber, autoHeight } = this.props;
+
+    let valueProps;
+    if (value !== undefined) {
+      valueProps = {
+        value: fixControlledValue(value),
+      };
+    } else {
+      valueProps = {
+        defaultValue,
+      };
+    }
+
     const { focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-item-single-line`]: rows === 1 && !autoHeight,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
@@ -119,6 +140,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
         {title ? (<div className={labelCls}>{title}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <textarea
+            {...valueProps}
             ref="textarea"
             name={name}
             rows={rows}
@@ -127,11 +149,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
             onChange={this.onChange}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
-            value={value}
             readOnly={!editable}
+            disabled={disabled}
           />
         </div>
-        {clear && editable && value.length > 0 ?
+        {clear && editable && value && value.length > 0 ?
           (<div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />)
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}

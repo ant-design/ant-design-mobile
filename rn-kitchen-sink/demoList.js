@@ -1,10 +1,10 @@
 module.exports = {
   APIS: [
     {
-      title: 'ActionSheet', // 必须
+      title: 'ActionSheet',
       description: '动作面板',
       icon: 'https://zos.alipayobjects.com/rmsportal/sTvsgvivVKnqQtS.png',
-      module: require('../components/action-sheet/demo/basic'), // 必须
+      module: require('../components/action-sheet/demo/basic'),
     },
     {
       title: 'Popup', // 必须
@@ -16,33 +16,33 @@ module.exports = {
       title: 'Toast', // 必须
       description: '轻提示',
       icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
-      module: require('../components/toast/demo/basic'), // 必须
+      module: require('../components/toast/demo/basic'),
     },
   ],
   COMPONENTS: [
     {
-      title: 'ActivityIndicator', // 必须
+      title: 'ActivityIndicator',
       description: '活动指示器',
       icon: 'https://zos.alipayobjects.com/rmsportal/ZLKbJvxVNSmsOwW.png',
-      module: require('../components/activity-indicator/demo/basic'), // 必须
+      module: require('../components/activity-indicator/demo/basic'),
     },
     {
-      title: 'Badge', // 必须
+      title: 'Badge',
       description: '徽标数',
       icon: 'https://os.alipayobjects.com/rmsportal/nSDcLEWgUrOkCJq.png',
-      module: require('../components/badge/demo/basic'), // 必须
+      module: require('../components/badge/demo/basic'),
     },
     {
-      title: 'Button', // 必须
+      title: 'Button',
       description: '按钮',
       icon: 'https://os.alipayobjects.com/rmsportal/lOXYjfSRPpkwudh.png',
-      module: require('../components/button/demo/basic'), // 必须
+      module: require('../components/button/demo/basic'),
     },
     {
-      title: 'Card', // 必须
+      title: 'Card',
       description: '卡片',
       icon: 'https://os.alipayobjects.com/rmsportal/kkQBRgZgcqSyMPS.png',
-      module: require('../components/card/demo/basic'), // 必须
+      module: require('../components/card/demo/basic'),
     },
     {
       title: 'Checkbox', // 必须
@@ -54,115 +54,121 @@ module.exports = {
       title: 'DatePicker', // 必须
       description: '日期选择',
       icon: 'https://os.alipayobjects.com/rmsportal/XjBSEKVWMeIulGv.png',
-      module: require('../components/date-picker/demo/popup'), // 必须
+      module: require('../components/date-picker/demo/popup'),
     },
     {
-      title: 'Drawer', // 必须
+      title: 'Drawer',
       description: '抽屉',
       icon: 'https://os.alipayobjects.com/rmsportal/kpbezGjgdRhGfMa.png',
-      module: require('../components/drawer/demo/basic'), // 必须
+      module: require('../components/drawer/demo/basic'),
     },
     {
-      title: 'Flex', // 必须
+      title: 'Flex',
       description: 'Flex 布局',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
-      module: require('../components/flex/demo/basic'), // 必须
+      module: require('../components/flex/demo/basic'),
     },
     {
-      title: 'Popover', // 必须
+      title: 'Popover',
       description: '浮动菜单',
       icon: 'https://os.alipayobjects.com/rmsportal/HhilRXHawmUwlML.png',
-      module: require('../components/popover/demo/basic'), // 必须
+      module: require('../components/popover/demo/basic'),
     },
     {
-      title: 'ImagePicker', // 必须
+      title: 'ImagePicker',
       description: '图片选择',
       icon: 'https://os.alipayobjects.com/rmsportal/CVHyVxhFqkhZfYs.png',
-      module: require('../components/image-picker/demo/basic'), // 必须
+      module: require('../components/image-picker/demo/basic'),
     },
     {
-      title: 'InputItem', // 必须
+      title: 'InputItem',
       description: '文本输入',
       icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
-      module: require('../components/input-item/demo/basic'), // 必须
+      module: require('../components/input-item/demo/basic'),
     },
     {
-      title: 'List', // 必须
+      title: 'List',
       description: '列表',
       icon: 'https://os.alipayobjects.com/rmsportal/wlNeoTpEKIpTcOW.png',
-      module: require('../components/list/demo/basic'), // 必须
+      module: require('../components/list/demo/basic'),
     },
     {
-      title: 'ListView', // 必须
+      title: 'ListView',
       description: '长列表',
       icon: 'https://os.alipayobjects.com/rmsportal/wlNeoTpEKIpTcOW.png',
-      module: require('../components/list-view/demo/basic'), // 必须
+      module: require('../components/list-view/demo/basic'),
     },
     {
-      title: 'Menu', // 必须
+      title: 'Menu',
       description: '菜单',
       icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
-      module: require('../components/menu/demo/basic'), // 必须
+      module: require('../components/menu/demo/basic'),
     },
     {
-      title: 'Modal', // 必须
+      title: 'Modal',
       description: '对话框',
       icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
-      module: require('../components/modal/demo/basic'), // 必须
+      module: require('../components/modal/demo/basic'),
     },
     {
-      title: 'NoticeBar', // 必须
+      title: 'NoticeBar',
       description: '顶部提示',
       icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
-      module: require('../components/notice-bar/demo/basic'), // 必须
+      module: require('../components/notice-bar/demo/basic'),
     },
     {
-      title: 'Pagination', // 必须
+      title: 'Pagination',
       description: '分页器',
       icon: 'https://zos.alipayobjects.com/rmsportal/VmTKwvaRaIWOXrh.png',
-      module: require('../components/pagination/demo/basic'), // 必须
+      module: require('../components/pagination/demo/basic'),
     },
     {
-      title: 'Picker', // 必须
+      title: 'Picker',
       description: '选择器',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
-      module: require('../components/picker/demo/popup'), // 必须
+      module: require('../components/picker/demo/popup'),
     },
     {
-      title: 'Progress', // 必须
+      title: 'Progress',
       description: '进度条',
       icon: 'https://os.alipayobjects.com/rmsportal/aIomfcRsRHmPyNo.png',
-      module: require('../components/progress/demo/basic'), // 必须
+      module: require('../components/progress/demo/basic'),
     },
     {
-      title: 'RefreshControl', // 必须
+      title: 'RefreshControl',
       description: '下拉刷新',
       icon: 'https://os.alipayobjects.com/rmsportal/kmDibjGUbFrdeeY.png',
-      module: require('../components/refresh-control/demo/basic'), // 必须
+      module: require('../components/refresh-control/demo/basic'),
     },
     {
-      title: 'Radio', // 必须
+      title: 'Radio',
       description: '单选框',
       icon: 'https://os.alipayobjects.com/rmsportal/kmDibjGUbFrdeeY.png',
       module: require('../components/radio/demo/basic'), // 必须
     },
     {
-      title: 'SegmentedControl', // 必须
+      title: 'SegmentedControl',
       description: '分段控制',
       icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
-      module: require('../components/segmented-control/demo/basic'), // 必须
+      module: require('../components/segmented-control/demo/basic'),
     },
     {
-      title: 'Slider', // 必须
+      title: 'SearchBar',
+      description: '搜索条',
+      icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
+      module: require('../components/search-bar/demo/basic'),
+    },
+    {
+      title: 'Slider',
       description: '滑动输入条',
       icon: 'https://os.alipayobjects.com/rmsportal/ViixEhXOewlupTr.png',
-      module: require('../components/slider/demo/basic'), // 必须
+      module: require('../components/slider/demo/basic'),
     },
     {
-      title: 'Stepper', // 必须
+      title: 'Stepper',
       description: '步进器',
       icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
-      module: require('../components/stepper/demo/basic'), // 必须
+      module: require('../components/stepper/demo/basic'),
     },
     {
       title: 'Steps', // 必须
@@ -174,19 +180,19 @@ module.exports = {
       title: 'SwipeAction', // 必须
       description: '滑动或长按操作',
       icon: 'https://os.alipayobjects.com/rmsportal/OJgqKyrKGdIEfwp.png',
-      module: require('../components/swipe-action/demo/basic'), // 必须
+      module: require('../components/swipe-action/demo/basic'),
     },
     {
-      title: 'Switch', // 必须
+      title: 'Switch',
       description: '开关',
       icon: 'https://os.alipayobjects.com/rmsportal/NmMXnPngqRrKHrq.png',
-      module: require('../components/switch/demo/basic'), // 必须
+      module: require('../components/switch/demo/basic'),
     },
     {
-      title: 'TabBar', // 必须
+      title: 'TabBar',
       description: 'APP 选项卡',
       icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
-      module: require('../components/tab-bar/demo/basic'), // 必须
+      module: require('../components/tab-bar/demo/basic'),
     },
     {
       title: 'Tabs', // 必须
@@ -198,25 +204,25 @@ module.exports = {
       title: 'Tag', // 必须
       description: '标签',
       icon: 'https://os.alipayobjects.com/rmsportal/AkXOzPmaytaVYLD.png',
-      module: require('../components/tag/demo/basic'), // 必须
+      module: require('../components/tag/demo/basic'),
     },
     {
-      title: 'TextAreaItem', // 必须
+      title: 'TextAreaItem',
       description: '多行输入',
       icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
-      module: require('../components/textarea-item/demo/basic'), // 必须
+      module: require('../components/textarea-item/demo/basic'),
     },
     {
-      title: 'WhiteSpace', // 必须
+      title: 'WhiteSpace',
       description: '上下留白',
       icon: 'https://os.alipayobjects.com/rmsportal/mioJMWDMAmiurTR.png',
-      module: require('../components/white-space/demo/basic'), // 必须
+      module: require('../components/white-space/demo/basic'),
     },
     {
-      title: 'WingBlank', // 必须
+      title: 'WingBlank',
       description: '两翼留白',
       icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
-      module: require('../components/wing-blank/demo/basic'), // 必须
+      module: require('../components/wing-blank/demo/basic'),
     },
   ],
 };
