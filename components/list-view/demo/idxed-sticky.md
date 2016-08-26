@@ -9,6 +9,7 @@ title: IndexedList 吸顶
 ````jsx
 import provinceData from 'site/data/province';
 import { ListView, List, SearchBar } from 'antd-mobile';
+
 const { Item } = List;
 
 const Demo = React.createClass({

@@ -8,6 +8,7 @@ title: other
 
 ````jsx
 import { NavBar, Icon } from 'antd-mobile';
+
 ReactDOM.render(
   <div style={{ padding: 8 }}>
     <NavBar iconName={false}
