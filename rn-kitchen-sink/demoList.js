@@ -7,6 +7,12 @@ module.exports = {
       module: require('../components/action-sheet/demo/basic'), // 必须
     },
     {
+      title: 'Popup', // 必须
+      description: '弹出层',
+      icon: 'https://zos.alipayobjects.com/rmsportal/sTvsgvivVKnqQtS.png',
+      module: require('../components/popup/demo/basic'), // 必须
+    },
+    {
       title: 'Toast', // 必须
       description: '轻提示',
       icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
@@ -37,6 +43,12 @@ module.exports = {
       description: '卡片',
       icon: 'https://os.alipayobjects.com/rmsportal/kkQBRgZgcqSyMPS.png',
       module: require('../components/card/demo/basic'), // 必须
+    },
+    {
+      title: 'Checkbox', // 必须
+      description: '复选框',
+      icon: 'https://os.alipayobjects.com/rmsportal/IznQRcXpGsRfHXX.png',
+      module: require('../components/checkbox/demo/basic'), // 必须
     },
     {
       title: 'DatePicker', // 必须
@@ -153,6 +165,12 @@ module.exports = {
       module: require('../components/stepper/demo/basic'), // 必须
     },
     {
+      title: 'Steps', // 必须
+      description: '步骤条',
+      icon: 'https://os.alipayobjects.com/rmsportal/aDugjLTLBeQffgX.png',
+      module: require('../components/steps/demo/basic'), // 必须
+    },
+    {
       title: 'SwipeAction', // 必须
       description: '滑动或长按操作',
       icon: 'https://os.alipayobjects.com/rmsportal/OJgqKyrKGdIEfwp.png',
@@ -169,6 +187,12 @@ module.exports = {
       description: 'APP 选项卡',
       icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
       module: require('../components/tab-bar/demo/basic'), // 必须
+    },
+    {
+      title: 'Tabs', // 必须
+      description: '标签页',
+      icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
+      module: require('../components/tabs/demo/basic'), // 必须
     },
     {
       title: 'Tag', // 必须

@@ -1149,6 +1149,8 @@ declare namespace  __React {
      * @see https://facebook.github.io/react-native/docs/view.html#props
      */
     export interface ViewProperties extends ViewPropertiesAndroid, ViewPropertiesIOS, GestureResponderHandlers, Touchable, React.Props<ViewStatic> {
+        /* react-native-scrollable-tab-view need*/
+        tabLabel?: string;
 
         /**
          * Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the Text nodes separated by space.

@@ -133,20 +133,21 @@ export default class Home extends React.Component {
                 } else {
                   subDemos = listDemos;
                 }
+
                 return (<List.Item key={ii}>
                   {
                     whiteList.indexOf(fileName) > -1 ?
                       (<List>
-                        <List.Header>{item.chinese}</List.Header>
+                        <List.Header style={{ padding: '5px 0' }}>{item.chinese}</List.Header>
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
-                              <Link to={`/${fileName}/#${fileName}-demo-${index}`}>{item1.meta.title}</Link>
+                              <Link style={{ lineHeight: '90px' }} to={`/${fileName}/#${fileName}-demo-${item1.meta.order}`}>{item1.meta.title}</Link>
                             </List.Item>
                           ))
                         }
                       </List>) :
-                      <Link to={`/${fileName}/`}>{item.chinese}</Link>}
+                      <Link style={{ lineHeight: '90px' }} to={`/${fileName}/`}>{item.chinese}</Link>}
                 </List.Item>);
               })
             }
@@ -202,14 +203,17 @@ export default class Home extends React.Component {
         drawerProps.className = 'spe-drawer';
       }
     }
-
+    // document.documentElement.clientHeight to
+    // remove height of toolbars, address bars and navigation (android)
     return (
       <div id={name}>
         <div className="demo-drawer-trigger">
           <span onClick={this.onOpenChange}><Icon type="bars" /></span>
         </div>
         <div className="demo-drawer-container">
-          <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
+          <Drawer style={{ minHeight: document.documentElement.clientHeight }}
+            sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}
+          >
             {drawerContent}
           </Drawer>
         </div>

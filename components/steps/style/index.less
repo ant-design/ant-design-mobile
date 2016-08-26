@@ -81,7 +81,8 @@
         color: @process-description-color;
       }
       .@{stepsPrefixCls}-tail > i {
-        background-color: @process-tail-color;
+        background-color: @process-icon-color;
+        width: 55%;
       }
     }
     &.@{stepsPrefixCls}-status-finish {
@@ -171,7 +172,7 @@
 
   &-head-inner {
     display: block;
-    border: 2px solid @wait-icon-color;
+    border: 4px solid @wait-icon-color;
     width: 52px;
     height: 52px;
     line-height: 52px;
@@ -229,8 +230,8 @@
       display: inline-block;
       vertical-align: top;
       background: @wait-tail-color;
-      height: 2px;
-      border-radius: 2px;
+      height: 4px;
+      border-radius: 4px;
       width: 100%;
       position: relative;
       &:after {
@@ -247,7 +248,7 @@
 
   &&-small {
     .@{stepsPrefixCls}-head-inner {
-      border: 1px solid @wait-icon-color;
+      border: 2px solid @wait-icon-color;
       width: 18px;
       height: 18px;
       line-height: 18px;
@@ -305,18 +306,18 @@
     left: 26px;
     top: 0;
     height: 100%;
-    width: 1px;
+    width: 4px;
     padding: 30px 0 4px 0;
+    background-color: @wait-tail-color;
     > i {
       height: 100%;
-      width: 2px;
+      width: 4px;
       &:after {
         height: 0;
         width: 100%;
       }
     }
   }
-
   .@{stepsPrefixCls}-status-finish {
     .@{stepsPrefixCls}-tail > i:after {
       height: 100%;
@@ -341,7 +342,14 @@
       padding-bottom: 24px;
     }
   }
+
+  .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
+    width: 4px;
+    height: 55%;
+  }
 }
+
+
 
 .@{stepsPrefixCls}-vertical.@{stepsPrefixCls}-small {
   .@{stepsPrefixCls}-tail {
@@ -368,8 +376,8 @@
 .@{stepsPrefixCls}-pointer {
   &.@{stepsPrefixCls}-label-vertical {
     .@{stepsPrefixCls}-tail {
-      left: 16px;
-      right: -10px;
+      left: 20px;
+      right: -4px;
     }
   }
 }
@@ -390,9 +398,10 @@
 .@{stepsPrefixCls}-label-vertical {
   .@{stepsPrefixCls}-tail {
     // padding: 0 32px;
-    left: 64px;
-    right: 24px;
+    left: 12px;
+    right: 0;
     width: auto;
+    background-color: @process-tail-color;
   }
   .@{stepsPrefixCls}-item {
     .@{stepsPrefixCls}-step {

@@ -71,16 +71,6 @@ const Test = React.createClass({
       this.setState({ clicked1: icons[buttonIndex].title });
     });
   },
-  showActionSheetWithCustom() {
-    ActionSheet.showActionSheetWithCustom({
-      title: '自定义 ActionSheet',
-      message: '我是描述我是描述',
-      component: <div style={{ color: 'red', padding: 20 }}>
-        自定义内容 &nbsp;
-        <Button inline size="small" onClick={() => ActionSheet.close()}>关闭</Button>
-      </div>,
-    });
-  },
   render() {
     return (<div style={{ margin: '0 8px' }}>
       <div style={{ margin: '32px 0' }}>
@@ -96,12 +86,6 @@ const Test = React.createClass({
       <div style={{ margin: '32px 0' }}>
         <div style={{ padding: '8px 0' }}>
           <Button type="primary" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
-        </div>
-      </div>
-
-      <div style={{ margin: '32px 0' }}>
-        <div style={{ padding: '8px 0' }}>
-          <Button type="primary" onClick={this.showActionSheetWithCustom}>自定义的操作列表</Button>
         </div>
       </div>
     </div>);

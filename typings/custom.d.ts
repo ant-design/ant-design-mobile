@@ -5,9 +5,10 @@ declare module 'antd-mobile' {
     Badge: any;
     Button: any;
     Card: any;
+    Checkbox: any;
     DatePicker: any;
     Drawer: any;
-    Dropdown: any;
+    Popup: any;
     Popover: any;
     Flex: any;
     ImagePicker: any;
@@ -29,6 +30,7 @@ declare module 'antd-mobile' {
     Switch: any;
     Tag: any;
     TabBar: any;
+    Tabs: any;
     TextAreaItem: any;
     Toast: any;
     NoticeBar: any;
@@ -201,5 +203,12 @@ declare module 'react-native-menu' {
 
 declare module 'rmc-pull-to-refresh' {
   var exports: any
+  export default exports
+}
+
+declare module 'react-native-scrollable-tab-view' {
+  var exports: any
+  export const DefaultTabBar: any;
+  export const ScrollableTabBar: any;
   export default exports
 }

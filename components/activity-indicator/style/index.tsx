@@ -9,6 +9,7 @@ export default StyleSheet.create({
     bottom: 0,
     right: 0,
     backgroundColor: 'transparent',
+    zIndex: 99,
   },
   innerContainer: {
     flex: 1,

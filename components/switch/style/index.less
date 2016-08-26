@@ -25,7 +25,7 @@
     border: 0;
     cursor: pointer;
     position: relative;
-    .transition(300ms);
+    transition: all 300ms;
     &:before {
       content: ' ';
       position: absolute;
@@ -37,7 +37,7 @@
       box-sizing: border-box;
       background: @fill-base;
       z-index: 1;
-      .transition(200ms);
+      transition: all 200ms;
       .transform(scale(1));
     }
     &:after {
@@ -51,7 +51,7 @@
       left: 3px;
       top: 3px;
       .transform(translateX(0px));
-      .transition(200ms);
+      transition: all 200ms;
       .box-shadow(4px 4px 8px @color-shadow);
     }
   }
@@ -64,7 +64,7 @@
     height: 100%;
     z-index: 2;
     border: 0 none;
-    -webkit-appearance: none;
+    appearance: none;
     &:checked {
       &+ .checkbox {
         background: @switch-fill;
