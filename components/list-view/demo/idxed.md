@@ -54,7 +54,7 @@ const Demo = React.createClass({
           style={{ height: 800, overflow: 'auto' }}
           quickSearchBarStyle={{
             position: 'absolute',
-            top: 20, right: 10,
+            top: 20,
           }}
           delayTime={10}
           delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}
