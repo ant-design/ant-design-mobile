@@ -2,11 +2,11 @@ import React from 'react';
 // import { Link } from 'react-router';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
-import { getChildren } from 'jsonml.js/lib/utils';
-import Demo from './Demo';
 import Icon from 'antd/lib/icon';
 import Popover from 'antd/lib/popover';
 import QRCode from 'qrcode.react';
+import { getChildren } from 'jsonml.js/lib/utils';
+import Demo from './Demo';
 
 function getOffsetTop(dom) {
   let top = 0;

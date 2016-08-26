@@ -12,7 +12,7 @@ import { Badge } from 'antd-mobile';
 ReactDOM.render(
   <div className="badge-container" style={{ padding: '40px 16px' }}>
     <Badge dot>
-      <span className="dot-example"></span>
+      <span className="dot-example" />
     </Badge>
   </div>
 , mountNode);

@@ -7,6 +7,7 @@ title: 结果页面中的步骤条
 
 ````jsx
 import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
+
 const Step = Steps.Step;
 
 ReactDOM.render(

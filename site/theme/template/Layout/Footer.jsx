@@ -3,6 +3,7 @@ import Select from 'antd/lib/select';
 import Modal from 'antd/lib/modal';
 import { version as packageVersions } from 'antd-mobile/package.json';
 import { docVersions } from '../../';
+
 const Option = Select.Option;
 
 function isLocalStorageNameSupported() {
@@ -42,8 +43,8 @@ export default class Footer extends React.Component {
         <div>
           <img src="https://os.alipayobjects.com/rmsportal/nyqBompsynAQCpJ.svg" alt="Ant Design" />
           <p>
-            您好，<a target="_blank" href="/#/changelog">antd@1.0</a> 已正式发布，欢迎升级。
-            如果您还需要使用旧版，请查阅 <a target="_blank" href="http://012x.ant.design">012x.ant.design</a>
+            您好，<a target="_blank" rel="noopener noreferrer" href="/#/changelog">antd@1.0</a> 已正式发布，欢迎升级。
+            如果您还需要使用旧版，请查阅 <a target="_blank" rel="noopener noreferrer" href="http://012x.ant.design">012x.ant.design</a>
             ，也可通过页面右下角的文档版本选择框进行切换。
           </p>
         </div>
@@ -68,13 +69,13 @@ export default class Footer extends React.Component {
           <li>
             <h2>源码</h2>
             <div>
-              <a target="_blank " href="http://github.com/ant-design">antd</a>
+              <a target="_blank " rel="noopener noreferrer" href="http://github.com/ant-design">antd</a>
             </div>
             <div>
-              <a target="_blank " href="http://github.com/ant-design/ant-design-mobile">antd-mobile</a>
+              <a target="_blank " rel="noopener noreferrer" href="http://github.com/ant-design/ant-design-mobile">antd-mobile</a>
             </div>
             <div>
-              <a target="_blank" href="https://github.com/react-component">react-component</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/react-component">react-component</a>
             </div>
           </li>
           <li>
@@ -86,7 +87,7 @@ export default class Footer extends React.Component {
           </li>
           <li>
             <h2>联系我们</h2>
-            <a target="_blank" href="http://github.com/ant-design/ant-design-mobile/issues">
+            <a target="_blank" rel="noopener noreferrer" href="http://github.com/ant-design/ant-design-mobile/issues">
               反馈和建议
             </a>
           </li>

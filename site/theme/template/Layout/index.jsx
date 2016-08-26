@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Promise from 'bluebird';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US.js';
 import cnLocale from '../../zh-CN.js';
 import '../../static/style';
-import Promise from 'bluebird';
 import * as utils from '../utils';
 
 // Expose to iframe
@@ -15,6 +15,7 @@ window['react-dom'] = ReactDOM;
 
 // Polyfill
 const areIntlLocalesSupported = require('intl-locales-supported');
+
 const localesMyAppSupports = ['zh-CN', 'en-US'];
 
 export function collect(nextProps, callback) {
