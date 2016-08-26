@@ -5,7 +5,7 @@ import List from '../list';
 
 const ListItem = List.Item;
 
-import RadioItemProps from './RadioPropsType';
+import RadioItemProps from './RadioItemPropsType';
 
 export default class RadioItem extends React.Component<RadioItemProps, any> {
   static defaultProps = {
