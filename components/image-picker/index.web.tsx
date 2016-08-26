@@ -64,12 +64,12 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         newImages.push(image);
       }
     });
-    this.props.onChange(newImages);
+    this.props.onChange(newImages, 'remove', index);
   };
 
   addImage = (imgItem) => {
     const newImages = this.props.files.concat(imgItem);
-    this.props.onChange(newImages);
+    this.props.onChange(newImages, 'add');
   };
 
   onFileChange = () => {

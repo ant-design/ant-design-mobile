@@ -98,7 +98,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       delete imageObj.uri;
     }
     const newImages = this.props.files.concat(imageObj);
-    this.props.onChange(newImages);
+    this.props.onChange(newImages, 'add');
   }
 
   removeImage(idx: number): void {
@@ -108,7 +108,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         newImages.push(image);
       }
     });
-    this.props.onChange(newImages);
+    this.props.onChange(newImages, 'remove', idx);
   }
 
   hideImageRoll = () => {
