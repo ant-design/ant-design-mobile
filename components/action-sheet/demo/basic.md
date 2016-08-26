@@ -5,7 +5,7 @@ title: 基本
 
 
 ````jsx
-import { ActionSheet, Button } from 'antd-mobile';
+import { ActionSheet, Button, Toast } from 'antd-mobile';
 
 const Test = React.createClass({
   getInitialState() {
@@ -45,11 +45,12 @@ const Test = React.createClass({
       message: '我是描述我是描述',
     },
     (buttonIndex) => {
-      if (buttonIndex === -1) {
-        this.setState({ clicked1: 'cancel' });
-        return;
-      }
-      this.setState({ clicked1: icons[buttonIndex].title });
+      this.setState({ clicked1: buttonIndex > -1 ? icons[buttonIndex].title : 'cancel' });
+      // also support Promise
+      return new Promise((resolve) => {
+        Toast.info('1000ms 后关闭');
+        setTimeout(resolve, 1000);
+      });
     });
   },
   showShareActionSheetMulpitleLine() {
@@ -60,11 +61,7 @@ const Test = React.createClass({
       message: '我是描述我是描述',
     },
     (buttonIndex, rowIndex) => {
-      if (buttonIndex === -1) {
-        this.setState({ clicked2: 'cancel' });
-        return;
-      }
-      this.setState({ clicked2: icons[rowIndex][buttonIndex].title });
+      this.setState({ clicked2: buttonIndex > -1 ? icons[rowIndex][buttonIndex].title : 'cancel' });
     });
   },
   render() {
