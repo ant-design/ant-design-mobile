@@ -8,6 +8,7 @@ title: 选项卡
 
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
+
 const TabPane = Tabs.TabPane;
 
 function callback(key) {

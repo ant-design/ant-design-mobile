@@ -8,6 +8,7 @@ title: mode
 
 ````jsx
 import { NavBar, Icon } from 'antd-mobile';
+
 ReactDOM.render(
   <div style={{ padding: 8 }}>
     <NavBar leftContent="返回"

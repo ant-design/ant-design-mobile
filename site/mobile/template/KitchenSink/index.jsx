@@ -1,10 +1,10 @@
 import React from 'react';
 import Promise from 'bluebird';
+import { Link } from 'react-router';
+import { Icon, Drawer, List, Flex } from 'antd-mobile';
 import * as utils from '../../../theme/template/utils';
 import Page from './Page';
 import Item from './Item';
-import { Link } from 'react-router';
-import { Icon, Drawer, List, Flex } from 'antd-mobile';
 
 const hashImgObj = {
   'action-sheet': 'sTvsgvivVKnqQtS',

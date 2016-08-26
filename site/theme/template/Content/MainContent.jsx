@@ -7,6 +7,7 @@ import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 import config from '../../';
+
 const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
@@ -64,7 +65,7 @@ export default class MainContent extends React.Component {
       <Link to={url} disabled={disabled}>
         {text}
       </Link> :
-      <a href={item.link} target="_blank" disabled={disabled}>
+      <a href={item.link} rel="noopener noreferrer" target="_blank" disabled={disabled}>
         {text}
       </a>;
 
@@ -163,9 +164,11 @@ export default class MainContent extends React.Component {
           </Col>
           <Col lg={19} md={18} sm={24} xs={24} className="main-container">
             {
-              props.utils.get(props, 'pageData.demo') ?
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
+              props.utils.get(props, 'pageData.demo') ? (
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
+              ) : (
                 <Article {...props} content={localizedPageData} />
+              )
             }
           </Col>
         </Row>
@@ -176,14 +179,14 @@ export default class MainContent extends React.Component {
           >
             <section className="prev-next-nav">
               {
-                !!prev ?
-                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
-                  null
+                prev ?
+                React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                null
               }
               {
-                !!next ?
-                  React.cloneElement(next.props.children, { className: 'next-page' }) :
-                  null
+                next ?
+                React.cloneElement(next.props.children, { className: 'next-page' }) :
+                null
               }
             </section>
           </Col>

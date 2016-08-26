@@ -94,7 +94,7 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }}></div>
+      }} />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -141,8 +141,12 @@ const Demo = React.createClass({
         onScroll={() => { console.log('scroll'); }}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        style={{ height: document.body.clientHeight - 300,
-        overflow: 'auto', border: '1px solid #ddd', margin: '10px 0' }}
+        style={{
+          height: document.body.clientHeight - 300,
+          overflow: 'auto',
+          border: '1px solid #ddd',
+          margin: '10px 0',
+        }}
       />
     </div>);
   },

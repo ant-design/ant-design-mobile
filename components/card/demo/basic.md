@@ -7,6 +7,7 @@ Card
 
 ````jsx
 import { Card } from 'antd-mobile';
+
 ReactDOM.render(
   <div className="alert-container" style={{ padding: 10 }}>
     <Card>

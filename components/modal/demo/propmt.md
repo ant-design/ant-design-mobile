@@ -7,6 +7,7 @@ title: 输入框
 
 ````jsx
 import { Modal, Button, WingBlank, WhiteSpace } from 'antd-mobile';
+
 const prompt = Modal.prompt;
 
 function plainTextPrompt() {
