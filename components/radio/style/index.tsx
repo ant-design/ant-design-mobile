@@ -15,10 +15,8 @@ export default StyleSheet.create({
     marginRight: variables.h_spacing_md,
   },
   radioItemContent: {
-    flex: 1,
-    color: variables.color_text_paragraph,
-    fontSize: variables.font_size_caption,
-    height: variables.v_spacing_xl,
+    color: variables.color_text_base,
+    fontSize: variables.font_size_heading,
   },
   radioItemContentDisable: {
     color: variables.color_text_disabled,
