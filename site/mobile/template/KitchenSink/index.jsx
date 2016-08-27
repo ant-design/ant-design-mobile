@@ -145,7 +145,7 @@ export default class App extends React.Component {
                 <List.Body>
                   {(() => {
                     const flexs = [];
-                    let flexItems = [];
+                    const flexItems = [];
                     for (let i = 0; i < lists[cate].length; i++) {
                       const ii = lists[cate][i];
                       const fileName = ii.filename.split('/')[1];
