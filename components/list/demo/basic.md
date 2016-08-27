@@ -20,7 +20,7 @@ let ListExample = React.createClass({
         footer="列表尾部"
       >
         <List.Body>
-          <List.Item>标题文字,没有设置onClick则点击无反馈效果</List.Item>
+          <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
           <List.Item
             onClick={() => {}}
             extra={undefined}
@@ -29,16 +29,6 @@ let ListExample = React.createClass({
             extra="内容内容"
             onClick={() => {}}
             arrow="horizontal"
-          >标题文字</List.Item>
-          <List.Item
-            extra="内容内容"
-            onClick={() => {}}
-            arrow="up"
-          >标题文字</List.Item>
-          <List.Item
-            extra="内容内容"
-            onClick={() => {}}
-            arrow="down"
           >标题文字</List.Item>
         </List.Body>
       </List>
@@ -84,6 +74,7 @@ let ListExample = React.createClass({
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"
             arrow="horizontal"
+            onClick={() => {}}
           >thumb</List.Item>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"

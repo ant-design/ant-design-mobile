@@ -5,16 +5,7 @@ import Footer from './ListFooter';
 import Item from './ListItem';
 import classNames from 'classnames';
 
-export interface ListProps {
-  /** web only */
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
-  title?: React.ReactNode;
-  footer?: React.ReactNode;
-  children?: any;
-}
+import ListProps from './ListPropTypes';
 
 class List extends React.Component<ListProps, any> {
   static Header: any;
