@@ -3,140 +3,102 @@ import { StyleSheet } from 'react-native';
 
 const grid = 4;
 export default StyleSheet.create({
-  warp_row: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  container: {
-    paddingBottom: 4 * grid,
-  },
-  tail: {
-    position: 'absolute',
-    left: 15,
-    top: 0,
-    bottom: 0,
-    borderLeftWidth: 2,
-    borderColor: variables.fill_tap,
-    borderStyle: 'solid',
-  },
-  tail_current: {
-    borderColor: variables.brand_primary,
-  },
-  head_default: {
-    position: 'absolute',
-    width: 8 * grid,
-    height: 8 * grid,
+
+  head_default_s: {
+    width: 18,
+    height: 18,
     backgroundColor: variables.fill_base,
-    borderRadius: 4 * grid,
-    borderWidth: 2,
+    borderRadius: 18,
+    borderWidth: variables.border_width_lg,
     borderColor: variables.brand_primary,
     borderStyle: 'solid',
-    paddingTop: 2 * grid,
-    paddingLeft: 2 * grid,
-    paddingRight: 2 * grid,
   },
-  head_small: {
-    position: 'absolute',
-    width: 6 * grid,
-    height: 6 * grid,
+  head_blue_s: {
+    borderColor: variables.brand_primary,
+  },
+  head_gray_s: {
+    borderColor: variables.color_text_placeholder,
+  },
+  head_red_s: {
+    borderColor: variables.brand_error,
+  },
+  icon_s: {
+    width: 14,
+    height: 14,
+  },
+
+  head_default_l: {
+    width: 24,
+    height: 24,
     backgroundColor: variables.fill_base,
-    borderRadius: 3 * grid,
-    borderWidth: 2,
+    borderRadius: 18,
+    borderWidth: variables.border_width_lg,
     borderColor: variables.brand_primary,
     borderStyle: 'solid',
-    top: 2 * grid,
-    paddingTop: grid,
-    paddingLeft: grid,
-    paddingRight: grid,
   },
-  head_pointer: {
-    position: 'absolute',
-    width: 2 * grid,
-    height: 2 * grid,
-    backgroundColor: variables.fill_tap,
-    borderRadius: 1 * grid,
-    top: 4 * grid,
-    paddingTop: grid,
-    paddingLeft: grid,
-    paddingRight: grid,
-  },
-  head_current: {
+  head_blue_l: {
+    borderColor: variables.brand_primary,
     backgroundColor: variables.brand_primary,
-    paddingTop: grid,
   },
-  head_wait: {
-    borderColor: variables.fill_tap,
-    paddingTop: grid,
+  head_gray_l: {
+    borderColor: variables.color_text_placeholder,
+    backgroundColor: variables.color_text_placeholder,
   },
-  content: {
-    top: -1,
-    paddingBottom: 4 * grid,
-    paddingLeft: 12 * grid,
+  head_red_l: {
+    borderColor: variables.brand_error,
+    backgroundColor: variables.brand_error,
   },
-  dotText_default: {
-    fontSize: variables.link_button_font_size,
+  tail_default_l: {
+    width: variables.border_width_lg,
+    height: 30,
+    marginLeft: 11,
   },
-  dotText_small: {
-    fontSize: variables.font_size_caption_sm,
-    left: 1,
-    top: -1,
+  icon_l: {
+    width: 20,
+    height: 20,
   },
-  dotText_pointer: {
-    fontSize: variables.font_size_caption_sm,
-    left: 1,
-    top: -1,
-  },
-  text_current: {
-    color: variables.fill_base,
-  },
-  text_wait: {
-    color: variables.fill_tap,
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: variables.font_size_subhead,
-    paddingTop: 2 * grid,
-    paddingBottom: 3 * grid,
-    color: variables.color_text_base,
-  },
-  color_current: {
-    color: variables.color_text_base,
-  },
-  description: {
-    fontSize: variables.font_size_caption_sm,
-    color: variables.color_text_base,
-  },
-  item: {
-    width: 16 * grid,
-  },
-  horizon_title: {
-    fontWeight: 'bold',
-    fontSize: variables.font_size_subhead,
-    position: 'absolute',
-    top: 10 * grid,
-    left: -2 * grid,
-    color: variables.color_text_base,
-    textAlign: 'center',
-  },
-  horizon_tail_default: {
-    marginTop: 4 * grid,
-    marginLeft: 8 * grid,
-    borderBottomWidth: 2,
-    borderColor: variables.fill_tap,
-    borderStyle: 'solid',
-  },
-  horizon_tail_small: {
-    marginTop: 5 * grid,
-    marginLeft: 6 * grid,
-    borderBottomWidth: 2,
-    borderColor: variables.fill_tap,
-    borderStyle: 'solid',
-  },
-  horizon_tail_pointer: {
-    marginTop: 5 * grid,
+  tail_default_s: {
+    width: variables.border_width_lg,
+    height: 30,
     marginLeft: 2 * grid,
-    borderBottomWidth: 1,
-    borderColor: variables.fill_tap,
-    borderStyle: 'solid',
   },
+  tail_gray: {
+    backgroundColor: variables.color_text_placeholder,
+  },
+  tail_blue: {
+    backgroundColor: variables.brand_primary,
+  },
+  tail_error: {
+    backgroundColor: variables.brand_error,
+  },
+  tail_last: {
+    backgroundColor: 'transparent',
+  },
+  content_s: {
+    paddingLeft: variables.h_spacing_md,
+  },
+  content_l: {
+    paddingLeft: variables.h_spacing_lg,
+  },
+  title_s: {
+    fontWeight: 'bold',
+    fontSize: variables.font_size_caption,
+    paddingBottom: variables.v_spacing_md,
+    color: variables.color_text_base,
+  },
+  description_s: {
+    fontSize: variables.font_size_caption_sm,
+    color: variables.color_text_base,
+  },
+  title_l: {
+    fontWeight: 'bold',
+    fontSize: variables.font_size_heading,
+    paddingBottom: variables.v_spacing_md,
+    color: variables.color_text_base,
+  },
+  description_l: {
+    fontSize: variables.font_size_subhead,
+    color: variables.color_text_base,
+  },
+
 });

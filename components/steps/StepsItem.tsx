@@ -13,69 +13,95 @@ export interface StepsItemProps {
   description?: string;
   status?: string;
   finishIcon?: string;
+  errorTail?: number;
 }
 
 export default class StepsItem extends React.Component<StepsItemProps, any> {
 
   render() {
-    const { width, size, current, index, last, direction, title, description, status, finishIcon } = this.props;
+    const { size, current, index, last, title, description,
+      status, errorTail } = this.props;
 
-    const headSize = `head_${size || 'default'}`;
-    const dotTextSize = `dotText_${size || 'default'}`;
-    const horizonTailSize = `horizon_tail_${size || 'default'}`;
+    let iconImg;
+    let headCls;
+    let tailTopCls;
+    let tailBottomCls;
 
-    const tailCurrent = index < current || status === 'finish' ? 'tail_current' : null;
-    const headCurrent = (size === 'pointer' && (status === 'finish' || index < current))
-      || (index === current) || (status === 'process') ?
-      'head_current' : null;
-    const headWait = index > current || status === 'wait' ? 'head_wait' : null;
-    const textCurrent = index === current || status === 'process' ? 'text_current' : null;
-    const textWait = index > current || status === 'wait' ? 'text_wait' : null;
-    const colorCurrent = index === current || status === 'process' ? 'color_current' : null;
+    const sizeCls = size === 'small' ? '_s' : '_l';
 
-    const widthStyle = {width: width};
-    const imgStyle = size === 'small' ? {width: 2, height: 2} : {width: 14, height: 14};
+    if (index < current || status === 'finish') {
+      iconImg = 'check';
+      headCls = `head_blue${sizeCls}`;
+      tailTopCls = 'tail_blue';
+      tailBottomCls = 'tail_blue';
+    } else if (index === current || status === 'process') {
+      iconImg = 'check';
+      headCls = `head_blue${sizeCls}`;
+      tailTopCls = 'tail_blue';
+      tailBottomCls = 'tail_gray';
+    } else if (index > current || status === 'wait') {
+      iconImg = 'more';
+      headCls = `head_gray${sizeCls}`;
+      tailTopCls = 'tail_gray';
+      tailBottomCls = 'tail_gray';
+    } else if (status === 'error') {
+      iconImg = 'error';
+      headCls = `head_red${sizeCls}`;
+      tailTopCls = 'tail_gray';
+      tailBottomCls = 'tail_gray';
+    }
 
-    let Steps = direction === 'vertical' ? (<View style={[styles.container]}>
-        { !last && <View style={[styles.tail, styles[tailCurrent]]}></View> }
-        <View style={[styles.head_default, styles[headCurrent], styles[headWait]]}>
-          {
-            index < current || status === 'finish'  ?
-              <Image
-                source={ finishIcon || require('../style/images/check.png')}
-                style={imgStyle}
-              /> :
-              <Text style={[styles[dotTextSize], styles[textCurrent], styles[textWait]]}>{index + 1}</Text>
-          }
-        </View>
-        <View style={styles.content}>
-          <Text style={[styles.title, styles[colorCurrent]]}>{ title }</Text>
-          <Text style={[styles.description, styles[colorCurrent]]}>{ description }</Text>
-        </View>
-      </View>) :
-      (<View style={[styles.item, widthStyle]}>
-        <View>
-          <View style={[styles[headSize], styles[headCurrent], styles[headWait]]}>
-            {
-              index < current || status === 'finish' ?
-              size !== 'pointer' && <Image
-                source={ finishIcon || require('../style/images/check.png')}
-                style={{ width: 14, height:14 }}
-              /> :
-              size !== 'pointer' &&
-              <Text style={[styles[dotTextSize], styles[textCurrent], styles[textWait]]}>
-                {index + 1}
-              </Text>
-            }
-          </View>
-          <Text style={[styles.horizon_title, styles[colorCurrent]]}>{title}</Text>
-        </View>
-        { !last && <View style={[styles[horizonTailSize], styles[tailCurrent]]}></View> }
-      </View>);
+    if (last) {
+      tailTopCls = 'tail_last';
+      tailBottomCls = 'tail_last';
+    }
+
+    if (errorTail > -1) {
+      tailBottomCls = 'tail_error';
+    }
 
     return (
-      <View>
-        {Steps}
+      <View style={{flex:1, flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'column'}}>
+          <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
+            {
+              size === 'small' && (index < current || status === 'finish' ||
+                index === current || status === 'process') &&
+              <Image source={require('../style/images/check.png')} style={styles[`icon${sizeCls}`]} />
+            }
+            {
+              size === 'small' && (index > current || status === 'wait') &&
+              <Image source={require('../style/images/more.png')} style={styles[`icon${sizeCls}`]} />
+            }
+            {
+              size === 'small' && status === 'error' &&
+              <Image source={require('../style/images/cross.png')} style={styles[`icon${sizeCls}`]} />
+            }
+            {
+              size !== 'small' && (index < current || status === 'finish' ||
+                index === current || status === 'process') &&
+              <Image source={require('../style/images/check_w.png')} style={styles[`icon${sizeCls}`]} />
+            }
+            {
+              size !== 'small' && (index > current || status === 'wait') &&
+              <Image source={require('../style/images/more_w.png')} style={styles[`icon${sizeCls}`]} />
+            }
+            {
+              size !== 'small' && status === 'error' &&
+              <Image source={require('../style/images/cross_w.png')} style={styles[`icon${sizeCls}`]} />
+            }
+          </View>
+          {
+            <View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} />
+          }
+          {
+            <View style={[styles[`tail_default${sizeCls}`], styles[tailBottomCls]]} />
+          }
+        </View>
+        <View style={styles[`content${sizeCls}`]}>
+          <Text style={[styles[`title${sizeCls}`]]}>{ title }</Text>
+          <Text style={[styles[`description${sizeCls}`]]}>{ description }</Text>
+        </View>
       </View>
     );
   }
