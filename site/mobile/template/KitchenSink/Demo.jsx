@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
-import * as utils from '../../../theme/template/utils';
 import { Link } from 'react-router';
 import { Drawer, List, Icon } from 'antd-mobile';
+import * as utils from '../../../theme/template/utils';
 
 export function collect(nextProps, callback) {
   const componentsList = utils.collectDocs(nextProps.data.components);
@@ -186,7 +186,7 @@ export default class Home extends React.Component {
           <div className="demo-preview-item"id={`${name}-demo-${index}`} key={index}>
             <div className="demoTitle">{i.meta.title}</div>
             {i.preview(React, ReactDOM)}
-            {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+            {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
           </div>
         ))
       }
@@ -197,7 +197,7 @@ export default class Home extends React.Component {
       const i = demoSort[arr.length > 1 ? arr[1] : 0];
       drawerContent = (<div style={{ height: '100%' }}>
         {i.preview(React, ReactDOM)}
-        {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+        {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
       </div>);
       if (name === 'list-view') {
         drawerProps.className = 'spe-drawer';

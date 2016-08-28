@@ -35,7 +35,7 @@ ReactDOM.render(
           <List.Item extra="内容内容" arrow="horizontal">
             <div style={{ padding: '8px 0' }}>
               <Badge dot>
-                <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }}></span>
+                <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
               </Badge>小圆点
             </div>
           </List.Item>
@@ -52,14 +52,14 @@ ReactDOM.render(
           <List.Item extra="内容内容" arrow="horizontal">
             <div style={{ padding: '20px 0' }}>
               <Badge text={9}>
-                <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }}></span>
+                <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
               </Badge>数字
             </div>
           </List.Item>
           <List.Item extra="内容内容" arrow="horizontal">
             <div style={{ padding: '20px 0' }}>
               <Badge text={108}>
-                <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }}></span>
+                <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
               </Badge>超出99
             </div>
           </List.Item>

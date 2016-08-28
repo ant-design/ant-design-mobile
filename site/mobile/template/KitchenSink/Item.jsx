@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import './Item.less';
 import { Link } from 'react-router';
+import './Item.less';
 
 const Item = React.createClass({
   PropTypes: {

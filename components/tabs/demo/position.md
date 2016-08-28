@@ -7,6 +7,7 @@ tabPosition: bottom
 
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
+
 const TabPane = Tabs.TabPane;
 
 function callback(key) {

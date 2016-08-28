@@ -137,10 +137,16 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      &-vertical-up {
+      visibility: hidden;
+      &-horizontal {
+        visibility: visible;
+      }
+      &-vertical {
+        visibility: visible;
         .transform(rotate(270deg));
       }
-      &-vertical-down {
+      &-vertical-up {
+        visibility: visible;
         .transform(rotate(90deg));
       }
     }

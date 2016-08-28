@@ -17,7 +17,6 @@ export default StyleSheet.create({
   },
   barItem: {
     flex: 1,
-    alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -29,6 +28,7 @@ export default StyleSheet.create({
   },
   barItemTitle: {
     fontSize: variables.font_size_icontext,
+    marginTop: variables.v_spacing_xs,
   },
   contentItem: {
     zIndex: 1,
@@ -40,5 +40,19 @@ export default StyleSheet.create({
   },
   contentItemSelected: {
     zIndex: 3,
+  },
+  badge: {
+    minWidth: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: variables.brand_important,
+    position: 'absolute',
+    top: -variables.v_spacing_xs,
+    left: 20,
+    paddingHorizontal: variables.h_spacing_sm,
+  },
+  badgeText: {
+    textAlign: 'center',
+    color: 'white',
   },
 });

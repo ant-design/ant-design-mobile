@@ -21,6 +21,7 @@ declare module 'antd-mobile' {
     Picker: any;
     Progress: any;
     RefreshControl: any;
+    Radio: any;
     SegmentedControl: any;
     SearchBar: any;
     Slider: any;

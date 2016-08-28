@@ -48,8 +48,14 @@ function createActionSheet(flag, config, callback) {
   }
 
   function cb(index, rowIndex = 0) {
-    callback(index, rowIndex);
-    close();
+    const res = callback(index, rowIndex);
+    if (res && res.then) {
+      res.then(() => {
+        close();
+      });
+    } else {
+      close();
+    }
   }
 
   const { title, message, options, destructiveButtonIndex, cancelButtonIndex, cancelButtonText } = props;

@@ -36,6 +36,11 @@ const eslintrc = {
     'array-callback-return': 0,
     'import/no-unresolved': 0,
     'jsx-a11y/img-has-alt': 0,
+    'import/no-extraneous-dependencies': 0,
+    'react/no-string-refs': 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".md"] }],
+    'react/no-find-dom-node': 0,
+    'jsx-a11y/href-no-hash': 0,
   }
 };
 
