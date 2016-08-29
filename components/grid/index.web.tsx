@@ -20,22 +20,15 @@ export interface GridProps {
   data?: Array<DataItem>;
   onClick?: Function;
   hasLine?: boolean;
-  needActive?: boolean;
   isCarousel?: boolean;
 }
 
-export interface GridState {
-  hover: boolean;
-  hoverIndex?: number;
-}
-
-export default class Grid extends React.Component<GridProps, GridState> {
+export default class Grid extends React.Component<GridProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     data: PropTypes.array,
     onClick: PropTypes.func,
     hasLine: PropTypes.bool,
-    needActive: PropTypes.bool,
     isCarousel: PropTypes.bool,
   };
 
@@ -44,42 +37,17 @@ export default class Grid extends React.Component<GridProps, GridState> {
     data: [],
     onClick: noop,
     hasLine: true,
-    needActive: true,
     isCarousel: false,
   };
 
   clientWidth: any;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      hover: false,
-    };
-  }
-
   componentWillMount() {
     this.clientWidth = document.documentElement.clientWidth;
   }
 
-  onTouchStart = (index) => {
-    if (this.props.needActive) {
-      this.setState({
-        hover: true,
-        hoverIndex: index,
-      });
-    }
-  };
-
-  onTouchEnd = () => {
-    if (this.props.needActive) {
-      this.setState({
-        hover: false,
-      });
-    }
-  };
-
   render() {
-    let { className, data, prefixCls, hasLine, isCarousel, needActive } = this.props;
+    let { className, data, prefixCls, hasLine, isCarousel } = this.props;
 
     const wrapCls = classNames({
       [prefixCls]: true,
@@ -88,7 +56,7 @@ export default class Grid extends React.Component<GridProps, GridState> {
     });
 
     const itemCls = classNames({
-      [`${prefixCls}-item-hover`]: needActive,
+      [`${prefixCls}-item`]: true,
     });
 
     const dataLength = data.length;
@@ -107,10 +75,11 @@ export default class Grid extends React.Component<GridProps, GridState> {
       let flexContent = [];
       for (let j = 0; j < 4; j++) {
         if (i * 4 + j < dataLength) {
+
           flexContent.push(<Flex.Item
             className={itemCls}
             style={flexItemStyle}
-            onClick={() => {this.props.onClick(data[i * 4 + j], (i * 4 + j));}}
+            onClick={() => { this.props.onClick(data[i * 4 + j], (i * 4 + j)); }}
             key={`griditem-${i * 4 + j}`}
           >
             <div className={`${prefixCls}-icon`} style={{ backgroundImage: `url(${data[i * 4 + j].icon})` }} />

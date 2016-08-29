@@ -57,7 +57,6 @@ const GridExample = React.createClass({
         data={data3}
         isCarousel
         onClick={(el, index) => { alert(index); }}
-        needActive={false}
       />
     </div>);
   },
