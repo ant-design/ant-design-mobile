@@ -6,53 +6,60 @@ title: 排列方向
 direction="row/row-reverse/column/column-reverse"
 
 ````jsx
-import { Flex, List, Button, WhiteSpace } from 'antd-mobile';
+import { Flex, List, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const FlexExample = React.createClass({
   render() {
     return (
-      <div className="button-container">
+      <div className="flex-container">
         <WhiteSpace />
         <List title="row:主轴为水平方向，起点在左端" />
-        <Flex>
-          <Button size="small" type="primary" style={{ margin: '8px' }}>按钮1</Button>
-          <Button size="small" style={{ margin: '8px' }}>按钮2</Button>
-          <Button size="small" type="primary" style={{ margin: '8px' }}>按钮3</Button>
-          <Button size="small" style={{ margin: '8px' }}>按钮4</Button>
-        </Flex>
+        <WingBlank size={28}>
+          <Flex className="flex-button-container">
+            <Button type="primary">按钮1</Button>
+            <Button>按钮2</Button>
+            <Button type="primary">按钮3</Button>
+            <Button>按钮4</Button>
+          </Flex>
+        </WingBlank>
         <List>
           <List.Header>row-reverse:主轴为水平方向，起点在右端</List.Header>
         </List>
-        <Flex
-          direction="row-reverse"
-        >
-          <Button size="small" type="primary" style={{ margin: '8px' }}>按钮1</Button>
-          <Button size="small" style={{ margin: '8px' }}>按钮2</Button>
-          <Button size="small" type="primary" style={{ margin: '8px' }}>按钮3</Button>
-          <Button size="small" style={{ margin: '8px' }}>按钮4</Button>
-        </Flex>
+        <WingBlank size={28}>
+          <Flex
+            direction="row-reverse"
+            className="flex-button-container-reverse"
+          >
+            <Button type="primary">按钮1</Button>
+            <Button>按钮2</Button>
+            <Button type="primary">按钮3</Button>
+            <Button>按钮4</Button>
+          </Flex>
+        </WingBlank>
         <List>
           <List.Header>column:主轴为垂直方向，起点在上沿</List.Header>
         </List>
-        <Flex
-          direction="column"
-        >
-          <Button size="small" type="primary" style={{ margin: '8px' }}>按钮1</Button>
-          <Button size="small" style={{ margin: '8px' }}>按钮2</Button>
-          <Button size="small" type="primary" style={{ margin: '8px' }}>按钮3</Button>
-          <Button size="small" style={{ margin: '8px' }}>按钮4</Button>
-        </Flex>
+        <WingBlank size={28}>
+          <Flex
+            direction="column"
+          >
+            <Button type="primary" style={{ margin: '16px' }}>按钮1</Button>
+            <Button style={{ margin: '16px' }}>按钮2</Button>
+            <Button type="primary" style={{ margin: '16px' }}>按钮3</Button>
+            <Button style={{ margin: '16px' }}>按钮4</Button>
+          </Flex>
+        </WingBlank>
         <List>
           <List.Header>column-reverse:主轴为垂直方向，起点在下沿</List.Header>
         </List>
-        <Flex
-          direction="column-reverse"
-        >
-          <Button size="small" type="primary" style={{ margin: '8px' }}>按钮1</Button>
-          <Button size="small" style={{ margin: '8px' }}>按钮2</Button>
-          <Button size="small" type="primary" style={{ margin: '8px' }}>按钮3</Button>
-          <Button size="small" style={{ margin: '8px' }}>按钮4</Button>
-        </Flex>
+        <WingBlank size={28}>
+          <Flex direction="column-reverse">
+            <Button type="primary" style={{ margin: '16px' }}>按钮1</Button>
+            <Button type="primary" style={{ margin: '16px' }}>按钮2</Button>
+            <Button type="primary" style={{ margin: '16px' }}>按钮3</Button>
+            <Button type="primary" style={{ margin: '16px' }}>按钮4</Button>
+          </Flex>
+        </WingBlank>
         <WhiteSpace />
       </div>
     );
@@ -60,4 +67,22 @@ const FlexExample = React.createClass({
 });
 
 ReactDOM.render(<FlexExample />, mountNode);
+````
+
+````css
+.flex-container {
+  background: #f5f5f9;
+}
+.flex-button-container button {
+   margin-right: 0.28rem;
+}
+.flex-button-container button:last-child {
+   margin-right: 0;
+}
+.flex-button-container-reverse button {
+   margin-right: 0.28rem;
+}
+.flex-button-container-reverse button:first-child {
+   margin-right: 0;
+}
 ````

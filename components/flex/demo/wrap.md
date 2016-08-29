@@ -6,72 +6,92 @@ title: 换行
 wrap="nowrap/wrap/wrap-reverse"
 
 ````jsx
-import { Flex, List, Button, WhiteSpace } from 'antd-mobile';
+import { Flex, List, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const FlexExample = React.createClass({
   render() {
     return (
-      <div className="button-container">
+      <div className="flex-container">
         <WhiteSpace />
         <List>
           <List.Header>nowrap(默认):不换行</List.Header>
         </List>
-        <Flex>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>1</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>2</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>3</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>4</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>5</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>6</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>7</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>8</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>9</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>10</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>11</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>12</Button>
-        </Flex>
+        <WingBlank size={28}>
+          <Flex className="flex-button-container">
+            <Button type="primary">1</Button>
+            <Button>2</Button>
+            <Button type="primary">3</Button>
+            <Button>4</Button>
+            <Button type="primary">5</Button>
+            <Button>6</Button>
+            <Button type="primary">7</Button>
+            <Button>8</Button>
+            <Button type="primary">9</Button>
+            <Button>10</Button>
+            <Button type="primary">11</Button>
+            <Button>12</Button>
+          </Flex>
+        </WingBlank>
         <List>
           <List.Header>wrap:换行，第一行在上方</List.Header>
         </List>
-        <Flex
-          wrap="wrap"
-        >
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>1</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>2</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>3</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>4</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>5</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>6</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>7</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>8</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>9</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>10</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>11</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>12</Button>
-        </Flex>
+        <WingBlank size={28}>
+          <Flex
+            wrap="wrap"
+            className="flex-button-container"
+          >
+            <Button type="primary">1</Button>
+            <Button>2</Button>
+            <Button type="primary">3</Button>
+            <Button>4</Button>
+            <Button type="primary">5</Button>
+            <Button>6</Button>
+            <Button type="primary">7</Button>
+            <Button>8</Button>
+            <Button type="primary">9</Button>
+            <Button>10</Button>
+            <Button type="primary">11</Button>
+            <Button>12</Button>
+          </Flex>
+        </WingBlank>
         <List>
           <List.Header>wrap-reverse:换行，第一行在下方</List.Header>
         </List>
-        <Flex
-          wrap="wrap-reverse"
-        >
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>1</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>2</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>3</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>4</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>5</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>6</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>7</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>8</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>9</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>10</Button>
-          <Button size="small" type="primary" style={{ margin: '18px', width: '80px' }}>11</Button>
-          <Button size="small" style={{ margin: '18px', width: '80px' }}>12</Button>
-        </Flex>
+        <WingBlank size={28}>
+          <Flex
+            wrap="wrap-reverse"
+            className="flex-button-container"
+          >
+            <Button type="primary">1</Button>
+            <Button>2</Button>
+            <Button type="primary">3</Button>
+            <Button>4</Button>
+            <Button type="primary">5</Button>
+            <Button>6</Button>
+            <Button type="primary">7</Button>
+            <Button>8</Button>
+            <Button type="primary">9</Button>
+            <Button>10</Button>
+            <Button type="primary">11</Button>
+            <Button>12</Button>
+          </Flex>
+        </WingBlank>
       </div>
     );
   },
 });
 
 ReactDOM.render(<FlexExample />, mountNode);
+````
+
+````css
+.flex-container {
+  background: #f5f5f9;
+}
+.flex-button-container button {
+   margin-right: 0.18rem;
+   margin-bottom: 0.18rem;
+   width: 1.2rem;
+}
+
 ````
