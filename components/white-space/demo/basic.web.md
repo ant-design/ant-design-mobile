@@ -18,19 +18,19 @@ const WhiteSpaceExample = React.createClass({
           <Button type="primary">上下留白8px</Button>
         </WingBlank>
         <WhiteSpace />
-        <div style={{ borderTop: '1px solid #108ee9' }} />
+        <div style={{ borderTop: '1Px solid #108ee9' }} />
         <WhiteSpace size={16} />
         <WingBlank>
           <Button type="primary">上下留白16px</Button>
         </WingBlank>
         <WhiteSpace size={16} />
-        <div style={{ borderTop: '1px solid #108ee9' }} />
+        <div style={{ borderTop: '1Px solid #108ee9' }} />
         <WhiteSpace size={32} />
         <WingBlank>
           <Button type="primary">上下留白32px</Button>
         </WingBlank>
         <WhiteSpace size={32} />
-        <div style={{ borderTop: '1px solid #108ee9' }} />
+        <div style={{ borderTop: '1Px solid #108ee9' }} />
       </div>
     );
   },
