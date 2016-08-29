@@ -34,36 +34,64 @@ const Test = React.createClass({
   render() {
     return (
       <div>
-        <List >
-          <List.Header>表单单选框，普通列表中单选</List.Header>
+        <List
+          title="请选择学历"
+        >
           <List.Body>
             <RadioItem
               checked={this.state.value === 1}
               onChange={this.handleChange}
               disabled={this.state.disabled}
             >
-              使用 Ant Desgin Component
+              博士
             </RadioItem>
             <RadioItem
               checked={this.state.value === 2}
               onChange={this.handleChange2}
               disabled={this.state.disabled}
             >
-              使用 Ant Desgin Component
+              硕士
             </RadioItem>
             <RadioItem
-              checked
-              onChange={this.handleChange}
-              disabled
+              checked={this.state.value === 3}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  this.setState({ value: 3 });
+                }
+              }}
             >
-              个性化调整disabled
+              本科
             </RadioItem>
             <RadioItem
-              checked={false}
-              onChange={this.handleChange}
+              checked={this.state.value === 4}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  this.setState({ value: 4 });
+                }
+              }}
+            >
+              高中
+            </RadioItem>
+            <RadioItem
+              checked={this.state.value === 5}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  this.setState({ value: 5 });
+                }
+              }}
+            >
+              初中
+            </RadioItem>
+            <RadioItem
+              checked={this.state.value === 6}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  this.setState({ value: 6 });
+                }
+              }}
               disabled
             >
-              个性化调整disabled
+              小学
             </RadioItem>
           </List.Body>
         </List>

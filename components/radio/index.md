@@ -28,3 +28,5 @@ Radio提供了一个简单的方法来从一个预定义集合中选取单个值
 | onChange    | change事件触发的回调函数,参数是event对象 | Function | |   无  |
 
 ### Radio.RadioItem
+
+* 基于`List.Item`对`Radio`进行封装,`List.Item`的`extra`属性固定传入`Radio`,其他属性和List.Item保持一致。具体API请参考`List.Item`。
