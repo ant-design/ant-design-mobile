@@ -21,14 +21,15 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   barIcon: {
-    width: variables.icon_size_md,
-    height: variables.icon_size_md,
+    width: 28,
+    height: 28,
+    marginTop: 2,
   },
   barItemSelected: {
   },
   barItemTitle: {
     fontSize: variables.font_size_icontext,
-    marginTop: variables.v_spacing_xs,
+    marginTop: 2,
   },
   contentItem: {
     zIndex: 1,
@@ -47,7 +48,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     backgroundColor: variables.brand_important,
     position: 'absolute',
-    top: -variables.v_spacing_xs,
+    top: 0,
     left: 20,
     paddingHorizontal: variables.h_spacing_sm,
   },

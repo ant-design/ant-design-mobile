@@ -16,11 +16,11 @@ let TabBarExample = React.createClass({
       presses: 0,
     };
   },
-  renderContent(color, pageText, num?: number) {
+  renderContent(pageText, num?: number) {
     return (
-      <div style={{ flex: 1, alignItems: 'center', backgroundColor: color }}>
-        <div style={{ color: 'white', margin: 50 }}>{pageText}</div>
-        <div style={{ color: 'white', margin: 50 }}>{num} re-renders of the {pageText}</div>
+      <div style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
+        <div style={{ margin: 50 }}>{pageText}</div>
+        <div style={{ margin: 50 }}>{num} re-renders of the {pageText}</div>
       </div>
     );
   },
@@ -29,7 +29,7 @@ let TabBarExample = React.createClass({
       <TabBar
         unselectedTintColor="#949494"
         tintColor="#33A3F4"
-        barTintColor="#ccc"
+        barTintColor="white"
       >
         <TabBar.Item
           title="生活"
@@ -43,7 +43,7 @@ let TabBarExample = React.createClass({
             });
           }}
         >
-          {this.renderContent('#414A8C', '生活 Tab')}
+          {this.renderContent('生活 Tab')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/UNQhIatjpNZHjVf.png' }}
@@ -59,7 +59,7 @@ let TabBarExample = React.createClass({
             });
           }}
         >
-          {this.renderContent('#783E33', '口碑 Tab', this.state.notifCount)}
+          {this.renderContent('口碑 Tab', this.state.notifCount)}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png' }}
@@ -74,7 +74,21 @@ let TabBarExample = React.createClass({
             });
           }}
         >
-          {this.renderContent('#21551C', '朋友 Tab', this.state.presses)}
+          {this.renderContent('朋友 Tab', this.state.presses)}
+        </TabBar.Item>
+        <TabBar.Item
+          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/YWpPVCVOnJoCYhs.png' }}
+          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/WadBBxOIZtDzsgP.png' }}
+          title="我的"
+          key="我的"
+          selected={this.state.selectedTab === 'yellowTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'yellowTab',
+            });
+          }}
+        >
+          {this.renderContent('我的 Tab', this.state.presses)}
         </TabBar.Item>
       </TabBar>
     );

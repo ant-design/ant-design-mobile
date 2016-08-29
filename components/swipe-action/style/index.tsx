@@ -1,4 +1,4 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -7,12 +7,13 @@ export default StyleSheet.create({
   },
   buttonWrap: {
     borderTopWidth: 1,
-    borderTopColor: variables.neutral_5,
+    borderTopColor: variables.border_color_base,
     borderStyle: 'solid',
-    paddingVertical: 3 * variables.grid,
+    paddingVertical: 12,
   },
   button: {
     textAlign: 'center',
-    color: variables.blue_6,
+    color: variables.color_link,
+    fontSize: variables.link_button_font_size,
   },
 });

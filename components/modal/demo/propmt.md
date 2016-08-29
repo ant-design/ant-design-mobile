@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: 输入框
 ---
 
@@ -53,19 +53,19 @@ let App = React.createClass({
       <div>
         <WhiteSpace size={20} />
         <WingBlank size={20}>
-          <Button onClick={plainTextPrompt}>输入框按钮按钮 </Button>
+          <Button type="ghost" onClick={plainTextPrompt}>输入框按钮按钮 </Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank size={20}>
-          <Button onClick={passwordPrompt}>输入框密码形式 </Button>
+          <Button type="ghost" onClick={passwordPrompt}>输入框密码形式 </Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank size={20}>
-          <Button onClick={customBtnPrompt}>自定义按钮形式 </Button>
+          <Button type="ghost" onClick={customBtnPrompt}>自定义按钮形式 </Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank size={20}>
-          <Button onClick={loginPwdPrompt}>输入框登录形式 </Button>
+          <Button type="ghost" onClick={loginPwdPrompt}>输入框登录形式 </Button>
         </WingBlank>
         <WhiteSpace size={20} />
       </div>

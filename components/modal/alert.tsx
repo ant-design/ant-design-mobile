@@ -21,22 +21,14 @@ export default function (...args) {
     div.parentNode.removeChild(div);
   }
 
-  const btnGroupClass = `${prefixCls}-button-group-${actions.length === 2 ? 'h' : 'v'}`;
-  const footer = [<div key="footer" className={btnGroupClass}>
-    {
-      actions.map((button, i) => {
-        return (
-          <a key={i} className={`${prefixCls}-button`} href="#" onClick={(e) => {
-            e.preventDefault();
-            if (button.onPress) {
-              button.onPress();
-            }
-            close();
-          }}>{button.text || `按钮${i}`}</a>
-        );
-      })
-    }
-  </div>];
+  const footer = actions.map((button) => {
+    const orginPress = button.onPress || function() {};
+    button.onPress = () => {
+      orginPress();
+      close();
+    };
+    return button;
+  });
 
   ReactDOM.render(<Modal
     visible

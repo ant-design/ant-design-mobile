@@ -3,7 +3,7 @@ interface ModalProps {
   visible: boolean;
   closable?: boolean;
   maskClosable?: boolean;
-  footer?: any;
+  footer?: Array<{}>;
   onClose?: () => void;
   onShow?: () => void;
   animated?: boolean;
