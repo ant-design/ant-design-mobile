@@ -1,9 +1,9 @@
 ---
-order: 0
-title: 基本
+order: 1
+title: 可关闭
 ---
 
-基本使用方式, 弹出一个浮层
+可关闭的浮层
 
 ````jsx
 import { Modal, Button, WhiteSpace, WingBlank } from 'antd-mobile';
@@ -28,14 +28,11 @@ const App = React.createClass({
         <WhiteSpace size={20} />
         <WingBlank>
           <Button type="ghost" onClick={this.showModal}>
-            显示对话框
+            可关闭对话框
           </Button>
-          <Modal animated transparent={false} visible={this.state.visible} >
-            <div style={{ height: '50%', paddingTop: 200 }}>
-              这是内容...<br />
-              这是内容...<br />
-            </div>
-            <Button type="primary" inline onClick={this.onClose}>close modal</Button>
+          <Modal title="这是 title" animated={false} transparent closable maskClosable onClose={this.onClose} visible={this.state.visible}>
+            这是内容...<br />
+            这是内容...<br />
           </Modal>
         </WingBlank>
         <WhiteSpace size={20} />

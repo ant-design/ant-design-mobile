@@ -17,7 +17,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     bodyStyle: {},
     onClose() {},
     onShow() {},
-    footer: null,
+    footer: [],
   };
 
   componentWillMount() {
@@ -73,8 +73,24 @@ export default class Modal extends React.Component<ModalProps, any> {
       [`${prefixCls}-transparent`]: transparent,
     });
 
-    let anim = transitionName || (animated ? 'am-slide-up' : null);
-    let maskAnim = maskTransitionName || (animated ? 'am-slide-up' : null);
+    let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
+    let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
+
+    const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 ? 'h' : 'v'}`;
+    const footerDom = footer.length ? [<div key="footer" className={btnGroupClass}>
+      {
+        footer.map((button: any, i) => {
+          return (
+            <a key={i} className={`${prefixCls}-button`} href="#" onClick={(e) => {
+              e.preventDefault();
+              if (button.onPress) {
+                button.onPress();
+              }
+            }}>{button.text || `按钮${i}`}</a>
+          );
+        })
+      }
+    </div>] : null;
 
     // transparent 模式下, 内容默认居中
     const rootStyle = transparent ? assign({
@@ -99,7 +115,7 @@ export default class Modal extends React.Component<ModalProps, any> {
         closable={closable || maskClosable}
         maskClosable={maskClosable}
         onClose={onClose}
-        footer={footer}
+        footer={footerDom}
       >
         {children}
       </Dialog>
