@@ -2,33 +2,26 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  ScrollView,
   Text,
-  ListView,
   TextInput,
   TouchableHighlight,
   Image,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { List } from 'antd-mobile';
 import { APIS, COMPONENTS } from '../demoList';
-
-const ds = new ListView.DataSource({
-  rowHasChanged: (r1, r2) => r1 !== r2,
-  sectionHeaderHasChanged: (h1, h2) => h1 !== h2,
-});
 
 export default class RnIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections({
-        components: [],
-        apis: [],
-      }),
       searchText: '',
+      APIS,
+      COMPONENTS,
     };
 
     this.search = this.search.bind(this);
-    this.renderRow = this.renderRow.bind(this);
   }
 
   componentDidMount() {
@@ -47,59 +40,18 @@ export default class RnIndex extends React.Component {
     const regex = new RegExp(String(text), 'i');
     const filter = (component) => regex.test(component.title);
 
+
     this.setState({
-      dataSource: ds.cloneWithRowsAndSections({
-        apis: APIS.filter(filter),
-        components: COMPONENTS.filter(filter),
-      }),
+      APIS: APIS.filter(filter),
+      COMPONENTS: COMPONENTS.filter(filter),
       searchText: text,
     });
   }
 
-  renderRow(rowData, i) {
-    const icon = rowData.icon ? rowData.icon : 'https://zos.alipayobjects.com/rmsportal/lSsJiCJnOzSnBJG.png';
-    return (
-      <View key={i}>
-        <TouchableHighlight onPress={() => this.onPressRow(rowData)}>
-          <View style={styles.row}>
-            <Image style={styles.image} source={{ uri: icon }} />
-            <View style={{ flex: 1 }}>
-              <Text style={styles.rowTitleText}>
-                {rowData.title}
-              </Text>
-              <Text style={styles.rowDetailText}>
-                {rowData.description}
-              </Text>
-            </View>
-          </View>
-        </TouchableHighlight>
-      </View>
-    );
-  }
-
-  _renderSectionHeader(sectionData, sectionID) {
-    return (
-      <Text style={styles.sectionHeader}>
-        {sectionID.toUpperCase()}
-      </Text>
-    );
-  }
-
-  _renderSeperator(sectionID, rowID, adjacentRowHighlighted) {
-    return (
-      <View
-        key={`${sectionID}-${rowID}`}
-        style={{
-          height: adjacentRowHighlighted ? 4 : 1,
-          backgroundColor: adjacentRowHighlighted ? '#3B5998' : '#CCCCCC',
-        }}
-      />
-    );
-  }
-
   render() {
+    const { APIS, COMPONENTS } = this.state;
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.searchRow}>
           <TextInput
             style={styles.searchTextInput}
@@ -111,18 +63,43 @@ export default class RnIndex extends React.Component {
             value={this.state.searchText}
           />
         </View>
-        <ListView
-          style={styles.list}
-          enableEmptySections
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
-          renderSectionHeader={this._renderSectionHeader}
-          renderSeparator={this._renderSeperator}
-          keyboardShouldPersistTaps
-          automaticallyAdjustContentInsets={false}
-          keyboardDismissMode="on-drag"
-        />
-      </View>
+        <List
+          title="APIS"
+          style={{
+            marginTop: 0,
+            marginBottom: 0,
+          }}
+        >
+          <List.Body>
+            {APIS.map((el, index) => {
+              return (<List.Item
+                thumb={el.icon}
+                onClick={() => { this.onPressRow(el); }}
+                arrow="horizontal"
+                key={`APIS-${index}`}
+              >{`${el.title} ${el.description}`}</List.Item>);
+            })}
+          </List.Body>
+        </List>
+        <List
+          title="COMPONENTS"
+          style={{
+            marginTop: 0,
+            marginBottom: 0,
+          }}
+        >
+          <List.Body>
+            {COMPONENTS.map((el, index) => {
+              return (<List.Item
+                thumb={el.icon}
+                onClick={() => { this.onPressRow(el); }}
+                arrow="horizontal"
+                key={`COMPONENTS-${index}`}
+              >{`${el.title} ${el.description}`}</List.Item>);
+            })}
+          </List.Body>
+        </List>
+      </ScrollView>
     );
   }
 }
@@ -142,38 +119,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderColor: '#cccccc',
     borderRadius: 3,
-    borderWidth: 1,
+    borderWidth: 0.5,
     paddingLeft: 8,
-  },
-  list: {
-    backgroundColor: '#eeeeee',
-    flex: 1,
-  },
-  sectionHeader: {
-    padding: 5,
-    fontWeight: '500',
-    fontSize: 11,
-  },
-  row: {
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    flexDirection: 'row',
-  },
-  image: {
-    width: 28,
-    height: 28,
-    marginRight: 12,
-  },
-  rowTitleText: {
-    fontSize: 17,
-    fontWeight: '500',
-  },
-  rowDetailText: {
-    fontSize: 14,
-    color: '#888888',
-    lineHeight: 20,
   },
 });

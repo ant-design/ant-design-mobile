@@ -46,6 +46,7 @@ export default {
     Content: {
       color: variables.color_text_base,
       fontSize: variables.font_size_heading,
+      lineHeight: variables.font_size_heading,
     },
     Extra: {
       color: variables.color_text_caption,

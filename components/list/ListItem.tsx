@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
 import assign from 'object-assign';
-import { Image, View, TouchableHighlight, Text } from 'react-native';
+import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
 import variables from '../style/themes/default';
 import theme from './style/index';
 const THEMES = theme.ThemesList;
@@ -185,15 +185,30 @@ export default class Item extends React.Component<ListItemProps, any> {
       }
     }
 
+    let itemHeight;
+    if (line === 2) {
+      if (Platform.OS === 'android') {
+        itemHeight = 70 + 3 * variables.v_spacing_sm;
+      } else {
+        itemHeight = 70 + variables.v_spacing_sm;
+      }
+    } else if (line > 2) {
+      if (Platform.OS === 'android') {
+        itemHeight = variables.list_item_height
+          + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)
+          + 3 * variables.v_spacing_sm;
+      } else {
+        itemHeight = variables.list_item_height
+          + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)
+          + variables.v_spacing_sm;
+      }
+    }
     const itemStyle = [THEMES.Item,
       this.props.multipleLine ? THEMES.multipleLine.Item : {},
       this.props.last ? THEMES.Last.Item : {},
       this.props.error ? THEMES.Error.Item : {},
       this.props.style,
-      line === 2 ? { height: 70 } : {},
-      line > 2 ?
-        { height: variables.list_item_height + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)}
-        : {},
+      line > 1 ? { height: itemHeight} : {},
     ];
 
     const itemView = (<View
