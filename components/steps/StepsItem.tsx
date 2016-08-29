@@ -12,7 +12,7 @@ export interface StepsItemProps {
   title?: string;
   description?: string;
   status?: string;
-  finishIcon?: string;
+  icon?: string;
   errorTail?: number;
 }
 
@@ -20,7 +20,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
 
   render() {
     const { size, current, index, last, title, description,
-      status, errorTail } = this.props;
+      status, errorTail, icon } = this.props;
 
     let iconImg;
     let headCls;
@@ -60,36 +60,33 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
       tailBottomCls = 'tail_error';
     }
 
+    let iconSource;
+    if (size === 'small') {
+      if (index < current || status === 'finish' || index === current || status === 'process') {
+        iconSource = require('../style/images/check.png');
+      } else if (index > current || status === 'wait') {
+        iconSource = require('../style/images/more.png');
+      } else if (status === 'error') {
+        iconSource = require('../style/images/cross.png');
+      }
+    } else {
+      if (index < current || status === 'finish' || index === current || status === 'process') {
+        iconSource = require('../style/images/check_w.png');
+      } else if (index > current || status === 'wait') {
+        iconSource = require('../style/images/more_w.png');
+        if (!!icon) {
+          iconSource = icon;
+        }
+      } else if (status === 'error') {
+        iconSource = require('../style/images/cross_w.png');
+      }
+    }
+
     return (
       <View style={{flex:1, flexDirection: 'row'}}>
         <View style={{ flexDirection: 'column'}}>
           <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
-            {
-              size === 'small' && (index < current || status === 'finish' ||
-                index === current || status === 'process') &&
-              <Image source={require('../style/images/check.png')} style={styles[`icon${sizeCls}`]} />
-            }
-            {
-              size === 'small' && (index > current || status === 'wait') &&
-              <Image source={require('../style/images/more.png')} style={styles[`icon${sizeCls}`]} />
-            }
-            {
-              size === 'small' && status === 'error' &&
-              <Image source={require('../style/images/cross.png')} style={styles[`icon${sizeCls}`]} />
-            }
-            {
-              size !== 'small' && (index < current || status === 'finish' ||
-                index === current || status === 'process') &&
-              <Image source={require('../style/images/check_w.png')} style={styles[`icon${sizeCls}`]} />
-            }
-            {
-              size !== 'small' && (index > current || status === 'wait') &&
-              <Image source={require('../style/images/more_w.png')} style={styles[`icon${sizeCls}`]} />
-            }
-            {
-              size !== 'small' && status === 'error' &&
-              <Image source={require('../style/images/cross_w.png')} style={styles[`icon${sizeCls}`]} />
-            }
+             <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
           </View>
           {
             <View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} />
