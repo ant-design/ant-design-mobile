@@ -1,3 +1,4 @@
+/* tslint:disable:no-console */
 import * as React from 'react';
 import { View, Text } from 'react-native';
 import { Modal, Button, WingBlank } from 'antd-mobile';
@@ -35,7 +36,12 @@ export default class BasicModalExample extends React.Component<any, any> {
           <Button type="primary" inline onPress={this.onClose}>close modal</Button>
         </Modal>
         */}
-        <Modal title="测试" animated transparent visible={this.state.visible} maskClosable closable>
+        <Modal title="测试" animated transparent visible={this.state.visible} maskClosable closable footer={
+          [
+            { text: 'cancel', onPress: () => console.log('cancel') },
+            { text: 'ok', onPress: () => console.log('ok') },
+          ]
+        }>
           <View style={{ paddingVertical: 20 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>

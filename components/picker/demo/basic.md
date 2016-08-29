@@ -8,7 +8,7 @@ title: 基本
 [rc-form API](https://github.com/react-component/form)
 
 ````jsx
-import { Picker, List, Button } from 'antd-mobile';
+import { Picker, List } from 'antd-mobile';
 
 import district from 'site/data/district';
 import { createForm } from 'rc-form';
@@ -35,7 +35,7 @@ let Test = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
-      <List>
+      <List style={{ backgroundColor: 'white' }}>
         <List.Header>联动选择</List.Header>
         <List.Body>
           <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
@@ -49,7 +49,7 @@ let Test = React.createClass({
           <Picker data={district} cols={1} {...getFieldProps('district3')}>
             <List.Item arrow="horizontal">选择省份</List.Item>
           </Picker>
-          <List.Item><Button inline size="small" onClick={this.setVal}>手动设置省市区</Button></List.Item>
+          {/* <List.Item><Button inline size="small" onClick={this.setVal}>手动设置省市区</Button></List.Item> */}
         </List.Body>
       </List>
     </div>);

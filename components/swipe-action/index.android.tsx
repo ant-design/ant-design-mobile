@@ -1,9 +1,8 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import Modal from '../modal';
 import SwipeActionProps from './SwipeActionPropsType';
-import SwipeStyle from './style/index';
 
 export interface ButtonProps {
   text?: string;
@@ -53,53 +52,40 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     });
   }
 
-  onAndroidBtnClick(btn) {
-    const onPress = btn.onPress;
-    if (onPress) {
-      onPress();
-    }
-    if (this.props.autoClose) {
-      this.onClose();
-    }
-  }
-
   onLongPress = () => {
+    const { disabled, onOpen } = this.props;
+    if (disabled) {
+      return;
+    }
+    onOpen();
     this.setState({
       showModal: true,
     });
   }
 
-  renderAndroidBtn = () => {
-    const { left, right } = this.props;
-    const actions = [...left, ...right];
-    return (
-      <View style={[SwipeStyle.actions]}>
-        {
-          actions.map((btn: ButtonProps, i: number) => {
-            return (
-              <View key={i} style={[SwipeStyle.buttonWrap]}>
-                <TouchableOpacity onPress={() => {this.onAndroidBtnClick(btn);}}>
-                  <Text style={[SwipeStyle.button]}>{btn.text || 'Click'}</Text>
-                  </TouchableOpacity>
-              </View>
-            );
-          })
-        }
-      </View>
-    );
-  }
-
   _renderAndroidModal() {
+    const { left, right, autoClose } = this.props;
+    const actions = [...left, ...right].map((button: ButtonProps) => {
+      const orginPress = button.onPress || function() {};
+      return {
+        text: button.text,
+        style: button.style,
+        onPress: () => {
+          orginPress();
+          if (autoClose) {
+            this.onClose();
+          }
+        },
+      };
+    });
     return (
       <Modal
         visible={this.state.showModal}
         transparent
         maskClosable
-        onShow={this.props.onOpen}
-        onClose={this.props.onClose}
         title={this.props.title}
         onRequestClose={() => {this.setModalVisible(false);}}
-        footer={this.renderAndroidBtn()}
+        footer={actions}
       />
     );
   }

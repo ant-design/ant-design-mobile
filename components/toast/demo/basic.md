@@ -36,7 +36,7 @@ const ToastExample = React.createClass({
       <div className="toast-container">
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" onClick={showToast}>纯文字 toast</Button>
+          <Button type="ghost" onClick={showToast}>纯文字 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
@@ -44,7 +44,7 @@ const ToastExample = React.createClass({
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" onClick={failToast}>失败 toast</Button>
+          <Button type="ghost" onClick={failToast}>失败 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
@@ -52,7 +52,7 @@ const ToastExample = React.createClass({
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" onClick={loadingToast}>加载中 toast</Button>
+          <Button type="ghost" onClick={loadingToast}>加载中 toast</Button>
         </WingBlank>
         <WhiteSpace />
       </div>

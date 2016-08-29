@@ -40,7 +40,7 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   render() {
-    const { children, className, prefixCls, disabled } = this.props;
+    const { children, className, prefixCls, disabled, style } = this.props;
     const wrapCls = classNames({
       [className]: !!className,
       [prefixCls]: true,
@@ -50,7 +50,7 @@ export default class Tag extends React.Component<TagProps, any> {
     });
 
     return (
-      <div className={wrapCls} onClick={this.onClick}>
+      <div className={wrapCls} onClick={this.onClick} style={style}>
         <div className={`${prefixCls}-text`}>{children}</div>
       </div>
     );

@@ -20,7 +20,7 @@ let Test = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
-      <List>
+      <List style={{ backgroundColor: 'white' }}>
         <List.Header>选择时间</List.Header>
         <List.Body>
           <DatePicker

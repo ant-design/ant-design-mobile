@@ -42,12 +42,9 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     this.state = {
       showModal: false,
     };
-
-    this.onLongTap = this.onLongTap.bind(this);
-    this.onClose = this.onClose.bind(this);
   }
 
-  onLongTap() {
+  onLongTap = () => {
     const { disabled, onOpen } = this.props;
     if (disabled) {
       return;
@@ -66,18 +63,8 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     });
   }
 
-  onAndroidBtnClick(btn) {
-    const onPress = btn.onPress;
-    if (onPress) {
-      onPress();
-    }
-    if (this.props.autoClose) {
-      this.onClose();
-    }
-  }
-
   renderAndroid() {
-    const { children, title } = this.props;
+    const { children, title, autoClose, left, right } = this.props;
     const pressOption = {
       recognizers: {
         press: {
@@ -86,6 +73,20 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
         },
       },
     };
+    const actions = [...left, ...right].map((button: ButtonProps) => {
+      const orginPress = button.onPress || function() {};
+      return {
+        text: button.text,
+        style: button.style,
+        onPress: () => {
+          orginPress();
+          if (autoClose) {
+            this.onClose();
+          }
+        },
+      };
+    });
+
     return (
       <div>
         <Hammer onPress={this.onLongTap} options={pressOption}>
@@ -99,35 +100,12 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
               transparent
               closable={false}
               maskClosable
-              onClose={this.onClose}
-              footer={this.renderAndroidBtn()}
+              footer={actions}
               visible
             />
           ) : null
         }
       </div>
-    );
-  }
-
-  renderAndroidBtn() {
-    const { prefixCls, left, right } = this.props;
-    const actions = [...left, ...right];
-
-    return (
-      <ul className={`${prefixCls}-android-actions`}>
-        {
-          actions.map((btn: ButtonProps, i: number) => {
-            return (
-              <li key={i}
-                className={`${prefixCls}-android-btn`}
-                onClick={() => this.onAndroidBtnClick(btn)}
-              >
-                {btn.text}
-              </li>
-            );
-          })
-        }
-      </ul>
     );
   }
 
