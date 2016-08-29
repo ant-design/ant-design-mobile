@@ -33,13 +33,14 @@ let BasicInputExample = React.createClass({
             onChange={(value) => { console.log('onChange'); console.log(value); }}
           >非受控</InputItem>
           <InputItem
+            {...getFieldProps('input1', {
+              initialValue: '',
+            })}
             placeholder="设置value,不设置defaultValue"
             clear
             maxLength={10}
-            value=""
             onBlur={(value) => { console.log('onBlur'); console.log(value); }}
             onFocus={(value) => { console.log('onFocus'); console.log(value); }}
-            onChange={(value) => { console.log('onChange'); console.log(value); }}
           >受控</InputItem>
           <InputItem
             value="editable={false}"
@@ -59,10 +60,10 @@ let BasicInputExample = React.createClass({
           </InputItem>
           <InputItem
             {...getFieldProps('input3', {
-              initialValue: '无标签',
+              initialValue: '',
             })}
             clear
-            placeholder="内容"
+            placeholder="无标签"
           />
           <InputItem
             {...getFieldProps('input4', {
