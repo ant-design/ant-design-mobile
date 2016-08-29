@@ -16,7 +16,7 @@ const FlexExample = React.createClass({
         <List title="start(默认): 左对齐" />
         <WingBlank size={28}>
           <Flex
-            className="flex-button-container"
+            className="flex-container-justify"
           >
             <Button size="small" type="primary">按钮1</Button>
             <Button size="small">按钮2</Button>
@@ -29,7 +29,7 @@ const FlexExample = React.createClass({
         <WingBlank size={28}>
           <Flex
             justify="end"
-            className="flex-button-container"
+            className="flex-container-justify"
           >
             <Button size="small" type="primary">按钮1</Button>
             <Button size="small">按钮2</Button>
@@ -42,7 +42,7 @@ const FlexExample = React.createClass({
         <WingBlank size={28}>
           <Flex
             justify="center"
-            className="flex-button-container"
+            className="flex-container-justify"
           >
             <Button size="small" type="primary">按钮1</Button>
             <Button size="small">按钮2</Button>
@@ -55,7 +55,7 @@ const FlexExample = React.createClass({
         <WingBlank size={28}>
           <Flex
             justify="between"
-            className="flex-button-container"
+            className="flex-container-justify"
           >
             <Button size="small" type="primary">按钮1</Button>
             <Button size="small">按钮2</Button>
@@ -68,7 +68,7 @@ const FlexExample = React.createClass({
         <WingBlank size={28}>
           <Flex
             justify="around"
-            className="flex-button-container"
+            className="flex-container-justify"
           >
             <Button size="small" type="primary">按钮1</Button>
             <Button size="small">按钮2</Button>
@@ -87,10 +87,14 @@ ReactDOM.render(<FlexExample />, mountNode);
 .flex-container {
   background: #f5f5f9;
 }
-.flex-button-container button {
+.flex-container-justify button {
    margin-right: 0.18rem;
    margin-bottom: 0.18rem;
    width: 1.4rem;
+}
+
+.flex-container-justify button:last-child {
+  margin-right: 0;
 }
 
 ````

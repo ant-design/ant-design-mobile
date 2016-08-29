@@ -28,8 +28,6 @@ const FlexExample = React.createClass({
             <Button>8</Button>
             <Button type="primary">9</Button>
             <Button>10</Button>
-            <Button type="primary">11</Button>
-            <Button>12</Button>
           </Flex>
         </WingBlank>
         <List>
@@ -50,8 +48,6 @@ const FlexExample = React.createClass({
             <Button>8</Button>
             <Button type="primary">9</Button>
             <Button>10</Button>
-            <Button type="primary">11</Button>
-            <Button>12</Button>
           </Flex>
         </WingBlank>
         <List>
@@ -72,8 +68,6 @@ const FlexExample = React.createClass({
             <Button>8</Button>
             <Button type="primary">9</Button>
             <Button>10</Button>
-            <Button type="primary">11</Button>
-            <Button>12</Button>
           </Flex>
         </WingBlank>
       </div>
@@ -91,7 +85,10 @@ ReactDOM.render(<FlexExample />, mountNode);
 .flex-button-container button {
    margin-right: 0.18rem;
    margin-bottom: 0.18rem;
-   width: 1.2rem;
+   width: 1.1rem;
+}
+.flex-button-container button:last-child {
+  margin-right: 0;
 }
 
 ````

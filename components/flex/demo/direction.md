@@ -15,7 +15,7 @@ const FlexExample = React.createClass({
         <WhiteSpace />
         <List title="row:主轴为水平方向，起点在左端" />
         <WingBlank size={28}>
-          <Flex className="flex-button-container">
+          <Flex className="flex-direction-container">
             <Button type="primary">按钮1</Button>
             <Button>按钮2</Button>
             <Button type="primary">按钮3</Button>
@@ -28,7 +28,7 @@ const FlexExample = React.createClass({
         <WingBlank size={28}>
           <Flex
             direction="row-reverse"
-            className="flex-button-container-reverse"
+            className="flex-direction-container-reverse"
           >
             <Button type="primary">按钮1</Button>
             <Button>按钮2</Button>
@@ -73,16 +73,16 @@ ReactDOM.render(<FlexExample />, mountNode);
 .flex-container {
   background: #f5f5f9;
 }
-.flex-button-container button {
+.flex-direction-container button {
    margin-right: 0.28rem;
 }
-.flex-button-container button:last-child {
+.flex-direction-container button:last-child {
    margin-right: 0;
 }
-.flex-button-container-reverse button {
+.flex-direction-container-reverse button {
    margin-right: 0.28rem;
 }
-.flex-button-container-reverse button:first-child {
+.flex-direction-container-reverse button:first-child {
    margin-right: 0;
 }
 ````

@@ -8,6 +8,10 @@ import { Menu, Toast } from 'antd-mobile';
 
 const data = [
   {
+    value: '1',
+    label: '全部分类',
+    isLeaf: true,
+  }, {
     value: '2',
     label: '美食',
     children: [
@@ -52,10 +56,6 @@ const data = [
         label: '粤菜',
         value: '213',
       }],
-  }, {
-    value: '1',
-    label: '全部分类',
-    isLeaf: true,
   }, {
     value: '3',
     label: '超市',
@@ -124,7 +124,21 @@ const data = [
 
 const MenuExample = React.createClass({
   onChange(value) {
-    Toast.info(`选中了 ${value.toString()}`);
+    let label = '';
+    data.forEach((el) => {
+      if (el.value === value[0]) {
+        if (el.isLeaf) {
+          label = el.label;
+        } else {
+          el.children.forEach((el2) => {
+            if (el2.value === value[1]) {
+              label = el2.label;
+            }
+          });
+        }
+      }
+    });
+    Toast.info(`选中了 ${label}`);
   },
   render() {
     return <Menu data={data} onChange={this.onChange} />;

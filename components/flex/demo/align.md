@@ -16,7 +16,7 @@ const FlexExample = React.createClass({
         <WhiteSpace />
         <WingBlank size="28">
           <List title="start:交叉轴的起点对齐" />
-          <Flex align="start" className="flex-button-container-align">
+          <Flex align="start" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
@@ -26,11 +26,11 @@ const FlexExample = React.createClass({
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank>
+        <WingBlank size="28">
           <List>
             <List.Header>end:交叉轴的终点对齐</List.Header>
           </List>
-          <Flex align="end" className="flex-button-container-align">
+          <Flex align="end" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
@@ -40,11 +40,11 @@ const FlexExample = React.createClass({
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank>
+        <WingBlank size="28">
           <List>
             <List.Header>center(默认):交叉轴的中点对齐</List.Header>
           </List>
-          <Flex align="center" className="flex-button-container-align">
+          <Flex align="center" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
@@ -60,11 +60,11 @@ const FlexExample = React.createClass({
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank>
+        <WingBlank size="28">
           <List>
             <List.Header>baseline:项目的第一行文字的基线对齐</List.Header>
           </List>
-          <Flex align="baseline" className="flex-button-container-align">
+          <Flex align="baseline" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
@@ -80,11 +80,11 @@ const FlexExample = React.createClass({
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank>
+        <WingBlank size="28">
           <List>
             <List.Header>stretch:如果项目未设置高度或设为auto，将占满整个容器的高度</List.Header>
           </List>
-          <Flex align="stretch" className="flex-button-container-align" style={{ border: '1px solid red' }}>
+          <Flex align="stretch" className="flex-align-container" style={{ border: '1px solid red' }}>
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
@@ -111,10 +111,10 @@ ReactDOM.render(<FlexExample />, mountNode);
 .flex-container {
   background: #f5f5f9;
 }
-.flex-button-container-align button {
+.flex-align-container button {
   width: 100%;
 }
-.flex-button-container-align * {
+.flex-align-container * {
   box-sizing: border-box;
 }
 

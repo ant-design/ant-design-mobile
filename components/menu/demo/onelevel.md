@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 0
 title: 单级菜单
 ---
 
@@ -52,7 +52,13 @@ const data = [
 
 const MenuExample = React.createClass({
   onChange(value) {
-    Toast.info(`选中了 ${value.toString()}`);
+    let label = '';
+    data.forEach((el) => {
+      if (el.value === value[0]) {
+        label = el.label;
+      }
+    });
+    Toast.info(`选中了 ${label}`);
   },
   render() {
     return <Menu data={data} level={1} onChange={this.onChange} />;

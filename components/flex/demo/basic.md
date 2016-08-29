@@ -20,7 +20,7 @@ const FlexExample = React.createClass({
               <Button type="primary">2列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button type="primary">2列</Button>
+              <Button>2列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -31,7 +31,7 @@ const FlexExample = React.createClass({
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button type="primary">3列</Button>
+              <Button>3列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button type="primary">3列</Button>
@@ -45,13 +45,13 @@ const FlexExample = React.createClass({
               <Button type="primary">4列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button type="primary">4列</Button>
+              <Button>4列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button type="primary">4列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button type="primary">4列</Button>
+              <Button>4列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -62,13 +62,13 @@ const FlexExample = React.createClass({
               <Button type="primary">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button type="primary">5列</Button>
+              <Button>5列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button type="primary">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button type="primary">5列</Button>
+              <Button>5列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button type="primary">5列</Button>

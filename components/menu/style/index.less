@@ -48,7 +48,6 @@
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
             background-color: @fill-base;
-            padding-left: 3*@grid;
             .hairline-remove-right-bottom();
             .@{listPrefixCls}-line {
               .hairline-bottom(@border-color-base);
@@ -56,14 +55,23 @@
                 flex: 0;
               }
             }
-            //&.@{subMenuPrefixCls}-item-selected {
-              //background-color: @input-color-icon-inverse;
-            //}
             &.@{subMenuPrefixCls}-item-disabled {
               .@{listPrefixCls}-line {
                 .@{listPrefixCls}-content {
                   color: @color-text-disabled;
                 }
+              }
+            }
+          }
+        }
+      }
+      &:only-child {
+        .@{listPrefixCls} {
+          .@{listPrefixCls}-item {
+            &:last-child {
+              .hairline-bottom(@border-color-base);
+              .@{listPrefixCls}-line {
+                .hairline-remove-right-bottom();
               }
             }
           }
