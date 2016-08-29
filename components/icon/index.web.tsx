@@ -10,9 +10,9 @@ export default class Icon extends React.Component<IconPropType, any> {
     className: '',
   };
   render() {
-    const { type, className } = this.props;
+    const { type, className, ...rest } = this.props;
     return (
-      <i {...this.props} className={`${className} anticon anticon-${type}`.trim()} />
+      <i {...rest} className={`${className} anticon anticon-${type}`.trim()} />
     );
   }
 }
