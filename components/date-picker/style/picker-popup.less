@@ -42,12 +42,20 @@
     // border-bottom: @border-width-sm solid @border-color-base;
     position: relative;
     .hairline-bottom(@border-color-base);
-    &-left {
-      margin-left: @h-spacing-lg;
-    }
-    &-right {
-      text-align: right;
-      margin-right: @h-spacing-lg;
+    & & {
+      &-left,
+      &-right {
+        &:active {
+          background-color: @fill-tap;
+        }
+      }
+      &-left {
+        margin-left: @h-spacing-lg;
+      }
+      &-right {
+        text-align: right;
+        margin-right: @h-spacing-lg;
+      }
     }
   }
 

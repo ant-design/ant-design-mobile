@@ -7,15 +7,13 @@ title: 基本
 
 
 ````jsx
-import { RefreshControl } from 'antd-mobile';
+import { RefreshControl, List } from 'antd-mobile';
 
 let count = 1;
 const App = React.createClass({
   getInitialState() {
     return {
-      items: [
-        <div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>,
-      ],
+      items: null,
     };
   },
   loadingFunction() {
@@ -30,9 +28,12 @@ const App = React.createClass({
     });
   },
   addItem() {
-    this.state.items.push(<div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>);
+    const newItems = this.state.items ? [...this.state.items] : [];
+    newItems.unshift(
+      <List.Item key={`item-${count}`} extra="horizontal,箭头向右" arrow="horizontal">标题文字 {count++}</List.Item>
+    );
     this.setState({
-      items: this.state.items,
+      items: newItems,
     });
     return true;
   },
@@ -56,9 +57,15 @@ const App = React.createClass({
           },
         }}
       >
-        <h3>下拉刷新</h3>
-        <div style={{ minHeight: 300 }} onClick={() => alert('cli')}>
-          {this.state.items}
+        <div style={{ minHeight: 300 }}>
+          <List title="下拉刷新">
+            <List.Body>
+              {this.state.items}
+              <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>
+              <List.Item extra="down,箭头向下" arrow="down">标题文字</List.Item>
+              <List.Item extra="up,箭头向上" arrow="up">标题文字</List.Item>
+            </List.Body>
+          </List>
         </div>
       </RefreshControl>
     );

@@ -95,26 +95,26 @@ function createActionSheet(flag, config, callback) {
       mode = 'share';
       const multipleLine = options.length && Array.isArray(options[0]) || false;
       const createList = (item, index, rowIndex = 0) => (
-        <li key={index} onClick={() => cb(index, rowIndex) }>
-          <p className={`${prefixCls}-share-item-icon`}>
+        <div className={`${prefixCls}-share-list-item`} key={index} onClick={() => cb(index, rowIndex) }>
+          <div className={`${prefixCls}-share-list-item-icon`}>
             {item.iconName ? <Icon type={item.iconName}/> : item.icon}
-          </p>
-          <p className={`${prefixCls}-share-item-title`}>{item.title}</p>
-        </li>
+          </div>
+          <div className={`${prefixCls}-share-list-item-title`}>{item.title}</div>
+        </div>
       );
       children = (<div {...getDataAttr(props)}>
         {titleMsg}
-        <div className={`${prefixCls}-share-content`}>
+        <div className={`${prefixCls}-share`}>
           {multipleLine ? options.map((item, index) => (
-            <ul key={index} className={`${prefixCls}-share-content-list`}>
+            <div key={index} className={`${prefixCls}-share-list`}>
               {item.map((ii, ind) => createList(ii, ind, index))}
-            </ul>
+            </div>
           )) : (
-            <ul className={`${prefixCls}-share-content-list`}>
+            <div className={`${prefixCls}-share-list`}>
                 {options.map((item, index) => createList(item, index))}
-            </ul>
+            </div>
           )}
-          <div className={`${prefixCls}-share-content-cancel-button`} onClick={() => cb(-1)}>{cancelButtonText}</div>
+          <div className={`${prefixCls}-share-cancel-button`} onClick={() => cb(-1)}>{cancelButtonText}</div>
         </div>
       </div>);
       break;
