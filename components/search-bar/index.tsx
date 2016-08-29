@@ -41,7 +41,9 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   onCancel = () => {
-    this.props.onCancel(this.state.value);
+    if (this.props.onCancel) {
+      this.props.onCancel(this.state.value);
+    }
   };
 
   render() {

@@ -41,7 +41,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   onCancel = () => {
-    this.props.onCancel(this.state.value);
+    if (this.props.onCancel) {
+      this.props.onCancel(this.state.value);
+    } else {
+      this.onClear();
+    }
   };
 
   onClear = () => {
@@ -88,7 +92,10 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           </div>
           {
             showCancelButton ? (
-              <div className={`${prefixCls}-cancel`} onClick={this.onCancel}>
+              <div className={`${prefixCls}-cancel`}
+                 style={{ display: value && value.length > 0 ? 'block' : 'none' }}
+                 onClick={this.onCancel}
+              >
                 {cancelText}
               </div>
             ) : null

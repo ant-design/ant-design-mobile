@@ -40,6 +40,7 @@ export const propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onCancel: PropTypes.func,
+  onClear: PropTypes.func,
   showCancelButton: PropTypes.bool,
   cancelText: PropTypes.string,
   disabled: PropTypes.bool,
@@ -52,8 +53,8 @@ export const defaultProps = {
   onChange: noop,
   onFocus: noop,
   onBlur: noop,
-  onCancel: noop,
-  showCancelButton: false,
+  onClear: noop,
+  showCancelButton: true,
   cancelText: '取消',
   disabled: false,
 };
