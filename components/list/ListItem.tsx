@@ -137,7 +137,7 @@ export default class Item extends React.Component<ListItemProps, any> {
           const tempExtraDom = [];
           extraChildren.forEach((el, index) => {
             if (typeof el === 'string') {
-              tempExtraDom.push(<Text numberOfLines={1} style={THEMES.Extra} key={`${index}-extra`}>{el}</Text>);
+              tempExtraDom.push(<Text numberOfLines={1} style={[THEMES.Extra]} key={`${index}-extra`}>{el}</Text>);
             } else {
               tempExtraDom.push(React.cloneElement(el, assign({}, el.props, {inExtra: true, key: index})));
             }
@@ -151,7 +151,7 @@ export default class Item extends React.Component<ListItemProps, any> {
         }
       } else {
         extraDom = (<View style={{ flex: 1}}>
-          <Text style={THEMES.Extra} numberOfLines={1}>{this.props.extra}</Text>
+          <Text style={[THEMES.Extra]} numberOfLines={1}>{this.props.extra}</Text>
         </View>);
       }
     }

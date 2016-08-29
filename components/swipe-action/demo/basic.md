@@ -14,6 +14,7 @@ let TabExample = React.createClass({
         <List.Body>
           <SwipeAction
             style={{ backgroundColor: 'gray' }}
+            autoClose
             right={[
               {
                 text: 'more',
@@ -38,8 +39,8 @@ let TabExample = React.createClass({
                 style: { backgroundColor: 'green', color: 'white' },
               },
             ]}
-            onOpen={() => console.log('open')}
-            onClose={() => console.log('close')}
+            onOpen={() => console.log('global open')}
+            onClose={() => console.log('global close')}
           >
             <List.Item extra="额外参数">
                 简单例子 - 左右都可操作
