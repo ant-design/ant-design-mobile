@@ -22,6 +22,14 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedIndex !== this.props.selectedIndex) {
+      this.setState({
+        selectedIndex: nextProps.selectedIndex,
+      });
+    }
+  }
+
   onPress(e, index, value) {
     const { enabled, onChange, onValueChange } = this.props;
     if (enabled) {

@@ -7,7 +7,7 @@ english: SegmentedControl
 
 ### 定义／Definition
 
-主要应用在页面的NavBar区块，一般起着控制全局页面内容切换的作用。选项卡的文字内容建议不超过四个。
+主要应用在页面区块，一般起着控制全局页面内容切换的作用。API 来源于 [react-native segmentedcontrolios](http://facebook.github.io/react-native/docs/segmentedcontrolios.html)。
 
 ## API
 
