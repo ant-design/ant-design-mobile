@@ -15,6 +15,8 @@ export default StyleSheet.create({
     paddingLeft: variables.h_spacing_lg + variables.icon_size_xxs + variables.h_spacing_sm,
     paddingRight: variables.h_spacing_lg + variables.icon_size_xxs + variables.h_spacing_sm,
     flex: 1,
+    paddingTop: 0,
+    paddingBottom: 0,
   } as ViewStyle,
   wrapper: {
     backgroundColor: '#ddd',
