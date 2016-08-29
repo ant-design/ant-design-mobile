@@ -18,6 +18,7 @@ export default class BasicListExample extends React.Component<any, any> {
             <List.Body>
               <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
               <List.Item
+                error
                 onClick={() => alert('点击触发onClick事件')}
               >标题文字</List.Item>
               <List.Item
@@ -107,6 +108,7 @@ export default class BasicListExample extends React.Component<any, any> {
               <List.Item.Brief>辅助文字内容</List.Item.Brief>
             </List.Item>
             <List.Item
+              error
               multipleLine
               arrow="horizontal"
             >

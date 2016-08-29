@@ -203,21 +203,32 @@ export default class Item extends React.Component<ListItemProps, any> {
           + variables.v_spacing_sm;
       }
     }
-    const itemStyle = [THEMES.Item,
-      this.props.multipleLine ? THEMES.multipleLine.Item : {},
+
+    const ItemStyle = [THEMES.Item,
       this.props.last ? THEMES.Last.Item : {},
       this.props.error ? THEMES.Error.Item : {},
       this.props.style,
+    ];
+
+    const LineStyle = [THEMES.Line,
+      this.props.multipleLine ? THEMES.multipleLine.Line : {},
+      this.props.last ? THEMES.Last.Line : {},
+      this.props.error ? THEMES.Error.Line : {},
       line > 1 ? { height: itemHeight} : {},
     ];
 
     const itemView = (<View
       {...this.props}
-      style={itemStyle}>
+      style={ItemStyle}
+    >
       {thumbDom}
-      {contentDom}
-      {extraDom}
-      {arrowDom}
+      <View
+        style={LineStyle}
+      >
+        {contentDom}
+        {extraDom}
+        {arrowDom}
+      </View>
     </View>);
 
     if (this.props.onClick) {
