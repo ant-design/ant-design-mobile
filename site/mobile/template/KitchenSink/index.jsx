@@ -1,10 +1,10 @@
 import React from 'react';
 import Promise from 'bluebird';
+import { Link } from 'react-router';
+import { Icon, Drawer, List, Flex } from 'antd-mobile';
 import * as utils from '../../../theme/template/utils';
 import Page from './Page';
 import Item from './Item';
-import { Link } from 'react-router';
-import { Icon, Drawer, List, Flex } from 'antd-mobile';
 
 const hashImgObj = {
   'action-sheet': 'sTvsgvivVKnqQtS',
@@ -145,7 +145,7 @@ export default class App extends React.Component {
                 <List.Body>
                   {(() => {
                     const flexs = [];
-                    let flexItems = [];
+                    const flexItems = [];
                     for (let i = 0; i < lists[cate].length; i++) {
                       const ii = lists[cate][i];
                       const fileName = ii.filename.split('/')[1];

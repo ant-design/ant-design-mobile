@@ -4,6 +4,13 @@ import classNames from 'classnames';
 function noop() { }
 import InputItemProps from './InputItemPropsType';
 
+function fixControlledValue(value) {
+  if (typeof value === 'undefined' || value === null) {
+    return '';
+  }
+  return value;
+}
+
 export interface InputItemState {
   focus?: boolean;
   placeholder?: string;
@@ -22,12 +29,12 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
     type: 'text',
-    editable: true,
     name: '',
-    value: '',
+    defaultValue: '',
+    editable: true,
+    disabled: false,
     placeholder: '',
     clear: false,
-    maxLength: -1,
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
@@ -124,12 +131,25 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
 
   render() {
     const {
-      prefixCls, prefixListCls, type, name, editable, value, style, clear, children,
+      prefixCls, prefixListCls, type, value, defaultValue, name, editable, disabled, style, clear, children,
       error, className, extra, labelNumber, maxLength } = this.props;
+
+    let valueProps;
+    if (value !== undefined) {
+      valueProps = {
+        value: fixControlledValue(value),
+      };
+    } else {
+      valueProps = {
+        defaultValue,
+      };
+    }
+
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
       [className]: className,
@@ -157,19 +177,20 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <input
+            {...valueProps}
             type={inputType}
             maxLength={maxLength}
             name={name}
             placeholder={placeholder}
-            value={value}
             onChange={this.onInputChange}
             onBlur={this.onInputBlur}
             onFocus={this.onInputFocus}
             readOnly={!editable}
+            disabled={disabled}
             pattern={type === 'number' ? '[0-9]*' : ''}
           />
         </div>
-        {clear && editable && value.length > 0 ?
+        {clear && editable && !disabled && (value && value.length > 0) ?
           <div className={`${prefixCls}-clear`} onClick={this.clearInput} />
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}

@@ -1,49 +1,49 @@
-import {PropTypes} from 'react';
+import { PropTypes } from 'react';
 import * as React from 'react';
-import {Image, View, TouchableHighlight, Text} from 'react-native';
+import assign from 'object-assign';
+import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
+import variables from '../style/themes/default';
 import theme from './style/index';
 const THEMES = theme.ThemesList;
-const ASSETS = theme.AssetsList;
 
 export interface CommonProps {
   style?: React.CSSProperties;
   children?: any;
 }
 
+export interface BriefProps {
+  style?: React.CSSProperties;
+  children?: any;
+  inExtra?: boolean;
+}
+
 export interface ListItemProps {
   style?: React.CSSProperties;
   onClick?: any;
-  line?: number;
+  multipleLine?: boolean;
   thumb?: any;
   children?: any;
   extra?: any;
-  arrow?: 'horizontal'|'down'|'up'|'';
+  arrow?: 'horizontal'|'down'|'up'|'empty'|'';
   error?: boolean;
   lazy?: boolean;
   last?: boolean;
 }
 
-class Content extends React.Component<CommonProps, any> {
+class Brief extends React.Component<BriefProps, any> {
   render() {
-    return (<Text style={[THEMES.Content, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
-  }
-}
-
-class AffiliatedContent extends React.Component<CommonProps, any> {
-  render() {
-    return (<Text style={[THEMES.AffiliatedContent, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
-  }
-}
-
-class Extra extends React.Component<CommonProps, any> {
-  render() {
-    return (<View style={{ alignItems: 'flex-end' }}>{this.props.children}</View>);
-  }
-}
-
-class Detail extends React.Component<CommonProps, any> {
-  render() {
-    return (<Text style={[THEMES.Detail, this.props.style]} numberOfLines={1}>{this.props.children}</Text>);
+    const { children, style, inExtra } = this.props;
+    return (<View style={{
+      marginTop: variables.v_spacing_sm,
+      height: variables.font_size_subhead,
+    }}>
+      <Text
+        style={[THEMES.Brief, style, inExtra ? { textAlign: 'right'} : null]}
+        numberOfLines={1}
+      >
+        {children}
+      </Text>
+    </View>);
   }
 }
 
@@ -56,19 +56,16 @@ export default class Item extends React.Component<ListItemProps, any> {
         }
       }
     },
-    arrow: PropTypes.oneOf(['horizontal', 'down', 'up', '']),
+    arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
   };
 
   static defaultProps = {
     lazy: false,
     last: false,
-    line: 1,
+    multipleLine: false,
   };
 
-  static Content: any;
-  static AffiliatedContent: any;
-  static Extra: any;
-  static Detail: any;
+  static Brief: any;
 
   timer: any;
 
@@ -95,6 +92,8 @@ export default class Item extends React.Component<ListItemProps, any> {
     if (this.state.__lazy) {
       return (<View />);
     }
+
+    let line = 1;
     let thumbDom = null;
     let contentDom = null;
     let extraDom = null;
@@ -103,48 +102,133 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     if (thumb) {
       if (typeof thumb === 'string') {
-        thumbDom = (<Image source={{ uri: thumb }} style={[THEMES.Thumb,
-        this.props.line === 2 ? THEMES.Line2.Thumb : {}]}/>);
+        thumbDom = (<Image
+          source={{ uri: thumb }}
+          style={[THEMES.Thumb,
+            this.props.multipleLine ? THEMES.multipleLine.Thumb : null,
+          ]}
+        />);
       } else {
         thumbDom = thumb;
       }
     }
-    if ((this.props.line === 2) && React.isValidElement(this.props.children)) {
-      contentDom = <View style={{ flex: 1 }}>{this.props.children}</View>;
+    if (Array.isArray(this.props.children)) {
+      const tempContentDom = [];
+      this.props.children.forEach((el, index) => {
+        if (React.isValidElement(el)) {
+          tempContentDom.push(<View key={`${index}-children`}>{el}</View>);
+        } else {
+          tempContentDom.push(<Text style={THEMES.Content} numberOfLines={1} key={`{index}-children`}>{el}</Text>);
+        }
+      });
+
+      line = this.props.children.length;
+
+      contentDom = <View style={{ flex: 1, flexDirection: 'column' }}>{tempContentDom}</View>;
     } else {
-      contentDom = <Text style={THEMES.Content} numberOfLines={1}>{this.props.children}</Text>;
+      if (React.isValidElement(this.props.children)) {
+        contentDom = <View style={{ flex: 1, flexDirection: 'column' }}>{this.props.children}</View>;
+      } else {
+        contentDom = <View style={{ flex: 1, flexDirection: 'column'}}>
+          <Text style={THEMES.Content} numberOfLines={1}>{this.props.children}</Text>
+        </View>;
+      }
     }
+
     if (this.props.extra) {
       if (React.isValidElement(this.props.extra)) {
-        extraDom = this.props.extra;
+        const extraChildren = this.props.extra.props.children;
+        if (Array.isArray(extraChildren)) {
+          const tempExtraDom = [];
+          extraChildren.forEach((el, index) => {
+            if (typeof el === 'string') {
+              tempExtraDom.push(<Text
+                numberOfLines={1}
+                style={[THEMES.Extra, {textAlign: 'right'}]}
+                key={`${index}-extra`}
+              >
+                {el}
+              </Text>);
+            } else {
+              tempExtraDom.push(React.cloneElement(el, assign({}, el.props, {inExtra: true, key: index})));
+            }
+          });
+
+          line = extraChildren.length > line ? extraChildren.length : line;
+
+          extraDom = (<View style={{ flex: 1, flexDirection: 'column' }}>
+            {tempExtraDom}
+            </View>);
+        } else {
+          extraDom = this.props.extra;
+        }
       } else {
-        extraDom = <Text style={THEMES.Extra} numberOfLines={1}>{this.props.extra}</Text>;
+        extraDom = (<View style={{ flex: 1, flexDirection: 'column' }}>
+          <Text style={[THEMES.Extra, {textAlign: 'right'}]} numberOfLines={1}>{this.props.extra}</Text>
+        </View>);
       }
     }
     if (this.props.arrow) {
       switch (this.props.arrow) {
         case 'horizontal':
-          arrowDom = <Image source={{ uri: ASSETS.arrowH }} style={THEMES.Arrow}/>;
+          arrowDom = <Image source={require('../style/images/arrow.png')} style={THEMES.Arrow}/>;
           break;
         case 'down':
-          arrowDom = <Image source={{ uri: ASSETS.arrowDown }} style={THEMES.Arrow}/>;
+          arrowDom = <Image source={require('../style/images/arrow-up.png')} style={THEMES.ArrowV}/>;
           break;
         case 'up':
-          arrowDom = <Image source={{ uri: ASSETS.arrowUp }} style={THEMES.Arrow}/>;
+          arrowDom = <Image source={require('../style/images/arrow-down.png')} style={THEMES.ArrowV}/>;
           break;
         default:
           arrowDom = <View style={THEMES.Arrow}/>;
           break;
       }
     }
-    const itemStyle = [THEMES.Item,
-      this.props.line === 2 ? THEMES.Line2.Item : {},
+
+    let itemHeight;
+    if (line === 2) {
+      if (Platform.OS === 'android') {
+        itemHeight = 70 + 3 * variables.v_spacing_sm;
+      } else {
+        itemHeight = 70 + variables.v_spacing_sm;
+      }
+    } else if (line > 2) {
+      if (Platform.OS === 'android') {
+        itemHeight = variables.list_item_height
+          + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)
+          + 3 * variables.v_spacing_sm;
+      } else {
+        itemHeight = variables.list_item_height
+          + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)
+          + variables.v_spacing_sm;
+      }
+    }
+
+    const ItemStyle = [THEMES.Item,
       this.props.last ? THEMES.Last.Item : {},
       this.props.error ? THEMES.Error.Item : {},
-      this.props.style];
+      this.props.style,
+    ];
 
-    const itemView = (<View {...this.props} style={itemStyle}>
-      {thumbDom}{contentDom}{extraDom}{arrowDom}
+    const LineStyle = [THEMES.Line,
+      this.props.multipleLine ? THEMES.multipleLine.Line : {},
+      this.props.last ? THEMES.Last.Line : {},
+      this.props.error ? THEMES.Error.Line : {},
+      line > 1 ? { height: itemHeight} : {},
+    ];
+
+    const itemView = (<View
+      {...this.props}
+      style={ItemStyle}
+    >
+      {thumbDom}
+      <View
+        style={LineStyle}
+      >
+        {contentDom}
+        {extraDom}
+        {arrowDom}
+      </View>
     </View>);
 
     if (this.props.onClick) {
@@ -165,7 +249,4 @@ export default class Item extends React.Component<ListItemProps, any> {
   }
 }
 
-Item.Content = Content;
-Item.AffiliatedContent = AffiliatedContent;
-Item.Extra = Extra;
-Item.Detail = Detail;
+Item.Brief = Brief;

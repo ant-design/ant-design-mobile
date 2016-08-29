@@ -8,7 +8,7 @@ Radio
 ````jsx
 import { Radio } from 'antd-mobile';
 
-let Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       disabled: false,

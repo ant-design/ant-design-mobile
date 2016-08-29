@@ -1,7 +1,7 @@
 import React from 'react';
-import MainContent from './MainContent';
 import Promise from 'bluebird';
 import * as utils from '../utils';
+import MainContent from './MainContent';
 
 export function collect(nextProps, callback) {
   const componentsList = utils.collectDocs(nextProps.data.components);

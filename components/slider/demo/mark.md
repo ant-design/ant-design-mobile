@@ -22,7 +22,7 @@ const marks = {
   },
 };
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div className="am-slider-example">

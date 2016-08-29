@@ -48,7 +48,7 @@ const Demo = React.createClass({
     this.rowIDs = [];
     this.genData = (pIndex = 0) => {
       for (let i = 0; i < NUM_SECTIONS; i++) {
-        const ii = pIndex * NUM_SECTIONS + i;
+        const ii = (pIndex * NUM_SECTIONS) + i;
         const sectionName = `Section ${ii}`;
         this.sectionIDs.push(sectionName);
         this.dataBlob[sectionName] = sectionName;
@@ -91,7 +91,7 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }}></div>
+      }} />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {

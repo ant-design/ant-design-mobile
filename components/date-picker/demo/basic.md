@@ -13,6 +13,7 @@ import { DatePicker, List } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import moment from 'moment';
 import enUs from 'antd-mobile/components/date-picker/locale/en_US';
+
 const now = moment().utcOffset(0);
 
 let Test = React.createClass({

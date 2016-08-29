@@ -10,6 +10,7 @@ Checkbox.AgreeItem
 ````jsx
 import { Checkbox } from 'antd-mobile';
 import { createForm } from 'rc-form';
+
 const AgreeItem = Checkbox.AgreeItem;
 
 let AgreeItemExample = React.createClass({

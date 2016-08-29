@@ -8,7 +8,7 @@ title: 数字形态
 ````jsx
 import { Pagination, WhiteSpace, WingBlank } from 'antd-mobile';
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div>

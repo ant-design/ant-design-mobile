@@ -8,7 +8,7 @@ title: 基本用法
 ````jsx
 import { ActivityIndicator, WhiteSpace } from 'antd-mobile';
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div>

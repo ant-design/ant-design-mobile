@@ -9,7 +9,7 @@ title: 基本
 import { Flex, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
 
-let FlexExample = React.createClass({
+const FlexExample = React.createClass({
   render() {
     return (
       <div className="button-container">

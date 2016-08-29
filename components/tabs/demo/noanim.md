@@ -7,13 +7,14 @@ title: 无动画
 
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
+
 const TabPane = Tabs.TabPane;
 
 function callback(key) {
   console.log(key);
 }
 
-let TabExample = React.createClass({
+const TabExample = React.createClass({
   render() {
     return (
       <div>

@@ -9,7 +9,7 @@ title: 基本
 ````jsx
 import { WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
-let WhiteSpaceExample = React.createClass({
+const WhiteSpaceExample = React.createClass({
   render() {
     return (
       <div className="button-container">

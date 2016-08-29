@@ -7,14 +7,14 @@
   .box-align;
   padding: @h-spacing-sm @h-spacing-lg;
   background-color: @brand-primary;
-  color: #fff;
+  color: @fill-base;
   &-light {
-    background-color: #fff;
+    background-color: @fill-base;
     color: @brand-primary;
   }
   &-left {
     .box-flex(1);
-    font-size: @font-size-display-sm;
+    font-size: @link-button-font-size;
     &-icon {
       margin-right: @h-spacing-sm;
     }
@@ -24,12 +24,15 @@
     .ellipsis;
     max-width: 80%;
     text-align: center;
-    font-size: @font-size-display-md;
+    font-size: @font-size-display-sm;
     line-height: 1.5;
+  }
+  &-light &-title {
+    color: @color-text-base;
   }
   &-right {
     .box-flex(1);
-    font-size: @font-size-display-sm;
+    font-size: @link-button-font-size;
     text-align: right;
     .anticon {
       margin-right: @h-spacing-sm;

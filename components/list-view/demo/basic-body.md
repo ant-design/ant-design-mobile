@@ -39,7 +39,7 @@ const Demo = React.createClass({
     this.genData = (pIndex = 0) => {
       const dataBlob = {};
       for (let i = 0; i < NUM_ROWS; i++) {
-        const ii = pIndex * NUM_ROWS + i;
+        const ii = (pIndex * NUM_ROWS) + i;
         dataBlob[`${ii}`] = `row - ${ii}`;
       }
       return dataBlob;
@@ -72,7 +72,7 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }}></div>
+      }} />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {

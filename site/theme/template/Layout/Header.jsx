@@ -8,6 +8,7 @@ import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Icon from 'antd/lib/icon';
 import Select from 'antd/lib/select';
+
 const Option = Select.Option;
 
 export default class Header extends React.Component {
@@ -22,7 +23,9 @@ export default class Header extends React.Component {
     this.onScroll = debounce(() => {
       const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
       const clientHeight = document.documentElement.clientHeight;
-      if (scrollTop < 2 * clientHeight && scrollTop >= clientHeight || scrollTop >= 3 * clientHeight) {
+      // 设计基础暂时隐藏
+      // if ((scrollTop < 2 * clientHeight && scrollTop >= clientHeight) || scrollTop >= 2 * clientHeight) {
+      if (scrollTop >= 2 * clientHeight) {
         this.setState({ isFirstFrame: false });
       } else {
         this.setState({ isFirstFrame: true });
@@ -149,11 +152,14 @@ export default class Header extends React.Component {
                   组件
                 </Link>
               </Menu.Item>
+              {/*
+              设计基础先隐藏
               <Menu.Item key="docs/pattern">
                 <Link to="/docs/pattern/color">
                   设计基础
                 </Link>
               </Menu.Item>
+              */}
             </Menu>
           </Col>
         </Row>

@@ -28,7 +28,7 @@ const App = React.createClass({
             return (<List.Item key={index}
               thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
               multipleLine
-            >我是名称我是名称</List.Item>);
+            >分类 - {index}</List.Item>);
           }
           return (<List.Item key={index}
             thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"

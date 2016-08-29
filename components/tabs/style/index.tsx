@@ -10,12 +10,15 @@ export default StyleSheet.create({
   },
   barTop: {
     height: variables.tabs_height,
-     borderTopWidth: 0,
-     borderBottomWidth: 1,
+    borderTopWidth: 0,
+    borderBottomWidth: 1,
   },
   barBottom: {
     height: variables.tabs_height,
     borderTopWidth: 1,
     borderBottomWidth: 0,
+  },
+  underline: {
+    height: 2,
   },
 });

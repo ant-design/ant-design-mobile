@@ -31,8 +31,15 @@ export default class Steps extends React.Component<StepsProps, any> {
     return (
       <View style={styles[wrapView]} onLayout={(e) => {this.onLayout(e);}}>
       {
-        React.Children.map(children, (ele: any, idx) =>
-          React.cloneElement(ele, {
+        React.Children.map(children, (ele: any, idx) => {
+          let errorTail = -1;
+          if (idx < (children as Array<any>).length - 1) {
+            const status = this.props.children[idx + 1].props.status;
+            if (status === 'error') {
+              errorTail = idx;
+            }
+          }
+          return React.cloneElement(ele, {
             index: idx,
             last: idx === (children as Array<any>).length - 1,
             direction: this.props.direction,
@@ -40,8 +47,9 @@ export default class Steps extends React.Component<StepsProps, any> {
             width: 1 / ((children as Array<any>).length - 1) * this.state.wrapWidth,
             size: this.props.size,
             finishIcon: this.props.finishIcon,
-          })
-        )
+            errorTail,
+          });
+        })
       }
       </View>
     );

@@ -10,6 +10,7 @@ Checkbox.CheckboxItem
 ````jsx
 import { List, Checkbox } from 'antd-mobile';
 import { createForm } from 'rc-form';
+
 const CheckboxItem = Checkbox.CheckboxItem;
 
 let CheckboxItemExample = React.createClass({

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
-import variables from '../style/variables';
+import variables from '../style/themes/default';
 import InputItemProps from './InputItemPropsType';
 import InputItemStyle from './style/index';
 function noop() { }
@@ -92,19 +92,19 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       clear, children, error, extra, labelNumber, last } = this.props;
 
     const containerStyle = {
-      borderBottomWidth: last ? 0 : 1,
+      borderBottomWidth: last ? 0 : variables.border_width_sm,
     };
 
     const textStyle = {
-      width: 4 * variables.grid * labelNumber,
+      width: variables.font_size_heading * labelNumber,
     };
 
     const inputStyle = {
-      color: error ? '#f50' : variables.neutral_10,
+      color: error ? '#f50' : variables.color_text_base,
   };
 
     const extraStyle = {
-      width: typeof extra === 'string' && extra.length > 0 ? extra.length * 4.5 * variables.grid : 0,
+      width: typeof extra === 'string' && extra.length > 0 ? extra.length * variables.font_size_heading : 0,
     };
 
     return (
@@ -138,7 +138,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
             <View style={[InputItemStyle.errorIcon]}>
               <Image
                 source={require('../style/images/error.png')}
-                style={{ width: 16, height: 16 }}
+                style={{ width: variables.icon_size_xs, height: variables.icon_size_xs }}
               />
             </View>
           </TouchableWithoutFeedback>

@@ -38,8 +38,10 @@ const ImagePickerExample = React.createClass({
     return (
       <div>
         <ImagePicker
-          onChange={(files) => {
+          onChange={(files, type, index) => {
             console.log(files);
+            console.log(type);
+            console.log(index);
             this.setState({
               files,
             });
@@ -48,8 +50,10 @@ const ImagePickerExample = React.createClass({
         />
         <WhiteSpace />
         <ImagePicker
-          onChange={(files2) => {
+          onChange={(files2, type, index) => {
             console.log(files2);
+            console.log(type);
+            console.log(index);
             this.setState({
               files2,
             });

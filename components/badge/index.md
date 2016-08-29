@@ -20,5 +20,4 @@ english: Badge
 |------------|----------------|--------------------|--------------|
 | text       | 展示的数字或文案，当为数字时候，大于 overflowCount 时显示为 ${overflowCount}+，为 0 时隐藏     |   String`|`Number   |   -  |
 | dot   | 不展示数字，只有一个小红点   |   Boolean    |  false  |
-| corner     | 展示位角标样式  | Boolean |  false  |
 | overflowCount       | 展示封顶的数字值  | Number | 99|

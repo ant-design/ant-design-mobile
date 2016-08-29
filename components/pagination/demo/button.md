@@ -8,7 +8,7 @@ title: 按钮形态
 ````jsx
 import { Pagination, WhiteSpace, Icon, WingBlank } from 'antd-mobile';
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div className="loading-example">

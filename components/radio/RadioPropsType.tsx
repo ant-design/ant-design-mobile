@@ -5,11 +5,11 @@ export interface RadioProps {
   prefixCls?: string;
   /** web only */
   listPrefixCls?: string;
-  style?: React.CSSProperties;
   /** web only */
   className?: string;
   /** web only */
   name?: string;
+  style?: React.CSSProperties;
   defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;

@@ -1,35 +1,35 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 
 export default {
   container: {
-    height: 11 * variables.grid + 1,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e5e5e5',
-    marginLeft: 4 * variables.grid,
-    paddingRight: 4 * variables.grid,
+    height: variables.list_item_height + variables.border_width_sm,
+    borderBottomWidth: variables.border_width_sm,
+    borderBottomColor: variables.border_color_base,
+    marginLeft: variables.h_spacing_lg,
+    paddingRight: variables.h_spacing_lg,
     flexDirection: 'row',
     alignItems: 'center',
   },
   text: {
-    marginRight: 4 * variables.grid,
+    marginRight: variables.h_spacing_sm,
     textAlignVertical: 'center',
-    fontSize: variables.font_size_5,
-    color: variables.neutral_10,
+    fontSize: variables.font_size_heading,
+    color: variables.color_text_base,
   },
   input: {
     flex: 1,
-    height: 11 * variables.grid,
-    backgroundColor: variables.neutral_1,
-    fontSize: variables.font_size_5,
-
+    height: variables.list_item_height,
+    backgroundColor: variables.fill_base,
+    fontSize: variables.font_size_heading,
   },
   extra: {
-    marginLeft: variables.grid,
-    fontSize: variables.font_size_4,
+    marginLeft: variables.h_spacing_sm,
+    fontSize: variables.font_size_subhead,
+    color: variables.color_text_caption,
   },
   errorIcon: {
-    marginLeft: variables.grid,
-    width: 16,
-    height: 16,
+    marginLeft: variables.h_spacing_sm,
+    width: variables.icon_size_sm,
+    height: variables.icon_size_sm,
   },
 };

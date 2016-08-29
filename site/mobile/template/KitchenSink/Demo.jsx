@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
-import * as utils from '../../../theme/template/utils';
 import { Link } from 'react-router';
 import { Drawer, List, Icon } from 'antd-mobile';
+import * as utils from '../../../theme/template/utils';
 
 export function collect(nextProps, callback) {
   const componentsList = utils.collectDocs(nextProps.data.components);
@@ -90,6 +90,7 @@ export default class Home extends React.Component {
   }
 
   render() {
+    const isPc = !/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent);
     const { demos, listDemos, drawerDemos } = this.props;
     const name = this.props.params.component;
 
@@ -142,12 +143,12 @@ export default class Home extends React.Component {
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
-                              <Link style={{ lineHeight: '90px' }} to={`/${fileName}/#${fileName}-demo-${item1.meta.order}`}>{item1.meta.title}</Link>
+                              <Link to={`/${fileName}/#${fileName}-demo-${item1.meta.order}`}>{item1.meta.title}</Link>
                             </List.Item>
                           ))
                         }
                       </List>) :
-                      <Link style={{ lineHeight: '90px' }} to={`/${fileName}/`}>{item.chinese}</Link>}
+                      <Link to={`/${fileName}/`}>{item.chinese}</Link>}
                 </List.Item>);
               })
             }
@@ -186,7 +187,7 @@ export default class Home extends React.Component {
           <div className="demo-preview-item"id={`${name}-demo-${index}`} key={index}>
             <div className="demoTitle">{i.meta.title}</div>
             {i.preview(React, ReactDOM)}
-            {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+            {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
           </div>
         ))
       }
@@ -197,7 +198,7 @@ export default class Home extends React.Component {
       const i = demoSort[arr.length > 1 ? arr[1] : 0];
       drawerContent = (<div style={{ height: '100%' }}>
         {i.preview(React, ReactDOM)}
-        {!!i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+        {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
       </div>);
       if (name === 'list-view') {
         drawerProps.className = 'spe-drawer';
@@ -205,13 +206,15 @@ export default class Home extends React.Component {
     }
     // document.documentElement.clientHeight to
     // remove height of toolbars, address bars and navigation (android)
+    const minHeightStyle = isPc ? null : { minHeight: document.documentElement.clientHeight };
+
     return (
       <div id={name}>
         <div className="demo-drawer-trigger">
           <span onClick={this.onOpenChange}><Icon type="bars" /></span>
         </div>
         <div className="demo-drawer-container">
-          <Drawer style={{ minHeight: document.documentElement.clientHeight }}
+          <Drawer style={minHeightStyle}
             sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}
           >
             {drawerContent}

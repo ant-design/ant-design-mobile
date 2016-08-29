@@ -6,7 +6,7 @@ title: 走马灯没有边线
 ````jsx
 import { Grid } from 'antd-mobile';
 
-let data4 = [
+const data4 = [
   {
     icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
     text: '名字',
@@ -50,7 +50,7 @@ let data4 = [
   },
 ];
 
-let GridExample = React.createClass({
+const GridExample = React.createClass({
   render() {
     return (<div>
       <Grid

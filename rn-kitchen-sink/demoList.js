@@ -141,6 +141,12 @@ module.exports = {
       module: require('../components/refresh-control/demo/basic'),
     },
     {
+      title: 'Radio',
+      description: '单选框',
+      icon: 'https://os.alipayobjects.com/rmsportal/kmDibjGUbFrdeeY.png',
+      module: require('../components/radio/demo/basic'), // 必须
+    },
+    {
       title: 'SegmentedControl',
       description: '分段控制',
       icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',

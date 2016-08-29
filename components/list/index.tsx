@@ -6,17 +6,26 @@ import Item from './ListItem';
 import Header from './ListHeader';
 import Footer from './ListFooter';
 
-export default class List extends React.Component<any, any> {
+import variables from '../style/themes/default';
+
+import ListProps from './ListPropTypes';
+
+export default class List extends React.Component<ListProps, any> {
   static Header: any;
   static Body: any;
   static Footer: any;
   static Item: any;
+
   render() {
-    const style = {
-      marginTop: 8,
-      marginBottom: 8,
-    };
-    return (<View {...this.props} style={[style, this.props.style]}>{this.props.children}</View>);
+    let { children, style, title, footer } = this.props;
+    return (<View {...this.props} style={[{
+      marginTop: variables.v_spacing_xs,
+      marginBottom: variables.v_spacing_xs,
+    }, style]}>
+      {title ? <Header>{title}</Header> : null}
+      {children}
+      {footer ? <Footer>{footer}</Footer> : null}
+    </View>);
   }
 }
 

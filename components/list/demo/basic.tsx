@@ -1,153 +1,205 @@
 import * as React from 'react';
-import { Image, ScrollView } from 'react-native';
+import { Image, ScrollView, View } from 'react-native';
 import { List, Button } from 'antd-mobile';
 
 export default class BasicListExample extends React.Component<any, any> {
   render() {
     return (
       <ScrollView
-        style={{ flex: 1 }}
+        style={{ flex: 1, backgroundColor: '#f5f5f9' }}
         automaticallyAdjustContentInsets={false}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <List>
-          {/* 基本用法 Demo */}
-          <List.Header>基本用法 Demo</List.Header>
+        <List
+          title="基本 列表头部"
+          footer="列表尾部"
+        >
             <List.Body>
+              <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
               <List.Item
-              >标题文字,无Active效果</List.Item>
-              <List.Item
-                onClick={() => alert('点击响应方法')}
-              >标题文字默认有Active效果</List.Item>
+                error
+                onClick={() => alert('点击触发onClick事件')}
+              >标题文字</List.Item>
               <List.Item
                 extra="内容内容"
-                last
+                onClick={() => {}}
+                arrow="horizontal"
               >标题文字</List.Item>
             </List.Body>
-          <List.Footer>列表尾部,List.Footer</List.Footer>
         </List>
-
-        <List>
-          <List.Header>icon Demo</List.Header>
-            <List.Body>
-            <List.Item
-              thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
-              arrow="horizontal"
-              onClick={() => {}}
-            >icon</List.Item>
-            <List.Item
-              thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
-              onClick={() => {}}
-            >icon</List.Item>
-            <List.Item
-              icon=""
-              extra={
-                <Image
-                  source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }}
-                  style={{width: 28, height: 28}}
-                />
-              }
-              arrow="horizontal"
-              last
-              onClick={() => {}}
-            >扩展信息传入icon</List.Item>
-          </List.Body>
-        </List>
-
-        <List>
-          {/* 箭头 Demo */}
-          <List.Header>箭头 Demo</List.Header>
+        <List
+          title="带缩略图"
+        >
           <List.Body>
-            <List.Item extra="horizontal,剪头向右" arrow="horizontal">标题文字</List.Item>
-            <List.Item extra="down,剪头向下" arrow="down">标题文字</List.Item>
-            <List.Item extra="up,剪头向上" arrow="up">标题文字</List.Item>
             <List.Item
-              extra={
-                <List.Item.Extra>
-                  <List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent>
-                  <List.Item.Detail>001</List.Item.Detail>
-                </List.Item.Extra>
-              }
+              thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
               arrow="horizontal"
-              last
-            ><List.Item.Content>账户名</List.Item.Content></List.Item>
+              onClick={() => {}}
+            >thumb</List.Item>
+            <List.Item
+              thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
+              onClick={() => {}}
+            >thumb</List.Item>
+            <List.Item
+              extra={<Image
+                source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }}
+                style={{width: 29, height: 29}}
+              />}
+              arrow="horizontal"
+              onClick={() => {}}
+            >extra为Image</List.Item>
           </List.Body>
         </List>
 
-        <List>
-          {/* 双行列表 Demo */}
-          <List.Header>双行列表 Demo</List.Header>
-              <List.Body>
-                <List.Item line={2} thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg" arrow="horizontal">
-                  <List.Item.Content>收银员</List.Item.Content>
-                  <List.Item.Detail>仅可进行收款、退款及查账操作</List.Item.Detail>
-                </List.Item>
-                <List.Item
-                  line={2}
-                  thumb="http://img0.bdstatic.com/img/image/daren/ximeng2.jpg"
-                  arrow="horizontal"
-                  extra={
-                    <List.Item.Extra>
-                      <List.Item.AffiliatedContent>第一行文字</List.Item.AffiliatedContent>
-                      <List.Item.Detail>Detail</List.Item.Detail>
-                      </List.Item.Extra>
-                  }
-                >
-                  <List.Item.Content>Content</List.Item.Content>
-                  <List.Item.Detail>Detail</List.Item.Detail>
-                </List.Item>
-                <List.Item line={2} arrow="down">
-                  <List.Item.Content>运营</List.Item.Content>
-                  <List.Item.Detail>可进行收款、折扣管理、查看数据等操作。如果文字超长那就省略号</List.Item.Detail>
-                </List.Item>
-                <List.Item
-                  line={2}
-                  arrow="up"
-                  extra={<Button size="small" onPress={() => alert(1)}>按钮</Button>}
-                >
-                  <List.Item.Content>区域经理</List.Item.Content>
-                  <List.Item.Detail>可进行收款、折扣管理、查看数据等操作。</List.Item.Detail>
-                </List.Item>
-                <List.Item
-                  line={2}
-                  last
-                  arrow="horizontal" align={'top'}
-                  extra={<List.Item.Extra>
-                    <List.Item.AffiliatedContent>zhifubao@alipay.com</List.Item.AffiliatedContent>
-                    <List.Item.Detail>001</List.Item.Detail>
-                  </List.Item.Extra>}
-                >
-                  <List.Item.Content>账户名</List.Item.Content>
-                </List.Item>
+        <List
+          title="箭头方向"
+        >
+          <List.Body>
+            <List.Item
+              extra="horizontal,箭头向右"
+              arrow="horizontal"
+              onClick={() => {}}
+            >
+              标题文字
+            </List.Item>
+            <List.Item
+              extra="down,箭头向下"
+              arrow="down"
+              onClick={() => {}}
+            >
+              标题文字
+            </List.Item>
+            <List.Item
+              extra="up,箭头向上"
+              arrow="up"
+              onClick={() => {}}
+            >
+              标题文字
+            </List.Item>
+            <List.Item
+              extra="empty,有箭头坑位"
+              arrow="empty"
+              onClick={() => {}}
+              multipleLine
+            >
+              标题文字
+            </List.Item>
+            <List.Item
+              extra="没有箭头"
+              onClick={() => {}}
+            >标题文字</List.Item>
           </List.Body>
-          <List.Footer>文本说明文本说明</List.Footer>
         </List>
 
-        <List >
-          {/* 业务例子 Demo */}
-          <List.Header>业务例子 Demo</List.Header>
+        <List
+          title="多行列表 Demo"
+        >
+          <List.Body>
+            <List.Item
+              multipleLine
+              arrow="horizontal"
+              extra={<View>
+                内容内容
+                <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              </View>}
+            >
+              标题文字
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            </List.Item>
+            <List.Item
+              error
+              multipleLine
+              arrow="horizontal"
+            >
+              标题文字
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            </List.Item>
+            <List.Item
+              multipleLine
+              arrow="horizontal"
+            >
+              标题文字
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            </List.Item>
+            <List.Item
+              multipleLine
+              arrow="horizontal"
+            >
+              标题文字
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            </List.Item>
+            <List.Item
+              multipleLine
+              arrow="down"
+            >
+              运营
+              <List.Item.Brief>可进行收款、折扣管理、查看数据等操作。如果文字超长那就省略号</List.Item.Brief>
+            </List.Item>
+            <List.Item
+              multipleLine
+              arrow="up"
+              extra={<Button size="small" onPress={() => alert(1)}>按钮</Button>}
+            >
+              区域经理
+              <List.Item.Brief>可进行收款、折扣管理、查看数据等操作。</List.Item.Brief>
+            </List.Item>
+            <List.Item
+              multipleLine
+              arrow="horizontal"
+              align={'top'}
+              extra={<View>
+                zhifubao@alipay.com
+                <List.Item.Brief>001</List.Item.Brief>
+              </View>}
+            >
+              账户名
+            </List.Item>
+          </List.Body>
+        </List>
+
+        <List
+          title="业务例子 Demo"
+        >
           <List.Body>
             <List.Item
               extra="鹿港小镇"
               arrow="horizontal"
-            >所属门店</List.Item>
+            >
+              所属门店
+            </List.Item>
             <List.Item
               extra="张三"
-            >员工姓名</List.Item>
+            >
+              员工姓名
+            </List.Item>
             <List.Item
               extra="收银员"
-            >员工角色</List.Item>
+            >
+              员工角色
+            </List.Item>
             <List.Item
               extra="13838383756"
-            >员工手机</List.Item>
+            >
+              员工手机
+            </List.Item>
             <List.Item
               extra="只可退自己的"
-            >退款权限</List.Item>
+            >
+              退款权限
+            </List.Item>
             <List.Item
-              content="其他权限"
+              extra="文本信息"
               arrow="horizontal"
-            >文本信息</List.Item>
+            >
+              其他权限
+            </List.Item>
             <List.Item
               extra={
                 <Image
@@ -156,18 +208,18 @@ export default class BasicListExample extends React.Component<any, any> {
                 />
               }
               arrow="horizontal"
-            >员工二维码</List.Item>
+            >
+              员工二维码
+            </List.Item>
             <List.Item
               extra={
-                <List.Item.Extra>
-                  <List.Item.AffiliatedContent>koubei@alipay.com</List.Item.AffiliatedContent>
-                  <List.Item.Detail>002</List.Item.Detail>
-                </List.Item.Extra>
+                <View>koubei@alipay.com<List.Item.Brief>002</List.Item.Brief></View>
               }
               arrow="horizontal"
-              line={2}
-              last
-            ><List.Item.Content>垂直居中对齐</List.Item.Content></List.Item>
+              multipleLine
+            >
+              垂直居中对齐
+            </List.Item>
           </List.Body>
         </List>
       </ScrollView>

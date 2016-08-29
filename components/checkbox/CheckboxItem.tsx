@@ -22,7 +22,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
 
     return (<ListItem
       style={style}
-      onClick={this.handleClick}
+      onClick={disabled ? null : this.handleClick}
       line={line}
       extra={extra}
       thumb={<Checkbox
