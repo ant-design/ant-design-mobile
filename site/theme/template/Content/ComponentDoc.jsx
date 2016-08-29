@@ -8,18 +8,18 @@ import QRCode from 'qrcode.react';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 
-function getOffsetTop(dom) {
-  let top = 0;
-  top += dom.offsetTop;
+// function getOffsetTop(dom) {
+//   let top = 0;
+//   top += dom.offsetTop;
 
-  while (dom.parentElement) {
-    if (getComputedStyle(dom.parentElement).position === 'relative') {
-      top += dom.parentElement.offsetTop;
-    }
-    dom = dom.parentElement;
-  }
-  return top;
-}
+//   while (dom.parentElement) {
+//     if (getComputedStyle(dom.parentElement).position === 'relative') {
+//       top += dom.parentElement.offsetTop;
+//     }
+//     dom = dom.parentElement;
+//   }
+//   return top;
+// }
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
@@ -90,26 +90,26 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
-  onScrollEvent() {
-    const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-    const asideDemo = document.getElementById('aside-demo');
+  // onScrollEvent() {
+  //   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+  //   const asideDemo = document.getElementById('aside-demo');
 
-    const demoDom = document.getElementById('demo-code');
-    if (!demoDom) return;
-    const demoTop = getOffsetTop(demoDom);
+  //   const demoDom = document.getElementById('demo-code');
+  //   if (!demoDom) return;
+  //   const demoTop = getOffsetTop(demoDom);
 
-    const apiDom = document.getElementById('api');
-    if (!apiDom) return;
-    const apiTop = getOffsetTop(apiDom);
+  //   const apiDom = document.getElementById('api');
+  //   if (!apiDom) return;
+  //   const apiTop = getOffsetTop(apiDom);
 
-    if (scrollTop + 568 >= apiTop || scrollTop - 40 < demoTop) {
-      if (asideDemo.className.indexOf('fixed') >= 0) {
-        asideDemo.className = asideDemo.className.replace(/fixed/ig, '');
-      }
-    } else if (asideDemo.className.indexOf('fixed') < 0) {
-      asideDemo.className += ' fixed';
-    }
-  }
+  //   if (scrollTop + 568 >= apiTop || scrollTop - 40 < demoTop) {
+  //     if (asideDemo.className.indexOf('fixed') >= 0) {
+  //       asideDemo.className = asideDemo.className.replace(/fixed/ig, '');
+  //     }
+  //   } else if (asideDemo.className.indexOf('fixed') < 0) {
+  //     asideDemo.className += ' fixed';
+  //   }
+  // }
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScrollEvent);
@@ -201,7 +201,7 @@ export default class ComponentDoc extends React.Component {
             </div>
             <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
               <div id="aside-demo" className="aside-demo">
-                <div style={{ width: '377Px', height: '620Px', boxShadow: '0 0 4Px #ebebeb' }}>
+                <div style={{ width: '377Px', height: '620Px' }}>
                   <div className="demo-preview-wrapper">
                     <div className="demo-preview-header">
                       <div className="demo-preview-statbar">
@@ -214,7 +214,10 @@ export default class ComponentDoc extends React.Component {
                       </div>
                     </div>
                     <section className="code-box-demo code-box-demo-preview">
-                      <iframe id="demoFrame" name="demoFrame" style={{ width: '375Px', height: '548Px' }} src={iframeUrl} />
+                      <iframe id="demoFrame" name="demoFrame"
+                        style={{ width: '377Px', height: '548Px', border: '1Px solid #F7F7F7', boxShadow: '0 0 4Px #ebebeb' }}
+                        src={iframeUrl}
+                      />
                     </section>
                   </div>
                 </div>

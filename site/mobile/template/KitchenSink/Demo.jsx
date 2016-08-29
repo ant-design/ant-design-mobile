@@ -90,6 +90,7 @@ export default class Home extends React.Component {
   }
 
   render() {
+    const isPc = !/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent);
     const { demos, listDemos, drawerDemos } = this.props;
     const name = this.props.params.component;
 
@@ -205,13 +206,15 @@ export default class Home extends React.Component {
     }
     // document.documentElement.clientHeight to
     // remove height of toolbars, address bars and navigation (android)
+    const minHeightStyle = isPc ? null : { minHeight: document.documentElement.clientHeight };
+
     return (
       <div id={name}>
         <div className="demo-drawer-trigger">
           <span onClick={this.onOpenChange}><Icon type="bars" /></span>
         </div>
         <div className="demo-drawer-container">
-          <Drawer style={{ minHeight: document.documentElement.clientHeight }}
+          <Drawer style={minHeightStyle}
             sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}
           >
             {drawerContent}
