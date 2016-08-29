@@ -7,7 +7,7 @@ title: 基本使用
 ````jsx
 import { SwipeAction, List } from 'antd-mobile';
 
-let TabExample = React.createClass({
+const SwipeActionExample = React.createClass({
   render() {
     return (
       <List>
@@ -51,5 +51,5 @@ let TabExample = React.createClass({
   },
 });
 
-ReactDOM.render(<TabExample />, mountNode);
+ReactDOM.render(<SwipeActionExample />, mountNode);
 ````

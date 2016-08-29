@@ -9,7 +9,7 @@ align="start/end/center/baseline/stretch"
 import { Flex, Button, List, WingBlank, WhiteSpace } from 'antd-mobile';
 
 
-let FlexExample = React.createClass({
+const FlexExample = React.createClass({
   render() {
     return (
       <div className="button-container">

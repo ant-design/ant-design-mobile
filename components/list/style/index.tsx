@@ -50,7 +50,6 @@ export default {
     Extra: {
       color: variables.color_text_caption,
       fontSize: variables.font_size_heading,
-      textAlign: 'right',
     },
     Brief: {
       color: variables.color_text_caption,
@@ -84,8 +83,6 @@ export default {
       Item: {
         paddingTop: variables.v_spacing_lg,
         paddingBottom: variables.v_spacing_lg,
-        paddingLeft: 0,
-        paddingRight: variables.h_spacing_lg,
       },
       Thumb: {
         width: variables.icon_size_lg,

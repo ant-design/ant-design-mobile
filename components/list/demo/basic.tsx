@@ -56,21 +56,21 @@ export default class BasicListExample extends React.Component<any, any> {
         >
           <List.Body>
             <List.Item
-              extra="horizontal,剪头向右"
+              extra="horizontal,箭头向右"
               arrow="horizontal"
               onClick={() => {}}
             >
               标题文字
             </List.Item>
             <List.Item
-              extra="down,剪头向下"
+              extra="down,箭头向下"
               arrow="down"
               onClick={() => {}}
             >
               标题文字
             </List.Item>
             <List.Item
-              extra="up,剪头向上"
+              extra="up,箭头向上"
               arrow="up"
               onClick={() => {}}
             >
@@ -85,7 +85,7 @@ export default class BasicListExample extends React.Component<any, any> {
               标题文字
             </List.Item>
             <List.Item
-              extra="没有剪头"
+              extra="没有箭头"
               onClick={() => {}}
             >标题文字</List.Item>
           </List.Body>
@@ -98,9 +98,27 @@ export default class BasicListExample extends React.Component<any, any> {
             <List.Item
               multipleLine
               arrow="horizontal"
+              extra={<View>
+                内容内容
+                <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              </View>}
             >
               标题文字
               <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            </List.Item>
+            <List.Item
+              multipleLine
+              arrow="horizontal"
+            >
+              标题文字
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            </List.Item>
+            <List.Item
+              multipleLine
+              arrow="horizontal"
+            >
+              标题文字
               <List.Item.Brief>辅助文字内容</List.Item.Brief>
               <List.Item.Brief>辅助文字内容</List.Item.Brief>
               <List.Item.Brief>辅助文字内容</List.Item.Brief>
@@ -108,12 +126,11 @@ export default class BasicListExample extends React.Component<any, any> {
             <List.Item
               multipleLine
               arrow="horizontal"
-              extra={<View>
-                内容内容
-                <List.Item.Brief>辅助文字内容</List.Item.Brief>
-              </View>}
             >
               标题文字
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <List.Item.Brief>辅助文字内容</List.Item.Brief>
               <List.Item.Brief>辅助文字内容</List.Item.Brief>
             </List.Item>
             <List.Item

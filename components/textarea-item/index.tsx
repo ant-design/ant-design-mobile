@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
-import variables from '../style/variables';
+import variables from '../style/themes/default';
 import TextAreaItemProps from './TextAreaItemPropsType';
 import TextAreaItemStyle from './style/index';
 
@@ -43,7 +43,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     this.state = {
       value: props.value,
       inputCount: 0,
-      height: props.rows > 1 ? 6 * props.rows * variables.grid : 10 * variables.grid,
+      height: props.rows > 1 ? 6 * props.rows * 4 : variables.list_item_height,
     };
   }
 
@@ -56,9 +56,9 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     if (autoHeight) {
       height = event.nativeEvent.contentSize.height;
     } else if (rows > 1) {
-      height = 6 * rows * variables.grid;
+      height = 6 * rows * 4;
     } else {
-      height = 10 * variables.grid;
+      height = variables.list_item_height;
     }
 
     this.setState({
@@ -86,15 +86,16 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     const { rows, error, clear, count, placeholder, autoHeight, editable } = this.props;
 
     const inputStyle = {
-      color: error ? '#f50' : variables.neutral_10,
+      color: error ? '#f50' : variables.color_text_base,
+      paddingRight: error ? 2 * variables.h_spacing_lg : 0,
     };
 
     const maxLength = count > 0 ? count : null;
 
     return (
-      <View>
+      <View style={{ position: 'relative' }}>
         <TextInput
-          style={[TextAreaItemStyle.input, inputStyle, {height: Math.max(35, this.state.height)}]}
+          style={[TextAreaItemStyle.input, inputStyle, {height: Math.max(45, this.state.height)}]}
           onChange={(event) => this.onChange(event)}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
@@ -106,27 +107,19 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
           clearButtonMode = {clear ? 'while-editing' : 'never'}
           editable = {editable}
         />
-
-        {
-        error &&
-        <TouchableWithoutFeedback onPress={this.onErrorClick}>
+        {error ? <TouchableWithoutFeedback onPress={this.onErrorClick}>
           <View style={[TextAreaItemStyle.errorIcon]}>
             <Image
               source={require('../style/images/error.png')}
-              style={{ width: 16, height:16 }}
+              style={{ width: variables.icon_size_xs, height:variables.icon_size_xs }}
             />
           </View>
-        </TouchableWithoutFeedback>
-        }
-
-        {
-        rows > 1 && count > 0 &&
-        <View style={[TextAreaItemStyle.count]}>
+        </TouchableWithoutFeedback> : null}
+        {rows > 1 && count > 0 ? <View style={[TextAreaItemStyle.count]}>
           <Text>
             {inputCount} / {count}
           </Text>
-        </View>
-        }
+        </View> : null}
       </View>
     );
   }

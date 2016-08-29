@@ -35,7 +35,7 @@ class Brief extends React.Component<BriefProps, any> {
     const { children, style, inExtra } = this.props;
     return (<View style={{
       marginTop: variables.v_spacing_sm,
-      height: 14 + variables.border_width_sm,
+      height: variables.font_size_subhead,
     }}>
       <Text
         style={[THEMES.Brief, style, inExtra ? { textAlign: 'right'} : null]}
@@ -92,6 +92,8 @@ export default class Item extends React.Component<ListItemProps, any> {
     if (this.state.__lazy) {
       return (<View />);
     }
+
+    let line = 1;
     let thumbDom = null;
     let contentDom = null;
     let extraDom = null;
@@ -114,11 +116,14 @@ export default class Item extends React.Component<ListItemProps, any> {
       const tempContentDom = [];
       this.props.children.forEach((el, index) => {
         if (React.isValidElement(el)) {
-          tempContentDom.push(<View style={{ flex: 1, flexDirection: 'column' }} key={`${index}-children`}>{el}</View>);
+          tempContentDom.push(<View key={`${index}-children`}>{el}</View>);
         } else {
           tempContentDom.push(<Text style={THEMES.Content} numberOfLines={1} key={`{index}-children`}>{el}</Text>);
         }
       });
+
+      line = this.props.children.length;
+
       contentDom = <View style={{ flex: 1, flexDirection: 'column' }}>{tempContentDom}</View>;
     } else {
       if (React.isValidElement(this.props.children)) {
@@ -137,11 +142,19 @@ export default class Item extends React.Component<ListItemProps, any> {
           const tempExtraDom = [];
           extraChildren.forEach((el, index) => {
             if (typeof el === 'string') {
-              tempExtraDom.push(<Text numberOfLines={1} style={THEMES.Extra} key={`${index}-extra`}>{el}</Text>);
+              tempExtraDom.push(<Text
+                numberOfLines={1}
+                style={[THEMES.Extra, {textAlign: 'right'}]}
+                key={`${index}-extra`}
+              >
+                {el}
+              </Text>);
             } else {
               tempExtraDom.push(React.cloneElement(el, assign({}, el.props, {inExtra: true, key: index})));
             }
           });
+
+          line = extraChildren.length > line ? extraChildren.length : line;
 
           extraDom = (<View style={{ flex: 1, flexDirection: 'column' }}>
             {tempExtraDom}
@@ -150,8 +163,8 @@ export default class Item extends React.Component<ListItemProps, any> {
           extraDom = this.props.extra;
         }
       } else {
-        extraDom = (<View style={{ flex: 1}}>
-          <Text style={THEMES.Extra} numberOfLines={1}>{this.props.extra}</Text>
+        extraDom = (<View style={{ flex: 1, flexDirection: 'column' }}>
+          <Text style={[THEMES.Extra, {textAlign: 'right'}]} numberOfLines={1}>{this.props.extra}</Text>
         </View>);
       }
     }
@@ -176,7 +189,12 @@ export default class Item extends React.Component<ListItemProps, any> {
       this.props.multipleLine ? THEMES.multipleLine.Item : {},
       this.props.last ? THEMES.Last.Item : {},
       this.props.error ? THEMES.Error.Item : {},
-      this.props.style];
+      this.props.style,
+      line === 2 ? { height: 70 } : {},
+      line > 2 ?
+        { height: variables.list_item_height + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)}
+        : {},
+    ];
 
     const itemView = (<View
       {...this.props}

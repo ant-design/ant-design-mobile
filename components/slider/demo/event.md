@@ -14,7 +14,7 @@ function log(value) {
   console.log(value);
 }
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div>

@@ -14,7 +14,7 @@ function formatter(value) {
   return `${value}%`;
 }
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div className="am-slider-example">

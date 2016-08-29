@@ -1,25 +1,26 @@
-import variables from '../../style/variables';
+import variables from '../../style/themes/default';
 
 export default {
   input: {
-    paddingHorizontal: 2 * variables.grid,
-    backgroundColor: variables.neutral_1,
-    fontSize: variables.font_size_6,
+    paddingHorizontal: variables.h_spacing_md,
+    backgroundColor: variables.fill_base,
+    fontSize: variables.font_size_heading,
+    lineHeight: 1.3 * variables.font_size_heading,
   },
   icon: {
     position: 'absolute',
-    top: 2 * variables.grid,
-    width: 18,
-    height: 18,
+    top: 8,
+    width: variables.icon_size_xs,
+    height: variables.icon_size_xs,
   },
   errorIcon: {
     position: 'absolute',
-    right: 6 * variables.grid,
-    top: 3 * variables.grid,
+    right: 18,
+    top: 12,
   },
   count: {
     position: 'absolute',
-    right: 2 * variables.grid,
-    bottom: 2 * variables.grid,
+    right: variables.h_spacing_md,
+    bottom: variables.h_spacing_md,
   },
 };

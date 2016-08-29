@@ -10,7 +10,7 @@ import { List, Radio } from 'antd-mobile';
 
 const RadioItem = Radio.RadioItem;
 
-let Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       disabled: false,

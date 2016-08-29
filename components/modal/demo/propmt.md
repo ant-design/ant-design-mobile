@@ -47,7 +47,7 @@ function loginPwdPrompt() {
   );
 }
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div>

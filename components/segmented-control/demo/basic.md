@@ -6,7 +6,7 @@ title: 分段控制
 ````jsx
 import { SegmentedControl, WhiteSpace } from 'antd-mobile';
 
-let SegmentedControlExample = React.createClass({
+const SegmentedControlExample = React.createClass({
   onChange(e) {
     console.log(`selectedIndex:${e.nativeEvent.selectedSegmentIndex}`);
   },

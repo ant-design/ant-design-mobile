@@ -8,7 +8,7 @@ Accordion
 ````jsx
 import { Accordion, List } from 'antd-mobile';
 
-let Test = React.createClass({
+const AccordionExmple = React.createClass({
   onChange(key) {
     console.log(key);
   },
@@ -32,5 +32,5 @@ let Test = React.createClass({
   },
 });
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<AccordionExmple />, mountNode);
 ````

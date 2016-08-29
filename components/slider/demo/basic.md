@@ -12,7 +12,7 @@ title: 基本
 
 import { Slider, WingBlank, WhiteSpace } from 'antd-mobile';
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div className="am-slider-example">

@@ -6,7 +6,7 @@ title: 基本
 ````jsx
 import { Grid } from 'antd-mobile';
 
-let data1 = [
+const data1 = [
   {
     icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
     text: '名字',
@@ -50,7 +50,7 @@ let data1 = [
   },
 ];
 
-let GridExample = React.createClass({
+const GridExample = React.createClass({
   render() {
     return (<div>
       <Grid data={data1} />

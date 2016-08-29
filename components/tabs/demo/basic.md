@@ -15,7 +15,7 @@ function callback(key) {
   console.log(key);
 }
 
-let TabExample = React.createClass({
+const TabExample = React.createClass({
   render() {
     return (
       <div>

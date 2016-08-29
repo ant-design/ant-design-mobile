@@ -8,7 +8,7 @@ title: APP型选项卡
 ````jsx
 import { TabBar } from 'antd-mobile';
 
-let TabBarExample = React.createClass({
+const TabBarExample = React.createClass({
   getInitialState() {
     return {
       selectedTab: 'redTab',
