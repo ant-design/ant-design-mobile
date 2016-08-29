@@ -25,14 +25,17 @@ export default {
       backgroundColor: variables.fill_base,
       borderTopWidth: variables.border_width_sm,
       borderTopColor: variables.border_color_base,
-      borderBottomWidth: variables.border_width_sm,
-      borderBottomColor: variables.border_color_base,
     },
     Item: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      flex: 1,
+      paddingLeft: variables.h_spacing_lg,
+    },
+    Line: {
       flexDirection: 'row',
       flex: 1,
       alignItems: 'center',
-      marginLeft: variables.h_spacing_lg,
       paddingRight: variables.h_spacing_lg,
       minHeight: variables.list_item_height,
       borderBottomWidth: variables.border_width_sm,
@@ -69,19 +72,25 @@ export default {
     Error: {
       Body: {
         borderTopColor: 'red',
-        borderBottomColor: 'red',
       },
       Item: {
+        borderBottomColor: 'red',
+      },
+      Line: {
         borderBottomColor: 'red',
       },
     },
     Last: {
       Item: {
+        borderBottomWidth: variables.border_width_sm,
+        borderBottomColor: variables.border_color_base,
+      },
+      Line: {
         borderBottomWidth: 0,
       },
     },
     multipleLine: {
-      Item: {
+      Line: {
         paddingTop: variables.v_spacing_lg,
         paddingBottom: variables.v_spacing_lg,
       },
