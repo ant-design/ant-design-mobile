@@ -94,10 +94,14 @@ export default class Home extends React.Component {
         border-bottom: 2Px solid #fff;
       }
       .home-nav-white #nav li.ant-menu-item-selected a {
-        color: #2db7f5;
+        color: #108ee9;
       }
       .home-nav-white .ant-menu-horizontal > .ant-menu-item-selected, .home-nav-white .ant-menu-horizontal > .ant-menu-item:hover {
-        border-bottom: 2Px solid #2db7f5;
+        border-bottom: 2Px solid #108ee9;
+      }
+      .text-wrapper .ant-btn-primary {
+        background-color: #108ee9;
+        border-color: #108ee9;
       }
     `;
   }
