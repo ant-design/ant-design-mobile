@@ -12,11 +12,11 @@ export default class BasicTabBarExample extends React.Component <any, any> {
     };
   }
 
-  renderContent(color, pageText, num?: number) {
+  renderContent(pageText, num?: number) {
     return (
-      <View style={{ flex: 1, alignItems: 'center', backgroundColor: color }}>
-        <Text style={{ color: 'white', margin: 50 }}>{pageText}</Text>
-        <Text style={{ color: 'white', margin: 50 }}>{num} re-renders of the {pageText}</Text>
+      <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
+        <Text style={{ margin: 50 }}>{pageText}</Text>
+        <Text style={{ margin: 50 }}>{num} re-renders of the {pageText}</Text>
       </View>
     );
   }
@@ -38,7 +38,7 @@ export default class BasicTabBarExample extends React.Component <any, any> {
               selectedTab: 'blueTab',
             });
           }}>
-          {this.renderContent('#414A8C', '生活 Tab')}
+          {this.renderContent('生活 Tab')}
         </TabBar.Item>
         <TabBar.Item
           icon={require('./TabBar_Businesses.png')}
@@ -52,7 +52,7 @@ export default class BasicTabBarExample extends React.Component <any, any> {
               notifCount: this.state.notifCount + 1,
             });
           }}>
-          {this.renderContent('#783E33', '口碑 Tab', this.state.notifCount)}
+          {this.renderContent('口碑 Tab', this.state.notifCount)}
         </TabBar.Item>
         <TabBar.Item
           icon={require('./TabBar_Friends.png')}
@@ -65,7 +65,20 @@ export default class BasicTabBarExample extends React.Component <any, any> {
               presses: this.state.presses + 1,
             });
           }}>
-          {this.renderContent('#21551C', '朋友 Tab', this.state.presses)}
+          {this.renderContent('朋友 Tab', this.state.presses)}
+        </TabBar.Item>
+        <TabBar.Item
+          icon={require('./TabBar_Assets.png')}
+          selectedIcon={require('./TabBar_Assets_Sel.png')}
+          title="我的"
+          selected={this.state.selectedTab === 'yellowTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'yellowTab',
+              presses: this.state.presses + 1,
+            });
+          }}>
+          {this.renderContent('我的 Tab', this.state.presses)}
         </TabBar.Item>
       </TabBar>
     );

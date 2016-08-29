@@ -103,21 +103,14 @@ export default function (...args) {
     });
   }
 
-  const footer = [<div key="footer" className={`${prefixCls}-button-group-h`}>
-    {
-      actions.map((button, i) => {
-        return (
-          <a key={i} className={`${prefixCls}-button`} href="#" onClick={(e) => {
-            e.preventDefault();
-            if (button.onPress) {
-              button.onPress();
-            }
-            close();
-          }}>{button.text}</a>
-        );
-      })
-    }
-  </div>];
+  const footer = actions.map((button) => {
+    const orginPress = button.onPress || function() {};
+    button.onPress = () => {
+      orginPress();
+      close();
+    };
+    return button;
+  });
 
   ReactDOM.render(<Modal
     visible
