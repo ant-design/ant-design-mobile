@@ -10,7 +10,6 @@ export default class Stepper extends React.Component<StepProps, any> {
     step: 1,
     readOnly: true,
     showNumber: false,
-    size: 'small',
   };
 
   componentDidMount() {
@@ -18,16 +17,14 @@ export default class Stepper extends React.Component<StepProps, any> {
   }
 
   render() {
-    const { prefixCls, className, size, showNumber } = this.props;
+    const { prefixCls, className, showNumber } = this.props;
     const stepperClass = classNames({
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
       [className]: !!className,
       ['showNumber']: !!showNumber,
     });
 
     const restProps = objectAssign({}, this.props);
-    ['className', 'prefixCls', 'size', 'showNumber'].forEach(prop => {
+    ['className', 'prefixCls', 'showNumber'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
@@ -38,7 +35,6 @@ export default class Stepper extends React.Component<StepProps, any> {
         ref="inputNumber"
         prefixCls={prefixCls}
         className={stepperClass}
-        size={size}
         {...restProps}
       />
     );
