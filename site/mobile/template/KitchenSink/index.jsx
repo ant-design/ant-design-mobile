@@ -91,8 +91,9 @@ export default class App extends React.Component {
   render() {
     const customWidth = (document.documentElement.clientWidth / 3);
     const itemStyle = {
-      width: '33.33%',
+      width: `${customWidth}px`,
       height: `${customWidth >= 138 * window.devicePixelRatio ? 138 * window.devicePixelRatio : customWidth}px`,
+      display: 'inline-block',
     };
 
     const props = this.props;
