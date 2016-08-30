@@ -4100,6 +4100,12 @@ declare namespace  __React {
          */
         onScroll?: (event?: { nativeEvent: NativeScrollEvent }) => void
 
+        onScrollBeginDrag?: (event?: { nativeEvent: NativeScrollEvent }) => void
+
+        onScrollEndDrag?: (event?: { nativeEvent: NativeScrollEvent }) => void
+        
+        onMomentumScrollEnd?: (event?: { nativeEvent: NativeScrollEvent }) => void
+
         /**
          * When true the scroll view stops on multiples of the scroll view's size
          * when scrolling. This can be used for horizontal pagination. The default

@@ -38,7 +38,8 @@
   &:after {
     border: @border-width-sm solid @border-color-base;
   }
-  &:active {
+  &:active,
+  &&-hover {
     background-color: @fill-tap;
   }
 
@@ -48,7 +49,8 @@
     &:after {
       border: @border-width-sm solid @brand-primary;
     }
-    &:active {
+    &:active,
+    &.@{buttonPrefixCls}-hover {
       background-color: @brand-primary-tap;
     }
   }
@@ -59,7 +61,8 @@
     &:after {
       border: @border-width-md solid @tabs-color;
     }
-    &:active {
+    &:active,
+    &.@{buttonPrefixCls}-hover {
       color: @color-text-base-inverse;
       background-color: @brand-primary-tap;
       &:after {
@@ -96,7 +99,8 @@
     &:after {
       border: @border-width-sm solid #f88b88;
     }
-    &:active {
+    &:active,
+    &.@{buttonPrefixCls}-hover {
       background-color: #fdcccb;
     }
   }

@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick?: (x: any) => void;
   /** web only */
   prefixCls?: string;
+  isHover?: boolean;
 }
 
 export default ButtonProps;

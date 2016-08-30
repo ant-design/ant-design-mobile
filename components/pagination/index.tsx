@@ -112,7 +112,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
           </View>
         );
         break;
-      case 'point':
+      case 'pointer':
         const indexes = this.getIndexes(total);
         const spaceStyle = size === 'large'
           ? styles.spaceLargeStyle : styles.spaceSmallStyle;

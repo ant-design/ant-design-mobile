@@ -49,7 +49,7 @@ export default class BasicPaginationExample extends React.Component<any, any> {
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
           <Pagination
-            mode="point"
+            mode="pointer"
             total={5}
             size="large"
           />
@@ -57,7 +57,7 @@ export default class BasicPaginationExample extends React.Component<any, any> {
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
           <Pagination
-            mode="point"
+            mode="pointer"
             total={5}
             size="small"
           />

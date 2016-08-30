@@ -3,6 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
 import splitObject from '../_util/splitObject';
+import hoverWrapper from '../_util/hoverWrapper';
 import tsProps from './PropsType';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -26,7 +27,7 @@ function insertSpace(child) {
   return child;
 }
 
-export default class Button extends React.Component<tsProps, any> {
+class Button extends React.Component<tsProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     size: PropTypes.oneOf(['large', 'small']),
@@ -49,9 +50,9 @@ export default class Button extends React.Component<tsProps, any> {
 
   render() {
     let[{ children, className, prefixCls, type, size, inline, disabled,
-      htmlType, icon, loading }, restProps] = splitObject(this.props,
+      htmlType, icon, loading, isHover }, restProps] = splitObject(this.props,
     ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
-      'disabled', 'htmlType', 'icon', 'loading']);
+      'disabled', 'htmlType', 'icon', 'loading', 'isHover']);
 
     const wrapCls = classNames({
       [className]: className,
@@ -63,6 +64,7 @@ export default class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-hover`]: isHover,
     });
 
     const iconType = loading ? 'loading' : icon;
@@ -77,3 +79,5 @@ export default class Button extends React.Component<tsProps, any> {
       >{iconType ? <Icon type={iconType} /> : null}{kids}</button>);
   }
 }
+
+export default hoverWrapper(Button);

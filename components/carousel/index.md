@@ -20,13 +20,13 @@ english: Carousel
 
 | 参数             | 说明                                         | 类型     | 默认值                          |
 |------------------|----------------------------------------------|----------|---------------------------------|
-| mode | 展示模式，可取banner，card，提供定制化的顶部banner型和卡片型两种样式 | String | 无 |
-| effect           | 动画效果函数，可取 scrollx, fade | String | scrollx |
+| mode (`web only`) | 展示模式，可取banner，card，提供定制化的顶部banner型和卡片型两种样式 | String | 无 |
+| effect (`web only`)          | 动画效果函数，可取 scrollx, fade | String | scrollx |
 | dots | 是否显示面板指示点 | Boolean   | true |
-| vertical | 垂直显示 | Boolean   | false |
+| vertical (`web only`) | 垂直显示 | Boolean   | false |
 | autoplay | 是否自动切换 | Boolean   | false |
-| easing | 动画效果 | String   | linear |
-| beforeChange      | 切换面板的回调                              | function(from, to) | 无
-| afterChange       | 切换面板的回调                              | function(current)  | 无
+| easing (`web only`) | 动画效果 | String   | linear |
+| beforeChange  (`web only`)     | 切换面板的回调                              | function(from, to) | 无
+| afterChange   (`web only`)     | 切换面板的回调                              | function(current)  | 无
 
 更多参数可参考：https://github.com/akiran/react-slick
