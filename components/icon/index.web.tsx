@@ -1,18 +1,13 @@
 import * as React from 'react';
 
-export interface IconPropType {
+export interface IconProps {
   type: string;
   className?: string;
+  title?: string;
+  onClick?: (e) => void;
 }
 
-export default class Icon extends React.Component<IconPropType, any> {
-  static defaultProps = {
-    className: '',
-  };
-  render() {
-    const { type, className } = this.props;
-    return (
-      <i className={`${className} anticon anticon-${type}`.trim()} />
-    );
-  }
-}
+export default (props: IconProps) => {
+  const { type, className = '' } = props;
+  return <i {...props} className={`${className} anticon anticon-${type}`.trim()} />;
+};
