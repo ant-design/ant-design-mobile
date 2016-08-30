@@ -32,13 +32,16 @@ const MyProgress = React.createClass({
   render() {
     return (
       <div className="progress-container">
-        {this.state.percent === 100 ? null :
-          <div>
-            <NavBar iconName={false} mode="light">未填充无色</NavBar>
-            <Progress percent={this.state.percent} position="fixed" />
-          </div>
-        }
+        <div>
+          <NavBar iconName={false} mode="light">未填充无色</NavBar>
+          <Progress percent={this.state.percent} position="fixed" />
+        </div>
+
         <Progress percent={this.state.percent} position="normal" unfilled="hide" />
+        <WhiteSpace size="lg" />
+
+        <Progress percent={this.state.percent} position="normal" />
+
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
           <Flex>
@@ -50,8 +53,6 @@ const MyProgress = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace size="lg" />
-        <Progress percent={this.state.percent} position="normal" />
       </div>
     );
   },
