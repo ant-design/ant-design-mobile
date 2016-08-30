@@ -39,7 +39,9 @@ const MyProgress = React.createClass({
 
         <Progress percent={this.state.percent} position="normal" unfilled="hide" />
         <WhiteSpace size="lg" />
+        <WhiteSpace size="lg" />
 
+        <NavBar iconName={false} mode="light">未填充有色</NavBar>
         <Progress percent={this.state.percent} position="normal" />
 
         <WhiteSpace size="lg" />
