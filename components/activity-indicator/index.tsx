@@ -2,10 +2,14 @@ import * as React from 'react';
 import {
   View,
   Text,
+  Dimensions,
+  Platform,
   ActivityIndicator,
 } from 'react-native';
 import styles from './style';
 import PropTypes from './ActivityIndicatorPropTypes';
+
+const { height } = Dimensions.get('window');
 
 export default class RNActivityIndicator extends React.Component<PropTypes, any> {
   static defaultProps = {
@@ -17,8 +21,14 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
   };
 
   _renderToast() {
+    let containerStyle;
+    if (Platform.OS === 'android') {
+      containerStyle = [styles.container, { height }];
+    } else {
+      containerStyle = [styles.container];
+    }
     return (
-      <View style={[styles.container]}>
+      <View style={containerStyle}>
         <View style={[styles.innerContainer]}>
           <View style={[styles.wrapper]}>
             <ActivityIndicator
