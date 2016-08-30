@@ -215,7 +215,7 @@ export default class ComponentDoc extends React.Component {
                     </div>
                     <section className="code-box-demo code-box-demo-preview">
                       <iframe id="demoFrame" name="demoFrame"
-                        style={{ width: '377Px', height: '548Px', border: '1Px solid #F7F7F7', boxShadow: '0 0 4Px #ebebeb' }}
+                        style={{ width: '377Px', height: '548Px', border: '1Px solid #F7F7F7', borderTop: 'none', boxShadow: '0 2Px 4Px #ebebeb' }}
                         src={iframeUrl}
                       />
                     </section>

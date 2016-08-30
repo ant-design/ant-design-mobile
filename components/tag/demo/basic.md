@@ -14,10 +14,10 @@ function onChange(selected) {
 
 ReactDOM.render(
   <div className="tag-container" style={{ paddingTop: 18 }}>
-    <Tag style={{ marginLeft: 18 }}>通用标签</Tag>
-    <Tag style={{ marginLeft: 18, marginRight: 18 }} selected>默认选中</Tag>
+    <Tag style={{ marginLeft: '0.18rem' }}>通用标签</Tag>
+    <Tag style={{ marginLeft: '0.18rem', marginRight: '0.18rem' }} selected>默认选中</Tag>
     <Tag disabled>失效标签</Tag>
-    <Tag style={{ marginLeft: 18 }} onChange={onChange}>事件回调</Tag>
+    <Tag style={{ marginLeft: '0.18rem' }} onChange={onChange}>事件回调</Tag>
   </div>
 , mountNode);
 ````

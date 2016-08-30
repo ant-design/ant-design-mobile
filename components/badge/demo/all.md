@@ -16,16 +16,16 @@ ReactDOM.render(
         <List.Header>列表</List.Header>
         <List.Body>
           <List.Item extra="内容内容">
-            文本内容<Badge dot style={{ marginLeft: 8 }} />
+            文本内容<Badge dot style={{ marginLeft: 12 }} />
           </List.Item>
           <List.Item extra="内容内容" arrow="horizontal">
-            文本内容<Badge text={'new'} style={{ marginLeft: 8 }} />
+            文本内容<Badge text={'new'} style={{ marginLeft: 12 }} />
           </List.Item>
           <List.Item extra="内容内容" arrow="horizontal">
-            文本内容<Badge text={4} style={{ marginLeft: 8 }} />
+            文本内容<Badge text={4} style={{ marginLeft: 12 }} />
           </List.Item>
           <List.Item extra="内容内容" arrow="horizontal">
-            文本内容<Badge text={100} style={{ marginLeft: 8 }} />
+            文本内容<Badge text={100} style={{ marginLeft: 12 }} />
           </List.Item>
         </List.Body>
       </List>
@@ -53,14 +53,14 @@ ReactDOM.render(
             <div style={{ padding: '20px 0' }}>
               <Badge text={9}>
                 <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
-              </Badge>数字
+              </Badge><span style={{ marginLeft: 12 }}>数字</span>
             </div>
           </List.Item>
           <List.Item extra="内容内容" arrow="horizontal">
             <div style={{ padding: '20px 0' }}>
               <Badge text={108}>
                 <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
-              </Badge>超出99
+              </Badge><span style={{ marginLeft: 12 }}>超出99</span>
             </div>
           </List.Item>
         </List.Body>
