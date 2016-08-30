@@ -72,12 +72,11 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       case 'text':
         break;
       case 'bankCard':
-
         value = value.replace(/\D/g, '');
         value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
-        value = value.replace(/\D/g, '');
+        value = value.replace(/\D/g, '').substring(0, 11);
         const valueLen = value.length;
         if (valueLen > 3 && valueLen < 8) {
           value = `${value.substr(0, 3)} ${value.substr(3)}`;

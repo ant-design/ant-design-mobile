@@ -101,7 +101,7 @@ let BasicInputExample = React.createClass({
         </List.Body>
       </List>
       <List
-        title="两个字标签"
+        title="固定标签字数"
       >
         <List.Body>
           <InputItem
@@ -115,12 +115,6 @@ let BasicInputExample = React.createClass({
             onBlur={(value) => { console.log('onBlur'); console.log(value); }}
             onFocus={(value) => { console.log('onFocus'); console.log(value); }}
           >姓名</InputItem>
-        </List.Body>
-      </List>
-      <List
-        title="三个字标签"
-      >
-        <List.Body>
           <InputItem
             {...getFieldProps('label3', {
               initialValue: '',
@@ -132,28 +126,16 @@ let BasicInputExample = React.createClass({
             onBlur={(value) => { console.log('onBlur'); console.log(value); }}
             onFocus={(value) => { console.log('onFocus'); console.log(value); }}
           >校验码</InputItem>
-        </List.Body>
-      </List>
-      <List
-        title="四个字标签(默认)"
-      >
-        <List.Body>
           <InputItem
             {...getFieldProps('label4', {
               initialValue: '',
             })}
-            placeholder="内容"
+            placeholder="默认"
             clear
             maxLength={10}
             onBlur={(value) => { console.log('onBlur'); console.log(value); }}
             onFocus={(value) => { console.log('onFocus'); console.log(value); }}
           >四字标签</InputItem>
-        </List.Body>
-      </List>
-      <List
-        title="五个字标签"
-      >
-        <List.Body>
           <InputItem
             {...getFieldProps('label5', {
               initialValue: '',
@@ -165,12 +147,6 @@ let BasicInputExample = React.createClass({
             onBlur={(value) => { console.log('onBlur'); console.log(value); }}
             onFocus={(value) => { console.log('onFocus'); console.log(value); }}
           >五个字标签</InputItem>
-        </List.Body>
-      </List>
-      <List
-        title="六个字标签"
-      >
-        <List.Body>
           <InputItem
             {...getFieldProps('label6', {
               initialValue: '',
@@ -182,12 +158,6 @@ let BasicInputExample = React.createClass({
             onBlur={(value) => { console.log('onBlur'); console.log(value); }}
             onFocus={(value) => { console.log('onFocus'); console.log(value); }}
           >六个字标签六</InputItem>
-        </List.Body>
-      </List>
-      <List
-        title="七个字标签"
-      >
-        <List.Body>
           <InputItem
             {...getFieldProps('label7', {
               initialValue: '',
