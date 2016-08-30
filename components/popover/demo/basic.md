@@ -35,14 +35,15 @@ const App = React.createClass({
           visible={this.state.visible}
           overlay={[
             <Item key="4" value="scan" iconName="scan">扫一扫</Item>,
-            <Item key="5" value="special" iconName="qrcode" style={{ whiteSpace: 'nowrap' }}>我的二维码 / 收款</Item>,
+            <Item key="5" value="special" iconName="qrcode" style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>,
             <Item key="6" value="button ct" iconName="question-circle-o">
               <span style={{ marginRight: 5 }}>帮助</span>
               <Badge text={'..'} style={{ height: '0.1rem', lineHeight: 0.1 }} />
             </Item>,
           ]}
           popupAlign={{
-            offset: [15, 20],
+            overflow: { adjustY: 0, adjustX: 0 },
+            offset: [20, 20],
           }}
           onVisibleChange={this.handleVisibleChange}
           onSelect={this.onSelect}
@@ -61,7 +62,7 @@ const App = React.createClass({
             <Item key="3" value="3">我的二维码</Item>,
           ]}
           popupAlign={{
-            offset: [-5, -14],
+            offset: [7, -14],
           }}
           placement="topRight"
           onVisibleChange={v => this.setState({ visible1: v })}
