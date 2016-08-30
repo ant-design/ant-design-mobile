@@ -21,7 +21,7 @@ ReactDOM.render(
         <List.Item extra={<Stepper max={10} min={1} defaultValue={3} onChange={onChange} />}>
         默认
         </List.Item>
-        <List.Item extra={<Stepper showNumber size="small" max={10} min={1} defaultValue={1} onChange={onChange} />}>
+        <List.Item extra={<Stepper showNumber max={10} min={1} defaultValue={1} onChange={onChange} />}>
         显示数值
         </List.Item>
         <List.Item extra={<Stepper disabled max={10} min={1} defaultValue={3} onChange={onChange} />}>
@@ -33,18 +33,10 @@ ReactDOM.render(
       </List.Body>
     </List>
     <List>
-      <List.Header>大号</List.Header>
+      <List.Header>步进器</List.Header>
       <List.Body>
-        <List.Item>
-          <Stepper size="large" max={10} min={1} defaultValue={3} onChange={onChange} />
-        </List.Item>
-      </List.Body>
-    </List>
-    <List>
-      <List.Header>大号带数字</List.Header>
-      <List.Body>
-        <List.Item>
-          <Stepper size="large" showNumber max={10} min={1} defaultValue={1} onChange={onChange} />
+        <List.Item extra={<Stepper showNumber max={10} min={1} defaultValue={3} onChange={onChange} />}>
+          预定人数
         </List.Item>
       </List.Body>
     </List>

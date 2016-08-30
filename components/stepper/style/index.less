@@ -25,10 +25,10 @@
   padding: 4px 0;
   display: inline-block;
   box-sizing: content-box;
-  width: @segmented-control-height * 2 + 6;
-  height: @segmented-control-height;
+  width: @button-height-sm * 2 + 6;
+  height: @button-height-sm;
   font-size: @font-size-base;
-  line-height: @segmented-control-height;
+  line-height: @button-height-sm;
   vertical-align: middle;
   overflow: hidden;
 
@@ -40,9 +40,9 @@
   &-handler,
   &-handler-up-inner,
   &-handler-down-inner {
-    width: @segmented-control-height;
-    height: @segmented-control-height;
-    line-height: @segmented-control-height;
+    width: @button-height-sm;
+    height: @button-height-sm;
+    line-height: @button-height-sm;
   }
 
   &-handler {
@@ -57,8 +57,8 @@
     &:active {
       z-index: 2;
     }
-    &:active &-up-inner,
-    &:active &-down-inner {
+    &-up:active,
+    &-down:active {
       background: @fill-tap;
     }
   }
@@ -81,25 +81,29 @@
   &-input-wrap {
     display: none;
     width: 100%;
-    height: @segmented-control-height;
-    line-height: @segmented-control-height;
+    height: @button-height-sm;
+    line-height: @button-height-sm;
     text-align: center;
     overflow: hidden;
   }
 
   &-input {
     display: none;
-    width: @segmented-control-height * 2;
-    font-size: @font-size-base;
+    width: @button-height-sm * 2;
+    font-size: @font-size-subhead;
     color: @color-text-base;
     text-align: center;
     border: 0;
     padding: 0;
     background: none;
+    vertical-align: middle;
+    &:disabled{
+      color: @color-text-base;
+    }
   }
 
   &.showNumber {
-    width: @segmented-control-height * 2 + 112;
+    width: @button-height-sm * 2 + 112;
     .@{stepperPrefixCls}-input-wrap {
       display: inline-block;
     }
@@ -117,47 +121,6 @@
     }
     .@{stepperPrefixCls}-handler-down-disabled {
       right: -2px;
-    }
-  }
-
-  &-lg {
-    width: @button-height * 2 + 6;
-    height: @button-height;
-    line-height: @button-height;
-    font-size: @font-size-display-sm;
-    .@{stepperPrefixCls}-handler-wrap,
-    .@{stepperPrefixCls}-handler,
-    .@{stepperPrefixCls}-handler-up-inner,
-    .@{stepperPrefixCls}-handler-down-inner {
-      width: @button-height;
-      height: @button-height;
-      line-height: @button-height;
-    }
-
-    .@{stepperPrefixCls}-handler-wrap {
-      position: absolute;
-      width: 100%;
-    }
-
-    .@{stepperPrefixCls}-input-wrap {
-      height: @button-height;
-      line-height: @button-height;
-    }
-
-    &.showNumber {
-      width: @button-height * 2 + 172;
-    }
-
-    input {
-      font-size: @font-size-display-sm;
-      width: @button-height * 2;
-      height: @button-height;
-      line-height: @button-height;
-      vertical-align: middle;
-    }
-
-    .@{stepperPrefixCls}-handler-down:active .@{stepperPrefixCls}-handler-down-inner {
-      background-color: @fill-tap;
     }
   }
 
@@ -184,16 +147,25 @@
   }
 
   &-handler-down-disabled,
-  &-handler-up-disabled,
+  &-handler-up-disabled {
+    opacity: @opacity-disabled;
+    &:active,
+    &:active {
+      background: none;
+    }
+  }
   &-disabled {
-    .@{stepperPrefixCls}-handler-down-inner,
-    .@{stepperPrefixCls}-handler-up-inner {
+    .@{stepperPrefixCls}-handler-down,
+    .@{stepperPrefixCls}-handler-up {
       opacity: @opacity-disabled;
+      background: none;
     }
   }
 
   &-disabled {
-    .@{stepperPrefixCls}-handler,
+    .@{stepperPrefixCls}-handler {
+      opacity: @opacity-disabled;
+    }
     .@{stepperPrefixCls}-input-wrap {
       opacity: @opacity-disabled;
     }
