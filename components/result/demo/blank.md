@@ -1,6 +1,6 @@
 ---
-order: 3
-title: 空白页
+order: 4
+title: 操作失败
 ---
 
 ````jsx
@@ -8,11 +8,9 @@ import { Result } from 'antd-mobile';
 
 const ResultExample = () => (
   <Result
-    imgUrl="https://os.alipayobjects.com/rmsportal/dlMevdYPbXUwgCQ.png"
-    title="空白页"
-    brief="可各业务自定义文案"
-    buttonText="重新加载"
-    buttonClick={() => alert('点击了按钮')}
+    imgUrl="https://zos.alipayobjects.com/rmsportal/NRzOqylcxEstLGf.png"
+    title="无法完成操作"
+    message="由于你的支付宝账户还未绑定淘宝账户请登请登录www.taobao.com"
   />
 );
 

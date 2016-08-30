@@ -2,11 +2,11 @@
 @import '../../style/mixins';
 
 @table-prefix-cls: am-table;
-@table-head-background-color: @neutral-2;
+@table-head-background-color: @color-text-base;
 
 .@{table-prefix-cls} {
-  font-size: @font-size-4;
-  color: @neutral-8;
+  font-size: @font-size-caption;
+  color: @color-text-base;
   position: relative;
 
   &-body {
@@ -46,7 +46,7 @@
 
   &-horizonTitle {
     background-color: #f7f7f7;
-    color: @neutral-11;
+    color: @color-text-base;
     font-weight: bold;
     transition: background .3s ease;
     text-align: center;
@@ -60,12 +60,12 @@
     top: 0;
     overflow: hidden;
     z-index: 1;
-    box-shadow: @shadow-1-right;
+    box-shadow: 1px 0 1px @color-shadow;
     transition: box-shadow .3s ease;
     border-radius: 0;
     table {
       background-color: #f7f7f7;
-      color: @neutral-11;
+      color: @color-text-base;
       font-weight: bold;
       transition: background .3s ease;
       text-align: center;
@@ -86,6 +86,6 @@
   &-scroll-position-middle {
     overflow: auto;
     position: relative;
-    box-shadow: @shadow-1-right;
+    box-shadow: 1px 0 1px @color-shadow;
   }
 }

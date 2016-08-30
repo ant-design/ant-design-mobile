@@ -1,6 +1,6 @@
 ---
-order: 1
-title: 系统繁忙
+order: 3
+title: 等待处理
 ---
 
 ````jsx
@@ -8,10 +8,9 @@ import { Result } from 'antd-mobile';
 
 const ResultExample = () => (
   <Result
-    imgUrl="https://os.alipayobjects.com/rmsportal/awwrfcIKXAKwGyx.png"
-    title="系统繁忙"
-    buttonText="重新加载"
-    buttonClick={() => alert('点击了按钮')}
+    imgUrl="https://zos.alipayobjects.com/rmsportal/gIGluyutXOpJmqx.png"
+    title="等待处理"
+    message="已提交申请，等待银行处理"
   />
 );
 
