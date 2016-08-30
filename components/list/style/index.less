@@ -21,6 +21,7 @@
     position: relative;
     background-color: @fill-base;
     .hairline-top(@border-color-base);
+    .hairline-bottom(@border-color-base);
   }
 }
 .@{listPrefixCls}-item {
@@ -60,12 +61,6 @@
           color: #f50;
         }
       }
-    }
-  }
-  &:last-child {
-    .hairline-bottom(@border-color-base);
-    .@{listPrefixCls}-line {
-      .hairline-remove-right-bottom();
     }
   }
   &.@{listPrefixCls}-item-hover {
