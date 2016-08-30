@@ -4,6 +4,7 @@ export { default as Badge } from './components/badge/';
 export { default as Button } from './components/button/';
 export { default as Checkbox } from './components/checkbox/';
 export { default as Card } from './components/card/';
+export { default as Carousel } from './components/carousel/';
 export { default as DatePicker } from './components/date-picker/';
 export { default as Drawer } from './components/drawer/';
 export { default as Flex } from './components/flex/';

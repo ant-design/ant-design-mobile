@@ -45,6 +45,12 @@ module.exports = {
       module: require('../components/card/demo/basic'),
     },
     {
+      title: 'Carousel', // 必须
+      description: '跑马灯',
+      icon: 'https://os.alipayobjects.com/rmsportal/ifHkrPIiJFcMNzT.png',
+      module: require('../components/carousel/demo/basic'), // 必须
+    },
+    {
       title: 'Checkbox', // 必须
       description: '复选框',
       icon: 'https://os.alipayobjects.com/rmsportal/IznQRcXpGsRfHXX.png',

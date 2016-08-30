@@ -5,6 +5,7 @@ declare module 'antd-mobile' {
     Badge: any;
     Button: any;
     Card: any;
+    Carousel: any;
     Checkbox: any;
     DatePicker: any;
     Drawer: any;
@@ -164,6 +165,11 @@ declare module 'rc-notification' {
 }
 
 declare module 'react-native-camera-roll-picker' {
+  var exports: any
+  export default exports
+}
+
+declare module 'react-mixin'{
   var exports: any
   export default exports
 }
