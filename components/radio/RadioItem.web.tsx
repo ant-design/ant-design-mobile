@@ -27,6 +27,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       prefixCls={listPrefixCls}
       style={style}
       className={wrapCls}
+      onClick={() => {}}
       extra={<Radio
         defaultChecked={defaultChecked}
         checked={checked}

@@ -23,8 +23,8 @@
     &:after {
       position: absolute;
       display: none;
-      top: 4px;
-      right: 12px;
+      top: 5px;
+      right: 14px;
       z-index: 999;
       width: 10px;
       height: 22px;
@@ -112,11 +112,15 @@
     color: @color-text-base;
     line-height: 1.8;
     padding-left: 2 * @h-spacing-lg;
-    margin-top: 0;
+    margin-top: 6px;
     margin-left: 0;
     a {
-      position: relative;
-      z-index: 99;
+      color: @brand-primary;
+      transition: color .3s ease;
+      &:active,
+      &:hover {
+        color: @brand-primary-tap;
+      }
     }
   }
 }

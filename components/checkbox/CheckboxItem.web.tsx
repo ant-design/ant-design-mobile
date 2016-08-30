@@ -28,6 +28,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
       style={style}
       className={wrapCls}
       extra={extra}
+      onClick={() => {}}
       thumb={<Checkbox
         prefixCls={prefixCls}
         defaultChecked={defaultChecked}
