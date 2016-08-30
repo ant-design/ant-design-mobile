@@ -49,12 +49,12 @@ export default class PopupExample extends React.Component<any, any> {
       <View style={{ margin: 20 }}>
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" onPress={this.onClick}>Dropdown 效果</Button>
+          <Button type="ghost" onPress={this.onClick}>Dropdown 效果</Button>
           <Text>已选项目：{this.state.sel0}</Text>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="primary" onPress={this.onClick1}>ActionSheet 效果</Button>
+          <Button type="ghost" onPress={this.onClick1}>ActionSheet 效果</Button>
           <Text>已选项目：{this.state.sel1}</Text>
         </WingBlank>
       </View>

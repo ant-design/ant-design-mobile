@@ -43,18 +43,15 @@
     position: relative;
     .hairline-bottom(@border-color-base);
     & & {
-      &-left,
-      &-right {
+      &-cancel-button,
+      &-ok-button {
+        padding: @v-spacing-md @h-spacing-lg;
         &:active {
           background-color: @fill-tap;
         }
       }
-      &-left {
-        margin-left: @h-spacing-lg;
-      }
       &-right {
         text-align: right;
-        margin-right: @h-spacing-lg;
       }
     }
   }

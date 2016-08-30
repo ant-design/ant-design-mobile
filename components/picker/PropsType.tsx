@@ -3,13 +3,14 @@ interface Props {
   value?: Array<string|number>;
   format?: (values) => void;
   cols?: number;
-  title?: string;
   extra?: string;
-  okText?: string;
-  dismissText?: string;
+  dismissText?: string|React.ReactElement<any>; // React.ReactElement only for web
+  okText?: string|React.ReactElement<any>; // React.ReactElement only for web
+  title?: string|React.ReactElement<any>; // React.ReactElement only for web
   children: any;
   /** web only */
   prefixCls?: string;
+  popupPrefixCls?: string;
 }
 
 export default Props;
