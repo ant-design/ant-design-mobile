@@ -15,7 +15,7 @@
   height: @button-height;
   line-height: @button-height;
   border: 0 none;
-  .border-radius(@radius-sm);
+  .border-radius(@radius-md);
   // 在 伪元素上放大再缩小，达到 1px border 效果
   &:after {
     position: absolute;
@@ -24,7 +24,7 @@
     width: 200%;
     height: 200%;
     content: " ";
-    .border-radius(@radius-sm * 2);
+    .border-radius(@radius-md * 2);
     -webkit-transform: scale(.5);
     transform: scale(.5);
     -webkit-transform-origin: 0 0;
