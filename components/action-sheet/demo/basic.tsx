@@ -23,13 +23,13 @@ export default React.createClass({
     return (
       <View>
         <View style={[{ padding: 8 }]}>
-          <Button type="primary" onClick={this.showActionSheet}>默认状态操作列表</Button>
+          <Button type="ghost" onClick={this.showActionSheet}>默认状态操作列表</Button>
         </View>
         <Text style={[{ padding: 8 }]}>
           点击过的按钮: {this.state.clicked}
         </Text>
         <View style={[{ padding: 8 }]}>
-          <Button type="primary" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
+          <Button type="ghost" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
         </View>
         <Text style={[{ padding: 8 }]}>
           {this.state.text}

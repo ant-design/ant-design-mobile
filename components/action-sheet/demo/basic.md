@@ -65,28 +65,15 @@ const Test = React.createClass({
     });
   },
   render() {
-    return (<div style={{ margin: '0 8px' }}>
+    return (<div style={{ margin: '0 15px' }}>
       <div style={{ margin: '32px 0' }}>
-        {/* <p className="demo-p">默认状态操作列表</p> */}
-        <div style={{ padding: '8px 0' }}>
-          <Button type="primary" onClick={this.showActionSheet}>默认状态操作列表</Button>
-        </div>
-        {/*
-        <p className="demo-p">点击过的按钮: &nbsp;
-          <span style={{ color: '#222' }}>{this.state.clicked}</span>
-        </p>
-        */}
-      </div>
-
-      <div style={{ margin: '32px 0' }}>
-        <div style={{ padding: '8px 0' }}>
-          <Button type="primary" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
-        </div>
+        <Button type="ghost" onClick={this.showActionSheet}>默认状态操作列表</Button>
       </div>
       <div style={{ margin: '32px 0' }}>
-        <div style={{ padding: '8px 0' }}>
-          <Button type="primary" onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能操作列表</Button>
-        </div>
+        <Button type="ghost" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
+      </div>
+      <div style={{ margin: '32px 0' }}>
+        <Button type="ghost" onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能操作列表</Button>
       </div>
     </div>);
   },
