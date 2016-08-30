@@ -37,6 +37,8 @@ export default {
       flex: 1,
       alignItems: 'center',
       paddingRight: variables.h_spacing_lg,
+      paddingTop: 0,
+      paddingBottom: 0,
       minHeight: variables.list_item_height,
       borderBottomWidth: variables.border_width_sm,
       borderBottomColor: variables.border_color_base,

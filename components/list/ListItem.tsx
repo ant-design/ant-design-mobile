@@ -188,25 +188,28 @@ export default class Item extends React.Component<ListItemProps, any> {
     let itemHeight;
     if (line === 2) {
       if (Platform.OS === 'android') {
-        itemHeight = 70 + 3 * variables.v_spacing_sm;
+        itemHeight = 60 + 2 * variables.v_spacing_sm;
       } else {
-        itemHeight = 70 + variables.v_spacing_sm;
+        itemHeight = 60 + variables.v_spacing_sm;
       }
     } else if (line > 2) {
       if (Platform.OS === 'android') {
         itemHeight = variables.list_item_height
           + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)
-          + 3 * variables.v_spacing_sm;
+          + 2 * variables.v_spacing_sm
+          - 3;
       } else {
         itemHeight = variables.list_item_height
           + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)
-          + variables.v_spacing_sm;
+          + variables.v_spacing_sm
+          - 3;
       }
     }
 
     const ItemStyle = [THEMES.Item,
       this.props.last ? THEMES.Last.Item : {},
       this.props.error ? THEMES.Error.Item : {},
+      line > 1 ? { height: itemHeight} : {},
       this.props.style,
     ];
 
@@ -214,7 +217,6 @@ export default class Item extends React.Component<ListItemProps, any> {
       this.props.multipleLine ? THEMES.multipleLine.Line : {},
       this.props.last ? THEMES.Last.Line : {},
       this.props.error ? THEMES.Error.Line : {},
-      line > 1 ? { height: itemHeight} : {},
     ];
 
     const itemView = (<View
