@@ -117,7 +117,7 @@ export default class App extends React.Component {
               lists[cate].map((item, ii) => {
                 const fileName = item.filename.split('/')[1];
                 return (<List.Item key={ii}>
-                  <Link to={`/${fileName}/`}>{item.chinese}</Link>
+                  <Link to={`/${fileName}/`}>{item.english} {item.chinese}</Link>
                 </List.Item>);
               })
             }
