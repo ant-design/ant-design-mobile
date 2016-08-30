@@ -4,7 +4,7 @@ title: 基本
 ---
 
 
-基本滑动条。当 `range` 为 `true` 时，渲染为双滑块。当 `disabled` 为 `true` 时，滑块处于不可用状态。
+基本滑动条。当 `disabled` 为 `true` 时，滑块处于不可用状态。
 
 
 
@@ -23,14 +23,8 @@ const App = React.createClass({
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">双模块</p>
-          <WhiteSpace />
-          <Slider range defaultValue={[20, 50]} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
           <p className="title">不可用状态</p>
-          <Slider range defaultValue={[20, 50]} disabled />
+          <Slider defaultValue={26} disabled />
         </WingBlank>
         <WhiteSpace size="lg" />
       </div>
@@ -41,16 +35,19 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 <style>
-.demo-preview-item * {
-  box-sizing: border-box;
+.demo-preview-item .am-slider-wrapper {
+  margin-bottom: 30px;
 }
-.code-box-demo .am-slider {
-  margin-bottom: 80px;
+.demo-preview-item .am-slider-example {
+  overflow: hidden;
 }
-.code-box-demo .am-slider-example .title {
+.am-wingblank.am-wingblank-lg {
+  margin-bottom: 60px;
+}
+.demo-preview-item .am-slider-example .title {
   margin-bottom: 32px;
 }
-.code-box-demo .am-slider:last-child {
+.demo-preview-item .am-slider-wrapper:last-child {
   margin-bottom: 20px;
 }
 </style>

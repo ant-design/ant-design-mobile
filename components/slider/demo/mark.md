@@ -33,10 +33,6 @@ const App = React.createClass({
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Slider range marks={marks} defaultValue={[26, 37]} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
           <p className="title">并列关系</p>
           <Slider marks={marks} included={false} defaultValue={37} />
         </WingBlank>
