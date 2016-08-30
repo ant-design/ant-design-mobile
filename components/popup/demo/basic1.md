@@ -28,9 +28,8 @@ const Test = React.createClass({
     Popup.hide();
   },
   render() {
-    return (<div style={{ padding: 8 }}>
-      <Button type="primary" onClick={this.onClick}>显示</Button>
-      已选项目：{this.state.sel}
+    return (<div style={{ padding: '15px' }}>
+      <Button type="ghost" onClick={this.onClick}>显示</Button>
     </div>);
   },
 });

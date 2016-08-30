@@ -40,7 +40,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
     }));
   }
   render() {
-    const { children, data, value, okText, dismissText, title, extra } = this.props;
+    const { children, data, value, okText, dismissText, title, extra, popupPrefixCls } = this.props;
     const extraProps = {
       extra: this.getSel() || extra,
     };
@@ -52,9 +52,9 @@ export default class Picker extends React.Component<tsPropsType, any> {
       {...this.props}
       data={data}
       value={value}
-      dismissText={dismissText}
       title={title}
-      okText={okText}
+      dismissText={<span className={`${popupPrefixCls}-header-cancel-button`}>{dismissText}</span>}
+      okText={<span className={`${popupPrefixCls}-header-ok-button`}>{okText}</span>}
     >{childEl}</PopupCascader>);
   }
 }
