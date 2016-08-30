@@ -8,7 +8,7 @@ export default class BasicWhiteSpaceExample extends React.Component<any, any> {
       <View>
         <WhiteSpace size="xs" />
         <WingBlank>
-          <Button type="primary">上下留白xs</Button>
+          <Button type="primary">涓婁笅鐣欑櫧xs</Button>
         </WingBlank>
         <WhiteSpace size="xs" />
         <View style={{
@@ -17,7 +17,7 @@ export default class BasicWhiteSpaceExample extends React.Component<any, any> {
         }}/>
         <WhiteSpace size="sm" />
         <WingBlank>
-          <Button type="primary">上下留白sm</Button>
+          <Button type="primary">涓婁笅鐣欑櫧sm</Button>
         </WingBlank>
         <WhiteSpace size="sm" />
         <View style={{
@@ -26,7 +26,7 @@ export default class BasicWhiteSpaceExample extends React.Component<any, any> {
         }}/>
         <WhiteSpace size="md" />
         <WingBlank>
-          <Button type="primary">上下留白md(默认)</Button>
+          <Button type="primary">涓婁笅鐣欑櫧md(榛樿)</Button>
         </WingBlank>
         <WhiteSpace size="md" />
         <View style={{
@@ -35,7 +35,7 @@ export default class BasicWhiteSpaceExample extends React.Component<any, any> {
         }}/>
         <WhiteSpace size="lg" />
         <WingBlank>
-          <Button type="primary">上下留白lg</Button>
+          <Button type="primary">涓婁笅鐣欑櫧lg</Button>
         </WingBlank>
         <WhiteSpace size="lg" />
         <View style={{
@@ -44,7 +44,7 @@ export default class BasicWhiteSpaceExample extends React.Component<any, any> {
         }}/>
         <WhiteSpace size="xl" />
         <WingBlank>
-          <Button type="primary">上下留白xl</Button>
+          <Button type="primary">涓婁笅鐣欑櫧xl</Button>
         </WingBlank>
         <WhiteSpace size="xl" />
         <View style={{
