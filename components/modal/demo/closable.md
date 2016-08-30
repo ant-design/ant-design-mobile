@@ -25,7 +25,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <WingBlank>
           <Button type="ghost" onClick={this.showModal}>
             可关闭对话框
@@ -35,7 +35,7 @@ const App = React.createClass({
             这是内容...<br />
           </Modal>
         </WingBlank>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

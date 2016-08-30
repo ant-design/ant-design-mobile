@@ -13,7 +13,7 @@ const App = React.createClass({
     return (
       <div className="loading-example">
         <div className="pagination-container" >
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <p className="title">按钮内带文本</p>
             <Pagination
@@ -23,7 +23,7 @@ const App = React.createClass({
               nextText="下一步"
             />
           </WingBlank>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <p className="title">带文本和icon</p>
             <Pagination
@@ -35,7 +35,7 @@ const App = React.createClass({
               nextText={<div>下一步<Icon type="right" /></div>}
             />
           </WingBlank>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <p className="title">仅icon</p>
             <Pagination
@@ -46,7 +46,7 @@ const App = React.createClass({
               nextText={<Icon type="right" />}
             />
           </WingBlank>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <p className="title">隐藏数字</p>
             <Pagination
@@ -57,7 +57,7 @@ const App = React.createClass({
               nextText="下一步"
             />
           </WingBlank>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <p className="title">小号</p>
             <Pagination
@@ -66,7 +66,7 @@ const App = React.createClass({
               activeIndex={1}
             />
           </WingBlank>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <Pagination
               total={5}

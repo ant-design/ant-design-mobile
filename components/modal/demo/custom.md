@@ -25,7 +25,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <WingBlank>
           <Button type="ghost" onClick={this.showModal}>
             自定义对话框
@@ -43,7 +43,7 @@ const App = React.createClass({
             </div>
           </Modal>
         </WingBlank>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

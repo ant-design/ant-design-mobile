@@ -14,7 +14,7 @@ const FlexExample = React.createClass({
     return (
       <div className="flex-container">
         <WhiteSpace />
-        <WingBlank size="28">
+        <WingBlank size="lg">
           <List title="start:交叉轴的起点对齐" />
           <Flex align="start" className="flex-align-container">
             <Flex.Item>
@@ -26,7 +26,7 @@ const FlexExample = React.createClass({
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank size="28">
+        <WingBlank size="lg">
           <List>
             <List.Header>end:交叉轴的终点对齐</List.Header>
           </List>
@@ -40,7 +40,7 @@ const FlexExample = React.createClass({
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank size="28">
+        <WingBlank size="lg">
           <List>
             <List.Header>center(默认):交叉轴的中点对齐</List.Header>
           </List>
@@ -60,7 +60,7 @@ const FlexExample = React.createClass({
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank size="28">
+        <WingBlank size="lg">
           <List>
             <List.Header>baseline:项目的第一行文字的基线对齐</List.Header>
           </List>
@@ -80,7 +80,7 @@ const FlexExample = React.createClass({
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank size="28">
+        <WingBlank size="lg">
           <List>
             <List.Header>stretch:如果项目未设置高度或设为auto，将占满整个容器的高度</List.Header>
           </List>

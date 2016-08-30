@@ -106,7 +106,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     const { prefixCls, style, className, files } = this.props;
     const dpr = window.devicePixelRatio || 1;
     const imgItemList = [];
-    const customWidth = ((document.documentElement.clientWidth - 16 * dpr - 6 * dpr * 3) / 4);
+    const customWidth = ((document.documentElement.clientWidth - 18 * dpr - 6 * dpr * 3) / 4);
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
@@ -129,7 +129,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     return (
       <div className={wrapCls} style={style}>
         <div className={`${prefixCls}-list`}>
-          <WingBlank size={16}>
+          <WingBlank>
             <Flex wrap="wrap">
               {imgItemList}
               <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={itemStyle}>

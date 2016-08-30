@@ -14,7 +14,7 @@ const FlexExample = React.createClass({
       <div className="flex-container">
         <WhiteSpace />
         <List title="start(默认): 左对齐" />
-        <WingBlank size={28}>
+        <WingBlank size="lg">
           <Flex
             className="flex-container-justify"
           >
@@ -26,7 +26,7 @@ const FlexExample = React.createClass({
         <List>
           <List.Header>end:右对齐</List.Header>
         </List>
-        <WingBlank size={28}>
+        <WingBlank size="lg">
           <Flex
             justify="end"
             className="flex-container-justify"
@@ -39,7 +39,7 @@ const FlexExample = React.createClass({
         <List>
           <List.Header>center:居中</List.Header>
         </List>
-        <WingBlank size={28}>
+        <WingBlank size="lg">
           <Flex
             justify="center"
             className="flex-container-justify"
@@ -52,7 +52,7 @@ const FlexExample = React.createClass({
         <List>
           <List.Header>between:两端对齐，项目之间的间隔都相等</List.Header>
         </List>
-        <WingBlank size={28}>
+        <WingBlank size="lg">
           <Flex
             justify="between"
             className="flex-container-justify"
@@ -65,7 +65,7 @@ const FlexExample = React.createClass({
         <List>
           <List.Header>around:每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</List.Header>
         </List>
-        <WingBlank size={28}>
+        <WingBlank size="lg">
           <Flex
             justify="around"
             className="flex-container-justify"

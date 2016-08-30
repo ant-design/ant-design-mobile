@@ -28,7 +28,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
       showsVerticalScrollIndicator={false}
     >
       <View style={{marginTop: 60}}>
-        <WingBlank size={32}>
+        <WingBlank size="lg">
           <Steps size="small" current={1}>
             {
               this.state.steps1.map((item, index) => (
@@ -39,7 +39,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
         </WingBlank>
       </View>
       <View>
-        <WingBlank size={32}>
+        <WingBlank size="lg">
           <Steps size="small">
             {
               this.state.steps2.map((item, index) => (
@@ -50,7 +50,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
         </WingBlank>
       </View>
       <View>
-        <WingBlank size={32}>
+        <WingBlank size="lg">
           <Steps current={1}>
             {
               this.state.steps1.map((item, index) => (
@@ -61,7 +61,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
         </WingBlank>
       </View>
       <View>
-        <WingBlank size={32}>
+        <WingBlank size="lg">
           <Steps>
             {
               this.state.steps2.map((item, index) => (

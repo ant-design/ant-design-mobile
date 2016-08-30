@@ -13,8 +13,8 @@ const FlexExample = React.createClass({
   render() {
     return (
       <div className="flex-container">
-        <WhiteSpace size={28} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Flex>
             <Flex.Item>
               <Button type="primary">2列</Button>
@@ -24,8 +24,8 @@ const FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace size={28} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Flex>
             <Flex.Item>
               <Button type="primary">3列</Button>
@@ -38,8 +38,8 @@ const FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace size={28} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Flex>
             <Flex.Item>
               <Button type="primary">4列</Button>
@@ -55,8 +55,8 @@ const FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace size={28} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Flex>
             <Flex.Item>
               <Button type="primary">5列</Button>
@@ -75,7 +75,7 @@ const FlexExample = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace size={28} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

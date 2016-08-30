@@ -16,7 +16,7 @@ const FlexExample = React.createClass({
         <List>
           <List.Header>nowrap(默认):不换行</List.Header>
         </List>
-        <WingBlank size={28}>
+        <WingBlank size="lg">
           <Flex className="flex-button-container">
             <Button type="primary">1</Button>
             <Button>2</Button>
@@ -33,7 +33,7 @@ const FlexExample = React.createClass({
         <List>
           <List.Header>wrap:换行，第一行在上方</List.Header>
         </List>
-        <WingBlank size={28}>
+        <WingBlank size="lg">
           <Flex
             wrap="wrap"
             className="flex-button-container"
@@ -53,7 +53,7 @@ const FlexExample = React.createClass({
         <List>
           <List.Header>wrap-reverse:换行，第一行在下方</List.Header>
         </List>
-        <WingBlank size={28}>
+        <WingBlank size="lg">
           <Flex
             wrap="wrap-reverse"
             className="flex-button-container"

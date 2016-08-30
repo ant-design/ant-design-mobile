@@ -13,7 +13,7 @@ const App = React.createClass({
     return (
       <div>
         <div className="pagination-container" >
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <p className="title">只显示数字</p>
             <Pagination
@@ -22,7 +22,7 @@ const App = React.createClass({
               activeIndex={2}
             />
           </WingBlank>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <Pagination
               mode="number"

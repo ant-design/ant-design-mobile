@@ -15,13 +15,13 @@ const NoticeBarExample = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <NoticeBar mode="closable" onClick={this.onClick}>
           国庆期间余额宝收益和转出到账时间1
         </NoticeBar>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <NoticeBar type="info" mode="closable">国庆期间余额宝收益和转出到账时间</NoticeBar>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

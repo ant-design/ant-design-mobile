@@ -13,22 +13,22 @@ const ImagePickerExample = React.createClass({
   getInitialState() {
     return {
       files: [{
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2121',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2122',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2123',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2124',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2125',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2126',
       }],
       files2: [],

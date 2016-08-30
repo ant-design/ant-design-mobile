@@ -39,8 +39,8 @@ const MyProgress = React.createClass({
           </div>
         }
         <Progress percent={this.state.percent} position="normal" unfilled="hide" />
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Flex>
             <Flex.Item>
               <Button onClick={this.increase}> + </Button>
@@ -50,7 +50,7 @@ const MyProgress = React.createClass({
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <Progress percent={this.state.percent} position="normal" />
       </div>
     );
