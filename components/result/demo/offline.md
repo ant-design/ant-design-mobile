@@ -12,6 +12,7 @@ const ResultExample = () => (
     title="网络无法连接"
     brief="请查看网络连接或稍后重试"
     buttonText="刷新"
+    buttonType="primary"
     buttonClick={() => alert('点击了按钮')}
   />
 );

@@ -3,12 +3,15 @@
 
 @resultPrefixCls: am-result;
 
-.@{resultPrefixCls} {;
+.@{resultPrefixCls} {
+  position: relative;
   text-align: center;
   width: 100%;
   min-height: 328px;
   padding-top: @v-spacing-xl;
   padding-bottom: @v-spacing-xl;
+  background-color: @fill-base;
+  .hairline-bottom(@border-color-base);
   & &-pic {
     width: 120px;
     height: 120px;
@@ -28,7 +31,7 @@
     margin-top: @v-spacing-lg;
   }
   & &-message {
-    margin-top: @v-spacing-xl;
+    margin-top: @v-spacing-lg;
     font-size: @font-size-subhead;
     color: @color-text-caption;
     line-height: 1.8;

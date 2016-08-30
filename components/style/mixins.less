@@ -7,10 +7,10 @@
   transform-origin: @to;
 }
 
-.hairline-top(@color) {
+.hairline-top(@color:@border-color-base) {
   border-top: @border-width-sm solid @color;
 }
-.hairline-bottom(@color, @left:0) {
+.hairline-bottom(@color:@border-color-base, @left:0) {
   &:after {
     display: block;
     position: absolute;
@@ -23,7 +23,7 @@
     border-bottom: @border-width-sm solid @color;
   }
 }
-.hairline-right(@color) {
+.hairline-right(@color:@border-color-base) {
   &:after {
     content: '';
     position: absolute;

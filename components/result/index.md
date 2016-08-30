@@ -15,8 +15,8 @@ english: Result
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | imgUrl    | 插图URL        | string |    |
-| title    |    title文案     | string |    |
-| brief    |    brief文案     | string |    |
+| title    |    title文案     | String/HTML |    |
+| message    |    message文案     | String/HTML |    |
 | buttonText    |    按钮文案     | string |    |
 | buttonType    |    请参考button的配置     | string |    |
 | buttonClick    |    按钮回调函数     | Func |    ||
