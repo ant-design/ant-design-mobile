@@ -5,15 +5,15 @@ import WingBlankProps from './WingBlankPropsType';
 export default class WingBlank extends React.Component<WingBlankProps, any> {
   static defaultProps = {
     prefixCls: 'am-wingblank',
-    size: 8,
+    size: 'md',
   };
 
   render() {
     const { prefixCls, size, className, children, style } = this.props;
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
+      [`${prefixCls}-${size}`]: true,
       [className]: !!className,
-      [`${prefixCls}-wb${size}`]: true,
     });
 
     return (

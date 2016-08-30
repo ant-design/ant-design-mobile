@@ -3,7 +3,7 @@ order: 0
 title: 基本
 ---
 
-```<WingBlank size={8}>...</WingBlank>```
+```<WingBlank size='md'>...</WingBlank>```
 
 ````jsx
 import { WingBlank, WhiteSpace, Button } from 'antd-mobile';
@@ -14,20 +14,20 @@ const WingBlankExample = React.createClass({
     return (
       <div className="button-container">
         <WhiteSpace />
+        <WingBlank size="lg">
+          <Button type="primary">两翼留白lg</Button>
+        </WingBlank>
+        <WhiteSpace />
+        <div style={{ borderTop: '1px solid #108ee9' }} />
+        <WhiteSpace />
         <WingBlank>
-          <Button>两翼留白8px</Button>
+          <Button type="primary">两翼留白md(默认)</Button>
         </WingBlank>
         <WhiteSpace />
         <div style={{ borderTop: '1px solid #108ee9' }} />
         <WhiteSpace />
-        <WingBlank size={16}>
-          <Button type="primary">两翼留白16px</Button>
-        </WingBlank>
-        <WhiteSpace />
-        <div style={{ borderTop: '1px solid #108ee9' }} />
-        <WhiteSpace />
-        <WingBlank size={32}>
-          <Button>两翼留白32px</Button>
+        <WingBlank size="sm">
+          <Button type="primary">两翼留白sm</Button>
         </WingBlank>
         <WhiteSpace />
       </div>
