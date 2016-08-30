@@ -24,10 +24,6 @@ const App = React.createClass({
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Slider range step={10} defaultValue={[20, 50]} onChange={log} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
           <Slider defaultValue={30} onAfterChange={log} />
         </WingBlank>
         <WhiteSpace size="lg" />
