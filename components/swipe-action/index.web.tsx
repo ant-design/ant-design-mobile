@@ -121,21 +121,17 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
 
     return (left.length || right.length) ? (
       <div className={wrapClass}>
-        {
-          isAndroid ? this.renderAndroid() : (
-            <Swipeout
-              prefixCls={prefixCls}
-              left={left}
-              right={right}
-              autoClose={autoClose}
-              disabled={disabled}
-              onOpen={onOpen}
-              onClose={onClose}
-            >
-              {children}
-            </Swipeout>
-          )
-        }
+        {isAndroid ? this.renderAndroid() : (<Swipeout
+          prefixCls={prefixCls}
+          left={left}
+          right={right}
+          autoClose={autoClose}
+          disabled={disabled}
+          onOpen={onOpen}
+          onClose={onClose}
+        >
+          {children}
+        </Swipeout>)}
       </div>
     ) : (
       <div className={wrapClass}>{children}</div>
