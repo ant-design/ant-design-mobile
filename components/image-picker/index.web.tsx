@@ -129,7 +129,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     return (
       <div className={wrapCls} style={style}>
         <div className={`${prefixCls}-list`}>
-          <WingBlank>
+          <WingBlank size="md">
             <Flex wrap="wrap">
               {imgItemList}
               <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={itemStyle}>

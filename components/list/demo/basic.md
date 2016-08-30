@@ -13,11 +13,10 @@ import { createForm } from 'rc-form';
 
 let ListExample = React.createClass({
   render() {
-    const { getFieldProps } = this.props.form;
     return (<form>
       <List
-        title="列表头部"
-        footer="列表尾部"
+        title="我是华丽丽的列表头部"
+        footer="我是列表尾部"
       >
         <List.Body>
           <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
@@ -36,18 +35,6 @@ let ListExample = React.createClass({
         title="下拉框"
       >
         <List.Body>
-          <List.Item
-            extra={<select style={{ direction: 'rtl' }}
-              {...getFieldProps('select1', {
-                initialValue: 1,
-              })}
-            >
-              <option value="1">选项1</option>
-              <option value="2">选项2</option>
-              <option value="3">选项3</option>
-            </select>}
-            arrow="horizontal"
-          >下拉框</List.Item>
           <List.Item
             extra={<select style={{ direction: 'rtl' }} defaultValue="2">
               <option value="1">选项1</option>

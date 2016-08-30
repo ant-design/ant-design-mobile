@@ -14,14 +14,14 @@ const WingBlankExample = React.createClass({
     return (
       <div className="button-container">
         <WhiteSpace />
-        <WingBlank size="lg">
-          <Button type="primary">两翼留白lg</Button>
+        <WingBlank>
+          <Button type="primary">两翼留白lg(默认)</Button>
         </WingBlank>
         <WhiteSpace />
         <div style={{ borderTop: '1px solid #108ee9' }} />
         <WhiteSpace />
-        <WingBlank>
-          <Button type="primary">两翼留白md(默认)</Button>
+        <WingBlank size="md">
+          <Button type="primary">两翼留白md</Button>
         </WingBlank>
         <WhiteSpace />
         <div style={{ borderTop: '1px solid #108ee9' }} />

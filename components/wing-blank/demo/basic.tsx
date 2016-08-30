@@ -7,8 +7,8 @@ export default class BasicWingBlankExample extends React.Component<any, any> {
     return (
       <View>
         <WhiteSpace />
-        <WingBlank size="lg">
-          <Button type="primary">两翼留白lg</Button>
+        <WingBlank>
+          <Button type="primary">两翼留白lg(默认)</Button>
         </WingBlank>
         <WhiteSpace />
         <View style={{
@@ -16,8 +16,8 @@ export default class BasicWingBlankExample extends React.Component<any, any> {
           borderBottomWidth: 0.5,
         }}/>
         <WhiteSpace />
-        <WingBlank>
-          <Button type="primary">两翼留白md(默认)</Button>
+        <WingBlank size="md">
+          <Button type="primary">两翼留白md</Button>
         </WingBlank>
         <WhiteSpace />
         <View style={{

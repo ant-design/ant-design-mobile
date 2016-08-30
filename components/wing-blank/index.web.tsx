@@ -5,7 +5,7 @@ import WingBlankProps from './WingBlankPropsType';
 export default class WingBlank extends React.Component<WingBlankProps, any> {
   static defaultProps = {
     prefixCls: 'am-wingblank',
-    size: 'md',
+    size: 'lg',
   };
 
   render() {
