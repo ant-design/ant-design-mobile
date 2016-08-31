@@ -260,7 +260,7 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
         style={styles.pagination}
         current={index}
         mode="pointer"
-        total={5}
+        total={this.state.count}
       />
     );
   }
