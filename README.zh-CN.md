@@ -77,7 +77,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 // .babelrc
 // react-native 中无需设置 style 属性
 {
- "plugins": [["antd", { style: "css", libraryName: "antd-mobile" }]]
+ "plugins": [["antd", { "style": "css", "libraryName": "antd-mobile" }]]
 }
 ```
 
