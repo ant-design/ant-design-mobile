@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { Drawer, List, Button, WingBlank, WhiteSpace } from 'antd-mobile';
+import { Drawer, List, Button, WhiteSpace } from 'antd-mobile';
 import { DefaultRenderer, Actions } from 'react-native-router-flux';
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     flex: 1,
   },
 });
@@ -23,10 +23,24 @@ export default class DrawerExample extends React.Component<any, any> {
     const sidebar = (<View style={[styles.container, { backgroundColor: '#fff' }]}>
       <List>
         <List.Body>
-          <List.Item>仅可进行收款、退款及查账操作</List.Item>
-          <List.Item>仅可进行收款、退款及查账操作</List.Item>
-          <List.Item>仅可进行收款、退款及查账操作</List.Item>
-          <Button inline onPress={() => this.drawer.drawer.closeDrawer()}>关闭 drawer</Button>
+          {Array.apply(null, Array(20)).map(function (_, i) {return i;}).map((i, index) => {
+            if (index === 0) {
+              return (<List.Item key={index}
+                thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
+                multipleLine
+              >
+                <View>
+                  <Text>分类 - {index}</Text>
+                  <Button type="primary" size="small" onPress={() => this.drawer.drawer.closeDrawer()}>
+                    关闭 drawer
+                  </Button>
+                </View>
+              </List.Item>);
+            }
+            return (<List.Item key={index}
+              thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
+            ><Text>分类 - {index}</Text></List.Item>);
+          })}
         </List.Body>
       </List>
     </View>);
@@ -58,19 +72,10 @@ export class DrawerMain extends React.Component<any, any> {
   }
   render() {
     return (
-      <View style={{ flex: 1, marginTop: 114 }}>
-        <View>
-          <WingBlank size={16}>
-            <Button type="primary" inline onPress={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
-          </WingBlank>
-          <Text style={{ color: 'red', textAlign: 'center', marginTop: 40 }}>主内容</Text>
-          <WhiteSpace size={60} />
-          <WingBlank size={16}>
-            <Button type="ghost" inline onPress={() => {
-              Actions.pop();
-            }}>返回 demo list</Button>
-          </WingBlank>
-        </View>
+      <View style={{ flex: 1, marginTop: 114, padding: 8 }}>
+        <Button type="ghost" onPress={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
+        <WhiteSpace />
+        <Button type="ghost" onPress={() => Actions.pop()}>返回 demo list</Button>
       </View>
     );
   }

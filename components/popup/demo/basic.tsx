@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { Popup, WhiteSpace, WingBlank, Button } from 'antd-mobile';
+import { Popup, WhiteSpace, Button, List } from 'antd-mobile';
 
 export default class PopupExample extends React.Component<any, any> {
   constructor(props) {
@@ -14,19 +14,21 @@ export default class PopupExample extends React.Component<any, any> {
   getPopupContent = (num) => {
     return (
       <View style={{ flex: 1 }}>
-        <WhiteSpace />
-        <WingBlank>
-          <Button type="primary" onPress={this.onClose.bind(this, 'opt 1', num) }>操作一</Button>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onPress={this.onClose.bind(this, 'opt 2', num) }>操作二</Button>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <Button onPress={this.onClose.bind(this, 'cancel', num) }>取消</Button>
-        </WingBlank>
-        <WhiteSpace />
+        <List title="委托买入">
+          <List.Body>
+            <List.Item>股票名称</List.Item>
+            <List.Item>股票代码</List.Item>
+            <List.Item>买入价格</List.Item>
+            <List.Item>买入数量</List.Item>
+          </List.Body>
+        </List>
+        <View style={{ padding: 10 }}>
+          <Text style={{ color: 'gray' }}>投资说明投资说明...</Text>
+          <Text style={{ color: 'gray' }}>交易金额以实际成交为准</Text>
+        </View>
+        <View style={{ padding: 6 }}>
+          <Button type="primary" onClick={this.onClose.bind(this, 'cancel', num) }>买入</Button>
+        </View>
       </View>
     );
   }
@@ -46,17 +48,11 @@ export default class PopupExample extends React.Component<any, any> {
 
   render() {
     return (
-      <View style={{ margin: 20 }}>
+      <View style={{ margin: 8 }}>
         <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onPress={this.onClick}>Dropdown 效果</Button>
-          <Text>已选项目：{this.state.sel0}</Text>
-        </WingBlank>
+        <Button type="ghost" onPress={this.onClick}>Dropdown 效果</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onPress={this.onClick1}>ActionSheet 效果</Button>
-          <Text>已选项目：{this.state.sel1}</Text>
-        </WingBlank>
+        <Button type="ghost" onPress={this.onClick1}>向上弹出效果</Button>
       </View>
     );
   }

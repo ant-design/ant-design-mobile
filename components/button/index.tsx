@@ -131,7 +131,7 @@ export default class Button extends React.Component<tsProps, any> {
       paddingLeft,
       paddingRight,
       backgroundColor,
-      borderRadius: variables.radius_sm,
+      borderRadius: variables.radius_md,
       borderWidth: 1,
       borderColor,
       justifyContent: 'center',
