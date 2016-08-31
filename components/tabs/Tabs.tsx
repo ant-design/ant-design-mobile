@@ -5,8 +5,8 @@ import TabsProps from './TabsProps';
 
 class Tabs extends React.Component<TabsProps, any> {
   static defaultProps = {
-    tabPosition: 'top',
-    animation: true,
+    tabBarPosition: 'top',
+    animated: true,
     onChange() {},
     onTabClick() {},
     underlineColor: '#ddd',
@@ -61,12 +61,12 @@ class Tabs extends React.Component<TabsProps, any> {
 
   renderTabBar = (props) => {
     const {
-      tabPosition, underlineColor, activeUnderlineColor, textColor, activeTextColor, styles,
+      tabBarPosition, underlineColor, activeUnderlineColor, textColor, activeTextColor, styles,
     } = this.props;
     // TODO PR: react-native-scrollable-tab-view@0.6.0 support underlineStyle
     // remove DefaultTabBar underlineHeight & underlineColor props
     // use borderColor
-    const barStyle = tabPosition === 'top' ? [styles.barTop, {
+    const barStyle = tabBarPosition === 'top' ? [styles.barTop, {
       borderBottomColor: underlineColor,
     }] : [styles.barBottom, {
       borderTopColor: underlineColor,
@@ -82,7 +82,7 @@ class Tabs extends React.Component<TabsProps, any> {
         textStyle={[styles.text]}
         tabStyle={[styles.tab]}
         underlineStyle={[styles.underline, {
-          bottom: tabPosition === 'top' ? 0 : null,
+          bottom: tabBarPosition === 'top' ? 0 : null,
           backgroundColor: activeUnderlineColor,
         }]}
       />
@@ -91,7 +91,7 @@ class Tabs extends React.Component<TabsProps, any> {
 
   render() {
     const {
-      tabPosition, defaultActiveKey, activeKey, animation, children,
+      tabBarPosition, defaultActiveKey, activeKey, animated, children,
     } = this.props;
 
     let defaultActiveIndex = 0;
@@ -109,8 +109,8 @@ class Tabs extends React.Component<TabsProps, any> {
 
     return (
       <ScrollableTabView
-        tabBarPosition={tabPosition}
-        scrollWithoutAnimation={!animation}
+        tabBarPosition={tabBarPosition}
+        scrollWithoutAnimation={!animated}
         initialPage={defaultActiveIndex}
         page={activeIndex}
         renderTabBar={this.renderTabBar}

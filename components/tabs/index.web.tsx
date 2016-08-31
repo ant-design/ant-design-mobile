@@ -1,45 +1,44 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import assign from 'object-assign';
-import RcTabs from 'rc-tabs';
+import RcTabs, { TabPane } from 'rc-tabs';
 import TabsProps from './TabsProps';
+import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
+import InkTabBar from 'rc-tabs/lib/InkTabBar';
 
-export default class Tabs extends React.Component<TabsProps, any> {
-  static TabPane = (RcTabs as any).TabPane;
-  static defaultProps = {
-    prefixCls: 'am-tabs',
-    animation: true,
-    onChange() {},
-    tabPosition: 'top',
-    onTabClick() {},
-  };
+const Tabs = React.createClass<TabsProps, any>({
+  statics: {
+    TabPane,
+  },
+
+  getDefaultProps() {
+    return {
+      prefixCls: 'am-tabs',
+      animated: true,
+      onChange() {
+      },
+      tabBarPosition: 'top',
+      onTabClick() {
+      },
+    };
+  },
+
+  renderTabBar() {
+    const {props} = this;
+    return <InkTabBar onTabClick={props.onTabClick} inkBarAnimated={props.animated}/>;
+  },
+
+  renderTabContent() {
+    return <SwipeableTabContent animated={this.props.animated}/>;
+  },
 
   render() {
-    const {className, prefixCls, children, animation, tabPosition} = this.props;
-    let cls = classNames({
-      [className]: !!className,
-      [`${prefixCls}-no-animation`]: animation === false,
-    });
-
-    const restProps = assign({}, this.props);
-    ['className', 'prefixCls', 'animation', 'tabPosition', 'children'].forEach(prop => {
-      if (restProps.hasOwnProperty(prop)) {
-        delete restProps[prop];
-      }
-    });
-
-    const anim = animation ? 'slide-horizontal' : '';
     return (
       <RcTabs
-        allowScrollBar={false}
-        prefixCls={prefixCls}
-        className={cls}
-        tabPosition={tabPosition}
-        animation={anim}
-        {...restProps}
-      >
-        {children}
-      </RcTabs>
+        renderTabBar={this.renderTabBar}
+        renderTabContent={this.renderTabContent}
+        {...this.props}
+      />
     );
-  }
-}
+  },
+});
+
+export default Tabs;

@@ -1,14 +1,14 @@
 @import '../../style/themes/default';
 @import '../../style/mixins';
 
-@tab-prefix-cls: am-tabs;
+@tabs-prefix-cls: am-tabs;
 
-.@{tab-prefix-cls} {
+.@{tabs-prefix-cls} {
   overflow: hidden;
   &-bar {
     display: flex;
     position: relative;
-    .@{tab-prefix-cls}-tab {
+    .@{tabs-prefix-cls}-tab {
       flex: 1;
       text-align: center;
       border-bottom: @border-width-sm solid @border-color-base;
@@ -27,73 +27,47 @@
     bottom: 0;
     height: @border-width-lg;
     background-color: @tabs-color;
+
+    &-animated {
+      transition: transform .3s @ease-in-out-quint;
+    }
   }
 
   &&-bottom {
-    .@{tab-prefix-cls}-ink-bar {
+    .@{tabs-prefix-cls}-ink-bar {
       bottom: auto;
       top: 0;
     }
-    .@{tab-prefix-cls}-tab {
+    .@{tabs-prefix-cls}-tab {
       border-top: @border-width-sm solid @border-color-base;
       border-bottom: 0;
     }
   }
 
   &-content {
-    position: relative;
-    .@{tab-prefix-cls}-tabpane {
+    zoom: 1;
+
+    .@{tabs-prefix-cls}-tabpane {
       background-color: @fill-base;
-      &-hidden {
+      overflow: auto;
+    }
+
+    &-animated {
+      transition: transform .3s @ease-in-out-quint;
+      display: flex;
+      will-change: transform;
+
+      .@{tabs-prefix-cls}-tabpane {
+        box-sizing: border-box;
+        width: 100%;
+        flex-shrink: 0;
+      }
+    }
+
+    &-no-animated {
+      .@{tabs-prefix-cls}-tabpane-inactive {
         display: none;
       }
     }
-  }
-
-  &-ink-bar-transition-forward,
-  &-ink-bar-transition-backward {
-    transition: transform .3s @ease-in-out-quint;
-  }
-
-  &&-no-animation {
-    .@{tab-prefix-cls}-ink-bar-transition-forward,
-    .@{tab-prefix-cls}-ink-bar-transition-backward {
-      transition-duration: 0s;
-    }
-  }
-
-  &-slide-horizontal-backward-enter {
-    transform: translateX(-100%);
-  }
-
-  &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active,
-  &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
-    transform: translateX(0) translateZ(0);
-    transition: transform .3s @ease-in-out-quint;
-  }
-
-  &-slide-horizontal-backward-leave,
-  &-slide-horizontal-forward-leave {
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translateX(0);
-  }
-
-  &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
-    transform: translateX(100%) translateZ(0);
-    transition: transform .3s @ease-in-out-quint;
-  }
-
-  &-slide-horizontal-forward-enter {
-    transform: translateX(100%);
-  }
-
-  &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
-    transform: translateX(-100%) translateZ(0);
-    transition: transform .3s @ease-in-out-quint;
   }
 }

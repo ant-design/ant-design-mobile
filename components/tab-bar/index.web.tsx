@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Tabs from 'rc-tabs';
+import Tabs, { TabPane } from 'rc-tabs';
 import Tab from './Tab.web';
+import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
+import TabBar from 'rc-tabs/lib/TabBar';
 
-const { TabPane } = Tabs;
-
-const TabBar = React.createClass({
+const AntTabBar = React.createClass({
   statics: {
     Item() {
     },
@@ -26,6 +26,15 @@ const TabBar = React.createClass({
     });
   },
 
+  renderTabBar() {
+    const {props} = this;
+    return <TabBar onTabClick={props.onTabClick} style={{backgroundColor: props.barTintColor}}/>;
+  },
+
+  renderTabContent() {
+    return <SwipeableTabContent />;
+  },
+
   render() {
     let activeKey;
     const children = [];
@@ -35,7 +44,7 @@ const TabBar = React.createClass({
       }
       children.push(c);
     });
-    const { tintColor, unselectedTintColor, barTintColor } = this.props;
+    const {tintColor, unselectedTintColor} = this.props;
     const panels = children.map((c: any) => {
       const cProps = c.props;
       const tab = (<Tab
@@ -50,6 +59,7 @@ const TabBar = React.createClass({
       />);
       return (
         <TabPane
+          placeholder="正在加载"
           tab={tab}
           key={c.key}
         >
@@ -58,15 +68,12 @@ const TabBar = React.createClass({
     });
     return (
       <Tabs
-        allowScrollBar={false}
-        allowInkBar={false}
-        tabPosition="bottom"
+        renderTabBar={this.renderTabBar}
+        renderTabContent={this.renderTabContent}
+        tabBarPosition="bottom"
         prefixCls={this.props.prefixCls}
         activeKey={activeKey}
         onChange={this.onChange}
-        styles={{
-          bar: { backgroundColor: barTintColor },
-        }}
       >
         {panels}
       </Tabs>
@@ -74,4 +81,4 @@ const TabBar = React.createClass({
   },
 });
 
-export default TabBar;
+export default AntTabBar;

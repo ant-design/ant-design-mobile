@@ -3,14 +3,14 @@ interface TabsProps {
   defaultActiveKey?: string;
   onChange?: (key: string) => void;
   onTabClick?: (key: string) => void;
-  tabPosition?: 'top' | 'bottom';
-  animation?: boolean;
+  tabBarPosition?: 'top' | 'bottom';
+  animated?: boolean;
   /*rn only*/
   underlineColor?: string;
   activeUnderlineColor?: string;
   textColor?: string;
   activeTextColor?: string;
-  styles: any;
+  styles?: any;
   /*web only*/
   className?: string;
   prefixCls?: string;

@@ -30,8 +30,8 @@ english: Tabs
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板    |
 | onChange         | 切换面板的回调                               | Function | 无            |
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
-| animation |  是否动画    |  boolean   |    `true`    |
-| tabPosition |    tab 位置 top/bottom        |  string    |    `top`        |
+| animated |  是否动画    |  boolean   |    `true`    |
+| tabBarPosition |    tab 位置 top/bottom        |  string    |    `top`        |
 | underlineColor(`react-native only`) |   线条颜色       |  string    |    `#ddd`        |
 | activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |
 | textColor(`react-native only`) |   文字颜色       |  string    |    `#000`        |

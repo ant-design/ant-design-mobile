@@ -1,9 +1,9 @@
 @import '../../style/themes/default';
 @import '../../style/mixins';
 
-@tab-prefix-cls: am-tab-bar;
+@tabs-prefix-cls: am-tab-bar;
 
-.@{tab-prefix-cls} {
+.@{tabs-prefix-cls} {
   &-bar {
     box-sizing: border-box;
     height: @tab-bar-height;
@@ -13,7 +13,7 @@
     width: 100%;
     display: flex;
     .box-sizing();
-    .@{tab-prefix-cls}-tab {
+    .@{tabs-prefix-cls}-tab {
       flex: 1;
       display: flex;
       justify-content: center;
@@ -32,7 +32,30 @@
       }
     }
   }
-  .@{tab-prefix-cls}-tabpane-hidden {
-    display: none;
+
+  &-content {
+    zoom: 1;
+
+    .@{tabs-prefix-cls}-tabpane {
+      overflow: auto;
+    }
+
+    &-animated {
+      transition: transform .3s @ease-in-out-quint;
+      display: flex;
+      will-change: transform;
+
+      .@{tabs-prefix-cls}-tabpane {
+        box-sizing: border-box;
+        width: 100%;
+        flex-shrink: 0;
+      }
+    }
+
+    &-no-animated {
+      .@{tabs-prefix-cls}-tabpane-inactive {
+        display: none;
+      }
+    }
   }
 }
