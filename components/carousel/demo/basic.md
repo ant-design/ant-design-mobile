@@ -11,44 +11,44 @@ import classNames from 'classnames';
 
 const data = [
   {
-    icon: 'https://gw.alicdn.com/tps/TB1CgMrMpXXXXXcXpXXXXXXXXXX-96-96.png',
-    text: '美食外卖',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1dvomMpXXXXa0XpXXXXXXXXXX-96-96.png',
-    text: '鲜花蛋糕',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1dZAtMpXXXXcyXXXXXXXXXXXX-96-96.png',
-    text: '品牌馆',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1H6RaMFXXXXXvXVXXXXXXXXXX-96-96.png',
-    text: '蜂鸟专送',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1iWkXMpXXXXX6XVXXXXXXXXXX-96-96.png',
-    text: '甜品饮品',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1sHgoMpXXXXaPXpXXXXXXXXXX-96-96.png',
-    text: '超市便利',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1XKsjMpXXXXcRXpXXXXXXXXXX-97-96.png',
-    text: '果蔬生鲜',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1CgMrMpXXXXXcXpXXXXXXXXXX-96-96.png',
-    text: '生活馆',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1z73sMpXXXXcKXXXXXXXXXXXX-96-96.png',
-    text: '名字',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1H6RaMFXXXXXvXVXXXXXXXXXX-96-96.png',
-    text: '名字',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   },
 ];

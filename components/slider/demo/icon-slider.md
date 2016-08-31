@@ -57,16 +57,16 @@ ReactDOM.render(
 ````css
 .iconWrapper {
   position: relative;
-  padding: 0px 48px;
+  padding: 0px 0.48rem;
 }
 
 .iconWrapper .anticon {
   position: absolute;
-  top: -11px;
-  width: 24px;
-  height: 24px;
+  top: -18px;
+  width: 0.44rem;
+  height: 0.44rem;
   line-height: 1;
-  font-size: 24px;
+  font-size: 44px;
   color: #000;
 }
 
