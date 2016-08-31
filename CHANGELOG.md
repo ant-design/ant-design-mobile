@@ -9,7 +9,6 @@ english: 更新日志
 > UI 风格更换为 alipay 官方风格
 
 - 修复 `Object.assign` 兼容问题
-- DatePicker 去掉 moment 必选依赖
 - Picker / DatePicker 添加 disabled 支持
 - InputItem 和 TextareaItem API `format` 改为 `type`，移除原来type；修复 maxLength bug
 - ListView 增加`useBodyScroll` API, IndexedList 支持分两步渲染
@@ -17,7 +16,7 @@ english: 更新日志
 - Modal `footer` 类型更改
 - Dropdown 效果和 `ActionSheet.showActionSheetWithCustom` 效果集成到新增的`Popup`组件里；`ActionSheet.showActionSheetWithCustom` API 移除
 - `ActionSheet.showShareActionSheetWithOptions`支持多行，`options`配置项支持二维数组，callback参数增加显示行序列
-- ActionSheet.showActionSheetWithOptions/ActionSheet.showShareActionSheetWithOptions 的 `callback`支持返回 Promise
+- `ActionSheet.showActionSheetWithOptions`/`ActionSheet.showShareActionSheetWithOptions` 的 `callback`支持返回 Promise
 - ActionSheet react-native android 下新增`close` API，支持自定义内容下的编程关闭 ActionSheet
 - Toast rn组件修复遮挡 NavBar 问题
 - 修复 rn 组件离线图片找不到问题
