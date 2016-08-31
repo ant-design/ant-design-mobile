@@ -50,7 +50,7 @@ const App = React.createClass({
             <Pagination
               mode="number"
               total={5}
-              activeIndex={2}
+              current={3}
             />
           </WingBlank>
         </div>
