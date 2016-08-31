@@ -101,6 +101,7 @@ export default class Grid extends React.Component<GridProps, any> {
         }
         if (k * 2 + 1 < gridContentLength) {
           carouselContent.push(<div
+            className={`${prefixCls}-carousel-page`}
             key={`carouselitem-${k * 2 + 1}`}
           >
             {gridContent[k * 2]}
@@ -108,6 +109,7 @@ export default class Grid extends React.Component<GridProps, any> {
           </div>);
         } else {
           carouselContent.push(<div
+            className={`${prefixCls}-carousel-page`}
             key={`carouselitem-${k * 2}`}
           >
             {gridContent[k * 2]}
