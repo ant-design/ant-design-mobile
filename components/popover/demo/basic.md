@@ -5,7 +5,7 @@ title: Popover
 
 
 ````jsx
-import { Popover, NavBar, Icon, Badge } from 'antd-mobile';
+import { Popover, NavBar, Icon } from 'antd-mobile';
 
 const Item = Popover.Item;
 
@@ -37,7 +37,6 @@ const App = React.createClass({
             <Item key="5" value="special" iconName="qrcode" style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>,
             <Item key="6" value="button ct" iconName="question-circle-o">
               <span style={{ marginRight: 5 }}>帮助</span>
-              <Badge text={'..'} style={{ height: '0.1rem', lineHeight: 0.1 }} />
             </Item>,
           ]}
           popupAlign={{
