@@ -10,7 +10,6 @@ export default class BasicPaginationExample extends React.Component<any, any> {
         <WingBlank size="lg">
           <Pagination
             mode="button"
-            size="large"
             total={5}
             simple={false} />
         </WingBlank>
@@ -18,23 +17,6 @@ export default class BasicPaginationExample extends React.Component<any, any> {
         <WingBlank size="lg">
           <Pagination
             mode="button"
-            size="large"
-            total={5}
-            simple />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <Pagination
-            mode="button"
-            size="small"
-            total={5}
-            simple={false} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <Pagination
-            mode="button"
-            size="small"
             total={5}
             simple />
         </WingBlank>
@@ -43,7 +25,7 @@ export default class BasicPaginationExample extends React.Component<any, any> {
           <Pagination
             mode="number"
             total={5}
-            size="large"
+            current={2}
           />
         </WingBlank>
         <WhiteSpace size="lg" />
@@ -51,17 +33,10 @@ export default class BasicPaginationExample extends React.Component<any, any> {
           <Pagination
             mode="pointer"
             total={5}
-            size="large"
+            current={2}
           />
         </WingBlank>
         <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <Pagination
-            mode="pointer"
-            total={5}
-            size="small"
-          />
-        </WingBlank>
       </View>
     );
   }

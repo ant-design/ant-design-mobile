@@ -10,7 +10,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
     mode: 'button',
     current: 0,
-    size: 'large',
     simple: false,
     prevText: 'Prev',
     nextText: 'Next',
@@ -65,7 +64,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   render() {
-    const { mode, size, style, simple, total,
+    const { mode, style, simple, total,
       prevText, nextText } = this.props;
     const current = this.state.current;
     let markup;
@@ -75,7 +74,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
           <Flex>
             <Flex.Item>
               <Button
-                size={size}
                 inline
                 disabled={current <= 0}
                 onClick={this.onPrev}
@@ -93,7 +91,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
             }
             <Flex.Item>
               <Button
-                size={size}
                 disabled={current >= total - 1}
                 inline
                 onClick={this.onNext}
@@ -114,12 +111,10 @@ export default class Pagination extends React.Component<PaginationProps, any> {
         break;
       case 'pointer':
         const indexes = this.getIndexes(total);
-        const spaceStyle = size === 'large'
-          ? styles.spaceLargeStyle : styles.spaceSmallStyle;
         const pointer = indexes.map((index) => {
           const activeStyle = index === current ? styles.pointActiveStyle : null;
           return (
-            <View style={[styles.pointStyle, spaceStyle, activeStyle]} key={`point-${index}`}></View>
+            <View style={[styles.pointStyle, styles.spaceStyle, activeStyle]} key={`point-${index}`}></View>
           );
         });
         markup = (<View style={[styles.indicatorStyle]}>{pointer}</View>);
