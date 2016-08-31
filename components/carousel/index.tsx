@@ -1,5 +1,4 @@
 import * as React from 'react';
-import reactMixin from 'react-mixin';
 import ReactTimerMixin from 'react-timer-mixin';
 import Pagination from '../pagination';
 import {
@@ -14,7 +13,7 @@ import {
 } from 'react-native';
 import styles from './style';
 
-let { width, height } = Dimensions.get('window');
+let {width, height} = Dimensions.get('window');
 
 export interface ViewPagerProps {
   selectedIndex: number;
@@ -25,38 +24,39 @@ export interface ViewPagerProps {
   autoplay?: boolean;
   autoplayTimeout?: number;
   infinite?: boolean;
-  onScrollBeginDrag: Function;
-  onMomentumScrollEnd: Function;
+  onScrollBeginDrag?: Function;
+  onMomentumScrollEnd?: Function;
   loadMinimal?: boolean;
   loadMinimalSize?: number;
 }
 
-export default class ViewPager extends React.Component<ViewPagerProps, any> {
-  static defaultProps = {
-    bounces: true,
-    infinite: true,
-    dots: true,
-    loadMinimal: false,
-    loadMinimalSize: 1,
-    autoplay: false,
-    autoplayTimeout: 2.5,
-    selectedIndex: 0,
-  };
-  autoplayTimer: any;
-  setTimeout: any;
+const ViewPager = React.createClass<ViewPagerProps, any>({
+  mixins: [ReactTimerMixin],
 
-  constructor(props) {
-    super(props);
+  getDefaultProps() {
+    return {
+      bounces: true,
+      infinite: true,
+      dots: true,
+      loadMinimal: false,
+      loadMinimalSize: 1,
+      autoplay: false,
+      autoplayTimeout: 2.5,
+      selectedIndex: 0,
+    };
+  },
+
+  componentWillMount() {
     this.state = this.initState(this.props);
 
     this.onScrollEnd = this.onScrollEnd.bind(this);
     this.onScrollBegin = this.onScrollBegin.bind(this);
     this.onScrollEndDrag = this.onScrollEndDrag.bind(this);
-  }
+  },
 
   componentDidMount() {
     this.autoplay();
-  }
+  },
 
   initState(props) {
     // set the current state
@@ -81,15 +81,15 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
     };
 
     return initState;
-  }
+  },
 
   loopJump() {
     if (this.state.loopJump) {
       const index = this.state.selectedIndex + (this.props.infinite ? 1 : 0);
       setTimeout(() => (this.refs as any).scrollview.setPageWithoutAnimation
-        && (this.refs as any).scrollview.setPageWithoutAnimation(index), 50);
+      && (this.refs as any).scrollview.setPageWithoutAnimation(index), 50);
     }
-  }
+  },
 
   autoplay() {
     if (
@@ -105,21 +105,21 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
 
     this.autoplayTimer = this.setTimeout(() => {
       if (!this.props.infinite && ( this.state.selectedIndex === this.state.count - 1)) {
-        return this.setState({ autoplayEnd: true });
+        return this.setState({autoplayEnd: true});
       }
       this.scrollNextPage();
     }, this.props.autoplayTimeout * 1000);
-  }
+  },
 
   onScrollBegin(e) {
-    this.setState({ isScrolling: true });
+    this.setState({isScrolling: true});
 
     this.setTimeout(() => {
       if (this.props.onScrollBeginDrag) {
         this.props.onScrollBeginDrag(e, this.state, this);
       }
     });
-  }
+  },
 
   onScrollEnd(e) {
     this.setState({isScrolling: false});
@@ -138,10 +138,10 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
         this.props.onMomentumScrollEnd(e, this.state, this);
       }
     });
-  }
+  },
 
   onScrollEndDrag(e) {
-    const { offset, selectedIndex, count } = this.state;
+    const {offset, selectedIndex, count} = this.state;
     const previousOffset = offset.x;
     const newOffset = e.nativeEvent.x;
 
@@ -150,7 +150,7 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
         isScrolling: false,
       });
     }
-  }
+  },
 
   updateIndex(offset) {
     let state = this.state;
@@ -183,7 +183,7 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
       offset,
       loopJump: loopJump,
     });
-  }
+  },
 
   scrollNextPage() {
     if (this.state.isScrolling || this.state.count < 2) {
@@ -198,7 +198,7 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
     if (Platform.OS === 'android') {
       (this.refs as any).scrollview.setPage(diff);
     } else {
-      (this.refs as any).scrollview.scrollTo({ x, y });
+      (this.refs as any).scrollview.scrollTo({x, y});
     }
 
     this.setState({
@@ -216,27 +216,27 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
         });
       }, 0);
     }
-  }
+  },
 
   renderContent(pages) {
     if (Platform.OS === 'ios') {
-       return (
+      return (
         <ScrollView ref="scrollview"
           {...this.props}
-          horizontal={true}
-          pagingEnabled={true}
-          bounces={!!this.props.bounces}
-          scrollEventThrottle={100}
-          removeClippedSubviews={true}
-          automaticallyAdjustContentInsets={false}
-          directionalLockEnabled={true}
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={[styles.wrapper, this.props.style]}
-          contentOffset={this.state.offset}
-          onScrollBeginDrag={this.onScrollBegin}
-          onMomentumScrollEnd={this.onScrollEnd}
-          onScrollEndDrag={this.onScrollEndDrag}>
+                    horizontal={true}
+                    pagingEnabled={true}
+                    bounces={!!this.props.bounces}
+                    scrollEventThrottle={100}
+                    removeClippedSubviews={true}
+                    automaticallyAdjustContentInsets={false}
+                    directionalLockEnabled={true}
+                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={[styles.wrapper, this.props.style]}
+                    contentOffset={this.state.offset}
+                    onScrollBeginDrag={this.onScrollBegin}
+                    onMomentumScrollEnd={this.onScrollEnd}
+                    onScrollEndDrag={this.onScrollEndDrag}>
           {pages}
         </ScrollView>
       );
@@ -253,7 +253,7 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
         </ViewPagerAndroid>
       );
     }
-  }
+  },
 
   renderDots(index) {
     return (
@@ -264,7 +264,7 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
         total={this.state.count}
       />
     );
-  }
+  },
 
   render() {
     let state = this.state;
@@ -327,7 +327,7 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
         {props.dots && this.renderDots(this.state.selectedIndex)}
       </View>
     );
-  }
-}
+  },
+});
 
-reactMixin(ViewPager.prototype, ReactTimerMixin);
+export default ViewPager;
