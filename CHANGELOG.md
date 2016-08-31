@@ -7,11 +7,11 @@ english: 更新日志
 
 `2016-08-31`
 > UI 风格更换为 alipay 官方风格
-  
+
 - 修复 `Object.assign` 兼容问题
 - DatePicker 去掉 moment 必选依赖
 - Picker / DatePicker 添加 disabled 支持
-- InputItem 和 TextareaItem API `format` 改为 `type`，移除原来type；修复 maxLength bug 
+- InputItem 和 TextareaItem API `format` 改为 `type`，移除原来type；修复 maxLength bug
 - ListView 增加`useBodyScroll` API, IndexedList 支持分两步渲染
 - Button `ghost`从原来的单独属性，变为`type`下的属性值，修复样式细节问题
 - Modal `footer` 类型更改
@@ -23,9 +23,9 @@ english: 更新日志
 - 修复 rn 组件离线图片找不到问题
 - 官方网站展示优化，demo 分类优化，web demo 采用 rem 和页面 scale 缩放方案，达到页面高清效果
 
-#### 新增 rn 组件  
+#### 新增 rn 组件
 - Checkbox
-- Carousel 
+- Carousel
 - Radio
 - Steps
 - SearchBar
@@ -33,15 +33,16 @@ english: 更新日志
 - TabBar
 - Tabs
 
-#### 组件变更 
-- Timeline 移除 
-- Tooltip 移除  
-- Tabs 拆分为 SegmentedControl、TabBar、Tabs 
+#### 组件变更
+- Timeline 移除
+- Tooltip 移除
+- Tabs 拆分为 SegmentedControl、TabBar、Tabs
+- Tabs tabPosition => tabBarPosition, animation => animated
 
-#### 组件更名 
-- FloatMenu => Popover 
+#### 组件更名
+- FloatMenu => Popover
 - Collapse => Accordion
-- PageResult => Result 
+- PageResult => Result
 - TopNotice => NoticeBar
 - Uploader => ImagePicker
 
