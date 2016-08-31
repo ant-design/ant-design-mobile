@@ -14,7 +14,7 @@ ReactDOM.render(
     <Badge text={9}>
       <span className="head-example" />
     </Badge>
-    <p style={{ marginBottom: 20 }}></p>
+    <p style={{ marginBottom: 20 }} />
     <Badge text={'new'}>
       <span className="head-example" />
     </Badge>
