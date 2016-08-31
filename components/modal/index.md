@@ -26,7 +26,6 @@ english: Modal
 | onClose      | 点击 x 或 mask 回调       | Function   | 无 |
 | onShow      | modal 显示回调       | Function   | 无 |
 | animated     | 是否展示动画       | Boolean   | true |
-
 | title (only transparent)       | 标题           | React.Element    | 无           |
 | closable (only transparent)    | 是否显示右上角的关闭按钮 | Boolean    | false        |
 | maskClosable (only transparent) | 点击蒙层是否允许关闭 | Boolean   | false       |

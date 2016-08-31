@@ -19,8 +19,8 @@ english: List
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| title       | 简化API,等价于上一版的List.Header  | String/HTML |  | 无  |
-| footer       | 简化API,等价于上一版的List.Footer  | String/HTML |  | 无  |
+| title       | 简化API,等价于上一版的List.Header  | String/HTML |  无  |
+| footer       | 简化API,等价于上一版的List.Footer  | String/HTML |  无  |
 
 
 ### List.Body
