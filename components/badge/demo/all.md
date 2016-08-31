@@ -36,13 +36,13 @@ ReactDOM.render(
             <div style={{ padding: '8px 0' }}>
               <Badge dot>
                 <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
-              </Badge>小圆点
+              </Badge><span style={{ marginLeft: 12 }}>小圆点</span>
             </div>
           </List.Item>
-          <List.Item thumb="https://os.alipayobjects.com/rmsportal/JteFDJaPwHuwXgs.jpg" extra={<Badge text={77} />} arrow="horizontal">
+          <List.Item thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png" extra={<Badge text={77} />} arrow="horizontal">
             右侧内容
           </List.Item>
-          <List.Item thumb="https://os.alipayobjects.com/rmsportal/JteFDJaPwHuwXgs.jpg">
+          <List.Item thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png">
             内容内容
           </List.Item>
         </List.Body>
