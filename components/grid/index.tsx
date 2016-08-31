@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
-import { Image, Text, Dimensions } from 'react-native';
+import { Image, Text, Dimensions, View } from 'react-native';
 import Flex from '../flex';
+import Carousel from '../carousel';
 import styles from './style';
 
 export interface GridItem {
@@ -11,32 +12,40 @@ export interface GridItem {
 
 export interface GridProps {
   data: GridItem[];
-  hasLine: boolean;
-  onClick: (el: GridItem, index: number) => void;
+  hasLine?: boolean;
+  isCarousel?: boolean;
+  onClick?: (el: GridItem, index: number) => void;
 }
 
 export default class Grid extends React.Component<GridProps, any> {
   static propTypes = {
-    data: PropTypes.array,
+    data: PropTypes.array.isRequired,
     hasLine: PropTypes.bool,
+    isCarousel: PropTypes.bool,
     onClick: PropTypes.func,
   };
 
   static defaultProps = {
     data: [],
     hasLine: true,
+    isCarousel: false,
     onClick() {},
   };
 
-  render() {
-    const { data, hasLine, onClick } = this.props;
+  getFlexItemStyle() {
     const clientWidth = Dimensions.get('window').width;
     const flexItemStyle = {
       height: clientWidth / 4,
-      borderRightWidth: hasLine ? 1 : 0,
+      borderRightWidth: this.props.hasLine ? 1 : 0,
     };
+    return flexItemStyle;
+  }
 
-    const children = [];
+  getGridContent() {
+    const { data, hasLine, onClick } = this.props;
+    const flexItemStyle = this.getFlexItemStyle();
+
+    const gridContent = [];
     const dataLength = data.length;
     const rowCount = Math.ceil(dataLength / 4);
     for (let i = 0; i < rowCount; i++) {
@@ -70,16 +79,60 @@ export default class Grid extends React.Component<GridProps, any> {
           );
         }
       }
-      children.push(
+      gridContent.push(
         <Flex key={i} style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
           {row}
         </Flex>
       );
     }
+    return gridContent;
+  }
 
+  toCarousel(gridContent) {
+    const hasLine = this.props.hasLine;
+    const flexItemStyle = this.getFlexItemStyle();
+    const carouselContent = [];
+    const gridContentLength = gridContent.length;
+    const frameCount = Math.ceil(gridContentLength / 2);
+    for (let i = 0; i < frameCount; i++) {
+      if (i * 2 + 1 < gridContentLength) {
+        carouselContent.push(
+          <View key={i}>
+            {gridContent[i * 2]}
+            {gridContent[i * 2 + 1]}
+          </View>
+        );
+      } else {
+        carouselContent.push(
+          <View key={i}>
+            {gridContent[i * 2]}
+            <Flex style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
+              <Flex.Item style={[styles.grayBorderBox, flexItemStyle]} />
+              <Flex.Item style={[styles.grayBorderBox, flexItemStyle]} />
+              <Flex.Item style={[styles.grayBorderBox, flexItemStyle]} />
+              <Flex.Item style={[styles.grayBorderBox, flexItemStyle]} />
+            </Flex>
+          </View>
+        );
+      }
+    }
+
+    return carouselContent;
+  }
+
+  render() {
+    const gridContent = this.getGridContent();
+    const isCarousel = this.props.isCarousel;
+    const children = isCarousel ? this.toCarousel(gridContent) : gridContent;
     return (
       <Flex direction="column">
-        {children}
+        {
+          isCarousel ? (
+            <Carousel infinite={false} dots>
+              {children}
+            </Carousel>
+          ) : children
+        }
       </Flex>
     );
   }
