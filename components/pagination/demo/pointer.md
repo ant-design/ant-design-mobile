@@ -19,7 +19,7 @@ const App = React.createClass({
             <Pagination
               mode="pointer"
               total={5}
-              activeIndex={1}
+              current={2}
             />
           </WingBlank>
         </div>
