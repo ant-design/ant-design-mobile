@@ -76,6 +76,8 @@ export default class Home extends React.Component {
 
     this.state = {
       open: false,
+      triggerActive: false,
+      activeIdx: -1,
     };
   }
 
@@ -87,6 +89,18 @@ export default class Home extends React.Component {
 
   onOpenChange = () => {
     this.setState({ open: !this.state.open });
+  }
+
+  onTouchStart = () => {
+    this.setState({
+      triggerActive: true,
+    });
+  }
+
+  onTouchEnd = () => {
+    this.setState({
+      triggerActive: false,
+    });
   }
 
   render() {
@@ -140,7 +154,9 @@ export default class Home extends React.Component {
                     whiteList.indexOf(fileName) > -1 ?
                       (<List>
                         <List.Header style={{ padding: '5px 0' }}>
-                          <span className={name === fileName ? 'demo-current' : ''}>{item.english} {item.chinese}</span>
+                          <span className={name === fileName ? 'demo-current' : ''}>
+                            {item.english} <span className="demo-chinese">{item.chinese}</span>
+                          </span>
                         </List.Header>
                         {
                           subDemos.map((item1, index1) => (
@@ -151,7 +167,9 @@ export default class Home extends React.Component {
                         }
                       </List>) :
                       <Link to={`/${fileName}/`}>
-                        <span className={name === fileName ? 'demo-current' : ''}>{item.english} {item.chinese}</span>
+                        <span className={name === fileName ? 'demo-current' : ''}>
+                          {item.english} <span className="demo-chinese">{item.chinese}</span>
+                        </span>
                       </Link>}
                 </List.Item>);
               })
@@ -212,10 +230,14 @@ export default class Home extends React.Component {
     // remove height of toolbars, address bars and navigation (android)
     const minHeightStyle = isPc ? null : { minHeight: document.documentElement.clientHeight };
 
+    const triggerActive = this.state.triggerActive;
+
     return (
       <div id={name}>
         <div className="demo-drawer-trigger">
-          <span onClick={this.onOpenChange}><Icon type="bars" /></span>
+          <span onClick={this.onOpenChange} style={triggerActive ? { color: '#108ee9' } : {}}>
+            <Icon onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd} type="bars" />
+          </span>
         </div>
         <div className="demo-drawer-container">
           <Drawer style={minHeightStyle}
