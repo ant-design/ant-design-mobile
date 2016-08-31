@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 九宫格
+title: 走马灯
 ---
 
 最简单的用法。
@@ -135,9 +135,6 @@ ReactDOM.render(<CarouselExample />, mountNode);
 ````
 
 <style>
-.slick-slide {
-  padding-bottom: 67.5px;
-}
 .am-flexbox {
   background: #fff;  
 }
@@ -145,16 +142,16 @@ ReactDOM.render(<CarouselExample />, mountNode);
   margin-left: 0;
 }
 .am-grid-icon {
-  width: 88px;
-  height: 88px;
+  width: 0.44rem;
+  height: 0.44rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   margin: 0 auto;
 }
 .am-grid-text {
-  margin-top: 36px;
-  font-size: 48px;
+  margin-top: 0.18rem;
+  font-size: 0.24rem;
   color: #000;
   text-align: center;
 }
