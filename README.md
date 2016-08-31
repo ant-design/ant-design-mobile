@@ -79,7 +79,7 @@ Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recomm
 // .babelrc
 // no need to set style property in react-native
 {
- "plugins": [["antd", { style: "css", libraryName: "antd-mobile" }]]
+ "plugins": [["antd", { "style": "css", "libraryName": "antd-mobile" }]]
 }
 ```
 
