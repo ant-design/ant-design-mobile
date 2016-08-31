@@ -7,7 +7,7 @@ export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;
 
   static propTypes = {
-    style: PropTypes.object,
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     direction: PropTypes.oneOf(['row', 'column']),
     wrap: PropTypes.oneOf(['nowrap', 'wrap']),
     justify: PropTypes.oneOf(['start', 'end', 'center', 'between', 'around']),

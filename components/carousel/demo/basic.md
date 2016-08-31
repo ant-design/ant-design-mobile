@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 九宫格
+title: 走马灯
 ---
 
 最简单的用法。
@@ -11,44 +11,44 @@ import classNames from 'classnames';
 
 const data = [
   {
-    icon: 'https://gw.alicdn.com/tps/TB1CgMrMpXXXXXcXpXXXXXXXXXX-96-96.png',
-    text: '美食外卖',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1dvomMpXXXXa0XpXXXXXXXXXX-96-96.png',
-    text: '鲜花蛋糕',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1dZAtMpXXXXcyXXXXXXXXXXXX-96-96.png',
-    text: '品牌馆',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1H6RaMFXXXXXvXVXXXXXXXXXX-96-96.png',
-    text: '蜂鸟专送',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1iWkXMpXXXXX6XVXXXXXXXXXX-96-96.png',
-    text: '甜品饮品',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1sHgoMpXXXXaPXpXXXXXXXXXX-96-96.png',
-    text: '超市便利',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1XKsjMpXXXXcRXpXXXXXXXXXX-97-96.png',
-    text: '果蔬生鲜',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1CgMrMpXXXXXcXpXXXXXXXXXX-96-96.png',
-    text: '生活馆',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1z73sMpXXXXcKXXXXXXXXXXXX-96-96.png',
-    text: '名字',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   }, {
-    icon: 'https://gw.alicdn.com/tps/TB1H6RaMFXXXXXvXVXXXXXXXXXX-96-96.png',
-    text: '名字',
+    icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+    text: '文字',
     link: 'hehe',
   },
 ];
@@ -135,9 +135,6 @@ ReactDOM.render(<CarouselExample />, mountNode);
 ````
 
 <style>
-.slick-slide {
-  padding-bottom: 67.5px;
-}
 .am-flexbox {
   background: #fff;  
 }
@@ -145,16 +142,16 @@ ReactDOM.render(<CarouselExample />, mountNode);
   margin-left: 0;
 }
 .am-grid-icon {
-  width: 88px;
-  height: 88px;
+  width: 0.44rem;
+  height: 0.44rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   margin: 0 auto;
 }
 .am-grid-text {
-  margin-top: 36px;
-  font-size: 48px;
+  margin-top: 0.18rem;
+  font-size: 0.24rem;
   color: #000;
   text-align: center;
 }

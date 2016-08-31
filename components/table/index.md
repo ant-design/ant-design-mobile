@@ -20,8 +20,6 @@ english: Table
 
 ## API
 
-### Tabs
-
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
 | columns        | 表格列的配置描述，具体项见下表                     | Array   |    -         |
@@ -38,4 +36,4 @@ english: Table
 | title        | 列头显示文字                    | String or React.Element   |             |
 | key | React 需要的 key，建议设置	 | String   |     |
 | dataIndex         | 列数据在数据项中对应的 key，支持 a.b.c 的嵌套写法             | String |             |
-| render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引    |  Function(text, record, index) {}
+| render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引    |  Function(text, record, index) {} |

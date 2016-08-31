@@ -1,12 +1,12 @@
 ---
 order: 3
-title: 轮播图
+title: 图片切换
 ---
 
-轮播图。
+图片切换
 
 ````jsx
-import { Pagination, WhiteSpace, WingBlank, Carousel } from 'antd-mobile';
+import { WhiteSpace, WingBlank, Carousel } from 'antd-mobile';
 
 const App = React.createClass({
   getInitialState() {
@@ -19,7 +19,7 @@ const App = React.createClass({
   },
   render() {
     const settings = {
-      dots: false,
+      dots: true,
       autoplay: true,
       infinite: true,
       mode: 'banner',
@@ -36,11 +36,6 @@ const App = React.createClass({
               <div><img src="https://zos.alipayobjects.com/rmsportal/IHnTTMjYUgthhoW.jpg" width="100%" /></div>
               <div><img src="https://zos.alipayobjects.com/rmsportal/IDTtiHCFYvnGJjl.jpg" width="100%" /></div>
             </Carousel>
-            <Pagination
-              mode="pointer"
-              total={3}
-              current={this.state.current}
-            />
           </WingBlank>
         </div>
       </div>

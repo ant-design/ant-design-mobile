@@ -7,6 +7,7 @@ title: IndexedList
 
 
 ````jsx
+/* eslint no-mixed-operators: 1 */
 import province from 'site/data/province';
 import { ListView, List } from 'antd-mobile';
 
@@ -53,7 +54,7 @@ const Demo = React.createClass({
           renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
           renderRow={(rowData) => (<Item>{rowData}</Item>)}
           style={{
-            height: 800,
+            height: document.body.clientHeight * 3 / 4,
             overflow: 'auto',
           }}
           quickSearchBarStyle={{

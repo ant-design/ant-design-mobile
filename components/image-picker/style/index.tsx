@@ -1,4 +1,4 @@
-import varibles from '../../style/variables';
+import varibles from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -7,61 +7,56 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   size: {
-    width: 19 * varibles.grid,
-    height: 19 * varibles.grid,
+    width: 80,
+    height: 80,
   },
   item: {
-    marginRight: 2 * varibles.grid,
-    marginBottom: 2 * varibles.grid,
+    marginRight: varibles.h_spacing_sm,
+    marginBottom: varibles.v_spacing_sm,
     overflow: 'hidden',
   },
   image: {
     overflow: 'hidden',
-    borderRadius: varibles.radius_1,
+    borderRadius: varibles.radius_sm,
   },
   closeWrap: {
-    width: 4 * varibles.grid,
-    height: 4 * varibles.grid,
-    backgroundColor: varibles.neutral_7,
-    borderRadius: 2 * varibles.grid,
+    width: 16,
+    height: 16,
+    backgroundColor: '#999',
+    borderRadius: 8,
     position: 'absolute',
-    top: varibles.grid,
-    right: varibles.grid,
+    top: 4,
+    right: 4,
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
   },
   closeText: {
-    color: varibles.neutral_1,
+    color: varibles.color_text_base_inverse,
     backgroundColor: 'transparent',
-    fontSize: 5 * varibles.grid,
-    height: 5 * varibles.grid,
-    marginTop: -2 * varibles.grid,
+    fontSize: 20,
+    height: 20,
+    marginTop: -8,
     fontWeight: '300',
   },
   plusWrap: {
-    borderRadius: varibles.radius_1,
+    borderRadius: varibles.radius_sm,
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   plusWrapNormal: {
-    backgroundColor: varibles.neutral_1,
-    borderColor: varibles.neutral_5,
+    backgroundColor: varibles.fill_base,
+    borderColor: varibles.border_color_base,
   },
   plusWrapHighlight: {
-    backgroundColor: varibles.neutral_3,
-    borderColor: varibles.neutral_6,
+    backgroundColor: varibles.fill_tap,
+    borderColor: varibles.border_color_base,
   },
   plusText: {
     fontSize: 64,
     backgroundColor: 'transparent',
     fontWeight: '100',
-  },
-  plusNormal: {
-    color: varibles.neutral_5,
-  },
-  plusTextHilight: {
-    color: varibles.neutral_6,
+    color: varibles.color_text_caption,
   },
 });

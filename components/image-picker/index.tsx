@@ -35,18 +35,12 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapHighlight],
     });
-    this.plusText.setNativeProps({
-      style: [styles.plusTextHilight, styles.plusText],
-    });
   }
 
   onPressOut = () => {
     const styles = this.props.styles;
     this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapNormal],
-    });
-    this.plusText.setNativeProps({
-      style: [styles.plusText, styles.plusTextNormal],
     });
   }
 
@@ -146,10 +140,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             ref={conponent => this.plusWrap = conponent}
             style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
           >
-            <Text
-              ref={conponent => this.plusText = conponent}
-              style={[styles.plusNormal, styles.plusText]}
-            >+</Text>
+            <Text style={[styles.plusNormal, styles.plusText]}>+</Text>
           </View>
         </TouchableWithoutFeedback>
 
