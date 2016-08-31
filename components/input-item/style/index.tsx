@@ -7,6 +7,8 @@ export default {
     borderBottomColor: variables.border_color_base,
     marginLeft: variables.h_spacing_lg,
     paddingRight: variables.h_spacing_lg,
+    marginTop: 0,
+    marginBottom: 0,
     flexDirection: 'row',
     alignItems: 'center',
   },

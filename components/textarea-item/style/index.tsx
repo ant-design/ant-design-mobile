@@ -1,11 +1,17 @@
 import variables from '../../style/themes/default';
 
 export default {
+  container: {
+    marginLeft: variables.h_spacing_lg,
+    borderBottomWidth: variables.border_width_sm,
+    borderBottomColor: variables.border_color_base,
+  },
   input: {
     paddingHorizontal: variables.h_spacing_md,
     backgroundColor: variables.fill_base,
     fontSize: variables.font_size_heading,
-    lineHeight: 1.3 * variables.font_size_heading,
+    lineHeight: Math.round(1.3 * variables.font_size_heading),
+    textAlignVertical: 'top',
   },
   icon: {
     position: 'absolute',

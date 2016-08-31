@@ -83,9 +83,13 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
 
   render() {
     const { inputCount } = this.state;
-    const { rows, error, clear, count, placeholder, autoHeight, editable } = this.props;
+    const { rows, error, clear, count, placeholder, autoHeight, editable, last } = this.props;
 
-    const inputStyle = {
+    const containerStyle = {
+      borderBottomWidth: last ? 0 : variables.border_width_sm,
+    };
+
+    const textareaStyle = {
       color: error ? '#f50' : variables.color_text_base,
       paddingRight: error ? 2 * variables.h_spacing_lg : 0,
     };
@@ -93,9 +97,9 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     const maxLength = count > 0 ? count : null;
 
     return (
-      <View style={{ position: 'relative' }}>
+      <View style={[TextAreaItemStyle.container, containerStyle, { position: 'relative' }]}>
         <TextInput
-          style={[TextAreaItemStyle.input, inputStyle, {height: Math.max(45, this.state.height)}]}
+          style={[TextAreaItemStyle.input, textareaStyle, {height: Math.max(45, this.state.height)}]}
           onChange={(event) => this.onChange(event)}
           onFocus={this.onFocus}
           onBlur={this.onBlur}

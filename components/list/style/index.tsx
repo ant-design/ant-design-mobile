@@ -25,6 +25,8 @@ export default {
       backgroundColor: variables.fill_base,
       borderTopWidth: variables.border_width_sm,
       borderTopColor: variables.border_color_base,
+      borderBottomWidth: variables.border_width_sm,
+      borderBottomColor: variables.border_color_base,
     },
     Item: {
       alignItems: 'center',
@@ -84,7 +86,7 @@ export default {
     },
     Last: {
       Item: {
-        borderBottomWidth: variables.border_width_sm,
+        borderBottomWidth: 0,
         borderBottomColor: variables.border_color_base,
       },
       Line: {
