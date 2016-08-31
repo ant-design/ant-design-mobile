@@ -11,7 +11,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
     prefixCls: 'am-pagination',
     mode: 'button',
-    size: 'large',
     current: 0,
     simple: false,
     prevText: 'Prev',
@@ -67,14 +66,12 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   render() {
-    const { prefixCls, className, mode, total, size, simple,
+    const { prefixCls, className, mode, total, simple,
       prevText, nextText } = this.props;
     const current = this.state.current;
     const numWrapCls = classNames({
       className,
       [`${prefixCls}-wrap`]: true,
-      [`${prefixCls}-wrap-lg`]: size === 'large',
-      [`${prefixCls}-wrap-sm`]: size === 'small',
     });
     let markup;
     switch (mode) {
@@ -83,7 +80,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
           <Flex>
             <Flex.Item className={`${prefixCls}-wrap-btn`}>
               <Button
-                size={size}
                 inline
                 disabled={current <= 0}
                 onClick={this.onPrev}
@@ -98,7 +94,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
             }
             <Flex.Item>
               <Button
-                size={size}
                 disabled={current >= total - 1}
                 inline
                 onClick={this.onNext}>{nextText}
