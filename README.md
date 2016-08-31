@@ -25,7 +25,7 @@ http://mobile.ant.design/kitchen-sink/
 
 ### react native demo
 
-<img src="https://pbs.twimg.com/media/CohXOutUkAAeuvI.jpg:large" />
+<img src="https://cloud.githubusercontent.com/assets/1698185/18130140/6edb1592-6fc0-11e6-960c-892dd8f13d3f.png" />
 
 
 ## Install
