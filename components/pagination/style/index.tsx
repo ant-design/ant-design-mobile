@@ -26,10 +26,7 @@ export default StyleSheet.create({
   pointActiveStyle: {
     backgroundColor: '#888',
   },
-  spaceLargeStyle: {
-    marginRight: 4 * variables.h_spacing_sm,
-  },
-  spaceSmallStyle: {
+  spaceStyle: {
     marginRight: variables.h_spacing_sm,
   },
 });
