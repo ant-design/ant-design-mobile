@@ -71,9 +71,6 @@ ReactDOM.render(
 ````
 
 ````css
-.am-badge {
-  margin-right: 8px;
-}
 .head-example {
   width: 1.04rem;
   height: 1.04rem;

@@ -14,15 +14,10 @@ ReactDOM.render(
     <Badge text={99}>
       <span className="head-example" />
     </Badge>
+    <p style={{ marginBottom: 20 }}></p>
     <Badge text={108}>
       <span className="head-example" />
     </Badge>
   </div>
 , mountNode);
-````
-
-````css
-.am-badge {
-  margin-right: 8px;
-}
 ````

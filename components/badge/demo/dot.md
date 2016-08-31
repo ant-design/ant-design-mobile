@@ -25,7 +25,4 @@ ReactDOM.render(
   background: #ddd;
   display: inline-block;
 }
-.am-badge {
-  margin-right: 8px;
-}
 ````
