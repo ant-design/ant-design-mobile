@@ -28,6 +28,7 @@ interface TextAreaItemProps {
   labelNumber?: number;
   /** rn only */
   keyboardType?: string;
+  last?: boolean;
 }
 
 export default TextAreaItemProps;

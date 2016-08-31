@@ -51,20 +51,30 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     if (this.props.autoHeight) {
       this.initialTextHeight = (this.refs as any).textarea.offsetHeight;
       this.componentDidUpdate();
     }
-  };
+  }
 
-  componentDidUpdate = () => {
+  componentDidUpdate() {
     if (this.props.autoHeight) {
       let textareaDom = (this.refs as any).textarea;
       textareaDom.style.height = '';
       textareaDom.style.height = `${Math.max(this.initialTextHeight, textareaDom.scrollHeight)}px`;
     }
-  };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (nextProps.value !== this.props.value
+      || nextProps.defaultValue !== this.props.defaultValue
+      || nextProps.error !== this.props.error
+      || nextProps.disabled !== this.props.disabled
+      || nextProps.editable !== this.props.editable
+      || nextState.focus !== this.state.focus
+    );
+  }
 
   onChange = (e) => {
     let value = e.target.value;

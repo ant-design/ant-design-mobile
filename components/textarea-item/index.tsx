@@ -1,4 +1,3 @@
-import { PropTypes } from 'react';
 import * as React from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/themes/default';
@@ -6,22 +5,6 @@ import TextAreaItemProps from './TextAreaItemPropsType';
 import TextAreaItemStyle from './style/index';
 
 export default class TextAreaItem extends React.Component<TextAreaItemProps, any> {
-  static propTypes = {
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onErrorClick: PropTypes.func,
-    clear: PropTypes.bool,
-    error: PropTypes.bool,
-    autoHeight: PropTypes.bool,
-    editable: PropTypes.bool,
-    rows: PropTypes.number,
-    value: PropTypes.string,
-    placeholder: PropTypes.string,
-    count: PropTypes.number,
-    keyboardType: PropTypes.string,
-  };
-
   static defaultProps = {
     onChange() {},
     onFocus() {},
@@ -36,6 +19,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     count: 0,
     keyboardType: 'default',
     autoHeight: false,
+    last: false,
   };
 
   constructor(props) {
