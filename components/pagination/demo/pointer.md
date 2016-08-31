@@ -16,11 +16,13 @@ const App = React.createClass({
           <WhiteSpace size="lg" />
           <WingBlank>
             <p className="title">点状</p>
-            <Pagination
-              mode="pointer"
-              total={5}
-              current={2}
-            />
+            <div style={{ marginBottom: '32px' }}>
+              <Pagination
+                mode="pointer"
+                total={5}
+                current={2}
+              />
+            </div>
           </WingBlank>
           <WhiteSpace size="lg" />
         </div>

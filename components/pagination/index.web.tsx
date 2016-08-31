@@ -92,7 +92,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
                 <span className="active">{current + 1}</span>/<span>{total}</span>
               </Flex.Item>)
             }
-            <Flex.Item>
+            <Flex.Item className={`${prefixCls}-wrap-btn`}>
               <Button
                 disabled={current >= total - 1}
                 inline
