@@ -10,7 +10,7 @@ interface ButtonProps {
   onClick?: (x: any) => void;
   /** web only */
   prefixCls?: string;
-  isHover?: boolean;
+  touchFeedback?: boolean;
 }
 
 export default ButtonProps;
