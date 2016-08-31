@@ -22,7 +22,6 @@ english: Pagination
 |  current  | 当前索引 | number |   |  无  |
 |  total  | 数据总数 | number |   |  0  |
 |  simple  | 是否显示数值 | boolean | `true` or `false` | true  |
-|  size  | 形态大小 | boolean | `small` or `large` | ''  |
 |  disabled  | 禁用状态 | boolean | `true` or `false` | false  |
 |  prevText  | prev文字 | string or React.Element | | `Prev`  |
 |  nextText  | next文字 | string or React.Element |  | `Next`  |
