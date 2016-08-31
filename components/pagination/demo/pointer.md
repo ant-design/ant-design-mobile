@@ -22,6 +22,7 @@ const App = React.createClass({
               current={2}
             />
           </WingBlank>
+          <WhiteSpace size="lg" />
         </div>
       </div>
     );
