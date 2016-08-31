@@ -131,12 +131,12 @@ const CarouselExample = React.createClass({
   },
 });
 
-ReactDOM.render(<CarouselExample />, mountNode);
+ReactDOM.render(<CarouselExample onClick={() => {}} />, mountNode);
 ````
 
 <style>
 .am-flexbox {
-  background: #fff;  
+  background: #fff;
 }
 .am-flexbox-item {
   margin-left: 0;
