@@ -6,7 +6,7 @@ title: 吸顶（body 容器）
 区块标题 “吸顶”(sticky) 功能示例
 
 ````jsx
-/* eslint no-dupe-keys: 1 */
+/* eslint no-dupe-keys: 0 */
 import { ListView, Toast } from 'antd-mobile';
 
 const data = [

@@ -7,7 +7,7 @@ title: IndexedList
 
 
 ````jsx
-/* eslint no-mixed-operators: 1 */
+/* eslint no-mixed-operators: 0 */
 import province from 'site/data/province';
 import { ListView, List } from 'antd-mobile';
 

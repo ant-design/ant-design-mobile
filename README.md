@@ -17,11 +17,13 @@ A configurable Mobile UI specification and React-based implementation.
 
 ## Demo
 
-### Online demo
+### mobile web demo
+
+<img src="https://zos.alipayobjects.com/rmsportal/dLMGiKuyFLBfYfm.png" />
 
 http://mobile.ant.design/kitchen-sink/
 
-### App demo
+### react native demo
 
 <img src="https://pbs.twimg.com/media/CohXOutUkAAeuvI.jpg:large" />
 

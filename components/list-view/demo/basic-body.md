@@ -6,7 +6,7 @@ title: body 容器
 使用 html 的 `body` 作为滚动容器
 
 ````jsx
-/* eslint no-dupe-keys: 1 */
+/* eslint no-dupe-keys: 0 */
 import { ListView, Toast } from 'antd-mobile';
 
 const data = [

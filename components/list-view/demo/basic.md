@@ -8,7 +8,7 @@ title: 子容器
 > 同时建议设置`body`的`overflow: hidden`
 
 ````jsx
-/* eslint no-dupe-keys: 1, no-mixed-operators: 1 */
+/* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView, Toast } from 'antd-mobile';
 
 const data = [
