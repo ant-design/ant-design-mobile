@@ -261,7 +261,6 @@ export default class ViewPager extends React.Component<ViewPagerProps, any> {
         current={index}
         mode="pointer"
         total={5}
-        size="small"
       />
     );
   }
