@@ -18,8 +18,8 @@ const TabBarExample = React.createClass({
   },
   renderContent(pageText, num?: number) {
     return (
-      <div style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
-        <div style={{ margin: 50 }}>{pageText}</div>
+      <div style={{ backgroundColor: 'white', height: '100%' }}>
+        <div style={{ paddingTop: 30, marginLeft: 50 }}>{pageText}</div>
         <div style={{ margin: 50 }}>{num} re-renders of the {pageText}</div>
       </div>
     );
@@ -96,4 +96,12 @@ const TabBarExample = React.createClass({
 });
 
 ReactDOM.render(<TabBarExample />, mountNode);
+````
+
+````css
+.demo-preview-item,
+.am-tab-bar,
+.am-tab-bar-content {
+  height: 100%;
+}
 ````
