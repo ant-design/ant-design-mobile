@@ -104,12 +104,12 @@ module.exports = {
       icon: 'https://os.alipayobjects.com/rmsportal/wlNeoTpEKIpTcOW.png',
       module: require('../components/list-view/demo/basic'),
     },
-    {
-      title: 'Menu',
-      description: '菜单',
-      icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
-      module: require('../components/menu/demo/basic'),
-    },
+    // {
+    //   title: 'Menu',
+    //   description: '菜单',
+    //   icon: 'https://os.alipayobjects.com/rmsportal/AMszKQQdMvMmYng.png',
+    //   module: require('../components/menu/demo/basic'),
+    // },
     {
       title: 'Modal',
       description: '对话框',
