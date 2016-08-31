@@ -13,7 +13,7 @@ export default function Page2() {
         leaveReverse
       >
         <h2 key="h2">一套可灵活配置的组件库</h2>
-        <p key="p">Ant Design Mobile提供了37个通用组件，并抽象出组件的通用属性，使用者可根据需求选择需要的属性进行配置，也可在此基础上自行拓展。
+        <p key="p">Ant Design Mobile提供了40+个通用组件，并抽象出组件的通用属性，使用者可根据需求选择需要的属性进行配置，也可在此基础上自行拓展。
         </p>
         <div key="button">
           <Link to="/docs/react/introduce">
