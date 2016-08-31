@@ -15,7 +15,7 @@ export { default as InputItem } from './components/input-item/';
 export { default as List } from './components/list/';
 export { default as ListView } from './components/list-view/';
 export { default as Modal } from './components/modal/';
-export { default as Menu } from './components/menu/';
+// export { default as Menu } from './components/menu/';
 export { default as NoticeBar } from './components/notice-bar/';
 export { default as Pagination } from './components/pagination/';
 export { default as Picker } from './components/picker/';

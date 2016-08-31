@@ -18,18 +18,8 @@ const App = React.createClass({
             <p className="title">点状</p>
             <Pagination
               mode="pointer"
-              size="large"
               total={5}
-              activeIndex={1}
-            />
-          </WingBlank>
-          <WhiteSpace size="lg" />
-          <WingBlank>
-            <Pagination
-              mode="pointer"
-              size="small"
-              total={5}
-              activeIndex={2}
+              current={2}
             />
           </WingBlank>
         </div>

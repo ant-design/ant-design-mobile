@@ -1,53 +1,52 @@
 /**
  *  fix active style
- *  on Uc browser, css :active not normal
+ *  on Uc browser, css :active not work normal
  */
 import * as React from 'react';
 
-export interface HoverProps {
-  onClick?: Function;
+export interface TouchableFeedbackProps {
   onTouchStart?: Function;
   onTouchEnd?: Function;
   onTouchCancel?: Function;
 }
-export interface HoverState {
-  hover: boolean;
+export interface TouchableFeedbackState {
+  touchFeedback: boolean;
 }
 
-export default ComposedComponent => class extends React.Component<HoverProps, HoverState> {
+export default ComposedComponent => class extends React.Component<TouchableFeedbackProps, TouchableFeedbackState> {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false,
+      touchFeedback: false,
     };
   }
-  setHoverState = (isHover) => {
+  setTouchFeedbackState = (touchFeedback) => {
     this.setState({
-      hover: isHover,
+      touchFeedback,
     });
   };
   onTouchStart = (e) => {
     if (this.props.onTouchStart) {
       this.props.onTouchStart(e);
     }
-    this.setHoverState(true);
+    this.setTouchFeedbackState(true);
   };
   onTouchEnd = (e) => {
     if (this.props.onTouchEnd) {
       this.props.onTouchEnd(e);
     }
-    this.setHoverState(false);
+    this.setTouchFeedbackState(false);
   };
   onTouchCancel = (e) => {
     if (this.props.onTouchCancel) {
       this.props.onTouchCancel(e);
     }
-    this.setHoverState(false);
+    this.setTouchFeedbackState(false);
   };
   render() {
     return <ComposedComponent
       {...this.props}
-      isHover={this.state.hover}
+      touchFeedback={this.state.touchFeedback}
       onTouchStart={this.onTouchStart}
       onTouchEnd={this.onTouchEnd}
       onTouchCancel={this.onTouchCancel}

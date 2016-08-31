@@ -48,10 +48,10 @@ const MyProgress = React.createClass({
         <WingBlank size="lg">
           <Flex>
             <Flex.Item>
-              <Button onClick={this.increase}> + </Button>
+              <Button style={{ fontSize: 56 }} onClick={this.increase}> + </Button>
             </Flex.Item>
             <Flex.Item>
-              <Button onClick={this.decline}> - </Button>
+              <Button style={{ fontSize: 56 }} onClick={this.decline}> - </Button>
             </Flex.Item>
           </Flex>
         </WingBlank>

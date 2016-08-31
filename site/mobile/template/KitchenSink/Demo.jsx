@@ -139,7 +139,9 @@ export default class Home extends React.Component {
                   {
                     whiteList.indexOf(fileName) > -1 ?
                       (<List>
-                        <List.Header style={{ padding: '5px 0' }}>{item.english} {item.chinese}</List.Header>
+                        <List.Header style={{ padding: '5px 0' }}>
+                          <span className={name === fileName ? 'demo-current' : ''}>{item.english} {item.chinese}</span>
+                        </List.Header>
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
@@ -148,7 +150,9 @@ export default class Home extends React.Component {
                           ))
                         }
                       </List>) :
-                      <Link to={`/${fileName}/`}>{item.english} {item.chinese}</Link>}
+                      <Link to={`/${fileName}/`}>
+                        <span className={name === fileName ? 'demo-current' : ''}>{item.english} {item.chinese}</span>
+                      </Link>}
                 </List.Item>);
               })
             }

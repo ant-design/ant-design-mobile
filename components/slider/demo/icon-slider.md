@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: 带 icon 的滑块
 ---
 

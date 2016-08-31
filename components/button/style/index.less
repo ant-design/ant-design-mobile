@@ -16,7 +16,6 @@
   line-height: @button-height;
   border: 0 none;
   .border-radius(@radius-md);
-  // 在 伪元素上放大再缩小，达到 1px border 效果
   &:after {
     position: absolute;
     left: 0;
@@ -38,8 +37,8 @@
   &:after {
     border: @border-width-sm solid @border-color-base;
   }
-  &:active,
-  &&-hover {
+  // &:active, // uc browser not work normal
+  &&-touchFeedback {
     background-color: @fill-tap;
   }
 
@@ -49,8 +48,8 @@
     &:after {
       border: @border-width-sm solid @brand-primary;
     }
-    &:active,
-    &.@{buttonPrefixCls}-hover {
+    // &:active, // uc browser not work normal
+    &.@{buttonPrefixCls}-touchFeedback {
       background-color: @brand-primary-tap;
     }
   }
@@ -61,8 +60,8 @@
     &:after {
       border: @border-width-md solid @tabs-color;
     }
-    &:active,
-    &.@{buttonPrefixCls}-hover {
+    // &:active, // uc browser not work normal
+    &.@{buttonPrefixCls}-touchFeedback {
       color: @color-text-base-inverse;
       background-color: @brand-primary-tap;
       &:after {
@@ -99,8 +98,8 @@
     &:after {
       border: @border-width-sm solid #f88b88;
     }
-    &:active,
-    &.@{buttonPrefixCls}-hover {
+    // &:active, // uc browser not work normal
+    &.@{buttonPrefixCls}-touchFeedback {
       background-color: #fdcccb;
     }
   }

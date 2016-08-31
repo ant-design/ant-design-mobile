@@ -6,10 +6,11 @@ title: 展示
 Card
 
 ````jsx
-import { Card } from 'antd-mobile';
+import { Card, WingBlank, WhiteSpace } from 'antd-mobile';
 
 ReactDOM.render(
-  <div className="alert-container" style={{ padding: 10 }}>
+  <WingBlank size="lg">
+    <WhiteSpace size="lg" />
     <Card>
       <Card.Header
         title="这是 title"
@@ -21,6 +22,6 @@ ReactDOM.render(
       </Card.Body>
       <Card.Footer content="这是卡尾" extra={<div>这是尾部介绍</div>} />
     </Card>
-  </div>
+  </WingBlank>
 , mountNode);
 ````

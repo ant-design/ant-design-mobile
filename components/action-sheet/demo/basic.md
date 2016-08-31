@@ -66,13 +66,13 @@ const Test = React.createClass({
   },
   render() {
     return (<div style={{ margin: '0 15px' }}>
-      <div style={{ margin: '32px 0' }}>
+      <div style={{ margin: '15px 0' }}>
         <Button type="ghost" onClick={this.showActionSheet}>默认状态操作列表</Button>
       </div>
-      <div style={{ margin: '32px 0' }}>
+      <div style={{ margin: '15px 0' }}>
         <Button type="ghost" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
       </div>
-      <div style={{ margin: '32px 0' }}>
+      <div style={{ margin: '15px 0' }}>
         <Button type="ghost" onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能操作列表</Button>
       </div>
     </div>);

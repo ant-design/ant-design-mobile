@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
 import splitObject from '../_util/splitObject';
-import hoverWrapper from '../_util/hoverWrapper';
+import touchableFeedback from '../_util/touchableFeedback';
 import tsProps from './PropsType';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -50,9 +50,9 @@ class Button extends React.Component<tsProps, any> {
 
   render() {
     let[{ children, className, prefixCls, type, size, inline, disabled,
-      htmlType, icon, loading, isHover }, restProps] = splitObject(this.props,
+      htmlType, icon, loading, touchFeedback }, restProps] = splitObject(this.props,
     ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
-      'disabled', 'htmlType', 'icon', 'loading', 'isHover']);
+      'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback']);
 
     const wrapCls = classNames({
       [className]: className,
@@ -64,7 +64,7 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-hover`]: isHover,
+      [`${prefixCls}-touchFeedback`]: touchFeedback,
     });
 
     const iconType = loading ? 'loading' : icon;
@@ -80,4 +80,4 @@ class Button extends React.Component<tsProps, any> {
   }
 }
 
-export default hoverWrapper(Button);
+export default touchableFeedback(Button);

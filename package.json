@@ -48,6 +48,8 @@
     "rc-tabs": "~6.0.2",
     "rc-tooltip": "~3.4.2",
     "react-hammerjs": "^0.5.0",
+    "react-mixin": "~3.0.5",
+    "react-timer-mixin": "~0.13.3",
     "react-native-camera-roll-picker": "~1.1.6",
     "react-native-drawer-layout": "~1.0.0",
     "react-native-menu": "~0.20.1",
