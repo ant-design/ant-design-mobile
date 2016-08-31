@@ -8,7 +8,7 @@ title: 子容器
 > 同时建议设置`body`的`overflow: hidden`
 
 ````jsx
-/* eslint no-dupe-keys: 1 */
+/* eslint no-dupe-keys: 1, no-mixed-operators: 1 */
 import { ListView, Toast } from 'antd-mobile';
 
 const data = [
@@ -143,7 +143,7 @@ const Demo = React.createClass({
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
         style={{
-          height: document.body.clientHeight - 300,
+          height: document.body.clientHeight * 3 / 4,
           overflow: 'auto',
           border: '1px solid #ddd',
           margin: '10px 0',

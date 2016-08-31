@@ -13,7 +13,6 @@ const App = React.createClass({
   getInitialState() {
     return {
       visible: false,
-      visible1: false,
       selected: '',
     };
   },
@@ -51,25 +50,6 @@ const App = React.createClass({
           <span><Icon type="ellipsis" /></span>
         </Popover>
       }>NavBar</NavBar>
-      {/* <p>选中了 {this.state.selected}</p> */}
-      <div style={{ paddingTop: 140, paddingLeft: 130 }}>
-        <Popover
-          visible={this.state.visible1}
-          overlay={[
-            <Item key="0" value="0">添加朋友</Item>,
-            <Item key="1" value="1">发起群聊</Item>,
-            <Item key="2" value="2">扫一扫</Item>,
-            <Item key="3" value="3">我的二维码</Item>,
-          ]}
-          popupAlign={{
-            offset: [7, -14],
-          }}
-          placement="topRight"
-          onVisibleChange={v => this.setState({ visible1: v })}
-        >
-          <a href="#">菜单</a>
-        </Popover>
-      </div>
     </div>);
   },
 });
