@@ -6,7 +6,7 @@ title: Dropdown 效果
 Popup Dropdown 效果
 
 ````jsx
-import { Popup, Button, Menu } from 'antd-mobile';
+import { Popup, List, Button, Menu } from 'antd-mobile';
 
 const SelectorDataForPopup = [
   {
@@ -38,13 +38,26 @@ const Test = React.createClass({
     };
   },
   onClick() {
-    Popup.show(<div style={{ padding: 8 }}>
-      <Button type="primary" onClick={() => { this.onClose('opt 1'); }}>创建层叠Popup</Button>
-      <div style={{ height: 8 }} />
-      <Button type="ghost" onClick={() => { this.onClose('opt 2'); }}>操作二</Button>
-      <div style={{ height: 8 }} />
-      <Button onClick={() => { this.onClose('cancel'); }}>取消</Button>
-    </div>, { maskClosable: false });
+    Popup.show(
+      <List title="账户总览 (已绑定3个）">
+        <List.Body>
+          <List.Item
+            thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          >东吴证券 (5728）</List.Item>
+          <List.Item
+            thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+          >东吴证券 (5728）</List.Item>
+          <List.Item
+            thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+            arrow="horizontal"
+            onClick={() => { this.onClose('opt 1'); }}
+          >更多</List.Item>
+        </List.Body>
+        <List.Footer onClick={() => { this.onClose('cancel'); }}>
+          取消
+        </List.Footer>
+      </List>
+    , { maskClosable: false });
   },
   onClose(sel) {
     if (sel === 'opt 1') {
