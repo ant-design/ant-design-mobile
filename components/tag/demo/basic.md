@@ -13,11 +13,23 @@ function onChange(selected) {
 }
 
 ReactDOM.render(
-  <div className="tag-container" style={{ paddingTop: 18 }}>
-    <Tag style={{ marginLeft: '0.18rem' }}>通用标签</Tag>
-    <Tag style={{ marginLeft: '0.18rem', marginRight: '0.18rem' }} selected>默认选中</Tag>
+  <div className="tag-container">
+    <Tag>通用标签</Tag>
+    <Tag selected>默认选中</Tag>
     <Tag disabled>失效标签</Tag>
-    <Tag style={{ marginLeft: '0.18rem' }} onChange={onChange}>事件回调</Tag>
+    <Tag onChange={onChange}>事件回调</Tag>
   </div>
 , mountNode);
+````
+````css
+.tag-container{
+  display: flex;
+  padding-top: 0.18rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tag-container > div {
+  margin-left: 0.18rem;
+  margin-bottom: 0.18rem;
+}
 ````
