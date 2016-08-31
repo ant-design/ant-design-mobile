@@ -3,9 +3,7 @@ order: 0
 title: 列表项类表单组件大集合
 ---
 
-表单集合
-
-[rc-form API](https://github.com/react-component/form)
+表单集合. ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
 import { List, InputItem, Switch, Stepper, Slider, Radio, TextareaItem, WingBlank, WhiteSpace, Button } from 'antd-mobile';

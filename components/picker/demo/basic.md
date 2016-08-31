@@ -3,9 +3,7 @@ order: 0
 title: 基本
 ---
 
-数据级联选择示例
-
-[rc-form API](https://github.com/react-component/form)
+数据级联选择示例. ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
 import { Picker, List } from 'antd-mobile';

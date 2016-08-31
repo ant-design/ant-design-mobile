@@ -6,6 +6,7 @@ title: 吸顶（body 容器）
 区块标题 “吸顶”(sticky) 功能示例
 
 ````jsx
+/* eslint no-dupe-keys: 1 */
 import { ListView, Toast } from 'antd-mobile';
 
 const data = [
@@ -110,9 +111,9 @@ const Demo = React.createClass({
             marginBottom: 8,
             borderBottom: '1px solid #F6F6F6',
           }}>{obj.title}</h3>
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: '-webkit-box', display: 'flex' }}>
             <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
-            <div>
+            <div style={{ display: 'inline-block' }}>
               <p>{obj.des}</p>
               <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
             </div>

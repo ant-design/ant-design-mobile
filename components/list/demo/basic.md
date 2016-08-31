@@ -3,9 +3,7 @@ order: 1
 title: 基本
 ---
 
-最简单的用法。
-
-[rc-form API](https://github.com/react-component/form)
+基本用法. ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
 import { List } from 'antd-mobile';

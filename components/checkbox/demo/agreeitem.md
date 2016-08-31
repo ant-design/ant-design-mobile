@@ -3,9 +3,7 @@ order: 1
 title: 协议复选框
 ---
 
-Checkbox.AgreeItem
-
-[rc-form API](https://github.com/react-component/form)
+Checkbox.AgreeItem ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
 import { Checkbox } from 'antd-mobile';

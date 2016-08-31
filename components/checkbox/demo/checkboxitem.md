@@ -3,9 +3,7 @@ order: 0
 title: 列表项复选框
 ---
 
-Checkbox.CheckboxItem
-
-[rc-form API](https://github.com/react-component/form)
+Checkbox.CheckboxItem ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
 import { List, Checkbox } from 'antd-mobile';

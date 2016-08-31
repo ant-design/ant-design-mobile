@@ -3,9 +3,7 @@ order: 0
 title: 基本
 ---
 
-列表主体内容的容器。
-
-[rc-form API](https://github.com/react-component/form)
+列表主体内容的容器. ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
 import { List, TextareaItem } from 'antd-mobile';
