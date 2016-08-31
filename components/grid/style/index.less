@@ -34,12 +34,21 @@
     .@{flexPrefixCls} {
       position: relative;
       .hairline-bottom(@border-color-base);
+      &:last-child {
+        .hairline-remove-right-bottom();
+      }
       .@{flexPrefixCls}-item {
         position: relative;
         .hairline-right(@border-color-base);
         &:last-child {
           .hairline-remove-right-bottom();
         }
+      }
+    }
+    .@{gridPrefixCls}-carousel-page {
+      border-right: @border-width-sm solid @border-color-base;
+      &:first-child {
+        border-left: @border-width-sm solid @border-color-base;
       }
     }
   }
