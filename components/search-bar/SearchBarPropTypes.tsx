@@ -54,7 +54,7 @@ export const defaultProps = {
   onFocus: noop,
   onBlur: noop,
   onClear: noop,
-  showCancelButton: true,
+  showCancelButton: false,
   cancelText: '取消',
   disabled: false,
 };

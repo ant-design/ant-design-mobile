@@ -75,6 +75,8 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       [`${prefixCls}-start`]: value.length > 0,
     });
 
+    let cancelStyle = value && value.length > 0 ? { display: 'block' } : { display: 'none' };
+
     return (
       <form onSubmit={this.onSubmit}>
         <div className={wrapCls}>
@@ -90,16 +92,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
               ref="searchInput" />
             <a onClick={this.onClear} className={`${prefixCls}-clear`} />
           </div>
-          {
-            showCancelButton ? (
-              <div className={`${prefixCls}-cancel`}
-                 style={{ display: value && value.length > 0 ? 'block' : 'none' }}
-                 onClick={this.onCancel}
-              >
-                {cancelText}
-              </div>
-            ) : null
-          }
+          <div
+            className={`${prefixCls}-cancel`}
+            style={showCancelButton ? { display: 'block' } : cancelStyle}
+            onClick={this.onCancel}
+          >
+            {cancelText}
+          </div>
         </div>
       </form>
     );
