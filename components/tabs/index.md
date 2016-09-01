@@ -31,6 +31,7 @@ english: Tabs
 | onChange         | 切换面板的回调                               | Function | 无            |
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
 | animated |  是否动画    |  boolean   |    `true`    |
+| swipeable |  是否可以滑动 tab 内容进行切换    |  boolean   |    `true`    |
 | tabBarPosition |    tab 位置 top/bottom        |  string    |    `top`        |
 | underlineColor(`react-native only`) |   线条颜色       |  string    |    `#ddd`        |
 | activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |

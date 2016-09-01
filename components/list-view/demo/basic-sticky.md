@@ -6,8 +6,8 @@ title: 吸顶（body 容器）
 区块标题 “吸顶”(sticky) 功能示例
 
 ````jsx
-/* eslint no-dupe-keys: 1 */
-import { ListView, Toast } from 'antd-mobile';
+/* eslint no-dupe-keys: 0 */
+import { ListView } from 'antd-mobile';
 
 const data = [
   {
@@ -75,7 +75,6 @@ const Demo = React.createClass({
   onEndReached(event) {
     // load new data
     console.log('reach end', event);
-    Toast.info('加载新数据');
     this.setState({ isLoading: true });
     setTimeout(() => {
       this.genData(++pageIndex);

@@ -152,6 +152,11 @@ declare module 'rc-tabs/lib/SwipeableTabContent' {
   export default exports
 }
 
+declare module 'rc-tabs/lib/TabContent' {
+  var exports: any
+  export default exports
+}
+
 declare module 'rc-tabs/lib/InkTabBar' {
   var exports: any
   export default exports

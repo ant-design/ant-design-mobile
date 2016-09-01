@@ -8,8 +8,8 @@ title: 子容器
 > 同时建议设置`body`的`overflow: hidden`
 
 ````jsx
-/* eslint no-dupe-keys: 1, no-mixed-operators: 1 */
-import { ListView, Toast } from 'antd-mobile';
+/* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
+import { ListView } from 'antd-mobile';
 
 const data = [
   {
@@ -77,7 +77,6 @@ const Demo = React.createClass({
   onEndReached(event) {
     // load new data
     console.log('reach end', event);
-    Toast.info('加载新数据');
     this.setState({ isLoading: true });
     setTimeout(() => {
       this.genData(++pageIndex);

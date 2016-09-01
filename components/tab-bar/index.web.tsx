@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Tabs, { TabPane } from 'rc-tabs';
 import Tab from './Tab.web';
-import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
+import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from 'rc-tabs/lib/TabBar';
 
 const AntTabBar = React.createClass({
@@ -28,11 +28,11 @@ const AntTabBar = React.createClass({
 
   renderTabBar() {
     const {props} = this;
-    return <TabBar onTabClick={props.onTabClick} style={{backgroundColor: props.barTintColor}}/>;
+    return <TabBar onTabClick={props.onTabClick} style={{ backgroundColor: props.barTintColor }}/>;
   },
 
   renderTabContent() {
-    return <SwipeableTabContent />;
+    return <TabContent animated={false} />;
   },
 
   render() {

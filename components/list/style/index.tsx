@@ -33,6 +33,7 @@ export default {
       flexDirection: 'row',
       flex: 1,
       paddingLeft: variables.h_spacing_lg,
+      backgroundColor: variables.fill_base,
     },
     Line: {
       flexDirection: 'row',

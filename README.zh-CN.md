@@ -25,7 +25,7 @@ http://mobile.ant.design/kitchen-sink/
 
 ### 客户端应用
 
-<img src="https://pbs.twimg.com/media/CohXOutUkAAeuvI.jpg:large" />
+<img src="https://cloud.githubusercontent.com/assets/1698185/18130654/6ba4ccea-6fc2-11e6-9aa1-0a53cd74d9e1.png" />
 
 ## 安装
 
@@ -77,7 +77,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 // .babelrc
 // react-native 中无需设置 style 属性
 {
- "plugins": [["antd", { style: "css", libraryName: "antd-mobile" }]]
+ "plugins": [["antd", { "style": "css", "libraryName": "antd-mobile" }]]
 }
 ```
 

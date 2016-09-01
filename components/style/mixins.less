@@ -7,10 +7,10 @@
   transform-origin: @to;
 }
 
-.hairline-top(@color:@border-color-base) {
-  border-top: @border-width-sm solid @color;
+.hairline-top(@color:@border-color-base, @width: @border-width-sm) {
+  border-top: @width solid @color;
 }
-.hairline-bottom(@color:@border-color-base, @left:0) {
+.hairline-bottom(@color:@border-color-base, @left:0, @width: @border-width-sm) {
   &:after {
     display: block;
     position: absolute;
@@ -20,7 +20,7 @@
     right: auto;
     top: auto;
     width: 100%;
-    border-bottom: @border-width-sm solid @color;
+    border-bottom: @width solid @color;
   }
 }
 .hairline-right(@color:@border-color-base) {

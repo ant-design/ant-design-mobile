@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { Drawer, List, Button, WhiteSpace } from 'antd-mobile';
 import { DefaultRenderer, Actions } from 'react-native-router-flux';
 
@@ -20,7 +20,7 @@ export default class DrawerExample extends React.Component<any, any> {
     Actions.refresh({ key: this.props.navigationState.key, open: isOpen });
   }
   render() {
-    const sidebar = (<View style={[styles.container, { backgroundColor: '#fff' }]}>
+    const sidebar = (<ScrollView style={[styles.container, { backgroundColor: '#fff' }]}>
       <List>
         <List.Body>
           {Array.apply(null, Array(20)).map(function (_, i) {return i;}).map((i, index) => {
@@ -29,7 +29,9 @@ export default class DrawerExample extends React.Component<any, any> {
                 thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
                 multipleLine
               >
-                <View>
+                <View style={{
+                  flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+                }}>
                   <Text>分类 - {index}</Text>
                   <Button type="primary" size="small" onPress={() => this.drawer.drawer.closeDrawer()}>
                     关闭 drawer
@@ -43,7 +45,7 @@ export default class DrawerExample extends React.Component<any, any> {
           })}
         </List.Body>
       </List>
-    </View>);
+    </ScrollView>);
 
     const drawerProps = {
       position: 'left',
