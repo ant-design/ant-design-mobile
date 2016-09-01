@@ -14,7 +14,7 @@ import { Scene, Router, Reducer, Actions, ActionConst } from 'react-native-route
 import Home from './components/Home';
 import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
-import { APIS, COMPONENTS } from './demoList';
+import { UIVIEWS, UICONTROLS, OTHER, UIBARS } from './demoList';
 
 const styles = StyleSheet.create({
   content: {
@@ -83,7 +83,7 @@ class AntmRnApp extends React.Component {
   }
 
   render() {
-    const scenes = APIS.concat(COMPONENTS).map(component => {
+    const scenes = [...UIVIEWS, ...UICONTROLS, ...OTHER, ...UIBARS].map(component => {
       const Module = component.module.default;
       let Component = React.createClass({
         render() {
