@@ -22,7 +22,6 @@ const SearchBarExample = React.createClass({
         placeholder="搜索"
         onCancel={(value) => { alert(`${value}, 取消事件自定义`); }}
         cancelText="搜索"
-        showCancelButton
         onChange={this.onChange}
       />
     );
