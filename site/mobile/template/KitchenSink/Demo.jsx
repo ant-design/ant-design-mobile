@@ -3,26 +3,16 @@ import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
 import { Link } from 'react-router';
 import { Drawer, List, Icon } from 'antd-mobile';
-import * as utils from '../../../theme/template/utils';
 
 export function collect(nextProps, callback) {
-  const componentsList = utils.collectDocs(nextProps.data.components);
+  const pageData = nextProps.pageData;
+  const pageDataPromise = typeof pageData === 'function' ?
+          pageData() : pageData.index();
+  const promises = [pageDataPromise];
 
-  const moduleDocs = [
-    ...utils.collectDocs(nextProps.data.docs.react),
-    ...componentsList,
-    /* eslint-disable new-cap */
-    nextProps.data.CHANGELOG(),
-    /* eslint-enable new-cap */
-  ];
-
-  // const componentName = nextProps.params.component;
-  const componentName = nextProps.params.component;
-  const demos = nextProps.utils.get(nextProps.data, ['components', componentName, 'demo']);
+  const demos = nextProps.utils.get(nextProps.data, ['components', nextProps.params.component, 'demo']);
   const listDemos = nextProps.utils.get(nextProps.data, ['components', 'list-view', 'demo']);
   const drawerDemos = nextProps.utils.get(nextProps.data, ['components', 'drawer', 'demo']);
-
-  const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
 
   if (demos) {
     promises.push(Promise.all(
@@ -59,14 +49,14 @@ export function collect(nextProps, callback) {
     }))
   );
 
+
   Promise.all(promises)
     .then((list) => callback(null, {
       ...nextProps,
-      components: list[0],
-      moduleData: list[1],
-      demos: list[2],
-      listDemos: list[3],
-      drawerDemos: list[4],
+      localizedPageData: list[0],
+      demos: list[1],
+      listDemos: list[2],
+      drawerDemos: list[3],
     }));
 }
 
@@ -112,8 +102,11 @@ export default class Home extends React.Component {
       parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10)
     ));
 
+    const { location, picked } = this.props;
+    const components = picked.components;
+
     const lists = {};
-    this.props.components.forEach(i => {
+    components.forEach(i => {
       const meta = i.meta;
       if (!lists[meta.category]) {
         lists[meta.category] = [];
@@ -142,6 +135,7 @@ export default class Home extends React.Component {
             {
               lists[cate].map((item, ii) => {
                 const fileName = item.filename.split('/')[1];
+
                 let subDemos;
                 if (fileName === 'drawer') {
                   subDemos = drawerDemos;

@@ -85,7 +85,8 @@ export default class Header extends React.Component {
   )
 
   render() {
-    const { location, components } = this.props;
+    const { location, picked } = this.props;
+    const components = picked.components;
     const module = location.pathname.split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
 

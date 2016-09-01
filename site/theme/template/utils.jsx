@@ -14,8 +14,8 @@ export function collectDocs(docs) {
   return docsList;
 }
 
-export function getMenuItems(data) {
-  const menuMeta = data.map((item) => item.meta);
+export function getMenuItems(moduleData) {
+  const menuMeta = moduleData.map((item) => item.meta);
   const menuItems = {};
   menuMeta.sort((a, b) => (
     parseInt(a.order, 10) - parseInt(b.order, 10)

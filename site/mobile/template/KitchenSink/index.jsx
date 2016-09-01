@@ -1,8 +1,6 @@
 import React from 'react';
-import Promise from 'bluebird';
 import { Link } from 'react-router';
 import { Icon, Drawer, List, Flex } from 'antd-mobile';
-import * as utils from '../../../theme/template/utils';
 import Page from './Page';
 import Item from './Item';
 
@@ -55,26 +53,6 @@ const hashImgObj = {
   form: 'hZDnBrVwPmrgrLq',
 };
 
-export function collect(nextProps, callback) {
-  const componentsList = utils.collectDocs(nextProps.data.components);
-
-  const moduleDocs = [
-    ...utils.collectDocs(nextProps.data.docs.react),
-    ...componentsList,
-    /* eslint-disable new-cap */
-    nextProps.data.CHANGELOG(),
-    /* eslint-enable new-cap */
-  ];
-
-  const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
-
-  Promise.all(promises)
-    .then((list) => callback(null, {
-      ...nextProps,
-      components: list[0],
-    }));
-}
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -89,6 +67,9 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { picked } = this.props;
+    const components = picked.components;
+
     const customWidth = (document.documentElement.clientWidth / 3);
     const itemStyle = {
       width: `${customWidth}px`,
@@ -96,10 +77,8 @@ export default class App extends React.Component {
       display: 'inline-block',
     };
 
-    const props = this.props;
-
     const lists = {};
-    props.components.forEach(i => {
+    components.forEach(i => {
       const meta = i.meta;
       if (!lists[meta.category]) {
         lists[meta.category] = [];
