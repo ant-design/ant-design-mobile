@@ -101,7 +101,8 @@ ReactDOM.render(<TabBarExample />, mountNode);
 ````css
 .demo-preview-item,
 .am-tab-bar,
-.am-tab-bar-content {
+.am-tab-bar-content,
+.am-tab-bar-tabpane {
   height: 100%;
 }
 ````

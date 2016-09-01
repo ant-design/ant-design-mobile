@@ -7,6 +7,7 @@ class Tabs extends React.Component<TabsProps, any> {
   static defaultProps = {
     tabBarPosition: 'top',
     animated: true,
+    swipeable: true,
     onChange() {},
     onTabClick() {},
     underlineColor: '#ddd',
@@ -91,7 +92,7 @@ class Tabs extends React.Component<TabsProps, any> {
 
   render() {
     const {
-      tabBarPosition, defaultActiveKey, activeKey, animated, children,
+      tabBarPosition, defaultActiveKey, activeKey, animated, children, swipeable,
     } = this.props;
 
     let defaultActiveIndex = 0;
@@ -113,6 +114,7 @@ class Tabs extends React.Component<TabsProps, any> {
         scrollWithoutAnimation={!animated}
         initialPage={defaultActiveIndex}
         page={activeIndex}
+        locked={swipeable}
         renderTabBar={this.renderTabBar}
         onChangeTab={this.onTabClick}
       >

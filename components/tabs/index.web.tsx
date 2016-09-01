@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcTabs, { TabPane } from 'rc-tabs';
 import TabsProps from './TabsProps';
 import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
+import TabContent from 'rc-tabs/lib/TabContent';
 import InkTabBar from 'rc-tabs/lib/InkTabBar';
 
 const Tabs = React.createClass<TabsProps, any>({
@@ -13,11 +14,10 @@ const Tabs = React.createClass<TabsProps, any>({
     return {
       prefixCls: 'am-tabs',
       animated: true,
-      onChange() {
-      },
+      swipeable: true,
+      onChange() {},
       tabBarPosition: 'top',
-      onTabClick() {
-      },
+      onTabClick() {},
     };
   },
 
@@ -27,7 +27,12 @@ const Tabs = React.createClass<TabsProps, any>({
   },
 
   renderTabContent() {
-    return <SwipeableTabContent animated={this.props.animated}/>;
+    const { animated, swipeable } = this.props;
+    return swipeable ? (
+      <SwipeableTabContent animated={animated} />
+    ) : (
+      <TabContent animated={animated} />
+    );
   },
 
   render() {

@@ -5,6 +5,7 @@ interface TabsProps {
   onTabClick?: (key: string) => void;
   tabBarPosition?: 'top' | 'bottom';
   animated?: boolean;
+  swipeable?: boolean;
   /*rn only*/
   underlineColor?: string;
   activeUnderlineColor?: string;
