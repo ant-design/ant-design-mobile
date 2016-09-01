@@ -3,8 +3,6 @@
 
 @pickerPrefixCls: am-tag;
 
-// TODO 设计师还没有设计出标注
-
 .@{pickerPrefixCls} {
   border-radius: @radius-sm;
   display: inline-block;
@@ -14,6 +12,8 @@
   padding: @v-spacing-sm @h-spacing-lg;
   width: 1.6rem;
   text-align: center;
+  height: @tag-height;
+  line-height: @tag-height;
   &-normal {
     background-color: @fill-base;
     color: @color-text-caption;
@@ -23,7 +23,7 @@
   &-active {
     background-color: @fill-base;
     color: @color-link;
-    border: @border-width-md solid @brand-primary;
+    border: @border-width-md solid @tabs-color;
   }
 
   &-disabled {
