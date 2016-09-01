@@ -92,13 +92,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
               ref="searchInput" />
             <a onClick={this.onClear} className={`${prefixCls}-clear`} />
           </div>
-            <div className={`${prefixCls}-cancel`}
-               style={showCancelButton ? { display: 'block' } : cancelStyle}
-               onClick={this.onCancel}
-            >
-              {cancelText}
-            </div>
-
+          <div
+            className={`${prefixCls}-cancel`}
+            style={showCancelButton ? { display: 'block' } : cancelStyle}
+            onClick={this.onCancel}
+          >
+            {cancelText}
+          </div>
         </div>
       </form>
     );
