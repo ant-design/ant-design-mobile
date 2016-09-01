@@ -20,8 +20,8 @@
   & &-body {
     position: relative;
     background-color: @fill-base;
-    .hairline-top(@border-color-base);
-    .hairline-bottom(@border-color-base);
+    .hairline-top(@list-body-border-color, @list-body-border-width);
+    .hairline-bottom(@list-body-border-color, 0, @list-body-border-width);
   }
 }
 .@{listPrefixCls}-item {
