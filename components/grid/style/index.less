@@ -9,23 +9,37 @@
     background: @fill-base;
     .@{flexPrefixCls}-item {
       margin-left: 0;
-      .@{gridPrefixCls}-icon {
-        width: @icon-size-md;
-        height: @icon-size-md;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-        margin: 0 auto;
-      }
-      .@{gridPrefixCls}-text {
-        margin-top: @v-spacing-md;
-        font-size: @font-size-caption-sm;
-        color: @color-text-base;
-        text-align: center;
-      }
       &.@{gridPrefixCls}-item {
         &:active {
           background-color: @fill-tap;
+        }
+      }
+      .@{gridPrefixCls}-item-contain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        .@{gridPrefixCls}-icon {
+          margin-top: @v-spacing-md;
+          height: 28%;
+        }
+        .@{gridPrefixCls}-text {
+          margin-top: @v-spacing-md;
+          font-size: @font-size-caption-sm;
+          color: @color-text-base;
+          text-align: center;
+        }
+        &.column-num-3 {
+          .@{gridPrefixCls}-text {
+            font-size: @font-size-caption;
+          }
+        }
+        &.column-num-2 {
+          .@{gridPrefixCls}-text {
+            margin-top: @v-spacing-lg;
+            font-size: @font-size-display-sm;
+          }
         }
       }
     }

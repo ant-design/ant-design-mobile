@@ -56,6 +56,7 @@ const GridExample = React.createClass({
       <Grid
         data={data2}
         hasLine={false}
+        columnNum={3}
       />
     </div>);
   },
