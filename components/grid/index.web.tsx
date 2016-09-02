@@ -17,7 +17,7 @@ export interface GridProps {
   className?: string;
   style?: React.CSSProperties;
   data?: Array<DataItem>;
-  createItemElement?: (dataItem: DataItem) => React.ReactElement;
+  createItemElement?: (dataItem: DataItem) => React.ReactElement<any>;
   columnNum?: number;
   onClick?: (dataItem: DataItem, itemIndex: number) => void;
   hasLine?: boolean;
