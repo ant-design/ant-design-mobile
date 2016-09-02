@@ -33,6 +33,7 @@ english: Tabs
 | animated |  是否动画    |  boolean   |    `true`    |
 | swipeable |  是否可以滑动 tab 内容进行切换    |  boolean   |    `true`    |
 | tabBarPosition |    tab 位置 top/bottom        |  string    |    `top`        |
+| destroyInactiveTabPane | 是否销毁掉不活动的 tabPane (优化使用) |  boolean    |    false   |
 | underlineColor(`react-native only`) |   线条颜色       |  string    |    `#ddd`        |
 | activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |
 | textColor(`react-native only`) |   文字颜色       |  string    |    `#000`        |
