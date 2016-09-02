@@ -3,6 +3,15 @@ order: 2
 english: 更新日志
 ---
 
+### 0.8.1
+
+`2016-09-02`
+
+- 修复并整理各弹出层类组件 z-index 顺序 https://github.com/ant-design/ant-design-mobile/commit/bb875c2a924f61cc03b8d013fd1a8f5ee8e22972
+- Tab 增加禁止 swipeable 的功能 #209 
+- TabBar 更改为和 iOS 原生方式一致，保持 web 和 rn 统一，去掉 swipeable
+- List组件 list-body 边框支持配置 https://github.com/ant-design/ant-design-mobile/commit/76760060cb5dfa5c9474b2174ee03db3c30b5197
+
 ### 0.8.0
 
 `2016-08-31`
