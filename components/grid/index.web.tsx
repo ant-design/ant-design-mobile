@@ -17,7 +17,7 @@ export interface GridProps {
   className?: string;
   style?: React.CSSProperties;
   data?: Array<DataItem>;
-  createItemElement?: (dataItem: DataItem) => React.ReactElement<any>;
+  renderItem?: (dataItem: DataItem, itemIndex: number) => React.ReactElement<any>;
   columnNum?: number;
   onClick?: (dataItem: DataItem, itemIndex: number) => void;
   hasLine?: boolean;
@@ -29,7 +29,7 @@ export default class Grid extends React.Component<GridProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     data: PropTypes.array,
-    createItemElement: PropTypes.func,
+    renderItem: PropTypes.func,
     columnNum: PropTypes.number,
     onClick: PropTypes.func,
     hasLine: PropTypes.bool,
@@ -46,6 +46,8 @@ export default class Grid extends React.Component<GridProps, any> {
     isCarousel: false,
     carouselMaxRow: 2,
   };
+
+  clientWidth = document.documentElement.clientWidth;
 
   render() {
     let {className, data, prefixCls, hasLine, isCarousel, columnNum, carouselMaxRow} = this.props;
@@ -64,8 +66,8 @@ export default class Grid extends React.Component<GridProps, any> {
 
     const lineCount = Math.ceil(dataLength / columnNum);
 
-    const defaultHeight = document.documentElement.clientWidth / columnNum;
-    const createItemElement = this.props.createItemElement || ((dataItem: DataItem, itemIndex: number) => (
+    const defaultHeight = this.clientWidth / columnNum;
+    const renderItem = this.props.renderItem || ((dataItem: DataItem, itemIndex: number) => (
         <div className={`${prefixCls}-item-contain column-num-${columnNum}`} style={{ height: `${defaultHeight}px` }}>
           <img className={`${prefixCls}-icon`} src={dataItem.icon} />
           <div className={`${prefixCls}-text`}>{dataItem.text}</div>
@@ -84,7 +86,7 @@ export default class Grid extends React.Component<GridProps, any> {
             onClick={() => { this.props.onClick(data[dataIndex], (dataIndex)); }}
             key={`griditem-${dataIndex}`}
           >
-            {createItemElement(data[dataIndex], dataIndex)}
+            {renderItem(data[dataIndex], dataIndex)}
           </Flex.Item>);
         } else {
           lineContent.push(<Flex.Item key={`griditem-${dataIndex}`} />);

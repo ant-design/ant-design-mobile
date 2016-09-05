@@ -24,4 +24,4 @@ english: Grid
 | hasLine    |   是否有边框     | bollean  |  | `true` |
 | isCarousel    |   是否跑马灯,     | bollean  |  | `false` |
 | carouselMaxRow    |   如果是跑马灯, 一页跑马灯需要展示的行数   | number  |  | `2` |
-| createItemElement    |   自定义每个grid的条目的创建   | Function(el, index), 返回一个React.Element  |  |  |
+| renderItem    |   自定义每个grid的条目的创建   | Function(el, index), 返回一个React.Element  |  |  |
