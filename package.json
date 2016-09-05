@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "antd": "1.x",
-    "antd-tools": "^0.11.10",
+    "antd-tools": "~0.11.0",
     "babel-eslint": "^6.0.4",
     "babel-plugin-antd": "^0.4.0",
     "bisheng": "^0.12.0",
@@ -89,7 +89,7 @@
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
-    "lesshint": "^2.0.1",
+    "lesshint": "^2.1.0",
     "lodash.debounce": "^4.0.6",
     "postcss-pxtorem": "^3.3.1",
     "pre-commit": "1.x",
