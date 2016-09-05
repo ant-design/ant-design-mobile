@@ -105,7 +105,7 @@ export default class Grid extends React.Component<GridProps, any> {
           if (lineIndexInAll < lineCount) {
             pageLines.push(lineElArray[lineIndexInAll]);
           } else {
-            pageLines.push(<div key={`gridline-${lineIndexInAll}`}></div>); // 空节点为了确保默认页的最后一行有底线(last-child会没线)
+            pageLines.push(<div key={`gridline-${lineIndexInAll}`}></div>); // 空节点为了确保末尾页的最后未到底的行有底线(样式中last-child会没线)
           }
         }
         pageElArray.push(<div className={`${prefixCls}-carousel-page`} key={`pageitem-${pageIndex}`}>{pageLines}</div>);
