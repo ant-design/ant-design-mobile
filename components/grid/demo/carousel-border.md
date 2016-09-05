@@ -55,6 +55,8 @@ const GridExample = React.createClass({
     return (<div>
       <Grid
         data={data3}
+        columnNum={3}
+        carouselMaxRow={3}
         isCarousel
         onClick={(el, index) => { alert(index); }}
       />

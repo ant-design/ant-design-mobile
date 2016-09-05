@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { PropTypes } from 'react';
+import {PropTypes} from 'react';
 import classNames from 'classnames';
 import Flex from '../flex';
 import Carousel from '../carousel/index.web';
-function noop() {}
 
 export interface DataItem {
   icon?: any;
@@ -14,40 +13,44 @@ export interface DataItem {
 export interface GridProps {
   /** web only */
   prefixCls?: string;
-  style?: React.CSSProperties;
   /** web only */
   className?: string;
+  style?: React.CSSProperties;
   data?: Array<DataItem>;
-  onClick?: Function;
+  renderItem?: (dataItem: DataItem, itemIndex: number) => React.ReactElement<any>;
+  columnNum?: number;
+  onClick?: (dataItem: DataItem, itemIndex: number) => void;
   hasLine?: boolean;
   isCarousel?: boolean;
+  carouselMaxRow?: number;
 }
 
 export default class Grid extends React.Component<GridProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     data: PropTypes.array,
+    renderItem: PropTypes.func,
+    columnNum: PropTypes.number,
     onClick: PropTypes.func,
     hasLine: PropTypes.bool,
     isCarousel: PropTypes.bool,
+    carouselMaxRow: PropTypes.number,
   };
 
   static defaultProps = {
     prefixCls: 'am-grid',
     data: [],
-    onClick: noop,
+    onClick: () => {},
+    columnNum: 4,
     hasLine: true,
     isCarousel: false,
+    carouselMaxRow: 2,
   };
 
-  clientWidth: any;
-
-  componentWillMount() {
-    this.clientWidth = document.documentElement.clientWidth;
-  }
+  clientWidth = document.documentElement.clientWidth;
 
   render() {
-    let { className, data, prefixCls, hasLine, isCarousel } = this.props;
+    let {className, data, prefixCls, hasLine, isCarousel, columnNum, carouselMaxRow} = this.props;
 
     const wrapCls = classNames({
       [prefixCls]: true,
@@ -61,75 +64,60 @@ export default class Grid extends React.Component<GridProps, any> {
 
     const dataLength = data.length;
 
-    const FlexCount = Math.ceil(dataLength / 4);
+    const lineCount = Math.ceil(dataLength / columnNum);
 
-    let gridContent = [];
-    let carouselContent = [];
+    const defaultHeight = this.clientWidth / columnNum;
+    const renderItem = this.props.renderItem || ((dataItem: DataItem, itemIndex: number) => (
+        <div className={`${prefixCls}-item-contain column-num-${columnNum}`} style={{ height: `${defaultHeight}px` }}>
+          <img className={`${prefixCls}-icon`} src={dataItem.icon} />
+          <div className={`${prefixCls}-text`}>{dataItem.text}</div>
+        </div>));
 
-    const flexItemStyle = {
-      height: `${this.clientWidth / 4}px`,
-      paddingTop: `${this.clientWidth / 16}px`,
-    };
+    let lineElArray = [];
+    let pageElArray = [];
 
-    for (let i = 0; i < FlexCount; i ++) {
-      let flexContent = [];
-      for (let j = 0; j < 4; j++) {
-        if (i * 4 + j < dataLength) {
-
-          flexContent.push(<Flex.Item
+    for (let i = 0; i < lineCount; i++) {
+      let lineContent = [];
+      for (let j = 0; j < columnNum; j++) {
+        const dataIndex = i * columnNum + j;
+        if (dataIndex < dataLength) {
+          lineContent.push(<Flex.Item
             className={itemCls}
-            style={flexItemStyle}
-            onClick={() => { this.props.onClick(data[i * 4 + j], (i * 4 + j)); }}
-            key={`griditem-${i * 4 + j}`}
+            onClick={() => { this.props.onClick(data[dataIndex], (dataIndex)); }}
+            key={`griditem-${dataIndex}`}
           >
-            <div className={`${prefixCls}-icon`} style={{ backgroundImage: `url(${data[i * 4 + j].icon})` }} />
-            <div className={`${prefixCls}-text`}>{data[i * 4 + j].text}</div>
+            {renderItem(data[dataIndex], dataIndex)}
           </Flex.Item>);
         } else {
-          flexContent.push(<Flex.Item style={flexItemStyle} key={`griditem-${i * 4 + j}`} />);
+          lineContent.push(<Flex.Item key={`griditem-${dataIndex}`} />);
         }
       }
 
-      gridContent.push(<Flex key={`fridflex${i}`}>{flexContent}</Flex>);
+      lineElArray.push(<Flex justify="center" align="stretch" key={`gridline-${i}`}>{lineContent}</Flex>);
     }
 
-    if (isCarousel) {
-      const gridContentLength = gridContent.length;
-      for (let k = 0, len = Math.ceil(gridContentLength / 2); k < len; k++) {
-        if (k * 2 < gridContentLength) {
-          carouselContent.push();
+    const pageCount = Math.ceil(lineCount / carouselMaxRow);
+    if (isCarousel && pageCount > 1) {
+      for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
+        let pageLines = [];
+        for (let lineIndexInPage = 0; lineIndexInPage < carouselMaxRow; lineIndexInPage++) {
+          const lineIndexInAll = pageIndex * carouselMaxRow + lineIndexInPage;
+          if (lineIndexInAll < lineCount) {
+            pageLines.push(lineElArray[lineIndexInAll]);
+          } else {
+            pageLines.push(<div key={`gridline-${lineIndexInAll}`}></div>); // 空节点为了确保末尾页的最后未到底的行有底线(样式中last-child会没线)
+          }
         }
-        if (k * 2 + 1 < gridContentLength) {
-          carouselContent.push(<div
-            className={`${prefixCls}-carousel-page`}
-            key={`carouselitem-${k * 2 + 1}`}
-          >
-            {gridContent[k * 2]}
-            {gridContent[k * 2 + 1]}
-          </div>);
-        } else {
-          carouselContent.push(<div
-            className={`${prefixCls}-carousel-page`}
-            key={`carouselitem-${k * 2}`}
-          >
-            {gridContent[k * 2]}
-            <Flex>
-              <Flex.Item className={itemCls} style={flexItemStyle} />
-              <Flex.Item className={itemCls} style={flexItemStyle} />
-              <Flex.Item className={itemCls} style={flexItemStyle} />
-              <Flex.Item className={itemCls} style={flexItemStyle} />
-            </Flex>
-          </div>);
-        }
+        pageElArray.push(<div className={`${prefixCls}-carousel-page`} key={`pageitem-${pageIndex}`}>{pageLines}</div>);
       }
     }
 
     return (
       <div
         className={wrapCls}
-      >{isCarousel ? <Carousel mode="banner" infinite={false}>
-          {carouselContent}
-        </Carousel> : gridContent}
+      >{isCarousel && pageCount > 1 ? <Carousel mode="banner" infinite={false}>
+        {pageElArray}
+      </Carousel> : lineElArray}
       </div>
     );
   }
