@@ -45,7 +45,6 @@ const GridExample = React.createClass({
         renderItem={(dataItem, index) => (
           <div style={{ margin: '16px', background: '#f7f7f7', textAlign: 'center' }}>
             <div style={{ background: 'rgba(0, 0, 0, 0.1)', padding: '8px' }}>
-              <img src={dataItem.icon} style={{ width: '24px', margin: '0 8px' }} />
               <span>{index + 1}.{dataItem.text}</span>
             </div>
             <img src={dataItem.img} style={{ width: '80%', margin: '12px' }} />
