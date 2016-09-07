@@ -16,6 +16,17 @@ const App = React.createClass({
       items: null,
     };
   },
+  onPan(e) {
+    if (document.body.scrollTop > 5 && e.additionalEvent === 'pandown') {
+      return false;
+    }
+    return true;
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve();
+    //   }, 500);
+    // });
+  },
   loadingFunction() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -56,6 +67,7 @@ const App = React.createClass({
             },
           },
         }}
+        onPan={this.onPan}
       >
         <div style={{ minHeight: 300 }}>
           <List title="下拉刷新">
