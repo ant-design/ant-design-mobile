@@ -54,8 +54,8 @@
     "react-native-scrollable-tab-view": "^0.5.3",
     "react-slick": "~0.13.3",
     "react-timer-mixin": "~0.13.3",
-    "rmc-cascader": "~2.2.6",
-    "rmc-date-picker": "~4.0.3",
+    "rmc-cascader": "3.0.x",
+    "rmc-date-picker": "5.0.x",
     "rmc-list-view": "~0.6.1",
     "rmc-pull-to-refresh": "~0.4.0",
     "rn-topview": "^0.1.0"

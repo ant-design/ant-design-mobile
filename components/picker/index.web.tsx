@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { PropTypes } from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
+import Cascader from 'rmc-cascader/lib/Cascader';
 import treeFilter from 'array-tree-filter';
 import tsPropsType from './PropsType';
 
@@ -10,10 +11,10 @@ function getDefaultProps() {
   };
   return {
     prefixCls: 'am-picker',
-    pickerPrefixCls: 'am-picker-picker',
+    pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
     format: defaultFormat,
-    style: { left: 0, bottom: 0 },
+    style: {left: 0, bottom: 0},
     cols: 3,
     value: [],
     extra: '请选择',
@@ -38,23 +39,38 @@ export default class Picker extends React.Component<tsPropsType, any> {
     return this.props.format(treeChildren.map((v) => {
       return v.label;
     }));
-  }
+  };
+
   render() {
-    const { children, data, value, okText, dismissText, title, extra, popupPrefixCls } = this.props;
+    const {props} = this;
+    const {children, value, okText, dismissText, title, extra, popupPrefixCls} = props;
     const extraProps = {
       extra: this.getSel() || extra,
     };
     const childEl = React.cloneElement(children, extraProps);
-    return (<PopupCascader
-      WrapComponent="div"
-      popupTransitionName="am-slide-up"
-      maskTransitionName="am-fade"
-      {...this.props}
-      data={data}
-      value={value}
-      title={title}
-      dismissText={<span className={`${popupPrefixCls}-header-cancel-button`}>{dismissText}</span>}
-      okText={<span className={`${popupPrefixCls}-header-ok-button`}>{okText}</span>}
-    >{childEl}</PopupCascader>);
+    const cascader = (
+      <Cascader
+        prefixCls={props.prefixCls}
+        pickerPrefixCls={props.pickerPrefixCls}
+        data={props.data}
+        cols={props.cols}
+      />
+    );
+    return (
+      <PopupCascader
+        cascader={cascader}
+        WrapComponent="div"
+        popupTransitionName="am-slide-up"
+        maskTransitionName="am-fade"
+        {...this.props}
+        prefixCls={popupPrefixCls}
+        value={value}
+        title={title}
+        dismissText={<span className={`${popupPrefixCls}-header-cancel-button`}>{dismissText}</span>}
+        okText={<span className={`${popupPrefixCls}-header-ok-button`}>{okText}</span>}
+      >
+        {childEl}
+      </PopupCascader>
+    );
   }
 }

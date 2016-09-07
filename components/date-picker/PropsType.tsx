@@ -1,4 +1,4 @@
-interface Props {
+interface DatePickerProps {
   defaultDate: any;
   value?: any;
   format?: (x: any) => void;
@@ -6,10 +6,14 @@ interface Props {
   mode?: string;
   extra?: string;
   children?: any;
+  minDate?: any;
+  maxDate?: any;
   /** rn only */
   triggerTypes?: string;
   /** web only */
   prefixCls?: string;
+  pickerPrefixCls?: string;
+  popupPrefixCls?: string;
 }
 
-export default Props;
+export default DatePickerProps;

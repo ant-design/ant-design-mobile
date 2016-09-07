@@ -10,6 +10,7 @@ interface Props {
   children: any;
   /** web only */
   prefixCls?: string;
+  pickerPrefixCls?: string;
   popupPrefixCls?: string;
 }
 
