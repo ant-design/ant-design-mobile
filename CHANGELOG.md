@@ -3,7 +3,7 @@ order: 2
 english: 更新日志
 ---
 
-### 0.8.1
+### 0.8.2
 
 `2016-09-07`
 
@@ -12,6 +12,8 @@ english: 更新日志
 - 修复`Checkbox`、`Radio`样式细节以及兼容性问题。
 - `SearchBar`输入框`Blur`状态时`placeholder`固定靠左对齐。
 - `Menu`高度计算bugfix。
+
+### 0.8.1
 
 `2016-09-02`
 
