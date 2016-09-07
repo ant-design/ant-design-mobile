@@ -5,6 +5,14 @@ english: 更新日志
 
 ### 0.8.1
 
+`2016-09-07`
+
+- 给`body`标签设置默认背景色，以及默认的`font-size`,`html`设置默认的`font-size`。
+- `Grid`属性扩展，每行列数可配置，提供`renderItem`方法。
+- 修复`Checkbox`、`Radio`样式细节以及兼容性问题。
+- `SearchBar`输入框`Blur`状态时`placeholder`固定靠左对齐。
+- `Menu`高度计算bugfix。
+
 `2016-09-02`
 
 - 修复并整理各弹出层类组件 z-index 顺序 https://github.com/ant-design/ant-design-mobile/commit/bb875c2a924f61cc03b8d013fd1a8f5ee8e22972

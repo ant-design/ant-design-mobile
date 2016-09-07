@@ -61,7 +61,7 @@ const MenuExample = React.createClass({
     Toast.info(`选中了 ${label}`);
   },
   render() {
-    return <Menu data={data} level={1} onChange={this.onChange} />;
+    return <Menu data={data} level={1} onChange={this.onChange} height={Math.round(document.documentElement.clientHeight / 3)} />;
   },
 });
 
