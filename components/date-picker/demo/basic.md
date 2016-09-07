@@ -23,6 +23,17 @@ const minTime = moment('00:30 +0800', 'HH:mm Z').utcOffset(8);
 const gmtNow = moment().utcOffset(0);
 
 let Test = React.createClass({
+  getInitialState() {
+    return {
+      date: moment(new Date('2015-06-17 14:24:36'), 'yyyy-MM-dd HH:mm').locale('zh-cn').utcOffset(8),
+    };
+  },
+  onChange(date) {
+    // console.log('onChange', date);
+    this.setState({
+      date,
+    });
+  },
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
@@ -30,7 +41,6 @@ let Test = React.createClass({
         <List.Header>选择时间</List.Header>
         <List.Body>
           <DatePicker
-            className="am-date-picker"
             mode="date"
             title="选择日期"
             extra="可选,小于结束日期"
@@ -47,17 +57,17 @@ let Test = React.createClass({
           </DatePicker>
           <DatePicker
             mode="time"
-            defaultDate={zhNow}
+            value={zhNow}
             {...getFieldProps('time')}
             minDate={minTime}
             maxDate={maxTime}
           >
             <List.Item arrow="horizontal">时间</List.Item>
           </DatePicker>
-          <DatePicker
+          <DatePicker className="forss"
             mode="datetime"
-            defaultDate={zhNow}
-            {...getFieldProps('datetime')}
+            onChange={this.onChange}
+            value={this.state.date}
           >
             <List.Item arrow="horizontal">日期+时间</List.Item>
           </DatePicker>
@@ -67,7 +77,7 @@ let Test = React.createClass({
             okText="Ok"
             dismissText="Cancel"
             locale={enUs}
-            defaultDate={gmtNow}
+            value={gmtNow}
             {...getFieldProps('customformat')}
           >
             <List.Item arrow="horizontal">time(en_US)</List.Item>

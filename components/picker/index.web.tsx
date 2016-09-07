@@ -47,7 +47,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
     const extraProps = {
       extra: this.getSel() || extra,
     };
-    const childEl = React.cloneElement(children, extraProps);
+    const childEl = React.cloneElement(children, children.type && children.type.name === 'ListItem' ? extraProps : {});
     const cascader = (
       <Cascader
         prefixCls={props.prefixCls}
