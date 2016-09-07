@@ -11,8 +11,6 @@ export function collect(nextProps, callback) {
   const promises = [pageDataPromise];
 
   const demos = nextProps.utils.get(nextProps.data, ['components', nextProps.params.component, 'demo']);
-  const listDemos = nextProps.utils.get(nextProps.data, ['components', 'list-view', 'demo']);
-  const drawerDemos = nextProps.utils.get(nextProps.data, ['components', 'drawer', 'demo']);
 
   if (demos) {
     promises.push(Promise.all(
@@ -27,36 +25,11 @@ export function collect(nextProps, callback) {
     ));
   }
 
-  promises.push(Promise.all(
-    Object.keys(listDemos).map((key) => {
-      if (typeof listDemos[key] === 'function') {
-        return listDemos[key]();
-      /* eslint-disable no-else-return */
-      } else {
-        return listDemos[key].web();
-      }
-    }))
-  );
-
-  promises.push(Promise.all(
-    Object.keys(drawerDemos).map((key) => {
-      if (typeof drawerDemos[key] === 'function') {
-        return drawerDemos[key]();
-      /* eslint-disable no-else-return */
-      } else {
-        return drawerDemos[key].web();
-      }
-    }))
-  );
-
-
   Promise.all(promises)
     .then((list) => callback(null, {
       ...nextProps,
       localizedPageData: list[0],
       demos: list[1],
-      listDemos: list[2],
-      drawerDemos: list[3],
     }));
 }
 
@@ -95,7 +68,7 @@ export default class Home extends React.Component {
 
   render() {
     const isPc = !/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent);
-    const { demos, listDemos, drawerDemos } = this.props;
+    const { demos } = this.props;
     const name = this.props.params.component;
 
     const demoSort = demos.sort((a, b) => (
@@ -125,6 +98,18 @@ export default class Home extends React.Component {
     });
 
     const whiteList = ['drawer', 'list-view'];
+    const drawerDemos = [
+      { order: 0, title: '基本' },
+      { order: 1, title: '嵌入文档模式' },
+    ];
+    const listDemos = [
+      { order: 0, title: '子容器' },
+      { order: 1, title: 'body 容器' },
+      { order: 2, title: '吸顶（body 容器）' },
+      { order: 3, title: 'IndexedList' },
+      { order: 4, title: 'IndexedList 吸顶' },
+    ];
+
     const sidebar = (<div>
       <div className="demo-drawer-home">
         <Link to="/">Ant Design Mobile</Link>
@@ -155,7 +140,7 @@ export default class Home extends React.Component {
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
-                              <Link to={`/${fileName}/#${fileName}-demo-${item1.meta.order}`}>{item1.meta.title}</Link>
+                              <Link to={`/${fileName}/#${fileName}-demo-${item1.order}`}>{item1.title}</Link>
                             </List.Item>
                           ))
                         }

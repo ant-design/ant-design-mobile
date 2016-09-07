@@ -49,7 +49,7 @@ let BasicInput = React.createClass({
             {...getFieldProps('input4')}
             clear
             placeholder="请输入密码"
-            format="password"
+            type="password"
           >密码</InputItem>
           <InputItem
             {...getFieldProps('input1', {
@@ -58,7 +58,7 @@ let BasicInput = React.createClass({
             clear
             error
             placeholder="校验样式"
-            format="password"
+            type="password"
           >密码</InputItem>
         </List.Body>
       </List>
