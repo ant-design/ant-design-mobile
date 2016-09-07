@@ -76,7 +76,7 @@ const App = React.createClass({
 ReactDOM.render(<App />, mountNode);
 ````
 
-<style>
+```css
 .demo {
   display: flex;
   flex-direction:column;
@@ -89,4 +89,4 @@ ReactDOM.render(<App />, mountNode);
 .am-refresh-control {
   flex:1;
 }
-</style>
+```
