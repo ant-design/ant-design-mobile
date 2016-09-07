@@ -25,7 +25,7 @@ const gmtNow = moment().utcOffset(0);
 let Test = React.createClass({
   getInitialState() {
     return {
-      date: moment(new Date('2015-06-17 14:24:36'), 'yyyy-MM-dd HH:mm').locale('zh-cn').utcOffset(8),
+      date: zhNow,
     };
   },
   onChange(date) {
@@ -57,8 +57,9 @@ let Test = React.createClass({
           </DatePicker>
           <DatePicker
             mode="time"
-            value={zhNow}
-            {...getFieldProps('time')}
+            {...getFieldProps('time', {
+              initialValue: zhNow,
+            })}
             minDate={minTime}
             maxDate={maxTime}
           >
@@ -77,8 +78,9 @@ let Test = React.createClass({
             okText="Ok"
             dismissText="Cancel"
             locale={enUs}
-            value={gmtNow}
-            {...getFieldProps('customformat')}
+            {...getFieldProps('customformat', {
+              initialValue: gmtNow,
+            })}
           >
             <List.Item arrow="horizontal">time(en_US)</List.Item>
           </DatePicker>
