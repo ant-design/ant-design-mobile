@@ -16,17 +16,6 @@ const App = React.createClass({
       items: null,
     };
   },
-  onPan(e) {
-    if (document.body.scrollTop > 5 && e.additionalEvent === 'pandown') {
-      return false;
-    }
-    return true;
-    // return new Promise((resolve, reject) => {
-    //   setTimeout(() => {
-    //     resolve();
-    //   }, 500);
-    // });
-  },
   loadingFunction() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -59,6 +48,9 @@ const App = React.createClass({
           paddingTop: 20,
           textAlign: 'center',
         }}
+        contentStyle={{
+          height: '100%',
+        }}
         hammerOptions={{
           touchAction: 'auto',
           recognizers: {
@@ -67,18 +59,15 @@ const App = React.createClass({
             },
           },
         }}
-        onPan={this.onPan}
       >
-        <div style={{ minHeight: 300 }}>
-          <List title="下拉刷新">
-            <List.Body>
-              {this.state.items}
-              <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>
-              <List.Item extra="down,箭头向下" arrow="down">标题文字</List.Item>
-              <List.Item extra="up,箭头向上" arrow="up">标题文字</List.Item>
-            </List.Body>
-          </List>
-        </div>
+        <List title="下拉刷新">
+          <List.Body>
+            {this.state.items}
+            <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>
+            <List.Item extra="down,箭头向下" arrow="down">标题文字</List.Item>
+            <List.Item extra="up,箭头向上" arrow="up">标题文字</List.Item>
+          </List.Body>
+        </List>
       </RefreshControl>
     );
   },
@@ -86,3 +75,18 @@ const App = React.createClass({
 
 ReactDOM.render(<App />, mountNode);
 ````
+
+<style>
+.demo {
+  display: flex;
+  flex-direction:column;
+}
+.demo-preview-item {
+  display: flex;
+  flex-direction:column;
+  flex: 1;
+}
+.am-refresh-control {
+  flex:1;
+}
+</style>

@@ -164,7 +164,7 @@ export default class Home extends React.Component {
       onOpenChange: this.onOpenChange,
     };
 
-    let drawerContent = (<div style={{ height: '100%' }}>
+    let drawerContent = (<div style={{ height: '100%' }} className="demo">
       <div className="demoName">
         {demoMeta.chinese}
         <p>{demoMeta.english}</p>
