@@ -16,7 +16,7 @@ import styles from './style';
 let {width, height} = Dimensions.get('window');
 
 export interface ViewPagerProps {
-  selectedIndex: number;
+  selectedIndex?: number;
   bounces?: boolean;
   children?: any;
   style?: any;
