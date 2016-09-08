@@ -124,7 +124,7 @@ const CarouselExample = React.createClass({
     }
 
     return (
-      <Carousel mode="banner" infinite={false}>
+      <Carousel>
         {carouselContent}
       </Carousel>
     );
