@@ -136,7 +136,7 @@ declare module 'react-hammerjs' {
   export default exports
 }
 
-declare module 'react-slick' {
+declare module 'nuka-carousel' {
   var exports: any
   export default exports
 }

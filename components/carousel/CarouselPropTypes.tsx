@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 interface CarouselProps {
-  mode?: 'banner' | 'card';
-  effect?: 'scrollx' | 'fade';
+  selectedIndex?: number;
   dots?: boolean;
   vertical?: boolean;
   autoplay?: boolean;
+  children?: any;
   easing?: string;
   infinite?: boolean;
   beforeChange?: (from: number, to: number) => void;

@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: 图片切换
 ---
 
@@ -14,16 +14,23 @@ const App = React.createClass({
       current: 1,
     };
   },
-  slideTo(index) {
-    this.setState({ current: index });
+
+  beforeSlide(from, to) {
+    console.log(`slide from ${from} to ${to}`);
   },
+
+  slideTo(index) {
+    console.log('slide to', index);
+  },
+
   render() {
     const settings = {
       dots: true,
       autoplay: true,
       infinite: true,
       mode: 'banner',
-      initialSlide: this.state.current,
+      slideIndex: this.state.current,
+      beforeChange: this.beforeSlide,
       afterChange: this.slideTo,
     };
     return (
@@ -51,14 +58,16 @@ ReactDOM.render(<App />, mountNode);
 .loading-example .title {
   margin-right: 0.2rem;
 }
-.pagination-container {
-  
+.slider {
+  background: #fff;
 }
 .item {
-  display: flex !important;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 3.6rem !important;
+}
+.item h3 {
   font-size: 34px;
   font-weight: 300;
 }
