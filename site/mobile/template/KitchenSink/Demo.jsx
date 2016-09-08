@@ -4,33 +4,29 @@ import Promise from 'bluebird';
 import { Link } from 'react-router';
 import { Drawer, List, Icon } from 'antd-mobile';
 
+const locale = (
+  window.localStorage &&
+  localStorage.getItem('locale') !== 'en-US'
+) ? 'zh-CN' : 'en-US';
+
 export function collect(nextProps, callback) {
-  const pageData = nextProps.pageData;
+  const pageData = nextProps.location.pathname === 'changelog' ?
+    nextProps.data.CHANGELOG : nextProps.pageData;
   const pageDataPromise = typeof pageData === 'function' ?
-          pageData() : pageData.index();
+    pageData() : (pageData[locale] || pageData.index[locale] || pageData.index)();
   const promises = [pageDataPromise];
-
   const demos = nextProps.utils.get(nextProps.data, ['components', nextProps.params.component, 'demo']);
-
   if (demos) {
-    promises.push(Promise.all(
-      Object.keys(demos).map((key) => {
-        if (typeof demos[key] === 'function') {
-          return demos[key]();
-        /* eslint-disable no-else-return */
-        } else {
-          return demos[key].web();
-        }
-      })
-    ));
+    promises.push(demos());
   }
-
   Promise.all(promises)
-    .then((list) => callback(null, {
-      ...nextProps,
-      localizedPageData: list[0],
-      demos: list[1],
-    }));
+    .then((list) => {
+      callback(null, {
+        ...nextProps,
+        localizedPageData: list[0],
+        demos: list[1],
+      });
+    });
 }
 
 export default class Home extends React.Component {
@@ -68,7 +64,13 @@ export default class Home extends React.Component {
 
   render() {
     const isPc = !/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent);
-    const { demos } = this.props;
+    const demos2 = this.props.demos;
+    const demos = [];
+
+    Object.keys(demos2).forEach((k) => {
+      demos.push(demos2[k]);
+    });
+
     const name = this.props.params.component;
 
     const demoSort = demos.sort((a, b) => (
@@ -88,7 +90,7 @@ export default class Home extends React.Component {
     });
 
     const componentList = lists['UI Views'].concat(lists['UI Bars'])
-    .concat(lists['UI Controls']).concat(lists.Other);
+      .concat(lists['UI Controls']).concat(lists.Other);
 
     let demoMeta;
     componentList.forEach((item) => {
@@ -171,24 +173,25 @@ export default class Home extends React.Component {
       </div>
       {
         demoSort.length > 1 &&
-          <div className="demoLinks">
-            <ul>
-              {
-                demoSort.map((item, index) => (
-                  <li key={index}>
-                    <a href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+        <div className="demoLinks">
+          <ul>
+            {
+              demoSort.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       }
       {
         demoSort.map((i, index) => (
-          <div className="demo-preview-item"id={`${name}-demo-${index}`} key={index}>
+          <div className="demo-preview-item" id={`${name}-demo-${index}`} key={index}>
             <div className="demoTitle">{i.meta.title}</div>
             {i.preview(React, ReactDOM)}
-            {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+            {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }}/> : null}
           </div>
         ))
       }
@@ -199,7 +202,7 @@ export default class Home extends React.Component {
       const i = demoSort[arr.length > 1 ? arr[1] : 0];
       drawerContent = (<div style={{ height: '100%' }}>
         {i.preview(React, ReactDOM)}
-        {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
+        {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }}/> : null}
       </div>);
       if (name === 'list-view') {
         drawerProps.className = 'spe-drawer';
@@ -215,12 +218,12 @@ export default class Home extends React.Component {
       <div id={name}>
         <div className="demo-drawer-trigger">
           <span onClick={this.onOpenChange} style={triggerActive ? { color: '#108ee9' } : {}}>
-            <Icon onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd} type="bars" />
+            <Icon onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd} type="bars"/>
           </span>
         </div>
         <div className="demo-drawer-container">
           <Drawer style={minHeightStyle}
-            sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}
+                  sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}
           >
             {drawerContent}
           </Drawer>

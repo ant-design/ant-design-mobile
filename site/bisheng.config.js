@@ -20,7 +20,12 @@ module.exports = {
     './docs',
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
-  lazyLoad: true,
+  lazyLoad(nodePath, nodeValue) {
+    if (typeof nodeValue === 'string') {
+      return true;
+    }
+    return nodePath.endsWith('/demo');
+  },
   pick: {
     components(markdownData) {
       const filename = markdownData.meta.filename;
