@@ -2,7 +2,6 @@ import * as React from 'react';
 import { PropTypes } from 'react';
 import PullToRefresh from 'rmc-pull-to-refresh';
 import Icon from '../icon';
-import splitObject from '../_util/splitObject';
 import tsPropsType from './PropsType';
 
 export default class RefreshControl extends React.Component<tsPropsType, any> {
@@ -28,17 +27,10 @@ export default class RefreshControl extends React.Component<tsPropsType, any> {
   };
 
   render() {
-    let [{prefixCls, children, icon, loading, scrollerOptions}, restProps] = splitObject(this.props,
-      ['prefixCls', 'children', 'icon', 'loading', 'scrollerOptions']);
-
     return (
       <PullToRefresh
-        {...restProps}
-        prefixCls={prefixCls}
-        icon={icon}
-        loading={loading}
-        scrollerOptions={scrollerOptions}
-      >{children}</PullToRefresh>
+        {...this.props}
+      />
     );
   }
 }
