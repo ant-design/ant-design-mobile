@@ -37,7 +37,7 @@ export default class RefreshControl extends React.Component<tsPropsType, any> {
         prefixCls={prefixCls}
         icon={icon}
         loading={loading}
-        scrollerOptions={scrollerOptions || {}}
+        scrollerOptions={scrollerOptions}
       >{children}</PullToRefresh>
     );
   }
