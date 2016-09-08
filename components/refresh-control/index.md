@@ -17,15 +17,12 @@ english: RefreshControl
 | 成员        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | children   | 内容      | any |    无  |
-| contentClassName | 内容容器className | String | - |
-| contentStyle | 内容容器style | object | - |
+| className | 容器className | String | - |
+| style | 容器style | object | - |
 | icon   | 刷新指示icon   | React element |  `...` |
 | loading   | 加载指示器   | React element |  anticon-loading |
-| distanceToRefresh   |   刷新距离    | number |    70  |
-| resistance   |   阻力系数   | number |    2.5  |
+| distanceToRefresh   |   刷新距离    | number |    50  |
 | loadingFunction   |   刷新回调函数   | function, required |  -  |
-| hammerOptions   |  参考 [react-hammerjs](https://github.com/JedWatson/react-hammerjs) ，用于配置 [Hammer manager](http://hammerjs.github.io/api/)，将被合并到默认配置中   | object |  -  |
-| onPan   | hammerjs onPan 事件   | function (return boolean/Promise) |  `() => { return true; }`  |
 
 ## API (ios/android)
 见此：https://facebook.github.io/react-native/docs/refreshcontrol.html#props

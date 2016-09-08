@@ -2,62 +2,48 @@
 .@{pull-to-refresh} {
   position: relative;
   overflow: hidden;
+  user-select: none;
 
   &-content {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    transform-origin: left top;
+    transform: translateZ(0);
   }
 
   &-ptr {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     color: grey;
-    z-index: 10;
     text-align: center;
-    height: 40px;
-
-    .@{pull-to-refresh}:not(.@{pull-to-refresh}-loading) & {
-      transform: translate3d(0, -40px, 0);
-    }
+    height: 50PX;
+    margin-top: -50PX;
+    overflow: hidden;
     &-icon {
-      transition: all .25s ease;
+      display: block;
     }
     &-loading {
       display: none;
     }
   }
   &-loading {
-    .@{pull-to-refresh}-ptr-loading {
-      display: block;
-    }
-    .@{pull-to-refresh}-content {
-      transform: translate3d(0, 40px, 0);
-    }
-  }
-  &-loading,
-  &-reset {
-    .@{pull-to-refresh}-ptr,
-    .@{pull-to-refresh}-content {
-      transition: all .25s ease;
-    }
-    .@{pull-to-refresh}-ptr-icon {
-      display: none;
+    .@{pull-to-refresh}-ptr {
+      &-icon {
+        display: none;
+      }
+      &-loading {
+        display: block;
+      }
     }
   }
 
   // custom
-  & .pull {
+  &-pull {
     display: block;
   }
-  & .release {
+  &-release {
     display: none;
   }
-  &&-refresh .pull {
+  &-active &-pull {
     display: none;
   }
-  &&-refresh .release {
+  &-active &-release {
     display: block;
   }
 }

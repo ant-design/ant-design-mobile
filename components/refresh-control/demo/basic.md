@@ -41,23 +41,10 @@ const App = React.createClass({
     return (
       <RefreshControl
         loadingFunction={this.loadingFunction}
-        distanceToRefresh={60}
         resistance={1}
+        className="am-refresh-control-demo1"
         style={{
-          position: 'relative',
-          paddingTop: 20,
           textAlign: 'center',
-        }}
-        contentStyle={{
-          height: '100%',
-        }}
-        hammerOptions={{
-          touchAction: 'auto',
-          recognizers: {
-            pan: {
-              threshold: 10,
-            },
-          },
         }}
       >
         <List title="下拉刷新">
@@ -78,15 +65,29 @@ ReactDOM.render(<App />, mountNode);
 
 ```css
 .demo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction:column;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+          flex-direction:column;
 }
 .demo-preview-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction:column;
-  flex: 1;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+          flex-direction:column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
-.am-refresh-control {
-  flex:1;
+.am-refresh-control-demo1 {
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
 }
 ```

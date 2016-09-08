@@ -172,26 +172,28 @@ export default class Home extends React.Component {
         <p>{demoMeta.english}</p>
       </div>
       {
-        demoSort.length > 1 &&
-        <div className="demoLinks">
+        demoSort.length > 1 && (<div className="demoLinks">
           <ul>
             {
               demoSort.map((item, index) => (
                 <li key={index}>
                   <a
-                    href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}>{item.meta.title}</a>
+                    href={`${window.location.protocol}//${window.location.host}/kitchen-sink/${name}/#${name}-demo-${index}`}
+                  >
+                    {item.meta.title}
+                  </a>
                 </li>
               ))
             }
           </ul>
-        </div>
+        </div>)
       }
       {
         demoSort.map((i, index) => (
           <div className="demo-preview-item" id={`${name}-demo-${index}`} key={index}>
             <div className="demoTitle">{i.meta.title}</div>
             {i.preview(React, ReactDOM)}
-            {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }}/> : null}
+            {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
           </div>
         ))
       }
@@ -202,7 +204,7 @@ export default class Home extends React.Component {
       const i = demoSort[arr.length > 1 ? arr[1] : 0];
       drawerContent = (<div style={{ height: '100%' }}>
         {i.preview(React, ReactDOM)}
-        {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }}/> : null}
+        {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
       </div>);
       if (name === 'list-view') {
         drawerProps.className = 'spe-drawer';
@@ -218,12 +220,15 @@ export default class Home extends React.Component {
       <div id={name}>
         <div className="demo-drawer-trigger">
           <span onClick={this.onOpenChange} style={triggerActive ? { color: '#108ee9' } : {}}>
-            <Icon onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd} type="bars"/>
+            <Icon onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd} type="bars" />
           </span>
         </div>
         <div className="demo-drawer-container">
-          <Drawer style={minHeightStyle}
-                  sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}
+          <Drawer
+            style={minHeightStyle}
+            sidebar={sidebar}
+            dragHandleStyle={{ display: 'none' }}
+            {...drawerProps}
           >
             {drawerContent}
           </Drawer>

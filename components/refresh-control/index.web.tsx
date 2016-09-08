@@ -11,25 +11,25 @@ export default class RefreshControl extends React.Component<tsPropsType, any> {
     children: PropTypes.any,
     icon: PropTypes.any,
     loading: PropTypes.any,
-    hammerOptions: PropTypes.object,
+    scrollerOptions: PropTypes.object,
   };
 
   static defaultProps = {
     prefixCls: 'am-refresh-control',
-    icon: <div>
-      <div className="pull">
-        <Icon type="arrow-down" /> 下拉
+    icon: <div style={{lineHeight: '50px'}}>
+      <div className="am-refresh-control-pull">
+        <Icon type="arrow-down"/> 下拉
       </div>
-      <div className="release">
-        <Icon type="arrow-up" /> 释放
+      <div className="am-refresh-control-release">
+        <Icon type="arrow-up"/> 释放
       </div>
     </div>,
-    loading: <Icon type="loading" />,
+    loading: <div style={{lineHeight: '50px'}}><Icon type="loading"/></div>,
   };
 
   render() {
-    let [{prefixCls, children, icon, loading, hammerOptions}, restProps] = splitObject(this.props,
-      ['prefixCls', 'children', 'icon', 'loading', 'hammerOptions']);
+    let [{prefixCls, children, icon, loading, scrollerOptions}, restProps] = splitObject(this.props,
+      ['prefixCls', 'children', 'icon', 'loading', 'scrollerOptions']);
 
     return (
       <PullToRefresh
@@ -37,7 +37,7 @@ export default class RefreshControl extends React.Component<tsPropsType, any> {
         prefixCls={prefixCls}
         icon={icon}
         loading={loading}
-        hammerOptions={hammerOptions || {}}
+        scrollerOptions={scrollerOptions || {}}
       >{children}</PullToRefresh>
     );
   }
