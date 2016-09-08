@@ -60,15 +60,6 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     if (props.vertical) {
       className = `${className} am-carousel-vertical`;
     }
-    if (props.mode === 'banner') {
-      className = `${className} am-carousel-banner`;
-    }
-    if (props.mode === 'card') {
-      className = `${className} am-carousel-card`;
-      props.slidesToShow = 1;
-      props.slidesToScroll = 'auto';
-      props.framePadding = '0 10px';
-    }
 
     return (
       <div className={className}>
