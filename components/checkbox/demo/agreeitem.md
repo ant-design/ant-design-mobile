@@ -24,7 +24,7 @@ let AgreeItemExample = React.createClass({
           valuePropName: 'checked',
         })}
       >
-        已阅读协议<a onClick={() => { alert('打开协议'); }}>《协议链接》</a>
+        已阅读协议<a onClick={(e) => { e.preventDefault(); alert('打开协议'); }}>《协议链接》</a>
       </AgreeItem>
     );
   },
