@@ -22,6 +22,7 @@ english: Popover
 | onVisibleChange(web)   | 当显隐状态变化时调用    | Function |  -   |
 | placement(web)   | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'} | String |  'bottomRight'   |
 | popupAlign(web)   | 用于设置偏移量等、会被合并到 placement 的设置中，可选值为 [dom-align](https://github.com/yiminghe/dom-align) 的`alignConfig`配置（ points 设置用 placement 代替）   | Object |  { overflow: { adjustY: 0, adjustX: 0 } } 禁掉位置自动适应 |
+| mask(web)   | 是否显示遮罩背景层    | Boolean |  false  |
 | overlay   | 弹出层内容    | React.node |  -   |
 | onSelect   | 选中的选项    | Function |  -   |
 | style  | menu 样式    | Object |  -   |
