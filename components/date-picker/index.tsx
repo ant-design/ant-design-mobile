@@ -17,6 +17,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     };
     const dataPicker = (
       <RCDatePicker
+        locale={props.locale}
         mode={props.mode}
         minDate={props.minDate}
         maxDate={props.maxDate}

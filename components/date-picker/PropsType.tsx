@@ -8,6 +8,7 @@ interface DatePickerProps {
   children?: any;
   minDate?: any;
   maxDate?: any;
+  locale?: any;
   /** rn only */
   triggerTypes?: string;
   /** web only */
