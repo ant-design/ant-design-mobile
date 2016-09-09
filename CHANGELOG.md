@@ -10,6 +10,10 @@ english: 更新日志
 - `Checkbox` 修复同意协议这种场景下，label中有协议无法触发`onClick`的bug。
 - `SearchBar` 优化动画效果。
 
+ps: 目前`listview` 和 `refresh-control` 不兼容，正在修复中
+
+### 0.8.2
+
 `2016-09-07`
 
 - 给`body`标签设置默认背景色，以及默认的`font-size`,`html`设置默认的`font-size`。
