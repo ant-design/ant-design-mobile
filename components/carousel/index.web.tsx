@@ -1,56 +1,74 @@
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = function matchMediaPolyfill(): any  {
-    return {
-      matches: false,
-      addListener() {
-      },
-      removeListener() {
-      },
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-}
-
 import * as React from 'react';
-import SlickCarousel from 'react-slick';
+import ReactCarousel from 'nuka-carousel';
 import assign from 'object-assign';
+import Pagination from '../pagination/index.web';
 import CarouselProps from './CarouselPropTypes';
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
     dots: true,
     arrows: false,
+    autoplay: false,
+    infinite: false,
+    edgeEasing: 'linear',
+    cellAlign: 'center',
+    selectedIndex: 0,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedIndex: this.props.selectedIndex,
+    };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(index) {
+    this.setState({selectedIndex: index});
+  }
+
+  renderDots() {
+    return (
+      <Pagination
+        mode="pointer"
+        current={this.state.selectedIndex}
+        total={this.props.children.length}
+      />
+    );
+  }
+
   render() {
+    const children = this.props.children;
+    if (!children) {
+      return null;
+    }
     let props = assign({}, this.props);
 
-    if (props.effect === 'fade') {
-      props.fade = true;
-      props.draggable = false;
+    if (props.infinite) {
+      props.wrapAround = true;
+    }
+
+    if (props.beforeChange) {
+      props.beforeSlide = props.beforeChange;
+    }
+
+    if (props.afterChange) {
+      props.afterSlide = props.afterChange;
     }
 
     let className = 'am-carousel';
     if (props.vertical) {
       className = `${className} am-carousel-vertical`;
     }
-    if (props.mode === 'banner') {
-      className = `${className} am-carousel-banner`;
-    }
-    if (props.mode === 'card') {
-      className = `${className} am-carousel-card center slider variable-width`;
-      props.centerMode = true;
-      props.infinite = true;
-      props.slidesToShow = 1;
-      props.slidesToScroll = 1;
-      props.variableWidth = true;
-    }
 
     return (
       <div className={className}>
-        <SlickCarousel {...props} />
+        <ReactCarousel
+          {...props}
+          decorators={[]}
+          afterSlide={this.onChange}
+        />
+        {props.dots && this.renderDots()}
       </div>
     );
   }

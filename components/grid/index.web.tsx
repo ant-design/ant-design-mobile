@@ -115,7 +115,7 @@ export default class Grid extends React.Component<GridProps, any> {
     return (
       <div
         className={wrapCls}
-      >{isCarousel && pageCount > 1 ? <Carousel mode="banner" infinite={false}>
+      >{isCarousel && pageCount > 1 ? <Carousel>
         {pageElArray}
       </Carousel> : lineElArray}
       </div>
