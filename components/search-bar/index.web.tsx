@@ -6,6 +6,8 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   static propTypes = propTypes;
   static defaultProps = defaultProps;
 
+  initialInputContainerWidth: number;
+
   constructor(props) {
     super(props);
     let value;
@@ -16,7 +18,10 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     } else {
       value = '';
     }
-    this.state = { value };
+    this.state = {
+      value,
+      focus: false,
+    };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,6 +29,16 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.setState({
         value: nextProps.value,
       });
+    }
+  }
+
+  componentDidMount() {
+    if ((/U3/i).test(navigator.userAgent)) {
+      this.initialInputContainerWidth = (this.refs as any).searchInputContainer.offsetWidth;
+      if (this.props.showCancelButton) {
+        (this.refs as any).searchInputContainer.style.width =
+          `${(this.refs as any).searchInputContainer.offsetWidth - 41 * (window.devicePixelRatio || 1)}px`;
+      }
     }
   }
 
@@ -40,12 +55,20 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     this.props.onChange(value);
   };
 
-  onCancel = () => {
-    if (this.props.onCancel) {
-      this.props.onCancel(this.state.value);
-    } else {
-      this.onClear();
-    }
+  onFocus = (e) => {
+    this.setState({
+      focus: true,
+    });
+
+    this.props.onFocus(e);
+  };
+
+  onBlur = (e) => {
+    this.setState({
+      focus: false,
+    });
+
+    this.props.onBlur(e);
   };
 
   onClear = () => {
@@ -57,48 +80,80 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     this.props.onChange('');
   };
 
+  onCancel = () => {
+    if (this.props.onCancel) {
+      this.props.onCancel(this.state.value);
+    } else {
+      this.onClear();
+    }
+    (this.refs as any).searchInput.blur();
+  };
+
   render() {
     const {
       prefixCls, showCancelButton, disabled, placeholder,
-      cancelText, className, onFocus, onBlur,
+      cancelText, className,
     } = this.props;
 
-    const { value } = this.state;
+    const { value, focus } = this.state;
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
+      [`${prefixCls}-start`]: showCancelButton || focus,
       [className]: className,
     });
 
-    const inputCls = classNames({
-      [`${prefixCls}-input`]: true,
-      [`${prefixCls}-start`]: value.length > 0,
+    let containerStyle = {};
+
+    if ((/U3/i).test(navigator.userAgent)) {
+      if (this.initialInputContainerWidth) {
+        if (showCancelButton || focus) {
+          containerStyle = {
+            width: `${this.initialInputContainerWidth - 41 * (window.devicePixelRatio || 1)}px`,
+          };
+        } else {
+          containerStyle = {
+            width: `${this.initialInputContainerWidth}px`,
+          };
+        }
+      }
+    }
+
+    const clearCls = classNames({
+      [`${prefixCls}-clear`]: true,
+      [`${prefixCls}-clear-show`]: focus && value.length > 0,
     });
 
-    let cancelStyle = value && value.length > 0 ? { display: 'block' } : { display: 'none' };
+    const cancelCls = classNames({
+      [`${prefixCls}-cancel`]: true,
+      [`${prefixCls}-all-cancel`]: showCancelButton,
+    });
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <div className={wrapCls}>
-          <div className={inputCls}>
-            <input type="search"
-              className={`${prefixCls}-value`}
-              value={value}
-              disabled={disabled}
-              placeholder={placeholder}
-              onChange={this.onChange}
-              onFocus={onFocus}
-              onBlur={onBlur}
-              ref="searchInput" />
-            <a onClick={this.onClear} className={`${prefixCls}-clear`} />
-          </div>
-          <div
-            className={`${prefixCls}-cancel`}
-            style={showCancelButton ? { display: 'block' } : cancelStyle}
-            onClick={this.onCancel}
-          >
-            {cancelText}
-          </div>
+      <form onSubmit={this.onSubmit} className={wrapCls}>
+        <div
+          ref="searchInputContainer"
+          className={`${prefixCls}-input`}
+          style={containerStyle}
+        >
+          <input
+            type="search"
+            className={`${prefixCls}-value`}
+            value={value}
+            disabled={disabled}
+            placeholder={placeholder}
+            onChange={this.onChange}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+            ref="searchInput"
+          />
+          <a onClick={this.onClear} className={clearCls} />
+        </div>
+        <div
+          className={cancelCls}
+          onClick={this.onCancel}
+        >
+          {cancelText}
         </div>
       </form>
     );
