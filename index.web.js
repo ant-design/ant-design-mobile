@@ -5,14 +5,14 @@ function camelCase(name) {
     name.slice(1).replace(/-(\w)/g, (m, n) => n.toUpperCase());
 }
 
-const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.web\.tsx?$/);
+var req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.web\.tsx?$/);
 
 req.keys().forEach((mod) => {
-  let v = req(mod);
+  var v = req(mod);
   if (v && v.default) {
     v = v.default;
   }
-  const match = mod.match(/^\.\/([^_][\w-]+)\/index\.web\.tsx?$/);
+  var match = mod.match(/^\.\/([^_][\w-]+)\/index\.web\.tsx?$/);
   if (match && match[1]) {
     exports[camelCase(match[1])] = v;
   }
@@ -20,6 +20,6 @@ req.keys().forEach((mod) => {
 
 
 if (typeof console !== 'undefined' && console.warn) {
-  console.warn(`you are using prebuild antm,
+  console.warn(`you are using prebuild antd-mobile,
 please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
 }
