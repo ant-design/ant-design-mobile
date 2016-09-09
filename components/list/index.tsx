@@ -6,7 +6,19 @@ import Item from './ListItem';
 import Header from './ListHeader';
 import Footer from './ListFooter';
 
-import ListProps from './ListPropTypes';
+import { ListProps } from './ListPropTypes';
+import ReactElement = __React.ReactElement;
+
+function isBodyHeaderFooter(children) {
+  let isOld;
+  React.Children.forEach(children, (c) => {
+    const type = c && (c as ReactElement<any>).type;
+    if (type === Header || type === Footer || type === Body) {
+      isOld = true;
+    }
+  });
+  return isOld;
+}
 
 export default class List extends React.Component<ListProps, any> {
   static Header: any;
@@ -18,7 +30,7 @@ export default class List extends React.Component<ListProps, any> {
     let { children, style, title, footer } = this.props;
     return (<View {...this.props} style={[style]}>
       {title ? <Header>{title}</Header> : null}
-      {children}
+      {isBodyHeaderFooter(children) ? children :<Body>{children}</Body>}
       {footer ? <Footer>{footer}</Footer> : null}
     </View>);
   }

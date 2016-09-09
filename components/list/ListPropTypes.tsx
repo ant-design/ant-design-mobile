@@ -11,4 +11,10 @@ export interface ListProps {
   children?: any;
 }
 
-export default ListProps;
+export interface ListBodyProps {
+  error?: boolean;
+  style?: React.CSSProperties;
+  children?: any;
+  prefixCls?: string;
+  className?: string;
+}

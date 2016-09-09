@@ -1,14 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-
-export interface ListBodyProps {
-  /** web only */
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
-  children?: any;
-}
+import { ListBodyProps } from './ListPropTypes';
 
 export default class ListBody extends React.Component<ListBodyProps, any> {
   static defaultProps = {
