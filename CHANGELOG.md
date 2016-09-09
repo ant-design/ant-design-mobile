@@ -9,6 +9,7 @@ english: 更新日志
 
 - `Checkbox` 修复同意协议这种场景下，label中有协议无法触发`onClick`的bug。
 - `SearchBar` 优化动画效果。
+- `Carousel` 修改为基于`nuka-carousel`。原有`card`模式不再提供，需自行定制。
 
 ps: 目前`listview` 和 `refresh-control` 不兼容，正在修复中
 
