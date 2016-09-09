@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Icon, Drawer, List, Flex } from 'antd-mobile';
-import 'antd-mobile/components/style';
 import Page from './Page';
 import Item from './Item';
 
