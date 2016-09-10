@@ -93,6 +93,12 @@ module.exports = {
       module: require('../components/date-picker/demo/popup'),
     },
     {
+      title: 'Grid',
+      description: '九宫格',
+      icon: 'https://os.alipayobjects.com/rmsportal/QbGTlZewFSvHlSS.png',
+      module: require('../components/grid/demo/basic'),
+    },
+    {
       title: 'ImagePicker',
       description: '图片选择',
       icon: 'https://os.alipayobjects.com/rmsportal/CVHyVxhFqkhZfYs.png',
