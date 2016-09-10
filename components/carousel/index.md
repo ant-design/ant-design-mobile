@@ -27,6 +27,6 @@ english: Carousel
 | infinite | 是否循环播放 | Boolean   | false |
 | easing (`web only`) | 动画效果 | String   | linear |
 | beforeChange  (`web only`)     | 切换面板的回调                              | function(from, to) | 无
-| afterChange   (`web only`)     | 切换面板的回调                              | function(current)  | 无
+| afterChange      | 切换面板的回调                              | function(current)  | 无
 
 更多参数可参考：https://github.com/FormidableLabs/nuka-carousel

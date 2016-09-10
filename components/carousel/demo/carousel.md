@@ -11,7 +11,7 @@ import { WhiteSpace, WingBlank, Carousel } from 'antd-mobile';
 const App = React.createClass({
   getInitialState() {
     return {
-      current: 1,
+      current: 2,
     };
   },
 
@@ -29,7 +29,7 @@ const App = React.createClass({
       autoplay: true,
       infinite: true,
       mode: 'banner',
-      slideIndex: this.state.current,
+      selectedIndex: this.state.current,
       beforeChange: this.beforeSlide,
       afterChange: this.slideTo,
     };
