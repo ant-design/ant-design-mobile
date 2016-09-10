@@ -32,7 +32,7 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
   getDefaultProps() {
     return {
       bounces: true,
-      infinite: true,
+      infinite: false,
       dots: true,
       autoplay: false,
       autoplayTimeout: 2.5,

@@ -117,14 +117,18 @@ export default class Pagination extends React.Component<PaginationProps, any> {
             <View style={[styles.pointStyle, styles.spaceStyle, activeStyle]} key={`point-${index}`}></View>
           );
         });
-        markup = (<View style={[styles.indicatorStyle]}>{pointer}</View>);
+        markup = (
+          <View style={[styles.indicatorStyle]}>
+            {pointer}
+          </View>
+        );
         break;
       default:
         markup = false;
         break;
     }
     return (
-      <View style={[style]}>
+      <View style={[styles.container, style]}>
         {markup}
       </View>
     );
