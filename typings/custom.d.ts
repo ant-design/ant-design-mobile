@@ -12,6 +12,7 @@ declare module 'antd-mobile' {
     Popup: any;
     Popover: any;
     Flex: any;
+    Grid: any;
     ImagePicker: any;
     InputItem: any;
     List: any;
