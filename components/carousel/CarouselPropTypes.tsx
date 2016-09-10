@@ -5,9 +5,10 @@ interface CarouselProps {
   dots?: boolean;
   vertical?: boolean;
   autoplay?: boolean;
-  children?: any;
-  easing?: string;
   infinite?: boolean;
+  children?: any;
+  /** web only */
+  easing?: string;
   beforeChange?: (from: number, to: number) => void;
   afterChange?: (current: number) => void;
   style?: React.CSSProperties;

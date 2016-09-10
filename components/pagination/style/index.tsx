@@ -27,6 +27,6 @@ export default StyleSheet.create({
     backgroundColor: '#888',
   },
   spaceStyle: {
-    marginRight: variables.h_spacing_sm,
+    marginHorizonal: variables.h_spacing_sm,
   },
 });

@@ -8,8 +8,6 @@ import {
   ViewPagerAndroid,
   Platform,
   Dimensions,
-  ViewStyle,
-  ActivityIndicator,
 } from 'react-native';
 import styles from './style';
 
@@ -26,8 +24,6 @@ export interface ViewPagerProps {
   infinite?: boolean;
   onScrollBeginDrag?: Function;
   onMomentumScrollEnd?: Function;
-  loadMinimal?: boolean;
-  loadMinimalSize?: number;
 }
 
 const ViewPager = React.createClass<ViewPagerProps, any>({
@@ -38,8 +34,6 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
       bounces: true,
       infinite: true,
       dots: true,
-      loadMinimal: false,
-      loadMinimalSize: 1,
       autoplay: false,
       autoplayTimeout: 2.5,
       selectedIndex: 0,
@@ -48,10 +42,6 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
 
   componentWillMount() {
     this.state = this.initState(this.props);
-
-    this.onScrollEnd = this.onScrollEnd.bind(this);
-    this.onScrollBegin = this.onScrollBegin.bind(this);
-    this.onScrollEndDrag = this.onScrollEndDrag.bind(this);
   },
 
   componentDidMount() {
@@ -183,6 +173,10 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
       offset,
       loopJump: loopJump,
     });
+    const {afterChange} = this.props;
+    if (afterChange) {
+      afterChange(selectedIndex);
+    }
   },
 
   scrollNextPage() {
@@ -270,20 +264,11 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
     let state = this.state;
     let props = this.props;
     let children = props.children;
-    let selectedIndex = state.selectedIndex;
     let count = state.count;
     let infinite = props.infinite;
-    let loopVal = infinite ? 1 : 0;
-
     let pages: any = [];
 
     let pageStyle = [{width: state.width, height: state.height}, styles.slide];
-    let pageStyleLoading = {
-      width: this.state.width,
-      height: this.state.height,
-      justifyContent: 'center',
-      alignItems: 'center',
-    } as ViewStyle;
 
     if (!children) {
       return (
@@ -300,19 +285,8 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
         pages.unshift(count - 1 + '');
         pages.push('0');
       }
-
       pages = pages.map((page, i) => {
-        if (props.loadMinimal) {
-          if (i >= (selectedIndex + loopVal - props.loadMinimalSize)
-            && i <= (selectedIndex + loopVal + props.loadMinimalSize)
-          ) {
-            return (<View style={pageStyle} key={i}>{children[page]}</View>);
-          } else {
-            return (<View style={pageStyleLoading} key={`loading-${i}`}><ActivityIndicator /></View>);
-          }
-        } else {
-          return (<View style={pageStyle} key={i}>{children[page]}</View>);
-        }
+        return (<View style={pageStyle} key={i}>{children[page]}</View>);
       });
     } else {
       pages = (<View style={pageStyle}>{children}</View>);

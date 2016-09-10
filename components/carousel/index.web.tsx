@@ -48,6 +48,10 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       props.wrapAround = true;
     }
 
+    if (props.selectedIndex) {
+      props.slideIndex = props.selectedIndex;
+    }
+
     if (props.beforeChange) {
       props.beforeSlide = props.beforeChange;
     }

@@ -1,34 +1,40 @@
 import * as React from 'react';
-import { StyleSheet, Image, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { Carousel } from 'antd-mobile';
 
 export default class BasicCarouselExample extends React.Component<any, any> {
+  onselectedIndexChange(index) {
+    /* tslint:disable: no-console */
+    console.log('change to', index);
+  }
+
   render() {
     return (
       <View>
         <Carousel
           style={styles.wrapper}
           autoplayTimeout={2}
-          selectedIndex={1}
+          selectedIndex={2}
           autoplay={true}
           infinite={true}
-          height={240}
+          height={160}
           loop={true}
+          afterChange={this.onselectedIndexChange}
         >
-          <View style={styles.slide}>
-            <Image style={styles.image} source={{uri: 'https://zos.alipayobjects.com/rmsportal/JKLbnnQSjYXnfUq.jpg'}} />
+          <View style={styles.container}>
+            <Text>Carousel 1</Text>
           </View>
-          <View style={styles.slide}>
-            <Image style={styles.image} source={{uri: 'https://zos.alipayobjects.com/rmsportal/IHnTTMjYUgthhoW.jpg'}} />
+          <View style={styles.container}>
+            <Text>Carousel 2</Text>
           </View>
-          <View style={styles.slide}>
-            <Image style={styles.image} source={{uri: 'https://zos.alipayobjects.com/rmsportal/ccvTCqmTFessEyC.jpg'}} />
+          <View style={styles.container}>
+            <Text>Carousel 3</Text>
           </View>
-          <View style={styles.slide}>
-            <Image style={styles.image} source={{uri: 'https://zos.alipayobjects.com/rmsportal/SndhMCpKtliuiDR.jpg'}} />
+          <View style={styles.container}>
+            <Text>Carousel 4</Text>
           </View>
-          <View style={styles.slide}>
-            <Image style={styles.image} source={{uri: 'https://zos.alipayobjects.com/rmsportal/IDTtiHCFYvnGJjl.jpg'}} />
+          <View style={styles.container}>
+            <Text>Carousel 5</Text>
           </View>
         </Carousel>
       </View>
@@ -38,35 +44,19 @@ export default class BasicCarouselExample extends React.Component<any, any> {
 
 const styles = StyleSheet.create({
   wrapper: {
-    height: 200,
-  },
+    backgroundColor: '#fff',
+  } as ViewStyle,
   slide: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
   } as ViewStyle,
-  slide1: {
+  container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#9DD6EB',
-  } as ViewStyle,
-  slide2: {
-    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#97CAE5',
-  } as ViewStyle,
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#92BBD9',
   } as ViewStyle,
   text: {
     color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 34,
   } as ViewStyle,
   image: {
     flex: 1,

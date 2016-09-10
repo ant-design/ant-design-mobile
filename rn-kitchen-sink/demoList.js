@@ -76,7 +76,7 @@ module.exports = {
     },
     {
       title: 'Carousel', // 必须
-      description: '跑马灯',
+      description: '走马灯',
       icon: 'https://os.alipayobjects.com/rmsportal/ifHkrPIiJFcMNzT.png',
       module: require('../components/carousel/demo/basic'), // 必须
     },
