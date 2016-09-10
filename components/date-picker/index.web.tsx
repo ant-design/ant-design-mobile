@@ -8,13 +8,12 @@ import tsPropsType from './PropsType';
 
 function getDefaultProps() {
   return assign({
-    prefixCls: 'am-date-picker',
-    pickerPrefixCls: 'am-date-picker-col',
-    popupPrefixCls: 'am-date-picker-popup',
+    prefixCls: 'am-picker',
+    pickerPrefixCls: 'am-picker-col',
+    popupPrefixCls: 'am-picker-popup',
   }, getProps());
 }
 
-// api changed by chengyu(yiminghe)
 export default class DatePicker extends React.Component<tsPropsType, any> {
   static defaultProps = getDefaultProps();
 
@@ -41,7 +40,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         {...props}
         prefixCls={props.popupPrefixCls}
         WrapComponent="div"
-        popupTransitionName="am-slide-up"
+        transitionName="am-slide-up"
         maskTransitionName="am-fade"
         date={value || defaultDate}
       >

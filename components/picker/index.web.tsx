@@ -60,7 +60,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
       <PopupCascader
         cascader={cascader}
         WrapComponent="div"
-        popupTransitionName="am-slide-up"
+        transitionName="am-slide-up"
         maskTransitionName="am-fade"
         {...this.props}
         prefixCls={popupPrefixCls}
