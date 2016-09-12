@@ -68,7 +68,7 @@ ReactDOM.render(<App />, mountNode);
   height: 3.6rem !important;
 }
 .item h3 {
-  font-size: 34px;
+  font-size: 0.36rem;
   font-weight: 300;
 }
 ````
