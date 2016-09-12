@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   text: {
     color: '#fff',
-    fontSize: 34,
+    fontSize: 36,
   } as ViewStyle,
   image: {
     flex: 1,
