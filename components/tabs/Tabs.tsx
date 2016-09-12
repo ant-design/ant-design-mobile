@@ -64,22 +64,12 @@ class Tabs extends React.Component<TabsProps, any> {
     const {
       tabBarPosition, underlineColor, activeUnderlineColor, textColor, activeTextColor, styles,
     } = this.props;
-    // TODO PR: react-native-scrollable-tab-view@0.6.0 support underlineStyle
-    // remove DefaultTabBar underlineHeight & underlineColor props
-    // use borderColor
-    const barStyle = tabBarPosition === 'top' ? [styles.barTop, {
-      borderBottomColor: underlineColor,
-    }] : [styles.barBottom, {
-      borderTopColor: underlineColor,
-      borderBottomColor: 'transparent',
-    }];
+    const barStyle = tabBarPosition === 'top' ? styles.barTop : styles.barBottom;
     return (
       <DefaultTabBar
-        underlineHeight={2}
-        underlineColor={activeUnderlineColor}
         activeTextColor={activeTextColor}
         inactiveTextColor={textColor}
-        style={barStyle}
+        style={[barStyle, { borderColor: underlineColor } ]}
         textStyle={[styles.text]}
         tabStyle={[styles.tab]}
         underlineStyle={[styles.underline, {

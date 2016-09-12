@@ -51,7 +51,7 @@
     "react-native-camera-roll-picker": "~1.1.6",
     "react-native-drawer-layout": "~1.0.0",
     "react-native-menu": "~0.20.1",
-    "react-native-scrollable-tab-view": "^0.5.3",
+    "react-native-scrollable-tab-view": "^0.6.0",
     "nuka-carousel": "~2.0.3",
     "react-timer-mixin": "~0.13.3",
     "rmc-cascader": "3.0.x",
