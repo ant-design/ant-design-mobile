@@ -80,19 +80,17 @@
     }
   }
 
+  &-inline {
+    width: auto;
+    padding: 0 @h-spacing-lg;
+  }
+
   &-small {
     font-size: @button-font-size-sm;
     height: @button-height-sm;
     line-height: @button-height-sm;
     .border-radius(@radius-md);
-  }
-
-  &-inline {
-    width: auto;
-    padding: 0 @h-spacing-lg;
-    &.@{buttonPrefixCls}-small {
-      padding: 0 @h-spacing-sm;
-    }
+    padding: 0 @h-spacing-sm;
   }
 
   &-warning {

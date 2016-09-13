@@ -60,7 +60,7 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
-      [`${prefixCls}-small`]: size === 'small' && inline,
+      [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,

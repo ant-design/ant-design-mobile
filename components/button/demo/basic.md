@@ -45,7 +45,7 @@ const ButtonExample = React.createClass({
         </div>
 
         <div style={{ margin: '32px 0' }}>
-          <p className="demo-p">inline / small (inline 状态下才有小按钮)</p>
+          <p className="demo-p">inline / small</p>
           <div style={{ height: 8 }} />
           <Button inline>default inline</Button>&nbsp;
           <Button inline size="small">default inline small</Button>
