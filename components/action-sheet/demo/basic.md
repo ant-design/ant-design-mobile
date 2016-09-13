@@ -38,10 +38,11 @@ const Test = React.createClass({
     { iconName: 'ellipsis', title: '更多' },
   ],
   showShareActionSheet() {
-    const icons = this.icons;
+    const icons = [...this.icons];
+    icons.length = 4;
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
-      title: '标题',
+      // title: '标题',
       message: '我是描述我是描述',
     },
     (buttonIndex) => {
@@ -57,7 +58,7 @@ const Test = React.createClass({
     const icons = [[...this.icons], [...this.icons]];
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
-      title: '标题',
+      // title: '标题',
       message: '我是描述我是描述',
     },
     (buttonIndex, rowIndex) => {
