@@ -9,6 +9,8 @@ export default function touchableFeedBack(ComposedComponent) {
     onTouchStart?: Function;
     onTouchEnd?: Function;
     onTouchCancel?: Function;
+    onMouseDown?: Function;
+    onMouseUp?: Function;
   }, any>({
     getInitialState() {
       return {
@@ -43,6 +45,20 @@ export default function touchableFeedBack(ComposedComponent) {
       this.setTouchFeedbackState(false);
     },
 
+    onMouseDown(e) {
+      if (this.props.onMouseDown) {
+        this.props.onMouseDown(e);
+      }
+      this.setTouchFeedbackState(true);
+    },
+
+    onMouseUp(e) {
+      if (this.props.onMouseUp) {
+        this.props.onMouseUp(e);
+      }
+      this.setTouchFeedbackState(false);
+    },
+
     render() {
       return <ComposedComponent
         {...this.props}
@@ -50,6 +66,8 @@ export default function touchableFeedBack(ComposedComponent) {
         onTouchStart={this.onTouchStart}
         onTouchEnd={this.onTouchEnd}
         onTouchCancel={this.onTouchCancel}
+        onMouseDown={this.onMouseDown}
+        onMouseUp={this.onMouseUp}
       />;
     },
   });
