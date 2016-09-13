@@ -1,9 +1,9 @@
 ---
 order: 0
-title: Dropdown 效果
+title: 向下弹出效果
 ---
 
-Popup Dropdown 效果
+Popup 向下弹出效果
 
 ````jsx
 import { Popup, List, Button, Menu } from 'antd-mobile';
@@ -43,9 +43,11 @@ const Test = React.createClass({
         <List.Body>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+            onClick={() => { this.onClose('cancel'); }}
           >东吴证券 (5728）</List.Item>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+            onClick={() => { this.onClose('cancel'); }}
           >东吴证券 (5728）</List.Item>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
@@ -53,11 +55,8 @@ const Test = React.createClass({
             onClick={() => { this.onClose('opt 1'); }}
           >更多</List.Item>
         </List.Body>
-        <List.Footer onClick={() => { this.onClose('cancel'); }}>
-          取消
-        </List.Footer>
       </List>
-    , { maskClosable: false });
+    );
   },
   onClose(sel) {
     if (sel === 'opt 1') {

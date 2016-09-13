@@ -16,7 +16,15 @@ const Test = React.createClass({
   },
   onClick() {
     Popup.show(<div>
-      <List title="委托买入">
+      <List title={
+        <div style={{ position: 'relative' }}>
+          委托买入
+          <span style={{
+            position: 'absolute', right: 3, top: -5, fontSize: '1.4em',
+          }} onClick={() => this.onClose('cancel')}
+          >x</span>
+        </div>
+      }>
         <List.Body>
           <List.Item>股票名称</List.Item>
           <List.Item>股票代码</List.Item>
@@ -26,10 +34,11 @@ const Test = React.createClass({
       </List>
       <ul style={{ padding: 10 }}>
         <li>投资说明投资说明...</li>
-        <li>交易金额以实际成交为准</li>
+        <li style={{ marginTop: 10 }}>
+          <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>
+        </li>
       </ul>
-      <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>
-    </div>, { maskClosable: false, animationType: 'slide-up' });
+    </div>, { animationType: 'slide-up' });
   },
   onClose(sel) {
     this.setState({ sel });
