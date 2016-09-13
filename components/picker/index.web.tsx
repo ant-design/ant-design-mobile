@@ -43,7 +43,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
 
   render() {
     const {props} = this;
-    const {children, value, okText, dismissText, title, extra, popupPrefixCls} = props;
+    const {children, value, extra, okText, dismissText, popupPrefixCls} = props;
     const extraProps = {
       extra: this.getSel() || extra,
     };
@@ -63,10 +63,9 @@ export default class Picker extends React.Component<tsPropsType, any> {
         WrapComponent="div"
         transitionName="am-slide-up"
         maskTransitionName="am-fade"
-        {...this.props}
+        {...props}
         prefixCls={popupPrefixCls}
         value={value}
-        title={title}
         dismissText={<span className={`${popupPrefixCls}-header-cancel-button`}>{dismissText}</span>}
         okText={<span className={`${popupPrefixCls}-header-ok-button`}>{okText}</span>}
       >

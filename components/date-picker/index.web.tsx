@@ -19,7 +19,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
 
   render() {
     const { props } = this;
-    const { children, extra, value, defaultDate } = props;
+    const { children, value, defaultDate, extra, okText, dismissText, popupPrefixCls } = props;
     const extraProps = {
       extra: value ? formatFn(this, value) : extra,
     };
@@ -37,12 +37,14 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     return (
       <PopupDatePicker
         datePicker={dataPicker}
-        {...props}
-        prefixCls={props.popupPrefixCls}
         WrapComponent="div"
         transitionName="am-slide-up"
         maskTransitionName="am-fade"
+        {...props}
+        prefixCls={popupPrefixCls}
         date={value || defaultDate}
+        dismissText={<span className={`${popupPrefixCls}-header-cancel-button`}>{dismissText}</span>}
+        okText={<span className={`${popupPrefixCls}-header-ok-button`}>{okText}</span>}
       >
         {React.cloneElement(children,
           children.type && children.type.myName === 'ListItem' ? extraProps : {})}
