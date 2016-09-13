@@ -43,6 +43,9 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     align: 'middle',
   };
 
+  // 给其他组件对其设置 extra 使用
+  static myName = 'ListItem';
+
   constructor(props) {
     super(props);
     this.state = {

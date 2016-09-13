@@ -44,7 +44,8 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         maskTransitionName="am-fade"
         date={value || defaultDate}
       >
-        {React.cloneElement(children, children.type && children.type.name === 'ListItem' ? extraProps : {})}
+        {React.cloneElement(children,
+          children.type && children.type.myName === 'ListItem' ? extraProps : {})}
       </PopupDatePicker>
     );
   }
