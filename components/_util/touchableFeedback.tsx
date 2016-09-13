@@ -4,6 +4,8 @@
  */
 import * as React from 'react';
 
+const touchSupported = typeof window !== 'undefined' && 'ontouchstart' in window;
+
 export default function touchableFeedBack(ComposedComponent) {
   const TouchableFeedbackComponent = React.createClass<{
     onTouchStart?: Function;
@@ -46,28 +48,32 @@ export default function touchableFeedBack(ComposedComponent) {
     },
 
     onMouseDown(e) {
-      if (this.props.onMouseDown) {
-        this.props.onMouseDown(e);
+      if (this.props.onTouchStart) {
+        this.props.onTouchStart(e);
       }
       this.setTouchFeedbackState(true);
     },
 
     onMouseUp(e) {
-      if (this.props.onMouseUp) {
-        this.props.onMouseUp(e);
+      if (this.props.onTouchEnd) {
+        this.props.onTouchEnd(e);
       }
       this.setTouchFeedbackState(false);
     },
 
     render() {
+      const events = touchSupported ? {
+        onTouchStart: this.onTouchStart,
+        onTouchEnd: this.onTouchEnd,
+        onTouchCancel: this.onTouchCancel,
+      } : {
+        onMouseDown: this.onMouseDown,
+        onMouseUp: this.onMouseUp,
+      };
       return <ComposedComponent
         {...this.props}
         touchFeedback={this.state.touchFeedback}
-        onTouchStart={this.onTouchStart}
-        onTouchEnd={this.onTouchEnd}
-        onTouchCancel={this.onTouchCancel}
-        onMouseDown={this.onMouseDown}
-        onMouseUp={this.onMouseUp}
+        {...events}
       />;
     },
   });
