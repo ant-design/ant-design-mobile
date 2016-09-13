@@ -26,13 +26,13 @@ const App = React.createClass({
         {[...Array(20).keys()].map((i, index) => {
           if (index === 0) {
             return (<List.Item key={index}
-              thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
+              thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
               multipleLine
-            >分类 - {index}</List.Item>);
+            >分类</List.Item>);
           }
           return (<List.Item key={index}
-            thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
-          >分类 - {index}</List.Item>);
+            thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
+          >分类{index}</List.Item>);
         })}
       </List.Body>
     </List>);
@@ -46,9 +46,9 @@ const App = React.createClass({
       <NavBar iconName="ellipsis" onLeftClick={() => this.onDock('docked')}>嵌入文档</NavBar>
       <div className="drawer-container">
         <Drawer sidebar={sidebar}
-          sidebarStyle={{ border: '1px solid #ddd' }}
-          contentStyle={{ marginLeft: 5 }}
           dragHandleStyle={{ display: 'none' }}
+          sidebarStyle={{ border: '1px solid #ddd' }}
+          contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
           {...drawerProps}
         >
           请点击左上角

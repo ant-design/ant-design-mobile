@@ -26,7 +26,7 @@ export default class DrawerExample extends React.Component<any, any> {
           {Array.apply(null, Array(20)).map(function (_, i) {return i;}).map((i, index) => {
             if (index === 0) {
               return (<List.Item key={index}
-                thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
+                thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
                 multipleLine
               >
                 <View style={{
@@ -40,7 +40,7 @@ export default class DrawerExample extends React.Component<any, any> {
               </List.Item>);
             }
             return (<List.Item key={index}
-              thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
+              thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
             ><Text>分类 - {index}</Text></List.Item>);
           })}
         </List.Body>
