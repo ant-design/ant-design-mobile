@@ -13,22 +13,22 @@ const ImagePickerExample = React.createClass({
   getInitialState() {
     return {
       files: [{
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2121',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2122',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2123',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2124',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2125',
       }, {
-        url: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png',
         id: '2126',
       }],
       files2: [],
@@ -38,8 +38,10 @@ const ImagePickerExample = React.createClass({
     return (
       <div>
         <ImagePicker
-          onChange={(files) => {
+          onChange={(files, type, index) => {
             console.log(files);
+            console.log(type);
+            console.log(index);
             this.setState({
               files,
             });
@@ -48,8 +50,10 @@ const ImagePickerExample = React.createClass({
         />
         <WhiteSpace />
         <ImagePicker
-          onChange={(files2) => {
+          onChange={(files2, type, index) => {
             console.log(files2);
+            console.log(type);
+            console.log(index);
             this.setState({
               files2,
             });

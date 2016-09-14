@@ -7,8 +7,10 @@ title: IndexedList
 
 
 ````jsx
+/* eslint no-mixed-operators: 0 */
 import province from 'site/data/province';
 import { ListView, List } from 'antd-mobile';
+
 const { Item } = List;
 
 const Demo = React.createClass({
@@ -51,10 +53,13 @@ const Demo = React.createClass({
           renderFooter={() => <span>尾部内容请自定义</span>}
           renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
           renderRow={(rowData) => (<Item>{rowData}</Item>)}
-          style={{ height: 800, overflow: 'auto' }}
+          style={{
+            height: document.body.clientHeight * 3 / 4,
+            overflow: 'auto',
+          }}
           quickSearchBarStyle={{
             position: 'absolute',
-            top: 20, right: 10,
+            top: 20,
           }}
           delayTime={10}
           delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}

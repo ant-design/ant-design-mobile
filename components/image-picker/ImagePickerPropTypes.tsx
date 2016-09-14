@@ -1,7 +1,7 @@
 interface ImagePickerPropTypes {
   style?: {};
   files?: Array<{}>;
-  onChange?: (files: Array<{}>) => void;
+  onChange?: (files: Array<{}>, operationType: string, index?: number) => void;
   /* react-native only */
   styles?: any;
   /* web only */

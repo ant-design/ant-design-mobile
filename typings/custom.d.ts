@@ -5,12 +5,14 @@ declare module 'antd-mobile' {
     Badge: any;
     Button: any;
     Card: any;
+    Carousel: any;
     Checkbox: any;
     DatePicker: any;
     Drawer: any;
     Popup: any;
     Popover: any;
     Flex: any;
+    Grid: any;
     ImagePicker: any;
     InputItem: any;
     List: any;
@@ -21,6 +23,7 @@ declare module 'antd-mobile' {
     Picker: any;
     Progress: any;
     RefreshControl: any;
+    Radio: any;
     SegmentedControl: any;
     SearchBar: any;
     Slider: any;
@@ -50,7 +53,7 @@ declare module 'rmc-list-view' {
   export default exports
 }
 
-declare module 'rc-collapse'{
+declare module 'rc-collapse' {
   var exports: any
   export const Panel: any;
   export default exports
@@ -134,12 +137,33 @@ declare module 'react-hammerjs' {
   export default exports
 }
 
-declare module 'react-slick' {
+declare module 'nuka-carousel' {
   var exports: any
   export default exports
 }
 
 declare module 'rc-tabs' {
+  var exports: any
+  export default exports
+  export var TabPane: any;
+}
+
+declare module 'rc-tabs/lib/SwipeableTabContent' {
+  var exports: any
+  export default exports
+}
+
+declare module 'rc-tabs/lib/TabContent' {
+  var exports: any
+  export default exports
+}
+
+declare module 'rc-tabs/lib/InkTabBar' {
+  var exports: any
+  export default exports
+}
+
+declare module 'rc-tabs/lib/TabBar' {
   var exports: any
   export default exports
 }
@@ -151,8 +175,8 @@ declare module 'rc-table' {
 
 declare module 'rn-topview' {
   var exports: {
-    set:(element: any) => void;
-    remove:() => any;
+    set: (element: any) => void;
+    remove: () => any;
   }
   export default exports
 }
@@ -167,7 +191,12 @@ declare module 'react-native-camera-roll-picker' {
   export default exports
 }
 
-declare module 'react-timer-mixin'{
+declare module 'react-mixin' {
+  var exports: any
+  export default exports
+}
+
+declare module 'react-timer-mixin' {
   var exports: any
   export default exports
 }

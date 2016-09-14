@@ -1,5 +1,20 @@
 .@{modalPrefixClass} {
   position: relative;
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: @modalZIndex;
+    background-color: @fill-overlay-inverse;
+    &-hidden {
+      display: none;
+    }
+  }
+
   &-wrap {
     position: fixed;
     overflow: auto;
@@ -8,7 +23,7 @@
     bottom: 0;
     left: 0;
     height: 100%;
-    z-index: 1050;
+    z-index: @modalZIndex;
     -webkit-overflow-scrolling: touch;
     outline: 0;
     .display-box();

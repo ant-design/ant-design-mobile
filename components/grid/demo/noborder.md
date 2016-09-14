@@ -6,7 +6,7 @@ title: 没有边线
 ````jsx
 import { Grid } from 'antd-mobile';
 
-let data2 = [
+const data2 = [
   {
     icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
     text: '名字',
@@ -50,12 +50,13 @@ let data2 = [
   },
 ];
 
-let GridExample = React.createClass({
+const GridExample = React.createClass({
   render() {
     return (<div>
       <Grid
         data={data2}
         hasLine={false}
+        columnNum={3}
       />
     </div>);
   },

@@ -27,6 +27,5 @@ english: Stepper
 | onChange     | 变化回调       | Function      |            |
 | disabled     | 禁用       | Boolean      |      false      |
 | readOnly     | input 只读       | Boolean      |      true      |
-| size    | 步进器大小，可取small，large  | String      |      small      |
 | showNumber(web only)    | 是否显示数值，默认不显示  | Boolean      |      false      |
 | styles(react native only)    | react native 组件样式  | ReactNative StyleSheet      |            |

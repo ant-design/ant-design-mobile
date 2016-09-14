@@ -6,62 +6,37 @@ export default class BasicPaginationExample extends React.Component<any, any> {
   render() {
     return (
       <View>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Pagination
             mode="button"
-            size="large"
             total={5}
             simple={false} />
         </WingBlank>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Pagination
             mode="button"
-            size="large"
             total={5}
             simple />
         </WingBlank>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
-          <Pagination
-            mode="button"
-            size="small"
-            total={5}
-            simple={false} />
-        </WingBlank>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
-          <Pagination
-            mode="button"
-            size="small"
-            total={5}
-            simple />
-        </WingBlank>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Pagination
             mode="number"
             total={5}
-            size="large"
+            current={2}
           />
         </WingBlank>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Pagination
-            mode="point"
+            mode="pointer"
             total={5}
-            size="large"
+            current={2}
           />
         </WingBlank>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
-          <Pagination
-            mode="point"
-            total={5}
-            size="small"
-          />
-        </WingBlank>
+        <WhiteSpace size="lg" />
       </View>
     );
   }

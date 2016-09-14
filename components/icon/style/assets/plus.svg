@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>System Icons Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="System-Icons" transform="translate(-432.000000, -61.000000)">
+            <g id="titlebar_launch-more" transform="translate(432.000000, 61.000000)">
+                <rect id="bg" fill-opacity="0" fill="#00AAEE" x="0" y="0" width="44" height="44"></rect>
+                <g id="icon" transform="translate(4.000000, 4.000000)" fill="#4A4A4A">
+                    <rect id="Rectangle-433" x="0" y="16" width="36" height="4" rx="0.701754386"></rect>
+                    <rect id="Rectangle-433-Copy-3" x="16" y="0" width="4" height="36" rx="0.701754386"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

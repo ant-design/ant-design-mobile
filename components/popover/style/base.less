@@ -3,9 +3,22 @@
 // Base class
 .@{popoverPrefixCls} {
   position: absolute;
-  z-index: 1070;
+  z-index: @popoverZIndex;
   &-hidden {
     display: none;
+  }
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: @fill-mask;
+    height: 100%;
+    z-index: @popupZIndex;
+    &-hidden {
+      display: none;
+    }
   }
 }
 
@@ -20,6 +33,7 @@
   border-right: 0;
   background-color: @fill-base;
   transform: rotate(45deg);
+  z-index: 0;
 }
 
 .@{popoverPrefixCls} {

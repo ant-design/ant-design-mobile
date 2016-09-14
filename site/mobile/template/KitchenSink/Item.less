@@ -34,19 +34,22 @@
 }
 
 .demo-drawer-trigger {
-  height: 64px;
+  height: 88px;
   background-color: #fbfbfb;
   border-bottom: 1px solid #d9d9d9;
   span {
-    padding: 32px;
-    line-height: 64px;
+    font-size: 32px;
+    margin-left: 32px;
+    line-height: 88px;
     color: #999;
+  }
+  span:active {
+    color: #108ee9;
   }
 }
 .demo-drawer-container {
   position: relative;
-  /*min-height: 1000px;*/
-  background-color: #fff;
+  background-color: #fbfbfb;
   flex: 1;
   .am-drawer-sidebar {
     max-width: 520px;
@@ -55,7 +58,7 @@
   }
   .am-drawer-sidebar .am-list {
     padding: 0;
-    width: 400px;
+    width: 450px;
     .am-list-item .am-list-line .am-list-content a{
       font-size: 28px;
       color: #404040;
@@ -75,7 +78,7 @@
 }
 .demoName {
   font-size: 72px;
-  color: #2DB7F5;
+  color: #108ee9;
   padding: 48px 0;
   text-align: center;
   p {
@@ -84,12 +87,15 @@
   }
 }
 .demoLinks {
-  margin: 0 32px;
-  padding: 16px;
-  border-left: 4px solid #2DB7F5;
-  font-size: 32px;
+  margin: 0 32px 86px;
+  padding: 0 16px;
+  border-left: 4px solid #108ee9;
+  font-size: 28px;
   li {
-    padding: 4px 0;
+    padding: 0 0 18px 0;
+    &:last-child {
+      padding: 0;
+    }
   }
   a {
     color: #404040;
@@ -98,6 +104,7 @@
 }
 .demoTitle {
   padding: 16px 32px;
+  color: #404040;
   position: relative;
   &:before, &:after {
     content: '';
@@ -108,14 +115,23 @@
     right: auto;
     height: 0;
     width: 100%;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1Px solid #d9d9d9;
     display: block;
-    z-index: 15;
-    transform: scaleY(0.5);  
   }
   &:after {
     top: auto;
     bottom: 0;
   }
 }
+.demo-chinese {
+  font-size: 24px;
+  color: #888;
+}
+.demo-current {
+  color: #108ee9;
+  .demo-chinese {
+    color: #108ee9; 
+  }
+}
+
 

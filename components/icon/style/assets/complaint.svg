@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Operation Icons  Copy 15</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Float-Icons-" transform="translate(-1260.000000, -60.000000)">
+            <g id="complaint" transform="translate(1259.197531, 59.000000)">
+                <rect id="bg" fill="#0DB789" opacity="0" x="0" y="0" width="44" height="44"></rect>
+                <g id="Group-9" transform="translate(1.933333, 4.005178)">
+                    <path d="M19.3797689,1.62325747 C19.9334872,0.669126989 20.8329852,0.672130931 21.3849602,1.62325747 L39.5974043,33.0057273 C40.1511226,33.9598578 39.6987586,34.7333333 38.5948086,34.7333333 L2.16992046,34.7333333 C1.06248385,34.7333333 0.615349773,33.9568538 1.16732478,33.0057273 L19.3797689,1.62325747 Z" id="Triangle-2" stroke="#4A4A4A" stroke-width="3"></path>
+                    <path d="M20.6,21.2666667 C21.7045695,21.2666667 22.6,14.3149317 22.6,13.2303947 C22.6,12.1458577 21.7045695,11.2666667 20.6,11.2666667 C19.4954305,11.2666667 18.6,12.1458577 18.6,13.2303947 C18.6,14.3149317 19.4954305,21.2666667 20.6,21.2666667 Z" id="Oval-31" fill="#4A4A4A"></path>
+                    <ellipse id="Oval-32" fill="#4A4A4A" cx="20.6" cy="26.4666667" rx="2" ry="2"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -12,17 +12,17 @@ const NoticeBarExample = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <NoticeBar type="info">国庆期间余额宝收益和转出到账时间</NoticeBar>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <NoticeBar type="warn">国庆期间余额宝收益和转出到账时间</NoticeBar>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <NoticeBar mode="closable" type="success">国庆期间余额宝收益和转出到账时间</NoticeBar>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <NoticeBar type="error">国庆期间余额宝收益和转出到账时间</NoticeBar>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <NoticeBar mode="link" type="question">国庆期间余额宝收益和转出到账时间</NoticeBar>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

@@ -23,4 +23,4 @@ orientation值代表图片方向,请参考http://stackoverflow.com/questions/758
 | 成员        | 说明           | 类型      |     可选值    | 默认值       |
 |------------|----------------|--------------------|--------------|
 | files    | 图片文件数组,元素为对象,包含属性url（必选）,可能还有id, orientation,以及业务需要的其它属性     | Array |  | []  |
-| onChange    | files值发生变化触发的回调        | Function(files) | |    |
+| onChange    | files值发生变化触发的回调, operationType操作类型有添加（add）,移除（remove）,如果是移除操作,则第三个参数代表的是移除图片的索引  | Function(files, operationType, index) | |    |

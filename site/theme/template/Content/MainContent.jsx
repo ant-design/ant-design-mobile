@@ -7,6 +7,7 @@ import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 import config from '../../';
+
 const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
@@ -64,7 +65,7 @@ export default class MainContent extends React.Component {
       <Link to={url} disabled={disabled}>
         {text}
       </Link> :
-      <a href={item.link} target="_blank" disabled={disabled}>
+      <a href={item.link} rel="noopener noreferrer" target="_blank" disabled={disabled}>
         {text}
       </a>;
 
@@ -96,9 +97,22 @@ export default class MainContent extends React.Component {
     return [...topLevel, ...itemGroups];
   }
 
+  getModuleData() {
+    const props = this.props;
+    const pathname = props.location.pathname;
+    const moduleName = /^components/.test(pathname) ?
+            'components' : pathname.split('/').slice(0, 2).join('/');
+    return moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
+      [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
+      props.picked[moduleName];
+  }
+
   getMenuItems() {
-    const moduleData = this.props.moduleData;
-    const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
+    // const moduleData = this.props.moduleData;
+    // const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
+    const moduleData = this.getModuleData();
+    const menuItems = utils.getMenuItems(moduleData);
+
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
       .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
@@ -144,18 +158,21 @@ export default class MainContent extends React.Component {
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
-    const locale = this.context.intl.locale;
-    const moduleData = this.props.moduleData;
-    const localizedPageData = moduleData.filter((page) =>
-      page.meta.filename.toLowerCase().startsWith(props.location.pathname)
-    )[0];
+    // const locale = this.context.intl.locale;
+    // const moduleData = this.props.moduleData;
+    // const localizedPageData = moduleData.filter((page) =>
+    //   page.meta.filename.toLowerCase().startsWith(props.location.pathname)
+    // )[0];
+
+    const moduleData = this.getModuleData();
+    const localizedPageData = props.localizedPageData;
 
     return (
       <div className="main-wrapper">
         <Row>
           <Col lg={5} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
-              openKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
+              openKeys={Object.keys(utils.getMenuItems(moduleData))}
               selectedKeys={[activeMenuItem]}
             >
               {menuItems}
@@ -163,9 +180,11 @@ export default class MainContent extends React.Component {
           </Col>
           <Col lg={19} md={18} sm={24} xs={24} className="main-container">
             {
-              props.utils.get(props, 'pageData.demo') ?
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
+              props.utils.get(props, 'pageData.demo') ? (
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
+              ) : (
                 <Article {...props} content={localizedPageData} />
+              )
             }
           </Col>
         </Row>
@@ -176,14 +195,14 @@ export default class MainContent extends React.Component {
           >
             <section className="prev-next-nav">
               {
-                !!prev ?
-                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
-                  null
+                prev ?
+                React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                null
               }
               {
-                !!next ?
-                  React.cloneElement(next.props.children, { className: 'next-page' }) :
-                  null
+                next ?
+                React.cloneElement(next.props.children, { className: 'next-page' }) :
+                null
               }
             </section>
           </Col>

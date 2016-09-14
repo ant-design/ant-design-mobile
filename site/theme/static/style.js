@@ -17,3 +17,4 @@ import './colors.less';
 import './mock-browser.less';
 import './new-version-info-modal.less';
 import './motion.less';
+import './nprogress.less';

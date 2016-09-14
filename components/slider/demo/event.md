@@ -14,23 +14,19 @@ function log(value) {
   console.log(value);
 }
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace size={32} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Slider defaultValue={30} onChange={log} />
         </WingBlank>
-        <WhiteSpace size={32} />
-        <WingBlank size={20}>
-          <Slider range step={10} defaultValue={[20, 50]} onChange={log} />
-        </WingBlank>
-        <WhiteSpace size={32} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Slider defaultValue={30} onAfterChange={log} />
         </WingBlank>
-        <WhiteSpace size={32} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

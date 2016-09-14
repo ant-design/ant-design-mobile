@@ -5,7 +5,7 @@ import WhiteSpaceProps from './WhiteSpacePropsType';
 export default class WhiteSpace extends React.Component<WhiteSpaceProps, any> {
   static defaultProps = {
     prefixCls: 'am-whitespace',
-    size: 8,
+    size: 'md',
   };
 
   render() {
@@ -13,8 +13,8 @@ export default class WhiteSpace extends React.Component<WhiteSpaceProps, any> {
 
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
+      [`${prefixCls}-${size}`]: true,
       [className]: !!className,
-      [`${prefixCls}-ws${size}`]: true,
     });
 
     return (

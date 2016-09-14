@@ -2,7 +2,7 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import Link from './Link';
 import Banner from './Banner';
-import Page1 from './Page1';
+// import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
 
@@ -94,10 +94,14 @@ export default class Home extends React.Component {
         border-bottom: 2Px solid #fff;
       }
       .home-nav-white #nav li.ant-menu-item-selected a {
-        color: #2db7f5;
+        color: #108ee9;
       }
       .home-nav-white .ant-menu-horizontal > .ant-menu-item-selected, .home-nav-white .ant-menu-horizontal > .ant-menu-item:hover {
-        border-bottom: 2Px solid #2db7f5;
+        border-bottom: 2Px solid #108ee9;
+      }
+      .text-wrapper .ant-btn-primary {
+        background-color: #108ee9;
+        border-color: #108ee9;
       }
     `;
   }
@@ -108,7 +112,10 @@ export default class Home extends React.Component {
         <div className="main-wrapper">
           <Link />
           <Banner />
+          {/*
+          设计基础先隐藏
           <Page1 />
+          */}
           <Page2 />
           <Page3 />
           <style dangerouslySetInnerHTML={{ __html: this.getStyle() }} />

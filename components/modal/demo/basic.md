@@ -25,9 +25,9 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
         <WingBlank>
-          <Button type="primary" onClick={this.showModal}>
+          <Button type="ghost" onClick={this.showModal}>
             显示对话框
           </Button>
           <Modal animated transparent={false} visible={this.state.visible} >
@@ -38,7 +38,7 @@ const App = React.createClass({
             <Button type="primary" inline onClick={this.onClose}>close modal</Button>
           </Modal>
         </WingBlank>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

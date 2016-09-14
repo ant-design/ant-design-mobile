@@ -6,7 +6,8 @@ title: body 容器
 使用 html 的 `body` 作为滚动容器
 
 ````jsx
-import { ListView, Toast } from 'antd-mobile';
+/* eslint no-dupe-keys: 0 */
+import { ListView } from 'antd-mobile';
 
 const data = [
   {
@@ -39,7 +40,7 @@ const Demo = React.createClass({
     this.genData = (pIndex = 0) => {
       const dataBlob = {};
       for (let i = 0; i < NUM_ROWS; i++) {
-        const ii = pIndex * NUM_ROWS + i;
+        const ii = (pIndex * NUM_ROWS) + i;
         dataBlob[`${ii}`] = `row - ${ii}`;
       }
       return dataBlob;
@@ -54,7 +55,6 @@ const Demo = React.createClass({
   onEndReached(event) {
     // load new data
     console.log('reach end', event);
-    Toast.info('加载新数据');
     this.setState({ isLoading: true });
     setTimeout(() => {
       this.rData = { ...this.rData, ...this.genData(++pageIndex) };
@@ -72,7 +72,7 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }}></div>
+      }} />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -91,9 +91,9 @@ const Demo = React.createClass({
             marginBottom: 8,
             borderBottom: '1px solid #F6F6F6',
           }}>{obj.title}</h3>
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: '-webkit-box', display: 'flex' }}>
             <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
-            <div>
+            <div style={{ display: 'inline-block' }}>
               <p>{obj.des}</p>
               <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
             </div>

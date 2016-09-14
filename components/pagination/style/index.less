@@ -6,7 +6,7 @@
   &-wrap {
     font-size: @font-size-display-sm;
     color: @color-text-base;
-    background: @fill-base;
+    background: none;
     text-align: center;
 
     .active {
@@ -22,21 +22,13 @@
         display: block;
         width: 16px;
         height: 16px;
-        margin: 8px 24px;
+        margin-right: @h-spacing-sm;
         border-radius: 50%;
         background: @input-color-icon;
       }
       &-active {
         > span {
           background: #888;
-        }
-      }
-    }
-    &-sm {
-      font-size: @button-font-size-sm;
-      .@{paginationPrefixCls}-wrap-dot {
-        > span {
-          margin: 8px 4px;
         }
       }
     }

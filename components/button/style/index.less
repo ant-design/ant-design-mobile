@@ -15,8 +15,7 @@
   height: @button-height;
   line-height: @button-height;
   border: 0 none;
-  .border-radius(@radius-sm);
-  // 在 伪元素上放大再缩小，达到 1px border 效果
+  .border-radius(@radius-md);
   &:after {
     position: absolute;
     left: 0;
@@ -24,7 +23,7 @@
     width: 200%;
     height: 200%;
     content: " ";
-    .border-radius(@radius-sm * 2);
+    .border-radius(@radius-md * 2);
     -webkit-transform: scale(.5);
     transform: scale(.5);
     -webkit-transform-origin: 0 0;
@@ -38,7 +37,8 @@
   &:after {
     border: @border-width-sm solid @border-color-base;
   }
-  &:active {
+  // &:active, // uc browser not work normal
+  &&-touchFeedback {
     background-color: @fill-tap;
   }
 
@@ -48,7 +48,8 @@
     &:after {
       border: @border-width-sm solid @brand-primary;
     }
-    &:active {
+    // &:active, // uc browser not work normal
+    &.@{buttonPrefixCls}-touchFeedback {
       background-color: @brand-primary-tap;
     }
   }
@@ -59,7 +60,8 @@
     &:after {
       border: @border-width-md solid @tabs-color;
     }
-    &:active {
+    // &:active, // uc browser not work normal
+    &.@{buttonPrefixCls}-touchFeedback {
       color: @color-text-base-inverse;
       background-color: @brand-primary-tap;
       &:after {
@@ -78,15 +80,16 @@
     }
   }
 
+  &-inline {
+    width: auto;
+    padding: 0 @h-spacing-lg;
+  }
+
   &-small {
     font-size: @button-font-size-sm;
     height: @button-height-sm;
     line-height: @button-height-sm;
-    .border-radius(@radius-xs);
-  }
-
-  &-inline {
-    width: auto;
+    .border-radius(@radius-md);
     padding: 0 @h-spacing-sm;
   }
 
@@ -96,7 +99,8 @@
     &:after {
       border: @border-width-sm solid #f88b88;
     }
-    &:active {
+    // &:active, // uc browser not work normal
+    &.@{buttonPrefixCls}-touchFeedback {
       background-color: #fdcccb;
     }
   }

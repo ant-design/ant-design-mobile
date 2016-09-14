@@ -8,30 +8,23 @@ title: 点状型
 ````jsx
 import { Pagination, WhiteSpace, WingBlank } from 'antd-mobile';
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div>
         <div className="pagination-container" >
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <WingBlank>
             <p className="title">点状</p>
-            <Pagination
-              mode="pointer"
-              size="large"
-              total={5}
-              activeIndex={1}
-            />
+            <div style={{ marginBottom: '32px' }}>
+              <Pagination
+                mode="pointer"
+                total={5}
+                current={2}
+              />
+            </div>
           </WingBlank>
-          <WhiteSpace size={20} />
-          <WingBlank>
-            <Pagination
-              mode="pointer"
-              size="small"
-              total={5}
-              activeIndex={2}
-            />
-          </WingBlank>
+          <WhiteSpace size="lg" />
         </div>
       </div>
     );

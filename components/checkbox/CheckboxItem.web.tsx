@@ -23,11 +23,14 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
       [className]: className,
     });
 
+    const onClickProps = disabled ? {} : { onClick: () => {} };
+
     return (<ListItem
       prefixCls={listPrefixCls}
       style={style}
       className={wrapCls}
       extra={extra}
+      {...onClickProps}
       thumb={<Checkbox
         prefixCls={prefixCls}
         defaultChecked={defaultChecked}

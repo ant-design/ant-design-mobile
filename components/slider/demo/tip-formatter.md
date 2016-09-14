@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title: 自定义提示
 ---
 
@@ -14,21 +14,21 @@ function formatter(value) {
   return `${value}%`;
 }
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div className="am-slider-example">
-        <WhiteSpace size={32} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <p className="title">格式化Tooltip</p>
           <Slider tipFormatter={formatter} />
         </WingBlank>
-        <WhiteSpace size={32} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <p className="title">隐藏Tooltip</p>
           <Slider tipFormatter={null} />
         </WingBlank>
-        <WhiteSpace size={32} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

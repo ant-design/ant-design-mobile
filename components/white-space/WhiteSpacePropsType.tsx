@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface WhiteSpaceProps {
-  size?: number;
+  size?: 'xs'|'sm'|'md'|'lg'|'xl';
   onClick?: () => void;
   /** web only */
   prefixCls?: string;

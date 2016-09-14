@@ -17,16 +17,19 @@ export default class AgreeItem extends React.Component<AgreeItemProps, any> {
 
     return (<div
       className={wrapCls}
-      style={style}>
-      {<Checkbox
-        prefixCls={prefixCls}
-        defaultChecked={defaultChecked}
-        checked={checked}
-        name={name}
-        onChange={onChange}
-        disabled={disabled}
-      />}
-      <label className={`${prefixCls}-agree-label`} htmlFor={name}>{children}</label>
+      style={style}
+    >
+      <label className={`${prefixCls}-agree-label`} htmlFor={name}>
+        <Checkbox
+          prefixCls={prefixCls}
+          defaultChecked={defaultChecked}
+          checked={checked}
+          name={name}
+          onChange={onChange}
+          disabled={disabled}
+        />
+        {children}
+      </label>
     </div>);
   }
 }

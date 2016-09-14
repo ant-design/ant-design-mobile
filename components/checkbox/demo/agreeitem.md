@@ -3,13 +3,12 @@ order: 1
 title: 协议复选框
 ---
 
-Checkbox.AgreeItem
-
-[rc-form API](https://github.com/react-component/form)
+Checkbox.AgreeItem ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
 import { Checkbox } from 'antd-mobile';
 import { createForm } from 'rc-form';
+
 const AgreeItem = Checkbox.AgreeItem;
 
 let AgreeItemExample = React.createClass({
@@ -25,7 +24,7 @@ let AgreeItemExample = React.createClass({
           valuePropName: 'checked',
         })}
       >
-        已阅读协议<a>《协议链接》</a>
+        已阅读协议<a onClick={(e) => { e.preventDefault(); alert('打开协议'); }}>《协议链接》</a>
       </AgreeItem>
     );
   },

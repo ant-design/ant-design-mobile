@@ -5,8 +5,9 @@ import TabsProps from './TabsProps';
 
 class Tabs extends React.Component<TabsProps, any> {
   static defaultProps = {
-    tabPosition: 'top',
-    animation: true,
+    tabBarPosition: 'top',
+    animated: true,
+    swipeable: true,
     onChange() {},
     onTabClick() {},
     underlineColor: '#ddd',
@@ -61,31 +62,27 @@ class Tabs extends React.Component<TabsProps, any> {
 
   renderTabBar = (props) => {
     const {
-      tabPosition, underlineColor, activeUnderlineColor, textColor, activeTextColor, styles,
+      tabBarPosition, underlineColor, activeUnderlineColor, textColor, activeTextColor, styles,
     } = this.props;
-    const barStyle = tabPosition === 'top' ? [styles.barTop, {
-      borderBottomColor: underlineColor,
-    }] : [styles.barBottom, {
-      borderTopColor: underlineColor,
-      borderBottomColor: 'transparent',
-    }];
-    // TODO PR: react-native-scrollable-tab-view support underlineStyle
+    const barStyle = tabBarPosition === 'top' ? styles.barTop : styles.barBottom;
     return (
       <DefaultTabBar
-        underlineHeight={2}
-        underlineColor={activeUnderlineColor}
         activeTextColor={activeTextColor}
         inactiveTextColor={textColor}
-        style={barStyle}
+        style={[barStyle, { borderColor: underlineColor } ]}
         textStyle={[styles.text]}
         tabStyle={[styles.tab]}
+        underlineStyle={[styles.underline, {
+          bottom: tabBarPosition === 'top' ? 0 : null,
+          backgroundColor: activeUnderlineColor,
+        }]}
       />
     );
   }
 
   render() {
     const {
-      tabPosition, defaultActiveKey, activeKey, animation, children,
+      tabBarPosition, defaultActiveKey, activeKey, animated, children, swipeable,
     } = this.props;
 
     let defaultActiveIndex = 0;
@@ -103,10 +100,11 @@ class Tabs extends React.Component<TabsProps, any> {
 
     return (
       <ScrollableTabView
-        tabBarPosition={tabPosition}
-        scrollWithoutAnimation={!animation}
+        tabBarPosition={tabBarPosition}
+        scrollWithoutAnimation={!animated}
         initialPage={defaultActiveIndex}
         page={activeIndex}
+        locked={swipeable}
         renderTabBar={this.renderTabBar}
         onChangeTab={this.onTabClick}
       >

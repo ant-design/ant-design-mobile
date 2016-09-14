@@ -7,18 +7,19 @@ title: 无动画
 
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
+
 const TabPane = Tabs.TabPane;
 
 function callback(key) {
   console.log(key);
 }
 
-let TabExample = React.createClass({
+const TabExample = React.createClass({
   render() {
     return (
       <div>
         <WhiteSpace />
-        <Tabs defaultActiveKey="1" animation={false} onChange={callback}>
+        <Tabs defaultActiveKey="1" animated={false} onChange={callback}>
           <TabPane tab="选项卡一" key="1">
             <div style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', height: 100,

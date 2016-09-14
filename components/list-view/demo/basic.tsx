@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text, TouchableHighlight, Image } from 'react-native';
-import { ListView, Toast } from 'antd-mobile';
+import { ListView } from 'antd-mobile';
 
 const data = [
   {
@@ -66,7 +66,6 @@ export default  React.createClass({
   },
   onEndReached(event) {
     // load new data
-    Toast.info('加载新数据');
     this.setState({ isLoading: true });
     setTimeout(() => {
       this._genData(++pageIndex);
@@ -133,15 +132,21 @@ export default  React.createClass({
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderHeader={() => <Text>header</Text>}
-        renderFooter={() => <Text>footer</Text>}
-        renderSectionHeader={(sectionData) => <Text style={[{ padding: 8, color: 'blue' }]}>
+        renderHeader={() => <Text style={[{ padding: 30 }]}>列表头</Text>}
+        renderFooter={() => <Text style={[{ padding: 30, textAlign: 'center' }]}>
+          {this.state.isLoading ? '加载中...' : '加载完毕'}
+        </Text>}
+        renderSectionHeader={(sectionData) => <Text style={[{
+          padding: 10, color: 'blue',
+          backgroundColor: 'rgba(150, 150, 150, 0.6)',
+        }]}>
             {`任务 ${sectionData.split(' ')[1]}`}
           </Text>}
         renderRow={row}
         renderSeparator={separator}
         pageSize={4}
         onEndReached={this.onEndReached}
+        onEndReachedThreshold={10}
       />
     );
   },

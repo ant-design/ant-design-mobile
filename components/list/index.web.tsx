@@ -4,16 +4,19 @@ import Body from './ListBody';
 import Footer from './ListFooter';
 import Item from './ListItem';
 import classNames from 'classnames';
+import { ListProps } from './ListPropTypes';
+import ReactElement = __React.ReactElement;
 
-export interface ListProps {
-  /** web only */
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
-  title?: React.ReactNode;
-  footer?: React.ReactNode;
-  children?: any;
+// compact
+function isBodyHeaderFooter(children) {
+  let isOld;
+  React.Children.forEach(children, (c) => {
+    const type = c && (c as ReactElement<any>).type;
+    if (type === Header || type === Footer || type === Body) {
+      isOld = true;
+    }
+  });
+  return isOld;
 }
 
 class List extends React.Component<ListProps, any> {
@@ -27,7 +30,7 @@ class List extends React.Component<ListProps, any> {
   };
 
   render() {
-    let { prefixCls, children, className, style, title, footer } = this.props;
+    let {prefixCls, children, className, style, title, footer} = this.props;
     const wrapCls = classNames({
       [prefixCls]: true,
       [className]: className,
@@ -36,7 +39,7 @@ class List extends React.Component<ListProps, any> {
     return (
       <div className={wrapCls} style={style}>
         {title ? <Header>{title}</Header> : null}
-        {children}
+        {isBodyHeaderFooter(children) ? children :<Body prefixCls={prefixCls}>{children}</Body>}
         {footer ? <Footer>{footer}</Footer> : null}
       </div>
     );

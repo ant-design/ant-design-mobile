@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Operation Icons  Copy 13</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Float-Icons-" transform="translate(-927.000000, -60.000000)" fill="#4A4A4A">
+            <g id="Share" transform="translate(928.283951, 61.000000)">
+                <g id="帮助" transform="translate(3.000000, 3.000000)">
+                    <path d="M0,3.99017859 C0,1.7864638 1.7852456,0 3.99017859,0 L32.0098214,0 C34.2135362,0 36,1.7852456 36,3.99017859 L36,32.0098214 C36,34.2135362 34.2147544,36 32.0098214,36 L3.99017859,36 C1.7864638,36 0,34.2147544 0,32.0098214 L0,3.99017859 Z M3,3 L33,3 L33,33 L3,33 L3,3 Z M33,11 L36,11 L36,20 L33,20 L33,11 Z M16,0 L25,0 L25,3 L16,3 L16,0 Z" id="Combined-Shape"></path>
+                    <rect id="Rectangle-2200" transform="translate(22.222897, 14.081475) rotate(-315.000000) translate(-22.222897, -14.081475) " x="20.7228968" y="-2.91852455" width="3" height="34" rx="1.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

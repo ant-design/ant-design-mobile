@@ -6,17 +6,33 @@ import Item from './ListItem';
 import Header from './ListHeader';
 import Footer from './ListFooter';
 
-export default class List extends React.Component<any, any> {
+import { ListProps } from './ListPropTypes';
+import ReactElement = __React.ReactElement;
+
+function isBodyHeaderFooter(children) {
+  let isOld;
+  React.Children.forEach(children, (c) => {
+    const type = c && (c as ReactElement<any>).type;
+    if (type === Header || type === Footer || type === Body) {
+      isOld = true;
+    }
+  });
+  return isOld;
+}
+
+export default class List extends React.Component<ListProps, any> {
   static Header: any;
   static Body: any;
   static Footer: any;
   static Item: any;
+
   render() {
-    const style = {
-      marginTop: 8,
-      marginBottom: 8,
-    };
-    return (<View {...this.props} style={[style, this.props.style]}>{this.props.children}</View>);
+    let { children, style, title, footer } = this.props;
+    return (<View {...this.props} style={[style]}>
+      {title ? <Header>{title}</Header> : null}
+      {isBodyHeaderFooter(children) ? children :<Body>{children}</Body>}
+      {footer ? <Footer>{footer}</Footer> : null}
+    </View>);
   }
 }
 

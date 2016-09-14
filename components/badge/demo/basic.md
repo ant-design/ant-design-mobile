@@ -8,22 +8,17 @@ title: 基本
 
 ````jsx
 import { Badge } from 'antd-mobile';
+
 ReactDOM.render(
   <div className="badge-container" style={{ padding: '40px 16px' }}>
     <Badge text={9}>
-      <span className="head-example"></span>
+      <span className="head-example" />
     </Badge>
-
+    <p style={{ marginBottom: 20 }} />
     <Badge text={'new'}>
-      <span className="head-example"></span>
+      <span className="head-example" />
     </Badge>
 
   </div>
 , mountNode);
-````
-
-````css
-.am-badge {
-  margin-right: 8px;
-}
 ````

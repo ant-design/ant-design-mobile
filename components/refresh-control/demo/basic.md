@@ -7,15 +7,13 @@ title: 基本
 
 
 ````jsx
-import { RefreshControl } from 'antd-mobile';
+import { RefreshControl, List } from 'antd-mobile';
 
 let count = 1;
 const App = React.createClass({
   getInitialState() {
     return {
-      items: [
-        <div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>,
-      ],
+      items: null,
     };
   },
   loadingFunction() {
@@ -30,9 +28,12 @@ const App = React.createClass({
     });
   },
   addItem() {
-    this.state.items.push(<div key={`item-${count}`} style={{ height: 70 }}>条目 {count++}</div>);
+    const newItems = this.state.items ? [...this.state.items] : [];
+    newItems.unshift(
+      <List.Item key={`item-${count}`} extra="horizontal,箭头向右" arrow="horizontal">标题文字 {count++}</List.Item>
+    );
     this.setState({
-      items: this.state.items,
+      items: newItems,
     });
     return true;
   },
@@ -40,26 +41,20 @@ const App = React.createClass({
     return (
       <RefreshControl
         loadingFunction={this.loadingFunction}
-        distanceToRefresh={60}
         resistance={1}
+        className="am-refresh-control-demo1"
         style={{
-          position: 'relative',
-          paddingTop: 20,
           textAlign: 'center',
         }}
-        hammerOptions={{
-          touchAction: 'auto',
-          recognizers: {
-            pan: {
-              threshold: 10,
-            },
-          },
-        }}
       >
-        <h3>下拉刷新</h3>
-        <div style={{ minHeight: 300 }} onClick={() => alert('cli')}>
-          {this.state.items}
-        </div>
+        <List title="下拉刷新">
+          <List.Body>
+            {this.state.items}
+            <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>
+            <List.Item extra="down,箭头向下" arrow="down">标题文字</List.Item>
+            <List.Item extra="up,箭头向上" arrow="up">标题文字</List.Item>
+          </List.Body>
+        </List>
       </RefreshControl>
     );
   },
@@ -67,3 +62,32 @@ const App = React.createClass({
 
 ReactDOM.render(<App />, mountNode);
 ````
+
+```css
+.demo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+          flex-direction:column;
+}
+.demo-preview-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+          flex-direction:column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.am-refresh-control-demo1 {
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
+}
+```

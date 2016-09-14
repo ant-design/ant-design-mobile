@@ -7,32 +7,32 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import varibles from '../style/variables';
+import varibles from '../style/themes/default';
 import CameraRollPicker from 'react-native-camera-roll-picker';
 
 const styles = StyleSheet.create({
   statusBarBg: {
-    height: 5 * varibles.grid,
+    height: 5 * 4,
   },
   naviBar: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: varibles.neutral_5,
-    height: 11 * varibles.grid,
+    borderBottomColor: '#d9d9d9',
+    height: 11 * 4,
   },
   barTitle: {
     flex: 1,
     textAlign: 'center',
     fontWeight: '500',
-    marginLeft: 7 * varibles.grid,
-    fontSize: varibles.font_size_5,
+    marginLeft: 7 * 4,
+    fontSize: 16,
   },
   rightBtn: {
-    width: 14 * varibles.grid,
-    color: varibles.blue_6,
-    fontSize: varibles.font_size_5,
+    width: 14 * 4,
+    color: varibles.brand_primary,
+    fontSize: 16,
   },
 });
 

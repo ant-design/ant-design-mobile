@@ -8,37 +8,37 @@ title: 基本用法
 ````jsx
 import { ActivityIndicator, WhiteSpace } from 'antd-mobile';
 
-let App = React.createClass({
+const App = React.createClass({
   render() {
     return (
       <div>
         <div className="loading-container" >
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <div className="loading-example">
             <p className="title">icon无文案</p>
             <ActivityIndicator animating />
           </div>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <div className="loading-example">
             <p className="title">icon带文案</p>
             <ActivityIndicator
               text="正在加载..."
             />
           </div>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <div className="loading-example white">
             <p className="title">white</p>
             <ActivityIndicator color="white" />
           </div>
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
           <div className="loading-example">
             <p className="title">大号</p>
             <ActivityIndicator
               size="large"
             />
           </div>
-          <WhiteSpace size={20} />
-          <WhiteSpace size={20} />
+          <WhiteSpace size="lg" />
+          <WhiteSpace size="lg" />
           <div className="toast-example">
             <p className="title">Toast</p>
             <ActivityIndicator

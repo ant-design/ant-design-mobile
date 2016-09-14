@@ -1,5 +1,18 @@
 const path = require('path');
 const pxtorem = require('postcss-pxtorem');
+
+function pickerGenerator(module) {
+  const tester = new RegExp(`^docs/${module}`);
+  return (markdownData) => {
+    const filename = markdownData.meta.filename;
+    if (tester.test(filename) && !/\.en-US\.md/.test(filename)) {
+      return {
+        meta: markdownData.meta,
+      };
+    }
+  };
+}
+
 module.exports = {
   port: 8001,
   source: [
@@ -7,7 +20,31 @@ module.exports = {
     './docs',
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
-  lazyLoad: true,
+  lazyLoad(nodePath, nodeValue) {
+    if (typeof nodeValue === 'string') {
+      return true;
+    }
+    return nodePath.endsWith('/demo');
+  },
+  pick: {
+    components(markdownData) {
+      const filename = markdownData.meta.filename;
+      if (!/^components/.test(filename) ||
+          /\/demo$/.test(path.dirname(filename))) return;
+      return {
+        meta: markdownData.meta,
+      };
+    },
+    changelog(markdownData) {
+      if (markdownData.meta.filename === 'CHANGELOG.md') {
+        return {
+          meta: markdownData.meta,
+        };
+      }
+    },
+    'docs/pattern': pickerGenerator('pattern'),
+    'docs/react': pickerGenerator('react'),
+  },
   entry: {
     index: {
       theme: './site/theme',
@@ -40,6 +77,14 @@ module.exports = {
       propWhiteList: [],
       selectorBlackList: [/^html$/, /^\.ant-/, /^\.github-/, /^\.gh-/],
     }));
+
+    config.babel.plugins.push([
+      require.resolve('babel-plugin-transform-runtime'),
+      {
+        polyfill: false,
+        regenerator: true,
+      },
+    ]);
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-antd'),

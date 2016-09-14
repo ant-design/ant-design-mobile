@@ -17,18 +17,19 @@ export default StyleSheet.create({
   },
   barItem: {
     flex: 1,
-    alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
   },
   barIcon: {
-    width: variables.icon_size_md,
-    height: variables.icon_size_md,
+    width: 28,
+    height: 28,
+    marginTop: 2,
   },
   barItemSelected: {
   },
   barItemTitle: {
     fontSize: variables.font_size_icontext,
+    marginTop: 2,
   },
   contentItem: {
     zIndex: 1,
@@ -40,5 +41,19 @@ export default StyleSheet.create({
   },
   contentItemSelected: {
     zIndex: 3,
+  },
+  badge: {
+    minWidth: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: variables.brand_important,
+    position: 'absolute',
+    top: 0,
+    left: 20,
+    paddingHorizontal: variables.h_spacing_sm,
+  },
+  badgeText: {
+    textAlign: 'center',
+    color: 'white',
   },
 });

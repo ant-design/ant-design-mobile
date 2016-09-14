@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title: 弹出框
 ---
 
@@ -37,19 +37,19 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
-          <Button onClick={showAlert}>自定义按钮 </Button>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
+          <Button type="ghost" onClick={showAlert}>自定义按钮 </Button>
         </WingBlank>
-        <WhiteSpace />
-        <WingBlank size={20}>
-          <Button onClick={showConfirm}>确认对话框</Button>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
+          <Button type="ghost" onClick={showConfirm}>确认对话框</Button>
         </WingBlank>
-        <WhiteSpace />
-        <WingBlank size={20}>
-          <Button onClick={showMoreBtn}>弹出多个按钮 </Button>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
+          <Button type="ghost" onClick={showMoreBtn}>弹出多个按钮 </Button>
         </WingBlank>
-        <WhiteSpace size={20} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },

@@ -3,35 +3,73 @@ order: 2
 english: 更新日志
 ---
 
-- Picker / DatePicker 添加 disabled 支持 #90 #119
+### 0.8.3
 
-## 1.0.0-alpha.
+`2016-09-09`
 
-- 样式变量修改；tabs / tag 修改
+- `Checkbox` 修复同意协议这种场景下，label中有协议无法触发`onClick`的bug。
+- `SearchBar` 优化动画效果。
+- `Carousel` 修改为基于`nuka-carousel`。原有`card`模式不再提供，需自行定制。
+
+ps: 目前`listview` 和 `refresh-control` 不兼容，正在修复中
+
+### 0.8.2
+
+`2016-09-07`
+
+- 给`body`标签设置默认背景色，以及默认的`font-size`,`html`设置默认的`font-size`。
+- `Grid`属性扩展，每行列数可配置，提供`renderItem`方法。
+- 修复`Checkbox`、`Radio`样式细节以及兼容性问题。
+- `SearchBar`输入框`Blur`状态时`placeholder`固定靠左对齐。
+- `Menu`高度计算bugfix。
+
+### 0.8.1
+
+`2016-09-02`
+
+- 修复并整理各弹出层类组件 z-index 顺序 https://github.com/ant-design/ant-design-mobile/commit/bb875c2a924f61cc03b8d013fd1a8f5ee8e22972
+- Tab 增加禁止 swipeable 的功能 #209 
+- TabBar 更改为和 iOS 原生方式一致，保持 web 和 rn 统一，去掉 swipeable
+- List组件 list-body 边框支持配置 https://github.com/ant-design/ant-design-mobile/commit/76760060cb5dfa5c9474b2174ee03db3c30b5197
+
+### 0.8.0
+
+`2016-08-31`
+> UI 风格更换为 alipay 官方风格
+
+- 修复 `Object.assign` 兼容问题
+- Picker / DatePicker 添加 disabled 支持
+- InputItem 和 TextareaItem API `format` 改为 `type`，移除原来type；修复 maxLength bug
+- ListView 增加`useBodyScroll` API, IndexedList 支持分两步渲染
 - Button `ghost`从原来的单独属性，变为`type`下的属性值，修复样式细节问题
-- ActionSheet react-native android 下新增`close`API，支持自定义内容下的编程关闭 ActionSheet
+- Modal `footer` 类型更改
+- Dropdown 效果和 `ActionSheet.showActionSheetWithCustom` 效果集成到新增的`Popup`组件里；`ActionSheet.showActionSheetWithCustom` API 移除
+- `ActionSheet.showShareActionSheetWithOptions`支持多行，`options`配置项支持二维数组，callback参数增加显示行序列
+- `ActionSheet.showActionSheetWithOptions`/`ActionSheet.showShareActionSheetWithOptions` 的 `callback`支持返回 Promise
+- ActionSheet react-native android 下新增`close` API，支持自定义内容下的编程关闭 ActionSheet
+- Toast rn组件修复遮挡 NavBar 问题
+- 修复 rn 组件离线图片找不到问题
+- 官方网站展示优化，demo 分类优化，web demo 采用 rem 和页面 scale 缩放方案，达到页面高清效果
 
-## 1.0.0-alpha.0
+#### 新增 rn 组件
+- Checkbox
+- Carousel
+- Radio
+- Steps
+- SearchBar
+- SegmentedControl
+- TabBar
+- Tabs
 
-`2016-08-19`
-
-> UI 风格更换为 alipay 官方风格！
-
-- 修复 `Object.assign` 兼容问题 #87
-- DatePicker 去掉 moment 必选依赖 #111
-- InputItem 和 TextareaItem API `format` 改为 `type`，移除原来`type`；修复 maxLength bug #106 #105
-- ListView 增加`useBodyScroll`API, IndexedList 支持分两步渲染
-- web demo 采用 rem 和页面 scale 缩放方案、达到页面高清效果；demo 分类优化
-- rn demo 的一系列优化
-
-### 组件变更 (#50)
-- Timeline 移除，相关演示整合到 Steps
+#### 组件变更
+- Timeline 移除
 - Tooltip 移除
-- Tab 组件独立出两个相关组件：SegmentedControl / TabBar
+- Tabs 拆分为 SegmentedControl、TabBar、Tabs
+- Tabs tabPosition => tabBarPosition, animation => animated
 
-### 组件更名 (#50)
+#### 组件更名
 - FloatMenu => Popover
-- Collapse => Collapse
+- Collapse => Accordion
 - PageResult => Result
 - TopNotice => NoticeBar
 - Uploader => ImagePicker

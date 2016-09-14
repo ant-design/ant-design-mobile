@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: 带 icon 的滑块
 ---
 
@@ -35,15 +35,15 @@ const IconSlider = React.createClass({
   render() {
     return (
       <div>
-        <WhiteSpace size={20} />
-        <WingBlank size={20}>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <div className="iconWrapper">
             <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
             <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
             <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
           </div>
         </WingBlank>
-        <WhiteSpace size={32} />
+        <WhiteSpace size="lg" />
       </div>
     );
   },
@@ -57,16 +57,16 @@ ReactDOM.render(
 ````css
 .iconWrapper {
   position: relative;
-  padding: 0px 48px;
+  padding: 0px 0.62rem;
 }
 
 .iconWrapper .anticon {
   position: absolute;
-  top: -11px;
-  width: 24px;
-  height: 24px;
+  top: -0.18rem;
+  width: 0.44rem;
+  height: 0.44rem;
   line-height: 1;
-  font-size: 24px;
+  font-size: 0.44rem;
   color: #000;
 }
 

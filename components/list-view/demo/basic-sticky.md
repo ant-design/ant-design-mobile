@@ -6,7 +6,8 @@ title: 吸顶（body 容器）
 区块标题 “吸顶”(sticky) 功能示例
 
 ````jsx
-import { ListView, Toast } from 'antd-mobile';
+/* eslint no-dupe-keys: 0 */
+import { ListView } from 'antd-mobile';
 
 const data = [
   {
@@ -48,7 +49,7 @@ const Demo = React.createClass({
     this.rowIDs = [];
     this.genData = (pIndex = 0) => {
       for (let i = 0; i < NUM_SECTIONS; i++) {
-        const ii = pIndex * NUM_SECTIONS + i;
+        const ii = (pIndex * NUM_SECTIONS) + i;
         const sectionName = `Section ${ii}`;
         this.sectionIDs.push(sectionName);
         this.dataBlob[sectionName] = sectionName;
@@ -74,7 +75,6 @@ const Demo = React.createClass({
   onEndReached(event) {
     // load new data
     console.log('reach end', event);
-    Toast.info('加载新数据');
     this.setState({ isLoading: true });
     setTimeout(() => {
       this.genData(++pageIndex);
@@ -91,7 +91,7 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }}></div>
+      }} />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -110,9 +110,9 @@ const Demo = React.createClass({
             marginBottom: 8,
             borderBottom: '1px solid #F6F6F6',
           }}>{obj.title}</h3>
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: '-webkit-box', display: 'flex' }}>
             <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
-            <div>
+            <div style={{ display: 'inline-block' }}>
               <p>{obj.des}</p>
               <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
             </div>

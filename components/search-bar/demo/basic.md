@@ -27,7 +27,7 @@ const SearchBarExample = React.createClass({
         onClear={(value) => console.log(value, 'onClear')}
         onFocus={() => console.log('onFocus')}
         onBlur={() => console.log('onBlur')}
-        onCancel={this.clear}
+        showCancelButton={false}
         onChange={this.onChange}
       />
     );

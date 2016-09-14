@@ -5,7 +5,7 @@ import List from '../list';
 
 const ListItem = List.Item;
 
-import RadioItemProps from './RadioPropsType';
+import RadioItemProps from './RadioItemPropsType';
 
 export default class RadioItem extends React.Component<RadioItemProps, any> {
   static defaultProps = {
@@ -23,10 +23,13 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       [className]: className,
     });
 
+    const onClickProps = disabled ? {} : { onClick: () => {} };
+
     return (<ListItem
       prefixCls={listPrefixCls}
       style={style}
       className={wrapCls}
+      {...onClickProps}
       extra={<Radio
         defaultChecked={defaultChecked}
         checked={checked}

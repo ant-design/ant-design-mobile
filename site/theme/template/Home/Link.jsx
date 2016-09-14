@@ -11,7 +11,10 @@ export default class Link extends React.Component {
     return (
       <div id="list-wrapper">
         <ScrollLink className="list-point" location="banner" />
+        {/*
+        设计基础先隐藏
         <ScrollLink className="list-point" location="page1" />
+        */}
         <ScrollLink className="list-point" location="page2" />
         <ScrollLink className="list-point" location="page3" />
       </div>

@@ -1,4 +1,4 @@
-.@{pickerPickerPrefixCls} {
+.@{pickerColPrefixCls} {
   display: block;
   position: relative;
   height: 7*@picker-item-height;
@@ -11,6 +11,7 @@
     top: 0;
     width: 100%;
     z-index: 1;
+    padding: 3*@picker-item-height 0;
   }
 
   &-item {
@@ -23,6 +24,9 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     direction: rtl;
+    &-selected {
+      font-size: @font-size-heading;
+    }
   }
 
   &-mask {

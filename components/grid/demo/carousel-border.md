@@ -6,7 +6,7 @@ title: 走马灯有边线
 ````jsx
 import { Grid } from 'antd-mobile';
 
-let data3 = [
+const data3 = [
   {
     icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
     text: '名字',
@@ -50,14 +50,15 @@ let data3 = [
   },
 ];
 
-let GridExample = React.createClass({
+const GridExample = React.createClass({
   render() {
     return (<div>
       <Grid
         data={data3}
+        columnNum={3}
+        carouselMaxRow={3}
         isCarousel
         onClick={(el, index) => { alert(index); }}
-        needActive={false}
       />
     </div>);
   },

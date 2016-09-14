@@ -5,7 +5,6 @@ interface PaginationPropTypes {
   className?: string;
   mode?: 'button' | 'number' | 'pointer';
   simple?: Boolean;
-  size?: 'large' | 'small';
   style?: React.CSSProperties;
   current: number;
   total: number;

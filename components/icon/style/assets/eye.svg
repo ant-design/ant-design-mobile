@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Pop down menu Icons  Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pop-down-menu-Icons-" transform="translate(-289.000000, -53.000000)" fill="#4A4A4A">
+            <g id="Group" transform="translate(103.000000, 54.000000)">
+                <g id="Show-hide" transform="translate(187.000000, 5.000000)">
+                    <path d="M0,16 C0,17.916 7.22274,32 21,32 C34.77642,32 42.0770946,17.5842454 42,16 C42.0770946,13.7522454 34.77642,0 21,0 C7.22274,0 0,14.084 0,16 Z M21,25 C25.9705627,25 30,20.9705627 30,16 C30,11.0294373 25.9705627,7 21,7 C16.0294373,7 12,11.0294373 12,16 C12,20.9705627 16.0294373,25 21,25 Z M21,10 C17.6859869,10 15,12.686351 15,16 C15,19.313649 17.6865269,22 21,22 C24.3129331,22 27,19.313649 27,16 C27,14.4774373 22.2302707,17.414983 21,16 C19.7697293,14.585017 22.7906579,10 21,10 Z" id="显示隐藏"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

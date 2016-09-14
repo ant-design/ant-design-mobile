@@ -1,79 +1,57 @@
 import React from 'react';
-import Promise from 'bluebird';
-import * as utils from '../../../theme/template/utils';
-import Page from './Page';
-import Item from './Item';
 import { Link } from 'react-router';
 import { Icon, Drawer, List, Flex } from 'antd-mobile';
+import Page from './Page';
+import Item from './Item';
 
 const hashImgObj = {
-  'action-sheet': 'sTvsgvivVKnqQtS',
+  'action-sheet': 'cYmaBafYBnAxCqQ',
   alert: 'XdSYKalBelFOMqd',
-  badge: 'nSDcLEWgUrOkCJq',
-  button: 'lOXYjfSRPpkwudh',
-  carousel: 'ifHkrPIiJFcMNzT',
-  checkbox: 'IznQRcXpGsRfHXX',
+  badge: 'UwUpBYPYnlwVicM',
+  button: 'ZRDUYEzfOzKWdzE',
+  carousel: 'FbIGJuDaiQoKNvj',
+  checkbox: 'dWPGltvdjaanrRd',
   collapse: 'yIQQHiTULgYehij',
-  'date-picker': 'XjBSEKVWMeIulGv',
-  drawer: 'IptWdCkrtkAUfjE',
-  popup: 'PMIYKpJIhmqwyXI',
-  flex: 'KZtGFWmnMUFpiSE',
-  'float-menu': 'HhilRXHawmUwlML',
-  grid: 'QbGTlZewFSvHlSS',
-  icon: 'zRqLyIrksLZyGPo',
-  'image-picker': 'CVHyVxhFqkhZfYs',
-  'input-item': 'nZNeLMIrNJiuSyr',
-  list: 'wlNeoTpEKIpTcOW',
-  'list-action': 'OJgqKyrKGdIEfwp',
-  'list-view': 'wlNeoTpEKIpTcOW',
-  menu: 'NRpaVQhCssmCMvT',
-  modal: 'AMszKQQdMvMmYng',
-  'nav-bar': 'VrOSRjcBgRlvffN',
-  result: 'nQbMEPIMUYIxyfW',
-  picker: 'WYAMQVIuqdtAGqK',
-  progress: 'aIomfcRsRHmPyNo',
-  radio: 'MHMIvHaTJRwnFeV',
-  'refresh-control': 'kmDibjGUbFrdeeY',
-  'search-bar': 'UAJROWKghHcBeoL',
-  slider: 'ViixEhXOewlupTr',
-  stepper: 'aDugjLTLBeQffgX',
-  steps: 'aDugjLTLBeQffgX',
-  switch: 'NmMXnPngqRrKHrq',
-  tabs: 'oeOvbvMpweuBOvO',
-  tag: 'AkXOzPmaytaVYLD',
-  'textarea-item': 'aDugjLTLBeQffgX',
+  'date-picker': 'IQtMSWmYwLEuqln',
+  drawer: 'nREwETegxvDndJZ',
+  popup: 'gfWmRfZNzMyVUss',
+  flex: 'zFqYaBWIPpYYORq',
+  'float-menu': 'dSOLngHNazulnFR',
+  grid: 'UBGcnLKfVQIXgUb',
+  icon: 'yhnfleZZoezOjtU',
+  'image-picker': 'NDsSvklLUeodsHK',
+  'input-item': 'SdSqpihcSBoBrFO',
+  list: 'tiapjpdKPQGHhnC',
+  'list-action': 'nIYrkZcGvKXjQhX',
+  'list-view': 'tiapjpdKPQGHhnC',
+  menu: 'UCVKKkEbquPdzNt',
+  modal: 'HzRRcuwtqUCCOBg',
+  'nav-bar': 'qzZlligUfwgFjwD',
+  result: 'jFrmGCOsQeEUrnR',
+  picker: 'STBLvEutBwPySbL',
+  progress: 'ihijukOXDlqXvPS',
+  radio: 'obPcHPkrNguaThi',
+  'refresh-control': 'nUAtybajGulmcSM',
+  'search-bar': 'QnAmpSwlfPzjpSL',
+  slider: 'mCyccAjoVLFVhSH',
+  stepper: 'PfzuWlDVfndrQUK',
+  steps: 'PfzuWlDVfndrQUK',
+  switch: 'ITFdMlELFchsTmz',
+  tabs: 'stWeDgdtEIKoiTU',
+  tag: 'gfstSzAhvXqKyEg',
+  'textarea-item': 'PfzuWlDVfndrQUK',
   timeline: 'aIomfcRsRHmPyNo',
-  toast: 'IptWdCkrtkAUfjE',
-  'notice-bar': 'AraRKTSdXQbKkGv',
-  'white-space': 'mioJMWDMAmiurTR',
-  'wing-blank': 'WzZoGzTRKzQgMWi',
-  card: 'kkQBRgZgcqSyMPS',
-  tooltip: 'WFdIwNKWiAkOQYd',
-  pagination: 'xavLtHVkhbayZau',
-  loading: 'PfDTjHZZKwYguUV',
-  table: 'yZwezpbmJzARTxK',
-  form: 'gvFzrNIoBJneFUY',
+  toast: 'nREwETegxvDndJZ',
+  'notice-bar': 'EFpWULKNsectBDK',
+  'white-space': 'NfomhEsOdhFxEws',
+  'wing-blank': 'DUkfOYZVcLctGot',
+  card: 'daARhPjKcxlSuuZ',
+  tooltip: 'RvpANXExTEUwQTV',
+  pagination: 'fOQwMYUYaRRKYtd',
+  loading: 'DyAmULrLMBrgoOy',
+  table: 'TbRxKTMOzgrCvMR',
+  form: 'hZDnBrVwPmrgrLq',
 };
-
-export function collect(nextProps, callback) {
-  const componentsList = utils.collectDocs(nextProps.data.components);
-
-  const moduleDocs = [
-    ...utils.collectDocs(nextProps.data.docs.react),
-    ...componentsList,
-    /* eslint-disable new-cap */
-    nextProps.data.CHANGELOG(),
-    /* eslint-enable new-cap */
-  ];
-
-  const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
-
-  Promise.all(promises)
-    .then((list) => callback(null, {
-      ...nextProps,
-      components: list[0],
-    }));
-}
 
 export default class App extends React.Component {
   constructor(props) {
@@ -89,16 +67,18 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { picked } = this.props;
+    const components = picked.components;
+
     const customWidth = (document.documentElement.clientWidth / 3);
     const itemStyle = {
-      width: '33.33%',
+      width: `${customWidth}px`,
       height: `${customWidth >= 138 * window.devicePixelRatio ? 138 * window.devicePixelRatio : customWidth}px`,
+      display: 'inline-block',
     };
 
-    const props = this.props;
-
     const lists = {};
-    props.components.forEach(i => {
+    components.forEach(i => {
       const meta = i.meta;
       if (!lists[meta.category]) {
         lists[meta.category] = [];
@@ -117,7 +97,7 @@ export default class App extends React.Component {
               lists[cate].map((item, ii) => {
                 const fileName = item.filename.split('/')[1];
                 return (<List.Item key={ii}>
-                  <Link to={`/${fileName}/`}>{item.chinese}</Link>
+                  <Link to={`/${fileName}/`}>{item.english} <span style={{ fontSize: 24, color: '#888' }}>{item.chinese}</span></Link>
                 </List.Item>);
               })
             }
@@ -145,11 +125,11 @@ export default class App extends React.Component {
                 <List.Body>
                   {(() => {
                     const flexs = [];
-                    let flexItems = [];
+                    const flexItems = [];
                     for (let i = 0; i < lists[cate].length; i++) {
                       const ii = lists[cate][i];
                       const fileName = ii.filename.split('/')[1];
-                      const img = hashImgObj[fileName] || 'IptWdCkrtkAUfjE';
+                      const img = hashImgObj[fileName] || 'nREwETegxvDndJZ';
                       flexItems.push(<Item
                         logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
                         title={ii.chinese}

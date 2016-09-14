@@ -9,41 +9,38 @@ title: 基本
 import { Flex, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
 
-let FlexExample = React.createClass({
+const FlexExample = React.createClass({
   render() {
     return (
-      <div className="button-container">
-        <WhiteSpace />
-        <WingBlank>
+      <div className="flex-container">
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Flex>
-            <Flex.Item>
-              <Button>2列</Button>
-            </Flex.Item>
             <Flex.Item>
               <Button type="primary">2列</Button>
             </Flex.Item>
-          </Flex>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <Flex>
             <Flex.Item>
-              <Button size="small">3列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button type="primary" size="small">3列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button size="small">3列</Button>
+              <Button>2列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Flex>
             <Flex.Item>
-              <Button>4列</Button>
+              <Button type="primary">3列</Button>
             </Flex.Item>
+            <Flex.Item>
+              <Button>3列</Button>
+            </Flex.Item>
+            <Flex.Item>
+              <Button type="primary">3列</Button>
+            </Flex.Item>
+          </Flex>
+        </WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
+          <Flex>
             <Flex.Item>
               <Button type="primary">4列</Button>
             </Flex.Item>
@@ -53,33 +50,42 @@ let FlexExample = React.createClass({
             <Flex.Item>
               <Button type="primary">4列</Button>
             </Flex.Item>
+            <Flex.Item>
+              <Button>4列</Button>
+            </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
           <Flex>
             <Flex.Item>
-              <Button size="small">5列</Button>
+              <Button type="primary">5列</Button>
+            </Flex.Item>
+            <Flex.Item>
+              <Button>5列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button type="primary">5列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="small">5列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button type="primary">5列</Button>
+              <Button>5列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button type="primary">5列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WhiteSpace />
+        <WhiteSpace size="lg" />
       </div>
     );
   },
 });
 
 ReactDOM.render(<FlexExample />, mountNode);
+````
+
+````css
+.flex-container {
+  background: #f5f5f9;
+}
 ````

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import TabBarItemProps from './TabBarItemPropTypes';
-import Badge from '../badge/';
 import styles from './style';
 
 export default class TabBarItem extends React.Component<TabBarItemProps, any> {
@@ -17,19 +16,17 @@ export default class TabBarItem extends React.Component<TabBarItemProps, any> {
     return (
       <TouchableWithoutFeedback onPress={onPress}>
         <View style={[styles.barItem, itemSelectedStyle]}>
-          { badge ? (
-              <Badge text={badge}>
-                <Image source={selected ? selectedIcon : icon} style={styles.barIcon} />
-              </Badge>
-            ) : (
-              <Image source={selected ? selectedIcon : icon} style={styles.barIcon}  />
-            )
-          }
+          <View>
+            <Image source={selected ? selectedIcon : icon} style={styles.barIcon} />
+            { badge && <View style={[styles.badge]}>
+              <Text style={[styles.badgeText]}>{badge}</Text>
+            </View> }
+          </View>
           <Text style={[
             styles.barItemTitle,
             {color: selected ? tintColor : unselectedTintColor},
           ]}>{title}</Text>
-        </View>
+          </View>
       </TouchableWithoutFeedback>
     );
   }

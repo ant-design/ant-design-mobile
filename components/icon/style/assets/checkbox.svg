@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Operation Icons </title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M21,42 C32.5979797,42 42,32.5979797 42,21 C42,9.40202025 32.5979797,0 21,0 C9.40202025,0 0,9.40202025 0,21 C0,32.5979797 9.40202025,42 21,42 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="42" height="42" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Operation-Icons-" transform="translate(-101.000000, -53.000000)" stroke="#4A4A4A">
+            <g id="checkbox" transform="translate(102.000000, 54.000000)">
+                <use id="Oval-45" mask="url(#mask-2)" stroke-width="6" xlink:href="#path-1"></use>
+                <polyline id="Path-334" stroke-width="3" points="9.99301471 20.5717548 17.7792279 28.3760817 32.1536765 11.4524038"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

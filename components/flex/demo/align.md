@@ -9,95 +9,93 @@ align="start/end/center/baseline/stretch"
 import { Flex, Button, List, WingBlank, WhiteSpace } from 'antd-mobile';
 
 
-let FlexExample = React.createClass({
+const FlexExample = React.createClass({
   render() {
     return (
-      <div className="button-container">
+      <div className="flex-container">
         <WhiteSpace />
-        <WingBlank>
-          <List>
-            <List.Header>start:交叉轴的起点对齐</List.Header>
-          </List>
-          <Flex align="start">
+        <WingBlank size="lg">
+          <List title="start:交叉轴的起点对齐" />
+          <Flex align="start" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="small">3列</Button>
+              <Button inline size="small">3列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank>
+        <WingBlank size="lg">
           <List>
             <List.Header>end:交叉轴的终点对齐</List.Header>
           </List>
-          <Flex align="end">
+          <Flex align="end" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="small">3列</Button>
+              <Button inline size="small">3列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank>
+        <WingBlank size="lg">
           <List>
             <List.Header>center(默认):交叉轴的中点对齐</List.Header>
           </List>
-          <Flex align="center">
+          <Flex align="center" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="small">3列</Button>
+              <Button inline size="small">3列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="small">3列</Button>
+              <Button inline size="small">3列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank>
+        <WingBlank size="lg">
           <List>
             <List.Header>baseline:项目的第一行文字的基线对齐</List.Header>
           </List>
-          <Flex align="baseline">
+          <Flex align="baseline" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="small">3列</Button>
+              <Button inline size="small">3列</Button>
             </Flex.Item>
             <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
             <Flex.Item>
-              <Button size="small">3列</Button>
+              <Button inline size="small">3列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
         <WhiteSpace />
-        <WingBlank>
+        <WingBlank size="lg">
           <List>
             <List.Header>stretch:如果项目未设置高度或设为auto，将占满整个容器的高度</List.Header>
           </List>
-          <Flex align="stretch">
-            <Flex.Item style={{ border: '1px solid red' }}>
+          <Flex align="stretch" className="flex-align-container" style={{ border: '1px solid red' }}>
+            <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
-            <Flex.Item style={{ border: '1px solid red' }}>
-              <Button size="small">3列</Button>
+            <Flex.Item>
+              <Button inline size="small">3列</Button>
             </Flex.Item>
-            <Flex.Item style={{ border: '1px solid red' }}>
+            <Flex.Item>
               <Button type="primary">3列</Button>
             </Flex.Item>
-            <Flex.Item style={{ border: '1px solid red' }}>
-              <Button size="small">3列</Button>
+            <Flex.Item>
+              <Button inline size="small">3列</Button>
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -108,4 +106,16 @@ let FlexExample = React.createClass({
 });
 
 ReactDOM.render(<FlexExample />, mountNode);
+````
+````css
+.flex-container {
+  background: #f5f5f9;
+}
+.flex-align-container button {
+  width: 100%;
+}
+.flex-align-container * {
+  box-sizing: border-box;
+}
+
 ````

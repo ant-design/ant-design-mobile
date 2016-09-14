@@ -33,7 +33,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <List>
+        <List title="基本">
           <List.Body>
             <InputItem
               clear
@@ -73,7 +73,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             />
           </List.Body>
         </List>
-        <List>
+        <List title="固定标签字数">
           <List.Body>
             <InputItem
               clear
@@ -86,10 +86,6 @@ export default class BasicInputItemExample extends React.Component<any, any> {
               labelNumber={2}
               placeholder="两个字标签"
             >姓名</InputItem>
-          </List.Body>
-        </List>
-        <List>
-          <List.Body>
             <InputItem
               clear
               value={this.state.labelnum2}
@@ -101,10 +97,6 @@ export default class BasicInputItemExample extends React.Component<any, any> {
               labelNumber={3}
               placeholder="三个字标签"
             >校验码</InputItem>
-          </List.Body>
-        </List>
-        <List>
-          <List.Body>
             <InputItem
               clear
               value={this.state.labelnum3}
@@ -116,10 +108,6 @@ export default class BasicInputItemExample extends React.Component<any, any> {
               labelNumber={4}
               placeholder="四个字标签（默认）"
             >四字标签</InputItem>
-          </List.Body>
-        </List>
-        <List>
-          <List.Body>
             <InputItem
               clear
               value={this.state.labelnum4}
@@ -131,10 +119,6 @@ export default class BasicInputItemExample extends React.Component<any, any> {
               labelNumber={5}
               placeholder="五个字标签"
             >五个字标签</InputItem>
-          </List.Body>
-        </List>
-        <List>
-          <List.Body>
             <InputItem
               clear
               value={this.state.labelnum5}
@@ -146,10 +130,6 @@ export default class BasicInputItemExample extends React.Component<any, any> {
               labelNumber={6}
               placeholder="六个字标签"
             >六个字标签六</InputItem>
-          </List.Body>
-        </List>
-        <List>
-          <List.Body>
             <InputItem
               clear
               value={this.state.labelnum6}
@@ -163,8 +143,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             >七个字标签七个</InputItem>
           </List.Body>
         </List>
-        <List>
-          <List.Header>格式</List.Header>
+        <List title="格式">
           <List.Body>
             <InputItem
               clear

@@ -1,5 +1,3 @@
-@import '../variables';  // 改造过程中，为了构建兼容性保留，改造完成后删除
-
 // 支付宝钱包默认主题
 // https://github.com/ant-design/ant-design-mobile/wiki/设计变量表及命名规范
 
@@ -126,6 +124,8 @@
 @list-title-height: 60px;
 @list-item-height-sm: 70px;
 @list-item-height: 90px;
+@list-body-border-width: 1PX;
+@list-body-border-color: @border-color-base;
 
 // input
 @input-label-width: 34px;       // InputItem、TextareaItem 文字长度基础值
@@ -163,3 +163,14 @@
 
 // table
 @table-title-height: 60px;
+
+// z-index
+@progressZIndex: 2000;
+@popoverZIndex: 1999;
+@toastZIndex: 1999;
+@actionSheetZIndex: 1000; // actonsheet 会放到 popup / modal 中
+@datePickerZIndex: 1000;  // picker 会放到 popup / modal 中
+@pickerZIndex: 1000;
+@popupZIndex: 999;
+@modalZIndex: 999; // modal.alert 应该最大，其他应该较小
+@listViewQsbZIndex: 998;

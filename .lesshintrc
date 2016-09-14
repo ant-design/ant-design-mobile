@@ -12,5 +12,7 @@
   "finalNewline": false,
   "hexNotation": false,
   "spaceAroundOperator": false,
-  "spaceAroundComma": false
+  "spaceAroundComma": false,
+  "maxCharPerLine": false,
+  "newlineAfterBlock": false
 }

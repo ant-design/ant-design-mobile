@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Pop down menu Icons  Copy 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pop-down-menu-Icons-" transform="translate(-662.000000, -53.000000)">
+            <g id="Group" transform="translate(103.000000, 54.000000)">
+                <g id="Uninterested" transform="translate(561.000000, 1.000000)">
+                    <rect id="Rectangle-8" fill="#4A4A4A" x="0" y="0" width="40" height="40" rx="20"></rect>
+                    <path d="M26.4297077,28.9367188 C24.8337979,27.7301803 22.7504757,27 20.4710172,27 C18.152089,27 16.0360533,27.7557571 14.4297077,29" id="Path" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path>
+                    <rect id="Rectangle-9" fill="#FFFFFF" x="24" y="12" width="6" height="6" rx="3"></rect>
+                    <rect id="Rectangle-9-Copy" fill="#FFFFFF" x="10" y="12" width="6" height="6" rx="3"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>System Icons Copy 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="System-Icons" transform="translate(-1099.000000, -61.000000)">
+            <g id="titlebar_" transform="translate(1096.000000, 61.000000)">
+                <rect id="Rectangle-129" fill="#D8D8D8" opacity="0" x="0" y="0" width="44" height="44"></rect>
+                <polygon id="back_button_normal" stroke="#4A4A4A" fill="#4A4A4A" points="15.4541213 38.168564 15.4541213 15.9156662 38.5191832 15.9156662 38.5191832 18.2999053 17.8820228 18.2999053 17.8820228 38.168564"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

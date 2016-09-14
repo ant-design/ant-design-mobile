@@ -17,13 +17,15 @@ A configurable Mobile UI specification and React-based implementation.
 
 ## Demo
 
-### Online demo
+### mobile web demo
+
+<img src="https://zos.alipayobjects.com/rmsportal/dLMGiKuyFLBfYfm.png" />
 
 http://mobile.ant.design/kitchen-sink/
 
-### App demo
+### react native demo
 
-<img src="https://pbs.twimg.com/media/CohXOutUkAAeuvI.jpg:large" />
+<img src="https://cloud.githubusercontent.com/assets/1698185/18130654/6ba4ccea-6fc2-11e6-9aa1-0a53cd74d9e1.png" />
 
 
 ## Install
@@ -77,7 +79,7 @@ Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recomm
 // .babelrc
 // no need to set style property in react-native
 {
- "plugins": [["antd", { style: "css", libraryName: "antd-mobile" }]]
+ "plugins": [["antd", { "style": "css", "libraryName": "antd-mobile" }]]
 }
 ```
 

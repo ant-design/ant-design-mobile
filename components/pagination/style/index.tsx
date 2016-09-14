@@ -2,6 +2,10 @@ import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   numberStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -26,10 +30,7 @@ export default StyleSheet.create({
   pointActiveStyle: {
     backgroundColor: '#888',
   },
-  spaceLargeStyle: {
-    marginRight: 4 * variables.h_spacing_sm,
-  },
-  spaceSmallStyle: {
-    marginRight: variables.h_spacing_sm,
+  spaceStyle: {
+    marginHorizontal: variables.h_spacing_sm / 2,
   },
 });

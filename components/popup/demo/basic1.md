@@ -1,12 +1,12 @@
 ---
 order: 1
-title: ActionSheet 效果
+title: 向上弹出效果
 ---
 
-Popup ActionSheet 效果
+Popup 向上弹出效果
 
 ````jsx
-import { Popup, Button } from 'antd-mobile';
+import { Popup, List, Button } from 'antd-mobile';
 
 const Test = React.createClass({
   getInitialState() {
@@ -15,22 +15,38 @@ const Test = React.createClass({
     };
   },
   onClick() {
-    Popup.show(<div style={{ padding: 8 }}>
-      <Button type="primary" onClick={() => { this.onClose('opt 1'); }}>操作一</Button>
-      <div style={{ height: 8 }} />
-      <Button type="ghost" onClick={() => { this.onClose('opt 2'); }}>操作二</Button>
-      <div style={{ height: 8 }} />
-      <Button onClick={() => { this.onClose('cancel'); }}>取消</Button>
-    </div>, { maskClosable: false, animationType: 'slide-up' });
+    Popup.show(<div>
+      <List title={
+        <div style={{ position: 'relative' }}>
+          委托买入
+          <span style={{
+            position: 'absolute', right: 3, top: -5, fontSize: '1.4em',
+          }} onClick={() => this.onClose('cancel')}
+          >x</span>
+        </div>
+      }>
+        <List.Body>
+          <List.Item>股票名称</List.Item>
+          <List.Item>股票代码</List.Item>
+          <List.Item>买入价格</List.Item>
+          <List.Item>买入数量</List.Item>
+        </List.Body>
+      </List>
+      <ul style={{ padding: 10 }}>
+        <li>投资说明投资说明...</li>
+        <li style={{ marginTop: 10 }}>
+          <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>
+        </li>
+      </ul>
+    </div>, { animationType: 'slide-up' });
   },
   onClose(sel) {
     this.setState({ sel });
     Popup.hide();
   },
   render() {
-    return (<div style={{ padding: 8 }}>
-      <Button type="primary" onClick={this.onClick}>显示</Button>
-      已选项目：{this.state.sel}
+    return (<div style={{ padding: '15px' }}>
+      <Button type="ghost" onClick={this.onClick}>显示</Button>
     </div>);
   },
 });
