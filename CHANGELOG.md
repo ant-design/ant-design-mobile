@@ -3,6 +3,17 @@ order: 2
 english: 更新日志
 ---
 
+### 0.8.5
+
+`2016-09-14`
+
+- 修复 Picker 和 DatePicker `extra`设置在 ListItem 上不生效问题 #241
+- 去除 Button  `size=small` 只在 `inline` 设置后生效的限制
+- 修复 Button 组件在 pc 版本的 demo 里的按下效果 #244
+- 优化 Picker / DatePicker 点击反馈效果 https://github.com/ant-design/ant-design-mobile/commit/adb5a45ae35e13f64d4f295dd328cf9da45aec57  #195
+- 去除 Stepper 组件的 input 不能输入限制，并更改`readOnly`默认值 https://github.com/ant-design/ant-design-mobile/commit/8325f6444970559e465d71df625e81cbe57c0b85#commitcomment-19012543
+- 优化 Drawer / Popup 等组件 demo，网站展示细节优化
+
 ### 0.8.3
 
 `2016-09-09`
@@ -28,7 +39,7 @@ ps: 目前`listview` 和 `refresh-control` 不兼容，正在修复中
 `2016-09-02`
 
 - 修复并整理各弹出层类组件 z-index 顺序 https://github.com/ant-design/ant-design-mobile/commit/bb875c2a924f61cc03b8d013fd1a8f5ee8e22972
-- Tab 增加禁止 swipeable 的功能 #209 
+- Tab 增加禁止 swipeable 的功能 #209
 - TabBar 更改为和 iOS 原生方式一致，保持 web 和 rn 统一，去掉 swipeable
 - List组件 list-body 边框支持配置 https://github.com/ant-design/ant-design-mobile/commit/76760060cb5dfa5c9474b2174ee03db3c30b5197
 
