@@ -1,7 +1,7 @@
 ---
 category: UI Bars
 type: UI Bars
-chinese: APP选项卡
+chinese: 标签栏
 english: TabBar
 ---
 

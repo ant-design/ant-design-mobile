@@ -1,4 +1,24 @@
 module.exports = {
+  UIBARS: [
+    {
+      title: 'NoticeBar',
+      description: '通告栏',
+      icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
+      module: require('../components/notice-bar/demo/basic'),
+    },
+    {
+      title: 'SearchBar',
+      description: '搜索栏',
+      icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
+      module: require('../components/search-bar/demo/basic'),
+    },
+    {
+      title: 'TabBar',
+      description: '标签栏',
+      icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
+      module: require('../components/tab-bar/demo/basic'),
+    },
+  ],
   UIVIEWS: [
     {
       title: 'ActionSheet',
@@ -63,16 +83,16 @@ module.exports = {
       module: require('../components/activity-indicator/demo/basic'),
     },
     {
-      title: 'Button',
-      description: '按钮',
-      icon: 'https://os.alipayobjects.com/rmsportal/lOXYjfSRPpkwudh.png',
-      module: require('../components/button/demo/basic'),
-    },
-    {
       title: 'Badge',
       description: '徽标数',
       icon: 'https://os.alipayobjects.com/rmsportal/nSDcLEWgUrOkCJq.png',
       module: require('../components/badge/demo/basic'),
+    },
+    {
+      title: 'Button',
+      description: '按钮',
+      icon: 'https://os.alipayobjects.com/rmsportal/lOXYjfSRPpkwudh.png',
+      module: require('../components/button/demo/basic'),
     },
     {
       title: 'Carousel', // 必须
@@ -91,12 +111,6 @@ module.exports = {
       description: '日期选择',
       icon: 'https://os.alipayobjects.com/rmsportal/XjBSEKVWMeIulGv.png',
       module: require('../components/date-picker/demo/popup'),
-    },
-    {
-      title: 'Grid',
-      description: '九宫格',
-      icon: 'https://os.alipayobjects.com/rmsportal/QbGTlZewFSvHlSS.png',
-      module: require('../components/grid/demo/basic'),
     },
     {
       title: 'ImagePicker',
@@ -195,12 +209,18 @@ module.exports = {
       module: require('../components/textarea-item/demo/basic'),
     },
   ],
-  OTHER: [
+  OTHERS: [
     {
       title: 'Flex',
       description: 'Flex 布局',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
       module: require('../components/flex/demo/basic'),
+    },
+    {
+      title: 'Grid',
+      description: '九宫格',
+      icon: 'https://os.alipayobjects.com/rmsportal/QbGTlZewFSvHlSS.png',
+      module: require('../components/grid/demo/basic'),
     },
     {
       title: 'WhiteSpace',
@@ -213,26 +233,6 @@ module.exports = {
       description: '两翼留白',
       icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
       module: require('../components/wing-blank/demo/basic'),
-    },
-  ],
-  UIBARS: [
-    {
-      title: 'NoticeBar',
-      description: '顶部提示',
-      icon: 'https://os.alipayobjects.com/rmsportal/AraRKTSdXQbKkGv.png',
-      module: require('../components/notice-bar/demo/basic'),
-    },
-    {
-      title: 'SearchBar',
-      description: '搜索条',
-      icon: 'https://os.alipayobjects.com/rmsportal/WzZoGzTRKzQgMWi.png',
-      module: require('../components/search-bar/demo/basic'),
-    },
-    {
-      title: 'TabBar',
-      description: 'APP 选项卡',
-      icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
-      module: require('../components/tab-bar/demo/basic'),
     },
   ],
 };

@@ -1,6 +1,6 @@
 ---
-category: Other
-type: Other
+category: Others
+type: Others
 chinese: 两翼留白
 english: WingBlank
 ---

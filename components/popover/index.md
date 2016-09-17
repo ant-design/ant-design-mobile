@@ -1,7 +1,7 @@
 ---
 category: UI Views
 type: UI Views
-chinese: 浮动菜单
+chinese: 气泡
 english: Popover
 ---
 

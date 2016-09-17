@@ -90,7 +90,7 @@ export default class Home extends React.Component {
     });
 
     const componentList = lists['UI Views'].concat(lists['UI Bars'])
-      .concat(lists['UI Controls']).concat(lists.Other);
+      .concat(lists['UI Controls']).concat(lists.Others);
 
     let demoMeta;
     componentList.forEach((item) => {

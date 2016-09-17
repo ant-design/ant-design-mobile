@@ -1,7 +1,7 @@
 ---
 category: UI Bars
 type: UI Bars
-chinese: 顶部提示
+chinese: 通告栏
 english: NoticeBar
 ---
 
