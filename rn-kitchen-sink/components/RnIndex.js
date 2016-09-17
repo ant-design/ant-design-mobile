@@ -56,7 +56,7 @@ export default class RnIndex extends React.Component {
   }
 
   render() {
-    const { uiViews, uiControls, other, uiBars } = this.state;
+    const { uiViews, uiControls, others, uiBars } = this.state;
     return (
       <View style={styles.container}>
         <SearchBar onChange={(text) => { this.search(text); }} />
