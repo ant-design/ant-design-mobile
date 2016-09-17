@@ -1,7 +1,7 @@
 ---
 category: UI Bars
 type: UI Bars
-chinese: 顶部导航
+chinese: 导航栏
 english: NavBar
 display: false
 ---

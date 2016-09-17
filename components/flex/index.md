@@ -1,6 +1,6 @@
 ---
-category: Other
-type: Other
+category: Others
+type: Others
 chinese: Flex布局
 english: Flex
 ---

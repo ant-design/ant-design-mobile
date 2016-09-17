@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { List, SearchBar } from 'antd-mobile';
-import { UIVIEWS, UICONTROLS, OTHER, UIBARS } from '../demoList';
+import { UIVIEWS, UICONTROLS, OTHERS, UIBARS } from '../demoList';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +23,7 @@ export default class RnIndex extends React.Component {
       searchText: '',
       uiViews: UIVIEWS,
       uiControls: UICONTROLS,
-      other: OTHER,
+      others: OTHERS,
       uiBars: UIBARS,
     };
 
@@ -49,7 +49,7 @@ export default class RnIndex extends React.Component {
     this.setState({
       uiViews: UIVIEWS.filter(filter),
       uiControls: UICONTROLS.filter(filter),
-      other: OTHER.filter(filter),
+      others: OTHERS.filter(filter),
       uiBars: UIBARS.filter(filter),
       searchText: text,
     });
@@ -64,7 +64,7 @@ export default class RnIndex extends React.Component {
           {
             [['UI Views', uiViews],
             ['UI Controls', uiControls],
-            ['Other', other],
+            ['Others', others],
             ['UI Bars', uiBars]].map((item, i) => (
               <List key={i} title={item[0]} style={{
                 marginTop: 0,

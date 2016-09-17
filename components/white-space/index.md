@@ -1,6 +1,6 @@
 ---
-category: Other
-type: Other
+category: Others
+type: Others
 chinese: 上下留白
 english: WhiteSpace
 ---
