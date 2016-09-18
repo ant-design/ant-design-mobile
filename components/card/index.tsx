@@ -7,11 +7,13 @@ import CardStyle from './style/index';
 
 export interface CardProps {
   style?: {};
+  full?: boolean;
 }
 
 export default class Card extends React.Component<CardProps, any> {
   static defaultProps = {
     style: {},
+    full: false,
   };
 
   static Header = CardHeader;
@@ -19,8 +21,9 @@ export default class Card extends React.Component<CardProps, any> {
   static Footer = CardFooter;
 
   render() {
+    const cardStyle = this.props.full ? CardStyle.full : {};
     return (
-      <View {...this.props} style={[CardStyle.card, this.props.style]}>
+      <View {...this.props} style={[CardStyle.card, cardStyle, this.props.style]}>
         {this.props.children}
       </View>
     );
