@@ -1,9 +1,9 @@
 ---
 order: 0
-title: 列表项类表单组件大集合
+title: 列表项类表单组件大集合(rc-form的基础用法请查看源码)
 ---
 
-表单集合. ([rc-form 文档](https://github.com/react-component/form))
+表单集合. ([rc-form 文档](https://github.com/react-component/form)，更多用法请详细阅读此文档)
 
 ````jsx
 import { List, InputItem, Switch, Stepper, Slider, Radio, TextareaItem, WingBlank, WhiteSpace, Button } from 'antd-mobile';
@@ -30,22 +30,52 @@ let BasicInput = React.createClass({
       });
     }
   },
-  onClick() {
-    console.log(this.props.form.getFieldsValue());
+  onSubmit() {
+    this.props.form.validateFields({ force: true }, (error, values) => {
+      if (!error) {
+        const formValue = this.props.form.getFieldsValue();
+        console.log(values);
+        console.log(formValue);
+      } else {
+        alert('校验失败');
+      }
+    });
+  },
+  onReset() {
+    this.props.form.resetFields();
+    alert('重制完成');
+  },
+  validateAccount(rule, value, callback) {
+    if (value && value.length > 4) {
+      callback();
+    } else {
+      callback(new Error('帐号至少4个字符'));
+    }
   },
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldProps, getFieldError } = this.props.form;
 
     return (<div>
-      <List title="表单输入项">
+      <List
+        title="表单输入项"
+        footer={getFieldError('account') && getFieldError('account').join(',')}
+      >
         <InputItem
-          {...getFieldProps('input3', {
+          {...getFieldProps('account', {
             initialValue: '小蚂蚁',
+            rules: [
+              { required: true, message: '请输入帐号' },
+              { validator: this.validateAccount },
+            ],
           })}
           clear
+          error={!!getFieldError('account')}
+          onErrorClick={() => {
+            alert(getFieldError('account').join('、'));
+          }}
         >帐号</InputItem>
         <InputItem
-          {...getFieldProps('input4')}
+          {...getFieldProps('password')}
           clear
           placeholder="请输入密码"
           type="password"
@@ -139,7 +169,9 @@ let BasicInput = React.createClass({
       </List>
       <WhiteSpace />
       <WingBlank size="lg">
-        <Button type="primary">通栏按钮</Button>
+        <Button type="primary" onClick={this.onSubmit}>提交验证</Button>
+        <WhiteSpace />
+        <Button onClick={this.onReset}>重置</Button>
       </WingBlank>
       <WhiteSpace />
       <WhiteSpace />
