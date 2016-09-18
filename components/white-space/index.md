@@ -5,9 +5,7 @@ chinese: 上下留白
 english: WhiteSpace
 ---
 
-## 如何使用
-
-上下留白,设计上通常需要一段特定高度的空白区块
+WhiteSpace 是 Flex 布局的控件之一。
 
 ## API
 

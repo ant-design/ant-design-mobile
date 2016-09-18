@@ -6,11 +6,10 @@ english: Flex
 ---
 
 
-### 定义／Definition
-flexbox 布局
+Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
 
-### 规则 / Rule
-Flex布局的相关知识请先阅读阮一峰的博客
+### 规则
+- Flex布局的相关知识请先阅读阮一峰的博客
 [Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
 
