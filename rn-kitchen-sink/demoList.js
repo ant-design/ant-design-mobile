@@ -58,7 +58,7 @@ module.exports = {
     },
     {
       title: 'Popover',
-      description: '浮动菜单',
+      description: '气泡',
       icon: 'https://os.alipayobjects.com/rmsportal/HhilRXHawmUwlML.png',
       module: require('../components/popover/demo/basic'),
     },
@@ -174,13 +174,13 @@ module.exports = {
     },
     {
       title: 'SegmentedControl',
-      description: '分段控制',
+      description: '分段器',
       icon: 'https://os.alipayobjects.com/rmsportal/oeOvbvMpweuBOvO.png',
       module: require('../components/segmented-control/demo/basic'),
     },
     {
       title: 'Switch',
-      description: '开关',
+      description: '滑动开关',
       icon: 'https://os.alipayobjects.com/rmsportal/NmMXnPngqRrKHrq.png',
       module: require('../components/switch/demo/basic'),
     },
@@ -212,13 +212,13 @@ module.exports = {
   OTHERS: [
     {
       title: 'Flex',
-      description: 'Flex 布局',
+      description: '布局',
       icon: 'https://os.alipayobjects.com/rmsportal/KZtGFWmnMUFpiSE.png',
       module: require('../components/flex/demo/basic'),
     },
     {
-      title: 'Grid',
-      description: '九宫格',
+      title: 'GridList',
+      description: '网格列表',
       icon: 'https://os.alipayobjects.com/rmsportal/QbGTlZewFSvHlSS.png',
       module: require('../components/grid/demo/basic'),
     },

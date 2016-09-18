@@ -1,43 +1,86 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { WhiteSpace, ActivityIndicator } from 'antd-mobile';
+import { View, StyleSheet, Text } from 'react-native';
+import { WhiteSpace, WingBlank, Button, Flex, ActivityIndicator } from 'antd-mobile';
 
 export default class ActivityIndicatorExample extends React.Component<any, any> {
+  closeTimer: any;
   constructor(props) {
     super(props);
     this.state = {
-      isLoadingVisible: true,
+      animating: false,
     };
+    this.loadingToast = this.loadingToast.bind(this);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.closeTimer);
+  }
+
+  loadingToast() {
+    this.setState({ animating: !this.state.animating });
+    this.closeTimer = setTimeout(() => {
+      this.setState({ animating: !this.state.animating });
+    }, 2000);
   }
 
   render() {
     return (
       <View style={[styles.demo]}>
-        <ActivityIndicator />
-        <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
+        <WingBlank>
+          <Flex>
+            <Flex.Item>
+              <Text>Icon无文案</Text>
+            </Flex.Item>
+            <Flex.Item>
+              <ActivityIndicator />
+            </Flex.Item>
+          </Flex>
+        </WingBlank>
+        <WhiteSpace size="xl" style={{ backgroundColor: '#fff' }} />
+        <WingBlank>
+          <Flex>
+            <Flex.Item>
+              <Text>Icon带文案</Text>
+            </Flex.Item>
+            <Flex.Item>
+              <ActivityIndicator text="正在加载..." />
+            </Flex.Item>
+          </Flex>
+        </WingBlank>
+        <WhiteSpace size="xl" style={{ backgroundColor: '#fff' }} />
+        <WingBlank>
+          <Flex>
+            <Flex.Item>
+              <Text>深色背景</Text>
+            </Flex.Item>
+            <Flex.Item>
+              <View style={[styles.darkBg]}>
+                <ActivityIndicator color="#fff" />
+              </View>
+            </Flex.Item>
+          </Flex>
+        </WingBlank>
+        <WhiteSpace size="xl" style={{ backgroundColor: '#fff' }} />
+        <WingBlank>
+          <Flex>
+            <Flex.Item>
+              <Text>大号icon</Text>
+            </Flex.Item>
+            <Flex.Item>
+              <ActivityIndicator size="large" />
+            </Flex.Item>
+          </Flex>
+        </WingBlank>
+        <WhiteSpace size="xl" style={{ backgroundColor: '#fff' }} />
+        <WingBlank>
+          <Button type="ghost" onPress={this.loadingToast}>点击显示 Toast</Button>
+        </WingBlank>
         <ActivityIndicator
-          text="正在加载..."
-        />
-        <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
-        <View style={[styles.horizontal]}>
-          <ActivityIndicator color="black" />
-          <ActivityIndicator color="#aa3300" />
-          <ActivityIndicator color="#aa00aa" />
-          <ActivityIndicator color="#00aa00" />
-        </View>
-        <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
-        <ActivityIndicator
+          animating={this.state.animating}
+          toast
           size="large"
+          text="正在加载"
         />
-        <WhiteSpace size={20} style={{ backgroundColor: '#fff' }} />
-        <View style={[styles.centering]}>
-          <WhiteSpace size={32} style={{ backgroundColor: '#fff' }} />
-          <ActivityIndicator
-            toast
-            size="large"
-            text="正在加载"
-          />
-        </View>
       </View>
     );
   }
@@ -47,13 +90,15 @@ const styles = StyleSheet.create({
   demo: {
     marginTop: 20,
   },
-  centering: {
+  darkBg: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 8,
+    width: 89,
+    height: 89,
+    backgroundColor: '#2B2F42',
   },
   gray: {
-    backgroundColor: '#cccccc',
+    backgroundColor: '#CCC',
   },
   horizontal: {
     flexDirection: 'row',
