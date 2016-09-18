@@ -5,9 +5,7 @@ chinese: 两翼留白
 english: WingBlank
 ---
 
-## 如何使用
-
-设计上,通常dom两边要设置下特定宽度边距
+WingBlank 是 Flex 布局的控件之一。
 
 ## API
 
