@@ -11,7 +11,7 @@ import { DatePicker, List } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import enUs from 'antd-mobile/components/date-picker/locale/en_US';
+import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
 const zhNow = moment().locale('zh-cn').utcOffset(8);
 const maxDate = moment('2018-12-03 +0800', 'YYYY-MM-DD Z').utcOffset(8);
