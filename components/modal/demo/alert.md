@@ -26,10 +26,9 @@ function showConfirm() {
 
 function showMoreBtn() {
   alert('多个按钮情况', <div>这里有好多个按钮, 你试试</div>, [
-    { text: '按钮', onPress: () => console.log('第0个按钮被点击了') },
-    { text: '按钮', onPress: () => console.log('第1个按钮被点击了') },
-    { text: '按钮', onPress: () => console.log('第2个按钮被点击了') },
-    { onPress: () => console.log('第3个按钮被点击了') },
+    { text: '按钮一', onPress: () => console.log('第0个按钮被点击了') },
+    { text: '按钮二', onPress: () => console.log('第1个按钮被点击了') },
+    { text: '按钮三', onPress: () => console.log('第2个按钮被点击了') },
   ]);
 }
 

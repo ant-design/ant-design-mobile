@@ -7,11 +7,13 @@ import CardFooter from './CardFooter';
 export interface CardProps {
   prefixCls?: string;
   className?: string;
+  full?: boolean;
 }
 
 export default class Card extends React.Component <CardProps, any> {
   static defaultProps = {
     prefixCls: 'am-card',
+    full: false,
   };
 
   static Header = CardHeader;
@@ -19,9 +21,10 @@ export default class Card extends React.Component <CardProps, any> {
   static Footer = CardFooter;
 
   render() {
-    const { prefixCls, children, className } = this.props;
+    const { prefixCls, full, children, className } = this.props;
     const wrapCls = classNames({
       [prefixCls]: true,
+      [`${prefixCls}-full`]: full,
       [className]: className,
     });
 

@@ -8,15 +8,20 @@
   border: @border-width-sm solid @border-color-base;
   min-height: 1.92rem;
   position: relative;
-  padding-bottom: @h-spacing-md;
+  padding-bottom: @v-spacing-sm;
   .display-box();
   flex-direction: column;
   background-color: @fill-base;
+  &&-full {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
   &-header {
     .display-box();
     align-items: center;
     font-size: @font-size-heading;
-    padding: @v-spacing-md @h-spacing-lg @v-spacing-md 0;
+    padding: @v-spacing-sm @h-spacing-lg @v-spacing-sm 0;
     margin-left: @h-spacing-lg;
     position: relative;
     &-content {
