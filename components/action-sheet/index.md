@@ -5,13 +5,12 @@ chinese: 动作面板
 english: ActionSheet
 ---
 
-### 定义／Definition
-操作列表展示了与用户触发的操作直接相关的一系列选项。由用户某个操作行为触发。
+从底部浮出的模态，提供和当前场景相关的 2 个以上操作或者更多描述内容。
 
-### 规则 / Rule
-- 与 [react-native actionsheetios](https://facebook.github.io/react-native/docs/actionsheetios.html) API 以及 ui 展示尽量一致
-- ui 展示比较固定，不推荐使用自定义元素、以免破坏整体风格。
-- 分享功能的 ActionSheet ，当分享渠道过多，可横向滚动查看更多。
+### 规则
+- 提供清晰的退出按钮。
+- 可高亮破坏性操作，eg：将『删除』处理成红色文本。
+- 不要放置过多内容，避免面板纵向滚动。
 
 
 ## API

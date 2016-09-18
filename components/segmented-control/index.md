@@ -5,9 +5,15 @@ chinese: 分段器
 english: SegmentedControl
 ---
 
-### 定义／Definition
 
-主要应用在页面区块，一般起着控制全局页面内容切换的作用。API 来源于 [react-native segmentedcontrolios](http://facebook.github.io/react-native/docs/segmentedcontrolios.html)。
+由至少 2 个分段控件组成，用作显示不同视图的显示；是 iOS 的推荐组件。
+
+### 规则
+- 和 Tabs 功能相似，尽可能避免一个页面中同时出现这两个组件。
+- 可以搭配 NavBar 一起使用，用于显示多个视图，分段数一般为 2 个。
+- 单独放置一行时，分段数最多为 5 个；文案需要精简，一般 2-4 个字。
+- 尽可能保持文案长度一致。
+
 
 ## API
 
