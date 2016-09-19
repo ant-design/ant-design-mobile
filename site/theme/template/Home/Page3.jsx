@@ -15,15 +15,15 @@ export default function Page3() {
         <div className="bottom-imgs" key="images">
           <Row>
             <Col span={8}>
-              <img src="https://zos.alipayobjects.com/rmsportal/xPHfUJmQdTvvssW.png" />
+              <img src="https://zos.alipayobjects.com/rmsportal/raAyoPQZHXsgmtg.png" width="198" height="179" />
               <p>一键搭建设计规范</p>
             </Col>
             <Col span={8}>
-              <img src="https://zos.alipayobjects.com/rmsportal/QsbBeYCXnXLQBZY.png" />
+              <img src="https://zos.alipayobjects.com/rmsportal/tZEZYvMbywZddzW.png" width="198" height="168" />
               <p>自动生成前端代码</p>
             </Col>
             <Col span={8}>
-              <img src="https://zos.alipayobjects.com/rmsportal/HcboKCvvlHYuZkq.png" />
+              <img src="https://zos.alipayobjects.com/rmsportal/yfXOljrfJeGlVyo.png" width="199" height="172" />
               <p>快速导出Sketch模板</p>
             </Col>
           </Row>
