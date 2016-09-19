@@ -33,8 +33,8 @@ ReactDOM.render(
         <List.Header>带icon</List.Header>
         <List.Body>
           <List.Item extra="内容内容" arrow="horizontal">
-            <Badge dot>
-              <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
+			<Badge dot>
+             <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
             </Badge><span style={{ marginLeft: 12 }}>小圆点</span>
           </List.Item>
           <List.Item thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png" extra={<Badge text={77} />} arrow="horizontal">
@@ -46,6 +46,7 @@ ReactDOM.render(
         </List.Body>
       </List>
       <List>
+        <List.Header>大号icon</List.Header>
         <List.Body>
           <List.Item extra="内容内容" arrow="horizontal">
             <Badge text={9}>
