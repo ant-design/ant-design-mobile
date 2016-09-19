@@ -3,14 +3,12 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import ModalProps from './ModalPropsType';
+import touchableFeedback from '../_util/touchableFeedback';
 import FooterButton from './FooterButton.web';
 
-export default class Modal extends React.Component<ModalProps, any> {
+class Modal extends React.Component<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
-    visible: false,
-    closable: false,
-    maskClosable: false,
     // transparent change to transparent by yiminghe
     transparent: false,
     animated: true,
@@ -18,21 +16,6 @@ export default class Modal extends React.Component<ModalProps, any> {
     onShow() {},
     footer: [],
   };
-
-  componentDidMount() {
-    this.componentDidUpdate(this.props);
-  }
-
-  componentDidUpdate(prevProps) {
-    const { prefixCls, closable } = this.props;
-    // visible always true
-    if (prevProps.visible === true && !closable) {
-      const closeDom = document.getElementsByClassName(`${prefixCls}-close`)[0];
-      if (closeDom) {
-        (closeDom as any).style.display = 'none';
-      }
-    }
-  }
 
   render() {
     const {
@@ -42,10 +25,8 @@ export default class Modal extends React.Component<ModalProps, any> {
       animated,
       transitionName,
       maskTransitionName,
-      closable,
       style,
       footer,
-      maskClosable,
     } = this.props;
 
     const wrapCls = classNames({
@@ -73,8 +54,8 @@ export default class Modal extends React.Component<ModalProps, any> {
     }, style);
 
     const restProps = assign({}, this.props);
-    ['prefixCls', 'className', 'transparent', 'animated', 'transition', 'maskTransitionName',
-      'closable', 'style', 'footer', 'maskClosable', 'touchFeedback',
+    ['prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
+      'style', 'footer', 'touchFeedback',
     ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
@@ -94,3 +75,5 @@ export default class Modal extends React.Component<ModalProps, any> {
     );
   }
 }
+
+export default touchableFeedback(Modal);
