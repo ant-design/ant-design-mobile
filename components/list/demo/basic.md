@@ -16,7 +16,8 @@ let ListExample = React.createClass({
         title="我是华丽丽的列表头部"
         footer="我是列表尾部"
       >
-        <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
+        <List.Item>没有设置onClick则点击无反馈，文字超长则隐藏</List.Item>
+        <List.Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</List.Item>
         <List.Item
           onClick={() => {}}
           extra={undefined}

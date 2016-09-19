@@ -15,6 +15,7 @@ export interface ListItemProps {
   error?: boolean;
   multipleLine?: boolean;
   children?: any;
+  wrap?: boolean;
 }
 
 export interface ListItemState {
@@ -24,7 +25,7 @@ export interface ListItemState {
 export class Brief extends React.Component<any, any> {
   render() {
     return (
-      <div className="am-list-brief">{this.props.children}</div>
+      <div className="am-list-brief" style={this.props.style} onClick={this.props.onClick}>{this.props.children}</div>
     );
   }
 }
@@ -41,6 +42,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     error: false,
     multipleLine: false,
     align: 'middle',
+    wrap: false,
   };
 
   // 给其他组件对其设置 extra 使用
@@ -76,7 +78,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
   };
 
   render() {
-    let { prefixCls, thumb, arrow, error, children, extra, className, align, multipleLine, style } = this.props;
+    let { prefixCls, thumb, arrow, error, children, extra, className, align, multipleLine, wrap, style } = this.props;
     let { hover } = this.state;
     let thumbDom;
     let arrowDom;
@@ -94,6 +96,7 @@ export default class ListItem extends React.Component<ListItemProps, ListItemSta
     const lineCls = classNames({
       [`${prefixCls}-line`]: true,
       [`${prefixCls}-line-multiple`]: multipleLine,
+      [`${prefixCls}-line-wrap`]: wrap,
     });
 
     const arrowCls = classNames({
