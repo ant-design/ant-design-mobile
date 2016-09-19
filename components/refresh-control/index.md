@@ -22,7 +22,8 @@ english: RefreshControl
 | icon   | 刷新指示icon   | React element |  `...` |
 | loading   | 加载指示器   | React element |  anticon-loading |
 | distanceToRefresh   |   刷新距离    | number |    50  |
-| loadingFunction   |   刷新回调函数   | function, required |  -  |
+| onRefresh   |   刷新回调函数   | function, required |  -  |
+| refreshing   | 是否显示刷新状态    | boolean |    false  |
 
 ## API (ios/android)
 见此：https://facebook.github.io/react-native/docs/refreshcontrol.html#props

@@ -14,18 +14,15 @@ const App = React.createClass({
   getInitialState() {
     return {
       items: null,
+      refreshing: false,
     };
   },
-  loadingFunction() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (this.addItem()) {
-          resolve();
-        } else {
-          reject();
-        }
-      }, 500);
-    });
+  onRefresh() {
+    this.setState({ refreshing: true });
+    setTimeout(() => {
+      this.addItem();
+      this.setState({ refreshing: false });
+    }, 1000);
   },
   addItem() {
     const newItems = this.state.items ? [...this.state.items] : [];
@@ -35,12 +32,12 @@ const App = React.createClass({
     this.setState({
       items: newItems,
     });
-    return true;
   },
   render() {
     return (
       <RefreshControl
-        loadingFunction={this.loadingFunction}
+        refreshing={this.state.refreshing}
+        onRefresh={this.onRefresh}
         resistance={1}
         className="am-refresh-control-demo1"
         style={{
