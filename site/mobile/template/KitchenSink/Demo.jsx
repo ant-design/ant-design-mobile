@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
 import { Link } from 'react-router';
 import { Drawer, List, Icon } from 'antd-mobile';
+import config from '../../';
 
 const locale = (
   window.localStorage &&
@@ -89,7 +90,7 @@ export default class Home extends React.Component {
       lists[meta.category].push(meta);
     });
 
-    const componentList = lists['UI Views'].concat(lists['UI Bars'])
+    const componentList = lists['UI Bars'].concat(lists['UI Views'])
       .concat(lists['UI Controls']).concat(lists.Others);
 
     let demoMeta;
@@ -116,47 +117,49 @@ export default class Home extends React.Component {
       <div className="demo-drawer-home">
         <Link to="/">Ant Design Mobile</Link>
       </div>
-      {Object.keys(lists).map((cate, index) => (
-        <List key={index} title={cate}>
-          <List.Body>
-            {
-              lists[cate].map((item, ii) => {
-                const fileName = item.filename.split('/')[1];
+      {Object.keys(lists)
+        .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+        .map((cate, index) => (
+          <List key={index} title={cate}>
+            <List.Body>
+              {
+                lists[cate].map((item, ii) => {
+                  const fileName = item.filename.split('/')[1];
 
-                let subDemos;
-                if (fileName === 'drawer') {
-                  subDemos = drawerDemos;
-                } else {
-                  subDemos = listDemos;
-                }
+                  let subDemos;
+                  if (fileName === 'drawer') {
+                    subDemos = drawerDemos;
+                  } else {
+                    subDemos = listDemos;
+                  }
 
-                return (<List.Item key={ii}>
-                  {
-                    whiteList.indexOf(fileName) > -1 ?
-                      (<List>
-                        <List.Header style={{ padding: '5px 0' }}>
+                  return (<List.Item key={ii}>
+                    {
+                      whiteList.indexOf(fileName) > -1 ?
+                        (<List>
+                          <List.Header style={{ padding: '5px 0' }}>
+                            <span className={name === fileName ? 'demo-current' : ''}>
+                              {item.english} <span className="demo-chinese">{item.chinese}</span>
+                            </span>
+                          </List.Header>
+                          {
+                            subDemos.map((item1, index1) => (
+                              <List.Item key={index1}>
+                                <Link to={`/${fileName}/#${fileName}-demo-${item1.order}`}>{item1.title}</Link>
+                              </List.Item>
+                            ))
+                          }
+                        </List>) :
+                        <Link to={`/${fileName}/`}>
                           <span className={name === fileName ? 'demo-current' : ''}>
                             {item.english} <span className="demo-chinese">{item.chinese}</span>
                           </span>
-                        </List.Header>
-                        {
-                          subDemos.map((item1, index1) => (
-                            <List.Item key={index1}>
-                              <Link to={`/${fileName}/#${fileName}-demo-${item1.order}`}>{item1.title}</Link>
-                            </List.Item>
-                          ))
-                        }
-                      </List>) :
-                      <Link to={`/${fileName}/`}>
-                        <span className={name === fileName ? 'demo-current' : ''}>
-                          {item.english} <span className="demo-chinese">{item.chinese}</span>
-                        </span>
-                      </Link>}
-                </List.Item>);
-              })
-            }
-          </List.Body>
-        </List>
+                        </Link>}
+                  </List.Item>);
+                })
+              }
+            </List.Body>
+          </List>
       ))}
     </div>);
 
