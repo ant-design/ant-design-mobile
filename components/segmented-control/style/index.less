@@ -22,6 +22,8 @@
     border-right: @border-width-md solid @segmented-control-color;
     line-height: 1;
     min-height: @segmented-control-height;
+    transition: background 0.2s;
+    position: relative;
     &:last-child {
       border-right: 0;
     }
@@ -29,6 +31,14 @@
     &-selected {
       background: @segmented-control-color;
       color: @color-text-base-inverse;
+    }
+
+    &-feedback {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      opacity: 0.1;
+      transition: background 0.2s;
     }
   }
 }
