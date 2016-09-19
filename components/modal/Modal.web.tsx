@@ -3,10 +3,9 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import ModalProps from './ModalPropsType';
-import touchableFeedback from '../_util/touchableFeedback';
 import FooterButton from './FooterButton.web';
 
-class Modal extends React.Component<ModalProps, any> {
+export default class Modal extends React.Component<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
     visible: false,
@@ -109,5 +108,3 @@ class Modal extends React.Component<ModalProps, any> {
     );
   }
 }
-
-export default touchableFeedback(Modal);
