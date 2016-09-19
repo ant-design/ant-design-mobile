@@ -3,57 +3,30 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import ModalProps from './ModalPropsType';
+import touchableFeedback from '../_util/touchableFeedback';
+import FooterButton from './FooterButton.web';
 
-export default class Modal extends React.Component<ModalProps, any> {
+class Modal extends React.Component<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
-    wrapClassName: '',
-    visible: false,
-    closable: false,
-    maskClosable: false,
     // transparent change to transparent by yiminghe
     transparent: false,
     animated: true,
     style: {},
-    bodyStyle: {},
-    onClose() {},
     onShow() {},
     footer: [],
   };
-
-  componentDidMount() {
-    this.componentDidUpdate(this.props);
-  }
-
-  componentDidUpdate(prevProps) {
-    const { prefixCls, closable } = this.props;
-    // visible always true
-    if (prevProps.visible === true && !closable) {
-      const closeDom = document.getElementsByClassName(`${prefixCls}-close`)[0];
-      if (closeDom) {
-        (closeDom as any).style.display = 'none';
-      }
-    }
-  }
 
   render() {
     const {
       prefixCls,
       className,
-      wrapClassName,
       transparent,
       animated,
       transitionName,
       maskTransitionName,
-      closable,
       style,
-      title,
-      bodyStyle,
-      visible,
-      children,
-      onClose,
       footer,
-      maskClosable,
     } = this.props;
 
     const wrapCls = classNames({
@@ -67,16 +40,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 ? 'h' : 'v'}`;
     const footerDom = footer.length ? [<div key="footer" className={btnGroupClass}>
       {
-        footer.map((button: any, i) => {
-          return (
-            <a key={i} className={`${prefixCls}-button`} href="#" onClick={(e) => {
-              e.preventDefault();
-              if (button.onPress) {
-                button.onPress();
-              }
-            }}>{button.text || `按钮${i}`}</a>
-          );
-        })
+        footer.map((button: any, i) => <FooterButton prefixCls={prefixCls} button={button} key={i} />)
       }
     </div>] : null;
 
@@ -89,24 +53,27 @@ export default class Modal extends React.Component<ModalProps, any> {
       height: '100%',
     }, style);
 
+    const restProps = assign({}, this.props);
+    ['prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
+      'style', 'footer', 'touchFeedback',
+    ].forEach(prop => {
+      if (restProps.hasOwnProperty(prop)) {
+        delete restProps[prop];
+      }
+    });
+
     return (
       <Dialog
         prefixCls={prefixCls}
         className={wrapCls}
-        title={title}
-        wrapClassName={wrapClassName}
         transitionName={anim}
         maskTransitionName={maskAnim}
         style={rootStyle}
-        bodyStyle={bodyStyle}
-        visible={visible}
-        closable={closable}
-        maskClosable={maskClosable}
-        onClose={onClose}
         footer={footerDom}
-      >
-        {children}
-      </Dialog>
+        {...restProps}
+      />
     );
   }
 }
+
+export default touchableFeedback(Modal);
