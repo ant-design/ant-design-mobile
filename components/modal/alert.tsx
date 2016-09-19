@@ -32,7 +32,7 @@ export default function (...args) {
 
   ReactDOM.render(<Modal
     visible
-    transparent
+    dialog
     prefixCls={prefixCls}
     title={title}
     transitionName="am-zoom"

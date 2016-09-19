@@ -11,7 +11,8 @@ export default class Modal extends React.Component<ModalProps, any> {
     visible: false,
     closable: false,
     maskClosable: false,
-    transparent: false,
+    // transparent change to dialog by yiminghe
+    dialog: false,
     animated: true,
     style: {},
     bodyStyle: {},
@@ -20,21 +21,8 @@ export default class Modal extends React.Component<ModalProps, any> {
     footer: [],
   };
 
-  componentWillMount() {
-    const { visible, onShow } = this.props;
-    if (visible) {
-      onShow();
-    }
-  }
-
   componentDidMount() {
     this.componentDidUpdate(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.visible) {
-      this.props.onShow();
-    }
   }
 
   componentDidUpdate(prevProps) {
@@ -53,12 +41,11 @@ export default class Modal extends React.Component<ModalProps, any> {
       prefixCls,
       className,
       wrapClassName,
-      transparent,
+      dialog,
       animated,
       transitionName,
       maskTransitionName,
       closable,
-      maskClosable,
       style,
       title,
       bodyStyle,
@@ -66,15 +53,16 @@ export default class Modal extends React.Component<ModalProps, any> {
       children,
       onClose,
       footer,
+      maskClosable,
     } = this.props;
 
     const wrapCls = classNames({
       [className]: !!className,
-      [`${prefixCls}-transparent`]: transparent,
+      [`${prefixCls}-dialog`]: dialog,
     });
 
-    let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
-    let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
+    let anim = transitionName || (animated ? (dialog ? 'am-fade' : 'am-slide-up') : null);
+    let maskAnim = maskTransitionName || (animated ? (dialog ? 'am-fade' : 'am-slide-up') : null);
 
     const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 ? 'h' : 'v'}`;
     const footerDom = footer.length ? [<div key="footer" className={btnGroupClass}>
@@ -92,8 +80,8 @@ export default class Modal extends React.Component<ModalProps, any> {
       }
     </div>] : null;
 
-    // transparent 模式下, 内容默认居中
-    const rootStyle = transparent ? assign({
+    // dialog 模式下, 内容默认居中
+    const rootStyle = dialog ? assign({
       width: '5.4rem',
       height: 'auto',
     }, style) : assign({
@@ -112,7 +100,7 @@ export default class Modal extends React.Component<ModalProps, any> {
         style={rootStyle}
         bodyStyle={bodyStyle}
         visible={visible}
-        closable={closable || maskClosable}
+        closable={closable}
         maskClosable={maskClosable}
         onClose={onClose}
         footer={footerDom}

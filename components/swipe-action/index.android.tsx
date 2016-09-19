@@ -28,8 +28,10 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     disabled: false,
     left: [],
     right: [],
-    onOpen() {},
-    onClose() {},
+    onOpen() {
+    },
+    onClose() {
+    },
   };
 
   constructor(props) {
@@ -39,11 +41,11 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     };
   }
 
-  setModalVisible(visible) {
+  hide = () => {
     this.setState({
-      showModal: visible,
+      showModal: false,
     });
-  }
+  };
 
   onClose() {
     this.props.onClose();
@@ -66,7 +68,8 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
   _renderAndroidModal() {
     const { left, right, autoClose } = this.props;
     const actions = [...left, ...right].map((button: ButtonProps) => {
-      const orginPress = button.onPress || function() {};
+      const orginPress = button.onPress || function () {
+        };
       return {
         text: button.text,
         style: button.style,
@@ -81,10 +84,9 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     return (
       <Modal
         visible={this.state.showModal}
-        transparent
-        maskClosable
+        dialog
         title={this.props.title}
-        onRequestClose={() => {this.setModalVisible(false);}}
+        onClose={this.hide}
         footer={actions}
       />
     );

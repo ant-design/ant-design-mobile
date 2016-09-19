@@ -1,10 +1,6 @@
 import * as React from 'react';
 import {
   View,
-  Modal,
-  TouchableWithoutFeedback,
-  Animated,
-  Dimensions,
   DeviceEventEmitter,
   ActionSheetIOS,
   Platform,
@@ -13,8 +9,7 @@ import {
 } from 'react-native';
 import styles, { vars as variables } from './style/index';
 import topView from 'rn-topview';
-
-const WIN_HEIGHT = Dimensions.get('window').height;
+import Modal from 'rc-dialog/lib/Modal';
 
 function noop(a: any) {
 }
@@ -38,80 +33,48 @@ class ActionSheetAndroid extends React.Component<Props, any> {
   constructor(props) {
     super(props);
     this.state = {
-      translateY: new Animated.Value(0),
+      visible: true,
     };
     ActionSheet.instances[props.name] = this;
   }
 
   componentWillMount() {
     DeviceEventEmitter.addListener('antActionSheetHide', () => {
-      this.animatedHide();
-    });
-  }
-
-  componentDidMount() {
-    this.state.translateY.setValue(WIN_HEIGHT);
-    this.anim = Animated.timing(this.state.translateY, {
-      duration: 200,
-      toValue: 0,
-      delay: 5,
-    });
-    this.anim.start(() => {
-      this.anim = null;
+      this.setState({
+        visible: false,
+      });
     });
   }
 
   componentWillUnmount() {
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-    if (this.anim) {
-      this.anim.stop();
-      this.anim = null;
-    }
     DeviceEventEmitter.removeAllListeners('antActionSheetHide');
   }
 
-  onMaskClose = () => {
-    if (this.props.maskClosable) {
-      this.animatedHide();
-    }
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
   };
 
-  animatedHide = () => {
-    this.state.translateY.setValue(0);
-    this.anim = Animated.timing(this.state.translateY, {
-      duration: 200,
-      toValue: WIN_HEIGHT,
-      delay: 5,
-    });
-    this.anim.start(() => {
-      this.anim = null;
+  onAnimationEnd(visible) {
+    if (!visible) {
       topView.remove();
-    });
+    }
   };
 
   render() {
     return (
-      <View style={styles.wrap}>
-        <Modal
-          animationType={'none'}
-          transparent
-          visible
-          onRequestClose={Platform.OS === 'android' ? this.animatedHide : undefined}
-        >
-          <TouchableWithoutFeedback onPress={this.onMaskClose}>
-            <View style={styles.mask}/>
-          </TouchableWithoutFeedback>
-          <Animated.View style={[styles.content, {
-            transform: [
-              { translateY: this.state.translateY },
-            ],
-          }]}>
-            {this.props.children}
-          </Animated.View>
-        </Modal>
-      </View>
+      <Modal
+        animationDuration={200}
+        animateAppear
+        onClose={this.onClose}
+        visible={this.state.visible}
+        onAnimationEnd={this.onAnimationEnd}
+        style={styles.content}
+      >
+
+        {this.props.children}
+      </Modal>
     );
   }
 }
@@ -122,7 +85,7 @@ if (Platform.OS === 'ios') {
   ActionSheet = {
     instances: {},
     showActionSheetWithOptions(config, callback = noop) {
-      const {title, message, options, destructiveButtonIndex, cancelButtonIndex} = config;
+      const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = config;
       const titleMsg = [
         title ? <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View> : null,
         message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,
@@ -152,7 +115,7 @@ if (Platform.OS === 'ios') {
                     {item}
                   </Text>
                 </TouchableHighlight>
-                {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
+                {cancelButtonIndex === index ? <View style={styles.cancelBtnMask} /> : null}
               </View>
             ))}
           </View>
@@ -165,7 +128,7 @@ if (Platform.OS === 'ios') {
       );
     },
     showShareActionSheetWithOptions(config) {
-      const {url, message, excludedActivityTypes} = config;
+      const { url, message, excludedActivityTypes } = config;
       const titleMsg = [
         url ? <View style={styles.title} key="0"><Text>{url}</Text></View> : null,
         message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,

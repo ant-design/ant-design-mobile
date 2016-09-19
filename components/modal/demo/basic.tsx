@@ -10,6 +10,7 @@ export default class BasicModalExample extends React.Component<any, any> {
       visible: false,
     };
   }
+
   showModal = () => {
     this.setState({
       visible: true,
@@ -20,6 +21,7 @@ export default class BasicModalExample extends React.Component<any, any> {
       visible: false,
     });
   }
+
   render() {
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
@@ -29,19 +31,26 @@ export default class BasicModalExample extends React.Component<any, any> {
           </Button>
         </WingBlank>
         {/*<Modal animated transparent={false} visible={this.state.visible} >
-          <View style={{ paddingVertical: 220 }}>
-            <Text style={{ textAlign: 'center' }}>这是内容...</Text>
-            <Text style={{ textAlign: 'center' }}>这是内容...</Text>
-          </View>
-          <Button type="primary" inline onPress={this.onClose}>close modal</Button>
-        </Modal>
-        */}
-        <Modal title="测试" animated transparent visible={this.state.visible} maskClosable closable footer={
+         <View style={{ paddingVertical: 220 }}>
+         <Text style={{ textAlign: 'center' }}>这是内容...</Text>
+         <Text style={{ textAlign: 'center' }}>这是内容...</Text>
+         </View>
+         <Button type="primary" inline onPress={this.onClose}>close modal</Button>
+         </Modal>
+         */}
+        <Modal
+          title="测试"
+          dialog
+          onClose={this.onClose}
+          visible={this.state.visible}
+          closable
+          footer={
           [
             { text: 'cancel', onPress: () => console.log('cancel') },
             { text: 'ok', onPress: () => console.log('ok') },
           ]
-        }>
+        }
+        >
           <View style={{ paddingVertical: 20 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
