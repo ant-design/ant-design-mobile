@@ -23,13 +23,11 @@ english: Modal
 | prefixCls (web only)      | 样式类名前缀 | String          | `am-modal`           |
 | visible      | 对话框是否可见 | Boolean          | false           |
 | onClose      | 点击 x 或 mask 回调       | Function   | 无 |
-| onShow      | modal 显示回调       | Function   | 无 |
-| animated     | 是否展示动画       | Boolean   | true |
-| title (only transparent)       | 标题           | React.Element    | 无           |
-| closable (only transparent)    | 是否显示右上角的关闭按钮 | Boolean    | false        |
-| maskClosable (only transparent) | 点击蒙层是否允许关闭 | Boolean   | false       |
-| footer  (only transparent)     | 底部内容       |  Array [{text, onPress}]    | [] |
-| transparent  | 是否显示半透明       | Boolean   |  false |
+| title (only dialog)       | 标题           | React.Element    | 无           |
+| closable (only dialog)    | 是否显示右上角的关闭按钮 | Boolean    | false        |
+| maskClosable (only dialog) | 点击蒙层是否允许关闭 | Boolean   | false       |
+| footer  (only not dialog)     | 底部内容       |  Array [{text, onPress}]    | [] |
+| dialog | 是否弹窗模式       | Boolean   |  true |
 | style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
 
 ### Modal.alert(title, message, actions?) `web only`

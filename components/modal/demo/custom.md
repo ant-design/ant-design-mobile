@@ -31,8 +31,8 @@ const App = React.createClass({
             自定义对话框
           </Button>
           <Modal
-            transparent
             onClose={this.onClose}
+            dialog
             visible={this.state.visible}
             footer={[{ text: '确定', onPress: () => { console.log('ok'); this.onClose(); } }]}
           >

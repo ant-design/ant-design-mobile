@@ -3,7 +3,7 @@ import * as React from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
 import tsPropsType from './PropsType';
-import PopupStyles from './PopupStyles';
+import PopupStyles from './style/index';
 import Cascader from 'rmc-cascader/lib/Cascader';
 
 function getDefaultProps() {
