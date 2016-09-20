@@ -48,6 +48,10 @@ ReactDOM.render(
       <List
         renderHeader={() => '大号icon'}
       >
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
         <List.Item extra="内容内容" arrow="horizontal">
           <Badge text={9}>
             <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
@@ -60,6 +64,10 @@ ReactDOM.render(
           </Badge>
           <span style={{ marginLeft: 12 }}>超出99</span>
         </List.Item>
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
       </List>
     </form>
   </div>

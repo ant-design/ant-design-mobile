@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import * as React from 'react';
+import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import BadgeStyle from './style/index';
 import BadgeProps from './BadgePropsType';

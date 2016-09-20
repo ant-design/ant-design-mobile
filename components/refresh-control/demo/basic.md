@@ -48,10 +48,18 @@ const App = React.createClass({
         }}
       >
         <List renderHeader={() => '下拉刷新'}>
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
           {this.state.items}
           <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>
           <List.Item extra="down,箭头向下" arrow="down">标题文字</List.Item>
           <List.Item extra="up,箭头向上" arrow="up">标题文字</List.Item>
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
         </List>
       </RefreshControl>
     );

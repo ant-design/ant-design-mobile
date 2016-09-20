@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import PopupStyles from '../picker/style/index';
 import { formatFn, getProps as getDefaultProps } from './utils';

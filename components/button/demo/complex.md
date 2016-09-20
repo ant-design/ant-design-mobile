@@ -11,6 +11,10 @@ import { Button, List } from 'antd-mobile';
 
 ReactDOM.render(
   <List style={{ margin: '10px 0', backgroundColor: 'white' }}>
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
     <List.Item
       extra={<Button type="ghost" size="small" inline>small</Button>}
       multipleLine
@@ -25,6 +29,10 @@ ReactDOM.render(
       区域经理
       <List.Item.Brief>可进行收款、退款、折扣管理、查看数据等操作</List.Item.Brief>
     </List.Item>
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
   </List>
 , mountNode);
 ````

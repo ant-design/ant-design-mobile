@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import * as React from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import ProgressStyle from './style/index';
 import ProgressProps from './ProgressPropsType';

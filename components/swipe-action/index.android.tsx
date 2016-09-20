@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import * as React from 'react';
+import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import Modal from '../modal';
 import SwipeActionProps from './SwipeActionPropsType';

@@ -1,5 +1,5 @@
 /* tslint:disable:no-console */
-import * as React from 'react';
+import React from 'react';
 import { View, ScrollView } from 'react-native';
 import { Badge, WhiteSpace } from 'antd-mobile';
 

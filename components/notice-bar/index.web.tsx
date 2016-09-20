@@ -1,5 +1,5 @@
 /* tslint:disable:no-switch-case-fall-through */
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import NoticeBarProps from './NoticeBarPropsType';

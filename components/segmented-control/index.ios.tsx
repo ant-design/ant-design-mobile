@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { SegmentedControlIOS } from 'react-native';
 import SegmentedControlProps from './SegmentedControlPropTypes';
 import assign from 'object-assign';

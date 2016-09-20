@@ -1,5 +1,5 @@
 /* eslint no-console:0 */
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';

@@ -20,6 +20,10 @@ let BasicInputExample = React.createClass({
       <List
         renderHeader={() => '基本'}
       >
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
         <InputItem
           placeholder="设置defaultValue,不设置value"
           clear
@@ -95,10 +99,18 @@ let BasicInputExample = React.createClass({
           clear
           placeholder="内容"
         >报错样式</InputItem>
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
       </List>
       <List
         renderHeader={() => '固定标签字数'}
       >
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
         <InputItem
           {...getFieldProps('label2', {
             initialValue: '',
@@ -164,6 +176,10 @@ let BasicInputExample = React.createClass({
           onBlur={(value) => { console.log('onBlur'); console.log(value); }}
           onFocus={(value) => { console.log('onFocus'); console.log(value); }}
         >七个字标签七个</InputItem>
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
       </List>
     </div>);
   },

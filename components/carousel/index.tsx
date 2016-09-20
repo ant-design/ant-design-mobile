@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import ReactTimerMixin from 'react-timer-mixin';
 import Pagination from '../pagination';
 import {

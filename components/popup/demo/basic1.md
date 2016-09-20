@@ -21,10 +21,10 @@ const Test = React.createClass({
         <span
           style={{
             position: 'absolute', right: 3, top: -5, fontSize: '1.4em',
-          }}
-          onClick={() => this.onClose('cancel')}
-        >x</span>
-      </div>)}>
+          }} onClick={() => this.onClose('cancel')}
+          >x</span>
+        </div>
+      }>
         <List.Item>股票名称</List.Item>
         <List.Item>股票代码</List.Item>
         <List.Item>买入价格</List.Item>

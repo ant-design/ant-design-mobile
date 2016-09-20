@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {TouchableWithoutFeedback, Image} from 'react-native';
 import RadioProps from './RadioPropsType';
 import styles from './style/index';

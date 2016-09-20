@@ -99,7 +99,13 @@ export default class App extends React.Component {
             lists[cate].map((item, ii) => {
               const fileName = item.filename.split('/')[1];
               return (<List.Item key={ii}>
-                <Link to={`/${fileName}/`}>{item.english} <span style={{ fontSize: 24, color: '#888' }}>{item.chinese}</span></Link>
+                <Link to={`/${fileName}/`}>{item.english}
+                  <span
+                    style={{ fontSize: 24, color: '#888' }}
+                  >
+                    {item.chinese}
+                  </span>
+                </Link>
               </List.Item>);
             })
           }
@@ -119,7 +125,12 @@ export default class App extends React.Component {
       </div>
       <div className="demo-drawer-container">
         <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-          <Page logo="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" title="Ant Design Mobile" subtitle="服务于蚂蚁大中台无线业务的react组件" isIndex>
+          <Page
+            logo="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png"
+            title="Ant Design Mobile"
+            subtitle="服务于蚂蚁大中台无线业务的react组件"
+            isIndex
+          >
             {Object.keys(lists).map((cate, index) => (
               <List
                 key={index}

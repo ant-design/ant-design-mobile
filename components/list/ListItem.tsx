@@ -1,15 +1,10 @@
 import { PropTypes } from 'react';
-import * as React from 'react';
+import React from 'react';
 import assign from 'object-assign';
 import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
 import variables from '../style/themes/default';
 import theme from './style/index';
 const THEMES = theme.ThemesList;
-
-export interface CommonProps {
-  style?: React.CSSProperties;
-  children?: any;
-}
 
 export interface BriefProps {
   style?: React.CSSProperties;

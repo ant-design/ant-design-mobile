@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import MListView from 'rmc-list-view';
 import List from '../list';

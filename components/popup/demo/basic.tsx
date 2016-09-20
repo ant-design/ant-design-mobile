@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import { Popup, WhiteSpace, Button, List } from 'antd-mobile';
 
@@ -17,12 +17,12 @@ export default class PopupExample extends React.Component<any, any> {
         <List
           renderHeader={() => '委托买入' }
         >
-          <List.Body>
+
             <List.Item>股票名称</List.Item>
             <List.Item>股票代码</List.Item>
             <List.Item>买入价格</List.Item>
             <List.Item>买入数量</List.Item>
-          </List.Body>
+
         </List>
         <View style={{ padding: 10 }}>
           <Text style={{ color: 'gray' }}>投资说明投资说明...</Text>

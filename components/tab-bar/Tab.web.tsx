@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Badge from '../badge/';
 
 class Tab extends React.Component<any, any> {

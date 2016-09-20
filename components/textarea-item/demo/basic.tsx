@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ScrollView } from 'react-native';
 import { TextAreaItem, List } from 'antd-mobile';
 
@@ -40,7 +40,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
         <List
           renderHeader={() => '基本' }
         >
-          <List.Body>
+
             <TextAreaItem
               rows = {4}
               placeholder="固定行数"
@@ -80,7 +80,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
               count = {200}
               onErrorClick = {this.handleError}
             />
-          </List.Body>
+
         </List>
       </ScrollView>
 

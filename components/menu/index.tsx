@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Text } from 'react-native';
 import { MenuProps, MenuState } from './propTypes';
 

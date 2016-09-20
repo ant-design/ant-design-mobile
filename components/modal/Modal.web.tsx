@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';

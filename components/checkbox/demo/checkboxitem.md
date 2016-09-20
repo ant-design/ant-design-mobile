@@ -22,6 +22,10 @@ let CheckboxItemExample = React.createClass({
         <List
           renderHeader={() => '多项选择操作'}
         >
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
           <CheckboxItem
             {...getFieldProps('checkboxitem1', {
               initialValue: true,
@@ -47,6 +51,10 @@ let CheckboxItemExample = React.createClass({
           >
             个性化调整
           </CheckboxItem>
+<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
+=======
+
+>>>>>>> fix list
         </List>
       </div>
     );

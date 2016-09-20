@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 import { View } from 'react-native';
 import { DatePicker, List } from 'antd-mobile';
-import * as React from 'react';
+import React from 'react';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
@@ -25,7 +25,7 @@ export default class PopupExample extends React.Component<any, any> {
   render() {
     return (<View>
       <List>
-        <List.Body>
+
           <DatePicker
             defaultDate={defaultDate}
             value={this.state.value}
@@ -42,7 +42,7 @@ export default class PopupExample extends React.Component<any, any> {
               选择时间
             </List.Item>
           </DatePicker>
-        </List.Body>
+
       </List>
     </View>);
   }

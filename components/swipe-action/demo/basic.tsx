@@ -1,5 +1,5 @@
 /* tslint:disable:no-console */
-import * as React from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { SwipeAction, List } from 'antd-mobile';
 
@@ -8,7 +8,7 @@ export default class BasicSwipeActionExample extends React.Component<any, any> {
     return (
       <View style={{ paddingTop: 20 }}>
         <List>
-          <List.Body>
+
             <SwipeAction
               autoClose
               style={{ backgroundColor: 'transparent' }}
@@ -43,7 +43,7 @@ export default class BasicSwipeActionExample extends React.Component<any, any> {
                 简单例子 - 左右都可操作
               </List.Item>
             </SwipeAction>
-          </List.Body>
+
         </List>
       </View>
     );

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcCheckbox from 'rc-checkbox';
 
 import RadioProps from './RadioPropsType';

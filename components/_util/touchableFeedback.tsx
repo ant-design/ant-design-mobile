@@ -2,7 +2,7 @@
  *  fix active style
  *  on Uc browser, css :active not work normal
  */
-import * as React from 'react';
+import React from 'react';
 
 const touchSupported = typeof window !== 'undefined' && 'ontouchstart' in window;
 

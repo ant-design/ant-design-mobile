@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcCheckbox from 'rc-checkbox';
 import CheckboxPropsType from './CheckboxPropsType';
 import PropTypes = React.PropTypes;

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Image, ScrollView, View } from 'react-native';
+import React from 'react';
+import { Image, ScrollView, View, Text } from 'react-native';
 import { List, Button } from 'antd-mobile';
 
 export default class BasicListExample extends React.Component<any, any> {
@@ -49,7 +49,7 @@ export default class BasicListExample extends React.Component<any, any> {
         </List>
 
         <List
-          renderHeader={() => '箭头方向'}
+          renderHeader={() => <Text>箭头方向</Text>}
         >
           <List.Item
             extra="horizontal,箭头向右"
