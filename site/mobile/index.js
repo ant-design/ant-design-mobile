@@ -1,4 +1,10 @@
 module.exports = {
+  categoryOrder: {
+    'UI Bars': 0,
+    'UI Views': 1,
+    'UI Controls': 2,
+    Others: 3,
+  },
   routes: [{
     path: '/',
     component: './template/KitchenSink/index',
