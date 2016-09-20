@@ -43,6 +43,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   };
 
   initialTextHeight: number;
+  debounceTimeout: any;
 
   constructor(props) {
     super(props);
@@ -76,6 +77,12 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     );
   }
 
+  componentWillUnmount() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+  }
+
   onChange = (e) => {
     let value = e.target.value;
     const { onChange } = this.props;
@@ -83,7 +90,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   };
 
   onBlur = (e) => {
-    setTimeout(() => {
+    this.debounceTimeout = setTimeout(() => {
       this.setState({
         focus: false,
       });

@@ -48,6 +48,8 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     textAlign: 'left',
   };
 
+  debounceTimeout: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -61,6 +63,12 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       this.setState({
         placeholder: nextProps.placeholder,
       });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
     }
   }
 
@@ -96,7 +104,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   onInputBlur = (e) => {
-    setTimeout(() => {
+    this.debounceTimeout = setTimeout(() => {
       this.setState({
         focus: false,
       });
@@ -122,9 +130,11 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   clearInput = () => {
-    this.setState({
-      placeholder: this.props.value,
-    });
+    if (this.props.type !== 'password') {
+      this.setState({
+        placeholder: this.props.value,
+      });
+    }
     this.props.onChange('');
   };
 
