@@ -3,13 +3,6 @@
 
 @activityIndicatorPrefixCls: am-activity-indicator;
 
-// Encoded SVG Background
-.encoded-svg-background(@svg) {
-  @url: `encodeURIComponent(@{svg})`;
-  background-image: url("data:image/svg+xml;charset=utf-8,@{url}");
-}
-
-
 .@{activityIndicatorPrefixCls} {
   display: flex;
   align-items: center;
@@ -18,7 +11,7 @@
     display: inline-block;
     width: 40px;
     height: 40px;
-    .encoded-svg-background("<svg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><line id='l' x1='60' x2='60' y1='7' y2='27' stroke='#6c6c6c' stroke-width='11' stroke-linecap='round'/></defs><g><use xlink:href='#l' opacity='.27'/><use xlink:href='#l' opacity='.27' transform='rotate(30 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(60 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(90 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(120 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(150 60,60)'/><use xlink:href='#l' opacity='.37' transform='rotate(180 60,60)'/><use xlink:href='#l' opacity='.46' transform='rotate(210 60,60)'/><use xlink:href='#l' opacity='.56' transform='rotate(240 60,60)'/><use xlink:href='#l' opacity='.66' transform='rotate(270 60,60)'/><use xlink:href='#l' opacity='.75' transform='rotate(300 60,60)'/><use xlink:href='#l' opacity='.85' transform='rotate(330 60,60)'/></g></svg>");
+    .encoded-svg-background('<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Oval 4 + Oval 4</title><defs><path d="M20 39.889c10.432 0 18.889-9.457 18.889-19.889C38.889 9.568 30.432.111 20 .111 9.568.111.111 9.568.111 20 .111 30.432 9.568 39.889 20 39.889z" id="a"/><mask id="b" x="0" y="0" width="38.778" height="39.778" fill="#fff"><use xlink:href="#a"/></mask></defs><g stroke-linecap="round" fill="none" fill-rule="evenodd"><use stroke="#CCC" mask="url(#b)" stroke-width="6" xlink:href="#a"/><path d="M37.931 21.307c.246-4.959-1.362-9.703-4.519-12.938" stroke="#108EE9" stroke-width="3"/></g></svg>');
     background-position: 50%;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -26,12 +19,10 @@
   }
 
   &-tip {
-    margin-left: 16px;
-    color: #999;
-  }
-
-  &-spinner-white {
-    .encoded-svg-background("<svg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><line id='l' x1='60' x2='60' y1='7' y2='27' stroke='#fff' stroke-width='11' stroke-linecap='round'/></defs><g><use xlink:href='#l' opacity='.27'/><use xlink:href='#l' opacity='.27' transform='rotate(30 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(60 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(90 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(120 60,60)'/><use xlink:href='#l' opacity='.27' transform='rotate(150 60,60)'/><use xlink:href='#l' opacity='.37' transform='rotate(180 60,60)'/><use xlink:href='#l' opacity='.46' transform='rotate(210 60,60)'/><use xlink:href='#l' opacity='.56' transform='rotate(240 60,60)'/><use xlink:href='#l' opacity='.66' transform='rotate(270 60,60)'/><use xlink:href='#l' opacity='.75' transform='rotate(300 60,60)'/><use xlink:href='#l' opacity='.85' transform='rotate(330 60,60)'/></g></svg>");
+    font-size: @font-size-base;
+    margin-left: @h-spacing-md;
+    color: @color-text-base;
+    opacity: 0.4;
   }
 
   &.@{activityIndicatorPrefixCls}-toast {

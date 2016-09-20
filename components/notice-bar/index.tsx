@@ -1,5 +1,5 @@
 /* tslint:disable:no-switch-case-fall-through */
-import * as React from 'react';
+import React from 'react';
 import NoticeBarProps from './NoticeBarPropsType';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import NoticeStyle from './style';

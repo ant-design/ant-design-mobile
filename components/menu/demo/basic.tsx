@@ -1,5 +1,5 @@
 import { Menu } from 'antd-mobile';
-import * as React from 'react';
+import React from 'react';
 
 export default class MenuExample extends React.Component<any, any> {
   render() {

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import ReactCarousel from 'nuka-carousel';
 import assign from 'object-assign';
 import Pagination from '../pagination/index.web';

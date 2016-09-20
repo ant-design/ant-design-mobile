@@ -1,6 +1,6 @@
 import { Steps, WingBlank } from 'antd-mobile';
 const Step = Steps.Step;
-import * as React from 'react';
+import React from 'react';
 import { View, ScrollView } from 'react-native';
 
 export default class BasicTimelineExample extends React.Component<any, any> {

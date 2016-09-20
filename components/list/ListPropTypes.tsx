@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 export interface ListProps {
   /** web only */
@@ -6,15 +6,7 @@ export interface ListProps {
   style?: React.CSSProperties;
   /** web only */
   className?: string;
-  title?: React.ReactNode;
-  footer?: React.ReactNode;
   children?: any;
-}
-
-export interface ListBodyProps {
-  error?: boolean;
-  style?: React.CSSProperties;
-  children?: any;
-  prefixCls?: string;
-  className?: string;
+  renderHeader?: Function;
+  renderFooter?: Function;
 }

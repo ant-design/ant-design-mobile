@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { WhiteSpace, Radio, List } from 'antd-mobile';
 const RadioItem = Radio.RadioItem;
@@ -33,7 +33,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
 
         <List>
           <List.Header>表单多选项，普通列表中多选项</List.Header>
-          <List.Body>
+
             <RadioItem checked={this.state.part2Value === 1}
               onChange={(checked) => {
               if(checked) {
@@ -48,7 +48,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
             }}>使用 Ant Desgin Component</RadioItem>
             <RadioItem disabled>个性化调整disabled</RadioItem>
             <RadioItem disabled checked>个性化调整disabled</RadioItem>
-          </List.Body>
+
         </List>
       </View>
     );

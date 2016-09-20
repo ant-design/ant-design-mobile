@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
@@ -11,6 +11,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     visible: false,
     closable: false,
     maskClosable: false,
+    // transparent change to transparent by yiminghe
     transparent: false,
     animated: true,
     style: {},
@@ -20,21 +21,8 @@ export default class Modal extends React.Component<ModalProps, any> {
     footer: [],
   };
 
-  componentWillMount() {
-    const { visible, onShow } = this.props;
-    if (visible) {
-      onShow();
-    }
-  }
-
   componentDidMount() {
     this.componentDidUpdate(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.visible) {
-      this.props.onShow();
-    }
   }
 
   componentDidUpdate(prevProps) {
@@ -58,7 +46,6 @@ export default class Modal extends React.Component<ModalProps, any> {
       transitionName,
       maskTransitionName,
       closable,
-      maskClosable,
       style,
       title,
       bodyStyle,
@@ -66,6 +53,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       children,
       onClose,
       footer,
+      maskClosable,
     } = this.props;
 
     const wrapCls = classNames({
@@ -112,7 +100,7 @@ export default class Modal extends React.Component<ModalProps, any> {
         style={rootStyle}
         bodyStyle={bodyStyle}
         visible={visible}
-        closable={closable || maskClosable}
+        closable={closable}
         maskClosable={maskClosable}
         onClose={onClose}
         footer={footerDom}

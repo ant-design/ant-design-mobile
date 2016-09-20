@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import * as React from 'react';
+import React from 'react';
 import Swipeout from 'rc-swipeout/lib/Swipeout';
 import SwipeActionProps from './SwipeActionPropsType';
 

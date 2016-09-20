@@ -40,6 +40,7 @@ const eslintrc = {
     'react/no-string-refs': 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".md"] }],
     'react/no-find-dom-node': 0,
+    'react/require-extension': 0,
     'jsx-a11y/href-no-hash': 0,
   }
 };

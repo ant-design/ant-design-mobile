@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { Carousel } from 'antd-mobile';
 

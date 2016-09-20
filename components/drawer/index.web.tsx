@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import RcDrawer from 'rc-drawer';
 import splitObject from '../_util/splitObject';

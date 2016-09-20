@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import objectAssign from 'object-assign';
@@ -117,9 +117,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
           {level === 2 ? (
             <Flex.Item style={heightStyle}>
               <List>
-                <List.Body>
-                  {listContent}
-                </List.Body>
+                {listContent}
               </List>
             </Flex.Item>
           ) : null}

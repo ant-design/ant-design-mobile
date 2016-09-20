@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {TouchableWithoutFeedback, Image} from 'react-native';
 import CheckboxProps from './CheckboxPropsType';
 import styles from './style/index';

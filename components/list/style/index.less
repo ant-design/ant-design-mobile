@@ -89,9 +89,6 @@
     min-height: @list-item-height;
     overflow: hidden;
     .hairline-bottom(@border-color-base);
-    &-multiple {
-      padding: @v-spacing-lg @h-spacing-lg @v-spacing-lg 0;
-    }
     /* list左侧主内容*/
     .@{listPrefixCls}-content {
       flex: 1;
@@ -100,6 +97,8 @@
       line-height: 1.2;
       text-align: left;
       .ellipsis();
+      padding-top: 14px;
+      padding-bottom: 14px;
     }
     /* list右补充内容*/
     .@{listPrefixCls}-extra {
@@ -109,6 +108,8 @@
       line-height: 1.2;
       text-align: right;
       .ellipsis();
+      padding-top: 14px;
+      padding-bottom: 14px;
     }
     .@{listPrefixCls}-title {
       .ellipsis();
@@ -137,11 +138,30 @@
       }
       &-vertical {
         visibility: visible;
-        .transform(rotate(270deg));
+        .transform(rotate(90deg));
       }
       &-vertical-up {
         visibility: visible;
-        .transform(rotate(90deg));
+        .transform(rotate(270deg));
+      }
+    }
+    &-multiple {
+      padding: 25px @h-spacing-lg 25px   0;
+      .@{listPrefixCls}-content {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .@{listPrefixCls}-extra {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    &-wrap {
+      .@{listPrefixCls}-content {
+        white-space: normal;
+      }
+      .@{listPrefixCls}-extra {
+        white-space: normal;
       }
     }
   }

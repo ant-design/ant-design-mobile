@@ -1,5 +1,5 @@
 /* tslint:disable:no-console */
-import * as React from 'react';
+import React from 'react';
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 import { View, DeviceEventEmitter } from 'react-native';
 

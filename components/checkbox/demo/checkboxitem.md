@@ -19,34 +19,34 @@ let CheckboxItemExample = React.createClass({
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List title="多项选择操作">
-          <List.Body>
-            <CheckboxItem
-              {...getFieldProps('checkboxitem1', {
-                initialValue: true,
-                valuePropName: 'checked',
-              })}
-            >
-              使用Ant Design Component
-            </CheckboxItem>
-            <CheckboxItem
-              {...getFieldProps('checkboxitem2', {
-                initialValue: false,
-                valuePropName: 'checked',
-              })}
-            >
-              个性化调整
-            </CheckboxItem>
-            <CheckboxItem
-              disabled
-              {...getFieldProps('checkboxitem3', {
-                initialValue: true,
-                valuePropName: 'checked',
-              })}
-            >
-              个性化调整
-            </CheckboxItem>
-          </List.Body>
+        <List
+          renderHeader={() => '多项选择操作'}
+        >
+          <CheckboxItem
+            {...getFieldProps('checkboxitem1', {
+              initialValue: true,
+              valuePropName: 'checked',
+            })}
+          >
+            使用Ant Design Component
+          </CheckboxItem>
+          <CheckboxItem
+            {...getFieldProps('checkboxitem2', {
+              initialValue: false,
+              valuePropName: 'checked',
+            })}
+          >
+            个性化调整
+          </CheckboxItem>
+          <CheckboxItem
+            disabled
+            {...getFieldProps('checkboxitem3', {
+              initialValue: true,
+              valuePropName: 'checked',
+            })}
+          >
+            个性化调整
+          </CheckboxItem>
         </List>
       </div>
     );

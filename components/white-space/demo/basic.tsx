@@ -1,5 +1,5 @@
 import { WhiteSpace, WingBlank, Button } from 'antd-mobile';
-import * as React from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
 export default class BasicWhiteSpaceExample extends React.Component<any, any> {

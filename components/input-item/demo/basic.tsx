@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ScrollView } from 'react-native';
 import { InputItem, List } from 'antd-mobile';
 
@@ -33,8 +33,10 @@ export default class BasicInputItemExample extends React.Component<any, any> {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <List title="基本">
-          <List.Body>
+        <List
+          renderHeader={() => '基本'}
+        >
+
             <InputItem
               clear
               error
@@ -71,10 +73,12 @@ export default class BasicInputItemExample extends React.Component<any, any> {
               }}
               placeholder="无标签"
             />
-          </List.Body>
+
         </List>
-        <List title="固定标签字数">
-          <List.Body>
+        <List
+          renderHeader={() => '固定标签字数'}
+        >
+
             <InputItem
               clear
               value={this.state.labelnum1}
@@ -141,10 +145,12 @@ export default class BasicInputItemExample extends React.Component<any, any> {
               labelNumber={7}
               placeholder="七个字标签"
             >七个字标签七个</InputItem>
-          </List.Body>
+
         </List>
-        <List title="格式">
-          <List.Body>
+        <List
+          renderHeader={() => '格式'}
+        >
+
             <InputItem
               clear
               error
@@ -200,7 +206,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 }}
               placeholder="number"
             >数字</InputItem>
-          </List.Body>
+
         </List>
       </ScrollView>
     );

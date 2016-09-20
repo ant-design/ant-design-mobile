@@ -1,4 +1,6 @@
-import * as React from 'react';
+/* tslint:disable:no-unused-variable */
+import React from 'react';
+/* tslint:enable:no-unused-variable */
 import Notification from 'rc-notification';
 import Icon from '../icon';
 

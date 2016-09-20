@@ -1,5 +1,6 @@
-import * as React from 'react';
-
+/* tslint:disable:no-unused-variable */
+import React from 'react';
+/* tslint:enable:no-unused-variable */
 export interface IconProps {
   type: string;
   className?: string;

@@ -1,5 +1,5 @@
 import {createElement} from 'react';
-import * as React from 'react';
+import React from 'react';
 import {findDOMNode} from 'react-dom';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import assign from 'object-assign';

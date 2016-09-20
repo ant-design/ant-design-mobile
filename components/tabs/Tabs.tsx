@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import styles from './style/';
 import TabsProps from './TabsProps';

@@ -43,11 +43,6 @@ declare module 'antd-mobile' {
   export = exports
 }
 
-declare module 'rc-dialog' {
-  var exports: any
-  export default exports
-}
-
 declare module 'rmc-list-view' {
   var exports: any;
   export default exports

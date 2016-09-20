@@ -1,4 +1,6 @@
-import * as React from 'react';
+/* tslint:disable:no-unused-variable */
+import React from 'react';
+/* tslint:enable:no-unused-variable */
 import { View } from 'react-native';
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 

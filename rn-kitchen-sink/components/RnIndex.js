@@ -59,30 +59,34 @@ export default class RnIndex extends React.Component {
     const { uiViews, uiControls, others, uiBars } = this.state;
     return (
       <View style={styles.container}>
-        <SearchBar onChange={(text) => { this.search(text); }} />
+        <SearchBar onChange={(text) => {
+          this.search(text);
+        }} />
         <ScrollView>
           {
             [['UI Views', uiViews],
-            ['UI Controls', uiControls],
-            ['Others', others],
-            ['UI Bars', uiBars]].map((item, i) => (
-              <List key={i} title={item[0]} style={{
-                marginTop: 0,
-                marginBottom: 0,
-              }}>
-                <List.Body>
-                  {
-                    item[1].map(el => (
-                      <List.Item
-                        thumb={el.icon}
-                        onClick={() => { this.onPressRow(el); }}
-                        arrow="horizontal"
-                        key={el.title}
-                      >{`${el.title} ${el.description}`}</List.Item>
-                    ))
-                  }
-                </List.Body>
-              </List>
+              ['UI Controls', uiControls],
+              ['Others', others],
+              ['UI Bars', uiBars]].map((item, i) => (
+              <List
+                key={i}
+                title={item[0]}
+                style={{
+                  marginTop: 0,
+                  marginBottom: 0,
+                }}
+              >{
+                item[1].map(el => (
+                  <List.Item
+                    thumb={el.icon}
+                    onClick={() => {
+                      this.onPressRow(el);
+                    }}
+                    arrow="horizontal"
+                    key={el.title}
+                  >{`${el.title} ${el.description}`}</List.Item>
+                ))
+              }</List>
             ))
           }
         </ScrollView>

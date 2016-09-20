@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import { Image, Text, Dimensions, View } from 'react-native';
 import Flex from '../flex';

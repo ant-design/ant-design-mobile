@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import {WhiteSpace, Checkbox, List} from 'antd-mobile';
 const AgreeItem = Checkbox.AgreeItem;
@@ -29,12 +29,12 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
 
         <List>
           <List.Header>表单多选项，普通列表中多选项</List.Header>
-          <List.Body>
+
             <CheckboxItem checked>签约</CheckboxItem>
             <CheckboxItem>物料铺设</CheckboxItem>
             <CheckboxItem disabled>机具维护（不能选）</CheckboxItem>
             <CheckboxItem disabled checked>产品问题解决（必选）</CheckboxItem>
-          </List.Body>
+
         </List>
       </View>
     );

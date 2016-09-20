@@ -44,13 +44,11 @@ const App = React.createClass({
           textAlign: 'center',
         }}
       >
-        <List title="下拉刷新">
-          <List.Body>
-            {this.state.items}
-            <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>
-            <List.Item extra="down,箭头向下" arrow="down">标题文字</List.Item>
-            <List.Item extra="up,箭头向上" arrow="up">标题文字</List.Item>
-          </List.Body>
+        <List renderHeader={() => '下拉刷新'}>
+          {this.state.items}
+          <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>
+          <List.Item extra="down,箭头向下" arrow="down">标题文字</List.Item>
+          <List.Item extra="up,箭头向上" arrow="up">标题文字</List.Item>
         </List>
       </RefreshControl>
     );

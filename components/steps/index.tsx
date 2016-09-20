@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RNStepsItem from './StepsItem';
 import { View } from 'react-native';
 import StepsProps from './StepsPropType';

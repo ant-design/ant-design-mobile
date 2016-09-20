@@ -1,16 +1,14 @@
 interface ModalProps {
   title?: string;
   visible: boolean;
-  closable?: boolean;
   maskClosable?: boolean;
+  closable?: boolean;
   footer?: Array<{}>;
   onClose?: () => void;
-  onShow?: () => void;
-  animated?: boolean;
+  /** react native only **/
   transparent?: boolean;
   style?: {};
-  /** react native only **/
-  onRequestClose?: () => void;
+  animated?: boolean;
   /** web only */
   prefixCls?: string;
   transitionName?: string;

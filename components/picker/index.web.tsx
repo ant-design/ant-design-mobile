@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import Cascader from 'rmc-cascader/lib/Cascader';

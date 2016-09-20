@@ -13,10 +13,11 @@ let ListExample = React.createClass({
   render() {
     return (<form>
       <List
-        title="我是华丽丽的列表头部"
-        footer="我是列表尾部"
+        renderHeader={() => '我是华丽丽的列表头部'}
+        renderFooter={() => '我是列表尾部'}
       >
-        <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
+        <List.Item>没有设置onClick则点击无反馈，文字超长则隐藏</List.Item>
+        <List.Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</List.Item>
         <List.Item
           onClick={() => {}}
           extra={undefined}
@@ -28,7 +29,7 @@ let ListExample = React.createClass({
         >标题文字</List.Item>
       </List>
       <List
-        title="下拉框"
+        renderHeader={() => '下拉框'}
       >
         <List.Item
           extra={<select style={{ direction: 'rtl' }} defaultValue="2">
@@ -49,7 +50,7 @@ let ListExample = React.createClass({
         </List.Item>
       </List>
       <List
-        title="带缩略图"
+        renderHeader={() => '带缩略图'}
       >
         <List.Item
           thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"

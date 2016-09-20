@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import PullToRefresh from 'rmc-pull-to-refresh';
 import Icon from '../icon';

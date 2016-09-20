@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcTabs, { TabPane } from 'rc-tabs';
 import TabsProps from './TabsProps';
 import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';

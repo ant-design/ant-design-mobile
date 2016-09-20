@@ -72,7 +72,8 @@ ReactDOM.render(
         align="top"
         onClick={() => {}}
         multipleLine
-      >zhifubao@alipay.com#zh</List.Item>
+        wrap
+      >文字超长折行文字超长折行</List.Item>
     </List>
   </div>
 , mountNode);
