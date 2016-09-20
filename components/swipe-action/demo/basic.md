@@ -11,10 +11,6 @@ const SwipeActionExample = React.createClass({
   render() {
     return (
       <List>
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
-=======
-
->>>>>>> fix list
         <SwipeAction
           style={{ backgroundColor: 'gray' }}
           autoClose
@@ -52,10 +48,6 @@ const SwipeActionExample = React.createClass({
               左右都可操作
           </List.Item>
         </SwipeAction>
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
-=======
-
->>>>>>> fix list
       </List>
     );
   },

@@ -65,13 +65,7 @@ export default class SubMenu extends React.Component<SubMenuProps, SubMenuState>
 
     return (
       <List style={{ paddingTop: 0 }} className={subMenuCls}>
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
         {itemsDom}
-=======
-
-          {itemsDom}
-
->>>>>>> fix list
       </List>
     );
   }

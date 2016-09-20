@@ -22,20 +22,6 @@ const App1 = React.createClass({
   },
   render() {
     const sidebar = (<List>
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
-      {[...Array(20).keys()].map((i, index) => {
-        if (index === 0) {
-          return (<List.Item key={index}
-            thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-            multipleLine
-          >分类</List.Item>);
-        }
-        return (<List.Item key={index}
-          thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-        >分类{index}</List.Item>);
-      })}
-=======
-
         {[...Array(20).keys()].map((i, index) => {
           if (index === 0) {
             return (<List.Item key={index}
@@ -47,8 +33,6 @@ const App1 = React.createClass({
             thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
           >分类{index}</List.Item>);
         })}
-
->>>>>>> fix list
     </List>);
 
     const drawerProps = {

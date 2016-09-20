@@ -117,13 +117,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
           {level === 2 ? (
             <Flex.Item style={heightStyle}>
               <List>
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
                 {listContent}
-=======
-
-                  {listContent}
-
->>>>>>> fix list
               </List>
             </Flex.Item>
           ) : null}

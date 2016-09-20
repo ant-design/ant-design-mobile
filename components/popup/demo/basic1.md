@@ -16,14 +16,18 @@ const Test = React.createClass({
   },
   onClick() {
     Popup.show(<div>
-      <List renderHeader={() => (<div style={{ position: 'relative' }}>
-        委托买入
-        <span
-          style={{
-            position: 'absolute', right: 3, top: -5, fontSize: '1.4em',
-          }} onClick={() => this.onClose('cancel')}
-          >x</span>
-        </div>
+      <List renderHeader={() => (
+        <div style={{ position: 'relative' }}>
+          委托买入
+          <span
+            style={{
+              position: 'absolute', right: 3, top: -5, fontSize: '1.4em',
+            }}
+            onClick={() => this.onClose('cancel')}
+          >
+          x
+          </span>
+        </div>)
       }>
         <List.Item>股票名称</List.Item>
         <List.Item>股票代码</List.Item>

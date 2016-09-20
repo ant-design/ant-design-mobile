@@ -41,10 +41,6 @@ let Test = React.createClass({
         renderHeader={() => '选择时间'}
         style={{ backgroundColor: 'white' }}
       >
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
-=======
-
->>>>>>> fix list
         <DatePicker
           mode="date"
           title="选择日期"
@@ -89,10 +85,6 @@ let Test = React.createClass({
         >
           <List.Item arrow="horizontal">time(en_US)</List.Item>
         </DatePicker>
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
-=======
-
->>>>>>> fix list
       </List>
     </div>);
   },

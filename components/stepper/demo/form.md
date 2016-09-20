@@ -16,10 +16,6 @@ function onChange(value) {
 ReactDOM.render(
   <div>
     <List renderHeader={() => '表单'} >
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
-=======
-
->>>>>>> fix list
       <List.Item extra={<Stepper max={10} min={1} defaultValue={3} onChange={onChange} />}>
       默认
       </List.Item>
@@ -32,22 +28,17 @@ ReactDOM.render(
       <List.Item extra={<Stepper disabled max={10} min={1} showNumber defaultValue={3} onChange={onChange} />}>
       禁用
       </List.Item>
-<<<<<<< 127d981ca6b9caeffdb476709f9897a7e17af30e
     </List>
     <List renderHeader={() => '步进器'} >
       <List.Item extra={<Stepper showNumber max={10} min={1} defaultValue={3} onChange={onChange} />}>
         预定人数
       </List.Item>
-=======
-
     </List>
     <List renderHeader={() => '步进器'} >
 
       <List.Item extra={<Stepper showNumber max={10} min={1} defaultValue={3} onChange={onChange} />}>
         预定人数
       </List.Item>
-
->>>>>>> fix list
     </List>
   </div>
 , mountNode);
