@@ -22,19 +22,17 @@ const App = React.createClass({
   },
   render() {
     const sidebar = (<List>
-      <List.Body>
-        {[...Array(20).keys()].map((i, index) => {
-          if (index === 0) {
-            return (<List.Item key={index}
-              thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              multipleLine
-            >分类</List.Item>);
-          }
+      {[...Array(20).keys()].map((i, index) => {
+        if (index === 0) {
           return (<List.Item key={index}
             thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-          >分类{index}</List.Item>);
-        })}
-      </List.Body>
+            multipleLine
+          >分类</List.Item>);
+        }
+        return (<List.Item key={index}
+          thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
+        >分类{index}</List.Item>);
+      })}
     </List>);
 
     const drawerProps = {

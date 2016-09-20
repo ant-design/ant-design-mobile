@@ -39,3 +39,4 @@ xcuserdata
 components/**/*.jsx
 components/**/*.js
 my-release-key.keystore
+.vscode

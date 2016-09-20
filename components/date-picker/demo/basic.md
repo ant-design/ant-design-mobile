@@ -41,52 +41,50 @@ let Test = React.createClass({
         renderHeader={() => '选择时间'}
         style={{ backgroundColor: 'white' }}
       >
-        <List.Body>
-          <DatePicker
-            mode="date"
-            title="选择日期"
-            extra="可选,小于结束日期"
-            {...getFieldProps('date1', {
-              initialValue: zhNow,
-            })}
-            minDate={minDate}
-            maxDate={maxDate}
-          >
-            <List.Item arrow="horizontal">日期</List.Item>
-          </DatePicker>
-          <DatePicker mode="time" {...getFieldProps('time1')}>
-            <List.Item arrow="horizontal">时间,不限定上下限</List.Item>
-          </DatePicker>
-          <DatePicker
-            mode="time"
-            {...getFieldProps('time', {
-              initialValue: zhNow,
-            })}
-            minDate={minTime}
-            maxDate={maxTime}
-          >
-            <List.Item arrow="horizontal">时间</List.Item>
-          </DatePicker>
-          <DatePicker className="forss"
-            mode="datetime"
-            onChange={this.onChange}
-            value={this.state.date}
-          >
-            <List.Item arrow="horizontal">日期+时间</List.Item>
-          </DatePicker>
-          <DatePicker
-            mode="time"
-            format={val => val.format('HH:mm Z')}
-            okText="Ok"
-            dismissText="Cancel"
-            locale={enUs}
-            {...getFieldProps('customformat', {
-              initialValue: gmtNow,
-            })}
-          >
-            <List.Item arrow="horizontal">time(en_US)</List.Item>
-          </DatePicker>
-        </List.Body>
+        <DatePicker
+          mode="date"
+          title="选择日期"
+          extra="可选,小于结束日期"
+          {...getFieldProps('date1', {
+            initialValue: zhNow,
+          })}
+          minDate={minDate}
+          maxDate={maxDate}
+        >
+          <List.Item arrow="horizontal">日期</List.Item>
+        </DatePicker>
+        <DatePicker mode="time" {...getFieldProps('time1')}>
+          <List.Item arrow="horizontal">时间,不限定上下限</List.Item>
+        </DatePicker>
+        <DatePicker
+          mode="time"
+          {...getFieldProps('time', {
+            initialValue: zhNow,
+          })}
+          minDate={minTime}
+          maxDate={maxTime}
+        >
+          <List.Item arrow="horizontal">时间</List.Item>
+        </DatePicker>
+        <DatePicker className="forss"
+          mode="datetime"
+          onChange={this.onChange}
+          value={this.state.date}
+        >
+          <List.Item arrow="horizontal">日期+时间</List.Item>
+        </DatePicker>
+        <DatePicker
+          mode="time"
+          format={val => val.format('HH:mm Z')}
+          okText="Ok"
+          dismissText="Cancel"
+          locale={enUs}
+          {...getFieldProps('customformat', {
+            initialValue: gmtNow,
+          })}
+        >
+          <List.Item arrow="horizontal">time(en_US)</List.Item>
+        </DatePicker>
       </List>
     </div>);
   },
