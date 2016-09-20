@@ -197,7 +197,7 @@ export default class ComponentDoc extends React.Component {
 
           <div id="demo-code" className="clearfix" style={{ paddingRight: 405 }}>
             <div style={{ width: '100%', float: 'left' }}>
-            {leftChildren}
+              {leftChildren}
             </div>
             <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
               <div id="aside-demo" className="aside-demo">
