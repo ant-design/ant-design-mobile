@@ -91,7 +91,10 @@ export default class App extends React.Component {
         <Link to="/">Ant Design Mobile</Link>
       </div>
       {Object.keys(lists).map((cate, index) => (
-        <List key={index} title={cate}>
+        <List
+          key={index}
+          renderHeader={() => cate}
+        >
           <List.Body>
             {
               lists[cate].map((item, ii) => {
@@ -120,8 +123,10 @@ export default class App extends React.Component {
         <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
           <Page logo="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" title="Ant Design Mobile" subtitle="服务于蚂蚁大中台无线业务的react组件" isIndex>
             {Object.keys(lists).map((cate, index) => (
-              <List key={index}>
-                <List.Header>{cate}</List.Header>
+              <List
+                key={index}
+                renderHeader={() => cate}
+              >
                 <List.Body>
                   {(() => {
                     const flexs = [];

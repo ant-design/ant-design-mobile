@@ -37,7 +37,9 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <List title="基本">
+        <List
+          renderHeader={() => '基本' }
+        >
           <List.Body>
             <TextAreaItem
               rows = {4}

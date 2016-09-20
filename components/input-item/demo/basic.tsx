@@ -33,7 +33,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <List title="基本">
+        <List
+          renderHeader={() => '基本'}
+        >
           <List.Body>
             <InputItem
               clear
@@ -73,7 +75,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             />
           </List.Body>
         </List>
-        <List title="固定标签字数">
+        <List
+          renderHeader={() => '固定标签字数'}
+        >
           <List.Body>
             <InputItem
               clear
@@ -143,7 +147,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             >七个字标签七个</InputItem>
           </List.Body>
         </List>
-        <List title="格式">
+        <List
+          renderHeader={() => '格式'}
+        >
           <List.Body>
             <InputItem
               clear

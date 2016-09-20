@@ -39,7 +39,9 @@ const Test = React.createClass({
   },
   onClick() {
     Popup.show(
-      <List title="账户总览 (已绑定3个）">
+      <List
+        renderHeader={() => '账户总览 (已绑定3个）'}
+      >
         <List.Body>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"

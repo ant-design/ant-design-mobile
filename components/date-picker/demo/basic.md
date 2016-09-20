@@ -37,8 +37,10 @@ let Test = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
-      <List style={{ backgroundColor: 'white' }}>
-        <List.Header>选择时间</List.Header>
+      <List
+        renderHeader={() => '选择时间'}
+        style={{ backgroundColor: 'white' }}
+      >
         <List.Body>
           <DatePicker
             mode="date"

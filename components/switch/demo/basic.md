@@ -16,7 +16,9 @@ let SwitchExample = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (
-      <List title="表单开关项">
+      <List
+        renderHeader={() => '表单开关项'}
+      >
         <List.Body>
           <List.Item
             extra={<Switch

@@ -13,8 +13,7 @@ import { createForm } from 'rc-form';
 let FormatExample = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
-    return (<List>
-      <List.Header>格式</List.Header>
+    return (<List renderHeader={() => '格式'}>
       <List.Body>
         <InputItem
           {...getFieldProps('bankCard', {

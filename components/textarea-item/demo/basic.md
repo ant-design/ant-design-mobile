@@ -17,7 +17,9 @@ let TextareaItemExample = React.createClass({
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List title="多行输入">
+        <List
+          renderHeader={() => '多行输入'}
+        >
           <List.Body>
             <TextareaItem
               title="非受控"

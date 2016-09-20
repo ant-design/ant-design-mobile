@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Header from './ListHeader';
 import Body from './ListBody';
-import Footer from './ListFooter';
 import Item from './ListItem';
 import classNames from 'classnames';
 import { ListProps } from './ListPropTypes';
@@ -12,7 +10,7 @@ function isBodyHeaderFooter(children) {
   let isOld;
   React.Children.forEach(children, (c) => {
     const type = c && (c as ReactElement<any>).type;
-    if (type === Header || type === Footer || type === Body) {
+    if (type === Body) {
       isOld = true;
     }
   });
@@ -30,25 +28,33 @@ class List extends React.Component<ListProps, any> {
   };
 
   render() {
-    let {prefixCls, children, className, style, title, footer} = this.props;
+    let {prefixCls, children, className, style, renderHeader, renderFooter} = this.props;
     const wrapCls = classNames({
       [prefixCls]: true,
       [className]: className,
     });
 
+    let headerDom = null;
+    let footerDom = null;
+
+    if (renderHeader) {
+      headerDom = <div className={`${prefixCls}-header`}>{renderHeader()}</div>;
+    }
+    if (renderFooter) {
+      footerDom = <div className={`${prefixCls}-footer`}>{renderFooter()}</div>;
+    }
+
     return (
       <div className={wrapCls} style={style}>
-        {title ? <Header>{title}</Header> : null}
+        {headerDom}
         {isBodyHeaderFooter(children) ? children :<Body prefixCls={prefixCls}>{children}</Body>}
-        {footer ? <Footer>{footer}</Footer> : null}
+        {footerDom}
       </div>
     );
   }
 }
 
-List.Header = Header;
 List.Body = Body;
-List.Footer = Footer;
 List.Item = Item;
 
 export default List;

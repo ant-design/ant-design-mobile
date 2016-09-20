@@ -35,7 +35,7 @@ const Test = React.createClass({
     return (
       <div>
         <List
-          title="请选择学历"
+          renderHeader={() => '请选择学历'}
         >
           <List.Body>
             <RadioItem

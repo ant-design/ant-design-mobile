@@ -47,7 +47,7 @@ const App = React.createClass({
           textAlign: 'center',
         }}
       >
-        <List title="下拉刷新">
+        <List renderHeader={() => '下拉刷新'}>
           <List.Body>
             {this.state.items}
             <List.Item extra="horizontal,箭头向右" arrow="horizontal">标题文字</List.Item>

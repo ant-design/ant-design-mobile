@@ -12,43 +12,42 @@ import { List, Badge } from 'antd-mobile';
 ReactDOM.render(
   <div className="badge-container">
     <form>
-      <List>
-        <List.Header>列表</List.Header>
-        <List.Body>
-          <List.Item extra="内容内容">
-            文本内容<Badge dot style={{ marginLeft: 12 }} />
-          </List.Item>
-          <List.Item extra="内容内容" arrow="horizontal">
-            文本内容<Badge text={'new'} style={{ marginLeft: 12 }} />
-          </List.Item>
-          <List.Item extra="内容内容" arrow="horizontal">
-            文本内容<Badge text={4} style={{ marginLeft: 12 }} />
-          </List.Item>
-          <List.Item extra="内容内容" arrow="horizontal">
-            文本内容<Badge text={100} style={{ marginLeft: 12 }} />
-          </List.Item>
-        </List.Body>
+      <List
+        renderHeader={() => '列表'}
+      >
+        <List.Item extra="内容内容">
+          文本内容<Badge dot style={{ marginLeft: 12 }} />
+        </List.Item>
+        <List.Item extra="内容内容" arrow="horizontal">
+          文本内容<Badge text={'new'} style={{ marginLeft: 12 }} />
+        </List.Item>
+        <List.Item extra="内容内容" arrow="horizontal">
+          文本内容<Badge text={4} style={{ marginLeft: 12 }} />
+        </List.Item>
+        <List.Item extra="内容内容" arrow="horizontal">
+          文本内容<Badge text={100} style={{ marginLeft: 12 }} />
+        </List.Item>
       </List>
-      <List>
-        <List.Header>带icon</List.Header>
-        <List.Body>
-          <List.Item extra="内容内容" arrow="horizontal">
-            <Badge dot>
-              <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
-            </Badge>
-            <span style={{ marginLeft: 12 }}>小圆点</span>
-          </List.Item>
-          <List.Item
-            thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
-            extra={<Badge text={77} />}
-            arrow="horizontal"
-          >
-            右侧内容
-          </List.Item>
-        </List.Body>
+      <List
+        renderHeader={() => '带icon'}
+      >
+        <List.Item extra="内容内容" arrow="horizontal">
+          <Badge dot>
+            <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
+          </Badge>
+          <span style={{ marginLeft: 12 }}>小圆点</span>
+        </List.Item>
+        <List.Item
+          thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
+          extra={<Badge text={77} />}
+          arrow="horizontal"
+        >
+          右侧内容
+        </List.Item>
       </List>
-      <List>
-        <List.Header>大号icon</List.Header>
+      <List
+        renderHeader={() => '大号icon'}
+      >
         <List.Body>
           <List.Item extra="内容内容" arrow="horizontal">
             <Badge text={9}>

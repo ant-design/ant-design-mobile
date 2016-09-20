@@ -19,7 +19,9 @@ let CheckboxItemExample = React.createClass({
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List title="多项选择操作">
+        <List
+          renderHeader={() => '多项选择操作'}
+        >
           <List.Body>
             <CheckboxItem
               {...getFieldProps('checkboxitem1', {

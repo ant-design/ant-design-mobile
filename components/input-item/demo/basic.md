@@ -18,7 +18,7 @@ let BasicInputExample = React.createClass({
 
     return (<div>
       <List
-        title="基本"
+        renderHeader={() => '基本'}
       >
         <List.Body>
           <InputItem
@@ -99,7 +99,7 @@ let BasicInputExample = React.createClass({
         </List.Body>
       </List>
       <List
-        title="固定标签字数"
+        renderHeader={() => '固定标签字数'}
       >
         <List.Body>
           <InputItem

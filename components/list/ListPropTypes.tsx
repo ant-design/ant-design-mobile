@@ -9,6 +9,8 @@ export interface ListProps {
   title?: React.ReactNode;
   footer?: React.ReactNode;
   children?: any;
+  renderHeader?: Function;
+  renderFooter?: Function;
 }
 
 export interface ListBodyProps {

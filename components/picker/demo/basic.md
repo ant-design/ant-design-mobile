@@ -33,8 +33,7 @@ let Test = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
-      <List style={{ backgroundColor: 'white' }}>
-        <List.Header>联动选择</List.Header>
+      <List renderHeader={() => '联动选择'} style={{ backgroundColor: 'white' }}>
         <List.Body>
           <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
             initialValue: ['340000', '340800', '340824'],

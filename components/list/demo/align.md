@@ -12,7 +12,9 @@ const Brief = List.Item.Brief;
 
 ReactDOM.render(
   <div>
-    <List title="对齐">
+    <List
+      renderHeader={() => '对齐'}
+    >
       <List.Item
         extra={<div>内容内容<Brief>辅助文字内容</Brief><Brief>辅助文字内容</Brief></div>}
         arrow="horizontal"

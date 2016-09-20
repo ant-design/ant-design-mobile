@@ -12,8 +12,8 @@ export default class BasicListExample extends React.Component<any, any> {
         showsVerticalScrollIndicator={false}
       >
         <List
-          title="基本 列表头部"
-          footer="列表尾部"
+          renderHeader={() => '基本 列表头部'}
+          renderFooter={() => '列表尾部'}
         >
             <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
             <List.Item
@@ -27,7 +27,7 @@ export default class BasicListExample extends React.Component<any, any> {
             >标题文字</List.Item>
         </List>
         <List
-          title="带缩略图"
+          renderHeader={() => '带缩略图'}
         >
           <List.Item
             thumb="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
@@ -49,7 +49,7 @@ export default class BasicListExample extends React.Component<any, any> {
         </List>
 
         <List
-          title="箭头方向"
+          renderHeader={() => '箭头方向'}
         >
           <List.Item
             extra="horizontal,箭头向右"
@@ -87,7 +87,7 @@ export default class BasicListExample extends React.Component<any, any> {
         </List>
 
         <List
-          title="多行列表 Demo"
+          renderHeader={() => '多行列表 Demo' }
         >
           <List.Item
             multipleLine
@@ -157,7 +157,7 @@ export default class BasicListExample extends React.Component<any, any> {
         </List>
 
         <List
-          title="业务例子 Demo"
+          renderHeader={() => '业务例子 Demo' }
         >
           <List.Item
             extra="鹿港小镇"

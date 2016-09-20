@@ -57,7 +57,7 @@ let BasicInput = React.createClass({
 
     return (<div>
       <List
-        title="表单输入项"
+        renderHeader={() => '表单输入项'}
         footer={getFieldError('account') && getFieldError('account').join(',')}
       >
         <InputItem
@@ -91,7 +91,7 @@ let BasicInput = React.createClass({
         >密码</InputItem>
       </List>
       <List
-        title="表单展示项"
+        renderHeader={() => '表单展示项'}
       >
         <List.Item
           thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
@@ -103,7 +103,7 @@ let BasicInput = React.createClass({
         >我的花销占比</List.Item>
       </List>
       <List
-        title="表单控件"
+        renderHeader={() => '表单控件'}
       >
         <List.Item
           extra={<Switch
@@ -136,7 +136,7 @@ let BasicInput = React.createClass({
         />
       </List>
       <List
-        title="列表单选"
+        renderHeader={() => '列表单选'}
       >
         <Radio.RadioItem
           checked={this.state.value === 1}
