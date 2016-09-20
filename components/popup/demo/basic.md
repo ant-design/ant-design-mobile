@@ -42,21 +42,19 @@ const Test = React.createClass({
       <List
         renderHeader={() => '账户总览 (已绑定3个）'}
       >
-        <List.Body>
-          <List.Item
-            thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-            onClick={() => { this.onClose('cancel'); }}
-          >东吴证券 (5728）</List.Item>
-          <List.Item
-            thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-            onClick={() => { this.onClose('cancel'); }}
-          >东吴证券 (5728）</List.Item>
-          <List.Item
-            thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-            arrow="horizontal"
-            onClick={() => { this.onClose('opt 1'); }}
-          >更多</List.Item>
-        </List.Body>
+        <List.Item
+          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          onClick={() => { this.onClose('cancel'); }}
+        >东吴证券 (5728）</List.Item>
+        <List.Item
+          thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+          onClick={() => { this.onClose('cancel'); }}
+        >东吴证券 (5728）</List.Item>
+        <List.Item
+          thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+          arrow="horizontal"
+          onClick={() => { this.onClose('opt 1'); }}
+        >更多</List.Item>
       </List>
     );
   },

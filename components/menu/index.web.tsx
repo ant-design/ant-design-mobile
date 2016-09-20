@@ -117,9 +117,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
           {level === 2 ? (
             <Flex.Item style={heightStyle}>
               <List>
-                <List.Body>
-                  {listContent}
-                </List.Body>
+                {listContent}
               </List>
             </Flex.Item>
           ) : null}

@@ -48,20 +48,18 @@ ReactDOM.render(
       <List
         renderHeader={() => '大号icon'}
       >
-        <List.Body>
-          <List.Item extra="内容内容" arrow="horizontal">
-            <Badge text={9}>
-              <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
-            </Badge>
-            <span style={{ marginLeft: 12 }}>数字</span>
-          </List.Item>
-          <List.Item extra="内容内容" arrow="horizontal">
-            <Badge text={108}>
-              <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
-            </Badge>
-            <span style={{ marginLeft: 12 }}>超出99</span>
-          </List.Item>
-        </List.Body>
+        <List.Item extra="内容内容" arrow="horizontal">
+          <Badge text={9}>
+            <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
+          </Badge>
+          <span style={{ marginLeft: 12 }}>数字</span>
+        </List.Item>
+        <List.Item extra="内容内容" arrow="horizontal">
+          <Badge text={108}>
+            <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
+          </Badge>
+          <span style={{ marginLeft: 12 }}>超出99</span>
+        </List.Item>
       </List>
     </form>
   </div>

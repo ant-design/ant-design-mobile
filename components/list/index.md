@@ -19,8 +19,8 @@ english: List
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| title       | list title  | ReactNode |  无  |
-| footer       | list footer  | ReactNode |  无  |
+| renderHeader       | list heder  | Function |  无  |
+| renderFooter       | list footer  | Function |  无  |
 
 ### List.Item
 
