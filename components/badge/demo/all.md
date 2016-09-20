@@ -33,15 +33,17 @@ ReactDOM.render(
         <List.Header>带icon</List.Header>
         <List.Body>
           <List.Item extra="内容内容" arrow="horizontal">
-			<Badge dot>
-             <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
-            </Badge><span style={{ marginLeft: 12 }}>小圆点</span>
+            <Badge dot>
+              <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
+            </Badge>
+            <span style={{ marginLeft: 12 }}>小圆点</span>
           </List.Item>
-          <List.Item thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png" extra={<Badge text={77} />} arrow="horizontal">
+          <List.Item
+            thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
+            extra={<Badge text={77} />}
+            arrow="horizontal"
+          >
             右侧内容
-          </List.Item>
-          <List.Item thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png">
-            内容内容
           </List.Item>
         </List.Body>
       </List>
@@ -51,12 +53,14 @@ ReactDOM.render(
           <List.Item extra="内容内容" arrow="horizontal">
             <Badge text={9}>
               <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
-            </Badge><span style={{ marginLeft: 12 }}>数字</span>
+            </Badge>
+            <span style={{ marginLeft: 12 }}>数字</span>
           </List.Item>
           <List.Item extra="内容内容" arrow="horizontal">
             <Badge text={108}>
               <span style={{ width: '1.04rem', height: '1.04rem', background: '#ddd', display: 'inline-block' }} />
-            </Badge><span style={{ marginLeft: 12 }}>超出99</span>
+            </Badge>
+            <span style={{ marginLeft: 12 }}>超出99</span>
           </List.Item>
         </List.Body>
       </List>
