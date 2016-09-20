@@ -236,3 +236,8 @@ declare module 'react-native-scrollable-tab-view' {
   export const ScrollableTabBar: any;
   export default exports
 }
+
+declare module 'zscroller' {
+  var exports: any
+  export default exports
+}

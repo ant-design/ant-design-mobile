@@ -1,7 +1,7 @@
 import React from 'react';
 import MListView from 'rmc-list-view';
 import List from '../list';
-import MyList from './MyList';
+import MyScroller from './MyScroller';
 import splitObject from '../_util/splitObject';
 import tsPropsType from './PropsType';
 
@@ -28,7 +28,7 @@ export default class ListView extends React.Component<tsPropsType, any> {
       <MListView
         {...restProps}
         {...extraProps}
-        renderScrollComponent={props => <MyList {...props} />}
+        renderScrollComponent={props => <MyScroller {...props} />}
         renderRow={renderRow}
       />
     );

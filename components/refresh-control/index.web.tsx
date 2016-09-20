@@ -3,6 +3,7 @@ import { PropTypes } from 'react';
 import PullToRefresh from 'rmc-pull-to-refresh';
 import Icon from '../icon';
 import tsPropsType from './PropsType';
+import splitObject from '../_util/splitObject';
 
 export default class RefreshControl extends React.Component<tsPropsType, any> {
   static propTypes = {
@@ -23,13 +24,32 @@ export default class RefreshControl extends React.Component<tsPropsType, any> {
         <Icon type="arrow-up"/> 释放
       </div>
     </div>,
-    loading: <div style={{lineHeight: '50px'}}><Icon type="loading"/></div>,
+    loading: <div style={{ lineHeight: '50px' }}><Icon type="loading"/></div>,
+    refreshing: false,
   };
 
+  resolveCallback: Function;
+
+  loadingFunction = () => {
+    return new Promise((resolve, reject) => {
+      this.props.onRefresh();
+      this.resolveCallback = resolve;
+    });
+  }
+
   render() {
+    let [{ refreshing }, restProps] = splitObject(this.props,
+      ['onRefresh', 'refreshing']);
+    const refreshProps = {
+      loadingFunction: this.loadingFunction,
+    };
+    if (!refreshing && this.resolveCallback) {
+      this.resolveCallback();
+    }
     return (
-      <PullToRefresh
-        {...this.props}
+      <PullToRefresh ref="refreshControl"
+        {...refreshProps}
+        {...restProps}
       />
     );
   }

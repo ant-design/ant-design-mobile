@@ -33,6 +33,7 @@
     "css-vendor": "~0.3.4",
     "moment": "^2.14.1",
     "normalize.css": "~4.2.0",
+    "nuka-carousel": "~2.0.3",
     "object-assign": "~4.1.0",
     "object-omit": "^1.0.0",
     "rc-checkbox": "~1.4.1",
@@ -52,14 +53,14 @@
     "react-native-drawer-layout": "~1.0.0",
     "react-native-menu": "~0.20.1",
     "react-native-scrollable-tab-view": "^0.6.0",
-    "nuka-carousel": "~2.0.3",
     "react-timer-mixin": "~0.13.3",
     "rmc-cascader": "3.0.x",
     "rmc-date-picker": "5.0.x",
+    "rmc-list-view": "~0.7.0-beta.1",
     "rmc-picker": "3.4.x",
-    "rmc-list-view": "~0.6.1",
     "rmc-pull-to-refresh": "~0.5.0",
-    "rn-topview": "^0.1.0"
+    "rn-topview": "^0.1.0",
+    "zscroller": "~0.2.2"
   },
   "devDependencies": {
     "antd": "1.x",

@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'react';
 import MListView from 'rmc-list-view';
 import List from '../list';
-import MyList from './MyList';
+import MyScroller from './MyScroller';
 import splitObject from '../_util/splitObject';
 import tsPropsType from './PropsType';
 
@@ -40,7 +40,7 @@ export default class IndexedList extends React.Component<tsPropsType, any> {
       <MListViewIndexedList
         {...restProps}
         {...extraProps}
-        renderScrollComponent={props => <MyList {...props} />}
+        renderScrollComponent={props => <MyScroller {...props} />}
         renderRow={renderRow}
         renderBodyComponent={() => <Body />}
       >{this.props.children}</MListViewIndexedList>
