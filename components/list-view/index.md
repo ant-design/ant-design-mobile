@@ -40,6 +40,9 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 - stickyHeader 固定区块标题到页面顶部 (注意: 设置后，ScrollComponent 将被渲染到 body 的第一个元素里，使用 html 的 `body` 作为滚动容器)
     - stickyProps / stickyContainerProps (see [react-sticky](https://github.com/captivationsoftware/react-sticky))
 - renderBodyComponent 渲染自定义的 body 组件
+- renderSectionBodyWrapper - 渲染自定义的区块包裹组件
+- useZscroller (boolean, false) - 使用 zscroller 来支持 RefreshControl (`useBodyScroll` and sticky 失效)
+- scrollerOptions - [zscroller options](https://github.com/yiminghe/zscroller#options)
 
 ### ListView.IndexedList (beta)
 > 注意：由于需要直接scroll到任意位置、只支持分两步渲染，所以列表数据量过大时、性能会有影响

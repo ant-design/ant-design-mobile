@@ -106,10 +106,11 @@ const App = React.createClass({
         onScroll={this.onScroll}
         style={{
           height: document.body.clientHeight * 3 / 4,
-          overflow: 'auto',
           border: '1px solid #ddd',
           margin: '10px 0',
         }}
+        useZscroller
+        scrollerOptions={{ scrollbars: true }}
         refreshControl={<RefreshControl
           refreshing={this.state.refreshing}
           onRefresh={this.onRefresh}
