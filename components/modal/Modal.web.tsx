@@ -11,8 +11,8 @@ export default class Modal extends React.Component<ModalProps, any> {
     visible: false,
     closable: false,
     maskClosable: false,
-    // transparent change to dialog by yiminghe
-    dialog: false,
+    // transparent change to transparent by yiminghe
+    transparent: false,
     animated: true,
     style: {},
     bodyStyle: {},
@@ -41,7 +41,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       prefixCls,
       className,
       wrapClassName,
-      dialog,
+      transparent,
       animated,
       transitionName,
       maskTransitionName,
@@ -58,11 +58,11 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     const wrapCls = classNames({
       [className]: !!className,
-      [`${prefixCls}-dialog`]: dialog,
+      [`${prefixCls}-transparent`]: transparent,
     });
 
-    let anim = transitionName || (animated ? (dialog ? 'am-fade' : 'am-slide-up') : null);
-    let maskAnim = maskTransitionName || (animated ? (dialog ? 'am-fade' : 'am-slide-up') : null);
+    let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
+    let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
 
     const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 ? 'h' : 'v'}`;
     const footerDom = footer.length ? [<div key="footer" className={btnGroupClass}>
@@ -80,8 +80,8 @@ export default class Modal extends React.Component<ModalProps, any> {
       }
     </div>] : null;
 
-    // dialog 模式下, 内容默认居中
-    const rootStyle = dialog ? assign({
+    // transparent 模式下, 内容默认居中
+    const rootStyle = transparent ? assign({
       width: '5.4rem',
       height: 'auto',
     }, style) : assign({

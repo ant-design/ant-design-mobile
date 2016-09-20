@@ -32,7 +32,7 @@ const App = React.createClass({
           </Button>
           <Modal
             onClose={this.onClose}
-            dialog
+            transparent
             visible={this.state.visible}
             footer={[{ text: '确定', onPress: () => { console.log('ok'); this.onClose(); } }]}
           >

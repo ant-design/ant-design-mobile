@@ -84,7 +84,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     return (
       <Modal
         visible={this.state.showModal}
-        dialog
+        transparent
         title={this.props.title}
         onClose={this.hide}
         footer={actions}

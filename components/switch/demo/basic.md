@@ -37,7 +37,6 @@ let SwitchExample = React.createClass({
             />}
           >默认关</List.Item>
           <List.Item
-            needActive={false}
             extra={<Switch
               {...getFieldProps('Switch3', {
                 initialValue: false,
@@ -47,7 +46,6 @@ let SwitchExample = React.createClass({
             />}
           >默认关不可修改</List.Item>
           <List.Item
-            needActive={false}
             extra={<Switch
               {...getFieldProps('Switch4', {
                 initialValue: true,
