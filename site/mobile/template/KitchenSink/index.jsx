@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Icon, Drawer, List, Flex } from 'antd-mobile';
 import Page from './Page';
 import Item from './Item';
+import config from '../../';
 
 const hashImgObj = {
   'action-sheet': 'cYmaBafYBnAxCqQ',
@@ -90,19 +91,21 @@ export default class App extends React.Component {
       <div className="demo-drawer-home">
         <Link to="/">Ant Design Mobile</Link>
       </div>
-      {Object.keys(lists).map((cate, index) => (
-        <List key={index} title={cate}>
-          <List.Body>
-            {
-              lists[cate].map((item, ii) => {
-                const fileName = item.filename.split('/')[1];
-                return (<List.Item key={ii}>
-                  <Link to={`/${fileName}/`}>{item.english} <span style={{ fontSize: 24, color: '#888' }}>{item.chinese}</span></Link>
-                </List.Item>);
-              })
-            }
-          </List.Body>
-        </List>
+      {Object.keys(lists)
+        .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+        .map((cate, index) => (
+          <List key={index} title={cate}>
+            <List.Body>
+              {
+                lists[cate].map((item, ii) => {
+                  const fileName = item.filename.split('/')[1];
+                  return (<List.Item key={ii}>
+                    <Link to={`/${fileName}/`}>{item.english} <span style={{ fontSize: 24, color: '#888' }}>{item.chinese}</span></Link>
+                  </List.Item>);
+                })
+              }
+            </List.Body>
+          </List>
       ))}
     </div>);
 
@@ -119,33 +122,35 @@ export default class App extends React.Component {
       <div className="demo-drawer-container">
         <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
           <Page logo="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" title="Ant Design Mobile" subtitle="服务于蚂蚁大中台无线业务的react组件" isIndex>
-            {Object.keys(lists).map((cate, index) => (
-              <List key={index}>
-                <List.Header>{cate}</List.Header>
-                <List.Body>
-                  {(() => {
-                    const flexs = [];
-                    const flexItems = [];
-                    for (let i = 0; i < lists[cate].length; i++) {
-                      const ii = lists[cate][i];
-                      const fileName = ii.filename.split('/')[1];
-                      const img = hashImgObj[fileName] || 'nREwETegxvDndJZ';
-                      flexItems.push(<Item
-                        logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
-                        title={ii.chinese}
-                        subtitle={ii.english}
-                        style={itemStyle}
-                        key={`flexitem-${i}`}
-                        linkTo={`/${fileName}/`}
-                      />);
-                    }
-                    flexs.push(<Flex wrap="wrap" className="antm-demo-flex" key={`flex-${index}`}>
-                      {flexItems}
-                    </Flex>);
-                    return flexs;
-                  })()}
-                </List.Body>
-              </List>
+            {Object.keys(lists)
+              .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+              .map((cate, index) => (
+                <List key={index}>
+                  <List.Header>{cate}</List.Header>
+                  <List.Body>
+                    {(() => {
+                      const flexs = [];
+                      const flexItems = [];
+                      for (let i = 0; i < lists[cate].length; i++) {
+                        const ii = lists[cate][i];
+                        const fileName = ii.filename.split('/')[1];
+                        const img = hashImgObj[fileName] || 'nREwETegxvDndJZ';
+                        flexItems.push(<Item
+                          logo={`https://os.alipayobjects.com/rmsportal/${img}.png`}
+                          title={ii.chinese}
+                          subtitle={ii.english}
+                          style={itemStyle}
+                          key={`flexitem-${i}`}
+                          linkTo={`/${fileName}/`}
+                        />);
+                      }
+                      flexs.push(<Flex wrap="wrap" className="antm-demo-flex" key={`flex-${index}`}>
+                        {flexItems}
+                      </Flex>);
+                      return flexs;
+                    })()}
+                  </List.Body>
+                </List>
             ))}
           </Page>
         </Drawer>
