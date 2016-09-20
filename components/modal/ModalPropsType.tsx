@@ -6,7 +6,7 @@ interface ModalProps {
   footer?: Array<{}>;
   onClose?: () => void;
   /** react native only **/
-  dialog?: boolean;
+  transparent?: boolean;
   style?: {};
   animated?: boolean;
   /** web only */

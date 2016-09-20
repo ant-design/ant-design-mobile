@@ -34,7 +34,7 @@ const App = React.createClass({
             title="这是 title"
             closable
             maskClosable
-            dialog
+            transparent
             onClose={this.onClose}
             visible={this.state.visible}
           >

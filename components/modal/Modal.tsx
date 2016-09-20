@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { View, Text, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
+import {
+  View, Text, Modal,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+} from 'react-native';
 import modalStyle from './style/index';
 import ModalPropsType from './ModalPropsType';
-import Modal from 'rc-dialog/lib/Modal';
+import RCModal from 'rc-dialog/lib/Modal';
 
 class AntmModal extends React.Component<ModalPropsType, any> {
   static defaultProps = {
@@ -13,7 +17,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     onClose() {
     },
     footer: [],
-    dialog: false,
+    transparent: false,
   };
 
   onMaskClose = () => {
@@ -25,7 +29,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
   render() {
     const {
       title, closable, footer, children, style,
-      dialog, visible, onClose,
+      transparent, visible, onClose,
     } = this.props;
 
     const btnGroupStyle = footer.length === 2 ? modalStyle.buttnGroupH : modalStyle.buttnGroupV;
@@ -52,14 +56,14 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       </View>
     ) : null;
 
-    return (
-      <Modal
-        onClose={this.onMaskClose}
-        wrapStyle={dialog ? modalStyle.container : undefined}
-        style={[modalStyle.innerContainer, style]}
-        visible={visible}
-      >
-        { dialog ? (
+    if (transparent) {
+      return (
+        <RCModal
+          onClose={this.onMaskClose}
+          wrapStyle={transparent ? modalStyle.container : undefined}
+          style={[modalStyle.innerContainer, style]}
+          visible={visible}
+        >
           <View>
             {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}
             <View style={modalStyle.body}>{children}</View>
@@ -70,12 +74,18 @@ class AntmModal extends React.Component<ModalPropsType, any> {
               </View>
             </TouchableWithoutFeedback> : null}
           </View>
-        ) : (
-          <View style={style}>
-            {children}
-          </View>
-        )
-        }
+        </RCModal>
+      );
+    }
+    return (
+      <Modal
+        visible={visible}
+        animationType="slide"
+        onRequestClose={this.onMaskClose}
+      >
+        <View style={style}>
+          {children}
+        </View>
       </Modal>
     );
   }
