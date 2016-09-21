@@ -8,7 +8,7 @@ english: RefreshControl
 通过触发，立刻重新加载内容。
 
 ### 规则
-- 一般多运用在 List 和 ListView 中。
+- 只能和 ListView 结合使用，不能单独使用。
 - 可考虑定期自动刷新，eg：登录 app 后，自动刷新首页 List。
 
 

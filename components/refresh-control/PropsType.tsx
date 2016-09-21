@@ -4,9 +4,6 @@ interface Props {
   refreshing?: boolean;
   /** web only */
   prefixCls?: string;
-  children?: any;
-  contentClassName?: string;
-  contentStyle?: {};
   icon?: ReactNode;
   loading?: ReactNode;
   distanceToRefresh?: number;

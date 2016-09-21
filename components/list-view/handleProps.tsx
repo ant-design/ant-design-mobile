@@ -2,7 +2,6 @@
 import React from 'react';
 /* tslint:enable:no-unused-variable */
 import splitObject from '../_util/splitObject';
-import MyScroller from './MyScroller';
 import List from '../list';
 const { Item } = List;
 
@@ -15,7 +14,6 @@ export default function handleProps(props) {
     renderHeader: null as any,
     renderFooter: null as any,
     renderSectionHeader: null as any,
-    renderScrollComponent: scrollerProps => <MyScroller {...scrollerProps} />,
     renderBodyComponent: () => <div className={`${listPrefixCls}-body`} />,
     renderRow,
   };
