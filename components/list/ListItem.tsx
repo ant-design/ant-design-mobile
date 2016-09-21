@@ -4,25 +4,19 @@ import assign from 'object-assign';
 import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
 import variables from '../style/themes/default';
 import theme from './style/index';
-import { ListItemProps } from './ListPropTypes';
+import { ListItemProps, BriefProps } from './ListPropTypes';
 
 const THEMES = theme.ThemesList;
 
-export interface BriefProps {
-  style?: React.CSSProperties;
-  children?: any;
-  inExtra?: boolean;
-}
-
 class Brief extends React.Component<BriefProps, any> {
   render() {
-    const { children, style, inExtra } = this.props;
+    const { children, style } = this.props;
     return (<View style={{
       marginTop: variables.v_spacing_sm,
       height: variables.font_size_subhead,
     }}>
       <Text
-        style={[THEMES.Brief, style, inExtra ? { textAlign: 'right'} : null]}
+        style={[THEMES.Brief, style]}
         numberOfLines={1}
       >
         {children}
@@ -44,7 +38,7 @@ export default class Item extends React.Component<ListItemProps, any> {
   };
 
   static defaultProps = {
-    lazy: false,
+    // TODO remove last
     last: false,
     multipleLine: false,
   };
@@ -53,30 +47,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   timer: any;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      __lazy: this.props.lazy,
-    };
-  }
-
-  componentWillMount() {
-    if (this.state.__lazy) {
-      this.timer = setTimeout(() => this.setState({__lazy: false}), 500);
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-  }
-
   render() {
-    if (this.state.__lazy) {
-      return (<View />);
-    }
-
     let line = 1;
     let thumbDom = null;
     let contentDom = null;

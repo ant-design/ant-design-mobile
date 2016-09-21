@@ -29,20 +29,12 @@ export default class List extends React.Component<ListProps, any> {
       }
       footerDom = <View>{content}</View>;
     }
-
-    const count = React.Children.count(children);
+    // TODO remove last
+    // user needs to specify last for listitem
     return (<View {...this.props} style={[style]}>
       {headerDom}
       <View style={THEMES.Body}>
-        {
-          React.Children.map(children, (item: any, index) => {
-            if (index === count - 1) {
-              return React.cloneElement(item, { last: true });
-            } else {
-              return item;
-            }
-          })
-        }
+        {children}
       </View>
       {footerDom}
     </View>);

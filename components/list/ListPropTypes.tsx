@@ -13,7 +13,6 @@ export interface ListProps {
 }
 
 export interface ListItemProps {
-  lazy?: boolean;
   last?: boolean;
   /** web only */
   prefixCls?: string;
@@ -30,4 +29,9 @@ export interface ListItemProps {
   children?: any;
   wrap?: boolean;
   line?: number;
+}
+
+export interface BriefProps {
+  style?: React.CSSProperties;
+  children?: any;
 }

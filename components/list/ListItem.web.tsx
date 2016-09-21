@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
-import { ListItemProps } from './ListPropTypes';
+import { ListItemProps, BriefProps } from './ListPropTypes';
 
-export class Brief extends React.Component<any, any> {
+export class Brief extends React.Component<BriefProps, any> {
   render() {
     return (
-      <div className="am-list-brief" style={this.props.style} onClick={this.props.onClick}>{this.props.children}</div>
+      <div className="am-list-brief" style={this.props.style}>{this.props.children}</div>
     );
   }
 }
