@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 0
 title: 基本
 ---
 
@@ -16,31 +16,20 @@ let ListExample = React.createClass({
         renderHeader={() => '我是华丽丽的列表头部'}
         renderFooter={() => '我是列表尾部'}
       >
-        <List.Item>没有设置onClick则点击无反馈，文字超长则隐藏</List.Item>
+        <List.Item>标题文字点击无反馈，文字超长则隐藏</List.Item>
         <List.Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</List.Item>
         <List.Item
           onClick={() => {}}
           extra={undefined}
         >标题文字</List.Item>
         <List.Item
-          extra="内容内容"
+          extra="右边内容"
           onClick={() => {}}
           arrow="horizontal"
         >标题文字</List.Item>
-      </List>
-      <List
-        renderHeader={() => '下拉框'}
-      >
-        <List.Item
-          extra={<select style={{ direction: 'rtl' }} defaultValue="2">
-            <option value="1">选项1</option>
-            <option value="2">选项2</option>
-            <option value="3" disabled>选项3不可选</option>
-          </select>}
-          arrow="horizontal"
-        >下拉框</List.Item>
         <List.Item
           arrow="horizontal"
+          onClick={() => {}}
         >
           <select defaultValue="3">
             <option value="1">选项1</option>
@@ -56,15 +45,10 @@ let ListExample = React.createClass({
           thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"
           arrow="horizontal"
           onClick={() => {}}
-        >thumb</List.Item>
+        >缩略图</List.Item>
         <List.Item
           thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"
-        >thumb</List.Item>
-        <List.Item
-          icon=""
-          extra={<img src="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png" width="28" height="28" />}
-          arrow="horizontal"
-        >extra为img标签</List.Item>
+        >缩略图</List.Item>
       </List>
     </form>);
   },

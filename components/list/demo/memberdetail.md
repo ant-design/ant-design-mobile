@@ -15,65 +15,54 @@ ReactDOM.render(
         extra="鹿港小镇"
         arrow="horizontal"
         onClick={() => {}}
-      >所属门店</List.Item>
+      >
+        所属门店
+      </List.Item>
       <List.Item
         extra="张三"
         arrow="empty"
-        onClick={() => {}}
-      >员工姓名</List.Item>
+      >
+        员工姓名
+      </List.Item>
       <List.Item
         extra="收银员"
         arrow="empty"
-        onClick={() => {}}
-      >员工角色</List.Item>
+      >
+        员工角色
+      </List.Item>
       <List.Item
         extra="13838383756"
         arrow="empty"
-        onClick={() => {}}
-      >员工手机</List.Item>
+      >
+        员工手机
+      </List.Item>
       <List.Item
         extra="只可退自己的"
         arrow="empty"
-        onClick={() => {}}
-      >退款权限</List.Item>
+      >
+        退款权限
+      </List.Item>
       <List.Item
         extra="其他权限"
         arrow="horizontal"
         onClick={() => {}}
-      >文本信息</List.Item>
+      >
+        权限说明
+      </List.Item>
       <List.Item
         extra={<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAm0lEQVR4Ae2Whw0DMQwD5Q24gfbfRTslaPlGCGb6vyAe2tdzty1uArAlyz2RMgJLoggsSTUBfUwCSkD49jKCFnhgYegCaZgSIAGlokCHBDk1BR6YspMteHIfRqWbhMc714Y/aMF/Bdgw5mJh5HgmU2u2qITatEAQCEvCe53cp+v3T9ct0E92HH01bcGlBIEVRfDWMGUBU0aQ04I7BEwkp1QhR1sAAAAASUVORK5CYII=" />}
         arrow="horizontal"
         onClick={() => {}}
-      >员工二维码</List.Item>
+      >
+        员工二维码
+      </List.Item>
       <List.Item
-        extra={<div>zhifubao@alipay.com#<List.Item.Brief>001</List.Item.Brief></div>}
         arrow="horizontal"
         onClick={() => {}}
-        multipleLine
-      >垂直居中对齐</List.Item>
-      <List.Item
-        extra={<div>zhifubao@alipay.com#<List.Item.Brief>001</List.Item.Brief></div>}
-        arrow="horizontal"
-        align="top"
-        onClick={() => {}}
-        multipleLine
-      >顶部对齐</List.Item>
-      <List.Item
-        extra={<div>zhifubao@alipay.com#<List.Item.Brief>001</List.Item.Brief></div>}
-        arrow="horizontal"
-        align="bottom"
-        onClick={() => {}}
-        multipleLine
-      >底部对齐</List.Item>
-      <List.Item
-        extra={<div>zhifubao@alipay.com#<List.Item.Brief>001</List.Item.Brief></div>}
-        arrow="horizontal"
-        align="top"
-        onClick={() => {}}
-        multipleLine
         wrap
-      >文字超长折行文字超长折行</List.Item>
+      >
+        文字超长折行文字超长折行文字超长折行文字超长折行
+      </List.Item>
     </List>
   </div>
 , mountNode);
