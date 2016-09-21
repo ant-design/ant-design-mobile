@@ -12,15 +12,13 @@ const TabBarExample = React.createClass({
   getInitialState() {
     return {
       selectedTab: 'redTab',
-      notifCount: 0,
       presses: 0,
     };
   },
-  renderContent(pageText, num?: number) {
+  renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%' }}>
-        <div style={{ paddingTop: 30, marginLeft: 50 }}>{pageText}</div>
-        <div style={{ margin: 50 }}>{num} re-renders of the {pageText}</div>
+        <div style={{ paddingTop: 60, textAlign: 'center' }}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
       </div>
     );
   },
@@ -43,23 +41,22 @@ const TabBarExample = React.createClass({
             });
           }}
         >
-          {this.renderContent('生活 Tab')}
+          {this.renderContent('生活')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/UNQhIatjpNZHjVf.png' }}
           selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/HLkBvJOKnmOfBPO.png' }}
           title="口碑"
           key="口碑"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
+          badge={1}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => {
             this.setState({
               selectedTab: 'redTab',
-              notifCount: this.state.notifCount + 1,
             });
           }}
         >
-          {this.renderContent('口碑 Tab', this.state.notifCount)}
+          {this.renderContent('口碑')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png' }}
@@ -70,11 +67,10 @@ const TabBarExample = React.createClass({
           onPress={() => {
             this.setState({
               selectedTab: 'greenTab',
-              presses: this.state.presses + 1,
             });
           }}
         >
-          {this.renderContent('朋友 Tab', this.state.presses)}
+          {this.renderContent('朋友')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/YWpPVCVOnJoCYhs.png' }}
@@ -88,7 +84,7 @@ const TabBarExample = React.createClass({
             });
           }}
         >
-          {this.renderContent('我的 Tab', this.state.presses)}
+          {this.renderContent('我的')}
         </TabBar.Item>
       </TabBar>
     );

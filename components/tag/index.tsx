@@ -6,6 +6,7 @@ import TagProps from './TagPropsType';
 export default class Modal extends React.Component<TagProps, any> {
   static defaultProps = {
     disabled: false,
+    small: false,
     selected: false,
     onChange() {},
   };
@@ -41,7 +42,7 @@ export default class Modal extends React.Component<TagProps, any> {
   }
 
   render() {
-    const {children, disabled, style} = this.props;
+    const {children, disabled, small, style} = this.props;
     const selected = this.state.selected;
 
     let wrapStyle;
@@ -59,11 +60,14 @@ export default class Modal extends React.Component<TagProps, any> {
       textStyle = TagStyle.disabledText;
     }
 
+    const sizeWrapStyle = small ? TagStyle.wrapSmall : {};
+    const sizeTextStyle = small ? TagStyle.textSmall : {};
+
     return (
       <View style={[ TagStyle.tag, style ]}>
         <TouchableWithoutFeedback onPress={this.onClick}>
-          <View style={[TagStyle.wrap, wrapStyle]}>
-            <Text style={[TagStyle.text, textStyle]}>{children} </Text>
+          <View style={[TagStyle.wrap, sizeWrapStyle, wrapStyle]}>
+            <Text style={[TagStyle.text, sizeTextStyle, textStyle]}>{children} </Text>
           </View>
         </TouchableWithoutFeedback>
       </View>

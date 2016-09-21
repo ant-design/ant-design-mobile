@@ -11,7 +11,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     values: [],
     onChange() {},
     onValueChange() {},
-    tintColor: '#2DB7F5',
+    tintColor: '#108ee9',
     style: {},
   };
 
