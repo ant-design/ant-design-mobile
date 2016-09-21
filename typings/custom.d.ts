@@ -211,6 +211,11 @@ declare module 'rc-drawer' {
   export default exports
 }
 
+declare module 'rc-dialog' {
+  var exports: any
+  export default exports
+}
+
 declare module 'moment' {
   var exports: any
   export default exports

@@ -42,4 +42,11 @@ class SegmentItem extends React.Component<any, any> {
   }
 };
 
-export default touchableFeedback(SegmentItem);
+export default touchableFeedback<{
+  prefixCls?: string;
+  label?: string;
+  enabled?: boolean;
+  tintColor?: string;
+  selected?: boolean;
+  onClick?: (e: any) => void;
+}>(SegmentItem);
