@@ -4,25 +4,14 @@ import assign from 'object-assign';
 import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
 import variables from '../style/themes/default';
 import theme from './style/index';
+import { ListItemProps } from './ListPropTypes';
+
 const THEMES = theme.ThemesList;
 
 export interface BriefProps {
   style?: React.CSSProperties;
   children?: any;
   inExtra?: boolean;
-}
-
-export interface ListItemProps {
-  style?: React.CSSProperties;
-  onClick?: any;
-  multipleLine?: boolean;
-  thumb?: any;
-  children?: any;
-  extra?: any;
-  arrow?: 'horizontal'|'down'|'up'|'empty'|'';
-  error?: boolean;
-  lazy?: boolean;
-  last?: boolean;
 }
 
 class Brief extends React.Component<BriefProps, any> {

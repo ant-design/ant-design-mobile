@@ -6,7 +6,7 @@ import MyScroller from './MyScroller';
 import splitObject from '../_util/splitObject';
 import tsPropsType from './PropsType';
 
-const { Header, Body, Footer, Item } = List;
+const { Item } = List;
 const MListViewIndexedList = MListView.IndexedList;
 
 export default class IndexedList extends React.Component<tsPropsType, any> {
@@ -19,19 +19,11 @@ export default class IndexedList extends React.Component<tsPropsType, any> {
   };
 
   render() {
-    let [{renderHeader, renderFooter, renderSectionHeader, renderRow}, restProps] = splitObject(this.props,
-    ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderRow']);
+    let [{renderSectionHeader, renderRow}, restProps] = splitObject(this.props,
+    ['renderSectionHeader', 'renderRow']);
     const extraProps = {
-      renderHeader: null as any,
-      renderFooter: null as any,
       renderSectionHeader: null as any,
     };
-    if (renderHeader) {
-      extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;
-    }
-    if (renderFooter) {
-      extraProps.renderFooter = () => <Footer>{renderFooter()}</Footer>;
-    }
     if (renderSectionHeader) {
       extraProps.renderSectionHeader =
         (sectionData, sectionID) => <Item>{renderSectionHeader(sectionData, sectionID)}</Item>;
@@ -42,7 +34,6 @@ export default class IndexedList extends React.Component<tsPropsType, any> {
         {...extraProps}
         renderScrollComponent={props => <MyScroller {...props} />}
         renderRow={renderRow}
-        renderBodyComponent={() => <Body />}
       >{this.props.children}</MListViewIndexedList>
     );
   }

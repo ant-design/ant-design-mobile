@@ -1,26 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-
-export interface ListItemProps {
-  /** web only */
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
-  thumb: React.ReactNode;
-  extra?: React.ReactNode;
-  arrow?: 'horizontal'|'down'|'up'|'empty'|'';
-  align?: string;
-  onClick?: Function;
-  error?: boolean;
-  multipleLine?: boolean;
-  children?: any;
-  wrap?: boolean;
-}
-
-export interface ListItemState {
-  hover: boolean;
-}
+import { ListItemProps } from './ListPropTypes';
 
 export class Brief extends React.Component<any, any> {
   render() {
@@ -30,7 +10,7 @@ export class Brief extends React.Component<any, any> {
   }
 }
 
-export default class ListItem extends React.Component<ListItemProps, ListItemState> {
+export default class ListItem extends React.Component<ListItemProps, any> {
   static Brief = Brief;
 
   static defaultProps = {
