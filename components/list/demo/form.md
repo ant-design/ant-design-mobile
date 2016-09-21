@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 5
 title: 列表项类表单组件大集合(rc-form的基础用法请查看源码)
 ---
 
@@ -43,7 +43,7 @@ let BasicInput = React.createClass({
   },
   onReset() {
     this.props.form.resetFields();
-    alert('重制完成');
+    alert('重置完成');
   },
   validateAccount(rule, value, callback) {
     if (value && value.length > 4) {

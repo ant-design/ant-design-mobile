@@ -3,7 +3,7 @@ import Item from './ListItem';
 import classNames from 'classnames';
 import { ListProps } from './ListPropTypes';
 
-class List extends React.Component<ListProps, any> {
+export default class List extends React.Component<ListProps, any> {
   static Item = Item;
 
   static defaultProps = {
@@ -26,5 +26,3 @@ class List extends React.Component<ListProps, any> {
     );
   }
 }
-
-export default List;

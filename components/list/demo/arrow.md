@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 1
 title: 是否带箭头/箭头方向
 ---
 
@@ -29,38 +29,33 @@ ReactDOM.render(
     <List
       renderHeader={() => '箭头方向'}
     >
-      <List.Item extra="horizontal,箭头向右" arrow="horizontal" onClick={() => {}}>标题文字</List.Item>
-      <List.Item extra="down,箭头向下" arrow="down" onClick={() => {}}>标题文字</List.Item>
-      <List.Item extra="up,箭头向上" arrow="up" onClick={() => {}}>标题文字</List.Item>
       <List.Item
-        extra={<div>内容内容<List.Item.Brief>辅助文字内容</List.Item.Brief></div>}
+        extra="箭头向右"
         arrow="horizontal"
         onClick={() => {}}
-        multipleLine
-      >标题文字<List.Item.Brief>辅助文字内容</List.Item.Brief></List.Item>
+      >
+        标题文字
+      </List.Item>
       <List.Item
-        extra={<div>内容内容<List.Item.Brief>辅助文字内容</List.Item.Brief></div>}
+        extra="箭头向下"
         arrow="down"
         onClick={() => {}}
-        multipleLine
-      >标题文字<List.Item.Brief>辅助文字内容</List.Item.Brief></List.Item>
+      >
+        标题文字
+      </List.Item>
       <List.Item
-        extra={<div>内容内容<List.Item.Brief>辅助文字内容</List.Item.Brief></div>}
+        extra="箭头向上"
         arrow="up"
-        error
         onClick={() => {}}
-        multipleLine
-      >标题文字<List.Item.Brief>辅助文字内容</List.Item.Brief></List.Item>
+      >
+        标题文字
+      </List.Item>
       <List.Item
-        extra="empty,有箭头坑位"
+        extra="有箭头坑位"
         arrow="empty"
-        onClick={() => {}}
-        multipleLine
       >内容内容</List.Item>
       <List.Item
-        extra="校验报错"
-        error
-        onClick={() => {}}
+        extra="没有箭头坑位"
       >内容内容</List.Item>
     </List>
   </div>
