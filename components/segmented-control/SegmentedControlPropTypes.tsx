@@ -9,6 +9,7 @@ interface SegmentedControlProps {
   /* web only */
   prefixCls?: string;
   className?: string;
+  touchFeedback?: boolean;
 }
 
 export default SegmentedControlProps;
