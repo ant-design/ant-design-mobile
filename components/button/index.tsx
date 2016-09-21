@@ -1,17 +1,9 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
 import variables from '../style/themes/default';
 import tsProps from './PropsType';
 
 export default class Button extends React.Component<tsProps, any> {
-  static propTypes = {
-    pressIn: PropTypes.bool,
-    onPressIn: PropTypes.func,
-    onPressOut: PropTypes.func,
-    size: PropTypes.oneOf(['large', 'small']),
-  };
-
   static defaultProps = {
     pressIn: false,
     size: 'large',

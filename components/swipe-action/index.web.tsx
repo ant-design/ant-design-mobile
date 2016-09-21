@@ -1,4 +1,3 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import Swipeout from 'rc-swipeout';
 import Hammer from 'react-hammerjs';
@@ -13,18 +12,6 @@ export interface ButtonProps {
 }
 
 class SwipeAction extends React.Component<SwipeActionProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    autoClose: PropTypes.bool,
-    disabled: PropTypes.bool,
-    title: PropTypes.string,
-    left: PropTypes.arrayOf(PropTypes.object),
-    right: PropTypes.arrayOf(PropTypes.object),
-    onOpen: PropTypes.func,
-    onClose: PropTypes.func,
-    children: PropTypes.any,
-  };
-
   static defaultProps = {
     prefixCls: 'am-swipe',
     title: '请确认操作',

@@ -1,20 +1,8 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import { View, Slider } from 'react-native';
 import SliderProps from './SliderPropsType';
 
 export default class SliderAntm extends React.Component<SliderProps, any> {
-  static propTypes = {
-    onChange: PropTypes.func,
-    onAfterChange: PropTypes.func,
-    defaultValue: PropTypes.number,
-    value: PropTypes.number,
-    step: PropTypes.number,
-    min: PropTypes.number,
-    max: PropTypes.number,
-    disabled: PropTypes.bool,
-  };
-
   static defaultProps = {
     onChange() {},
     onAfterChange() {},

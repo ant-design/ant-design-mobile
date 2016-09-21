@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/themes/default';
 import InputItemProps from './InputItemPropsType';
@@ -7,18 +6,6 @@ import InputItemStyle from './style/index';
 function noop() { }
 
 export default class InputItem extends React.Component<InputItemProps, any> {
-  static propTypes = {
-    type: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
-    extra: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.node,
-    ]),
-    size: PropTypes.oneOf(['large', 'small']),
-    labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
-    labelPosition: PropTypes.oneOf(['left', 'top']),
-    textAlign: PropTypes.oneOf(['left', 'center']),
-  };
-
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',

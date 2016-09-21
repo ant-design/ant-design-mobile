@@ -1,18 +1,9 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
 import FlexProps from './FlexPropTypes';
 
 export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;
-
-  static propTypes = {
-    style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    direction: PropTypes.oneOf(['row', 'column']),
-    wrap: PropTypes.oneOf(['nowrap', 'wrap']),
-    justify: PropTypes.oneOf(['start', 'end', 'center', 'between', 'around']),
-    align: PropTypes.oneOf(['start', 'end', 'center', 'stretch']),
-  };
 
   static defaultProps = {
     direction: 'row',

@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import { Image, Text, Dimensions, View } from 'react-native';
 import Flex from '../flex';
 import Carousel from '../carousel';
@@ -18,13 +17,6 @@ export interface GridProps {
 }
 
 export default class Grid extends React.Component<GridProps, any> {
-  static propTypes = {
-    data: PropTypes.array.isRequired,
-    hasLine: PropTypes.bool,
-    isCarousel: PropTypes.bool,
-    onClick: PropTypes.func,
-  };
-
   static defaultProps = {
     data: [],
     hasLine: true,

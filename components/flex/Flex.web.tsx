@@ -1,18 +1,9 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import FlexProps from './FlexPropTypes';
 
 export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;
-
-  static propTypes = {
-    direction: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
-    wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
-    justify: PropTypes.oneOf(['start', 'end', 'center', 'between', 'around']),
-    align: PropTypes.oneOf(['start', 'end', 'center', 'top', 'middle', 'bottom', 'baseline', 'stretch']),
-    alignContent: PropTypes.oneOf(['start', 'end', 'center', 'between', 'around', 'stretch']),
-  };
 
   static defaultProps = {
     prefixCls: 'am-flexbox',

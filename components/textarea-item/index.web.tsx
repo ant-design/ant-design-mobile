@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() {}
 
@@ -17,11 +16,6 @@ export interface TextareaItemState {
 }
 
 export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
-  static propTypes = {
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
-  };
-
   static defaultProps = {
     prefixCls: 'am-textarea',
     prefixListCls: 'am-list',

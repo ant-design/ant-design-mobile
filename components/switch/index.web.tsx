@@ -1,18 +1,8 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import SwitchProps from './SwitchPropsType';
 
 export default class Switch extends React.Component<SwitchProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    style: PropTypes.object,
-    name: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-
   static defaultProps = {
     prefixCls: 'am-switch',
     name: '',

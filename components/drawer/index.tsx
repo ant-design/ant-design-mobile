@@ -1,14 +1,10 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import { Platform } from 'react-native';
 import DrawerLayout from 'react-native-drawer-layout';
 import tsPropsType from './PropsType';
 import splitObject from '../_util/splitObject';
 
 export default class Drawer extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    children: PropTypes.any,
-  };
   static defaultProps = {
     position: 'left',
     onOpenChange: () => { },

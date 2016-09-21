@@ -1,6 +1,13 @@
 import React from 'react';
-import { Image, ScrollView, View, Text } from 'react-native';
+import { Image, ScrollView, View, Text, StyleSheet } from 'react-native';
 import { List, Button } from 'antd-mobile';
+const { Brief } = List.Item;
+
+const styles = StyleSheet.create({
+  textAlignRight: {
+    textAlign: 'right',
+  },
+});
 
 export default class BasicListExample extends React.Component<any, any> {
   render() {
@@ -15,16 +22,16 @@ export default class BasicListExample extends React.Component<any, any> {
           renderHeader={() => '基本 列表头部'}
           renderFooter={() => '列表尾部'}
         >
-            <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
-            <List.Item
-              error
-              onClick={() => alert('点击触发onClick事件')}
-            >标题文字</List.Item>
-            <List.Item
-              extra="内容内容"
-              onClick={() => {}}
-              arrow="horizontal"
-            >标题文字</List.Item>
+          <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
+          <List.Item
+
+            onClick={() => alert('点击触发onClick事件')}
+          >标题文字</List.Item>
+          <List.Item
+            extra="内容内容"
+            onClick={() => {}}
+            arrow="horizontal"
+          >标题文字</List.Item>
         </List>
         <List
           renderHeader={() => '带缩略图'}
@@ -94,11 +101,11 @@ export default class BasicListExample extends React.Component<any, any> {
             arrow="horizontal"
             extra={<View>
               内容内容
-              <List.Item.Brief>辅助文字内容</List.Item.Brief>
+              <Brief style={styles.textAlignRight}>辅助文字内容</Brief>
             </View>}
           >
             标题文字
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            <Brief>辅助文字内容</Brief>
           </List.Item>
           <List.Item
             error
@@ -106,34 +113,34 @@ export default class BasicListExample extends React.Component<any, any> {
             arrow="horizontal"
           >
             标题文字
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            <Brief>辅助文字内容</Brief>
+            <Brief>辅助文字内容</Brief>
           </List.Item>
           <List.Item
             multipleLine
             arrow="horizontal"
           >
             标题文字
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            <Brief>辅助文字内容</Brief>
+            <Brief>辅助文字内容</Brief>
+            <Brief>辅助文字内容</Brief>
           </List.Item>
           <List.Item
             multipleLine
             arrow="horizontal"
           >
             标题文字
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
-            <List.Item.Brief>辅助文字内容</List.Item.Brief>
+            <Brief>辅助文字内容</Brief>
+            <Brief>辅助文字内容</Brief>
+            <Brief>辅助文字内容</Brief>
+            <Brief>辅助文字内容</Brief>
           </List.Item>
           <List.Item
             multipleLine
             arrow="down"
           >
             运营
-            <List.Item.Brief>可进行收款、折扣管理、查看数据等操作。如果文字超长那就省略号</List.Item.Brief>
+            <Brief>可进行收款、折扣管理、查看数据等操作。如果文字超长那就省略号</Brief>
           </List.Item>
           <List.Item
             multipleLine
@@ -141,7 +148,7 @@ export default class BasicListExample extends React.Component<any, any> {
             extra={<Button size="small" onPress={() => alert(1)}>按钮</Button>}
           >
             区域经理
-            <List.Item.Brief>可进行收款、折扣管理、查看数据等操作。</List.Item.Brief>
+            <Brief>可进行收款、折扣管理、查看数据等操作。</Brief>
           </List.Item>
           <List.Item
             multipleLine
@@ -149,7 +156,7 @@ export default class BasicListExample extends React.Component<any, any> {
             align={'top'}
             extra={<View>
               zhifubao@alipay.com
-              <List.Item.Brief>001</List.Item.Brief>
+              <Brief style={styles.textAlignRight}>001</Brief>
             </View>}
           >
             账户名
@@ -204,7 +211,7 @@ export default class BasicListExample extends React.Component<any, any> {
           </List.Item>
           <List.Item
             extra={
-              <View>koubei@alipay.com<List.Item.Brief>002</List.Item.Brief></View>
+              <View>koubei@alipay.com<Brief style={styles.textAlignRight}>002</Brief></View>
             }
             arrow="horizontal"
             multipleLine

@@ -1,4 +1,3 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import treeFilter from 'array-tree-filter';
@@ -23,10 +22,6 @@ function getDefaultProps() {
 }
 
 export default class Picker extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    format: PropTypes.func,
-  };
-
   static defaultProps = getDefaultProps();
 
   getSel = () => {

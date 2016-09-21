@@ -1,20 +1,8 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import BadgeProps from './BadgePropsType';
 
 export default class Badge extends React.Component<BadgeProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    text: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-    dot: PropTypes.bool,
-    corner: PropTypes.bool,
-    overflowCount: PropTypes.number,
-    size: PropTypes.string,
-  };
   static defaultProps = {
     prefixCls: 'am-badge',
     text: null,

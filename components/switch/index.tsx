@@ -1,16 +1,8 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import SwitchProps from './SwitchPropsType';
 import { Switch } from 'react-native';
 
 export default class AntmSwitch extends React.Component<SwitchProps, any> {
-  static propTypes = {
-    style: PropTypes.object,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-
   static defaultProps = {
     name: '',
     checked: false,

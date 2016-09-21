@@ -1,16 +1,9 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import { View } from 'react-native';
 import ProgressStyle from './style/index';
 import ProgressProps from './ProgressPropsType';
 
 export default class Progress extends React.Component<ProgressProps, any> {
-  static propTypes = {
-    percent: PropTypes.number,
-    position: PropTypes.oneOf(['fixed', 'normal']),
-    unfilled: PropTypes.oneOf(['hide', 'show']),
-  };
-
   static defaultProps = {
     percent: 0,
     position: 'normal',

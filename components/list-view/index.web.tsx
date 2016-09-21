@@ -9,9 +9,6 @@ const { DataSource } = MListView;
 const { Item } = List;
 
 export default class ListView extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    dataSource: React.PropTypes.object,
-  };
   static DataSource = DataSource;
   static IndexedList = require('./Indexed.web');
   render() {

@@ -1,5 +1,4 @@
 import React from 'react';
-import {PropTypes} from 'react';
 import classNames from 'classnames';
 import Flex from '../flex';
 import Carousel from '../carousel/index.web';
@@ -26,17 +25,6 @@ export interface GridProps {
 }
 
 export default class Grid extends React.Component<GridProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    data: PropTypes.array,
-    renderItem: PropTypes.func,
-    columnNum: PropTypes.number,
-    onClick: PropTypes.func,
-    hasLine: PropTypes.bool,
-    isCarousel: PropTypes.bool,
-    carouselMaxRow: PropTypes.number,
-  };
-
   static defaultProps = {
     prefixCls: 'am-grid',
     data: [],

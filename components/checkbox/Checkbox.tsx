@@ -2,18 +2,8 @@ import React from 'react';
 import {TouchableWithoutFeedback, Image} from 'react-native';
 import CheckboxProps from './CheckboxPropsType';
 import styles from './style/index';
-import PropTypes = React.PropTypes;
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {
-
-  static propTypes = {
-    style: PropTypes.any,
-    checked: PropTypes.bool,
-    defaultChecked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-
   static CheckboxItem: any;
   static AgreeItem: any;
 
@@ -26,7 +16,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps: CheckboxProps, nextContext: any): void {
+  componentWillReceiveProps(nextProps: CheckboxProps): void {
     if ('checked' in nextProps) {
       const oldChecked = this.state.checked;
       if (nextProps.checked === oldChecked) {

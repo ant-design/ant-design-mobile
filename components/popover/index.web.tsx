@@ -1,6 +1,5 @@
 /* eslint no-console:0 */
 import React from 'react';
-import { PropTypes } from 'react';
 import Tooltip from 'rc-tooltip';
 import Item from './item';
 import splitObject from '../_util/splitObject';
@@ -17,14 +16,6 @@ function recursiveCloneChildren(children, cb = ch => ch) {
 }
 
 export default class Popover extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    placement: PropTypes.string,
-    popupAlign: PropTypes.object,
-    trigger: PropTypes.array,
-    onSelect: PropTypes.func,
-  };
-
   static defaultProps = {
     prefixCls: 'am-popover',
     placement: 'bottomRight',

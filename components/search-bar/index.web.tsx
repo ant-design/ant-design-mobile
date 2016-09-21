@@ -1,9 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import { SearchBarProps, SearchBarState, propTypes, defaultProps } from './SearchBarPropTypes';
+import { SearchBarProps, SearchBarState, defaultProps } from './SearchBarPropTypes';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
-  static propTypes = propTypes;
   static defaultProps = defaultProps;
 
   initialInputContainerWidth: number;

@@ -1,4 +1,3 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
@@ -28,13 +27,6 @@ function insertSpace(child) {
 }
 
 class Button extends React.Component<tsProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    size: PropTypes.oneOf(['large', 'small']),
-    htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
-    icon: PropTypes.bool,
-  };
-
   static defaultProps = {
     prefixCls: 'am-button',
     size: 'large',

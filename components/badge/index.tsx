@@ -1,21 +1,9 @@
-import { PropTypes } from 'react';
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import BadgeStyle from './style/index';
 import BadgeProps from './BadgePropsType';
 
 export default class Badge extends React.Component<BadgeProps, any> {
-  static propTypes = {
-    size: PropTypes.oneOf(['large', 'small']),
-    overflowCount: PropTypes.number,
-    corner: PropTypes.bool,
-    dot: PropTypes.bool,
-    text: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-  };
-
   static defaultProps = {
     size: 'small',
     overflowCount: 99,

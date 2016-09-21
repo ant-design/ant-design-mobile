@@ -2,18 +2,8 @@ import React from 'react';
 import {TouchableWithoutFeedback, Image} from 'react-native';
 import RadioProps from './RadioPropsType';
 import styles from './style/index';
-import PropTypes = React.PropTypes;
 
 export default class Radio extends React.Component<RadioProps, any> {
-
-  static propTypes = {
-    style: PropTypes.any,
-    checked: PropTypes.bool,
-    defaultChecked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-
   static RadioItem: any;
 
   constructor(props: RadioProps, context: any) {

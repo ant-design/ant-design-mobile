@@ -1,16 +1,8 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 import ProgressProps from './ProgressPropsType';
 
 export default class Progress extends React.Component<ProgressProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    position: PropTypes.oneOf(['fixed', 'normal']),
-    percent: PropTypes.number,
-    unfilled: PropTypes.string,
-  };
-
   static defaultProps = {
     prefixCls: 'am-progress',
     percent: 0,

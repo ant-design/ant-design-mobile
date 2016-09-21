@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import MListView from 'rmc-list-view';
 import List from '../list';
 import MyScroller from './MyScroller';
@@ -10,10 +9,6 @@ const { Item } = List;
 const MListViewIndexedList = MListView.IndexedList;
 
 export default class IndexedList extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-  };
-
   static defaultProps = {
     prefixCls: 'am-indexed-list',
   };

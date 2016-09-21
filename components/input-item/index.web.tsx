@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import classNames from 'classnames';
 function noop() { }
 import InputItemProps from './InputItemPropsType';
@@ -17,14 +16,6 @@ export interface InputItemState {
 }
 
 export default class InputItem extends React.Component<InputItemProps, InputItemState> {
-  static propTypes = {
-    type: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
-    size: PropTypes.oneOf(['large', 'small']),
-    labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
-    labelPosition: PropTypes.oneOf(['left', 'top']),
-    textAlign: PropTypes.oneOf(['left', 'center']),
-  };
-
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
