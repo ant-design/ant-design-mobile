@@ -9,29 +9,32 @@
   position: relative;
   overflow: hidden;
   font-size: @button-font-size-sm;
-  padding: @v-spacing-sm @h-spacing-lg;
-  width: 1.6rem;
+  padding: 0 @h-spacing-lg;
   text-align: center;
   height: @tag-height;
   line-height: @tag-height;
+  &&-small {
+    height: @tag-small-height;
+    line-height: @tag-small-height;
+    padding: 0 @h-spacing-sm;
+    font-size: @font-size-icontext;
+  }
+
   &-normal {
     background-color: @fill-base;
     color: @color-text-caption;
-    border: @border-width-md solid @border-color-base;
+    border: @border-width-sm solid @border-color-base;
   }
 
   &-active {
     background-color: @fill-base;
     color: @color-link;
-    border: @border-width-md solid @tabs-color;
+    border: @border-width-sm solid @tabs-color;
   }
 
   &-disabled {
     color: @color-text-disabled;
     background-color: @fill-disabled;
-    border: @border-width-md solid @fill-disabled;
-  }
-  &-text {
-    .ellipsis();
+    border: @border-width-sm solid @fill-disabled;
   }
 }

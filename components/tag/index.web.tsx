@@ -7,6 +7,7 @@ export default class Tag extends React.Component<TagProps, any> {
     prefixCls: 'am-tag',
     disabled: false,
     selected: false,
+    small: false,
     onChange() {},
   };
 
@@ -40,10 +41,11 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   render() {
-    const { children, className, prefixCls, disabled, style } = this.props;
+    const { children, className, prefixCls, disabled, small, style } = this.props;
     const wrapCls = classNames({
       [className]: !!className,
-      [prefixCls]: true,
+      [`${prefixCls}`]: true,
+      [`${prefixCls}-small`]: small,
       [`${prefixCls}-normal`]: !this.state.selected && !disabled,
       [`${prefixCls}-active`]: this.state.selected && !disabled,
       [`${prefixCls}-disabled`]: disabled,

@@ -18,24 +18,24 @@ const SwipeActionExample = React.createClass({
             {
               text: '取消',
               onPress: () => console.log('取消'),
-              style: { backgroundColor: '#ccc', color: 'white' },
+              style: { backgroundColor: '#ddd', color: 'white' },
             },
             {
               text: '删除',
               onPress: () => console.log('删除'),
-              style: { backgroundColor: '#FE7A38', color: 'white' },
+              style: { backgroundColor: '#F4333C', color: 'white' },
             },
           ]}
           left={[
             {
               text: '回复',
-              onPress: () => console.log('查找'),
-              style: { backgroundColor: '#2DB7F5', color: 'white' },
+              onPress: () => console.log('回复'),
+              style: { backgroundColor: '#108ee9', color: 'white' },
             },
             {
               text: '取消',
               onPress: () => console.log('取消'),
-              style: { backgroundColor: '#ccc', color: 'white' },
+              style: { backgroundColor: '#ddd', color: 'white' },
             },
           ]}
           onOpen={() => console.log('global open')}

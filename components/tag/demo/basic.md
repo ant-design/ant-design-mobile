@@ -18,6 +18,7 @@ ReactDOM.render(
     <Tag selected>默认选中</Tag>
     <Tag disabled>失效标签</Tag>
     <Tag onChange={onChange}>事件回调</Tag>
+    <Tag small>小号标签</Tag>
   </div>
 , mountNode);
 ````

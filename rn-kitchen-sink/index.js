@@ -85,7 +85,7 @@ class AntmRnApp extends React.Component {
   render() {
     const scenes = [...UIVIEWS, ...UICONTROLS, ...OTHERS, ...UIBARS].map(component => {
       const Module = component.module.default;
-      let Component = React.createClass({
+      const Component = React.createClass({
         render() {
           return (
             <View style={styles.content}>

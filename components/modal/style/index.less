@@ -15,6 +15,7 @@
     height: @button-height;
     line-height: @button-height;
     .ellipsis();
+    display: block;
   }
   &-button-group-h {
     border-top: @border-width-sm solid @border-color-base;
@@ -34,6 +35,10 @@
       border-top: @border-width-sm solid @border-color-base;
       .button-common();
     }
+  }
+
+  &-button-touchFeedback {
+    background-color: @fill-tap;
   }
 
   &-input {

@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import SegmentedControlProps from './SegmentedControlPropTypes';
+import SegmentItem from './Item.web';
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {
@@ -11,7 +12,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     values: [],
     onChange() {},
     onValueChange() {},
-    tintColor: '#2DB7F5',
+    tintColor: '#108ee9',
     style: {},
   };
 
@@ -23,7 +24,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedIndex !== this.props.selectedIndex) {
+    if (nextProps.selectedIndex !== this.state.selectedIndex) {
       this.setState({
         selectedIndex: nextProps.selectedIndex,
       });
@@ -32,7 +33,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
 
   onClick(e, index, value) {
     const { enabled, onChange, onValueChange } = this.props;
-    if (enabled) {
+    if (enabled && this.state.selectedIndex !== index) {
       e.nativeEvent.selectedSegmentIndex = index;
       e.nativeEvent.value = value;
       onChange(e);
@@ -50,27 +51,19 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     const wrapCls = classNames({
       [className]: !!className,
       [`${prefixCls}`]: true,
-      [className] : className,
     });
     const selectedIndex = this.state.selectedIndex;
     const items = values.map((value, idx) => {
-      const itemCls = classNames({
-        [`${prefixCls}-item`]: true,
-        [`${prefixCls}-item-selected`]: idx === selectedIndex,
-      });
       return (
-        <div
-          className={itemCls}
+        <SegmentItem
           key={idx}
+          prefixCls={prefixCls}
+          label={value}
+          enabled={enabled}
+          tintColor={tintColor}
+          selected={idx === selectedIndex}
           onClick={(e) => this.onClick(e, idx, value)}
-          style={{
-            color: idx === selectedIndex ? '#fff' : tintColor,
-            backgroundColor: idx === selectedIndex ? tintColor : '#fff',
-            borderColor: tintColor,
-          }}
-        >
-          {value}
-        </div>
+        />
       );
     });
 
