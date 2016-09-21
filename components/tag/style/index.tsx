@@ -11,15 +11,21 @@ export default StyleSheet.create({
   wrap: {
     overflow: 'hidden',
     borderRadius: variables.radius_sm,
-    borderWidth: variables.border_width_md,
+    borderWidth: variables.border_width_sm,
     borderStyle: 'solid',
     paddingVertical: variables.v_spacing_sm,
     paddingHorizontal: variables.h_spacing_lg,
   },
+  wrapSmall: {
+    paddingVertical: 1.5,
+    paddingHorizontal: variables.h_spacing_sm,
+  },
   text: {
     fontSize: variables.button_font_size_sm,
-    minWidth: 80,
     textAlign: 'center',
+  },
+  textSmall: {
+    fontSize: variables.font_size_icontext,
   },
   normalWrap: {
     backgroundColor: variables.fill_base,

@@ -18,6 +18,8 @@ export default class BasicTagExample extends React.Component<any, any> {
         <Tag disabled>失效标签</Tag>
         <WhiteSpace />
         <Tag onChange={onChange}>事件回调</Tag>
+        <WhiteSpace />
+        <Tag small>小号标签</Tag>
       </View>
     );
   }
