@@ -83,7 +83,7 @@ const MyProgress = React.createClass({
           <WhiteSpace size="lg" />
           <Flex
             justify="center"
-            className="flex-container-justify"
+            className="flex-container-justify action-info"
           >
             <div className="action">
               { this.state.autoplayPaused ? '播放' : '暂停' }
@@ -103,10 +103,13 @@ ReactDOM.render(<MyProgress />, mountNode);
 ```css
 .control {
   font-size: 0.36rem;
-  color: #000;
+  
 }
 .action {
   width: 3rem;
   text-align: center;
+}
+.action-info {
+  color: #000;
 }
 ```
