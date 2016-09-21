@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import List from '../list';
 import DOMScroller from 'zscroller';
 import assign from 'object-assign';
 
@@ -21,6 +20,7 @@ const INNERVIEW = 'InnerScrollView';
 export default class MyScroller extends React.Component<any, any> {
   domScroller: any;
   throttleScrollExec: any;
+  refs: any;
   componentDidMount() {
     this.throttleScrollExec = this.throttleScroll();
     if (this.props.useZscroller) {
@@ -40,7 +40,11 @@ export default class MyScroller extends React.Component<any, any> {
     }
   }
   handleScroll = (e) => {
-    const { onScroll = (ev) => { } } = this.props;
+    const { onScroll = (ev) => { }, useZscroller, refreshControl } = this.props;
+    if (useZscroller && refreshControl && this.refs.refreshControl) {
+      this.refs.refreshControl.refs.refreshControl.refs.placeholder.style.height =
+        `${ReactDOM.findDOMNode<HTMLElement>(this.refs[INNERVIEW]).offsetHeight}px`;
+    }
     onScroll(e);
   }
   throttleScroll = () => {
@@ -51,14 +55,28 @@ export default class MyScroller extends React.Component<any, any> {
     return handleScroll;
   }
   render() {
-    const { children, className, style = {}, contentContainerStyle, useZscroller } = this.props;
+    const {
+      children, className, prefixCls, listPrefixCls, listViewPrefixCls,
+      style = {}, contentContainerStyle, useZscroller, refreshControl,
+    } = this.props;
+    const preCls = prefixCls || listViewPrefixCls || '';
     return React.cloneElement(
-      <List ref={SCROLLVIEW} />, { className, style: useZscroller ? assign({}, {
-        position: 'relative',
-        overflow: 'hidden',
-        flex: 1,
-      }, style) : style },
-      <div ref={INNERVIEW} style={contentContainerStyle}>{children}</div>
+      <div ref={SCROLLVIEW}
+        className={`${preCls}-scrollview${className ? ` ${className}` : ''}`} />,
+      {
+        style: useZscroller ? assign({}, {
+          position: 'relative',
+          overflow: 'hidden',
+          flex: 1,
+        }, style) : style,
+      },
+      useZscroller && refreshControl ? React.cloneElement(refreshControl, {
+        ref: 'refreshControl',
+        outerContainer: true,
+      }) : undefined,
+      <div ref={INNERVIEW}
+        className={`${preCls}-scrollview-content ${listPrefixCls}`}
+        style={contentContainerStyle}>{children}</div>
     );
   }
 }

@@ -100,8 +100,9 @@ const App = React.createClass({
         dataSource={this.state.dataSource}
         renderRow={row}
         renderSeparator={separator}
-        pageSize={4}
-        scrollRenderAheadDistance={500}
+        initialListSize={5}
+        pageSize={5}
+        scrollRenderAheadDistance={200}
         scrollEventThrottle={20}
         onScroll={this.onScroll}
         style={{
@@ -114,10 +115,6 @@ const App = React.createClass({
         refreshControl={<RefreshControl
           refreshing={this.state.refreshing}
           onRefresh={this.onRefresh}
-          resistance={1}
-          style={{
-            height: document.body.clientHeight * 3 / 4,
-          }}
         />}
       />
     );

@@ -41,6 +41,7 @@ const App = React.createClass({
         resistance={1}
         className="am-refresh-control-demo1"
         style={{
+          height: 600,
           textAlign: 'center',
         }}
       >
@@ -57,32 +58,3 @@ const App = React.createClass({
 
 ReactDOM.render(<App />, mountNode);
 ````
-
-```css
-.demo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient:vertical;
-  -webkit-box-direction:normal;
-      -ms-flex-direction:column;
-          flex-direction:column;
-}
-.demo-preview-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient:vertical;
-  -webkit-box-direction:normal;
-      -ms-flex-direction:column;
-          flex-direction:column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-.am-refresh-control-demo1 {
-  -webkit-box-flex:1;
-      -ms-flex:1;
-          flex:1;
-}
-```
