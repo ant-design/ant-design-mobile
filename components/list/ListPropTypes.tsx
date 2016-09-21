@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactNode = __React.ReactNode;
 
 export interface ListProps {
   /** web only */
@@ -9,4 +10,28 @@ export interface ListProps {
   children?: any;
   renderHeader?: Function;
   renderFooter?: Function;
+}
+
+export interface ListItemProps {
+  last?: boolean;
+  /** web only */
+  prefixCls?: string;
+  style?: any;
+  /** web only */
+  className?: string;
+  thumb?: ReactNode;
+  extra?: any;
+  arrow?: 'horizontal'|'down'|'up'|'empty'|'';
+  align?: string;
+  onClick?: (e: any) => void;
+  error?: boolean;
+  multipleLine?: boolean;
+  children?: any;
+  wrap?: boolean;
+  line?: number;
+}
+
+export interface BriefProps {
+  style?: React.CSSProperties;
+  children?: any;
 }

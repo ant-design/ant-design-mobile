@@ -1,3 +1,4 @@
+import ReactNode = __React.ReactNode;
 interface Props {
   onRefresh?: () => void;
   refreshing?: boolean;
@@ -6,11 +7,10 @@ interface Props {
   children?: any;
   contentClassName?: string;
   contentStyle?: {};
-  icon?: any;
-  loading?: any;
+  icon?: ReactNode;
+  loading?: ReactNode;
   distanceToRefresh?: number;
   resistance?: number;
-  loadingFunction?: () => void;
 }
 
 export default Props;

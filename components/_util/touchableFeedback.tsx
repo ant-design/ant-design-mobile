@@ -11,8 +11,6 @@ export default function touchableFeedBack(ComposedComponent) {
     onTouchStart?: Function;
     onTouchEnd?: Function;
     onTouchCancel?: Function;
-    onMouseDown?: Function;
-    onMouseUp?: Function;
   }, any>({
     getInitialState() {
       return {
