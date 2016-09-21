@@ -26,6 +26,9 @@
       }
       &:first-child {
         .@{listPrefixCls} {
+          .@{listPrefixCls}-body {
+            .hairline-remove-right-bottom();
+          }
           .@{listPrefixCls}-item {
             background-color: @fill-body;
             .@{listPrefixCls}-line {
