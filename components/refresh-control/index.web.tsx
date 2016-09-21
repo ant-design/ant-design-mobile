@@ -1,19 +1,10 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import PullToRefresh from 'rmc-pull-to-refresh';
 import Icon from '../icon';
 import tsPropsType from './PropsType';
 import splitObject from '../_util/splitObject';
 
 export default class RefreshControl extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    children: PropTypes.any,
-    icon: PropTypes.any,
-    loading: PropTypes.any,
-    scrollerOptions: PropTypes.object,
-  };
-
   static defaultProps = {
     prefixCls: 'am-refresh-control',
     icon: <div style={{lineHeight: '50px'}}>
@@ -35,7 +26,7 @@ export default class RefreshControl extends React.Component<tsPropsType, any> {
       this.props.onRefresh();
       this.resolveCallback = resolve;
     });
-  }
+  };
 
   render() {
     let [{ refreshing }, restProps] = splitObject(this.props,
