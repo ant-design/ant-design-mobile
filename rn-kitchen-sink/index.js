@@ -16,6 +16,8 @@ import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { UIVIEWS, UICONTROLS, OTHERS, UIBARS } from './demoList';
 
+import Tag from '../components/tag/demo/basic.js'
+
 const styles = StyleSheet.create({
   content: {
     ...Platform.select({
@@ -85,7 +87,7 @@ class AntmRnApp extends React.Component {
   render() {
     const scenes = [...UIVIEWS, ...UICONTROLS, ...OTHERS, ...UIBARS].map(component => {
       const Module = component.module.default;
-      let Component = React.createClass({
+      const Component = React.createClass({
         render() {
           return (
             <View style={styles.content}>
@@ -119,7 +121,7 @@ class AntmRnApp extends React.Component {
         <StatusBar barStyle="light-content" />
         <Router createReducer={reducerCreate}>
           <Scene key="root" navigationBarStyle={styles.navigationBarStyle} titleStyle={styles.titleStyle}>
-            <Scene key="home" component={Home} title="Ant Design Mobile" initial />
+            <Scene key="home" component={Tag} title="Ant Design Mobile" initial />
             <Scene key="web" component={WebIndex} title="Antm Web Component" />
             <Scene key="native" component={RnIndex} title="Antm React Native" />
             {scenes}
