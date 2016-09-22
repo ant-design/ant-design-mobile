@@ -11,9 +11,11 @@ export default class MIndexedList extends React.Component<tsPropsType, any> {
     listViewPrefixCls: 'am-list-view',
   };
   render() {
-    const { restProps, extraProps } = handleProps(this.props);
+    const { restProps, extraProps } = handleProps(this.props, true);
     return (
       <IndexedList
+        sectionHeaderClassName="am-indexed-list-section-header am-list-body"
+        sectionBodyClassName="am-list-body"
         {...restProps}
         {...extraProps}
       >{this.props.children}</IndexedList>

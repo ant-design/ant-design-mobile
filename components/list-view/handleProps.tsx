@@ -5,7 +5,7 @@ import splitObject from '../_util/splitObject';
 import List from '../list';
 const { Item } = List;
 
-export default function handleProps(props) {
+export default function handleProps(props, isIndexed) {
   let [{ renderHeader, renderFooter, renderSectionHeader, renderRow }, restProps] =
     splitObject(props, ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderRow']);
   const listPrefixCls = props.listPrefixCls;
@@ -26,7 +26,10 @@ export default function handleProps(props) {
       () => <div className={`${listPrefixCls}-footer`}>{renderFooter() }</div>;
   }
   if (renderSectionHeader) {
-    extraProps.renderSectionHeader =
+    extraProps.renderSectionHeader = isIndexed ?
+      (sectionData, sectionID) => (<div>
+        <Item>{renderSectionHeader(sectionData, sectionID) }</Item>
+      </div>) :
       (sectionData, sectionID) => <Item>{renderSectionHeader(sectionData, sectionID)}</Item>;
   }
   return { restProps, extraProps };
