@@ -3,22 +3,25 @@ import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
-export default class Item extends React.Component<any, any> {
+import touchableFeedback from '../_util/touchableFeedback';
+
+class Item extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'am-popover',
     disabled: false,
   };
 
-  static PopoverItem = true;
-
   render() {
-    let[{ children, className, prefixCls, iconName, disabled }, restProps] = splitObject(this.props,
-      ['children', 'className', 'prefixCls', 'iconName', 'disabled']);
+    let [{ children, className, prefixCls, iconName, disabled, touchFeedback, firstItem }, restProps] =
+      splitObject(this.props,
+      ['children', 'className', 'prefixCls', 'iconName', 'disabled', 'touchFeedback', 'firstItem']);
 
     const cls = {
-      [className]: className,
+      [className]: !!className,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled,
+      [`${prefixCls}-item-touchFeedback`]: touchFeedback,
+      [`${prefixCls}-item-fix-active-arrow`]: firstItem && touchFeedback,
     };
 
     return (<div className={classNames(cls)} {...restProps}>
@@ -27,3 +30,4 @@ export default class Item extends React.Component<any, any> {
     </div>);
   }
 }
+export default touchableFeedback(Item, 'PopoverItem');
