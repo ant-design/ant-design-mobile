@@ -41,12 +41,18 @@ const App = React.createClass({
           ]}
           popupAlign={{
             overflow: { adjustY: 0, adjustX: 0 },
-            offset: [20, 20],
+            offset: [-2, 15],
           }}
           onVisibleChange={this.handleVisibleChange}
           onSelect={this.onSelect}
         >
-          <span><Icon type="ellipsis" /></span>
+          <div style={{
+            height: '100%',
+            padding: '0 0.3rem',
+            marginRight: '-0.3rem',
+            display: 'flex',
+            alignItems: 'center',
+          }}><Icon type="ellipsis" /></div>
         </Popover>
       }>NavBar</NavBar>
     </div>);

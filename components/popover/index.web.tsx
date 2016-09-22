@@ -1,4 +1,3 @@
-/* eslint no-console:0 */
 import React from 'react';
 import Tooltip from 'rc-tooltip';
 import Item from './item';

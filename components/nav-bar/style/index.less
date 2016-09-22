@@ -1,39 +1,38 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
 
+@navbar-height: 80px;
+
 @navbarPrefixCls: am-navbar;
 .@{navbarPrefixCls} {
-  .display-box;
-  .box-align;
-  padding: @h-spacing-sm @h-spacing-lg;
+  display: flex;
+  align-items: center;
+  height: @navbar-height;
   background-color: @brand-primary;
   color: @fill-base;
-  &-light {
-    background-color: @fill-base;
-    color: @brand-primary;
+  &-left,
+  &-title,
+  &-right {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
   &-left {
-    .box-flex(1);
+    margin-left: @h-spacing-lg;
     font-size: @link-button-font-size;
     &-icon {
       margin-right: @h-spacing-sm;
     }
   }
   &-title {
-    .box-flex(1);
-    .ellipsis;
-    max-width: 80%;
-    text-align: center;
+    justify-content: center;
     font-size: @font-size-display-sm;
-    line-height: 1.5;
-  }
-  &-light &-title {
-    color: @color-text-base;
   }
   &-right {
-    .box-flex(1);
+    justify-content: flex-end;
     font-size: @link-button-font-size;
-    text-align: right;
+    margin-right: @h-spacing-lg;
     .anticon {
       margin-right: @h-spacing-sm;
       &:last-child {
@@ -43,5 +42,12 @@
     &-content {
       margin-right: @h-spacing-sm;
     }
+  }
+  &-light {
+    background-color: @fill-base;
+    color: @brand-primary;
+  }
+  &-light &-title {
+    color: @color-text-base;
   }
 }
