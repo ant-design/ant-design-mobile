@@ -70,7 +70,7 @@ export default class RnIndex extends React.Component {
               ['UI Bars', uiBars]].map((item, i) => (
               <List
                 key={i}
-                title={item[0]}
+                renderHeader={() => item[0]}
                 style={{
                   marginTop: 0,
                   marginBottom: 0,
