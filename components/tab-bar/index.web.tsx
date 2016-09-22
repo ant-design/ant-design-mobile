@@ -27,8 +27,9 @@ const AntTabBar = React.createClass({
   },
 
   renderTabBar() {
-    const {props} = this;
-    return <TabBar onTabClick={props.onTabClick} style={{ backgroundColor: props.barTintColor }}/>;
+    const { onTabClick, barTintColor, hidden, prefixCls } = this.props;
+    const barCls = hidden ? `${prefixCls}-bar-hidden` : '';
+    return <TabBar className={barCls} onTabClick={onTabClick} style={{ backgroundColor: barTintColor }}/>;
   },
 
   renderTabContent() {

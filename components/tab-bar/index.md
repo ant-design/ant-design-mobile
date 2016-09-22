@@ -21,7 +21,8 @@ english: TabBar
 | barTintColor        | tabbar 背景色                     | String   | `white`            |
 | tintColor         | 选中的字体颜色                               | String | `#108ee9`         |
 | unselectedTintColor       | 未选中的字体颜色  | String | '#888'           |
-| prefixCls(`web only`) | 样式前缀  | String   | 'am-tabbar'      |
+| hidden       | 是否隐藏  | Boolean | false           |
+| prefixCls(`web only`) | 样式前缀  | String   | 'am-tab-bar'      |
 
 
 ### TabBar.Item

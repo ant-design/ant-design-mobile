@@ -12,13 +12,19 @@ const TabBarExample = React.createClass({
   getInitialState() {
     return {
       selectedTab: 'redTab',
-      presses: 0,
+      hidden: false,
     };
   },
   renderContent(pageText) {
     return (
-      <div style={{ backgroundColor: 'white', height: '100%' }}>
-        <div style={{ paddingTop: 60, textAlign: 'center' }}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
+      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+        <div style={{ paddingTop: 60 }}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
+        <a style={{ display: 'block', marginTop: 40 }} onClick={(e) => {
+          e.preventDefault();
+          this.setState({
+            hidden: !this.state.hidden,
+          });
+        }}>点击切换 tab-bar 显示/隐藏</a>
       </div>
     );
   },
@@ -28,6 +34,7 @@ const TabBarExample = React.createClass({
         unselectedTintColor="#949494"
         tintColor="#33A3F4"
         barTintColor="white"
+        hidden={this.state.hidden}
       >
         <TabBar.Item
           title="生活"
