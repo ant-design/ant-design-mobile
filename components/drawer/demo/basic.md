@@ -50,7 +50,7 @@ const App1 = React.createClass({
           contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
           {...drawerProps}
         >
-          请点击左上角
+          请点击左上角图标
         </Drawer>
       </div>
     </div>);
