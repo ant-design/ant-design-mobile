@@ -15,7 +15,7 @@ export default class MIndexedList extends React.Component<tsPropsType, any> {
     return (
       <IndexedList
         sectionHeaderClassName="am-indexed-list-section-header am-list-body"
-        sectionBodyClassName="am-list-body"
+        sectionBodyClassName="am-indexed-list-section-body am-list-body"
         {...restProps}
         {...extraProps}
       >{this.props.children}</IndexedList>
