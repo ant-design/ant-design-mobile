@@ -6,6 +6,7 @@ interface TabBarProps {
   /*web only*/
   prefixCls?: string;
   className?: string;
+  hidden?: boolean;
 }
 
 export default TabBarProps;

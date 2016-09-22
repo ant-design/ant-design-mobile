@@ -120,7 +120,7 @@ const Demo = React.createClass({
         </div>
       );
     };
-    return (<div>
+    return (
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
@@ -132,6 +132,7 @@ const Demo = React.createClass({
         )}
         renderRow={row}
         renderSeparator={separator}
+        className="fortest"
         pageSize={4}
         scrollEventThrottle={20}
         onScroll={() => { console.log('scroll'); }}
@@ -144,7 +145,7 @@ const Demo = React.createClass({
           // isActive: false, // 关闭 sticky 效果
         }}
       />
-    </div>);
+    );
   },
 });
 

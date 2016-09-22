@@ -6,7 +6,7 @@ title: 向上弹出效果
 Popup 向上弹出效果
 
 ````jsx
-import { Popup, List, Button } from 'antd-mobile';
+import { Popup, List, Button, Icon } from 'antd-mobile';
 
 const Test = React.createClass({
   getInitialState() {
@@ -21,11 +21,11 @@ const Test = React.createClass({
           委托买入
           <span
             style={{
-              position: 'absolute', right: 3, top: -5, fontSize: '1.4em',
+              position: 'absolute', right: 3, top: -5,
             }}
             onClick={() => this.onClose('cancel')}
           >
-          x
+            <Icon type="cross" />
           </span>
         </div>)
       }>
@@ -34,9 +34,9 @@ const Test = React.createClass({
         <List.Item>买入价格</List.Item>
         <List.Item>买入数量</List.Item>
       </List>
-      <ul style={{ padding: 10 }}>
+      <ul style={{ padding: '0.18rem 0.3rem' }}>
         <li>投资说明投资说明...</li>
-        <li style={{ marginTop: 10 }}>
+        <li style={{ marginTop: '0.18rem' }}>
           <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>
         </li>
       </ul>

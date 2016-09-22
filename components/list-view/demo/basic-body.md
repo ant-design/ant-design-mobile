@@ -101,7 +101,7 @@ const Demo = React.createClass({
         </div>
       );
     };
-    return (<div>
+    return (
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
@@ -110,6 +110,7 @@ const Demo = React.createClass({
         </div>}
         renderRow={row}
         renderSeparator={separator}
+        className="fortest"
         pageSize={4}
         scrollRenderAheadDistance={500}
         scrollEventThrottle={20}
@@ -118,7 +119,7 @@ const Demo = React.createClass({
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
       />
-    </div>);
+    );
   },
 });
 

@@ -78,7 +78,7 @@ const Test = React.createClass({
       value={[SelectorDataForPopup[0]]}
       data={SelectorDataForPopup}
       onChange={hide}
-    />, { maskClosable: false });
+    />, { maskClosable: true });
   },
   render() {
     return (<div style={{ padding: '15px' }}>

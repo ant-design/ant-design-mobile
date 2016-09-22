@@ -100,7 +100,7 @@ export default class Home extends React.Component {
       }
     });
 
-    const whiteList = ['drawer', 'list-view', 'refresh-control'];
+    const whiteList = ['drawer', 'list-view'];
     const drawerDemos = [
       { order: 0, title: '基本' },
       { order: 1, title: '嵌入文档模式' },
@@ -111,10 +111,6 @@ export default class Home extends React.Component {
       { order: 2, title: '吸顶（body 容器）' },
       { order: 3, title: 'IndexedList' },
       { order: 4, title: 'IndexedList 吸顶' },
-    ];
-    const refreshControlDemos = [
-      { order: 0, title: '基本' },
-      { order: 1, title: 'ListView RefreshControl' },
     ];
 
     const sidebar = (<div>
@@ -132,8 +128,6 @@ export default class Home extends React.Component {
                 let subDemos;
                 if (fileName === 'drawer') {
                   subDemos = drawerDemos;
-                } else if (fileName === 'refresh-control') {
-                  subDemos = refreshControlDemos;
                 } else {
                   subDemos = listDemos;
                 }

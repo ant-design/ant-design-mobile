@@ -1,47 +1,46 @@
+/* tslint:disable:no-unused-variable */
 import React from 'react';
-import PullToRefresh from 'rmc-pull-to-refresh';
+/* tslint:enable:no-unused-variable */
+import ListView from 'rmc-list-view';
 import Icon from '../icon';
-import tsPropsType from './PropsType';
-import splitObject from '../_util/splitObject';
+// import tsPropsType from './PropsType';
+import assign from 'object-assign';
 
-export default class RefreshControl extends React.Component<tsPropsType, any> {
-  static defaultProps = {
-    prefixCls: 'am-refresh-control',
-    icon: <div style={{lineHeight: '50px'}}>
-      <div className="am-refresh-control-pull">
-        <Icon type="arrow-down"/> 下拉
-      </div>
-      <div className="am-refresh-control-release">
-        <Icon type="arrow-up"/> 释放
-      </div>
-    </div>,
-    loading: <div style={{ lineHeight: '50px' }}><Icon type="loading"/></div>,
-    refreshing: false,
-  };
+ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaultProps, {
+  prefixCls: 'am-refresh-control',
+  icon: <div style={{lineHeight: '50px'}}>
+    <div className="am-refresh-control-pull">
+      <Icon type="arrow-down"/> 下拉
+    </div>
+    <div className="am-refresh-control-release">
+      <Icon type="arrow-up"/> 释放
+    </div>
+  </div>,
+  loading: <div style={{ lineHeight: '50px' }}><Icon type="loading"/></div>,
+  refreshing: false,
+});
+export default ListView.RefreshControl;
 
-  resolveCallback: Function;
-
-  loadingFunction = () => {
-    return new Promise((resolve, reject) => {
-      this.props.onRefresh();
-      this.resolveCallback = resolve;
-    });
-  };
-
-  render() {
-    let [{ refreshing }, restProps] = splitObject(this.props,
-      ['onRefresh', 'refreshing']);
-    const refreshProps = {
-      loadingFunction: this.loadingFunction,
-    };
-    if (!refreshing && this.resolveCallback) {
-      this.resolveCallback();
-    }
-    return (
-      <PullToRefresh ref="refreshControl"
-        {...refreshProps}
-        {...restProps}
-      />
-    );
-  }
-}
+// export default class RefreshControl extends React.Component<tsPropsType, any> {
+//   static defaultProps = assign({}, ListView.RefreshControl.defaultProps, {
+//     prefixCls: 'am-refresh-control',
+//     icon: <div style={{lineHeight: '50px'}}>
+//       <div className="am-refresh-control-pull">
+//         <Icon type="arrow-down"/> 下拉
+//       </div>
+//       <div className="am-refresh-control-release">
+//         <Icon type="arrow-up"/> 释放
+//       </div>
+//     </div>,
+//     loading: <div style={{ lineHeight: '50px' }}><Icon type="loading"/></div>,
+//     refreshing: false,
+//   });
+//   render() {
+//     return (
+//       <ListView.RefreshControl
+//         {...this.props}
+//         ref="refreshControl"
+//       />
+//     );
+//   }
+// }

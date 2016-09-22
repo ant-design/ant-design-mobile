@@ -75,6 +75,7 @@ const Demo = React.createClass({
         renderFooter={() => <span>尾部内容请自定义</span>}
         renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
         renderRow={(rowData) => (<Item>{rowData}</Item>)}
+        className="fortest"
         stickyHeader
         stickyProps={{
           stickyStyle: { zIndex: 999 },

@@ -17,21 +17,24 @@
   & &-item {
     display: flex;
     align-items: center;
-    margin: 0 @h-spacing-md;
-    padding: @h-spacing-md;
+    height: @option-height;
+    padding: 0 @h-spacing-md;
     border-bottom: @border-width-sm solid @border-color-base;
+    box-sizing: border-box;
     &:last-child {
       border-bottom: 0;
     }
-    &:active {
-      margin: 0;
-      margin-top: -@border-width-sm;
-      padding: @h-spacing-md 2*@h-spacing-md;
+    // &:active { // fix uc active bug
+    &.@{popoverPrefixCls}-item-touchFeedback {
       background-color: @border-color-base;
+    }
+    &.@{popoverPrefixCls}-item-touchFeedback.@{popoverPrefixCls}-item-fix-active-arrow {
+      position: relative;
     }
     &.@{popoverPrefixCls}-item-disabled {
       color: @color-text-disabled;
-      &.@{popoverPrefixCls}-item:active {
+      // &.@{popoverPrefixCls}-item:active {
+      &.@{popoverPrefixCls}-item-touchFeedback {
         background-color: transparent;
       }
     }

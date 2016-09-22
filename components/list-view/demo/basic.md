@@ -135,18 +135,19 @@ const Demo = React.createClass({
         )}
         renderRow={row}
         renderSeparator={separator}
-        pageSize={4}
-        scrollRenderAheadDistance={500}
-        scrollEventThrottle={20}
-        onScroll={() => { console.log('scroll'); }}
-        onEndReached={this.onEndReached}
-        onEndReachedThreshold={10}
+        className="fortest"
         style={{
           height: document.body.clientHeight * 3 / 4,
           overflow: 'auto',
           border: '1px solid #ddd',
           margin: '10px 0',
         }}
+        pageSize={4}
+        scrollRenderAheadDistance={500}
+        scrollEventThrottle={20}
+        onScroll={() => { console.log('scroll'); }}
+        onEndReached={this.onEndReached}
+        onEndReachedThreshold={10}
       />
     </div>);
   },
