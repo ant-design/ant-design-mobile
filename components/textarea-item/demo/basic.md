@@ -22,18 +22,44 @@ let TextareaItemExample = React.createClass({
         >
           <TextareaItem
             title="非受控"
-            defaultValue="非受控组件"
-            placeholder="非受控组件"
+            defaultValue=""
+            placeholder="设置defaultValue,不设置value"
           />
           <TextareaItem
             title="受控组件"
             value=""
-            placeholder="如果你有什么建议意见，欢迎你来吐槽"
+            placeholder="设置value,不设置defaultValue"
             clear
           />
           <TextareaItem
-            {...getFieldProps('note1', {
+            {...getFieldProps('note2', {
               initialValue: '',
+            })}
+            title="单行"
+            placeholder="请填写"
+            clear={false}
+            onBlur={() => { console.log('onBlur'); }}
+            onFocus={(value) => { console.log('onFocus'); console.log(value); }}
+          />
+          <TextareaItem
+            {...getFieldProps('note4', {
+              initialValue: '最大长度',
+            })}
+            count={30}
+            clear
+          />
+          <TextareaItem
+            {...getFieldProps('note3', {
+              initialValue: '',
+            })}
+            title="高度自适应"
+            autoHeight
+            clear
+            labelNumber={5}
+          />
+          <TextareaItem
+            {...getFieldProps('note1', {
+              initialValue: '固定行数',
             })}
             rows={3}
             placeholder="固定行数,rows"
@@ -41,62 +67,60 @@ let TextareaItemExample = React.createClass({
             onBlur={() => { console.log('onBlur'); }}
             onFocus={(value) => { console.log('onFocus'); console.log(value); }}
           />
+        </List>
+        <List
+          renderHeader={() => '标题，可自定义'}
+        >
           <TextareaItem
-            {...getFieldProps('note2', {
+            {...getFieldProps('title1', {
               initialValue: '',
             })}
-            title="带标题"
-            placeholder="title"
-            clear={false}
-            onBlur={() => { console.log('onBlur'); }}
-            onFocus={(value) => { console.log('onFocus'); console.log(value); }}
-          />
-          <TextareaItem
-            {...getFieldProps('note3', {
-              initialValue: '',
-            })}
-            title="自适应"
-            autoHeight
             clear
-            placeholder="autoHeight"
+            placeholder="请填写姓名"
           />
           <TextareaItem
-            {...getFieldProps('note4', {
+            {...getFieldProps('title2', {
               initialValue: '',
             })}
-            title="最大长度"
-            count={30}
             clear
-            placeholder="count"
+            title="姓名"
+            placeholder="标题可以是文字"
           />
           <TextareaItem
-            {...getFieldProps('note5', {
+            {...getFieldProps('title3', {
               initialValue: '',
             })}
             title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" style={{ width: '0.56rem', height: '0.56rem' }} />}
             clear
-            placeholder="title类型可以是node"
+            placeholder="标题可以自定义"
           />
+        </List>
+        <List
+          renderHeader={() => '清除'}
+        >
           <TextareaItem
-            {...getFieldProps('note6', {
-              initialValue: '不可编辑',
+            {...getFieldProps('clear1', {
+              initialValue: '',
             })}
-            title="不可编辑"
-            placeholder="editable"
-            editable={false}
+            clear
+            title="姓名"
+            placeholder="提供清除文字功能"
           />
           <TextareaItem
-            value="禁用状态"
-            title="禁用状态"
-            disabled
-            placeholder="editable"
-            editable={false}
-          />
-          <TextareaItem
-            {...getFieldProps('note7', {
-              initialValue: '多行输入,带计数功能,count+rows',
+            {...getFieldProps('clear2', {
+              initialValue: '',
             })}
-            title="备注说明"
+            title="姓名"
+            placeholder="不提供清除文字功能"
+          />
+        </List>
+        <List
+          renderHeader={() => '计数'}
+        >
+          <TextareaItem
+            {...getFieldProps('count', {
+              initialValue: '我的意见是...',
+            })}
             rows={5}
             placeholder="计数功能"
             clear
@@ -104,6 +128,26 @@ let TextareaItemExample = React.createClass({
             onBlur={() => { console.log('onBlur'); }}
             onFocus={(value) => { console.log('onFocus'); console.log(value); }}
           />
+        </List>
+        <List
+          renderHeader={() => '不可编辑 禁用'}
+        >
+          <TextareaItem
+            {...getFieldProps('note6', {
+              initialValue: '不可编辑',
+            })}
+            title="姓名"
+            editable={false}
+          />
+          <TextareaItem
+            value="这个是禁用的样式"
+            title="姓名"
+            disabled
+          />
+        </List>
+        <List
+          renderHeader={() => '校验'}
+        >
           <TextareaItem
             {...getFieldProps('note8', {
               initialValue: '多行输入,带计数功能,count+rows',
