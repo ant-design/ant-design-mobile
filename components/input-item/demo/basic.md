@@ -18,7 +18,7 @@ let BasicInputExample = React.createClass({
 
     return (<div>
       <List
-        renderHeader={() => '基本'}
+        renderHeader={() => '受控、非受控、无标题'}
       >
         <InputItem
           placeholder="设置defaultValue,不设置value"
@@ -40,51 +40,160 @@ let BasicInputExample = React.createClass({
           onFocus={(value) => { console.log('onFocus'); console.log(value); }}
         >受控</InputItem>
         <InputItem
-          value="editable={false}"
-          editable={false}
-        >不可编辑</InputItem>
-        <InputItem
-          value="disabled={true}"
-          disabled
-        >禁用状态</InputItem>
-        <InputItem
-          {...getFieldProps('input2', {
-            initialValue: '标签可以是node',
-          })}
-          placeholder="标签可以是node"
-        >
-          <div style={{ backgroundImage: 'url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)', backgroundSize: 'cover', height: '0.44rem', width: '0.44rem' }} />
-        </InputItem>
-        <InputItem
           {...getFieldProps('input3', {
             initialValue: '',
           })}
           clear
-          placeholder="无标签"
+          placeholder="无标题"
         />
+      </List>
+      <List
+        renderHeader={() => '清除'}
+      >
         <InputItem
-          {...getFieldProps('input4', {
+          {...getFieldProps('inputclear', {
             initialValue: '',
           })}
           clear
-          placeholder="extra"
+          placeholder="提供清除文字功能"
+        >姓名</InputItem>
+        <InputItem
+          {...getFieldProps('inputclear2', {
+            initialValue: '',
+          })}
+          placeholder="不提供清除文字功能"
+        >姓名</InputItem>
+      </List>
+      <List
+        renderHeader={() => '标题，可以自定义'}
+      >
+        <InputItem
+          {...getFieldProps('inputtitle', {
+            initialValue: '',
+          })}
+          placeholder="标题可以是文字"
+        >
+          姓名
+        </InputItem>
+        <InputItem
+          {...getFieldProps('inputtitle2', {
+            initialValue: '',
+          })}
+          placeholder="标题可自定义"
+        >
+          <div style={{ backgroundImage: 'url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)', backgroundSize: 'cover', height: '0.44rem', width: '0.44rem' }} />
+        </InputItem>
+      </List>
+      <List
+        renderHeader={() => '标题字数'}
+      >
+        <InputItem
+          {...getFieldProps('label2', {
+            initialValue: '',
+          })}
+          labelNumber={2}
+        >姓名</InputItem>
+        <InputItem
+          {...getFieldProps('label3', {
+            initialValue: '',
+          })}
+          labelNumber={3}
+        >校验码</InputItem>
+        <InputItem
+          {...getFieldProps('label4', {
+            initialValue: '',
+          })}
+        >手机号码</InputItem>
+        <InputItem
+          {...getFieldProps('label7', {
+            initialValue: '',
+          })}
+          labelNumber={7}
+        >我是七个字标题</InputItem>
+        <InputItem
+          {...getFieldProps('label8', {
+            initialValue: '',
+          })}
+          labelNumber={7}
+        >超出七个字标题标题</InputItem>
+      </List>
+      <List
+        renderHeader={() => '右侧注释'}
+      >
+        <InputItem
+          {...getFieldProps('preice', {
+            initialValue: '',
+          })}
+          clear
+          placeholder="0.00"
           extra="元"
-        >带注释</InputItem>
+        >价格</InputItem>
         <InputItem
-          {...getFieldProps('input5', {
+          {...getFieldProps('email', {
             initialValue: '',
           })}
-          placeholder="注释可以是node"
-          clear
-          extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" />}
-        >带注释</InputItem>
+          extra="@163.com"
+        >网易邮箱</InputItem>
         <InputItem
-          {...getFieldProps('input6', {
-            initialValue: '输入框',
+          {...getFieldProps('upload', {
+            initialValue: '',
           })}
+          extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" />}
+        >上传照片</InputItem>
+      </List>
+      <List renderHeader={() => '格式'}>
+        <InputItem
+          {...getFieldProps('bankCard', {
+            initialValue: '8888 8888 8888 8888',
+          })}
+          type="bankCard"
+          placeholder="8888 8888 8888 8888"
           clear
-          placeholder="clear"
-        >清除功能</InputItem>
+          onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+          onFocus={function (e) { console.log('onFocus'); console.log(e); }}
+        >银行卡</InputItem>
+        <InputItem
+          {...getFieldProps('phone', {
+            initialValue: '186 1234 1234',
+          })}
+          type="phone"
+          placeholder="186 1234 1234"
+          clear
+          onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+          onFocus={function (e) { console.log('onFocus'); console.log(e); }}
+        >手机号码</InputItem>
+        <InputItem
+          {...getFieldProps('password', {
+            initialValue: '123131',
+          })}
+          type="password"
+          placeholder="****"
+          clear
+          onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+          onFocus={function (e) { console.log('onFocus'); console.log(e); }}
+        >密码</InputItem>
+        <InputItem
+          {...getFieldProps('number', {
+            initialValue: '123131',
+          })}
+          type="number"
+          placeholder="123131"
+          clear
+          onBlur={function (e) { console.log('onBlur'); console.log(e); }}
+          onFocus={function (e) { console.log('onFocus'); console.log(e); }}
+        >数字键盘</InputItem>
+      </List>
+      <List renderHeader={() => '不可编辑 禁用'}>
+        <InputItem
+          value="不可编辑"
+          editable={false}
+        >姓名</InputItem>
+        <InputItem
+          value="这个是禁用状态的样式"
+          disabled
+        >姓名</InputItem>
+      </List>
+      <List renderHeader={() => '校验'}>
         <InputItem
           {...getFieldProps('input7', {
             initialValue: '校验出错',
@@ -95,75 +204,6 @@ let BasicInputExample = React.createClass({
           clear
           placeholder="内容"
         >报错样式</InputItem>
-      </List>
-      <List
-        renderHeader={() => '固定标签字数'}
-      >
-        <InputItem
-          {...getFieldProps('label2', {
-            initialValue: '',
-          })}
-          placeholder="内容"
-          clear
-          maxLength={10}
-          labelNumber={2}
-          onBlur={(value) => { console.log('onBlur'); console.log(value); }}
-          onFocus={(value) => { console.log('onFocus'); console.log(value); }}
-        >姓名</InputItem>
-        <InputItem
-          {...getFieldProps('label3', {
-            initialValue: '',
-          })}
-          placeholder="内容"
-          clear
-          maxLength={10}
-          labelNumber={3}
-          onBlur={(value) => { console.log('onBlur'); console.log(value); }}
-          onFocus={(value) => { console.log('onFocus'); console.log(value); }}
-        >校验码</InputItem>
-        <InputItem
-          {...getFieldProps('label4', {
-            initialValue: '',
-          })}
-          placeholder="默认"
-          clear
-          maxLength={10}
-          onBlur={(value) => { console.log('onBlur'); console.log(value); }}
-          onFocus={(value) => { console.log('onFocus'); console.log(value); }}
-        >四字标签</InputItem>
-        <InputItem
-          {...getFieldProps('label5', {
-            initialValue: '',
-          })}
-          placeholder="内容"
-          clear
-          maxLength={10}
-          labelNumber={5}
-          onBlur={(value) => { console.log('onBlur'); console.log(value); }}
-          onFocus={(value) => { console.log('onFocus'); console.log(value); }}
-        >五个字标签</InputItem>
-        <InputItem
-          {...getFieldProps('label6', {
-            initialValue: '',
-          })}
-          placeholder="内容"
-          clear
-          maxLength={10}
-          labelNumber={6}
-          onBlur={(value) => { console.log('onBlur'); console.log(value); }}
-          onFocus={(value) => { console.log('onFocus'); console.log(value); }}
-        >六个字标签六</InputItem>
-        <InputItem
-          {...getFieldProps('label7', {
-            initialValue: '',
-          })}
-          placeholder="内容"
-          clear
-          maxLength={10}
-          labelNumber={7}
-          onBlur={(value) => { console.log('onBlur'); console.log(value); }}
-          onFocus={(value) => { console.log('onFocus'); console.log(value); }}
-        >七个字标签七个</InputItem>
       </List>
     </div>);
   },
