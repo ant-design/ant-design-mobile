@@ -11,6 +11,13 @@ english: 更新日志
 - 修复 Tabbar 文字居中问题 #310 
 - 修复 多个 Modal closable icon 不显示的问题
 - 修复 NavBar 返回 Icon 不显示的问题； #302 
+- 修复 List 箭头指向 和 单行展示问题 #273 #274
+- 修复 DatePicker demo
+- 更新 Modal，API `dialog` 改为 `transparent`
+- 新增 List 结合 rc-form demo
+- 增加 less 文件的入口，方便配置工具统一加载样式。 https://github.com/ant-design/ant-design-mobile/pull/267
+- 优化 Badge 样式
+- 优化 ActivityIndicator demo, 网站组件分类优化
 
 ### 0.8.5
 
