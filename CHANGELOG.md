@@ -3,6 +3,19 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.0-beta.0
+
+`2016-09-23`
+
+- 修复 Modal & SegmentedControl touch feedback效果, 新增属性 `touchFeedback`
+- 重构 List，API 调整，移除`List.Body`, `title` 和 `footer` 属性变更为 `renderHeader` 和 `renderFooter` 方法，#257
+- 修复 InputItem bug #228
+- 重构 长列表 ListView，使用 zscroller 来支持 RefreshControl，增加支持 [zscroller options](https://github.com/yiminghe/zscroller#options)
+- 更新 RefreshControl，刷新回调函数由`loadingFunction` 调整为 `onRefresh`，增加`refreshing`设置是否显示刷新状态  #288
+- 更新 Tabbar，支持 `hidden` prop
+- 更新 ActivityIndicator、Slider、 Tag 样式
+- 优化 Progress、Accordion、ActionSheat、Carousel、 Navbar、Popup、Steps demo
+
 ### 0.8.6
 
 `2016-09-23`
