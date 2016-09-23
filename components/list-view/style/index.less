@@ -3,10 +3,31 @@
 
 @indexedList: am-indexed-list;
 .@{indexedList} {
+  &-section-body {
+    &.am-list-body:after {
+      border: 0;
+    }
+    .am-list-item:last-child {
+      .am-list-line:after {
+        border: 0;
+      }
+    }
+  }
   &-section-header {
+    .am-list-item .am-list-line:after {
+      border: 0;
+    }
+    &.am-list-body:after {
+      border: 0;
+    }
     .am-list-item {
+      height: @list-title-height;
       min-height: @list-title-height;
-      background-color: #F7F7F7;
+      background-color: @fill-body;
+      .am-list-line {
+        height: @list-title-height;
+        min-height: @list-title-height;
+      }
       .am-list-content {
         font-size: @font-size-base !important;
         color: @color-text-caption !important;
@@ -18,7 +39,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: @listViewQsbZIndex;
+    z-index: 0;
     text-align: center;
     color: @color-link;
     font-size: @font-size-caption;

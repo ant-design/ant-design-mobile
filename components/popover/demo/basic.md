@@ -17,6 +17,7 @@ const App = React.createClass({
     };
   },
   onSelect(opt) {
+    // console.log(opt.props.value);
     this.setState({
       visible: false,
       selected: opt.props.value,
