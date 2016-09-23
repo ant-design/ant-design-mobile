@@ -14,7 +14,7 @@ const AccordionExmple = React.createClass({
   },
   render() {
     return (
-      <div>
+      <div style={{ marginTop: 10, marginBottom: 10 }}>
         <Accordion
           defaultActiveKey="0"
           accordion
