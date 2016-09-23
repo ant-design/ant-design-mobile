@@ -7,6 +7,7 @@ import config from '../../';
 
 const hashImgObj = {
   'action-sheet': 'cYmaBafYBnAxCqQ',
+  'activity-indicator': 'yVtRfZGoDxXObTK',
   alert: 'XdSYKalBelFOMqd',
   badge: 'UwUpBYPYnlwVicM',
   button: 'ZRDUYEzfOzKWdzE',
@@ -25,7 +26,7 @@ const hashImgObj = {
   'input-item': 'SdSqpihcSBoBrFO',
   list: 'tiapjpdKPQGHhnC',
   'list-action': 'nIYrkZcGvKXjQhX',
-  'list-view': 'tiapjpdKPQGHhnC',
+  'list-view': 'lMztpIPTRAIWGIP',
   menu: 'QeVVHHEAhSiVtXt',
   modal: 'HzRRcuwtqUCCOBg',
   'nav-bar': 'qzZlligUfwgFjwD',
@@ -55,6 +56,8 @@ const hashImgObj = {
   form: 'hZDnBrVwPmrgrLq',
   'swipe-action': 'nlDYwTsLwJdnaKc',
   accordion: 'jGVfAYlFPECtWvI',
+  'tab-bar': 'OZInMeAaDCHtaJU',
+  'segmented-control': 'qCqRFuSbewqIWyv',
 };
 
 export default class App extends React.Component {
