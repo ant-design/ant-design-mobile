@@ -1,11 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 import ReactCarousel from 'nuka-carousel';
 import assign from 'object-assign';
-import Pagination from '../pagination/index.web';
 import CarouselProps from './CarouselPropTypes';
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
+    prefixCls: 'am-carousel',
     dots: true,
     arrows: false,
     autoplay: false,
@@ -27,18 +28,10 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     this.setState({selectedIndex: index});
   }
 
-  renderDots() {
-    return (
-      <Pagination
-        mode="pointer"
-        current={this.state.selectedIndex}
-        total={this.props.children.length}
-      />
-    );
-  }
-
   render() {
-    const children = this.props.children;
+    const { prefixCls, children } = this.props;
+    const current = this.state.selectedIndex;
+    let wrapCls;
     if (!children) {
       return null;
     }
@@ -60,19 +53,51 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       props.afterSlide = props.afterChange;
     }
 
-    let className = 'am-carousel';
     if (props.vertical) {
-      className = `${className} am-carousel-vertical`;
+      wrapCls = `${props.prefixCls} ${props.prefixCls}-vertical`;
     }
 
+    const Decorators = [{
+      component: React.createClass({
+        render() {
+          const self = this;
+          const indexes = this.getIndexes(self.props.slideCount, self.props.slidesToScroll);
+          return (
+            <div className={`${prefixCls}-wrap`}>
+              {
+                indexes.map(function(index) {
+                  const dotCls = classNames({
+                    [`${prefixCls}-wrap-dot`]: true,
+                    [`${prefixCls}-wrap-dot-active`]: index === current,
+                  });
+                  return (
+                    <div className={dotCls} key={index}>
+                      <span></span>
+                    </div>
+                  );
+                })
+              }
+            </div>
+          );
+        },
+        getIndexes(count, inc) {
+          const arr = [];
+          for (let i = 0; i < count; i += inc) {
+            arr.push(i);
+          }
+          return arr;
+        },
+      }),
+      position: 'BottomCenter',
+    }];
+
     return (
-      <div className={className}>
+      <div className={wrapCls}>
         <ReactCarousel
           {...props}
-          decorators={[]}
+          decorators={Decorators}
           afterSlide={this.onChange}
         />
-        {props.dots && this.renderDots()}
       </div>
     );
   }
