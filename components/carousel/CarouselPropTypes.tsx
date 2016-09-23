@@ -8,6 +8,7 @@ interface CarouselProps {
   infinite?: boolean;
   children?: any;
   /** web only */
+  prefixCls?: string;
   easing?: string;
   beforeChange?: (from: number, to: number) => void;
   afterChange?: (current: number) => void;
