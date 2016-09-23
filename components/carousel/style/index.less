@@ -4,11 +4,29 @@
 .am-carousel {
   position: relative;
 
-  // Dots
-  .am-pagination {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  &-wrap {
+    font-size: @font-size-display-sm;
+    color: @color-text-base;
+    background: none;
+    text-align: center;
+    zoom: 1;
+    width: 100%;
+    &-dot {
+        display: inline-block;
+        zoom: 1;
+        > span {
+          display: block;
+          width: 16px;
+          height: 16px;
+          margin: 0 6px;
+          border-radius: 50%;
+          background: @input-color-icon;
+        }
+        &-active {
+          > span {
+            background: #888;
+          }
+        }
+    }
   }
 }
