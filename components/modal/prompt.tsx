@@ -117,6 +117,8 @@ export default function (...args) {
     transparent
     prefixCls={prefixCls}
     title={title}
+    closable={false}
+    maskClosable={false}
     transitionName="am-zoom"
     footer={footer}
     maskTransitionName="am-fade">

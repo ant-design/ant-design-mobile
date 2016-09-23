@@ -30,7 +30,7 @@ const App = React.createClass({
           <Button type="ghost" onClick={this.showModal}>
             显示全屏对话框
           </Button>
-          <Modal visible={this.state.visible}>
+          <Modal visible={this.state.visible} closable={false}>
             <div style={{ height: '50%', paddingTop: 200 }}>
               这是内容...<br />
               这是内容...<br />
