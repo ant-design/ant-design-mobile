@@ -3,6 +3,15 @@ order: 2
 english: 更新日志
 ---
 
+### 0.8.6
+
+`2016-09-23`
+
+- 修复 Carousel dot 样式问题 #302 
+- 修复 Tabbar 文字居中问题 #310 
+- 修复 多个 Modal closable icon 不显示的问题
+- 修复 NavBar 返回 Icon 不显示的问题； #302 
+
 ### 0.8.5
 
 `2016-09-14`
