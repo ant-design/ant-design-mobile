@@ -32,6 +32,7 @@ export default class WebIndex extends React.Component {
           onLoadEnd={this.onLoadEnd}
           automaticallyAdjustContentInsets={false}
           source={{ uri: 'http://mobile.ant.design/kitchen-sink/' }}
+          scalesPageToFit={false}
         />
         <Modal
           animationType={'none'}
