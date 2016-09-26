@@ -20,27 +20,3 @@ ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaul
   refreshing: false,
 });
 export default ListView.RefreshControl;
-
-// export default class RefreshControl extends React.Component<tsPropsType, any> {
-//   static defaultProps = assign({}, ListView.RefreshControl.defaultProps, {
-//     prefixCls: 'am-refresh-control',
-//     icon: <div style={{lineHeight: '50px'}}>
-//       <div className="am-refresh-control-pull">
-//         <Icon type="arrow-down"/> 下拉
-//       </div>
-//       <div className="am-refresh-control-release">
-//         <Icon type="arrow-up"/> 释放
-//       </div>
-//     </div>,
-//     loading: <div style={{ lineHeight: '50px' }}><Icon type="loading"/></div>,
-//     refreshing: false,
-//   });
-//   render() {
-//     return (
-//       <ListView.RefreshControl
-//         {...this.props}
-//         ref="refreshControl"
-//       />
-//     );
-//   }
-// }
