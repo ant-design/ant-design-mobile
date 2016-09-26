@@ -4,7 +4,7 @@ title: 分段控制
 ---
 
 ````jsx
-import { SegmentedControl, WhiteSpace } from 'antd-mobile';
+import { SegmentedControl, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const SegmentedControlExample = React.createClass({
   onChange(e) {
@@ -15,7 +15,7 @@ const SegmentedControlExample = React.createClass({
   },
   render() {
     return (
-      <div>
+      <WingBlank size="lg">
         <div style={{ padding: 16 }}>禁用/enabled=false</div>
         <SegmentedControl
           values={['切换一', '切换二']}
@@ -41,7 +41,7 @@ const SegmentedControlExample = React.createClass({
           onChange={this.onChange}
           onValueChange={this.onValueChange}
         />
-      </div>
+      </WingBlank>
     );
   },
 });

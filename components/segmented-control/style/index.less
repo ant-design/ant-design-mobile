@@ -6,12 +6,11 @@
 .@{segment-prefix-cls} {
   .display-box;
   background-color: @fill-base;
-  border-width: @border-width-md;
-  border-style: solid;
+  border: @border-width-md solid @segmented-control-color;
   border-radius: @radius-md;
-  border-color: @segmented-control-color;
   overflow: hidden;
-  margin: 0 @h-spacing-lg;
+  box-sizing: border-box;
+  min-height: @segmented-control-height;
   &-item {
     .box-flex(1);
     display: flex;
@@ -21,9 +20,9 @@
     font-size: @font-size-base;
     border-right: @border-width-md solid @segmented-control-color;
     line-height: 1;
-    min-height: @segmented-control-height;
     transition: background 0.2s;
     position: relative;
+
     &:last-child {
       border-right: 0;
     }
@@ -34,9 +33,11 @@
     }
 
     &-feedback {
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 100%;
       width: 100%;
-      position: absolute;
       opacity: 0.1;
       transition: background 0.2s;
     }
