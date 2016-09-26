@@ -87,11 +87,11 @@ module.exports = {
     ]);
 
     config.babel.plugins.push([
-      require.resolve('babel-plugin-antd'),
+      require.resolve('babel-plugin-import'),
       {
         style: true,
         libraryName: 'antd-mobile',
-        libDir: 'components',
+        libraryDirectory: 'components',
       },
     ]);
 

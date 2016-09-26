@@ -71,7 +71,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 ### 按需加载
 
-推荐使用 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 来降低打包体积。
+推荐使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 来降低打包体积。
 
 ```js
 // .babelrc
@@ -84,7 +84,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 并且可以直接用下面的语法加载模块。
 
 ```jsx
-// import js and css modularly, parsed by babel-plugin-antd
+// import js and css modularly, parsed by babel-plugin-import
 import { Button } from 'antd-mobile';
 ```
 
