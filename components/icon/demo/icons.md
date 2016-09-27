@@ -6,7 +6,7 @@ title: 基本
 ````jsx
 import { Icon } from 'antd-mobile';
 
-const icons = ['bars', 'bill', 'chat', 'chats', 'check', 'checkbox', 'comment', 'complain', 'complaint', 'complaints', 'cross', 'delete', 'delete-o', 'down', 'edit', 'ellipsis', 'email', 'eye', 'font', 'group', 'groupx', 'help', 'like', 'link', 'loading', 'lock', 'environment-o', 'money', 'minus-circle', 'ownset', 'plus', 'reload', 'clock-circle', 'frown-o', 'frown', 'scan', 'search', 'setting', 'share', 'star-o', 'titlebar', 'team', 'user', 'trips', 'world'];
+const icons = ['search'];
 
 class IconItems extends React.Component {
   render() {
