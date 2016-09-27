@@ -16,7 +16,7 @@ const Test = React.createClass({
     };
   },
   showActionSheet() {
-    const BUTTONS = ['操作 0', '操作 1', '操作 2', '删除', '取消'];
+    const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
     ActionSheet.showActionSheetWithOptions({
       options: BUTTONS,
       cancelButtonIndex: BUTTONS.length - 1,

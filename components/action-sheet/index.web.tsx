@@ -6,6 +6,7 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
 import assign from 'object-assign';
+import ButtonListItem from './ButtonListItem.web';
 
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
@@ -71,25 +72,30 @@ function createActionSheet(flag, config, callback) {
       mode = 'normal';
       children = (<div {...getDataAttr(props)}>
         {titleMsg}
-        <ul className={`${prefixCls}-button-list`}>
+        <div className={`${prefixCls}-button-list`}>
           {options.map((item, index) => {
-            const extraProp = {
-              onClick: () => cb(index),
-            };
-            let li = <li className={[`${prefixCls}-button-list-item`]} key={index} {...extraProp}>{item}</li>;
             const cls = {
+              [`${prefixCls}-button-list-item`]: true,
               [`${prefixCls}-destructive-button`]: destructiveButtonIndex === index,
               [`${prefixCls}-cancel-button`]: cancelButtonIndex === index,
             };
+            const itemProps = {
+              key: index,
+              prefixCls: `${prefixCls}-button-list-item`,
+              className: classNames(cls),
+              onClick: () => cb(index),
+            };
+            let bItem = (<ButtonListItem {...itemProps}>{item}</ButtonListItem>);
             if (cancelButtonIndex === index || destructiveButtonIndex === index) {
-              li = (<li key={index} className={classNames(cls) } {...extraProp}>
+              bItem = (<ButtonListItem {...itemProps}>
                 {item}
-                {cancelButtonIndex === index ? <span className={`${prefixCls}-cancel-button-mask`}></span> : null}
-              </li>);
+                {cancelButtonIndex === index ?
+                  <span className={`${prefixCls}-cancel-button-mask`}></span> : null}
+              </ButtonListItem>);
             }
-            return li;
+            return bItem;
           })}
-        </ul>
+        </div>
       </div>);
       break;
     case SHARE:
@@ -115,7 +121,11 @@ function createActionSheet(flag, config, callback) {
                 {options.map((item, index) => createList(item, index))}
             </div>
           )}
-          <div className={`${prefixCls}-share-cancel-button`} onClick={() => cb(-1)}>{cancelButtonText}</div>
+          <ButtonListItem
+            prefixCls={`${prefixCls}-share-cancel-button`}
+            className={`${prefixCls}-share-cancel-button`} onClick={() => cb(-1) }>
+            {cancelButtonText}
+          </ButtonListItem>
         </div>
       </div>);
       break;

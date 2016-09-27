@@ -2,13 +2,7 @@ import React from 'react';
 import { View, Text, Platform } from 'react-native';
 import { ActionSheet, Button } from 'antd-mobile';
 
-const BUTTONS = [
-  '操作 0',
-  '操作 1',
-  '操作 2',
-  '删除',
-  '取消',
-];
+const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
 const DESTRUCTIVE_INDEX = 3;
 const CANCEL_INDEX = 4;
 

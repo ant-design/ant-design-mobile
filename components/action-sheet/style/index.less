@@ -30,9 +30,8 @@
   &-button-list {
     text-align: center;
     color: @color-text-base;
-    > li {
+    &-item {
       font-size: @font-size-heading;
-      list-style: none;
       padding: 0;
       margin: 0;
       position: relative;
@@ -40,7 +39,8 @@
       line-height: @button-height;
       .hairline-top(@border-color-base);
       // border-top: @border-width-sm solid @border-color-base;
-      &:active {
+      // &:active {
+      &&-touchFeedback {
         background-color: @fill-tap;
       }
     }
@@ -56,8 +56,6 @@
         background-color: #F7F7F7;
         .hairline-top(@border-color-base);
         .hairline-bottom(@border-color-base);
-        // border-top: @border-width-sm solid @border-color-base;
-        // border-bottom: @border-width-sm solid @border-color-base;
       }
     }
     .@{ActionSheetPrefixCls}-destructive-button {
@@ -105,6 +103,10 @@
       font-size: @button-font-size;
       position: relative;
       .hairline-top(@border-color-base);
+      // &:active {
+      &&-touchFeedback {
+        background-color: @fill-tap;
+      }
     }
   }
 }
