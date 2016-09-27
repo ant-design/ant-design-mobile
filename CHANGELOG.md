@@ -4,6 +4,14 @@ english: 更新日志
 ---
 
 
+### 0.8.7
+
+`2016-09-27`
+
+- 修复 Carousel dots 失效问题
+- 修复 SegmentedControl 样式问题
+- 网站 优化，移除useso iconfont
+
 ### 0.8.6
 
 `2016-09-23`
