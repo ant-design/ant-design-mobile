@@ -57,39 +57,42 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       wrapCls = `${props.prefixCls} ${props.prefixCls}-vertical`;
     }
 
-    const Decorators = [{
-      component: React.createClass({
-        render() {
-          const self = this;
-          const indexes = this.getIndexes(self.props.slideCount, self.props.slidesToScroll);
-          return (
-            <div className={`${prefixCls}-wrap`}>
-              {
-                indexes.map(function(index) {
-                  const dotCls = classNames({
-                    [`${prefixCls}-wrap-dot`]: true,
-                    [`${prefixCls}-wrap-dot-active`]: index === current,
-                  });
-                  return (
-                    <div className={dotCls} key={index}>
-                      <span></span>
-                    </div>
-                  );
-                })
-              }
-            </div>
-          );
-        },
-        getIndexes(count, inc) {
-          const arr = [];
-          for (let i = 0; i < count; i += inc) {
-            arr.push(i);
-          }
-          return arr;
-        },
-      }),
-      position: 'BottomCenter',
-    }];
+    let Decorators = [];
+    if (props.dots) {
+      Decorators  = [{
+        component: React.createClass({
+          render() {
+            const self = this;
+            const indexes = this.getIndexes(self.props.slideCount, self.props.slidesToScroll);
+            return (
+              <div className={`${prefixCls}-wrap`}>
+                {
+                  indexes.map(function(index) {
+                    const dotCls = classNames({
+                      [`${prefixCls}-wrap-dot`]: true,
+                      [`${prefixCls}-wrap-dot-active`]: index === current,
+                    });
+                    return (
+                      <div className={dotCls} key={index}>
+                        <span></span>
+                      </div>
+                    );
+                  })
+                }
+              </div>
+            );
+          },
+          getIndexes(count, inc) {
+            const arr = [];
+            for (let i = 0; i < count; i += inc) {
+              arr.push(i);
+            }
+            return arr;
+          },
+        }),
+        position: 'BottomCenter',
+      }];
+    }
 
     return (
       <div className={wrapCls}>

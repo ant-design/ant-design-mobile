@@ -28,7 +28,6 @@ const App = React.createClass({
       dots: true,
       autoplay: true,
       infinite: true,
-      mode: 'banner',
       selectedIndex: this.state.current,
       beforeChange: this.beforeSlide,
       afterChange: this.slideTo,
