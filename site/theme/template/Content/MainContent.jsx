@@ -62,10 +62,10 @@ export default class MainContent extends React.Component {
     const disabled = item.disabled;
     const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
     const child = !item.link ?
-      <Link to={url} disabled={disabled}>
+      <Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
         {text}
       </Link> :
-      <a href={item.link} rel="noopener noreferrer" target="_blank" disabled={disabled}>
+      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
         {text}
       </a>;
 
