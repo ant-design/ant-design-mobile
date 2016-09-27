@@ -24,8 +24,8 @@ english: Modal
 | visible      | 对话框是否可见 | Boolean          | false           |
 | onClose      | 点击 x 或 mask 回调       | Function   | 无 |
 | title (only transparent)       | 标题           | React.Element    | 无           |
-| closable (only transparent)    | 是否显示右上角的关闭按钮 | Boolean    | false        |
-| maskClosable (only transparent) | 点击蒙层是否允许关闭 | Boolean   | false       |
+| closable    | 是否显示右上角的关闭按钮 | Boolean    | true        |
+| maskClosable (only transparent) | 点击蒙层是否允许关闭 | Boolean   | true       |
 | footer  (only not transparent)     | 底部内容       |  Array [{text, onPress}]    | [] |
 | transparent | 是否弹窗模式       | Boolean   |  true |
 | style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
