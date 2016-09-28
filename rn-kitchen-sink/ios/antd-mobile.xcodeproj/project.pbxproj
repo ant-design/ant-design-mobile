@@ -27,6 +27,7 @@
 		93ABB6211D2A3DF100652A63 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6201D2A3DF100652A63 /* ScanViewController.m */; };
 		93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6231D2A3E2600652A63 /* ResultViewController.m */; };
 		93ABB6261D2A430B00652A63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93ABB6251D2A430B00652A63 /* AVFoundation.framework */; };
+		93C1273B1D9BABA900466599 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C1273A1D9BAA2600466599 /* libRCTWebSocket.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,13 @@
 			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
 			remoteInfo = RCTCameraRoll;
 		};
+		93C127391D9BAA2600466599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93C127351D9BAA2600466599 /* RCTWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C86DF461ADF2C930047B81A;
+			remoteInfo = RCTWebSocket;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +144,7 @@
 		93ABB6231D2A3E2600652A63 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultViewController.m; path = "antd-mobile/ResultViewController.m"; sourceTree = "<group>"; };
 		93ABB6251D2A430B00652A63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93BF62B21D44DF2400AFA3D0 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
+		93C127351D9BAA2600466599 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +165,7 @@
 				932801361D12865300A90AF1 /* libReact.a in Frameworks */,
 				936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */,
 				93735FCF1D44E0D700B29FD8 /* libRCTCameraRoll.a in Frameworks */,
+				93C1273B1D9BABA900466599 /* libRCTWebSocket.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +194,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				93C127351D9BAA2600466599 /* RCTWebSocket.xcodeproj */,
 				93BF62B21D44DF2400AFA3D0 /* RCTCameraRoll.xcodeproj */,
 				936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */,
 				932800F11D1285D000A90AF1 /* React.xcodeproj */,
@@ -308,6 +319,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		93C127361D9BAA2600466599 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93C1273A1D9BAA2600466599 /* libRCTWebSocket.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -388,6 +407,10 @@
 				{
 					ProductGroup = 932801221D12861300A90AF1 /* Products */;
 					ProjectRef = 932801211D12861300A90AF1 /* RCTVibration.xcodeproj */;
+				},
+				{
+					ProductGroup = 93C127361D9BAA2600466599 /* Products */;
+					ProjectRef = 93C127351D9BAA2600466599 /* RCTWebSocket.xcodeproj */;
 				},
 				{
 					ProductGroup = 932800F21D1285D000A90AF1 /* Products */;
@@ -477,6 +500,13 @@
 			fileType = archive.ar;
 			path = libRCTCameraRoll.a;
 			remoteRef = 93BF62B81D44DF2400AFA3D0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93C1273A1D9BAA2600466599 /* libRCTWebSocket.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTWebSocket.a;
+			remoteRef = 93C127391D9BAA2600466599 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
