@@ -34,12 +34,6 @@ ReactDOM.render(
         预定人数
       </List.Item>
     </List>
-    <List renderHeader={() => '步进器'} >
-
-      <List.Item extra={<Stepper showNumber max={10} min={1} defaultValue={3} onChange={onChange} />}>
-        预定人数
-      </List.Item>
-    </List>
   </div>
 , mountNode);
 ````

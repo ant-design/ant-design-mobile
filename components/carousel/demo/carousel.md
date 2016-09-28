@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 图片切换
+title: 内容为图片
 ---
 
 图片切换
@@ -35,7 +35,6 @@ const App = React.createClass({
     return (
       <div>
         <div className="pagination-container" >
-          <WhiteSpace size="lg" />
           <WingBlank>
             <Carousel {...settings}>
               <Flex
