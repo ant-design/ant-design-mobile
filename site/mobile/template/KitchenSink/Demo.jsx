@@ -106,11 +106,11 @@ export default class Home extends React.Component {
       { order: 1, title: '嵌入文档模式' },
     ];
     const listDemos = [
-      { order: 0, title: '子容器' },
+      { order: 0, title: '自定义容器' },
       { order: 1, title: 'body 容器' },
-      { order: 2, title: '吸顶（body 容器）' },
-      { order: 3, title: 'IndexedList' },
-      { order: 4, title: 'IndexedList 吸顶' },
+      { order: 2, title: '标题吸顶（body 容器）' },
+      { order: 3, title: '索引列表' },
+      { order: 4, title: '索引列表（标题吸顶）' },
     ];
 
     const sidebar = (<div>

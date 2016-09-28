@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 吸顶（body 容器）
+title: 标题吸顶（body 容器）
 ---
 
 区块标题 “吸顶”(sticky) 功能示例

@@ -1,6 +1,6 @@
 ---
 order: 3
-title: IndexedList
+title: 索引列表
 ---
 
 用于通讯薄等场景
