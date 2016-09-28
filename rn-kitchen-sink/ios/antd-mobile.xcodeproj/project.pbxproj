@@ -19,7 +19,6 @@
 		932801321D12865300A90AF1 /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9328011A1D12860600A90AF1 /* libRCTSettings.a */; };
 		932801331D12865300A90AF1 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932801201D12860D00A90AF1 /* libRCTText.a */; };
 		932801341D12865300A90AF1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932801261D12861300A90AF1 /* libRCTVibration.a */; };
-		932801351D12865300A90AF1 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9328012C1D12861700A90AF1 /* libRCTWebSocket.a */; };
 		932801361D12865300A90AF1 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932800F61D1285D000A90AF1 /* libReact.a */; };
 		936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936A047A1D267BB0005EE7C1 /* libCodePush.a */; };
 		936A047D1D267C03005EE7C1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 936A047C1D267C03005EE7C1 /* libz.tbd */; };
@@ -94,13 +93,6 @@
 			remoteGlobalIDString = 832C81801AAF6DEF007FA2F7;
 			remoteInfo = RCTVibration;
 		};
-		9328012B1D12861700A90AF1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 932801271D12861700A90AF1 /* RCTWebSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3C86DF461ADF2C930047B81A;
-			remoteInfo = RCTWebSocket;
-		};
 		936A04791D267BB0005EE7C1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */;
@@ -134,7 +126,6 @@
 		932801151D12860600A90AF1 /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		9328011B1D12860D00A90AF1 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		932801211D12861300A90AF1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		932801271D12861700A90AF1 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		936A04751D267BB0005EE7C1 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		936A047C1D267C03005EE7C1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		93ABB6061D2A301C00652A63 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = "antd-mobile/HomeViewController.h"; sourceTree = "<group>"; };
@@ -162,7 +153,6 @@
 				932801321D12865300A90AF1 /* libRCTSettings.a in Frameworks */,
 				932801331D12865300A90AF1 /* libRCTText.a in Frameworks */,
 				932801341D12865300A90AF1 /* libRCTVibration.a in Frameworks */,
-				932801351D12865300A90AF1 /* libRCTWebSocket.a in Frameworks */,
 				932801361D12865300A90AF1 /* libReact.a in Frameworks */,
 				936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */,
 				93735FCF1D44E0D700B29FD8 /* libRCTCameraRoll.a in Frameworks */,
@@ -205,7 +195,6 @@
 				932801151D12860600A90AF1 /* RCTSettings.xcodeproj */,
 				9328011B1D12860D00A90AF1 /* RCTText.xcodeproj */,
 				932801211D12861300A90AF1 /* RCTVibration.xcodeproj */,
-				932801271D12861700A90AF1 /* RCTWebSocket.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -299,14 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				932801261D12861300A90AF1 /* libRCTVibration.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		932801281D12861700A90AF1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9328012C1D12861700A90AF1 /* libRCTWebSocket.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -409,10 +390,6 @@
 					ProjectRef = 932801211D12861300A90AF1 /* RCTVibration.xcodeproj */;
 				},
 				{
-					ProductGroup = 932801281D12861700A90AF1 /* Products */;
-					ProjectRef = 932801271D12861700A90AF1 /* RCTWebSocket.xcodeproj */;
-				},
-				{
 					ProductGroup = 932800F21D1285D000A90AF1 /* Products */;
 					ProjectRef = 932800F11D1285D000A90AF1 /* React.xcodeproj */;
 				},
@@ -486,13 +463,6 @@
 			fileType = archive.ar;
 			path = libRCTVibration.a;
 			remoteRef = 932801251D12861300A90AF1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9328012C1D12861700A90AF1 /* libRCTWebSocket.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTWebSocket.a;
-			remoteRef = 9328012B1D12861700A90AF1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		936A047A1D267BB0005EE7C1 /* libCodePush.a */ = {
