@@ -78,7 +78,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
       case 'button':
         markup = (
           <Flex>
-            <Flex.Item className={`${prefixCls}-wrap-btn`}>
+            <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-prev`}>
               <Button
                 inline
                 disabled={current <= 0}
@@ -92,7 +92,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
                 <span className="active">{current + 1}</span>/<span>{total}</span>
               </Flex.Item>)
             }
-            <Flex.Item className={`${prefixCls}-wrap-btn`}>
+            <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}>
               <Button
                 disabled={current >= total - 1}
                 inline
