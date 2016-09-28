@@ -6,7 +6,7 @@ title: 基本
 ````jsx
 import { Icon } from 'antd-mobile';
 
-const icons = ['search'];
+const icons = ['search', 'koubei', 'alipay'];
 
 class IconItems extends React.Component {
   render() {
