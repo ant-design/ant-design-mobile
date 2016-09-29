@@ -34,7 +34,7 @@ class SegmentItem extends React.Component<any, any> {
         {...restProps}
       >
         <div className={`${prefixCls}-item-feedback`} style={{
-          backgroundColor: enabled && touchFeedback && !selected ? tintColor : '#fff',
+          backgroundColor: enabled && touchFeedback && !selected ? tintColor : 'transparent',
         }}></div>
         {label}
       </div>
