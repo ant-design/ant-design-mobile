@@ -6,11 +6,10 @@
 .@{segment-prefix-cls} {
   .display-box;
   background-color: @fill-base;
-  border: @border-width-md solid @segmented-control-color;
   border-radius: @radius-md;
   overflow: hidden;
-  box-sizing: border-box;
   min-height: @segmented-control-height;
+
   &-item {
     .box-flex(1);
     display: flex;
@@ -18,13 +17,21 @@
     align-items: center;
     color: @segmented-control-color;
     font-size: @font-size-base;
-    border-right: @border-width-md solid @segmented-control-color;
     line-height: 1;
     transition: background 0.2s;
     position: relative;
+    border: @border-width-md solid @segmented-control-color;
+    width: 100%;
+    box-sizing: border-box;
+    border-left-width: 0;
+
+    &:first-child {
+      border-left-width: @border-width-md;
+      border-radius: @radius-md 0 0 @radius-md;
+    }
 
     &:last-child {
-      border-right: 0;
+      border-radius: 0 @radius-md @radius-md 0;
     }
 
     &-selected {
