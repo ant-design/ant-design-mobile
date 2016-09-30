@@ -12,7 +12,9 @@ export interface StepsProps {
   current?: number;
 }
 
-const Icon = ({ type }) => <span className={`anticon anticon-${type}`} />;
+function isString(str) {
+  return typeof str === 'string';
+}
 
 export default class Steps extends React.Component<StepsProps, any> {
   static Step = (RcSteps as any).Step;
@@ -44,13 +46,15 @@ export default class Steps extends React.Component<StepsProps, any> {
             let className;
             if (!!item.props.icon) {
               iconName = item.props.icon;
-              className = '';
-              if ( index > 0 && index <= current) {
-                iconName = 'check-circle';
-              } else if (item.props.status === 'error') {
-                iconName = 'cross-circle';
-              } else if(item.props.status === 'process') {
-                iconName = 'check-circle';
+              if (isString(iconName)) {
+                className = '';
+                if ( index > 0 && index <= current) {
+                  iconName = 'check-circle';
+                } else if (item.props.status === 'error') {
+                  iconName = 'cross-circle';
+                } else if(item.props.status === 'process') {
+                  iconName = 'check-circle';
+                }
               }
             } else {
               className = index <= current ? null : 'ellipsis-item';
@@ -65,7 +69,7 @@ export default class Steps extends React.Component<StepsProps, any> {
 
             className = `${errorTailCls} ${className}`;
             return React.cloneElement(
-              item, {key: index, icon: <Icon type={iconName} />, className: className}
+              item, {key: index, icon: iconName, className: className}
             );
           })
         }
