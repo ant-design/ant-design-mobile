@@ -45,7 +45,6 @@ let Test = React.createClass({
         <Picker data={district} cols={1} {...getFieldProps('district3')} className="forss">
           <List.Item arrow="horizontal">选择省份</List.Item>
         </Picker>
-        {/* <List.Item><Button inline size="small" onClick={this.setVal}>手动设置省市区</Button></List.Item> */}
       </List>
     </div>);
   },
