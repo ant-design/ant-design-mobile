@@ -10,6 +10,8 @@ import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const Step = Steps.Step;
 
+const Icon = ({ type }) => <span className={`anticon anticon-${type}`} />;
+
 ReactDOM.render(
   <div className="stepsExample">
     <WhiteSpace size="lg" />
@@ -33,7 +35,7 @@ ReactDOM.render(
     <WhiteSpace size="lg" />
     <WingBlank size="lg">
       <Steps current={1}>
-        <Step title="步骤1" icon="pay-circle" />
+        <Step title="步骤1" icon={<Icon type="pay-circle" />} />
         <Step title="步骤2" icon="pay-circle" />
         <Step title="步骤3" status="error" icon="pay-circle" />
         <Step title="步骤4" icon="pay-circle" />
