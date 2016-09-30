@@ -23,10 +23,10 @@
   padding: 4px 0;
   display: inline-block;
   box-sizing: content-box;
-  width: @button-height-sm * 2 + 6;
-  height: @button-height-sm;
+  width: 125px;
+  height: 70px;
+  line-height: 70px;
   font-size: @font-size-base;
-  line-height: @button-height-sm;
   vertical-align: middle;
   overflow: hidden;
 
@@ -38,9 +38,9 @@
   &-handler,
   &-handler-up-inner,
   &-handler-down-inner {
-    width: @button-height-sm;
-    height: @button-height-sm;
-    line-height: @button-height-sm;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
   }
 
   &-handler {
@@ -74,21 +74,24 @@
     user-select: none;
     right: 4px;
     color: @color-text-base;
+    &:active {
+      background-color: @fill-tap;
+    }
   }
 
   &-input-wrap {
     display: none;
     width: 100%;
-    height: @button-height-sm;
-    line-height: @button-height-sm;
+    height: 60px;
+    line-height: 60px;
     text-align: center;
     overflow: hidden;
   }
 
   &-input {
     display: none;
-    width: @button-height-sm * 2;
-    font-size: @font-size-subhead;
+    width: 120px;
+    font-size: 32px;
     color: @color-text-base;
     text-align: center;
     border: 0;
@@ -102,7 +105,7 @@
   }
 
   &.showNumber {
-    width: @button-height-sm * 2 + 112;
+    width: 276px;
     .@{stepperPrefixCls}-input-wrap {
       display: inline-block;
     }
@@ -125,7 +128,7 @@
 
   &-handler-up {
     cursor: pointer;
-    right: 0;
+    right: -1px;
     &-inner {
       &:before {
         text-align: center;

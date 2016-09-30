@@ -12,6 +12,8 @@ export interface StepsProps {
   current?: number;
 }
 
+const Icon = ({ type }) => <span className={`anticon anticon-${type}`} />;
+
 export default class Steps extends React.Component<StepsProps, any> {
   static Step = (RcSteps as any).Step;
 
@@ -63,7 +65,7 @@ export default class Steps extends React.Component<StepsProps, any> {
 
             className = `${errorTailCls} ${className}`;
             return React.cloneElement(
-              item, {key: index, icon: iconName, className: className}
+              item, {key: index, icon: <Icon type={iconName} />, className: className}
             );
           })
         }
