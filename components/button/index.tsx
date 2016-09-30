@@ -83,7 +83,7 @@ export default class Button extends React.Component<tsProps, any> {
       borderColor = variables.brand_primary;
 
       highlightTextColor = variables.color_text_base_inverse;
-      highlightBackgroundColor = variables.brand_primary;
+      highlightBackgroundColor = variables.brand_primary_tap;
       highlightBorderColor = variables.brand_primary;
     } else if (type === 'ghost') {
       backgroundColor = 'transparent';
@@ -96,7 +96,7 @@ export default class Button extends React.Component<tsProps, any> {
       textColor = variables.brand_warning;
       backgroundColor = variables.fill_base;
       borderColor = variables.brand_warning;
-      highlightBackgroundColor = variables.fill_base;
+      highlightBackgroundColor = variables.brand_warning;
     } else {
       textColor = variables.color_text_base;
       backgroundColor = variables.fill_base;
