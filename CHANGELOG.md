@@ -3,6 +3,22 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.0
+
+`2016-09-30`
+
+- List 组件 API 调整为与 ListView 保持一致，移除List.Body， List.Footer，List.Header，title 和 footer 属性变更为 renderHeader 和 renderFooter 方法 [#257](https://github.com/ant-design/ant-design-mobile/issues/257)
+- 使用 [zscroller](https://github.com/yiminghe/zscroller) 重构 ListView。新增 `renderSectionBodyWrapper` 来支持渲染自定义的区块包裹组件，新增[scrollerOptions](https://github.com/yiminghe/zscroller#options)
+- 使用 zscroller 来支持 RefreshControl (`useBodyScroll` and sticky 失效)，刷新回调函数由 loadingFunction 调整为 onRefresh，增加 refreshing 设置是否显示刷新状态 [#](https://github.com/ant-design/ant-design-mobile/issues/288)。RefreshControl 只能和 ListView 结合使用，不能单独使用。
+- 修复 Modal & SegmentedControl touch feedback效果 [#195](https://github.com/ant-design/ant-design-mobile/issues/195)
+- 更新 Tabbar，支持 `hidden` prop
+- Steps 组件 icon 支持 React.Element
+- 修复 Badge、NavBar、ActivityIndicator、Stepper 组件的一些样式细节问题。
+- 修复 Carousel dots 隐藏失效的问题
+- 修复 android uc modal 样式问题 [#](https://github.com/ant-design/ant-design-mobile/issues/283)
+- 修复 SegmentedControl 在模拟器下的样式问题
+
+
 ### 0.9.0-beta.0
 
 `2016-09-23`
