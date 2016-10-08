@@ -134,17 +134,6 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       prefixCls, prefixListCls, type, value, defaultValue, name, editable, disabled, style, clear, children,
       error, className, extra, labelNumber, maxLength } = this.props;
 
-    let valueProps;
-    if (value !== undefined) {
-      valueProps = {
-        value: fixControlledValue(value),
-      };
-    } else {
-      valueProps = {
-        defaultValue,
-      };
-    }
-
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
@@ -172,6 +161,24 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       inputType = 'password';
     }
 
+    let valueProps;
+    if (value !== undefined) {
+      valueProps = {
+        value: fixControlledValue(value),
+      };
+    } else {
+      valueProps = {
+        defaultValue,
+      };
+    }
+
+    let patternProps;
+    if (type === 'number') {
+      patternProps = {
+        pattern: '[0-9]*',
+      }
+    }
+
     return (
       <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
@@ -187,7 +194,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
             onFocus={this.onInputFocus}
             readOnly={!editable}
             disabled={disabled}
-            pattern={type === 'number' ? '[0-9]*' : ''}
+            {...patternProps}
           />
         </div>
         {clear && editable && !disabled && (value && value.length > 0) ?
