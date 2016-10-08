@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableHighlight, Image } from 'react-native';
 import { ListView } from 'antd-mobile';
+import assign from 'object-assign';
 
 const data = [
   {
@@ -21,60 +22,43 @@ const data = [
 ];
 let index = data.length - 1;
 
-const NUM_SECTIONS = 5;
-const NUM_ROWS_PER_SECTION = 5;
+const NUM_ROWS = 20;
 let pageIndex = 0;
 
 export default React.createClass({
   getInitialState() {
-    const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
-    const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
-
     const dataSource = new ListView.DataSource({
-      getRowData,
-      getSectionHeaderData: getSectionData,
       rowHasChanged: (row1, row2) => row1 !== row2,
-      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
     });
 
-    this.dataBlob = {};
-    this.sectionIDs = [];
-    this.rowIDs = [];
-    this._genData = (pIndex = 0) => {
-      for (let i = 0; i < NUM_SECTIONS; i++) {
-        let ii = pIndex * NUM_SECTIONS + i;
-        const sectionName = `Section ${ii}`;
-        this.sectionIDs.push(sectionName);
-        this.dataBlob[sectionName] = sectionName;
-        this.rowIDs[ii] = [];
-
-        for (let jj = 0; jj < NUM_ROWS_PER_SECTION; jj++) {
-          const rowName = `S${ii}, R${jj}`;
-          this.rowIDs[ii].push(rowName);
-          this.dataBlob[rowName] = rowName;
-        }
+    this.genData = (pIndex = 0) => {
+      const dataBlob = {};
+      for (let i = 0; i < NUM_ROWS; i++) {
+        const ii = (pIndex * NUM_ROWS) + i;
+        dataBlob[`${ii}`] = `row - ${ii}`;
       }
-      // new object ref
-      this.sectionIDs = [].concat(this.sectionIDs);
-      this.rowIDs = [].concat(this.rowIDs);
+      return dataBlob;
     };
-    this._genData();
+    this.rData = {};
     return {
-      dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
-      headerPressCount: 0,
+      dataSource: dataSource.cloneWithRows(this.genData()),
+      isLoading: false,
     };
   },
+
   onEndReached(event) {
     // load new data
+    // console.log('reach end', event);
     this.setState({ isLoading: true });
     setTimeout(() => {
-      this._genData(++pageIndex);
+      this.rData = assign({}, this.rData, this.genData(++pageIndex));
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,
       });
     }, 1000);
   },
+
   render() {
     const separator = (sectionID, rowID) => (
       <View key={`${sectionID}-${rowID}`} style={{
@@ -132,22 +116,19 @@ export default React.createClass({
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderHeader={() => <Text style={[{ padding: 30 }]}>列表头</Text>}
-        renderFooter={() => <Text style={[{ padding: 30, textAlign: 'center' }]}>
+        renderHeader={() => <Text>header</Text>}
+        renderFooter={() => <Text style={{ padding: 30, textAlign: 'center' }}>
           {this.state.isLoading ? '加载中...' : '加载完毕'}
         </Text>}
-        renderSectionHeader={(sectionData) => <Text style={[{
-          padding: 10, color: 'blue',
-          backgroundColor: 'rgba(150, 150, 150, 0.6)',
-        }]}>
-            {`任务 ${sectionData.split(' ')[1]}`}
-          </Text>}
         renderRow={row}
         renderSeparator={separator}
         pageSize={4}
+        scrollRenderAheadDistance={500}
+        scrollEventThrottle={20}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
         onChangeVisibleRows={(visibleRows, changedRows) => {
+          /* tslint no-console: 0 */
           // console.log(visibleRows, changedRows);
         }}
       />
@@ -155,5 +136,5 @@ export default React.createClass({
   },
 });
 
-export const title = 'ListView';
-export const description = 'ListView example';
+export const title = 'ListView Row';
+export const description = 'ListView Row example';
