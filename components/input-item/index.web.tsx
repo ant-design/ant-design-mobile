@@ -176,7 +176,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     if (type === 'number') {
       patternProps = {
         pattern: '[0-9]*',
-      }
+      };
     }
 
     return (
