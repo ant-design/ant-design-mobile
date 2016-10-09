@@ -50,6 +50,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
         pickerPrefixCls={props.pickerPrefixCls}
         data={props.data}
         cols={props.cols}
+        onChange={props.onPickerChange}
       />
     );
     return (

@@ -21,6 +21,7 @@ english: Picker
 | format  | 格式化选中的值  | Function | `(values) => { return values.join(','); } ` |
 | cols    | 列数        | Number |  `3`  |
 | onChange | 选中后的回调   | Function(value) ,如果使用[rc-form](https://github.com/react-component/form),一般不需要自己处理| - |
+| onPickerChange | 每列数据选择变化后的回调   | Function(value) | - |
 | children| 通常是List.Item | Object |  List.Item  |
 | okText  | 选中的文案 | String |  `确定`  |
 | dismissText  | 取消选中的文案 | String |  `取消`  |

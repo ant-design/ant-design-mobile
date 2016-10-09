@@ -1,5 +1,7 @@
 /* eslint comma-dangle:0 */
-
+/**
+ * data for ListView.IndexedList
+ */
 const data = [{
   value: '11',
   label: '北京市',
