@@ -6,6 +6,8 @@ class Tab extends React.Component<any, any> {
     const {
       title, icon, selectedIcon, prefixCls, badge, selected, unselectedTintColor, tintColor,
     } = this.props;
+
+    const iconRes = selected ? selectedIcon : icon;
     return (
       <div>
         <div className={`${prefixCls}-icon`}>
@@ -16,7 +18,7 @@ class Tab extends React.Component<any, any> {
               </Badge>
             ) : (
               <img className={`${prefixCls}-image`}
-                src={selected ? selectedIcon.uri : icon.uri} alt={title} />
+                src={ iconRes.uri || iconRes } alt={title} />
             )
           }
         </div>

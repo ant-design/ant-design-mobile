@@ -8,6 +8,8 @@ title: APP型选项卡
 ````jsx
 import { TabBar } from 'antd-mobile';
 
+/* eslint global-require: 0 */
+
 const TabBarExample = React.createClass({
   getInitialState() {
     return {
@@ -39,8 +41,8 @@ const TabBarExample = React.createClass({
         <TabBar.Item
           title="生活"
           key="生活"
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/XLdKiKAwDRXQNhC.png' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/iKfBQdGdTMubhXy.png' }}
+          icon={require('./TabBar_HomeBar_web.png')}
+          selectedIcon={require('./TabBar_HomeBar_Sel_web.png')}
           selected={this.state.selectedTab === 'blueTab'}
           onPress={() => {
             this.setState({
