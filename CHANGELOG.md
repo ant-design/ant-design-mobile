@@ -3,6 +3,16 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.1
+
+`2016-10-09`
+
+- 修复 tabbar `icon`、`selectedIcon` 直接 require 图片不显示问题 #343
+- 修复`InputItem` pattern bug https://github.com/ant-design/ant-design-mobile/commit/e2b1d4336f6a19ee80667c3383c12861448937e0
+- 修复`Button` css 变量未引用问题 #339
+- 修复`Picker`样式 https://github.com/ant-design/ant-design-mobile/commit/e7cf959fb6978b5b6fa37294007b8f214477f625 , 新增`onPickerChange`api https://github.com/ant-design/ant-design-mobile/commit/69e142cddc99b0d99ae23f3435e801ddd6ab014d
+- 更新 rn list-view demo https://github.com/ant-design/ant-design-mobile/commit/c0b4ae4797a9fac3a00c8272becc2709c2846039
+
 ### 0.9.0
 
 `2016-09-30`
@@ -18,28 +28,14 @@ english: 更新日志
 - 修复 android uc modal 样式问题 [#](https://github.com/ant-design/ant-design-mobile/issues/283)
 - 修复 SegmentedControl 在模拟器下的样式问题
 
-
-### 0.9.0-beta.0
-
-`2016-09-23`
-
-- 修复 Modal & SegmentedControl touch feedback效果, 新增属性 `touchFeedback`
-- 重构 List，API 调整，移除`List.Body`, `title` 和 `footer` 属性变更为 `renderHeader` 和 `renderFooter` 方法，#257
-- 修复 InputItem bug #228
-- 重构 长列表 ListView，使用 zscroller 来支持 RefreshControl，增加支持 [zscroller options](https://github.com/yiminghe/zscroller#options)
-- 更新 RefreshControl，刷新回调函数由`loadingFunction` 调整为 `onRefresh`，增加`refreshing`设置是否显示刷新状态  #288
-- 更新 Tabbar，支持 `hidden` prop
-- 更新 ActivityIndicator、Slider、 Tag 样式
-- 优化 Progress、Accordion、ActionSheat、Carousel、 Navbar、Popup、Steps demo
-
 ### 0.8.6
 
 `2016-09-23`
 
-- 修复 Carousel dot 样式问题 #302 
-- 修复 Tabbar 文字居中问题 #310 
+- 修复 Carousel dot 样式问题 #302
+- 修复 Tabbar 文字居中问题 #310
 - 修复 多个 Modal closable icon 不显示的问题
-- 修复 NavBar 返回 Icon 不显示的问题； #302 
+- 修复 NavBar 返回 Icon 不显示的问题； #302
 - 修复 List 箭头指向 和 单行展示问题 #273 #274
 - 修复 DatePicker demo
 - 更新 Modal，API `dialog` 改为 `transparent`
