@@ -21,3 +21,5 @@ english: Tag
 | closable   | 是否关闭 （非 disabled small 状态）| false |
 | selected   | 是否默认选中      | Boolean |    false  |
 | onChange   | 切换选中回调函数 | Function|   无  |
+| onClose   | 点关闭时的回调 | Function|   无  |
+| afterClose   | 关闭后的回调 | Function|   无  |
