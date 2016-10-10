@@ -54,20 +54,28 @@ export default class MainContent extends React.Component {
 
   generateMenuItem(isTop, item) {
     const key = this.fileNameToPath(item.filename);
-    const text = isTop ?
-            item.title || item.chinese || item.english : [
-              <span key="english">{item.title || item.english}</span>,
-              <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>,
-            ];
+    let text;
+    if (isTop) {
+      text = item.title || item.chinese || item.english;
+    } else {
+      text = [
+        (<span key="english">
+          {item.title || item.english}
+        </span>),
+        (<span className="chinese" key="chinese">
+          {item.subtitle || item.chinese}
+        </span>),
+      ];
+    }
     const disabled = item.disabled;
     const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
     const child = !item.link ?
-      <Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
+      (<Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
         {text}
-      </Link> :
-      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
+      </Link>) :
+      (<a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
         {text}
-      </a>;
+      </a>);
 
     return (
       <Menu.Item key={key.toLowerCase()} disabled={disabled}>
@@ -101,7 +109,7 @@ export default class MainContent extends React.Component {
     const props = this.props;
     const pathname = props.location.pathname;
     const moduleName = /^components/.test(pathname) ?
-            'components' : pathname.split('/').slice(0, 2).join('/');
+      'components' : pathname.split('/').slice(0, 2).join('/');
     return moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
       [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
       props.picked[moduleName];
@@ -171,7 +179,8 @@ export default class MainContent extends React.Component {
       <div className="main-wrapper">
         <Row>
           <Col lg={5} md={6} sm={24} xs={24}>
-            <Menu className="aside-container" mode="inline"
+            <Menu
+              className="aside-container" mode="inline"
               openKeys={Object.keys(utils.getMenuItems(moduleData))}
               selectedKeys={[activeMenuItem]}
             >
@@ -189,20 +198,21 @@ export default class MainContent extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col lg={{ span: 19, offset: 5 }}
+          <Col
+            lg={{ span: 19, offset: 5 }}
             md={{ span: 18, offset: 6 }}
             sm={24} xs={24}
           >
             <section className="prev-next-nav">
               {
                 prev ?
-                React.cloneElement(prev.props.children, { className: 'prev-page' }) :
-                null
+                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                  null
               }
               {
                 next ?
-                React.cloneElement(next.props.children, { className: 'next-page' }) :
-                null
+                  React.cloneElement(next.props.children, { className: 'next-page' }) :
+                  null
               }
             </section>
           </Col>

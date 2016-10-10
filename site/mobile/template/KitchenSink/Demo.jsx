@@ -137,14 +137,12 @@ export default class Home extends React.Component {
                     whiteList.indexOf(fileName) > -1 ?
                       (<List
                         renderHeader={() =>
-                          (
-                          <div style={{ padding: '5px 0' }}>
+                          (<div style={{ padding: '5px 0' }}>
                             <span className={name === fileName ? 'demo-current' : ''}>
                               {item.english}
                               <span className="demo-chinese">{item.chinese}</span>
                             </span>
-                          </div>
-                          )
+                          </div>)
                         }
                       >
                         {
@@ -155,16 +153,17 @@ export default class Home extends React.Component {
                           ))
                         }
                       </List>) :
-                      <Link to={`/${fileName}/`}>
+                      (<Link to={`/${fileName}/`}>
                         <span className={name === fileName ? 'demo-current' : ''}>
                           {item.english} <span className="demo-chinese">{item.chinese}</span>
                         </span>
-                      </Link>}
+                      </Link>)
+                  }
                 </List.Item>);
               })
             }
           </List>
-      ))}
+        ))}
     </div>);
 
     const drawerProps = {
