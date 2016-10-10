@@ -10,7 +10,6 @@ interface TagProps {
   /** web only */
   prefixCls?: string;
   className?: string;
-  touchFeedback?: boolean;
 }
 
 export default TagProps;
