@@ -12,6 +12,7 @@ module.exports = {
   },
   docVersions: {
     '0.7.x': 'http://07x.mobile.ant.design/',
+    '0.8.x': 'http://08x.mobile.ant.design/',
   },
   routes: {
     path: '/',
