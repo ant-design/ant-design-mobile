@@ -22,7 +22,10 @@ ReactDOM.render(
       console.log('onClose');
     }} afterClose={() => {
       console.log('afterClose');
-    }}>可关闭标签</Tag>
+    }}
+    >
+      可关闭标签
+    </Tag>
     <Tag small>小号标签</Tag>
   </div>
 , mountNode);
