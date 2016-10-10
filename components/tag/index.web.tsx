@@ -1,14 +1,18 @@
 import React from 'react';
 import classNames from 'classnames';
 import TagProps from './TagPropsType';
+import Icon from '../icon';
 
 export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
     prefixCls: 'am-tag',
     disabled: false,
     selected: false,
+    closable: false,
     small: false,
     onChange() {},
+    onClose() {},
+    afterClose() {},
   };
 
   constructor(props) {
@@ -40,8 +44,15 @@ export default class Tag extends React.Component<TagProps, any> {
     });
   }
 
+  onTagClose = () => {
+    this.props.onClose();
+    this.setState({
+      closed: true,
+    }, this.props.afterClose);
+  }
+
   render() {
-    const { children, className, prefixCls, disabled, small, style } = this.props;
+    const { children, className, prefixCls, disabled, closable, small, style } = this.props;
     const wrapCls = classNames({
       [className]: !!className,
       [`${prefixCls}`]: true,
@@ -51,10 +62,16 @@ export default class Tag extends React.Component<TagProps, any> {
       [`${prefixCls}-disabled`]: disabled,
     });
 
-    return (
+    return !this.state.closed ? (
       <div className={wrapCls} onClick={this.onClick} style={style}>
         <div className={`${prefixCls}-text`}>{children}</div>
+        { closable && !disabled && !small && <div
+          className={`${prefixCls}-close`}
+          onClick={this.onTagClose}
+        >
+          <Icon type="cross-circle" />
+        </div> }
       </div>
-    );
+    ) : null;
   }
 }
