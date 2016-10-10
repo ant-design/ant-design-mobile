@@ -28,7 +28,8 @@ const Test = React.createClass({
             <Icon type="cross" />
           </span>
         </div>)
-      }>
+      }
+      >
         <List.Item>股票名称</List.Item>
         <List.Item>股票代码</List.Item>
         <List.Item>买入价格</List.Item>

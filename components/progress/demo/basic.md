@@ -70,11 +70,11 @@ const MyProgress = React.createClass({
             className="flex-container-justify"
           >
             <div className="action">
-              { this.state.autoplayPaused ?
+              { this.state.autoplayPaused ? (
                 <Icon type="caret-right" onClick={this.play} />
-                :
+              ) : (
                 <Icon type="pause" onClick={this.stop} />
-              }
+              ) }
             </div>
             <div className="action">
               <Icon type="reload" onClick={this.reset} />
@@ -103,7 +103,7 @@ ReactDOM.render(<MyProgress />, mountNode);
 ```css
 .control {
   font-size: 0.36rem;
-  
+
 }
 .action {
   width: 3rem;

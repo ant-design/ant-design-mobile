@@ -74,7 +74,8 @@ let Test = React.createClass({
       <List style={{ backgroundColor: 'white' }}>
         <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
           initialValue: ['340000', '340800', '340824'],
-        })}>
+        })}
+        >
           <List.Item arrow="horizontal">省市区选择</List.Item>
         </Picker>
         <Picker data={this.state.data} cols={this.state.cols}

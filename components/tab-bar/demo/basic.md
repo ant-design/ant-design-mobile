@@ -26,7 +26,10 @@ const TabBarExample = React.createClass({
           this.setState({
             hidden: !this.state.hidden,
           });
-        }}>点击切换 tab-bar 显示/隐藏</a>
+        }}
+        >
+          点击切换 tab-bar 显示/隐藏
+        </a>
       </div>
     );
   },

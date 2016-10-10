@@ -94,7 +94,8 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }} />
+      }}
+      />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -108,11 +109,9 @@ const Demo = React.createClass({
             backgroundColor: 'white',
           }}
         >
-          <h3 style={{
-            padding: 2,
-            marginBottom: 8,
-            borderBottom: '1px solid #F6F6F6',
-          }}>{obj.title}</h3>
+          <h3 style={{ padding: 2, marginBottom: 8, borderBottom: '1px solid #F6F6F6' }}>
+            {obj.title}
+          </h3>
           <div style={{ display: '-webkit-box', display: 'flex' }}>
             <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
             <div style={{ display: 'inline-block' }}>

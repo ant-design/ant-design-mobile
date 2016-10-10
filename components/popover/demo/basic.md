@@ -34,11 +34,11 @@ const App = React.createClass({
         <Popover
           visible={this.state.visible}
           overlay={[
-            <Item key="4" value="scan" iconName="scan">扫一扫</Item>,
-            <Item key="5" value="special" iconName="qrcode" style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>,
-            <Item key="6" value="button ct" iconName="question-circle-o">
+            (<Item key="4" value="scan" iconName="scan">扫一扫</Item>),
+            (<Item key="5" value="special" iconName="qrcode" style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>),
+            (<Item key="6" value="button ct" iconName="question-circle-o">
               <span style={{ marginRight: 5 }}>帮助</span>
-            </Item>,
+            </Item>),
           ]}
           popupAlign={{
             overflow: { adjustY: 0, adjustX: 0 },
@@ -53,9 +53,15 @@ const App = React.createClass({
             marginRight: '-0.3rem',
             display: 'flex',
             alignItems: 'center',
-          }}><Icon type="ellipsis" /></div>
+          }}
+          >
+            <Icon type="ellipsis" />
+          </div>
         </Popover>
-      }>NavBar</NavBar>
+      }
+      >
+        NavBar
+      </NavBar>
     </div>);
   },
 });
