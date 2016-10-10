@@ -7,7 +7,6 @@
   border-radius: @radius-sm;
   display: inline-block;
   position: relative;
-  overflow: hidden;
   font-size: @button-font-size-sm;
   padding: 0 @h-spacing-lg;
   text-align: center;
@@ -37,4 +36,15 @@
     background-color: @fill-disabled;
     border: @border-width-sm solid @fill-disabled;
   }
+  &-close {
+    position: absolute;
+    top: -16px;
+    left: -10px;
+    color: @color-text-placeholder;
+    font-size: @icon-size-xxs;
+    &:active {
+      color: @color-text-caption;
+    }
+  }
+
 }

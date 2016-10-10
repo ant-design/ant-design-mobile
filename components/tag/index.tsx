@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Platform } from 'react-native';
 import TagStyle from './style/index';
 import TagProps from './TagPropsType';
 
@@ -8,8 +8,13 @@ export default class Modal extends React.Component<TagProps, any> {
     disabled: false,
     small: false,
     selected: false,
+    closable: false,
+    onClose() {},
+    afterClose() {},
     onChange() {},
   };
+
+  closeDom: any;
 
   constructor(props) {
     super(props);
@@ -41,8 +46,29 @@ export default class Modal extends React.Component<TagProps, any> {
     });
   }
 
+  onTagClose = () => {
+    this.props.onClose();
+    this.setState({
+      closed: true,
+    }, this.props.afterClose);
+  }
+
+  onPressIn = () => {
+    this.closeDom.setNativeProps({
+      style: [TagStyle.close, Platform.OS === 'ios' ? TagStyle.closeIOS : TagStyle.closeAndroid, {
+        backgroundColor: '#888',
+      }],
+    });
+  }
+
+  onPressOut = () => {
+    this.closeDom.setNativeProps({
+      style: [TagStyle.close, Platform.OS === 'ios' ? TagStyle.closeIOS : TagStyle.closeAndroid],
+    });
+  }
+
   render() {
-    const {children, disabled, small, style} = this.props;
+    const {children, disabled, small, closable, style} = this.props;
     const selected = this.state.selected;
 
     let wrapStyle;
@@ -63,14 +89,25 @@ export default class Modal extends React.Component<TagProps, any> {
     const sizeWrapStyle = small ? TagStyle.wrapSmall : {};
     const sizeTextStyle = small ? TagStyle.textSmall : {};
 
-    return (
+    return !this.state.closed ? (
       <View style={[ TagStyle.tag, style ]}>
         <TouchableWithoutFeedback onPress={this.onClick}>
           <View style={[TagStyle.wrap, sizeWrapStyle, wrapStyle]}>
             <Text style={[TagStyle.text, sizeTextStyle, textStyle]}>{children} </Text>
           </View>
         </TouchableWithoutFeedback>
+        { closable && !small && !disabled && <TouchableWithoutFeedback
+          onPressIn={this.onPressIn}
+          onPressOut={this.onPressOut}
+          onPress={this.onTagClose}
+        >
+          <View
+            ref={component => this.closeDom = component}
+            style={[TagStyle.close, Platform.OS === 'ios' ? TagStyle.closeIOS : TagStyle.closeAndroid]}>
+            <Text style={[TagStyle.closeText, Platform.OS === 'android' ? TagStyle.closeTransform : {}]}>×</Text>
+          </View>
+        </TouchableWithoutFeedback> }
       </View>
-    );
+    ) : null;
   }
 }
