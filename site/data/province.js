@@ -2,7 +2,7 @@
 /**
  * data for ListView.IndexedList
  */
-const data = [{
+let data = [{
   value: '11',
   label: '北京市',
   spell: 'BeiJingShi'
@@ -127,6 +127,17 @@ const data = [{
   label: '新疆维吾尔自治区',
   spell: 'XinJiangWeiWuErZiZhiQu'
 }];
+
+// make more data
+// console.log(data.length);
+let cloneData = [];
+Array.from(new Array(10), (x,i) => i).forEach(j => cloneData = cloneData.concat(data.map(i => ({
+  value: `${i.value + j}`,
+  label: `${i.label + j}`,
+  spell: `${i.spell + j}`
+}))));
+// console.log(cloneData);
+data = data.concat(cloneData);
 
 data.sort((a, b) => {
   return a.spell.localeCompare(b.spell);
