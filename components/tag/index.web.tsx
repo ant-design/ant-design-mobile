@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import TagProps from './TagPropsType';
 import Icon from '../icon';
+import getDataAttr from '../_util/getDataAttr';
 
 export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
@@ -63,7 +64,7 @@ export default class Tag extends React.Component<TagProps, any> {
     });
 
     return !this.state.closed ? (
-      <div className={wrapCls} onClick={this.onClick} style={style}>
+      <div {...getDataAttr(this.props)} className={wrapCls} onClick={this.onClick} style={style}>
         <div className={`${prefixCls}-text`}>{children}</div>
         { closable && !disabled && !small && <div
           className={`${prefixCls}-close`}

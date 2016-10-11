@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
 import List from '../list/index.web';
 import CheckboxItemProps from './CheckboxItemPropsType';
+import getDataAttr from '../_util/getDataAttr';
 
 const ListItem = List.Item;
 
@@ -25,7 +26,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
 
     const onClickProps = disabled ? {} : { onClick: () => {} };
 
-    return (<ListItem
+    return (<ListItem {...getDataAttr(this.props)}
       prefixCls={listPrefixCls}
       style={style}
       className={wrapCls}

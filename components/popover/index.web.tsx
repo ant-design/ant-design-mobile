@@ -1,6 +1,6 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
-import Item from './item';
+import Item from './item.web';
 import splitObject from '../_util/splitObject';
 import tsPropsType from './PropsType';
 

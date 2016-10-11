@@ -22,7 +22,7 @@ let CheckboxItemExample = React.createClass({
         <List
           renderHeader={() => '多项选择操作'}
         >
-          <CheckboxItem
+          <CheckboxItem data-seed="logId"
             {...getFieldProps('checkboxitem1', {
               initialValue: true,
               valuePropName: 'checked',

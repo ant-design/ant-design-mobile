@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Radio from './Radio.web';
 import List from '../list';
+import getDataAttr from '../_util/getDataAttr';
 
 const ListItem = List.Item;
 
@@ -25,7 +26,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
 
     const onClickProps = disabled ? {} : { onClick: () => {} };
 
-    return (<ListItem
+    return (<ListItem {...getDataAttr(this.props)}
       prefixCls={listPrefixCls}
       style={style}
       className={wrapCls}

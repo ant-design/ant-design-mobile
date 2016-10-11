@@ -9,7 +9,7 @@ class Tab extends React.Component<any, any> {
 
     const iconRes = selected ? selectedIcon : icon;
     return (
-      <div>
+      <div {...this.props.dataAttrs}>
         <div className={`${prefixCls}-icon`}>
           { badge ? (
               <Badge text={badge} className={`${prefixCls}-badge`}>

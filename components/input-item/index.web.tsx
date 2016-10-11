@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 function noop() { }
 import InputItemProps from './InputItemPropsType';
+import getDataAttr from '../_util/getDataAttr';
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -180,7 +181,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     }
 
     return (
-      <div className={wrapCls} style={style}>
+      <div {...getDataAttr(this.props)} className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <input

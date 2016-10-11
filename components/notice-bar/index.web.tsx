@@ -1,6 +1,7 @@
 /* tslint:disable:no-switch-case-fall-through */
 import React from 'react';
 import classNames from 'classnames';
+import getDataAttr from '../_util/getDataAttr';
 import Icon from '../icon';
 import NoticeBarProps from './NoticeBarPropsType';
 
@@ -81,7 +82,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
     </div> : null;
 
     return this.state.show ? (
-      <div className={wrapCls}>
+      <div {...getDataAttr(this.props)} className={wrapCls}>
         {iconDom}
         <div className={`${prefixCls}-content`}>{children}</div>
         {operationDom}

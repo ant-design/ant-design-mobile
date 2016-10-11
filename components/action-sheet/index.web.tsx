@@ -6,23 +6,12 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
 import assign from 'object-assign';
+import getDataAttr from '../_util/getDataAttr';
 import ButtonListItem from './ButtonListItem.web';
 
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
-
 function noop() { }
-
-function getDataAttr(props) {
-  const dataAttrs = {};
-  Object.keys(props).forEach(i => {
-    if (i.indexOf('data-') === 0) {
-      dataAttrs[i] = props[i];
-    }
-  });
-  return dataAttrs;
-}
-
 const queue = [];
 
 function createActionSheet(flag, config, callback) {

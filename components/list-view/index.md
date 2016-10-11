@@ -44,7 +44,7 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 - useZscroller (boolean, false) - 使用 zscroller 来支持 RefreshControl (`useBodyScroll` and sticky 失效)
 - scrollerOptions - [zscroller options](https://github.com/yiminghe/zscroller#options)
 
-### ListView.IndexedList (beta)
+### ListView.IndexedList
 > 注意：由于需要直接scroll到任意位置、只支持分两步渲染，所以列表数据量过大时、性能会有影响
 
 支持右侧导航功能

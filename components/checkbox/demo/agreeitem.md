@@ -18,7 +18,7 @@ let AgreeItemExample = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (
-      <AgreeItem
+      <AgreeItem data-seed="logId"
         {...getFieldProps('agreeitem1', {
           initialValue: false,
           valuePropName: 'checked',

@@ -52,6 +52,7 @@ const TabBarExample = React.createClass({
               selectedTab: 'blueTab',
             });
           }}
+          data-seed="logId"
         >
           {this.renderContent('生活')}
         </TabBar.Item>
@@ -67,6 +68,7 @@ const TabBarExample = React.createClass({
               selectedTab: 'redTab',
             });
           }}
+          data-seed="logId1"
         >
           {this.renderContent('口碑')}
         </TabBar.Item>

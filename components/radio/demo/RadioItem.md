@@ -41,6 +41,7 @@ const Test = React.createClass({
             checked={this.state.value === 1}
             onChange={this.handleChange}
             disabled={this.state.disabled}
+            data-seed="logId"
           >
             博士
           </RadioItem>

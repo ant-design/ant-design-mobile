@@ -3,6 +3,7 @@ import classNames from 'classnames';
 function noop() {}
 
 import TextareaItemProps from './TextAreaItemPropsType';
+import getDataAttr from '../_util/getDataAttr';
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -147,7 +148,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     });
 
     return (
-      <div className={wrapCls} style={style}>
+      <div {...getDataAttr(this.props)} className={wrapCls} style={style}>
         {title ? (<div className={labelCls}>{title}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <textarea

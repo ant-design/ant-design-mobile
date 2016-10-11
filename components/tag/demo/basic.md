@@ -14,7 +14,7 @@ function onChange(selected) {
 
 ReactDOM.render(
   <div className="tag-container">
-    <Tag>通用标签</Tag>
+    <Tag data-seed="logId">通用标签</Tag>
     <Tag selected>默认选中</Tag>
     <Tag disabled>失效标签</Tag>
     <Tag onChange={onChange}>事件回调</Tag>

@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
 import AgreeItemProps from './AgreeItemPropsType';
+import getDataAttr from '../_util/getDataAttr';
 
 export default class AgreeItem extends React.Component<AgreeItemProps, any> {
   static defaultProps = {
@@ -15,7 +16,7 @@ export default class AgreeItem extends React.Component<AgreeItemProps, any> {
       [className]: className,
     });
 
-    return (<div
+    return (<div {...getDataAttr(this.props)}
       className={wrapCls}
       style={style}
     >

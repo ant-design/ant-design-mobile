@@ -3,6 +3,7 @@ import Tabs, { TabPane } from 'rc-tabs';
 import Tab from './Tab.web';
 import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from 'rc-tabs/lib/TabBar';
+import getDataAttr from '../_util/getDataAttr';
 
 const AntTabBar = React.createClass({
   statics: {
@@ -57,6 +58,7 @@ const AntTabBar = React.createClass({
         title={cProps.title}
         tintColor={tintColor}
         unselectedTintColor={unselectedTintColor}
+        dataAttrs={getDataAttr(cProps)}
       />);
       return (
         <TabPane

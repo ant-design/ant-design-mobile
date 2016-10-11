@@ -16,7 +16,7 @@ let ListExample = React.createClass({
         renderHeader={() => '我是华丽丽的列表头部'}
         renderFooter={() => '我是列表尾部'}
       >
-        <List.Item>标题文字点击无反馈，文字超长则隐藏</List.Item>
+        <List.Item data-seed="logId">标题文字点击无反馈，文字超长则隐藏</List.Item>
         <List.Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</List.Item>
         <List.Item
           onClick={() => {}}

@@ -24,6 +24,7 @@ const Test = React.createClass({
       // title: '标题',
       message: '我是描述我是描述',
       maskClosable: true,
+      'data-seed': 'logId',
     },
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });

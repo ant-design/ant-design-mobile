@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { ListItemProps, BriefProps } from './ListPropTypes';
+import getDataAttr from '../_util/getDataAttr';
 
 export class Brief extends React.Component<BriefProps, any> {
   render() {
@@ -102,7 +103,7 @@ export default class ListItem extends React.Component<ListItemProps, any> {
     }
 
     return (
-      <div
+      <div {...getDataAttr(this.props)}
         className={wrapCls}
         onClick={this.onClick}
         onTouchStart={this.onTouchStart}
