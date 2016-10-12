@@ -8,6 +8,17 @@ Popup 向上弹出效果
 ````jsx
 import { Popup, List, Button, Icon } from 'antd-mobile';
 
+// fix touch to scroll background page on iOS
+// https://github.com/ant-design/ant-design-mobile/issues/307
+// https://github.com/ant-design/ant-design-mobile/issues/163
+const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+let wrapProps;
+if (isIPhone) {
+  wrapProps = {
+    onTouchStart: e => e.preventDefault(),
+  };
+}
+
 const Test = React.createClass({
   getInitialState() {
     return {
@@ -41,7 +52,7 @@ const Test = React.createClass({
           <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>
         </li>
       </ul>
-    </div>, { animationType: 'slide-up' });
+    </div>, { animationType: 'slide-up', wrapProps });
   },
   onClose(sel) {
     this.setState({ sel });

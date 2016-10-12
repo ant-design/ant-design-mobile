@@ -7,6 +7,17 @@ title: 基本用法示例
 ````jsx
 import { ActionSheet, Button, Toast } from 'antd-mobile';
 
+// fix touch to scroll background page on iOS
+// https://github.com/ant-design/ant-design-mobile/issues/307
+// https://github.com/ant-design/ant-design-mobile/issues/163
+const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+let wrapProps;
+if (isIPhone) {
+  wrapProps = {
+    onTouchStart: e => e.preventDefault(),
+  };
+}
+
 const Test = React.createClass({
   getInitialState() {
     return {
@@ -25,6 +36,7 @@ const Test = React.createClass({
       message: '我是描述我是描述',
       maskClosable: true,
       'data-seed': 'logId',
+      wrapProps,
     },
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });

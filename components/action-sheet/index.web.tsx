@@ -137,6 +137,7 @@ function createActionSheet(flag, config, callback) {
     maskTransitionName={maskTransitionName || `am-fade`}
     onClose={close}
     maskClosable={maskClosable}
+    wrapProps={props.wrapProps || {}}
   >{children}</Dialog>, div);
 
   return {

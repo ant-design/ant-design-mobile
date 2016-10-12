@@ -40,6 +40,7 @@ function create(instanceId, config, content, afterClose = (x: any) => { }) {
     maskTransitionName={maskTransitionName || 'am-fade'}
     onClose={close}
     maskClosable={maskClosable}
+    wrapProps={props.wrapProps || {}}
   >{content}</Dialog>, div);
 
   return {
