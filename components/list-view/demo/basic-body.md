@@ -45,9 +45,9 @@ const Demo = React.createClass({
       }
       return dataBlob;
     };
-    this.rData = {};
+    this.rData = this.genData();
     return {
-      dataSource: dataSource.cloneWithRows(this.genData()),
+      dataSource: dataSource.cloneWithRows(this.rData),
       isLoading: false,
     };
   },
@@ -94,7 +94,7 @@ const Demo = React.createClass({
             <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
             <div style={{ display: 'inline-block' }}>
               <p>{obj.des}</p>
-              <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
+              <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>{rowID}</span>元/任务</p>
             </div>
           </div>
         </div>
