@@ -56,7 +56,7 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-touchFeedback`]: touchFeedback,
+      [`${prefixCls}-active`]: touchFeedback,
     });
 
     const iconType = loading ? 'loading' : icon;

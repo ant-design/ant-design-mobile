@@ -15,7 +15,7 @@ class FooterButton extends React.Component<any, any> {
 
     const wrapCls = classNames({
       [`${prefixCls}-button`]: true,
-      [`${prefixCls}-button-touchFeedback`]: touchFeedback,
+      [`${prefixCls}-button-active`]: touchFeedback,
     });
 
     return (

@@ -38,7 +38,7 @@
     border: @border-width-sm solid @border-color-base;
   }
   // &:active, // uc browser not work normal
-  &&-touchFeedback {
+  &&-active {
     background-color: @fill-tap;
   }
 
@@ -49,7 +49,7 @@
       border: @border-width-sm solid @primary-button-fill;
     }
     // &:active, // uc browser not work normal
-    &.@{buttonPrefixCls}-touchFeedback {
+    &.@{buttonPrefixCls}-active {
       background-color: @primary-button-fill-tap;
     }
   }
@@ -61,7 +61,7 @@
       border: @border-width-md solid @ghost-button-color;
     }
     // &:active, // uc browser not work normal
-    &.@{buttonPrefixCls}-touchFeedback {
+    &.@{buttonPrefixCls}-active {
       color: @color-text-base-inverse;
       background-color: @ghost-button-fill-tap;
       &:after {
@@ -100,7 +100,7 @@
       border: @border-width-sm solid #f88b88;
     }
     // &:active, // uc browser not work normal
-    &.@{buttonPrefixCls}-touchFeedback {
+    &.@{buttonPrefixCls}-active {
       background-color: #fdcccb;
     }
   }

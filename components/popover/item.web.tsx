@@ -20,7 +20,7 @@ class Item extends React.Component<any, any> {
       [className]: !!className,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled,
-      [`${prefixCls}-item-touchFeedback`]: touchFeedback,
+      [`${prefixCls}-item-active`]: touchFeedback,
       [`${prefixCls}-item-fix-active-arrow`]: firstItem && touchFeedback,
     };
 
