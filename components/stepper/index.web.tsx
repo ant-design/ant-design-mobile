@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import objectAssign from 'object-assign';
 import RcInputNumber from 'rc-input-number';
@@ -8,13 +8,9 @@ export default class Stepper extends React.Component<StepProps, any> {
   static defaultProps = {
     prefixCls: 'am-stepper',
     step: 1,
-    readOnly: true,
+    readOnly: false,
     showNumber: false,
   };
-
-  componentDidMount() {
-    (this.refs as any).inputNumber.refs.input.setAttribute('disabled', true);
-  }
 
   render() {
     const { prefixCls, className, showNumber } = this.props;

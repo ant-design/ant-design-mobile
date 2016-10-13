@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Promise from 'bluebird';
 import { Link } from 'react-router';
 import { Drawer, List, Icon } from 'antd-mobile';
+import config from '../../';
 
 const locale = (
   window.localStorage &&
@@ -90,7 +91,7 @@ export default class Home extends React.Component {
     });
 
     const componentList = lists['UI Views'].concat(lists['UI Bars'])
-      .concat(lists['UI Controls']).concat(lists.Other);
+      .concat(lists['UI Controls']).concat(lists.Others);
 
     let demoMeta;
     componentList.forEach((item) => {
@@ -105,20 +106,21 @@ export default class Home extends React.Component {
       { order: 1, title: '嵌入文档模式' },
     ];
     const listDemos = [
-      { order: 0, title: '子容器' },
+      { order: 0, title: '自定义容器' },
       { order: 1, title: 'body 容器' },
-      { order: 2, title: '吸顶（body 容器）' },
-      { order: 3, title: 'IndexedList' },
-      { order: 4, title: 'IndexedList 吸顶' },
+      { order: 2, title: '标题吸顶（body 容器）' },
+      { order: 3, title: '索引列表' },
+      { order: 4, title: '索引列表（标题吸顶）' },
     ];
 
     const sidebar = (<div>
       <div className="demo-drawer-home">
         <Link to="/">Ant Design Mobile</Link>
       </div>
-      {Object.keys(lists).map((cate, index) => (
-        <List key={index} title={cate}>
-          <List.Body>
+      {Object.keys(lists)
+        .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+        .map((cate, index) => (
+          <List key={index} title={cate}>
             {
               lists[cate].map((item, ii) => {
                 const fileName = item.filename.split('/')[1];
@@ -133,12 +135,16 @@ export default class Home extends React.Component {
                 return (<List.Item key={ii}>
                   {
                     whiteList.indexOf(fileName) > -1 ?
-                      (<List>
-                        <List.Header style={{ padding: '5px 0' }}>
-                          <span className={name === fileName ? 'demo-current' : ''}>
-                            {item.english} <span className="demo-chinese">{item.chinese}</span>
-                          </span>
-                        </List.Header>
+                      (<List
+                        renderHeader={() =>
+                          (<div style={{ padding: '5px 0' }}>
+                            <span className={name === fileName ? 'demo-current' : ''}>
+                              {item.english}
+                              <span className="demo-chinese">{item.chinese}</span>
+                            </span>
+                          </div>)
+                        }
+                      >
                         {
                           subDemos.map((item1, index1) => (
                             <List.Item key={index1}>
@@ -147,17 +153,17 @@ export default class Home extends React.Component {
                           ))
                         }
                       </List>) :
-                      <Link to={`/${fileName}/`}>
+                      (<Link to={`/${fileName}/`}>
                         <span className={name === fileName ? 'demo-current' : ''}>
                           {item.english} <span className="demo-chinese">{item.chinese}</span>
                         </span>
-                      </Link>}
+                      </Link>)
+                  }
                 </List.Item>);
               })
             }
-          </List.Body>
-        </List>
-      ))}
+          </List>
+        ))}
     </div>);
 
     const drawerProps = {

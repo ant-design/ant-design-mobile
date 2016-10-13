@@ -55,12 +55,12 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>按钮</Button>, mountNode);
 ```
 
-无需单独引入样式，使用 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 按需加载，并引入相关样式。
+无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载，并引入相关样式。
 
 ```js
 {
   "plugins": [
-    ["antd", {
+    ["import", {
       style: 'css',  // 'less',
       libraryName: 'antd-mobile',
     }]

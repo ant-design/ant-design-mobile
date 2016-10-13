@@ -1,8 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import Tabs, { TabPane } from 'rc-tabs';
 import Tab from './Tab.web';
 import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from 'rc-tabs/lib/TabBar';
+import getDataAttr from '../_util/getDataAttr';
 
 const AntTabBar = React.createClass({
   statics: {
@@ -27,8 +28,9 @@ const AntTabBar = React.createClass({
   },
 
   renderTabBar() {
-    const {props} = this;
-    return <TabBar onTabClick={props.onTabClick} style={{ backgroundColor: props.barTintColor }}/>;
+    const { onTabClick, barTintColor, hidden, prefixCls } = this.props;
+    const barCls = hidden ? `${prefixCls}-bar-hidden` : '';
+    return <TabBar className={barCls} onTabClick={onTabClick} style={{ backgroundColor: barTintColor }}/>;
   },
 
   renderTabContent() {
@@ -56,6 +58,7 @@ const AntTabBar = React.createClass({
         title={cProps.title}
         tintColor={tintColor}
         unselectedTintColor={unselectedTintColor}
+        dataAttrs={getDataAttr(cProps)}
       />);
       return (
         <TabPane

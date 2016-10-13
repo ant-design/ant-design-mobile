@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Checkbox from './Checkbox';
 import List from '../list/index';
 import CheckboxItemProps from './CheckboxItemPropsType';

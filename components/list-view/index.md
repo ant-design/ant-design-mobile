@@ -5,13 +5,13 @@ chinese: 长列表
 english: ListView
 ---
 
-### 定义／Definition
-react-native 核心组件。
 
-高性能列表：节点分步渲染；无尽列表。
+单个连续模块垂直排列，显示多行文本内容。eg：城市选择。
 
-### 规则 / Rule
-常用在渲染长列表中
+### 规则
+- 最适用于显示同类的数据类型或者数据类型组。
+- 只支持垂直滚动。
+- 可以通过日期、字母顺序或者其它参数来过滤数据或改变每行列表的顺序。
 
 
 ## API
@@ -40,8 +40,11 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 - stickyHeader 固定区块标题到页面顶部 (注意: 设置后，ScrollComponent 将被渲染到 body 的第一个元素里，使用 html 的 `body` 作为滚动容器)
     - stickyProps / stickyContainerProps (see [react-sticky](https://github.com/captivationsoftware/react-sticky))
 - renderBodyComponent 渲染自定义的 body 组件
+- renderSectionBodyWrapper - 渲染自定义的区块包裹组件
+- useZscroller (boolean, false) - 使用 zscroller 来支持 RefreshControl (`useBodyScroll` and sticky 失效)
+- scrollerOptions - [zscroller options](https://github.com/yiminghe/zscroller#options)
 
-### ListView.IndexedList (beta)
+### ListView.IndexedList
 > 注意：由于需要直接scroll到任意位置、只支持分两步渲染，所以列表数据量过大时、性能会有影响
 
 支持右侧导航功能

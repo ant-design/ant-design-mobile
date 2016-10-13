@@ -1,13 +1,18 @@
 const contentTmpl = './template/Content/index';
 
 module.exports = {
-  categoryOrder: {},
+  categoryOrder: {
+    'UI Bars': 0,
+    'UI Views': 1,
+    'UI Controls': 2,
+    Others: 3,
+  },
   typeOrder: {
-    APIS: 0,
-    COMPONENTS: 1,
+
   },
   docVersions: {
     '0.7.x': 'http://07x.mobile.ant.design/',
+    '0.8.x': 'http://08x.mobile.ant.design/',
   },
   routes: {
     path: '/',

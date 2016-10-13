@@ -9,23 +9,23 @@ title: 普通
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 function showToast() {
-  Toast.info('这是一个 toast 提示!!!');
+  Toast.info('这是一个 toast 提示!!!', 1);
 }
 
 function successToast() {
-  Toast.success('加载成功!!!', 2);
+  Toast.success('加载成功!!!', 1);
 }
 
 function failToast() {
-  Toast.fail('加载失败!!!');
+  Toast.fail('加载失败!!!', 1);
 }
 
 function offline() {
-  Toast.offline('网络连接失败!!!');
+  Toast.offline('网络连接失败!!!', 1);
 }
 
 function loadingToast() {
-  Toast.loading('加载中...', () => {
+  Toast.loading('加载中...', 1, () => {
     console.log('加载完成!!!');
   });
 }

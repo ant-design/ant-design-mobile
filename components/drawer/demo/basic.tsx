@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { Drawer, List, Button, WhiteSpace } from 'antd-mobile';
 import { DefaultRenderer, Actions } from 'react-native-router-flux';
@@ -22,7 +22,7 @@ export default class DrawerExample extends React.Component<any, any> {
   render() {
     const sidebar = (<ScrollView style={[styles.container, { backgroundColor: '#fff' }]}>
       <List>
-        <List.Body>
+
           {Array.apply(null, Array(20)).map(function (_, i) {return i;}).map((i, index) => {
             if (index === 0) {
               return (<List.Item key={index}
@@ -43,7 +43,7 @@ export default class DrawerExample extends React.Component<any, any> {
               thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
             ><Text>分类 - {index}</Text></List.Item>);
           })}
-        </List.Body>
+
       </List>
     </ScrollView>);
 

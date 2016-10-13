@@ -1,6 +1,6 @@
 ---
 order: 4
-title: IndexedList 吸顶
+title: 索引列表（标题吸顶）
 ---
 
 用于通讯薄等场景 “吸顶”(sticky)
@@ -75,6 +75,7 @@ const Demo = React.createClass({
         renderFooter={() => <span>尾部内容请自定义</span>}
         renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
         renderRow={(rowData) => (<Item>{rowData}</Item>)}
+        className="fortest"
         stickyHeader
         stickyProps={{
           stickyStyle: { zIndex: 999 },

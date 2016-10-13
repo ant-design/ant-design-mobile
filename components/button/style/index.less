@@ -38,34 +38,34 @@
     border: @border-width-sm solid @border-color-base;
   }
   // &:active, // uc browser not work normal
-  &&-touchFeedback {
+  &&-active {
     background-color: @fill-tap;
   }
 
   &-primary {
     color: @color-text-base-inverse;
-    background-color: @brand-primary;
+    background-color: @primary-button-fill;
     &:after {
-      border: @border-width-sm solid @brand-primary;
+      border: @border-width-sm solid @primary-button-fill;
     }
     // &:active, // uc browser not work normal
-    &.@{buttonPrefixCls}-touchFeedback {
-      background-color: @brand-primary-tap;
+    &.@{buttonPrefixCls}-active {
+      background-color: @primary-button-fill-tap;
     }
   }
 
   &-ghost {
-    color: @color-link;
+    color: @ghost-button-color;
     background-color: transparent;
     &:after {
-      border: @border-width-md solid @tabs-color;
+      border: @border-width-md solid @ghost-button-color;
     }
     // &:active, // uc browser not work normal
-    &.@{buttonPrefixCls}-touchFeedback {
+    &.@{buttonPrefixCls}-active {
       color: @color-text-base-inverse;
-      background-color: @brand-primary-tap;
+      background-color: @ghost-button-fill-tap;
       &:after {
-        border: @border-width-sm solid @brand-primary;
+        border: @border-width-sm solid @ghost-button-color;
       }
     }
   }
@@ -100,7 +100,7 @@
       border: @border-width-sm solid #f88b88;
     }
     // &:active, // uc browser not work normal
-    &.@{buttonPrefixCls}-touchFeedback {
+    &.@{buttonPrefixCls}-active {
       background-color: #fdcccb;
     }
   }

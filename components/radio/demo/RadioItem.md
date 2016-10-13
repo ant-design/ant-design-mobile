@@ -35,65 +35,64 @@ const Test = React.createClass({
     return (
       <div>
         <List
-          title="请选择学历"
+          renderHeader={() => '请选择学历'}
         >
-          <List.Body>
-            <RadioItem
-              checked={this.state.value === 1}
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            >
-              博士
-            </RadioItem>
-            <RadioItem
-              checked={this.state.value === 2}
-              onChange={this.handleChange2}
-              disabled={this.state.disabled}
-            >
-              硕士
-            </RadioItem>
-            <RadioItem
-              checked={this.state.value === 3}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  this.setState({ value: 3 });
-                }
-              }}
-            >
-              本科
-            </RadioItem>
-            <RadioItem
-              checked={this.state.value === 4}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  this.setState({ value: 4 });
-                }
-              }}
-            >
-              高中
-            </RadioItem>
-            <RadioItem
-              checked={this.state.value === 5}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  this.setState({ value: 5 });
-                }
-              }}
-            >
-              初中
-            </RadioItem>
-            <RadioItem
-              checked={this.state.value === 6}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  this.setState({ value: 6 });
-                }
-              }}
-              disabled
-            >
-              小学
-            </RadioItem>
-          </List.Body>
+          <RadioItem
+            checked={this.state.value === 1}
+            onChange={this.handleChange}
+            disabled={this.state.disabled}
+            data-seed="logId"
+          >
+            博士
+          </RadioItem>
+          <RadioItem
+            checked={this.state.value === 2}
+            onChange={this.handleChange2}
+            disabled={this.state.disabled}
+          >
+            硕士
+          </RadioItem>
+          <RadioItem
+            checked={this.state.value === 3}
+            onChange={(e) => {
+              if (e.target.checked) {
+                this.setState({ value: 3 });
+              }
+            }}
+          >
+            本科
+          </RadioItem>
+          <RadioItem
+            checked={this.state.value === 4}
+            onChange={(e) => {
+              if (e.target.checked) {
+                this.setState({ value: 4 });
+              }
+            }}
+          >
+            高中
+          </RadioItem>
+          <RadioItem
+            checked={this.state.value === 5}
+            onChange={(e) => {
+              if (e.target.checked) {
+                this.setState({ value: 5 });
+              }
+            }}
+          >
+            初中
+          </RadioItem>
+          <RadioItem
+            checked={this.state.value === 6}
+            onChange={(e) => {
+              if (e.target.checked) {
+                this.setState({ value: 6 });
+              }
+            }}
+            disabled
+          >
+            小学
+          </RadioItem>
         </List>
       </div>
     );

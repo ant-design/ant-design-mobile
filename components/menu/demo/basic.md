@@ -4,7 +4,7 @@ title: 二级菜单
 ---
 
 ````jsx
-import { Menu, Toast } from 'antd-mobile';
+import { Menu } from 'antd-mobile';
 
 const data = [
   {
@@ -16,12 +16,13 @@ const data = [
     label: '美食',
     children: [
       {
-        label: '中餐',
-        value: '21',
-      }, {
         label: '全部美食',
         value: '22',
         disabled: true,
+      },
+      {
+        label: '中餐',
+        value: '21',
       }, {
         label: '火锅',
         value: '23',
@@ -138,7 +139,7 @@ const MenuExample = React.createClass({
         }
       }
     });
-    Toast.info(`选中了 ${label}`);
+    console.log(`选中了 ${label}`);
   },
   render() {
     return <Menu data={data} onChange={this.onChange} />;

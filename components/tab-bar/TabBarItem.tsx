@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import TabBarItemProps from './TabBarItemPropTypes';
 import styles from './style';

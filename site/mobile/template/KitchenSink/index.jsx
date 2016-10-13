@@ -3,9 +3,11 @@ import { Link } from 'react-router';
 import { Icon, Drawer, List, Flex } from 'antd-mobile';
 import Page from './Page';
 import Item from './Item';
+import config from '../../';
 
 const hashImgObj = {
   'action-sheet': 'cYmaBafYBnAxCqQ',
+  'activity-indicator': 'yVtRfZGoDxXObTK',
   alert: 'XdSYKalBelFOMqd',
   badge: 'UwUpBYPYnlwVicM',
   button: 'ZRDUYEzfOzKWdzE',
@@ -13,8 +15,9 @@ const hashImgObj = {
   checkbox: 'dWPGltvdjaanrRd',
   collapse: 'yIQQHiTULgYehij',
   'date-picker': 'IQtMSWmYwLEuqln',
-  drawer: 'nREwETegxvDndJZ',
+  drawer: 'oSokuHUVgeoTLJl',
   popup: 'gfWmRfZNzMyVUss',
+  popover: 'iIOLFHTKUCxBgUV',
   flex: 'zFqYaBWIPpYYORq',
   'float-menu': 'dSOLngHNazulnFR',
   grid: 'UBGcnLKfVQIXgUb',
@@ -23,19 +26,19 @@ const hashImgObj = {
   'input-item': 'SdSqpihcSBoBrFO',
   list: 'tiapjpdKPQGHhnC',
   'list-action': 'nIYrkZcGvKXjQhX',
-  'list-view': 'tiapjpdKPQGHhnC',
-  menu: 'UCVKKkEbquPdzNt',
+  'list-view': 'lMztpIPTRAIWGIP',
+  menu: 'QeVVHHEAhSiVtXt',
   modal: 'HzRRcuwtqUCCOBg',
   'nav-bar': 'qzZlligUfwgFjwD',
   result: 'jFrmGCOsQeEUrnR',
   picker: 'STBLvEutBwPySbL',
   progress: 'ihijukOXDlqXvPS',
-  radio: 'obPcHPkrNguaThi',
+  radio: 'MJszdVSBKhtGmIP',
   'refresh-control': 'nUAtybajGulmcSM',
   'search-bar': 'QnAmpSwlfPzjpSL',
   slider: 'mCyccAjoVLFVhSH',
-  stepper: 'PfzuWlDVfndrQUK',
-  steps: 'PfzuWlDVfndrQUK',
+  stepper: 'eYnIAokGATNUxlD',
+  steps: 'nvQVDIUiTmXcJtO',
   switch: 'ITFdMlELFchsTmz',
   tabs: 'stWeDgdtEIKoiTU',
   tag: 'gfstSzAhvXqKyEg',
@@ -51,18 +54,22 @@ const hashImgObj = {
   loading: 'DyAmULrLMBrgoOy',
   table: 'TbRxKTMOzgrCvMR',
   form: 'hZDnBrVwPmrgrLq',
+  'swipe-action': 'nlDYwTsLwJdnaKc',
+  accordion: 'jGVfAYlFPECtWvI',
+  'tab-bar': 'OZInMeAaDCHtaJU',
+  'segmented-control': 'qCqRFuSbewqIWyv',
 };
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       open: false,
     };
+    this.onOpenChange = this.onOpenChange.bind(this);
   }
 
-  onOpenChange = () => {
+  onOpenChange() {
     this.setState({ open: !this.state.open });
   }
 
@@ -90,19 +97,28 @@ export default class App extends React.Component {
       <div className="demo-drawer-home">
         <Link to="/">Ant Design Mobile</Link>
       </div>
-      {Object.keys(lists).map((cate, index) => (
-        <List key={index} title={cate}>
-          <List.Body>
+      {Object.keys(lists)
+        .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+        .map((cate, index) => (
+          <List
+            key={index}
+            renderHeader={() => cate}
+          >
             {
               lists[cate].map((item, ii) => {
                 const fileName = item.filename.split('/')[1];
                 return (<List.Item key={ii}>
-                  <Link to={`/${fileName}/`}>{item.english} <span style={{ fontSize: 24, color: '#888' }}>{item.chinese}</span></Link>
+                  <Link to={`/${fileName}/`}>{item.english}
+                    <span
+                      style={{ fontSize: 24, color: '#888' }}
+                    >
+                      {item.chinese}
+                    </span>
+                  </Link>
                 </List.Item>);
               })
             }
-          </List.Body>
-        </List>
+          </List>
       ))}
     </div>);
 
@@ -118,11 +134,19 @@ export default class App extends React.Component {
       </div>
       <div className="demo-drawer-container">
         <Drawer sidebar={sidebar} dragHandleStyle={{ display: 'none' }} {...drawerProps}>
-          <Page logo="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" title="Ant Design Mobile" subtitle="服务于蚂蚁大中台无线业务的react组件" isIndex>
-            {Object.keys(lists).map((cate, index) => (
-              <List key={index}>
-                <List.Header>{cate}</List.Header>
-                <List.Body>
+          <Page
+            logo="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png"
+            title="Ant Design Mobile"
+            subtitle="服务于蚂蚁大中台无线业务的react组件"
+            isIndex
+          >
+            {Object.keys(lists)
+              .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+              .map((cate, index) => (
+                <List
+                  key={index}
+                  renderHeader={() => cate}
+                >
                   {(() => {
                     const flexs = [];
                     const flexItems = [];
@@ -144,8 +168,7 @@ export default class App extends React.Component {
                     </Flex>);
                     return flexs;
                   })()}
-                </List.Body>
-              </List>
+                </List>
             ))}
           </Page>
         </Drawer>

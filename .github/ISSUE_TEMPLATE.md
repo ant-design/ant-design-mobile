@@ -1,5 +1,3 @@
-<!-- Issue Template For Chinese Users -->
-
 <!-- 请按照下列格式报告问题，务必提供复现步骤，否则恕难解决，感谢您的支持。-->
 
 #### 本地环境
@@ -24,4 +22,4 @@
 
 #### 可重现的在线演示
 
-<!-- 给出详细的重现步骤 -->
+<!-- 请修改并 Fork https://codepen.io/warmhug/pen/bwRPvx -->

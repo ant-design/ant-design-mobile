@@ -13,13 +13,18 @@
     bottom: 0;
     width: 100%;
     display: flex;
+    transition: bottom 0.2s;
     .box-sizing();
+    &&-hidden {
+      bottom: -@tab-bar-height;
+    }
     .@{tabs-prefix-cls}-tab {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      text-align: center;
 
       &-image {
         width: @icon-size-md;

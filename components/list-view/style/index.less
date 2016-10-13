@@ -3,15 +3,31 @@
 
 @indexedList: am-indexed-list;
 .@{indexedList} {
-  // position: relative;
-
-  // .am-list-header {
-  // }
-
+  &-section-body {
+    &.am-list-body:after {
+      border: 0;
+    }
+    .am-list-item:last-child {
+      .am-list-line:after {
+        border: 0;
+      }
+    }
+  }
   &-section-header {
+    .am-list-item .am-list-line:after {
+      border: 0;
+    }
+    &.am-list-body:after {
+      border: 0;
+    }
     .am-list-item {
+      height: @list-title-height;
       min-height: @list-title-height;
-      background-color: #F7F7F7;
+      background-color: @fill-body;
+      .am-list-line {
+        height: @list-title-height;
+        min-height: @list-title-height;
+      }
       .am-list-content {
         font-size: @font-size-base !important;
         color: @color-text-caption !important;
@@ -23,7 +39,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: @listViewQsbZIndex;
+    z-index: 0;
     text-align: center;
     color: @color-link;
     font-size: @font-size-caption;
@@ -35,5 +51,54 @@
     &-over {
       background-color: @fill-mask;
     }
+  }
+}
+.zscroller {
+  &-scrollbar-y {
+    position: absolute;
+    z-index: 9999;
+    width: 7px;
+    bottom: 2px;
+    top: 2px;
+    right: 1px;
+    overflow: hidden;
+    transform: translateZ(0px);
+    transition-property: opacity;
+    transition-duration: 250ms;
+    opacity: 0;
+  }
+
+  &-indicator-y {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.901961);
+    border-radius: 3px;
+    width: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0.498039);
+  }
+
+  &-scrollbar-x {
+    position: absolute;
+    z-index: 9999;
+    height: 7px;
+    left: 2px;
+    right: 2px;
+    bottom: 1px;
+    overflow: hidden;
+    transform: translateZ(0px);
+    transition-property: opacity;
+    transition-duration: 250ms;
+    opacity: 0;
+  }
+
+  &-indicator-x {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.901961);
+    border-radius: 3px;
+    height: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0.498039);
   }
 }

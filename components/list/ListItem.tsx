@@ -1,66 +1,43 @@
-import { PropTypes } from 'react';
-import * as React from 'react';
-import assign from 'object-assign';
-import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
+import React from 'react';
+import { Image, View, Platform, TouchableHighlight, Text, StyleSheet } from 'react-native';
 import variables from '../style/themes/default';
 import theme from './style/index';
+import { ListItemProps, BriefProps } from './ListPropTypes';
+import ViewStyle = __React.ViewStyle;
+
+const styles = StyleSheet.create({
+  column: {
+    flex: 1,
+    flexDirection: 'column',
+  } as ViewStyle,
+  textAlignRight: {
+    textAlign: 'right',
+  },
+});
+
 const THEMES = theme.ThemesList;
-
-export interface CommonProps {
-  style?: React.CSSProperties;
-  children?: any;
-}
-
-export interface BriefProps {
-  style?: React.CSSProperties;
-  children?: any;
-  inExtra?: boolean;
-}
-
-export interface ListItemProps {
-  style?: React.CSSProperties;
-  onClick?: any;
-  multipleLine?: boolean;
-  thumb?: any;
-  children?: any;
-  extra?: any;
-  arrow?: 'horizontal'|'down'|'up'|'empty'|'';
-  error?: boolean;
-  lazy?: boolean;
-  last?: boolean;
-}
 
 class Brief extends React.Component<BriefProps, any> {
   render() {
-    const { children, style, inExtra } = this.props;
-    return (<View style={{
+    const { children, style } = this.props;
+    return (
+      <View style={{
       marginTop: variables.v_spacing_sm,
       height: variables.font_size_subhead,
     }}>
-      <Text
-        style={[THEMES.Brief, style, inExtra ? { textAlign: 'right'} : null]}
-        numberOfLines={1}
-      >
-        {children}
-      </Text>
-    </View>);
+        <Text
+          style={[THEMES.Brief, style]}
+          numberOfLines={1}
+        >
+          {children}
+        </Text>
+      </View>);
   }
 }
 
 export default class Item extends React.Component<ListItemProps, any> {
-  static propTypes = {
-    extra(props, propName) {
-      if (props[propName]) {
-        if (!React.isValidElement(props[propName]) && typeof(props[propName]) !== 'string') {
-          throw new Error('extra must be a string or element');
-        }
-      }
-    },
-    arrow: PropTypes.oneOf(['horizontal', 'down', 'up', 'empty', '']),
-  };
-
   static defaultProps = {
-    lazy: false,
+    // TODO remove last
     last: false,
     multipleLine: false,
   };
@@ -69,30 +46,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   timer: any;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      __lazy: this.props.lazy,
-    };
-  }
-
-  componentWillMount() {
-    if (this.state.__lazy) {
-      this.timer = setTimeout(() => this.setState({__lazy: false}), 500);
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-  }
-
   render() {
-    if (this.state.__lazy) {
-      return (<View />);
-    }
-
     let line = 1;
     let thumbDom = null;
     let contentDom = null;
@@ -102,12 +56,13 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     if (thumb) {
       if (typeof thumb === 'string') {
-        thumbDom = (<Image
-          source={{ uri: thumb }}
-          style={[THEMES.Thumb,
+        thumbDom = (
+          <Image
+            source={{ uri: thumb }}
+            style={[THEMES.Thumb,
             this.props.multipleLine ? THEMES.multipleLine.Thumb : null,
           ]}
-        />);
+          />);
       } else {
         thumbDom = thumb;
       }
@@ -116,22 +71,23 @@ export default class Item extends React.Component<ListItemProps, any> {
       const tempContentDom = [];
       this.props.children.forEach((el, index) => {
         if (React.isValidElement(el)) {
-          tempContentDom.push(<View key={`${index}-children`}>{el}</View>);
+          tempContentDom.push(el);
         } else {
-          tempContentDom.push(<Text style={THEMES.Content} numberOfLines={1} key={`{index}-children`}>{el}</Text>);
+          tempContentDom.push(<Text style={THEMES.Content} numberOfLines={1} key={`${index}-children`}>{el}</Text>);
         }
       });
 
       line = this.props.children.length;
 
-      contentDom = <View style={{ flex: 1, flexDirection: 'column' }}>{tempContentDom}</View>;
+      contentDom = <View style={styles.column}>{tempContentDom}</View>;
     } else {
       if (React.isValidElement(this.props.children)) {
-        contentDom = <View style={{ flex: 1, flexDirection: 'column' }}>{this.props.children}</View>;
+        contentDom = <View style={styles.column}>{this.props.children}</View>;
       } else {
-        contentDom = <View style={{ flex: 1, flexDirection: 'column'}}>
-          <Text style={THEMES.Content} numberOfLines={1}>{this.props.children}</Text>
-        </View>;
+        contentDom = (
+          <View style={styles.column}>
+            <Text style={THEMES.Content} numberOfLines={1}>{this.props.children}</Text>
+          </View>);
       }
     }
 
@@ -142,45 +98,48 @@ export default class Item extends React.Component<ListItemProps, any> {
           const tempExtraDom = [];
           extraChildren.forEach((el, index) => {
             if (typeof el === 'string') {
-              tempExtraDom.push(<Text
-                numberOfLines={1}
-                style={[THEMES.Extra, {textAlign: 'right'}]}
-                key={`${index}-extra`}
-              >
-                {el}
-              </Text>);
+              tempExtraDom.push(
+                <Text
+                  numberOfLines={1}
+                  style={[THEMES.Extra, styles.textAlignRight]}
+                  key={`${index}-children`}
+                >
+                  {el}
+                </Text>);
             } else {
-              tempExtraDom.push(React.cloneElement(el, assign({}, el.props, {inExtra: true, key: index})));
+              tempExtraDom.push(el);
             }
           });
 
           line = extraChildren.length > line ? extraChildren.length : line;
 
-          extraDom = (<View style={{ flex: 1, flexDirection: 'column' }}>
-            {tempExtraDom}
+          extraDom = (
+            <View style={styles.column}>
+              {tempExtraDom}
             </View>);
         } else {
           extraDom = this.props.extra;
         }
       } else {
-        extraDom = (<View style={{ flex: 1, flexDirection: 'column' }}>
-          <Text style={[THEMES.Extra, {textAlign: 'right'}]} numberOfLines={1}>{this.props.extra}</Text>
-        </View>);
+        extraDom = (
+          <View style={styles.column}>
+            <Text style={[THEMES.Extra, styles.textAlignRight]} numberOfLines={1}>{this.props.extra}</Text>
+          </View>);
       }
     }
     if (this.props.arrow) {
       switch (this.props.arrow) {
         case 'horizontal':
-          arrowDom = <Image source={require('../style/images/arrow.png')} style={THEMES.Arrow}/>;
+          arrowDom = <Image source={require('../style/images/arrow.png')} style={THEMES.Arrow} />;
           break;
         case 'down':
-          arrowDom = <Image source={require('../style/images/arrow-up.png')} style={THEMES.ArrowV}/>;
+          arrowDom = <Image source={require('../style/images/arrow-up.png')} style={THEMES.ArrowV} />;
           break;
         case 'up':
-          arrowDom = <Image source={require('../style/images/arrow-down.png')} style={THEMES.ArrowV}/>;
+          arrowDom = <Image source={require('../style/images/arrow-down.png')} style={THEMES.ArrowV} />;
           break;
         default:
-          arrowDom = <View style={THEMES.Arrow}/>;
+          arrowDom = <View style={THEMES.Arrow} />;
           break;
       }
     }
@@ -206,32 +165,33 @@ export default class Item extends React.Component<ListItemProps, any> {
       }
     }
 
-    const ItemStyle = [THEMES.Item,
+    const ItemStyle = [
+      THEMES.Item,
       this.props.last ? THEMES.Last.Item : {},
-      this.props.error ? THEMES.Error.Item : {},
-      line > 1 ? { height: itemHeight} : {},
+      line > 1 ? { height: itemHeight } : {},
       this.props.style,
     ];
 
-    const LineStyle = [THEMES.Line,
+    const LineStyle = [
+      THEMES.Line,
       this.props.multipleLine ? THEMES.multipleLine.Line : {},
       this.props.last ? THEMES.Last.Line : {},
-      this.props.error ? THEMES.Error.Line : {},
     ];
 
-    const itemView = (<View
-      {...this.props}
-      style={ItemStyle}
-    >
-      {thumbDom}
+    const itemView = (
       <View
-        style={LineStyle}
+        {...this.props}
+        style={ItemStyle}
       >
-        {contentDom}
-        {extraDom}
-        {arrowDom}
-      </View>
-    </View>);
+        {thumbDom}
+        <View
+          style={LineStyle}
+        >
+          {contentDom}
+          {extraDom}
+          {arrowDom}
+        </View>
+      </View>);
 
     if (this.props.onClick) {
       return (

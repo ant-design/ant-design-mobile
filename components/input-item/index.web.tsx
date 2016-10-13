@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 function noop() { }
 import InputItemProps from './InputItemPropsType';
+import getDataAttr from '../_util/getDataAttr';
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -17,14 +17,6 @@ export interface InputItemState {
 }
 
 export default class InputItem extends React.Component<InputItemProps, InputItemState> {
-  static propTypes = {
-    type: PropTypes.oneOf(['text', 'bankCard', 'phone', 'password', 'number']),
-    size: PropTypes.oneOf(['large', 'small']),
-    labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
-    labelPosition: PropTypes.oneOf(['left', 'top']),
-    textAlign: PropTypes.oneOf(['left', 'center']),
-  };
-
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
@@ -48,6 +40,8 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     textAlign: 'left',
   };
 
+  debounceTimeout: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -61,6 +55,12 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       this.setState({
         placeholder: nextProps.placeholder,
       });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
     }
   }
 
@@ -96,7 +96,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   onInputBlur = (e) => {
-    setTimeout(() => {
+    this.debounceTimeout = setTimeout(() => {
       this.setState({
         focus: false,
       });
@@ -122,9 +122,11 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
   };
 
   clearInput = () => {
-    this.setState({
-      placeholder: this.props.value,
-    });
+    if (this.props.type !== 'password') {
+      this.setState({
+        placeholder: this.props.value,
+      });
+    }
     this.props.onChange('');
   };
 
@@ -132,17 +134,6 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     const {
       prefixCls, prefixListCls, type, value, defaultValue, name, editable, disabled, style, clear, children,
       error, className, extra, labelNumber, maxLength } = this.props;
-
-    let valueProps;
-    if (value !== undefined) {
-      valueProps = {
-        value: fixControlledValue(value),
-      };
-    } else {
-      valueProps = {
-        defaultValue,
-      };
-    }
 
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({
@@ -171,8 +162,26 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       inputType = 'password';
     }
 
+    let valueProps;
+    if (value !== undefined) {
+      valueProps = {
+        value: fixControlledValue(value),
+      };
+    } else {
+      valueProps = {
+        defaultValue,
+      };
+    }
+
+    let patternProps;
+    if (type === 'number') {
+      patternProps = {
+        pattern: '[0-9]*',
+      };
+    }
+
     return (
-      <div className={wrapCls} style={style}>
+      <div {...getDataAttr(this.props)} className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <input
@@ -186,7 +195,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
             onFocus={this.onInputFocus}
             readOnly={!editable}
             disabled={disabled}
-            pattern={type === 'number' ? '[0-9]*' : ''}
+            {...patternProps}
           />
         </div>
         {clear && editable && !disabled && (value && value.length > 0) ?

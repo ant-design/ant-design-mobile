@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 interface CarouselProps {
   selectedIndex?: number;
@@ -8,6 +8,7 @@ interface CarouselProps {
   infinite?: boolean;
   children?: any;
   /** web only */
+  prefixCls?: string;
   easing?: string;
   beforeChange?: (from: number, to: number) => void;
   afterChange?: (current: number) => void;

@@ -1,5 +1,5 @@
 /* tslint:disable:no-console */
-import * as React from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { NoticeBar, WhiteSpace } from 'antd-mobile';
 

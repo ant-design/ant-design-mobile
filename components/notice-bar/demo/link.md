@@ -17,7 +17,7 @@ const NoticeBarExample = React.createClass({
     return (
       <div>
         <WhiteSpace size="lg" />
-        <NoticeBar mode="link" onClick={linkClick}>
+        <NoticeBar mode="link" onClick={linkClick} data-seed="logId">
           国庆期间余额宝收益和转出到账时间
         </NoticeBar>
         <WhiteSpace size="lg" />

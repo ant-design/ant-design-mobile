@@ -1,9 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import { SearchBarProps, SearchBarState, propTypes, defaultProps } from './SearchBarPropTypes';
+import { SearchBarProps, SearchBarState, defaultProps } from './SearchBarPropTypes';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
-  static propTypes = propTypes;
   static defaultProps = defaultProps;
 
   initialInputContainerWidth: number;
@@ -12,7 +11,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     super(props);
     let value;
     if ('value' in props) {
-      value = props.value;
+      value = props.value || '';
     } else if ('defaultValue' in props) {
       value = props.defaultValue;
     } else {
@@ -121,7 +120,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
     const clearCls = classNames({
       [`${prefixCls}-clear`]: true,
-      [`${prefixCls}-clear-show`]: focus && value.length > 0,
+      [`${prefixCls}-clear-show`]: focus && value && value.length > 0,
     });
 
     const cancelCls = classNames({

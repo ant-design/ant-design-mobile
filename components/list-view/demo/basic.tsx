@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { View, Text, TouchableHighlight, Image } from 'react-native';
 import { ListView } from 'antd-mobile';
 
@@ -25,7 +25,7 @@ const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
-export default  React.createClass({
+export default React.createClass({
   getInitialState() {
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
     const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
@@ -120,7 +120,7 @@ export default  React.createClass({
             }]}>
               <Image style={[{ height: 64, width: 64, marginRight: 8 }]} source={{ uri: obj.img }} />
               <View>
-                <Text>{obj.des}</Text>
+                <Text>{obj.des} - {rowID}</Text>
                 <Text>{this.props.highlightRow}</Text>
                 <Text><Text style={[{ fontSize: 24, color: '#FF6E27' }]}>35</Text>元/任务</Text>
               </View>
@@ -147,6 +147,9 @@ export default  React.createClass({
         pageSize={4}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
+        onChangeVisibleRows={(visibleRows, changedRows) => {
+          // console.log(visibleRows, changedRows);
+        }}
       />
     );
   },

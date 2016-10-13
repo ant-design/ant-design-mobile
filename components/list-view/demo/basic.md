@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 子容器
+title: 自定义容器
 ---
 
 > 注意：需要设置 ListView 的 style 的 `height`/`overflow`，以此作为滚动容器。
@@ -94,7 +94,8 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }} />
+      }}
+      />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -108,11 +109,9 @@ const Demo = React.createClass({
             backgroundColor: 'white',
           }}
         >
-          <h3 style={{
-            padding: 2,
-            marginBottom: 8,
-            borderBottom: '1px solid #F6F6F6',
-          }}>{obj.title}</h3>
+          <h3 style={{ padding: 2, marginBottom: 8, borderBottom: '1px solid #F6F6F6' }}>
+            {obj.title}
+          </h3>
           <div style={{ display: '-webkit-box', display: 'flex' }}>
             <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
             <div style={{ display: 'inline-block' }}>
@@ -135,18 +134,19 @@ const Demo = React.createClass({
         )}
         renderRow={row}
         renderSeparator={separator}
-        pageSize={4}
-        scrollRenderAheadDistance={500}
-        scrollEventThrottle={20}
-        onScroll={() => { console.log('scroll'); }}
-        onEndReached={this.onEndReached}
-        onEndReachedThreshold={10}
+        className="fortest"
         style={{
           height: document.body.clientHeight * 3 / 4,
           overflow: 'auto',
           border: '1px solid #ddd',
           margin: '10px 0',
         }}
+        pageSize={4}
+        scrollRenderAheadDistance={500}
+        scrollEventThrottle={20}
+        onScroll={() => { console.log('scroll'); }}
+        onEndReached={this.onEndReached}
+        onEndReachedThreshold={10}
       />
     </div>);
   },

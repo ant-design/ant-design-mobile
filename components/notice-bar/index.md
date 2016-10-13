@@ -1,16 +1,16 @@
 ---
 category: UI Bars
 type: UI Bars
-chinese: 顶部提示
+chinese: 通告栏
 english: NoticeBar
 ---
 
 
-### 定义／Definition
-一般是系统提醒，活动等通知，需要引起用户关注时使用。
+在导航栏下方，一般用作系统提醒、活动提醒等通知。
 
-### 规则 / Rule
-按需使用
+
+### 规则
+- 需要引起用户关注时使用，重要级别低于 Modal ，高于 Toast。
 
 
 

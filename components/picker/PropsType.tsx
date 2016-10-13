@@ -12,6 +12,7 @@ interface Props {
   prefixCls?: string;
   pickerPrefixCls?: string;
   popupPrefixCls?: string;
+  onPickerChange?: (values) => void;
 }
 
 export default Props;

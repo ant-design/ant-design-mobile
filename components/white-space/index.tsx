@@ -1,5 +1,5 @@
 // WhiteSpace
-import * as React from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import WhiteSpaceProps from './WhiteSpacePropsType';
 import varibles from '../style/themes/default';

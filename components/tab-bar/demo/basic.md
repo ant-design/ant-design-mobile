@@ -8,19 +8,28 @@ title: APP型选项卡
 ````jsx
 import { TabBar } from 'antd-mobile';
 
+/* eslint global-require: 0 */
+
 const TabBarExample = React.createClass({
   getInitialState() {
     return {
       selectedTab: 'redTab',
-      notifCount: 0,
-      presses: 0,
+      hidden: false,
     };
   },
-  renderContent(pageText, num?: number) {
+  renderContent(pageText) {
     return (
-      <div style={{ backgroundColor: 'white', height: '100%' }}>
-        <div style={{ paddingTop: 30, marginLeft: 50 }}>{pageText}</div>
-        <div style={{ margin: 50 }}>{num} re-renders of the {pageText}</div>
+      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+        <div style={{ paddingTop: 60 }}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
+        <a style={{ display: 'block', marginTop: 40 }} onClick={(e) => {
+          e.preventDefault();
+          this.setState({
+            hidden: !this.state.hidden,
+          });
+        }}
+        >
+          点击切换 tab-bar 显示/隐藏
+        </a>
       </div>
     );
   },
@@ -30,36 +39,38 @@ const TabBarExample = React.createClass({
         unselectedTintColor="#949494"
         tintColor="#33A3F4"
         barTintColor="white"
+        hidden={this.state.hidden}
       >
         <TabBar.Item
           title="生活"
           key="生活"
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/XLdKiKAwDRXQNhC.png' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/iKfBQdGdTMubhXy.png' }}
+          icon={require('./TabBar_HomeBar_web.png')}
+          selectedIcon={require('./TabBar_HomeBar_Sel_web.png')}
           selected={this.state.selectedTab === 'blueTab'}
           onPress={() => {
             this.setState({
               selectedTab: 'blueTab',
             });
           }}
+          data-seed="logId"
         >
-          {this.renderContent('生活 Tab')}
+          {this.renderContent('生活')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/UNQhIatjpNZHjVf.png' }}
           selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/HLkBvJOKnmOfBPO.png' }}
           title="口碑"
           key="口碑"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
+          badge={1}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => {
             this.setState({
               selectedTab: 'redTab',
-              notifCount: this.state.notifCount + 1,
             });
           }}
+          data-seed="logId1"
         >
-          {this.renderContent('口碑 Tab', this.state.notifCount)}
+          {this.renderContent('口碑')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png' }}
@@ -70,11 +81,10 @@ const TabBarExample = React.createClass({
           onPress={() => {
             this.setState({
               selectedTab: 'greenTab',
-              presses: this.state.presses + 1,
             });
           }}
         >
-          {this.renderContent('朋友 Tab', this.state.presses)}
+          {this.renderContent('朋友')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/YWpPVCVOnJoCYhs.png' }}
@@ -88,7 +98,7 @@ const TabBarExample = React.createClass({
             });
           }}
         >
-          {this.renderContent('我的 Tab', this.state.presses)}
+          {this.renderContent('我的')}
         </TabBar.Item>
       </TabBar>
     );

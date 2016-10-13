@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { TabBarIOS } from 'react-native';
 import assign from 'object-assign';
 import TabBarProps from './TabBarPropTypes';

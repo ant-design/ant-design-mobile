@@ -71,9 +71,9 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
-### Use babel-plugin-antd
+### Use babel-plugin-import
 
-Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recommended) to reduce bundle size.
+Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended) to reduce bundle size.
 
 ```js
 // .babelrc
@@ -86,7 +86,7 @@ Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recomm
 Then you can import components from antd-mobile directly.
 
 ```jsx
-// import js and css modularly, parsed by babel-plugin-antd
+// import js and css modularly, parsed by babel-plugin-import
 import { Button } from 'antd-mobile';
 ```
 

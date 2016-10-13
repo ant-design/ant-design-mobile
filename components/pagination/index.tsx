@@ -1,5 +1,5 @@
 /* tslint:disable:no-switch-case-fall-through */
-import * as React from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import Flex from '../flex';
 import Button from '../button';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcCollapse, { Panel } from 'rc-collapse';
 
 export interface AccordionProps {

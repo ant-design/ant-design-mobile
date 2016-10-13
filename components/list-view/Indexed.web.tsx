@@ -1,49 +1,24 @@
-import * as React from 'react';
-import { PropTypes } from 'react';
+import React from 'react';
 import MListView from 'rmc-list-view';
-import List from '../list';
-import MyList from './MyList';
-import splitObject from '../_util/splitObject';
 import tsPropsType from './PropsType';
+import handleProps from './handleProps';
+const IndexedList = MListView.IndexedList;
 
-const { Header, Body, Footer, Item } = List;
-const MListViewIndexedList = MListView.IndexedList;
-
-export default class IndexedList extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-  };
-
+export default class MIndexedList extends React.Component<tsPropsType, any> {
   static defaultProps = {
     prefixCls: 'am-indexed-list',
+    listPrefixCls: 'am-list',
+    listViewPrefixCls: 'am-list-view',
   };
-
   render() {
-    let [{renderHeader, renderFooter, renderSectionHeader, renderRow}, restProps] = splitObject(this.props,
-    ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderRow']);
-    const extraProps = {
-      renderHeader: null as any,
-      renderFooter: null as any,
-      renderSectionHeader: null as any,
-    };
-    if (renderHeader) {
-      extraProps.renderHeader = () => <Header>{renderHeader()}</Header>;
-    }
-    if (renderFooter) {
-      extraProps.renderFooter = () => <Footer>{renderFooter()}</Footer>;
-    }
-    if (renderSectionHeader) {
-      extraProps.renderSectionHeader =
-        (sectionData, sectionID) => <Item>{renderSectionHeader(sectionData, sectionID)}</Item>;
-    }
+    const { restProps, extraProps } = handleProps(this.props, true);
     return (
-      <MListViewIndexedList
+      <IndexedList
+        sectionHeaderClassName="am-indexed-list-section-header am-list-body"
+        sectionBodyClassName="am-indexed-list-section-body am-list-body"
         {...restProps}
         {...extraProps}
-        renderScrollComponent={props => <MyList {...props} />}
-        renderRow={renderRow}
-        renderBodyComponent={() => <Body />}
-      >{this.props.children}</MListViewIndexedList>
+      >{this.props.children}</IndexedList>
     );
   }
 }

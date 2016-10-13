@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcInputNumber from 'rc-input-number/lib';
 import objectAssign from 'object-assign';
 import StepProps from './StepPropTypes';

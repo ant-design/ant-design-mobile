@@ -1,12 +1,8 @@
-import * as React from 'react';
-import { PropTypes } from 'react';
+import React from 'react';
 import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
 import tsPropsType from './PropsType';
 
 export default class Popover extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    children: PropTypes.any,
-  };
   static defaultProps = {
     onSelect: () => {},
   };

@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 function noop() {}
 
 import TextareaItemProps from './TextAreaItemPropsType';
+import getDataAttr from '../_util/getDataAttr';
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -17,11 +17,6 @@ export interface TextareaItemState {
 }
 
 export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
-  static propTypes = {
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    labelNumber: PropTypes.oneOf([2, 3, 4, 5, 6, 7]),
-  };
-
   static defaultProps = {
     prefixCls: 'am-textarea',
     prefixListCls: 'am-list',
@@ -43,6 +38,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   };
 
   initialTextHeight: number;
+  debounceTimeout: any;
 
   constructor(props) {
     super(props);
@@ -76,6 +72,12 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     );
   }
 
+  componentWillUnmount() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+  }
+
   onChange = (e) => {
     let value = e.target.value;
     const { onChange } = this.props;
@@ -83,7 +85,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   };
 
   onBlur = (e) => {
-    setTimeout(() => {
+    this.debounceTimeout = setTimeout(() => {
       this.setState({
         focus: false,
       });
@@ -146,7 +148,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     });
 
     return (
-      <div className={wrapCls} style={style}>
+      <div {...getDataAttr(this.props)} className={wrapCls} style={style}>
         {title ? (<div className={labelCls}>{title}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <textarea

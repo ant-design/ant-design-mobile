@@ -5,11 +5,18 @@ english: 升级指南
 
 此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [Changelog](/changelog)。
 
-## 0.7.x => 0.8.0 
+## 0.8.x => 0.9
 
-详细变化请查看 [Changelog](/changelog#0.8.0). 
+此版本主要优化各组件的样式和兼容性，并提升长列表等组件性能，升级改动成本低。
 
-[antd mobile 0.8高清方案实践指南](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8%E9%AB%98%E6%B8%85%E6%96%B9%E6%A1%88%E5%AE%9E%E8%B7%B5)
+详细变更见 https://github.com/ant-design/ant-design-mobile/releases/tag/0.9.0
+
+## 0.7.x => 0.8.0
+
+此版本主要加入「高清方案」支持，设置方式见 wiki
+[antd mobile 0.8 以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki)
+
+其他详细更见 https://github.com/ant-design/ant-design-mobile/releases/tag/0.8.0
 
 ## 0.5.x => 0.6.0
 

@@ -15,7 +15,7 @@ const FlexExample = React.createClass({
       <div className="flex-container">
         <WhiteSpace />
         <WingBlank size="lg">
-          <List title="start:交叉轴的起点对齐" />
+          <List renderHeader={() => 'start:交叉轴的起点对齐'} />
           <Flex align="start" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
@@ -27,9 +27,7 @@ const FlexExample = React.createClass({
         </WingBlank>
         <WhiteSpace />
         <WingBlank size="lg">
-          <List>
-            <List.Header>end:交叉轴的终点对齐</List.Header>
-          </List>
+          <List renderHeader={() => 'end:交叉轴的终点对齐'} />
           <Flex align="end" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
@@ -41,9 +39,7 @@ const FlexExample = React.createClass({
         </WingBlank>
         <WhiteSpace />
         <WingBlank size="lg">
-          <List>
-            <List.Header>center(默认):交叉轴的中点对齐</List.Header>
-          </List>
+          <List renderHeader={() => 'center(默认):交叉轴的中点对齐'} />
           <Flex align="center" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
@@ -61,9 +57,7 @@ const FlexExample = React.createClass({
         </WingBlank>
         <WhiteSpace />
         <WingBlank size="lg">
-          <List>
-            <List.Header>baseline:项目的第一行文字的基线对齐</List.Header>
-          </List>
+          <List renderHeader={() => 'baseline:项目的第一行文字的基线对齐'} />
           <Flex align="baseline" className="flex-align-container">
             <Flex.Item>
               <Button type="primary">3列</Button>
@@ -81,9 +75,7 @@ const FlexExample = React.createClass({
         </WingBlank>
         <WhiteSpace />
         <WingBlank size="lg">
-          <List>
-            <List.Header>stretch:如果项目未设置高度或设为auto，将占满整个容器的高度</List.Header>
-          </List>
+          <List renderHeader={() => 'stretch:如果项目未设置高度或设为auto，将占满整个容器的高度'} />
           <Flex align="stretch" className="flex-align-container" style={{ border: '1px solid red' }}>
             <Flex.Item>
               <Button type="primary">3列</Button>

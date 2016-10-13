@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ImagePicker, WhiteSpace } from 'antd-mobile';
 import { View } from 'react-native';
 

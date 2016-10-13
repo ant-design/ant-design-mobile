@@ -1,5 +1,3 @@
-import { PropTypes } from 'react';
-
 function noop() {}
 
 export interface SearchBarProps {
@@ -28,23 +26,6 @@ export interface SearchBarState {
   value?: string;
   focus?: boolean;
 }
-
-export const propTypes = {
-  prefixCls: PropTypes.string,
-  style: PropTypes.object,
-  defaultValue: PropTypes.string,
-  value: PropTypes.string,
-  placeholder: PropTypes.string,
-  onSubmit: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  onCancel: PropTypes.func,
-  onClear: PropTypes.func,
-  showCancelButton: PropTypes.bool,
-  cancelText: PropTypes.string,
-  disabled: PropTypes.bool,
-};
 
 export const defaultProps = {
   prefixCls: 'am-search',

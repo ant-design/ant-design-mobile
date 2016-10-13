@@ -1,11 +1,22 @@
 ---
 order: 0
-title: 基本
+title: 基本用法示例
 ---
 
 
 ````jsx
 import { ActionSheet, Button, Toast } from 'antd-mobile';
+
+// fix touch to scroll background page on iOS
+// https://github.com/ant-design/ant-design-mobile/issues/307
+// https://github.com/ant-design/ant-design-mobile/issues/163
+const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+let wrapProps;
+if (isIPhone) {
+  wrapProps = {
+    onTouchStart: e => e.preventDefault(),
+  };
+}
 
 const Test = React.createClass({
   getInitialState() {
@@ -16,7 +27,7 @@ const Test = React.createClass({
     };
   },
   showActionSheet() {
-    const BUTTONS = ['操作 0', '操作 1', '操作 2', '删除', '取消'];
+    const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
     ActionSheet.showActionSheetWithOptions({
       options: BUTTONS,
       cancelButtonIndex: BUTTONS.length - 1,
@@ -24,6 +35,8 @@ const Test = React.createClass({
       // title: '标题',
       message: '我是描述我是描述',
       maskClosable: true,
+      'data-seed': 'logId',
+      wrapProps,
     },
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });
@@ -68,13 +81,13 @@ const Test = React.createClass({
   render() {
     return (<div style={{ margin: '0 15px' }}>
       <div style={{ margin: '15px 0' }}>
-        <Button type="ghost" onClick={this.showActionSheet}>默认状态操作列表</Button>
+        <Button type="ghost" onClick={this.showActionSheet}>默认状态</Button>
       </div>
       <div style={{ margin: '15px 0' }}>
-        <Button type="ghost" onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
+        <Button type="ghost" onClick={this.showShareActionSheet}>分享功能</Button>
       </div>
       <div style={{ margin: '15px 0' }}>
-        <Button type="ghost" onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能操作列表</Button>
+        <Button type="ghost" onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能</Button>
       </div>
     </div>);
   },

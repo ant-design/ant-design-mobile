@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcSteps from 'rc-steps';
 
 export interface StepsProps {
@@ -10,6 +10,10 @@ export interface StepsProps {
   status?: string;
   size?: string;
   current?: number;
+}
+
+function isString(str) {
+  return typeof str === 'string';
 }
 
 export default class Steps extends React.Component<StepsProps, any> {
@@ -42,13 +46,15 @@ export default class Steps extends React.Component<StepsProps, any> {
             let className;
             if (!!item.props.icon) {
               iconName = item.props.icon;
-              className = '';
-              if ( index > 0 && index <= current) {
-                iconName = 'check-circle';
-              } else if (item.props.status === 'error') {
-                iconName = 'cross-circle';
-              } else if(item.props.status === 'process') {
-                iconName = 'check-circle';
+              if (isString(iconName)) {
+                className = '';
+                if ( index > 0 && index <= current) {
+                  iconName = 'check-circle';
+                } else if (item.props.status === 'error') {
+                  iconName = 'cross-circle';
+                } else if(item.props.status === 'process') {
+                  iconName = 'check-circle';
+                }
               }
             } else {
               className = index <= current ? null : 'ellipsis-item';

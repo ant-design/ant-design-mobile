@@ -64,11 +64,12 @@ export default class Demo extends React.Component {
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
     const introChildren = props.utils
-            .toReactComponent(['div'].concat(localizeIntro));
+      .toReactComponent(['div'].concat(localizeIntro));
 
     return (
-      <section className={codeBoxClass} id={meta.id} onClick={this.handleClick} >
-        <Modal ref="modal"
+      <section className={codeBoxClass} id={meta.id} onClick={this.handleClick}>
+        <Modal
+          ref="modal"
           visible={this.state.fullscreen}
           title={meta.title} onCancel={this.handleCancel}
           width={900}
@@ -76,7 +77,10 @@ export default class Demo extends React.Component {
             <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>返 回</Button>,
           ]}
         >
-          <div className="highlight" style={{ padding: '16Px', backgroundColor: '#F7F7F7', height: '500Px', overflowY: 'scroll' }}>
+          <div
+            className="highlight"
+            style={{ padding: '16Px', backgroundColor: '#F7F7F7', height: '500Px', overflowY: 'scroll' }}
+          >
             {props.utils.toReactComponent(highlightedCode)}
           </div>
         </Modal>
@@ -89,21 +93,24 @@ export default class Demo extends React.Component {
           </div>
           {introChildren}
 
-          <span className="collapse anticon anticon-circle-o-right"
+          <span
+            className="collapse anticon anticon-circle-o-right"
             onClick={this.handleCodeExapnd}
             unselectable="none"
           />
 
           {
-          codeExpand &&
-            <span className="fullscreen anticon anticon-arrow-salt"
+            codeExpand &&
+            (<span
+              className="fullscreen anticon anticon-arrow-salt"
               onClick={this.viewFullscreen}
               unselectable="none"
-            />
+            />)
           }
         </section>
 
-        <section className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
+        <section
+          className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
           key="code"
         >
           <div className="highlight">
@@ -113,9 +120,12 @@ export default class Demo extends React.Component {
             highlightedStyle ?
               <div key="style" className="highlight">
                 <pre>
-                  <code className="css" dangerouslySetInnerHTML={{
-                    __html: highlightedStyle,
-                  }} />
+                  <code
+                    className="css"
+                    dangerouslySetInnerHTML={{
+                      __html: highlightedStyle,
+                    }}
+                  />
                 </pre>
               </div> :
               null

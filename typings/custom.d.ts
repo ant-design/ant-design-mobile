@@ -43,11 +43,6 @@ declare module 'antd-mobile' {
   export = exports
 }
 
-declare module 'rc-dialog' {
-  var exports: any
-  export default exports
-}
-
 declare module 'rmc-list-view' {
   var exports: any;
   export default exports
@@ -216,6 +211,11 @@ declare module 'rc-drawer' {
   export default exports
 }
 
+declare module 'rc-dialog' {
+  var exports: any
+  export default exports
+}
+
 declare module 'moment' {
   var exports: any
   export default exports
@@ -239,5 +239,10 @@ declare module 'react-native-scrollable-tab-view' {
   var exports: any
   export const DefaultTabBar: any;
   export const ScrollableTabBar: any;
+  export default exports
+}
+
+declare module 'zscroller' {
+  var exports: any
   export default exports
 }

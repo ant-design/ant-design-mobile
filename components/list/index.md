@@ -6,11 +6,11 @@ english: List
 ---
 
 
-### 定义／Definition
-列表以一致的格式来显示一组相关的内容，为一致性的类型或者一组内容指定优先顺序来体现层次感以获取更好的可读性。列表也可以包含多行的文本，并且文本的字数可以在同一列表的不同瓦片间有所不同。
+单个连续模块垂直排列，显示当前的内容、状态和可进行的操作。eg：联系人列表。
 
-### 规则 / Rule
-确保内容列对齐，文字左对齐，数字右对齐。
+### 规则
+- 一般由主要信息、主要操作、次要信息、次要操作组成。
+- 主要信息和主要操作放在列表的左边，次要信息和次要操作放在列表的右边。
 
 
 ## API
@@ -19,8 +19,8 @@ english: List
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| title       | list title  | ReactNode |  无  |
-| footer       | list footer  | ReactNode |  无  |
+| renderHeader       | list heder  | Function |  无  |
+| renderFooter       | list footer  | Function |  无  |
 
 ### List.Item
 
@@ -33,6 +33,7 @@ english: List
 | onClick    | 点击事件的回调函数 | Function |  | 无  |
 | error    | 报错样式,右侧文字颜色变成橙色 | Boolean |  `true`、`false` | `false`  |
 | multipleLine    | 多行 | Boolean |  `true`、`false` | `false`  |
+| wrap    | 是否换行，默认情况下，文字超长会被隐藏， | Boolean |  `true`、`false` | `false`  |
 
 ### List.Item.Brief
 

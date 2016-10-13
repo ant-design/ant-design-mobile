@@ -45,9 +45,9 @@ const Demo = React.createClass({
       }
       return dataBlob;
     };
-    this.rData = {};
+    this.rData = this.genData();
     return {
-      dataSource: dataSource.cloneWithRows(this.genData()),
+      dataSource: dataSource.cloneWithRows(this.rData),
       isLoading: false,
     };
   },
@@ -72,7 +72,8 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }} />
+      }}
+      />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -86,22 +87,20 @@ const Demo = React.createClass({
             backgroundColor: 'white',
           }}
         >
-          <h3 style={{
-            padding: 2,
-            marginBottom: 8,
-            borderBottom: '1px solid #F6F6F6',
-          }}>{obj.title}</h3>
+          <h3 style={{ padding: 2, marginBottom: 8, borderBottom: '1px solid #F6F6F6' }}>
+            {obj.title}
+          </h3>
           <div style={{ display: '-webkit-box', display: 'flex' }}>
             <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
             <div style={{ display: 'inline-block' }}>
               <p>{obj.des}</p>
-              <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
+              <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>{rowID}</span>元/任务</p>
             </div>
           </div>
         </div>
       );
     };
-    return (<div>
+    return (
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
@@ -110,6 +109,7 @@ const Demo = React.createClass({
         </div>}
         renderRow={row}
         renderSeparator={separator}
+        className="fortest"
         pageSize={4}
         scrollRenderAheadDistance={500}
         scrollEventThrottle={20}
@@ -118,7 +118,7 @@ const Demo = React.createClass({
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
       />
-    </div>);
+    );
   },
 });
 

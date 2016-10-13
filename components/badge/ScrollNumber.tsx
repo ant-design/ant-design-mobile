@@ -1,5 +1,5 @@
 import {createElement} from 'react';
-import * as React from 'react';
+import React from 'react';
 import {findDOMNode} from 'react-dom';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import assign from 'object-assign';
@@ -18,16 +18,6 @@ export default class ScrollNumber extends React.Component<any, any> {
     onAnimated() {
     },
     height: 24,
-  };
-
-  static propTypes = {
-    count: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
-    ]),
-    component: React.PropTypes.string,
-    onAnimated: React.PropTypes.func,
-    height: React.PropTypes.number,
   };
 
   lastCount: any;

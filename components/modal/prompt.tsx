@@ -1,6 +1,8 @@
 /* tslint:disable:no-switch-case-fall-through */
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+/* tslint:disable:no-unused-variable */
+import React from 'react';
+/* tslint:enable:no-unused-variable */
+import ReactDOM from 'react-dom';
 import Modal from './Modal';
 
 export default function (...args) {
@@ -112,13 +114,20 @@ export default function (...args) {
     return button;
   });
 
+  // fix touch to scroll background page on iOS
+  const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+  const wrapProps = isIPhone ? { onTouchStart: e => e.preventDefault() } : {};
+
   ReactDOM.render(<Modal
     visible
     transparent
     prefixCls={prefixCls}
     title={title}
+    closable={false}
+    maskClosable={false}
     transitionName="am-zoom"
     footer={footer}
+    wrapProps={wrapProps}
     maskTransitionName="am-fade">
     <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
   </Modal>, div);

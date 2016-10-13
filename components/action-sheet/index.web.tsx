@@ -1,26 +1,17 @@
-/* eslint no-console:0 */
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+/* tslint:disable:no-unused-variable */
+import React from 'react';
+/* tslint:enable:no-unused-variable */
+import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
 import assign from 'object-assign';
+import getDataAttr from '../_util/getDataAttr';
+import ButtonListItem from './ButtonListItem.web';
 
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
-
 function noop() { }
-
-function getDataAttr(props) {
-  const dataAttrs = {};
-  Object.keys(props).forEach(i => {
-    if (i.indexOf('data-') === 0) {
-      dataAttrs[i] = props[i];
-    }
-  });
-  return dataAttrs;
-}
-
 const queue = [];
 
 function createActionSheet(flag, config, callback) {
@@ -70,25 +61,30 @@ function createActionSheet(flag, config, callback) {
       mode = 'normal';
       children = (<div {...getDataAttr(props)}>
         {titleMsg}
-        <ul className={`${prefixCls}-button-list`}>
+        <div className={`${prefixCls}-button-list`}>
           {options.map((item, index) => {
-            const extraProp = {
-              onClick: () => cb(index),
-            };
-            let li = <li className={[`${prefixCls}-button-list-item`]} key={index} {...extraProp}>{item}</li>;
             const cls = {
+              [`${prefixCls}-button-list-item`]: true,
               [`${prefixCls}-destructive-button`]: destructiveButtonIndex === index,
               [`${prefixCls}-cancel-button`]: cancelButtonIndex === index,
             };
+            const itemProps = {
+              key: index,
+              prefixCls: `${prefixCls}-button-list-item`,
+              className: classNames(cls),
+              onClick: () => cb(index),
+            };
+            let bItem = (<ButtonListItem {...itemProps}>{item}</ButtonListItem>);
             if (cancelButtonIndex === index || destructiveButtonIndex === index) {
-              li = (<li key={index} className={classNames(cls) } {...extraProp}>
+              bItem = (<ButtonListItem {...itemProps}>
                 {item}
-                {cancelButtonIndex === index ? <span className={`${prefixCls}-cancel-button-mask`}></span> : null}
-              </li>);
+                {cancelButtonIndex === index ?
+                  <span className={`${prefixCls}-cancel-button-mask`}></span> : null}
+              </ButtonListItem>);
             }
-            return li;
+            return bItem;
           })}
-        </ul>
+        </div>
       </div>);
       break;
     case SHARE:
@@ -114,7 +110,11 @@ function createActionSheet(flag, config, callback) {
                 {options.map((item, index) => createList(item, index))}
             </div>
           )}
-          <div className={`${prefixCls}-share-cancel-button`} onClick={() => cb(-1)}>{cancelButtonText}</div>
+          <ButtonListItem
+            prefixCls={`${prefixCls}-share-cancel-button`}
+            className={`${prefixCls}-share-cancel-button`} onClick={() => cb(-1) }>
+            {cancelButtonText}
+          </ButtonListItem>
         </div>
       </div>);
       break;
@@ -137,6 +137,7 @@ function createActionSheet(flag, config, callback) {
     maskTransitionName={maskTransitionName || `am-fade`}
     onClose={close}
     maskClosable={maskClosable}
+    wrapProps={props.wrapProps || {}}
   >{children}</Dialog>, div);
 
   return {

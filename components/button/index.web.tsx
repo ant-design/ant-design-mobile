@@ -1,5 +1,4 @@
-import { PropTypes } from 'react';
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
 import splitObject from '../_util/splitObject';
@@ -28,13 +27,6 @@ function insertSpace(child) {
 }
 
 class Button extends React.Component<tsProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    size: PropTypes.oneOf(['large', 'small']),
-    htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
-    icon: PropTypes.bool,
-  };
-
   static defaultProps = {
     prefixCls: 'am-button',
     size: 'large',
@@ -64,7 +56,7 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-touchFeedback`]: touchFeedback,
+      [`${prefixCls}-active`]: touchFeedback,
     });
 
     const iconType = loading ? 'loading' : icon;

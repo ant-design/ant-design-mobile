@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 吸顶（body 容器）
+title: 标题吸顶（body 容器）
 ---
 
 区块标题 “吸顶”(sticky) 功能示例
@@ -91,7 +91,8 @@ const Demo = React.createClass({
         height: 8,
         borderTop: '1px solid #ECECED',
         borderBottom: '1px solid #ECECED',
-      }} />
+      }}
+      />
     );
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -105,11 +106,9 @@ const Demo = React.createClass({
             backgroundColor: 'white',
           }}
         >
-          <h3 style={{
-            padding: 2,
-            marginBottom: 8,
-            borderBottom: '1px solid #F6F6F6',
-          }}>{obj.title}</h3>
+          <h3 style={{ padding: 2, marginBottom: 8, borderBottom: '1px solid #F6F6F6' }}>
+            {obj.title}
+          </h3>
           <div style={{ display: '-webkit-box', display: 'flex' }}>
             <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
             <div style={{ display: 'inline-block' }}>
@@ -120,7 +119,7 @@ const Demo = React.createClass({
         </div>
       );
     };
-    return (<div>
+    return (
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
@@ -132,6 +131,7 @@ const Demo = React.createClass({
         )}
         renderRow={row}
         renderSeparator={separator}
+        className="fortest"
         pageSize={4}
         scrollEventThrottle={20}
         onScroll={() => { console.log('scroll'); }}
@@ -144,7 +144,7 @@ const Demo = React.createClass({
           // isActive: false, // 关闭 sticky 效果
         }}
       />
-    </div>);
+    );
   },
 });
 

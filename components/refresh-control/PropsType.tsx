@@ -1,15 +1,13 @@
+import ReactNode = __React.ReactNode;
 interface Props {
-  contentClassName?: string;
-  contentStyle?: {};
-  icon?: any;
-  loading?: any;
-  distanceToRefresh?: number;
-  resistance?: number;
-  loadingFunction?: (values) => void;
-  hammerOptions?: {};
-  children?: any;
+  onRefresh?: () => void;
+  refreshing?: boolean;
   /** web only */
   prefixCls?: string;
+  icon?: ReactNode;
+  loading?: ReactNode;
+  distanceToRefresh?: number;
+  resistance?: number;
 }
 
 export default Props;

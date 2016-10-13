@@ -1,13 +1,16 @@
 ---
 category: UI Bars
 type: UI Bars
-chinese: APP选项卡
+chinese: 标签栏
 english: TabBar
 ---
 
+位于 app 底部，方便用户在不同功能模块之间进行快速切换。
 
-### 定义／Definition
-标签栏用于让用户在不同的子任务、视图和模式中进行切换。
+### 规则
+- 用作 app 的一级分类，数量控制在 3-5 个之间。
+- 即使某个 Tab 不可用，也不要禁用或者移除该 Tab。
+- 使用 Badge 进行提示，足不出户也能知道有内容更新。
 
 ## API
 
@@ -18,7 +21,8 @@ english: TabBar
 | barTintColor        | tabbar 背景色                     | String   | `white`            |
 | tintColor         | 选中的字体颜色                               | String | `#108ee9`         |
 | unselectedTintColor       | 未选中的字体颜色  | String | '#888'           |
-| prefixCls(`web only`) | 样式前缀  | String   | 'am-tabbar'      |
+| hidden       | 是否隐藏  | Boolean | false           |
+| prefixCls(`web only`) | 样式前缀  | String   | 'am-tab-bar'      |
 
 
 ### TabBar.Item

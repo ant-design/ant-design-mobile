@@ -1,9 +1,9 @@
 ---
 order: 0
-title: 展示
+title: 默认
 ---
 
-Card
+Card 默认样式
 
 ````jsx
 import { Card, WingBlank, WhiteSpace } from 'antd-mobile';
@@ -22,6 +22,7 @@ ReactDOM.render(
       </Card.Body>
       <Card.Footer content="这是卡尾" extra={<div>这是尾部介绍</div>} />
     </Card>
+    <WhiteSpace size="lg" />
   </WingBlank>
 , mountNode);
 ````

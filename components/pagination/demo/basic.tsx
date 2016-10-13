@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { WhiteSpace, Pagination, WingBlank } from 'antd-mobile';
 import { View } from 'react-native';
 

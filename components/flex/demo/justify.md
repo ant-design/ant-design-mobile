@@ -13,7 +13,7 @@ const FlexExample = React.createClass({
     return (
       <div className="flex-container">
         <WhiteSpace />
-        <List title="start(默认): 左对齐" />
+        <List renderHeader={() => 'start(默认): 左对齐'} />
         <WingBlank size="lg">
           <Flex
             className="flex-container-justify"
@@ -23,9 +23,7 @@ const FlexExample = React.createClass({
             <Button size="small" type="primary">按钮3</Button>
           </Flex>
         </WingBlank>
-        <List>
-          <List.Header>end:右对齐</List.Header>
-        </List>
+        <List renderHeader={() => 'end:右对齐'} />
         <WingBlank size="lg">
           <Flex
             justify="end"
@@ -36,9 +34,7 @@ const FlexExample = React.createClass({
             <Button size="small" type="primary">按钮3</Button>
           </Flex>
         </WingBlank>
-        <List>
-          <List.Header>center:居中</List.Header>
-        </List>
+        <List renderHeader={() => 'center:居中'} />
         <WingBlank size="lg">
           <Flex
             justify="center"
@@ -49,9 +45,7 @@ const FlexExample = React.createClass({
             <Button size="small" type="primary">按钮3</Button>
           </Flex>
         </WingBlank>
-        <List>
-          <List.Header>between:两端对齐，项目之间的间隔都相等</List.Header>
-        </List>
+        <List renderHeader={() => 'between:两端对齐，项目之间的间隔都相等'} />
         <WingBlank size="lg">
           <Flex
             justify="between"
@@ -62,9 +56,7 @@ const FlexExample = React.createClass({
             <Button size="small" type="primary">按钮3</Button>
           </Flex>
         </WingBlank>
-        <List>
-          <List.Header>around:每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</List.Header>
-        </List>
+        <List renderHeader={() => 'around:每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。'} />
         <WingBlank size="lg">
           <Flex
             justify="around"

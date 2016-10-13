@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { PropTypes } from 'react';
+import React from 'react';
 import PopupCascader from 'rmc-cascader/lib/Popup';
 import Cascader from 'rmc-cascader/lib/Cascader';
 import treeFilter from 'array-tree-filter';
@@ -25,10 +24,6 @@ function getDefaultProps() {
 }
 
 export default class Picker extends React.Component<tsPropsType, any> {
-  static propTypes = {
-    format: PropTypes.func,
-  };
-
   static defaultProps = getDefaultProps();
 
   getSel = () => {
@@ -55,6 +50,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
         pickerPrefixCls={props.pickerPrefixCls}
         data={props.data}
         cols={props.cols}
+        onChange={props.onPickerChange}
       />
     );
     return (

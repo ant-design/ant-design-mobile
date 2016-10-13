@@ -1,12 +1,12 @@
 ---
 order: 2
-title: 图片切换
+title: 内容为图片
 ---
 
 图片切换
 
 ````jsx
-import { WhiteSpace, WingBlank, Carousel } from 'antd-mobile';
+import { WhiteSpace, WingBlank, Flex, Carousel } from 'antd-mobile';
 
 const App = React.createClass({
   getInitialState() {
@@ -28,7 +28,6 @@ const App = React.createClass({
       dots: true,
       autoplay: true,
       infinite: true,
-      mode: 'banner',
       selectedIndex: this.state.current,
       beforeChange: this.beforeSlide,
       afterChange: this.slideTo,
@@ -36,12 +35,26 @@ const App = React.createClass({
     return (
       <div>
         <div className="pagination-container" >
-          <WhiteSpace size="lg" />
           <WingBlank>
             <Carousel {...settings}>
-              <div className="item"><h3>Carousel 1</h3></div>
-              <div className="item"><h3>Carousel 2</h3></div>
-              <div className="item"><h3>Carousel 3</h3></div>
+              <Flex
+                justify="center"
+                className="flex-container-justify"
+              >
+                <h3>Carousel 1</h3>
+              </Flex>
+              <Flex
+                justify="center"
+                className="flex-container-justify"
+              >
+                <h3>Carousel 2</h3>
+              </Flex>
+              <Flex
+                justify="center"
+                className="flex-container-justify"
+              >
+                <h3>Carousel 3</h3>
+              </Flex>
             </Carousel>
           </WingBlank>
           <WhiteSpace size="lg" />
@@ -61,14 +74,12 @@ ReactDOM.render(<App />, mountNode);
 .slider {
   background: #fff;
 }
-.item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.flex-container-justify {
   height: 3.6rem !important;
 }
-.item h3 {
+.flex-container-justify h3 {
   font-size: 0.36rem;
   font-weight: 300;
+  text-align: center;
 }
 ````

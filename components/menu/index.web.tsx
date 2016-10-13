@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import objectAssign from 'object-assign';
 import SubMenu from './SubMenu.web';
@@ -8,10 +7,6 @@ import Flex from '../flex';
 import { MenuProps, MenuState } from './propTypes';
 
 export default class Menu extends React.Component<MenuProps, MenuState> {
-  static propTypes = {
-    level: PropTypes.oneOf([1, 2]),
-  };
-
   static defaultProps = {
     prefixCls: 'am-menu',
     value: [],
@@ -117,9 +112,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
           {level === 2 ? (
             <Flex.Item style={heightStyle}>
               <List>
-                <List.Body>
-                  {listContent}
-                </List.Body>
+                {listContent}
               </List>
             </Flex.Item>
           ) : null}

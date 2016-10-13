@@ -2,18 +2,19 @@
  *  fix active style
  *  on Uc browser, css :active not work normal
  */
-import * as React from 'react';
+import React from 'react';
 
 const touchSupported = typeof window !== 'undefined' && 'ontouchstart' in window;
 
-export default function touchableFeedBack(ComposedComponent) {
+export default function touchableFeedback<Props>(ComposedComponent, ComposedComponentName = '') {
   const TouchableFeedbackComponent = React.createClass<{
     onTouchStart?: Function;
     onTouchEnd?: Function;
     onTouchCancel?: Function;
-    onMouseDown?: Function;
-    onMouseUp?: Function;
-  }, any>({
+  } & Props, any>({
+    statics: {
+      myName: ComposedComponentName || 'TouchableFeedbackComponent',
+    },
     getInitialState() {
       return {
         touchFeedback: false,
@@ -69,6 +70,7 @@ export default function touchableFeedBack(ComposedComponent) {
       } : {
         onMouseDown: this.onMouseDown,
         onMouseUp: this.onMouseUp,
+        onMouseLeave: this.onMouseUp,
       };
       return <ComposedComponent
         {...this.props}
