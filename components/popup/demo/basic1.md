@@ -14,6 +14,7 @@ import { Popup, List, Button, Icon } from 'antd-mobile';
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
 let wrapProps;
 if (isIPhone) {
+  // Note: the popup content will not scroll.
   wrapProps = {
     onTouchStart: e => e.preventDefault(),
   };
