@@ -1,8 +1,7 @@
 ---
 order: 0
-title: 简单的图片选择组件
+title: 自定义图片选择的方法
 -----------
-
 
 ````jsx
 import { ImagePicker } from 'antd-mobile';
@@ -36,6 +35,15 @@ const ImagePickerExample = React.createClass({
             console.log(files);
           }}
           files={this.state.files}
+          onAddImageClick={() => {
+            alert(111);
+            this.setState({
+              files: this.state.files.concat({
+                url: 'https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg',
+                id: '3',
+              }),
+            });
+          }}
         />
       </div>
     );

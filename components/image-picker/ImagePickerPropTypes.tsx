@@ -7,6 +7,9 @@ interface ImagePickerPropTypes {
   /* web only */
   prefixCls?: string;
   className?: string;
+  onImageClick?: (index?: number, files?: Array<{}>) => void;
+  onAddImageClick?: () => void;
+  selectable?: boolean;
 }
 
 export default ImagePickerPropTypes;

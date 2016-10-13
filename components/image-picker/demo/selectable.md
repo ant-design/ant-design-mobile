@@ -1,8 +1,7 @@
 ---
 order: 0
-title: 简单的图片选择组件
+title: 添加按钮不显示
 -----------
-
 
 ````jsx
 import { ImagePicker } from 'antd-mobile';
@@ -36,6 +35,7 @@ const ImagePickerExample = React.createClass({
             console.log(files);
           }}
           files={this.state.files}
+          selectable={false}
         />
       </div>
     );
