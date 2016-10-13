@@ -114,6 +114,10 @@ export default function (...args) {
     return button;
   });
 
+  // fix touch to scroll background page on iOS
+  const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+  const wrapProps = isIPhone ? { onTouchStart: e => e.preventDefault() } : {};
+
   ReactDOM.render(<Modal
     visible
     transparent
@@ -123,6 +127,7 @@ export default function (...args) {
     maskClosable={false}
     transitionName="am-zoom"
     footer={footer}
+    wrapProps={wrapProps}
     maskTransitionName="am-fade">
     <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
   </Modal>, div);
