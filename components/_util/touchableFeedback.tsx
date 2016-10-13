@@ -72,7 +72,7 @@ export default function touchableFeedback<Props>(ComposedComponent, ComposedComp
       } : {
         onMouseDown: this.onMouseDown,
         onMouseUp: this.onMouseUp,
-        onMouseLeave: this.onMouseUp,
+        onMouseLeave: this.state.touchFeedback ? this.onMouseUp : undefined,
       };
       const [{ touchFeedback = true }, restProps] = splitObject(this.props, ['touchFeedback']);
       let feedBack = this.state.touchFeedback;
