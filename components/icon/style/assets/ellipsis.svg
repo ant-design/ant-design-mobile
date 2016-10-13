@@ -1,1 +1,9 @@
-<svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><title>System Icons</title><g fill="none" fill-rule="evenodd"><path fill="none" d="M0 0h44v44H0z"/><g transform="translate(2 18)" fill="#4A4A4A"><circle cx="4" cy="4" r="4"/><circle cx="20" cy="4" r="4"/><circle cx="36" cy="4" r="4"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="44px" height="44px" viewBox="0 0 44 44" enable-background="new 0 0 44 44" xml:space="preserve">
+<circle fill="#4A4A4A" cx="6" cy="22" r="4"/>
+<circle fill="#4A4A4A" cx="22" cy="22" r="4"/>
+<circle fill="#4A4A4A" cx="38" cy="22" r="4"/>
+</svg>

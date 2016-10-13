@@ -1,1 +1,10 @@
-<svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Operation Icons Copy 9</title><defs><path d="M2.265 26.6c-.152.24.755 2.28.755 2.28V38l6.796-3.04c2.938 1 5.73 1.687 9.062 1.52C28.718 36.647 37 28.443 37 18.24 37 8.204 28.717 0 18.878 0 8.283 0 0 8.204 0 18.24c0 3.06.717 5.873 2.265 8.36z" id="a"/><mask id="b" x="0" y="0" width="37" height="38" fill="#fff"><use xlink:href="#a"/></mask></defs><g transform="translate(4.457 3)" fill="none" fill-rule="evenodd"><use stroke="#4A4A4A" mask="url(#b)" stroke-width="6" xlink:href="#a"/><g transform="translate(10 10)" fill="#4A4A4A"><rect x="7" width="3" height="17" rx="1"/><rect y="7" width="17" height="3" rx="1"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="44px" height="44px" viewBox="0 0 44 44" enable-background="new 0 0 44 44" xml:space="preserve">
+<path d="M23.029,3C12.772,3,4.457,11.188,4.457,21.289c0,3.699,1.124,7.136,3.041,10.013L7.477,41l7.283-3.352
+	c2.493,1.224,5.294,1.93,8.269,1.93c10.257,0,18.572-8.188,18.572-18.289C41.601,11.188,33.286,3,23.029,3z M31.457,22
+	c0,0.552-0.448,1-1,1h-6v6c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-6h-6c-0.552,0-1-0.448-1-1v-1c0-0.552,0.448-1,1-1h6v-6
+	c0-0.552,0.448-1,1-1h1c0.552,0,1,0.448,1,1v6h6c0.552,0,1,0.448,1,1V22z"/>
+</svg>

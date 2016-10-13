@@ -1,1 +1,12 @@
-<svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icon</title><defs><path d="M18 36c9.941 0 18-8.059 18-18S27.941 0 18 0 0 8.059 0 18s8.059 18 18 18z" id="a"/><mask id="b" x="0" y="0" width="36" height="36" fill="#fff"><use xlink:href="#a"/></mask></defs><g fill="none" fill-rule="evenodd"><use stroke="#CCC" mask="url(#b)" stroke-width="6" fill="#FFF" xlink:href="#a"/><circle fill="#CCC" cx="10" cy="18" r="2"/><circle fill="#CCC" cx="18" cy="18" r="2"/><circle fill="#CCC" cx="26" cy="18" r="2"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="36px" height="36px" viewBox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve">
+<path fill="#5D5D5D" d="M18,0C8.059,0,0,8.059,0,18s8.059,18,18,18s18-8.059,18-18S27.941,0,18,0z M18.261,32.522
+	C10.385,32.522,4,26.137,4,18.261C4,10.385,10.385,4,18.261,4c7.876,0,14.261,6.385,14.261,14.261
+	C32.522,26.137,26.137,32.522,18.261,32.522z"/>
+<circle fill="#5D5D5D" cx="10" cy="18" r="2"/>
+<circle fill="#5D5D5D" cx="18" cy="18" r="2"/>
+<circle fill="#5D5D5D" cx="26" cy="18" r="2"/>
+</svg>
