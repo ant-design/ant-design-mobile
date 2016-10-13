@@ -35,7 +35,7 @@ const ImagePickerExample = React.createClass({
             console.log(files);
           }}
           files={this.state.files}
-          selectable={false}
+          selectable={this.state.files.length < 2}
         />
       </div>
     );
