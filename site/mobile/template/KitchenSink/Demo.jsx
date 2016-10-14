@@ -4,6 +4,7 @@ import Promise from 'bluebird';
 import { Link } from 'react-router';
 import { Drawer, List, Icon } from 'antd-mobile';
 import config from '../../';
+import './Demo.less';
 
 const locale = (
   window.localStorage &&
@@ -174,8 +175,8 @@ export default class Home extends React.Component {
 
     let drawerContent = (<div style={{ height: '100%' }} className="demo">
       <div className="demoName">
-        {demoMeta.chinese}
-        <p>{demoMeta.english}</p>
+        {demoMeta.english}
+        <p>{demoMeta.chinese}</p>
       </div>
       {
         demoSort.length > 1 && (<div className="demoLinks">
