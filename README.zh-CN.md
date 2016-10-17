@@ -77,7 +77,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 // .babelrc
 // react-native 中无需设置 style 属性
 {
- "plugins": [["ipmort", { "style": "css", "libraryName": "antd-mobile" }]]
+ "plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]
 }
 ```
 
