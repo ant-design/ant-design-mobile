@@ -9,32 +9,38 @@ export default class Radio extends React.Component<RadioProps, any> {
   constructor(props: RadioProps, context: any) {
     super(props, context);
 
-    let checked = 'checked' in props ? props.checked : props.defaultChecked;
+    let checked;
+    if (props.checked !== null && props.checked !== undefined) {
+      checked = !!props.checked;
+    } else {
+      checked = !!props.defaultChecked;
+    }
     this.state = {
       checked: checked,
     };
   }
 
   componentWillReceiveProps(nextProps: RadioProps, nextContext: any): void {
-    if ('checked' in nextProps) {
+    if (nextProps.checked !== null && nextProps.checked !== undefined) {
       const oldChecked = this.state.checked;
       if (nextProps.checked === oldChecked) {
         return;
       }
       this.setState({
-        checked: nextProps.checked,
+        checked: !!nextProps.checked,
       });
     }
   }
 
   handleClick = () => {
-    if (this.props.disabled || this.state.checked) {
+    if (this.props.disabled) {
       return;
     }
-    this.setState({
-      checked: true,
-    });
-
+    if (this.props.checked === null || this.props.checked === undefined) {
+      this.setState({
+        checked: true,
+      });
+    }
     if (this.props.onChange) {
       this.props.onChange(true);
     }
