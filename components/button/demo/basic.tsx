@@ -4,18 +4,19 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
+/* tslint:disable:no-console */
 export default () => (
   <View>
     <WhiteSpace />
     <WingBlank>
-      <Button>default button</Button>
+      <Button touchFeedback={false}>default button</Button>
     </WingBlank>
 
     <WhiteSpace />
     <WingBlank style={{
       flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
     }}>
-      <Button type="primary">primary button</Button>
+      <Button type="primary" onClick={e => console.log(e)}>primary button</Button>
       <Button type="primary" size="small">primary small button</Button>
     </WingBlank>
 

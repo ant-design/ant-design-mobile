@@ -1,5 +1,4 @@
 interface ButtonProps {
-  /** whether button is disabled*/
   disabled?: boolean;
   size?: 'large' | 'small';
   type?: 'primary' | 'warning' | 'ghost';
@@ -11,6 +10,9 @@ interface ButtonProps {
   /** web only */
   prefixCls?: string;
   touchFeedback?: boolean;
+  /** rn only */
+  onPressIn?: (x: any) => void;
+  onPressOut?: (x: any) => void;
 }
 
 export default ButtonProps;
