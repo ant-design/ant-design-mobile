@@ -1,5 +1,5 @@
 ---
-category: UI Controls
+category: Form
 type: UI Controls
 chinese: 滑动输入条
 english: Slider

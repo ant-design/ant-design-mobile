@@ -1,5 +1,5 @@
 ---
-category: UI Views
+category: Basic Components
 type: UI Views
 chinese: 长列表
 english: ListView

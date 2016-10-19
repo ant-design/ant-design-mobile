@@ -1,5 +1,5 @@
 ---
-category: UI Bars
+category: Basic Components
 type: UI Bars
 chinese: 搜索栏
 english: SearchBar

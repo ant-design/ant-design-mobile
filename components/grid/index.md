@@ -1,5 +1,5 @@
 ---
-category: Others
+category: Basic Components
 type: Others
 chinese: 九宫格
 english: Grid

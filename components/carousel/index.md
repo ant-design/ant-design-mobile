@@ -1,5 +1,5 @@
 ---
-category: UI Controls
+category: Basic Components
 type: UI Controls
 chinese: 走马灯
 english: Carousel

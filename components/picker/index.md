@@ -1,5 +1,5 @@
 ---
-category: UI Controls
+category: Form
 type: UI Controls
 chinese: 选择器
 english: Picker

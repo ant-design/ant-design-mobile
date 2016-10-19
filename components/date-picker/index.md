@@ -1,5 +1,5 @@
 ---
-category: UI Controls
+category: Form
 type: UI Controls
 chinese: 日期选择
 english: DatePicker

@@ -1,5 +1,5 @@
 ---
-category: UI Bars
+category: Navigation
 type: UI Bars
 chinese: 导航栏
 english: NavBar

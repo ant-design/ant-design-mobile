@@ -1,5 +1,5 @@
 ---
-category: UI Controls
+category: Operation feedback
 type: UI Controls
 chinese: 活动指示器
 english: ActivityIndicator

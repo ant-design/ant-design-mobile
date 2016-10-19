@@ -1,5 +1,5 @@
 ---
-category: UI Bars
+category: Basic Components
 type: UI Bars
 chinese: 通告栏
 english: NoticeBar

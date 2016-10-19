@@ -1,5 +1,5 @@
 ---
-category: UI Views
+category: Operation feedback
 type: UI Views
 chinese: 轻提示
 noinstant: true

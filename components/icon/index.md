@@ -1,5 +1,5 @@
 ---
-category: Others
+category: Basic Components
 type: Others
 chinese: 图标
 english: Icon

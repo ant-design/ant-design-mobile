@@ -1,5 +1,5 @@
 ---
-category: UI Views
+category: Operation feedback
 type: UI Views
 chinese: 气泡
 english: Popover

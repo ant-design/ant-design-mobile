@@ -1,5 +1,5 @@
 ---
-category: UI Controls
+category: Navigation
 type: UI Controls
 chinese: 分段器
 english: SegmentedControl

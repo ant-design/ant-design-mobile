@@ -1,5 +1,5 @@
 ---
-category: UI Views
+category: Navigation
 type: UI Views
 chinese: 抽屉
 english: Drawer

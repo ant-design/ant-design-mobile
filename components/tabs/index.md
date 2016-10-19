@@ -1,5 +1,5 @@
 ---
-category: UI Controls
+category: Navigation
 type: UI Controls
 chinese: 标签页
 english: Tabs

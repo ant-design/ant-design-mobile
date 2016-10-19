@@ -1,5 +1,5 @@
 ---
-category: UI Controls
+category: Others
 type: UI Controls
 chinese: 下拉刷新
 english: RefreshControl

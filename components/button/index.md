@@ -1,6 +1,6 @@
 ---
-category: UI Controls
-type: UI Controls
+category: Basic Components
+type: Basic Components
 chinese: 按钮
 english: Button
 ---

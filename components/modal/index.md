@@ -1,5 +1,5 @@
 ---
-category: UI Views
+category: Operation feedback
 type: UI Views
 chinese: 对话框
 english: Modal
