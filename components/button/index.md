@@ -20,6 +20,6 @@ english: Button
 | size       | 设置按钮大小，可选值为`large`、`small` | string | `large`|
 | loading(web)	   | 设置按钮载入状态	  | boolean	 | false |
 | inline(web)     | 是否是行内按钮   | boolean |   false  |
-| touchFeedback  | 禁止(web/rn)点击反馈效果(设为 false)，或者设置自己的点击反馈样式名(web) | boolean/string | true |
+| touchFeedback  | 禁止(web/rn)点击反馈效果(设为 false)，也可设置为自己的点击反馈样式名(web)或style(web/rn) | boolean/string/{} | true |
 | disabled   | 是否不可用      | boolean |    false  |
 | onClick    | 点击按钮的回调函数 | Function|   无  |

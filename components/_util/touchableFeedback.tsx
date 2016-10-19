@@ -12,7 +12,7 @@ export default function touchableFeedback<Props>(ComposedComponent, ComposedComp
     onTouchStart?: Function;
     onTouchEnd?: Function;
     onTouchCancel?: Function;
-    touchFeedback?: boolean|string;
+    touchFeedback?: boolean|string|{};
   } & Props, any>({
     statics: {
       myName: ComposedComponentName || 'TouchableFeedbackComponent',

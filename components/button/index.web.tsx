@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import assign from 'object-assign';
 import Icon from '../icon/index.web';
 import splitObject from '../_util/splitObject';
 import touchableFeedback from '../_util/touchableFeedback';
@@ -52,17 +53,20 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
     };
+    let style = assign({}, this.props.style);
     if (typeof touchFeedback === 'boolean') {
       wrapCls[`${prefixCls}-active`] = touchFeedback;
     } else if (typeof touchFeedback === 'string') {
       wrapCls[touchFeedback] = !!touchFeedback;
+    } else if (Object.prototype.toString.call(touchFeedback) === '[object Object]') {
+      style = assign(style, touchFeedback);
     }
 
     const iconType = loading ? 'loading' : icon;
 
     const kids = React.Children.map(children, insertSpace);
 
-    return (<button {...restProps}
+    return (<button {...restProps} style={style}
       type={htmlType || 'button'}
       className={classNames(wrapCls)}
       disabled={disabled}

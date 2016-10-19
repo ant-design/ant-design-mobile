@@ -9,7 +9,7 @@ export default () => (
   <View>
     <WhiteSpace />
     <WingBlank>
-      <Button touchFeedback={false}>default button</Button>
+      <Button>default button</Button>
     </WingBlank>
 
     <WhiteSpace />
@@ -28,6 +28,13 @@ export default () => (
     <WhiteSpace />
     <WingBlank>
       <Button type="warning">warning button</Button>
+    </WingBlank>
+
+    <WhiteSpace />
+    <WingBlank>
+      <Button touchFeedback={false}>无点击反馈</Button>
+      <WhiteSpace />
+      <Button touchFeedback={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
     </WingBlank>
 
     <WhiteSpace />

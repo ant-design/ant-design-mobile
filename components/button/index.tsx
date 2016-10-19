@@ -13,6 +13,8 @@ export default class Button extends React.Component<tsProps, any> {
     onClick: (x: any) => { },
     onPressIn: (x: any) => { },
     onPressOut: (x: any) => { },
+    onShowUnderlay: (x: any) => { },
+    onHideUnderlay: (x: any) => { },
     touchFeedback: true,
   };
 
@@ -20,6 +22,7 @@ export default class Button extends React.Component<tsProps, any> {
     super(props);
     this.state = {
       pressIn: false,
+      touchIt: false,
     };
   }
   onPressIn = (...arg) => {
@@ -33,6 +36,18 @@ export default class Button extends React.Component<tsProps, any> {
       this.setState({ pressIn: false });
     }
     this.props.onPressOut(arg);
+  }
+  onShowUnderlay = (...arg) => {
+    if (!this.props.disabled) {
+      this.setState({ touchIt: true });
+    }
+    this.props.onShowUnderlay(arg);
+  }
+  onHideUnderlay = (...arg) => {
+    if (!this.props.disabled) {
+      this.setState({ touchIt: false });
+    }
+    this.props.onHideUnderlay(arg);
   }
 
   render() {
@@ -108,7 +123,7 @@ export default class Button extends React.Component<tsProps, any> {
       fontSize,
       color: this.state.pressIn ? highlightTextColor : textColor,
     }];
-    const wrapperStyle = [{
+    const wrapperStyle: any = [{
       alignItems: 'center',
       height,
       paddingLeft,
@@ -120,7 +135,15 @@ export default class Button extends React.Component<tsProps, any> {
       justifyContent: 'center',
     }, {
       borderColor: this.state.pressIn ? highlightBorderColor : borderColor,
-    }, this.props.style];
+    }];
+
+    const unProp: any = {};
+    if (typeof touchFeedback === 'boolean') {
+      unProp.underlayColor = touchFeedback ? highlightBackgroundColor : backgroundColor;
+    } else if (Object.prototype.toString.call(touchFeedback) === '[object Object]') {
+      wrapperStyle.push(this.state.touchIt ? touchFeedback : {});
+    }
+    wrapperStyle.push(this.props.style);
 
     const newChild = (
       <Text style={textStyle}>
@@ -135,12 +158,13 @@ export default class Button extends React.Component<tsProps, any> {
     }
 
     return (
-      <TouchableHighlight activeOpacity={1} delayPressOut={1} {...this.props}
+      <TouchableHighlight activeOpacity={1} delayPressOut={1} {...this.props} {...unProp}
         style={wrapperStyle}
-        underlayColor={touchFeedback ? highlightBackgroundColor : backgroundColor}
         onPress={(e) => this.props.onClick(e)}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
+        onShowUnderlay={this.onShowUnderlay}
+        onHideUnderlay={this.onHideUnderlay}
       >
         {newChild}
       </TouchableHighlight>
