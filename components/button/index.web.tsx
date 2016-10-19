@@ -33,12 +33,7 @@ class Button extends React.Component<tsProps, any> {
     inline: false,
     disabled: false,
     loading: false,
-    onClick: () => { },
   };
-
-  onClick = () => {
-    this.props.onClick(this);
-  }
 
   render() {
     let[{ children, className, prefixCls, type, size, inline, disabled,
@@ -71,7 +66,6 @@ class Button extends React.Component<tsProps, any> {
       type={htmlType || 'button'}
       className={classNames(wrapCls)}
       disabled={disabled}
-      onClick={this.onClick}
       >{iconType ? <Icon type={iconType} /> : null}{kids}</button>);
   }
 }
