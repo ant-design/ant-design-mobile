@@ -3,6 +3,7 @@
  *  on Uc browser, css :active not work normal
  */
 import React from 'react';
+import splitObject from './splitObject';
 
 const touchSupported = typeof window !== 'undefined' && 'ontouchstart' in window;
 
@@ -11,6 +12,7 @@ export default function touchableFeedback<Props>(ComposedComponent, ComposedComp
     onTouchStart?: Function;
     onTouchEnd?: Function;
     onTouchCancel?: Function;
+    touchFeedback?: boolean|string;
   } & Props, any>({
     statics: {
       myName: ComposedComponentName || 'TouchableFeedbackComponent',
@@ -72,9 +74,16 @@ export default function touchableFeedback<Props>(ComposedComponent, ComposedComp
         onMouseUp: this.onMouseUp,
         onMouseLeave: this.onMouseUp,
       };
+      const [{ touchFeedback = true }, restProps] = splitObject(this.props, ['touchFeedback']);
+      let feedBack = this.state.touchFeedback;
+      if (!touchFeedback) {
+        feedBack = false;
+      } else if (feedBack) {
+        feedBack = touchFeedback;
+      }
       return <ComposedComponent
-        {...this.props}
-        touchFeedback={this.state.touchFeedback}
+        {...restProps}
+        touchFeedback={feedBack}
         {...events}
       />;
     },

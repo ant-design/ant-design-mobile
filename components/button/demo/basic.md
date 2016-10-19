@@ -19,7 +19,7 @@ const ButtonExample = React.createClass({
       <div style={{ margin: '0 8px' }}>
 
         <div style={{ margin: '32px 0' }}>
-          <Button data-seed="logId">default 按钮</Button>
+          <Button data-seed="logId" touchFeedback={false}>default 按钮</Button>
           <div style={{ height: 8 }} />
           <Button disabled>default disabled 按钮</Button>
         </div>

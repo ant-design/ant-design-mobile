@@ -46,7 +46,7 @@ class Button extends React.Component<tsProps, any> {
     ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
       'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback']);
 
-    const wrapCls = classNames({
+    const wrapCls = {
       [className]: className,
       [prefixCls]: true,
       [`${prefixCls}-primary`]: type === 'primary',
@@ -56,8 +56,12 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-active`]: touchFeedback,
-    });
+    };
+    if (typeof touchFeedback === 'boolean') {
+      wrapCls[`${prefixCls}-active`] = touchFeedback;
+    } else if (typeof touchFeedback === 'string') {
+      wrapCls[touchFeedback] = !!touchFeedback;
+    }
 
     const iconType = loading ? 'loading' : icon;
 
@@ -65,7 +69,7 @@ class Button extends React.Component<tsProps, any> {
 
     return (<button {...restProps}
       type={htmlType || 'button'}
-      className={wrapCls}
+      className={classNames(wrapCls)}
       disabled={disabled}
       onClick={this.onClick}
       >{iconType ? <Icon type={iconType} /> : null}{kids}</button>);
