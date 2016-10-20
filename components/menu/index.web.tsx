@@ -57,7 +57,9 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
         firstValue: el.value,
         SubMenuData: [],
       }, () => {
-        this.props.onChange([el.value]);
+        if (this.props.onChange) {
+          this.props.onChange([el.value]);
+        }
       });
     }
     this.setState({
@@ -69,12 +71,14 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   onClickSubMenuItem = (el) => {
     const { level, onChange } = this.props;
     setTimeout(() => {
-      onChange(level === 2 ? [this.state.firstValue, el.value] : [el.value]);
+      if (onChange) {
+        onChange(level === 2 ? [this.state.firstValue, el.value] : [el.value]);
+      }
     }, 300);
   };
 
   render() {
-    const { className, data, prefixCls, value, level, style } = this.props;
+    const { className, data = [], prefixCls, value = [], level, style } = this.props;
     let { height } = this.props;
 
     if (!height) {
@@ -89,8 +93,8 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     const { SubMenuData, firstValue } = this.state;
 
     const wrapCls = classNames({
-      [prefixCls]: true,
-      [className]: !!className,
+      [prefixCls as string]: true,
+      [className as string]: !!className,
     });
 
     const listContent = data.map((el, index) => (

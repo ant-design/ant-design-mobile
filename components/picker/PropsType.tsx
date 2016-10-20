@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface Props {
   data: any;
   value?: Array<string|number>;

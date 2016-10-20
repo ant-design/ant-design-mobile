@@ -71,7 +71,9 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       default:
         break;
     }
-    onChange(text);
+    if (onChange) {
+      onChange(text);
+    }
   };
 
   render() {
@@ -91,7 +93,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   };
 
     const extraStyle = {
-      width: typeof extra === 'string' && extra.length > 0 ? extra.length * variables.font_size_heading : 0,
+      width: typeof extra === 'string' && (extra as string).length > 0 ? (extra as string).length * variables.font_size_heading : 0,
     };
 
     return (
@@ -102,8 +104,8 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           value={value}
           keyboardType={type === 'number' || type === 'bankCard' ? 'numeric' : 'default'}
           onChange={(event) => this.onChange(event.nativeEvent.text)}
-          onFocus={() => this.props.onFocus()}
-          onBlur={() => this.props.onBlur()}
+          onFocus={() => this.props.onFocus && this.props.onFocus()}
+          onBlur={() => this.props.onBlur && this.props.onBlur()}
           placeholder={placeholder}
           autoCorrect={false}
           secureTextEntry={type === 'password'}
@@ -111,7 +113,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           editable={editable}
         />
         {extra ? <TouchableWithoutFeedback
-          onPress={() => { this.props.onExtraPress(); }}
+          onPress={() => { this.props.onExtraPress && this.props.onExtraPress(); }}
         >
           <View>
             <Text style={[InputItemStyle.extra, extraStyle]}>{extra}</Text>
@@ -120,7 +122,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         {
           error &&
           <TouchableWithoutFeedback
-            onPress={() => { this.props.onErrorPress(); }}
+            onPress={() => { this.props.onErrorPress && this.props.onErrorPress(); }}
           >
             <View style={[InputItemStyle.errorIcon]}>
               <Image

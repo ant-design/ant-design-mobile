@@ -20,7 +20,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     let { prefixCls, style, name, checked, disabled, className } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className,
+      [className as string]: className,
     });
 
     return (<label className={wrapCls} style={style}>

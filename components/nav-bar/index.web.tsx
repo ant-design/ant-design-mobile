@@ -29,8 +29,8 @@ export default class NavBar extends React.Component<NavBarProps, any> {
       ['prefixCls', 'children', 'mode', 'className',
         'iconName', 'leftContent', 'rightContent', 'onLeftClick']);
     const wrapCls = classNames({
-      [className]: className,
-      [prefixCls]: true,
+      [className as string]: className,
+      [prefixCls as string]: true,
       [`${prefixCls}-${mode}`]: true,
     });
     return (

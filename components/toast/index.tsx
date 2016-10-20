@@ -47,7 +47,9 @@ class ToastContainer extends React.Component<ToastProps, any> {
     ]);
     this.anim.start(() => {
       this.anim = null;
-      onClose();
+      if(onClose){
+        onClose();
+      }
       topView.remove();
     });
   }
@@ -67,7 +69,7 @@ class ToastContainer extends React.Component<ToastProps, any> {
       offline: require('./images/offline.png'),
     };
 
-    let iconDom = null;
+    let iconDom: React.ReactElement<any> | null = null;
     if (type === 'loading') {
       iconDom = <ActivityIndicator
         animating

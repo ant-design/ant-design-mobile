@@ -3,13 +3,12 @@ import { Image, View, Platform, TouchableHighlight, Text, StyleSheet } from 'rea
 import variables from '../style/themes/default';
 import theme from './style/index';
 import { ListItemProps, BriefProps } from './ListPropTypes';
-import ViewStyle = __React.ViewStyle;
 
 const styles = StyleSheet.create({
   column: {
     flex: 1,
     flexDirection: 'column',
-  } as ViewStyle,
+  } as any,
   textAlignRight: {
     textAlign: 'right',
   },
@@ -48,10 +47,10 @@ export default class Item extends React.Component<ListItemProps, any> {
 
   render() {
     let line = 1;
-    let thumbDom = null;
-    let contentDom = null;
-    let extraDom = null;
-    let arrowDom = null;
+    let thumbDom: React.ReactNode | null = null;
+    let contentDom: React.ReactNode | null = null;
+    let extraDom: React.ReactNode | null = null;
+    let arrowDom: React.ReactNode | null = null;
     let thumb = this.props.thumb;
 
     if (thumb) {
@@ -68,7 +67,7 @@ export default class Item extends React.Component<ListItemProps, any> {
       }
     }
     if (Array.isArray(this.props.children)) {
-      const tempContentDom = [];
+      const tempContentDom: any[] = [];
       this.props.children.forEach((el, index) => {
         if (React.isValidElement(el)) {
           tempContentDom.push(el);
@@ -93,9 +92,9 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     if (this.props.extra) {
       if (React.isValidElement(this.props.extra)) {
-        const extraChildren = this.props.extra.props.children;
+        const extraChildren = (this.props.extra.props as any).children;
         if (Array.isArray(extraChildren)) {
-          const tempExtraDom = [];
+          const tempExtraDom: any[] = [];
           extraChildren.forEach((el, index) => {
             if (typeof el === 'string') {
               tempExtraDom.push(

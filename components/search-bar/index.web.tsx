@@ -99,7 +99,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [`${prefixCls}-start`]: showCancelButton || focus,
-      [className]: className,
+      [className as string]: className,
     });
 
     let containerStyle = {};

@@ -37,11 +37,11 @@ export default class Grid extends React.Component<GridProps, any> {
     const { data, hasLine, onClick } = this.props;
     const flexItemStyle = this.getFlexItemStyle();
 
-    const gridContent = [];
+    const gridContent: any[] = [];
     const dataLength = data.length;
     const rowCount = Math.ceil(dataLength / 4);
     for (let i = 0; i < rowCount; i++) {
-      const row = [];
+      const row: React.ReactElement<any>[] = [];
       for (let j = 0; j < 4; j++) {
         const itemIndex = i * 4 + j;
         const item = data[itemIndex];
@@ -55,7 +55,7 @@ export default class Grid extends React.Component<GridProps, any> {
                 direction="column"
                 justify="center"
                 style={{ flex: 1 }}
-                onPress={() => onClick(item, itemIndex)}
+                onPress={() => onClick && onClick(item, itemIndex)}
               >
                 <Image source={{ uri: item.icon }} style={styles.icon} />
                 <Text style={styles.text}>{item.text}</Text>
@@ -83,7 +83,7 @@ export default class Grid extends React.Component<GridProps, any> {
   toCarousel(gridContent) {
     const hasLine = this.props.hasLine;
     const flexItemStyle = this.getFlexItemStyle();
-    const carouselContent = [];
+    const carouselContent: any[] = [];
     const gridContentLength = gridContent.length;
     const frameCount = Math.ceil(gridContentLength / 2);
     for (let i = 0; i < frameCount; i++) {

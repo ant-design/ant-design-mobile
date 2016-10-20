@@ -6,10 +6,14 @@ import TextAreaItemStyle from './style/index';
 
 export default class TextAreaItem extends React.Component<TextAreaItemProps, any> {
   static defaultProps = {
-    onChange() {},
-    onFocus() {},
-    onBlur() {},
-    onErrorClick() {},
+    onChange() {
+    },
+    onFocus() {
+    },
+    onBlur() {
+    },
+    onErrorClick() {
+    },
     clear: true,
     error: false,
     editable: true,
@@ -50,19 +54,27 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
       inputCount: text.length,
       height,
     });
-    this.props.onChange({text});
+    if (this.props.onChange) {
+      this.props.onChange({ text });
+    }
   }
 
   onFocus = () => {
-    this.props.onFocus();
+    if (this.props.onFocus) {
+      this.props.onFocus();
+    }
   }
 
   onBlur = () => {
-    this.props.onBlur();
+    if (this.props.onBlur) {
+      this.props.onBlur();
+    }
   }
 
   onErrorClick = () => {
-    this.props.onErrorClick();
+    if (this.props.onErrorClick) {
+      this.props.onErrorClick();
+    }
   }
 
   render() {
@@ -78,7 +90,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
       paddingRight: error ? 2 * variables.h_spacing_lg : 0,
     };
 
-    const maxLength = count > 0 ? count : null;
+    const maxLength = count > 0 ? count : undefined;
 
     return (
       <View style={[TextAreaItemStyle.container, containerStyle, { position: 'relative' }]}>
@@ -88,12 +100,12 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           value={this.state.value}
-          placeholder = {placeholder}
-          multiline = {rows > 1 || autoHeight}
-          numberOfLines = {rows}
-          maxLength = {maxLength}
-          clearButtonMode = {clear ? 'while-editing' : 'never'}
-          editable = {editable}
+          placeholder={placeholder}
+          multiline={rows > 1 || autoHeight}
+          numberOfLines={rows}
+          maxLength={maxLength}
+          clearButtonMode={clear ? 'while-editing' : 'never'}
+          editable={editable}
         />
         {error ? <TouchableWithoutFeedback onPress={this.onErrorClick}>
           <View style={[TextAreaItemStyle.errorIcon]}>

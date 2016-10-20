@@ -14,7 +14,7 @@ export default class WhiteSpace extends React.Component<WhiteSpaceProps, any> {
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
       [`${prefixCls}-${size}`]: true,
-      [className]: !!className,
+      [className as string]: !!className,
     });
 
     return (

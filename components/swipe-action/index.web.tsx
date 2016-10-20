@@ -103,7 +103,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     const isAndroid = !!navigator.userAgent.match(/Android/i);
     const wrapClass = classNames({
       [`${prefixCls}`]: 1,
-      [className]: !!className,
+      [className as string]: !!className,
     });
 
     return (left.length || right.length) ? (

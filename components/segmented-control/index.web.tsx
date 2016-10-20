@@ -49,7 +49,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       prefixCls, style, enabled, values, className, tintColor,
     } = this.props;
     const wrapCls = classNames({
-      [className]: !!className,
+      [className as string]: !!className,
       [`${prefixCls}`]: true,
     });
     const selectedIndex = this.state.selectedIndex;

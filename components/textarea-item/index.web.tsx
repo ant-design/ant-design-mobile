@@ -81,7 +81,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   onChange = (e) => {
     let value = e.target.value;
     const { onChange } = this.props;
-    onChange(value);
+    if (onChange) {
+      onChange(value);
+    }
   };
 
   onBlur = (e) => {
@@ -91,7 +93,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       });
     }, 500);
     const value = e.target.value;
-    this.props.onBlur(value);
+    if (this.props.onBlur) {
+      this.props.onBlur(value);
+    }
   };
 
   onFocus = (e) => {
@@ -99,15 +103,21 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       focus: true,
     });
     const value = e.target.value;
-    this.props.onFocus(value);
+    if (this.props.onFocus) {
+      this.props.onFocus(value);
+    }
   };
 
   onErrorClick = () => {
-    this.props.onErrorClick();
+    if (this.props.onErrorClick) {
+      this.props.onErrorClick();
+    }
   };
 
   clearInput = () => {
-    this.props.onChange('');
+    if (this.props.onChange) {
+      this.props.onChange('');
+    }
   };
 
   render() {
@@ -134,7 +144,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       [`${prefixCls}-item-single-line`]: rows === 1 && !autoHeight,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
-      [className]: className,
+      [className as string]: className,
     });
 
     const labelCls = classNames({
@@ -170,7 +180,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
         {count > 0 && rows > 1
-          ? (<span className={`${prefixCls}-count`}><span>{value.length}</span>/{count}</span>)
+          ? (<span className={`${prefixCls}-count`}><span>{value && value.length}</span>/{count}</span>)
           : null}
       </div>
     );

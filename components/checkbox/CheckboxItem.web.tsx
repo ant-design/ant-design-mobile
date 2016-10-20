@@ -21,7 +21,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
-      [className]: className,
+      [className as string]: className,
     });
 
     const onClickProps = disabled ? {} : { onClick: () => {} };

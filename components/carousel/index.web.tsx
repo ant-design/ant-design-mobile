@@ -57,7 +57,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       wrapCls = `${props.prefixCls} ${props.prefixCls}-vertical`;
     }
 
-    let Decorators = [];
+    let Decorators: any[] = [];
     if (props.dots) {
       Decorators  = [{
         component: React.createClass({
@@ -83,7 +83,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
             );
           },
           getIndexes(count, inc) {
-            const arr = [];
+            const arr:number[] = [];
             for (let i = 0; i < count; i += inc) {
               arr.push(i);
             }

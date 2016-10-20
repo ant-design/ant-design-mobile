@@ -80,9 +80,9 @@ export default class ScrollNumber extends React.Component<any, any> {
   }
 
   renderNumberList(position) {
-    const childrenToReturn = [];
+    const childrenToReturn: React.ReactElement<any>[] = [];
     for (let i = 0; i < 30; i++) {
-      const currentClassName = (position === i) ? 'current' : null;
+      const currentClassName = (position === i) ? 'current' : undefined;
       childrenToReturn.push(<p key={i} className={currentClassName}>{i % 10}</p>);
     }
     return childrenToReturn;

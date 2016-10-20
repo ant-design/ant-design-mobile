@@ -7,7 +7,7 @@ export interface FlexItemProps {
   style?: React.CSSProperties;
   /** web only */
   className?: string;
-  onClick?: Function;
+  onClick?: (_e: any) => void;
   children?: any;
 }
 
@@ -19,7 +19,7 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
     let{ children, className, prefixCls, style, onClick } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
-      [className]: className,
+      [className as string]: className,
     });
     return (
       <div className={wrapCls} style={style} onClick={onClick}>{children}</div>

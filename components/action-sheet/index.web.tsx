@@ -12,7 +12,7 @@ import ButtonListItem from './ButtonListItem.web';
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
 function noop() { }
-const queue = [];
+const queue: any[] = [];
 
 function createActionSheet(flag, config, callback) {
   const props = assign({}, {
@@ -21,7 +21,7 @@ function createActionSheet(flag, config, callback) {
   }, config);
   const { prefixCls, className, transitionName, maskTransitionName, maskClosable = true } = props;
 
-  let div = document.createElement('div');
+  let div: HTMLDivElement | null = document.createElement('div');
   document.body.appendChild(div);
 
   queue.push(close);
@@ -54,7 +54,7 @@ function createActionSheet(flag, config, callback) {
     title ? <h3 key="0" className={`${prefixCls}-title`}>{title}</h3> : null,
     message ? <div key="1" className={`${prefixCls}-message`}>{message}</div> : null,
   ];
-  let children = null;
+  let children: React.ReactElement<any> | null = null;
   let mode = 'normal';
   switch (flag) {
     case NORMAL:
@@ -123,7 +123,7 @@ function createActionSheet(flag, config, callback) {
   }
 
   const rootCls = classNames({
-    [className]: !!className,
+    [className as string]: !!className,
     [`${prefixCls}-${mode}`]: true,
   });
 

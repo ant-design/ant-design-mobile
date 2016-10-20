@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
     "moduleResolution": "node",
     "jsx": "react",
     "allowSyntheticDefaultImports":true,
