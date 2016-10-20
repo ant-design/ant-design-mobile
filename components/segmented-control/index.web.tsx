@@ -36,8 +36,12 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     if (enabled && this.state.selectedIndex !== index) {
       e.nativeEvent.selectedSegmentIndex = index;
       e.nativeEvent.value = value;
-      onChange(e);
-      onValueChange(value);
+      if (onChange) {
+        onChange(e);
+      }
+      if (onValueChange) {
+        onValueChange(value);
+      }
       this.setState({
         selectedIndex: index,
       });
@@ -46,7 +50,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
 
   render() {
     const {
-      prefixCls, style, enabled, values, className, tintColor,
+      prefixCls, style, enabled, values = [], className, tintColor,
     } = this.props;
     const wrapCls = classNames({
       [className as string]: !!className,

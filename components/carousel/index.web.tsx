@@ -83,7 +83,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
             );
           },
           getIndexes(count, inc) {
-            const arr:number[] = [];
+            const arr: number[] = [];
             for (let i = 0; i < count; i += inc) {
               arr.push(i);
             }

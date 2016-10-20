@@ -28,7 +28,8 @@ export default class Grid extends React.Component<GridProps, any> {
   static defaultProps = {
     prefixCls: 'am-grid',
     data: [],
-    onClick: () => {},
+    onClick: () => {
+    },
     columnNum: 4,
     hasLine: true,
     isCarousel: false,
@@ -38,7 +39,7 @@ export default class Grid extends React.Component<GridProps, any> {
   clientWidth = document.documentElement.clientWidth;
 
   render() {
-    let {className, data, prefixCls, hasLine, isCarousel, columnNum, carouselMaxRow} = this.props;
+    let { className, data, prefixCls, hasLine, isCarousel, columnNum, carouselMaxRow } = this.props;
 
     const wrapCls = classNames({
       [prefixCls as string]: true,
@@ -72,7 +73,11 @@ export default class Grid extends React.Component<GridProps, any> {
           if (dataIndex < dataLength) {
             lineContent.push(<Flex.Item
               className={itemCls}
-              onClick={() => { this.props.onClick && this.props.onClick(data && data[dataIndex], dataIndex); }}
+              onClick={() => {
+                if (this.props.onClick) {
+                  this.props.onClick(data && data[dataIndex], dataIndex);
+                }
+              }}
               key={`griditem-${dataIndex}`}
             >
               {renderItem(data[dataIndex], dataIndex)}

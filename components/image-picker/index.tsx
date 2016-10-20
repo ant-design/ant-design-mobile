@@ -93,7 +93,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     }
     const { files = [] } = this.props;
     const newImages = files.concat(imageObj);
-    if(this.props.onChange) {
+    if (this.props.onChange) {
       this.props.onChange(newImages, 'add');
     }
   }
@@ -106,7 +106,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         newImages.push(image);
       }
     });
-    if(this.props.onChange) {
+    if (this.props.onChange) {
       this.props.onChange(newImages, 'remove', idx);
     }
   }

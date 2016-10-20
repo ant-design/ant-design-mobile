@@ -3,9 +3,9 @@ import { View} from 'react-native';
 
 export default class TabPane extends React.Component<any, any> {
   render() {
-    const { tabLabel, children } = this.props;
+    const { children } = this.props;
     return (
-        <View tabLabel={tabLabel}>
+        <View>
           {children}
         </View>
     );

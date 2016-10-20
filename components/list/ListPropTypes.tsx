@@ -22,7 +22,7 @@ export interface ListItemProps {
   extra?: React.ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
   align?: string;
-  onClick?: (e: any) => void;
+  onClick?: (e?: any) => void;
   error?: boolean;
   multipleLine?: boolean;
   children?: any;

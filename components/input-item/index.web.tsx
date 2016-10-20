@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-function noop() { }
+function noop() {
+}
 import InputItemProps from './InputItemPropsType';
 import getDataAttr from '../_util/getDataAttr';
 
@@ -92,7 +93,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       default:
         break;
     }
-    if (onChange) { 
+    if (onChange) {
       onChange(value);
     }
   }
@@ -104,7 +105,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       });
     }, 300);
     const value = e.target.value;
-    if (this.props.onBlur) { 
+    if (this.props.onBlur) {
       this.props.onBlur(value);
     }
   }
@@ -114,19 +115,19 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       focus: true,
     });
     const value = e.target.value;
-    if (this.props.onFocus) { 
+    if (this.props.onFocus) {
       this.props.onFocus(value);
     }
   }
 
   onExtraClick = (e) => {
-    if (this.props.onExtraClick) { 
+    if (this.props.onExtraClick) {
       this.props.onExtraClick(e);
     }
   }
 
   onErrorClick = (e) => {
-    if (this.props.onErrorClick) { 
+    if (this.props.onErrorClick) {
       this.props.onErrorClick(e);
     }
   }
@@ -137,15 +138,17 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
         placeholder: this.props.value,
       });
     }
-    if (this.props.onChange) { 
+    if (this.props.onChange) {
       this.props.onChange('');
     }
   }
 
   render() {
     const {
-      prefixCls, prefixListCls, type, value, defaultValue, name, editable, disabled, style, clear, children,
-      error, className, extra, labelNumber, maxLength } = this.props;
+      prefixCls, prefixListCls, type, value, defaultValue,
+      name, editable, disabled, style, clear, children,
+      error, className, extra, labelNumber, maxLength,
+    } = this.props;
 
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({

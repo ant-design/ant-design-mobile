@@ -168,7 +168,7 @@ export default class Button extends React.Component<tsProps, any> {
     return (
       <TouchableHighlight activeOpacity={1} delayPressOut={1} {...this.props} {...unProp}
         style={wrapperStyle}
-        onPress={(e) => this.props.onClick(e)}
+        onPress={(e?: any) => this.props.onClick && this.props.onClick(e)}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
         onShowUnderlay={this.onShowUnderlay}

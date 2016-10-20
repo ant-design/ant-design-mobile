@@ -43,7 +43,9 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.onSubmit(this.state.value);
+    if (this.props.onSubmit) {
+      this.props.onSubmit(this.state.value);
+    }
   };
 
   onChange = (e) => {
@@ -51,23 +53,29 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value);
+    if (this.props.onChange) {
+      this.props.onChange(value);
+    }
   };
 
-  onFocus = (e) => {
+  onFocus = () => {
     this.setState({
       focus: true,
     });
 
-    this.props.onFocus(e);
+    if (this.props.onFocus) {
+      this.props.onFocus();
+    }
   };
 
-  onBlur = (e) => {
+  onBlur = () => {
     this.setState({
       focus: false,
     });
 
-    this.props.onBlur(e);
+    if (this.props.onBlur) {
+      this.props.onBlur();
+    }
   };
 
   onClear = () => {
@@ -75,8 +83,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.setState({ value: '' });
     }
     (this.refs as any).searchInput.focus();
-    this.props.onClear('');
-    this.props.onChange('');
+    if (this.props.onClear) {
+      this.props.onClear('');
+    }
+    if (this.props.onChange) {
+      this.props.onChange('');
+    }
   };
 
   onCancel = () => {

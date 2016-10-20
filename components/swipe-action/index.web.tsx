@@ -36,22 +36,25 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     if (disabled) {
       return;
     }
-    onOpen();
-
+    if (onOpen) {
+      onOpen();
+    }
     this.setState({
       showModal: true,
     });
   }
 
   onClose() {
-    this.props.onClose();
+    if (this.props.onClose) {
+      this.props.onClose();
+    }
     this.setState({
       showModal: false,
     });
   }
 
   renderAndroid() {
-    const { children, title, autoClose, left, right } = this.props;
+    const { children, title, autoClose, left = [], right = [] } = this.props;
     const pressOption = {
       recognizers: {
         press: {
@@ -98,7 +101,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
 
   render() {
     const {
-      className, prefixCls, left, right, autoClose, disabled, onOpen, onClose, children,
+      className, prefixCls, left = [], right = [], autoClose, disabled, onOpen, onClose, children,
     } = this.props;
     const isAndroid = !!navigator.userAgent.match(/Android/i);
     const wrapClass = classNames({

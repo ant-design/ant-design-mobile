@@ -13,7 +13,9 @@ export default class Switch extends React.Component<SwitchProps, any> {
 
   onChange = (e) => {
     const checked = e.target.checked;
-    this.props.onChange(checked);
+    if (this.props.onChange) {
+      this.props.onChange(checked);
+    }
   };
 
   render() {
