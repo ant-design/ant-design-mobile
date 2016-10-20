@@ -1,6 +1,6 @@
 ---
 category: Form
-type: UI Controls
+type: Form
 chinese: 多行输入
 english: TextareaItem
 ---

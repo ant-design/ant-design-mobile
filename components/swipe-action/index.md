@@ -1,6 +1,6 @@
 ---
 category: Others
-type: UI Controls
+type: Others
 chinese: 滑动或长按操作
 english: SwipeAction
 ---

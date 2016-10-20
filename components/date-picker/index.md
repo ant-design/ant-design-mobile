@@ -1,6 +1,6 @@
 ---
 category: Form
-type: UI Controls
+type: Form
 chinese: 日期选择
 english: DatePicker
 ---

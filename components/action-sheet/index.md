@@ -1,6 +1,6 @@
 ---
-category: Operation feedback
-type: UI Views
+category: Operation Feedback
+type: Operation Feedback
 chinese: 动作面板
 english: ActionSheet
 ---

@@ -1,6 +1,6 @@
 ---
 category: Navigation
-type: UI Views
+type: Navigation
 chinese: 菜单
 english: Menu
 ---

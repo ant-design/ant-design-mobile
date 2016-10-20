@@ -1,6 +1,6 @@
 ---
 category: Form
-type: UI Controls
+type: Form
 chinese: 图片选择
 english: ImagePicker
 --------------------

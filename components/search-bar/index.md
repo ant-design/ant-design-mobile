@@ -1,6 +1,6 @@
 ---
 category: Basic Components
-type: UI Bars
+type: Basic Components
 chinese: 搜索栏
 english: SearchBar
 ---

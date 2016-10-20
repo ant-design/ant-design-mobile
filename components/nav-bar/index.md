@@ -1,6 +1,6 @@
 ---
 category: Navigation
-type: UI Bars
+type: Navigation
 chinese: 导航栏
 english: NavBar
 display: false

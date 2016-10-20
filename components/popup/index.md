@@ -1,6 +1,6 @@
 ---
-category: Operation feedback
-type: UI Views
+category: Operation Feedback
+type: Operation Feedback
 chinese: 弹出层
 english: Popup
 ---

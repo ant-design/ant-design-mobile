@@ -33,14 +33,40 @@
   }
   .am-demo-bd {
     background: #fff;
-    .am-list-header {
-      padding: 0;
-      padding-left: 30px;
-      height: 182px;
-      line-height: 182px;
-      color: #888;
-      font-size: 34px;
+    .am-list {
+      .am-list-header {
+        padding: 0;
+        padding-left: 30px;
+        height: 182px;
+        line-height: 182px;
+        color: #888;
+        font-size: 34px;
+      }
+      &.category-open {
+        .am-list-body {
+        }
+      }
+      &.category-closed {
+        .am-list-header {
+          position: relative;
+          &:after {
+            display: block;
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 0;
+            right: auto;
+            top: auto;
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+          }
+        }
+        .am-list-body {
+          display: none;
+        }
+      }
     }
+
   }
 }
 

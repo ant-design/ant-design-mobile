@@ -1,6 +1,6 @@
 ---
 category: Basic Components
-type: UI Controls
+type: Basic Components
 chinese: 进度条
 english: Progress
 ---

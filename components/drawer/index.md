@@ -1,6 +1,6 @@
 ---
 category: Navigation
-type: UI Views
+type: Navigation
 chinese: 抽屉
 english: Drawer
 ---

@@ -1,6 +1,6 @@
 ---
 category: Basic Components
-type: Others
+type: Basic Components
 chinese: 九宫格
 english: Grid
 ---

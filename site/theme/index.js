@@ -2,10 +2,10 @@ const contentTmpl = './template/Content/index';
 
 module.exports = {
   categoryOrder: {
-    'Navigation': 0,
+    Navigation: 0,
     'Basic Components': 1,
-    'Form': 2,
-    'Operation feedback': 3,
+    Form: 2,
+    'Operation Feedback': 3,
     Others: 4,
   },
   typeOrder: {

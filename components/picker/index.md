@@ -1,6 +1,6 @@
 ---
 category: Form
-type: UI Controls
+type: Form
 chinese: 选择器
 english: Picker
 ---

@@ -1,6 +1,6 @@
 ---
 category: Basic Components
-type: UI Views
+type: Basic Components
 chinese: 卡片
 english: Card
 ---

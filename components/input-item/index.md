@@ -1,6 +1,6 @@
 ---
 category: Form
-type: UI Controls
+type: Form
 chinese: 文本输入
 english: InputItem
 ---

@@ -1,6 +1,6 @@
 ---
 category: Navigation
-type: UI Bars
+type: Navigation
 chinese: 标签栏
 english: TabBar
 ---

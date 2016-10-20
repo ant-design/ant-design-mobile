@@ -1,6 +1,6 @@
 ---
 category: Navigation
-type: UI Controls
+type: Navigation
 chinese: 标签页
 english: Tabs
 ---

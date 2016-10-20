@@ -1,6 +1,6 @@
 ---
-category: Operation feedback
-type: UI Views
+category: Operation Feedback
+type: Operation Feedback
 chinese: 轻提示
 noinstant: true
 english: Toast

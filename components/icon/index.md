@@ -1,6 +1,6 @@
 ---
 category: Basic Components
-type: Others
+type: Basic Components
 chinese: 图标
 english: Icon
 ---

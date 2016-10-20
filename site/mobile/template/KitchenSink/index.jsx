@@ -63,6 +63,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       open: false,
+      cateOpend: [false, false, false, false, false],
     };
     this.onOpenChange = this.onOpenChange.bind(this);
   }
@@ -84,6 +85,14 @@ export default class App extends React.Component {
       lists[meta.category].push(meta);
     });
 
+    const cateChinese = {
+      Navigation: '导航',
+      'Basic Components': '基础组件',
+      Form: '表单',
+      'Operation Feedback': '操作反馈',
+      Others: '其他',
+    };
+
     /* thumb={`https://os.alipayobjects.com/rmsportal/${img}.png`} */
     /* const img = hashImgObj[fileName] || 'nREwETegxvDndJZ'; */
     return (<Page
@@ -96,7 +105,18 @@ export default class App extends React.Component {
         .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
         .map((cate, index) => (<List
           key={`${cate}-${index}`}
-          renderHeader={() => cate}
+          renderHeader={() => (<div
+            onClick={() => {
+              const { cateOpend } = this.state;
+              cateOpend[index] = !cateOpend[index];
+              this.setState({
+                cateOpend,
+              });
+            }}
+          >
+            <span style={{ color: '#000' }}>{cateChinese[cate]}</span> {cate}
+          </div>)}
+          className={this.state.cateOpend[index] ? 'category-open' : 'category-closed'}
         >
           {lists[cate].map((item) => {
             const fileName = item.filename.split('/')[1];

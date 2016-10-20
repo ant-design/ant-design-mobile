@@ -1,6 +1,6 @@
 ---
 category: Navigation
-type: UI Controls
+type: Navigation
 chinese: 分页器
 english: Pagination
 ---
