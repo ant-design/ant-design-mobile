@@ -21,7 +21,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
   };
 
   onMaskClose = () => {
-    if (this.props.maskClosable) {
+    if (this.props.maskClosable && this.props.onClose) {
       this.props.onClose();
     }
   };
@@ -32,10 +32,10 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       transparent, visible, onClose,
     } = this.props;
 
-    const btnGroupStyle = footer.length === 2 ? modalStyle.buttnGroupH : modalStyle.buttnGroupV;
-    const buttonWrapStyle = footer.length === 2 ? modalStyle.buttnWrapH : modalStyle.buttnWrapV;
+    const btnGroupStyle = footer && footer.length === 2 ? modalStyle.buttnGroupH : modalStyle.buttnGroupV;
+    const buttonWrapStyle = footer && footer.length === 2 ? modalStyle.buttnWrapH : modalStyle.buttnWrapV;
 
-    const footerDom = footer.length ? (
+    const footerDom = footer && footer.length ? (
       <View style={[btnGroupStyle]}>
         {
           footer.map((button: any, i) => {
@@ -45,7 +45,9 @@ class AntmModal extends React.Component<ModalPropsType, any> {
                 if (button.onPress) {
                   button.onPress();
                 }
-                onClose();
+                if (onClose) {
+                  onClose();
+                }
               }}>
                   <Text style={[modalStyle.buttonText]}>{button.text || `按钮${i}`}</Text>
                 </TouchableOpacity>

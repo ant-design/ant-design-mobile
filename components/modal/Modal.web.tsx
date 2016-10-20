@@ -25,11 +25,11 @@ export default class Modal extends React.Component<ModalProps, any> {
       transitionName,
       maskTransitionName,
       style,
-      footer,
+      footer = [],
     } = this.props;
 
     const wrapCls = classNames({
-      [className]: !!className,
+      [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
     });
 

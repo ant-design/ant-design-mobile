@@ -15,7 +15,7 @@ interface FlexPropsType {
   /** rn only */
   onPress?: any;
   /** web only */
-  onClick?: Function;
+  onClick?: (_e: any) => void;
 }
 
 export default FlexPropsType;

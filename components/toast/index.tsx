@@ -19,7 +19,8 @@ export interface ToastProps {
 class ToastContainer extends React.Component<ToastProps, any> {
   static defaultProps = {
     duration: 3,
-    onClose() {},
+    onClose() {
+    },
   };
 
   anim: any;
@@ -27,27 +28,29 @@ class ToastContainer extends React.Component<ToastProps, any> {
   constructor(props) {
     super(props);
     this.state = {
-     fadeAnim: new Animated.Value(0),
+      fadeAnim: new Animated.Value(0),
     };
   }
 
   componentDidMount() {
-    const {onClose, duration} = this.props;
+    const { onClose, duration } = this.props;
     const timing = Animated.timing;
     this.anim = Animated.sequence([
       timing(
         this.state.fadeAnim,
-        {toValue: 1, duration: 200}
+        { toValue: 1, duration: 200 }
       ),
       Animated.delay(duration * 1000),
       timing(
         this.state.fadeAnim,
-        {toValue: 0, duration: 200}
+        { toValue: 0, duration: 200 }
       ),
     ]);
     this.anim.start(() => {
       this.anim = null;
-      onClose();
+      if (onClose) {
+        onClose();
+      }
       topView.remove();
     });
   }
@@ -60,14 +63,14 @@ class ToastContainer extends React.Component<ToastProps, any> {
   }
 
   render() {
-    const { type, content } = this.props;
+    const { type = '', content } = this.props;
     const iconType = {
       success: require('./images/success.png'),
       fail: require('./images/fail.png'),
       offline: require('./images/offline.png'),
     };
 
-    let iconDom = null;
+    let iconDom: React.ReactElement<any> | null = null;
     if (type === 'loading') {
       iconDom = <ActivityIndicator
         animating
@@ -114,7 +117,8 @@ export default {
   SHORT: 3,
   LONG: 8,
   show(content: string, duration?: number) {
-    return notice(content, 'info', duration, () => {});
+    return notice(content, 'info', duration, () => {
+    });
   },
   info(content: string, duration?: number, onClose?: () => void) {
     return notice(content, 'info', duration, onClose);

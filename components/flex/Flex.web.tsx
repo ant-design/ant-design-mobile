@@ -15,7 +15,7 @@ export default class Flex extends React.Component<FlexProps, any> {
     let { direction, wrap, justify, align, alignContent, className, children, prefixCls, style, onClick } = this.props;
 
     const wrapCls = classNames({
-      [prefixCls]: true,
+      [prefixCls as string]: true,
       [`${prefixCls}-dir-row`]: direction === 'row',
       [`${prefixCls}-dir-row-reverse`]: direction === 'row-reverse',
       [`${prefixCls}-dir-column`]: direction === 'column',
@@ -44,7 +44,7 @@ export default class Flex extends React.Component<FlexProps, any> {
       [`${prefixCls}-align-content-around`]: alignContent === 'around',
       [`${prefixCls}-align-content-stretch`]: alignContent === 'stretch',
 
-      [className]: className,
+      [className as string]: className,
     });
 
     return (

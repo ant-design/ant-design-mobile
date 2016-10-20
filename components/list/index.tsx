@@ -12,8 +12,8 @@ export default class List extends React.Component<ListProps, any> {
   render() {
     let { children, style, renderHeader, renderFooter } = this.props;
 
-    let headerDom = null;
-    let footerDom = null;
+    let headerDom: React.ReactElement<any> | null = null;
+    let footerDom: React.ReactElement<any> | null = null;
 
     if (renderHeader) {
       let content = renderHeader();

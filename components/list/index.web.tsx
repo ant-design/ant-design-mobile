@@ -13,8 +13,8 @@ export default class List extends React.Component<ListProps, any> {
   render() {
     let {prefixCls, children, className, style, renderHeader, renderFooter} = this.props;
     const wrapCls = classNames({
-      [prefixCls]: true,
-      [className]: className,
+      [prefixCls as string]: true,
+      [className as string]: className,
     });
 
     return (

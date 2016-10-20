@@ -18,7 +18,7 @@ export default class ActivityIndicator extends React.Component<ActivityIndicator
       [`${prefixCls}`]: true,
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
-      [className]: !!className,
+      [className as string]: !!className,
       [`${prefixCls}-toast`]: !!toast,
     });
     const spinnerClass = classNames({

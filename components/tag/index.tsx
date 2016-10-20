@@ -42,12 +42,16 @@ export default class Modal extends React.Component<TagProps, any> {
     this.setState({
       selected: !isSelect,
     }, () => {
-      onChange(!isSelect);
+      if (onChange) {
+        onChange(!isSelect);
+      }
     });
   }
 
   onTagClose = () => {
-    this.props.onClose();
+    if (this.props.onClose) {
+      this.props.onClose();
+    }
     this.setState({
       closed: true,
     }, this.props.afterClose);

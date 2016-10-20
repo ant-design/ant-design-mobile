@@ -17,7 +17,7 @@ class Item extends React.Component<any, any> {
       ['children', 'className', 'prefixCls', 'iconName', 'disabled', 'touchFeedback', 'firstItem']);
 
     const cls = {
-      [className]: !!className,
+      [className as string]: !!className,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled,
       [`${prefixCls}-item-active`]: touchFeedback,

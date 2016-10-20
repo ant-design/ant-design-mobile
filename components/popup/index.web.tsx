@@ -6,14 +6,14 @@ import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import assign from 'object-assign';
 
-function create(instanceId, config, content, afterClose = (x: any) => { }) {
+function create(instanceId, config, content, afterClose = (_x: any) => { }) {
   const props = assign({}, {
     prefixCls: 'am-popup',
     animationType: 'slide-down',
   }, config);
   const {prefixCls, transitionName, maskTransitionName, maskClosable = true, animationType} = props;
 
-  let div = document.createElement('div');
+  let div: any = document.createElement('div');
   document.body.appendChild(div);
 
   function close() {
@@ -50,8 +50,8 @@ function create(instanceId, config, content, afterClose = (x: any) => { }) {
 }
 
 const ins = {
-  defaultInstance: null,
-  instances: [],
+  defaultInstance: null as any,
+  instances: [] as any[],
 };
 let instanceId = 1;
 

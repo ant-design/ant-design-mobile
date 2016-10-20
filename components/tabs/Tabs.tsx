@@ -28,17 +28,21 @@ class Tabs extends React.Component<TabsProps, any> {
   onTabClick = ({i}) => {
     const key = this.getKey(i);
     const { onTabClick, onChange } = this.props;
-    onTabClick(key);
+    if (onTabClick) {
+      onTabClick(key);
+    }
     if (this.activeIndex !== i) {
-      onChange(key);
+      if (onChange) {
+        onChange(key);
+      }
       this.activeIndex = i;
     }
   }
 
   getContents() {
     const { children } = this.props;
-    const newChildren = [];
-    React.Children.forEach(children, (child: any, idx) => {
+    const newChildren: any[] = [];
+    React.Children.forEach(children as any, (child: any, idx) => {
       newChildren.push(React.cloneElement(child, {
         key: idx,
         tabLabel: child.props.tab,
@@ -52,7 +56,7 @@ class Tabs extends React.Component<TabsProps, any> {
   getKey(index) {
     const children = this.props.children;
     let key;
-    React.Children.forEach(children, (child: any, idx) => {
+    React.Children.forEach(children as any, (child: any, idx) => {
       if (index === idx) {
         key = child.key;
       }
@@ -60,7 +64,7 @@ class Tabs extends React.Component<TabsProps, any> {
     return key;
   }
 
-  renderTabBar = (props) => {
+  renderTabBar = () => {
     const {
       tabBarPosition, underlineColor, activeUnderlineColor, textColor, activeTextColor, styles,
     } = this.props;
@@ -87,7 +91,7 @@ class Tabs extends React.Component<TabsProps, any> {
 
     let defaultActiveIndex = 0;
     let activeIndex = 0;
-    React.Children.forEach(children, (child: any, idx) => {
+    React.Children.forEach(children as any, (child: any, idx) => {
       if (defaultActiveKey === child.key) {
         defaultActiveIndex = idx;
       }

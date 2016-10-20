@@ -19,7 +19,9 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
 
   onClick = () => {
     const { mode, onClick } = this.props;
-    onClick();
+    if (onClick) {
+      onClick();
+    }
     if (mode === 'closable') {
       this.setState({
         show: false,

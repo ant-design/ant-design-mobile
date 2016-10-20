@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import splitObject from '../_util/splitObject';
 import touchableFeedback from '../_util/touchableFeedback';
 

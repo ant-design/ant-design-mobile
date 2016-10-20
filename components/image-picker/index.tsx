@@ -91,18 +91,24 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       imageObj.url = imageObj.uri;
       delete imageObj.uri;
     }
-    const newImages = this.props.files.concat(imageObj);
-    this.props.onChange(newImages, 'add');
+    const { files = [] } = this.props;
+    const newImages = files.concat(imageObj);
+    if (this.props.onChange) {
+      this.props.onChange(newImages, 'add');
+    }
   }
 
   removeImage(idx: number): void {
-    const newImages = [];
-    this.props.files.forEach((image, index) => {
+    const newImages: any[] = [];
+    const { files = [] } = this.props;
+    files.forEach((image, index) => {
       if (index !== idx) {
         newImages.push(image);
       }
     });
-    this.props.onChange(newImages, 'remove', idx);
+    if (this.props.onChange) {
+      this.props.onChange(newImages, 'remove', idx);
+    }
   }
 
   hideImageRoll = () => {
@@ -112,7 +118,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
 
   render() {
-    const { styles, files } = this.props;
+    const { styles, files = [] } = this.props;
     return (
       <View style={styles.container}>
         {

@@ -71,7 +71,7 @@ export default class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
       [`${prefixCls}-item-hover`]: hover,
-      [className]: className,
+      [className as string]: className,
     });
 
     const lineCls = classNames({

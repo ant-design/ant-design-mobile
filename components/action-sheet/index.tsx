@@ -11,9 +11,6 @@ import styles, { vars as variables } from './style/index';
 import topView from 'rn-topview';
 import Modal from 'rc-dialog/lib/Modal';
 
-function noop(a: any) {
-}
-
 export interface Props {
   name?: string;
   maskClosable?: boolean;
@@ -47,7 +44,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
   }
 
   componentWillUnmount() {
-    DeviceEventEmitter.removeAllListeners('antActionSheetHide');
+    (DeviceEventEmitter as any).removeAllListeners('antActionSheetHide');
   }
 
   onClose = () => {
@@ -84,15 +81,17 @@ if (Platform.OS === 'ios') {
 } else {
   ActionSheet = {
     instances: {},
-    showActionSheetWithOptions(config, callback = noop) {
+    showActionSheetWithOptions(config, callback) {
       const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = config;
       const titleMsg = [
         title ? <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View> : null,
         message ? <View style={styles.message} key="1"><Text>{message}</Text></View> : null,
       ];
       const cb = (index) => {
-        DeviceEventEmitter.emit('antActionSheetHide');
-        callback(index);
+        (DeviceEventEmitter as any).emit('antActionSheetHide');
+        if (callback) {
+          callback(index);
+        }
       };
       const children = (
         <View>

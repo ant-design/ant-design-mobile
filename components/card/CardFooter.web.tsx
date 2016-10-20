@@ -17,7 +17,7 @@ export default class CardFooter extends React.Component <CardFooterProps, any> {
     const { prefixCls, content, className, extra } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-footer`]: true,
-      [className]: className,
+      [className as string]: className,
     });
 
     return (

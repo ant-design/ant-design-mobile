@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-function noop() { }
+function noop() {
+}
 import InputItemProps from './InputItemPropsType';
 import getDataAttr from '../_util/getDataAttr';
 
@@ -16,7 +17,7 @@ export interface InputItemState {
   placeholder?: string;
 }
 
-export default class InputItem extends React.Component<InputItemProps, InputItemState> {
+class InputItem extends React.Component<InputItemProps, InputItemState> {
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
@@ -92,8 +93,10 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       default:
         break;
     }
-    onChange(value);
-  };
+    if (onChange) {
+      onChange(value);
+    }
+  }
 
   onInputBlur = (e) => {
     this.debounceTimeout = setTimeout(() => {
@@ -102,24 +105,32 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       });
     }, 300);
     const value = e.target.value;
-    this.props.onBlur(value);
-  };
+    if (this.props.onBlur) {
+      this.props.onBlur(value);
+    }
+  }
 
   onInputFocus = (e) => {
     this.setState({
       focus: true,
     });
     const value = e.target.value;
-    this.props.onFocus(value);
-  };
+    if (this.props.onFocus) {
+      this.props.onFocus(value);
+    }
+  }
 
   onExtraClick = (e) => {
-    this.props.onExtraClick(e);
-  };
+    if (this.props.onExtraClick) {
+      this.props.onExtraClick(e);
+    }
+  }
 
   onErrorClick = (e) => {
-    this.props.onErrorClick(e);
-  };
+    if (this.props.onErrorClick) {
+      this.props.onErrorClick(e);
+    }
+  }
 
   clearInput = () => {
     if (this.props.type !== 'password') {
@@ -127,13 +138,17 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
         placeholder: this.props.value,
       });
     }
-    this.props.onChange('');
-  };
+    if (this.props.onChange) {
+      this.props.onChange('');
+    }
+  }
 
   render() {
     const {
-      prefixCls, prefixListCls, type, value, defaultValue, name, editable, disabled, style, clear, children,
-      error, className, extra, labelNumber, maxLength } = this.props;
+      prefixCls, prefixListCls, type, value, defaultValue,
+      name, editable, disabled, style, clear, children,
+      error, className, extra, labelNumber, maxLength,
+    } = this.props;
 
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({
@@ -142,7 +157,7 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
-      [className]: className,
+      [className as string]: className,
     });
 
     const labelCls = classNames({
@@ -207,3 +222,5 @@ export default class InputItem extends React.Component<InputItemProps, InputItem
     );
   }
 }
+
+export default InputItem;

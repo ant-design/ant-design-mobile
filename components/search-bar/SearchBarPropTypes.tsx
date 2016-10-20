@@ -1,3 +1,5 @@
+import React from 'react';
+
 function noop() {}
 
 export interface SearchBarProps {
@@ -11,8 +13,8 @@ export interface SearchBarProps {
   placeholder?: string;
   onSubmit?: Function;
   onChange?: Function;
-  onFocus?: (event: {nativeEvent: {text: string}}) => void;
-  onBlur?: (event: {nativeEvent: {text: string}}) => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
   onCancel?: Function;
   /** web only */
   onClear?: Function;

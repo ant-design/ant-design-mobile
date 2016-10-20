@@ -43,8 +43,8 @@ class Button extends React.Component<tsProps, any> {
       'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback']);
 
     const wrapCls = {
-      [className]: className,
-      [prefixCls]: true,
+      [className as string]: className,
+      [prefixCls as string]: true,
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',

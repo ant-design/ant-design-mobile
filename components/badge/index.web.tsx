@@ -38,8 +38,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
     });
 
     const badgeCls = classNames({
-      [className]: !!className,
-      [prefixCls]: true,
+      [className as string]: !!className,
+      [prefixCls as string]: true,
       [`${prefixCls}-not-a-wrapper`]: !children,
       [`${prefixCls}-corner-wrapper`]: corner,
       [`${prefixCls}-corner-wrapper-large`]: corner && (size === 'large'),

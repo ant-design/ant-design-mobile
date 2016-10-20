@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import styles from './style';
 
-let {width, height} = Dimensions.get('window');
+let { width, height } = Dimensions.get('window');
 
 export interface ViewPagerProps {
   selectedIndex?: number;
@@ -95,14 +95,14 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
 
     this.autoplayTimer = this.setTimeout(() => {
       if (!this.props.infinite && ( this.state.selectedIndex === this.state.count - 1)) {
-        return this.setState({autoplayEnd: true});
+        return this.setState({ autoplayEnd: true });
       }
       this.scrollNextPage();
     }, this.props.autoplayTimeout * 1000);
   },
 
   onScrollBegin(e) {
-    this.setState({isScrolling: true});
+    this.setState({ isScrolling: true });
 
     this.setTimeout(() => {
       if (this.props.onScrollBeginDrag) {
@@ -112,11 +112,11 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
   },
 
   onScrollEnd(e) {
-    this.setState({isScrolling: false});
+    this.setState({ isScrolling: false });
 
     // android incompatible
     if (!e.nativeEvent.contentOffset) {
-      e.nativeEvent.contentOffset = {x: e.nativeEvent.position * this.state.width};
+      e.nativeEvent.contentOffset = { x: e.nativeEvent.position * this.state.width };
     }
 
     this.updateIndex(e.nativeEvent.contentOffset);
@@ -131,7 +131,7 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
   },
 
   onScrollEndDrag(e) {
-    const {offset, selectedIndex, count} = this.state;
+    const { offset, selectedIndex, count } = this.state;
     const previousOffset = offset.x;
     const newOffset = e.nativeEvent.x;
 
@@ -173,7 +173,7 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
       offset,
       loopJump: loopJump,
     });
-    const {afterChange} = this.props;
+    const { afterChange } = this.props;
     if (afterChange) {
       afterChange(selectedIndex);
     }
@@ -192,7 +192,7 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
     if (Platform.OS === 'android') {
       (this.refs as any).scrollview.setPage(diff);
     } else {
-      (this.refs as any).scrollview.scrollTo({x, y});
+      (this.refs as any).scrollview.scrollTo({ x, y });
     }
 
     this.setState({
@@ -214,23 +214,28 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
 
   renderContent(pages) {
     if (Platform.OS === 'ios') {
+      const others = {
+        onScrollBeginDrag: this.onScrollBegin,
+        onMomentumScrollEnd: this.onScrollEnd,
+        onScrollEndDrag: this.onScrollEndDrag,
+      };
       return (
-        <ScrollView ref="scrollview"
+        <ScrollView
+          ref="scrollview"
           {...this.props}
-                    horizontal={true}
-                    pagingEnabled={true}
-                    bounces={!!this.props.bounces}
-                    scrollEventThrottle={100}
-                    removeClippedSubviews={true}
-                    automaticallyAdjustContentInsets={false}
-                    directionalLockEnabled={true}
-                    showsHorizontalScrollIndicator={false}
-                    showsVerticalScrollIndicator={false}
-                    contentContainerStyle={[styles.wrapper, this.props.style]}
-                    contentOffset={this.state.offset}
-                    onScrollBeginDrag={this.onScrollBegin}
-                    onMomentumScrollEnd={this.onScrollEnd}
-                    onScrollEndDrag={this.onScrollEndDrag}>
+          horizontal={true}
+          pagingEnabled={true}
+          bounces={!!this.props.bounces}
+          scrollEventThrottle={100}
+          removeClippedSubviews={true}
+          automaticallyAdjustContentInsets={false}
+          directionalLockEnabled={true}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={[styles.wrapper, this.props.style]}
+          contentOffset={this.state.offset}
+          {...others}
+        >
           {pages}
         </ScrollView>
       );
@@ -268,7 +273,7 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
     let infinite = props.infinite;
     let pages: any = [];
 
-    let pageStyle = [{width: state.width, height: state.height}, styles.slide];
+    let pageStyle = [{ width: state.width, height: state.height }, styles.slide];
 
     if (!children) {
       return (

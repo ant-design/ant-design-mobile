@@ -18,8 +18,8 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   render() {
     let {style, radioStyle, defaultChecked, checked, disabled, children, onChange} = this.props;
 
-    let contentDom = null;
-    if (React.isValidElement(children)) {
+    let contentDom: React.ReactElement<any> | null = null;
+    if (children && React.isValidElement(children)) {
       contentDom = <View style={{ flex: 1 }}>{children}</View>;
     } else {
       let contentStyle = [styles.radioItemContent, disabled ? styles.radioItemContentDisable : {}];
@@ -30,7 +30,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
 
     return (<ListItem
       style={style}
-      onClick={disabled ? null : this.handleClick}
+      onClick={disabled ? undefined : this.handleClick}
       extra={<Radio
         ref={refRadio}
         style={radioStyle}

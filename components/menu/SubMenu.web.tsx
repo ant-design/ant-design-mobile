@@ -33,19 +33,21 @@ export default class SubMenu extends React.Component<SubMenuProps, SubMenuState>
     this.setState({
       value: [el],
     });
-    this.props.onChange(el);
+    if (this.props.onChange) {
+      this.props.onChange(el);
+    }
   };
 
   render() {
-    const { value, data } = this.state;
+    const { value = [], data = [] } = this.state;
     const { className, prefixCls, radioPrefixCls } = this.props;
 
     const subMenuCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className,
+      [className as string]: className,
     });
 
-    const itemsDom = [];
+    const itemsDom: any = [];
     data.forEach((el, idx) => {
       const listItemCls = classNames({
         [`${radioPrefixCls}-item`]: true,

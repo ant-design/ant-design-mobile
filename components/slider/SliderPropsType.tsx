@@ -1,7 +1,8 @@
 interface SliderProps {
-  onChange?: () => void;
-  onAfterChange?: () => void;
+  onChange?: (value?: number) => void;
+  onAfterChange?: (value?: number) => void;
   defaultValue?: number;
+  tipFormatter?: Function;
   value?: number;
   min?: number;
   max?: number;

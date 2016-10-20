@@ -35,8 +35,12 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     if (enabled) {
       e.nativeEvent.selectedSegmentIndex = index;
       e.nativeEvent.value = value;
-      onChange(e);
-      onValueChange(value);
+      if (onChange) {
+        onChange(e);
+      }
+      if (onValueChange) {
+        onValueChange(value);
+      }
       this.setState({
         selectedIndex: index,
       });
@@ -44,10 +48,10 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   }
 
   render() {
-    const { style, enabled, values, tintColor } = this.props;
+    const { style, enabled, values = [], tintColor } = this.props;
     const selectedIndex = this.state.selectedIndex;
     const items = values.map((value, idx) => {
-      let itemRadius = null;
+      let itemRadius: any = null;
       if (idx === 0) {
         itemRadius = styles.itemLeftRadius;
       } else if (idx === values.length - 1) {
@@ -55,7 +59,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       }
 
       return (
-        <TouchableWithoutFeedback key={idx} onPress={(e) => this.onPress(e, idx, value)}>
+        <TouchableWithoutFeedback key={idx} onPress={(e?: any) => this.onPress(e, idx, value)}>
           <View
             style={[styles.item, itemRadius, {
               backgroundColor: idx === selectedIndex ? tintColor : '#fff',

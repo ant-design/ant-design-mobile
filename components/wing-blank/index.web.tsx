@@ -13,7 +13,7 @@ export default class WingBlank extends React.Component<WingBlankProps, any> {
     let wrapCls = classNames({
       [`${prefixCls}`]: true,
       [`${prefixCls}-${size}`]: true,
-      [className]: !!className,
+      [className as string]: !!className,
     });
 
     return (

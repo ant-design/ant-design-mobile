@@ -21,7 +21,9 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
 
   onClick() {
     const { mode, onClick } = this.props;
-    onClick();
+    if (onClick) {
+      onClick();
+    }
     if (mode === 'closable') {
       this.setState({
         show: false,
@@ -32,8 +34,8 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   render() {
     const { prefixCls, children, mode, type, onClick, className } = this.props;
     const wrapCls = classNames({
-      [prefixCls]: true,
-      [className]: !!className,
+      [prefixCls as string]: true,
+      [className as string]: !!className,
     });
 
     let operationDom;

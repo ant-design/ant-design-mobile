@@ -4,7 +4,7 @@ import Item from './item.web';
 import splitObject from '../_util/splitObject';
 import tsPropsType from './PropsType';
 
-function recursiveCloneChildren(children, cb = (ch, i) => ch) {
+function recursiveCloneChildren(children, cb = (ch: any, _i: number) => ch) {
   return React.Children.map(children, (child, index) => {
     const newChild = cb(child, index);
     if (newChild && newChild.props && newChild.props.children) {
@@ -31,14 +31,14 @@ export default class Popover extends React.Component<tsPropsType, any> {
 
     const newChildren = recursiveCloneChildren(overlay, (child, index) => {
       const extraProps = {
-        firstItem: null,
+        firstItem: false,
         onClick: () => {},
       };
       if (child && child.type && child.type.myName === 'PopoverItem' && !child.props.disabled) {
         extraProps.onClick = () => {
           onSelect(child);
         };
-        extraProps.firstItem = index === 0;
+        extraProps.firstItem = (index === 0);
         return React.cloneElement(child, extraProps);
       }
       return child;

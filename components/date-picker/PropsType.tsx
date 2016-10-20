@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface DatePickerProps {
   defaultDate: any;
   value?: any;

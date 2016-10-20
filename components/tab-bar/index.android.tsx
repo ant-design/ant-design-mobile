@@ -22,7 +22,7 @@ class TabBar extends React.Component <TabBarProps, any> {
         selectedIndex = idx;
       }
     });
-    const newChildren = [];
+    const newChildren: any[] = [];
     React.Children.forEach(children, (child: any, idx) => {
       if (content) {
         newChildren.push(
