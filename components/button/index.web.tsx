@@ -16,7 +16,7 @@ function isString(str) {
 function insertSpace(child) {
   if (isString(child.type) && isTwoCNChar(child.props.children)) {
     return React.cloneElement(child, {},
-                              child.props.children.split('').join(' '));
+      child.props.children.split('').join(' '));
   }
   if (isString(child)) {
     if (isTwoCNChar(child)) {
@@ -37,10 +37,12 @@ class Button extends React.Component<tsProps, any> {
   };
 
   render() {
-    let[{ children, className, prefixCls, type, size, inline, disabled,
-      htmlType, icon, loading, touchFeedback }, restProps] = splitObject(this.props,
-    ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
-      'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback']);
+    let [{
+      children, className, prefixCls, type, size, inline, disabled,
+      htmlType, icon, loading, touchFeedback, activeStyle,
+    }, restProps] = splitObject(this.props,
+      ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
+        'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback', 'activeStyle']);
 
     const wrapCls = {
       [className as string]: className,
@@ -54,23 +56,28 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-disabled`]: disabled,
     };
     let style = assign({}, this.props.style);
-    if (typeof touchFeedback === 'boolean') {
-      wrapCls[`${prefixCls}-active`] = touchFeedback;
-    } else if (typeof touchFeedback === 'string') {
-      wrapCls[touchFeedback] = !!touchFeedback;
-    } else if (Object.prototype.toString.call(touchFeedback) === '[object Object]') {
-      style = assign(style, touchFeedback);
+
+    if (touchFeedback) {
+      style = assign(style, activeStyle);
+      wrapCls[`${prefixCls}-active`] = true;
     }
 
     const iconType = loading ? 'loading' : icon;
 
     const kids = React.Children.map(children, insertSpace);
 
-    return (<button {...restProps} style={style}
-      type={htmlType || 'button'}
-      className={classNames(wrapCls)}
-      disabled={disabled}
-      >{iconType ? <Icon type={iconType} /> : null}{kids}</button>);
+    return (
+      <button
+        {...restProps}
+        style={style}
+        type={htmlType || 'button'}
+        className={classNames(wrapCls)}
+        disabled={disabled}
+      >
+        {iconType ? <Icon type={iconType} /> : null}
+        {kids}
+      </button>
+    );
   }
 }
 

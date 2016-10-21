@@ -32,9 +32,9 @@ export default () => (
 
     <WhiteSpace />
     <WingBlank>
-      <Button touchFeedback={false}>无点击反馈</Button>
+      <Button activeStyle={false}>无点击反馈</Button>
       <WhiteSpace />
-      <Button touchFeedback={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
+      <Button activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
     </WingBlank>
 
     <WhiteSpace />
