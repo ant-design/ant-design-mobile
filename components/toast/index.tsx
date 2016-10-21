@@ -35,23 +35,33 @@ class ToastContainer extends React.Component<ToastProps, any> {
   componentDidMount() {
     const { onClose, duration } = this.props;
     const timing = Animated.timing;
-    this.anim = Animated.sequence([
+    if (this.anim) {
+      this.anim = null;
+    }
+    const animArr = [
       timing(
         this.state.fadeAnim,
         { toValue: 1, duration: 200 }
       ),
       Animated.delay(duration * 1000),
-      timing(
-        this.state.fadeAnim,
-        { toValue: 0, duration: 200 }
-      ),
-    ]);
+    ];
+    if (duration > 0) {
+      animArr.push(
+        timing(
+          this.state.fadeAnim,
+          { toValue: 0, duration: 200 }
+        )
+      );
+    }
+    this.anim = Animated.sequence(animArr);
     this.anim.start(() => {
-      this.anim = null;
-      if (onClose) {
-        onClose();
+      if (duration > 0) {
+        this.anim = null;
+        if (onClose) {
+          onClose();
+        }
+        topView.remove();
       }
-      topView.remove();
     });
   }
 
