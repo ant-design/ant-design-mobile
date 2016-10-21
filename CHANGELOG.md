@@ -3,6 +3,12 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.4
+
+`2016-10-21`
+
+- Button 组件修复 #396
+- 修复 rn-checkbox, rn-radio 支持受控组件 https://github.com/ant-design/ant-design-mobile/commit/6f47c36b8e3729674dc63eaaa39cfac05b125f3c  https://github.com/ant-design/ant-design-mobile/commit/5960cd11a94570cfc0b874fa2f05ab0f2bce466a
 
 ### 0.9.3
 
