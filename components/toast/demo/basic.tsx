@@ -26,6 +26,7 @@ function loadingToast() {
 }
 
 export default class ToastExample extends React.Component<any, any> {
+  timer: any;
   componentDidMount() {
     DeviceEventEmitter.addListener('navigatorBack', () => {
       Toast.hide();
@@ -34,6 +35,17 @@ export default class ToastExample extends React.Component<any, any> {
 
   componentWillUnmount () {
     DeviceEventEmitter.removeAllListeners('navigatorBack');
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
+  }
+
+  alwaysShowToast = () => {
+    Toast.info('这是一个 duration 为 0 的 toast!!!', 0);
+    this.timer = setTimeout(() => {
+      Toast.hide();
+    }, 5000);
   }
 
   render() {
@@ -41,23 +53,27 @@ export default class ToastExample extends React.Component<any, any> {
       <View style={{marginTop: 30}}>
         <WhiteSpace />
         <WingBlank>
-          <Button type="ghost" onPress={showToast}>纯文字 toast</Button>
+          <Button type="ghost" onClick={showToast}>纯文字 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="ghost" onPress={successToast}>成功 toast</Button>
+          <Button type="ghost" onClick={successToast}>成功 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="ghost" onPress={failToast}>失败 toast</Button>
+          <Button type="ghost" onClick={failToast}>失败 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="ghost" onPress={offline}>网络 toast</Button>
+          <Button type="ghost" onClick={offline}>网络 toast</Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="ghost" onPress={loadingToast}>加载中 toast</Button>
+          <Button type="ghost" onClick={loadingToast}>加载中 toast</Button>
+        </WingBlank>
+        <WhiteSpace />
+        <WingBlank>
+          <Button type="ghost" onClick={this.alwaysShowToast}>duration 为 0 的 toast</Button>
         </WingBlank>
         <WhiteSpace />
       </View>

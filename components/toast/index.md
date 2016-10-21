@@ -31,6 +31,7 @@ english: Toast
 | duration   | 自动关闭的延时，单位秒 | number                 | 3          |
 | onClose    | 关闭后回调 |  Function                 | 无          |
 
+> **注：**  duration = 0 时，onClose 无效，toast 不会消失；隐藏 toast 需要手动调用 hide
 
 还提供了全局配置和全局销毁方法：
 
