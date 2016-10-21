@@ -9,7 +9,7 @@ interface ButtonProps {
   onClick?: (x: any) => void;
   /** web only */
   prefixCls?: string;
-  touchFeedback?: boolean;
+  activeStyle?: any;
   /** rn only */
   onPressIn?: (x: any) => void;
   onPressOut?: (x: any) => void;
