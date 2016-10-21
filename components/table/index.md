@@ -1,6 +1,6 @@
 ---
-category: UI Views
-type: UI Views
+category: Basic Components
+type: Basic Components
 chinese: 表格
 english: Table
 ---

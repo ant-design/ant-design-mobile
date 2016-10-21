@@ -1,6 +1,6 @@
 ---
-category: UI Controls
-type: UI Controls
+category: Operation Feedback
+type: Operation Feedback
 chinese: 活动指示器
 english: ActivityIndicator
 ---
