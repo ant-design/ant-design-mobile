@@ -78,6 +78,9 @@ export default class Modal extends React.Component<ModalProps, any> {
       }
     });
 
+    const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+    const wrapProps = isIPhone ? { onTouchStart: e => this.isInModal(e) } : {};
+
     return (
       <Dialog
         prefixCls={prefixCls}
@@ -86,7 +89,7 @@ export default class Modal extends React.Component<ModalProps, any> {
         maskTransitionName={maskAnim}
         style={rootStyle}
         footer={footerDom}
-        wrapProps={{ onTouchMove: e => this.isInModal(e) }}
+        wrapProps={wrapProps}
         {...restProps}
       />
     );
