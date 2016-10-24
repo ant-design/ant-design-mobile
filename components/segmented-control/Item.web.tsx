@@ -17,7 +17,7 @@ class SegmentItem extends React.Component<any, any> {
     });
 
     const restProps = assign({}, this.props);
-    ['prefixCls', 'label', 'selected', 'tintColor', 'enabled', 'touchFeedback'].forEach(prop => {
+    ['prefixCls', 'label', 'selected', 'tintColor', 'enabled', 'touchFeedback', 'activeStyle'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
