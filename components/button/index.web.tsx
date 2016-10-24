@@ -55,15 +55,14 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
     };
-    let style = assign({}, this.props.style);
 
+    let style = assign({}, this.props.style);
     if (touchFeedback) {
       style = assign(style, activeStyle);
       wrapCls[`${prefixCls}-active`] = true;
     }
 
     const iconType = loading ? 'loading' : icon;
-
     const kids = React.Children.map(children, insertSpace);
 
     return (
