@@ -16,6 +16,23 @@ export default class Modal extends React.Component<ModalProps, any> {
     footer: [],
   };
 
+  isInModal(e) {
+    // fix touch to scroll background page on iOS
+    const prefixCls = this.props.prefixCls;
+    const pNode = (node => {
+      while ( node.parentNode && node.parentNode !== document.body ) {
+        if ( node.classList.contains(prefixCls)) {
+          return node;
+        }
+        node = node.parentNode;
+      }
+    })(e.target);
+    if (!pNode) {
+      e.preventDefault();
+    }
+    return true;
+  }
+
   render() {
     const {
       prefixCls,
@@ -54,7 +71,7 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     const restProps = assign({}, this.props);
     ['prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
-      'style', 'footer', 'touchFeedback',
+      'style', 'footer', 'touchFeedback', 'wrapProps',
     ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
@@ -69,6 +86,7 @@ export default class Modal extends React.Component<ModalProps, any> {
         maskTransitionName={maskAnim}
         style={rootStyle}
         footer={footerDom}
+        wrapProps={{ onTouchMove: e => this.isInModal(e) }}
         {...restProps}
       />
     );
