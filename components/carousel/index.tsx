@@ -24,6 +24,7 @@ export interface ViewPagerProps {
   infinite?: boolean;
   onScrollBeginDrag?: Function;
   onMomentumScrollEnd?: Function;
+  afterChange?: (selectedIndex: number) => void;
 }
 
 const ViewPager = React.createClass<ViewPagerProps, any>({
