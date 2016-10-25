@@ -16,7 +16,7 @@ english: DatePicker
 | 成员        | 说明           | 类型       | 默认值       |
 |------------|----------------|-----------|--------------|
 | mode  | 日期选择的类型,可以是日期`date`、时间`time`、日期+时间`datetime` | String | `date`  |
-| value | 当前选中时间,各种mode下格式分别为:`yyyy-MM-dd`、`HH:mm`、`yyyy-MM-dd HH:mm` | [moment](http://momentjs.com/) | 无 |
+| value | 当前选中时间,各种mode下格式分别为:`YYYY-MM-DD`、`HH:mm`、`YYYY-MM-DD HH:mm` | [moment](http://momentjs.com/) | 无 |
 | minDate   | 最小可选日期,格式同value | [moment](http://momentjs.com/)  |  -  |
 | maxDate   | 最大可选日期,格式同value | [moment](http://momentjs.com/)  |  -  |
 | onChange   | 时间发生变化的回调  | function(date) |  无  |
