@@ -199,7 +199,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       <div {...getDataAttr(this.props)} className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={`${prefixCls}-control`}>
-          <input
+          <input ref="input"
             {...valueProps}
             type={inputType}
             maxLength={maxLength}
