@@ -6,7 +6,7 @@ title: 基本
 ````jsx
 import { Icon } from 'antd-mobile';
 
-const icons = ['adduser', 'alipay-o', 'alipay', 'bars', 'bill', 'chat', 'chats', 'check', 'checkbox', 'clock-circle', 'comment', 'complain', 'complaint', 'complaints', 'cross', 'delete', 'down', 'edit', 'ellipsis-circle', 'ellipsis', 'eye', 'font', 'friends-o', 'friends', 'frown', 'frown-o', 'group', 'groupx', 'help', 'keep', 'koubei-o', 'koubei', 'like', 'link', 'loading', 'lock', 'mail', 'map', 'minus-circle', 'money', 'ownset', 'pay-circle-o', 'pay-circle', 'plus', 'reload', 'scan', 'search', 'setting', 'setting-sm', 'share', 'team', 'titlebar', 'trips', 'user', 'world'];
+const icons = ['adduser', 'alipay-o', 'alipay', 'bars', 'bill', 'chat', 'chats', 'check', 'check-circle-o', 'check-circle', 'clock-circle', 'comment', 'complain', 'complaint', 'complaints', 'cross', 'cross-circle', 'cross-circle-o', 'delete', 'down', 'edit', 'ellipsis-circle', 'ellipsis', 'eye', 'font', 'friends-o', 'friends', 'frown', 'frown-o', 'group', 'groupx', 'help', 'keep', 'koubei-o', 'koubei', 'left', 'like', 'link', 'loading', 'lock', 'mail', 'map', 'minus-circle', 'money', 'ownset', 'pay-circle-o', 'pay-circle', 'plus', 'qrcode', 'reload', 'right', 'scan', 'search', 'setting', 'setting-sm', 'share', 'team', 'titlebar', 'trips', 'user', 'world'];
 
 class IconItems extends React.Component {
   render() {
