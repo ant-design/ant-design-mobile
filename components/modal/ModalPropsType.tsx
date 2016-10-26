@@ -9,13 +9,13 @@ interface ModalProps {
   transparent?: boolean;
   style?: {};
   animated?: boolean;
+  bodyStyle?: {};
   /** web only */
   prefixCls?: string;
   transitionName?: string;
   maskTransitionName?: string;
   className?: string;
   wrapClassName?: string;
-  bodyStyle?: {};
   touchFeedback?: boolean;
   wrapProps?: {};
 };

@@ -14,6 +14,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     closable: false,
     maskClosable: false,
     style: {},
+    bodyStyle: {},
     onClose() {
     },
     footer: [],
@@ -29,7 +30,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
   render() {
     const {
       title, closable, footer, children, style,
-      transparent, visible, onClose,
+      transparent, visible, onClose, bodyStyle,
     } = this.props;
 
     const btnGroupStyle = footer && footer.length === 2 ? modalStyle.buttnGroupH : modalStyle.buttnGroupV;
@@ -68,7 +69,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
         >
           <View>
             {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}
-            <View style={modalStyle.body}>{children}</View>
+            <View style={[modalStyle.body, bodyStyle]}>{children}</View>
             {footer ? <View>{footerDom}</View> : null}
             {closable ? <TouchableWithoutFeedback onPress={onClose}>
               <View style={[modalStyle.closeWrap]}>
