@@ -1,9 +1,9 @@
 @import '../../style/themes/default';
 @import '../../style/mixins';
 
-@tabs-prefix-cls: am-tab-bar;
+@tabbar-prefix-cls: am-tab-bar;
 
-.@{tabs-prefix-cls} {
+.@{tabbar-prefix-cls} {
   overflow: hidden;
   &-bar {
     box-sizing: border-box;
@@ -18,7 +18,7 @@
     &&-hidden {
       bottom: -@tab-bar-height;
     }
-    .@{tabs-prefix-cls}-tab {
+    .@{tabbar-prefix-cls}-tab {
       flex: 1;
       display: flex;
       justify-content: center;
@@ -42,7 +42,7 @@
   &-content {
     zoom: 1;
 
-    .@{tabs-prefix-cls}-tabpane {
+    .@{tabbar-prefix-cls}-tabpane {
       overflow: auto;
     }
 
@@ -51,7 +51,7 @@
       display: flex;
       will-change: transform;
 
-      .@{tabs-prefix-cls}-tabpane {
+      .@{tabbar-prefix-cls}-tabpane {
         box-sizing: border-box;
         width: 100%;
         flex-shrink: 0;
@@ -59,7 +59,7 @@
     }
 
     &-no-animated {
-      .@{tabs-prefix-cls}-tabpane-inactive {
+      .@{tabbar-prefix-cls}-tabpane-inactive {
         display: none;
       }
     }
