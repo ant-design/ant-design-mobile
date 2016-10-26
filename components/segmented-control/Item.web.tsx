@@ -11,18 +11,23 @@ class SegmentItem extends React.Component<any, any> {
 
   render() {
     const { label, prefixCls, selected, tintColor, enabled, touchFeedback } = this.props;
-    const itemCls = classNames({
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-selected`]: selected,
-    });
-
     const restProps = assign({}, this.props);
     ['prefixCls', 'label', 'selected', 'tintColor', 'enabled', 'touchFeedback', 'activeStyle'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
     });
-
+    const itemCls = classNames({
+      [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-selected`]: selected,
+    });
+    const touchedCls = classNames({
+      [`${prefixCls}-item-feedback`]: true,
+      [`${prefixCls}-item-feedback-tintcolor`]: enabled && touchFeedback && !selected && !tintColor,
+    });
+    const touchFeedbackStyle = enabled && touchFeedback && !selected && tintColor ? {
+      backgroundColor: tintColor,
+    } : {};
     return (
       <div
         className={itemCls}
@@ -33,9 +38,7 @@ class SegmentItem extends React.Component<any, any> {
         }}
         {...restProps}
       >
-        <div className={`${prefixCls}-item-feedback`} style={{
-          backgroundColor: enabled && touchFeedback && !selected ? tintColor : 'transparent',
-        }}></div>
+        <div className={touchedCls} style={touchFeedbackStyle}></div>
         {label}
       </div>
     );
