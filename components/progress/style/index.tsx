@@ -2,7 +2,7 @@ import variables from '../../style/themes/default';
 
 export default {
   progressOuter: {
-    backgroundColor: variables. border_color_base,
+    backgroundColor: variables.border_color_base,
     flex: 1,
   },
   progressBar: {
