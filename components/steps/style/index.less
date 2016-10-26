@@ -8,14 +8,6 @@
 @defaultIconSize: 48px;
 @smallIconSize: 36px;
 
-@font-size-base: 9px;
-.iconfont-size-under-12px(@size, @rotate: 0deg) {
-  display: inline-block;
-  @font-scale: unit(@size/@font-size-base);
-  font-size: @font-size-base;
-  transform: scale(@font-scale) rotate(@rotate);
-}
-
 .@{stepsPrefixCls} {
   font-size: 0;
   width: 100%;
