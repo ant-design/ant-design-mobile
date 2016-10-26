@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import SegmentedControlProps from './SegmentedControlPropTypes';
 import SegmentItem from './Item.web';
 
@@ -12,7 +11,6 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     values: [],
     onChange() {},
     onValueChange() {},
-    tintColor: '#108ee9',
     style: {},
   };
 
@@ -52,10 +50,6 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     const {
       prefixCls, style, enabled, values = [], className, tintColor,
     } = this.props;
-    const wrapCls = classNames({
-      [className as string]: !!className,
-      [`${prefixCls}`]: true,
-    });
     const selectedIndex = this.state.selectedIndex;
     const items = values.map((value, idx) => {
       return (
@@ -71,13 +65,14 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       );
     });
 
-    const enabledOpacity = enabled ? 1 : 0.5;
-    const segmentedStyle = assign({}, style, {
-      opacity: enabledOpacity,
-      borderColor: tintColor,
+    const wrapCls = classNames({
+      [className as string]: !!className,
+      [`${prefixCls}`]: true,
+      [`${prefixCls}-disabled`]: !enabled,
     });
+
     return (
-      <div className={wrapCls} style={segmentedStyle}>
+      <div className={wrapCls} style={style}>
         {items}
       </div>
     );

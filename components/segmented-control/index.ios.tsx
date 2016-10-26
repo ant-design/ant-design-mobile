@@ -5,7 +5,7 @@ import assign from 'object-assign';
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {
-    tintColor: '#2DB7F5',
+    tintColor: '#108ee9',
     selectedIndex: 0,
   };
 

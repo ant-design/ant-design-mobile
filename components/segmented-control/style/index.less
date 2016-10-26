@@ -9,6 +9,11 @@
   border-radius: @radius-md;
   overflow: hidden;
   min-height: @segmented-control-height;
+  opacity: 1;
+
+  &&-disabled {
+    opacity: 0.5;
+  }
 
   &-item {
     .box-flex(1);
@@ -24,6 +29,10 @@
     width: 100%;
     box-sizing: border-box;
     border-left-width: 0;
+
+    &-tintcolor {
+      border-color: @segmented-control-color;
+    }
 
     &:first-child {
       border-left-width: @border-width-md;
@@ -47,6 +56,9 @@
       width: 100%;
       opacity: 0.1;
       transition: background 0.2s;
+      &-tintcolor {
+        background-color: @segmented-control-color;
+      }
     }
   }
 }
