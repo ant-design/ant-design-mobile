@@ -13,7 +13,7 @@ const NoticeBarExample = React.createClass({
     return (
       <div>
         <WhiteSpace size="lg" />
-        <NoticeBar type="info">国庆期间余额宝收益和转出到账时间</NoticeBar>
+        <NoticeBar type="info" onClick={() => alert('click')}>国庆期间余额宝收益和转出到账时间</NoticeBar>
         <WhiteSpace size="lg" />
         <NoticeBar type="warn">国庆期间余额宝收益和转出到账时间</NoticeBar>
         <WhiteSpace size="lg" />

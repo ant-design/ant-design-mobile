@@ -10,6 +10,7 @@ import { NoticeBar, WhiteSpace } from 'antd-mobile';
 
 function linkClick() {
   // 这里配置跳转
+  alert('跳转操作');
 }
 
 const NoticeBarExample = React.createClass({

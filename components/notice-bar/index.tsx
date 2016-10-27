@@ -1,7 +1,7 @@
 /* tslint:disable:no-switch-case-fall-through */
 import React from 'react';
 import NoticeBarProps from './NoticeBarPropsType';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Image } from 'react-native';
 import NoticeStyle from './style';
 
 export default class NoticeBar extends React.Component<NoticeBarProps, any> {
@@ -31,60 +31,42 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
 
   render() {
     const { children, mode, type, style } = this.props;
-    let operationDom;
-    switch (mode) {
-      case 'closable':
-        operationDom = (
-          <TouchableOpacity onPress={this.onClick}>
-            <Text style={[NoticeStyle.close]}>×</Text>
-          </TouchableOpacity>
-        );
-        break;
-      case 'link':
-        operationDom = (
-          <TouchableOpacity onPress={this.onClick}>
-            <Text style={[NoticeStyle.link]}>∟</Text>
-          </TouchableOpacity>
-        );
-        break;
-      default:
-        operationDom = null;
-        break;
+
+    let operationDom: any = null;
+    if (mode === 'closable') {
+      operationDom = (
+        <TouchableWithoutFeedback onPress={this.onClick}>
+          <View><Text style={[NoticeStyle.close]}>×</Text></View>
+        </TouchableWithoutFeedback>
+      );
+    } else if (mode === 'link') {
+      operationDom = (
+        <Text style={[NoticeStyle.link]}>∟</Text>
+      );
     }
 
-    let iconType = '';
-    switch (type) {
-      case 'success':
-        iconType = 'dHVDErPWEJtMlmn';
-        break;
-      case 'error':
-        iconType = 'LvckcvVesFNgvpV';
-        break;
-      case 'warn':
-        iconType = 'bRnouywfdRsCcLU';
-        break;
-      case 'question':
-        iconType = 'JNRDCOIzgNJGnZt';
-        break;
-      case 'info':
-      default:
-        iconType = 'baPKdUnrQFvLyHS';
-        break;
-    }
+    const iconEnum = {
+      success: 'dHVDErPWEJtMlmn',
+      error: 'LvckcvVesFNgvpV',
+      warn: 'bRnouywfdRsCcLU',
+      question: 'JNRDCOIzgNJGnZt',
+    };
 
     const iconDom = type ? <View style={[NoticeStyle.left15]}>
       <Image
-        source={{uri: `https://zos.alipayobjects.com/rmsportal/${iconType}.png`}}
+        source={{uri: `https://zos.alipayobjects.com/rmsportal/${iconEnum[type] || 'baPKdUnrQFvLyHS'}.png`}}
         style={{ width: 12, height:12 }} />
     </View> : null;
 
-    const contentMarginLeftStyle = type ? NoticeStyle.left6 : NoticeStyle.left15;
-    return this.state.show ? (
+    const main = (
       <View style={[NoticeStyle.notice, style]}>
         {iconDom}
-        <Text style={[NoticeStyle.content, contentMarginLeftStyle]}>{children}</Text>
+        <Text style={[NoticeStyle.content, type ? NoticeStyle.left6 : NoticeStyle.left15]}>{children}</Text>
         {operationDom}
       </View>
-    ) : null;
+    );
+    return this.state.show ? mode === 'closable' ? main : (<TouchableWithoutFeedback onPress={this.onClick}>
+        {main}
+      </TouchableWithoutFeedback>) : null;
   }
 }
