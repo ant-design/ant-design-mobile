@@ -55,7 +55,7 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>按钮</Button>, mountNode);
 ```
 
-无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载，并引入相关样式。
+无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载。
 
 ```js
 {
@@ -67,6 +67,8 @@ ReactDOM.render(<Button>按钮</Button>, mountNode);
   ]
 }
 ```
+
+更多常见问题（高清方案设置、环境配置等），请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
 
 ## 版本
 
