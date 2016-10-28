@@ -45,6 +45,12 @@ const ButtonExample = React.createClass({
         </div>
 
         <div style={{ margin: '32px 0' }}>
+          <Button activeStyle={false}>无点击反馈</Button>
+          <div style={{ height: 8 }} />
+          <Button activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
+        </div>
+
+        <div style={{ margin: '32px 0' }}>
           <p className="demo-p">inline / small</p>
           <div style={{ height: 8 }} />
           <Button inline>default inline</Button>&nbsp;

@@ -10,45 +10,62 @@ export default class Button extends React.Component<tsProps, any> {
     disabled: false,
     inline: false,
     loading: false,
-    onClick: (x: any) => {},
+    activeStyle: {},
+    onClick: (_x: any) => {
+    },
+    onPressIn: (_x: any) => {
+    },
+    onPressOut: (_x: any) => {
+    },
+    onShowUnderlay: (_x: any) => {
+    },
+    onHideUnderlay: (_x: any) => {
+    },
   };
-  mTextColor: string;
-  mBorderColor: string;
-  mTextHighlightColor: string;
-  mBorderHighlightColor: string;
+
   constructor(props) {
     super(props);
     this.state = {
       pressIn: false,
+      touchIt: false,
     };
   }
 
-  pressTextColor() {
-    if (this.state.pressIn) {
-      return { color: this.mTextHighlightColor };
+  onPressIn = (...arg) => {
+    if (!this.props.disabled) {
+      this.setState({ pressIn: true });
     }
-
-    return { color: this.mTextColor };
-  }
-
-  pressBorderColor() {
-    if (this.state.pressIn && this.mBorderHighlightColor) {
-      return { borderColor: this.mBorderHighlightColor };
+    if (this.props.onPressIn) {
+      this.props.onPressIn(arg);
     }
-
-    return {borderColor: this.mBorderColor};
   }
-
-  onPressIn = (...args) => {
-    this.setState({ pressIn: true });
-  };
-
-  onPressOut = (...args) => {
-    this.setState({ pressIn: false });
-  };
+  onPressOut = (...arg) => {
+    if (!this.props.disabled) {
+      this.setState({ pressIn: false });
+    }
+    if (this.props.onPressOut) {
+      this.props.onPressOut(arg);
+    }
+  }
+  onShowUnderlay = (...arg) => {
+    if (!this.props.disabled) {
+      this.setState({ touchIt: true });
+    }
+    if (this.props.onShowUnderlay) {
+      this.props.onShowUnderlay(arg);
+    }
+  }
+  onHideUnderlay = (...arg) => {
+    if (!this.props.disabled) {
+      this.setState({ touchIt: false });
+    }
+    if (this.props.onHideUnderlay) {
+      this.props.onHideUnderlay(arg);
+    }
+  }
 
   render() {
-    const { size, type, disabled } = this.props;
+    const { size, type, disabled, activeStyle } = this.props;
 
     let height;
     let fontSize;
@@ -89,6 +106,7 @@ export default class Button extends React.Component<tsProps, any> {
       textColor = variables.ghost_button_color;
       backgroundColor = 'transparent';
       borderColor = variables.ghost_button_color;
+
       highlightTextColor = variables.color_text_base_inverse;
       highlightBackgroundColor = variables.ghost_button_fill_tap;
       highlightBorderColor = variables.ghost_button_color;
@@ -96,14 +114,18 @@ export default class Button extends React.Component<tsProps, any> {
       textColor = variables.brand_warning;
       backgroundColor = variables.fill_base;
       borderColor = variables.brand_warning;
+
+      highlightTextColor = variables.color_text_base_inverse;
       highlightBackgroundColor = variables.brand_warning;
+      highlightBorderColor = variables.brand_warning;
     } else {
       textColor = variables.color_text_base;
       backgroundColor = variables.fill_base;
       borderColor = variables.border_color_base;
 
-      highlightBackgroundColor = variables.fill_tap;
       highlightTextColor = textColor;
+      highlightBackgroundColor = variables.fill_tap;
+      highlightBorderColor = variables.border_color_base;
     }
     if (disabled) {
       textColor = variables.color_text_disabled;
@@ -111,13 +133,11 @@ export default class Button extends React.Component<tsProps, any> {
       borderColor = variables.fill_disabled;
     }
 
-    let touchableProps: any = {};
-    if (!disabled) {
-      touchableProps.onPressIn = this.onPressIn;
-      touchableProps.onPressOut = this.onPressOut;
-    }
-
-    let style = {
+    const textStyle = [{
+      fontSize,
+      color: this.state.pressIn ? highlightTextColor : textColor,
+    }];
+    const wrapperStyle: any = [{
       alignItems: 'center',
       height,
       paddingLeft,
@@ -127,34 +147,45 @@ export default class Button extends React.Component<tsProps, any> {
       borderWidth: 1,
       borderColor,
       justifyContent: 'center',
-    };
+    }, {
+      borderColor: this.state.pressIn ? highlightBorderColor : borderColor,
+    }];
 
-    this.mTextColor = textColor;
-    this.mBorderColor = borderColor;
-    this.mTextHighlightColor = highlightTextColor;
-    if (highlightBorderColor) {
-      this.mBorderHighlightColor = highlightBorderColor;
+    const unProp: any = {};
+    unProp.underlayColor = activeStyle ? highlightBackgroundColor : backgroundColor;
+    if (activeStyle && this.state.touchIt) {
+      wrapperStyle.push(activeStyle);
     }
+    wrapperStyle.push(this.props.style);
+
+    const newChild = (
+      <Text style={textStyle}>
+        {this.props.children}
+      </Text>
+    );
 
     if (disabled) {
-      return (<View {...this.props} style={[style, this.pressBorderColor(), this.props.style]}>
-        <Text style={[{ fontSize }, this.pressTextColor()]}>
-          {this.props.children}
-        </Text>
-      </View>);
+      return (
+        <View {...this.props} style={wrapperStyle}>
+          {newChild}
+        </View>
+      );
     }
 
     return (
       <TouchableHighlight
         activeOpacity={1}
-        onPress={() => this.props.onClick(this)}
-        delayPressOut={1} { ...this.props } { ...touchableProps }
-        style={[style, this.pressBorderColor(), this.props.style]}
-        underlayColor={highlightBackgroundColor}
+        delayPressOut={1}
+        {...this.props}
+        {...unProp}
+        style={wrapperStyle}
+        onPress={(e?: any) => this.props.onClick && this.props.onClick(e)}
+        onPressIn={this.onPressIn}
+        onPressOut={this.onPressOut}
+        onShowUnderlay={this.onShowUnderlay}
+        onHideUnderlay={this.onHideUnderlay}
       >
-        <Text style={[{ fontSize }, this.pressTextColor()]}>
-          {this.props.children}
-        </Text>
+        {newChild}
       </TouchableHighlight>
     );
   }

@@ -3,6 +3,22 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.4
+
+`2016-10-21`
+
+- Button 组件修复 #396
+- 修复 rn-checkbox, rn-radio 支持受控组件 https://github.com/ant-design/ant-design-mobile/commit/6f47c36b8e3729674dc63eaaa39cfac05b125f3c  https://github.com/ant-design/ant-design-mobile/commit/5960cd11a94570cfc0b874fa2f05ab0f2bce466a
+
+### 0.9.3
+
+`2016-10-17`
+
+- 部分组件支持`data-api` https://github.com/ant-design/ant-design-mobile/commit/8972f980d0dddee30fd61ebaa0f75fc07a7a36b3
+- 修复 iOS 下 Modal 里内容滑动时引起背静内容滚动问题  #163 #307
+- `ImagePicker`新增三个属性`onAddImageClick`, `selectable`, `onImageClick`, https://github.com/ant-design/ant-design-mobile/commit/bb7e461eea71bb8ffdd2477b1b17a714beb21eb1 #252 #297 #357
+- 更新部分组件 demo 及文档细节 bug 修复
+
 ### 0.9.2
 
 `2016-10-10`

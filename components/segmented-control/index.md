@@ -1,6 +1,6 @@
 ---
-category: UI Controls
-type: UI Controls
+category: Navigation
+type: Navigation
 chinese: 分段器
 english: SegmentedControl
 ---

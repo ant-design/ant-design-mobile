@@ -41,12 +41,16 @@ export default class Tag extends React.Component<TagProps, any> {
     this.setState({
       selected: !isSelect,
     }, () => {
-      onChange(!isSelect);
+      if (onChange) {
+        onChange(!isSelect);
+      }
     });
   }
 
   onTagClose = () => {
-    this.props.onClose();
+    if (this.props.onClose) {
+      this.props.onClose();
+    }
     this.setState({
       closed: true,
     }, this.props.afterClose);
@@ -55,7 +59,7 @@ export default class Tag extends React.Component<TagProps, any> {
   render() {
     const { children, className, prefixCls, disabled, closable, small, style } = this.props;
     const wrapCls = classNames({
-      [className]: !!className,
+      [className as string]: !!className,
       [`${prefixCls}`]: true,
       [`${prefixCls}-small`]: small,
       [`${prefixCls}-normal`]: !this.state.selected && !disabled,

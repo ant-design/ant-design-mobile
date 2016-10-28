@@ -27,7 +27,7 @@ class Popup extends React.Component<PopupProps, any> {
   }
 
   componentWillUnmount() {
-    DeviceEventEmitter.removeAllListeners('PopupHide');
+    (DeviceEventEmitter as any).removeAllListeners('PopupHide');
   }
 
   hide() {
@@ -67,6 +67,6 @@ export default {
     );
   },
   hide() {
-    DeviceEventEmitter.emit('PopupHide');
+    (DeviceEventEmitter as any).emit('PopupHide');
   },
 };

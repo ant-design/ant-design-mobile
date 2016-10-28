@@ -9,32 +9,38 @@ export default class Radio extends React.Component<RadioProps, any> {
   constructor(props: RadioProps, context: any) {
     super(props, context);
 
-    let checked = 'checked' in props ? props.checked : props.defaultChecked;
+    let checked;
+    if (props.checked !== null && props.checked !== undefined) {
+      checked = !!props.checked;
+    } else {
+      checked = !!props.defaultChecked;
+    }
     this.state = {
       checked: checked,
     };
   }
 
-  componentWillReceiveProps(nextProps: RadioProps, nextContext: any): void {
-    if ('checked' in nextProps) {
+  componentWillReceiveProps(nextProps: RadioProps): void {
+    if (nextProps.checked !== null && nextProps.checked !== undefined) {
       const oldChecked = this.state.checked;
       if (nextProps.checked === oldChecked) {
         return;
       }
       this.setState({
-        checked: nextProps.checked,
+        checked: !!nextProps.checked,
       });
     }
   }
 
   handleClick = () => {
-    if (this.props.disabled || this.state.checked) {
+    if (this.props.disabled) {
       return;
     }
-    this.setState({
-      checked: true,
-    });
-
+    if (this.props.checked === null || this.props.checked === undefined) {
+      this.setState({
+        checked: true,
+      });
+    }
     if (this.props.onChange) {
       this.props.onChange(true);
     }
@@ -43,7 +49,7 @@ export default class Radio extends React.Component<RadioProps, any> {
   render(): JSX.Element {
     let {style, disabled} = this.props;
     let checked = this.state.checked;
-    let imgSrc = null;
+    let imgSrc = undefined as any;
     if (checked) {
       if (disabled) {
         imgSrc = require('./image/checked_disable.png');
@@ -51,7 +57,6 @@ export default class Radio extends React.Component<RadioProps, any> {
         imgSrc = require('./image/checked.png');
       }
     }
-
     return (<TouchableWithoutFeedback onPress={this.handleClick}>
       <Image source={imgSrc} style={[styles.icon, style]} />
     </TouchableWithoutFeedback>);

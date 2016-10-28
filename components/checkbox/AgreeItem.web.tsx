@@ -13,7 +13,7 @@ export default class AgreeItem extends React.Component<AgreeItemProps, any> {
     let { prefixCls, style, name, defaultChecked, checked, disabled, children, onChange, className } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-agree`]: true,
-      [className]: className,
+      [className as string]: className,
     });
 
     return (<div {...getDataAttr(this.props)}

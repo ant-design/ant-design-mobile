@@ -31,7 +31,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
     const treeChildren = treeFilter(this.props.data, (c, level) => {
       return c.value === value[level];
     });
-    return this.props.format(treeChildren.map((v) => {
+    return this.props.format && this.props.format(treeChildren.map((v) => {
       return v.label;
     }));
   };

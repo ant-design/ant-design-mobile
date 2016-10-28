@@ -29,14 +29,18 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.onSubmit(this.state.value);
+    if (this.props.onSubmit) {
+      this.props.onSubmit(this.state.value);
+    }
   };
 
   onChangeText = (value) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value);
+    if (this.props.onChange) {
+      this.props.onChange(value);
+    }
   };
 
   onCancel = () => {

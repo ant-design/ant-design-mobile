@@ -23,9 +23,9 @@ export default class Card extends React.Component <CardProps, any> {
   render() {
     const { prefixCls, full, children, className } = this.props;
     const wrapCls = classNames({
-      [prefixCls]: true,
+      [prefixCls as string]: true,
       [`${prefixCls}-full`]: full,
-      [className]: className,
+      [className as string]: className,
     });
 
     return (

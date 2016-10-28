@@ -8,23 +8,25 @@ const touchSupported = typeof window !== 'undefined' && 'ontouchstart' in window
 
 export default function touchableFeedback<Props>(ComposedComponent, ComposedComponentName = '') {
   const TouchableFeedbackComponent = React.createClass<{
-    onTouchStart?: Function;
-    onTouchEnd?: Function;
-    onTouchCancel?: Function;
+    onTouchStart?: (e: any) => void;
+    onTouchEnd?: (e: any) => void;
+    onTouchCancel?: (e: any) => void;
+    activeStyle?: any;
   } & Props, any>({
     statics: {
       myName: ComposedComponentName || 'TouchableFeedbackComponent',
     },
+
+    getDefaultProps() {
+      return {
+        activeStyle: {},
+      } as any;
+    },
+
     getInitialState() {
       return {
         touchFeedback: false,
       };
-    },
-
-    setTouchFeedbackState(touchFeedback) {
-      this.setState({
-        touchFeedback,
-      });
     },
 
     onTouchStart(e) {
@@ -62,21 +64,32 @@ export default function touchableFeedback<Props>(ComposedComponent, ComposedComp
       this.setTouchFeedbackState(false);
     },
 
+    setTouchFeedbackState(touchFeedback) {
+      this.setState({
+        touchFeedback,
+      });
+    },
+
     render() {
-      const events = touchSupported ? {
-        onTouchStart: this.onTouchStart,
-        onTouchEnd: this.onTouchEnd,
-        onTouchCancel: this.onTouchCancel,
-      } : {
-        onMouseDown: this.onMouseDown,
-        onMouseUp: this.onMouseUp,
-        onMouseLeave: this.onMouseUp,
-      };
-      return <ComposedComponent
-        {...this.props}
-        touchFeedback={this.state.touchFeedback}
-        {...events}
-      />;
+      let events = {};
+      if (this.props.activeStyle) {
+        events = touchSupported ? {
+          onTouchStart: this.onTouchStart,
+          onTouchEnd: this.onTouchEnd,
+          onTouchCancel: this.onTouchCancel,
+        } : {
+          onMouseDown: this.onMouseDown,
+          onMouseUp: this.state.touchFeedback ? this.onMouseUp : undefined,
+          onMouseLeave: this.state.touchFeedback ? this.onMouseUp : undefined,
+        };
+      }
+      return (
+        <ComposedComponent
+          {...this.props}
+          touchFeedback={this.state.touchFeedback}
+          {...events}
+        />
+      );
     },
   });
   return TouchableFeedbackComponent;

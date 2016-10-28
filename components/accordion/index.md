@@ -1,6 +1,6 @@
 ---
-category: UI Views
-type: UI Views
+category: Basic Components
+type: Basic Components
 chinese: 手风琴
 english: Accordion
 ---

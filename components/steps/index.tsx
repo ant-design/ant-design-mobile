@@ -25,8 +25,8 @@ export default class Steps extends React.Component<StepsProps, any> {
   }
 
   render() {
-    const children = this.props.children;
-    const wrapView = this.props.direction === 'vertical' ? null : 'warp_row';
+    const children = this.props.children as any;
+    const wrapView = this.props.direction === 'vertical' ? '' : 'warp_row';
 
     return (
       <View style={styles[wrapView]} onLayout={(e) => {this.onLayout(e);}}>
@@ -34,7 +34,7 @@ export default class Steps extends React.Component<StepsProps, any> {
         React.Children.map(children, (ele: any, idx) => {
           let errorTail = -1;
           if (idx < (children as Array<any>).length - 1) {
-            const status = this.props.children[idx + 1].props.status;
+            const status = children[idx + 1].props.status;
             if (status === 'error') {
               errorTail = idx;
             }

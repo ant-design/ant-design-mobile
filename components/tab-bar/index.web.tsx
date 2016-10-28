@@ -39,7 +39,7 @@ const AntTabBar = React.createClass({
 
   render() {
     let activeKey;
-    const children = [];
+    const children: any[] = [];
     React.Children.forEach(this.props.children, (c: any) => {
       if (c.props.selected) {
         activeKey = c.key;

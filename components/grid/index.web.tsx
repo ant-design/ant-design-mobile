@@ -18,7 +18,7 @@ export interface GridProps {
   data?: Array<DataItem>;
   renderItem?: (dataItem: DataItem, itemIndex: number) => React.ReactElement<any>;
   columnNum?: number;
-  onClick?: (dataItem: DataItem, itemIndex: number) => void;
+  onClick?: (dataItem: DataItem | undefined, itemIndex: number) => void;
   hasLine?: boolean;
   isCarousel?: boolean;
   carouselMaxRow?: number;
@@ -28,7 +28,8 @@ export default class Grid extends React.Component<GridProps, any> {
   static defaultProps = {
     prefixCls: 'am-grid',
     data: [],
-    onClick: () => {},
+    onClick: () => {
+    },
     columnNum: 4,
     hasLine: true,
     isCarousel: false,
@@ -38,56 +39,62 @@ export default class Grid extends React.Component<GridProps, any> {
   clientWidth = document.documentElement.clientWidth;
 
   render() {
-    let {className, data, prefixCls, hasLine, isCarousel, columnNum, carouselMaxRow} = this.props;
+    let { className, data, prefixCls, hasLine, isCarousel, columnNum, carouselMaxRow } = this.props;
 
     const wrapCls = classNames({
-      [prefixCls]: true,
+      [prefixCls as string]: true,
       [`${prefixCls}-line`]: hasLine,
-      [className]: className,
+      [className as string]: className,
     });
 
     const itemCls = classNames({
       [`${prefixCls}-item`]: true,
     });
 
-    const dataLength = data.length;
+    const dataLength = data && data.length || 0;
 
     const lineCount = Math.ceil(dataLength / columnNum);
 
     const defaultHeight = this.clientWidth / columnNum;
-    const renderItem = this.props.renderItem || ((dataItem: DataItem, itemIndex: number) => (
+    const renderItem = this.props.renderItem || ((dataItem: DataItem) => (
         <div className={`${prefixCls}-item-contain column-num-${columnNum}`} style={{ height: `${defaultHeight}px` }}>
           <img className={`${prefixCls}-icon`} src={dataItem.icon} />
           <div className={`${prefixCls}-text`}>{dataItem.text}</div>
         </div>));
 
-    let lineElArray = [];
-    let pageElArray = [];
+    let lineElArray: any[] = [];
+    let pageElArray: any[] = [];
 
-    for (let i = 0; i < lineCount; i++) {
-      let lineContent = [];
-      for (let j = 0; j < columnNum; j++) {
-        const dataIndex = i * columnNum + j;
-        if (dataIndex < dataLength) {
-          lineContent.push(<Flex.Item
-            className={itemCls}
-            onClick={() => { this.props.onClick(data[dataIndex], (dataIndex)); }}
-            key={`griditem-${dataIndex}`}
-          >
-            {renderItem(data[dataIndex], dataIndex)}
-          </Flex.Item>);
-        } else {
-          lineContent.push(<Flex.Item key={`griditem-${dataIndex}`} />);
+    if (data) {
+      for (let i = 0; i < lineCount; i++) {
+        let lineContent: any[] = [];
+        for (let j = 0; j < columnNum; j++) {
+          const dataIndex = i * columnNum + j;
+          if (dataIndex < dataLength) {
+            lineContent.push(<Flex.Item
+              className={itemCls}
+              onClick={() => {
+                if (this.props.onClick) {
+                  this.props.onClick(data && data[dataIndex], dataIndex);
+                }
+              }}
+              key={`griditem-${dataIndex}`}
+            >
+              {renderItem(data[dataIndex], dataIndex)}
+            </Flex.Item>);
+          } else {
+            lineContent.push(<Flex.Item key={`griditem-${dataIndex}`} />);
+          }
         }
-      }
 
-      lineElArray.push(<Flex justify="center" align="stretch" key={`gridline-${i}`}>{lineContent}</Flex>);
+        lineElArray.push(<Flex justify="center" align="stretch" key={`gridline-${i}`}>{lineContent}</Flex>);
+      }
     }
 
     const pageCount = Math.ceil(lineCount / carouselMaxRow);
     if (isCarousel && pageCount > 1) {
       for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
-        let pageLines = [];
+        let pageLines: any[] = [];
         for (let lineIndexInPage = 0; lineIndexInPage < carouselMaxRow; lineIndexInPage++) {
           const lineIndexInAll = pageIndex * carouselMaxRow + lineIndexInPage;
           if (lineIndexInAll < lineCount) {

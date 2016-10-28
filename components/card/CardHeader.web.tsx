@@ -20,7 +20,7 @@ export default class CardHeader extends React.Component <CardHeaderProps, any> {
     const { prefixCls, className, title, thumb, thumbStyle, extra } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-header`]: true,
-      [className]: className,
+      [className as string]: className,
     });
 
     return (

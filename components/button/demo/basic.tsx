@@ -4,6 +4,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
+/* tslint:disable:no-console */
 export default () => (
   <View>
     <WhiteSpace />
@@ -15,7 +16,7 @@ export default () => (
     <WingBlank style={{
       flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
     }}>
-      <Button type="primary">primary button</Button>
+      <Button type="primary" onClick={e => console.log(e)}>primary button</Button>
       <Button type="primary" size="small">primary small button</Button>
     </WingBlank>
 
@@ -27,6 +28,13 @@ export default () => (
     <WhiteSpace />
     <WingBlank>
       <Button type="warning">warning button</Button>
+    </WingBlank>
+
+    <WhiteSpace />
+    <WingBlank>
+      <Button activeStyle={false}>无点击反馈</Button>
+      <WhiteSpace />
+      <Button activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
     </WingBlank>
 
     <WhiteSpace />

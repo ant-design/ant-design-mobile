@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import getDataAttr from '../_util/getDataAttr';
+import splitObject from '../_util/splitObject';
 import Icon from '../icon';
 import NoticeBarProps from './NoticeBarPropsType';
 
@@ -19,9 +20,11 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
     };
   }
 
-  onClick() {
+  onClick = () => {
     const { mode, onClick } = this.props;
-    onClick();
+    if (onClick) {
+      onClick();
+    }
     if (mode === 'closable') {
       this.setState({
         show: false,
@@ -30,59 +33,46 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   }
 
   render() {
-    const { prefixCls, children, mode, type, onClick, className } = this.props;
-    const wrapCls = classNames({
-      [prefixCls]: true,
-      [className]: !!className,
-    });
+    const [{ mode, type, onClick, children, className, prefixCls }, restProps] = splitObject(this.props,
+      ['mode', 'type', 'onClick', 'children', 'className', 'prefixCls']);
 
-    let operationDom;
-    switch (mode) {
-      case 'closable':
+    const extraProps: any = {};
+    let operationDom: any = null;
+    if (mode === 'closable') {
+      operationDom = (
+        <div className={`${prefixCls}-operation`} onClick={this.onClick}>
+          <Icon type="cross" />
+        </div>
+      );
+    } else {
+      if (mode === 'link') {
         operationDom = (
-          <div className={`${prefixCls}-operation`} onClick={() => this.onClick()}>
-            <Icon type="cross" />
-          </div>
-        );
-        break;
-      case 'link':
-        operationDom = (
-          <div className={`${prefixCls}-operation`} onClick={onClick}>
+          <div className={`${prefixCls}-operation`}>
             <Icon type="right" />
           </div>
         );
-        break;
-      default:
-        operationDom = null;
-        break;
+      }
+      extraProps.onClick = onClick;
     }
 
-    let iconType = '';
-    switch (type) {
-      case 'success':
-        iconType = 'check-circle';
-        break;
-      case 'error':
-        iconType = 'cross-circle';
-        break;
-      case 'warn':
-        iconType = 'exclamation-circle';
-        break;
-      case 'question':
-        iconType = 'question-circle';
-        break;
-      case 'info':
-      default:
-        iconType = 'info-circle';
-        break;
-    }
+    const iconEnum = {
+      success: 'check-circle',
+      error: 'cross-circle',
+      warn: 'exclamation-circle',
+      question: 'question-circle',
+    };
 
     const iconDom = type ? <div className={`${prefixCls}-icon`}>
-      <Icon type={iconType} />
+      <Icon type={iconEnum[type] || 'info-circle'} />
     </div> : null;
 
+    const wrapCls = classNames({
+      [prefixCls as string]: true,
+      [className as string]: !!className,
+    });
+
     return this.state.show ? (
-      <div {...getDataAttr(this.props)} className={wrapCls}>
+      <div {...getDataAttr(this.props) } className={wrapCls} {...restProps} {...extraProps}>
         {iconDom}
         <div className={`${prefixCls}-content`}>{children}</div>
         {operationDom}

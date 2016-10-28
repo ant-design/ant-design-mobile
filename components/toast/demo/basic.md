@@ -30,6 +30,10 @@ function loadingToast() {
   });
 }
 
+function alwaysShowToast() {
+  Toast.info('这是一个 duration 为 0 的 toast!!!', 0);
+}
+
 const ToastExample = React.createClass({
   render() {
     return (
@@ -53,6 +57,10 @@ const ToastExample = React.createClass({
         <WhiteSpace />
         <WingBlank>
           <Button type="ghost" onClick={loadingToast}>加载中 toast</Button>
+        </WingBlank>
+        <WhiteSpace />
+        <WingBlank>
+          <Button type="ghost" onClick={alwaysShowToast}>duration 为 0 的 toast</Button>
         </WingBlank>
         <WhiteSpace />
       </div>

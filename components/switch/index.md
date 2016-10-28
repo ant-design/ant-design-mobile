@@ -1,6 +1,6 @@
 ---
-category: UI Controls
-type: UI Controls
+category: Form
+type: Form
 chinese: 滑动开关
 english: Switch
 ---

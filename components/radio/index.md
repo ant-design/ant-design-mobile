@@ -1,6 +1,6 @@
 ---
-category: UI Controls
-type: UI Controls
+category: Form
+type: Form
 chinese: 单选框
 english: Radio
 ---

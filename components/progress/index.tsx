@@ -25,7 +25,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
 
   render() {
     const { wrapWidth } = this.state;
-    const { percent, position, unfilled } = this.props;
+    const { percent, position, unfilled, style } = this.props;
 
     let widthPercent;
     if (percent > 0) {
@@ -54,7 +54,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
 
     return (<View onLayout={(e) => {this.onLayout(e);}}
       style={[ProgressStyle.progressOuter, positionStyle, unfilledHideStyle]}>
-      <View style={[ProgressStyle.progressBar, percentStyle]}></View>
+      <View style={[ProgressStyle.progressBar, style, percentStyle]}></View>
     </View>);
   }
 }

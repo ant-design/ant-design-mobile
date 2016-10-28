@@ -16,6 +16,23 @@ export default class Modal extends React.Component<ModalProps, any> {
     footer: [],
   };
 
+  isInModal(e) {
+    // fix touch to scroll background page on iOS
+    const prefixCls = this.props.prefixCls;
+    const pNode = (node => {
+      while ( node.parentNode && node.parentNode !== document.body ) {
+        if ( node.classList.contains(prefixCls)) {
+          return node;
+        }
+        node = node.parentNode;
+      }
+    })(e.target);
+    if (!pNode) {
+      e.preventDefault();
+    }
+    return true;
+  }
+
   render() {
     const {
       prefixCls,
@@ -25,11 +42,11 @@ export default class Modal extends React.Component<ModalProps, any> {
       transitionName,
       maskTransitionName,
       style,
-      footer,
+      footer = [],
     } = this.props;
 
     const wrapCls = classNames({
-      [className]: !!className,
+      [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
     });
 
@@ -54,12 +71,15 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     const restProps = assign({}, this.props);
     ['prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
-      'style', 'footer', 'touchFeedback',
+      'style', 'footer', 'touchFeedback', 'wrapProps',
     ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
     });
+
+    const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+    const wrapProps = isIPhone ? { onTouchStart: e => this.isInModal(e) } : {};
 
     return (
       <Dialog
@@ -69,6 +89,7 @@ export default class Modal extends React.Component<ModalProps, any> {
         maskTransitionName={maskAnim}
         style={rootStyle}
         footer={footerDom}
+        wrapProps={wrapProps}
         {...restProps}
       />
     );

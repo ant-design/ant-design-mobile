@@ -3,7 +3,9 @@ import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-na
 import variables from '../style/themes/default';
 import InputItemProps from './InputItemPropsType';
 import InputItemStyle from './style/index';
-function noop() { }
+
+const noop: any = () => {
+};
 
 export default class InputItem extends React.Component<InputItemProps, any> {
   static defaultProps = {
@@ -71,12 +73,18 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       default:
         break;
     }
-    onChange(text);
+    if (onChange) {
+      onChange(text);
+    }
   };
 
   render() {
-    const { type, editable, value, placeholder, style,
-      clear, children, error, extra, labelNumber, last } = this.props;
+    const {
+      type, editable, value, placeholder, style,
+      clear, children, error, extra, labelNumber, last,
+      onFocus = noop, onBlur = noop, onExtraPress = noop,
+      onErrorPress = noop,
+    } = this.props;
 
     const containerStyle = {
       borderBottomWidth: last ? 0 : variables.border_width_sm,
@@ -88,10 +96,11 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
     const inputStyle = {
       color: error ? '#f50' : variables.color_text_base,
-  };
+    };
 
     const extraStyle = {
-      width: typeof extra === 'string' && extra.length > 0 ? extra.length * variables.font_size_heading : 0,
+      width: typeof extra === 'string' && (extra as string).length > 0 ?
+      (extra as string).length * variables.font_size_heading : 0,
     };
 
     return (
@@ -102,16 +111,16 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           value={value}
           keyboardType={type === 'number' || type === 'bankCard' ? 'numeric' : 'default'}
           onChange={(event) => this.onChange(event.nativeEvent.text)}
-          onFocus={() => this.props.onFocus()}
-          onBlur={() => this.props.onBlur()}
+          onFocus={onFocus}
+          onBlur={onBlur}
           placeholder={placeholder}
           autoCorrect={false}
           secureTextEntry={type === 'password'}
-          clearButtonMode = {clear ? 'while-editing' : 'never'}
+          clearButtonMode={clear ? 'while-editing' : 'never'}
           editable={editable}
         />
         {extra ? <TouchableWithoutFeedback
-          onPress={() => { this.props.onExtraPress(); }}
+          onPress={onExtraPress}
         >
           <View>
             <Text style={[InputItemStyle.extra, extraStyle]}>{extra}</Text>
@@ -120,7 +129,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         {
           error &&
           <TouchableWithoutFeedback
-            onPress={() => { this.props.onErrorPress(); }}
+            onPress={onErrorPress}
           >
             <View style={[InputItemStyle.errorIcon]}>
               <Image

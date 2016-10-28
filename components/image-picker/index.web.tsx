@@ -13,6 +13,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     prefixCls: 'am-image-picker',
     files: [],
     onChange: noop,
+    onImageClick: noop,
+    selectable: true,
   };
 
   // http://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
@@ -58,18 +60,30 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   };
 
   removeImage = (index) => {
-    const newImages = [];
-    this.props.files.forEach((image, idx) => {
+    const newImages: any[] = [];
+    const { files = [] } = this.props;
+    files.forEach((image, idx) => {
       if (index !== idx) {
         newImages.push(image);
       }
     });
-    this.props.onChange(newImages, 'remove', index);
+    if (this.props.onChange) {
+      this.props.onChange(newImages, 'remove', index);
+    }
   };
 
   addImage = (imgItem) => {
-    const newImages = this.props.files.concat(imgItem);
-    this.props.onChange(newImages, 'add');
+    const { files = [] } = this.props;
+    const newImages = files.concat(imgItem);
+    if (this.props.onChange) {
+      this.props.onChange(newImages, 'add');
+    }
+  };
+
+  onImageClick = (index) => {
+    if (this.props.onImageClick) {
+      this.props.onImageClick(index, this.props.files);
+    }
   };
 
   onFileChange = () => {
@@ -103,14 +117,15 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   };
 
   render() {
-    const { prefixCls, style, className, files } = this.props;
+    const { prefixCls, style, className, files = [],
+       selectable, onAddImageClick } = this.props;
     const dpr = window.devicePixelRatio || 1;
-    const imgItemList = [];
+    const imgItemList: any[] = [];
     const customWidth = ((document.documentElement.clientWidth - 18 * dpr - 6 * dpr * 3) / 4);
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className,
+      [className as string]: className,
     });
 
     const itemStyle = {
@@ -120,8 +135,15 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     files.forEach((image: any, index: number) => {
       imgItemList.push(
         <div key={index} className={`${prefixCls}-item`} style={itemStyle}>
-          <div className={`${prefixCls}-item-remove`} onClick={this.removeImage.bind(this, index)} />
-          <div className={`${prefixCls}-item-content`} style={{ backgroundImage: `url(${image.url})` }} />
+          <div
+            className={`${prefixCls}-item-remove`}
+            onClick={() => { this.removeImage(index); }}
+          />
+          <div
+            className={`${prefixCls}-item-content`}
+            onClick={() => { this.onImageClick(index); }}
+            style={{ backgroundImage: `url(${image.url})` }}
+          />
         </div>
       );
     });
@@ -132,15 +154,23 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           <WingBlank size="md">
             <Flex wrap="wrap">
               {imgItemList}
-              <div className={`${prefixCls}-item ${prefixCls}-upload-btn`} style={itemStyle}>
-                <input
+              {selectable && <div
+                className={`${prefixCls}-item ${prefixCls}-upload-btn`}
+                style={itemStyle}
+                onClick={() => {
+                  if (onAddImageClick) {
+                    onAddImageClick();
+                  }
+                }}
+              >
+                {!onAddImageClick ? <input
                   style={itemStyle}
                   ref="fileSelectorInput"
                   type="file"
                   accept="image/jpg,image/jpeg,image/png,image/gif"
-                  onChange={this.onFileChange}
-                />
-              </div>
+                  onChange={() => { this.onFileChange(); }}
+                /> : null}
+              </div>}
             </Flex>
           </WingBlank>
         </div>

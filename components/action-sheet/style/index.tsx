@@ -45,7 +45,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    height: variables.button_height,
+    height: variables.option_height,
     borderStyle: 'solid',
     borderTopWidth: 1,
     borderTopColor: variables.border_color_base,

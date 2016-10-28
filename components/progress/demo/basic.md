@@ -7,7 +7,7 @@ title: 基本
 
 
 ````jsx
-import { NavBar, Progress, Icon, WhiteSpace, Flex, WingBlank } from 'antd-mobile';
+import { Progress, Icon, Flex } from 'antd-mobile';
 
 const MyProgress = React.createClass({
   getInitialState() {
@@ -33,14 +33,12 @@ const MyProgress = React.createClass({
     this.autoplayID = setInterval(this.increase, 1000);
     this.setState({ autoplayPaused: null });
   },
-
   stop() {
     if (this.autoplayID) {
       clearInterval(this.autoplayID);
     }
     this.setState({ autoplayPaused: true });
   },
-
   reset() {
     this.stop();
     this.setState({ percent: 0 }, function () {
@@ -51,20 +49,13 @@ const MyProgress = React.createClass({
   render() {
     return (
       <div className="progress-container">
-        <div>
-          <NavBar iconName={false} mode="light">未填充无色</NavBar>
-          <Progress percent={this.state.percent} position="fixed" />
-        </div>
-
+        <Progress percent={this.state.percent} position="fixed" />
+        <div style={{ height: '0.36rem' }} />
         <Progress percent={this.state.percent} position="normal" unfilled="hide" />
-        <WhiteSpace size="lg" />
-        <WhiteSpace size="lg" />
-
-        <NavBar iconName={false} mode="light">未填充有色</NavBar>
+        <div style={{ height: '0.36rem' }} />
         <Progress percent={this.state.percent} position="normal" />
 
-        <WhiteSpace size="xl" />
-        <WingBlank size="lg" className="control">
+        <div style={{ fontSize: '0.36rem', marginTop: '0.36rem' }}>
           <Flex
             justify="center"
             className="flex-container-justify"
@@ -80,7 +71,7 @@ const MyProgress = React.createClass({
               <Icon type="reload" onClick={this.reset} />
             </div>
           </Flex>
-          <WhiteSpace size="lg" />
+          <div style={{ height: 16 }} />
           <Flex
             justify="center"
             className="flex-container-justify action-info"
@@ -92,7 +83,7 @@ const MyProgress = React.createClass({
               重置
             </div>
           </Flex>
-        </WingBlank>
+        </div>
       </div>
     );
   },
@@ -101,10 +92,6 @@ ReactDOM.render(<MyProgress />, mountNode);
 ````
 
 ```css
-.control {
-  font-size: 0.36rem;
-
-}
 .action {
   width: 3rem;
   text-align: center;

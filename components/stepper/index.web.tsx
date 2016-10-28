@@ -15,7 +15,7 @@ export default class Stepper extends React.Component<StepProps, any> {
   render() {
     const { prefixCls, className, showNumber } = this.props;
     const stepperClass = classNames({
-      [className]: !!className,
+      [className as string]: !!className,
       ['showNumber']: !!showNumber,
     });
 

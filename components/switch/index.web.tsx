@@ -13,14 +13,16 @@ export default class Switch extends React.Component<SwitchProps, any> {
 
   onChange = (e) => {
     const checked = e.target.checked;
-    this.props.onChange(checked);
+    if (this.props.onChange) {
+      this.props.onChange(checked);
+    }
   };
 
   render() {
     let { prefixCls, style, name, checked, disabled, className } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [className]: className,
+      [className as string]: className,
     });
 
     return (<label className={wrapCls} style={style}>

@@ -45,7 +45,9 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     this.setState({
       current: p,
     });
-    this.props.onChange(p);
+    if (this.props.onChange) {
+      this.props.onChange(p);
+    }
     return p;
   }
 
@@ -58,7 +60,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   getIndexes(count) {
-    const arr = [];
+    const arr: number[] = [];
     for (let i = 0; i < count; i++) {
       arr.push(i);
     }

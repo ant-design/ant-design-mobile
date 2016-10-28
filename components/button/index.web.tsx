@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import assign from 'object-assign';
 import Icon from '../icon/index.web';
 import splitObject from '../_util/splitObject';
 import touchableFeedback from '../_util/touchableFeedback';
@@ -15,7 +16,7 @@ function isString(str) {
 function insertSpace(child) {
   if (isString(child.type) && isTwoCNChar(child.props.children)) {
     return React.cloneElement(child, {},
-                              child.props.children.split('').join(' '));
+      child.props.children.split('').join(' '));
   }
   if (isString(child)) {
     if (isTwoCNChar(child)) {
@@ -33,22 +34,19 @@ class Button extends React.Component<tsProps, any> {
     inline: false,
     disabled: false,
     loading: false,
-    onClick: () => { },
   };
 
-  onClick = () => {
-    this.props.onClick(this);
-  }
-
   render() {
-    let[{ children, className, prefixCls, type, size, inline, disabled,
-      htmlType, icon, loading, touchFeedback }, restProps] = splitObject(this.props,
-    ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
-      'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback']);
+    let [{
+      children, className, prefixCls, type, size, inline, disabled,
+      htmlType, icon, loading, touchFeedback, activeStyle,
+    }, restProps] = splitObject(this.props,
+      ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
+        'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback', 'activeStyle']);
 
-    const wrapCls = classNames({
-      [className]: className,
-      [prefixCls]: true,
+    const wrapCls = {
+      [className as string]: className,
+      [prefixCls as string]: true,
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
@@ -56,19 +54,29 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-active`]: touchFeedback,
-    });
+    };
+
+    let style = assign({}, this.props.style);
+    if (touchFeedback) {
+      style = assign(style, activeStyle);
+      wrapCls[`${prefixCls}-active`] = true;
+    }
 
     const iconType = loading ? 'loading' : icon;
-
     const kids = React.Children.map(children, insertSpace);
 
-    return (<button {...restProps}
-      type={htmlType || 'button'}
-      className={wrapCls}
-      disabled={disabled}
-      onClick={this.onClick}
-      >{iconType ? <Icon type={iconType} /> : null}{kids}</button>);
+    return (
+      <button
+        {...restProps}
+        style={style}
+        type={htmlType || 'button'}
+        className={classNames(wrapCls)}
+        disabled={disabled}
+      >
+        {iconType ? <Icon type={iconType} /> : null}
+        {kids}
+      </button>
+    );
   }
 }
 

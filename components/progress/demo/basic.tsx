@@ -28,15 +28,15 @@ export default class BasicProgressExample extends React.Component<any, any> {
         <Progress percent={90} position="fixed" />
 
         <View style={{ marginTop: 80 }}>
-          <Progress percent={ this.state.percent } />
+          <Progress percent={this.state.percent} />
         </View>
         <WhiteSpace/>
         <WhiteSpace/>
         <WingBlank style={{ marginTop: 120, flexDirection: 'row' }}>
-            <Button type={'default'} onPress={this.onAdd}>
+            <Button type="ghost" onClick={this.onAdd}>
               +
             </Button>
-            <Button style={{ marginLeft: 10 }} type={'default'} onPress={this.onMius}>
+            <Button style={{ marginLeft: 10 }} type="ghost" onClick={this.onMius}>
               -
             </Button>
             <View style={{ flex: 1 }} />

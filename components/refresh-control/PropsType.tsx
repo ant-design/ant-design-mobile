@@ -1,4 +1,4 @@
-import ReactNode = __React.ReactNode;
+import { ReactNode } from 'react';
 interface Props {
   onRefresh?: () => void;
   refreshing?: boolean;
