@@ -9,11 +9,11 @@ title: 普通
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 function showToast() {
-  Toast.info('这是一个 toast 提示!!!', 1);
+  Toast.info('这是一个 toast 提示!!!');
 }
 
 function successToast() {
-  Toast.success('加载成功!!!', 1);
+  Toast.success('加载成功!!!');
 }
 
 function failToast() {
@@ -21,7 +21,7 @@ function failToast() {
 }
 
 function offline() {
-  Toast.offline('网络连接失败!!!', 1);
+  Toast.offline('网络连接失败!!!');
 }
 
 function loadingToast() {
