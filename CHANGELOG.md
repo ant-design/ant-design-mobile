@@ -3,6 +3,18 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.5
+
+`2016-10-28`
+
+- 修复部分组件点击反馈属性 warning, #416
+- 更正 DatePicker 组件 API 文档，优化 Progress 演示、增加自定义 style 支持
+- 修复 Modal.prompt 有时无法 focus 问题 #415 #409
+- 移除 SegmentedControl default props tintColor #432
+- 修复部分组件 ts props 验证
+- 重构 NoticeBar 组件，使 click 事件能在整个区域触发（除了关闭模式）
+- 完善并修复 Result、Toast、rn Popup Modal 等组件 demo ；修复部分 css 变量
+
 ### 0.9.4
 
 `2016-10-21`
