@@ -4,7 +4,9 @@ import {
 } from 'react-native';
 import styles from './style/index';
 import topView from 'rn-topview';
-import Modal, { Entry } from 'rc-dialog/lib/Modal';
+import Modal from 'rc-dialog/lib/Modal';
+
+type animationType = 'none' | 'slide-up' | 'slide-down' | 'fade';
 
 export interface PopupProps {
   animationType?: string;
@@ -13,6 +15,10 @@ export interface PopupProps {
 }
 
 class Popup extends React.Component<PopupProps, any> {
+  static defaultProps = {
+    animationType: 'slide-down',
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +53,7 @@ class Popup extends React.Component<PopupProps, any> {
       <Modal
         animateAppear
         onAnimationEnd={this.onAnimationEnd}
-        entry={(this.props.animationType === 'slide-up' ? 'bottom' :'top') as Entry}
+        animationType={this.props.animationType as animationType}
         wrapStyle={this.props.animationType === 'slide-up' ? styles.wrap : styles.wrapTop}
         visible={this.state.visible}
         onClose={this.props.maskClosable ? this.hide : undefined}

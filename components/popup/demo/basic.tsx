@@ -52,9 +52,9 @@ export default class PopupExample extends React.Component<any, any> {
     return (
       <View style={{ margin: 8 }}>
         <WhiteSpace />
-        <Button type="ghost" onPress={this.onClick}>Dropdown 效果</Button>
+        <Button type="ghost" onClick={this.onClick}>Dropdown 效果</Button>
         <WhiteSpace />
-        <Button type="ghost" onPress={this.onClick1}>向上弹出效果</Button>
+        <Button type="ghost" onClick={this.onClick1}>向上弹出效果</Button>
       </View>
     );
   }

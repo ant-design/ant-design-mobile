@@ -68,6 +68,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
         visible={this.state.visible}
         onAnimationEnd={this.onAnimationEnd}
         style={styles.content}
+        animationType="slide-up"
       >
 
         {this.props.children}
