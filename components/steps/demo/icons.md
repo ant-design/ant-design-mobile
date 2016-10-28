@@ -10,8 +10,6 @@ import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const Step = Steps.Step;
 
-const Icon = ({ type }) => <span className={`anticon anticon-${type}`} />;
-
 ReactDOM.render(
   <div className="stepsExample">
     <WhiteSpace size="lg" />
