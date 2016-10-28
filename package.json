@@ -38,7 +38,7 @@
     "object-omit": "^1.0.0",
     "rc-checkbox": "~1.4.1",
     "rc-collapse": "~1.6.6",
-    "rc-dialog": "~6.4.0",
+    "rc-dialog": "~6.5.0",
     "rc-drawer": "~0.4.8",
     "rc-input-number": "~2.7.0",
     "rc-notification": "~1.3.5",
