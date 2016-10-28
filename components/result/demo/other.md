@@ -25,6 +25,11 @@ const ResultExample = () => (
       buttonClick={() => alert('点击了按钮')}
     />
     <Result
+      imgUrl="https://zos.alipayobjects.com/rmsportal/TCIJgoBIvJjfbqo.png"
+      title="提示信息"
+      message="辅助说明信息"
+    />
+    <Result
       imgUrl="https://os.alipayobjects.com/rmsportal/QGxGZRxaqMRKnjS.png"
       title="网络不给力"
       message="请查看网络连接或稍后重试"
