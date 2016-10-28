@@ -1,8 +1,8 @@
 import React from 'react';
 import {
   View, Text, Modal,
+  TouchableHighlight,
   TouchableWithoutFeedback,
-  TouchableOpacity,
 } from 'react-native';
 import modalStyle from './style/index';
 import ModalPropsType from './ModalPropsType';
@@ -37,12 +37,11 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     const buttonWrapStyle = footer && footer.length === 2 ? modalStyle.buttnWrapH : modalStyle.buttnWrapV;
 
     const footerDom = footer && footer.length ? (
-      <View style={[btnGroupStyle]}>
+      <View style={[btnGroupStyle, modalStyle.footerRadius]}>
         {
           footer.map((button: any, i) => {
             return (
-              <View key={i} style={[buttonWrapStyle]}>
-                <TouchableOpacity onPress={() => {
+              <TouchableHighlight key={i} style={{flex: 1}} underlayColor="#ddd" onPress={() => {
                 if (button.onPress) {
                   button.onPress();
                 }
@@ -50,9 +49,10 @@ class AntmModal extends React.Component<ModalPropsType, any> {
                   onClose();
                 }
               }}>
+                <View style={[buttonWrapStyle]}>
                   <Text style={[modalStyle.buttonText]}>{button.text || `按钮${i}`}</Text>
-                </TouchableOpacity>
-              </View>
+                </View>
+              </TouchableHighlight>
             );
           })
         }
@@ -63,19 +63,22 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       return (
         <RCModal
           onClose={this.onMaskClose}
+          animationType="fade"
           wrapStyle={transparent ? modalStyle.container : undefined}
           style={[modalStyle.innerContainer, style]}
           visible={visible}
         >
-          <View>
+          <View style={{flex: 1}}>
             {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}
             <View style={[modalStyle.body, bodyStyle]}>{children}</View>
             {footer ? <View>{footerDom}</View> : null}
-            {closable ? <TouchableWithoutFeedback onPress={onClose}>
-              <View style={[modalStyle.closeWrap]}>
-                <Text style={[modalStyle.close]}>×</Text>
-              </View>
-            </TouchableWithoutFeedback> : null}
+            {closable ? <View style={[modalStyle.closeWrap]}>
+              <TouchableWithoutFeedback onPress={onClose}>
+                <View>
+                  <Text style={[modalStyle.close]}>×</Text>
+                </View>
+              </TouchableWithoutFeedback>
+            </View> : null}
           </View>
         </RCModal>
       );
