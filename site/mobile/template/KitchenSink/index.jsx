@@ -82,7 +82,7 @@ export default class App extends React.Component {
               return (<List.Item
                 arrow="horizontal"
                 key={`${item.filename}-${cate}`}
-                onClick={() => { location.href = `${rootPath}/${paths[1]}`; }}
+                onClick={() => { location.href = `${rootPath}/${paths[1]}/`; }}
               >{`${item.english} ${item.chinese}`}</List.Item>);
             })}
           </List>))

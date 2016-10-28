@@ -19,7 +19,7 @@ module.exports = {
     path: '/',
     component: './template/KitchenSink/index',
   }, {
-    path: '/:component',
+    path: '/:component/',
     dataPath: '/components/:component',
     component: './template/KitchenSink/Demo',
   }],
