@@ -1,5 +1,6 @@
 import React from 'react';
 import RcSteps from 'rc-steps';
+import { Icon } from 'antd-mobile';
 
 export interface StepsProps {
   prefixCls?: string;
@@ -63,13 +64,13 @@ export default class Steps extends React.Component<StepsProps, any> {
               } else if (item.props.status === 'error') {
                 iconName = 'cross-circle-o';
               } else {
-                iconName = 'ellipsis';
+                iconName = 'ellipsis-circle';
               }
             }
 
             className = `${errorTailCls} ${className}`;
             return React.cloneElement(
-              item, {key: index, icon: iconName, className: className}
+              item, {key: index, icon: <Icon type={iconName} />, className: className}
             );
           })
         }
