@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 // http://stackoverflow.com/questions/29891458/webpack-require-every-file-in-directory
-const svgRequire = require.context('./style/assets', false, /\.svg$/);
+const svgRequire = (require as any).context('./style/assets', false, /\.svg$/);
 svgRequire.keys().forEach(key => svgRequire(key));
 
 export interface IconPropType {
@@ -19,7 +19,7 @@ export default class Icon extends React.Component<IconPropType, any> {
       'am-icon': true,
       [`am-icon-${type}`]: true,
       [`am-icon-${size}`]: true,
-      [className]: !!className,
+      [className as string]: !!className,
     });
     return <svg className={iconClassName} style={style}>
       <use xlinkHref={`#${type}`} />

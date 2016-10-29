@@ -12,6 +12,11 @@ export default StyleSheet.create({
     paddingTop: variables.v_spacing_xl,
     overflow: 'hidden',
   },
+  // fix android borderRadius
+  footerRadius: {
+    borderBottomLeftRadius: variables.radius_md,
+    borderBottomRightRadius : variables.radius_md,
+  },
   header: {
     fontSize: variables.font_size_heading,
     color: variables.color_text_base,
@@ -40,15 +45,17 @@ export default StyleSheet.create({
     fontSize: 40,
     fontWeight: '200',
     color: '#bcbcbc',
+    lineHeight:  30,
   },
   buttnGroupH: {
+    flex: 1,
     flexDirection: 'row',
-    borderTopWidth: variables.border_width_sm,
+    borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: variables.border_color_base,
   },
   buttnGroupV: {
+    flex: 1,
     flexDirection: 'column',
-
   },
   buttnWrapH: {
     flex: 1,
@@ -58,7 +65,7 @@ export default StyleSheet.create({
   },
   buttnWrapV: {
     flex: 1,
-    borderTopWidth: variables.border_width_sm,
+    borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: variables.border_color_base,
     paddingVertical: 11,
   },
@@ -66,5 +73,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: variables.color_link,
     fontSize: variables.link_button_font_size,
+    backgroundColor: 'transparent',
   },
 });

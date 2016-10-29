@@ -21,8 +21,8 @@ module.exports = {
     },
   },
   webpackConfig(config) {
-    config.module.loaders.forEach(loader=>{
-      if(loader.test.toString() == '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
+    config.module.loaders.forEach(loader => {
+      if (loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
         loader.exclude = /components\/icon\/style\/assets/;
       }
     });
@@ -30,7 +30,7 @@ module.exports = {
     config.module.loaders.unshift({
       test: /\.svg$/,
       loader: 'svg-sprite',
-      include: /components\/icon\/style\/assets/
+      include: /components\/icon\/style\/assets/,
     });
 
     config.module.noParse = [/moment.js/];
