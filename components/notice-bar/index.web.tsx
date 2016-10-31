@@ -41,14 +41,14 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
     if (mode === 'closable') {
       operationDom = (
         <div className={`${prefixCls}-operation`} onClick={this.onClick}>
-          <Icon type="cross" />
+          <Icon type="cross"  size="md" />
         </div>
       );
     } else {
       if (mode === 'link') {
         operationDom = (
           <div className={`${prefixCls}-operation`}>
-            <Icon type="right" />
+            <Icon type="right"  size="md" />
           </div>
         );
       }
@@ -63,7 +63,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
     };
 
     const iconDom = type ? <div className={`${prefixCls}-icon`}>
-      <Icon type={iconEnum[type] || 'info-circle'} />
+      <Icon type={iconEnum[type] || 'info-circle'}  size="xxs" />
     </div> : null;
 
     const wrapCls = classNames({

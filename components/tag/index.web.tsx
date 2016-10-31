@@ -74,7 +74,7 @@ export default class Tag extends React.Component<TagProps, any> {
           className={`${prefixCls}-close`}
           onClick={this.onTagClose}
         >
-          <Icon type="cross-circle" />
+          <Icon type="cross-circle" size="xs" />
         </div> }
       </div>
     ) : null;

@@ -23,15 +23,12 @@
     font-size: @font-size-base;
     line-height: 1.18;
     padding: @v-spacing-md @h-spacing-lg;
-  }
-
-  &-text-icon {
-    border-radius: @radius-lg;
-    padding: @v-spacing-lg;
-  }
-
-  .anticon {
-    font-size: @icon-size-lg;
-    margin-bottom: @v-spacing-md;
+    &&-icon {
+      border-radius: @radius-lg;
+      padding: @v-spacing-lg @h-spacing-lg;
+      .@{toastPrefixCls}-text-info {
+        margin-top: @v-spacing-sm;
+      }
+    }
   }
 }
