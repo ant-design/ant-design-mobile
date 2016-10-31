@@ -10,30 +10,20 @@ export default class AntmSwitch extends React.Component<SwitchProps, any> {
     onChange() {},
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: props.checked,
-    };
-  }
-
   onChange(value) {
     if (this.props.onChange) {
       this.props.onChange(value);
     }
-    this.setState({
-      checked: value,
-    });
   };
 
   render() {
-    let { style, disabled } = this.props;
+    let { style, disabled, checked } = this.props;
 
     return (
       <Switch
         style={style}
         onValueChange={(value) => {this.onChange(value);}}
-        value={this.state.checked}
+        value={checked}
         disabled={disabled}
       />
     );
