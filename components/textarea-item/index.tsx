@@ -106,6 +106,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
           maxLength={maxLength}
           clearButtonMode={clear ? 'while-editing' : 'never'}
           editable={editable}
+          underlineColorAndroid="transparent"
         />
         {error ? <TouchableWithoutFeedback onPress={this.onErrorClick}>
           <View style={[TextAreaItemStyle.errorIcon]}>
