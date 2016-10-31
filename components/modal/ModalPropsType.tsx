@@ -10,6 +10,7 @@ interface ModalProps {
   style?: {};
   animated?: boolean;
   bodyStyle?: {};
+  animationType?: any;
   /** web only */
   prefixCls?: string;
   transitionName?: string;

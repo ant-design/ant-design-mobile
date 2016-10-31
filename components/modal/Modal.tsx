@@ -15,6 +15,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     maskClosable: false,
     style: {},
     bodyStyle: {},
+    animationType: 'fade',
     onClose() {
     },
     footer: [],
@@ -59,11 +60,15 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       </View>
     ) : null;
 
+    let animType = this.props.animationType;
     if (transparent) {
+      if (animType === 'slide') {
+        animType = 'slide-up';
+      }
       return (
         <RCModal
           onClose={this.onMaskClose}
-          animationType="fade"
+          animationType={animType}
           wrapStyle={transparent ? modalStyle.container : undefined}
           style={[modalStyle.innerContainer, style]}
           visible={visible}
@@ -83,10 +88,13 @@ class AntmModal extends React.Component<ModalPropsType, any> {
         </RCModal>
       );
     }
+    if (animType === 'slide-up' || animType === 'slide-down' || animType === 'slide') {
+      animType = 'slide';
+    }
     return (
       <Modal
         visible={visible}
-        animationType="slide"
+        animationType={animType}
         onRequestClose={this.onMaskClose}
       >
         <View style={style}>

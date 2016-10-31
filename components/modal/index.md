@@ -28,6 +28,7 @@ english: Modal
 | maskClosable (only transparent) | 点击蒙层是否允许关闭 | Boolean   | true       |
 | footer  (only not transparent)     | 底部内容       |  Array [{text, onPress}]    | [] |
 | transparent | 是否弹窗模式       | Boolean   |  true |
+| animationType | modal 动画样式       | 'none' | 'slide-down/up' (transparent 模式下) | 'fade' | 'slide' (仅非 tranparent)   |   fade |
 | style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
 
 ### Modal.alert(title, message, actions?) `web only`
