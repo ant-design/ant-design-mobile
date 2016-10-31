@@ -30,7 +30,9 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" defaultValue="" onChange={onChange} />
+            <input type="text" defaultValue="" ref={input => setTimeout(() => {
+              input.focus();
+            }, 500)} onChange={onChange} />
           </div>
           <div className={`${prefixCls}-input`}>
             <input type="password" defaultValue="" onChange={onChange} />
@@ -42,7 +44,9 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="password" defaultValue="" onChange={onChange} />
+            <input type="password" defaultValue="" ref={input => setTimeout(() => {
+              input.focus();
+            }, 500)} onChange={onChange} />
           </div>
         </div>
       );
@@ -53,7 +57,9 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" defaultValue="" onChange={onChange} />
+            <input type="text" defaultValue="" ref={input => setTimeout(() => {
+              input.focus();
+            }, 500)} onChange={onChange} />
           </div>
         </div>
       );
