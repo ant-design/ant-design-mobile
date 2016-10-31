@@ -69,6 +69,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           ref="searchInput"
           onSubmitEditing={this.onSubmit}
           clearButtonMode="always"
+          underlineColorAndroid="transparent"
         />
         <Image
           source={require('../style/images/search.png')}

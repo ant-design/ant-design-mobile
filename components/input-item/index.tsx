@@ -118,6 +118,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           secureTextEntry={type === 'password'}
           clearButtonMode={clear ? 'while-editing' : 'never'}
           editable={editable}
+          underlineColorAndroid="transparent"
         />
         {extra ? <TouchableWithoutFeedback
           onPress={onExtraPress}
