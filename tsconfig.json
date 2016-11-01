@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
