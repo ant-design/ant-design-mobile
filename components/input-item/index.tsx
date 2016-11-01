@@ -91,7 +91,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     };
 
     const textStyle = {
-      width: variables.font_size_heading * labelNumber,
+      width: variables.font_size_heading * labelNumber * 1.05,
     };
 
     const inputStyle = {
