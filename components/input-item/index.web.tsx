@@ -39,6 +39,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     labelNumber: 4,
     labelPosition: 'left',
     textAlign: 'left',
+    updatePlaceholder: false,
   };
 
   debounceTimeout: any;
@@ -133,7 +134,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
   }
 
   clearInput = () => {
-    if (this.props.type !== 'password') {
+    if (this.props.type !== 'password' && this.props.updatePlaceholder) {
       this.setState({
         placeholder: this.props.value,
       });

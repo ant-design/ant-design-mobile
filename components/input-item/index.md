@@ -41,3 +41,4 @@ english: InputItem
 | size(本期不实现)       | 尺寸        | string | `large`,`small` |  `large`  |
 | labelPosition(本期不实现)        | 标题方向        | string | `left`,`top` |  `left`  |
 | textAlign(本期不实现)        | 文本对齐        | string | `left`,`center` |  `left`  |
+| updatePlaceholder | 当清除内容时，是否将清除前的内容替换到placeholder中        | bool | |  false  |

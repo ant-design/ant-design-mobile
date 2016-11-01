@@ -8,7 +8,7 @@ interface InputItemProps {
     style?: React.CSSProperties;
     /** web only */
     className?: string;
-    type?: 'text'|'bankCard'|'phone'|'password'|'number';
+    type?: 'text'|'bankCard'|'phone'|'password'|'number'|'idcard'|'digit'|'time'|'date';
     editable?: boolean;
     disabled?: boolean;
     name?: string;
@@ -33,6 +33,7 @@ interface InputItemProps {
     /** rn only */
     last?: boolean;
     children?: any;
+    updatePlaceholder?: boolean;
 }
 
 export default InputItemProps;
