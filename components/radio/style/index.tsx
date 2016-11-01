@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   icon: {
     width: variables.icon_size_sm,
-    height: variables.icon_size_sm,
+    height: variables.icon_size_sm * 0.8,
   },
   radioItem: {
     flexDirection: 'row',
