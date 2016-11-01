@@ -15,6 +15,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
   onChange = (e) => {
     // console.log('onChange');
     // console.log(e.text);
+    this.props.onChange(e);
   }
 
   onFocus = () => {
@@ -40,50 +41,47 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
         <List
           renderHeader={() => '基本' }
         >
-
-            <TextAreaItem
-              rows = {4}
-              placeholder="固定行数"
-              onChange={(e) => this.onChange(e)}
-              onFocus={(e) => this.onFocus()}
-            />
-            <TextAreaItem
-              rows = {5}
-              count = {100}
-              placeholder="多行带计数"
-              onChange={(e) => this.onChange(e)}
-              onFocus={(e) => this.onFocus()}
-            />
-            <TextAreaItem
-              keyboardType="email-address"
-              value={this.state.value1}
-              onChange={(e) => this.onChange(e)}
-            />
-            <TextAreaItem
-              placeholder="高度自适应"
-              autoHeight = {true}
-              onChange={(e) => this.onChange(e)}
-            />
-            <TextAreaItem
-              value="不可编辑 editable = {false}"
-              editable = {false}
-            />
-            <TextAreaItem
-              clear={false}
-              placeholder="最大长度10，不带清除clear={false}"
-              count = {10}
-              title="标题"
-            />
-            <TextAreaItem
-              error
-              value="报错样式 error={true}"
-              count = {200}
-              onErrorClick = {this.handleError}
-            />
-
+          <TextAreaItem
+            rows = {4}
+            placeholder="固定行数"
+            onChange={(e) => this.onChange(e)}
+            onFocus={() => this.onFocus()}
+          />
+          <TextAreaItem
+            rows = {5}
+            count = {100}
+            placeholder="多行带计数"
+            onChange={(e) => this.onChange(e)}
+            onFocus={() => this.onFocus()}
+          />
+          <TextAreaItem
+            keyboardType="email-address"
+            value={this.state.value1}
+            onChange={(e) => this.onChange(e)}
+          />
+          <TextAreaItem
+            placeholder="高度自适应"
+            autoHeight = {true}
+            onChange={(e) => this.onChange(e)}
+          />
+          <TextAreaItem
+            value="不可编辑 editable = {false}"
+            editable = {false}
+          />
+          <TextAreaItem
+            clear={false}
+            placeholder="最大长度10，不带清除clear={false}"
+            count = {10}
+            title="标题"
+          />
+          <TextAreaItem
+            error
+            value="报错样式 error={true}"
+            count = {200}
+            onErrorClick = {this.handleError}
+          />
         </List>
       </ScrollView>
-
     );
   }
 }
