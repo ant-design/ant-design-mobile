@@ -4,7 +4,7 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "preserve",
     "allowSyntheticDefaultImports":true,
     "target": "es6"
   },
