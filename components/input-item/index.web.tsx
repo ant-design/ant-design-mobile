@@ -178,7 +178,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     }
 
     let valueProps;
-    if (value !== undefined) {
+    if ('value' in this.props) {
       valueProps = {
         value: fixControlledValue(value),
       };

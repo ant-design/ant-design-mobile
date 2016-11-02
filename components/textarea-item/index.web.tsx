@@ -126,7 +126,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       editable, disabled, error, className, labelNumber, autoHeight } = this.props;
 
     let valueProps;
-    if (value !== undefined) {
+    if ('value' in this.props) {
       valueProps = {
         value: fixControlledValue(value),
       };
