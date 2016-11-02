@@ -12,10 +12,9 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
     };
   }
 
-  onChange = (e) => {
+  onChange = (_e) => {
     // console.log('onChange');
     // console.log(e.text);
-    this.props.onChange(e);
   }
 
   onFocus = () => {
