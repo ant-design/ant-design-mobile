@@ -21,7 +21,7 @@ const App = React.createClass({
     this.setState({ animating: !this.state.animating });
     this.closeTimer = setTimeout(() => {
       this.setState({ animating: !this.state.animating });
-    }, 2000);
+    }, 90000);
   },
   render() {
     return (
@@ -39,13 +39,6 @@ const App = React.createClass({
               <ActivityIndicator
                 text="加载中..."
               />
-            </div>
-            <WhiteSpace size="xl" />
-            <div className="loading-example white">
-              <p className="title">深色背景</p>
-              <div className="darkBg">
-                <ActivityIndicator color="white" />
-              </div>
             </div>
             <WhiteSpace size="xl" />
             <div className="loading-example">
