@@ -12,22 +12,22 @@ export default class PopoverExample extends React.Component<any, any> {
       selected: '',
     };
   }
-  componentDidMount() {
-    // setInterval(() => {
-    //   this.refs.mc.refs.menuContext.toggleMenu('m');
-    // }, 2000);
-  }
+  // componentDidMount() {
+  //   setInterval(() => {
+  //     this.refs.mc.refs.menuContext.toggleMenu('m');
+  //   }, 2000);
+  // }
   onSelect = (value) => {
     this.setState({
       // visible: false,
       selected: value,
     });
   }
-  handleVisibleChange = (_visible) => {
-    // this.setState({
-    //   visible,
-    // });
-  }
+  // handleVisibleChange = (_visible) => {
+  //   this.setState({
+  //     visible,
+  //   });
+  // }
   render() {
     let overlay = [1, 2, 3].map((i, index) => (
       <Item key={index} value={`option ${i}`}><Text>option {i}</Text></Item>

@@ -6,30 +6,30 @@ title: 向下弹出效果
 Popup 向下弹出效果
 
 ````jsx
-import { Popup, List, Button, Menu } from 'antd-mobile';
+import { Popup, List, Button } from 'antd-mobile';
 
-const SelectorDataForPopup = [
-  {
-    label: '中餐',
-    value: '21',
-  }, {
-    label: '还没生效',
-    value: '22',
-    disabled: true,
-  }, {
-    label: '关闭浮层',
-    value: 'qx',
-  }, {
-    label: '自助餐',
-    value: '24',
-  }, {
-    label: '快餐',
-    value: '25',
-  }, {
-    label: '小吃',
-    value: '26',
-  },
-];
+// const SelectorDataForPopup = [
+//   {
+//     label: '中餐',
+//     value: '21',
+//   }, {
+//     label: '还没生效',
+//     value: '22',
+//     disabled: true,
+//   }, {
+//     label: '关闭浮层',
+//     value: 'qx',
+//   }, {
+//     label: '自助餐',
+//     value: '24',
+//   }, {
+//     label: '快餐',
+//     value: '25',
+//   }, {
+//     label: '小吃',
+//     value: '26',
+//   },
+// ];
 
 const Test = React.createClass({
   getInitialState() {
@@ -59,27 +59,28 @@ const Test = React.createClass({
     );
   },
   onClose(sel) {
-    if (sel === 'opt 1') {
-      this.newInstance();
-      return;
-    }
+    // if (sel === 'opt 1') {
+    //   // 演示再弹出内容
+    //   this.newInstance();
+    //   return;
+    // }
     this.setState({ sel });
     Popup.hide();
   },
-  newInstance() {
-    const ins = Popup.newInstance();
-    const hide = (value) => {
-      if (value[0] === 'qx') {
-        ins.hide();
-      }
-    };
-    ins.show(<Menu
-      level={1}
-      value={[SelectorDataForPopup[0]]}
-      data={SelectorDataForPopup}
-      onChange={hide}
-    />, { maskClosable: true });
-  },
+  // newInstance() {
+  //   const ins = Popup.newInstance();
+  //   const hide = (value) => {
+  //     if (value[0] === 'qx') {
+  //       ins.hide();
+  //     }
+  //   };
+  //   ins.show(<Menu
+  //     level={1}
+  //     value={[SelectorDataForPopup[0]]}
+  //     data={SelectorDataForPopup}
+  //     onChange={hide}
+  //   />, { maskClosable: true });
+  // },
   render() {
     return (<div style={{ padding: '15px' }}>
       <Button type="ghost" onClick={this.onClick}>显示</Button>
