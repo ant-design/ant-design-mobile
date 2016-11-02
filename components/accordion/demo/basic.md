@@ -15,17 +15,14 @@ const AccordionExmple = React.createClass({
   render() {
     return (
       <div style={{ marginTop: 10, marginBottom: 10 }}>
-        <Accordion
-          defaultActiveKey="0"
-        >
-          <Accordion.Panel header="标题文字">
-            <List.Item>子内容子内容</List.Item>
-            <List.Item>子内容子内容</List.Item>
-            <List.Item>子内容子内容</List.Item>
-            <List.Item>子内容子内容</List.Item>
+        <Accordion defaultActiveKey="0">
+          <Accordion.Panel header="标题一">
+            <List.Item>子内容一</List.Item>
+            <List.Item>子内容二</List.Item>
+            <List.Item>子内容三</List.Item>
           </Accordion.Panel>
-          <Accordion.Panel header="标题文字"><List.Item>this is panel content2 or other</List.Item></Accordion.Panel>
-          <Accordion.Panel header="标题文字"><List.Item>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</List.Item></Accordion.Panel>
+          <Accordion.Panel header="标题二"><List.Item>this is panel content2 or other</List.Item></Accordion.Panel>
+          <Accordion.Panel header="标题三"><List.Item>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</List.Item></Accordion.Panel>
         </Accordion>
       </div>
     );
