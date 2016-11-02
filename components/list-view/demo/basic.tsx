@@ -28,7 +28,7 @@ let pageIndex = 0;
 export default React.createClass({
   getInitialState() {
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
-    const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
+    const getRowData = (dataBlob, _sectionID, rowID) => dataBlob[rowID];
 
     const dataSource = new ListView.DataSource({
       getRowData,
@@ -64,7 +64,7 @@ export default React.createClass({
       headerPressCount: 0,
     };
   },
-  onEndReached(event) {
+  onEndReached(_event) {
     // load new data
     this.setState({ isLoading: true });
     setTimeout(() => {
@@ -87,7 +87,7 @@ export default React.createClass({
         borderBottomColor: '#ECECED',
       }}></View>
     );
-    const row = (rowData, sectionID, rowID, highlightRow = (sId, rId) => {}) => {
+    const row = (_rowData, sectionID, rowID, highlightRow = (_sId, _rId) => {}) => {
       if (index < 0) {
         index = data.length - 1;
       }
@@ -147,7 +147,7 @@ export default React.createClass({
         pageSize={4}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        onChangeVisibleRows={(visibleRows, changedRows) => {
+        onChangeVisibleRows={(_visibleRows, _changedRows) => {
           // console.log(visibleRows, changedRows);
         }}
       />

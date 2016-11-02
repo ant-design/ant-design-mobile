@@ -34,7 +34,7 @@ export default class ToastExample extends React.Component<any, any> {
   }
 
   componentWillUnmount () {
-    DeviceEventEmitter.removeAllListeners('navigatorBack');
+    (DeviceEventEmitter as any).removeAllListeners('navigatorBack');
     if (this.timer) {
       clearTimeout(this.timer);
       this.timer = null;

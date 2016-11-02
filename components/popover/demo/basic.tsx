@@ -23,7 +23,7 @@ export default class PopoverExample extends React.Component<any, any> {
       selected: value,
     });
   }
-  handleVisibleChange = (visible) => {
+  handleVisibleChange = (_visible) => {
     // this.setState({
     //   visible,
     // });
