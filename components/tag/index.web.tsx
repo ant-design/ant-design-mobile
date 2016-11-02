@@ -61,10 +61,11 @@ export default class Tag extends React.Component<TagProps, any> {
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}`]: true,
+      [`${prefixCls}-normal`]: !disabled && ( !this.state.selected || small || closable ),
       [`${prefixCls}-small`]: small,
-      [`${prefixCls}-normal`]: !this.state.selected && !disabled,
-      [`${prefixCls}-active`]: this.state.selected && !disabled,
+      [`${prefixCls}-active`]: this.state.selected && !disabled && !small && !closable,
       [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-closable`]: closable,
     });
 
     return !this.state.closed ? (
