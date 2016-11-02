@@ -3,7 +3,7 @@ order: 0
 title: 标签类型
 ---
 
-标签类型分为选择型标签和只读型标签，只读型标签无交互过程，仅展示内容。
+标签分为选择型标签和只读型标签，只读型标签为小标签无交互过程，仅展示内容。
 
 ````jsx
 import { Tag } from 'antd-mobile';
@@ -26,7 +26,7 @@ ReactDOM.render(
     >
       可关闭标签
     </Tag>
-    <Tag small>小号标签</Tag>
+    <Tag small>小号只读标签</Tag>
   </div>
 , mountNode);
 ````
