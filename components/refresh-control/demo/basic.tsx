@@ -42,7 +42,7 @@ export default React.createClass({
       isRefreshing: false,
       loaded: 0,
       rowData: Array.from(new Array(20)).map(
-        (val, i) => ({text: 'Initial row ' + i, clicks: 0})),
+        (_val, i) => ({text: 'Initial row ' + i, clicks: 0})),
     };
   },
 
@@ -81,7 +81,7 @@ export default React.createClass({
     setTimeout(() => {
       // prepend 10 items
       const rowData = Array.from(new Array(10))
-      .map((val, i) => ({
+      .map((_val, i) => ({
         text: 'Loaded row ' + (+this.state.loaded + i),
         clicks: 0,
       }))

@@ -169,7 +169,7 @@ export default class FlexExample extends React.Component<any, any> {
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex wrap="wrap">
-            {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={i} />)}
+            {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={`${i}-${char}`} />)}
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
@@ -177,7 +177,7 @@ export default class FlexExample extends React.Component<any, any> {
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex wrap="nowrap">
-            {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={i} />)}
+            {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={`${i}-${char}`} />)}
           </Flex>
         </WingBlank>
         <WhiteSpace />

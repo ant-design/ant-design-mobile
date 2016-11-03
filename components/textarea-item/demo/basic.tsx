@@ -12,7 +12,7 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
     };
   }
 
-  onChange = (e) => {
+  onChange = (_e) => {
     // console.log('onChange');
     // console.log(e.text);
   }
@@ -45,14 +45,14 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
               rows = {4}
               placeholder="固定行数"
               onChange={(e) => this.onChange(e)}
-              onFocus={(e) => this.onFocus()}
+              onFocus={() => this.onFocus()}
             />
             <TextAreaItem
               rows = {5}
               count = {100}
               placeholder="多行带计数"
               onChange={(e) => this.onChange(e)}
-              onFocus={(e) => this.onFocus()}
+              onFocus={() => this.onFocus()}
             />
             <TextAreaItem
               keyboardType="email-address"

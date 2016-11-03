@@ -23,7 +23,7 @@ export default class DrawerExample extends React.Component<any, any> {
     const sidebar = (<ScrollView style={[styles.container, { backgroundColor: '#fff' }]}>
       <List>
 
-          {Array.apply(null, Array(20)).map(function (_, i) {return i;}).map((i, index) => {
+          {Array.apply(null, Array(20)).map(function (_, i) {return i;}).map((_i, index) => {
             if (index === 0) {
               return (<List.Item key={index}
                 thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"

@@ -46,7 +46,7 @@ export default React.createClass({
     };
   },
 
-  onEndReached(event) {
+  onEndReached(_event) {
     // load new data
     // console.log('reach end', event);
     this.setState({ isLoading: true });
@@ -71,7 +71,7 @@ export default React.createClass({
         borderBottomColor: '#ECECED',
       }}></View>
     );
-    const row = (rowData, sectionID, rowID, highlightRow = (sId, rId) => {}) => {
+    const row = (_rowData, sectionID, rowID, highlightRow = (_sId, _rId) => {}) => {
       if (index < 0) {
         index = data.length - 1;
       }
@@ -127,7 +127,7 @@ export default React.createClass({
         scrollEventThrottle={20}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        onChangeVisibleRows={(visibleRows, changedRows) => {
+        onChangeVisibleRows={(_visibleRows, _changedRows) => {
           /* tslint no-console: 0 */
           // console.log(visibleRows, changedRows);
         }}

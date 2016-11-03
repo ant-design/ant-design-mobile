@@ -51,7 +51,7 @@ export default React.createClass({
       excludedActivityTypes: [
         <Button onClick={() => ActionSheet.close(androidActionSheetName)}>close ActionSheet</Button>,
       ] as any[],
-      subject: null as string,
+      subject: (null as any),
       androidActionSheetName,
     };
     if (Platform.OS === 'ios') {

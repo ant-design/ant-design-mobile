@@ -33,7 +33,7 @@ export default class ToastExample extends React.Component<any, any> {
   }
 
   componentWillUnmount () {
-    DeviceEventEmitter.removeAllListeners('navigatorBack');
+    (DeviceEventEmitter as any).removeAllListeners('navigatorBack');
   }
 
   render() {
