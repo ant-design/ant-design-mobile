@@ -113,7 +113,7 @@ export default class Button extends React.Component<tsProps, any> {
     } else if (type === 'warning') {
       textColor = variables.brand_warning;
       backgroundColor = variables.fill_base;
-      borderColor = variables.brand_warning;
+      borderColor = variables.fill_base;
 
       highlightTextColor = variables.color_text_base_inverse;
       highlightBackgroundColor = variables.brand_warning;

@@ -1,9 +1,9 @@
 interface ButtonProps {
-  disabled?: boolean;
-  size?: 'large' | 'small';
   type?: 'primary' | 'warning' | 'ghost';
-  ghost?: boolean;
+  size?: 'large' | 'small';
   inline?: boolean;
+  across?: boolean;
+  disabled?: boolean;
   loading?: boolean;
   style?: {};
   onClick?: (x: any) => void;

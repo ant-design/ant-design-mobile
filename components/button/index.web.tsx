@@ -32,16 +32,17 @@ class Button extends React.Component<tsProps, any> {
     prefixCls: 'am-button',
     size: 'large',
     inline: false,
+    across: false,
     disabled: false,
     loading: false,
   };
 
   render() {
     let [{
-      children, className, prefixCls, type, size, inline, disabled,
-      htmlType, icon, loading, touchFeedback, activeStyle,
+      children, className, prefixCls, type, size, inline, across,
+      disabled, htmlType, icon, loading, touchFeedback, activeStyle,
     }, restProps] = splitObject(this.props,
-      ['children', 'className', 'prefixCls', 'type', 'size', 'inline',
+      ['children', 'className', 'prefixCls', 'type', 'size', 'inline', 'across',
         'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback', 'activeStyle']);
 
     const wrapCls = {
@@ -51,9 +52,10 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
       [`${prefixCls}-small`]: size === 'small',
-      [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-inline`]: inline,
+      [`${prefixCls}-across`]: across,
       [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-loading`]: loading,
     };
 
     let style = assign({}, this.props.style);
@@ -64,6 +66,10 @@ class Button extends React.Component<tsProps, any> {
 
     const iconType = loading ? 'loading' : icon;
     const kids = React.Children.map(children, insertSpace);
+
+    if (iconType) {
+      wrapCls[`${prefixCls}-icon`] = true;
+    }
 
     return (
       <button

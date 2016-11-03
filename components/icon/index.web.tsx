@@ -14,7 +14,7 @@ export interface IconPropType {
 
 export default class Icon extends React.Component<IconPropType, any> {
   render() {
-    const { type, className, style, size } = this.props;
+    const { type, className, style, size = 'md' } = this.props;
     const iconClassName = classNames({
       'am-icon': true,
       [`am-icon-${type}`]: true,
