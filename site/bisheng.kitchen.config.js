@@ -1,3 +1,5 @@
+const path = require('path');
+const pxtorem = require('postcss-pxtorem');
 const commonConfig = require('./bisheng.common.config');
 const config = require('./mobile/');
 
@@ -34,5 +36,49 @@ module.exports = Object.assign({}, commonConfig, {
   doraConfig: {
     verbose: true,
     plugins: ['dora-plugin-upload'],
+  },
+  webpackConfig(config) {
+    config.module.loaders.forEach(loader => {
+      if (loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
+        loader.exclude = /components\/icon\/style\/assets/;
+      }
+    });
+
+    config.module.loaders.unshift({
+      test: /\.svg$/,
+      loader: 'svg-sprite',
+      include: /components\/icon\/style\/assets/,
+    });
+
+    config.module.noParse = [/moment.js/];
+    config.resolve.alias = {
+      'antd-mobile': process.cwd(),
+      site: path.join(process.cwd(), 'site'),
+    };
+
+    config.postcss.push(pxtorem({
+      rootValue: 100,
+      propWhiteList: [],
+      selectorBlackList: [/^html$/, /^\.ant-/, /^\.github-/, /^\.gh-/],
+    }));
+
+    config.babel.plugins.push([
+      require.resolve('babel-plugin-transform-runtime'),
+      {
+        polyfill: false,
+        regenerator: true,
+      },
+    ]);
+
+    config.babel.plugins.push([
+      require.resolve('babel-plugin-import'),
+      {
+        style: true,
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'components',
+      },
+    ]);
+
+    return config;
   },
 });
