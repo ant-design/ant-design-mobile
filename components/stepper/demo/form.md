@@ -10,7 +10,7 @@ title: 基本
 import { List, Stepper } from 'antd-mobile';
 
 const Demo = React.createClass({
-  getInitialState () {
+  getInitialState() {
     return { val: 3 };
   },
   onChange(val) {
