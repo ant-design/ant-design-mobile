@@ -58,7 +58,7 @@ export default class Steps extends React.Component<StepsProps, any> {
                 }
               }
             } else {
-              className = index <= current ? null : 'ellipsis-item';
+              className = index <= current ? '' : 'ellipsis-item';
               if (index <= current) {
                 iconName = 'check-circle-o';
               } else if (item.props.status === 'error') {
