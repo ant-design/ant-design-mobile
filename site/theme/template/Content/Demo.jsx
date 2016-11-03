@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
+import Radio from 'antd/lib/radio';
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -12,6 +13,7 @@ export default class Demo extends React.Component {
     super(props);
     this.state = {
       fullscreen: false,
+      lang: 'es6',
     };
   }
 
@@ -20,8 +22,7 @@ export default class Demo extends React.Component {
   }
 
   handleClick = (e) => {
-    const togglePreview = this.props.togglePreview;
-    const { index, currentIndex } = this.props;
+    const { togglePreview, index, currentIndex } = this.props;
 
     if (index !== currentIndex && e.target.className !== 'collapse anticon anticon-circle-o-right' &&
       e.target.className !== 'fullscreen anticon anticon-arrow-salt') {
@@ -43,6 +44,43 @@ export default class Demo extends React.Component {
     });
   }
 
+  handleProgrammingLangChange = (e) => {
+    this.setState({ lang: e.target.value });
+  }
+
+  renderDemoCode(highlightedCode, inModal) {
+    const props = this.props;
+    const lang = this.state.lang;
+    const style = !inModal ? null : { margin: '-22px -16px' };
+    return Array.isArray(highlightedCode) ? (
+      <div className="highlight" style={style}>
+        <span
+          className="fullscreen anticon anticon-arrow-salt"
+          onClick={this.viewFullscreen}
+          unselectable="none"
+        />
+        {props.utils.toReactComponent(highlightedCode)}
+      </div>
+    ) : (
+      <div className="highlight" style={style}>
+        <Radio.Group value={lang} onChange={this.handleProgrammingLangChange}>
+          <Radio.Button value="es6">ES2016</Radio.Button>
+          <Radio.Button value="ts">TypeScript</Radio.Button>
+        </Radio.Group>
+        {!inModal && (
+          <span
+            className="fullscreen anticon anticon-arrow-salt"
+            onClick={this.viewFullscreen}
+            unselectable="none"
+          />
+        )}
+        <pre className="language-jsx">
+          <code dangerouslySetInnerHTML={{ __html: highlightedCode[lang] }} />
+        </pre>
+      </div>
+    )
+  }
+
   render() {
     const props = this.props;
     const {
@@ -51,9 +89,9 @@ export default class Demo extends React.Component {
       highlightedCode,
       highlightedStyle,
       className,
+      codeExpand,
     } = props;
 
-    const codeExpand = this.props.codeExpand;
     const codeBoxClass = classNames({
       'code-box': true,
       [className]: className,
@@ -77,12 +115,7 @@ export default class Demo extends React.Component {
             <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>返 回</Button>,
           ]}
         >
-          <div
-            className="highlight"
-            style={{ padding: '16Px', backgroundColor: '#F7F7F7', height: '500Px', overflowY: 'scroll' }}
-          >
-            {props.utils.toReactComponent(highlightedCode)}
-          </div>
+          {this.renderDemoCode(highlightedCode, true)}
         </Modal>
 
         <section className="code-box-meta markdown">
@@ -98,24 +131,13 @@ export default class Demo extends React.Component {
             onClick={this.handleCodeExapnd}
             unselectable="none"
           />
-
-          {
-            codeExpand &&
-            (<span
-              className="fullscreen anticon anticon-arrow-salt"
-              onClick={this.viewFullscreen}
-              unselectable="none"
-            />)
-          }
         </section>
 
         <section
           className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
           key="code"
         >
-          <div className="highlight">
-            {props.utils.toReactComponent(highlightedCode)}
-          </div>
+          {this.renderDemoCode(highlightedCode, false)}
           {
             highlightedStyle ?
               <div key="style" className="highlight">
