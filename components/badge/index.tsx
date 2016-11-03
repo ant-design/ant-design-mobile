@@ -23,7 +23,6 @@ export default class Badge extends React.Component<BadgeProps, any> {
       <View style={[ BadgeStyle.wrap, style ]}>
         <View style={ [BadgeStyle[`${badgeCls}Wrap`]] }>
           {children}
-
           {
             !dot ? (
               <TouchableWithoutFeedback>
