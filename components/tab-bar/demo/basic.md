@@ -6,7 +6,7 @@ title: APP型选项卡
 多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。
 
 ````jsx
-import { TabBar } from 'antd-mobile';
+import { TabBar, Icon } from 'antd-mobile';
 
 /* eslint global-require: 0 */
 
@@ -47,6 +47,7 @@ const TabBarExample = React.createClass({
           icon={require('./TabBar_HomeBar_web.png')}
           selectedIcon={require('./TabBar_HomeBar_Sel_web.png')}
           selected={this.state.selectedTab === 'blueTab'}
+          badge={1}
           onPress={() => {
             this.setState({
               selectedTab: 'blueTab',
@@ -57,11 +58,10 @@ const TabBarExample = React.createClass({
           {this.renderContent('生活')}
         </TabBar.Item>
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/UNQhIatjpNZHjVf.png' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/HLkBvJOKnmOfBPO.png' }}
+          icon={<Icon type="koubei-o" size="md" />}
+          selectedIcon={<Icon type="koubei" size="md" />}
           title="口碑"
           key="口碑"
-          badge={1}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => {
             this.setState({
@@ -73,8 +73,20 @@ const TabBarExample = React.createClass({
           {this.renderContent('口碑')}
         </TabBar.Item>
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/LWNaMdwAFSmYBFw.png' }}
+          icon={
+            <div style={{
+              width: '0.44rem',
+              height: '0.44rem',
+              background: 'url(https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png) center center /  0.44rem 0.33rem no-repeat' }}
+            />
+          }
+          selectedIcon={
+            <div style={{
+              width: '0.44rem',
+              height: '0.44rem',
+              background: 'url(https://zos.alipayobjects.com/rmsportal/LWNaMdwAFSmYBFw.png) center center /  0.44rem 0.33rem no-repeat' }}
+            />
+          }
           title="朋友"
           key="朋友"
           selected={this.state.selectedTab === 'greenTab'}

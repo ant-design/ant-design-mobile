@@ -32,6 +32,6 @@ english: TabBar
 | badge  | 徽标数  | Number \ String           | 无     |
 | onPress  | bar 点击触发，需要自己改变组件 state & selecte={true} | Function | `(){}`     |
 | selected  | 是否选中 | Boolean | false     |
-| icon  | 默认展示图片 | Image Source(rn) \ {uri: String} (web) |      |
-| selectedIcon  |  选中后的展示图片 | Image Source(rn) \ {uri: String} (web) |      |
+| icon  | 默认展示图片 | Image Source(rn) \ web 方式见 demo |      |
+| selectedIcon  |  选中后的展示图片 | Image Source(rn) \ web 方式见 demo |      |
 | title  |  标题文字 | String |      |
