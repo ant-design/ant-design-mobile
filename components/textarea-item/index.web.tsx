@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-function noop() {}
-
 import TextareaItemProps from './TextAreaItemPropsType';
-import getDataAttr from '../_util/getDataAttr';
+import omit from 'omit.js';
+
+function noop() {}
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -24,8 +24,6 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     autoHeight: false,
     editable: true,
     disabled: false,
-    name: '',
-    defaultValue: '',
     placeholder: '',
     clear: false,
     rows: 1,
@@ -125,6 +123,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       prefixCls, prefixListCls, style, title, name, value, defaultValue, placeholder, clear, rows, count,
       editable, disabled, error, className, labelNumber, autoHeight } = this.props;
 
+    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
+      'clear', 'children', 'error', 'className', 'count', 'labelNumber', 'title', 'onErrorClick',
+      'autoHeight',
+    ]);
+
     let valueProps;
     if ('value' in this.props) {
       valueProps = {
@@ -158,10 +161,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     });
 
     return (
-      <div {...getDataAttr(this.props)} className={wrapCls} style={style}>
+      <div className={wrapCls} style={style}>
         {title ? (<div className={labelCls}>{title}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <textarea
+            {...otherProps}
             {...valueProps}
             ref="textarea"
             name={name}

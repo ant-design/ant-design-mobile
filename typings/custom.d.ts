@@ -16,7 +16,7 @@ declare module 'classnames';
 
 declare module 'object-assign';
 
-declare module 'object-omit';
+declare module 'omit.js';
 
 declare module 'rc-input-number*';
 
