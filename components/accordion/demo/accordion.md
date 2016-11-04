@@ -15,7 +15,7 @@ const AccordionExmple = React.createClass({
   render() {
     return (
       <div style={{ marginTop: 10, marginBottom: 10 }}>
-        <Accordion accordion>
+        <Accordion accordion openAnimation={{}}>
           <Accordion.Panel header="标题一">
             <List.Item>子内容一</List.Item>
             <List.Item>子内容二</List.Item>
