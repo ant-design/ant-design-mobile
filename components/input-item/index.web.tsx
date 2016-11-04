@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-function noop() {
-}
 import InputItemProps from './InputItemPropsType';
-import getDataAttr from '../_util/getDataAttr';
+import omit from 'omit.js';
+
+function noop() {}
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -22,8 +22,6 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
     type: 'text',
-    name: '',
-    defaultValue: '',
     editable: true,
     disabled: false,
     placeholder: '',
@@ -35,10 +33,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     onExtraClick: noop,
     error: false,
     onErrorClick: noop,
-    size: 'large',
     labelNumber: 4,
-    labelPosition: 'left',
-    textAlign: 'left',
     updatePlaceholder: false,
   };
 
@@ -151,6 +146,11 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       error, className, extra, labelNumber, maxLength,
     } = this.props;
 
+    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
+      'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
+      'updatePlaceholder',
+    ]);
+
     const { focus, placeholder } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
@@ -197,10 +197,12 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     }
 
     return (
-      <div {...getDataAttr(this.props)} className={wrapCls} style={style}>
+      <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <input ref="input"
+            {...patternProps}
+            {...otherProps}
             {...valueProps}
             type={inputType}
             maxLength={maxLength}
@@ -211,7 +213,6 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
             onFocus={this.onInputFocus}
             readOnly={!editable}
             disabled={disabled}
-            {...patternProps}
           />
         </div>
         {clear && editable && !disabled && (value && value.length > 0) ?
