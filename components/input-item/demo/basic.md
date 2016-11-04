@@ -21,6 +21,7 @@ let BasicInputExample = React.createClass({
         {...getFieldProps('control')}
         placeholder="设置value,不设置defaultValue"
       >受控</InputItem>
+
       <InputItem
         {...getFieldProps('inputclear')}
         clear
@@ -33,6 +34,7 @@ let BasicInputExample = React.createClass({
         error
         onErrorClick={() => { alert('点击报错'); }}
       >报错样式</InputItem>
+
       <InputItem
         {...getFieldProps('input3')}
         placeholder="无 label"
@@ -43,11 +45,13 @@ let BasicInputExample = React.createClass({
       >
         <div style={{ backgroundImage: 'url(https://os.alipayobjects.com/rmsportal/zumwvwrngNMGSWe.png)', backgroundSize: 'cover', height: '0.44rem', width: '0.44rem' }} />
       </InputItem>
+
       <InputItem
         {...getFieldProps('label8')}
         placeholder="限制标题显示的长度"
         labelNumber={3}
       >标题过长</InputItem>
+
       <InputItem
         {...getFieldProps('preice')}
         placeholder="0.00"
@@ -57,6 +61,7 @@ let BasicInputExample = React.createClass({
         {...getFieldProps('upload')}
         extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" />}
       >上传照片</InputItem>
+
       <InputItem
         {...getFieldProps('bankCard', {
           initialValue: '8888 8888 8888 8888',
@@ -78,6 +83,7 @@ let BasicInputExample = React.createClass({
         type="number"
         placeholder="点击会弹出数字键盘"
       >数字键盘</InputItem>
+
       <InputItem
         value="不可编辑"
         editable={false}

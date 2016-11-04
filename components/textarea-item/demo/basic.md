@@ -22,12 +22,14 @@ let TextareaItemExample = React.createClass({
         title="受控"
         placeholder="设置value,不设置defaultValue"
       />
+
       <TextareaItem
         {...getFieldProps('clear1')}
         clear
         title="清除按钮"
         placeholder="提供清除文字功能"
       />
+
       <TextareaItem
         {...getFieldProps('note8', {
           initialValue: '报错样式',
@@ -38,6 +40,7 @@ let TextareaItemExample = React.createClass({
         onErrorClick={() => { alert('点击报错'); }}
         count={100}
       />
+
       <TextareaItem
         {...getFieldProps('note2')}
         title="单行显示"
@@ -55,6 +58,7 @@ let TextareaItemExample = React.createClass({
         rows={5}
         count={100}
       />
+
       <TextareaItem
         {...getFieldProps('note3')}
         title="高度自适应"
@@ -71,6 +75,7 @@ let TextareaItemExample = React.createClass({
         title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" style={{ width: '0.56rem', height: '0.56rem' }} />}
         placeholder="标题可以自定义"
       />
+
       <TextareaItem
         {...getFieldProps('note6', {
           initialValue: '不可编辑',
