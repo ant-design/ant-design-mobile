@@ -3,128 +3,100 @@ import { Image, Text, Dimensions, View } from 'react-native';
 import Flex from '../flex';
 import Carousel from '../carousel';
 import styles from './style';
-
-export interface GridItem {
-  icon: string;
-  text: string;
-}
-
-export interface GridProps {
-  data: GridItem[];
-  hasLine?: boolean;
-  isCarousel?: boolean;
-  onClick?: (el: GridItem, index: number) => void;
-}
+import { DataItem, GridProps } from './PropsType';
 
 export default class Grid extends React.Component<GridProps, any> {
   static defaultProps = {
     data: [],
     hasLine: true,
     isCarousel: false,
-    onClick() {},
+    columnNum: 4,
+    carouselMaxRow: 2,
   };
 
   getFlexItemStyle() {
-    const clientWidth = Dimensions.get('window').width;
-    const flexItemStyle = {
-      height: clientWidth / 4,
+    return {
+      height: Dimensions.get('window').width / 4,
       borderRightWidth: this.props.hasLine ? 1 : 0,
     };
-    return flexItemStyle;
-  }
-
-  getGridContent() {
-    const { data, hasLine, onClick } = this.props;
-    const flexItemStyle = this.getFlexItemStyle();
-
-    const gridContent: any[] = [];
-    const dataLength = data.length;
-    const rowCount = Math.ceil(dataLength / 4);
-    for (let i = 0; i < rowCount; i++) {
-      const row: React.ReactElement<any>[] = [];
-      for (let j = 0; j < 4; j++) {
-        const itemIndex = i * 4 + j;
-        const item = data[itemIndex];
-        if (item) {
-          row.push(
-            <Flex.Item
-              key={j}
-              style={[styles.grayBorderBox, flexItemStyle]}
-            >
-              <Flex
-                direction="column"
-                justify="center"
-                style={{ flex: 1 }}
-                onPress={() => onClick && onClick(item, itemIndex)}
-              >
-                <Image source={{ uri: item.icon }} style={styles.icon} />
-                <Text style={styles.text}>{item.text}</Text>
-              </Flex>
-            </Flex.Item>
-          );
-        } else {
-          row.push(
-            <Flex.Item
-              key={j}
-              style={[styles.grayBorderBox, flexItemStyle]}
-            />
-          );
-        }
-      }
-      gridContent.push(
-        <Flex key={i} style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
-          {row}
-        </Flex>
-      );
-    }
-    return gridContent;
-  }
-
-  toCarousel(gridContent) {
-    const hasLine = this.props.hasLine;
-    const flexItemStyle = this.getFlexItemStyle();
-    const carouselContent: any[] = [];
-    const gridContentLength = gridContent.length;
-    const frameCount = Math.ceil(gridContentLength / 2);
-    for (let i = 0; i < frameCount; i++) {
-      if (i * 2 + 1 < gridContentLength) {
-        carouselContent.push(
-          <View key={i}>
-            {gridContent[i * 2]}
-            {gridContent[i * 2 + 1]}
-          </View>
-        );
-      } else {
-        carouselContent.push(
-          <View key={i}>
-            {gridContent[i * 2]}
-            <Flex style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
-              <Flex.Item style={[styles.grayBorderBox, flexItemStyle]} />
-              <Flex.Item style={[styles.grayBorderBox, flexItemStyle]} />
-              <Flex.Item style={[styles.grayBorderBox, flexItemStyle]} />
-              <Flex.Item style={[styles.grayBorderBox, flexItemStyle]} />
-            </Flex>
-          </View>
-        );
-      }
-    }
-
-    return carouselContent;
   }
 
   render() {
-    const gridContent = this.getGridContent();
-    const isCarousel = this.props.isCarousel;
-    const children = isCarousel ? this.toCarousel(gridContent) : gridContent;
+    const { data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {} } = this.props;
+
+    const dataLength = data && data.length || 0;
+    const rowCount = Math.ceil(dataLength / columnNum);
+
+    const renderItem = this.props.renderItem || ((dataItem: DataItem) => (
+      <Flex direction="column" justify="center" style={{ flex: 1 }}>
+        <Image source={{ uri: dataItem.icon }} style={styles.icon} />
+        <Text style={styles.text}>{dataItem.text}</Text>
+      </Flex>
+    ));
+
+    const flexItemStyle = this.getFlexItemStyle();
+    const rowsArr: any[] = [];
+
+    for (let i = 0; i < rowCount; i++) {
+      const rowArr: any[] = [];
+      for (let j = 0; j < columnNum; j++) {
+        const dataIndex = i * columnNum + j;
+        if (dataIndex < dataLength) {
+          const el = data && data[dataIndex];
+          rowArr.push(
+            <Flex.Item key={j} style={[styles.grayBorderBox, flexItemStyle, {
+              borderLeftWidth: hasLine && j === 0 ? 1 : 0,
+            }]}
+              onPress={() => onClick(el, dataIndex)}
+            >
+              {renderItem(el, dataIndex)}
+            </Flex.Item>
+          );
+        } else {
+          rowArr.push(
+            <Flex.Item key={j} style={[styles.grayBorderBox, flexItemStyle]} />
+          );
+        }
+      }
+      rowsArr.push(
+        <Flex key={i} style={[styles.grayBorderBox, {
+          borderTopWidth: hasLine && i === 0 ? 1 : 0,
+          borderBottomWidth: hasLine ? 1 : 0,
+        }]}>
+          {rowArr}
+        </Flex>
+      );
+    }
+
+    const pageCount = Math.ceil(rowCount / carouselMaxRow);
+    const pagesArr: any[] = [];
+    if (isCarousel && pageCount > 1) {
+      for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
+        const pageRows: any[] = [];
+        for (let ii = 0; ii < carouselMaxRow; ii++) {
+          const rowIndex = pageIndex * carouselMaxRow + ii;
+          if (rowIndex < rowCount) {
+            pageRows.push(rowsArr[rowIndex]);
+          } else {
+            const res: any = [];
+            for (let jjj = 0; jjj < columnNum; jjj++) {
+              res.push(<Flex.Item key={jjj} style={[styles.grayBorderBox, flexItemStyle]} />);
+            }
+            pageRows.push(<Flex key={rowIndex}
+              style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
+              {res}
+            </Flex>);
+          }
+        }
+        pagesArr.push(<View key={pageIndex} style={[styles.grayBorderBox, {
+          borderTopWidth: hasLine && pageIndex !== 0 ? 1 : 0,
+        }]}>{pageRows}</View>);
+      }
+    }
+
     return (
       <Flex direction="column">
-        {
-          isCarousel ? (
-            <Carousel infinite={false} dots>
-              {children}
-            </Carousel>
-          ) : children
-        }
+        {isCarousel && pageCount > 1 ? <Carousel infinite={false} dots>{pagesArr}</Carousel> : rowsArr}
       </Flex>
     );
   }
