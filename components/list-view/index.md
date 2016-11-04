@@ -24,16 +24,15 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 
 - onChangeVisibleRows
 - stickyHeaderIndices
-
 - [ScrollView](https://facebook.github.io/react-native/docs/scrollview.html#props) props:
-- keyboardDismissMode (not support control keyboard)
-- keyboardShouldPersistTaps (not support control keyboard)
-- onContentSizeChange (use onLayout instead)
-- removeClippedSubviews
-- showsHorizontalScrollIndicator (use css style instead)
-- showsVerticalScrollIndicator (use css style instead)
-
-- [View](https://facebook.github.io/react-native/docs/view.html#props) props: **注意：只支持`onLayout` prop**
+    - keyboardDismissMode
+    - keyboardShouldPersistTaps
+    - onContentSizeChange (使用`onLayout`替代)
+    - removeClippedSubviews
+    - scrollEnabled
+    - showsHorizontalScrollIndicator (使用 css style 替代)
+    - showsVerticalScrollIndicator (使用 css style 替代)
+- [View](https://facebook.github.io/react-native/docs/view.html#props) props: **只支持`onLayout`**
 
 #### 新增API (web)
 - useBodyScroll (boolean, false) - 使用 html 的 `body` 作为滚动容器
