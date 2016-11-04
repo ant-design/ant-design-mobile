@@ -33,6 +33,7 @@ interface InputItemProps {
     /** rn only */
     last?: boolean;
     children?: any;
+    updatePlaceholder?: boolean;
 }
 
 export default InputItemProps;

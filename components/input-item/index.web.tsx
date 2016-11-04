@@ -129,7 +129,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
   }
 
   clearInput = () => {
-    if (this.props.type !== 'password') {
+    if (this.props.type !== 'password' && this.props.updatePlaceholder) {
       this.setState({
         placeholder: this.props.value,
       });
