@@ -3,6 +3,18 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.6
+
+`2016-11-05`
+
+- 修复 Stepper 组件弹出键盘和点击反馈问题 https://github.com/ant-design/ant-design-mobile/commit/94f4e54ab6bb9800fc987cc57d806b5921b11c9d
+- 修复 Tabs选项卡高度不一致问题 https://github.com/ant-design/ant-design-mobile/commit/f4bb4bc86e2a8400fb74a69e9f0a2359ce512b0b
+- 修复 InputItem, TextareaItem value 不接受 undefined 问题 https://github.com/ant-design/ant-design-mobile/commit/114fb1ed871acd94433129fda95a30649420aa2a ；支持添加所有HTML input/textarea 支持的属性(如自定义 pattern 等)
+- 修复 android textInput underlineColorAndroid https://github.com/ant-design/ant-design-mobile/commit/8095c924fda68f1b38acae1af09822daae95c3d2
+- 优化  Accordion, Checkbox, Popup, Badge, InputItem, TextareaItem, ListView 等组件演示文档和部分核心实现。
+- Accordion 文档增加遗漏的 openAnimation API 说明 https://github.com/ant-design/ant-design-mobile/commit/951811484d192c2383b6f5c6815148ee1e44fab6
+- 修复 Grid rn 实现不完全问题，并优化代码 https://github.com/ant-design/ant-design-mobile/commit/839fe3518497406dc2bf9c3db82ee89d0e0e5c8f
+
 ### 0.9.5
 
 `2016-10-28`
