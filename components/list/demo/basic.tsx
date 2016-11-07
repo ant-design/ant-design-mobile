@@ -24,7 +24,6 @@ export default class BasicListExample extends React.Component<any, any> {
         >
           <List.Item>标题文字,没有设置onClick则点击无反馈</List.Item>
           <List.Item
-
             onClick={() => alert('点击触发onClick事件')}
           >标题文字</List.Item>
           <List.Item

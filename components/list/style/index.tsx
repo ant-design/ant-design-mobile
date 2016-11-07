@@ -25,6 +25,12 @@ export default {
       backgroundColor: variables.fill_base,
       borderTopWidth: variables.border_width_sm,
       borderTopColor: variables.border_color_base,
+    },
+    BodyBottomLine: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
       borderBottomWidth: variables.border_width_sm,
       borderBottomColor: variables.border_color_base,
     },
@@ -54,7 +60,6 @@ export default {
     Content: {
       color: variables.color_text_base,
       fontSize: variables.font_size_heading,
-      lineHeight: variables.font_size_heading,
     },
     Extra: {
       color: variables.color_text_caption,
@@ -83,15 +88,6 @@ export default {
       },
       Line: {
         borderBottomColor: 'red',
-      },
-    },
-    Last: {
-      Item: {
-        borderBottomWidth: 0,
-        borderBottomColor: variables.border_color_base,
-      },
-      Line: {
-        borderBottomWidth: 0,
       },
     },
     multipleLine: {

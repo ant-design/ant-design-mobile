@@ -35,10 +35,7 @@ export default class PopupExample extends React.Component<any, any> {
             onChange={this.onChange}
             format={val => val.fromNow()}
           >
-            <List.Item
-              arrow="horizontal"
-              last
-            >
+            <List.Item arrow="horizontal">
               选择时间
             </List.Item>
           </DatePicker>

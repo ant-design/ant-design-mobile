@@ -36,8 +36,6 @@ class Brief extends React.Component<BriefProps, any> {
 
 export default class Item extends React.Component<ListItemProps, any> {
   static defaultProps = {
-    // TODO remove last
-    last: false,
     multipleLine: false,
   };
 
@@ -166,7 +164,6 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     const ItemStyle = [
       THEMES.Item,
-      this.props.last ? THEMES.Last.Item : {},
       line > 1 ? { height: itemHeight } : {},
       this.props.style,
     ];
@@ -174,7 +171,6 @@ export default class Item extends React.Component<ListItemProps, any> {
     const LineStyle = [
       THEMES.Line,
       this.props.multipleLine ? THEMES.multipleLine.Line : {},
-      this.props.last ? THEMES.Last.Line : {},
     ];
 
     const itemView = (

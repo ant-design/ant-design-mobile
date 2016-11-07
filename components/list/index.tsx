@@ -29,12 +29,11 @@ export default class List extends React.Component<ListProps, any> {
       }
       footerDom = <View>{content}</View>;
     }
-    // TODO remove last
-    // user needs to specify last for listitem
     return (<View {...this.props} style={[style]}>
       {headerDom}
       <View style={THEMES.Body}>
         {children}
+        <View style={[THEMES.BodyBottomLine]}></View>
       </View>
       {footerDom}
     </View>);
