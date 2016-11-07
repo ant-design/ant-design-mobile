@@ -14,6 +14,7 @@ export default class MIndexedList extends React.Component<tsPropsType, any> {
     const { restProps, extraProps } = handleProps(this.props, true);
     return (
       <IndexedList
+        ref="indexedList"
         sectionHeaderClassName="am-indexed-list-section-header am-list-body"
         sectionBodyClassName="am-indexed-list-section-body am-list-body"
         {...restProps}
