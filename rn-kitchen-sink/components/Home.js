@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 class Home extends React.Component {
   onCheckUpdate = () => {
     const appVersion = AppInfo.getInfoShortVersion();
-    fetch('https://raw.githubusercontent.com/ant-design/ant-design-mobile/master/appInfo.json')
+    fetch('https://raw.githubusercontent.com/ant-design/ant-design-mobile/refactor-update/appInfo.json')
     .then(response => response.json())
     .then(responseJson => {
       const os = Platform.OS;
