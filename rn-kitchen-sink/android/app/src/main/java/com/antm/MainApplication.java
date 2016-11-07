@@ -41,6 +41,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+          new RNAppInfoPackage(),
           new CodePush("G9i2CN948Wpy31683uO0DXPQfyzz4JsHf03EW", MainApplication.this, BuildConfig.DEBUG)
       );
     }
