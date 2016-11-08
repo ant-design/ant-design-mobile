@@ -8,7 +8,7 @@ import {
   BackAndroid,
   DeviceEventEmitter,
 } from 'react-native';
-import codePush from 'react-native-code-push';
+
 import { Scene, Router, Reducer, Actions, ActionConst } from 'react-native-router-flux';
 
 import Home from './components/Home';
@@ -64,17 +64,6 @@ class AntmRnApp extends React.Component {
         return true;
       }
       return false;
-    });
-  }
-
-  componentDidMount() {
-    codePush.sync({
-      updateDialog: {
-        updateTitle: '检测有更新',
-        optionalUpdateMessage: 'demo app 有新版本，是否安装？',
-        optionalIgnoreButtonLabel: 'No',
-        optionalInstallButtonLabel: 'Yes',
-      },
     });
   }
 

@@ -28,6 +28,7 @@
 		93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6231D2A3E2600652A63 /* ResultViewController.m */; };
 		93ABB6261D2A430B00652A63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93ABB6251D2A430B00652A63 /* AVFoundation.framework */; };
 		93C1273B1D9BABA900466599 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C1273A1D9BAA2600466599 /* libRCTWebSocket.a */; };
+		93DE79881DD16E860064816E /* RNAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DE79871DD16E860064816E /* RNAppInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,8 @@
 		93ABB6251D2A430B00652A63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93BF62B21D44DF2400AFA3D0 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		93C127351D9BAA2600466599 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
+		93DE79861DD16E860064816E /* RNAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNAppInfo.h; path = "antd-mobile/RNAppInfo.h"; sourceTree = "<group>"; };
+		93DE79871DD16E860064816E /* RNAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNAppInfo.m; path = "antd-mobile/RNAppInfo.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				93DE79861DD16E860064816E /* RNAppInfo.h */,
+				93DE79871DD16E860064816E /* RNAppInfo.m */,
 				93ABB6251D2A430B00652A63 /* AVFoundation.framework */,
 				936A047C1D267C03005EE7C1 /* libz.tbd */,
 				13B07FAE1A68108700A75B9A /* antd-mobile */,
@@ -353,7 +358,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 730;
 				ORGANIZATIONNAME = Facebook;
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "antd-mobile" */;
@@ -533,6 +538,7 @@
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */,
 				93ABB6081D2A301C00652A63 /* HomeViewController.m in Sources */,
+				93DE79881DD16E860064816E /* RNAppInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +577,10 @@
 				);
 				INFOPLIST_FILE = "antd-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/antd-mobile\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -600,6 +610,10 @@
 				);
 				INFOPLIST_FILE = "antd-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/antd-mobile\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",

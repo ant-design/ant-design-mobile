@@ -191,9 +191,7 @@ export default class MainContent extends React.Component {
             {
               props.utils.get(props, 'pageData.demo') ? (
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
-              ) : (
-                <Article {...props} content={localizedPageData} />
-              )
+              ) : <Article {...props} content={localizedPageData} />
             }
           </Col>
         </Row>
