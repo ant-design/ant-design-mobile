@@ -20,6 +20,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     },
     footer: [],
     transparent: false,
+    animateAppear: true,
   };
 
   onMaskClose = () => {
@@ -30,8 +31,8 @@ class AntmModal extends React.Component<ModalPropsType, any> {
 
   render() {
     const {
-      title, closable, footer, children, style,
-      transparent, visible, onClose, bodyStyle,
+      title, closable, footer, children, style, animateAppear,
+      transparent, visible, onClose, bodyStyle, onAnimationEnd,
     } = this.props;
 
     const btnGroupStyle = footer && footer.length === 2 ? modalStyle.buttnGroupH : modalStyle.buttnGroupV;
@@ -41,6 +42,18 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       <View style={[btnGroupStyle, modalStyle.footerRadius]}>
         {
           footer.map((button: any, i) => {
+            let buttonStyle = {};
+            if (button.style) {
+              buttonStyle = button.style;
+              if (typeof buttonStyle === 'string') {
+                const styleMap = {
+                  'cancel': { fontWeight: 'bold' },
+                  'default': {},
+                  'destructive': { color: 'red' },
+                };
+                buttonStyle = styleMap[buttonStyle] || {};
+              }
+            }
             return (
               <TouchableHighlight key={i} style={{flex: 1}} underlayColor="#ddd" onPress={() => {
                 if (button.onPress) {
@@ -51,7 +64,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
                 }
               }}>
                 <View style={[buttonWrapStyle]}>
-                  <Text style={[modalStyle.buttonText]}>{button.text || `按钮${i}`}</Text>
+                  <Text style={[modalStyle.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
                 </View>
               </TouchableHighlight>
             );
@@ -72,6 +85,8 @@ class AntmModal extends React.Component<ModalPropsType, any> {
           wrapStyle={transparent ? modalStyle.container : undefined}
           style={[modalStyle.innerContainer, style]}
           visible={visible}
+          onAnimationEnd={onAnimationEnd}
+          animateAppear={animateAppear}
         >
           <View style={{flex: 1}}>
             {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}

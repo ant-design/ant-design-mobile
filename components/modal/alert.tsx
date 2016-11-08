@@ -1,47 +1,59 @@
-/* tslint:disable:no-unused-variable */
 import React from 'react';
-/* tslint:enable:no-unused-variable */
-import ReactDOM from 'react-dom';
+import topView from 'rn-topview';
+import { Text } from 'react-native';
 import Modal from './Modal';
+
+class Alert extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: true,
+    };
+  }
+
+  onAnimationEnd = (visible) => {
+    if (!visible) {
+      topView.remove();
+    }
+  }
+
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  }
+
+  render() {
+    const { title, actions, content } = this.props;
+    const footer = actions.map((button) => {
+      const orginPress = button.onPress || function() {};
+      button.onPress = () => {
+        orginPress();
+        this.onClose();
+      };
+      return button;
+    });
+    return (
+      <Modal
+        transparent
+        title={title}
+        visible={this.state.visible}
+        onClose={this.onClose}
+        footer={footer}
+        onAnimationEnd={this.onAnimationEnd}
+      >
+        <Text>{content}</Text>
+      </Modal>
+    );
+  }
+}
 
 export default function (...args) {
   const title = args[0];
   const content = args[1];
   const actions = args[2] || [{ text: '确定' }];
 
-  if (!title && !content) {
-    // console.log('Must specify either an alert title, or message, or both');
-    return;
-  }
-
-  const prefixCls = 'am-modal';
-  let div = document.createElement('div');
-  document.body.appendChild(div);
-
-  function close() {
-    ReactDOM.unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
-  }
-
-  const footer = actions.map((button) => {
-    const orginPress = button.onPress || function() {};
-    button.onPress = () => {
-      orginPress();
-      close();
-    };
-    return button;
-  });
-
-  ReactDOM.render(<Modal
-    visible
-    transparent
-    prefixCls={prefixCls}
-    title={title}
-    transitionName="am-zoom"
-    closable={false}
-    maskClosable={false}
-    footer={footer}
-    maskTransitionName="am-fade">
-    <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
-  </Modal>, div);
+  topView.set(
+    <Alert title={title} content={content} actions={actions} />
+  );
 }
