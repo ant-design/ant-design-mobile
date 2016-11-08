@@ -18,8 +18,21 @@ class FooterButton extends React.Component<any, any> {
       [`${prefixCls}-button-active`]: touchFeedback,
     });
 
+    let buttonStyle = {};
+    if (button.style) {
+      buttonStyle = button.style;
+      if (typeof buttonStyle === 'string') {
+        const styleMap = {
+          'cancel': { fontWeight: 'bold' },
+          'default': {},
+          'destructive': { color: 'red' },
+        };
+        buttonStyle = styleMap[buttonStyle] || {};
+      }
+    }
+
     return (
-      <a className={wrapCls} href="#" onClick={(e) => {
+      <a className={wrapCls} style={buttonStyle} href="#" onClick={(e) => {
         e.preventDefault();
         if (button.onPress) {
           button.onPress();

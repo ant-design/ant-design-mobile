@@ -11,6 +11,8 @@ interface ModalProps {
   animated?: boolean;
   bodyStyle?: {};
   animationType?: any;
+  onAnimationEnd?: (visible: boolean) => void;
+  animateAppear?: boolean;
   /** web only */
   prefixCls?: string;
   transitionName?: string;

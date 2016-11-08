@@ -3,6 +3,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Modal, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
+const alert = Modal.alert;
+
 export default class BasicModalExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
@@ -40,14 +42,29 @@ export default class BasicModalExample extends React.Component<any, any> {
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
         <WingBlank>
-          <Button type="ghost" onPress={this.showModal}>
+          <Button type="ghost" onClick={this.showModal}>
             显示对话框
           </Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="ghost" onPress={this.showModal2}>
+          <Button type="ghost" onClick={this.showModal2}>
             显示全屏对话框
+          </Button>
+        </WingBlank>
+        <WhiteSpace />
+        <WingBlank>
+          <Button type="ghost" onClick={() => {
+            alert(
+              '标题',
+              'alert 内容',
+              [
+                { text: 'cancel', onPress: () => console.log('cancel'), style: 'cancel' },
+                { text: 'ok', onPress: () => console.log('ok') },
+              ]
+            );
+          }}>
+            显示 Modal.alert
           </Button>
         </WingBlank>
         <Modal
@@ -59,7 +76,7 @@ export default class BasicModalExample extends React.Component<any, any> {
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
           </View>
-          <Button type="primary" inline onPress={this.onClose2}>close modal</Button>
+          <Button type="primary" inline onClick={this.onClose2}>close modal</Button>
         </Modal>
         <Modal
           title="测试"
