@@ -61,11 +61,11 @@ const MyProgress = React.createClass({
             className="flex-container-justify"
           >
             <div className="action">
-              { this.state.autoplayPaused ? (
-                <Icon type="caret-right" onClick={this.play} />
-              ) : (
-                <Icon type="pause" onClick={this.stop} />
-              ) }
+              {
+                this.state.autoplayPaused ? (
+                  <Icon type="caret-right" onClick={this.play} />
+                ) : <Icon type="pause" onClick={this.stop} />
+              }
             </div>
             <div className="action">
               <Icon type="reload" onClick={this.reset} />
