@@ -63,9 +63,7 @@ const MyProgress = React.createClass({
             <div className="action">
               { this.state.autoplayPaused ? (
                 <Icon type="caret-right" onClick={this.play} />
-              ) : (
-                <Icon type="pause" onClick={this.stop} />
-              ) }
+              ) : <Icon type="pause" onClick={this.stop} /> }
             </div>
             <div className="action">
               <Icon type="reload" onClick={this.reset} />

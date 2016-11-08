@@ -51,8 +51,7 @@ export default class Article extends React.Component {
           <h1>
             {title || english}
             {
-              (!subtitle && !chinese) ? null :
-                <span className="subtitle">{subtitle || chinese}</span>
+              (!subtitle && !chinese) ? null : <span className="subtitle">{subtitle || chinese}</span>
             }
           </h1>
           {
@@ -62,8 +61,9 @@ export default class Article extends React.Component {
               )
           }
           {
-            !(content.toc && meta.toc) ? null :
-              <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
+            !(content.toc && meta.toc) ? null : <section className="toc">
+              {props.utils.toReactComponent(content.toc)}
+            </section>
           }
           {
             this.getArticle(props.utils.toReactComponent(
