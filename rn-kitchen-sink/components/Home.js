@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Alert,
   Linking,
+  ActivityIndicator,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { List } from 'antd-mobile';
@@ -55,15 +56,30 @@ const styles = StyleSheet.create({
     color: '#888',
     fontSize: 12,
   },
+  checkView: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 12,
+  },
   check: {
     color: '#108ee9',
-    paddingVertical: 12,
     textAlign: 'center',
+    marginRight: 2,
   },
 });
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      animating: false,
+    };
+  }
   onCheckUpdate = () => {
+    this.setState({
+      animating: true,
+    });
     const appVersion = AppInfo.getInfoShortVersion();
     fetch('https://raw.githubusercontent.com/ant-design/ant-design-mobile/master/rn-kitchen-sink/appInfo.json')
     .then(response => response.json())
@@ -73,6 +89,9 @@ class Home extends React.Component {
         const newestVersion = responseJson[os].appversion;
         const appUrl = responseJson[os].appurl;
         if (appVersion.localeCompare(newestVersion) < 0) {
+          this.setState({
+            animating: false,
+          });
           Alert.alert(
             '',
             '检测到 APP 有新版本，是否前往下载',
@@ -87,11 +106,18 @@ class Home extends React.Component {
       } else {
         this.updateDemo();
       }
+    }).catch(() => {
+      this.updateDemo();
     });
   }
 
   updateDemo() {
-    const onSyncStatusChange = function (syncStatus) {
+    const onSyncStatusChange = (syncStatus) => {
+      if (syncStatus !== 5) {
+        this.setState({
+          animating: false,
+        });
+      }
       switch (syncStatus) {
         case 0: {
           Alert.alert(null, '最新版本');
@@ -103,6 +129,9 @@ class Home extends React.Component {
       }
     };
     const onError = function (error) {
+      this.setState({
+        animating: false,
+      });
       Alert.alert(null, `发生错误: ${error}`);
     };
     codePush.sync({
@@ -139,9 +168,12 @@ class Home extends React.Component {
         </List>
         <View style={styles.footer}>
           <Text style={styles.version}>App 版本: 0.8.0 / Demo 版本: 0.9.6</Text>
-          <TouchableOpacity onPress={this.onCheckUpdate}>
-            <Text style={styles.check}>检查更新</Text>
-          </TouchableOpacity>
+          <View style={styles.checkView}>
+            <TouchableOpacity onPress={this.onCheckUpdate}>
+              <Text style={styles.check}>检查更新</Text>
+            </TouchableOpacity>
+            <ActivityIndicator animating={this.state.animating} size="small" />
+          </View>
         </View>
       </View>
     );

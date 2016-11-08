@@ -28,7 +28,7 @@
 		93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ABB6231D2A3E2600652A63 /* ResultViewController.m */; };
 		93ABB6261D2A430B00652A63 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93ABB6251D2A430B00652A63 /* AVFoundation.framework */; };
 		93C1273B1D9BABA900466599 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C1273A1D9BAA2600466599 /* libRCTWebSocket.a */; };
-		CCAB38D89565496CBAD5963A /* libRNAppInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C073E1C3E9994196B0A4740B /* libRNAppInfo.a */; };
+		93DE79881DD16E860064816E /* RNAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DE79871DD16E860064816E /* RNAppInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,20 +116,6 @@
 			remoteGlobalIDString = 3C86DF461ADF2C930047B81A;
 			remoteInfo = RCTWebSocket;
 		};
-		93F4A7AD1DD06E7400D8C32A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3193230369AA4BA5A8688F41 /* RNAppInfo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDD7BF781B2D5125006FDA75;
-			remoteInfo = RNAppInfo;
-		};
-		93F4A7AF1DD06E7400D8C32A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3193230369AA4BA5A8688F41 /* RNAppInfo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDD7BF831B2D5126006FDA75;
-			remoteInfo = RNAppInfoTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -140,7 +126,6 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "antd-mobile/Images.xcassets"; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "antd-mobile/Info.plist"; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "antd-mobile/main.m"; sourceTree = "<group>"; };
-		3193230369AA4BA5A8688F41 /* RNAppInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAppInfo.xcodeproj; path = "../../node_modules/react-native-app-info/RNAppInfo.xcodeproj"; sourceTree = "<group>"; };
 		932800F11D1285D000A90AF1 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		932800F71D1285E400A90AF1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		932800FD1D1285ED00A90AF1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
@@ -161,7 +146,8 @@
 		93ABB6251D2A430B00652A63 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		93BF62B21D44DF2400AFA3D0 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		93C127351D9BAA2600466599 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		C073E1C3E9994196B0A4740B /* libRNAppInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAppInfo.a; sourceTree = "<group>"; };
+		93DE79861DD16E860064816E /* RNAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNAppInfo.h; path = "antd-mobile/RNAppInfo.h"; sourceTree = "<group>"; };
+		93DE79871DD16E860064816E /* RNAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNAppInfo.m; path = "antd-mobile/RNAppInfo.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +169,6 @@
 				936A047B1D267BFB005EE7C1 /* libCodePush.a in Frameworks */,
 				93735FCF1D44E0D700B29FD8 /* libRCTCameraRoll.a in Frameworks */,
 				93C1273B1D9BABA900466599 /* libRCTWebSocket.a in Frameworks */,
-				CCAB38D89565496CBAD5963A /* libRNAppInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +209,6 @@
 				932801151D12860600A90AF1 /* RCTSettings.xcodeproj */,
 				9328011B1D12860D00A90AF1 /* RCTText.xcodeproj */,
 				932801211D12861300A90AF1 /* RCTVibration.xcodeproj */,
-				3193230369AA4BA5A8688F41 /* RNAppInfo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -232,6 +216,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				93DE79861DD16E860064816E /* RNAppInfo.h */,
+				93DE79871DD16E860064816E /* RNAppInfo.m */,
 				93ABB6251D2A430B00652A63 /* AVFoundation.framework */,
 				936A047C1D267C03005EE7C1 /* libz.tbd */,
 				13B07FAE1A68108700A75B9A /* antd-mobile */,
@@ -346,15 +332,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		93F4A79D1DD06E7300D8C32A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				93F4A7AE1DD06E7400D8C32A /* libRNAppInfo.a */,
-				93F4A7B01DD06E7400D8C32A /* RNAppInfoTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -443,10 +420,6 @@
 				{
 					ProductGroup = 932800F21D1285D000A90AF1 /* Products */;
 					ProjectRef = 932800F11D1285D000A90AF1 /* React.xcodeproj */;
-				},
-				{
-					ProductGroup = 93F4A79D1DD06E7300D8C32A /* Products */;
-					ProjectRef = 3193230369AA4BA5A8688F41 /* RNAppInfo.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -541,20 +514,6 @@
 			remoteRef = 93C127391D9BAA2600466599 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		93F4A7AE1DD06E7400D8C32A /* libRNAppInfo.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNAppInfo.a;
-			remoteRef = 93F4A7AD1DD06E7400D8C32A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		93F4A7B01DD06E7400D8C32A /* RNAppInfoTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RNAppInfoTests.xctest;
-			remoteRef = 93F4A7AF1DD06E7400D8C32A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -579,6 +538,7 @@
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				93ABB6241D2A3E2600652A63 /* ResultViewController.m in Sources */,
 				93ABB6081D2A301C00652A63 /* HomeViewController.m in Sources */,
+				93DE79881DD16E860064816E /* RNAppInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +574,6 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../../node_modules/react-native/React/**",
 					"$(SRCROOT)/../../node_modules/react-native-code-push/**",
-					"$(SRCROOT)/../../node_modules/react-native-app-info/RNAppInfo",
 				);
 				INFOPLIST_FILE = "antd-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -648,7 +607,6 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../../node_modules/react-native/React/**",
 					"$(SRCROOT)/../../node_modules/react-native-code-push/**",
-					"$(SRCROOT)/../../node_modules/react-native-app-info/RNAppInfo",
 				);
 				INFOPLIST_FILE = "antd-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -705,7 +663,6 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../../node_modules/react-native-app-info/RNAppInfo",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -746,7 +703,6 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../../node_modules/react-native-app-info/RNAppInfo",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
