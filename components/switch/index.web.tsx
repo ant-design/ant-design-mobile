@@ -19,11 +19,13 @@ export default class Switch extends React.Component<SwitchProps, any> {
   };
 
   render() {
-    let { prefixCls, style, name, checked, disabled, className } = this.props;
+    let { prefixCls, style, name, checked, disabled, className, onTintColor } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,
     });
+
+    const onTintStyle = onTintColor ? { backgroundColor: onTintColor} : {};
 
     return (<label className={wrapCls} style={style}>
         <input
@@ -34,7 +36,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
           checked={checked}
           onChange={this.onChange}
         />
-        <div className="checkbox"></div>
+        <div className="checkbox" style={onTintStyle}></div>
       </label>);
   }
 }

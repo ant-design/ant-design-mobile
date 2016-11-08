@@ -77,14 +77,14 @@ const TabBarExample = React.createClass({
             <div style={{
               width: '0.44rem',
               height: '0.44rem',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png) center center /  0.44rem 0.33rem no-repeat' }}
+              background: 'url(https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png) center center /  0.44rem 0.35rem no-repeat' }}
             />
           }
           selectedIcon={
             <div style={{
               width: '0.44rem',
               height: '0.44rem',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/LWNaMdwAFSmYBFw.png) center center /  0.44rem 0.33rem no-repeat' }}
+              background: 'url(https://zos.alipayobjects.com/rmsportal/LWNaMdwAFSmYBFw.png) center center /  0.44rem 0.35rem no-repeat' }}
             />
           }
           title="朋友"

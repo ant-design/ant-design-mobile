@@ -21,4 +21,5 @@ english: Switch
 | name (web only)      | switch的name    | String       |    |     |
 | checked    | 是否默认选中    | Boolean      |     |   false  |
 | disabled   | 是否不可修改    | Boolean      |     |   false  |
+| onTintColor   | 选中滑块背景色 | String       |   |  #4dd865  |
 | onChange   | change事件触发的回调函数,参数是checked的值 | Function |  |  无  |
