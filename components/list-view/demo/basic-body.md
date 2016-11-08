@@ -109,7 +109,7 @@ const Demo = React.createClass({
         </div>}
         renderRow={row}
         renderSeparator={separator}
-        className="fortest"
+        className="am-list"
         pageSize={4}
         scrollRenderAheadDistance={500}
         scrollEventThrottle={20}
