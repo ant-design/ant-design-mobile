@@ -131,7 +131,7 @@ const Demo = React.createClass({
         )}
         renderRow={row}
         renderSeparator={separator}
-        className="fortest"
+        className="am-list"
         pageSize={4}
         scrollEventThrottle={20}
         onScroll={() => { console.log('scroll'); }}
