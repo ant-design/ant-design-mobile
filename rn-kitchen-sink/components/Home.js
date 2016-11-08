@@ -106,7 +106,12 @@ class Home extends React.Component {
       Alert.alert(null, `发生错误: ${error}`);
     };
     codePush.sync({
-      updateDialog: true,
+      updateDialog: {
+        updateTitle: '检测有更新',
+        optionalUpdateMessage: 'demo app 有新版本，是否安装？',
+        optionalIgnoreButtonLabel: 'No',
+        optionalInstallButtonLabel: 'Yes',
+      },
       installMode: codePush.InstallMode.IMMEDIATE,
     }, onSyncStatusChange, null, onError);
   }
