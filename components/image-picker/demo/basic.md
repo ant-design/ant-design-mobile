@@ -3,42 +3,55 @@ order: 0
 title: 简单的图片选择组件
 -----------
 
-
 ````jsx
-import { ImagePicker } from 'antd-mobile';
+import { ImagePicker, Button } from 'antd-mobile';
+
+const data = [{
+  url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
+  id: '2121',
+}, {
+  url: 'https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg',
+  id: '2122',
+}];
 
 const ImagePickerExample = React.createClass({
   getInitialState() {
-    return {
-      files: [{
-        url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
-        id: '2121',
-      }, {
+    return { files: data, custom: false };
+  },
+  onChange(files, type, index) {
+    console.log(files, type, index);
+    this.setState({
+      files,
+    });
+  },
+  onAddImageClick() {
+    this.setState({
+      files: this.state.files.concat({
         url: 'https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg',
-        id: '2122',
-      }],
-    };
+        id: '3',
+      }),
+    });
+  },
+  sw() {
+    this.setState({
+      custom: !this.state.custom,
+    });
   },
   render() {
-    return (
-      <div>
-        <ImagePicker
-          onChange={(files, type, index) => {
-            console.log(files);
-            console.log(type);
-            console.log(index);
-            this.setState({
-              files,
-            });
-          }}
-          onImageClick={(index, files) => {
-            console.log(index);
-            console.log(files);
-          }}
-          files={this.state.files}
-        />
-      </div>
-    );
+    const { files, custom } = this.state;
+    return (<div>
+      <Button inline style={{ margin: 10 }} onClick={this.sw}>{custom ? '自定义' : '常用的'}选择图片的方法</Button>
+      {custom ? <ImagePicker
+        files={files}
+        onAddImageClick={this.onAddImageClick}
+        selectable={files.length < 5}
+      /> : <ImagePicker
+        files={files}
+        onChange={this.onChange}
+        onImageClick={(index, fs) => console.log(index, fs)}
+        selectable={files.length < 5}
+      />}
+    </div>);
   },
 });
 
