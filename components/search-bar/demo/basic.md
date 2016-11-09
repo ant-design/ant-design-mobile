@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 基本
+title: 示例
 ---
 
 ````jsx
@@ -27,7 +27,7 @@ const SearchBarExample = React.createClass({
         onClear={(value) => console.log(value, 'onClear')}
         onFocus={() => console.log('onFocus')}
         onBlur={() => console.log('onBlur')}
-        showCancelButton={false}
+        showCancelButton
         onChange={this.onChange}
       />
     );

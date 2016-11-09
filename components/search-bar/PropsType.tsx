@@ -3,12 +3,6 @@ import React from 'react';
 function noop() {}
 
 export interface SearchBarProps {
-  /** web only */
-  prefixCls?: string;
-  /** web only */
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
   value?: string;
   placeholder?: string;
   onSubmit?: Function;
@@ -16,12 +10,14 @@ export interface SearchBarProps {
   onFocus?: () => void;
   onBlur?: () => void;
   onCancel?: Function;
-  /** web only */
-  onClear?: Function;
   showCancelButton?: boolean;
   cancelText?: string;
   /** web only */
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  className?: string;
   disabled?: boolean;
+  onClear?: Function;
 }
 
 export interface SearchBarState {
