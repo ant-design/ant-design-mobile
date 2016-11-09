@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import TextareaItemProps from './TextAreaItemPropsType';
+import TextareaItemProps from './PropsType';
 import omit from 'omit.js';
 
 function noop() {}

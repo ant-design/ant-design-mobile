@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Button from '../button';
 import Flex from '../flex';
-import PaginationProps from './PaginationPropTypes';
+import PaginationProps from './PropsType';
 
 function noop() {
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import Radio from './Radio';
 import List from '../list';
-import RadioItemProps from './RadioItemPropsType';
+import { RadioItemProps } from './PropsType';
 import styles from './style/index';
 
 const ListItem = List.Item;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import ProgressStyle from './style/index';
-import ProgressProps from './ProgressPropsType';
+import ProgressProps from './PropsType';
 
 export default class Progress extends React.Component<ProgressProps, any> {
   static defaultProps = {

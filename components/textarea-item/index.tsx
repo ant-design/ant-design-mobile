@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/themes/default';
-import TextAreaItemProps from './TextAreaItemPropsType';
+import TextAreaItemProps from './PropsType';
 import TextAreaItemStyle from './style/index';
 
 export default class TextAreaItem extends React.Component<TextAreaItemProps, any> {

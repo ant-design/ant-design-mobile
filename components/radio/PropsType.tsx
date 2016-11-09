@@ -16,4 +16,6 @@ export interface RadioProps {
   onChange?: Function;
 }
 
-export default RadioProps;
+export interface RadioItemProps extends RadioProps {
+  radioStyle?: any; // rn only
+}

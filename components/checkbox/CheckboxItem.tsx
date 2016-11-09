@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkbox from './Checkbox';
 import List from '../list/index';
-import CheckboxItemProps from './CheckboxItemPropsType';
+import { CheckboxItemProps } from './PropsType';
 import styles from './style/index';
 
 const ListItem = List.Item;

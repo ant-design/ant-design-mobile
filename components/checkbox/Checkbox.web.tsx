@@ -1,8 +1,8 @@
 import React from 'react';
 import RcCheckbox from 'rc-checkbox';
-import CheckboxPropsType from './CheckboxPropsType';
+import { CheckboxProps } from './PropsType';
 
-export default class Checkbox extends React.Component<CheckboxPropsType, any> {
+export default class Checkbox extends React.Component<CheckboxProps, any> {
   static defaultProps = {
     prefixCls: 'am-checkbox',
   };

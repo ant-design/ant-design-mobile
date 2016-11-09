@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import InputItemProps from './InputItemPropsType';
+import InputItemProps from './PropsType';
 import omit from 'omit.js';
 
 function noop() {}

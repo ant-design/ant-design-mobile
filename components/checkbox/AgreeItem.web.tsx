@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
-import AgreeItemProps from './AgreeItemPropsType';
+import { AgreeItemPropsType } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
 
-export default class AgreeItem extends React.Component<AgreeItemProps, any> {
+export default class AgreeItem extends React.Component<AgreeItemPropsType, any> {
   static defaultProps = {
     prefixCls: 'am-checkbox',
   };

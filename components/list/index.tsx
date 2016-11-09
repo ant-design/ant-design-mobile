@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Item from './ListItem';
-import { ListProps } from './ListPropTypes';
+import { ListProps } from './PropsType';
 import theme from './style/index';
 const THEMES = theme.ThemesList;
 

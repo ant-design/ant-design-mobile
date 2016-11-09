@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface FlexPropsType {
+export interface FlexProps {
   /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -18,4 +18,13 @@ interface FlexPropsType {
   onClick?: (_e: any) => void;
 }
 
-export default FlexPropsType;
+export interface FlexItemProps {
+  flex?: number;
+  onPress?: any;
+  /** web only */
+  prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: (_e: any) => void;
+  children?: any;
+}

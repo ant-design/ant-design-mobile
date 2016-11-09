@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import varibles from '../style/themes/default';
 import CameraRollPicker from 'react-native-camera-roll-picker';
+import { ImageRollProps } from './PropsType';
 
 const styles = StyleSheet.create({
   statusBarBg: {
@@ -35,11 +36,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-export interface ImageRollProps {
-  onCancel: () => void;
-  onSelected: (imgObj: {}) => void;
-}
 
 export default class ImageRoll extends React.Component<ImageRollProps, any> {
   onSelected = (images) => {

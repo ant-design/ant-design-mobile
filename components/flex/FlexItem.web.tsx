@@ -1,15 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-
-export interface FlexItemProps {
-  /** web only */
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  /** web only */
-  className?: string;
-  onClick?: (_e: any) => void;
-  children?: any;
-}
+import { FlexItemProps } from './PropsType';
 
 export default class FlexItem extends React.Component<FlexItemProps, any> {
   static defaultProps = {

@@ -3,10 +3,9 @@ import classNames from 'classnames';
 import Radio from './Radio.web';
 import List from '../list';
 import getDataAttr from '../_util/getDataAttr';
+import { RadioItemProps } from './PropsType';
 
 const ListItem = List.Item;
-
-import RadioItemProps from './RadioItemPropsType';
 
 export default class RadioItem extends React.Component<RadioItemProps, any> {
   static defaultProps = {

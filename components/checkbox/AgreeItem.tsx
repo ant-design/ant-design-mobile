@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TouchableWithoutFeedback, Text} from 'react-native';
 import Checkbox from './Checkbox';
-import AgreeItemPropsType from './AgreeItemPropsType';
+import { AgreeItemPropsType } from './PropsType';
 import styles from './style/index';
 
 const refCheckbox = 'checkbox';
