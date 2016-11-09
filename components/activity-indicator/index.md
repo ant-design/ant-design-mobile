@@ -30,10 +30,10 @@ english: ActivityIndicator
 
 活动指示器。
 
-| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
-|-----------|------------------------------------------|------------|-------|--------|
-|  animating  | 显隐状态 | boolean | true or false | true  |
-|  color  | spinner颜色 | string | gray or white | gray  |
-|  size  | spinner大小 | string | small or large | small  |
-|  toast  | loading样式类型 | boolean | true or false | false  |
-|  text  | loading文本 | string |    |    |
+| 参数      | 说明                  | 类型      |默认值 |
+|-----------|----------------------|----------|---------|
+|  animating  | 显隐状态 | boolean  | true  |
+|  color  | spinner颜色，可选`gray`/`white` | string  | gray  |
+|  size  | spinner大小，可选`small`/`large` | string  | small  |
+|  toast  | loading样式类型 | boolean  | false  |
+|  text  | loading文本 | string |  -   |
