@@ -43,6 +43,8 @@ const ImagePickerExample = React.createClass({
       <Button inline style={{ margin: 10 }} onClick={this.sw}>{custom ? '自定义' : '常用的'}选择图片的方法</Button>
       {custom ? <ImagePicker
         files={files}
+        onChange={this.onChange}
+        onImageClick={(index, fs) => console.log(index, fs)}
         onAddImageClick={this.onAddImageClick}
         selectable={files.length < 5}
       /> : <ImagePicker
