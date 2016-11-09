@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import List from '../list/index';
 import Radio from '../radio/index.web';
-import { SubMenuProps, SubMenuState } from './propTypes';
+import { SubMenuProps, SubMenuState } from './PropsType';
 
 export default class SubMenu extends React.Component<SubMenuProps, SubMenuState> {
   static defaultProps = {

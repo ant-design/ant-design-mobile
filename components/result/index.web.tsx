@@ -1,19 +1,8 @@
 import React from 'react';
 import Button from '../button';
 import classNames from 'classnames';
+import ResultProps from './PropsType';
 function noop() {}
-
-export interface ResultProps {
-  prefixCls?: string;
-  style?: React.CSSProperties;
-  className?: string;
-  imgUrl?: string;
-  title?: React.ReactNode;
-  message?: React.ReactNode;
-  buttonText?: string;
-  buttonType?: 'primary' | 'ghost';
-  buttonClick?: () => void;
-}
 
 export default class Result extends React.Component<ResultProps, any> {
   static defaultProps = {

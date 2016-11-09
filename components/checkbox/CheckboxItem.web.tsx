@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
 import List from '../list/index.web';
-import CheckboxItemProps from './CheckboxItemPropsType';
+import { CheckboxItemProps } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
 
 const ListItem = List.Item;

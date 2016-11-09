@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
-import ImagePickerPropTypes from './ImagePickerPropTypes';
+import { ImagePickerPropTypes } from './PropsType';
 
 function noop() { }
 

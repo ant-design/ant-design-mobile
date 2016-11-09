@@ -9,7 +9,7 @@ import {
   // ImagePickerIOS,
   // ActionSheetIOS,
 } from 'react-native';
-import ImagePickerPropTypes from './ImagePickerPropTypes';
+import { ImagePickerPropTypes } from './PropsType';
 import imagePickerStyles from './style/';
 import ImageRoll from './ImageRoll';
 

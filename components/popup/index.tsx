@@ -5,14 +5,9 @@ import {
 import styles from './style/index';
 import topView from 'rn-topview';
 import Modal from 'rc-dialog/lib/Modal';
+import PopupProps from './PropsType';
 
 type animationType = 'none' | 'slide-up' | 'slide-down' | 'fade';
-
-export interface PopupProps {
-  animationType?: string;
-  maskClosable?: boolean;
-  visible: boolean;
-}
 
 class Popup extends React.Component<PopupProps, any> {
   static defaultProps = {

@@ -1,4 +1,6 @@
-interface ImagePickerPropTypes {
+// import React from 'react';
+
+export interface ImagePickerPropTypes {
   style?: {};
   files?: Array<{}>;
   onChange?: (files: Array<{}>, operationType: string, index?: number) => void;
@@ -12,4 +14,7 @@ interface ImagePickerPropTypes {
   selectable?: boolean;
 }
 
-export default ImagePickerPropTypes;
+export interface ImageRollProps {
+  onCancel: () => void;
+  onSelected: (imgObj: {}) => void;
+}

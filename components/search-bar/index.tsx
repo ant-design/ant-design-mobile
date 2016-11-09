@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, Text, Image } from 'react-native';
-import { SearchBarProps, SearchBarState, defaultProps } from './SearchBarPropTypes';
+import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 import styles from './style/index';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {

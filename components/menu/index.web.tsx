@@ -4,7 +4,7 @@ import objectAssign from 'object-assign';
 import SubMenu from './SubMenu.web';
 import List from '../list';
 import Flex from '../flex';
-import { MenuProps, MenuState } from './propTypes';
+import { MenuProps, MenuState } from './PropsType';
 
 export default class Menu extends React.Component<MenuProps, MenuState> {
   static defaultProps = {

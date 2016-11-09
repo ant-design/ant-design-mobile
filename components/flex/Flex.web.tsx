@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import FlexProps from './FlexPropTypes';
+import { FlexProps } from './PropsType';
 
 export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;

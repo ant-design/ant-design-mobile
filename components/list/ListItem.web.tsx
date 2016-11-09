@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { ListItemProps, BriefProps } from './ListPropTypes';
+import { ListItemProps, BriefProps } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
 
 export class Brief extends React.Component<BriefProps, any> {

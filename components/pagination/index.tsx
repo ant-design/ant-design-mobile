@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import Flex from '../flex';
 import Button from '../button';
-import PaginationProps from './PaginationPropTypes';
+import PaginationProps from './PropsType';
 import styles from './style/index';
 
 export default class Pagination extends React.Component<PaginationProps, any> {

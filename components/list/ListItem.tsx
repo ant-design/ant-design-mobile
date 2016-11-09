@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, View, Platform, TouchableHighlight, Text, StyleSheet } from 'react-native';
 import variables from '../style/themes/default';
 import theme from './style/index';
-import { ListItemProps, BriefProps } from './ListPropTypes';
+import { ListItemProps, BriefProps } from './PropsType';
 
 const styles = StyleSheet.create({
   column: {

@@ -2,16 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import splitObject from '../_util/splitObject';
-
-export interface NavBarProps {
-  prefixCls?: string;
-  children?: any;
-  mode?: 'dark' | 'light';
-  iconName?: string | boolean;
-  leftContent?: any;
-  rightContent?: any;
-  onLeftClick?: () => void;
-}
+import NavBarProps from './PropsType';
 
 export default class NavBar extends React.Component<NavBarProps, any> {
   static defaultProps = {

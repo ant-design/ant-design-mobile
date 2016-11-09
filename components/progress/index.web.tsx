@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import ProgressProps from './ProgressPropsType';
+import ProgressProps from './PropsType';
 
 export default class Progress extends React.Component<ProgressProps, any> {
   static defaultProps = {
