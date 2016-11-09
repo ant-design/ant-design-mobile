@@ -1,69 +1,53 @@
 ---
 order: 0
-title: 基本
+title: 示例
 ---
 
-基本用法. ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
 import { List } from 'antd-mobile';
-import { createForm } from 'rc-form';
 
-let ListExample = React.createClass({
+const Item = List.Item;
+const Brief = Item.Brief;
+
+const ListExample = React.createClass({
   render() {
-    return (<form>
+    return (
       <List
         renderHeader={() => '我是华丽丽的列表头部'}
         renderFooter={() => '我是列表尾部'}
       >
-        <List.Item data-seed="logId">标题文字点击无反馈，文字超长则隐藏</List.Item>
-        <List.Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</List.Item>
-        <List.Item
-          onClick={() => {}}
-          extra={undefined}
-        >标题文字</List.Item>
-        <List.Item
-          extra="右边内容"
-          onClick={() => {}}
-          arrow="horizontal"
-        >标题文字</List.Item>
-        <List.Item
-          arrow="horizontal"
-          onClick={() => {}}
-        >
-          <select defaultValue="3">
-            <option value="1">选项1</option>
-            <option value="2" disabled>选项2不可选</option>
+        <Item data-seed="logId">标题文字点击无反馈，文字超长则隐藏</Item>
+        <Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</Item>
+
+        <Item thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" arrow="horizontal">我的钱包</Item>
+        <Item thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png">我的花销占比</Item>
+
+        <Item extra="没有箭头">内容内容</Item>
+        <Item extra="箭头向右" arrow="horizontal">标题文字</Item>
+        <Item extra="箭头向下" arrow="down">标题文字</Item>
+        <Item extra="箭头向上" arrow="up">标题文字</Item>
+
+        <Item extra={<div>内容内容<Brief>辅助文字内容</Brief></div>} multipleLine>垂直居中对齐</Item>
+        <Item extra={<div>内容内容<Brief>辅助文字内容</Brief></div>} multipleLine align="top">顶部对齐</Item>
+        <Item extra="内容内容" multipleLine>
+          垂直居中对齐 <Brief>辅助文字内容</Brief>
+        </Item>
+        <Item extra="内容内容" multipleLine align="top" arrow="horizontal">
+          <div>顶部对齐<Brief>辅助文字内容</Brief></div>
+        </Item>
+
+        <Item>
+          <select defaultValue="1">
+            <option value="1">这是原生 html select</option>
+            <option value="2" disabled>不可选</option>
             <option value="3">选项3</option>
           </select>
-        </List.Item>
+        </Item>
       </List>
-      <List
-        renderHeader={() => '带缩略图'}
-      >
-        <List.Item
-          thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"
-          arrow="horizontal"
-          onClick={() => {}}
-        >缩略图</List.Item>
-        <List.Item
-          thumb="https://zos.alipayobjects.com/rmsportal/zotStpFiYpNtZNl.png"
-        >缩略图</List.Item>
-      </List>
-    </form>);
+    );
   },
 });
 
-ListExample = createForm()(ListExample);
-
 ReactDOM.render(<ListExample />, mountNode);
 ````
-
-```css
-/** hack for antd responsive conflict */
-@media only screen and (max-width: 767px) and (min-width: 320px) {
-#list {
-    display: block;
-}
-}
-```
