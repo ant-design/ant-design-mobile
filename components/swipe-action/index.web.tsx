@@ -3,7 +3,7 @@ import Swipeout from 'rc-swipeout';
 import Hammer from 'react-hammerjs';
 import classNames from 'classnames';
 import Modal from '../modal';
-import SwipeActionProps from './SwipeActionPropsType';
+import SwipeActionProps from './PropsType';
 
 export interface ButtonProps {
   text?: string;

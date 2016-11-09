@@ -1,8 +1,15 @@
 import React from 'react';
 import RNStepsItem from './StepsItem';
 import { View } from 'react-native';
-import StepsProps from './StepsPropType';
 import styles from './style';
+
+export interface StepsProps {
+  direction?: 'vertical' | 'horizon';
+  current?: number;
+  width?: number;
+  size?: string;
+  finishIcon?: string;
+}
 
 export default class Steps extends React.Component<StepsProps, any> {
   static Step: any;

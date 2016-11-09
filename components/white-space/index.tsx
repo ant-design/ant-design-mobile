@@ -1,7 +1,7 @@
 // WhiteSpace
 import React from 'react';
 import { View } from 'react-native';
-import WhiteSpaceProps from './WhiteSpacePropsType';
+import WhiteSpaceProps from './PropsType';
 import varibles from '../style/themes/default';
 
 class WhiteSpace extends React.Component<WhiteSpaceProps, any> {

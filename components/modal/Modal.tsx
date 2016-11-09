@@ -5,7 +5,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import modalStyle from './style/index';
-import ModalPropsType from './ModalPropsType';
+import ModalPropsType from './PropsType';
 import RCModal from 'rc-dialog/lib/Modal';
 
 class AntmModal extends React.Component<ModalPropsType, any> {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import BadgeStyle from './style/index';
-import BadgeProps from './BadgePropsType';
+import BadgeProps from './PropsType';
 
 export default class Badge extends React.Component<BadgeProps, any> {
   static defaultProps = {

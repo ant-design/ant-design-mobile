@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import SwitchProps from './SwitchPropsType';
+import SwitchProps from './PropsType';
 
 export default class Switch extends React.Component<SwitchProps, any> {
   static defaultProps = {

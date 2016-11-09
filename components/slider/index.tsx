@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Slider } from 'react-native';
-import SliderProps from './SliderPropsType';
+import SliderProps from './PropsType';
 
 export default class SliderAntm extends React.Component<SliderProps, any> {
   static defaultProps = {

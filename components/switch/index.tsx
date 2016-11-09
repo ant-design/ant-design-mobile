@@ -1,5 +1,5 @@
 import React from 'react';
-import SwitchProps from './SwitchPropsType';
+import SwitchProps from './PropsType';
 import { Switch } from 'react-native';
 
 export default class AntmSwitch extends React.Component<SwitchProps, any> {

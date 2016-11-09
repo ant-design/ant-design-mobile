@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import getDataAttr from '../_util/getDataAttr';
 import splitObject from '../_util/splitObject';
 import Icon from '../icon';
-import NoticeBarProps from './NoticeBarPropsType';
+import NoticeBarProps from './PropsType';
 
 export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {

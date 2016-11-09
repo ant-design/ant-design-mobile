@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, Platform } from 'react-native';
 import TagStyle from './style/index';
-import TagProps from './TagPropsType';
+import TagProps from './PropsType';
 
 export default class Modal extends React.Component<TagProps, any> {
   static defaultProps = {

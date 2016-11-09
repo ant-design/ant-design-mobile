@@ -1,7 +1,25 @@
 import React from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
-import TabBarItemProps from './TabBarItemPropTypes';
 import styles from './style';
+
+export interface TabBarItemProps {
+  badge?: string | number;
+  onPress?: () => void;
+  selected?: boolean;
+  icon?: any;
+  selectedIcon?: any;
+  style?: any;
+  children: any;
+  title: string;
+  tintColor?: string;
+  unselectedTintColor?: string;
+  /*react-native ios only*/
+  systemIcon?: any;
+  renderAsOriginal?: boolean;
+  /*web only*/
+  rootPrefixCls?: string;
+  className?: string;
+}
 
 export default class TabBarItem extends React.Component<TabBarItemProps, any> {
   static defaultProps = {

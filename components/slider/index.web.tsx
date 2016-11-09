@@ -1,6 +1,6 @@
 import React from 'react';
 import RcSlider from 'rc-slider';
-import SliderProps from './SliderPropsType';
+import SliderProps from './PropsType';
 
 export default class Slider extends React.Component<SliderProps, any> {
   static defaultProps = {
