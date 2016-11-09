@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import SegmentedControlProps from './SegmentedControlPropTypes';
+import SegmentedControlProps from './PropsType';
 import SegmentItem from './Item.web';
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {

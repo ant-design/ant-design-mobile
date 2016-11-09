@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import TabBarProps from './TabBarPropTypes';
+import TabBarProps from './PropsType';
 import TabBarItem from './TabBarItem';
 import styles from './style/';
 

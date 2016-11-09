@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import TagProps from './TagPropsType';
+import TagProps from './PropsType';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
 

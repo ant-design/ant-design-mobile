@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import ModalProps from './ModalPropsType';
+import ModalProps from './PropsType';
 import FooterButton from './FooterButton.web';
 
 export default class Modal extends React.Component<ModalProps, any> {

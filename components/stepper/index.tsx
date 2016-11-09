@@ -1,7 +1,7 @@
 import React from 'react';
 import RcInputNumber from 'rc-input-number/lib';
 import objectAssign from 'object-assign';
-import StepProps from './StepPropTypes';
+import StepProps from './PropsType';
 import styles from 'rc-input-number/lib/styles';
 import { Platform } from 'react-native';
 

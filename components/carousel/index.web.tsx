@@ -2,7 +2,21 @@ import React from 'react';
 import classNames from 'classnames';
 import ReactCarousel from 'nuka-carousel';
 import assign from 'object-assign';
-import CarouselProps from './CarouselPropTypes';
+
+export interface CarouselProps {
+  selectedIndex?: number;
+  dots?: boolean;
+  vertical?: boolean;
+  autoplay?: boolean;
+  infinite?: boolean;
+  children?: any;
+  /** web only */
+  prefixCls?: string;
+  easing?: string;
+  beforeChange?: (from: number, to: number) => void;
+  afterChange?: (current: number) => void;
+  style?: React.CSSProperties;
+}
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import RcTabs, { TabPane } from 'rc-tabs';
-import TabsProps from './TabsProps';
+import TabsProps from './PropsType';
 import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
 import TabContent from 'rc-tabs/lib/TabContent';
 import InkTabBar from 'rc-tabs/lib/InkTabBar';

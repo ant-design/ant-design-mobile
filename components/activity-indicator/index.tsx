@@ -5,7 +5,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import styles from './style';
-import PropTypes from './ActivityIndicatorPropTypes';
+import PropTypes from './PropsType';
 
 export default class RNActivityIndicator extends React.Component<PropTypes, any> {
   static defaultProps = {

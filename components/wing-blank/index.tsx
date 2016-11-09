@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import varibles from '../style/themes/default';
 
-import WingBlankProps from './WingBlankPropsType';
+import WingBlankProps from './PropsType';
 
 class WingBlank extends React.Component<WingBlankProps, any> {
 

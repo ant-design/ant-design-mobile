@@ -1,7 +1,7 @@
 import React from 'react';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import styles from './style/';
-import TabsProps from './TabsProps';
+import TabsProps from './PropsType';
 
 class Tabs extends React.Component<TabsProps, any> {
   static defaultProps = {
