@@ -1,6 +1,6 @@
 import React from 'react';
 import RcSteps from 'rc-steps';
-import { Icon } from 'antd-mobile';
+import Icon from '../icon/index.web';
 
 export interface StepsProps {
   prefixCls?: string;
