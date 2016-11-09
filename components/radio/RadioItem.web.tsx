@@ -14,9 +14,10 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   };
 
   render() {
-    let {
-      prefixCls, listPrefixCls, style, name, defaultChecked, checked, disabled, children, className, onChange,
+    const {
+      prefixCls, listPrefixCls, style, children, className, disabled,
     } = this.props;
+
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
@@ -25,18 +26,19 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
 
     const onClickProps = disabled ? {} : { onClick: () => {} };
 
+    const radioProps: any = {};
+    ['name', 'defaultChecked', 'checked', 'onChange', 'disabled'].forEach(i => {
+      if (i in this.props) {
+        radioProps[i] = this.props[i];
+      }
+    });
+
     return (<ListItem {...getDataAttr(this.props)}
       prefixCls={listPrefixCls}
       style={style}
       className={wrapCls}
       {...onClickProps}
-      extra={<Radio
-        defaultChecked={defaultChecked}
-        checked={checked}
-        name={name}
-        onChange={onChange}
-        disabled={disabled}
-      />}
+      extra={<Radio {...radioProps} />}
     >{children}</ListItem>);
   }
 }
