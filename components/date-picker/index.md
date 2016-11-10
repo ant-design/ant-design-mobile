@@ -1,5 +1,5 @@
 ---
-category: Form
+category: Components
 type: Form
 chinese: 日期选择
 english: DatePicker

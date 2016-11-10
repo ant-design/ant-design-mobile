@@ -1,5 +1,5 @@
 ---
-category: Operation Feedback
+category: Components
 type: Operation Feedback
 chinese: 弹出层
 english: Popup

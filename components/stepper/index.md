@@ -1,5 +1,5 @@
 ---
-category: Form
+category: Components
 type: Form
 chinese: 步进器
 english: Stepper

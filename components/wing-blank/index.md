@@ -1,5 +1,5 @@
 ---
-category: Others
+category: Components
 type: Others
 chinese: 两翼留白
 english: WingBlank

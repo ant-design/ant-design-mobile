@@ -1,5 +1,5 @@
 ---
-category: Operation Feedback
+category: Components
 type: Operation Feedback
 chinese: 动作面板
 english: ActionSheet

@@ -1,5 +1,5 @@
 ---
-category: Others
+category: Components
 type: Others
 chinese: Flex布局
 english: Flex
