@@ -5,15 +5,12 @@ import {
   View,
   Text,
   ScrollView,
-  ViewPagerAndroid,
   Platform,
-  Dimensions,
+  StyleSheet,
 } from 'react-native';
 import styles from './style';
 
-let { width, height } = Dimensions.get('window');
-
-export interface ViewPagerProps {
+export interface CarouselProps {
   selectedIndex?: number;
   bounces?: boolean;
   children?: any;
@@ -27,7 +24,7 @@ export interface ViewPagerProps {
   afterChange?: (selectedIndex: number) => void;
 }
 
-const ViewPager = React.createClass<ViewPagerProps, any>({
+const Carousel = React.createClass<CarouselProps, any>({
   mixins: [ReactTimerMixin],
 
   getDefaultProps() {
@@ -41,71 +38,60 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
     };
   },
 
-  componentWillMount() {
-    this.state = this.initState(this.props);
+  getInitialState() {
+    const props = this.props;
+    const count = props.children ? props.children.length || 1 : 0;
+    const selectedIndex = count > 1 ? Math.min(props.selectedIndex, count - 1) : 0;
+    this.count = count;
+    return {
+      width: 0,
+      isScrolling: false,
+      autoplayEnd: false,
+      loopJump: false,
+      selectedIndex,
+      offset: {
+        x: 0,
+        y: 0,
+      },
+    };
   },
 
   componentDidMount() {
     this.autoplay();
   },
 
-  initState(props) {
-    // set the current state
-    // const state = this.state || {};
-    const count = props.children ? props.children.length || 1 : 0;
-    width = props.width || width;
-    height = props.height || height;
-    const selectedIndex = count > 1 ? Math.min(props.selectedIndex, count - 1) : 0;
-
-    let initState = {
-      width,
-      height,
-      isScrolling: false,
-      autoplayEnd: false,
-      loopJump: false,
-      count,
-      selectedIndex,
-      offset: {
-        x: width * (selectedIndex + (props.infinite ? 1 : 0)),
-        y: 0,
-      },
-    };
-
-    return initState;
-  },
-
   loopJump() {
-    if (this.state.loopJump) {
+    if (this.state.loopJump && Platform.OS === 'android') {
       const index = this.state.selectedIndex + (this.props.infinite ? 1 : 0);
-      setTimeout(() => (this.refs as any).scrollview.setPageWithoutAnimation
-      && (this.refs as any).scrollview.setPageWithoutAnimation(index), 50);
+      setTimeout(() => {
+        const x = this.state.width * index;
+        (this.refs as any).scrollview.scrollTo({ x, y: 0 }, false);
+      }, 10);
     }
   },
 
   autoplay() {
-    if (
-      !Array.isArray(this.props.children)
-      || !this.props.autoplay
-      || this.state.isScrolling
-      || this.state.autoplayEnd
-    ) {
+    const { children, autoplay, infinite, autoplayTimeout } = this.props;
+    const { isScrolling, autoplayEnd, selectedIndex } = this.state;
+    if ( !Array.isArray(children) || !autoplay || isScrolling || autoplayEnd ) {
       return;
     }
 
     clearTimeout(this.autoplayTimer);
 
     this.autoplayTimer = this.setTimeout(() => {
-      if (!this.props.infinite && ( this.state.selectedIndex === this.state.count - 1)) {
+      if (!infinite && (selectedIndex === this.count - 1)) {
+        // !infinite && last one, autoplay end
         return this.setState({ autoplayEnd: true });
       }
       this.scrollNextPage();
-    }, this.props.autoplayTimeout * 1000);
+    }, autoplayTimeout * 1000);
   },
 
   onScrollBegin(e) {
-    this.setState({ isScrolling: true });
-
-    this.setTimeout(() => {
+    this.setState({
+      isScrolling: true,
+    }, () => {
       if (this.props.onScrollBeginDrag) {
         this.props.onScrollBeginDrag(e, this.state, this);
       }
@@ -114,7 +100,6 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
 
   onScrollEnd(e) {
     this.setState({ isScrolling: false });
-
     // android incompatible
     if (!e.nativeEvent.contentOffset) {
       e.nativeEvent.contentOffset = { x: e.nativeEvent.position * this.state.width };
@@ -132,11 +117,11 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
   },
 
   onScrollEndDrag(e) {
-    const { offset, selectedIndex, count } = this.state;
+    const { offset, selectedIndex } = this.state;
     const previousOffset = offset.x;
     const newOffset = e.nativeEvent.x;
 
-    if (previousOffset === newOffset && (selectedIndex === 0 || selectedIndex === count - 1)) {
+    if (previousOffset === newOffset && (selectedIndex === 0 || selectedIndex === this.count - 1)) {
       this.setState({
         isScrolling: false,
       });
@@ -159,10 +144,10 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
 
     if (this.props.infinite) {
       if (selectedIndex <= -1) {
-        selectedIndex = state.count - 1;
-        offset.x = step * state.count;
+        selectedIndex = this.count - 1;
+        offset.x = step * this.count;
         loopJump = true;
-      } else if (selectedIndex >= state.count) {
+      } else if (selectedIndex >= this.count) {
         selectedIndex = 0;
         offset.x = step;
         loopJump = true;
@@ -174,6 +159,7 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
       offset,
       loopJump: loopJump,
     });
+
     const { afterChange } = this.props;
     if (afterChange) {
       afterChange(selectedIndex);
@@ -181,7 +167,7 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
   },
 
   scrollNextPage() {
-    if (this.state.isScrolling || this.state.count < 2) {
+    if (this.state.isScrolling || this.count < 2) {
       return;
     }
     let state = this.state;
@@ -190,11 +176,7 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
     let y = 0;
     x = diff * state.width;
 
-    if (Platform.OS === 'android') {
-      (this.refs as any).scrollview.setPage(diff);
-    } else {
-      (this.refs as any).scrollview.scrollTo({ x, y });
-    }
+    (this.refs as any).scrollview.scrollTo({ x, y });
 
     this.setState({
       isScrolling: true,
@@ -214,7 +196,6 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
   },
 
   renderContent(pages) {
-    if (Platform.OS === 'ios') {
       const others = {
         onScrollBeginDrag: this.onScrollBegin,
         onMomentumScrollEnd: this.onScrollEnd,
@@ -235,46 +216,48 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
           showsVerticalScrollIndicator={false}
           contentContainerStyle={[styles.wrapper, this.props.style]}
           contentOffset={this.state.offset}
+          style={{ flex: 1 }}
           {...others}
         >
           {pages}
         </ScrollView>
       );
-    } else {
-      return (
-        <ViewPagerAndroid
-          {...this.props}
-          ref="scrollview"
-          initialPage={this.props.infinite ? this.state.selectedIndex + 1 : this.state.selectedIndex}
-          onPageSelected={this.onScrollEnd}
-          style={{flex: 1}}
-        >
-          {pages}
-        </ViewPagerAndroid>
-      );
-    }
   },
 
   renderDots(index) {
     return (
       <Pagination
-        style={styles.pagination}
+        style={styles.paginationX}
         current={index}
         mode="pointer"
-        total={this.state.count}
+        total={this.count}
       />
     );
+  },
+
+  onLayout(e) {
+    const { children, infinite } = this.props;
+    const selectedIndex = this.count > 1 ? Math.min(this.props.selectedIndex, this.count - 1) : 0;
+    const width = e.nativeEvent.layout.width;
+    const offsetX = width * (selectedIndex + (infinite ? 1 : 0));
+    this.setState({
+      width,
+      offset: { x: offsetX, y: 0 },
+    }, () => {
+      if (Platform.OS === 'android') {
+        // android 不支持 contentOffset
+        // iOS animated=fasle 貌似不生效
+        this.refs.scrollview.scrollTo({ y: 0, x: offsetX }, false)
+      }
+    });
   },
 
   render() {
     let state = this.state;
     let props = this.props;
     let children = props.children;
-    let count = state.count;
     let infinite = props.infinite;
     let pages: any = [];
-
-    let pageStyle = [{ width: state.width, height: state.height }, styles.slide];
 
     if (!children) {
       return (
@@ -284,25 +267,23 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
       );
     }
 
+    let pageStyle = [{ width: state.width }, styles.slide];
     // For make infinite at least count > 1
-    if (count > 1) {
+    if (this.count > 1) {
       pages = Object.keys(children);
       if (infinite) {
-        pages.unshift(count - 1 + '');
+        pages.unshift(this.count - 1 + '');
         pages.push('0');
       }
       pages = pages.map((page, i) => {
         return (<View style={pageStyle} key={i}>{children[page]}</View>);
       });
     } else {
-      pages = (<View style={pageStyle}>{children}</View>);
+      pages = (<View  style={pageStyle}>{children}</View>);
     }
 
     return (
-      <View style={[styles.container, {
-        width: state.width,
-        height: state.height,
-      }]}>
+      <View onLayout={this.onLayout} style={[styles.container]}>
         {this.renderContent(pages)}
         {props.dots && this.renderDots(this.state.selectedIndex)}
       </View>
@@ -310,4 +291,4 @@ const ViewPager = React.createClass<ViewPagerProps, any>({
   },
 });
 
-export default ViewPager;
+export default Carousel;

@@ -7,36 +7,36 @@ export default class BasicCarouselExample extends React.Component<any, any> {
     /* tslint:disable: no-console */
     console.log('change to', index);
   }
-
   render() {
     return (
       <View>
+      <View style={{ paddingHorizontal: 15, marginTop: 80 }}>
         <Carousel
           style={styles.wrapper}
-          autoplayTimeout={2}
+          autoplayTimeout={1}
           selectedIndex={2}
-          autoplay={true}
-          infinite={true}
-          height={160}
-          loop={true}
+          autoplay={0}
+          infinite={false}
           afterChange={this.onselectedIndexChange}
         >
-          <View style={styles.container}>
+          <View style={[styles.container, { backgroundColor: 'red'}]}>
             <Text>Carousel 1</Text>
           </View>
-          <View style={styles.container}>
+          <View style={[styles.container, , { backgroundColor: 'blue'}]}>
             <Text>Carousel 2</Text>
           </View>
-          <View style={styles.container}>
+          <View style={[styles.container, { backgroundColor: 'yellow'}]}>
             <Text>Carousel 3</Text>
           </View>
-          <View style={styles.container}>
+          <View style={[styles.container, { backgroundColor: 'black'}]}>
             <Text>Carousel 4</Text>
           </View>
-          <View style={styles.container}>
+          <View style={[styles.container, { backgroundColor: '#ccc'}]}>
             <Text>Carousel 5</Text>
           </View>
         </Carousel>
+        <Text>Carousel 根据内容自适应高度</Text>
+      </View>
       </View>
     );
   }
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    height: 150,
   } as ViewStyle,
   text: {
     color: '#fff',
