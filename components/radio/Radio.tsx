@@ -42,7 +42,7 @@ export default class Radio extends React.Component<RadioProps, any> {
       });
     }
     if (this.props.onChange) {
-      this.props.onChange(true);
+      this.props.onChange({target: {checked: true}});
     }
   };
 
