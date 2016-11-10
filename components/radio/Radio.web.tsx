@@ -10,9 +10,6 @@ export default class Radio extends React.Component<RadioProps, any> {
   };
 
   render() {
-    return (<RcCheckbox
-      {...this.props}
-      type="radio"
-    />);
+    return (<RcCheckbox {...this.props} type="radio" />);
   }
 }
