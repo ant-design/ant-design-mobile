@@ -16,7 +16,7 @@ let TextareaItemExample = React.createClass({
       <TextareaItem
         title="非受控"
         data-seed="logId"
-        autoFocus
+        autoFocus autoHeight
       />
       <TextareaItem
         {...getFieldProps('control')}
