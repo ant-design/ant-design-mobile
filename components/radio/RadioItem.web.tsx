@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
+import List from '../list/index.web';
 import Radio from './Radio.web';
-import List from '../list';
-import getDataAttr from '../_util/getDataAttr';
 import { RadioItemProps } from './PropsType';
+import omit from 'omit.js';
 
 const ListItem = List.Item;
+function noop() { }
 
 export default class RadioItem extends React.Component<RadioItemProps, any> {
   static defaultProps = {
@@ -15,7 +16,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
 
   render() {
     const {
-      prefixCls, listPrefixCls, style, children, className, disabled,
+      prefixCls, listPrefixCls, className, children, disabled, radioProps = {},
     } = this.props;
 
     const wrapCls = classNames({
@@ -24,21 +25,25 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       [className as string]: className,
     });
 
-    const onClickProps = disabled ? {} : { onClick: () => {} };
+    const otherProps = omit(this.props, ['listPrefixCls', 'disabled', 'radioProps']);
+    if (disabled) {
+      delete otherProps.onClick;
+    } else {
+      otherProps.onClick = otherProps.onClick || noop;
+    }
 
-    const radioProps: any = {};
+    const extraProps: any = {};
     ['name', 'defaultChecked', 'checked', 'onChange', 'disabled'].forEach(i => {
       if (i in this.props) {
-        radioProps[i] = this.props[i];
+        extraProps[i] = this.props[i];
       }
     });
 
-    return (<ListItem {...getDataAttr(this.props)}
+    return (<ListItem
+      {...otherProps}
       prefixCls={listPrefixCls}
-      style={style}
       className={wrapCls}
-      {...onClickProps}
-      extra={<Radio {...radioProps} />}
+      extra={<Radio {...radioProps} {...extraProps} />}
     >{children}</ListItem>);
   }
 }

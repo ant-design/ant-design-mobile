@@ -1,45 +1,49 @@
 import React from 'react';
 import classNames from 'classnames';
-import Checkbox from './Checkbox.web';
 import List from '../list/index.web';
+import Checkbox from './Checkbox.web';
 import { CheckboxItemProps } from './PropsType';
-import getDataAttr from '../_util/getDataAttr';
+import omit from 'omit.js';
 
 const ListItem = List.Item;
+function noop() { }
 
 export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
-
   static defaultProps = {
     prefixCls: 'am-checkbox',
     listPrefixCls: 'am-list',
   };
 
   render() {
-    let {
-      prefixCls, listPrefixCls, style, className, name, defaultChecked, checked, disabled, children, extra, onChange,
+    const {
+      prefixCls, listPrefixCls, className, children, disabled, checkboxProps = {},
     } = this.props;
+
     const wrapCls = classNames({
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled === true,
       [className as string]: className,
     });
 
-    const onClickProps = disabled ? {} : { onClick: () => {} };
+    const otherProps = omit(this.props, ['listPrefixCls', 'disabled', 'checkboxProps']);
+    if (disabled) {
+      delete otherProps.onClick;
+    } else {
+      otherProps.onClick = otherProps.onClick || noop;
+    }
 
-    return (<ListItem {...getDataAttr(this.props)}
+    const extraProps: any = {};
+    ['name', 'defaultChecked', 'checked', 'onChange', 'disabled'].forEach(i => {
+      if (i in this.props) {
+        extraProps[i] = this.props[i];
+      }
+    });
+
+    return (<ListItem
+      {...otherProps}
       prefixCls={listPrefixCls}
-      style={style}
       className={wrapCls}
-      extra={extra}
-      {...onClickProps}
-      thumb={<Checkbox
-        prefixCls={prefixCls}
-        defaultChecked={defaultChecked}
-        checked={checked}
-        name={name}
-        onChange={onChange}
-        disabled={disabled}
-      />}
+      thumb={<Checkbox {...checkboxProps} {...extraProps} />}
     >{children}</ListItem>);
   }
 }

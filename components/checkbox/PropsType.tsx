@@ -21,6 +21,7 @@ export interface CheckboxItemProps extends CheckboxProps {
   onClick?: () => any;
   line?: number;
   checkboxStyle?: any; // rn only
+  checkboxProps?: Object;
 }
 
 export interface AgreeItemPropsType extends CheckboxProps {

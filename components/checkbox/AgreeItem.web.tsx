@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Checkbox from './Checkbox.web';
 import { AgreeItemPropsType } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
+import omit from 'omit.js';
 
 export default class AgreeItem extends React.Component<AgreeItemPropsType, any> {
   static defaultProps = {
@@ -10,25 +11,16 @@ export default class AgreeItem extends React.Component<AgreeItemPropsType, any> 
   };
 
   render() {
-    let { prefixCls, style, name, defaultChecked, checked, disabled, children, onChange, className } = this.props;
+    const { prefixCls, style, className, name, children } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-agree`]: true,
       [className as string]: className,
     });
+    const otherProps = omit(this.props, ['style', 'className']);
 
-    return (<div {...getDataAttr(this.props)}
-      className={wrapCls}
-      style={style}
-    >
+    return (<div {...getDataAttr(this.props)} className={wrapCls} style={style}>
       <label className={`${prefixCls}-agree-label`} htmlFor={name}>
-        <Checkbox
-          prefixCls={prefixCls}
-          defaultChecked={defaultChecked}
-          checked={checked}
-          name={name}
-          onChange={onChange}
-          disabled={disabled}
-        />
+        <Checkbox {...otherProps} />
         {children}
       </label>
     </div>);
