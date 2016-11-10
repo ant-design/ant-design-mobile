@@ -35,7 +35,6 @@ let CheckboxItemExample = React.createClass({
         >
           个性化调整
         </CheckboxItem>
-        <Checkbox>Checkbox</Checkbox>
         <CheckboxItem
           disabled
           {...getFieldProps('checkboxitem3', {

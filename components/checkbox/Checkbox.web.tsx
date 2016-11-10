@@ -11,7 +11,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
   static AgreeItem: any;
 
   render() {
-    let { prefixCls, style, name, defaultChecked, checked, disabled, className, onChange, children } = this.props;
+    let { prefixCls, style, name, defaultChecked, checked, disabled, className, onChange } = this.props;
 
     return (
       <RcCheckbox
@@ -23,9 +23,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
         name={name}
         onChange={onChange}
         disabled={disabled}
-      >
-        {children}
-      </RcCheckbox>
+      />
     );
   }
 }
