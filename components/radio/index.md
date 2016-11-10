@@ -5,14 +5,7 @@ chinese: 单选框
 english: Radio
 ---
 
-
-从多个互斥对象中，选中一个。
-
-
-### 规则
-- 一般出现在 List 右侧。
-- 和 Switch 的区别是，Radio 支持 2 个以上互斥对象。
-
+单选框
 
 ## API
 
@@ -28,4 +21,5 @@ english: Radio
 
 ### Radio.RadioItem
 
-* 基于`List.Item`对`Radio`进行封装,`List.Item`的`extra`属性固定传入`Radio`,其他属性和List.Item保持一致。具体API请参考`List.Item`。
+基于`List.Item`对`Radio`进行封装,`List.Item`的`extra`属性固定传入`Radio`,其他属性和`List.Item`一致。
+其他 API 和 Radio 相同。
