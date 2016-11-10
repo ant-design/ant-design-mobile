@@ -28,7 +28,15 @@ ReactDOM.render(
       文本内容<Badge text={'new'} style={{ marginLeft: 12 }} />
     </List.Item>
     <List.Item>
-      集合：
+      营销：
+      <Badge text="减" hot style={{ marginLeft: 12 }} />
+      <Badge text="惠" hot style={{ marginLeft: 12 }} />
+      <Badge text="免" hot style={{ marginLeft: 12 }} />
+      <Badge text="反" hot style={{ marginLeft: 12 }} />
+      <Badge text="HOT" hot style={{ marginLeft: 12 }} />
+    </List.Item>
+    <List.Item>
+      自定义：
       <Badge text={4} style={{ marginLeft: 12 }} />
       <Badge text="券" style={{ marginLeft: 12, padding: '0 6px', backgroundColor: '#f19736', borderRadius: 2 }} />
       <Badge text="NEW" style={{ marginLeft: 12, padding: '0 6px', backgroundColor: '#21b68a', borderRadius: 2 }} />

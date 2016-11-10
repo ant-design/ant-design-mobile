@@ -13,7 +13,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
   };
 
   render() {
-    let { text, prefixCls, overflowCount, className, style, children } = this.props;
+    let { text, prefixCls, overflowCount, className, style, children, hot } = this.props;
 
     const dot = this.props.dot;
     const size = this.props.size;
@@ -42,6 +42,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       [prefixCls as string]: true,
       [`${prefixCls}-not-a-wrapper`]: !children,
       [`${prefixCls}-corner-wrapper`]: corner,
+      [`${prefixCls}-hot`]: !!hot,
       [`${prefixCls}-corner-wrapper-large`]: corner && (size === 'large'),
     });
 
