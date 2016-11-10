@@ -1,5 +1,5 @@
 ---
-category: Others
+category: Components
 type: Others
 chinese: 下拉刷新
 english: RefreshControl

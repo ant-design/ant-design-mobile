@@ -1,5 +1,5 @@
 ---
-category: Form
+category: Components
 type: Form
 chinese: 滑动输入条
 english: Slider

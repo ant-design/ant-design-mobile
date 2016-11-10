@@ -1,5 +1,5 @@
 ---
-category: Basic Components
+category: Components
 type: Basic Components
 chinese: 徽标数
 english: Badge

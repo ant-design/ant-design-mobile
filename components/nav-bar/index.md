@@ -1,5 +1,5 @@
 ---
-category: Navigation
+category: Components
 type: Navigation
 chinese: 导航栏
 english: NavBar

@@ -1,5 +1,5 @@
 ---
-category: Others
+category: Components
 type: Others
 chinese: 滑动或长按操作
 english: SwipeAction

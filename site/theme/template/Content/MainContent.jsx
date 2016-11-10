@@ -97,7 +97,7 @@ export default class MainContent extends React.Component {
           (a.title || a.english).charCodeAt(0) - (b.title || b.english).charCodeAt(0)
         )).map(this.generateMenuItem.bind(this, false));
         return (
-          <Menu.ItemGroup key={index} className="sub-menu-item">
+          <Menu.ItemGroup title={type} key={index}>
             {groupItems}
           </Menu.ItemGroup>
         );

@@ -1,5 +1,5 @@
 ---
-category: Navigation
+category: Components
 type: Navigation
 chinese: 分段器
 english: SegmentedControl

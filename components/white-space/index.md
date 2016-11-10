@@ -1,5 +1,5 @@
 ---
-category: Others
+category: Components
 type: Others
 chinese: 上下留白
 english: WhiteSpace

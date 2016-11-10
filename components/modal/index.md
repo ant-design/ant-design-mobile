@@ -1,5 +1,5 @@
 ---
-category: Operation Feedback
+category: Components
 type: Operation Feedback
 chinese: 对话框
 english: Modal

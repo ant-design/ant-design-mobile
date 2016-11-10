@@ -1,5 +1,5 @@
 ---
-category: Basic Components
+category: Components
 type: Basic Components
 chinese: 表格
 english: Table

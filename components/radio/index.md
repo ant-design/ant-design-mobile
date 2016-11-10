@@ -1,5 +1,5 @@
 ---
-category: Form
+category: Components
 type: Form
 chinese: 单选框
 english: Radio
