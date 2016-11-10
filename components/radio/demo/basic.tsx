@@ -14,16 +14,16 @@ export default class BasicRadioExample extends React.Component<any, any> {
       <View>
         <View style={{ padding: 10 }}>
           <Radio checked={this.state.part1Value === 1}
-            onChange={(checked) => {
-              if(checked) {
+            onChange={(event) => {
+              if(event.target.checked) {
                 this.setState({ part1Value: 1 });
               }
             }}
             style={{ borderWidth: 1, borderColor: '#999', margin: 10 }}/>
           <WhiteSpace />
           <Radio checked={this.state.part1Value === 2}
-            onChange={(checked) => {
-              if(checked) {
+            onChange={(event) => {
+              if(event.target.checked) {
                 this.setState({ part1Value: 2 });
               }
             }}
@@ -33,15 +33,17 @@ export default class BasicRadioExample extends React.Component<any, any> {
 
         <List style={{marginTop: 12}}>
           <Text style={{marginTop: 12}}>表单单选项，普通列表中单选项</Text>
-          <RadioItem checked={this.state.part2Value === 1}
-            onChange={(checked) => {
-            if(checked) {
+          <RadioItem
+            checked={this.state.part2Value === 1}
+            onChange={(event) => {
+            if(event.target.checked) {
               this.setState({ part2Value: 1 });
             }
           }}>使用 Ant Desgin Component</RadioItem>
-          <RadioItem checked={this.state.part2Value === 2}
-            onChange={(checked) => {
-            if(checked) {
+          <RadioItem
+            checked={this.state.part2Value === 2}
+            onChange={(event) => {
+            if(event.target.checked) {
               this.setState({ part2Value: 2 });
             }
           }}>使用 Ant Desgin Component</RadioItem>
