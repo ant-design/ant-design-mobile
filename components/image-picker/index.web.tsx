@@ -107,6 +107,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           this.addImage({
             url: dataURL,
             orientation,
+            file,
           });
 
           fileSelectorEl.value = '';
