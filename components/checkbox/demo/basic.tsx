@@ -19,9 +19,9 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
     return (
       <View>
         <View style={{ padding: 10 }}>
-          <Checkbox checked={this.state.checkBox1} style={{tintColor:'#f00'}} onChange={(checked) => {
+          <Checkbox checked={this.state.checkBox1} style={{tintColor:'#f00'}} onChange={(event) => {
             this.setState({
-              checkBox1: checked,
+              checkBox1: event.target.checked,
             });
           }} />
           <WhiteSpace />
@@ -35,9 +35,9 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
         <WhiteSpace />
         <AgreeItem>同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意</AgreeItem>
         <WhiteSpace />
-        <AgreeItem checked={this.state.agreeItem1} checkboxStyle={{tintColor:'#f00'}} onChange={(checked) => {
+        <AgreeItem checked={this.state.agreeItem1} checkboxStyle={{tintColor:'#f00'}} onChange={(event) => {
             this.setState({
-              agreeItem1: checked,
+              agreeItem1: event.target.checked,
             });
           }}
         >同意 《信用支付服务合同》</AgreeItem>
@@ -48,16 +48,15 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
 
         <List style={{marginTop: 12}}>
           <Text style={{marginTop: 12}}>表单多选项，普通列表中多选项</Text>
-          <CheckboxItem checked={this.state.checkboxItem1} onChange={(checked) => {
+          <CheckboxItem checked={this.state.checkboxItem1} onChange={(event) => {
             this.setState({
-              checkboxItem1: checked,
+              checkboxItem1: event.target.checked,
             });
           }}
           >签约</CheckboxItem>
           <CheckboxItem>物料铺设</CheckboxItem>
           <CheckboxItem disabled>机具维护（不能选）</CheckboxItem>
           <CheckboxItem disabled checked>产品问题解决（必选）</CheckboxItem>
-
         </List>
       </View>
     );
