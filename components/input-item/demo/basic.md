@@ -16,6 +16,7 @@ let BasicInputExample = React.createClass({
       <InputItem
         defaultValue="非受控模式"
         data-seed="logId"
+        autoFocus
       >非受控</InputItem>
       <InputItem
         {...getFieldProps('control')}
