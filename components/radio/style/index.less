@@ -5,6 +5,14 @@
 @radioWarpPrefixCls: am-radio;
 @radioInnerPrefixCls: ~"@{radioWarpPrefixCls}-inner";
 
+.@{radioWarpPrefixCls}-wrapper {
+  display: inline-block;
+  .@{radioWarpPrefixCls}-text {
+    vertical-align: middle;
+    margin-left: @h-spacing-md;
+  }
+}
+
 .@{radioWarpPrefixCls} {
   position: relative;
   display: inline-block;
@@ -94,4 +102,3 @@
     }
   }
 }
-

@@ -28,14 +28,17 @@ const Test = React.createClass({
       { value: 2, label: '高中' },
     ];
     return (
-      <List renderHeader={() => '请选择学历'}>
-        {data.map(i => (
-          <RadioItem key={i.value} checked={value === i.value} onChange={() => this.onChange(i.value)}>
-            {i.label}
-          </RadioItem>
-        ))}
-        <RadioItem key="disable" disabled data-seed="logId">初中</RadioItem>
-      </List>
+      <div style={{ marginTop: 20 }}>
+        <div style={{ marginLeft: '0.3rem' }}><Radio checked>单选</Radio></div>
+        <List renderHeader={() => '请选择学历'}>
+          {data.map(i => (
+            <RadioItem key={i.value} checked={value === i.value} onChange={() => this.onChange(i.value)}>
+              {i.label}
+            </RadioItem>
+          ))}
+          <RadioItem key="disable" disabled data-seed="logId">初中</RadioItem>
+        </List>
+      </div>
     );
   },
 });
