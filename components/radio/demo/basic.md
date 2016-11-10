@@ -34,7 +34,9 @@ const Test = React.createClass({
             {i.label}
           </RadioItem>
         ))}
-        <RadioItem key="disabled" disabled data-seed="logId">初中</RadioItem>
+        <RadioItem key="disabled" data-seed="logId" disabled defaultChecked multipleLine>
+          初中<List.Item.Brief>辅助文字内容</List.Item.Brief>
+        </RadioItem>
       </List>
       <div style={{ padding: 30 }}>
         <div style={{ padding: '30px 0', color: '#888' }}>Radio 演示</div>
