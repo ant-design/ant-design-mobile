@@ -2,9 +2,16 @@ import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  wrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   icon: {
     width: variables.icon_size_sm,
     height: variables.icon_size_sm,
+  },
+  iconRight: {
+    marginLeft: variables.h_spacing_md,
   },
   agreeItem: {
     flexDirection: 'row',

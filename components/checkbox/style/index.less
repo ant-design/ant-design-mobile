@@ -5,6 +5,14 @@
 @checkboxWarpPrefixCls: am-checkbox;
 @checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
 
+.@{checkboxWarpPrefixCls}-wrapper {
+  display: inline-block;
+  .@{checkboxWarpPrefixCls}-text {
+    vertical-align: middle;
+    margin-left: @h-spacing-md;
+  }
+}
+
 .@{checkboxWarpPrefixCls} {
   position: relative;
   display: inline-block;
