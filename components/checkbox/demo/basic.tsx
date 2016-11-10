@@ -25,7 +25,7 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
             });
           }} />
           <WhiteSpace />
-          <Checkbox />
+          <Checkbox>Checkbox</Checkbox>
           <WhiteSpace />
           <Checkbox checked disabled />
           <WhiteSpace />
