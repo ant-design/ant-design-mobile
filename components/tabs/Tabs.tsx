@@ -55,7 +55,7 @@ class Tabs extends React.Component<TabsProps, any> {
 
   getKey(index) {
     const children = this.props.children;
-    let key;
+    let key = '';
     React.Children.forEach(children as any, (child: any, idx) => {
       if (index === idx) {
         key = child.key;

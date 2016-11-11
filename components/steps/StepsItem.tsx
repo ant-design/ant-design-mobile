@@ -19,33 +19,30 @@ export interface StepsItemProps {
 export default class StepsItem extends React.Component<StepsItemProps, any> {
 
   render() {
-    const { size, current, index, last, title, description,
-      status, errorTail, icon } = this.props;
+    const {
+      size, current, index, last, title, description,
+      status, errorTail, icon,
+    } = this.props;
 
-    let iconImg;
-    let headCls;
-    let tailTopCls;
-    let tailBottomCls;
+    let headCls: string = '';
+    let tailTopCls: string = '';
+    let tailBottomCls: string = '';
 
-    const sizeCls = size === 'small' ? '_s' : '_l';
+    const sizeCls: string = size === 'small' ? '_s' : '_l';
 
     if (index < current || status === 'finish') {
-      iconImg = 'check';
       headCls = `head_blue${sizeCls}`;
       tailTopCls = 'tail_blue';
       tailBottomCls = 'tail_blue';
     } else if (index === current || status === 'process') {
-      iconImg = 'check';
       headCls = `head_blue${sizeCls}`;
       tailTopCls = 'tail_blue';
       tailBottomCls = 'tail_gray';
     } else if (index > current || status === 'wait') {
-      iconImg = 'more';
       headCls = `head_gray${sizeCls}`;
       tailTopCls = 'tail_gray';
       tailBottomCls = 'tail_gray';
     } else if (status === 'error') {
-      iconImg = 'error';
       headCls = `head_red${sizeCls}`;
       tailTopCls = 'tail_gray';
       tailBottomCls = 'tail_gray';
@@ -86,7 +83,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
       <View style={{flex:1, flexDirection: 'row'}}>
         <View style={{ flexDirection: 'column'}}>
           <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
-             <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
+            <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
           </View>
           {
             <View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} />
