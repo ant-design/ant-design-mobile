@@ -23,6 +23,12 @@ export default class Icon extends React.Component<IconPropType, any> {
   }
   render() {
     const { type, className, style, size = 'md' } = this.props;
+    let xlinkHref = this.renderSvg();
+    if (!xlinkHref) {
+      xlinkHref = type;
+    } else {
+      xlinkHref = `#${type}`;
+    }
     const iconClassName = classNames({
       'am-icon': true,
       [`am-icon-${type}`]: true,
@@ -30,7 +36,7 @@ export default class Icon extends React.Component<IconPropType, any> {
       [className as string]: !!className,
     });
     return <svg className={iconClassName} style={style}>
-      <use xlinkHref={`${this.renderSvg() && `#${type}` || type}`} />
+      <use xlinkHref={xlinkHref} />
     </svg>;
   }
 }
