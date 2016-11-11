@@ -19,7 +19,10 @@ export default class BasicRadioExample extends React.Component<any, any> {
                 this.setState({ part1Value: 1 });
               }
             }}
-            style={{ borderWidth: 1, borderColor: '#999', margin: 10 }}/>
+            style={{ borderWidth: 1, borderColor: '#999', margin: 10 }}
+          >
+            支持
+          </Radio>
           <WhiteSpace />
           <Radio checked={this.state.part1Value === 2}
             onChange={(event) => {
