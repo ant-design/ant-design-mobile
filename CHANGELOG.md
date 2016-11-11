@@ -3,6 +3,18 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.7
+
+`2016-11-11`
+
+- 修复 ListView 遗漏 ref 设置问题 https://github.com/ant-design/ant-design-mobile/commit/2e32956d405880f2fdca3cc88cd7c3b1b7784b7f
+- 补充或删除 ActionSheet、Badge、ListView、Pagination、RefreshControl、Steps 依赖组件的样式
+- 整理 ts PropsType 文件 #495
+- 修复 Radio 组件默认选中问题，改进 demo 展示
+- 改进 SearchBar、ImagePicker 等组件 demo 展示，统一文档格式
+- TextareaItem 在非受控模式下支持自动高度功能 #459
+- 修复 Checkbox、Radio 非受控状态失效问题，并改进 demo 和文档展示
+
 ### 0.9.6
 
 `2016-11-05`
