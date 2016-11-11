@@ -2,8 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 // http://stackoverflow.com/questions/29891458/webpack-require-every-file-in-directory
-const svgRequire = (require as any).context('./style/assets', false, /\.svg$/);
-svgRequire.keys().forEach(key => svgRequire(key));
+// const svgRequire = (require as any).context('./style/assets', false, /\.svg$/);
+// svgRequire.keys().forEach(key => svgRequire(key));
 
 export interface IconPropType {
   type: string;
@@ -13,9 +13,22 @@ export interface IconPropType {
 }
 
 export default class Icon extends React.Component<IconPropType, any> {
+  renderSvg = () => {
+    let svg;
+    try {
+      svg = require(`./style/assets/${this.props.type}.svg`);
+    } finally {
+      return svg;
+    }
+  }
   render() {
     const { type, className, style, size = 'md' } = this.props;
-    // require(`./style/assets/${type}.svg`);
+    let xlinkHref = this.renderSvg();
+    if (!xlinkHref) {
+      xlinkHref = type;
+    } else {
+      xlinkHref = `#${type}`;
+    }
     const iconClassName = classNames({
       'am-icon': true,
       [`am-icon-${type}`]: true,
@@ -23,7 +36,7 @@ export default class Icon extends React.Component<IconPropType, any> {
       [className as string]: !!className,
     });
     return <svg className={iconClassName} style={style}>
-      <use xlinkHref={`#${type}`} />
+      <use xlinkHref={xlinkHref} />
     </svg>;
   }
 }
