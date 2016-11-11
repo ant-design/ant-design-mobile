@@ -45,7 +45,7 @@ export default class Demo extends React.Component {
   handleProgrammingLangChange = (e) => {
     this.setState({ lang: e.target.value });
   }
-
+  /* eslint-disable react/jsx-indent */
   renderDemoCode(highlightedCode, inModal) {
     const props = this.props;
     const lang = this.state.lang;
@@ -68,9 +68,9 @@ export default class Demo extends React.Component {
           <code dangerouslySetInnerHTML={{ __html: highlightedCode[lang] }} />
         </pre>
       </div>
-    )
+    );
   }
-
+  /* eslint-enable react/jsx-indent */
   render() {
     const { props, state } = this;
     const {

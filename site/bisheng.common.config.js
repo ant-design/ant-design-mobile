@@ -1,4 +1,5 @@
 const path = require('path');
+
 module.exports = {
   lazyLoad(nodePath, nodeValue) {
     if (typeof nodeValue === 'string') {

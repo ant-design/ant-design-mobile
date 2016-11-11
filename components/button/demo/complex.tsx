@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button, List } from 'antd-mobile';
+declare const mountNode;
 
 ReactDOM.render(
   <List style={{ margin: '10px 0', backgroundColor: 'white' }}>

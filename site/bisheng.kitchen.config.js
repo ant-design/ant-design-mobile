@@ -1,9 +1,7 @@
 const path = require('path');
 const pxtorem = require('postcss-pxtorem');
 const commonConfig = require('./bisheng.common.config');
-const config = require('./mobile/');
-
-const indexDemos = config.indexDemos;
+const indexDemos = require('./mobile/').indexDemos;
 
 module.exports = Object.assign({}, commonConfig, {
   port: 8002,
