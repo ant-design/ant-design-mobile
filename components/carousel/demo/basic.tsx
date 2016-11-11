@@ -15,23 +15,23 @@ export default class BasicCarouselExample extends React.Component<any, any> {
           style={styles.wrapper}
           autoplayTimeout={1}
           selectedIndex={2}
-          autoplay={0}
-          infinite={false}
+          autoplay={true}
+          infinite={true}
           afterChange={this.onselectedIndexChange}
         >
-          <View style={[styles.container, { backgroundColor: 'red'}]}>
+          <View style={[styles.container, { backgroundColor: 'red' }]}>
             <Text>Carousel 1</Text>
           </View>
-          <View style={[styles.container, , { backgroundColor: 'blue'}]}>
+          <View style={[styles.container, , { backgroundColor: 'blue' }]}>
             <Text>Carousel 2</Text>
           </View>
-          <View style={[styles.container, { backgroundColor: 'yellow'}]}>
+          <View style={[styles.container, { backgroundColor: 'yellow' }]}>
             <Text>Carousel 3</Text>
           </View>
-          <View style={[styles.container, { backgroundColor: 'black'}]}>
+          <View style={[styles.container, { backgroundColor: 'black' }]}>
             <Text>Carousel 4</Text>
           </View>
-          <View style={[styles.container, { backgroundColor: '#ccc'}]}>
+          <View style={[styles.container, { backgroundColor: '#ccc' }]}>
             <Text>Carousel 5</Text>
           </View>
         </Carousel>

@@ -16,21 +16,20 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
   },
-  paginationX: {
+  pagination: {
     flex: 1,
     position: 'absolute',
+    alignItems: 'center',
+  },
+  paginationX: {
     bottom: 10,
     left: 0,
     right: 0,
-    alignItems: 'center',
   },
   paginationY: {
-    flex: 1,
-    position: 'absolute',
     right: 0,
     top: 0,
     bottom: 0,
-    alignItems: 'center',
     transform: [{
       rotate: '90deg',
     }],
