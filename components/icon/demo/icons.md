@@ -3,22 +3,37 @@ order: 0
 title: 基本
 ---
 
+
 ````jsx
 import { Icon } from 'antd-mobile';
 
-const icons = ['adduser', 'alipay-o', 'alipay', 'bars', 'bill', 'chat', 'chats', 'check', 'check-circle-o', 'check-circle', 'clock-circle', 'comment', 'complain', 'complaint', 'complaints', 'cross', 'cross-circle', 'cross-circle-o', 'delete', 'down', 'edit', 'ellipsis-circle', 'ellipsis', 'eye', 'font', 'friends-o', 'friends', 'frown', 'frown-o', 'group', 'groupx', 'help', 'keep', 'koubei-o', 'koubei', 'left', 'like', 'link', 'loading', 'lock', 'mail', 'map', 'minus-circle', 'money', 'ownset', 'pay-circle-o', 'pay-circle', 'plus', 'qrcode', 'reload', 'right', 'scan', 'search', 'setting', 'setting-sm', 'share', 'team', 'titlebar', 'trips', 'user', 'world'];
+const icons = [
+  'check', 'check-circle', 'check-circle-o',
+  'cross', 'cross-circle', 'cross-circle-o',
+  'down', 'left', 'right', 'ellipsis', 'loading', 'koubei-o', 'koubei',
+];
+/* eslint global-require: 0 */
 
 class IconItems extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      first: false,
+    };
+  }
   render() {
     return (<div>
       {
         icons.map((item) => (
-          <span key={item} className="icon-item-wrap">
-            <Icon type={item} />
+          <span key={item} className="icon-item-wrap" onClick={() => this.setState({ first: !this.state.first })}>
+            <Icon type={this.state.first ? icons[100] : item} />
             <span className="icon-item">{item}</span>
           </span>
         ))
       }
+      <div>
+        <span>自定义图标:</span> <Icon type={require('./reload.svg')} />
+      </div>
     </div>);
   }
 }
