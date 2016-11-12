@@ -21,7 +21,7 @@ let BasicInputExample = React.createClass({
       <InputItem
         {...getFieldProps('control')}
         placeholder="设置value,不设置defaultValue"
-      >受控</InputItem>
+      >受控<span style={{ color: 'red' }}>*</span></InputItem>
 
       <InputItem
         {...getFieldProps('inputclear')}
