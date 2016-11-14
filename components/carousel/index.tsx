@@ -43,7 +43,6 @@ const Carousel = React.createClass<CarouselProps, any>({
     const props = this.props;
     const count = props.children ? props.children.length || 1 : 0;
     const selectedIndex = count > 1 ? Math.min(props.selectedIndex, count - 1) : 0;
-    this.count = count;
     return {
       width: 0,
       isScrolling: false,
@@ -59,6 +58,7 @@ const Carousel = React.createClass<CarouselProps, any>({
   },
 
   loopJump() {
+    // iOS 通过 contentOffet 可以平滑过度，不需要做处理
     if (this.state.loopJump && Platform.OS === 'android') {
       const index = this.state.selectedIndex + (this.props.infinite ? 1 : 0);
       setTimeout(() => {
@@ -71,6 +71,7 @@ const Carousel = React.createClass<CarouselProps, any>({
   autoplay() {
     const { children, autoplay, infinite, autoplayTimeout } = this.props;
     const { isScrolling, autoplayEnd, selectedIndex } = this.state;
+    const count = children ? children.length || 1 : 0;
     if ( !Array.isArray(children) || !autoplay || isScrolling || autoplayEnd ) {
       return;
     }
@@ -78,7 +79,7 @@ const Carousel = React.createClass<CarouselProps, any>({
     clearTimeout(this.autoplayTimer);
 
     this.autoplayTimer = this.setTimeout(() => {
-      if (!infinite && (selectedIndex === this.count - 1)) {
+      if (!infinite && (selectedIndex === count - 1)) {
         // !infinite && last one, autoplay end
         return this.setState({ autoplayEnd: true });
       }
@@ -121,8 +122,9 @@ const Carousel = React.createClass<CarouselProps, any>({
     const { offset, selectedIndex } = this.state;
     const previousOffset = offset.x;
     const newOffset = e.nativeEvent.x;
+    const count = this.props.children ? this.props.children.length || 1 : 0;
 
-    if (previousOffset === newOffset && (selectedIndex === 0 || selectedIndex === this.count - 1)) {
+    if (previousOffset === newOffset && (selectedIndex === 0 || selectedIndex === count - 1)) {
       this.setState({
         isScrolling: false,
       });
@@ -135,6 +137,7 @@ const Carousel = React.createClass<CarouselProps, any>({
     let diff =  offset.x - state.offset.x;
     let step = state.width;
     let loopJump = false;
+    let count = this.props.children ? this.props.children.length || 1 : 0;
 
     // Do nothing if offset no change.
     if (!diff) {
@@ -145,10 +148,10 @@ const Carousel = React.createClass<CarouselProps, any>({
 
     if (this.props.infinite) {
       if (selectedIndex <= -1) {
-        selectedIndex = this.count - 1;
-        offset.x = step * this.count;
+        selectedIndex = count - 1;
+        offset.x = step * count;
         loopJump = true;
-      } else if (selectedIndex >= this.count) {
+      } else if (selectedIndex >= count) {
         selectedIndex = 0;
         offset.x = step;
         loopJump = true;
@@ -167,12 +170,14 @@ const Carousel = React.createClass<CarouselProps, any>({
   },
 
   scrollNextPage() {
-    if (this.state.isScrolling || this.count < 2) {
+    const { children, infinite } = this.props;
+    const count = children ? children.length || 1 : 0;
+    if (this.state.isScrolling || count < 2) {
       return;
     }
 
     let state = this.state;
-    let diff = (this.props.infinite ? 1 : 0) + this.state.selectedIndex + 1;
+    let diff = (infinite ? 1 : 0) + this.state.selectedIndex + 1;
     let x = diff * state.width;
     let y = 0;
 
@@ -232,13 +237,14 @@ const Carousel = React.createClass<CarouselProps, any>({
       positionStyle = 'paginationY';
       flexDirection = 'column';
     }
+    const count = this.props.children ? this.props.children.length || 1 : 0;
     return (
       <Pagination
         style={[styles.pagination, styles[positionStyle]]}
         indicatorStyle={{ flexDirection }}
         current={index}
         mode="pointer"
-        total={this.count}
+        total={count}
       />
     );
   },
@@ -246,7 +252,8 @@ const Carousel = React.createClass<CarouselProps, any>({
   onLayout(e) {
     // for horizontal, get width, scollTo
     const props = this.props;
-    const selectedIndex = this.count > 1 ? Math.min(props.selectedIndex, this.count - 1) : 0;
+    const count = props.children ? props.children.length || 1 : 0;
+    const selectedIndex = count > 1 ? Math.min(props.selectedIndex, count - 1) : 0;
     const width = e.nativeEvent.layout.width;
     const offsetX = width * (selectedIndex + (props.infinite ? 1 : 0));
     this.setState({
@@ -274,12 +281,13 @@ const Carousel = React.createClass<CarouselProps, any>({
       );
     }
 
-    let pageStyle = [{ width: state.width }, styles.slide];
+    const pageStyle = [{ width: state.width }, styles.slide];
+    const count = props.children ? props.children.length || 1 : 0;
     // For make infinite at least count > 1
-    if (this.count > 1) {
+    if (count > 1) {
       pages = Object.keys(children);
       if (infinite) {
-        pages.unshift(this.count - 1 + '');
+        pages.unshift(count - 1 + '');
         pages.push('0');
       }
       pages = pages.map((page, i) => {
