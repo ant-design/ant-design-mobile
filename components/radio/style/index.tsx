@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   icon: {
-    width: variables.icon_size_sm,
-    height: variables.icon_size_sm,
+    width: variables.icon_size_xxs,
+    height: variables.icon_size_xxs * 0.8,
   },
   radioItem: {
     flexDirection: 'row',
