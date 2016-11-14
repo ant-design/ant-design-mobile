@@ -134,7 +134,7 @@ const Carousel = React.createClass<CarouselProps, any>({
   updateIndex(offset) {
     let state = this.state;
     let selectedIndex = state.selectedIndex;
-    let diff =  offset.x - state.offset.x;
+    let diff = offset.x - state.offset.x;
     let step = state.width;
     let loopJump = false;
     let count = this.props.children ? this.props.children.length || 1 : 0;
@@ -164,8 +164,9 @@ const Carousel = React.createClass<CarouselProps, any>({
       loopJump,
     });
 
-    if (this.props.afterChange) {
-      this.props.afterChange(selectedIndex);
+    const { afterChange } = this.props;
+    if (afterChange) {
+      afterChange(selectedIndex);
     }
   },
 
