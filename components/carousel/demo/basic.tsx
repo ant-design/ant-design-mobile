@@ -10,7 +10,7 @@ export default class BasicCarouselExample extends React.Component<any, any> {
   render() {
     return (
       <View>
-      <View style={{ paddingHorizontal: 15, marginTop: 80 }}>
+      <View style={{ paddingHorizontal: 15 }}>
         <Carousel
           style={styles.wrapper}
           autoplayTimeout={1}
