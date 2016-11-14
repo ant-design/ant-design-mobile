@@ -13,6 +13,7 @@ interface PaginationPropTypes {
   onPrev?: () => void;
   onNext?: () => void;
   onChange?: Function;
+  indicatorStyle?: any;
 }
 
 export default PaginationPropTypes;

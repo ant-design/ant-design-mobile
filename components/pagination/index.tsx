@@ -14,6 +14,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     prevText: 'Prev',
     nextText: 'Next',
     onChange: () => {},
+    indicatorStyle: null,
   };
 
   constructor(props) {
@@ -120,7 +121,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
           );
         });
         markup = (
-          <View style={[styles.indicatorStyle]}>
+          <View style={[styles.indicatorStyle, this.props.indicatorStyle]}>
             {pointer}
           </View>
         );

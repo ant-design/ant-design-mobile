@@ -32,5 +32,6 @@ export default StyleSheet.create({
   },
   spaceStyle: {
     marginHorizontal: variables.h_spacing_sm / 2,
+    marginVertical: variables.v_spacing_sm / 2,
   },
 });
