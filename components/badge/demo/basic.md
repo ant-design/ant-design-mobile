@@ -22,7 +22,10 @@ ReactDOM.render(
       extra={<Badge text={77} />}
       arrow="horizontal"
     >
-      右侧内容
+      文本内容
+    </List.Item>
+    <List.Item className="special-badge" extra={<Badge text={'促'} />}>
+      文本内容
     </List.Item>
     <List.Item extra="内容内容" arrow="horizontal">
       文本内容<Badge text={'new'} style={{ marginLeft: 12 }} />
@@ -55,4 +58,23 @@ ReactDOM.render(
     </List.Item>
   </List>
 , mountNode);
+````
+````css
+.special-badge .am-list-line {
+  padding-right: 0;
+}
+.special-badge .am-list-line .am-list-extra {
+  padding: 0;
+  height: 100%;
+}
+.special-badge .am-badge {
+  transform: rotate(45deg);
+  transform-origin: right bottom;
+  right: 0;
+  top: 26px;
+  width: 100px;
+}
+.special-badge .am-badge-text {
+  border-radius: 2px;
+}
 ````
