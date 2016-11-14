@@ -8,6 +8,7 @@ interface BadgeProps {
   /** web only */
   prefixCls?: string;
   className?: string;
+  hot?: boolean;
 }
 
 export default BadgeProps;
