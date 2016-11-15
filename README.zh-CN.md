@@ -37,6 +37,8 @@ $ npm install antd-mobile --save
 
 ### Web
 
+请参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56)。
+
 ```jsx
 import 'antd-mobile/lib/button/style';
 import Button from 'antd-mobile/lib/button';
