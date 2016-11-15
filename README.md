@@ -19,78 +19,17 @@ A configurable Mobile UI specification and React-based implementation.
 
 ### mobile web demo
 
-<img src="https://zos.alipayobjects.com/rmsportal/dLMGiKuyFLBfYfm.png" />
+<img width="250" src="https://zos.alipayobjects.com/rmsportal/dLMGiKuyFLBfYfm.png" />
 
 http://mobile.ant.design/kitchen-sink/
 
 ### react native demo
 
-<img src="https://cloud.githubusercontent.com/assets/1698185/18130654/6ba4ccea-6fc2-11e6-9aa1-0a53cd74d9e1.png" />
+<img width="250" src="https://cloud.githubusercontent.com/assets/1698185/18130654/6ba4ccea-6fc2-11e6-9aa1-0a53cd74d9e1.png" />
 
+## Install & Usage
 
-## Install
-
-```bash
-$ npm install antd-mobile --save
-```
-
-
-## Usage
-
-### Web
-
-[boilerplate](https://github.com/ant-design/ant-design-mobile/issues/56)
-
-```jsx
-import 'antd-mobile/lib/button/style';
-import Button from 'antd-mobile/lib/button';
-
-ReactDOM.render(<Button>Start</Button>, mountNode);
-```
-
-Set webpack to resolve .web.js suffix
-
-```
-resolve: {
-  modulesDirectories: ['node_modules', path.join(__dirname, '../node_modules')],
-  extensions: ['', '.web.js', '.js', '.json'],
-},
-```
-
-### React-Native
-
-```jsx
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import Button from 'antd-mobile/lib/button';
-
-class HelloWorldApp extends Component {
-  render() {
-    return <Button>Start</Button>;
-  }
-}
-
-AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
-```
-
-### Use babel-plugin-import
-
-Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended) to reduce bundle size.
-
-```js
-// .babelrc
-// no need to set style property in react-native
-{
- "plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]
-}
-```
-
-Then you can import components from antd-mobile directly.
-
-```jsx
-// import js and css modularly, parsed by babel-plugin-import
-import { Button } from 'antd-mobile';
-```
+[introduce ](docs/react/introduce.zh-CN.md#安装)
 
 ## Browser Support
 
