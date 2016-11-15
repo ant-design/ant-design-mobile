@@ -1,17 +1,16 @@
 // import React from 'react';
 
 export interface CheckboxProps {
-  /** web only */
-  prefixCls?: string;
-  /** web only */
-  className?: string;
-  /** web only */
-  name?: string;
   style?: {};
   defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
   onChange?: Function;
+  /** web only */
+  prefixCls?: string;
+  className?: string;
+  name?: string;
+  wrapLabel?: boolean;
 }
 
 export interface CheckboxItemProps extends CheckboxProps {
