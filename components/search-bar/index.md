@@ -31,3 +31,5 @@ english: SearchBar
 | showCancelButton    |    是否一直显示`取消`按钮     | bool |  `false`  |
 | cancelText    |   定制`取消`按钮的文字,     | String |  `取消`  |
 | disabled    |    禁用搜索栏,搜索栏只用于显示     | bool |  `false`  |
+
+注：RN 版本更多 API 请参考 [http://facebook.github.io/react-native/docs/textinput.html](http://facebook.github.io/react-native/docs/textinput.html)

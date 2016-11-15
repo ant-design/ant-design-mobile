@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './style/index';
 
 function noop() {}
 
@@ -12,6 +13,7 @@ export interface SearchBarProps {
   onCancel?: Function;
   showCancelButton?: boolean;
   cancelText?: string;
+  styles?: any;
   /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -36,4 +38,5 @@ export const defaultProps = {
   showCancelButton: false,
   cancelText: '取消',
   disabled: false,
+  styles,
 };
