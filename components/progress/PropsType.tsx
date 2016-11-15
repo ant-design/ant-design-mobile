@@ -7,6 +7,7 @@ interface ProgressProps {
   style?: React.CSSProperties;
   /** web only */
   prefixCls?: string;
+  appearTransition?: boolean;
 }
 
 export default ProgressProps;
