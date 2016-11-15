@@ -6,9 +6,7 @@
 
 # Ant Design Mobile [![](https://img.shields.io/travis/ant-design/ant-design-mobile.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design-mobile) [![npm package](https://img.shields.io/npm/v/antd-mobile.svg?style=flat-square)](https://www.npmjs.org/package/antd-mobile) [![NPM downloads](http://img.shields.io/npm/dm/antd-mobile.svg?style=flat-square)](https://npmjs.org/package/antd-mobile) [![Dependency Status](https://david-dm.org/ant-design/ant-design-mobile.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-mobile)
 
-Ant Design 移动端设计规范。
-
-`antd-mobile` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
+Ant Design 移动端设计规范。`antd-mobile` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
 
 ## 特性
 
@@ -19,76 +17,19 @@ Ant Design 移动端设计规范。
 
 ## 演示
 
-### 在线演示
+### mobile web demo
+
+<img width="250" src="https://zos.alipayobjects.com/rmsportal/dLMGiKuyFLBfYfm.png" />
 
 http://mobile.ant.design/kitchen-sink/
 
-### 客户端应用
+### react native demo
 
-<img src="https://cloud.githubusercontent.com/assets/1698185/18130654/6ba4ccea-6fc2-11e6-9aa1-0a53cd74d9e1.png" />
+<img width="250" src="https://cloud.githubusercontent.com/assets/1698185/18130654/6ba4ccea-6fc2-11e6-9aa1-0a53cd74d9e1.png" />
 
-## 安装
+## 安装 & 使用
 
-```bash
-$ npm install antd-mobile --save
-```
-
-## 使用
-
-### Web
-
-请参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56)。
-
-```jsx
-import 'antd-mobile/lib/button/style';
-import Button from 'antd-mobile/lib/button';
-
-ReactDOM.render(<Button>Start</Button>, mountNode);
-```
-
-需要在 webpack 中设置访问 `.web.js` 后缀的模块。
-
-```
-resolve: {
-  modulesDirectories: ['node_modules', path.join(__dirname, '../node_modules')],
-  extensions: ['', '.web.js', '.js', '.json'],
-},
-```
-
-### React-Native
-
-```jsx
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import Button from 'antd-mobile/lib/button';
-
-class HelloWorldApp extends Component {
-  render() {
-    return <Button>Start</Button>;
-  }
-}
-
-AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
-```
-
-### 按需加载
-
-推荐使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 来降低打包体积。
-
-```js
-// .babelrc
-// react-native 中无需设置 style 属性
-{
- "plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]
-}
-```
-
-并且可以直接用下面的语法加载模块。
-
-```jsx
-// import js and css modularly, parsed by babel-plugin-import
-import { Button } from 'antd-mobile';
-```
+[introduce](docs/react/introduce.zh-CN.md#安装)
 
 ## 浏览器支持
 

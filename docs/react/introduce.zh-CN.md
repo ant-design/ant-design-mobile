@@ -49,28 +49,54 @@ $ npm install antd-mobile --save
 
 ## 使用
 
-遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56)。
+> 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56)
 
-```jsx
-import { Button } from 'antd-mobile';
+Set webpack to resolve .web.js suffix
 
-ReactDOM.render(<Button>按钮</Button>, mountNode);
+```
+resolve: {
+  modulesDirectories: ['node_modules', path.join(__dirname, '../node_modules')],
+  extensions: ['', '.web.js', '.js', '.json'],
+},
 ```
 
-无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载。
+无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载
 
 ```js
+// .babelrc
+// no need to set style property in react-native
 {
-  "plugins": [
-    ["import", {
-      style: 'css',  // 'less',
-      libraryName: 'antd-mobile',
-    }]
-  ]
+ "plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]
 }
 ```
 
-更多常见问题（高清方案设置、环境配置等），请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
+> 更多常见问题，请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
+
+#### Web 示例
+
+```jsx
+// import js and css modularly, parsed by babel-plugin-import
+import { Button } from 'antd-mobile';
+ReactDOM.render(<Button>Start</Button>, mountNode);
+```
+
+web 版本高清方案设置：见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
+
+#### React-Native 示例
+
+```jsx
+import React, { Component } from 'react';
+import { AppRegistry } from 'react-native';
+import { Button } from 'antd-mobile';
+
+class HelloWorldApp extends Component {
+  render() {
+    return <Button>Start</Button>;
+  }
+}
+
+AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
+```
 
 ## 版本
 

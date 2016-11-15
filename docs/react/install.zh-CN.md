@@ -17,7 +17,7 @@ $ npm install antd-mobile --save
 
 我们在 npm 发布包内的 `antd-mobile/dist` 目录下提供了 `antd-mobile.js` `antd-mobile.css` 以及 `antd-mobile.min.js` `antd-mobile.min.css` 用于一次性引入所有的 antd-mobile 组件，也可以通过 [UNPKG](https://unpkg.com/) 进行下载。
 
-> 不推荐使用构建文件，因为难以获得底层依赖模块的 bug 快速修复支持。
+> 不推荐一次性引入全部代码，更好做法请查看 introduce - install & usage
 
 #### stable
 
@@ -25,17 +25,3 @@ $ npm install antd-mobile --save
 - https://unpkg.com/antd-mobile/dist/antd-mobile.css
 - https://unpkg.com/antd-mobile/dist/antd-mobile.min.js
 - https://unpkg.com/antd-mobile/dist/antd-mobile.min.css
-
-## 开发工具
-
-我们提供了 React 前端应用开发的 [脚手架工具](https://github.com/ant-design/antd-init)，可以安装到全局直接使用。
-
-```bash
-$ npm install antd-init -g
-```
-
-在空目录运行 `antd-init` 可以初始化一个 antd 的前端应用。
-
-最新的脚手架结构可以到这里 [查看](https://github.com/ant-design/antd-init/tree/master/boilerplates)，建议持续关注更新以便获得最新的开发工程特性。
-
-> 更多开发工具 [使用方式](http://ant-tool.github.io/)。
