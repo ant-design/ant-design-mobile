@@ -5,7 +5,7 @@ title: 示例
 
 
 ````jsx
-import { List, Checkbox } from 'antd-mobile';
+import { List, Checkbox, Flex } from 'antd-mobile';
 
 const CheckboxItem = Checkbox.CheckboxItem;
 const AgreeItem = Checkbox.AgreeItem;
@@ -31,17 +31,20 @@ const Test = React.createClass({
           初中<List.Item.Brief>辅助文字内容</List.Item.Brief>
         </CheckboxItem>
       </List>
-      <div style={{ padding: 30 }}>
-        <div style={{ padding: '30px 0', color: '#888' }}>Checkbox 演示</div>
-        <label htmlFor="n1"><Checkbox name="n1" />选项一</label>
-        <label htmlFor="n2"><Checkbox name="n2" style={{ marginLeft: 10 }} /> 选项二</label>
-      </div>
-      <div style={{ padding: 30 }}>
-        <div style={{ padding: '30px 0', color: '#888' }}>AgreeItem 演示</div>
-        <AgreeItem data-seed="logId">
-          已阅读协议<a onClick={(e) => { e.preventDefault(); alert('打开协议'); }}>《协议链接》</a>
-        </AgreeItem>
-      </div>
+      <Flex style={{ padding: 30 }}>
+        <Flex.Item style={{ padding: '30px 0', color: '#888', flex: 'none' }}>Checkbox 演示</Flex.Item>
+        <Flex.Item>
+          <Checkbox>选项一</Checkbox>
+          <Checkbox style={{ marginLeft: 10 }}>选项二</Checkbox>
+        </Flex.Item>
+      </Flex>
+      <Flex style={{ padding: 30 }}>
+        <Flex.Item>
+          <AgreeItem data-seed="logId">
+            已阅读协议<a onClick={(e) => { e.preventDefault(); alert('打开协议'); }}>《协议链接》</a>
+          </AgreeItem>
+        </Flex.Item>
+      </Flex>
     </div>);
   },
 });

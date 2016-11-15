@@ -5,7 +5,7 @@ title: 示例
 
 
 ````jsx
-import { List, Radio } from 'antd-mobile';
+import { List, Radio, Flex } from 'antd-mobile';
 
 const RadioItem = Radio.RadioItem;
 
@@ -38,14 +38,24 @@ const Test = React.createClass({
           初中<List.Item.Brief>辅助文字内容</List.Item.Brief>
         </RadioItem>
       </List>
-      <div style={{ padding: 30 }}>
-        <div style={{ padding: '30px 0', color: '#888' }}>Radio 演示</div>
-        <label htmlFor="n1"><Radio name="n1" style={{ padding: 5, border: '1px solid #ccc', borderRadius: 15 }} /> 选项一</label>
-        <label htmlFor="n2"><Radio name="n2" style={{ padding: 5, border: '1px solid #ccc', borderRadius: 15, marginLeft: 10 }} /> 选项二</label>
-      </div>
+      <Flex style={{ padding: 30 }}>
+        <Flex.Item style={{ padding: '30px 0', color: '#888', flex: 'none' }}>Radio 演示</Flex.Item>
+        <Flex.Item>
+          <Radio className="my-radio">选项一</Radio>
+          <Radio className="my-radio" style={{ marginLeft: 10 }}>选项二</Radio>
+        </Flex.Item>
+      </Flex>
     </div>);
   },
 });
 
 ReactDOM.render(<Test />, mountNode);
+````
+````css
+.my-radio .am-radio {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  margin-right: 10px;
+}
 ````
