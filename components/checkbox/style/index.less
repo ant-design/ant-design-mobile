@@ -57,6 +57,14 @@
   }
   &.@{checkboxWarpPrefixCls}-disabled {
     opacity: @opacity-disabled;
+    &.@{checkboxWarpPrefixCls}-checked {
+      .@{checkboxInnerPrefixCls} {
+        border-color: @color-text-caption;
+        &:after {
+          border-color: @color-text-caption;
+        }
+      }
+    }
   }
 }
 
