@@ -5,8 +5,8 @@ import touchableFeedback from '../_util/touchableFeedback';
 
 class ButtonListItem extends React.Component<any, any> {
   render() {
-    const [{ children, className, prefixCls, onClick, touchFeedback, activeStyle }, restProps] =
-      splitObject(this.props, ['children', 'className', 'prefixCls', 'onClick', 'touchFeedback', 'activeStyle']);
+    const [{ children, className, prefixCls, touchFeedback, activeStyle }, restProps] =
+      splitObject(this.props, ['children', 'className', 'prefixCls', 'touchFeedback', 'activeStyle']);
 
     let style = assign({}, this.props.style);
     if (touchFeedback) {
@@ -18,7 +18,6 @@ class ButtonListItem extends React.Component<any, any> {
         style={style}
         className={touchFeedback ?
           `${className} ${prefixCls}-active` : `${className}`}
-        onClick={onClick}
       >
         {children}
       </div>
