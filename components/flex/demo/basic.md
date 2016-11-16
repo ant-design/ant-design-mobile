@@ -1,81 +1,97 @@
 ---
 order: 0
-title: 基本
+title: 示例集合
 ---
 
-基本,子元素FLex.Item,设置flex=1
 
 ````jsx
-import { Flex, Button, WingBlank, WhiteSpace } from 'antd-mobile';
+import { Flex, WhiteSpace } from 'antd-mobile';
 
+const PlaceHolder = (props) => (
+  <div style={{
+    backgroundColor: '#ebebef',
+    color: '#bbb',
+    textAlign: 'center',
+    height: 60,
+    lineHeight: '60px',
+    width: '100%',
+  }} {...props}
+  >Item</div>
+);
 
 const FlexExample = React.createClass({
   render() {
     return (
       <div className="flex-container">
+        <div className="title">基本</div>
+        <Flex>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+        </Flex>
         <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <Flex>
-            <Flex.Item>
-              <Button type="primary">2列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button>2列</Button>
-            </Flex.Item>
-          </Flex>
-        </WingBlank>
+        <Flex>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+        </Flex>
         <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <Flex>
-            <Flex.Item>
-              <Button type="primary">3列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button>3列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button type="primary">3列</Button>
-            </Flex.Item>
-          </Flex>
-        </WingBlank>
+        <Flex>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+        </Flex>
         <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <Flex>
-            <Flex.Item>
-              <Button type="primary">4列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button>4列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button type="primary">4列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button>4列</Button>
-            </Flex.Item>
-          </Flex>
-        </WingBlank>
+
+        <div className="title">wrap 换行</div>
+        <Flex wrap="wrap">
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+          <Flex.Item><PlaceHolder /></Flex.Item>
+        </Flex>
         <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <Flex>
-            <Flex.Item>
-              <Button type="primary">5列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button>5列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button type="primary">5列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button>5列</Button>
-            </Flex.Item>
-            <Flex.Item>
-              <Button type="primary">5列</Button>
-            </Flex.Item>
-          </Flex>
-        </WingBlank>
+
+        <div className="title">轴对齐方式</div>
+        <Flex justify="center">
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+        </Flex>
         <WhiteSpace size="lg" />
+        <Flex justify="end">
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+        </Flex>
+        <WhiteSpace size="lg" />
+        <Flex justify="between">
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+        </Flex>
+
+        <WhiteSpace size="lg" />
+        <Flex align="start">
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline small" />
+          <PlaceHolder className="inline" />
+        </Flex>
+        <WhiteSpace size="lg" />
+        <Flex align="end">
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline small" />
+          <PlaceHolder className="inline" />
+        </Flex>
+        <WhiteSpace size="lg" />
+        <Flex align="baseline">
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline small" />
+          <PlaceHolder className="inline" />
+        </Flex>
       </div>
     );
   },
@@ -83,9 +99,20 @@ const FlexExample = React.createClass({
 
 ReactDOM.render(<FlexExample />, mountNode);
 ````
-
 ````css
 .flex-container {
-  background: #f5f5f9;
+  padding: 30px;
 }
-````
+.flex-container .title {
+  color: #888;
+  margin: 20px 0;
+}
+.flex-container .inline {
+  width: 80px!important;
+  margin: 0 18px;
+}
+.flex-container .small {
+  height: 40px!important;
+  line-height: 40px!important;
+}
+```
