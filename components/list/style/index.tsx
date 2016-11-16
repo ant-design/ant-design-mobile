@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 import variables from '../../style/themes/default';
 
 export default {
@@ -23,9 +24,9 @@ export default {
     },
     Body: {
       backgroundColor: variables.fill_base,
-      borderTopWidth: variables.border_width_sm,
+      borderTopWidth: StyleSheet.hairlineWidth,
       borderTopColor: variables.border_color_base,
-      borderBottomWidth: variables.border_width_sm,
+      borderBottomWidth: StyleSheet.hairlineWidth,
       borderBottomColor: variables.border_color_base,
     },
     Item: {
@@ -43,7 +44,7 @@ export default {
       paddingTop: 0,
       paddingBottom: 0,
       minHeight: variables.list_item_height,
-      borderBottomWidth: variables.border_width_sm,
+      borderBottomWidth: StyleSheet.hairlineWidth,
       borderBottomColor: variables.border_color_base,
     },
     Thumb: {
