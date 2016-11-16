@@ -52,6 +52,7 @@ const FlexExample = React.createClass({
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
         </Flex>
         <WhiteSpace size="lg" />
 
