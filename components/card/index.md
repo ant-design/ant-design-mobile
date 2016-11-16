@@ -14,27 +14,26 @@ english: Card
 
 ## API
 
-### Card
+### Card ( 适用平台：WEB、React-Native )
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
 |   full  |  是否通栏  | boolean | `false` |
 
-### Card.Header
+### Card.Header ( 适用平台：WEB、React-Native )
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|------------------|--------------|
-|prefixCls (web only)| 样式类名前缀 | String | `am-card` |
 |title| 卡片标题 | React.Element、String | |
 |thumb| 卡片标题图片 | String |  |
 |thumbStyle| 标题图片样式 | Object | {} |
 |extra| 卡片标题辅助内容 | React.Element、String |  |
 
-### Card.Body
+### Card.Body ( 适用平台：WEB、React-Native )
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
 |无| | | |
 
-### Card.Footer
+### Card.Footer ( 适用平台：WEB、React-Native )
 
 | 成员        | 说明           | 类型        |   默认值       |
 |-------------|----------------|--------------------|--------------|

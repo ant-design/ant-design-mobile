@@ -14,11 +14,13 @@ english: Badge
 - 当用户只需知道大致有内容更新时，应该使用红点型，eg：社交中的群消息通知。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 | 成员        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
-| text       | 展示的数字或文案，当为数字时候，大于 overflowCount 时显示为 ${overflowCount}+，为 0 时隐藏     |   String`|`Number   |   -  |
+| size       | 大小              |   'small' / 'large'    |   `small`       |
+| text       | 展示的数字或文案，当为数字时候，大于 overflowCount <br/> 时显示为 ${overflowCount}+，为 0 时隐藏     |   String`|`Number   |   -  |
+| corner   | 置于角落   |   Boolean    |  false  |
 | dot   | 不展示数字，只有一个小红点   |   Boolean    |  false  |
 | overflowCount       | 展示封顶的数字值  | Number | 99|
-| hot       | 营销样式  | Boolean | false |
+| hot ( `WEB only` )      | 营销样式  | Boolean | false |

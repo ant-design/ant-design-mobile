@@ -10,4 +10,4 @@ interface ActivityIndicatorPropTypes {
   className?: string;
 }
 
-export  default ActivityIndicatorPropTypes;
+export default ActivityIndicatorPropTypes;
