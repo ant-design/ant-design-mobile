@@ -45,13 +45,13 @@ const FlexExample = React.createClass({
 
         <div className="title">wrap 换行</div>
         <Flex wrap="wrap">
-          <Flex.Item><PlaceHolder /></Flex.Item>
-          <Flex.Item><PlaceHolder /></Flex.Item>
-          <Flex.Item><PlaceHolder /></Flex.Item>
-          <Flex.Item><PlaceHolder /></Flex.Item>
-          <Flex.Item><PlaceHolder /></Flex.Item>
-          <Flex.Item><PlaceHolder /></Flex.Item>
-          <Flex.Item><PlaceHolder /></Flex.Item>
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
+          <PlaceHolder className="inline" />
         </Flex>
         <WhiteSpace size="lg" />
 
@@ -61,32 +61,32 @@ const FlexExample = React.createClass({
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
         </Flex>
-        <WhiteSpace size="lg" />
+        <WhiteSpace />
         <Flex justify="end">
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
         </Flex>
-        <WhiteSpace size="lg" />
+        <WhiteSpace />
         <Flex justify="between">
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
         </Flex>
 
-        <WhiteSpace size="lg" />
+        <WhiteSpace />
         <Flex align="start">
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline small" />
           <PlaceHolder className="inline" />
         </Flex>
-        <WhiteSpace size="lg" />
+        <WhiteSpace />
         <Flex align="end">
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline small" />
           <PlaceHolder className="inline" />
         </Flex>
-        <WhiteSpace size="lg" />
+        <WhiteSpace />
         <Flex align="baseline">
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline small" />
@@ -101,7 +101,7 @@ ReactDOM.render(<FlexExample />, mountNode);
 ````
 ````css
 .flex-container {
-  padding: 30px;
+  padding: 18px;
 }
 .flex-container .title {
   color: #888;
@@ -109,7 +109,7 @@ ReactDOM.render(<FlexExample />, mountNode);
 }
 .flex-container .inline {
   width: 80px!important;
-  margin: 0 18px;
+  margin: 18px 18px 18px 0;
 }
 .flex-container .small {
   height: 40px!important;
