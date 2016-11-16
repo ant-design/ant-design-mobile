@@ -1,7 +1,7 @@
 import React from 'react';
+import assign from 'object-assign';
 import { View, TextInput, Text, Image } from 'react-native';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
-import styles from './style/index';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static defaultProps = defaultProps;
@@ -50,10 +50,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   render() {
-    const {
-      showCancelButton, placeholder, cancelText, onFocus, onBlur,
-    } = this.props;
-
+    const { showCancelButton, cancelText, styles } = this.props;
+    const restProps = assign({}, this.props);
+    ['showCancelButton', 'cancelText', 'styles'].forEach(prop => {
+      if (restProps.hasOwnProperty(prop)) {
+        delete restProps[prop];
+      }
+    });
     const { value } = this.state;
 
     return (
@@ -61,15 +64,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         <TextInput
           autoCorrect={false}
           value={value}
-          placeholder={placeholder}
           onChangeText={this.onChangeText}
-          onFocus={onFocus}
-          onBlur={onBlur}
           style={styles.input}
           ref="searchInput"
           onSubmitEditing={this.onSubmit}
           clearButtonMode="always"
           underlineColorAndroid="transparent"
+          {...restProps}
         />
         <Image
           source={require('../style/images/search.png')}
