@@ -71,6 +71,7 @@ export default class BasicModalExample extends React.Component<any, any> {
           transparent={false}
           visible={this.state.visible2}
           style={{flex: 1}}
+          animationType="slide-up"
         >
           <View style={{ paddingVertical: 220 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>

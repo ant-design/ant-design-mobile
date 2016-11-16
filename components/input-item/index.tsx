@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
+import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import variables from '../style/themes/default';
 import InputItemProps from './PropsType';
 import InputItemStyle from './style/index';
@@ -87,7 +87,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     } = this.props;
 
     const containerStyle = {
-      borderBottomWidth: last ? 0 : variables.border_width_sm,
+      borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth,
     };
 
     const textStyle = {
