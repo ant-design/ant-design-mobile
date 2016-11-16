@@ -17,6 +17,13 @@ function plainTextPrompt() {
   ]);
 }
 
+function defaultValuePrompt() {
+  prompt('默认值', '默认值 defaultValue 类型', [
+    { text: '取消' },
+    { text: '提交', onPress: value => console.log(`输入的内容:${value}`) },
+  ], 'plain-text', '100');
+}
+
 function passwordPrompt() {
   prompt(
     '输入密码',
@@ -54,6 +61,10 @@ const App = React.createClass({
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
           <Button type="ghost" onClick={plainTextPrompt}>输入框按钮按钮 </Button>
+        </WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
+          <Button type="ghost" onClick={defaultValuePrompt}>输入框默认值 </Button>
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">

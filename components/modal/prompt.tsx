@@ -13,9 +13,8 @@ export default function (...args) {
 
   const prefixCls = 'am-modal';
   const title = args[0];
-
-  let inputDom;
   const type = args[3] || 'default';
+  const defaultValue = args[4] || '';
 
   let data: any = {};
 
@@ -25,13 +24,15 @@ export default function (...args) {
     data[inputType] =  target.value;
   }
 
+  let inputDom;
+
   switch (type) {
     case 'login-password':
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" defaultValue="" ref={input => setTimeout(() => {
-              input.focus();
+            <input type="text" defaultValue={defaultValue} ref={input => setTimeout(() => {
+              if (input) { input.focus(); }
             }, 500)} onChange={onChange} />
           </div>
           <div className={`${prefixCls}-input`}>
@@ -45,7 +46,7 @@ export default function (...args) {
         <div>
           <div className={`${prefixCls}-input`}>
             <input type="password" defaultValue="" ref={input => setTimeout(() => {
-              input.focus();
+              if (input) { input.focus(); }
             }, 500)} onChange={onChange} />
           </div>
         </div>
@@ -57,8 +58,8 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" defaultValue="" ref={input => setTimeout(() => {
-              input.focus();
+            <input type="text" defaultValue={defaultValue} ref={input => setTimeout(() => {
+              if (input) { input.focus(); }
             }, 500)} onChange={onChange} />
           </div>
         </div>

@@ -31,7 +31,7 @@ english: Modal
 | animationType | modal 动画样式       | 'none' | 'slide-down/up' (transparent 模式下) | 'fade' | 'slide' (仅非 tranparent)   |   fade |
 | style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
 
-### Modal.alert(title, message, actions?) `web only`
+### Modal.alert(title, message, actions?)
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
@@ -39,7 +39,7 @@ english: Modal
 | message      | 提示信息                  | String 或 React.Element    | 无    |
 | actions         | 按钮组, [{text, onPress}]       | Array | 无            |
 
-### Modal.prompt(title?, message?, callbackOrActions, type?) `web only`
+### Modal.prompt(title?, message?, callbackOrActions, type?, defaultValue?) `web only`
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
@@ -47,3 +47,4 @@ english: Modal
 | message      | 提示信息                  | String 或 React.Element                    | 无    |
 | callbackOrActions  | 按钮组 [{text, onPress}] 或回调函数      | Array or Function | 无            |
 | type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|   `default`          |
+| defaultValue       | 默认值(input 为 password 类型不支持)   | String |   ``          |
