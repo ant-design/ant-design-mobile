@@ -5,6 +5,7 @@ import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
 import { ImagePickerPropTypes } from './PropsType';
+import TouchableButton from './touchableButton.web';
 
 function noop() { }
 
@@ -155,7 +156,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           <WingBlank size="md">
             <Flex wrap="wrap">
               {imgItemList}
-              {selectable && <div
+              {selectable && <TouchableButton
+                prefixCls={`${prefixCls}-upload-btn`}
                 className={`${prefixCls}-item ${prefixCls}-upload-btn`}
                 style={itemStyle}
                 onClick={() => {
@@ -171,7 +173,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
                   accept="image/jpg,image/jpeg,image/png,image/gif"
                   onChange={() => { this.onFileChange(); }}
                 /> : null}
-              </div>}
+              </TouchableButton>}
             </Flex>
           </WingBlank>
         </div>

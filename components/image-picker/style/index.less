@@ -35,44 +35,38 @@
       img {
         width: 100%;
       }
-      &.@{imagePickerPrefixCls}-upload-btn {
-        box-sizing: border-box;
-        border-radius: @radius-sm;
-        border: @border-width-md solid @border-color-base;
-        background-color: @fill-base;
-        &:before,
-        &:after {
-          width: @border-width-md;
-          height: 50px;
-          content: " ";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-          background-color: @border-color-base;
-        }
-        &:after {
-          width: 50px;
-          height: @border-width-md;
-        }
-        &:active {
-          //background-color: @fill-tap;
-          &:before {
-            background-color: @border-color-base;
-          }
-          &:after {
-            background-color: @border-color-base;
-          }
-        }
+    }
+    .@{imagePickerPrefixCls}-upload-btn {
+      box-sizing: border-box;
+      border-radius: @radius-sm;
+      border: @border-width-md solid @border-color-base;
+      background-color: @fill-base;
+      &:before,
+      &:after {
+        width: @border-width-md;
+        height: 50px;
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: @color-text-base;
+      }
+      &:after {
+        width: 50px;
+        height: @border-width-md;
+      }
+      &-active {
+        background-color: @fill-tap;
+      }
 
-        input {
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          opacity: 0;
-        }
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
       }
     }
   }
