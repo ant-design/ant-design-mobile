@@ -13,8 +13,8 @@
   height: @tag-height;
   line-height: @tag-height;
   &&-small {
-    height: @tag-small-height;
-    line-height: @tag-small-height;
+    height: @tag-height-sm;
+    line-height: @tag-height-sm;
     padding: 0 @h-spacing-sm;
     font-size: @font-size-icontext;
   }
@@ -27,8 +27,8 @@
 
   &-active {
     background-color: @fill-base;
-    color: @color-link;
-    border: @border-width-sm solid @tabs-color;
+    color: @tag-color;
+    border: @border-width-sm solid @tag-color;
   }
 
   &-disabled {
