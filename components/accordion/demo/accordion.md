@@ -15,14 +15,18 @@ const AccordionExmple = React.createClass({
   render() {
     return (
       <div style={{ marginTop: 10, marginBottom: 10 }}>
-        <Accordion accordion openAnimation={{}}>
+        <Accordion accordion openAnimation={{}} className="my-accordion">
           <Accordion.Panel header="标题一">
-            <List.Item>子内容一</List.Item>
-            <List.Item>子内容二</List.Item>
-            <List.Item>子内容三</List.Item>
+            <List>
+              <List.Item>子内容一</List.Item>
+              <List.Item>子内容二</List.Item>
+              <List.Item>子内容三</List.Item>
+            </List>
           </Accordion.Panel>
-          <Accordion.Panel header="标题二"><List.Item>this is panel content2 or other</List.Item></Accordion.Panel>
-          <Accordion.Panel header="标题三"><List.Item>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</List.Item></Accordion.Panel>
+          <Accordion.Panel header="标题二" className="pad">this is panel content2 or other</Accordion.Panel>
+          <Accordion.Panel header="标题三" className="pad">
+            文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本
+          </Accordion.Panel>
         </Accordion>
       </div>
     );
@@ -30,4 +34,9 @@ const AccordionExmple = React.createClass({
 });
 
 ReactDOM.render(<AccordionExmple />, mountNode);
+````
+````css
+.my-accordion .pad .am-accordion-content-box {
+  padding: 20px;
+}
 ````

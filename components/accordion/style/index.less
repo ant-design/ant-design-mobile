@@ -2,7 +2,6 @@
 @import '../../style/themes/default';
 
 @accordionPrefixCls: am-accordion;
-@listPrefixCls: am-list;
 
 .@{accordionPrefixCls} {
   position: relative;
@@ -50,19 +49,6 @@
         font-size: @font-size-subhead;
         color: @color-text-paragraph;
         .hairline-bottom(@border-color-base);
-        .@{listPrefixCls}-item {
-          .am-list-line {
-            .am-list-content,
-            .am-list-extra {
-              font-size: @font-size-subhead;
-              color: @color-text-paragraph;
-              line-height: 50px;
-              overflow: auto;
-              text-overflow: clip;
-              white-space: normal;
-            }
-          }
-        }
       }
       &.@{accordionPrefixCls}-content-inactive {
         display: none;
