@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Animated, Dimensions } from 'react-native';
 import ProgressStyle from './style/index';
 import ProgressProps from './PropsType';
 
@@ -8,13 +8,34 @@ export default class Progress extends React.Component<ProgressProps, any> {
     percent: 0,
     position: 'normal',
     unfilled: 'show',
+    appearTransition: false,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      wrapWidth: 0,
+      wrapWidth: props.wrapWidth || Dimensions.get('window').width,
+      percentage: new Animated.Value(0),
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.wrapWidth !== this.props.wrapWidth) {
+      this.setState({ wrapWidth: nextProps.wrapWidth });
+    }
+    if (this.props.appearTransition && nextProps.percent !== this.props.percent) {
+      this.setState({ percentage: new Animated.Value(this.getWidth(nextProps.percent)) });
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.appearTransition) {
+      this.state.percentage.setValue(0);
+      Animated.timing(this.state.percentage, {
+        toValue: this.getWidth(),
+        duration: 1000,
+      }).start();
+    }
   }
 
   onLayout = (e) => {
@@ -23,38 +44,39 @@ export default class Progress extends React.Component<ProgressProps, any> {
     });
   }
 
-  render() {
-    const { wrapWidth } = this.state;
-    const { percent, position, unfilled, style } = this.props;
-
-    let widthPercent;
+  normalPercent = (percent) => {
+    let widthPercent: any = 0;
     if (percent > 0) {
       widthPercent = percent > 100 ? 100 : percent;
-    } else {
-      widthPercent = 0;
     }
+    return widthPercent;
+  }
 
-    const positionStyle =
-    position === 'fixed' ?
-    {
-      position: 'absolute',
-      top: 0,
-    } : null;
+  getWidth = (percent = this.props.percent) => {
+    return this.state.wrapWidth * (this.normalPercent(percent) / 100);
+  }
+
+  render() {
+    const { position, unfilled, style } = this.props;
 
     const percentStyle = {
-      width: wrapWidth * (widthPercent / 100),
+      width: this.getWidth(),
       height: 0,
     };
 
-    const unfilledHideStyle =
-    unfilled === 'hide' ?
-    {
-      backgroundColor: 'transparent',
-    } : null;
+    let child = <View style={[ProgressStyle.progressBar, style, percentStyle]} />;
+    if (this.props.appearTransition) {
+      percentStyle.width = this.state.percentage;
+      child = <Animated.View style={[ProgressStyle.progressBar, style, percentStyle]} />;
+    }
 
-    return (<View onLayout={(e) => {this.onLayout(e);}}
-      style={[ProgressStyle.progressOuter, positionStyle, unfilledHideStyle]}>
-      <View style={[ProgressStyle.progressBar, style, percentStyle]}></View>
+    return (<View onLayout={this.onLayout}
+      style={[
+        ProgressStyle.progressOuter,
+        position === 'fixed' ? { position: 'absolute', top: 0 } : null,
+        unfilled === 'hide' ? { backgroundColor: 'transparent' } : null,
+      ]}>
+      {child}
     </View>);
   }
 }
