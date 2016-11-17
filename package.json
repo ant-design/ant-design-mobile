@@ -81,7 +81,7 @@
     "dora-plugin-upload": "^0.3.1",
     "enquire.js": "^2.1.1",
     "eslint": "^3.3.1",
-    "eslint-config-airbnb": "^10.0.1",
+    "eslint-config-airbnb": "latest",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-import": "^1.11.1",
     "eslint-plugin-jsx-a11y": "^2.0.1",
