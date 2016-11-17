@@ -1,25 +1,21 @@
 import React from 'react';
-import { View } from 'react-native';
-import { WingBlank, WhiteSpace, Button, Progress } from 'antd-mobile';
+import { View, Text } from 'react-native';
+import { WhiteSpace, Button, Progress } from 'antd-mobile';
 
 export default class BasicProgressExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      percent: 10,
+      percent: 40,
     };
   }
 
   onAdd = () => {
-    this.setState({
-      percent: this.state.percent + 10,
-    });
-  }
-
-  onMius = () => {
-    this.setState({
-      percent: this.state.percent - 10,
-    });
+    let p = this.state.percent + 10;
+    if (this.state.percent >= 100) {
+      p = 0;
+    }
+    this.setState({ percent: p });
   }
 
   render() {
@@ -27,25 +23,17 @@ export default class BasicProgressExample extends React.Component<any, any> {
       <View>
         <Progress percent={90} position="fixed" />
 
-        <View style={{ marginTop: 80 }}>
-          <Progress percent={this.state.percent} />
+        <View style={{
+          marginTop: 80,
+          flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+        }}>
+          <View style={{ marginRight: 10, height: 4, flex: 1 }}><Progress percent={this.state.percent} /></View>
+          <Text>{this.state.percent}%</Text>
         </View>
+        <Button style={{ width: 50, marginLeft: 10 }} type="ghost" size="small" onClick={this.onAdd}>(+-)10</Button>
+
         <WhiteSpace/>
-        <WhiteSpace/>
-        <WingBlank style={{ marginTop: 120, flexDirection: 'row' }}>
-            <Button type="ghost" onClick={this.onAdd}>
-              +
-            </Button>
-            <Button style={{ marginLeft: 10 }} type="ghost" onClick={this.onMius}>
-              -
-            </Button>
-            <View style={{ flex: 1 }} />
-        </WingBlank>
-        <WhiteSpace/>
-        <WhiteSpace/>
-        <View style={{ marginTop: 80 }}>
-          <Progress percent={5} />
-        </View>
+        <Progress percent={5} />
 
       </View>
     );
