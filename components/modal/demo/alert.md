@@ -20,7 +20,7 @@ function showAlert() {
 function showConfirm() {
   alert('删除', '确定删除么???', [
     { text: '取消', onPress: () => console.log('cancel') },
-    { text: '确定', onPress: () => console.log('ok') },
+    { text: '确定', onPress: () => console.log('ok'), style: { fontWeight: 'bold' } },
   ]);
 }
 

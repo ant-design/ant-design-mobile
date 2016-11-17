@@ -22,7 +22,7 @@ export default StyleSheet.create({
     width: 89,
     height: 89,
     borderRadius: 6,
-    backgroundColor: 'rgba(34,34,34,0.6)',
+    backgroundColor: 'rgba(58, 58, 58, 0.9)',
   },
   tip: {
     color: '#999',

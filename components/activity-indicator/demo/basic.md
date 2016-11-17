@@ -43,9 +43,10 @@ const App = React.createClass({
             <WhiteSpace size="xl" />
             <div className="loading-example">
               <p className="title">大号icon</p>
-              <ActivityIndicator
-                size="large"
-              />
+              <div className="align">
+                <ActivityIndicator size="large" />
+                <span style={{ marginTop: 8 }}>加载中</span>
+              </div>
             </div>
             <WhiteSpace size="xl" />
             <Button type="ghost" onClick={this.showToast}>点击显示 Toast</Button>
@@ -78,13 +79,10 @@ ReactDOM.render(<App />, mountNode);
   margin-left: 0.2rem;
   margin-right: 0.2rem;
 }
-.darkBg {
+.align {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 0.89rem;
-  height: 0.89rem;
-  background-color: #2B2F42;
 }
 .loading-example .title {
   margin-right: 0.2rem;
