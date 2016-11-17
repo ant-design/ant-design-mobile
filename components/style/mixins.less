@@ -11,6 +11,7 @@
   border-top: @width solid @color;
 }
 .hairline-bottom(@color:@border-color-base, @left:0, @width: @border-width-sm) {
+  // 注意：如果元素的 overflow 有 scroll 出现，其伪元素 绝对定位 显示将出错，例如 bottom: 0
   &:after {
     display: block;
     position: absolute;
