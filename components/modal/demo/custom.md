@@ -39,7 +39,11 @@ const App = React.createClass({
             <div className="modal-demo-content">
               <div className="demo-image">图片</div>
               <div className="demo-title">标题文字标题文字</div>
-              <div className="demo-content">辅助说明文字辅助说明文字辅助说明文字辅助说明文字辅助说明文字辅助说明文字</div>
+              <div className="demo-content">
+                辅助说明文字辅助说明文字辅助说明文字辅助说明文字辅助说明文字辅助说明文字<br />
+                辅助说明文字辅助说明文字辅助说明文字辅助说明文字辅助说明文字辅助说明文字<br />
+                辅助说明文字辅助说明文字辅助说明文字辅助说明文字辅助说明文字辅助说明文字<br />
+              </div>
             </div>
           </Modal>
         </WingBlank>
@@ -75,5 +79,9 @@ ReactDOM.render(
 .demo-content {
   font-size: 0.26rem;
   color: #333;
+}
+.modal-demo-content {
+  height: 350px;
+  overflow: auto;
 }
 ````

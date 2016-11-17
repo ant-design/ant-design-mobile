@@ -16,7 +16,7 @@ let wrapProps;
 if (isIPhone) {
   // Note: the popup content will not scroll.
   wrapProps = {
-    onTouchStart: e => e.preventDefault(),
+    // onTouchStart: e => e.preventDefault(),
   };
 }
 
@@ -39,13 +39,12 @@ const Test = React.createClass({
           >
             <Icon type="cross" />
           </span>
-        </div>)
-      }
+        </div>)}
+        className="popup-list"
       >
-        <List.Item>股票名称</List.Item>
-        <List.Item>股票代码</List.Item>
-        <List.Item>买入价格</List.Item>
-        <List.Item>买入数量</List.Item>
+        {['股票名称', '股票代码', '买入价格', '买入数量', '更多', '更多'].map((i, index) => (
+          <List.Item key={index}>{i}</List.Item>
+        ))}
       </List>
       <ul style={{ padding: '0.18rem 0.3rem' }}>
         <li>投资说明投资说明...</li>
@@ -67,4 +66,10 @@ const Test = React.createClass({
 });
 
 ReactDOM.render(<Test />, mountNode);
+````
+````css
+.popup-list .am-list-body {
+  height: 420px;
+  overflow: auto;
+}
 ````
