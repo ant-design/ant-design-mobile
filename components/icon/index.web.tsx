@@ -24,14 +24,16 @@ export default class Icon extends React.Component<IconPropType, any> {
   render() {
     const { type, className, style, size = 'md' } = this.props;
     let xlinkHref = this.renderSvg();
+    let outerIcon;
     if (!xlinkHref) {
+      outerIcon = true;
       xlinkHref = type;
     } else {
       xlinkHref = `#${type}`;
     }
     const iconClassName = classNames({
       'am-icon': true,
-      [`am-icon-${type}`]: true,
+      [`am-icon-${outerIcon ? type.substr(1) : type}`]: true,
       [`am-icon-${size}`]: true,
       [className as string]: !!className,
     });
