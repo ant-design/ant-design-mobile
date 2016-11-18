@@ -52,7 +52,9 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   render() {
     const { showCancelButton, cancelText, styles } = this.props;
     const restProps = assign({}, this.props);
-    ['showCancelButton', 'cancelText', 'styles'].forEach(prop => {
+    [
+      'showCancelButton', 'cancelText', 'styles', 'value', 'onChangeText', 'onSubmitEditing',
+    ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
@@ -62,7 +64,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     return (
       <View style={styles.wrapper}>
         <TextInput
-          autoCorrect={false}
           value={value}
           onChangeText={this.onChangeText}
           style={styles.input}
