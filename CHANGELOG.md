@@ -3,6 +3,15 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.9
+
+`2016-11-18`
+
+- 改进 Popup 样式 #525 , 默认禁止掉 popup 遮罩层的 onTouchStart 事件、优化在拖动时的体验
+- 修复 Radio 同 Accordion 一起使用样式冲突问题 #542 ；优化 List.Body 样式； ImagePicker 添加按钮支持点击反馈
+- 修复 Checkbox、Radio、Tag、InputItem 等组件样式细节问题；优化 Flex 组件 demo
+- 增加 React基础、相关工具、应用架构文档指南；并优化“安装&使用”文档、使之更紧凑清晰
+
 ### 0.9.7
 
 `2016-11-11`
