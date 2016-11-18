@@ -1,4 +1,5 @@
 import React from 'react';
+import assign from 'object-assign';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/themes/default';
 import TextAreaItemProps from './PropsType';
@@ -59,27 +60,9 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     }
   }
 
-  onFocus = () => {
-    if (this.props.onFocus) {
-      this.props.onFocus();
-    }
-  }
-
-  onBlur = () => {
-    if (this.props.onBlur) {
-      this.props.onBlur();
-    }
-  }
-
-  onErrorClick = () => {
-    if (this.props.onErrorClick) {
-      this.props.onErrorClick();
-    }
-  }
-
   render() {
     const { inputCount } = this.state;
-    const { rows, error, clear, count, placeholder, autoHeight, editable, last } = this.props;
+    const { rows, error, clear, count, autoHeight, last, onErrorClick } = this.props;
 
     const containerStyle = {
       borderBottomWidth: last ? 0 : variables.border_width_sm,
@@ -91,24 +74,30 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     };
 
     const maxLength = count > 0 ? count : undefined;
+    const restProps = assign({}, this.props);
+    [
+      'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'onChange', 'value',
+      'multiline', 'numberOfLines', 'maxLength',
+    ].forEach(prop => {
+      if (restProps.hasOwnProperty(prop)) {
+        delete restProps[prop];
+      }
+    });
 
     return (
       <View style={[TextAreaItemStyle.container, containerStyle, { position: 'relative' }]}>
         <TextInput
           style={[TextAreaItemStyle.input, textareaStyle, {height: Math.max(45, this.state.height)}]}
           onChange={(event) => this.onChange(event)}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
           value={this.state.value}
-          placeholder={placeholder}
           multiline={rows > 1 || autoHeight}
           numberOfLines={rows}
           maxLength={maxLength}
           clearButtonMode={clear ? 'while-editing' : 'never'}
-          editable={editable}
           underlineColorAndroid="transparent"
+          {...restProps}
         />
-        {error ? <TouchableWithoutFeedback onPress={this.onErrorClick}>
+        {error ? <TouchableWithoutFeedback onPress={onErrorClick}>
           <View style={[TextAreaItemStyle.errorIcon]}>
             <Image
               source={require('../style/images/error.png')}

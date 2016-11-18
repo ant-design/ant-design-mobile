@@ -1,4 +1,5 @@
 import React from 'react';
+import assign from 'object-assign';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import variables from '../style/themes/default';
 import InputItemProps from './PropsType';
@@ -80,10 +81,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   render() {
     const {
-      type, editable, value, placeholder, style,
-      clear, children, error, extra, labelNumber, last,
-      onFocus = noop, onBlur = noop, onExtraPress = noop,
-      onErrorPress = noop,
+      type, style, clear, children, error, extra, labelNumber, last, onExtraPress = noop, onErrorPress = noop,
     } = this.props;
 
     const containerStyle = {
@@ -103,22 +101,27 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       (extra as string).length * variables.font_size_heading : 0,
     };
 
+    const restProps = assign({}, this.props);
+    [
+      'type', 'style', 'clear', 'children', 'error', 'extra', 'labelNumber', 'last', 'onExtraPress', 'onErrorPress',
+      'keyboardType', 'onChange', 'secureTextEntry',
+    ].forEach(prop => {
+      if (restProps.hasOwnProperty(prop)) {
+        delete restProps[prop];
+      }
+    });
+
     return (
       <View style={[InputItemStyle.container, containerStyle, style]}>
         {children ? <Text style={[InputItemStyle.text, textStyle]}>{children}</Text> : null}
         <TextInput
           style={[InputItemStyle.input, inputStyle]}
-          value={value}
           keyboardType={type === 'number' || type === 'bankCard' ? 'numeric' : 'default'}
           onChange={(event) => this.onChange(event.nativeEvent.text)}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          placeholder={placeholder}
-          autoCorrect={false}
           secureTextEntry={type === 'password'}
           clearButtonMode={clear ? 'while-editing' : 'never'}
-          editable={editable}
           underlineColorAndroid="transparent"
+          {...restProps}
         />
         {extra ? <TouchableWithoutFeedback
           onPress={onExtraPress}
