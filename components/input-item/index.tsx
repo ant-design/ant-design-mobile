@@ -1,10 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
-import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
-=======
 import assign from 'object-assign';
-import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native';
->>>>>>> 4111bdf... support rn TextInput props for InputItem, TextareaItem
+import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/themes/default';
 import InputItemProps from './PropsType';
 import InputItemStyle from './style/index';
