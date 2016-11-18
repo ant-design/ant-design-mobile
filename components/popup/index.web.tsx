@@ -41,6 +41,7 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     onClose={close}
     maskClosable={maskClosable}
     wrapProps={props.wrapProps || {}}
+    maskProps={props.maskProps || { onTouchStart: e => e.preventDefault() }}
   >{content}</Dialog>, div);
 
   return {
