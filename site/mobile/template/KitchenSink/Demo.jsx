@@ -135,15 +135,13 @@ export default class Home extends React.Component {
                 return (<List.Item key={ii}>
                   {
                     whiteList.indexOf(fileName) > -1 ?
-                      (<List
-                        renderHeader={() =>
-                          (<div style={{ padding: '5px 0' }}>
-                            <span className={name === fileName ? 'demo-current' : ''}>
-                              {item.english}
-                              <span className="demo-chinese">{item.chinese}</span>
-                            </span>
-                          </div>)
-                        }
+                      (<List className="mobile-site-sublist"
+                        renderHeader={() => (
+                          <span className={name === fileName ? 'demo-current' : ''}>
+                            {item.english}
+                            <span className="demo-chinese">{item.chinese}</span>
+                          </span>
+                        )}
                       >
                         {
                           subDemos.map((item1, index1) => (

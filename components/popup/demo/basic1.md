@@ -3,7 +3,7 @@ order: 1
 title: 向上弹出效果
 ---
 
-Popup 向上弹出效果
+Popup 向上弹出效果 (pc 上展示可能有偏差，请在手机上查看实际效果)
 
 ````jsx
 import { Popup, List, Button, Icon } from 'antd-mobile';

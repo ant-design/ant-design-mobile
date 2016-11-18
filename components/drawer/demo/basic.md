@@ -41,18 +41,16 @@ const App1 = React.createClass({
       onOpenChange: this.onOpenChange,
     };
     return (<div style={{ height: '100%' }}>
-      <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>
-        基本
-      </NavBar>
-      <div className="drawer-container">
-        <Drawer sidebar={sidebar}
-          dragHandleStyle={{ display: 'none' }}
-          contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
-          {...drawerProps}
-        >
-          请点击左上角图标
-        </Drawer>
-      </div>
+      <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>基本</NavBar>
+      <Drawer
+        className="my-drawer"
+        sidebar={sidebar}
+        dragHandleStyle={{ display: 'none' }}
+        contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
+        {...drawerProps}
+      >
+        请点击左上角图标
+      </Drawer>
     </div>);
   },
 });
@@ -61,19 +59,17 @@ ReactDOM.render(<App1 />, mountNode);
 ````
 
 <style>
-.drawer-container {
+.my-drawer {
   position: relative;
   height: 100%;
-}
-.am-drawer {
   overflow: auto;
 }
-.am-drawer-sidebar {
+.my-drawer .am-drawer-sidebar {
   max-width: 260px;
   background-color: #fff;
   overflow: auto;
 }
-.am-drawer-sidebar .am-list {
+.my-drawer .am-drawer-sidebar .am-list {
   padding: 0;
 }
 </style>
