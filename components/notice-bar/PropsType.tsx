@@ -1,7 +1,9 @@
+import React from 'react';
+
 interface NoticeBarPropsType {
   mode?: 'closable' | 'link';
   onClick?: () => void;
-  type?: 'success' | 'error' | 'warn' | 'question' | 'info';
+  icon?: React.Element;
   style?: {};
   /* web only */
   className?: string;

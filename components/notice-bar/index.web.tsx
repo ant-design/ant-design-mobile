@@ -10,6 +10,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {
     prefixCls: 'am-notice-bar',
     mode: '',
+    icon: <Icon type={require('./style/assets/trips.svg')} size="xxs" />,
     onClick() {},
   };
 
@@ -33,8 +34,8 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   }
 
   render() {
-    const [{ mode, onClick, children, className, prefixCls }, restProps] = splitObject(this.props,
-      ['mode', 'onClick', 'children', 'className', 'prefixCls']);
+    const [{ mode, icon, onClick, children, className, prefixCls }, restProps] = splitObject(this.props,
+      ['mode', 'icon', 'onClick', 'children', 'className', 'prefixCls']);
 
     const extraProps: any = {};
     let operationDom: any = null;
@@ -62,9 +63,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
 
     return this.state.show ? (
       <div {...getDataAttr(this.props) } className={wrapCls} {...restProps} {...extraProps}>
-        <div className={`${prefixCls}-icon`}>
-          <Icon type={require('./style/assets/trips.svg')} size="sm" />
-        </div>
+        { icon ? <div className={`${prefixCls}-icon`}> {icon} </div> : null }
         <div className={`${prefixCls}-content`}>{children}</div>
         {operationDom}
       </div>
