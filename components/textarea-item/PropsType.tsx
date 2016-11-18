@@ -21,7 +21,7 @@ interface TextAreaItemProps {
   onBlur?: Function;
   onFocus?: Function;
   error?: boolean;
-  onErrorClick?: Function;
+  onErrorClick?: () => void;
   autoHeight?: boolean;
   editable?: boolean;
   disabled?: boolean;

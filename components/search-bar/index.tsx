@@ -2,7 +2,6 @@ import React from 'react';
 import assign from 'object-assign';
 import { View, TextInput, Text, Image } from 'react-native';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
-import styles from './style/index';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static defaultProps = defaultProps;
@@ -53,18 +52,16 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   render() {
     const { showCancelButton, cancelText, styles } = this.props;
     const restProps = assign({}, this.props);
-    ['showCancelButton', 'cancelText', 'styles'].forEach(prop => {
+    ['showCancelButton', 'cancelText', 'styles', 'value', 'onChangeText', 'onSubmitEditing'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
     });
-
     const { value } = this.state;
 
     return (
       <View style={styles.wrapper}>
         <TextInput
-          autoCorrect={false}
           value={value}
           onChangeText={this.onChangeText}
           style={styles.input}
