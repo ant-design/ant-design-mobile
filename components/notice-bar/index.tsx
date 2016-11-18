@@ -49,7 +49,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
       );
     }
 
-    const iconDom = React.isValidElement(icon) ? <View style={[NoticeStyle.left15]}>{icon}</View> : null;
+    const iconDom = icon && React.isValidElement(icon) ? <View style={[NoticeStyle.left15]}>{icon}</View> : null;
     const main = (
       <View style={[NoticeStyle.notice, style]}>
         {iconDom}
