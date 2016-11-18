@@ -10,6 +10,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {
     prefixCls: 'am-notice-bar',
     mode: '',
+    icon: <Icon type={require('./style/assets/trips.svg')} size="xxs" />,
     onClick() {},
   };
 
@@ -33,8 +34,8 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   }
 
   render() {
-    const [{ mode, type, onClick, children, className, prefixCls }, restProps] = splitObject(this.props,
-      ['mode', 'type', 'onClick', 'children', 'className', 'prefixCls']);
+    const [{ mode, icon, onClick, children, className, prefixCls }, restProps] = splitObject(this.props,
+      ['mode', 'icon', 'onClick', 'children', 'className', 'prefixCls']);
 
     const extraProps: any = {};
     let operationDom: any = null;
@@ -55,17 +56,6 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
       extraProps.onClick = onClick;
     }
 
-    const iconEnum = {
-      success: 'check-circle',
-      error: 'cross-circle',
-      warn: 'exclamation-circle',
-      question: 'question-circle',
-    };
-
-    const iconDom = type ? <div className={`${prefixCls}-icon`}>
-      <Icon type={iconEnum[type] || 'info-circle'}  size="xxs" />
-    </div> : null;
-
     const wrapCls = classNames({
       [prefixCls as string]: true,
       [className as string]: !!className,
@@ -73,7 +63,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
 
     return this.state.show ? (
       <div {...getDataAttr(this.props) } className={wrapCls} {...restProps} {...extraProps}>
-        {iconDom}
+        { icon ? <div className={`${prefixCls}-icon`}> {icon} </div> : null }
         <div className={`${prefixCls}-content`}>{children}</div>
         {operationDom}
       </div>

@@ -21,7 +21,7 @@ function notice(content, type, duration = 3, onClose) {
     info: '',
     success: 'check-circle-o',
     fail: 'cross-circle-o',
-    offline: 'frown',
+    offline: require('./style/assets/dislike.svg'),
     loading: 'loading',
   })[type];
 

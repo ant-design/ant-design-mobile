@@ -12,7 +12,6 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
     animating: true,
     color: 'gray',
     size: 'small',
-    panelColor: 'rgba(34,34,34,0.6)',
     toast: false,
   };
 

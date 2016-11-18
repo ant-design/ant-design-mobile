@@ -8,6 +8,10 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {
     mode: '',
     onClick() {},
+    icon: <Image
+        source={{ uri: 'https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png' }}
+        style={{ width: 14, height:12 }}
+      />,
   };
 
   constructor(props) {
@@ -30,7 +34,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   }
 
   render() {
-    const { children, mode, type, style } = this.props;
+    const { children, mode, icon, style } = this.props;
 
     let operationDom: any = null;
     if (mode === 'closable') {
@@ -45,23 +49,11 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
       );
     }
 
-    const iconEnum = {
-      success: 'dHVDErPWEJtMlmn',
-      error: 'LvckcvVesFNgvpV',
-      warn: 'bRnouywfdRsCcLU',
-      question: 'JNRDCOIzgNJGnZt',
-    };
-
-    const iconDom = type ? <View style={[NoticeStyle.left15]}>
-      <Image
-        source={{uri: `https://zos.alipayobjects.com/rmsportal/${iconEnum[type] || 'baPKdUnrQFvLyHS'}.png`}}
-        style={{ width: 12, height:12 }} />
-    </View> : null;
-
+    const iconDom = React.isValidElement(icon) ? <View style={[NoticeStyle.left15]}>{icon}</View> : null;
     const main = (
       <View style={[NoticeStyle.notice, style]}>
         {iconDom}
-        <Text style={[NoticeStyle.content, type ? NoticeStyle.left6 : NoticeStyle.left15]}>{children}</Text>
+        <Text style={[NoticeStyle.content, icon ? NoticeStyle.left6 : NoticeStyle.left15]}>{children}</Text>
         {operationDom}
       </View>
     );

@@ -17,6 +17,7 @@
       line-height: @tabs-height;
       color: @color-text-base;
       background-color: @fill-base;
+      box-sizing: border-box;
       &-active {
         color: @tabs-color;
       }
@@ -26,7 +27,7 @@
   &-ink-bar {
     position: absolute;
     bottom: 0;
-    height: @border-width-lg;
+    height: @tabs-ink-bar-height;
     background-color: @tabs-color;
 
     &-animated {

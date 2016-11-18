@@ -23,14 +23,24 @@ module.exports = {
   webpackConfig(config) {
     config.module.loaders.forEach(loader => {
       if (loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
-        loader.exclude = [/components\/icon\/style\/assets/, /components\/icon\/demo/];
+        loader.exclude = [
+          /components\/icon\/style\/assets/,
+          /components\/icon\/demo/,
+          /components\/notice-bar\/style\/assets/,
+          /components\/toast\/style\/assets/,
+        ];
       }
     });
 
     config.module.loaders.unshift({
       test: /\.svg$/,
       loader: 'svg-sprite',
-      include: [/components\/icon\/style\/assets/, /components\/icon\/demo/],
+      include: [
+        /components\/icon\/style\/assets/,
+        /components\/icon\/demo/,
+        /components\/notice-bar\/style\/assets/,
+        /components\/toast\/style\/assets/,
+      ],
     });
 
     config.module.noParse = [/moment.js/];
