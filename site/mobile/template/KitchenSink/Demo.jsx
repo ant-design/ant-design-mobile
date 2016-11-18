@@ -72,7 +72,7 @@ export default class Home extends React.Component {
 
     // document.documentElement.clientHeight to
     // remove height of toolbars, address bars and navigation (android)
-    const style = { height: '100%' };
+    const style = {};
     if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
       style.minHeight = document.documentElement.clientHeight;
     }

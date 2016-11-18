@@ -42,16 +42,17 @@ const App = React.createClass({
     };
     return (<div style={{ height: '100%' }}>
       <NavBar iconName="ellipsis" onLeftClick={() => this.onDock('docked')}>嵌入文档</NavBar>
-      <div className="drawer-container">
-        <Drawer sidebar={sidebar}
-          dragHandleStyle={{ display: 'none' }}
-          sidebarStyle={{ border: '1px solid #ddd' }}
-          contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
-          {...drawerProps}
-        >
-          请点击左上角图标
-        </Drawer>
-      </div>
+      <Drawer
+        className="my-drawer"
+        style={{ minHeight: document.documentElement.clientHeight - 200 }}
+        sidebar={sidebar}
+        dragHandleStyle={{ display: 'none' }}
+        sidebarStyle={{ border: '1px solid #ddd' }}
+        contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
+        {...drawerProps}
+      >
+        请点击左上角图标
+      </Drawer>
     </div>);
   },
 });
@@ -60,19 +61,16 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 <style>
-.drawer-container {
+.my-drawer {
   position: relative;
-  height: 100%;
-}
-.am-drawer {
   overflow: auto;
 }
-.am-drawer-sidebar {
+.my-drawer .am-drawer-sidebar {
   max-width: 260px;
   background-color: #fff;
   overflow: auto;
 }
-.am-drawer-sidebar .am-list {
+.my-drawer .am-drawer-sidebar .am-list {
   padding: 0;
 }
 </style>
