@@ -1,3 +1,4 @@
+const path = require('path');
 const commonConfig = require('./bisheng.common.config');
 
 function pickerGenerator(module) {
@@ -43,5 +44,43 @@ module.exports = Object.assign({}, commonConfig, {
   ],
   doraConfig: {
     verbose: true,
+  },
+  webpackConfig(config) {
+    config.module.loaders.forEach(loader => {
+      if (loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
+        loader.exclude = /components\/icon\/style\/assets/;
+      }
+    });
+
+    config.module.loaders.unshift({
+      test: /\.svg$/,
+      loader: 'svg-sprite',
+      include: /components\/icon\/style\/assets/,
+    });
+
+    config.module.noParse = [/moment.js/];
+    config.resolve.alias = {
+      'antd-mobile': process.cwd(),
+      site: path.join(process.cwd(), 'site'),
+    };
+
+    config.babel.plugins.push([
+      require.resolve('babel-plugin-transform-runtime'),
+      {
+        polyfill: false,
+        regenerator: true,
+      },
+    ]);
+
+    config.babel.plugins.push([
+      require.resolve('babel-plugin-import'),
+      {
+        style: true,
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'components',
+      },
+    ]);
+
+    return config;
   },
 });
