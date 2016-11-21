@@ -5,8 +5,6 @@ import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static defaultProps = defaultProps;
 
-  initialInputContainerWidth: number;
-
   constructor(props) {
     super(props);
     let value;
@@ -28,16 +26,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.setState({
         value: nextProps.value,
       });
-    }
-  }
-
-  componentDidMount() {
-    if ((/U3/i).test(navigator.userAgent)) {
-      this.initialInputContainerWidth = (this.refs as any).searchInputContainer.offsetWidth;
-      if (this.props.showCancelButton) {
-        (this.refs as any).searchInputContainer.style.width =
-          `${(this.refs as any).searchInputContainer.offsetWidth - 41 * (window.devicePixelRatio || 1)}px`;
-      }
     }
   }
 
@@ -110,25 +98,9 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
-      [`${prefixCls}-start`]: showCancelButton || focus,
+      [`${prefixCls}-start`]: focus || value && value.length > 0,
       [className as string]: className,
     });
-
-    let containerStyle = {};
-
-    if ((/U3/i).test(navigator.userAgent)) {
-      if (this.initialInputContainerWidth) {
-        if (showCancelButton || focus) {
-          containerStyle = {
-            width: `${this.initialInputContainerWidth - 41 * (window.devicePixelRatio || 1)}px`,
-          };
-        } else {
-          containerStyle = {
-            width: `${this.initialInputContainerWidth}px`,
-          };
-        }
-      }
-    }
 
     const clearCls = classNames({
       [`${prefixCls}-clear`]: true,
@@ -137,16 +109,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
     const cancelCls = classNames({
       [`${prefixCls}-cancel`]: true,
-      [`${prefixCls}-all-cancel`]: showCancelButton,
+      [`${prefixCls}-cancel-show`]: showCancelButton || focus || value && value.length > 0,
     });
 
     return (
-      <form onSubmit={this.onSubmit} className={wrapCls}>
-        <div
-          ref="searchInputContainer"
-          className={`${prefixCls}-input`}
-          style={containerStyle}
-        >
+      <form onSubmit={this.onSubmit} className={wrapCls} ref="searchInputContainer">
+        <div className={`${prefixCls}-input`}>
           <div className={`${prefixCls}-icon`}>
             <i className={`${prefixCls}-icon-search`}></i>
             <span className={`${prefixCls}-ph`}>{placeholder}</span>

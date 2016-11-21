@@ -90,16 +90,15 @@
       &:active {
         .encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><circle cx='14' cy='14' r='14' fill='@{input-color-icon-tap}'/><line stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='8' y1='8' x2='20' y2='20'/><line fill='none' stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='20' y1='8' x2='8' y2='20'/></svg>");
       }
-      &.@{searchPrefixCls}-clear-show {
+      &-show {
         opacity: 1;
       }
     }
+    flex: 1;
   }
   &-cancel {
-    position: absolute;
-    right: @h-spacing-md;
-    display: inline-block;
-    width: 74px;
+    flex: none;
+    display: none;
     opacity: 0;
     transform: translateX(100%);
     transition: all 0.3s;
@@ -110,18 +109,15 @@
     font-size: @link-button-font-size;
     margin-left: @h-spacing-md;
     text-align: right;
-    border: 0;
-    padding: 0;
-    background: none;
-    overflow: hidden;
-  }
-  &-all-cancel {
-    opacity: 1;
-    transform: translate(0, 0);
+
+    &-show {
+      display: block;
+      opacity: 1;
+      transform: translate(0, 0);
+    }
   }
   &.@{searchPrefixCls}-start {
     .@{searchPrefixCls}-input {
-      margin-right: 64px + @h-spacing-md;
       input[type="search"] {
         opacity: 1;
         padding-left: @h-spacing-sm * 2 + @icon-size-xxs;
