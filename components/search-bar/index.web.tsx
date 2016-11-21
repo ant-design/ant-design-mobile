@@ -147,6 +147,10 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           className={`${prefixCls}-input`}
           style={containerStyle}
         >
+          <div className={`${prefixCls}-icon`}>
+            <i className={`${prefixCls}-icon-search`}></i>
+            <span className={`${prefixCls}-ph`}>{placeholder}</span>
+          </div>
           <input
             type="search"
             className={`${prefixCls}-value`}

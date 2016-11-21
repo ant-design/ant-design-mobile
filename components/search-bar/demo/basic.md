@@ -19,7 +19,9 @@ const SearchBarExample = React.createClass({
     this.setState({ value: '' });
   },
   render() {
-    return (
+    return (<div>
+      <SearchBar placeholder="搜索" />
+      <p style={{ padding: 10, color: '#999' }}>显示取消按钮</p>
       <SearchBar
         value={this.state.value}
         placeholder="搜索"
@@ -30,7 +32,7 @@ const SearchBarExample = React.createClass({
         showCancelButton
         onChange={this.onChange}
       />
-    );
+    </div>);
   },
 });
 
