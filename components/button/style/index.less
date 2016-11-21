@@ -3,12 +3,11 @@
 @buttonPrefixCls: am-button;
 
 .@{buttonPrefixCls} {
-  position: relative;
-  display: inline-block;
+  // do not use width:100%, can not set margin
+  display: block;
   outline: 0 none;
   -webkit-appearance: none;
   .box-sizing();
-  width: 100%;
   padding: 0;
   text-align: center;
   font-size: @button-font-size;
@@ -48,7 +47,7 @@
   }
 
   &-inline {
-    width: auto;
+    display: inline-block;
     padding: 0 @h-spacing-lg;
   }
 

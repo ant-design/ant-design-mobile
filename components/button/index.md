@@ -16,7 +16,6 @@ english: Button
 | 成员        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | type       | 按钮类型，可选值为`primary`/`ghost`/`warning`或者不设     |   string   |   -  |
-| htmlType(web)   | 设置`button`原生的`type`值，可选值请参考 HTML标准   |   string    |  button  |
 | size       | 设置按钮大小，可选值为`large`、`small` | string | `large`|
 | inline(web)     | 是否是行内按钮   | boolean |   false  |
 | across(web)     | 是否通栏展示  | boolean |   false  |
