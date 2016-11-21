@@ -40,10 +40,10 @@ class Button extends React.Component<tsProps, any> {
   render() {
     let [{
       children, className, prefixCls, type, size, inline, across,
-      disabled, htmlType, icon, loading, touchFeedback, activeStyle,
+      disabled, icon, loading, touchFeedback, activeStyle,
     }, restProps] = splitObject(this.props,
       ['children', 'className', 'prefixCls', 'type', 'size', 'inline', 'across',
-        'disabled', 'htmlType', 'icon', 'loading', 'touchFeedback', 'activeStyle']);
+        'disabled', 'icon', 'loading', 'touchFeedback', 'activeStyle']);
 
     const wrapCls = {
       [className as string]: className,
@@ -71,17 +71,18 @@ class Button extends React.Component<tsProps, any> {
       wrapCls[`${prefixCls}-icon`] = true;
     }
 
+    // use div, button native is buggy @yiminghe
     return (
-      <button
+      <a
         {...restProps}
+        role="button"
         style={style}
-        type={htmlType || 'button'}
         className={classNames(wrapCls)}
         disabled={disabled}
       >
         {iconType ? <Icon type={iconType} /> : null}
         {kids}
-      </button>
+      </a>
     );
   }
 }
