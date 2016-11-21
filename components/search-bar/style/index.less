@@ -12,42 +12,61 @@
   padding: 0 @h-spacing-md;
   overflow: hidden;
   background-color: @search-bar-fill;
-  & &-input {
+  &-input {
     position: relative;
-    //display: flex;
-    //align-items: center;
-    justify-content: center;
     width: 100%;
     height: @search-bar-input-height;
+    overflow: hidden;
     transition: all 0.3s;
-    line-height: 1;
     background-color: @fill-base;
-    .box-align;
     .border-radius(@radius-sm);
+    .@{searchPrefixCls}-icon,
     input[type="search"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .@{searchPrefixCls}-icon {
+      z-index: 1;
+      height: @search-bar-input-height;
+      line-height: @search-bar-input-height;
+      width: 100%;
+      display: block;
+      text-align: center;
+      &-search {
+        display: inline-block;
+        margin-left: @h-spacing-sm;
+        margin-right: @h-spacing-sm;
+        width: @icon-size-xxs;
+        height: @icon-size-xxs;
+        overflow: hidden;
+        vertical-align: -5px;
+        .encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' enable-background='new 0 0 14 14'><g><path fill='@{input-color-icon}' d='M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1 M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0 L5,0z'/></g><line stroke='@{input-color-icon}' stroke-miterlimit='10' x1='12.6' y1='12.6' x2='8.2' y2='8.2'/></svg>");
+        background-repeat: no-repeat;
+        background-size: @icon-size-xxs auto;
+      }
+      .@{searchPrefixCls}-ph {
+        color: @color-text-placeholder;
+      }
+    }
+    input[type="search"] {
+      z-index: 2;
+      opacity: 0;
       width: 100%;
       text-align: left;
       display: block;
       color: @color-text-base;
       height: @search-bar-input-height;
-      line-height: 1;
-      padding-left: @h-spacing-lg + @icon-size-xxs + @h-spacing-sm;
-      padding-right: @h-spacing-lg + @icon-size-xxs + @h-spacing-sm;
-      border: 0;
       font-size: @input-font-size;
-      .box-flex(1);
       background-color: @fill-base;
-      background-repeat: no-repeat;
-      background-position: @h-spacing-lg 16px;
-      .encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' enable-background='new 0 0 14 14'><g><path fill='@{input-color-icon}' d='M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1 M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0 L5,0z'/></g><line stroke='@{input-color-icon}' stroke-miterlimit='10' x1='12.6' y1='12.6' x2='8.2' y2='8.2'/></svg>");
-      background-size: @icon-size-xxs auto;
+      border: 0;
       .border-radius(@radius-sm);
       &::-webkit-input-placeholder {
         background: none;
-        text-align: center;
+        text-align: left;
         color: @color-text-placeholder;
-        font-size: @input-font-size;
-        line-height: 1.5;
+        // font-size: @input-font-size;
+        // line-height: 1.5;
       }
       &::-webkit-search-cancel-button {
         -webkit-appearance: none;
@@ -55,6 +74,7 @@
     }
     .@{searchPrefixCls}-clear {
       position: absolute;
+      z-index: 3;
       width: @icon-size-xxs;
       height: @icon-size-xxs;
       border-radius: 50%;
@@ -75,7 +95,7 @@
       }
     }
   }
-  & &-cancel {
+  &-cancel {
     position: absolute;
     right: @h-spacing-md;
     display: inline-block;
@@ -95,13 +115,25 @@
     background: none;
     overflow: hidden;
   }
-  & &-all-cancel {
+  &-all-cancel {
     opacity: 1;
     transform: translate(0, 0);
   }
   &.@{searchPrefixCls}-start {
     .@{searchPrefixCls}-input {
       margin-right: 64px + @h-spacing-md;
+      input[type="search"] {
+        opacity: 1;
+        left: @h-spacing-sm * 2 + @icon-size-xxs;
+      }
+      .@{searchPrefixCls}-icon {
+        width: auto;
+        display: inline-block;
+        text-align: left;
+        .@{searchPrefixCls}-ph {
+          display: none;
+        }
+      }
     }
     .@{searchPrefixCls}-cancel {
       transition-delay: 0.1s;
