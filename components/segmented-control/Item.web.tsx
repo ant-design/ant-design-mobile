@@ -22,8 +22,8 @@ class SegmentItem extends React.Component<any, any> {
       [`${prefixCls}-item-selected`]: selected,
     });
     const touchedCls = classNames({
-      [`${prefixCls}-item-feedback`]: true,
-      [`${prefixCls}-item-feedback-tintcolor`]: enabled && touchFeedback && !selected && !tintColor,
+      [`${prefixCls}-item-active`]: true,
+      [`${prefixCls}-item-active-tintcolor`]: enabled && touchFeedback && !selected && !tintColor,
     });
     const touchFeedbackStyle = enabled && touchFeedback && !selected && tintColor ? {
       backgroundColor: tintColor,
