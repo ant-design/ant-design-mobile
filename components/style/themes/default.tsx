@@ -152,6 +152,7 @@ export default {
   tab_bar_height: 50,
 
   // search_bar
+  search_bar_fill: '#efeff4',
   search_bar_input_height: 28,
 
   // notice_bar
