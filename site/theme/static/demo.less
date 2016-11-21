@@ -127,7 +127,7 @@
 .code-box .fullscreen {
   position: absolute;
   right: 16Px;
-  bottom: -60Px;
+  bottom: -48px;
   cursor: pointer;
   font-size: 14Px;
   font-weight: bold;
@@ -139,22 +139,40 @@
 
 .code-box .highlight-wrapper {
   max-height: 0;
-  opacity: 0;
   overflow: auto;
   transition: all 0.4s ease;
-  border-radius: 6Px;
+  border-radius: 6px;
 }
 .code-box .highlight-wrapper-expand {
-  max-height: 500Px;
-  opacity: 1;
+  max-height: 500px;
 }
 
 .code-box .highlight {
+  position: static;
+  margin: 0;
   overflow: auto;
-  padding: 5Px;
+  padding: 5px;
 
   &:not(:first-child) {
-     border-top: 1Px dashed #e9e9e9;
+    border-top: 1px dashed #e9e9e9;
+  }
+}
+
+.code-box .ant-radio-group {
+  position: absolute;
+  bottom: -46px;
+  right: 56px;
+}
+
+// code in modal
+.highlight {
+  position: relative;
+  margin: -22px -16px;
+
+  .ant-radio-group {
+    position: absolute;
+    right: 8px;
+    top: 7px;
   }
 }
 

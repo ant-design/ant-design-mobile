@@ -1,5 +1,4 @@
 const path = require('path');
-const pxtorem = require('postcss-pxtorem');
 
 module.exports = {
   lazyLoad(nodePath, nodeValue) {
@@ -19,59 +18,5 @@ module.exports = {
       };
       /* eslint-enable consistent-return */
     },
-  },
-  webpackConfig(config) {
-    config.module.loaders.forEach(loader => {
-      if (loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
-        loader.exclude = [
-          /components\/icon\/style\/assets/,
-          /components\/icon\/demo/,
-          /components\/notice-bar\/style\/assets/,
-          /components\/toast\/style\/assets/,
-        ];
-      }
-    });
-
-    config.module.loaders.unshift({
-      test: /\.svg$/,
-      loader: 'svg-sprite',
-      include: [
-        /components\/icon\/style\/assets/,
-        /components\/icon\/demo/,
-        /components\/notice-bar\/style\/assets/,
-        /components\/toast\/style\/assets/,
-      ],
-    });
-
-    config.module.noParse = [/moment.js/];
-    config.resolve.alias = {
-      'antd-mobile': process.cwd(),
-      site: path.join(process.cwd(), 'site'),
-    };
-
-    config.postcss.push(pxtorem({
-      rootValue: 100,
-      propWhiteList: [],
-      selectorBlackList: [/^html$/, /^\.ant-/, /^\.github-/, /^\.gh-/],
-    }));
-
-    config.babel.plugins.push([
-      require.resolve('babel-plugin-transform-runtime'),
-      {
-        polyfill: false,
-        regenerator: true,
-      },
-    ]);
-
-    config.babel.plugins.push([
-      require.resolve('babel-plugin-import'),
-      {
-        style: true,
-        libraryName: 'antd-mobile',
-        libraryDirectory: 'components',
-      },
-    ]);
-
-    return config;
   },
 };
