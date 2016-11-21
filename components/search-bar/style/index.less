@@ -124,9 +124,10 @@
       margin-right: 64px + @h-spacing-md;
       input[type="search"] {
         opacity: 1;
-        left: @h-spacing-sm * 2 + @icon-size-xxs;
+        padding-left: @h-spacing-sm * 2 + @icon-size-xxs;
       }
       .@{searchPrefixCls}-icon {
+        z-index: 3;
         width: auto;
         display: inline-block;
         text-align: left;
