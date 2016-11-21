@@ -10,10 +10,10 @@ ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaul
   prefixCls: 'am-refresh-control',
   icon: <div style={{lineHeight: '50px'}}>
     <div className="am-refresh-control-pull">
-      <Icon type="arrow-down"/> 下拉
+      <Icon type="down"/> 下拉
     </div>
     <div className="am-refresh-control-release">
-      <Icon type="arrow-up"/> 释放
+      <Icon type="left" style={{ transform: 'rotate(90deg)' }} /> 释放
     </div>
   </div>,
   loading: <div style={{ lineHeight: '50px' }}><Icon type="loading"/></div>,

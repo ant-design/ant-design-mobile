@@ -28,11 +28,6 @@ const ButtonExample = React.createClass({
           <Button type="primary" disabled>primary disabled 按钮</Button>
 
           <div style={{ height: 32 }} />
-          <Button type="ghost" onClick={e => console.log(e)}>ghost 按钮</Button>
-          <div style={{ height: 8 }} />
-          <Button type="ghost" disabled>ghost disabled 按钮</Button>
-
-          <div style={{ height: 32 }} />
           <Button loading>loading 按钮</Button>
           <div style={{ height: 8 }} />
           <Button icon="check-circle-o">success 按钮</Button>
