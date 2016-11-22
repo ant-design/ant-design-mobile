@@ -30,6 +30,23 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     transName = 'am-slide-up';
   }
 
+  // 在 iPhone 上拖动 mask 蒙层、会触发最顶部或最底部的、页面回弹后的留白，解决办法是，禁掉 mask 蒙层的 onTouchStart 事件。
+  // 但由于以下原因：
+  // Popup 组件底层依赖 [rc-dialog](https://github.com/react-component/dialog)
+  // 而 rc-dialog 点击 mask 蒙层关闭弹出框的事件是绑定在 classname 为 rc-dialog-wrap 的 dom 节点上，
+  // 此节点是弹出层中主要内容的“父节点”，而非正常的“兄弟节点”。相关 issue https://github.com/react-component/dialog/issues/40
+  // 所以、相对于 antd-mobile@0.9.8 以及之前的版本的变化是：
+  // 去掉 am-popup-wrap 设置的 `position: fixed; top: 0; bottom: 0; ...` 样式，并给 am-popup 设置 z-index .
+  // 另外不使用 rc-dialog 提供的 maskClosable 功能，而改为在这里实现
+  const maskProps = {
+    onTouchStart: e => {
+      e.preventDefault();
+      if (maskClosable) {
+        close();
+      }
+    },
+  };
+
   ReactDOM.render(<Dialog
     prefixCls={prefixCls}
     visible
@@ -41,7 +58,7 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     onClose={close}
     maskClosable={maskClosable}
     wrapProps={props.wrapProps || {}}
-    maskProps={props.maskProps || { onTouchStart: e => e.preventDefault() }}
+    maskProps={props.maskProps || maskProps}
   >{content}</Dialog>, div);
 
   return {
