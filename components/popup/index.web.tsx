@@ -84,6 +84,8 @@ export default class Popup {
     });
   }
   static hide = () => {
-    ins.defaultInstance.close();
+    if (ins.defaultInstance) {
+      ins.defaultInstance.close();
+    }
   }
 }
