@@ -4,6 +4,7 @@ interface ActivityIndicatorPropTypes {
   color?: 'gray' | 'white';
   size?: 'large' | 'small';
   text?: string;
+  styles?: any;
   /** web only */
   prefixCls?: string;
   className?: string;

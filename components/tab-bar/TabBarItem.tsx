@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
-import styles from './style';
 
 export interface TabBarItemProps {
   badge?: string | number;
@@ -16,6 +15,7 @@ export interface TabBarItemProps {
   /*react-native ios only*/
   systemIcon?: any;
   renderAsOriginal?: boolean;
+  styles?: any;
   /*web only*/
   rootPrefixCls?: string;
   className?: string;
@@ -28,7 +28,7 @@ export default class TabBarItem extends React.Component<TabBarItemProps, any> {
   render() {
     const {
       title, selected, tintColor, unselectedTintColor, icon, selectedIcon,
-      onPress, badge,
+      onPress, badge, styles,
     } = this.props;
     const itemSelectedStyle = selected ? styles.barItemSelected : null;
     return (

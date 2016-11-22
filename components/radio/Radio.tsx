@@ -1,10 +1,13 @@
 import React from 'react';
 import {TouchableWithoutFeedback, Image, Text, View} from 'react-native';
 import { RadioProps } from './PropsType';
-import styles from './style/index';
+import RadioStyle from './style/index';
 
 export default class Radio extends React.Component<RadioProps, any> {
   static RadioItem: any;
+  static defaultProps = {
+    styles: RadioStyle,
+  };
 
   constructor(props: RadioProps, context: any) {
     super(props, context);
@@ -47,7 +50,7 @@ export default class Radio extends React.Component<RadioProps, any> {
   };
 
   render(): JSX.Element {
-    let {style, disabled, children} = this.props;
+    let {style, disabled, children, styles} = this.props;
     let checked = this.state.checked;
     let imgSrc = undefined as any;
     if (checked) {

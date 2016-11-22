@@ -5,6 +5,8 @@ interface BadgeProps {
   dot?: boolean;
   text?: string;
   style?: {};
+  /** rn only */
+  styles?: any;
   /** web only */
   prefixCls?: string;
   className?: string;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import CardStyle from './style/index';
 
 export interface CardHeaderProps {
   title?: any;
@@ -8,6 +7,7 @@ export interface CardHeaderProps {
   extra?: any;
   thumbStyle?: {};
   style?: any;
+  styles: any;
 }
 
 export default class CardHeader extends React.Component<CardHeaderProps, any> {
@@ -17,24 +17,24 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
   };
 
   render() {
-    const { title, thumb, thumbStyle, extra, style } = this.props;
+    const { title, thumb, thumbStyle, extra, style, styles } = this.props;
 
     const titleDom = React.isValidElement(title) ? (
       <View style={{ flex: 1 }}>{title}</View>
     ) : (
-      <Text style={CardStyle.headerContent}>{title}</Text>
+      <Text style={styles.headerContent}>{title}</Text>
     );
 
     const extraDom = React.isValidElement(extra) ? (
       <View style={{ flex: 1 }}>{extra}</View>
     ) : (
-      <Text style={[CardStyle.headerExtra]}>{extra}</Text>
+      <Text style={[styles.headerExtra]}>{extra}</Text>
     );
 
     return (
-      <View style={[CardStyle.headerWrap, style]}>
-        <View style={[CardStyle.headerTitle]}>
-          { thumb ? <Image source={{ uri: thumb }} style={[CardStyle.headerImage, thumbStyle]} /> : null }
+      <View style={[styles.headerWrap, style]}>
+        <View style={[styles.headerTitle]}>
+          { thumb ? <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} /> : null }
           {titleDom}
         </View>
         { extra ? extraDom : null }

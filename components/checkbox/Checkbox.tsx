@@ -1,11 +1,15 @@
 import React from 'react';
-import {TouchableWithoutFeedback, Image, View, Text} from 'react-native';
+import {TouchableWithoutFeedback, Image, View, Text } from 'react-native';
 import { CheckboxProps } from './PropsType';
-import styles from './style/index';
+import CheckboxStyle from './style/index';
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {
   static CheckboxItem: any;
   static AgreeItem: any;
+
+  static defaultProps = {
+    styles: CheckboxStyle,
+  };
 
   constructor(props: CheckboxProps, context: any) {
     super(props, context);
@@ -43,7 +47,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
   };
 
   render(): JSX.Element {
-    let {style, disabled, children} = this.props;
+    let {style, disabled, children, styles} = this.props;
     let checked = this.state.checked;
     let imgSrc;
     if (checked) {

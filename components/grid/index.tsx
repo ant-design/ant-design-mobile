@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Text, Dimensions, View } from 'react-native';
 import Flex from '../flex';
 import Carousel from '../carousel';
-import styles from './style';
+import GridStyle from './style';
 import { DataItem, GridProps } from './PropsType';
 
 export default class Grid extends React.Component<GridProps, any> {
@@ -12,6 +12,7 @@ export default class Grid extends React.Component<GridProps, any> {
     isCarousel: false,
     columnNum: 4,
     carouselMaxRow: 2,
+    styles: GridStyle,
   };
 
   getFlexItemStyle() {
@@ -22,7 +23,7 @@ export default class Grid extends React.Component<GridProps, any> {
   }
 
   render() {
-    const { data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {} } = this.props;
+    const { data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {}, styles } = this.props;
 
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);

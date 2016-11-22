@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import Flex from '../flex';
 import Button from '../button';
 import PaginationProps from './PropsType';
-import styles from './style/index';
+import PaginationStyle from './style/index';
 
 export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
@@ -15,6 +15,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     nextText: 'Next',
     onChange: () => {},
     indicatorStyle: null,
+    styles: PaginationStyle,
   };
 
   constructor(props) {
@@ -67,8 +68,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   render() {
-    const { mode, style, simple, total,
-      prevText, nextText } = this.props;
+    const { mode, style, simple, total, prevText, nextText, styles } = this.props;
     const current = this.state.current;
     let markup;
     switch (mode) {

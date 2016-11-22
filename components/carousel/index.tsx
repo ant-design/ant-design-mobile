@@ -7,7 +7,7 @@ import {
   ScrollView,
   Platform,
 } from 'react-native';
-import styles from './style';
+import CarouselStyle from './style';
 
 export interface CarouselProps {
   selectedIndex?: number;
@@ -21,6 +21,7 @@ export interface CarouselProps {
   onScrollBeginDrag?: Function;
   onMomentumScrollEnd?: Function;
   afterChange?: (selectedIndex: number) => void;
+  styles?: any;
 }
 
 const Carousel = React.createClass<CarouselProps, any>({
@@ -36,19 +37,20 @@ const Carousel = React.createClass<CarouselProps, any>({
       selectedIndex: 0,
       // vertical 目前只实现 pagination，内容 vertical 由于自动高度拿不到，暂时无法实现
       vertical: false,
+      styles: CarouselStyle,
     };
   },
 
   getInitialState() {
-    const props = this.props;
-    const count = props.children ? props.children.length || 1 : 0;
-    const selectedIndex = count > 1 ? Math.min(props.selectedIndex, count - 1) : 0;
+    const { children, selectedIndex } = this.props;
+    const count = children ? children.length || 1 : 0;
+    const index = count > 1 ? Math.min(selectedIndex, count - 1) : 0;
     return {
       width: 0,
       isScrolling: false,
       autoplayEnd: false,
       loopJump: false,
-      selectedIndex,
+      selectedIndex: index,
       offset: { x: 0, y: 0 },
     };
   },
@@ -220,7 +222,7 @@ const Carousel = React.createClass<CarouselProps, any>({
           directionalLockEnabled={true}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={[styles.wrapper, this.props.style]}
+          contentContainerStyle={[this.props.styles.wrapper, this.props.style]}
           contentOffset={this.state.offset}
           style={{ flex: 1 }}
           {...others}
@@ -231,14 +233,10 @@ const Carousel = React.createClass<CarouselProps, any>({
   },
 
   renderDots(index) {
-    // vertical 的时候位置有问题，需要做判断
-    let positionStyle = 'paginationX';
-    let flexDirection = 'row';
-    if (this.props.vertical) {
-      positionStyle = 'paginationY';
-      flexDirection = 'column';
-    }
-    const count = this.props.children ? this.props.children.length || 1 : 0;
+    const { children, vertical, styles } = this.props;
+    const positionStyle = vertical ? 'paginationY' : 'paginationX';
+    const flexDirection = vertical ? 'column' : 'row';
+    const count = children ? children.length || 1 : 0;
     return (
       <Pagination
         style={[styles.pagination, styles[positionStyle]]}
@@ -269,9 +267,7 @@ const Carousel = React.createClass<CarouselProps, any>({
 
   render() {
     let state = this.state;
-    let props = this.props;
-    let children = props.children;
-    let infinite = props.infinite;
+    let { dots, infinite, children, styles } = this.props;
     let pages: any = [];
 
     if (!children) {
@@ -283,7 +279,7 @@ const Carousel = React.createClass<CarouselProps, any>({
     }
 
     const pageStyle = [{ width: state.width }, styles.slide];
-    const count = props.children ? props.children.length || 1 : 0;
+    const count = children ? children.length || 1 : 0;
     // For make infinite at least count > 1
     if (count > 1) {
       pages = Object.keys(children);
@@ -301,7 +297,7 @@ const Carousel = React.createClass<CarouselProps, any>({
     return (
       <View onLayout={this.onLayout} style={[styles.container]}>
         {this.renderContent(pages)}
-        {props.dots && this.renderDots(this.state.selectedIndex)}
+        {dots && this.renderDots(this.state.selectedIndex)}
       </View>
     );
   },

@@ -31,6 +31,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     labelPosition: 'left',
     textAlign: 'left',
     last: false,
+    styles: InputItemStyle,
   };
 
   constructor(props) {
@@ -81,7 +82,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   render() {
     const {
-      type, style, clear, children, error, extra, labelNumber, last, onExtraPress = noop, onErrorPress = noop,
+      type, style, clear, children, error, extra, labelNumber, last, onExtraPress = noop, onErrorPress = noop, styles,
     } = this.props;
 
     const containerStyle = {
@@ -104,7 +105,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     const restProps = assign({}, this.props);
     [
       'type', 'style', 'clear', 'children', 'error', 'extra', 'labelNumber', 'last', 'onExtraPress', 'onErrorPress',
-      'keyboardType', 'onChange', 'secureTextEntry',
+      'keyboardType', 'onChange', 'secureTextEntry', 'styles',
     ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
@@ -112,10 +113,10 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     });
 
     return (
-      <View style={[InputItemStyle.container, containerStyle, style]}>
-        {children ? <Text style={[InputItemStyle.text, textStyle]}>{children}</Text> : null}
+      <View style={[styles.container, containerStyle, style]}>
+        {children ? <Text style={[styles.text, textStyle]}>{children}</Text> : null}
         <TextInput
-          style={[InputItemStyle.input, inputStyle]}
+          style={[styles.input, inputStyle]}
           keyboardType={type === 'number' || type === 'bankCard' ? 'numeric' : 'default'}
           onChange={(event) => this.onChange(event.nativeEvent.text)}
           secureTextEntry={type === 'password'}
@@ -127,7 +128,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           onPress={onExtraPress}
         >
           <View>
-            <Text style={[InputItemStyle.extra, extraStyle]}>{extra}</Text>
+            <Text style={[styles.extra, extraStyle]}>{extra}</Text>
           </View>
         </TouchableWithoutFeedback> : null}
         {
@@ -135,7 +136,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           <TouchableWithoutFeedback
             onPress={onErrorPress}
           >
-            <View style={[InputItemStyle.errorIcon]}>
+            <View style={[styles.errorIcon]}>
               <Image
                 source={require('../style/images/error.png')}
                 style={{ width: variables.icon_size_xs, height: variables.icon_size_xs }}

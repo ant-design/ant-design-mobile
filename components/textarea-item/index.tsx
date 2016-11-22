@@ -25,6 +25,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     keyboardType: 'default',
     autoHeight: false,
     last: false,
+    styles: TextAreaItemStyle,
   };
 
   constructor(props) {
@@ -62,7 +63,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
 
   render() {
     const { inputCount } = this.state;
-    const { rows, error, clear, count, autoHeight, last, onErrorClick } = this.props;
+    const { rows, error, clear, count, autoHeight, last, onErrorClick, styles } = this.props;
 
     const containerStyle = {
       borderBottomWidth: last ? 0 : variables.border_width_sm,
@@ -77,7 +78,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     const restProps = assign({}, this.props);
     [
       'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'onChange', 'value',
-      'multiline', 'numberOfLines', 'maxLength',
+      'multiline', 'numberOfLines', 'maxLength', 'styles',
     ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
@@ -85,9 +86,9 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     });
 
     return (
-      <View style={[TextAreaItemStyle.container, containerStyle, { position: 'relative' }]}>
+      <View style={[styles.container, containerStyle, { position: 'relative' }]}>
         <TextInput
-          style={[TextAreaItemStyle.input, textareaStyle, {height: Math.max(45, this.state.height)}]}
+          style={[styles.input, textareaStyle, {height: Math.max(45, this.state.height)}]}
           onChange={(event) => this.onChange(event)}
           value={this.state.value}
           multiline={rows > 1 || autoHeight}
@@ -98,14 +99,14 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
           {...restProps}
         />
         {error ? <TouchableWithoutFeedback onPress={onErrorClick}>
-          <View style={[TextAreaItemStyle.errorIcon]}>
+          <View style={[styles.errorIcon]}>
             <Image
               source={require('../style/images/error.png')}
               style={{ width: variables.icon_size_xs, height:variables.icon_size_xs }}
             />
           </View>
         </TouchableWithoutFeedback> : null}
-        {rows > 1 && count > 0 ? <View style={[TextAreaItemStyle.count]}>
+        {rows > 1 && count > 0 ? <View style={[styles.count]}>
           <Text>
             {inputCount} / {count}
           </Text>

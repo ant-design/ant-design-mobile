@@ -34,6 +34,7 @@ interface InputItemProps {
   last?: boolean;
   children?: any;
   updatePlaceholder?: boolean;
+  styles?: any;
 }
 
 export default InputItemProps;

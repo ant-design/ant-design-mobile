@@ -12,6 +12,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
         source={{ uri: 'https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png' }}
         style={{ width: 14, height:12 }}
       />,
+    styles: NoticeStyle,
   };
 
   constructor(props) {
@@ -34,26 +35,26 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   }
 
   render() {
-    const { children, mode, icon, style } = this.props;
+    const { children, mode, icon, style, styles } = this.props;
 
     let operationDom: any = null;
     if (mode === 'closable') {
       operationDom = (
         <TouchableWithoutFeedback onPress={this.onClick}>
-          <View><Text style={[NoticeStyle.close]}>×</Text></View>
+          <View><Text style={[styles.close]}>×</Text></View>
         </TouchableWithoutFeedback>
       );
     } else if (mode === 'link') {
       operationDom = (
-        <Text style={[NoticeStyle.link]}>∟</Text>
+        <Text style={[styles.link]}>∟</Text>
       );
     }
 
-    const iconDom = icon && React.isValidElement(icon) ? <View style={[NoticeStyle.left15]}>{icon}</View> : null;
+    const iconDom = icon && React.isValidElement(icon) ? <View style={[styles.left15]}>{icon}</View> : null;
     const main = (
-      <View style={[NoticeStyle.notice, style]}>
+      <View style={[styles.notice, style]}>
         {iconDom}
-        <Text style={[NoticeStyle.content, icon ? NoticeStyle.left6 : NoticeStyle.left15]}>{children}</Text>
+        <Text style={[styles.content, icon ? styles.left6 : styles.left15]}>{children}</Text>
         {operationDom}
       </View>
     );

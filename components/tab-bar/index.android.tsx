@@ -2,19 +2,20 @@ import React from 'react';
 import { View } from 'react-native';
 import TabBarProps from './PropsType';
 import TabBarItem from './TabBarItem';
-import styles from './style/';
+import TabBarStyle from './style/';
 
 class TabBar extends React.Component <TabBarProps, any> {
   static defaultProps = {
     barTintColor: 'white',
     tintColor: '#108ee9',
     unselectedTintColor: '#888',
+    styles: TabBarStyle,
   };
 
   static Item: any;
 
   getPanes(content) {
-    const { tintColor, unselectedTintColor, children } = this.props;
+    const { tintColor, unselectedTintColor, children, styles } = this.props;
     // ios 规则： selected 为多个则只选中最后一个， selected 为 0 个则选中第一个;
     let selectedIndex = 0;
     children.forEach((child, idx) => {
@@ -38,6 +39,7 @@ class TabBar extends React.Component <TabBarProps, any> {
           key: idx,
           tintColor,
           unselectedTintColor,
+          styles,
         }));
       }
     });
@@ -46,6 +48,7 @@ class TabBar extends React.Component <TabBarProps, any> {
   }
 
   render() {
+    const styles = this.props.styles;
     return (
       <View style={styles.tabbar}>
         <View style={styles.content}>

@@ -11,6 +11,8 @@ export interface CheckboxProps {
   className?: string;
   name?: string;
   wrapLabel?: boolean;
+  /** rn only**/
+  styles?: any;
 }
 
 export interface CheckboxItemProps extends CheckboxProps {

@@ -33,7 +33,7 @@ export default class DrawerExample extends React.Component<any, any> {
                   flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
                 }}>
                   <Text>分类 - {index}</Text>
-                  <Button type="primary" size="small" onPress={() => this.drawer.drawer.closeDrawer()}>
+                  <Button type="primary" size="small" onClick={() => this.drawer.drawer.closeDrawer()}>
                     关闭 drawer
                   </Button>
                 </View>
@@ -75,9 +75,9 @@ export class DrawerMain extends React.Component<any, any> {
   render() {
     return (
       <View style={{ flex: 1, marginTop: 114, padding: 8 }}>
-        <Button type="ghost" onPress={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
+        <Button type="ghost" onClick={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
         <WhiteSpace />
-        <Button type="ghost" onPress={() => Actions.pop()}>返回 demo list</Button>
+        <Button type="ghost" onClick={() => Actions.pop()}>返回 demo list</Button>
       </View>
     );
   }

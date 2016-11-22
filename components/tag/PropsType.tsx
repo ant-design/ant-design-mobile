@@ -10,6 +10,8 @@ interface TagProps {
   /** web only */
   prefixCls?: string;
   className?: string;
+  /** rn only */
+  styles?: any;
 }
 
 export default TagProps;
