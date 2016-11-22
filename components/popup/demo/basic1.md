@@ -52,7 +52,7 @@ const Test = React.createClass({
           <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>
         </li>
       </ul>
-    </div>, { animationType: 'slide-up', wrapProps });
+    </div>, { animationType: 'slide-up', wrapProps, maskClosable: false });
   },
   onClose(sel) {
     this.setState({ sel });
