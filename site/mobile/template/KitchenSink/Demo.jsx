@@ -80,8 +80,9 @@ export default class Home extends React.Component {
     return (
       <div id={name} style={style} className="demo">
         <div className="demoName">
+          <a className="icon" href="/" />
           {demoMeta.english}
-          <p>{demoMeta.chinese}</p>
+          <span className="ch">{demoMeta.chinese}</span>
         </div>
         {
           demoSort.map((i, index) => (
