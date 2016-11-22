@@ -37,8 +37,7 @@ const ButtonExample = React.createClass({
           <div style={{ height: 8 }} />
           <Button activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
 
-          <div style={{ height: 32 }} />
-          <p style={{ fontSize: '28px', color: '#999' }}>inline / small</p>
+          <p style={{ margin: 10, color: '#999' }}>inline / small</p>
           <div style={{ height: 8 }} />
           <Button inline>default inline</Button>&nbsp;
           <Button inline size="small">default inline small</Button>
