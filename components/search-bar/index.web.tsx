@@ -4,6 +4,7 @@ import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static defaultProps = defaultProps;
+  refs: any;
 
   constructor(props) {
     super(props);
@@ -19,6 +20,18 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       value,
       focus: false,
     };
+  }
+
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+  componentDidUpdate() {
+    // 检测是否包含名为 ${this.props.prefixCls}-start 样式，生成动画
+    if (this.refs.searchInputContainer.className.indexOf(`${this.props.prefixCls}-start`) > -1) {
+      this.refs.syntheticPh.style.width = `${this.refs.syntheticPhContainer.offsetWidth}px`;
+    } else {
+      this.refs.syntheticPh.style.width = '100%';
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -115,9 +128,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     return (
       <form onSubmit={this.onSubmit} className={wrapCls} ref="searchInputContainer">
         <div className={`${prefixCls}-input`}>
-          <div className={`${prefixCls}-icon`}>
-            <i className={`${prefixCls}-icon-search`}></i>
-            <span className={`${prefixCls}-ph`}>{placeholder}</span>
+          <div className={`${prefixCls}-synthetic-ph`} ref="syntheticPh">
+            <span className={`${prefixCls}-synthetic-ph-container`} ref="syntheticPhContainer">
+              <i className={`${prefixCls}-synthetic-ph-icon`}></i>
+              <span className={`${prefixCls}-synthetic-ph-placeholder`} style={{
+                visibility: placeholder && !value ? 'visible' : 'hidden',
+              }}>{placeholder}</span>
+            </span>
           </div>
           <input
             type="search"

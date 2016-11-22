@@ -17,23 +17,23 @@
     width: 100%;
     height: @search-bar-input-height;
     overflow: hidden;
-    transition: all 0.3s;
     background-color: @fill-base;
     .border-radius(@radius-sm);
-    .@{searchPrefixCls}-icon,
+    .@{searchPrefixCls}-synthetic-ph,
     input[type="search"] {
       position: absolute;
       top: 0;
       left: 0;
     }
-    .@{searchPrefixCls}-icon {
+    .@{searchPrefixCls}-synthetic-ph {
       z-index: 1;
       height: @search-bar-input-height;
       line-height: @search-bar-input-height;
       width: 100%;
+      transition: width 0.3s;
       display: block;
       text-align: center;
-      &-search {
+      &-icon {
         display: inline-block;
         margin-left: @h-spacing-sm;
         margin-right: @h-spacing-sm;
@@ -45,7 +45,7 @@
         background-repeat: no-repeat;
         background-size: @icon-size-xxs auto;
       }
-      .@{searchPrefixCls}-ph {
+      &-placeholder {
         color: @color-text-placeholder;
       }
     }
@@ -98,22 +98,25 @@
   }
   &-cancel {
     flex: none;
-    display: none;
     opacity: 0;
-    transform: translateX(100%);
+    margin-left: 0;
+    // tips http://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css
+    width: 0;
+    max-width: 0;
     transition: all 0.3s;
+    transition-delay: 0.1s;
 
     height: 88px;
     line-height: 88px;
     color: @brand-primary;
-    font-size: @link-button-font-size;
-    margin-left: @h-spacing-md;
     text-align: right;
 
     &-show {
-      display: block;
+      font-size: @link-button-font-size;
       opacity: 1;
-      transform: translate(0, 0);
+      margin-left: @h-spacing-md;
+      width: auto;
+      max-width: 200px;
     }
   }
   &.@{searchPrefixCls}-start {
@@ -121,21 +124,15 @@
       input[type="search"] {
         opacity: 1;
         padding-left: @h-spacing-sm * 2 + @icon-size-xxs;
-      }
-      .@{searchPrefixCls}-icon {
-        z-index: 3;
-        width: auto;
-        display: inline-block;
-        text-align: left;
-        .@{searchPrefixCls}-ph {
-          display: none;
+        &::-webkit-input-placeholder {
+          // display: none;
+          color: transparent;
         }
       }
-    }
-    .@{searchPrefixCls}-cancel {
-      transition-delay: 0.1s;
-      opacity: 1;
-      transform: translate(0);
+      .@{searchPrefixCls}-synthetic-ph {
+        z-index: 3;
+        width: auto;
+      }
     }
   }
 }
