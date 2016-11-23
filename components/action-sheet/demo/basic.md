@@ -43,11 +43,11 @@ const Test = React.createClass({
     });
   },
   icons: [
-    { iconName: 'mail', title: '发邮件' },
-    { iconName: 'message', title: '发短信' },
-    { iconName: 'team', title: '发送到群' },
-    { iconName: 'download', title: '下载' },
-    { iconName: 'delete', title: '删除' },
+    { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" />, title: '发送给朋友' },
+    { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" />, title: '新浪微博' },
+    { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" />, title: '生活圈' },
+    { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" />, title: '微信好友' },
+    { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" />, title: 'QQ' },
     { iconName: 'ellipsis', title: '更多' },
   ],
   showShareActionSheet() {
@@ -68,7 +68,7 @@ const Test = React.createClass({
     });
   },
   showShareActionSheetMulpitleLine() {
-    const icons = [[...this.icons], [...this.icons]];
+    const icons = [[...this.icons], [this.icons[5], this.icons[5], this.icons[5]]];
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
       // title: '标题',
