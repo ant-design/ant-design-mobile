@@ -17,7 +17,7 @@ function getDefaultProps() {
     okText: '确定',
     dismissText: '取消',
     title: '',
-    styles: {},
+    styles: PopupStyles,
   };
 }
 
@@ -51,7 +51,6 @@ export default class Picker extends React.Component<tsPropsType, any> {
       <PopupCascader
         cascader={cascader}
         {...this.props}
-        styles={PopupStyles}
         value={value}
         dismissText={dismissText}
         title={title}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
-import CardStyle from './style/index';
 
 export interface CardBodyProps {
   children?: any;
   style?: {};
+  styles: any;
 }
 
 export default class CardBody extends React.Component<CardBodyProps, any> {
@@ -13,9 +13,9 @@ export default class CardBody extends React.Component<CardBodyProps, any> {
   };
 
   render() {
-    let { children, style } = this.props;
+    let { children, style, styles } = this.props;
     return (
-      <View style={[CardStyle.body, style]}>{children}</View>
+      <View style={[styles.body, style]}>{children}</View>
     );
   }
 }

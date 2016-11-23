@@ -15,6 +15,7 @@ interface Props {
   pickerPrefixCls?: string;
   popupPrefixCls?: string;
   onPickerChange?: (values) => void;
+  /**rn only**/
 }
 
 export default Props;

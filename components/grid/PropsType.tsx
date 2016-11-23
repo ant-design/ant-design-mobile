@@ -18,4 +18,6 @@ export interface GridProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
+  /** rn only **/
+  styles?: any;
 }

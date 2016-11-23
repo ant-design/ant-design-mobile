@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import styles from './style';
 
 export interface StepsItemProps {
   width?: number;
@@ -14,6 +13,7 @@ export interface StepsItemProps {
   status?: string;
   icon?: string;
   errorTail?: number;
+  styles?: any;
 }
 
 export default class StepsItem extends React.Component<StepsItemProps, any> {
@@ -21,7 +21,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
   render() {
     const {
       size, current, index, last, title, description,
-      status, errorTail, icon,
+      status, errorTail, icon, styles,
     } = this.props;
 
     let headCls: string = '';

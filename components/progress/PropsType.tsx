@@ -7,6 +7,7 @@ interface ProgressProps {
   style?: React.CSSProperties;
   /** rn only */
   wrapWidth?: number;
+  styles?: any;
   /** web only */
   prefixCls?: string;
   appearTransition?: boolean;

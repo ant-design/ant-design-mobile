@@ -4,7 +4,7 @@ import {
   Text,
   ActivityIndicator,
 } from 'react-native';
-import styles from './style';
+import style from './style';
 import PropTypes from './PropsType';
 
 export default class RNActivityIndicator extends React.Component<PropTypes, any> {
@@ -13,9 +13,11 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
     color: 'gray',
     size: 'small',
     toast: false,
+    styles: style,
   };
 
   _renderToast() {
+    const styles = this.props.styles;
     return (
       <View style={[styles.container]}>
         <View style={[styles.innerContainer, { height: 89}]}>
@@ -44,7 +46,7 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
           color={this.props.color}
           size={this.props.size}
         />
-        { this.props.text && (<Text style={[styles.tip]}>{this.props.text}</Text>) }
+        { this.props.text && (<Text style={[this.props.styles.tip]}>{this.props.text}</Text>) }
       </View>
     );
   }

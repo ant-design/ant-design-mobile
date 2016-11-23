@@ -21,6 +21,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     footer: [],
     transparent: false,
     animateAppear: true,
+    styles: modalStyle,
   };
 
   onMaskClose = () => {
@@ -32,14 +33,14 @@ class AntmModal extends React.Component<ModalPropsType, any> {
   render() {
     const {
       title, closable, footer, children, style, animateAppear,
-      transparent, visible, onClose, bodyStyle, onAnimationEnd,
+      transparent, visible, onClose, bodyStyle, onAnimationEnd, styles,
     } = this.props;
 
-    const btnGroupStyle = footer && footer.length === 2 ? modalStyle.buttnGroupH : modalStyle.buttnGroupV;
-    const buttonWrapStyle = footer && footer.length === 2 ? modalStyle.buttnWrapH : modalStyle.buttnWrapV;
+    const btnGroupStyle = footer && footer.length === 2 ? styles.buttnGroupH : styles.buttnGroupV;
+    const buttonWrapStyle = footer && footer.length === 2 ? styles.buttnWrapH : styles.buttnWrapV;
 
     const footerDom = footer && footer.length ? (
-      <View style={[btnGroupStyle, modalStyle.footerRadius]}>
+      <View style={[btnGroupStyle, styles.footerRadius]}>
         {
           footer.map((button: any, i) => {
             let buttonStyle = {};
@@ -64,7 +65,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
                 }
               }}>
                 <View style={[buttonWrapStyle]}>
-                  <Text style={[modalStyle.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
+                  <Text style={[styles.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
                 </View>
               </TouchableHighlight>
             );
@@ -82,20 +83,20 @@ class AntmModal extends React.Component<ModalPropsType, any> {
         <RCModal
           onClose={this.onMaskClose}
           animationType={animType}
-          wrapStyle={transparent ? modalStyle.container : undefined}
-          style={[modalStyle.innerContainer, style]}
+          wrapStyle={transparent ? styles.container : undefined}
+          style={[styles.innerContainer, style]}
           visible={visible}
           onAnimationEnd={onAnimationEnd}
           animateAppear={animateAppear}
         >
           <View style={{flex: 1}}>
-            {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}
-            <View style={[modalStyle.body, bodyStyle]}>{children}</View>
+            {title ? <Text style={[styles.header]}>{title}</Text> : null}
+            <View style={[styles.body, bodyStyle]}>{children}</View>
             {footer ? <View>{footerDom}</View> : null}
-            {closable ? <View style={[modalStyle.closeWrap]}>
+            {closable ? <View style={[styles.closeWrap]}>
               <TouchableWithoutFeedback onPress={onClose}>
                 <View>
-                  <Text style={[modalStyle.close]}>×</Text>
+                  <Text style={[styles.close]}>×</Text>
                 </View>
               </TouchableWithoutFeedback>
             </View> : null}

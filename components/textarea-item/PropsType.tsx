@@ -29,6 +29,7 @@ interface TextAreaItemProps {
   /** rn only */
   keyboardType?: string;
   last?: boolean;
+  styles?: any;
 }
 
 export default TextAreaItemProps;

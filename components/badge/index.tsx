@@ -9,10 +9,11 @@ export default class Badge extends React.Component<BadgeProps, any> {
     overflowCount: 99,
     corner: false,
     dot: false,
+    styles: BadgeStyle,
   };
 
   render() {
-    const {size, overflowCount, corner, dot, text, children, style} = this.props;
+    const {size, overflowCount, corner, dot, text, children, styles, style} = this.props;
 
     const overflowNum = overflowCount || 99;
     const badgeText = typeof text === 'number' && text > overflowNum ? `${overflowNum}+` : text;
@@ -20,19 +21,19 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const badgeCls = corner ? 'textCorner' : 'textDom';
 
     return (
-      <View style={[ BadgeStyle.wrap, style ]}>
-        <View style={ [BadgeStyle[`${badgeCls}Wrap`]] }>
+      <View style={[ styles.wrap, style ]}>
+        <View style={ [styles[`${badgeCls}Wrap`]] }>
           {children}
           {
             !dot ? (
               <TouchableWithoutFeedback>
-                <View style={ [BadgeStyle[badgeCls], BadgeStyle[`${badgeCls}${size}`]] }>
-                  <Text style={ [BadgeStyle.text] }>{badgeText}</Text>
+                <View style={ [styles[badgeCls], styles[`${badgeCls}${size}`]] }>
+                  <Text style={ [styles.text] }>{badgeText}</Text>
                 </View>
               </TouchableWithoutFeedback>
             ) : (
               <TouchableWithoutFeedback>
-                <View style={ [BadgeStyle.dot, BadgeStyle[`dotSize${size}`] ] } />
+                <View style={ [styles.dot, styles[`dotSize${size}`] ] } />
               </TouchableWithoutFeedback>
             )
           }

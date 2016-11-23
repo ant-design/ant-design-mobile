@@ -11,6 +11,8 @@ interface SwipeActionProps {
   prefixCls?: string;
   className?: string;
   onClose?: () => void;
+  /** rn android only**/
+  styles?: any;
 }
 
 export default SwipeActionProps;

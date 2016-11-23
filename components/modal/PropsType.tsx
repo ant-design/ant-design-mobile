@@ -13,6 +13,7 @@ interface ModalProps {
   animationType?: any;
   onAnimationEnd?: (visible: boolean) => void;
   animateAppear?: boolean;
+  styles?: any;
   /** web only */
   prefixCls?: string;
   transitionName?: string;

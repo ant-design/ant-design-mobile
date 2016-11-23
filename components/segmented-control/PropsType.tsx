@@ -12,6 +12,8 @@ interface SegmentedControlProps {
   prefixCls?: string;
   className?: string;
   touchFeedback?: boolean;
+  /* rn android only */
+  styles?: any;
 }
 
 export default SegmentedControlProps;

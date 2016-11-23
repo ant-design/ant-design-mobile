@@ -12,6 +12,7 @@ export default class Modal extends React.Component<TagProps, any> {
     onClose() {},
     afterClose() {},
     onChange() {},
+    styles: TagStyle,
   };
 
   closeDom: any;
@@ -58,46 +59,48 @@ export default class Modal extends React.Component<TagProps, any> {
   }
 
   onPressIn = () => {
+    const styles = this.props.styles;
     this.closeDom.setNativeProps({
-      style: [TagStyle.close, Platform.OS === 'ios' ? TagStyle.closeIOS : TagStyle.closeAndroid, {
+      style: [styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid, {
         backgroundColor: '#888',
       }],
     });
   }
 
   onPressOut = () => {
+    const styles = this.props.styles;
     this.closeDom.setNativeProps({
-      style: [TagStyle.close, Platform.OS === 'ios' ? TagStyle.closeIOS : TagStyle.closeAndroid],
+      style: [styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid],
     });
   }
 
   render() {
-    const {children, disabled, small, closable, style} = this.props;
+    const {children, disabled, small, closable, styles, style} = this.props;
     const selected = this.state.selected;
 
     let wrapStyle;
     let textStyle;
     if (!selected && !disabled) {
-      wrapStyle = TagStyle.normalWrap;
-      textStyle = TagStyle.normalText;
+      wrapStyle = styles.normalWrap;
+      textStyle = styles.normalText;
     }
     if (selected && !disabled) {
-      wrapStyle = TagStyle.activeWrap;
-      textStyle = TagStyle.activeText;
+      wrapStyle = styles.activeWrap;
+      textStyle = styles.activeText;
     }
     if (disabled) {
-      wrapStyle = TagStyle.disabledWrap;
-      textStyle = TagStyle.disabledText;
+      wrapStyle = styles.disabledWrap;
+      textStyle = styles.disabledText;
     }
 
-    const sizeWrapStyle = small ? TagStyle.wrapSmall : {};
-    const sizeTextStyle = small ? TagStyle.textSmall : {};
+    const sizeWrapStyle = small ? styles.wrapSmall : {};
+    const sizeTextStyle = small ? styles.textSmall : {};
 
     return !this.state.closed ? (
-      <View style={[ TagStyle.tag, style ]}>
+      <View style={[ styles.tag, style ]}>
         <TouchableWithoutFeedback onPress={this.onClick}>
-          <View style={[TagStyle.wrap, sizeWrapStyle, wrapStyle]}>
-            <Text style={[TagStyle.text, sizeTextStyle, textStyle]}>{children} </Text>
+          <View style={[styles.wrap, sizeWrapStyle, wrapStyle]}>
+            <Text style={[styles.text, sizeTextStyle, textStyle]}>{children} </Text>
           </View>
         </TouchableWithoutFeedback>
         { closable && !small && !disabled && <TouchableWithoutFeedback
@@ -107,8 +110,8 @@ export default class Modal extends React.Component<TagProps, any> {
         >
           <View
             ref={component => this.closeDom = component}
-            style={[TagStyle.close, Platform.OS === 'ios' ? TagStyle.closeIOS : TagStyle.closeAndroid]}>
-            <Text style={[TagStyle.closeText, Platform.OS === 'android' ? TagStyle.closeTransform : {}]}>×</Text>
+            style={[styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid]}>
+            <Text style={[styles.closeText, Platform.OS === 'android' ? styles.closeTransform : {}]}>×</Text>
           </View>
         </TouchableWithoutFeedback> }
       </View>

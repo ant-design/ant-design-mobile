@@ -7,11 +7,14 @@ import tsPropsType from './PropsType';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 
 export default class DatePicker extends React.Component<tsPropsType, any> {
-  static defaultProps = assign({triggerType: 'onClick'}, getDefaultProps());
+  static defaultProps = assign({
+    triggerType: 'onClick',
+    styles: PopupStyles,
+  }, getDefaultProps());
 
   render() {
     const {props} = this;
-    const {children, extra, value, defaultDate} = props;
+    const {children, extra, value, defaultDate, styles} = props;
     const extraProps = {
       extra: value ? formatFn(this, value) : extra,
     };
@@ -27,7 +30,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     return (
       <PopupDatePicker
         datePicker={dataPicker}
-        styles={PopupStyles}
+        styles={styles}
         {...props}
         date={value || defaultDate}
       >

@@ -13,6 +13,7 @@ interface DatePickerProps {
   locale?: any;
   /** rn only */
   triggerTypes?: string;
+  styles?: any;
   /** web only */
   prefixCls?: string;
   pickerPrefixCls?: string;

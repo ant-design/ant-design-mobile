@@ -12,6 +12,8 @@ export interface RadioProps {
   className?: string;
   name?: string;
   wrapLabel?: boolean;
+  /** rn only**/
+  styles?: any;
 }
 
 export interface RadioItemProps extends RadioProps {

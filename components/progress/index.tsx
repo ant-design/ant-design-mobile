@@ -9,6 +9,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
     position: 'normal',
     unfilled: 'show',
     appearTransition: false,
+    styles: ProgressStyle,
   };
 
   constructor(props) {
@@ -57,22 +58,22 @@ export default class Progress extends React.Component<ProgressProps, any> {
   }
 
   render() {
-    const { position, unfilled, style } = this.props;
+    const { position, unfilled, style, styles } = this.props;
 
     const percentStyle = {
       width: this.getWidth(),
       height: 0,
     };
 
-    let child = <View style={[ProgressStyle.progressBar, style, percentStyle]} />;
+    let child = <View style={[styles.progressBar, style, percentStyle]} />;
     if (this.props.appearTransition) {
       percentStyle.width = this.state.percentage;
-      child = <Animated.View style={[ProgressStyle.progressBar, style, percentStyle]} />;
+      child = <Animated.View style={[styles.progressBar, style, percentStyle]} />;
     }
 
     return (<View onLayout={this.onLayout}
       style={[
-        ProgressStyle.progressOuter,
+        styles.progressOuter,
         position === 'fixed' ? { position: 'absolute', top: 0 } : null,
         unfilled === 'hide' ? { backgroundColor: 'transparent' } : null,
       ]}>
