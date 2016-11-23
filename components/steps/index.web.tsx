@@ -45,18 +45,18 @@ export default class Steps extends React.Component<StepsProps, any> {
 
             let iconName;
             let className;
+            let iconDom;
             if (!!item.props.icon) {
+              className = '';
               iconName = item.props.icon;
-              if (isString(iconName)) {
-                className = '';
-                if ( index > 0 && index <= current) {
-                  iconName = 'check-circle';
-                } else if (item.props.status === 'error') {
-                  iconName = 'cross-circle';
-                } else if(item.props.status === 'process') {
-                  iconName = 'check-circle';
-                }
+              if ( index > 0 && index <= current) {
+                iconName = 'check-circle';
+              } else if (item.props.status === 'error') {
+                iconName = 'cross-circle';
+              } else if(item.props.status === 'process') {
+                iconName = 'check-circle';
               }
+              iconDom = isString(iconName) ? <Icon type={iconName} /> : iconName;
             } else {
               className = index <= current ? '' : 'ellipsis-item';
               if (index <= current) {
@@ -66,11 +66,12 @@ export default class Steps extends React.Component<StepsProps, any> {
               } else {
                 iconName = 'ellipsis-circle';
               }
+              iconDom = <Icon type={iconName} />;
             }
 
             className = `${errorTailCls} ${className}`;
             return React.cloneElement(
-              item, {key: index, icon: <Icon type={iconName} />, className: className}
+              item, {key: index, icon: iconDom, className: className}
             );
           })
         }

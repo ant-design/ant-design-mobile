@@ -6,7 +6,8 @@ title: 结果页面中的步骤条
 结果页中的步骤条，根据业务设定步骤icon.
 
 ````jsx
-import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
+/* eslint global-require: 0 */
+import { Steps, WingBlank, WhiteSpace, Icon } from 'antd-mobile';
 
 const Step = Steps.Step;
 
@@ -15,28 +16,28 @@ ReactDOM.render(
     <WhiteSpace size="lg" />
     <WingBlank size="lg">
       <Steps>
-        <Step status="finish" title="步骤1" icon="pay-circle" />
-        <Step status="process" title="步骤2" icon="pay-circle" />
-        <Step status="error" title="步骤3" icon="pay-circle" />
+        <Step status="finish" title="步骤1" icon={<Icon type={require('./pay-circle.svg')} />} />
+        <Step status="process" title="步骤2" icon={<Icon type={require('./pay-circle.svg')} />} />
+        <Step status="error" title="步骤3" icon={<Icon type={require('./pay-circle.svg')} />} />
       </Steps>
     </WingBlank>
 
     <WhiteSpace size="lg" />
     <WingBlank size="lg">
       <Steps current={1}>
-        <Step title="步骤1" icon="pay-circle" description="这里是信息的描述" />
-        <Step title="步骤2" icon="pay-circle" description="这里是信息的描述" />
-        <Step title="步骤3" icon="pay-circle" description="这里是信息的描述" />
+        <Step title="步骤1" icon={<Icon type={require('./pay-circle.svg')} />} description="这里是信息的描述" />
+        <Step title="步骤2" icon={<Icon type={require('./pay-circle.svg')} />} description="这里是信息的描述" />
+        <Step title="步骤3" icon={<Icon type={require('./pay-circle.svg')} />} description="这里是信息的描述" />
       </Steps>
     </WingBlank>
 
     <WhiteSpace size="lg" />
     <WingBlank size="lg">
       <Steps current={1}>
-        <Step title="步骤1" icon="pay-circle" />
-        <Step title="步骤2" icon="pay-circle" />
-        <Step title="步骤3" status="error" icon="pay-circle" />
-        <Step title="步骤4" icon="pay-circle" />
+        <Step title="步骤1" icon={<Icon type={require('./pay-circle.svg')} />} />
+        <Step title="步骤2" icon={<Icon type={require('./pay-circle.svg')} />} />
+        <Step title="步骤3" status="error" icon={<Icon type={require('./pay-circle.svg')} />} />
+        <Step title="步骤4" icon={<Icon type={require('./pay-circle.svg')} />} />
       </Steps>
     </WingBlank>
 
