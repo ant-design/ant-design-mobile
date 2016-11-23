@@ -57,6 +57,7 @@ const Test = React.createClass({
       options: icons,
       // title: '标题',
       message: '我是描述我是描述',
+      className: 'my-action-sheet',
     },
     (buttonIndex) => {
       this.setState({ clicked1: buttonIndex > -1 ? icons[buttonIndex].title : 'cancel' });
@@ -73,6 +74,7 @@ const Test = React.createClass({
       options: icons,
       // title: '标题',
       message: '我是描述我是描述',
+      className: 'my-action-sheet',
     },
     (buttonIndex, rowIndex) => {
       this.setState({ clicked2: buttonIndex > -1 ? icons[rowIndex][buttonIndex].title : 'cancel' });
@@ -94,4 +96,9 @@ const Test = React.createClass({
 });
 
 ReactDOM.render(<Test />, mountNode);
+````
+````css
+.my-action-sheet .am-action-sheet-share-list-item-icon img {
+  max-width: 100%;
+}
 ````
