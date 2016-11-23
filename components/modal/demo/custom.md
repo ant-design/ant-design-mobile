@@ -81,7 +81,7 @@ ReactDOM.render(
   color: #333;
 }
 .modal-demo-content {
-  height: 350px;
+  height: 3.5rem;
   overflow: auto;
 }
 ````

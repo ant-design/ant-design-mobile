@@ -37,6 +37,6 @@ ReactDOM.render(<AccordionExmple />, mountNode);
 ````
 ````css
 .my-accordion .pad .am-accordion-content-box {
-  padding: 20px;
+  padding: 0.2rem;
 }
 ````
