@@ -43,10 +43,10 @@ ReactDOM.render(<IconItems />, mountNode);
 
 ````css
 .icon-item-wrap {
-  width: 150px;
+  width: 1.5rem;
   text-align: center;
   display: inline-block;
-  margin-bottom: 24px;
+  margin-bottom: 0.24rem;
 }
 .icon-item {
 	display: block;

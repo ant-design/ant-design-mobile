@@ -71,10 +71,10 @@ ReactDOM.render(
   transform: rotate(45deg);
   transform-origin: right bottom;
   right: 0;
-  top: 26px;
-  width: 100px;
+  top: 0.26rem;
+  width: 1rem;
 }
 .special-badge .am-badge-text {
-  border-radius: 2px;
+  border-radius: 0.02rem;
 }
 ````

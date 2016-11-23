@@ -81,14 +81,14 @@ const Test = React.createClass({
     });
   },
   render() {
-    return (<div style={{ margin: '0 15px' }}>
-      <div style={{ margin: '15px 0' }}>
+    return (<div style={{ margin: '0 0.15rem' }}>
+      <div style={{ margin: '0.15rem 0' }}>
         <Button type="ghost" onClick={this.showActionSheet}>默认状态</Button>
       </div>
-      <div style={{ margin: '15px 0' }}>
+      <div style={{ margin: '0.15rem 0' }}>
         <Button type="ghost" onClick={this.showShareActionSheet}>分享功能</Button>
       </div>
-      <div style={{ margin: '15px 0' }}>
+      <div style={{ margin: '0.15rem 0' }}>
         <Button type="ghost" onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能</Button>
       </div>
     </div>);
@@ -99,6 +99,6 @@ ReactDOM.render(<Test />, mountNode);
 ````
 ````css
 .my-action-sheet .am-action-sheet-share-list-item-icon img {
-  max-width: 100%;
+  width: 0.72rem;
 }
 ````
