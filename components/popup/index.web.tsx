@@ -94,6 +94,7 @@ export default class Popup {
     };
   }
   static show = (content, config) => {
+    Popup.hide();
     ins.defaultInstance = create('0', config, content, (iId) => {
       if (iId === '0') {
         ins.defaultInstance = null;
