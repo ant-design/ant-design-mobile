@@ -12,8 +12,8 @@ const PlaceHolder = (props) => (
     backgroundColor: '#ebebef',
     color: '#bbb',
     textAlign: 'center',
-    height: 60,
-    lineHeight: '60px',
+    height: '0.6rem',
+    lineHeight: '0.6rem',
     width: '100%',
   }} {...props}
   >Item</div>
@@ -45,7 +45,6 @@ const FlexExample = React.createClass({
 
         <div className="title">wrap 换行</div>
         <Flex wrap="wrap">
-          <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
@@ -102,18 +101,18 @@ ReactDOM.render(<FlexExample />, mountNode);
 ````
 ````css
 .flex-container {
-  padding: 18px;
+  padding: 0.18rem;
 }
 .flex-container .title {
   color: #888;
-  margin: 20px 0;
+  margin: 0.20rem 0;
 }
 .flex-container .inline {
-  width: 80px!important;
-  margin: 18px 18px 18px 0;
+  width: 1.6rem!important;
+  margin: 0.18rem 0.18rem 0.18rem 0;
 }
 .flex-container .small {
-  height: 40px!important;
-  line-height: 40px!important;
+  height: 0.4rem!important;
+  line-height: 0.4rem!important;
 }
 ```
