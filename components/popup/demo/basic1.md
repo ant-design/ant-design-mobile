@@ -69,7 +69,7 @@ ReactDOM.render(<Test />, mountNode);
 ````
 ````css
 .popup-list .am-list-body {
-  height: 420px;
+  height: 4.2rem;
   overflow: auto;
 }
 ````
