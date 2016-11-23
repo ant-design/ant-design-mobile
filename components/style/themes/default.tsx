@@ -50,7 +50,7 @@ export default {
   font_size_base: 13,
   font_size_subhead: 14,
   font_size_caption: 15,
-  font_size_heading: 17,
+  font_size_heading: 16,
   font_size_display_sm: 18,
   font_size_display_md: 21,
   font_size_display_lg: 24,

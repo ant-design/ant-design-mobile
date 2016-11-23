@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './style/index';
 
 function noop() {}
 
@@ -38,5 +37,4 @@ export const defaultProps = {
   showCancelButton: false,
   cancelText: '取消',
   disabled: false,
-  styles,
 };
