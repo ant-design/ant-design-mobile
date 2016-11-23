@@ -9,16 +9,16 @@ title: 横向滚动
 import { Table } from 'antd-mobile';
 
 const columns = [
-  { title: '姓名', dataIndex: 'a', key: 'a', width: 100 },
-  { title: '年龄', dataIndex: 'b', key: 'b', width: 100 },
-  { title: '身高', dataIndex: 'c', key: 'c', width: 100 },
-  { title: '体重', dataIndex: 'b', key: 'd', width: 100 },
-  { title: '爱好', dataIndex: 'b', key: 'e', width: 100 },
-  { title: '生日', dataIndex: 'b', key: 'f', width: 100 },
-  { title: '住址', dataIndex: 'b', key: 'g', width: 100 },
-  { title: '电话', dataIndex: 'b', key: 'h', width: 100 },
-  { title: '邮编', dataIndex: 'b', key: 'i', width: 100 },
-  { title: '其他', dataIndex: 'b', key: 'j', width: 100 },
+  { title: '姓名', dataIndex: 'a', key: 'a', width: '1rem' },
+  { title: '年龄', dataIndex: 'b', key: 'b', width: '1rem' },
+  { title: '身高', dataIndex: 'c', key: 'c', width: '1rem' },
+  { title: '体重', dataIndex: 'b', key: 'd', width: '1rem' },
+  { title: '爱好', dataIndex: 'b', key: 'e', width: '1rem' },
+  { title: '生日', dataIndex: 'b', key: 'f', width: '1rem' },
+  { title: '住址', dataIndex: 'b', key: 'g', width: '1rem' },
+  { title: '电话', dataIndex: 'b', key: 'h', width: '1rem' },
+  { title: '邮编', dataIndex: 'b', key: 'i', width: '1rem' },
+  { title: '其他', dataIndex: 'b', key: 'j', width: '1rem' },
 ];
 
 const data = [
