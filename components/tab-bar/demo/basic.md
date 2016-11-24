@@ -44,8 +44,8 @@ const TabBarExample = React.createClass({
         <TabBar.Item
           title="生活"
           key="生活"
-          icon={require('./TabBar_HomeBar_web.png')}
-          selectedIcon={require('./TabBar_HomeBar_Sel_web.png')}
+          icon={require('./alipay_web.png')}
+          selectedIcon={require('./alipay_web_sel.png')}
           selected={this.state.selectedTab === 'blueTab'}
           badge={1}
           onPress={() => {
@@ -77,14 +77,14 @@ const TabBarExample = React.createClass({
             <div style={{
               width: '0.44rem',
               height: '0.44rem',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/EljxLrJEShWZObW.png) center center /  0.44rem 0.35rem no-repeat' }}
+              background: 'url(https://zos.alipayobjects.com/rmsportal/WdEuTLJOVzeABZlKYLmJ.png) center center /  0.44rem 0.35rem no-repeat' }}
             />
           }
           selectedIcon={
             <div style={{
               width: '0.44rem',
               height: '0.44rem',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/LWNaMdwAFSmYBFw.png) center center /  0.44rem 0.35rem no-repeat' }}
+              background: 'url(https://zos.alipayobjects.com/rmsportal/sRkvMgIGXERtyRVyAsXP.png) center center /  0.44rem 0.35rem no-repeat' }}
             />
           }
           title="朋友"
@@ -99,8 +99,8 @@ const TabBarExample = React.createClass({
           {this.renderContent('朋友')}
         </TabBar.Item>
         <TabBar.Item
-          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/YWpPVCVOnJoCYhs.png' }}
-          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/WadBBxOIZtDzsgP.png' }}
+          icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/cKhfyLTszUeFARPgfokz.png' }}
+          selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/bqUXyjiOyKrXRfiIZVsZ.png' }}
           title="我的"
           key="我的"
           selected={this.state.selectedTab === 'yellowTab'}
