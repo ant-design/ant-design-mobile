@@ -13,6 +13,7 @@
   width: 100%;
   line-height: 1.5;
   .box-sizing();
+
   &-item {
     position: relative;
     display: inline-block;
@@ -57,7 +58,7 @@
       }
       .@{stepsPrefixCls}-tail > i {
         background-color: @brand-primary;
-        width: 55%;
+        width: 50%;
       }
     }
     &.@{stepsPrefixCls}-status-finish {
@@ -86,12 +87,6 @@
         > .@{stepsPrefixCls}-icon {
           color: @brand-error;
         }
-      }
-      .@{stepsPrefixCls}-tail > i:after {
-        width: 100%;
-        background: @brand-primary;
-        transition: all 0.4s ease;
-        opacity: 1;
       }
       .@{stepsPrefixCls}-title {
         color: @color-text-base;
@@ -122,7 +117,6 @@
         > .@{stepsPrefixCls}-icon {
           display: block;
           font-size: @defaultIconSize;
-          top: 4px;
           width: @defaultIconSize;
           height: @defaultIconSize;
           background-color: @fill-base;
@@ -139,6 +133,11 @@
         }
       }
     }
+
+    &.@{errorTailCls} .@{stepsPrefixCls}-tail {
+      background-color: @brand-error;
+    }
+
   }
 
   &-head,
@@ -175,11 +174,9 @@
       }
     }
   }
-  &-main {
-    margin-top: 6px;
-  }
+
   &-title {
-    font-size: @font-size-heading;
+    font-size: @font-size-caption;
     margin-bottom: 4px;
     font-weight: bold;
     display: inline-block;
@@ -199,8 +196,7 @@
     position: absolute;
     left: 0;
     width: 100%;
-    top: 26px;
-    padding: 0 20px;
+    top: 20px;
     > i {
       display: inline-block;
       vertical-align: top;
@@ -237,6 +233,7 @@
     }
     .@{stepsPrefixCls}-tail {
       padding: 0 8px;
+      width: 2px;
       > i {
         height: 1px;
         border-radius: 1px;
@@ -269,24 +266,11 @@
       }
     }
   }
-
-  &&-small &-item&-status-wait&-custom &-head-inner {
-    > .@{stepsPrefixCls}-icon {
-      font-size: 20px;
-      width: 28px;
-      height: 28px;
-      line-height: 28px;
-    }
-  }
 }
 
 .@{stepsPrefixCls}-vertical {
   .@{stepsPrefixCls}-item {
     display: block;
-  }
-
-  .@{errorTailCls} .@{stepsPrefixCls}-tail {
-    background-color: @brand-error;
   }
 
   .@{stepsPrefixCls}-tail {
@@ -335,7 +319,9 @@
 
 .@{stepsPrefixCls}-small .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
   height: 50%;
+  width: 2px;
 }
+
 
 .@{stepsPrefixCls}-vertical.@{stepsPrefixCls}-small {
   .@{stepsPrefixCls}-tail {
@@ -348,37 +334,19 @@
   }
 }
 
-.@{stepsPrefixCls}-pointer {
-  .@{stepsPrefixCls}-title {
-    font-size: 24px;
-  }
-}
-
-.@{stepsPrefixCls}-pointer {
-  &.@{stepsPrefixCls}-label-vertical {
-    .@{stepsPrefixCls}-tail {
-      left: 20px;
-      right: -4px;
-    }
-  }
-}
-
 .@{stepsPrefixCls}-horizontal {
-   &.@{stepsPrefixCls}-hidden {
+  &.@{stepsPrefixCls}-hidden {
      visibility: hidden;
   }
   .@{stepsPrefixCls}-description {
-    max-width: 200px;
-  }
-  .@{stepsPrefixCls}-item:not(:first-child) .@{stepsPrefixCls}-head {
-    padding-left: 20px;
-    margin-left: -20px;
+    max-width: 150px;
+    font-size: @font-size-caption-sm;
   }
 }
 
 .@{stepsPrefixCls}-label-vertical {
   .@{stepsPrefixCls}-tail {
-    left: 12px;
+    left: 60px;
     right: 0;
     width: auto;
     background-color: @border-color-base;
@@ -401,7 +369,7 @@
   }
   .@{stepsPrefixCls}-main {
     display: block;
-    margin-top: 10px;
+    margin-top: @v-spacing-sm;
     .@{stepsPrefixCls}-title {
       padding-right: 0;
     }
