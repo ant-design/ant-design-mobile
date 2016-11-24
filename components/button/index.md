@@ -3,6 +3,7 @@ category: Components
 type: Basic Components
 chinese: 按钮
 english: Button
+source: design
 ---
 
 点击后会触发一个操作。

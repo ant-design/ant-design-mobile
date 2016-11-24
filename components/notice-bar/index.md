@@ -3,6 +3,7 @@ category: Components
 type: Basic Components
 chinese: 通告栏
 english: NoticeBar
+source: design
 ---
 
 在导航栏下方，一般用作系统提醒、活动提醒等通知。

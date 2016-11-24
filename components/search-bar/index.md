@@ -3,6 +3,7 @@ category: Components
 type: Basic Components
 chinese: 搜索栏
 english: SearchBar
+source: design
 ---
 
 

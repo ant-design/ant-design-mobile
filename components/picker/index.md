@@ -3,6 +3,7 @@ category: Components
 type: Form
 chinese: 选择器
 english: Picker
+source: design
 ---
 
 在一组预设值中进行选择，eg：省市区选择。

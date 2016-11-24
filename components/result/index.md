@@ -2,6 +2,7 @@
 category: Components
 type: Basic Components
 chinese: 结果页
+source: design
 english: Result
 ---
 

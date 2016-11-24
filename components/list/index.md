@@ -3,6 +3,7 @@ category: Components
 type: Basic Components
 chinese: 列表
 english: List
+source: design
 ---
 
 

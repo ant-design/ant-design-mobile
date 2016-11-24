@@ -3,6 +3,7 @@ category: Components
 type: Others
 chinese: 下拉刷新
 english: RefreshControl
+source: design
 ---
 
 通过触发，立刻重新加载内容。
