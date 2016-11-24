@@ -10,6 +10,7 @@ export default {
   // 文字色
   color_text_base: '#000',                  // 基本
   color_text_base_inverse: '#fff',          // 基本 _ 反色
+  color_text_secondary: '#a4a9b0',          // 辅助色
   color_text_placeholder: '#ccc',           // 文本框提示
   color_text_disabled: '#bbb',              // 失效
   color_text_caption: '#888',               // 辅助描述
@@ -149,6 +150,7 @@ export default {
   segmented_control_fill_tap: `${brandPrimary}10`,
 
   // tab_bar
+  tab_bar_fill: '#ebeeef',
   tab_bar_height: 50,
 
   // search_bar
