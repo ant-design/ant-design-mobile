@@ -68,7 +68,7 @@ export default class App extends React.Component {
       <div className="am-demo-hd">
         <div className="logo" />
         <h1 className="am-demo-title">Ant Design Mobile</h1>
-        <h2 className="am-demo-subtitle">服务于蚂蚁大中台无线业务的react组件</h2>
+        <h2 className="am-demo-subtitle">服务于蚂蚁大中台无线业务的 React 组件</h2>
       </div>
       <div className="am-demo-bd">
         {
