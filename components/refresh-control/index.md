@@ -15,16 +15,11 @@ source: design
 
 ## API (web)
 
-| 成员        | 说明           | 类型      | 默认值       |
-|------------|----------------|--------------------|--------------|
-| children   | 内容      | any |    无  |
-| className | 容器className | String | - |
-| style | 容器style | object | - |
-| icon   | 刷新指示icon   | React element |  `...` |
-| loading   | 加载指示器   | React element |  anticon-loading |
-| distanceToRefresh   |   刷新距离    | number |    50  |
-| onRefresh   |   刷新回调函数   | function, required |  -  |
-| refreshing   | 是否显示刷新状态    | boolean |    false  |
+- icon (React.Element) - 刷新指示icon, 包含 `pull` and `release` 状态
+- loading (React.Element) - 加载指示器
+- distanceToRefresh (number, default 50) - 刷新距离
+- onRefresh (function, required) - 刷新回调函数
+- refreshing (boolean, false) - 是否显示刷新状态
 
 ## API (ios/android)
 见此：https://facebook.github.io/react-native/docs/refreshcontrol.html#props

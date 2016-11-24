@@ -56,7 +56,7 @@
     "react-timer-mixin": "~0.13.3",
     "rmc-cascader": "3.0.x",
     "rmc-date-picker": "5.0.x",
-    "rmc-list-view": "~0.7.0-beta.4",
+    "rmc-list-view": "~0.7.0",
     "rmc-picker": "3.4.x",
     "rn-topview": "^0.1.0",
     "zscroller": "~0.2.2"
