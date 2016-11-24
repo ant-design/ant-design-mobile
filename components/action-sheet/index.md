@@ -3,6 +3,7 @@ category: Components
 type: Operation Feedback
 chinese: 动作面板
 english: ActionSheet
+source: design
 ---
 
 从底部浮出的模态，提供和当前场景相关的 2 个以上操作或者更多描述内容。

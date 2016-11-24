@@ -4,6 +4,7 @@ type: Basic Components
 chinese: 步骤条
 cols: 1
 english: Steps
+source: design
 ---
 
 

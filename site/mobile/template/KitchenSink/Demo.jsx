@@ -80,7 +80,7 @@ export default class Home extends React.Component {
     return (
       <div id={name} style={style} className="demo">
         <div className="demoName">
-          <a className="icon" href="/" />
+          <a className="icon" href={`/${window.location.search}`} />
           {demoMeta.english}
           <span className="ch">{demoMeta.chinese}</span>
         </div>

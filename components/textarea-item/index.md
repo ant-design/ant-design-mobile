@@ -3,6 +3,7 @@ category: Components
 type: Form
 chinese: 多行输入
 english: TextareaItem
+source: design
 ---
 
 

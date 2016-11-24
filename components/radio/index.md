@@ -3,6 +3,7 @@ category: Components
 type: Form
 chinese: 单选框
 english: Radio
+source: design
 ---
 
 单选框

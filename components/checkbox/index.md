@@ -3,6 +3,7 @@ category: Components
 type: Form
 chinese: 复选框
 english: Checkbox
+source: design
 ---
 
 复选框
