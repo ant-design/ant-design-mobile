@@ -39,7 +39,10 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
   // 去掉 am-popup-wrap 设置的 `position: fixed; top: 0; bottom: 0; ...` 样式，并给 am-popup 设置 z-index .
   // 另外不使用 rc-dialog 提供的 maskClosable 功能，而改为在这里实现
   const maskProps = {
-    onTouchStart: e => e.preventDefault(),
+    onTouchStart: (e) => {
+      e.preventDefault();
+      maskProps.onClick(); // fix Android
+    },
     onClick: () => {
       if (maskClosable) {
         close();
