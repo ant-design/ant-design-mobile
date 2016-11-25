@@ -10,7 +10,7 @@ source: design
 
 ### 规则
 - 只能和 ListView 结合使用，不能单独使用。
-- 可考虑定期自动刷新，eg：登录 app 后，自动刷新首页 List。
+- 可考虑定期自动刷新，eg：登录 APP 后，自动刷新首页 List。
 
 
 ## API (web)

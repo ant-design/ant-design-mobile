@@ -6,10 +6,10 @@ english: Flex
 ---
 
 
-Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
+Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
 
 ### 规则
-- Flex布局的相关知识请先阅读阮一峰的博客
+- Flex 布局的相关知识请先阅读阮一峰的博客
 [Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
 
@@ -27,4 +27,4 @@ Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提�
 
 ### Flex.Item
 
-Flex.Item组件默认加上了样式`flex:1`,保证所有item平均分宽度,Flex容器的children不一定是Flex.Item
+Flex.Item 组件默认加上了样式`flex:1`,保证所有 item 平均分宽度, Flex 容器的 children 不一定是 Flex.Item

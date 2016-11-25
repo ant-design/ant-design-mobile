@@ -19,7 +19,7 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 (v0.26).
 
 #### 不支持的特性
-> 一般情况下，不支持“平台特有”的API，例如`android`endFillColor、`ios`alwaysBounceHorizontal。
+> 一般情况下，不支持“平台特有”的API，例如`android`endFillColor、`iOS`alwaysBounceHorizontal。
 另外，使用 css 代替 react-native 的 style 设置方式。
 
 - onChangeVisibleRows

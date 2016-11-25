@@ -19,7 +19,7 @@ english: Popup
 `options`可选项：
 
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
-- animationType (string) - 可选`slide-down`(默认)、`slide-up` 弹出动画类型
+- animationType (string) - 可选 `slide-down` (默认)、`slide-up` 弹出动画类型
 - transitionName (string) (web) 自定义显示隐藏变换动画
 - maskTransitionName (string) (web) 自定义遮罩层变换动画
 

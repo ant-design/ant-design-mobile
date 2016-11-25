@@ -20,7 +20,7 @@ english: Carousel
 |------------------|----------------------------------------------|----------|---------------------------------|
 | selectedIndex |  手动设置当前显示的索引  |  number  |  0  |
 | dots | 是否显示面板指示点 | Boolean   | true |
-| vertical | 垂直显示(web为内容，rn为pagination) | Boolean   | false |
+| vertical | 垂直显示(web 为内容，rn 为 pagination) | Boolean   | false |
 | autoplay | 是否自动切换 | Boolean   | false |
 | infinite | 是否循环播放 | Boolean   | false |
 | easing (`web only`) | 动画效果 | String   | linear |

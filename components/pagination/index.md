@@ -19,6 +19,6 @@ english: Pagination
 |  total  | 数据总数 | number  |  0  |
 |  simple  | 是否显示数值 | boolean | true  |
 |  disabled  | 禁用状态 | boolean | false  |
-|  prevText  | prev文字，可选`string`,`React.Element` | string | `Prev`  |
-|  nextText  | next文字，可选`string`,`React.Element` | string | `Next`  |
-|  onChange | change事件触发的回调函数，参数是event对象 | function | 无 |
+|  prevText  | prev 文字，可选`string`,`React.Element` | string | `Prev`  |
+|  nextText  | next 文字，可选`string`,`React.Element` | string | `Next`  |
+|  onChange | change 事件触发的回调函数，参数是 event 对象 | function | 无 |

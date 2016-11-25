@@ -23,12 +23,12 @@ source: design
 | defaultValue |    搜索框的默认值     | String |    |
 | value    |    搜索框的当前值     | String |    |
 | placeholder    |    placeholder     | String |    |
-| onSubmit    |    点击键盘的enter会触发submit事件     | Func |    |
-| onChange    |    change事件的回调     | Func |    |
-| onFocus    |    focus事件的回调     | Func |    |
-| onBlur    |    blur事件的回调     | Func |    |
-| onClear    |    点击clear图标     | Func |    |
-| onCancel    |    点击`取消`链接,只会触发onCancel事件,组件不再主动清除内部的value以及触发onChange事件。     | Func |    |
+| onSubmit    |    点击键盘的 enter 会触发 submit 事件     | Func |    |
+| onChange    |    change 事件的回调     | Func |    |
+| onFocus    |    focus 事件的回调     | Func |    |
+| onBlur    |    blur 事件的回调     | Func |    |
+| onClear    |    点击 clear 图标     | Func |    |
+| onCancel    |    点击`取消`链接,只会触发 onCancel 事件,组件不再主动清除内部的 value 以及触发 onChange 事件。     | Func |    |
 | showCancelButton    |    是否一直显示`取消`按钮     | bool |  `false`  |
 | cancelText    |   定制`取消`按钮的文字,     | String |  `取消`  |
 | disabled    |    禁用搜索栏,搜索栏只用于显示     | bool |  `false`  |

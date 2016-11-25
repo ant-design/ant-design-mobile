@@ -3,7 +3,7 @@ order: 1
 title: 结果页面中的步骤条
 ---
 
-结果页中的步骤条，根据业务设定步骤icon.
+结果页中的步骤条，根据业务设定步骤 icon.
 
 ````jsx
 /* eslint global-require: 0 */

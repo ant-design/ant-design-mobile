@@ -12,15 +12,15 @@ source: design
 ### 规则
 - 只在 List 中使用。
 - 避免增加额外的文案来描述当前 Switch 的值。
-- 可调整 Switch 的样式来满足 app 的视觉风格。
+- 可调整 Switch 的样式来满足 APP 的视觉风格。
 
 
 ## API
 
 | 成员        | 说明           | 类型         | 默认值       |
 |------------|----------------|-------------|--------------|
-| name(web)  | switch的name    | String   |      |
+| name(web)  | switch 的 name    | String   |      |
 | checked    | 是否默认选中    | Boolean       |   false  |
 | disabled   | 是否不可修改    | Boolean       |   false  |
 | onTintColor   | 选中滑块背景色 | String       |  #4dd865  |
-| onChange   | change事件触发的回调函数,参数是checked的值 | Function |  无  |
+| onChange   | change 事件触发的回调函数,参数是 checked 的值 | Function |  无  |

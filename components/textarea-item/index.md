@@ -21,8 +21,8 @@ source: design
 |------------|----------------|-----------------|--------------|
 | prefixListCls    |   列表 className 前缀      | String |  `am-list`  |
 | title    | 文案说明        | String/node |  '' |
-| name    | textarea的name       | String |   -  |
-| value    | value值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
+| name    | textarea 的 name       | String |   -  |
+| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
 | editable    | 是否可编辑        | bool |  true  |
@@ -30,10 +30,10 @@ source: design
 | clear      |   是否带清除功能      | bool |  true  |
 | rows      |   显示几行      | number |   1 |
 | count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
-| onChange    | change事件触发的回调函数 | Function(val) |  -  |
-| onBlur     | blur事件触发的回调函数 | Function(val) |   -  |
-| onFocus    | focus事件触发的回调函数 | Function(val) |  -  |
+| onChange    | change 事件触发的回调函数 | Function(val) |  -  |
+| onBlur     | blur 事件触发的回调函数 | Function(val) |   -  |
+| onFocus    | focus 事件触发的回调函数 | Function(val) |  -  |
 | error       | 报错样式        | bool |  false  |
-| onErrorClick       | 点击报错icon触发的回调   | Function |  无  |
-| autoHeight       | 高度自适应, autoHeight和rows请二选一    | bool  | false  |
-| labelNumber   | 标签label字数（可选`2`, `3`, `4`, `5`, `6`, `7`） | number | `4`  |
+| onErrorClick       | 点击报错 icon 触发的回调   | Function |  无  |
+| autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
+| labelNumber   | 标签 label 字数（可选`2`, `3`, `4`, `5`, `6`, `7`） | number | `4`  |
