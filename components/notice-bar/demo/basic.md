@@ -17,7 +17,7 @@ const NoticeBarExample = React.createClass({
       <div>
         <WhiteSpace size="lg" />
         <NoticeBar mode="closable" onClick={this.onClick}>
-          国庆期间余额宝收益和转出到账时间
+          国庆期间余额宝收益和转出到账时间通知：由于国庆到来，余额宝收益到账将延迟，特此通知
         </NoticeBar>
         <WhiteSpace size="lg" />
         <NoticeBar mode="link" onClick={this.onClick}>
