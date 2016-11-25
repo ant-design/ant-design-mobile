@@ -9,6 +9,8 @@ export interface ListProps {
   children?: any;
   renderHeader?: Function;
   renderFooter?: Function;
+  /** rn only */
+  styles?: any;
 }
 
 export interface ListItemProps {
@@ -28,9 +30,15 @@ export interface ListItemProps {
   children?: any;
   wrap?: boolean;
   line?: number;
+  /** rn only */
+  styles?: any;
+  onPressIn?: (e?: any) => void;
+  onPressOut?: (e?: any) => void;
 }
 
 export interface BriefProps {
   style?: React.CSSProperties;
   children?: any;
+  /** rn only */
+  styles?: any;
 }

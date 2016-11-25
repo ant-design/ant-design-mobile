@@ -1,96 +1,71 @@
 import React from 'react';
-import { Image, View, Platform, TouchableHighlight, Text, StyleSheet } from 'react-native';
-import variables from '../style/themes/default';
-import theme from './style/index';
+import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
 import { ListItemProps, BriefProps } from './PropsType';
+import listItemStyles from './style/index';
+import variables from '../style/themes/default';
 
-const styles = StyleSheet.create({
-  column: {
-    flex: 1,
-    flexDirection: 'column',
-  } as any,
-  textAlignRight: {
-    textAlign: 'right',
-  },
-});
-
-const THEMES = theme.ThemesList;
+function noop() {
+}
 
 class Brief extends React.Component<BriefProps, any> {
   render() {
-    const { children, style } = this.props;
+    const { children, style, styles = listItemStyles } = this.props;
     return (
-      <View style={{
-      marginTop: variables.v_spacing_sm,
-      height: variables.font_size_subhead,
-    }}>
-        <Text
-          style={[THEMES.Brief, style]}
-          numberOfLines={1}
-        >
-          {children}
-        </Text>
-      </View>);
+      <View style={[styles.Brief]}>
+        <Text style={[styles.BriefText, style]} numberOfLines={1}>{children}</Text>
+      </View>
+    );
   }
 }
 
 export default class Item extends React.Component<ListItemProps, any> {
   static defaultProps = {
+    error: false,
     multipleLine: false,
+    wrap: false,
   };
-
   static Brief: any;
-
-  timer: any;
-
   render() {
-    let line = 1;
-    let thumbDom: React.ReactNode | null = null;
-    let contentDom: React.ReactNode | null = null;
-    let extraDom: React.ReactNode | null = null;
-    let arrowDom: React.ReactNode | null = null;
-    let thumb = this.props.thumb;
+    const {
+      styles = listItemStyles,
+      children, multipleLine, thumb, extra, arrow = '', style,
+      onClick = noop, onPressIn = noop, onPressOut = noop,
+    } = this.props;
 
-    if (thumb) {
-      if (typeof thumb === 'string') {
-        thumbDom = (
-          <Image
-            source={{ uri: thumb }}
-            style={[THEMES.Thumb,
-            this.props.multipleLine ? THEMES.multipleLine.Thumb : null,
-          ]}
-          />);
-      } else {
-        thumbDom = thumb;
-      }
-    }
-    if (Array.isArray(this.props.children)) {
+    let line = 1;
+    let contentDom;
+    if (Array.isArray(children)) {
       const tempContentDom: any[] = [];
-      this.props.children.forEach((el, index) => {
+      children.forEach((el, index) => {
         if (React.isValidElement(el)) {
           tempContentDom.push(el);
         } else {
-          tempContentDom.push(<Text style={THEMES.Content} numberOfLines={1} key={`${index}-children`}>{el}</Text>);
+          tempContentDom.push(<Text style={[styles.Content]} numberOfLines={1} key={`${index}-children`}>{el}</Text>);
         }
       });
-
-      line = this.props.children.length;
-
-      contentDom = <View style={styles.column}>{tempContentDom}</View>;
+      line = children.length;
+      contentDom = <View style={[styles.column]}>{tempContentDom}</View>;
     } else {
-      if (React.isValidElement(this.props.children)) {
-        contentDom = <View style={styles.column}>{this.props.children}</View>;
+      if (React.isValidElement(children)) {
+        contentDom = <View style={[styles.column]}>{children}</View>;
       } else {
         contentDom = (
-          <View style={styles.column}>
-            <Text style={THEMES.Content} numberOfLines={1}>{this.props.children}</Text>
-          </View>);
+          <View style={[styles.column]}>
+            <Text style={[styles.Content]} numberOfLines={1}>{children}</Text>
+          </View>
+        );
       }
     }
 
-    if (this.props.extra) {
-      if (React.isValidElement(this.props.extra)) {
-        const extraChildren = (this.props.extra.props as any).children;
+    let extraDom;
+    if (extra) {
+      extraDom = (
+        <View style={[styles.column]}>
+          <Text style={[styles.Extra]} numberOfLines={1}>{extra}</Text>
+        </View>
+      );
+      if (React.isValidElement(extra)) {
+        const extraChildren = (extra.props as any).children;
         if (Array.isArray(extraChildren)) {
           const tempExtraDom: any[] = [];
           extraChildren.forEach((el, index) => {
@@ -98,46 +73,25 @@ export default class Item extends React.Component<ListItemProps, any> {
               tempExtraDom.push(
                 <Text
                   numberOfLines={1}
-                  style={[THEMES.Extra, styles.textAlignRight]}
+                  style={[styles.Extra]}
                   key={`${index}-children`}
                 >
                   {el}
-                </Text>);
+                </Text>
+              );
             } else {
               tempExtraDom.push(el);
             }
           });
-
           line = extraChildren.length > line ? extraChildren.length : line;
-
           extraDom = (
-            <View style={styles.column}>
+            <View style={[styles.column]}>
               {tempExtraDom}
-            </View>);
+            </View>
+          );
         } else {
-          extraDom = this.props.extra;
+          extraDom = extra;
         }
-      } else {
-        extraDom = (
-          <View style={styles.column}>
-            <Text style={[THEMES.Extra, styles.textAlignRight]} numberOfLines={1}>{this.props.extra}</Text>
-          </View>);
-      }
-    }
-    if (this.props.arrow) {
-      switch (this.props.arrow) {
-        case 'horizontal':
-          arrowDom = <Image source={require('../style/images/arrow.png')} style={THEMES.Arrow} />;
-          break;
-        case 'down':
-          arrowDom = <Image source={require('../style/images/arrow-up.png')} style={THEMES.ArrowV} />;
-          break;
-        case 'up':
-          arrowDom = <Image source={require('../style/images/arrow-down.png')} style={THEMES.ArrowV} />;
-          break;
-        default:
-          arrowDom = <View style={THEMES.Arrow} />;
-          break;
       }
     }
 
@@ -162,47 +116,39 @@ export default class Item extends React.Component<ListItemProps, any> {
       }
     }
 
-    const ItemStyle = [
-      THEMES.Item,
-      line > 1 ? { height: itemHeight } : {},
-      this.props.style,
-    ];
-
-    const LineStyle = [
-      THEMES.Line,
-      this.props.multipleLine ? THEMES.multipleLine.Line : {},
-    ];
+    const arrEnum = {
+      horizontal: <Image source={require('../style/images/arrow.png')} style={styles.Arrow} />,
+      down: <Image source={require('../style/images/arrow-down.png')} style={styles.ArrowV} />,
+      up: <Image source={require('../style/images/arrow-up.png')} style={styles.ArrowV} />,
+    };
 
     const itemView = (
-      <View
-        {...this.props}
-        style={ItemStyle}
-      >
-        {thumbDom}
-        <View
-          style={LineStyle}
-        >
+      <View {...this.props} style={[styles.Item, line > 1 && { height: itemHeight }, style]}>
+        {typeof thumb === 'string' ? (
+          <Image
+            source={{ uri: thumb }}
+            style={[styles.Thumb, multipleLine && styles.multipleLine.Thumb]}
+          />
+        ) : thumb}
+        <View style={[styles.Line, multipleLine && styles.multipleLine.Line]}>
           {contentDom}
           {extraDom}
-          {arrowDom}
+          {arrEnum[arrow] || <View style={styles.Arrow} />}
         </View>
-      </View>);
+      </View>
+    );
 
-    if (this.props.onClick) {
-      return (
-        <TouchableHighlight
-          activeOpacity={1}
-          underlayColor={THEMES.underlayColor}
-          onPress={this.props.onClick}
-          onPressIn={() => {}}
-          onPressOut={() => {}}
-        >
-          {itemView}
-        </TouchableHighlight>
-      );
-    }
-
-    return itemView;
+    return (
+      <TouchableHighlight
+        activeOpacity={1}
+        underlayColor={styles.underlayColor}
+        onPress={onClick}
+        onPressIn={onPressIn}
+        onPressOut={onPressOut}
+      >
+        {itemView}
+      </TouchableHighlight>
+    );
   }
 }
 
