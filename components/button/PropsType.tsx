@@ -15,6 +15,7 @@ interface ButtonProps {
   onPressOut?: (x: any) => void;
   onShowUnderlay?: (x: any) => void;
   onHideUnderlay?: (x: any) => void;
+  styles?: any;
 }
 
 export default ButtonProps;
