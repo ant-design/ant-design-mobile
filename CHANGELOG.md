@@ -3,6 +3,16 @@ order: 2
 english: 更新日志
 ---
 
+### 0.9.10
+
+`2016-11-25`
+
+- 重构 SearchBar ，改为模拟的 placeholder 实现，并将其默认居中对齐
+- 修复 Popup 组件点击遮罩层不会自动关闭 #555 #558
+- 更正 RefreshControl 文档；修复部分组件 demo 在 pc 和 mobile 上展示不一致问题
+- 修复 Toast 在 Modal 中使用被覆盖问题 #547
+- 优化 Button、List 代码的 rn 实现；修正部分 demo 细节问题
+
 ### 0.9.9
 
 `2016-11-18`
