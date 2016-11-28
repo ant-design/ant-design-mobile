@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.0.0-alpha.22",
+  "version": "1.0.0-alpha.23",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -57,7 +57,7 @@
     "rmc-cascader": "3.0.x",
     "rmc-date-picker": "5.0.x",
     "rmc-list-view": "~0.7.0",
-    "rmc-picker": "3.4.x",
+    "rmc-picker": "3.5.x",
     "rn-topview": "^0.1.0",
     "zscroller": "~0.2.2"
   },
