@@ -39,7 +39,7 @@ const Test = React.createClass({
         </RadioItem>
       </List>
       <Flex style={{ padding: '0.3rem' }}>
-        <Flex.Item style={{ padding: '0.3rem 0', color: '#888', flex: 'none' }}>Radio 演示</Flex.Item>
+        <Flex.Item style={{ padding: '0.3rem 0', color: '#888', flex: 'none' }}>Radio 演示 (自定义样式)</Flex.Item>
         <Flex.Item>
           <Radio className="my-radio">选项一</Radio>
           <Radio className="my-radio" style={{ marginLeft: '0.1rem' }}>选项二</Radio>
@@ -55,7 +55,7 @@ ReactDOM.render(<Test />, mountNode);
 .my-radio .am-radio {
   padding: 0.05rem;
   border: 1px solid #ccc;
-  border-radius: 0.15rem;
+  border-radius: 50%;
   margin-right: 0.1rem;
 }
 ````
