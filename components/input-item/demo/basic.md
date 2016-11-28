@@ -27,13 +27,6 @@ let BasicInputExample = React.createClass({
         clear
         placeholder="提供清除文字功能"
       >显示清除按钮</InputItem>
-      <InputItem
-        {...getFieldProps('input7', {
-          initialValue: '校验出错',
-        })}
-        error
-        onErrorClick={() => { alert('点击报错'); }}
-      >报错样式</InputItem>
 
       <InputItem
         {...getFieldProps('input3')}

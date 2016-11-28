@@ -30,7 +30,7 @@ const App = React.createClass({
   },
   render() {
     return (<div>
-      <NavBar iconName={false} rightContent={
+      <NavBar iconName={false} mode="light" rightContent={
         <Popover
           visible={this.state.visible}
           overlay={[

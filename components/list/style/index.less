@@ -31,6 +31,11 @@
       border-bottom: @border-width-sm solid @border-color-base;
     }
   }
+  div:not(:last-child) {
+    .@{listPrefixCls}-line {
+      .hairline-bottom(@border-color-base);
+    }
+  }
 }
 .@{listPrefixCls}-item {
   position: relative;
@@ -96,7 +101,7 @@
     padding-right: @h-spacing-lg;
     min-height: @list-item-height;
     overflow: hidden;
-    .hairline-bottom(@border-color-base);
+    // .hairline-bottom(@border-color-base);
     /* list左侧主内容*/
     .@{listPrefixCls}-content {
       flex: 1;

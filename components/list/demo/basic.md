@@ -22,8 +22,6 @@ const ListExample = React.createClass({
         <Item extra="箭头向上" arrow="up">标题文字</Item>
         <Item extra="没有箭头" arrow="empty">标题文字</Item>
 
-        <Item extra={<div>内容内容<Brief>辅助文字内容</Brief></div>} multipleLine>垂直居中对齐</Item>
-        <Item extra={<div>内容内容<Brief>辅助文字内容</Brief></div>} multipleLine align="top">顶部对齐</Item>
         <Item extra="内容内容" multipleLine>
           垂直居中对齐 <Brief>辅助文字内容</Brief>
         </Item>

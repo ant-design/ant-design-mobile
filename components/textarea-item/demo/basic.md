@@ -32,17 +32,6 @@ let TextareaItemExample = React.createClass({
       />
 
       <TextareaItem
-        {...getFieldProps('note8', {
-          initialValue: '报错样式',
-        })}
-        title="报错样式"
-        rows={5}
-        error
-        onErrorClick={() => { alert('点击报错'); }}
-        count={100}
-      />
-
-      <TextareaItem
         {...getFieldProps('note2')}
         title="单行显示"
         placeholder="请填写"

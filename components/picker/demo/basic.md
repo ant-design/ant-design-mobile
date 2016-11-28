@@ -6,7 +6,7 @@ title: 基本
 数据级联选择示例. ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
-import { Picker, List } from 'antd-mobile';
+import { Picker, List, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 import district from 'site/data/district';
@@ -71,6 +71,7 @@ let Test = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
+      <WhiteSpace size="lg" />
       <List style={{ backgroundColor: 'white' }}>
         <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
           initialValue: ['340000', '340800', '340824'],
