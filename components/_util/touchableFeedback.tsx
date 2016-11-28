@@ -6,16 +6,16 @@ import React from 'react';
 
 const touchSupported = typeof window !== 'undefined' && 'ontouchstart' in window;
 
-export default function touchableFeedback<Props>(ComposedComponent, ComposedComponentName = '') {
+export default function touchableFeedback<Props>(ComposedComponent, statics: any = {
+    myName: 'TouchableFeedbackComponent',
+  }) {
   const TouchableFeedbackComponent = React.createClass<{
     onTouchStart?: (e: any) => void;
     onTouchEnd?: (e: any) => void;
     onTouchCancel?: (e: any) => void;
     activeStyle?: any;
   } & Props, any>({
-    statics: {
-      myName: ComposedComponentName || 'TouchableFeedbackComponent',
-    },
+    statics,
 
     getDefaultProps() {
       return {
