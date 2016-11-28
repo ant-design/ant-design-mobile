@@ -54,12 +54,13 @@ export default class ComponentDoc extends React.Component {
     return linkIndex;
   }
 
-  componentWillReceiveProps = () => {
+  componentWillReceiveProps = (nextProps) => {
     this.setState({
       currentIndex: 0,
       codeExpandList: [],
       toggle: false,
     });
+    this.initExpandAll(nextProps);
   }
 
   togglePreview = (e) => {
@@ -90,6 +91,18 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
+  initExpandAll = (nextProps) => {
+    const codeExpandList = {};
+    const props = nextProps || this.props;
+    const demos = Object.keys(props.demos).map((key) => props.demos[key])
+            .filter((demoData) => !demoData.meta.hidden);
+
+    this.setState({
+      expandAll: true,
+      codeExpandList: demos.map((item, index) => codeExpandList[index] = true),
+    });
+  }
+
   // onScrollEvent() {
   //   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
   //   const asideDemo = document.getElementById('aside-demo');
@@ -113,6 +126,7 @@ export default class ComponentDoc extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScrollEvent);
+    this.initExpandAll();
   }
 
   render() {
