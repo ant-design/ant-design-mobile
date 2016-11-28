@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Operation Feedback
+type: Feedback
 chinese: 对话框
 english: Modal
 source: design

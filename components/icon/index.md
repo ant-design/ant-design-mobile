@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Data Display
 chinese: 图标
 english: Icon
 ---

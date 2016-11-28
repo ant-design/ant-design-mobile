@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Form
+type: Data Entry
 chinese: 滑动开关
 english: Switch
 source: design

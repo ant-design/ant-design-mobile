@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Data Entry
 chinese: 按钮
 english: Button
 source: design

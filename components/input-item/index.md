@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Form
+type: Data Entry
 chinese: 文本输入
 english: InputItem
 source: design

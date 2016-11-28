@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Form
+type: Data Entry
 chinese: 步进器
 english: Stepper
 ---

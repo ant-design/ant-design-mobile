@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Others
+type: Gesture
 chinese: 下拉刷新
 english: RefreshControl
 source: design

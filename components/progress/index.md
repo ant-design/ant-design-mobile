@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Feedback
 chinese: 进度条
 english: Progress
 ---

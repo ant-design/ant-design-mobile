@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Operation Feedback
+type: Feedback
 chinese: 弹出层
 english: Popup
 ---

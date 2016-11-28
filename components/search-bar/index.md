@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Data Entry
 chinese: 搜索栏
 english: SearchBar
 source: design

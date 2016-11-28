@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Data Display
 chinese: 卡片
 english: Card
 ---

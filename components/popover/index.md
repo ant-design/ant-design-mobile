@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Operation Feedback
+type: Navigation
 chinese: 气泡
 english: Popover
 source: design

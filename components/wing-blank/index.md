@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Others
+type: Layout
 chinese: 两翼留白
 english: WingBlank
 ---

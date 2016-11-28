@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Form
+type: Data Entry
 chinese: 图片选择
 english: ImagePicker
 --------------------

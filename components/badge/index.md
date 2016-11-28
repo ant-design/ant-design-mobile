@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Data Display
 chinese: 徽标数
 english: Badge
 ---

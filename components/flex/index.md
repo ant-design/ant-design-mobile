@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Others
+type: Layout
 chinese: Flex布局
 english: Flex
 ---

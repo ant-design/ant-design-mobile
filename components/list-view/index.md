@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Combination
 chinese: 长列表
 english: ListView
 ---

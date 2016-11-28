@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Combination
 chinese: 结果页
 source: design
 english: Result

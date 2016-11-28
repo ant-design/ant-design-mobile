@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Data Display
 chinese: 步骤条
 cols: 1
 english: Steps

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic Components
+type: Data Display
 chinese: 表格
 english: Table
 ---
@@ -11,7 +11,7 @@ english: Table
 ### 规则
 - 当有大量的结构化数据需要展现时，eg：股票信息。
 - 中英文左对齐，数值以小数点对齐。
-- 一般不建议超过 4 列。 
+- 一般不建议超过 4 列。
 
 ## API
 
@@ -24,7 +24,7 @@ english: Table
 | titleFixed | 横向滚动时，标题列是否固定   | Boolean   | false      |
 
 
-### columns 
+### columns
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|

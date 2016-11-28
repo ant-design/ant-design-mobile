@@ -2,14 +2,22 @@ const contentTmpl = './template/Content/index';
 
 module.exports = {
   categoryOrder: {
-    Navigation: 0,
-    'Basic Components': 1,
-    Form: 2,
-    'Operation Feedback': 3,
-    Others: 4,
+    Layout: 0,
+    Navigation: 1,
+    'Data Entry': 2,
+    'Data Display': 3,
+    Feedback: 4,
+    Combination: 5,
+    Gesture: 6,
   },
   typeOrder: {
-
+    Layout: 0,
+    Navigation: 1,
+    'Data Entry': 2,
+    'Data Display': 3,
+    Feedback: 4,
+    Combination: 5,
+    Gesture: 6,
   },
   docVersions: {
     '0.7.x': 'http://07x.mobile.ant.design/',

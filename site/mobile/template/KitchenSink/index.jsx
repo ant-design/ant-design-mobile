@@ -22,7 +22,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       open: false,
-      cateOpend: [true, true, true, true, true],
+      cateOpend: [true, true, true, true, true, true, true],
     };
   }
 

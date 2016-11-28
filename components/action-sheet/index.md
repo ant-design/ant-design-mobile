@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Operation Feedback
+type: Feedback
 chinese: 动作面板
 english: ActionSheet
 source: design

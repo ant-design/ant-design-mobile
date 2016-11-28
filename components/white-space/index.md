@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Others
+type: Layout
 chinese: 上下留白
 english: WhiteSpace
 ---

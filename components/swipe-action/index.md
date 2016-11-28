@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Others
+type: Gesture
 chinese: 滑动或长按操作
 english: SwipeAction
 ---

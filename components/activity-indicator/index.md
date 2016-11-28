@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Operation Feedback
+type: Feedback
 chinese: 活动指示器
 english: ActivityIndicator
 ---

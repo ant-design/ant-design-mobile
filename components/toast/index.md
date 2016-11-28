@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Operation Feedback
+type: Feedback
 chinese: 轻提示
 noinstant: true
 english: Toast
