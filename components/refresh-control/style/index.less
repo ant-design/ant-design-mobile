@@ -35,15 +35,19 @@
 
   // custom
   &-pull {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &-release {
     display: none;
+    align-items: center;
+    justify-content: center;
   }
   &-active &-pull {
     display: none;
   }
   &-active &-release {
-    display: block;
+    display: flex;
   }
 }

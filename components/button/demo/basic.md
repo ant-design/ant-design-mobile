@@ -28,7 +28,6 @@ const ButtonExample = React.createClass({
           <Button inline size="small">inline small</Button>
         </Flex>
       </div>
-      <Button type="warning" across>warning 通栏按钮</Button>
     </div>);
   },
 });

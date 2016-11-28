@@ -4,7 +4,6 @@ interface SwitchProps {
   disabled?: boolean;
   onChange?: Function;
   /* web only */
-  onTintColor?: string;
   prefixCls?: string;
   className?: string;
   name?: string;
