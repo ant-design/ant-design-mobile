@@ -38,15 +38,15 @@ const App = React.createClass({
       <div>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Button type="ghost" onClick={showAlert}>自定义按钮 </Button>
+          <Button onClick={showAlert}>自定义按钮 </Button>
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Button type="ghost" onClick={showConfirm}>确认对话框</Button>
+          <Button onClick={showConfirm}>确认对话框</Button>
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Button type="ghost" onClick={showMoreBtn}>弹出多个按钮 </Button>
+          <Button onClick={showMoreBtn}>弹出多个按钮 </Button>
         </WingBlank>
         <WhiteSpace size="lg" />
       </div>

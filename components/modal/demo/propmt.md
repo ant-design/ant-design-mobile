@@ -60,23 +60,23 @@ const App = React.createClass({
       <div>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Button type="ghost" onClick={plainTextPrompt}>输入框按钮按钮 </Button>
+          <Button onClick={plainTextPrompt}>输入框按钮按钮 </Button>
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Button type="ghost" onClick={defaultValuePrompt}>输入框默认值 </Button>
+          <Button onClick={defaultValuePrompt}>输入框默认值 </Button>
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Button type="ghost" onClick={passwordPrompt}>输入框密码形式 </Button>
+          <Button onClick={passwordPrompt}>输入框密码形式 </Button>
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Button type="ghost" onClick={customBtnPrompt}>自定义按钮形式 </Button>
+          <Button onClick={customBtnPrompt}>自定义按钮形式 </Button>
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <Button type="ghost" onClick={loginPwdPrompt}>输入框登录形式 </Button>
+          <Button onClick={loginPwdPrompt}>输入框登录形式 </Button>
         </WingBlank>
         <WhiteSpace size="lg" />
       </div>

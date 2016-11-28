@@ -27,7 +27,7 @@ const App = React.createClass({
       <div>
         <WhiteSpace size="lg" />
         <WingBlank>
-          <Button type="ghost" onClick={this.showModal}>
+          <Button onClick={this.showModal}>
             可关闭对话框
           </Button>
           <Modal

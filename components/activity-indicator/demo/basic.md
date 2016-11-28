@@ -49,7 +49,7 @@ const App = React.createClass({
               </div>
             </div>
             <WhiteSpace size="xl" />
-            <Button type="ghost" onClick={this.showToast}>点击显示 Toast</Button>
+            <Button onClick={this.showToast}>点击显示 Toast</Button>
             <div className="toast-example">
               <ActivityIndicator
                 toast

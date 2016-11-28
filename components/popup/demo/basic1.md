@@ -60,7 +60,7 @@ const Test = React.createClass({
   },
   render() {
     return (<div style={{ padding: '15px' }}>
-      <Button type="ghost" onClick={this.onClick}>显示</Button>
+      <Button onClick={this.onClick}>显示</Button>
     </div>);
   },
 });
