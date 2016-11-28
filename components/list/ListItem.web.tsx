@@ -62,6 +62,7 @@ class ListItem extends React.Component<ListItemProps, any> {
       <div
         {...restProps}
         className={classNames(wrapCls)}
+        style={style}
       >
         {thumb ? <div className={`${prefixCls}-thumb`}>
           {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
