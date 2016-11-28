@@ -20,7 +20,7 @@ let BasicInputExample = React.createClass({
       <InputItem
         {...getFieldProps('control')}
         placeholder="设置value,不设置defaultValue"
-      >受控<span style={{ color: 'red' }}>*</span></InputItem>
+      >受控</InputItem>
 
       <InputItem
         {...getFieldProps('inputclear')}
@@ -50,10 +50,6 @@ let BasicInputExample = React.createClass({
         placeholder="0.00"
         extra="元"
       >价格</InputItem>
-      <InputItem
-        {...getFieldProps('upload')}
-        extra={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" />}
-      >上传照片</InputItem>
 
       <InputItem
         {...getFieldProps('bankCard', {

@@ -24,7 +24,7 @@ let Test = React.createClass({
       this.setState({
         data: province,
       });
-    }, 500);
+    }, 120);
   },
   onPickerChange(val) {
     console.log(val);

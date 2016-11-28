@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'antd-mobile';
+import { List, Icon } from 'antd-mobile';
 import config from '../../';
 import './index.less';
 
@@ -85,8 +85,10 @@ export default class App extends React.Component {
                     cateOpend[index] = !cateOpend[index];
                     this.setState({ cateOpend });
                   }}
+                  className="am-demo-category"
                 >
-                  <span style={{ color: '#000' }}>{config.cateChinese[cate]}</span> {cate}
+                  <div className="am-demo-category-name"><span style={{ color: '#515151' }}>{config.cateChinese[cate]}</span> {cate}</div>
+                  <div className="am-demo-category-arrow"><span><Icon type="down" /></span></div>
                 </div>
               )}
               className={this.state.cateOpend[index] ? 'category-open' : 'category-closed'}

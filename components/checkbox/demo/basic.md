@@ -30,15 +30,14 @@ const Test = React.createClass({
         <CheckboxItem key="disabled" data-seed="logId" disabled defaultChecked multipleLine>
           初中<List.Item.Brief>辅助文字内容</List.Item.Brief>
         </CheckboxItem>
-      </List>
-      <Flex style={{ padding: 30 }}>
-        <Flex.Item style={{ padding: '30px 0', color: '#888', flex: 'none' }}>Checkbox 演示</Flex.Item>
-        <Flex.Item>
+        <List.Item>
+          <span style={{ marginRight: '0.3rem' }}>Checkbox 演示</span>
           <Checkbox>选项一</Checkbox>
           <Checkbox style={{ marginLeft: 10 }}>选项二</Checkbox>
-        </Flex.Item>
-      </Flex>
-      <Flex style={{ padding: 30 }}>
+        </List.Item>
+      </List>
+
+      <Flex>
         <Flex.Item>
           <AgreeItem data-seed="logId">
             已阅读协议<a onClick={(e) => { e.preventDefault(); alert('打开协议'); }}>《协议链接》</a>
