@@ -60,19 +60,19 @@ resolve: {
 },
 ```
 
-无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载
+无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载，插件设置如下：
 
 ```js
 // .babelrc
-// no need to set style property in react-native
-{
- "plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]
-}
+{"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}
+// or webpack config file
+webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
 ```
 
-> 更多常见问题，请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
+#### Web 使用场景
 
-#### Web 示例
+首先需要引入『高清方案』设置：具体方法
+见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
 
 ```jsx
 // import js and css modularly, parsed by babel-plugin-import
@@ -80,9 +80,8 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
-web 版本高清方案设置：见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
 
-#### React-Native 示例
+#### React-Native 使用场景
 
 ```jsx
 import React, { Component } from 'react';
@@ -97,6 +96,8 @@ class HelloWorldApp extends Component {
 
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
+
+> 更多常见问题，请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
 
 ## 版本
 

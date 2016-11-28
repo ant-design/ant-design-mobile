@@ -49,22 +49,13 @@ webpack: bundle build is now finished.
 
 ## 使用 antd-mobile
 
-通过 npm 安装 `antd-mobile` 和 `babel-plugin-import` 。`babel-plugin-import` 是用来按需加载脚本和样式，详见 [repo](https://github.com/ant-design/babel-plugin-import) 。
+[见此使用示例](/docs/react/introduce#使用)，要点概括如下：
 
-```bash
-$ npm install antd-mobile babel-plugin-import --save
-```
+- `npm install antd-mobile babel-plugin-import --save` 安装依赖
+- 不需要再设置 resolve (因为 atool-build 内部已经设置好)
+- `babel-plugin-import` 是用来按需加载脚本和样式，编辑 `webpack.config.js`，使 `babel-plugin-import` 插件生效
+- 高清方案设置，让页面显示效果更加细腻
 
-编辑 `webpack.config.js`，使 `babel-plugin-import` 插件生效。
-
-```diff
-+ webpackConfig.babel.plugins.push(['import', {
-+   libraryName: 'antd-mobile',
-+   style: 'css',
-+ }]);
-```
-
-> 注：这里不需要手动重启开发服务器，保存 `webpack.config.js` 后会自动重启。
 
 ## 接下来：
 

@@ -29,7 +29,7 @@ http://mobile.ant.design/kitchen-sink/
 
 ## Install & Usage
 
-[introduce ](docs/react/introduce.zh-CN.md#安装)
+[introduce](docs/react/introduce.zh-CN.md#安装)
 
 ## Browser Support
 
