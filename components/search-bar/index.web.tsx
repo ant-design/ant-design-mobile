@@ -5,6 +5,8 @@ import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static defaultProps = defaultProps;
   refs: any;
+  rightBtnInitMarginleft: any;
+  firstFocus: any;
 
   constructor(props) {
     super(props);
@@ -23,14 +25,23 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
 
   componentDidMount() {
+    const initBtn = window.getComputedStyle(this.refs.rightBtn);
+    this.rightBtnInitMarginleft = initBtn['margin-left'];
     this.componentDidUpdate();
   }
   componentDidUpdate() {
     // 检测是否包含名为 ${this.props.prefixCls}-start 样式，生成动画
     if (this.refs.searchInputContainer.className.indexOf(`${this.props.prefixCls}-start`) > -1) {
       this.refs.syntheticPh.style.width = `${this.refs.syntheticPhContainer.offsetWidth}px`;
+      if (!this.props.showCancelButton) {
+        this.refs.rightBtn.style.marginRight = 0;
+      }
     } else {
       this.refs.syntheticPh.style.width = '100%';
+      if (!this.props.showCancelButton) {
+        this.refs.rightBtn.style.marginRight =
+          `-${this.refs.rightBtn.offsetWidth + parseInt(this.rightBtnInitMarginleft, 10)}px`;
+      }
     }
   }
 
@@ -63,6 +74,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     this.setState({
       focus: true,
     });
+    this.firstFocus = true;
 
     if (this.props.onFocus) {
       this.props.onFocus();
@@ -123,6 +135,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     const cancelCls = classNames({
       [`${prefixCls}-cancel`]: true,
       [`${prefixCls}-cancel-show`]: showCancelButton || focus || value && value.length > 0,
+      [`${prefixCls}-cancel-anim`]: this.firstFocus,
     });
 
     return (
@@ -149,10 +162,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           />
           <a onClick={this.onClear} className={clearCls} />
         </div>
-        <div
-          className={cancelCls}
-          onClick={this.onCancel}
-        >
+        <div className={cancelCls} onClick={this.onCancel} ref="rightBtn">
           {cancelText}
         </div>
       </form>
