@@ -17,7 +17,7 @@ $ npm install antd-mobile --save
 
 我们在 npm 发布包内的 `antd-mobile/dist` 目录下提供了 `antd-mobile.js` `antd-mobile.css` 以及 `antd-mobile.min.js` `antd-mobile.min.css` 用于一次性引入所有的 antd-mobile 组件，也可以通过 [UNPKG](https://unpkg.com/) 进行下载。
 
-> 不推荐一次性引入全部代码，更好做法请查看 introduce - install & usage
+**不要一次性引入全部代码，更好做法请查看 introduce - install & usage**
 
 #### stable
 
