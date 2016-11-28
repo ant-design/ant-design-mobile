@@ -22,7 +22,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       open: false,
-      cateOpend: [true, true, true, true, true, true, true],
+      cateOpend: [false, false, false, false, false, false, false],
     };
   }
 
@@ -36,8 +36,8 @@ export default class App extends React.Component {
     const query = getQuery(window.location.search);
     picked.components.forEach(i => {
       const meta = i.meta;
-      if (!lists[meta.category]) {
-        lists[meta.category] = [];
+      if (!lists[meta.type]) {
+        lists[meta.type] = [];
       }
       const fileName = meta.filename.split('/')[1];
       if (fileName && config.indexDemos.indexOf(fileName) > -1) {
@@ -50,12 +50,13 @@ export default class App extends React.Component {
         });
         meta.demos = demos;
       }
+
       if (query.source && query.source === 'design') {
         if (meta.source && meta.source === 'design') {
-          lists[meta.category].push(meta);
+          lists[meta.type].push(meta);
         }
       } else {
-        lists[meta.category].push(meta);
+        lists[meta.type].push(meta);
       }
     });
 
@@ -67,14 +68,14 @@ export default class App extends React.Component {
     return (<div className="am-demo-page">
       <div className="am-demo-hd">
         <div className="logo" />
-        <h1 className="am-demo-title">Ant Design Mobile</h1>
-        <h2 className="am-demo-subtitle">服务于蚂蚁大中台无线业务的 React 组件</h2>
+        <h1 className="am-demo-title">AlipayUI</h1>
+        <h2 className="am-demo-subtitle">支付宝移动端组件库</h2>
       </div>
       <div className="am-demo-bd">
         {
           Object.keys(lists)
           .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
-          .map((cate, index) => (
+          .map((cate, index) => (lists[cate].length ? (
             <List
               key={`${cate}-${index}`}
               renderHeader={() => (
@@ -118,7 +119,7 @@ export default class App extends React.Component {
                 })
               }
             </List>
-          ))
+          ) : null))
         }
       </div>
     </div>);
