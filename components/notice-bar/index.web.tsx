@@ -5,6 +5,7 @@ import getDataAttr from '../_util/getDataAttr';
 import splitObject from '../_util/splitObject';
 import Icon from '../icon';
 import NoticeBarProps from './PropsType';
+import Marquee from './marquee';
 
 export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {
@@ -64,7 +65,9 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
     return this.state.show ? (
       <div {...getDataAttr(this.props) } className={wrapCls} {...restProps} {...extraProps}>
         { icon ? <div className={`${prefixCls}-icon`}> {icon} </div> : null }
-        <div className={`${prefixCls}-content`}>{children}</div>
+        <div className={`${prefixCls}-content`}>
+          <Marquee prefixCls={prefixCls} loop text={children} />
+        </div>
         {operationDom}
       </div>
     ) : null;
