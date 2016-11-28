@@ -36,4 +36,6 @@ class Item extends React.Component<any, any> {
     </div>);
   }
 }
-export default touchableFeedback(Item, 'PopoverItem');
+export default touchableFeedback(Item, {
+  myName: 'PopoverItem',
+});

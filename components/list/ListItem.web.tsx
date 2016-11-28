@@ -1,7 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
+import assign from 'object-assign';
+import splitObject from '../_util/splitObject';
+import touchableFeedback from '../_util/touchableFeedback';
 import { ListItemProps, BriefProps } from './PropsType';
-import getDataAttr from '../_util/getDataAttr';
 
 export class Brief extends React.Component<BriefProps, any> {
   render() {
@@ -11,9 +13,7 @@ export class Brief extends React.Component<BriefProps, any> {
   }
 }
 
-export default class ListItem extends React.Component<ListItemProps, any> {
-  static Brief = Brief;
-
+class ListItem extends React.Component<ListItemProps, any> {
   static defaultProps = {
     prefixCls: 'am-list',
     align: 'middle',
@@ -22,53 +22,28 @@ export default class ListItem extends React.Component<ListItemProps, any> {
     wrap: false,
   };
 
-  // 给其他组件对其设置 extra 使用
-  static myName = 'ListItem';
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      hover: false,
-    };
-  }
-
-  onClick = (e) => {
-    if (this.props.onClick) {
-      this.props.onClick(e);
-    }
-  };
-
-  onTouchStart = () => {
-    if (this.props.onClick) {
-      this.setState({
-        hover: true,
-      });
-    }
-  };
-
-  onTouchEnd = () => {
-    if (this.props.onClick) {
-      this.setState({
-        hover: false,
-      });
-    }
-  };
-
   render() {
-    const {
-      prefixCls, className, error, align, wrap,
-      children, multipleLine, thumb, extra, arrow = '', style,
-    } = this.props;
+    const [{
+      prefixCls, className, touchFeedback, activeStyle, error, align, wrap,
+      children, multipleLine, thumb, extra, arrow = '',
+    }, restProps] = splitObject(this.props,
+      ['prefixCls', 'className', 'touchFeedback', 'activeStyle', 'error', 'align', 'wrap',
+        'children', 'multipleLine', 'thumb', 'extra', 'arrow']);
 
-    const wrapCls = classNames({
+    const wrapCls = {
+      [className as string]: className,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-error`]: error,
       [`${prefixCls}-item-top`]: align === 'top',
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
-      [`${prefixCls}-item-hover`]: this.state.hover,
-      [className as string]: className,
-    });
+    };
+
+    let style = assign({}, this.props.style);
+    if (touchFeedback) {
+      style = assign(style, activeStyle);
+      wrapCls[`${prefixCls}-item-hover`] = true;
+    }
 
     const lineCls = classNames({
       [`${prefixCls}-line`]: true,
@@ -84,13 +59,9 @@ export default class ListItem extends React.Component<ListItemProps, any> {
     });
 
     return (
-      <div {...getDataAttr(this.props)}
-        className={wrapCls}
-        onClick={this.onClick}
-        onTouchStart={this.onTouchStart}
-        onTouchEnd={this.onTouchEnd}
-        onTouchCancel={this.onTouchEnd}
-        style={style}
+      <div
+        {...restProps}
+        className={classNames(wrapCls)}
       >
         {thumb ? <div className={`${prefixCls}-thumb`}>
           {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
@@ -104,3 +75,10 @@ export default class ListItem extends React.Component<ListItemProps, any> {
     );
   }
 }
+
+// 给其他组件对其设置 extra 使用
+const highOrderListItem = touchableFeedback(ListItem, {
+  myName: 'ListItem',
+  Brief,
+});
+export default highOrderListItem;
