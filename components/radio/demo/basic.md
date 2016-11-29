@@ -41,8 +41,7 @@ const Test = React.createClass({
       <Flex style={{ padding: '0.3rem' }}>
         <Flex.Item style={{ padding: '0.3rem 0', color: '#888', flex: 'none' }}>Radio 演示 (自定义样式)</Flex.Item>
         <Flex.Item>
-          <Radio className="my-radio">选项一</Radio>
-          <Radio className="my-radio" style={{ marginLeft: '0.1rem' }}>选项二</Radio>
+          <Radio className="my-radio">同意协议</Radio>
         </Flex.Item>
       </Flex>
     </div>);
