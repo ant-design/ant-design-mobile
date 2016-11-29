@@ -1,40 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
-    <defs>
-        <rect id="path-1" x="4" y="4" width="17" height="17"></rect>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="17" height="17" fill="white">
-            <use xlink:href="#path-1"></use>
-        </mask>
-        <rect id="path-3" x="4" y="4" width="17" height="17"></rect>
-        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="17" height="17" fill="white">
-            <use xlink:href="#path-3"></use>
-        </mask>
-        <rect id="path-5" x="23" y="4" width="17" height="17"></rect>
-        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="17" height="17" fill="white">
-            <use xlink:href="#path-5"></use>
-        </mask>
-        <rect id="path-7" x="4" y="23" width="17" height="17"></rect>
-        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="17" height="17" fill="white">
-            <use xlink:href="#path-7"></use>
-        </mask>
-    </defs>
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>QRcode</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="QRcode" transform="translate(-4.000000, -4.000000)">
-            <polygon id="Fill-1" fill="#797979" points="9.65327174 15.2363533 15.2162011 15.2363533 15.2162011 9.67361957 9.65327174 9.67361957"></polygon>
-            <use id="Rectangle-1678" stroke="#797979" mask="url(#mask-2)" stroke-width="6" xlink:href="#path-1"></use>
-            <polygon id="Fill-1" fill="#4A4A4A" points="9.65327174 15.2363533 15.2162011 15.2363533 15.2162011 9.67361957 9.65327174 9.67361957"></polygon>
-            <use id="Rectangle-1678" stroke="#4A4A4A" mask="url(#mask-4)" stroke-width="6" xlink:href="#path-3"></use>
-            <polygon id="Fill-4" fill="#4A4A4A" points="35.8878804 27.5373967 40 27.5373967 40 23.3870272 35.8878804 23.3870272"></polygon>
-            <polygon id="Fill-5" fill="#4A4A4A" points="31.7375109 31.6877174 35.8878804 31.6877174 35.8878804 27.5373967 31.7375109 27.5373967"></polygon>
-            <polygon id="Fill-6" fill="#4A4A4A" points="35.8878804 35.838087 40 35.838087 40 31.6877174 35.8878804 31.6877174"></polygon>
-            <polygon id="Fill-7" fill="#4A4A4A" points="31.7375109 39.8605978 40 39.8605978 40 37.1209293 31.7375109 37.1209293"></polygon>
-            <polygon id="Fill-8" fill="#4A4A4A" points="23.1704891 31.6877174 28.6260054 31.6877174 28.6260054 34.3848315 25.8658424 34.3848315 25.8658424 39.8605978 23.1704891 39.8605978"></polygon>
-            <polygon id="Fill-9" fill="#4A4A4A" points="23.1704891 23.3870272 23.1704891 30.2975598 25.8658424 30.2975598 25.8658424 26.0839457 31.3433696 26.0839457 31.3433696 23.3870272"></polygon>
-            <polygon id="Fill-1" fill="#4A4A4A" points="28.6532717 15.2363533 34.2162011 15.2363533 34.2162011 9.67361957 28.6532717 9.67361957"></polygon>
-            <use id="Rectangle-1678" stroke="#4A4A4A" mask="url(#mask-6)" stroke-width="6" xlink:href="#path-5"></use>
-            <polygon id="Fill-1" fill="#4A4A4A" points="9.65327174 34.2363533 15.2162011 34.2363533 15.2162011 28.6736196 9.65327174 28.6736196"></polygon>
-            <use id="Rectangle-1678" stroke="#4A4A4A" mask="url(#mask-8)" stroke-width="6" xlink:href="#path-7"></use>
+        <g id="QRcode" fill="#4A4A4A">
+            <path d="M0,0 L17,0 L17,17 L0,17 L0,0 Z M3,3 L14,3 L14,14 L3,14 L3,3 Z" id="Combined-Shape"></path>
+            <polygon id="Fill-1" points="6 11 11 11 11 6 6 6"></polygon>
+            <polygon id="Fill-4" points="32 23 36 23 36 19 32 19"></polygon>
+            <polygon id="Fill-5" points="28 27 32 27 32 23 28 23"></polygon>
+            <polygon id="Fill-6" points="32 32 36 32 36 28 32 28"></polygon>
+            <polygon id="Fill-7" points="28 36 36 36 36 33 28 33"></polygon>
+            <polygon id="Fill-8" points="19 28 25 28 25 30.6400622 21.964361 30.6400622 21.964361 36 19 36"></polygon>
+            <polygon id="Fill-9" points="19 19 19 26 21.6383386 26 21.6383386 21.7318342 27 21.7318342 27 19"></polygon>
+            <path d="M19,0 L36,0 L36,17 L19,17 L19,0 Z M22,3 L33,3 L33,14 L22,14 L22,3 Z" id="Combined-Shape"></path>
+            <polygon id="Fill-1" points="25 11 30 11 30 6 25 6"></polygon>
+            <path d="M0,19 L17,19 L17,36 L0,36 L0,19 Z M3,22 L14,22 L14,33 L3,33 L3,22 Z" id="Combined-Shape"></path>
+            <polygon id="Fill-1" points="6 30 11 30 11 25 6 25"></polygon>
         </g>
     </g>
 </svg>
