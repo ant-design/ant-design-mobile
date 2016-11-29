@@ -30,11 +30,6 @@ const Test = React.createClass({
         <CheckboxItem key="disabled" data-seed="logId" disabled defaultChecked multipleLine>
           初中<List.Item.Brief>辅助文字内容</List.Item.Brief>
         </CheckboxItem>
-        <List.Item>
-          <span style={{ marginRight: '0.3rem' }}>Checkbox 演示</span>
-          <Checkbox>选项一</Checkbox>
-          <Checkbox style={{ marginLeft: 10 }}>选项二</Checkbox>
-        </List.Item>
       </List>
 
       <Flex>

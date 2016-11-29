@@ -38,7 +38,7 @@ source: design
 |------------------|----------------------------------------------|----------|---------------|
 | title        | 标题                      | String 或 React.Element   | 无            |
 | message      | 提示信息                  | String 或 React.Element    | 无    |
-| actions         | 按钮组, [{text, onPress}]       | Array | 无            |
+| actions         | 按钮组, [{text, onPress, style}]       | Array | 无            |
 
 ### Modal.prompt(title?, message?, callbackOrActions, type?, defaultValue?) `web only`
 

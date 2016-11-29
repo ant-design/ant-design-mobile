@@ -30,10 +30,11 @@
       width: 100%;
       border-bottom: @border-width-sm solid @border-color-base;
     }
-  }
-  div:not(:last-child) {
-    .@{listPrefixCls}-line {
-      .hairline-bottom(@border-color-base);
+
+    div:not(:last-child) {
+      .@{listPrefixCls}-line {
+        .hairline-bottom(@border-color-base);
+      }
     }
   }
 }

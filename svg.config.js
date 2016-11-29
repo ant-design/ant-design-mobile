@@ -10,6 +10,7 @@ module.exports = function (config, includeDemo) {
     excludeDirs.concat([
       /components\/steps\/demo/,
       /components\/icon\/demo/,
+      /components\/popover\/demo/,
     ]);
   }
   // exclude the default svg-url-loader from atool-build https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js#L161
@@ -28,4 +29,3 @@ module.exports = function (config, includeDemo) {
     });
   }
 };
-

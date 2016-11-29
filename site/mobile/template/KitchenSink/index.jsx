@@ -67,7 +67,6 @@ export default class App extends React.Component {
 
     return (<div className="am-demo-page">
       <div className="am-demo-hd">
-        <div className="logo" />
         <h1 className="am-demo-title">AlipayUI</h1>
         <h2 className="am-demo-subtitle">支付宝移动端组件库</h2>
       </div>

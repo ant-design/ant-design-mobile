@@ -3,16 +3,6 @@
     height: 293px;
     position: relative;
     overflow: hidden;
-    .logo {
-      background-image: url(https://zos.alipayobjects.com/rmsportal/HAYkxaWqFJXyOEq.png);
-      position: absolute;
-      right: 10px;
-      bottom: -77px;
-      width: 302px;
-      height: 293px;
-      background-size: 302px 293px;
-      opacity: 0.1;
-    }
     .am-demo-title,
     .am-demo-subtitle {
       text-align: left;
@@ -40,8 +30,21 @@
         padding-left: 48px;
         height: 140px;
         line-height: 140px;
-        color: #666;
+        color: #404040;
         font-size: 32px;
+      }
+      .am-list-body {
+        border-top: none;
+        &:after {
+          display: none;
+        }
+      }
+      .am-list-item {
+        padding-left: 48px;
+        .am-list-content {
+          color: #666;
+          font-size: 28px;
+        }
       }
       &.category-closed {
         .am-list-header {

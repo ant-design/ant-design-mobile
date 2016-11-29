@@ -38,4 +38,4 @@ source: design
 |------------|----------------|-------------|--------------|
 | children   | 节点内容    | String/React.node |  -   |
 | disabled   | 是否禁用    | Boolean |  false   |
-| iconName(web)   | icon名称    | String |  -   |
+| icon   | icon    | React.Node |  -   |

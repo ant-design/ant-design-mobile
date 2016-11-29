@@ -121,10 +121,21 @@ ReactDOM.render(<TabBarExample />, mountNode);
 ````
 
 ````css
-.demo-preview-item,
-.am-tab-bar,
-.am-tab-bar-content,
-.am-tab-bar-tabpane {
-  height: 100%;
+#tab-bar.demo {
+  display: flex;
+  flex-direction: column;
 }
+#tab-bar .demoName {
+  height: 0.8rem;
+}
+#tab-bar .demo-preview-item,
+#tab-bar .demo-preview-item .am-tab-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+#tab-bar .demo-preview-item .am-tab-bar {
+  background-color: white;
+}
+
 ````
