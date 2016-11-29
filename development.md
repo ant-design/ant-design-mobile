@@ -123,8 +123,6 @@ exports.demo = BasicButtonExample;
 ## 开发流程
 
 ```bash
-$ npm install typings -g
-$ typings install
 $ npm install
 ```
 
