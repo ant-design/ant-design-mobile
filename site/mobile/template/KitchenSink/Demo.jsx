@@ -77,10 +77,13 @@ export default class Home extends React.Component {
       style.minHeight = document.documentElement.clientHeight;
     }
 
+    const isLocalMode = window.location.port;
+    const linkUrl = isLocalMode ? '' : 'kitchen-sink/';
+
     return (
       <div id={name} style={style} className="demo">
         <div className="demoName">
-          <a className="icon" href={`/${window.location.search}`} />
+          <a className="icon" href={`/${linkUrl}${window.location.search}`} />
           {demoMeta.english}
           <span className="ch">{demoMeta.chinese}</span>
         </div>

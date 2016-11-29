@@ -7,8 +7,8 @@ module.exports = {
     'Data Entry': 2,
     'Data Display': 3,
     Feedback: 4,
-    Combination: 5,
-    Gesture: 6,
+    Combination: 6,
+    Gesture: 5,
   },
   typeOrder: {
     Layout: 0,
@@ -16,8 +16,8 @@ module.exports = {
     'Data Entry': 2,
     'Data Display': 3,
     Feedback: 4,
-    Combination: 5,
-    Gesture: 6,
+    Gesture: 5,
+    Combination: 6,
   },
   docVersions: {
     '0.7.x': 'http://07x.mobile.ant.design/',

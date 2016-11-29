@@ -16,8 +16,8 @@ module.exports = {
     'Data Entry': 2,
     'Data Display': 3,
     Feedback: 4,
-    Combination: 5,
-    Gesture: 6,
+    Combination: 6,
+    Gesture: 5,
   },
   routes: [{
     path: '/',

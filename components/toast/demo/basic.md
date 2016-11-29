@@ -13,7 +13,7 @@ function showToast() {
 }
 
 function successToast() {
-  Toast.success('加载成功!!!', 1);
+  Toast.success('加载成功!!!', 1000);
 }
 
 function failToast() {
@@ -21,7 +21,7 @@ function failToast() {
 }
 
 function offline() {
-  Toast.offline('网络连接失败!!!', 1);
+  Toast.offline('网络连接失败!!!', 1000);
 }
 
 function loadingToast() {

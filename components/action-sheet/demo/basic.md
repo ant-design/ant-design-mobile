@@ -5,7 +5,8 @@ title: 基本用法示例
 
 
 ````jsx
-import { ActionSheet, Button, Toast } from 'antd-mobile';
+/* eslint global-require: 0 */
+import { ActionSheet, Button, Toast, Icon } from 'antd-mobile';
 
 // fix touch to scroll background page on iOS
 // https://github.com/ant-design/ant-design-mobile/issues/307
@@ -48,7 +49,9 @@ const Test = React.createClass({
     { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" />, title: '生活圈' },
     { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" />, title: '微信好友' },
     { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" />, title: 'QQ' },
-    { iconName: 'ellipsis', title: '更多' },
+    { icon: <Icon type={require('./refresh.svg')} />, title: '刷新' },
+    { icon: <Icon type={require('./link.svg')} />, title: '链接' },
+    { icon: <Icon type={require('./complaints.svg')} />, title: '投诉' },
   ],
   showShareActionSheet() {
     const icons = [...this.icons];
@@ -69,7 +72,7 @@ const Test = React.createClass({
     });
   },
   showShareActionSheetMulpitleLine() {
-    const icons = [[...this.icons], [this.icons[5], this.icons[5], this.icons[5]]];
+    const icons = [[...this.icons], [this.icons[5], this.icons[6], this.icons[7]]];
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
       // title: '标题',

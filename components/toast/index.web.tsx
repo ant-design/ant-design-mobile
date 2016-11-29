@@ -19,8 +19,8 @@ function getMessageInstance() {
 function notice(content, type, duration = 3, onClose) {
   let iconType = ({
     info: '',
-    success: 'check-circle-o',
-    fail: 'cross-circle-o',
+    success: require('./style/assets/success.svg'),
+    fail: require('./style/assets/fail.svg'),
     offline: require('./style/assets/dislike.svg'),
     loading: 'loading',
   })[type];

@@ -197,8 +197,8 @@ export default class ComponentDoc extends React.Component {
             </h1>
             {
               props.utils.toReactComponent(
-                ['section', { className: 'markdown' }]
-                  .concat(getChildren(content))
+              ['section', { className: 'markdown' }]
+              .concat(getChildren(content))
               )
             }
 

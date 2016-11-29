@@ -11,6 +11,7 @@ module.exports = function (config, includeDemo) {
       /components\/steps\/demo/,
       /components\/icon\/demo/,
       /components\/popover\/demo/,
+      /components\/action-sheet\/demo/,
     ]);
   }
   // exclude the default svg-url-loader from atool-build https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js#L161

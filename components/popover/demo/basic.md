@@ -35,9 +35,9 @@ const App = React.createClass({
         <Popover
           visible={this.state.visible}
           overlay={[
-            (<Item key="4" value="scan" icon={<Icon type={require('./scan.svg')} />} data-seed="logId">扫一扫</Item>),
-            (<Item key="5" value="special" icon={<Icon type={require('./qrcode.svg')} />} style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>),
-            (<Item key="6" value="button ct" icon={<Icon type={require('./help.svg')} />}>
+            (<Item key="4" value="scan" icon={<Icon type={require('./scan.svg')} size="xs" />} data-seed="logId">扫一扫</Item>),
+            (<Item key="5" value="special" icon={<Icon type={require('./qrcode.svg')} size="xs" />} style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>),
+            (<Item key="6" value="button ct" icon={<Icon type={require('./help.svg')} size="xs" />}>
               <span style={{ marginRight: 5 }}>帮助</span>
             </Item>),
           ]}
