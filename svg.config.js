@@ -1,13 +1,13 @@
 'use strict';
 
 module.exports = function (config, includeDemo) {
-  const excludeDirs = [
+  let excludeDirs = [
     /components\/icon\/style\/assets/,
     /components\/notice-bar\/style\/assets/,
     /components\/toast\/style\/assets/,
   ];
   if (includeDemo) {
-    excludeDirs.concat([
+    excludeDirs = excludeDirs.concat([
       /components\/steps\/demo/,
       /components\/icon\/demo/,
       /components\/popover\/demo/,
