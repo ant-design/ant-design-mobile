@@ -80,6 +80,7 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
+如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md)
 
 #### React-Native 使用场景
 
