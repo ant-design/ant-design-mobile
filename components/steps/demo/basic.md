@@ -20,7 +20,7 @@ ReactDOM.render(
     </Steps>
 
     <WhiteSpace size="lg" />
-    <Steps size="small">
+    <Steps size="lg">
       <Step status="process" title="进行中" description="这里是信息的描述" />
       <Step status="error" className="aa" title="出错" description="这里是信息的描述" />
       <Step title="待运行" description="这里是信息的描述" />
