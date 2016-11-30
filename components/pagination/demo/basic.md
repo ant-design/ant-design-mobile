@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 按钮形态
+title: 示例
 ---
 
 基本的分页器。
@@ -28,9 +28,7 @@ const App = React.createClass({
         <Pagination mode="number" total={5} current={3} />
 
         <p className="title">点状</p>
-        <div style={{ marginBottom: '0.32rem' }}>
-          <Pagination mode="pointer" total={5} current={2} />
-        </div>
+        <Pagination mode="pointer" total={5} current={2} style={{ marginBottom: '0.32rem' }} />
       </div>
     );
   },
