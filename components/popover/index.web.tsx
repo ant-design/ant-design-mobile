@@ -1,7 +1,6 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
 import Item from './item.web';
-import splitObject from '../_util/splitObject';
 import tsPropsType from './PropsType';
 
 function recursiveCloneChildren(children, cb = (ch: any, _i: number) => ch) {
@@ -20,38 +19,21 @@ export default class Popover extends React.Component<tsPropsType, any> {
     placement: 'bottomRight',
     popupAlign: { overflow: { adjustY: 0, adjustX: 0 } },
     trigger: ['click'],
-    onSelect: () => {},
   };
-
   static Item = Item;
 
   render() {
-    let[{ children, prefixCls, placement, trigger, overlay, onSelect, popupAlign }, restProps] = splitObject(this.props,
-      ['children', 'prefixCls', 'placement', 'trigger', 'overlay', 'onSelect', 'popupAlign']);
+    const { overlay, onSelect = () => {} } = this.props;
 
-    const newChildren = recursiveCloneChildren(overlay, (child, index) => {
-      const extraProps = {
-        firstItem: false,
-        onClick: () => {},
-      };
+    const overlayNode = recursiveCloneChildren(overlay, (child, index) => {
+      const extraProps: any = { firstItem: false };
       if (child && child.type && child.type.myName === 'PopoverItem' && !child.props.disabled) {
-        extraProps.onClick = () => {
-          onSelect(child);
-        };
+        extraProps.onClick = () => onSelect(child);
         extraProps.firstItem = (index === 0);
         return React.cloneElement(child, extraProps);
       }
       return child;
     });
-    return (<Tooltip
-      prefixCls={prefixCls}
-      placement={placement}
-      trigger={trigger}
-      overlay={newChildren}
-      popupAlign={popupAlign}
-      {...restProps}
-    >
-      {children}
-    </Tooltip>);
+    return <Tooltip {...this.props} overlay={overlayNode} />;
   }
 }
