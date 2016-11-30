@@ -1,4 +1,3 @@
-/* tslint:disable:no-switch-case-fall-through */
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, Image } from 'react-native';
 import NoticeStyle from './style';
