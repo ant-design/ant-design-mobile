@@ -25,11 +25,7 @@
         background-color: @fill-base;
         > .@{stepsPrefixCls}-icon {
           color: @color-text-placeholder;
-          &.anticon-pointer {
-            background-color: @color-text-placeholder !important;
-          }
         }
-
       }
       .@{stepsPrefixCls}-title {
         color: @color-text-base;
@@ -121,15 +117,33 @@
           height: @defaultIconSize;
           background-color: @fill-base;
           border-radius: 50%;
-          .am-icon {
-            width: @defaultIconSize;
-            height: @defaultIconSize;
-          }
         }
       }
       &.@{stepsPrefixCls}-status-process {
         .@{stepsPrefixCls}-head-inner > .@{stepsPrefixCls}-icon {
           color: @brand-primary;
+        }
+      }
+    }
+
+    .@{ellipsisItem}.@{stepsPrefixCls}-status-wait&.@{stepsPrefixCls}-custom {
+      .@{stepsPrefixCls}-head-inner {
+        background: none;
+        border: 0;
+        width: auto;
+        height: auto;
+        > .@{stepsPrefixCls}-icon {
+          font-size: @font-size-subhead;
+          line-height: 40px;
+          top: 4px;
+          width: 40px;
+          height: 40px;
+          border: 4px solid @color-text-placeholder;
+          border-radius: 50%;
+          .am-icon {
+            width: 36px;
+            height: 36px;
+          }
         }
       }
     }
@@ -149,12 +163,13 @@
 
   &-head-inner {
     display: block;
+    box-sizing: border-box;
     border: 4px solid @color-text-placeholder;
-    width: 52px;
-    height: 52px;
-    line-height: 52px;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
     text-align: center;
-    border-radius: 52px;
+    border-radius: 48px;
     font-size: 28px;
     margin-right: 16px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -164,14 +179,6 @@
       top: -1.5px;
       color: @brand-primary;
       position: relative;
-
-      &.anticon {
-        font-size: 24px;
-        &-cross,
-        &-check {
-          font-weight: bold;
-        }
-      }
     }
   }
 
@@ -260,10 +267,35 @@
       height: @smallIconSize;
       background-color: @fill-base;
       .am-icon {
-        width: @smallIconSize;
-        height: @smallIconSize;
+        width: 36px;
+        height: 36px;
       }
     }
+  }
+
+  .@{ellipsisItem}&-small &-item&-status-wait&-custom &-head-inner {
+    > .@{stepsPrefixCls}-icon {
+      .am-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  &&-small &-item&-status-wait&-custom &-head-inner {
+    > .@{stepsPrefixCls}-icon {
+      font-size: 20px;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+    }
+  }
+  &&-small &-item&-status-process &-head-inner {
+    box-sizing: border-box;
+    margin-right: @h-spacing-md;
+    width: @smallIconSize;
+    height: @smallIconSize;
+    line-height: 1;
+    border-radius: 50%;
   }
 }
 
@@ -343,7 +375,8 @@
   }
 }
 
-.@{stepsPrefixCls}-label-vertical {
+.@{stepsPrefixCls}-label-horizontal,
+.@{stepsPrefixCls}-label-vertical, {
   .@{stepsPrefixCls}-tail {
     left: 60px;
     right: 0;
