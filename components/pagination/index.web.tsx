@@ -39,7 +39,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   render() {
-    const { prefixCls, className, mode, total, simple, prevText, nextText } = this.props;
+    const { prefixCls, className, style, mode, total, simple, prevText, nextText } = this.props;
     const current = this.state.current;
 
     let markup = (
@@ -84,6 +84,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     return <div className={classNames({
         [className as string]: className,
         [prefixCls as string]: true,
-      })}>{markup}</div>;
+      })} style={style}>{markup}</div>;
   }
 }

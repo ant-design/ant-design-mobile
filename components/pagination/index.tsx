@@ -1,8 +1,7 @@
-/* tslint:disable:no-switch-case-fall-through */
 import React from 'react';
 import { View, Text } from 'react-native';
-import Flex from '../flex';
 import Button from '../button';
+import Flex from '../flex';
 import PaginationProps from './PropsType';
 import PaginationStyle from './style/index';
 
@@ -13,7 +12,8 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     simple: false,
     prevText: 'Prev',
     nextText: 'Next',
-    onChange: () => {},
+    onChange: () => {
+    },
     indicatorStyle: null,
     styles: PaginationStyle,
   };
@@ -23,8 +23,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     this.state = {
       current: props.current,
     };
-    this.onPrev = this.onPrev.bind(this);
-    this.onNext = this.onNext.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -33,102 +31,58 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     });
   }
 
-  _hasPrev() {
-    return this.state.current > 0;
-  }
-
-  _hasNext() {
-    return this.state.current < this.props.total;
-  }
-
-  _handleChange(p) {
+  onChange(p) {
     this.setState({
       current: p,
     });
     if (this.props.onChange) {
       this.props.onChange(p);
     }
-    return p;
-  }
-
-  onPrev() {
-    this._handleChange(this.state.current - 1);
-  }
-
-  onNext() {
-    this._handleChange(this.state.current + 1);
-  }
-
-  getIndexes(count) {
-    const arr: number[] = [];
-    for (let i = 0; i < count; i++) {
-      arr.push(i);
-    }
-    return arr;
   }
 
   render() {
-    const { mode, style, simple, total, prevText, nextText, styles } = this.props;
+    const { styles, style, mode, total, simple, prevText, nextText } = this.props;
     const current = this.state.current;
-    let markup;
-    switch (mode) {
-      case 'button':
-        markup = (
-          <Flex>
-            <Flex.Item>
-              <Button
-                inline
-                disabled={current <= 0}
-                onClick={this.onPrev}
-              >
-                {prevText}
-              </Button>
-            </Flex.Item>
-            {!simple ?
-              <Flex.Item>
-                <View style={[styles.numberStyle]}>
-                  <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
-                  <Text style={[styles.totalStyle]}>/{total}</Text>
-                </View>
-              </Flex.Item> : <Flex.Item />
-            }
-            <Flex.Item>
-              <Button
-                disabled={current >= total - 1}
-                inline
-                onClick={this.onNext}
-              >
-              {nextText}
-              </Button>
-            </Flex.Item>
-          </Flex>
+
+    let markup = (
+      <Flex>
+        <Flex.Item>
+          <Button inline disabled={current <= 0}
+            onClick={() => this.onChange(current - 1)}
+          >{prevText}</Button>
+        </Flex.Item>
+        {!simple ?
+          <Flex.Item>
+            <View style={[styles.numberStyle]}>
+              <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
+              <Text style={[styles.totalStyle]}>/{total}</Text>
+            </View>
+          </Flex.Item> : <Flex.Item />
+        }
+        <Flex.Item>
+          <Button inline disabled={current >= total - 1}
+            onClick={() => this.onChange(this.state.current + 1)}
+          >{nextText}</Button>
+        </Flex.Item>
+      </Flex>
+    );
+    if (mode === 'number') {
+      markup = (
+        <View style={[styles.numberStyle]}>
+          <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
+          <Text style={[styles.totalStyle]}>/{total}</Text>
+        </View>
+      );
+    } else if (mode === 'pointer') {
+      const arr: any = [];
+      for (let i = 0; i < total; i++) {
+        arr.push(
+          <View key={`dot-${i}`} style={[
+            styles.pointStyle, styles.spaceStyle, i === current && styles.pointActiveStyle,
+          ]} />
         );
-        break;
-      case 'number':
-        markup = (
-          <View style={[styles.numberStyle]}>
-            <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
-            <Text style={[styles.totalStyle]}>/{total}</Text>
-          </View>
-        );
-        break;
-      case 'pointer':
-        const indexes = this.getIndexes(total);
-        const pointer = indexes.map((index) => {
-          const activeStyle = index === current ? styles.pointActiveStyle : null;
-          return (
-            <View style={[styles.pointStyle, styles.spaceStyle, activeStyle]} key={`point-${index}`}></View>
-          );
-        });
-        markup = (
-          <View style={[styles.indicatorStyle, this.props.indicatorStyle]}>
-            {pointer}
-          </View>
-        );
-        break;
-      default:
-        markup = false;
-        break;
+      }
+      markup = <View style={[styles.indicatorStyle, this.props.indicatorStyle]}>{arr}</View>;
     }
     return (
       <View style={[styles.container, style]}>
