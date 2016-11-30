@@ -8,6 +8,7 @@ interface NoticeBarPropsType {
   /* web only */
   className?: string;
   prefixCls?: string;
+  marqueeProps?: {};
   /* rn only */
   styles?: any;
 }
