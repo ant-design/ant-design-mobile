@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 17.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="图层_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="44px" height="44px" viewBox="0 0 44 44" enable-background="new 0 0 44 44" xml:space="preserve">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M21.926,1.958c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20
-	c11.046,0,20-8.954,20-20C41.926,10.913,32.972,1.958,21.926,1.958z M34.396,15.189L20.157,29.428
-	c-0.594,0.594-1.558,0.593-2.153-0.002c-0.079-0.079-0.119-0.176-0.177-0.265c-0.088-0.059-0.172-0.126-0.25-0.204l-7.475-7.475
-	c-0.649-0.649-0.655-1.696-0.002-2.349c0.648-0.648,1.702-0.645,2.349,0.002l6.846,6.846l12.946-12.946
-	c0.594-0.594,1.558-0.593,2.153,0.002C34.993,13.635,34.99,14.595,34.396,15.189z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="step-48px-对勾-实心">
+            <path d="M24,48 C37.254834,48 48,37.254834 48,24 C48,10.745166 37.254834,0 24,0 C10.745166,0 0,10.745166 0,24 C0,37.254834 10.745166,48 24,48 Z M13.1000061,23.2000122 L10.8999939,25.2999878 L20.8999939,35.2000122 L38.1000061,15 L35.8999939,13 L20.6999969,30.7999878 L13.1000061,23.2000122 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
 </svg>
