@@ -3,7 +3,6 @@ order: 0
 title: 通告栏
 ---
 
-分为 link 和 closable 类型
 
 ````jsx
 import { NoticeBar, WhiteSpace, Icon } from 'antd-mobile';
@@ -17,8 +16,6 @@ const NoticeBarExample = React.createClass({
       <div>
         <WhiteSpace size="lg" />
         <NoticeBar
-          mode="closable"
-          onClick={this.onClick}
           marqueeProps={{ loop: true }}
         >
           国庆期间余额宝收益和转出到账时间通知：由于国庆到来，余额宝收益到账将延迟，特此通知
