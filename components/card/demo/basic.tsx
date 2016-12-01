@@ -5,7 +5,7 @@ import { Card, WhiteSpace, WingBlank } from 'antd-mobile';
 export default class BasicCardExample extends React.Component<any, any> {
   render() {
     return (
-      <View style={{ paddingTop: 80 }}>
+      <View style={{ paddingTop: 30 }}>
         <WingBlank size="lg">
           <Card>
             <Card.Header

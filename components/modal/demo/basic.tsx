@@ -59,8 +59,8 @@ export default class BasicModalExample extends React.Component<any, any> {
               '标题',
               'alert 内容',
               [
-                { text: 'cancel', onPress: () => console.log('cancel'), style: 'cancel' },
-                { text: 'ok', onPress: () => console.log('ok') },
+                { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
+                { text: 'OK', onPress: () => console.log('ok') },
               ]
             );
           }}>
@@ -70,7 +70,6 @@ export default class BasicModalExample extends React.Component<any, any> {
         <Modal
           transparent={false}
           visible={this.state.visible2}
-          style={{flex: 1}}
           animationType="slide-up"
         >
           <View style={{ paddingVertical: 220 }}>
@@ -86,18 +85,16 @@ export default class BasicModalExample extends React.Component<any, any> {
           maskClosable
           visible={this.state.visible}
           closable
-          footer={
-          [
-            { text: 'cancel', onPress: () => console.log('cancel') },
-            { text: 'ok', onPress: () => console.log('ok') },
-          ]
-        }
+          footer={[
+            { text: 'Cancel', onPress: () => console.log('cancel') },
+            { text: 'Ok', onPress: () => console.log('ok') },
+          ]}
         >
           <View style={{ paddingVertical: 20 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
           </View>
-          <Button type="primary" inline onPress={this.onClose}>close modal</Button>
+          <Button type="primary" inline onClick={this.onClose}>close modal</Button>
         </Modal>
       </View>
     );

@@ -13,7 +13,7 @@ export default class PopupExample extends React.Component<any, any> {
 
   getPopupContent = (num) => {
     return (
-      <View style={{ flex: 1 }}>
+      <View>
         <List
           renderHeader={() => '委托买入' }
         >

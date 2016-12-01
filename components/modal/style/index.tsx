@@ -47,24 +47,19 @@ export default StyleSheet.create({
     color: '#bcbcbc',
     lineHeight:  30,
   },
-  buttnGroupH: {
-    flex: 1,
+  buttonGroupH: {
     flexDirection: 'row',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderColor: variables.border_color_base,
   },
-  buttnGroupV: {
-    flex: 1,
+  buttonGroupV: {
     flexDirection: 'column',
   },
   buttnWrapH: {
-    flex: 1,
     borderColor: variables.border_color_base,
-    borderRightWidth: variables.border_width_sm,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderRightWidth: StyleSheet.hairlineWidth,
     paddingVertical: 11,
   },
   buttnWrapV: {
-    flex: 1,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: variables.border_color_base,
     paddingVertical: 11,

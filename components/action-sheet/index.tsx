@@ -121,6 +121,7 @@ if (Platform.OS === 'ios') {
           </View>
         </View>
       );
+
       topView.set(
         <ActionSheetAndroid name={config.androidActionSheetName || 'defaultActionSheet'}>
           {children}
@@ -149,7 +150,7 @@ if (Platform.OS === 'ios') {
     },
     close(androidActionSheetName) {
       // ActionSheet.instances will cause memory leak?
-      ActionSheet.instances[androidActionSheetName].animatedHide();
+      ActionSheet.instances[androidActionSheetName].onClose();
     },
   };
 }
