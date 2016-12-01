@@ -16,7 +16,7 @@ const NoticeBarExample = React.createClass({
       <div>
         <WhiteSpace size="lg" />
         <NoticeBar
-          marqueeProps={{ loop: true }}
+          marqueeProps={{ loop: true, style: { padding: '0 0.15rem' } }}
         >
           国庆期间余额宝收益和转出到账时间通知：由于国庆到来，余额宝收益到账将延迟，特此通知
         </NoticeBar>

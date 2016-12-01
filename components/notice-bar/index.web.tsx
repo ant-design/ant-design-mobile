@@ -66,6 +66,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
       leading: 500,
       trailing: 800,
       fps: 40,
+      style: {},
     }, marqueeProps);
 
     return this.state.show ? (
