@@ -222,9 +222,8 @@ const Carousel = React.createClass<CarouselProps, any>({
           directionalLockEnabled={true}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={[this.props.styles.wrapper, this.props.style]}
+          contentContainerStyle={this.props.style}
           contentOffset={this.state.offset}
-          style={{ flex: 1 }}
           {...others}
         >
           {pages}
@@ -267,7 +266,7 @@ const Carousel = React.createClass<CarouselProps, any>({
 
   render() {
     let state = this.state;
-    let { dots, infinite, children, styles } = this.props;
+    let { dots, infinite, children } = this.props;
     let pages: any = [];
 
     if (!children) {
@@ -278,7 +277,7 @@ const Carousel = React.createClass<CarouselProps, any>({
       );
     }
 
-    const pageStyle = [{ width: state.width }, styles.slide];
+    const pageStyle = { width: state.width };
     const count = children ? children.length || 1 : 0;
     // For make infinite at least count > 1
     if (count > 1) {
@@ -295,7 +294,7 @@ const Carousel = React.createClass<CarouselProps, any>({
     }
 
     return (
-      <View onLayout={this.onLayout} style={[styles.container]}>
+      <View onLayout={this.onLayout}>
         {this.renderContent(pages)}
         {dots && this.renderDots(this.state.selectedIndex)}
       </View>

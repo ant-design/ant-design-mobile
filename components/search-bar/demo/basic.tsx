@@ -16,7 +16,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <View>
+      <View style={{ marginTop: 30 }}>
         <SearchBar
           defaultValue="初始值"
           placeholder="搜索"

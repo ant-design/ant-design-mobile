@@ -16,9 +16,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     editable: true,
     name: '',
     value: '',
-    placeholder: '',
     clear: false,
-    maxLength: -1,
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
@@ -40,7 +38,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   onChange = (text) => {
     const { maxLength, onChange, type } = this.props;
-
     switch (type) {
       case 'text':
         if (maxLength > 0) {

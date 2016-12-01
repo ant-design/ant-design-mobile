@@ -8,10 +8,10 @@ export default {
   // 色彩
   // ---
   // 文字色
-  color_text_base: '#333',                  // 基本
+  color_text_base: '#000',                  // 基本
   color_text_base_inverse: '#fff',          // 基本 _ 反色
   color_text_secondary: '#a4a9b0',          // 辅助色
-  color_text_placeholder: '#ccc',           // 文本框提示
+  color_text_placeholder: '#bbb',           // 文本框提示
   color_text_disabled: '#bbb',              // 失效
   color_text_caption: '#888',               // 辅助描述
   color_text_paragraph: '#333',             // 段落

@@ -9,14 +9,14 @@ export default class BasicCarouselExample extends React.Component<any, any> {
   }
   render() {
     return (
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 30 }}>
         <View style={{ paddingHorizontal: 15 }}>
           <Carousel
             style={styles.wrapper}
             autoplayTimeout={2}
             selectedIndex={2}
-            autoplay={true}
-            infinite={true}
+            autoplay
+            infinite
             afterChange={this.onselectedIndexChange}
           >
             <View style={[styles.container, { backgroundColor: 'red' }]}>
@@ -46,11 +46,7 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#fff',
   } as ViewStyle,
-  slide: {
-    flex: 1,
-  } as ViewStyle,
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     height: 150,
@@ -59,7 +55,4 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 36,
   } as ViewStyle,
-  image: {
-    flex: 1,
-  },
 });

@@ -12,7 +12,7 @@ export default class BasicTagExample extends React.Component<any, any> {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <View style={{ padding: 20}}>
+        <View style={{ padding: 20 }}>
           <Badge text={9}>
             <View style={{ width: 52, height: 52, backgroundColor: 'rgba(255, 140, 101, 0.15)' }} />
           </Badge>

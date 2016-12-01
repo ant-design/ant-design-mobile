@@ -36,7 +36,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       transparent, visible, onClose, bodyStyle, onAnimationEnd, styles,
     } = this.props;
 
-    const btnGroupStyle = footer && footer.length === 2 ? styles.buttnGroupH : styles.buttnGroupV;
+    const btnGroupStyle = footer && footer.length === 2 ? styles.buttonGroupH : styles.buttonGroupV;
     const buttonWrapStyle = footer && footer.length === 2 ? styles.buttnWrapH : styles.buttnWrapV;
 
     const footerDom = footer && footer.length ? (
@@ -55,8 +55,9 @@ class AntmModal extends React.Component<ModalPropsType, any> {
                 buttonStyle = styleMap[buttonStyle] || {};
               }
             }
+            const noneBorder = footer && footer.length === 2 && i === 1 ? { borderRightWidth: 0} : {};
             return (
-              <TouchableHighlight key={i} style={{flex: 1}} underlayColor="#ddd" onPress={() => {
+              <TouchableHighlight key={i} style={{ flex: 1 }} underlayColor="#ddd" onPress={() => {
                 if (button.onPress) {
                   button.onPress();
                 }
@@ -64,7 +65,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
                   onClose();
                 }
               }}>
-                <View style={[buttonWrapStyle]}>
+                <View style={[buttonWrapStyle, noneBorder]}>
                   <Text style={[styles.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
                 </View>
               </TouchableHighlight>
@@ -89,7 +90,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
           onAnimationEnd={onAnimationEnd}
           animateAppear={animateAppear}
         >
-          <View style={{flex: 1}}>
+          <View>
             {title ? <Text style={[styles.header]}>{title}</Text> : null}
             <View style={[styles.body, bodyStyle]}>{children}</View>
             {footer ? <View>{footerDom}</View> : null}

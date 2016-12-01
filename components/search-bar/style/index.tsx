@@ -9,7 +9,6 @@ export default StyleSheet.create({
     borderWidth: variables.border_width_sm,
     alignSelf: 'stretch',
     height: variables.search_bar_input_height,
-    lineHeight: variables.search_bar_input_height,
     color: variables.color_text_base,
     fontSize: variables.font_size_base,
     paddingLeft: variables.h_spacing_lg + variables.icon_size_xxs + variables.h_spacing_sm,

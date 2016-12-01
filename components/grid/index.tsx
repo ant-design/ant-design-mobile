@@ -95,10 +95,8 @@ export default class Grid extends React.Component<GridProps, any> {
       }
     }
 
-    return (
-      <Flex direction="column">
-        {isCarousel && pageCount > 1 ? <Carousel infinite={false} dots>{pagesArr}</Carousel> : rowsArr}
-      </Flex>
-    );
+    return isCarousel && pageCount > 1 ? (
+      <Carousel infinite={false} dots>{pagesArr}</Carousel>
+    ) : <Flex direction="column">{rowsArr}</Flex>;
   }
 }
