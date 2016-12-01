@@ -26,10 +26,12 @@ class ListItem extends React.Component<ListItemProps, any> {
   render() {
     const [{
       prefixCls, className, activeStyle, error, align, wrap,
+      disabled,
       children, multipleLine, thumb, extra, arrow = '', onClick,
     }, restProps] = splitObject(this.props,
       ['prefixCls', 'className', 'activeStyle', 'error', 'align', 'wrap',
-        'children', 'multipleLine', 'thumb', 'extra', 'arrow', 'onClick']);
+        'children', 'multipleLine', 'thumb', 'disabled',
+        'extra', 'arrow', 'onClick']);
 
     const wrapCls = {
       [className as string]: className,
@@ -67,19 +69,16 @@ class ListItem extends React.Component<ListItemProps, any> {
       </div>
     </div>;
 
-    if (onClick) {
-      return (
-        <Touchable
-          onPress={onClick}
-          activeStyle={activeStyle}
-          activeClassName={`${prefixCls}-item-active`}
-        >
-          {content}
-        </Touchable>
-      );
-    } else {
-      return content;
-    }
+    return (
+      <Touchable
+        disabled={disabled || !onClick}
+        onPress={onClick}
+        activeStyle={activeStyle}
+        activeClassName={`${prefixCls}-item-active`}
+      >
+        {content}
+      </Touchable>
+    );
   }
 }
 
