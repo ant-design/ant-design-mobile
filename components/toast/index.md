@@ -16,7 +16,7 @@ source: design
 - 有 Icon 的 Toast，字数为 4-6 个；没有 Icon 的 Toast，字数不宜超过 14 个。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 - `Toast.success(content, duration, onClose)`
 - `Toast.fail(content, duration, onClose)`

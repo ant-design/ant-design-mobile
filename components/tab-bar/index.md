@@ -13,7 +13,7 @@ source: design
 - 即使某个 Tab 不可用，也不要禁用或者移除该 Tab。
 - 使用 Badge 进行提示，足不出户也能知道有内容更新。
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 ### TabBar
 
@@ -23,7 +23,6 @@ source: design
 | tintColor         | 选中的字体颜色                               | String | `#108ee9`         |
 | unselectedTintColor       | 未选中的字体颜色  | String | '#888'           |
 | hidden       | 是否隐藏  | Boolean | false           |
-| prefixCls(`web only`) | 样式前缀  | String   | 'am-tab-bar'      |
 
 
 ### TabBar.Item

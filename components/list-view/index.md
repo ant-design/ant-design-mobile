@@ -14,7 +14,8 @@ english: ListView
 - 可以通过日期、字母顺序或者其它参数来过滤数据或改变每行列表的顺序。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
+
 same as [React Native ListView](https://facebook.github.io/react-native/docs/listview.html#content)
 (v0.26).
 

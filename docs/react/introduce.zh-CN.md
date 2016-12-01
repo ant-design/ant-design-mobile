@@ -97,6 +97,7 @@ class HelloWorldApp extends Component {
 
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
+> 注：`Accordion`、`Icon`、`Result`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
 
 > 更多常见问题，请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
 

@@ -15,11 +15,11 @@ source: design
 - 可调整 Switch 的主体来满足 APP 的视觉风格。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 | 成员        | 说明           | 类型         | 默认值       |
 |------------|----------------|-------------|--------------|
-| name(web)  | switch 的 name    | String   |      |
 | checked    | 是否默认选中    | Boolean       |   false  |
 | disabled   | 是否不可修改    | Boolean       |   false  |
 | onChange   | change 事件触发的回调函数,参数是 checked 的值 | Function |  无  |
+| name(`web only`)  | switch 的 name    | String   |      |

@@ -10,7 +10,6 @@ export interface CarouselProps {
   autoplay?: boolean;
   infinite?: boolean;
   children?: any;
-  /** web only */
   prefixCls?: string;
   easing?: string;
   beforeChange?: (from: number, to: number) => void;

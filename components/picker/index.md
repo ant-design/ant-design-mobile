@@ -13,7 +13,7 @@ source: design
 - 尽量使用 Picker 来帮助用户完成输入，避免用户通过键盘直接输入。
 - DatePicker 是 Picker 的特定模式。
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 | 成员        | 说明           | 类型            | 默认值       |
 |------------|----------------|--------------------|--------------|
@@ -28,4 +28,5 @@ source: design
 | dismissText  | 取消选中的文案 | String |  `取消`  |
 | title  | 大标题 | String | - |
 | extra   | Children 如果是 List.Item,则是 extra 属性的默认值, 如果是其它的 UI 组件,则 value 或者 extra 属性会经过 format 方法处理后传给 children 的 extra 属性,用户需要自己实现这个属性 | String |  `请选择`  |
-| style   | 样式 | Object |  无  |
+
+> 更多参数及支持情况可参考：https://github.com/react-component/m-cascader

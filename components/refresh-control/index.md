@@ -23,5 +23,5 @@ source: design
 
 `icon`/`loading` API 如何自己设置，参考这里 https://github.com/ant-design/ant-design-mobile/blob/master/components/refresh-control/index.web.tsx#L11
 
-## API (ios/android)
+## API (react-native)
 见此：https://facebook.github.io/react-native/docs/refreshcontrol.html#props
