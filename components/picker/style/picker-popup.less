@@ -43,14 +43,6 @@
     position: relative;
     .hairline-bottom(@border-color-base);
     & & {
-      &-cancel-button,
-      &-ok-button {
-        padding: @v-spacing-md @h-spacing-lg;
-        display: inline-block;
-        &:active {
-          background-color: @fill-tap;
-        }
-      }
       &-right {
         text-align: right;
       }
@@ -58,12 +50,16 @@
   }
 
   &-item {
-    .box-flex(1);
     color: @brand-primary;
     font-size: @font-size-heading;
+    padding: @v-spacing-md @h-spacing-lg;
+    &-active {
+      background-color: @fill-tap;
+    }
   }
 
   &-title {
+    .box-flex(1);
     text-align: center;
     color: @color-text-base;
   }

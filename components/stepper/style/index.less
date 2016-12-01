@@ -53,14 +53,8 @@
     position: absolute;
     display: inline-block;
     box-sizing: content-box;
-    &:active {
-      z-index: 2;
-    }
-    &-up:active,
-    &-down:active {
-      background: @fill-tap;
-    }
     &-active {
+      z-index: 2;
       background-color: @fill-tap;
     }
   }
@@ -78,9 +72,6 @@
     user-select: none;
     right: 4px;
     color: @color-text-base;
-    &:active {
-      background-color: @fill-tap;
-    }
   }
 
   &-input-wrap {
@@ -155,11 +146,12 @@
   &-handler-down-disabled,
   &-handler-up-disabled {
     opacity: @opacity-disabled;
-    &:active,
-    &:active {
-      background: none;
-    }
   }
+
+  &-handler-up-disabled &-handler-active {
+    background: none;
+  }
+
   &-disabled {
     .@{stepperPrefixCls}-handler-down,
     .@{stepperPrefixCls}-handler-up {

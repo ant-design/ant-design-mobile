@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
-import touchableFeedback from '../_util/touchableFeedback';
+import Touchable from 'rc-touchable';
 import { ListItemProps, BriefProps } from './PropsType';
 
 export class Brief extends React.Component<BriefProps, any> {
@@ -22,13 +21,15 @@ class ListItem extends React.Component<ListItemProps, any> {
     wrap: false,
   };
 
+  static Brief = Brief;
+
   render() {
     const [{
-      prefixCls, className, touchFeedback, activeStyle, error, align, wrap,
-      children, multipleLine, thumb, extra, arrow = '',
+      prefixCls, className, activeStyle, error, align, wrap,
+      children, multipleLine, thumb, extra, arrow = '', onClick,
     }, restProps] = splitObject(this.props,
-      ['prefixCls', 'className', 'touchFeedback', 'activeStyle', 'error', 'align', 'wrap',
-        'children', 'multipleLine', 'thumb', 'extra', 'arrow']);
+      ['prefixCls', 'className', 'activeStyle', 'error', 'align', 'wrap',
+        'children', 'multipleLine', 'thumb', 'extra', 'arrow', 'onClick']);
 
     const wrapCls = {
       [className as string]: className,
@@ -38,12 +39,6 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
     };
-
-    let style = assign({}, this.props.style);
-    if (touchFeedback) {
-      style = assign(style, activeStyle);
-      wrapCls[`${prefixCls}-item-hover`] = true;
-    }
 
     const lineCls = classNames({
       [`${prefixCls}-line`]: true,
@@ -58,28 +53,34 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
 
-    return (
-      <div
-        {...restProps}
-        className={classNames(wrapCls)}
-        style={style}
-      >
-        {thumb ? <div className={`${prefixCls}-thumb`}>
-          {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
-        </div> : null}
-        <div className={lineCls}>
-          {children ? <div className={`${prefixCls}-content`}>{children}</div> : null}
-          {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
-          {arrow ? <div className={arrowCls} /> : null}
-        </div>
+    const content =  <div
+      {...restProps}
+      className={classNames(wrapCls)}
+    >
+      {thumb ? <div className={`${prefixCls}-thumb`}>
+        {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
+      </div> : null}
+      <div className={lineCls}>
+        {children ? <div className={`${prefixCls}-content`}>{children}</div> : null}
+        {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
+        {arrow ? <div className={arrowCls} /> : null}
       </div>
-    );
+    </div>;
+
+    if (onClick) {
+      return (
+        <Touchable
+          onPress={onClick}
+          activeStyle={activeStyle}
+          activeClassName={`${prefixCls}-item-active`}
+        >
+          {content}
+        </Touchable>
+      );
+    } else {
+      return content;
+    }
   }
 }
 
-// 给其他组件对其设置 extra 使用
-const highOrderListItem = touchableFeedback(ListItem, {
-  myName: 'ListItem',
-  Brief,
-});
-export default highOrderListItem;
+export default ListItem;
