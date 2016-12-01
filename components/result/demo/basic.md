@@ -4,7 +4,7 @@ title: 示例
 ---
 
 ````jsx
-import { Result } from 'antd-mobile';
+import { Result, Icon } from 'antd-mobile';
 
 const ResultExample = () => (<div>
   <p style={{ margin: 10, color: '#999' }}>支付成功</p>
@@ -40,6 +40,13 @@ const ResultExample = () => (<div>
     imgUrl="https://zos.alipayobjects.com/rmsportal/NRzOqylcxEstLGf.png"
     title="无法完成操作"
     message="由于你的支付宝账户还未绑定淘宝账户请登请登录www.taobao.com"
+  />
+
+  <p style={{ margin: 10, color: '#999' }}>Fail</p>
+  <Result
+    img={<Icon type="ellipsis" style={{ verticalAlign: 'middle' }} />}
+    title="Fail"
+    message="不知道发生什么了.........."
   />
 </div>);
 

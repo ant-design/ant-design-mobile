@@ -16,13 +16,12 @@ english: Result
 
 ## API
 
-
-### Result
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
-| imgUrl    | 插图URL        | string |    |
-| title    |    title 文案     | String/HTML |    |
-| message    |    message 文案     | String/HTML |    |
-| buttonText    |    按钮文案     | string |    |
-| buttonType    |    请参考 button 的配置     | string |    |
-| buttonClick    |    按钮回调函数     | Func |    |
+| imgUrl    | 插图 url        | string |  -  |
+| img   | 插图元素 (可以为`<img src="" />`/`<Icon type="" />`等), 会覆盖 imgUrl 设置  | React.Element | -  |
+| title    |    title 文案     | String/React.Element |    |
+| message    |    message 文案     | String/React.Element |    |
+| buttonText    |    按钮文案     | string |  -  |
+| buttonType    |    请参考 button 的配置    | string |  -  |
+| buttonClick    |    按钮回调函数     | Func |  -  |

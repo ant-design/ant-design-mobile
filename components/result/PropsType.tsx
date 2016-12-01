@@ -5,6 +5,7 @@ interface ResultProps {
   style?: React.CSSProperties;
   className?: string;
   imgUrl?: string;
+  img?: React.ReactNode;
   title?: React.ReactNode;
   message?: React.ReactNode;
   buttonText?: string;
