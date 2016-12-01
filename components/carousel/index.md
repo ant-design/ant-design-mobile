@@ -14,7 +14,7 @@ english: Carousel
 - 默认自动轮播，当用户轻触时该区域时停止；允许用户向前、向后滚动 Carousel。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 | 参数             | 说明                                         | 类型     | 默认值                          |
 |------------------|----------------------------------------------|----------|---------------------------------|
@@ -23,8 +23,10 @@ english: Carousel
 | vertical | 垂直显示(web 为内容，rn 为 pagination) | Boolean   | false |
 | autoplay | 是否自动切换 | Boolean   | false |
 | infinite | 是否循环播放 | Boolean   | false |
+| afterChange      | 切换面板的回调                              | function(current)  | 无
 | easing (`web only`) | 动画效果 | String   | linear |
 | beforeChange  (`web only`)     | 切换面板的回调                              | function(from, to) | 无
-| afterChange      | 切换面板的回调                              | function(current)  | 无
+| onScrollBeginDrag (`rn only`) | 见 react-native scrollView onScrollBeginDrag | function | 无 |
+| bounces (`rn only`) | 见 react-native scrollView bounces       |   Boolean              | true |
 
 更多参数可参考：https://github.com/FormidableLabs/nuka-carousel

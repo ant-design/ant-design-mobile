@@ -16,14 +16,12 @@ source: design
 - 对特定格式的文本进行处理，eg：隐藏密码。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 
 | 成员        | 说明           | 类型             | 默认值       |
-|------------|----------------|-----------------|--------------|
-| prefixListCls    |   列表 className 前缀      | String |  `am-list`  |
+|------------|----------------|-----------------|--------------
 | type    | 银行卡`bankCard`,手机号`phone`（此时最大长度固定为11,`maxLength`设置无效）,密码`password`, 数字`number`（尽量唤起数字键盘）  | String |  `text`  |
-| name    | input 的 name        | String |  无  |
 | value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
@@ -39,4 +37,8 @@ source: design
 | extra       | 右边注释   | string or node |  ''  |
 | onExtraClick      | extra 点击事件触发的回调函数 | Function(e) |  无  |
 | labelNumber   | 标签 label 字数（可选`2`, `3`, `4`, `5`, `6`, `7`） | number | `4`  |
-| updatePlaceholder | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
+| updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
+| prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
+| name (`web only`)   | input 的 name        | String |  无  |
+
+> 更多属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)

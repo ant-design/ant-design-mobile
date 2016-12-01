@@ -27,3 +27,12 @@ SVG 图标。
 
 支持本地图标，例如`<Icon type={require('./reload.svg')} />`，
 但这时需要配合 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 设置生效。
+
+## API ( 适用平台：WEB )
+
+| 成员        | 说明           | 类型            | 默认值       |
+|------------|----------------|----------------|--------------|
+| type    |   内置 icon 名称或 require 资源    | String / reqiure('xxx')  |  |
+| size    |   图标大小    | 'xxs'/'xs'/'sm'/'md'/'lg'  | `md` |
+
+> 注: RN 版本由于 Icon 无法做纯 UI，推荐使用 https://github.com/oblador/react-native-vector-icons

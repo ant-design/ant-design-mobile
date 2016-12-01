@@ -14,14 +14,11 @@ source: design
 - 通过光标可以在垂直或者水平方向进行移动。
 
 
-## API
-
+## API ( 适用平台：WEB、React-Native )
 
 | 成员        | 说明           | 类型             | 默认值       |
 |------------|----------------|-----------------|--------------|
-| prefixListCls    |   列表 className 前缀      | String |  `am-list`  |
 | title    | 文案说明        | String/node |  '' |
-| name    | textarea 的 name       | String |   -  |
 | value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
@@ -37,3 +34,7 @@ source: design
 | onErrorClick       | 点击报错 icon 触发的回调   | Function |  无  |
 | autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
 | labelNumber   | 标签 label 字数（可选`2`, `3`, `4`, `5`, `6`, `7`） | number | `4`  |
+| name (`web only`)    | textarea 的 name       | String |   -  |
+| prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
+
+> 更多属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)

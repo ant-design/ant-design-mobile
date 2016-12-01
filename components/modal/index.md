@@ -17,11 +17,10 @@ source: design
 
 ## API
 
-### Modal `web & react native`
+### Modal ( 适用平台：WEB、React-Native )
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
-| prefixCls (web only)      | 样式类名前缀 | String          | `am-modal`           |
 | visible      | 对话框是否可见 | Boolean          | false           |
 | onClose      | 点击 x 或 mask 回调       | Function   | 无 |
 | title (only transparent)       | 标题           | React.Element    | 无           |
@@ -30,9 +29,9 @@ source: design
 | footer  (only not transparent)     | 底部内容       |  Array [{text, onPress}]    | [] |
 | transparent | 是否弹窗模式       | Boolean   |  true |
 | animationType | modal 动画样式       | 'none' | 'slide-down/up' (transparent 模式下) | 'fade' | 'slide' (仅非 tranparent)   |   fade |
-| style        |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
+| style (`web only`)       |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
 
-### Modal.alert(title, message, actions?)
+### Modal.alert(title, message, actions?) ( 适用平台：WEB、React-Native )
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
@@ -40,7 +39,7 @@ source: design
 | message      | 提示信息                  | String 或 React.Element    | 无    |
 | actions         | 按钮组, [{text, onPress, style}]       | Array | 无            |
 
-### Modal.prompt(title?, message?, callbackOrActions, type?, defaultValue?) `web only`
+### Modal.prompt(title?, message?, callbackOrActions, type?, defaultValue?) ( 适用平台：WEB )
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|

@@ -12,12 +12,12 @@ export interface SearchBarProps {
   onCancel?: Function;
   showCancelButton?: boolean;
   cancelText?: string;
+  disabled?: boolean;
   styles?: any;
   /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
   className?: string;
-  disabled?: boolean;
   onClear?: Function;
 }
 

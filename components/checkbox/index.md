@@ -8,13 +8,12 @@ source: design
 
 复选框
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 ### Checkbox
 
 | 成员             | 说明           | 类型           | 默认值       |
 |---------------- |----------------|-------------|--------------
-| name            |  name    | String |   无  |
 | defaultChecked  |  初始是否选中  | Boolean   | 无  |
 | checked         |   指定当前是否选中   | Boolean  | 无  |
 | disabled        |         | Boolean |  false  |

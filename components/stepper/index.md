@@ -10,7 +10,7 @@ english: Stepper
 ### 规则
 - 当想要对数值进行小幅度调整时，可以使用 Stepper，eg：将年化收益从 4.00% 调整到 4.05%。
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 属性如下
 
@@ -24,5 +24,5 @@ english: Stepper
 | onChange     | 变化回调       | Function      |            |
 | disabled     | 禁用       | Boolean      |      false      |
 | readOnly     | input 只读       | Boolean      |      false      |
-| showNumber(web only)    | 是否显示数值，默认不显示  | Boolean      |      false      |
-| styles(react native only)    | react native 组件样式  | ReactNative StyleSheet      |            |
+| showNumber(`web only`)    | 是否显示数值，默认不显示  | Boolean      |      false      |
+| styles(`rn only`)    | react native 组件样式  | ReactNative StyleSheet      |            |
