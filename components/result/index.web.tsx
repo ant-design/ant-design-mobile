@@ -12,7 +12,7 @@ export default class Result extends React.Component<ResultProps, any> {
   };
 
   render() {
-    let { prefixCls, img, imgUrl, title, message, buttonText, buttonClick, buttonType, className } = this.props;
+    let { prefixCls, className, img, imgUrl, title, message, buttonText, buttonClick, buttonType } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,

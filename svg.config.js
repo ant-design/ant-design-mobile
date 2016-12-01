@@ -1,13 +1,13 @@
 'use strict';
 
 module.exports = function (config, includeDemo) {
-  let excludeDirs = [
+  let svgDirs = [
     /components\/icon\/style\/assets/,
     /components\/notice-bar\/style\/assets/,
     /components\/toast\/style\/assets/,
   ];
   if (includeDemo) {
-    excludeDirs = excludeDirs.concat([
+    svgDirs = svgDirs.concat([
       /components\/steps\/demo/,
       /components\/icon\/demo/,
       /components\/popover\/demo/,
@@ -17,7 +17,7 @@ module.exports = function (config, includeDemo) {
   // exclude the default svg-url-loader from atool-build https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js#L161
   config.module.loaders.forEach(loader => {
     if (loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
-      loader.exclude = excludeDirs;
+      loader.exclude = svgDirs;
     }
   });
   // Note: https://github.com/kisenka/svg-sprite-loader/issues/4
@@ -26,7 +26,7 @@ module.exports = function (config, includeDemo) {
     config.module.loaders.unshift({
       test: /\.svg$/,
       loader: 'svg-sprite',
-      include: excludeDirs,
+      include: svgDirs,
     });
   }
 };
