@@ -21,6 +21,7 @@
   "bugs": {
     "url": "http://github.com/ant-design/ant-design-mobile/issues"
   },
+  "main": "lib/index.web.js",
   "files": [
     "dist",
     "lib"
