@@ -21,7 +21,6 @@
   "bugs": {
     "url": "http://github.com/ant-design/ant-design-mobile/issues"
   },
-  "main": "lib/index.web.js",
   "files": [
     "dist",
     "lib"
@@ -105,14 +104,14 @@
     "rc-queue-anim": "^0.11.12",
     "rc-scroll-anim": "~0.3.0",
     "rc-tween-one": "~0.6.20",
-    "react": "~15.3.1",
+    "react": "~15.4.1",
     "react-addons-test-utils": "^15.2.0",
     "react-copy-to-clipboard": "^4.0.1",
     "react-document-title": "^2.0.1",
-    "react-dom": "~15.3.1",
+    "react-dom": "~15.4.1",
     "react-github-button": "^0.1.9",
     "react-intl": "^2.0.1",
-    "react-native": "~0.38.0",
+    "react-native": "~0.39.0",
     "react-native-code-push": "~1.16.0-beta",
     "react-native-router-flux": "^3.30.3",
     "react-router": "^3.0.0",
