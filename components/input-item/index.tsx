@@ -10,15 +10,11 @@ const noop: any = () => {
 
 export default class InputItem extends React.Component<InputItemProps, any> {
   static defaultProps = {
-    prefixCls: 'am-input',
-    prefixListCls: 'am-list',
     type: 'text',
     editable: true,
-    name: '',
     value: '',
     placeholder: '',
     clear: false,
-    maxLength: -1,
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
