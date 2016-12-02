@@ -42,6 +42,10 @@
       .@{stepsPrefixCls}-head-inner {
         border-color: @brand-primary;
         background-color: @brand-primary;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 0;
         > .@{stepsPrefixCls}-icon {
           color: @color-text-base-inverse;
         }
@@ -95,8 +99,6 @@
       }
     }
 
-    &.@{stepsPrefixCls}-status-error
-
     &.@{stepsPrefixCls}-next-error {
       .@{stepsPrefixCls}-tail > i,
       .@{stepsPrefixCls}-tail > i:after {
@@ -128,14 +130,9 @@
 
     .@{ellipsisItem}.@{stepsPrefixCls}-status-wait&.@{stepsPrefixCls}-custom {
       .@{stepsPrefixCls}-head-inner {
-        background: none;
-        border: 0;
-        width: auto;
-        height: auto;
         > .@{stepsPrefixCls}-icon {
           font-size: @font-size-subhead;
           line-height: 40px;
-          top: 4px;
           width: 40px;
           height: 40px;
           border: 4px solid @color-text-placeholder;
@@ -147,11 +144,9 @@
         }
       }
     }
-
     &.@{errorTailCls} .@{stepsPrefixCls}-tail {
       background-color: @brand-error;
     }
-
   }
 
   &-head,
@@ -198,7 +193,6 @@
     font-size: @font-size-subhead;
   }
 
-
   &-tail {
     position: absolute;
     left: 0;
@@ -229,9 +223,7 @@
     }
     .@{stepsPrefixCls}-title {
       font-size: @font-size-caption;
-      margin-bottom: 4px;
       color: @color-text-base;
-      font-weight: bold;
     }
     .@{stepsPrefixCls}-description {
       font-size: @font-size-caption-sm;
@@ -239,7 +231,6 @@
     }
     .@{stepsPrefixCls}-tail {
       padding: 0 8px;
-      width: 2px;
       > i {
         height: 1px;
         border-radius: 1px;
@@ -249,6 +240,7 @@
   }
 
   &&-small &-item&-custom &-head-inner,
+  &-item&-status-error &-head-inner,
   &-item&-custom &-head-inner {
     width: inherit;
     height: inherit;
@@ -259,10 +251,8 @@
   }
 
   &&-small &-item&-custom &-head-inner {
-    margin-right: @h-spacing-md;
     > .@{stepsPrefixCls}-icon {
       font-size: @smallIconSize;
-      top: 4px;
       width: @smallIconSize;
       height: @smallIconSize;
       background-color: @fill-base;
@@ -272,8 +262,7 @@
       }
     }
   }
-
-  .@{ellipsisItem}&-small &-item&-status-wait&-custom &-head-inner {
+  &&-small .@{ellipsisItem}&-item&-status-wait&-custom &-head-inner {
     > .@{stepsPrefixCls}-icon {
       .am-icon {
         width: 24px;
@@ -291,10 +280,9 @@
   }
   &&-small &-item&-status-process &-head-inner {
     box-sizing: border-box;
-    margin-right: @h-spacing-md;
     width: @smallIconSize;
     height: @smallIconSize;
-    line-height: 1;
+    line-height: @smallIconSize;
     border-radius: 50%;
   }
 }
@@ -348,20 +336,22 @@
   }
 }
 
-.@{stepsPrefixCls}-small .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
-  height: 50%;
-  width: 2px;
-}
-
-
 .@{stepsPrefixCls}-vertical.@{stepsPrefixCls}-small {
   .@{stepsPrefixCls}-tail {
     position: absolute;
     left: 16px;
     padding: 0;
+    width: 2px;
     > i {
       height: 100%;
     }
+  }
+  .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
+    height: 50%;
+    width: 2px;
+  }
+  .@{stepsPrefixCls}-item .@{stepsPrefixCls}-head-inner {
+    margin-right: @h-spacing-md;
   }
 }
 
@@ -371,12 +361,13 @@
   }
   .@{stepsPrefixCls}-description {
     max-width: 150px;
-    font-size: @font-size-caption-sm;
+  }
+  &.@{stepsPrefixCls}-small .@{stepsPrefixCls}-tail {
+    top: 16px;
   }
 }
 
-.@{stepsPrefixCls}-label-horizontal,
-.@{stepsPrefixCls}-label-vertical, {
+.@{stepsPrefixCls}-label-vertical {
   .@{stepsPrefixCls}-tail {
     left: 60px;
     right: 0;
