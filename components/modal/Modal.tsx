@@ -36,9 +36,13 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       transparent, visible, onClose, bodyStyle, onAnimationEnd, styles,
     } = this.props;
 
-    const btnGroupStyle = footer && footer.length === 2 ? styles.buttonGroupH : styles.buttonGroupV;
+    let btnGroupStyle = styles.buttonGroupV;
+    let horizontalFlex = {};
+    if (footer && footer.length === 2) {
+      btnGroupStyle = styles.buttonGroupH;
+      horizontalFlex = { flex: 1 };
+    }
     const buttonWrapStyle = footer && footer.length === 2 ? styles.buttnWrapH : styles.buttnWrapV;
-
     const footerDom = footer && footer.length ? (
       <View style={[btnGroupStyle, styles.footerRadius]}>
         {
@@ -56,8 +60,9 @@ class AntmModal extends React.Component<ModalPropsType, any> {
               }
             }
             const noneBorder = footer && footer.length === 2 && i === 1 ? { borderRightWidth: 0} : {};
+
             return (
-              <TouchableHighlight key={i} style={{ flex: 1 }} underlayColor="#ddd" onPress={() => {
+              <TouchableHighlight key={i} style={horizontalFlex} underlayColor="#ddd" onPress={() => {
                 if (button.onPress) {
                   button.onPress();
                 }
