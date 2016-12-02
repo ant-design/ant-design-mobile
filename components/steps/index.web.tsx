@@ -18,11 +18,13 @@ export default class Steps extends React.Component<StepsProps, any> {
   static defaultProps = {
     prefixCls: 'am-steps',
     iconPrefix: 'ant',
+    labelPlacement: 'vertical',
+    direction: 'vertical',
     current: 0,
   };
 
   render() {
-    const { children, current, direction = 'vertical' } = this.props;
+    const { children, current } = this.props;
     const newChildren = React.Children.map(children, (item: any, index) => {
       let className = item.props.className;
       if (index < children.length - 1 && children[index + 1].props.status === 'error') {
@@ -49,6 +51,6 @@ export default class Steps extends React.Component<StepsProps, any> {
       }
       return React.cloneElement(item, { icon, className });
     });
-    return <RcSteps {...this.props} direction={direction} labelPlacement={direction}>{newChildren}</RcSteps>;
+    return <RcSteps {...this.props}>{newChildren}</RcSteps>;
   }
 }
