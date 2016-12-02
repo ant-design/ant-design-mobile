@@ -3,6 +3,18 @@ order: 4
 english: 更新日志
 ---
 
+### 0.9.11
+
+`2016-12-03`
+
+- 修复 List 底部边线重叠显示问题、重构 List 点击反馈的实现方法；同步修复 ListView.IndexedList 边线重叠问题
+- 修复 Checkbox 勾选箭头偏移问题 #581
+- 修复 Steps 组件内部逻辑、改进部分样式设置
+- 修复 SearchBar 动画表现不准确问题
+- 改进[上手和使用文档](https://mobile.ant.design/docs/react/introduce#使用)写法
+- 优化 Pagination、RefreshControl、Radio、Drawer、Popover、Result、NoticeBar 等组件实现和相应 demo
+- 修复 RN InputItem Android 不能输入的问题 #603
+
 ### 0.9.10
 
 `2016-11-25`
