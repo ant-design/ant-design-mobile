@@ -3,21 +3,13 @@
 
 @indexedList: am-indexed-list;
 .@{indexedList} {
-  &-section-body {
-    &.am-list-body:after {
-      border: 0;
-    }
-    .am-list-item:last-child {
-      .am-list-line:after {
-        border: 0;
-      }
-    }
+  &-section-body.am-list-body:after,
+  &-section-body.am-list-body .am-list-item:last-child .am-list-line:after {
+    border: 0;
   }
   &-section-header {
-    .am-list-item .am-list-line:after {
-      border: 0;
-    }
-    &.am-list-body:after {
+    &.am-list-body:after,
+    &.am-list-body .am-list-item .am-list-line:after {
       border: 0;
     }
     .am-list-item {
