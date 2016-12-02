@@ -42,7 +42,7 @@ class ListItem extends React.Component<ListItemProps, any> {
     let style = assign({}, this.props.style);
     if (touchFeedback) {
       style = assign(style, activeStyle);
-      wrapCls[`${prefixCls}-item-hover`] = true;
+      wrapCls[`${prefixCls}-item-active`] = true;
     }
 
     const lineCls = classNames({
