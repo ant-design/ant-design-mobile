@@ -25,7 +25,7 @@ export default class Steps extends React.Component<StepsProps, any> {
   };
 
   render() {
-    const { children, current } = this.props;
+    const { children, current, status } = this.props;
     const newChildren = React.Children.map(children, (item: any, index) => {
       let className = item.props.className;
       if (index < children.length - 1 && children[index + 1].props.status === 'error') {
@@ -42,11 +42,7 @@ export default class Steps extends React.Component<StepsProps, any> {
           icon = 'ellipsis';
           className = className ? `${className} ellipsis-item` : 'ellipsis-item';
         }
-        // else if (index === current) {
-        //   // 对应 state: process
-        //   // icon = 'cross-circle-o';
-        // }
-        if (item.props.status === 'error') {
+        if (status === 'error' && index === current || item.props.status === 'error') {
           icon = 'cross-circle-o';
         }
       }

@@ -62,8 +62,8 @@ const Marquee = React.createClass<MarqueeProp, any>({
       display: 'inline-block',
     }, this.props.style);
     return (
-      <div className={`${prefixCls}-marquee ${className}`} style={{ overflow: 'hidden' }}>
-        <div ref="text" style={style}>{text} </div>
+      <div className={`${prefixCls}-marquee-wrap ${className}`} style={{ overflow: 'hidden' }}>
+        <div ref="text" className={`${prefixCls}-marquee`} style={style}>{text} </div>
       </div>
     );
   },
