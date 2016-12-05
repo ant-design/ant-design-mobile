@@ -28,7 +28,7 @@
   NSURL *jsCodeLocation;
 
   #ifdef DEBUG
-    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"rn-kitchen-sink/index.ios" fallbackResource:nil];
+    jsCodeLocation = [RCTBundleURLProvider jsBundleURLForBundleRoot:@"rn-kitchen-sink/index.ios.bundle" packagerHost:@"127.0.0.1" enableDev:YES enableMinification:NO];
   #else
     jsCodeLocation = [CodePush bundleURLForResource:@"index.ios" withExtension:@"bundle"];
   #endif
