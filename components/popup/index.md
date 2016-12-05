@@ -22,6 +22,7 @@ english: Popup
 - animationType (string) - 可选 `slide-down` (默认)、`slide-up` 弹出动画类型
 - transitionName (string) (`web only`) 自定义显示隐藏变换动画
 - maskTransitionName (string) (`web only`) 自定义遮罩层变换动画
+- onMaskClose (function) (`web only`) 遮罩层关闭时的回调，支持返回 Promise
 
 #### static hide(): 关闭 Popup
 

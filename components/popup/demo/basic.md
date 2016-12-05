@@ -37,7 +37,9 @@ const Test = React.createClass({
       sel: '',
     };
   },
-  onClick() {
+  onClick(e) {
+    // 修复 Android 上点击穿透
+    e.preventDefault();
     Popup.show(
       <List
         renderHeader={() => '账户总览 (已绑定3个）'}
@@ -55,8 +57,16 @@ const Test = React.createClass({
           arrow="horizontal"
           onClick={() => { this.onClose('opt 1'); }}
         >更多</List.Item>
-      </List>
-    );
+      </List>,
+    { onMaskClose: this.onMaskClose });
+  },
+  onMaskClose() {
+    console.log('onMaskClose');
+    // also support Promise
+    // return new Promise((resolve) => {
+    //   console.log('1000ms 后关闭');
+    //   setTimeout(resolve, 1000);
+    // });
   },
   onClose(sel) {
     // if (sel === 'opt 1') {
