@@ -3,6 +3,7 @@ import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
 import { ListItemProps, BriefProps } from './PropsType';
 import listItemStyles from './style/index';
 import variables from '../style/themes/default';
+import normalizeProps from '../_util/normalizeProps';
 
 function noop() {
 }
@@ -26,11 +27,13 @@ export default class Item extends React.Component<ListItemProps, any> {
   };
   static Brief: any;
   render() {
+    const props = normalizeProps(this.props);
+
     const {
       styles = listItemStyles,
       children, multipleLine, thumb, extra, arrow = '', style,
       onClick = noop, onPressIn = noop, onPressOut = noop,
-    } = this.props;
+    } = props;
 
     let line = 1;
     let contentDom;

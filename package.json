@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.0.0-alpha.26",
+  "version": "1.0.0-alpha.27",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -105,7 +105,7 @@
     "rc-scroll-anim": "~0.3.0",
     "rc-tween-one": "~0.6.20",
     "react": "~15.4.1",
-    "react-addons-test-utils": "^15.2.0",
+    "react-addons-test-utils": "~15.4.0",
     "react-copy-to-clipboard": "^4.0.1",
     "react-document-title": "^2.0.1",
     "react-dom": "~15.4.1",

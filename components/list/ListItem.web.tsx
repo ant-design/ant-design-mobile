@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 import Touchable from 'rc-touchable';
 import { ListItemProps, BriefProps } from './PropsType';
+import normalizeProps from '../_util/normalizeProps';
 
 export class Brief extends React.Component<BriefProps, any> {
   render() {
@@ -25,11 +26,12 @@ class ListItem extends React.Component<ListItemProps, any> {
   static myName = 'ListItem';
 
   render() {
+    const props = normalizeProps(this.props);
     const [{
       prefixCls, className, activeStyle, error, align, wrap,
       disabled,
       children, multipleLine, thumb, extra, arrow = '', onClick,
-    }, restProps] = splitObject(this.props,
+    }, restProps] = splitObject(props,
       ['prefixCls', 'className', 'activeStyle', 'error', 'align', 'wrap',
         'children', 'multipleLine', 'thumb', 'disabled',
         'extra', 'arrow', 'onClick']);

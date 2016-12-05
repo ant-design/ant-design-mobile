@@ -2,6 +2,7 @@ import React from 'react';
 import Item from './ListItem';
 import classNames from 'classnames';
 import { ListProps } from './PropsType';
+import normalizeProps from '../_util/normalizeProps';
 
 export default class List extends React.Component<ListProps, any> {
   static Item = Item;
@@ -11,7 +12,8 @@ export default class List extends React.Component<ListProps, any> {
   };
 
   render() {
-    let {prefixCls, children, className, style, renderHeader, renderFooter} = this.props;
+    const props = normalizeProps(this.props);
+    let { prefixCls, children, className, style, renderHeader, renderFooter } = props;
     const wrapCls = classNames({
       [prefixCls as string]: true,
       [className as string]: className,
@@ -19,9 +21,13 @@ export default class List extends React.Component<ListProps, any> {
 
     return (
       <div className={wrapCls} style={style}>
-        {renderHeader ? (<div className={`${prefixCls}-header`}>{renderHeader()}</div>) : null}
+        {renderHeader ? (<div className={`${prefixCls}-header`}>{
+          typeof renderHeader === 'function' ? renderHeader() : renderHeader
+        }</div>) : null}
         {children ? (<div className={`${prefixCls}-body`}>{children}</div>) : null}
-        {renderFooter ? (<div className={`${prefixCls}-footer`}>{renderFooter()}</div>) : null}
+        {renderFooter ? (<div className={`${prefixCls}-footer`}>{
+          typeof renderFooter === 'function' ? renderFooter() : renderFooter
+        }</div>) : null}
       </div>
     );
   }
