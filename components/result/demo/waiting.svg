@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>等待处理</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="等待处理">
+            <circle id="Oval-61" fill="#2CD7AA" cx="60" cy="60" r="60"></circle>
+            <path d="M62,59.171 L62,24 C62,22.896 61.105,22 60,22 C58.895,22 58,22.896 58,24 L58,60 C58,60.66 58.324,61.241 58.818,61.606 C58.875,61.682 58.931,61.759 59,61.828 L81.627,84.456 C82.409,85.237 83.675,85.237 84.456,84.456 C85.237,83.675 85.237,82.409 84.456,81.628 L62,59.171 Z" id="Imported-Layers" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

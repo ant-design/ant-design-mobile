@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>警示</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="警示">
+            <path d="M60,120 C93.137085,120 120,93.137085 120,60 C120,26.862915 93.137085,0 60,0 C26.862915,0 0,26.862915 0,60 C0,93.137085 26.862915,120 60,120 Z" id="Oval-61" fill="#FFC600"></path>
+            <circle id="Oval-514" fill="#FFFFFF" cx="59.5" cy="84.5" r="3.5"></circle>
+            <rect id="Rectangle-1087" fill="#FFFFFF" x="57" y="25" width="5" height="50" rx="2.5"></rect>
+        </g>
+    </g>
+</svg>
