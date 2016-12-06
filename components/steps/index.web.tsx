@@ -23,8 +23,24 @@ export default class Steps extends React.Component<StepsProps, any> {
     direction: 'vertical',
     current: 0,
   };
+  stepRefs: any;
 
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+  componentDidUpdate() {
+    if (this.props.direction !== 'horizontal') {
+      return;
+    }
+    // set tail's left position based on main's width for each step dynamically.
+    this.stepRefs.forEach(s => {
+      if (s.refs.tail) {
+        s.refs.tail.style.left = `${s.refs.main.offsetWidth / 2}px`;
+      }
+    });
+  }
   render() {
+    this.stepRefs = [];
     const { children, current, status } = this.props;
     const newChildren = React.Children.map(children, (item: any, index) => {
       let className = item.props.className;
@@ -47,8 +63,8 @@ export default class Steps extends React.Component<StepsProps, any> {
         }
       }
       icon = typeof icon === 'string' ? <Icon type={icon} /> : icon;
-      return React.cloneElement(item, { icon, className });
+      return React.cloneElement(item, { icon, className, ref: c => this.stepRefs[index] = c });
     });
-    return <RcSteps {...this.props}>{newChildren}</RcSteps>;
+    return <RcSteps ref="rcSteps" {...this.props}>{newChildren}</RcSteps>;
   }
 }
