@@ -14,19 +14,19 @@ let BasicInputExample = React.createClass({
     const { getFieldProps } = this.props.form;
     return (<List>
       <InputItem
-        defaultValue="非受控模式"
+        placeholder="请输入"
         data-seed="logId"
-      >非受控</InputItem>
+      >标题</InputItem>
       <InputItem
         {...getFieldProps('control')}
-        placeholder="设置value,不设置defaultValue"
-      >受控</InputItem>
+        placeholder="请输入（受控）"
+      >标题</InputItem>
 
       <InputItem
         {...getFieldProps('inputclear')}
         clear
-        placeholder="提供清除文字功能"
-      >显示清除按钮</InputItem>
+        placeholder="输入会显示清除按钮"
+      >标题</InputItem>
 
       <InputItem
         {...getFieldProps('input3')}
