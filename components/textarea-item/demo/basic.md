@@ -14,21 +14,22 @@ let TextareaItemExample = React.createClass({
     const { getFieldProps } = this.props.form;
     return (<List>
       <TextareaItem
-        title="非受控"
+        title="标题"
+        placeholder="请输入"
         data-seed="logId"
         autoFocus autoHeight
       />
       <TextareaItem
         {...getFieldProps('control')}
-        title="受控"
-        placeholder="设置value,不设置defaultValue"
+        title="标题"
+        placeholder="请输入（受控）"
       />
 
       <TextareaItem
         {...getFieldProps('clear1')}
         clear
-        title="清除按钮"
-        placeholder="提供清除文字功能"
+        title="标题"
+        placeholder="输入会显示清除按钮"
       />
 
       <TextareaItem
