@@ -13,7 +13,7 @@ english: ActionSheet
 - 不要放置过多内容，避免面板纵向滚动。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 #### static showActionSheetWithOptions(options: Object, callback: Function)
 

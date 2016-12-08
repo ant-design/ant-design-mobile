@@ -15,9 +15,8 @@ english: SegmentedControl
 - 尽可能保持文案长度一致。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
-### SegmentedControl
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | prefixCls(`web only`)  | 样式前缀        | String |  `am-segment`  |

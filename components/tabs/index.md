@@ -13,7 +13,7 @@ english: Tabs
 - 在 iOS 端的次级页面中，不建议使用左右滑动来切换 Tab，这个和 iOS 的左滑返回存在冲突，eg：详情页中 Tabs。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 ### Tabs
 

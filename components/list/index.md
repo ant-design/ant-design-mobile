@@ -13,7 +13,7 @@ english: List
 - 主要信息和主要操作放在列表的左边，次要信息和次要操作放在列表的右边。
 
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 ### List
 

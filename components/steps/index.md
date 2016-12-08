@@ -24,7 +24,7 @@ english: Steps
 </Steps>
 ```
 
-### Steps
+### Steps ( 适用平台：WEB、React-Native )
 
 整体步骤条。
 

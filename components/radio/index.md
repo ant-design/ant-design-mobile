@@ -7,7 +7,7 @@ english: Radio
 
 单选框
 
-## API
+## API ( 适用平台：WEB、React-Native )
 
 ### Radio
 

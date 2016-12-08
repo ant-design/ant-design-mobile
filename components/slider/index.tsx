@@ -12,7 +12,8 @@ export default class SliderAntm extends React.Component<SliderProps, any> {
 
   render() {
     const { defaultValue, value, min, max, step, disabled, onChange, onAfterChange } = this.props;
-    return (<View>
+    return (
+      <View>
         <Slider
           value = {defaultValue || value}
           minimumValue = {min}
@@ -24,6 +25,7 @@ export default class SliderAntm extends React.Component<SliderProps, any> {
           onValueChange={onChange}
           onSlidingComplete = {onAfterChange}
         />
-      </View>);
+      </View>
+    );
   }
 }

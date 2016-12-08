@@ -26,7 +26,7 @@ english: ActivityIndicator
 <ActivityIndicator toast text="正在加载" />
 ```
 
-### ActivityIndicator
+### ActivityIndicator ( 适用平台：WEB、React-Native )
 
 活动指示器。
 

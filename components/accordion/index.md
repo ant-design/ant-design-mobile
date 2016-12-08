@@ -14,7 +14,7 @@ english: Accordion
 
 ## API
 
-### Accordion
+### Accordion  ( 适用平台：WEB )
 
 | 成员        | 说明           | 类型       | 默认值       |
 |------------|----------------|----------|-------------|
@@ -24,7 +24,7 @@ english: Accordion
 | onChange      |   切换面板的回调   | Function(key) |  noop  |
 | openAnimation   |  设置自定义切换动画，禁止动画可设为`{}` | Object | 参考 rc-collapse/lib/openAnimationFactory.js 文件  |
 
-### Accordion.Panel
+### Accordion.Panel  ( 适用平台：WEB )
 
 | 成员        | 说明           | 类型       | 默认值       |
 |------------|----------------|----------|-------------|
