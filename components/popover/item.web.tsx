@@ -34,4 +34,4 @@ class Item extends React.Component<any, any> {
     </div>);
   }
 }
-export default (Item);
+export default Item;

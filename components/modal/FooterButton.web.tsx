@@ -41,4 +41,4 @@ class FooterButton extends React.Component<any, any> {
   }
 };
 
-export default (FooterButton);
+export default FooterButton;

@@ -44,4 +44,4 @@ class SegmentItem extends React.Component<any, any> {
   }
 };
 
-export default (SegmentItem);
+export default SegmentItem;
