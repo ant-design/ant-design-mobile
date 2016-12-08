@@ -23,4 +23,4 @@ english: Result
 | message    |    message 文案     | String/React.Element |  -  |
 | buttonText    |    按钮文案     | string |  -  |
 | buttonType    |    请参考 button 的配置    | string |  -  |
-| buttonClick    |    按钮回调函数     | Func |  -  |
+| buttonClick    |    按钮回调函数     | (e: Object): void |  -  |

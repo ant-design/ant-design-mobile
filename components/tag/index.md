@@ -19,6 +19,6 @@ english: Tag
 | disabled   | 是否不可用      | Boolean |    false  |
 | closable   | 是否关闭 （非 disabled small 状态）| false |
 | selected   | 是否默认选中      | Boolean |    false  |
-| onChange   | 切换选中回调函数 | Function|   无  |
-| onClose   | 点关闭时的回调 | Function|   无  |
-| afterClose   | 关闭后的回调 | Function|   无  |
+| onChange   | 切换选中回调函数 | (selected: bool): void |   无  |
+| onClose   | 点关闭时的回调函数 | (): void |   无  |
+| afterClose   | 关闭后的回调 | (): void |   无  |

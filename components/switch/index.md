@@ -21,5 +21,5 @@ source: design
 |------------|----------------|-------------|--------------|
 | checked    | 是否默认选中    | Boolean       |   false  |
 | disabled   | 是否不可修改    | Boolean       |   false  |
-| onChange   | change 事件触发的回调函数,参数是 checked 的值 | Function |  无  |
+| onChange   | change 事件触发的回调函数 | (checked: bool): void |  无  |
 | name(`web only`)  | switch 的 name    | String   |      |

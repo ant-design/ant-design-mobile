@@ -28,7 +28,7 @@ export default class Popover extends React.Component<tsPropsType, any> {
     const overlayNode = recursiveCloneChildren(overlay, (child, index) => {
       const extraProps: any = { firstItem: false };
       if (child && child.type && child.type.myName === 'PopoverItem' && !child.props.disabled) {
-        extraProps.onClick = () => onSelect(child);
+        extraProps.onClick = () => onSelect(child, index);
         extraProps.firstItem = (index === 0);
         return React.cloneElement(child, extraProps);
       }

@@ -20,8 +20,8 @@ source: design
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| renderHeader       | list heder  | Function |  无  |
-| renderFooter       | list footer  | Function |  无  |
+| renderHeader       | list heder  | (): void |  无  |
+| renderFooter       | list footer  | (): void |  无  |
 
 ### List.Item
 
@@ -31,7 +31,7 @@ source: design
 | extra      | 右边内容        | String/React.Element |  无  |
 | arrow      | 箭头方向(右,上,下), 可选`horizontal`,`up`,`down`,`empty`，如果是`empty`则存在对应的dom,但是不显示   | String |   无  |
 | align    |    Flex 子元素垂直对齐，可选`top`,`middle`,`bottom`  | String   | `middle` |
-| onClick    | 点击事件的回调函数 | Function |  无  |
+| onClick    | 点击事件的回调函数 | (): void |  无  |
 | error    | 报错样式,右侧文字颜色变成橙色 | Boolean  | `false`  |
 | multipleLine    | 多行 | Boolean  | `false`  |
 | wrap    | 是否换行，默认情况下，文字超长会被隐藏， | Boolean  | `false`  |

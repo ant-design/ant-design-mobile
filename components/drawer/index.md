@@ -16,9 +16,9 @@ english: Drawer
 
 | 成员        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
-| children | 主要内容 | any | n/a |
-| sidebar | 抽屉里的内容 | any | n/a |
-| onOpenChange | open 状态切换时调用 | Function | n/a |
+| children | 主要内容 | any | - |
+| sidebar | 抽屉里的内容 | any | - |
+| onOpenChange | open 状态切换时调用 | (open: bool): void | - |
 | position | 抽屉所在位置 | String | 'left', enum{'left', 'right', 'top'(`web only`), 'bottom'(`web only`)} |
 | sidebarStyle (`web only`)| - | Object | {} |
 | contentStyle (`web only`) | - | Object | {} |
@@ -31,5 +31,5 @@ english: Drawer
 | open(`web only`) | 开关状态 | Boolean | false |
 | drawerWidth (`rn only`) | 抽屉宽度 | Number | 300 |
 | drawerBackgroundColor (`rn only`) | 指定抽屉背景色 | String | - |
-| openDrawer (`rn only`) | 打开drawer | Function | n/a |
-| closeDrawer (`rn only`) | 关闭drawer | Function | n/a |
+| openDrawer (`rn only`) | 打开函数 | (): void | - |
+| closeDrawer (`rn only`) | 关闭函数 | (): void | - |

@@ -21,8 +21,8 @@ english: Tabs
 |------------------|----------------------------------------------|----------|---------------|
 | activeKey        | 当前激活 tab 面板的 key                      | String   | 无            |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板    |
-| onChange         | 切换面板的回调                               | Function | 无            |
-| onTabClick       | tab 被点击的回调                             | Function | 无            |
+| onChange         | 切换面板的回调                        | (key: string): void | 无            |
+| onTabClick       | tab 被点击的回调                      | (key: string): void | 无            |
 | animated |  是否动画    |  boolean   |    `true`    |
 | swipeable |  是否可以滑动 tab 内容进行切换    |  boolean   |    `true`    |
 | tabBarPosition |    tab 位置 top/bottom        |  string    |    `top`        |

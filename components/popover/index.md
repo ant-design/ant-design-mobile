@@ -19,12 +19,12 @@ source: design
 | 成员        | 说明           | 类型         | 默认值       |
 |------------|----------------|-------------|--------------|
 | visible (`web only`)   | 当前显隐状态    | Boolean |  false   |
-| onVisibleChange (`web only`)   | 当显隐状态变化时调用    | Function |  -   |
+| onVisibleChange (`web only`)   | 当显隐状态变化时回调函数    | (visible: bool): void |  -   |
 | placement (`web only`)   | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'} | String |  'bottomRight'   |
 | popupAlign (`web only`)   | 用于设置偏移量等、会被合并到 placement 的设置中，可选值为 [dom-align](https://github.com/yiminghe/dom-align) 的`alignConfig`配置（ points 设置用 placement 代替）   | Object |  { overflow: { adjustY: 0, adjustX: 0 } } 禁掉位置自动适应 |
 | mask (`web only`)   | 是否显示遮罩背景层    | Boolean |  false  |
 | overlay   | 弹出层内容    | React.node |  -   |
-| onSelect   | 选中的选项    | Function |  -   |
+| onSelect   | 选中某选项时的回调函数    | (node: any, index?: number): void |  -   |
 | style  | menu 样式    | Object |  -   |
 | triggerStyle (`rn only`)   | 触发元素外围容器样式    | Object |  -   |
 | overlayStyle (`rn only`)   | 弹出层外围容器样式    | Object |  -   |

@@ -25,10 +25,10 @@ english: SwipeAction
 | left       | swipeout buttons on left      | Array | `null` |
 | right       | swipeout buttons on right      | Array | `null` |
 | autoClose       | auto close on button press   | Boolean | `function() {}` |
-| onOpen       |       | Function | `function() {}` |
+| onOpen       |    打开时回调函数   | (): void | `function() {}` |
 | disabled       |   disabled swipeout    | Boolean | `false` |
 | title          |    modal title (`android only`)   | String | `请确认操作` |
-| onClose (`web only`)      |       | Function | `function() {}` |
+| onClose (`web only`)   |  关闭时回调函数    | (): void | `function() {}` |
 
 ### Button
 
@@ -36,4 +36,4 @@ english: SwipeAction
 |------|------------------|-------------------------|--------|
 | text       | button text     | String | `Click` |
 | style       | button style （iOS only）    | Object | `` |
-| onPress       | button press function      | Function | `function() {}` |
+| onPress       | button press function     | (): void | `function() {}` |
