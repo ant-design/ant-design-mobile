@@ -19,9 +19,13 @@ export default class List extends React.Component<ListProps, any> {
 
     return (
       <div className={wrapCls} style={style}>
-        {renderHeader ? (<div className={`${prefixCls}-header`}>{renderHeader()}</div>) : null}
+        {renderHeader ? (<div className={`${prefixCls}-header`}>
+          {typeof renderHeader === 'function' ? renderHeader() : renderHeader}
+        </div>) : null}
         {children ? (<div className={`${prefixCls}-body`}>{children}</div>) : null}
-        {renderFooter ? (<div className={`${prefixCls}-footer`}>{renderFooter()}</div>) : null}
+        {renderFooter ? (<div className={`${prefixCls}-footer`}>
+          {typeof renderFooter === 'function' ? renderFooter() : renderFooter}
+        </div>) : null}
       </div>
     );
   }

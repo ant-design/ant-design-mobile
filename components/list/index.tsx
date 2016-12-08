@@ -14,14 +14,14 @@ export default class List extends React.Component<ListProps, any> {
     let footerDom: React.ReactElement<any> | null = null;
 
     if (renderHeader) {
-      let content = renderHeader();
+      let content = typeof renderHeader === 'function' ? renderHeader() : renderHeader;
       if (typeof content === 'string') {
         content = <Text style={styles.Header}>{content}</Text>;
       }
       headerDom = <View>{content}</View>;
     }
     if (renderFooter) {
-      let content = renderFooter();
+      let content = typeof renderHeader === 'renderFooter' ? renderFooter() : renderFooter;
       if (typeof content === 'string') {
         content = <Text style={styles.Footer}>{content}</Text>;
       }
