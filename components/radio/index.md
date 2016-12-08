@@ -17,7 +17,7 @@ source: design
 | name    |   name  | String |   无  |
 | defaultChecked |   初始是否选中   | Boolean  | 无  |
 | checked    |   指定当前是否选中  | Boolean  | 无  |
-| disabled      |         | Boolean |  false  |
+| disabled      |  禁用  | Boolean |  false  |
 | onChange    | change 事件触发的回调函数 | (e: Object): void |   无  |
 
 ### Radio.RadioItem
