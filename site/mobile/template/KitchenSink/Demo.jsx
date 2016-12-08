@@ -36,7 +36,7 @@ export default class Home extends React.Component {
   }
   componentDidUpdate() {
     setTimeout(() => {
-      if (location.hash) {
+      if (location.hash && document.querySelector(location.hash)) {
         scrollIntoView(document.querySelector(location.hash), document.body, {
           alignWithTop: true,
         });
