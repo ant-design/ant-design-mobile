@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import touchableFeedback from '../_util/touchableFeedback';
 
 class SegmentItem extends React.Component<any, any> {
   static defaultProps = {
@@ -45,11 +44,4 @@ class SegmentItem extends React.Component<any, any> {
   }
 };
 
-export default touchableFeedback<{
-  prefixCls?: string;
-  label?: string;
-  enabled?: boolean;
-  tintColor?: string;
-  selected?: boolean;
-  onClick?: (e: any) => void;
-}>(SegmentItem);
+export default (SegmentItem);

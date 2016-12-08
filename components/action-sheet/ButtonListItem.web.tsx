@@ -1,7 +1,6 @@
 import React from 'react';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
-import touchableFeedback from '../_util/touchableFeedback';
 
 class ButtonListItem extends React.Component<any, any> {
   render() {
@@ -25,8 +24,4 @@ class ButtonListItem extends React.Component<any, any> {
   }
 };
 
-export default touchableFeedback<{
-  prefixCls?: string;
-  className?: string;
-  onClick?: (e: any) => void;
-}>(ButtonListItem);
+export default ButtonListItem;

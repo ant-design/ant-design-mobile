@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import touchableFeedback from '../_util/touchableFeedback';
 
 class FooterButton extends React.Component<any, any> {
   render() {
@@ -42,7 +41,4 @@ class FooterButton extends React.Component<any, any> {
   }
 };
 
-export default touchableFeedback<{
-  prefixCls?: string;
-  button?: any;
-}>(FooterButton);
+export default (FooterButton);

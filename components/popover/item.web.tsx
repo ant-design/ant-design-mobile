@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
-import touchableFeedback from '../_util/touchableFeedback';
 
 class Item extends React.Component<any, any> {
   static defaultProps = {
@@ -35,6 +34,4 @@ class Item extends React.Component<any, any> {
     </div>);
   }
 }
-export default touchableFeedback(Item, {
-  myName: 'PopoverItem',
-});
+export default (Item);
