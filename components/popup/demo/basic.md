@@ -38,8 +38,7 @@ const Test = React.createClass({
     };
   },
   onClick(e) {
-    // 修复 Android 上点击穿透
-    e.preventDefault();
+    e.preventDefault(); // 修复 Android 上点击穿透
     Popup.show(
       <List
         renderHeader={() => '账户总览 (已绑定3个）'}

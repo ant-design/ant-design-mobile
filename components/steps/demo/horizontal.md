@@ -51,7 +51,6 @@ ReactDOM.render(
 }
 .stepsExample .timeline.am-steps.am-steps-small .am-steps-tail {
   top: 6px;
-  left: 90px;
   padding: 0 16px;
   background-color: transparent;
 }
