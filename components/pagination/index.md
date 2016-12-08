@@ -21,4 +21,4 @@ english: Pagination
 |  disabled  | 禁用状态 | boolean | false  |
 |  prevText  | prev 文字，可选`string`,`React.Element` | string | `Prev`  |
 |  nextText  | next 文字，可选`string`,`React.Element` | string | `Next`  |
-|  onChange | change 事件触发的回调函数，参数是 event 对象 | function | 无 |
+|  onChange | change 事件触发的回调函数 | (e: Object): void | 无 |

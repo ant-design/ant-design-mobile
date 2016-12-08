@@ -15,8 +15,7 @@ english: InputItem
 - 对特定格式的文本进行处理，eg：隐藏密码。
 
 
-## API
-
+## API ( 适用平台：WEB、React-Native )
 
 | 成员        | 说明           | 类型             | 默认值       |
 |------------|----------------|-----------------|--------------|
@@ -30,12 +29,16 @@ english: InputItem
 | disabled    | 是否禁用        | bool |  false  |
 | clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`,`value`设置才生效) | bool | false  |
 | maxLength      |  最大长度      | number |  无  |
-| onChange    | change事件触发的回调函数 | Function(val) |  -  |
-| onBlur     | blur事件触发的回调函数 | Function(val) |   -  |
-| onFocus    | focus事件触发的回调函数 | Function(val) |  -  |
+| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
+| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
+| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
 | error       | 报错样式        | bool |  false  |
-| onErrorClick       | 点击报错icon触发的回调   | Function |  无  |
+| onErrorClick       | 点击报错 icon 触发的回调函数  | (e: Object): void |  无  |
 | extra       | 右边注释   | string or node |  ''  |
-| onExtraClick      | extra点击事件触发的回调函数 | Function(e) |  无  |
-| labelNumber   | 标签label字数（可选`2`, `3`, `4`, `5`, `6`, `7`） | number | `4`  |
-| updatePlaceholder | 当清除内容时，是否将清除前的内容替换到placeholder中 | bool |  false  |
+| onExtraClick      | extra 点击事件触发的回调函数 | (e: Object): void |  无  |
+| labelNumber   | 标签 label 字数（可选`2`, `3`, `4`, `5`, `6`, `7`） | number | `4`  |
+| updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
+| prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
+| name (`web only`)   | input 的 name        | String |  无  |
+
+> 更多属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)

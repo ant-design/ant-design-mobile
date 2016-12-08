@@ -18,5 +18,5 @@ english: Menu
 | data    |  数据(isLeaf 设置后 children 无效)  | `Array<{label, value, disabled?, children<data>?, isLeaf?}>` | [] |
 | level    |  菜单级数，可选1/2  | number  | 2 |
 | value    |  初始值，一级和二级筛选数据的`value`组成的数组  | Array | [] |
-| onChange    |   选择后的回调     | Function(value)  |  |
+| onChange    |   选择后的回调函数    | (item: Object): void  |  |
 | height    |   筛选组件的高度   | number  | `document.documentElement.clientHeight / 2` |

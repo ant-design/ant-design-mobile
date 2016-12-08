@@ -19,7 +19,7 @@ english: DatePicker
 | value | 当前选中时间,各种mode下格式分别为:`YYYY-MM-DD`、`HH:mm`、`YYYY-MM-DD HH:mm` | [moment](http://momentjs.com/) | 无 |
 | minDate   | 最小可选日期,格式同 value | [moment](http://momentjs.com/)  |  -  |
 | maxDate   | 最大可选日期,格式同 value | [moment](http://momentjs.com/)  |  -  |
-| onChange   | 时间发生变化的回调  | function(date) |  无  |
+| onChange   | 时间发生变化的回调函数  | (date: Object): void |  无  |
 | locale   | 国际化配置 (可自行构造，结构为 {year, month, day, hour, minute})	 | Object  | DatePicker.locale.zh_CN |
 | okText   | 选中的文案 | String |  `确定`  |
 | dismissText  | 取消选中的文案 | String |  `取消`  |

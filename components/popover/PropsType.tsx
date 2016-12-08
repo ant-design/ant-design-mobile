@@ -1,5 +1,5 @@
 interface Props {
-  onSelect?: (values) => void;
+  onSelect?: (node: any, index?: number) => void;
   renderOverlayComponent?: (values) => any;
   overlay: any;
   disabled?: boolean;

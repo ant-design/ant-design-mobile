@@ -16,5 +16,4 @@ english: NoticeBar
 |------------|----------------|--------------|
 | mode    | 提示类型，可选`closable`,`link`   | String |  ''  |
 | type    | 图标类型，可选`success`,`error`,`info`,`question`,`warn`  | String |  ''  |
-| onClick    | 点击关闭或者操作区域的回调函数        | function |   |
-
+| onClick    | 点击关闭或者操作区域的回调函数        | (): void |   |
