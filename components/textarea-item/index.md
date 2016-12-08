@@ -27,11 +27,11 @@ source: design
 | clear      |   是否带清除功能      | bool |  true  |
 | rows      |   显示几行      | number |   1 |
 | count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
-| onChange    | change 事件触发的回调函数 | Function(val) |  -  |
-| onBlur     | blur 事件触发的回调函数 | Function(val) |   -  |
-| onFocus    | focus 事件触发的回调函数 | Function(val) |  -  |
+| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
+| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
+| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
 | error       | 报错样式        | bool |  false  |
-| onErrorClick       | 点击报错 icon 触发的回调   | Function |  无  |
+| onErrorClick       | 点击报错 icon 触发的回调   | (): void |  无  |
 | autoHeight       | 高度自适应, autoHeight 和 rows 请二选一    | bool  | false  |
 | labelNumber   | 标签 label 字数（可选`2`, `3`, `4`, `5`, `6`, `7`） | number | `4`  |
 | name (`web only`)    | textarea 的 name       | String |   -  |
