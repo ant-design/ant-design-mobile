@@ -21,7 +21,7 @@ export default class List extends React.Component<ListProps, any> {
       headerDom = <View>{content}</View>;
     }
     if (renderFooter) {
-      let content = typeof renderHeader === 'renderFooter' ? renderFooter() : renderFooter;
+      let content = typeof renderHeader === 'function' ? renderFooter() : renderFooter;
       if (typeof content === 'string') {
         content = <Text style={styles.Footer}>{content}</Text>;
       }
