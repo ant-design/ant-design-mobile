@@ -6,9 +6,7 @@ english: SearchBar
 source: design
 ---
 
-
 一般可位于 NavBar 下方，通过『取消按钮』退出激活状态。
-
 
 ### 规则
 
@@ -17,7 +15,6 @@ source: design
 
 ## API ( 适用平台：WEB、React-Native )
 
-### SearchBar
 | 成员        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | defaultValue |    搜索框的默认值     | String |    |

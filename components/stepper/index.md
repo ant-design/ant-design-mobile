@@ -12,8 +12,6 @@ english: Stepper
 
 ## API ( 适用平台：WEB、React-Native )
 
-属性如下
-
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
 | min     | 最小值   | Number | -Infinity        |
@@ -25,4 +23,4 @@ english: Stepper
 | disabled     | 禁用       | Boolean      |      false      |
 | readOnly     | input 只读       | Boolean      |      false      |
 | showNumber(`web only`)    | 是否显示数值，默认不显示  | Boolean      |      false      |
-| styles(`rn only`)    | react native 组件样式  | ReactNative StyleSheet      |            |
+| styles(`rn only`)    | react native 组件样式  | ReactNative StyleSheet      |  -   |

@@ -32,7 +32,7 @@ source: design
 | 参数      | 说明                                      | 类型         | 默认值 |
 |----------|------------------------------------------|-------------|-------|
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |
-| size | 指定大小，目前支持普通（`default`）、迷你（`small` 目前仅支持 direction 为 vertical ）| string | default |
+| size | 指定大小，目前支持普通（`default`）、迷你（`small`）| string | default |
 | direction | step 样式   |  `vertical` \ `horizontal` | `vertical`  |
 
 ### Steps.Step

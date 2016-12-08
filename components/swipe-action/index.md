@@ -30,7 +30,6 @@ english: SwipeAction
 | title          |    modal title (`android only`)   | String | `请确认操作` |
 | onClose (`web only`)      |       | Function | `function() {}` |
 
-
 ### Button
 
 | 参数 | 说明             | 类型                    | 默认值 |

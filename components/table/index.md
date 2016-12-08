@@ -5,7 +5,6 @@ chinese: 表格
 english: Table
 ---
 
-
 展示行列数据。
 
 ### 规则
@@ -22,7 +21,6 @@ english: Table
 | direction         | 排列方式 horizon/vetical/mix                              | String | horizon            |
 | scrollX | 是否横向滚动    |  Boolean   |    false    |
 | titleFixed | 横向滚动时，标题列是否固定   | Boolean   | false      |
-
 
 ### columns
 

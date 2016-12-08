@@ -27,6 +27,6 @@ source: design
 | okText  | 选中的文案 | String |  `确定`  |
 | dismissText  | 取消选中的文案 | String |  `取消`  |
 | title  | 大标题 | String | - |
-| extra   | Children 如果是 List.Item,则是 extra 属性的默认值, 如果是其它的 UI 组件,则 value 或者 extra 属性会经过 format 方法处理后传给 children 的 extra 属性,用户需要自己实现这个属性 | String |  `请选择`  |
+| extra   | Children 如果是 List.Item, 则是 extra 属性的默认值, 如果是其它的 UI 组件,则 value 或者 extra 属性会经过 format 方法处理后传给 children 的 extra 属性,用户需要自己实现这个属性 | String |  `请选择`  |
 
 > 更多参数及支持情况可参考：https://github.com/react-component/m-cascader

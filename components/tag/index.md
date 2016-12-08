@@ -11,7 +11,6 @@ english: Tag
 - 标签文字必须显示完全。
 
 
-
 ## API ( 适用平台：WEB、React-Native )
 
 | 成员        | 说明           | 类型      | 默认值       |
