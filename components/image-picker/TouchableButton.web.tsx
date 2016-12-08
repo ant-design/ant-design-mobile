@@ -1,27 +1,21 @@
 import React from 'react';
-import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
+import Touchable from 'rc-touchable';
 
 class TouchableButton extends React.Component<any, any> {
   render() {
-    const [{ children, className, prefixCls, touchFeedback, activeStyle }, restProps] =
-      splitObject(this.props, ['children', 'className', 'prefixCls', 'touchFeedback', 'activeStyle']);
-
-    let style = assign({}, this.props.style);
-    if (touchFeedback) {
-      style = assign(style, activeStyle);
-    }
+    const [{ children, prefixCls, activeStyle }, restProps] =
+      splitObject(this.props, ['children', 'prefixCls', 'activeStyle']);
 
     return (
-      <div {...restProps}
-        style={style}
-        className={touchFeedback ?
-          `${className} ${prefixCls}-active` : `${className}`}
-      >
-        {children}
-      </div>
+      <Touchable activeStyle={activeStyle} activeClassName={`${prefixCls}-active`}>
+        <div {...restProps}>
+          {children}
+        </div>
+      </Touchable>
     );
   }
-};
+}
+;
 
 export default TouchableButton;

@@ -1,17 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
+import Touchable from 'rc-touchable';
 
 class SegmentItem extends React.Component<any, any> {
   static defaultProps = {
-    onClick() {},
+    onClick() {
+    },
     selected: false,
   };
 
   render() {
-    const { label, prefixCls, selected, tintColor, enabled, touchFeedback } = this.props;
+    const { label, prefixCls, selected, disabled, tintColor, activeStyle } = this.props;
     const restProps = assign({}, this.props);
-    ['prefixCls', 'label', 'selected', 'tintColor', 'enabled', 'touchFeedback', 'activeStyle'].forEach(prop => {
+    ['prefixCls', 'label', 'selected', 'tintColor', 'disabled', 'activeStyle'].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
@@ -20,28 +22,27 @@ class SegmentItem extends React.Component<any, any> {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-selected`]: selected,
     });
-    const touchedCls = classNames({
-      [`${prefixCls}-item-active`]: true,
-      [`${prefixCls}-item-active-tintcolor`]: enabled && touchFeedback && !selected && !tintColor,
-    });
-    const touchFeedbackStyle = enabled && touchFeedback && !selected && tintColor ? {
-      backgroundColor: tintColor,
-    } : {};
     return (
-      <div
-        className={itemCls}
-        style={{
+      <Touchable
+        disabled={disabled}
+        activeClassName={`${prefixCls}-item-active`}
+        activeStyle={activeStyle}
+      >
+        <div
+          className={itemCls}
+          style={{
           color: selected ? '#fff' : tintColor,
           backgroundColor: selected ? tintColor : '#fff',
           borderColor: tintColor,
         }}
-        {...restProps}
-      >
-        <div className={touchedCls} style={touchFeedbackStyle}></div>
-        {label}
-      </div>
+          {...restProps}
+        >
+          <div className={`${prefixCls}-item-inner`} />
+          {label}
+        </div>
+      </Touchable>
     );
   }
-};
+}
 
 export default SegmentItem;

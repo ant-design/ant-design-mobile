@@ -7,7 +7,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   static defaultProps = {
     prefixCls: 'am-segment',
     selectedIndex: 0,
-    enabled: true,
+    disabled: false,
     values: [],
     onChange() {},
     onValueChange() {},
@@ -30,8 +30,8 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   }
 
   onClick(e, index, value) {
-    const { enabled, onChange, onValueChange } = this.props;
-    if (enabled && this.state.selectedIndex !== index) {
+    const { disabled, onChange, onValueChange } = this.props;
+    if (!disabled && this.state.selectedIndex !== index) {
       e.nativeEvent.selectedSegmentIndex = index;
       e.nativeEvent.value = value;
       if (onChange) {
@@ -48,7 +48,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
 
   render() {
     const {
-      prefixCls, style, enabled, values = [], className, tintColor,
+      prefixCls, style, disabled, values = [], className, tintColor,
     } = this.props;
     const selectedIndex = this.state.selectedIndex;
     const items = values.map((value, idx) => {
@@ -57,10 +57,10 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
           key={idx}
           prefixCls={prefixCls}
           label={value}
-          enabled={enabled}
+          disabled={disabled}
           tintColor={tintColor}
           selected={idx === selectedIndex}
-          onClick={(e) => this.onClick(e, idx, value)}
+          onClick={disabled ? undefined : (e) => this.onClick(e, idx, value)}
         />
       );
     });
@@ -68,7 +68,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}`]: true,
-      [`${prefixCls}-disabled`]: !enabled,
+      [`${prefixCls}-disabled`]: disabled,
     });
 
     return (

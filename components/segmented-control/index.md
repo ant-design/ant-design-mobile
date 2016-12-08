@@ -23,7 +23,7 @@ english: SegmentedControl
 | className(`web only`) | 样式类        | String |    |
 | style | 自定义样式        | Object | `{}`   |
 | tintColor  | 组件主色调        | String |  `#2DB7F5`  |
-| enabled  | 是否启用        | Boolean |  true  |
+| disabled  | 是否启用        | Boolean |  false  |
 | selectedIndex  | 选中项在数组中的索引        | Number |  0  |
 | values  | 选项数组,值是字符串        | array |  []  |
 | onChange(e)    |    回调函数     | Func |  function(){}  |

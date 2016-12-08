@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 import Icon from '../icon';
 import NoticeBarProps from './PropsType';
-import Marquee from './marquee';
+import Marquee from './Marquee';
 
 export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {

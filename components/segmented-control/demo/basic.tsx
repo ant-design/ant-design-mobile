@@ -15,10 +15,10 @@ export default class BasicTagExample extends React.Component<any, any> {
   render() {
     return (
       <View style={{ paddingTop: 60, paddingHorizontal: 20 }}>
-        <Text>禁用/enabled=false</Text>
+        <Text>禁用/disabled</Text>
         <SegmentedControl
           values={['切换一', '切换二']}
-          enabled={false}
+          disabled
         />
         <WhiteSpace size="lg" />
         <Text>设置 tintColor, style </Text>

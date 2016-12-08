@@ -10,16 +10,19 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   };
 
   render() {
-    const { tintColor, selectedIndex } = this.props;
+    const { tintColor, selectedIndex, disabled } = this.props;
     const restProps = assign({}, this.props);
     delete restProps.tintColor;
+    delete restProps.disabled;
     delete restProps.selectedIndex;
 
     return (
       <SegmentedControlIOS
         tintColor={tintColor}
         selectedIndex={selectedIndex}
-        {...restProps} />
+        {...restProps}
+        enabled={!disabled}
+      />
     );
   }
 }

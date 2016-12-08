@@ -7,7 +7,7 @@ import AndroidStyle from './style/';
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {
     selectedIndex: 0,
-    enabled: true,
+    disabled: false,
     values: [],
     onChange() {},
     onValueChange() {},
@@ -32,8 +32,8 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   }
 
   onPress(e, index, value) {
-    const { enabled, onChange, onValueChange } = this.props;
-    if (enabled) {
+    const { disabled, onChange, onValueChange } = this.props;
+    if (!disabled) {
       e.nativeEvent.selectedSegmentIndex = index;
       e.nativeEvent.value = value;
       if (onChange) {
@@ -49,7 +49,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   }
 
   render() {
-    const { style, enabled, values = [], tintColor, styles } = this.props;
+    const { style, disabled, values = [], tintColor, styles } = this.props;
     const selectedIndex = this.state.selectedIndex;
     const items = values.map((value, idx) => {
       let itemRadius: any = null;
@@ -75,7 +75,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       );
     });
 
-    const enabledOpacity = enabled ? 1 : 0.5;
+    const enabledOpacity = !disabled ? 1 : 0.5;
     const segmentedStyle = assign({}, style, {
       opacity: enabledOpacity,
       borderColor: tintColor,
