@@ -9,6 +9,7 @@ class Item extends React.Component<any, any> {
     prefixCls: 'am-popover',
     disabled: false,
   };
+  static myName = 'PopoverItem';
 
   render() {
     let [{ children, className, prefixCls, icon, disabled, firstItem, activeStyle }, restProps] =
