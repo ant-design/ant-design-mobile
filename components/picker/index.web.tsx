@@ -37,13 +37,8 @@ export default class Picker extends React.Component<tsPropsType, any> {
   };
 
   render() {
-    const {props} = this;
-    const {children, value, extra, okText, dismissText, popupPrefixCls} = props;
-    const extraProps = {
-      extra: this.getSel() || extra,
-    };
-    const childEl = React.cloneElement(children,
-      children.type && children.type.myName === 'ListItem' ? extraProps : {});
+    const { props } = this;
+    const { children, value, extra, okText, dismissText, popupPrefixCls } = props;
     const cascader = (
       <Cascader
         prefixCls={props.prefixCls}
@@ -65,7 +60,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
         dismissText={dismissText}
         okText={okText}
       >
-        {childEl}
+        {React.cloneElement(children, { extra: this.getSel() || extra })}
       </PopupCascader>
     );
   }

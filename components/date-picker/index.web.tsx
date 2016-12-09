@@ -20,9 +20,6 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
   render() {
     const { props } = this;
     const { children, value, defaultDate, extra, okText, dismissText, popupPrefixCls } = props;
-    const extraProps = {
-      extra: value ? formatFn(this, value) : extra,
-    };
     const dataPicker = (
       <RCDatePicker
         locale={props.locale}
@@ -46,8 +43,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         dismissText={dismissText}
         okText={okText}
       >
-        {React.cloneElement(children,
-          children.type && children.type.myName === 'ListItem' ? extraProps : {})}
+        {React.cloneElement(children, { extra: value ? formatFn(this, value) : extra })}
       </PopupDatePicker>
     );
   }
