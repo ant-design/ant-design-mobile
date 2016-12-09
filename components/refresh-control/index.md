@@ -15,9 +15,9 @@ source: design
 
 ## API (web)
 
-- icon (React.Element) - 刷新指示icon, 包含 `pull` and `release` 状态
-- loading (React.Element) - 加载指示器
-- distanceToRefresh (number, default 50) - 刷新距离
+- icon (any) - 刷新指示icon, 包含 `pull` and `release` 状态
+- loading (any) - 加载指示器
+- distanceToRefresh (number, default: (50 / 2 * window.viewportScale)) - 刷新距离
 - onRefresh (function, required) - 刷新回调函数
 - refreshing (boolean, false) - 是否显示刷新状态
 

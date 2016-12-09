@@ -12,8 +12,8 @@
   &-ptr {
     color: grey;
     text-align: center;
-    height: 50PX;
-    margin-top: -50PX;
+    height: 50px;
+    margin-top: -50px;
     overflow: hidden;
     &-icon {
       display: block;
@@ -33,16 +33,20 @@
     }
   }
 
-  // custom
   &-pull {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
   &-release {
     display: none;
+  }
+  &-pull,
+  &-release {
     align-items: center;
     justify-content: center;
+    .am-icon,
+    span {
+      display: block; // 一些 webview 里需要设置，不然顶部对不齐
+    }
   }
   &-active &-pull {
     display: none;

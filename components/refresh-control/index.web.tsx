@@ -8,15 +8,17 @@ import assign from 'object-assign';
 
 ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaultProps, {
   prefixCls: 'am-refresh-control',
-  icon: <div style={{lineHeight: '50px'}}>
-    <div className="am-refresh-control-pull">
-      <Icon type="down"/> 下拉
-    </div>
-    <div className="am-refresh-control-release">
-      <Icon type="left" style={{ transform: 'rotate(90deg)' }} /> 释放
-    </div>
-  </div>,
-  loading: <div style={{ lineHeight: '50px' }}><Icon type="loading"/></div>,
+  icon: [
+    <div key="0" className="am-refresh-control-pull">
+      <Icon type="down"/><span>下拉</span>
+    </div>,
+    <div key="1" className="am-refresh-control-release">
+      <Icon type="left" style={{ transform: 'rotate(90deg)' }} /><span>释放</span>
+    </div>,
+  ],
+  loading: <Icon type="loading" />,
   refreshing: false,
+  distanceToRefresh: 50 / 2 * ((window as any).viewportScale || 1),
 });
+
 export default ListView.RefreshControl;
