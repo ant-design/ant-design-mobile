@@ -22,10 +22,22 @@ const minTime = moment('00:30 +0800', 'HH:mm Z').utcOffset(8);
 
 const gmtNow = moment().utcOffset(0);
 
+// 如果不是使用 List.Item 作为 children
+const CustomChildren = (props) => (
+  <div
+    onClick={props.onClick}
+    style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
+  >
+    {props.children}
+    <span style={{ float: 'right' }}>{props.extra}</span>
+  </div>
+);
+
 let Test = React.createClass({
   getInitialState() {
     return {
       date: zhNow,
+      dpValue: null,
     };
   },
   onChange(date) {
@@ -86,6 +98,15 @@ let Test = React.createClass({
           <List.Item arrow="horizontal">time(en_US)</List.Item>
         </DatePicker>
       </List>
+      <DatePicker
+        mode="date"
+        title="选择日期"
+        extra="请选择(可选)"
+        value={this.state.dpValue}
+        onChange={(v) => this.setState({ dpValue: v })}
+      >
+        <CustomChildren>时间选择(自定义 children)</CustomChildren>
+      </DatePicker>
     </div>);
   },
 });

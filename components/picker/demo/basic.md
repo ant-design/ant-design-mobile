@@ -12,11 +12,23 @@ import { createForm } from 'rc-form';
 import district from 'site/data/district';
 import province from 'site/data/province-lite';
 
+// 如果不是使用 List.Item 作为 children
+const CustomChildren = (props) => (
+  <div
+    onClick={props.onClick}
+    style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
+  >
+    {props.children}
+    <span style={{ float: 'right' }}>{props.extra}</span>
+  </div>
+);
+
 let Test = React.createClass({
   getInitialState() {
     return {
       data: [],
       cols: 1,
+      pickerValue: [],
     };
   },
   onClick() {
@@ -89,6 +101,15 @@ let Test = React.createClass({
           <List.Item arrow="horizontal">选择省份</List.Item>
         </Picker>
       </List>
+      <Picker
+        data={district}
+        title="选择地区"
+        extra="请选择(可选)"
+        value={this.state.pickerValue}
+        onChange={(v) => this.setState({ pickerValue: v })}
+      >
+        <CustomChildren>省市区选择(自定义 children)</CustomChildren>
+      </Picker>
     </div>);
   },
 });
