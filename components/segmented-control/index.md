@@ -27,4 +27,4 @@ english: SegmentedControl
 | selectedIndex  | 选中项在数组中的索引        | Number |  0  |
 | values  | 选项数组,值是字符串        | array |  []  |
 | onChange    |    回调函数     | (e): void |  function(){}  |
-| onValueChange(value)    |    回调函数     | Func |  function(){}  |
+| onValueChange    |    回调函数   | (val): void |  function(){}  |
