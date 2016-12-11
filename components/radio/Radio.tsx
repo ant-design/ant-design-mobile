@@ -12,23 +12,13 @@ export default class Radio extends React.Component<RadioProps, any> {
   constructor(props: RadioProps, context: any) {
     super(props, context);
 
-    let checked;
-    if (props.checked !== null && props.checked !== undefined) {
-      checked = !!props.checked;
-    } else {
-      checked = !!props.defaultChecked;
-    }
     this.state = {
-      checked: checked,
+      checked: props.checked || props.defaultChecked || false,
     };
   }
 
   componentWillReceiveProps(nextProps: RadioProps): void {
-    if (nextProps.checked !== null && nextProps.checked !== undefined) {
-      const oldChecked = this.state.checked;
-      if (nextProps.checked === oldChecked) {
-        return;
-      }
+    if ('checked' in nextProps) {
       this.setState({
         checked: !!nextProps.checked,
       });
@@ -39,7 +29,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     if (this.props.disabled) {
       return;
     }
-    if (this.props.checked === null || this.props.checked === undefined) {
+    if (!('checked' in this.props)) {
       this.setState({
         checked: true,
       });

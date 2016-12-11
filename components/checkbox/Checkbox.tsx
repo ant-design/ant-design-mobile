@@ -27,7 +27,10 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     }
   }
 
-  toggle() {
+  handleClick = () => {
+    if (this.props.disabled) {
+      return;
+    }
     const checked = !this.state.checked;
     if (!('checked' in this.props)) {
       this.setState({
@@ -37,13 +40,6 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     if (this.props.onChange) {
       this.props.onChange({target: { checked }});
     }
-  }
-
-  handleClick = () => {
-    if (this.props.disabled) {
-      return;
-    }
-    this.toggle();
   };
 
   render(): JSX.Element {
