@@ -1,3 +1,5 @@
+// for TypeScript's `.d.ts`
+
 export { default as ActionSheet } from './action-sheet/index.web';
 export { default as ActivityIndicator } from './activity-indicator/index.web';
 export { default as Badge } from './badge/index.web';
@@ -11,7 +13,6 @@ export { default as Flex } from './flex/index.web';
 export { default as Popover } from './popover/index.web';
 export { default as Popup } from './popup/index.web';
 
-// export { default as Form } from './form/index.web';
 export { default as Grid } from './grid/index.web';
 export { default as Icon } from './icon/index.web';
 
