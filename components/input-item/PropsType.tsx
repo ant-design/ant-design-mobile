@@ -8,7 +8,7 @@ interface InputItemProps {
   style?: React.CSSProperties;
   /** web only */
   className?: string;
-  type?: 'text'|'bankCard'|'phone'|'password'|'number'|'idcard'|'digit'|'time'|'date';
+  type?: 'text'|'bankCard'|'phone'|'password'|'number'|'idcard'|'digit';
   editable?: boolean;
   disabled?: boolean;
   name?: string;

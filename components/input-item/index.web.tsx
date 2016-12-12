@@ -176,6 +176,8 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       inputType = 'tel';
     } else if (type === 'password') {
       inputType = 'password';
+    } else if (type !== 'text') {
+      inputType = type;
     }
 
     let valueProps;
