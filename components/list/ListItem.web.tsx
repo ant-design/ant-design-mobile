@@ -77,9 +77,7 @@ class ListItem extends React.Component<ListItemProps, any> {
   }
 }
 
-// 给其他组件对其设置 extra 使用
 const highOrderListItem = touchableFeedback(ListItem, {
-  myName: 'ListItem',
   Brief,
 });
 export default highOrderListItem;
