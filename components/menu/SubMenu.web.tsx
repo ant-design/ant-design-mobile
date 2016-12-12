@@ -2,72 +2,52 @@ import React from 'react';
 import classNames from 'classnames';
 import List from '../list/index';
 import Radio from '../radio/Radio.web';
-import { SubMenuProps, SubMenuState } from './PropsType';
 
-export default class SubMenu extends React.Component<SubMenuProps, SubMenuState> {
-  static defaultProps = {
-    prefixCls: 'am-sub-menu',
-    radioPrefixCls: 'am-radio',
-    value: [],
-    data: [],
-    onChange: () => {},
-  };
-
+export default class SubMenu extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.value,
-      data: this.props.data,
+      selItem: props.selItem,
     };
   }
-
   componentWillReceiveProps(nextProps) {
-    if ('data' in nextProps) {
+    if (nextProps.subMenuData !== this.props.subMenuData) {
       this.setState({
-        data: nextProps.data,
+        selItem: nextProps.selItem,
       });
     }
   }
-
-  onClick = (el) => {
+  onClick = (dataItem) => {
     this.setState({
-      value: [el],
+      selItem: [dataItem],
     });
-    if (this.props.onChange) {
-      this.props.onChange(el);
+    if (this.props.onSel) {
+      this.props.onSel(dataItem);
     }
   };
-
   render() {
-    const { value = [], data = [] } = this.state;
-    const { className, prefixCls, radioPrefixCls } = this.props;
+    const { subMenuPrefixCls, radioPrefixCls, subMenuData } = this.props;
+    const { selItem } = this.state;
 
-    const subMenuCls = classNames({
-      [`${prefixCls}`]: true,
-      [className as string]: className,
-    });
-
-    const itemsDom: any = [];
-    data.forEach((el, idx) => {
-      const listItemCls = classNames({
-        [`${radioPrefixCls}-item`]: true,
-        [`${prefixCls}-item-selected`]: value.length > 0 && value[0].value === el.value,
-        [`${prefixCls}-item-disabled`]: el.disabled,
-      });
-      itemsDom.push(<List.Item
-        className={listItemCls}
-        key={idx}
-        extra={<Radio
-          checked={value.length > 0 && value[0].value === el.value}
-          disabled={el.disabled}
-          onChange={this.onClick.bind(this, el)}
-        />}
-      >{el.label}</List.Item>);
-    });
+    const selected = dataItem => selItem.length > 0 && selItem[0].value === dataItem.value;
 
     return (
-      <List style={{ paddingTop: 0 }} className={subMenuCls}>
-        {itemsDom}
+      <List style={{ paddingTop: 0 }} className={subMenuPrefixCls}>
+        {subMenuData.map((dataItem, idx) => (
+          <List.Item
+            className={classNames({
+              [`${radioPrefixCls}-item`]: true,
+              [`${subMenuPrefixCls}-item-selected`]: selected(dataItem),
+              [`${subMenuPrefixCls}-item-disabled`]: dataItem.disabled,
+            })}
+            key={idx}
+            extra={<Radio
+              checked={selected(dataItem)}
+              disabled={dataItem.disabled}
+              onChange={() => this.onClick(dataItem)}
+            />}
+          >{dataItem.label}</List.Item>
+        ))}
       </List>
     );
   }
