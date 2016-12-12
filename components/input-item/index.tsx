@@ -10,7 +10,6 @@ const noop: any = () => {
 
 export default class InputItem extends React.Component<InputItemProps, any> {
   static defaultProps = {
-    type: 'text',
     editable: true,
     value: '',
     clear: false,
@@ -106,11 +105,15 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       }
     });
 
+    const keyboardTypeArray = ['default', 'email-address',
+      'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation',
+      'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search'];
+
     let keyboardType = 'default';
 
     if (type === 'number' || type === 'bankCard') {
       keyboardType = 'numeric';
-    } else if (type !== undefined) {
+    } else if (keyboardTypeArray.indexOf(type) > -1) {
       keyboardType = type;
     }
 
