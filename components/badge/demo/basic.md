@@ -41,11 +41,11 @@ ReactDOM.render(
     <List.Item>
       自定义：
       <Badge text={4} style={{ marginLeft: 12 }} />
-      <Badge text="券" style={{ marginLeft: 12, padding: '0 6px', backgroundColor: '#f19736', borderRadius: 2 }} />
-      <Badge text="NEW" style={{ marginLeft: 12, padding: '0 6px', backgroundColor: '#21b68a', borderRadius: 2 }} />
+      <Badge text="券" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#f19736', borderRadius: 2 }} />
+      <Badge text="NEW" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#21b68a', borderRadius: 2 }} />
       <Badge text="自动缴费" style={{
         marginLeft: 12,
-        padding: '0 6px',
+        padding: '0 0.06rem',
         backgroundColor: '#fff',
         borderRadius: 2,
         color: '#f19736',

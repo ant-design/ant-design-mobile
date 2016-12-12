@@ -44,14 +44,14 @@ ReactDOM.render(
 .stepsExample .timeline.am-steps.am-steps-small
 .am-steps-item.am-steps-custom
 .am-steps-head-inner > .am-steps-icon {
-  width: 16px;
-  height: 16px;
+  width: 0.16rem;
+  height: 0.16rem;
   border-radius: 50%;
   background-color: #d9dff1;
 }
 .stepsExample .timeline.am-steps.am-steps-small .am-steps-tail {
-  top: 6px;
-  padding: 0 16px;
+  top: 0.06rem;
+  padding: 0 0.16rem;
   background-color: transparent;
 }
 ````
