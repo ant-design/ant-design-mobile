@@ -171,7 +171,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       [`${prefixCls}-label-7`]: labelNumber === 7,
     });
 
-    let inputType = 'text';
+    let inputType: any = 'text';
     if (type === 'bankCard' || type === 'phone') {
       inputType = 'tel';
     } else if (type === 'password') {
