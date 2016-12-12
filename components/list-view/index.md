@@ -54,3 +54,19 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 - onQuickSearch (function()) 快捷导航切换时触发
 - delayTime (number) - 默认 100ms, 延迟渲染时间设置（用于首屏优化，一开始渲染`initialListSize`数量的数据，在此时间后、延迟渲染剩余的数据项、即`totalRowCount - initialListSize`）
 - delayActivityIndicator (react node) - 延迟渲染的 loading 指示器
+
+## 常见问题与实现原理
+
+- onEndReached不停调用 https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596
+- 如何设置滚动到固定的位置？(例如，点击列表某一项进入另一个页面，再返回) #541
+- 其他问题：#573
+
+ListView 有三种类型的滚动容器：
+
+1. html 的 body 容器
+2. 局部 div 容器 (通过 ref 获取到)
+3. 使用 zscroller 的模拟滚动容器
+
+前两种获取到相应元素后，调用 scrollTo 方法、滚动到指定位置；
+第三种通过 ref 获取到组件对象、再获取到 domScroller 、调用 scrollTo 方法。
+但滚动到具体什么位置，业务上其实也比较难确定。
