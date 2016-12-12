@@ -66,7 +66,7 @@ ReactDOM.render(<App />, mountNode);
   overflow: auto;
 }
 .my-drawer .am-drawer-sidebar {
-  max-width: 260px;
+  max-width: 4.6rem;
   background-color: #fff;
   overflow: auto;
 }

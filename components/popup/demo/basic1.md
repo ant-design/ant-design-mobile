@@ -59,7 +59,7 @@ const Test = React.createClass({
     Popup.hide();
   },
   render() {
-    return (<div style={{ padding: '15px' }}>
+    return (<div style={{ padding: '0.15rem' }}>
       <Button onClick={this.onClick}>显示</Button>
     </div>);
   },

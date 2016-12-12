@@ -57,7 +57,7 @@ ReactDOM.render(
 ````css
 .iconWrapper {
   position: relative;
-  padding: 0px 0.62rem;
+  padding: 0 0.62rem;
 }
 
 .iconWrapper .anticon {

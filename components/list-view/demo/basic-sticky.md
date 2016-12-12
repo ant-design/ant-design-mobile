@@ -102,11 +102,11 @@ const Demo = React.createClass({
       return (
         <div key={rowID}
           style={{
-            padding: '8px 16px',
+            padding: '0.08rem 0.16rem',
             backgroundColor: 'white',
           }}
         >
-          <h3 style={{ padding: 2, marginBottom: 8, borderBottom: '1px solid #F6F6F6' }}>
+          <h3 style={{ padding: 2, marginBottom: '0.08rem', borderBottom: '1px solid #F6F6F6' }}>
             {obj.title}
           </h3>
           <div style={{ display: '-webkit-box', display: 'flex' }}>
