@@ -22,7 +22,6 @@ class ListItem extends React.Component<ListItemProps, any> {
   };
 
   static Brief = Brief;
-  static myName = 'ListItem';
 
   render() {
     const [{
