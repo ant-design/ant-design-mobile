@@ -70,25 +70,37 @@ const data = [
 ];
 
 const MenuExample = React.createClass({
+  getInitialState() {
+    return {
+      initData: '',
+    };
+  },
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        initData: data,
+      });
+    }, 1000);
+  },
   onChange(value) {
     let label = '';
-    data.forEach((el) => {
-      if (el.value === value[0]) {
-        if (el.isLeaf) {
-          label = el.label;
-        } else {
-          el.children.forEach((el2) => {
-            if (el2.value === value[1]) {
-              label = el2.label;
+    data.forEach(dataItem => {
+      if (dataItem.value === value[0]) {
+        label = dataItem.label;
+        if (dataItem.children && value[1]) {
+          dataItem.children.forEach(cItem => {
+            if (cItem.value === value[1]) {
+              label += ` ${cItem.label}`;
             }
           });
         }
       }
     });
-    console.log(`选中了 ${label}`);
+    console.log(label);
   },
   render() {
-    return <Menu data={data} onChange={this.onChange} />;
+    return this.state.initData ? <Menu data={data} value={['2', '22']} onChange={this.onChange} />
+      : <div>loading...</div>;
   },
 });
 

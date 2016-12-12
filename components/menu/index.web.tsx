@@ -1,15 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
-import objectAssign from 'object-assign';
-import SubMenu from './SubMenu.web';
+import assign from 'object-assign';
 import List from '../list';
 import Flex from '../flex';
-import { MenuProps, MenuState } from './PropsType';
+import SubMenu from './SubMenu.web';
+import { MenuProps } from './PropsType';
 
-export default class Menu extends React.Component<MenuProps, MenuState> {
+export default class Menu extends React.Component<MenuProps, any> {
   static defaultProps = {
     prefixCls: 'am-menu',
-    value: [],
+    subMenuPrefixCls: 'am-sub-menu',
+    radioPrefixCls: 'am-radio',
     data: [],
     level: 2,
     onChange: () => {},
@@ -17,116 +18,91 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
 
   constructor(props) {
     super(props);
-    const { data, value, level } = props;
-
-    if (level !== 2) {
-      this.state = {
-        SubMenuData: data,
-      };
-      return;
-    }
-
-    if (value.length > 0) {
-      const SubMenuData = data.filter(
-        el => el.value === (value.length > 0 && value[0] || null)
-      )[0].children || [];
-      this.state = {
-        SubMenuData,
-        firstValue: value[0] || '',
-      };
-      return;
-    }
-
-    const SubMenuData = data[0].children || [];
-    if (data[0].isLeaf) {
-      this.state = {
-        SubMenuData: [],
-        firstValue: '',
-      };
-    } else {
-      this.state = {
-        SubMenuData,
-        firstValue: data[0].value,
-      };
+    this.state = {
+      firstLevelSelectValue: this.getNewFsv(props),
+    };
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.value !== this.props.value) {
+      this.setState({
+        firstLevelSelectValue: this.getNewFsv(nextProps),
+      });
     }
   }
 
-  onClickListItem = (el) => {
-    if (el.isLeaf === true) {
-      this.setState({
-        firstValue: el.value,
-        SubMenuData: [],
-      }, () => {
-        if (this.props.onChange) {
-          this.props.onChange([el.value]);
-        }
-      });
-    }
+  getNewFsv(props) {
+    const { value, data } = props;
+    return value && value.length ? value[0] : !data[0].isLeaf ? data[0].value : '';
+  }
+
+  onClickFirstLevelItem = (dataItem) => {
     this.setState({
-      firstValue: el.value,
-      SubMenuData: el.children || [],
+      firstLevelSelectValue: dataItem.value,
     });
+    if (dataItem.isLeaf && this.props.onChange) {
+      this.props.onChange([dataItem.value]);
+    }
   };
 
-  onClickSubMenuItem = (el) => {
+  onClickSubMenuItem = (dataItem) => {
     const { level, onChange } = this.props;
     setTimeout(() => {
       if (onChange) {
-        onChange(level === 2 ? [this.state.firstValue, el.value] : [el.value]);
+        onChange(level === 2 ? [this.state.firstLevelSelectValue, dataItem.value] : [dataItem.value]);
       }
     }, 300);
   };
 
   render() {
-    const { className, data = [], prefixCls, value = [], level, style } = this.props;
-    let { height } = this.props;
+    const { className, style, height, data = [], prefixCls, value, level } = this.props;
+    const { firstLevelSelectValue } = this.state;
 
-    if (!height) {
-      height = document.documentElement.clientHeight / 2;
+    let subMenuData = data[0].children || [];
+    if (level !== 2) {
+      subMenuData = data;
+    } else if (firstLevelSelectValue) {
+      subMenuData = data.filter(dataItem => dataItem.value === firstLevelSelectValue)[0].children || [];
     }
 
+    const subValue = value && value.length && value[value.length - 1];
+    const subSelInitItem = subMenuData.filter(dataItem => dataItem.value === subValue);
+
     const heightStyle = {
-      height: `${Math.round(height)}px`,
+      height: `${Math.round(height || document.documentElement.clientHeight / 2)}px`,
       overflowY: 'scroll',
     };
 
-    const { SubMenuData, firstValue } = this.state;
-
-    const wrapCls = classNames({
-      [prefixCls as string]: true,
-      [className as string]: !!className,
-    });
-
-    const listContent = data.map((el, index) => (
-      <List.Item
-        className={el.value === firstValue ? `${prefixCls}-selected` : ''}
-        onClick={this.onClickListItem.bind(this, el)}
-        key={`listitem-1-${index}`}
-      >
-        {el.label}
-      </List.Item>
-    ));
-
     return (
       <div
-        className={wrapCls}
-        style={objectAssign({}, style, heightStyle)}
+        className={classNames({
+          [prefixCls as string]: true,
+          [className as string]: !!className,
+        })}
+        style={assign({}, style, heightStyle)}
       >
         <Flex align="top">
           {level === 2 ? (
             <Flex.Item style={heightStyle}>
               <List>
-                {listContent}
+                {data.map((dataItem, index) => (
+                  <List.Item
+                    className={dataItem.value === firstLevelSelectValue ? `${prefixCls}-selected` : ''}
+                    onClick={() => this.onClickFirstLevelItem(dataItem)}
+                    key={`listitem-1-${index}`}
+                  >
+                    {dataItem.label}
+                  </List.Item>
+                ))}
               </List>
             </Flex.Item>
           ) : null}
           <Flex.Item style={heightStyle}>
             <SubMenu
-              value={SubMenuData.filter(
-                el => el.value === (value.length && value[value.length - 1])
-              )}
-              data={SubMenuData}
-              onChange={this.onClickSubMenuItem}
+              subMenuPrefixCls={this.props.subMenuPrefixCls}
+              radioPrefixCls={this.props.radioPrefixCls}
+              subMenuData={subMenuData}
+              selItem={subSelInitItem}
+              onSel={this.onClickSubMenuItem}
             />
           </Flex.Item>
         </Flex>
