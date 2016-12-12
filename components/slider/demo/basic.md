@@ -36,18 +36,18 @@ ReactDOM.render(<App />, mountNode);
 
 <style>
 .demo-preview-item .am-slider-wrapper {
-  margin-bottom: 30px;
+  margin-bottom: 0.3rem;
 }
 .demo-preview-item .am-slider-example {
   overflow: hidden;
 }
 .am-wingblank.am-wingblank-lg {
-  margin-bottom: 60px;
+  margin-bottom: 0.6rem;
 }
 .demo-preview-item .am-slider-example .title {
-  margin-bottom: 32px;
+  margin-bottom: 0.32rem;
 }
 .demo-preview-item .am-slider-wrapper:last-child {
-  margin-bottom: 20px;
+  margin-bottom: 0.2rem;
 }
 </style>

@@ -82,8 +82,8 @@ const Test = React.createClass({
   //   />, { maskClosable: true });
   // },
   render() {
-    return (<div style={{ padding: '15px' }}>
-      <Button type="ghost" onClick={this.onClick}>显示</Button>
+    return (<div style={{ padding: '0.15rem' }}>
+      <Button onClick={this.onClick}>显示</Button>
     </div>);
   },
 });
