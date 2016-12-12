@@ -1,4 +1,5 @@
 /* eslint no-console:0 */
+// export components to browser's window for `dist/antd-mobile.js`
 
 function camelCase(name) {
   return name.charAt(0).toUpperCase() +
