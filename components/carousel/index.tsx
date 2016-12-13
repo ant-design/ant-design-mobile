@@ -10,24 +10,11 @@ import {
   Dimensions,
 } from 'react-native';
 import styles from './style';
+import CarouselProps from './PropsType';
 
 let { width, height } = Dimensions.get('window');
 
-export interface ViewPagerProps {
-  selectedIndex?: number;
-  bounces?: boolean;
-  children?: any;
-  style?: any;
-  dots?: boolean;
-  autoplay?: boolean;
-  autoplayTimeout?: number;
-  infinite?: boolean;
-  onScrollBeginDrag?: Function;
-  onMomentumScrollEnd?: Function;
-  afterChange?: (selectedIndex: number) => void;
-}
-
-const ViewPager = React.createClass<ViewPagerProps, any>({
+const ViewPager = React.createClass<CarouselProps, any>({
   mixins: [ReactTimerMixin],
 
   getDefaultProps() {

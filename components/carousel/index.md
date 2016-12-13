@@ -5,22 +5,15 @@ chinese: 走马灯
 english: Carousel
 ---
 
-
-一组轮播的区域。
-
-### 规则
-- 所展示信息属于同一个层级；同时，鼓励用户进行内容的浏览和探索。
-- 一般情况下，只进行横向滚动。
-- 默认自动轮播，当用户轻触时该区域时停止；允许用户向前、向后滚动 Carousel。
-
+走马灯，轮播图
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 参数             | 说明                                         | 类型     | 默认值                          |
-|------------------|----------------------------------------------|----------|---------------------------------|
+| 参数             | 说明              | 类型     | 默认值             |
+|------------------|------------------|----------|------------------|
 | selectedIndex |  手动设置当前显示的索引  |  number  |  0  |
 | dots | 是否显示面板指示点 | Boolean   | true |
-| vertical (`web only`) | 垂直显示 | Boolean   | false |
+| vertical | 垂直显示(web 为内容，rn 为 pagination) | Boolean   | false |
 | autoplay | 是否自动切换 | Boolean   | false |
 | infinite | 是否循环播放 | Boolean   | false |
 | afterChange  | 切换面板后的回调函数     | (current: number): void  | 无
