@@ -18,7 +18,7 @@ ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaul
   ],
   loading: <Icon type="loading" />,
   refreshing: false,
-  distanceToRefresh: 50 / 2 * ((window as any).viewportScale || 1),
+  distanceToRefresh: 50 / 2 * ((window as any).devicePixelRatio || 2),
 });
 
 export default ListView.RefreshControl;
