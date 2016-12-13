@@ -8,21 +8,7 @@ import {
   Platform,
 } from 'react-native';
 import CarouselStyle from './style';
-
-export interface CarouselProps {
-  selectedIndex?: number;
-  bounces?: boolean;
-  children?: any;
-  style?: any;
-  dots?: boolean;
-  autoplay?: boolean;
-  autoplayTimeout?: number;
-  infinite?: boolean;
-  onScrollBeginDrag?: Function;
-  onMomentumScrollEnd?: Function;
-  afterChange?: (selectedIndex: number) => void;
-  styles?: any;
-}
+import CarouselProps from './PropsType';
 
 const Carousel = React.createClass<CarouselProps, any>({
   mixins: [ReactTimerMixin],

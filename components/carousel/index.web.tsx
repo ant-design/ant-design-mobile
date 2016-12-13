@@ -2,20 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import ReactCarousel from 'nuka-carousel';
 import assign from 'object-assign';
-
-export interface CarouselProps {
-  selectedIndex?: number;
-  dots?: boolean;
-  vertical?: boolean;
-  autoplay?: boolean;
-  infinite?: boolean;
-  children?: any;
-  prefixCls?: string;
-  easing?: string;
-  beforeChange?: (from: number, to: number) => void;
-  afterChange?: (current: number) => void;
-  style?: React.CSSProperties;
-}
+import CarouselProps from './PropsType';
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
@@ -34,53 +21,37 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     this.state = {
       selectedIndex: this.props.selectedIndex,
     };
-    this.onChange = this.onChange.bind(this);
   }
 
-  onChange(index) {
-    this.setState({selectedIndex: index});
+  onChange = (index) => {
+    this.setState({ selectedIndex: index });
   }
 
   render() {
-    const { prefixCls, children } = this.props;
-    const current = this.state.selectedIndex;
-    let wrapCls;
-    if (!children) {
-      return null;
-    }
+    const { className, prefixCls } = this.props;
     let props = assign({}, this.props);
-
-    if (props.infinite) {
-      props.wrapAround = true;
-    }
-
-    if (props.selectedIndex) {
-      props.slideIndex = props.selectedIndex;
-    }
-
-    if (props.beforeChange) {
-      props.beforeSlide = props.beforeChange;
-    }
-
-    if (props.afterChange) {
-      props.afterSlide = props.afterChange;
-    }
-
-    if (props.vertical) {
-      wrapCls = `${props.prefixCls} ${props.prefixCls}-vertical`;
-    }
+    props = assign(props, {
+      wrapAround: props.infinite,
+      slideIndex: props.selectedIndex,
+      beforeSlide: props.beforeChange,
+      afterSlide: props.afterChange,
+    });
 
     let Decorators: any[] = [];
+    const current = this.state.selectedIndex;
     if (props.dots) {
-      Decorators  = [{
+      Decorators = [{
         component: React.createClass({
           render() {
-            const self = this;
-            const indexes = this.getIndexes(self.props.slideCount, self.props.slidesToScroll);
+            const { slideCount, slidesToScroll } = this.props;
+            const arr: number[] = [];
+            for (let i = 0; i < slideCount; i += slidesToScroll) {
+              arr.push(i);
+            }
             return (
               <div className={`${prefixCls}-wrap`}>
                 {
-                  indexes.map(function(index) {
+                  arr.map(function(index) {
                     const dotCls = classNames({
                       [`${prefixCls}-wrap-dot`]: true,
                       [`${prefixCls}-wrap-dot-active`]: index === current,
@@ -95,20 +66,24 @@ export default class Carousel extends React.Component<CarouselProps, any> {
               </div>
             );
           },
-          getIndexes(count, inc) {
-            const arr: number[] = [];
-            for (let i = 0; i < count; i += inc) {
-              arr.push(i);
-            }
-            return arr;
-          },
         }),
         position: 'BottomCenter',
       }];
     }
 
+    ['infinite', 'selectedIndex', 'beforeChange', 'afterChange', 'dots'].forEach(prop => {
+      if (props.hasOwnProperty(prop)) {
+        delete props[prop];
+      }
+    });
+
     return (
-      <div className={wrapCls}>
+      <div className={classNames({
+        [className as string]: className,
+        [prefixCls as string]: true,
+        [`${prefixCls}-vertical`]: props.vertical,
+      })}
+      >
         <ReactCarousel
           {...props}
           decorators={Decorators}

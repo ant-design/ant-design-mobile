@@ -12,21 +12,21 @@
     zoom: 1;
     width: 100%;
     &-dot {
-        display: inline-block;
-        zoom: 1;
+      display: inline-block;
+      zoom: 1;
+      > span {
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin: 0 6px;
+        border-radius: 50%;
+        background: @input-color-icon;
+      }
+      &-active {
         > span {
-          display: block;
-          width: 16px;
-          height: 16px;
-          margin: 0 6px;
-          border-radius: 50%;
-          background: @input-color-icon;
+          background: #888;
         }
-        &-active {
-          > span {
-            background: #888;
-          }
-        }
+      }
     }
   }
 }
