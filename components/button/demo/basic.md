@@ -14,7 +14,7 @@ const ButtonExample = React.createClass({
       <div style={{ margin: '0 0.16rem' }}>
         <Button className="btn" data-seed="logId" onClick={e => console.log(e)}>default 按钮</Button>
         <Button className="btn" type="primary">primary 按钮</Button>
-        <Button className="btn" disabled>disabled 按钮</Button>
+        <Button className="btn" disabled onClick={e => console.log(e)}>disabled 按钮</Button>
         <Button className="btn" loading>loading 按钮</Button>
         <Button className="btn" icon="check-circle-o">success 按钮</Button>
 

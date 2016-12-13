@@ -79,6 +79,7 @@ class Button extends React.Component<tsProps, any> {
           style={style}
           className={classNames(wrapCls)}
           disabled={disabled}
+          onClick={disabled ? () => {} : this.props.onClick}
         >
           {iconType ? <Icon type={iconType} /> : null}
           {kids}
