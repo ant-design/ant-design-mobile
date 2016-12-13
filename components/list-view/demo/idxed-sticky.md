@@ -59,7 +59,7 @@ const Demo = React.createClass({
   },
 
   render() {
-    return (<div style={{ paddingTop: 44 * (window.viewportScale || 1) }}>
+    return (<div style={{ paddingTop: '0.88rem', position: 'relative' }}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
         <SearchBar
           value={this.state.inputValue}

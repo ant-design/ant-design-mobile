@@ -87,7 +87,7 @@ const App = React.createClass({
             {obj.title}
           </h3>
           <div style={{ display: '-webkit-box', display: 'flex' }}>
-            <img style={{ height: 64 * (window.viewportScale || 1), marginRight: 8 }} src={obj.img} />
+            <img style={{ height: '1.28rem', marginRight: '0.08rem' }} src={obj.img} />
             <div style={{ display: 'inline-block' }}>
               <p>{obj.des}-{rowData}</p>
               <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
