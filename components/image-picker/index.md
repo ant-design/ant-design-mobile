@@ -1,14 +1,11 @@
 ---
 category: Components
 type: Data Entry
-chinese: 图片选择
+chinese: 图片选择器
 english: ImagePicker
 ---
 
-用户根据提示将自己本地图片（包含本地和云储存）上传到网站，并且可以更改或撤销。
-
-### 规则
-- 上传时提供大图预览功能。
+注意：只是图片选择器，一般用于上传图片前的文件选择操作，但不包括图片上传的功能
 
 
 ## API ( 适用平台：WEB、React-Native )

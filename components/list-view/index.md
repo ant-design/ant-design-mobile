@@ -59,7 +59,7 @@ same as [React Native ListView](https://facebook.github.io/react-native/docs/lis
 
 - onEndReached不停调用 https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596
 - 如何设置滚动到固定的位置？(例如，点击列表某一项进入另一个页面，再返回) #541
-- 其他问题：#573
+- 其他问题：#633 #573
 
 ListView 有三种类型的滚动容器：
 
@@ -70,3 +70,9 @@ ListView 有三种类型的滚动容器：
 前两种获取到相应元素后，调用 scrollTo 方法、滚动到指定位置；
 第三种通过 ref 获取到组件对象、再获取到 domScroller 、调用 scrollTo 方法。
 但滚动到具体什么位置，业务上其实也比较难确定。
+
+对 dataSource 对象变化时的处理方式：
+ListView 在 componentWillReceiveProps 里会监听 dataSource 对象的变化，并做一次
+[`this._renderMoreRowsIfNeeded()`](https://github.com/react-component/m-list-view/blob/90badfdb6e94093136c86e5874ce6054eae88a0d/src/ListView.js#L156) ，
+由于此时[`this.state.curRenderedRowsCount === this.props.dataSource.getRowCount()`](https://github.com/react-component/m-list-view/blob/90badfdb6e94093136c86e5874ce6054eae88a0d/src/ListView.js#L348)
+即已经渲染的数据与 dataSource 里已有的数据项个数相同，所以 ListView 认为应该再调用 onEndReached 方法。
