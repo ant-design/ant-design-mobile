@@ -2,9 +2,10 @@ import React from 'react';
 import assign from 'object-assign';
 import { View, TextInput, Text, Image } from 'react-native';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
+import styles from './style/index';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
-  static defaultProps = defaultProps;
+  static defaultProps = assign(defaultProps, { styles });
 
   constructor(props) {
     super(props);
@@ -50,9 +51,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   };
 
   render() {
-    const { showCancelButton, cancelText, styles } = this.props;
+    const { showCancelButton, cancelText, disabled, styles } = this.props;
     const restProps = assign({}, this.props);
-    ['showCancelButton', 'cancelText', 'styles', 'value', 'onChangeText', 'onSubmitEditing'].forEach(prop => {
+    [
+      'showCancelButton', 'cancelText', 'styles', 'value', 'onChangeText', 'onSubmitEditing', 'disabled',
+    ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
       }
@@ -65,6 +68,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           value={value}
           onChangeText={this.onChangeText}
           style={styles.input}
+          editable={!disabled}
           ref="searchInput"
           onSubmitEditing={this.onSubmit}
           clearButtonMode="always"

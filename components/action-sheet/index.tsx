@@ -121,6 +121,7 @@ if (Platform.OS === 'ios') {
           </View>
         </View>
       );
+
       topView.set(
         <ActionSheetAndroid name={config.androidActionSheetName || 'defaultActionSheet'}>
           {children}
