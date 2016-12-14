@@ -21,7 +21,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     const mark = (
       <label className={wrapCls} style={style}>
         <RcCheckbox {...omit(this.props, ['className', 'style'])} />
-        {children ? <span>{children}</span> : null}
+        {children}
       </label>
     );
     if (this.props.wrapLabel) {

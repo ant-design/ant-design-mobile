@@ -21,7 +21,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     const mark = (
       <label className={wrapCls} style={style}>
         <RcCheckbox {...omit(this.props, ['className', 'style'])} type="radio" />
-        {children ? <span>{children}</span> : null}
+        {children}
       </label>
     );
     if (this.props.wrapLabel) {
