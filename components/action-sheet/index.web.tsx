@@ -21,7 +21,7 @@ function createActionSheet(flag, config, callback) {
   }, config);
   const { prefixCls, className, transitionName, maskTransitionName, maskClosable = true } = props;
 
-  let div: HTMLDivElement | null = document.createElement('div');
+  let div: any = document.createElement('div');
   document.body.appendChild(div);
 
   queue.push(close);
