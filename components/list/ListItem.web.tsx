@@ -27,7 +27,7 @@ class ListItem extends React.Component<ListItemProps, any> {
     const [{
       prefixCls, className, activeStyle, error, align, wrap,
       disabled,
-      children, multipleLine, thumb, extra, arrow = '',
+      children, multipleLine, thumb, extra, arrow,
     }, restProps] = splitObject(this.props,
       ['prefixCls', 'className', 'activeStyle', 'error', 'align', 'wrap',
         'children', 'multipleLine', 'thumb', 'disabled',

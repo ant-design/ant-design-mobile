@@ -38,7 +38,7 @@ const ListExample = React.createClass({
           </select>
         </Item>
       </List>
-      <div style={{ height: 16 }} />
+      <div style={{ height: '0.16rem' }} />
       <List renderHeader={() => '左侧带图片'}>
         <Item
           thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
@@ -47,7 +47,7 @@ const ListExample = React.createClass({
         >我的钱包</Item>
         <Item thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png">我的花销占比</Item>
       </List>
-      <div style={{ height: 32 }} />
+      <div style={{ height: '0.32rem' }} />
     </div>);
   },
 });
