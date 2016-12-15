@@ -56,7 +56,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     }
 
     if (nextProps.focus) {
-      this.refs['input'].focus();
+      (this.refs as any).input.focus();
     }
   }
 
@@ -68,7 +68,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
 
   componentDidMount() {
     if (this.props.autoFocus) {
-      this.refs['input'].focus();
+      (this.refs as any).input.focus();
     }
   }
 

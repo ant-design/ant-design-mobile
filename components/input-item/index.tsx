@@ -36,7 +36,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.focus) {
-      this.refs['input'].focus();
+      (this.refs as any).input.focus();
     }
   }
 
