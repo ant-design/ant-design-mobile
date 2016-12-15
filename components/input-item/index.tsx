@@ -27,10 +27,17 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     textAlign: 'left',
     last: false,
     styles: InputItemStyle,
+    focus: false,
   };
 
   constructor(props) {
     super(props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.focus) {
+      this.refs['input'].focus();
+    }
   }
 
   onChange = (text) => {
@@ -122,6 +129,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       <View style={[styles.container, containerStyle, style]}>
         {children ? <Text style={[styles.text, textStyle]}>{children}</Text> : null}
         <TextInput
+          ref="input"
           style={[styles.input, inputStyle]}
           keyboardType={keyboardType}
           onChange={(event) => this.onChange(event.nativeEvent.text)}

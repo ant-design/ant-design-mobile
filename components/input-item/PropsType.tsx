@@ -35,6 +35,8 @@ interface InputItemProps {
   children?: any;
   updatePlaceholder?: boolean;
   styles?: any;
+  autoFocus?: boolean;
+  focus?: boolean;
 }
 
 export default InputItemProps;

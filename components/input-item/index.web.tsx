@@ -35,6 +35,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     onErrorClick: noop,
     labelNumber: 4,
     updatePlaceholder: false,
+    focus: false,
   };
 
   debounceTimeout: any;
@@ -53,11 +54,21 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
         placeholder: nextProps.placeholder,
       });
     }
+
+    if (nextProps.focus) {
+      this.refs['input'].focus();
+    }
   }
 
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.autoFocus) {
+      this.refs['input'].focus();
     }
   }
 
@@ -146,7 +157,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       error, className, extra, labelNumber, maxLength,
     } = this.props;
 
-    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
+    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style', 'focus',
       'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
       'updatePlaceholder',
     ]);
@@ -202,7 +213,8 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={`${prefixCls}-control`}>
-          <input ref="input"
+          <input
+            ref="input"
             {...patternProps}
             {...otherProps}
             {...valueProps}
