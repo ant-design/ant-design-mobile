@@ -15,7 +15,7 @@ interface StepProps {
   downStyle?: {};
   inputStyle?: {};
   /* web only */
-  prefixCls?: 'am-stepper';
+  prefixCls?: string;
   name?: string;
   showNumber?: boolean;
   className?: string;
