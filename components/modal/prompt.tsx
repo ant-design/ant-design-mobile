@@ -67,7 +67,7 @@ export default function (...args) {
     </div>
   );
 
-  let div = document.createElement('div');
+  let div: any = document.createElement('div');
   document.body.appendChild(div);
 
   function close() {
