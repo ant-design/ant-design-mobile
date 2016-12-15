@@ -3,6 +3,19 @@ order: 4
 english: 更新日志
 ---
 
+### 0.9.12
+
+`2016-12-15`
+
+- 修复 SearchBar、Button、SegmentedControl  等 TypeScript 类型引用错误的问题
+- 修复 Checkbox、Radio 在某些设备上点击 label 不会选中的兼容性问题
+- 修复 InputItem 最后一项多余边线问题；重构 Carousel、Menu 核心实现
+- 修正 NoticeBar 文字大小变量；修复 RN Radio 受控状态实现错误的问题
+- 修复 RefreshControl 的`distanceToRefresh`设置，使其能自适应不同分辨率的屏幕
+- 恢复 Picker、DatePicker 的 extra 设置并更新其文档，并增加自定义 children 的 demo
+- 修复 Steps status error 状态展示问题；对 Popup 点击遮罩层的回调函数`onMaskClose`进行功能补充
+- 优化 InputItem、TextareaItem、Picker、DatePicker 等组件 demo ，优化各组件文档细节
+
 ### 0.9.11
 
 `2016-12-03`
