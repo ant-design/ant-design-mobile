@@ -8,9 +8,7 @@ english: Flex
 
 Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
 
-### 规则
-- Flex 布局的相关知识请先阅读阮一峰的博客
-[Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+如果不熟悉推荐学习下这个 [Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
 
 ## API ( 适用平台：WEB、React-Native )
