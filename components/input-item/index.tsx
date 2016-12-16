@@ -87,15 +87,15 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     }
   };
 
-  onInputBlur = (value) => {
+  onInputBlur = () => {
     if (this.props.onBlur) {
-      this.props.onBlur(value);
+      this.props.onBlur(this.props.value);
     }
   }
 
-  onInputFocus = (value) => {
+  onInputFocus = () => {
     if (this.props.onFocus) {
-      this.props.onFocus(value);
+      this.props.onFocus(this.props.value);
     }
   }
 
