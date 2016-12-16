@@ -139,7 +139,7 @@ const Demo = React.createClass({
         onEndReachedThreshold={10}
         stickyHeader
         stickyProps={{
-          stickyStyle: { zIndex: 999 },
+          stickyStyle: { zIndex: 999, WebkitTransform: 'none', transform: 'none' },
           // topOffset: -43,
           // isActive: false, // 关闭 sticky 效果
         }}
