@@ -44,6 +44,25 @@
       background-color: @fill-mask;
     }
   }
+  &-qsindicator {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -30px auto auto -60px;
+    width: 120px;
+    height: 60px;
+    background: transparent;
+    opacity: .7;
+    color: #0af;
+    font-size: 40px;
+    border-radius: 60px;
+    z-index: 1999;
+    text-align: center;
+    line-height: 60px;
+    &-hide {
+      display: none;
+    }
+  }
 }
 .zscroller {
   &-scrollbar-y {
