@@ -27,15 +27,21 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     textAlign: 'left',
     last: false,
     styles: InputItemStyle,
-    focus: false,
+    focused: false,
   };
 
   constructor(props) {
     super(props);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.focus) {
+  componentDidMount() {
+    if (this.props.autoFocus || this.props.focused) {
+      (this.refs as any).input.focus();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.focused) {
       (this.refs as any).input.focus();
     }
   }
@@ -80,6 +86,18 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       onChange(text);
     }
   };
+
+  onInputBlur = (value) => {
+    if (this.props.onBlur) {
+      this.props.onBlur(value);
+    }
+  }
+
+  onInputFocus = (value) => {
+    if (this.props.onFocus) {
+      this.props.onFocus(value);
+    }
+  }
 
   render() {
     const {
@@ -137,6 +155,8 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           clearButtonMode={clear ? 'while-editing' : 'never'}
           underlineColorAndroid="transparent"
           {...restProps}
+          onBlur={this.onInputBlur}
+          onFocus={this.onInputFocus}
         />
         {extra ? <TouchableWithoutFeedback
           onPress={onExtraClick}

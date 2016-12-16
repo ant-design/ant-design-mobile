@@ -36,7 +36,7 @@ interface InputItemProps {
   updatePlaceholder?: boolean;
   styles?: any;
   autoFocus?: boolean;
-  focus?: boolean;
+  focused?: boolean;
 }
 
 export default InputItemProps;

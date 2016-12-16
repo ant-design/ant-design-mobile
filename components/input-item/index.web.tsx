@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import InputItemProps from './PropsType';
 import omit from 'omit.js';
 
-function noop() {}
+function noop() {
+}
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -12,12 +13,7 @@ function fixControlledValue(value) {
   return value;
 }
 
-export interface InputItemState {
-  focus?: boolean;
-  placeholder?: string;
-}
-
-class InputItem extends React.Component<InputItemProps, InputItemState> {
+class InputItem extends React.Component<InputItemProps, any> {
   static defaultProps = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
@@ -35,7 +31,6 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     onErrorClick: noop,
     labelNumber: 4,
     updatePlaceholder: false,
-    focus: false,
   };
 
   debounceTimeout: any;
@@ -43,31 +38,39 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
   constructor(props) {
     super(props);
     this.state = {
-      focus: false,
+      focused: props.focused || false,
       placeholder: this.props.placeholder,
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if ('placeholder' in nextProps && this.state.placeholder !== nextProps.placeholder) {
+    if ('placeholder' in nextProps && !nextProps.updatePlaceholder) {
       this.setState({
         placeholder: nextProps.placeholder,
       });
     }
-
-    if (nextProps.focus) {
-      (this.refs as any).input.focus();
+    if ('focused' in nextProps) {
+      this.setState({
+        focused: nextProps.focused,
+      });
     }
   }
 
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
     }
   }
 
   componentDidMount() {
-    if (this.props.autoFocus) {
+    if (this.props.autoFocus || this.state.focused) {
+      (this.refs as any).input.focus();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.focused) {
       (this.refs as any).input.focus();
     }
   }
@@ -106,21 +109,27 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
   }
 
   onInputBlur = (e) => {
-    this.debounceTimeout = setTimeout(() => {
-      this.setState({
-        focus: false,
-      });
-    }, 300);
     const value = e.target.value;
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: false,
+      });
+    }
     if (this.props.onBlur) {
       this.props.onBlur(value);
     }
   }
 
   onInputFocus = (e) => {
-    this.setState({
-      focus: true,
-    });
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
+    }
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: true,
+      });
+    }
     const value = e.target.value;
     if (this.props.onFocus) {
       this.props.onFocus(value);
@@ -157,18 +166,18 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       error, className, extra, labelNumber, maxLength,
     } = this.props;
 
-    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style', 'focus',
+    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style', 'focused',
       'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
       'updatePlaceholder',
     ]);
 
-    const { focus, placeholder } = this.state;
+    const { focused, placeholder } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-error`]: error,
-      [`${prefixCls}-focus`]: focus,
+      [`${prefixCls}-focused`]: focused,
       [className as string]: className,
     });
 
