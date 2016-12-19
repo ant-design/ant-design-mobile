@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import Touchable from 'rc-touchable';
 import SegmentedControlProps from './PropsType';
-import SegmentItem from './SegmentItem.web';
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {
@@ -46,24 +46,32 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     }
   }
 
-  render() {
-    const {
-      prefixCls, style, disabled, values = [], className, tintColor,
-    } = this.props;
-    const selectedIndex = this.state.selectedIndex;
-    const items = values.map((value, idx) => {
-      return (
-        <SegmentItem
-          key={idx}
-          prefixCls={prefixCls}
-          label={value}
-          disabled={disabled}
-          tintColor={tintColor}
-          selected={idx === selectedIndex}
-          onClick={disabled ? undefined : (e) => this.onClick(e, idx, value)}
-        />
-      );
+  renderSegmentItem(idx, value, selected) {
+    const { prefixCls, disabled, tintColor } = this.props;
+
+    const itemCls = classNames({
+      [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-selected`]: selected,
     });
+    return (
+      <Touchable key={idx} disabled={disabled} activeClassName={`${prefixCls}-item-active`}>
+        <div className={itemCls}
+          style={{
+            color: selected ? '#fff' : tintColor,
+            backgroundColor: selected ? tintColor : '#fff',
+            borderColor: tintColor,
+          }}
+          onClick={disabled ? undefined : (e) => this.onClick(e, idx, value)}
+        >
+          <div className={`${prefixCls}-item-inner`} />
+          {value}
+        </div>
+      </Touchable>
+    );
+  }
+
+  render() {
+    const { className, prefixCls, style, disabled, values = [] } = this.props;
 
     const wrapCls = classNames({
       [className as string]: !!className,
@@ -73,7 +81,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
 
     return (
       <div className={wrapCls} style={style}>
-        {items}
+        {values.map((value, idx) => this.renderSegmentItem(idx, value, idx === this.state.selectedIndex))}
       </div>
     );
   }
