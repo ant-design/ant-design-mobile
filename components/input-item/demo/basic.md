@@ -6,10 +6,15 @@ title: 示例集合
 受控组件建议使用([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
-import { List, InputItem } from 'antd-mobile';
+import { List, InputItem, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let BasicInputExample = React.createClass({
+  getInitialState() {
+    return {
+      focused: false,
+    };
+  },
   render() {
     const { getFieldProps } = this.props.form;
     return (<List>
@@ -21,13 +26,38 @@ let BasicInputExample = React.createClass({
         {...getFieldProps('control')}
         placeholder="请输入（受控）"
       >标题</InputItem>
-
       <InputItem
         {...getFieldProps('inputclear')}
         clear
         placeholder="输入会显示清除按钮"
       >标题</InputItem>
-
+      <InputItem
+        {...getFieldProps('autofocus')}
+        clear
+        placeholder="自动获取光标"
+        autoFocus
+      >标题</InputItem>
+      <InputItem
+        {...getFieldProps('focus')}
+        clear
+        placeholder="点击下方按钮该输入框会获取光标"
+        focused={this.state.focused}
+        onFocus={() => {
+          this.setState({
+            focused: false,
+          });
+        }}
+      >标题</InputItem>
+      <List.Item>
+        <Button
+          onClick={() => {
+            this.setState({
+              focused: true,
+            });
+          }}
+          type="primary"
+        >点击获取光标</Button>
+      </List.Item>
       <InputItem
         {...getFieldProps('input3')}
         placeholder="无 label"

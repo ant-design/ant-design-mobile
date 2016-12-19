@@ -115,6 +115,9 @@ class InputItem extends React.Component<InputItemProps, any> {
         focused: false,
       });
     }
+    this.setState({
+      focus: false,
+    });
     if (this.props.onBlur) {
       this.props.onBlur(value);
     }
@@ -130,6 +133,11 @@ class InputItem extends React.Component<InputItemProps, any> {
         focused: true,
       });
     }
+
+    this.setState({
+      focus: true,
+    });
+
     const value = e.target.value;
     if (this.props.onFocus) {
       this.props.onFocus(value);
@@ -171,13 +179,13 @@ class InputItem extends React.Component<InputItemProps, any> {
       'updatePlaceholder',
     ]);
 
-    const { focused, placeholder } = this.state;
+    const { placeholder, focus } = this.state;
     const wrapCls = classNames({
       [`${prefixListCls}-item`]: true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-error`]: error,
-      [`${prefixCls}-focused`]: focused,
+      [`${prefixCls}-focus`]: focus,
       [className as string]: className,
     });
 
@@ -239,7 +247,10 @@ class InputItem extends React.Component<InputItemProps, any> {
           />
         </div>
         {clear && editable && !disabled && (value && value.length > 0) ?
-          <div className={`${prefixCls}-clear`} onClick={this.clearInput} />
+          <div
+            className={`${prefixCls}-clear`}
+            onTouchStart={(e) => { e.preventDefault(); this.clearInput();}}
+          />
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
         {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
