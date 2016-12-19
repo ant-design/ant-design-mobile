@@ -7,6 +7,8 @@ interface TabBarProps {
   prefixCls?: string;
   className?: string;
   hidden?: boolean;
+  /** rn android only**/
+  styles?: any;
 }
 
 export default TabBarProps;
