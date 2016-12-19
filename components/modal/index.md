@@ -19,17 +19,18 @@ source: design
 
 ### Modal ( 适用平台：WEB、React-Native )
 
-| 参数             | 说明                                         | 类型     | 默认值        |
-|------------------|----------------------------------------------|----------|---------------|
+| 参数             | 说明                    | 类型     | 默认值        |
+|------------------|-----------------------|----------|---------------|
+| prefixCls (web only)      | 样式类名前缀 |    String   | `am-modal`      |
 | visible      | 对话框是否可见 | Boolean          | false           |
 | onClose      | 点击 x 或 mask 回调       | (): void   | 无 |
 | title (only transparent)       | 标题           | React.Element    | 无           |
 | closable    | 是否显示右上角的关闭按钮 | Boolean    | true        |
 | maskClosable (only transparent) | 点击蒙层是否允许关闭 | Boolean   | true       |
 | footer  (only not transparent)     | 底部内容       |  Array [{text, onPress}]    | [] |
-| transparent | 是否弹窗模式       | Boolean   |  true |
-| animationType | modal 动画样式       | 'none' | 'slide-down/up' (transparent 模式下) | 'fade' | 'slide' (仅非 tranparent)   |   fade |
-| style (`web only`)       |  样式              | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
+| transparent | 是否弹窗模式       | Boolean   |  false |
+| animationType (`rn only`) | modal 动画样式   | 'none' | 'slide-down/up' (transparent 模式下) | 'fade' | 'slide' (仅非 tranparent)   |   fade |
+| style (`web only`) |  样式    | Object | 透明模式下: {width: '286px', height: 'auto'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
 
 ### Modal.alert(title, message, actions?) ( 适用平台：WEB、React-Native )
 
@@ -46,5 +47,5 @@ source: design
 | title        | 标题                      | String 或 React.Element   | 无            |
 | message      | 提示信息                  | String 或 React.Element                    | 无    |
 | callbackOrActions  | 按钮组 [{text, onPress}] 或回调函数      | Array or Function | 无            |
-| type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|   `default`          |
-| defaultValue       | 默认值(input 为 password 类型不支持)   | String |   ``          |
+| type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|  `default`  |
+| defaultValue       | 默认值(input 为 password 类型不支持)   | String |   -  |

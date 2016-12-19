@@ -15,7 +15,7 @@ export default function (...args) {
   }
 
   const prefixCls = 'am-modal';
-  let div = document.createElement('div');
+  let div: any = document.createElement('div');
   document.body.appendChild(div);
 
   function close() {
