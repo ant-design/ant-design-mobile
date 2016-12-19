@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Icon from '../icon/index.web';
 import assign from 'object-assign';
 import getDataAttr from '../_util/getDataAttr';
-import ButtonListItem from './ButtonListItem.web';
+import Touchable from 'rc-touchable';
 
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
@@ -69,18 +69,24 @@ function createActionSheet(flag, config, callback) {
               [`${prefixCls}-cancel-button`]: cancelButtonIndex === index,
             };
             const itemProps = {
-              key: index,
-              prefixCls: `${prefixCls}-button-list-item`,
               className: classNames(cls),
               onClick: () => cb(index),
             };
-            let bItem = (<ButtonListItem {...itemProps}>{item}</ButtonListItem>);
+            let bItem = (
+              <Touchable key={index} activeClassName={`${prefixCls}-button-list-item-active`}>
+                <div {...itemProps}>{item}</div>
+              </Touchable>
+            );
             if (cancelButtonIndex === index || destructiveButtonIndex === index) {
-              bItem = (<ButtonListItem {...itemProps}>
-                {item}
-                {cancelButtonIndex === index ?
-                  <span className={`${prefixCls}-cancel-button-mask`}></span> : null}
-              </ButtonListItem>);
+              bItem = (
+                <Touchable key={index} activeClassName={`${prefixCls}-button-list-item-active`}>
+                  <div {...itemProps}>
+                    {item}
+                    {cancelButtonIndex === index ?
+                    <span className={`${prefixCls}-cancel-button-mask`}></span> : null}
+                  </div>
+                </Touchable>
+              );
             }
             return bItem;
           })}
@@ -110,11 +116,11 @@ function createActionSheet(flag, config, callback) {
                 {options.map((item, index) => createList(item, index))}
             </div>
           )}
-          <ButtonListItem
-            prefixCls={`${prefixCls}-share-cancel-button`}
-            className={`${prefixCls}-share-cancel-button`} onClick={() => cb(-1) }>
-            {cancelButtonText}
-          </ButtonListItem>
+          <Touchable activeClassName={`${prefixCls}-share-cancel-button-active`}>
+            <div className={`${prefixCls}-share-cancel-button`} onClick={() => cb(-1)}>
+              {cancelButtonText}
+            </div>
+          </Touchable>
         </div>
       </div>);
       break;
