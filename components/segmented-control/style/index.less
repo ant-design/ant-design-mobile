@@ -49,15 +49,14 @@
     }
 
     &-active {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      opacity: 0.1;
-      transition: background 0.2s;
-      &-tintcolor {
-        background-color: @segmented-control-color;
+      .@{segment-prefix-cls}-item-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.1;
+        transition: background 0.2s;
       }
     }
   }
