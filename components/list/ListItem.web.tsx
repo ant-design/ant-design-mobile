@@ -25,17 +25,16 @@ class ListItem extends React.Component<ListItemProps, any> {
 
   render() {
     const [{
-      prefixCls, className, activeStyle, error, align, wrap,
-      disabled,
+      prefixCls, className, activeStyle, error, align, wrap, disabled,
       children, multipleLine, thumb, extra, arrow,
     }, restProps] = splitObject(this.props,
-      ['prefixCls', 'className', 'activeStyle', 'error', 'align', 'wrap',
-        'children', 'multipleLine', 'thumb', 'disabled',
-        'extra', 'arrow']);
+      ['prefixCls', 'className', 'activeStyle', 'error', 'align', 'wrap', 'disabled',
+        'children', 'multipleLine', 'thumb', 'extra', 'arrow']);
 
     const wrapCls = {
       [className as string]: className,
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-disabled`]: disabled,
       [`${prefixCls}-item-error`]: error,
       [`${prefixCls}-item-top`]: align === 'top',
       [`${prefixCls}-item-middle`]: align === 'middle',
@@ -55,7 +54,7 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
 
-    const content =  <div
+    const content = <div
       {...restProps}
       className={classNames(wrapCls)}
     >
