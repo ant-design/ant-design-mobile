@@ -36,7 +36,7 @@ english: InputItem
 | onErrorClick       | 点击报错 icon 触发的回调函数  | (e: Object): void |  无  |
 | extra       | 右边注释   | string or node |  ''  |
 | onExtraClick      | extra 点击事件触发的回调函数 | (e: Object): void |  无  |
-| labelNumber   | 标签 label 字数（可选`2`, `3`, `4`, `5`, `6`, `7`） | number | `4`  |
+| labelNumber  | 定宽枚举值：`num * @input-label-width: 34px`，可用`2-7`之间的数字，一般(不能保证全部)能对应显示出相应个数的中文文字(不考虑英文字符) | number | `4` |
 | updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
 | prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
 | name (`web only`)   | input 的 name        | String |  无  |
