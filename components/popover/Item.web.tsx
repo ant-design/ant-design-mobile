@@ -1,10 +1,9 @@
-/* eslint no-console:0 */
 import React from 'react';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 import Touchable from 'rc-touchable';
 
-class Item extends React.Component<any, any> {
+export default class Item extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'am-popover',
     disabled: false,
@@ -33,7 +32,7 @@ class Item extends React.Component<any, any> {
           {icon ? <span className={`${prefixCls}-item-icon`}>{icon}</span> : null}
           <span className={`${prefixCls}-item-content`}>{children}</span>
         </div>
-      </Touchable>);
+      </Touchable>
+    );
   }
 }
-export default Item;
