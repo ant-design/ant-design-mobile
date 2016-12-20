@@ -4,35 +4,33 @@
 @listPrefixCls: am-list;
 @textareaPrefixCls: am-textarea;
 
-.@{listPrefixCls} {
-  & &-item {
-    &.@{textareaPrefixCls}-item {
-      display: flex;
-      align-items: flex-start;
-      box-sizing: border-box;
-      min-height: @list-item-height;
-      padding-left: @h-spacing-lg;
-      padding-right: @h-spacing-lg;
-      .hairline-bottom(@border-color-base, @h-spacing-lg);
-      &.@{textareaPrefixCls}-item-single-line {
-        align-items: center;
-        .@{textareaPrefixCls}-label {
-          align-self: center;
+.@{listPrefixCls} .@{listPrefixCls}-item {
+  &.@{textareaPrefixCls}-item {
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    min-height: @list-item-height;
+    padding-left: @h-spacing-lg;
+    padding-right: @h-spacing-lg;
+    .hairline-bottom(@border-color-base, @h-spacing-lg);
+    &.@{textareaPrefixCls}-item-single-line {
+      align-items: center;
+      .@{textareaPrefixCls}-label {
+        align-self: center;
+      }
+      .@{textareaPrefixCls}-control {
+        padding-top: 0;
+        padding-bottom: 0;
+        textarea {
+          line-height: 1.5 * @font-size-heading;
         }
-        .@{textareaPrefixCls}-control {
-          padding-top: 0;
-          padding-bottom: 0;
-          textarea {
-            line-height: 1.5 * @font-size-heading;
-          }
-        }
-        .@{textareaPrefixCls}-clear {
+      }
+      .@{textareaPrefixCls}-clear {
+        margin-top: 0;
+      }
+      &.@{textareaPrefixCls}-error {
+        .@{textareaPrefixCls}-error-extra {
           margin-top: 0;
-        }
-        &.@{textareaPrefixCls}-error {
-          .@{textareaPrefixCls}-error-extra {
-            margin-top: 0;
-          }
         }
       }
     }
@@ -48,7 +46,8 @@
   line-height: @list-item-height;
   margin-left: 0;
   margin-right: @h-spacing-lg;
-  .ellipsis();
+  white-space: nowrap;
+  overflow: hidden;
   &.@{textareaPrefixCls}-label-2 {
     width: 2*@input-label-width;
   }
