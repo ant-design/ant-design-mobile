@@ -4,6 +4,7 @@
 
 ```
 node = 4+
+npm = 3+
 ```
 
 ## 代码风格
@@ -123,8 +124,6 @@ exports.demo = BasicButtonExample;
 ## 开发流程
 
 ```bash
-$ npm install typings -g
-$ typings install
 $ npm install
 ```
 
