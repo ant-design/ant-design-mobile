@@ -1,10 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import Icon from '../icon/index.web';
 import splitObject from '../_util/splitObject';
-import touchableFeedback from '../_util/touchableFeedback';
 import tsProps from './PropsType';
+import Touchable from 'rc-touchable';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -35,15 +34,16 @@ class Button extends React.Component<tsProps, any> {
     across: false,
     disabled: false,
     loading: false,
+    activeStyle: {},
   };
 
   render() {
     let [{
       children, className, prefixCls, type, size, inline, across,
-      disabled, icon, loading, touchFeedback, activeStyle,
+      disabled, icon, loading, activeStyle,
     }, restProps] = splitObject(this.props,
       ['children', 'className', 'prefixCls', 'type', 'size', 'inline', 'across',
-        'disabled', 'icon', 'loading', 'touchFeedback', 'activeStyle']);
+        'disabled', 'icon', 'loading', 'activeStyle']);
 
     const wrapCls = {
       [className as string]: className,
@@ -58,12 +58,6 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-loading`]: loading,
     };
 
-    let style = assign({}, this.props.style);
-    if (touchFeedback) {
-      style = assign(style, activeStyle);
-      wrapCls[`${prefixCls}-active`] = true;
-    }
-
     const iconType = loading ? 'loading' : icon;
     const kids = React.Children.map(children, insertSpace);
 
@@ -73,18 +67,23 @@ class Button extends React.Component<tsProps, any> {
 
     delete restProps.htmlType;
     return (
-      <button
-        {...restProps}
-        type={this.props.htmlType || 'button'}
-        style={style}
-        className={classNames(wrapCls)}
+      <Touchable
+        activeClassName={activeStyle ? `${prefixCls}-active` : undefined}
         disabled={disabled}
+        activeStyle={activeStyle}
       >
-        {iconType ? <Icon type={iconType} /> : null}
-        {kids}
-      </button>
+        <button
+          {...restProps}
+          type={this.props.htmlType || 'button'}
+          className={classNames(wrapCls)}
+          disabled={disabled}
+        >
+          {iconType ? <Icon type={iconType} /> : null}
+          {kids}
+        </button>
+      </Touchable>
     );
   }
 }
 
-export default touchableFeedback<tsProps>(Button);
+export default Button;
