@@ -34,6 +34,7 @@ class Button extends React.Component<tsProps, any> {
     across: false,
     disabled: false,
     loading: false,
+    activeStyle: {},
   };
 
   render() {
@@ -57,8 +58,6 @@ class Button extends React.Component<tsProps, any> {
       [`${prefixCls}-loading`]: loading,
     };
 
-    let style = this.props.style;
-
     const iconType = loading ? 'loading' : icon;
     const kids = React.Children.map(children, insertSpace);
 
@@ -69,14 +68,13 @@ class Button extends React.Component<tsProps, any> {
     // use div, button native is buggy @yiminghe
     return (
       <Touchable
-        activeClassName={`${prefixCls}-active`}
+        activeClassName={activeStyle ? `${prefixCls}-active` : undefined}
         disabled={disabled}
         activeStyle={activeStyle}
       >
         <a
           {...restProps}
           role="button"
-          style={style}
           className={classNames(wrapCls)}
           disabled={disabled}
           onClick={disabled ? () => {} : this.props.onClick}
