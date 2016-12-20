@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
-import touchableFeedback from '../_util/touchableFeedback';
+import Touchable from 'rc-touchable';
 import { ListItemProps, BriefProps } from './PropsType';
 
 export class Brief extends React.Component<BriefProps, any> {
@@ -22,28 +21,25 @@ class ListItem extends React.Component<ListItemProps, any> {
     wrap: false,
   };
 
+  static Brief = Brief;
+
   render() {
     const [{
-      prefixCls, className, touchFeedback, activeStyle, error, align, wrap,
+      prefixCls, className, activeStyle, error, align, wrap, disabled,
       children, multipleLine, thumb, extra, arrow,
     }, restProps] = splitObject(this.props,
-      ['prefixCls', 'className', 'touchFeedback', 'activeStyle', 'error', 'align', 'wrap',
+      ['prefixCls', 'className', 'activeStyle', 'error', 'align', 'wrap', 'disabled',
         'children', 'multipleLine', 'thumb', 'extra', 'arrow']);
 
     const wrapCls = {
       [className as string]: className,
       [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-disabled`]: disabled,
       [`${prefixCls}-item-error`]: error,
       [`${prefixCls}-item-top`]: align === 'top',
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
     };
-
-    let style = assign({}, this.props.style);
-    if (touchFeedback) {
-      style = assign(style, activeStyle);
-      wrapCls[`${prefixCls}-item-active`] = true;
-    }
 
     const lineCls = classNames({
       [`${prefixCls}-line`]: true,
@@ -58,26 +54,30 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
 
-    return (
-      <div
-        {...restProps}
-        className={classNames(wrapCls)}
-        style={style}
-      >
-        {thumb ? <div className={`${prefixCls}-thumb`}>
-          {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
-        </div> : null}
-        <div className={lineCls}>
-          {children ? <div className={`${prefixCls}-content`}>{children}</div> : null}
-          {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
-          {arrow ? <div className={arrowCls} /> : null}
-        </div>
+    const content = <div
+      {...restProps}
+      className={classNames(wrapCls)}
+    >
+      {thumb ? <div className={`${prefixCls}-thumb`}>
+        {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
+      </div> : null}
+      <div className={lineCls}>
+        {children ? <div className={`${prefixCls}-content`}>{children}</div> : null}
+        {extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
+        {arrow ? <div className={arrowCls} /> : null}
       </div>
+    </div>;
+
+    return (
+      <Touchable
+        disabled={disabled || !restProps.onClick}
+        activeStyle={activeStyle}
+        activeClassName={`${prefixCls}-item-active`}
+      >
+        {content}
+      </Touchable>
     );
   }
 }
 
-const highOrderListItem = touchableFeedback<ListItemProps>(ListItem, {
-  Brief,
-});
-export default highOrderListItem;
+export default ListItem;

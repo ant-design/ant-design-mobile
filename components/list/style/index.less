@@ -80,6 +80,14 @@
   &.@{listPrefixCls}-item-active {
     background-color: @fill-tap;
   }
+  &&-disabled {
+    .@{listPrefixCls}-line {
+      .@{listPrefixCls}-content,
+      .@{listPrefixCls}-extra {
+        color: #bbb;
+      }
+    }
+  }
   img {
     width: @icon-size-md;
     height: @icon-size-md;
