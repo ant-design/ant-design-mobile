@@ -84,7 +84,7 @@
     .@{listPrefixCls}-line {
       .@{listPrefixCls}-content,
       .@{listPrefixCls}-extra {
-        color: #bbb;
+        color: @color-text-disabled;
       }
     }
   }
@@ -124,7 +124,7 @@
     }
     /* list右补充内容*/
     .@{listPrefixCls}-extra {
-      flex: 1;
+      flex-basis: 36%;
       color: @color-text-caption;
       font-size: 32px; // 视觉要求先暂时写死
       line-height: 1.2;
@@ -168,7 +168,7 @@
       }
     }
     &-multiple {
-      padding: 25px @h-spacing-lg 25px   0;
+      padding: 25px @h-spacing-lg 25px 0;
       .@{listPrefixCls}-content {
         padding-top: 0;
         padding-bottom: 0;
