@@ -58,13 +58,14 @@
       color: @color-text-base;
       height: @search-bar-input-height;
       font-size: @input-font-size;
-      background-color: @fill-base;
+      background-color: transparent;
       border: 0;
       .border-radius(@radius-sm);
       &::-webkit-input-placeholder {
         background: none;
         text-align: left;
-        color: @color-text-placeholder;
+        // color: @color-text-placeholder;
+        color: transparent;
         // font-size: @input-font-size;
         // line-height: 1.5;
       }
@@ -126,7 +127,6 @@
         }
       }
       .@{searchPrefixCls}-synthetic-ph {
-        z-index: 3;
         width: auto;
       }
     }
