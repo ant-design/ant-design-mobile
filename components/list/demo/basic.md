@@ -13,21 +13,21 @@ const Brief = Item.Brief;
 const ListExample = React.createClass({
   render() {
     return (<div>
-      <List renderHeader={() => '左侧无icon'}>
+      <List renderHeader={() => '左侧无icon'} className="my-list">
         <Item data-seed="logId">标题文字点击无反馈，文字超长则隐藏，文字超长则隐藏</Item>
         <Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</Item>
         <Item extra="箭头向右" arrow="horizontal" onClick={() => {}}>标题文字</Item>
         <Item extra="箭头向下" arrow="down" onClick={() => {}}>标题文字</Item>
         <Item extra="箭头向上" arrow="up" onClick={() => {}}>标题文字</Item>
-        <Item extra="没有箭头" arrow="empty">标题文字</Item>
+        <Item extra="没有箭头" arrow="empty" className="spe" wrap>
+          单行标题文字，文字可能比较长、文字可能比较长、靠近右边会折行
+        </Item>
 
         <Item extra="内容内容" multipleLine>
           垂直居中对齐 <Brief>辅助文字内容</Brief>
         </Item>
-        <Item extra="内容内容" multipleLine align="top">
-          顶部对齐
-          <Brief>辅助文字内容</Brief>
-          <Brief>辅助文字内容</Brief>
+        <Item extra="内容内容" multipleLine align="top" wrap>
+          多行标题文字，文字可能比较长、文字可能比较长、直接折行
         </Item>
 
         <Item>
@@ -53,4 +53,9 @@ const ListExample = React.createClass({
 });
 
 ReactDOM.render(<ListExample />, mountNode);
+````
+````css
+.my-list .spe .am-list-extra {
+  flex-basis: initial;
+}
 ````
