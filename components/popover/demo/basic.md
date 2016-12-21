@@ -13,7 +13,7 @@ const Item = Popover.Item;
 const App = React.createClass({
   getInitialState() {
     return {
-      visible: false,
+      visible: true,
       selected: '',
     };
   },
@@ -30,9 +30,13 @@ const App = React.createClass({
     });
   },
   render() {
+    let offsetX = -10; // just for pc demo
+    if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+      offsetX = -26;
+    }
     return (<div>
       <NavBar iconName={false} mode="light" rightContent={
-        <Popover
+        <Popover mask
           visible={this.state.visible}
           overlay={[
             (<Item key="4" value="scan" icon={<Icon type={require('./scan.svg')} size="xs" />} data-seed="logId">扫一扫</Item>),
@@ -43,7 +47,7 @@ const App = React.createClass({
           ]}
           popupAlign={{
             overflow: { adjustY: 0, adjustX: 0 },
-            offset: [-2, 15],
+            offset: [offsetX, 15],
           }}
           onVisibleChange={this.handleVisibleChange}
           onSelect={this.onSelect}

@@ -13,35 +13,35 @@
   box-shadow: 0 0 4px @color-shadow;
 }
 
-.@{popoverPrefixCls} {
-  & &-item {
+.@{popoverPrefixCls} .@{popoverPrefixCls}-item {
+  padding: 0 @h-spacing-md;
+  &-container {
     display: flex;
     align-items: center;
     height: @option-height;
-    padding: 0 @h-spacing-md;
-    border-bottom: @border-width-sm solid @border-color-base;
     box-sizing: border-box;
-    &:last-child {
+    border-bottom: @border-width-sm solid @border-color-base;
+  }
+  &:last-child {
+    .@{popoverPrefixCls}-item-container {
       border-bottom: 0;
     }
-    // &:active { // fix uc active bug
+  }
+  &.@{popoverPrefixCls}-item-active {
+    background-color: @border-color-base;
+  }
+  &.@{popoverPrefixCls}-item-active.@{popoverPrefixCls}-item-fix-active-arrow {
+    position: relative;
+  }
+  &.@{popoverPrefixCls}-item-disabled {
+    color: @color-text-disabled;
     &.@{popoverPrefixCls}-item-active {
-      background-color: @border-color-base;
+      background-color: transparent;
     }
-    &.@{popoverPrefixCls}-item-active.@{popoverPrefixCls}-item-fix-active-arrow {
-      position: relative;
-    }
-    &.@{popoverPrefixCls}-item-disabled {
-      color: @color-text-disabled;
-      // &.@{popoverPrefixCls}-item:active {
-      &.@{popoverPrefixCls}-item-active {
-        background-color: transparent;
-      }
-    }
-    &-icon {
-      margin-right: @h-spacing-md;
-      width: @icon-size-xs;
-      height: @icon-size-xs;
-    }
+  }
+  &-icon {
+    margin-right: @h-spacing-md;
+    width: @icon-size-xs;
+    height: @icon-size-xs;
   }
 }
