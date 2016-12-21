@@ -30,8 +30,10 @@ export default class Item extends React.Component<any, any> {
     return (
       <Touchable disabled={disabled} activeClassName={activeClass} activeStyle={activeStyle}>
         <div className={classNames(cls)} {...restProps}>
-          {iconName ? <span className={`${prefixCls}-item-icon`}><Icon type={iconName} /></span> : null}
-          <span className={`${prefixCls}-item-content`}>{children}</span>
+          <div className={`${prefixCls}-item-container`}>
+            {iconName ? <span className={`${prefixCls}-item-icon`}><Icon type={iconName} /></span> : null}
+            <span className={`${prefixCls}-item-content`}>{children}</span>
+          </div>
         </div>
       </Touchable>
     );
