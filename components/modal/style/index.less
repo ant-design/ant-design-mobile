@@ -7,13 +7,14 @@
 
 .@{modalPrefixClass} {
   .button-common() {
+    box-sizing: border-box;
     text-align: center;
     text-decoration: none;
     outline: none;
     color: @color-link;
     font-size: @link-button-font-size;
-    height: @button-height;
-    line-height: @button-height;
+    height: @across-button-height;
+    line-height: @across-button-height;
     .ellipsis();
     display: block;
   }
@@ -24,6 +25,7 @@
       .box-flex();
       .button-common();
       &:first-child {
+        color: @color-text-base;
         border-right: @border-width-sm solid @border-color-base;
       }
     }
