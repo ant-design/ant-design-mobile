@@ -47,6 +47,11 @@ glob.sync('node_modules/**/*/antd-mobile/lib', { dot: true }).forEach(p => {
 支持本地图标，例如`<Icon type={require('./reload.svg')} />`，
 需要配合 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 设置生效。
 
+对于项目目录中的本地 svg 图标，有一种不推荐但很简便的方式：
+`<Icon type={require('!svg-sprite!./reload.svg')} />`
+这样就不需要将本地 svg 文件所在的目录加入到 webpack 的 config 配置里，
+[详细参考 webpack loaders-in-require](http://webpack.github.io/docs/using-loaders.html#loaders-in-require)
+
 
 ## API ( 适用平台：WEB )
 
