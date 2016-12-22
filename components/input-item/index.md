@@ -35,7 +35,7 @@ source: design
 | onErrorClick       | 点击报错 icon 触发的回调函数  | (e: Object): void |  无  |
 | extra       | 右边注释   | string or node |  ''  |
 | onExtraClick      | extra 点击事件触发的回调函数 | (e: Object): void |  无  |
-| labelNumber  | 定宽枚举值：`num * @input-label-width: 34px`，可用`2-7`之间的数字，一般(不能保证全部)能对应显示出相应个数的中文文字(不考虑英文字符) | number | `4` |
+| labelNumber  | 定宽枚举值：`num * @input-label-width: 34px`，可用`2-7`之间的数字，一般(不能保证全部)能对应显示出相应个数的中文文字(不考虑英文字符) | number | `5` |
 | autoFocus   | 页面初始化时Input自动获取光标,每个页面只有一个Input的autpFocus会生效。（不保证所有浏览器都生效） | bool | false  |
 | focused   | 页面运行过程中,Input获取光标,当Input获取光标（`focused`更新为true）后，需要在`onFocus`或者`onBlur`时再次将该属性设置为false。 | bool | false  |
 | updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |

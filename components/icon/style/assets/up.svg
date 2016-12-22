@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="16px" viewBox="0 0 28 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>drop-up</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons-:-Core" transform="translate(-525.000000, -596.000000)">
+            <g id="drop-up" transform="translate(539.000000, 604.000000) rotate(-180.000000) translate(-539.000000, -604.000000) translate(517.000000, 582.000000)">
+                <rect id="Rectangle-3" fill="#D8D8D8" opacity="0" x="0" y="0" width="44" height="44"></rect>
+                <path d="M22.6201263,25.2536822 C22.2651158,25.6139813 21.6732842,25.6139813 21.4366105,25.2536822 L11.0211263,14.6853084 C10.3110316,13.964785 9.24577895,13.8446355 8.53568421,14.4451589 C7.94385263,15.0456075 7.94385263,16.2465794 8.77235789,16.9671028 L20.8447789,29.336972 C21.5549474,30.0574953 22.6201263,30.0574953 23.3302947,29.336972 L35.2843789,17.0872523 C35.9944737,16.3666542 36.1128842,15.2858318 35.5210526,14.5652336 C34.9292947,13.964785 33.7457053,13.964785 33.0356105,14.8054579 L22.6201263,25.2536822" id="Shape" fill="#4A4A4A"></path>
+            </g>
+        </g>
+    </g>
+</svg>

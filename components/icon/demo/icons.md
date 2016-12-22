@@ -10,7 +10,7 @@ import { Icon } from 'antd-mobile';
 const icons = [
   'check', 'check-circle', 'check-circle-o',
   'cross', 'cross-circle', 'cross-circle-o',
-  'down', 'left', 'right', 'ellipsis', 'loading', 'koubei-o', 'koubei',
+  'up', 'down', 'left', 'right', 'ellipsis', 'loading', 'koubei-o', 'koubei',
 ];
 /* eslint global-require: 0 */
 

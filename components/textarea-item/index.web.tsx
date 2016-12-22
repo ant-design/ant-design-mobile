@@ -32,7 +32,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     onFocus: noop,
     onErrorClick: noop,
     error: false,
-    labelNumber: 4,
+    labelNumber: 5,
   };
 
   initialTextHeight: number;

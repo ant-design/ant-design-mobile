@@ -29,7 +29,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     onExtraClick: noop,
     error: false,
     onErrorClick: noop,
-    labelNumber: 4,
+    labelNumber: 5,
     updatePlaceholder: false,
   };
 
