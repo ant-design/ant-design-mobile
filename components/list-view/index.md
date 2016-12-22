@@ -11,7 +11,7 @@ english: ListView
 ## API ( 适用平台：WEB、React-Native )
 
 - React-Native 平台直接使用 [React Native ListView](https://facebook.github.io/react-native/docs/listview.html#content)
-- WEB 平台使用 React Native ListView(v0.26) 的 API，但有一些差异，以下列出差异详情
+- WEB 平台使用 [React Native ListView(v0.26) 的 API](http://facebook.github.io/react-native/releases/0.26/docs/listview.html)，但有一些差异，以下列出差异详情
 
 #### React Native ListView 在 WEB 平台上不被支持的 API 列表：
 > 一般情况下，不支持“平台特有”的API，例如`android`endFillColor、`iOS`alwaysBounceHorizontal。
