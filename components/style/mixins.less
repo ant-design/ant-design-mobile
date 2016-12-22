@@ -57,8 +57,25 @@
   }
 }
 
+@svg-bg-img: '';
+.encoded-svg-background(@svg) when (@svg = 'loading') {
+  @svg-bg-img: '<svg xmlns="http://www.w3.org/2000/svg" width="59.75" height="60.25" viewBox="0 -2 59.75 60.25"><path fill="#D8D8D8" d="M29.691-.527c-15.648 0-28.333 12.685-28.333 28.333s12.685 28.333 28.333 28.333c15.648 0 28.333-12.685 28.333-28.333S45.339-.527 29.691-.527zm.184 53.75c-14.037 0-25.417-11.379-25.417-25.417S15.838 2.39 29.875 2.39s25.417 11.379 25.417 25.417-11.38 25.416-25.417 25.416z"/><path fill="none" stroke="@{brand-primary}" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M56.587 29.766c.369-7.438-1.658-14.699-6.393-19.552"/></svg>';
+  .encoded-svg-background-i(@svg-bg-img);
+}
+.encoded-svg-background(@svg) when (@svg = 'search_bar_search') {
+  @svg-bg-img: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' enable-background='new 0 0 14 14'><g><path fill='@{input-color-icon}' d='M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1 M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0 L5,0z'/></g><line stroke='@{input-color-icon}' stroke-miterlimit='10' x1='12.6' y1='12.6' x2='8.2' y2='8.2'/></svg>";
+  .encoded-svg-background-i(@svg-bg-img);
+}
+.encoded-svg-background(@svg) when (@svg = 'search_bar_clear') {
+  @svg-bg-img: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><circle cx='14' cy='14' r='14' fill='@{input-color-icon}'/><line stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='8' y1='8' x2='20' y2='20'/><line fill='none' stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='20' y1='8' x2='8' y2='20'/></svg>";
+  .encoded-svg-background-i(@svg-bg-img);
+}
+.encoded-svg-background(@svg) when (@svg = 'search_bar_clear_active') {
+  @svg-bg-img: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><circle cx='14' cy='14' r='14' fill='@{input-color-icon-tap}'/><line stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='8' y1='8' x2='20' y2='20'/><line fill='none' stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='20' y1='8' x2='8' y2='20'/></svg>";
+  .encoded-svg-background-i(@svg-bg-img);
+}
 // Encoded SVG Background
-.encoded-svg-background(@svg) {
+.encoded-svg-background-i(@svg) {
   @url: `encodeURIComponent(@{svg})`;
   background-image: url("data:image/svg+xml;charset=utf-8,@{url}");
 }
