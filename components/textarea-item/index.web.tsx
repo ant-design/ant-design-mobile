@@ -110,7 +110,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   render() {
     let {
-      prefixCls, prefixListCls, style, title, name, value, defaultValue, placeholder, clear, rows, count,
+      prefixCls, prefixListCls, style, title, value, defaultValue, clear, rows, count,
       editable, disabled, error, className, labelNumber, autoHeight } = this.props;
 
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
@@ -155,18 +155,14 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
         {title ? (<div className={labelCls}>{title}</div>) : null}
         <div className={`${prefixCls}-control`}>
           <textarea
+            ref="textarea"
+            maxLength={count}
             {...otherProps}
             {...valueProps}
-            ref="textarea"
-            name={name}
-            rows={rows}
-            placeholder={placeholder}
-            maxLength={count}
             onChange={this.onChange}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
             readOnly={!editable}
-            disabled={disabled}
           />
         </div>
         {clear && editable && value && value.length > 0 ?

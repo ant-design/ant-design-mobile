@@ -9,6 +9,7 @@ interface TextAreaItemProps {
   className?: string;
   style?: React.CSSProperties;
   title?: React.ReactNode;
+  maxLength?: number;
   /** web only */
   name?: string;
   value?: string;
