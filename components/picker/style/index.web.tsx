@@ -1,2 +1,2 @@
-import '../../style/';
+import '../../picker-view/style/';
 import './index.less';

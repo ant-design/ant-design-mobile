@@ -2,6 +2,7 @@ import React from 'react';
 
 interface Props {
   data: any;
+  cascade?: boolean;
   value?: Array<string|number>;
   format?: (values) => void;
   cols?: number;

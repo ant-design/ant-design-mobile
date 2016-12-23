@@ -1,0 +1,20 @@
+@import '../../style/mixins';
+@import '../../style/themes/default';
+
+@pickerPrefixCls: am-picker;
+@pickerColPrefixCls: am-picker-col;
+
+@import './picker';
+
+@picker-item-height: 68px;
+
+.@{pickerPrefixCls} {
+  display: flex;
+  align-items: center;
+  // padding: @v-spacing-sm 0;
+
+  &-item {
+    flex: 1;
+    text-align: center;
+  }
+}

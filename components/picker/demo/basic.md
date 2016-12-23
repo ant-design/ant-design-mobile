@@ -23,12 +23,36 @@ const CustomChildren = (props) => (
   </div>
 );
 
+const seasons = [
+  [
+    {
+      label: '2013',
+      value: '2013',
+    },
+    {
+      label: '2014',
+      value: '2014',
+    },
+  ],
+  [
+    {
+      label: '春',
+      value: '春',
+    },
+    {
+      label: '夏',
+      value: '夏',
+    },
+  ],
+];
+
 let Test = React.createClass({
   getInitialState() {
     return {
       data: [],
       cols: 1,
       pickerValue: [],
+      sValue: ['2013', '春'],
     };
   },
   onClick() {
@@ -91,7 +115,9 @@ let Test = React.createClass({
         >
           <List.Item arrow="horizontal">省市区选择</List.Item>
         </Picker>
-        <Picker data={this.state.data} cols={this.state.cols}
+        <Picker
+          data={this.state.data}
+          cols={this.state.cols}
           {...getFieldProps('district2')}
           onPickerChange={this.onPickerChange}
         >
@@ -109,6 +135,16 @@ let Test = React.createClass({
         onChange={(v) => this.setState({ pickerValue: v })}
       >
         <CustomChildren>省市区选择(自定义 children)</CustomChildren>
+      </Picker>
+      <Picker
+        data={seasons}
+        title="选择季节"
+        cascade={false}
+        extra="请选择(可选)"
+        value={this.state.sValue}
+        onChange={(v) => this.setState({ sValue: v })}
+      >
+        <List.Item arrow="horizontal">选择季节</List.Item>
       </Picker>
     </div>);
   },
