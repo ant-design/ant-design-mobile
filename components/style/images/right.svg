@@ -1,1 +1,12 @@
-<svg width='16' height='27' viewBox='0 0 16 27' version='1.1' xmlns='http://www.w3.org/2000/svg'><g transform='translate(-704.000000, -261.000000)' fill='#CCCCCC'><g  transform='translate(0.000000, 204.000000)'><path d='M719.533036,70.040985 L719.571414,70.0026067 L706.568807,57 L704,59.5688074 L714.472178,70.040985 L704,80.5131625 L706.568807,83.08197 L719.571414,70.0793633 L719.533036,70.040985 Z'></path></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="26px" viewBox="0 0 16 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Disclosure Indicator</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI-KIT_基础元件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="9.9基础元件" transform="translate(-5809.000000, -8482.000000)" fill="#C7C7CC">
+            <polygon id="Disclosure-Indicator" points="5811 8482 5809 8484 5820.5 8495 5809 8506 5811 8508 5825 8495"></polygon>
+        </g>
+    </g>
+</svg>

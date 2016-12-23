@@ -1,15 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="28px" height="16px" viewBox="0 0 28 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
-    <title>drop-up</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="ALL-ICON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icons-:-Core" transform="translate(-525.000000, -596.000000)">
-            <g id="drop-up" transform="translate(539.000000, 604.000000) rotate(-180.000000) translate(-539.000000, -604.000000) translate(517.000000, 582.000000)">
-                <rect id="Rectangle-3" fill="#D8D8D8" opacity="0" x="0" y="0" width="44" height="44"></rect>
-                <path d="M22.6201263,25.2536822 C22.2651158,25.6139813 21.6732842,25.6139813 21.4366105,25.2536822 L11.0211263,14.6853084 C10.3110316,13.964785 9.24577895,13.8446355 8.53568421,14.4451589 C7.94385263,15.0456075 7.94385263,16.2465794 8.77235789,16.9671028 L20.8447789,29.336972 C21.5549474,30.0574953 22.6201263,30.0574953 23.3302947,29.336972 L35.2843789,17.0872523 C35.9944737,16.3666542 36.1128842,15.2858318 35.5210526,14.5652336 C34.9292947,13.964785 33.7457053,13.964785 33.0356105,14.8054579 L22.6201263,25.2536822" id="Shape" fill="#4A4A4A"></path>
-            </g>
-        </g>
-    </g>
+<svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>Operation Icons Copy 4</title>
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="46" height="46" id="canvas_background" fill="none"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1">
+   <defs>
+    <rect id="SVGID_1_" x="-129" y="-845" width="24" height="24"/>
+   </defs>
+   <clipPath id="SVGID_2_">
+    <use xlink:href="#SVGID_1_" id="svg_2"/>
+   </clipPath>
+   <g clip-path="url(#SVGID_2_)" id="svg_3">
+    <defs>
+     <rect id="SVGID_3_" x="-903" y="-949" width="1850" height="1945"/>
+    </defs>
+    <clipPath id="SVGID_4_">
+     <use xlink:href="#SVGID_3_" id="svg_4"/>
+    </clipPath>
+    <rect x="-134" y="-850" opacity="0" clip-path="url(#SVGID_4_)" fill="#D8D8D8" width="34" height="34" id="svg_5"/>
+   </g>
+  </g>
+  <polygon points="30.601,21.399 18.368,9.166 16.247,11.287 26.365,21.406 16.247,31.524 18.368,33.645 30.601,21.412 30.595,21.406   " id="svg_6" transform="rotate(-90 23.423999786376957,21.405500411987305) "/>
+ </g>
 </svg>
