@@ -35,7 +35,6 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     labelNumber: 5,
   };
 
-  initialTextHeight: number;
   debounceTimeout: any;
 
   constructor(props) {
@@ -45,14 +44,15 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     };
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return (nextProps.value !== this.props.value
-      || nextProps.defaultValue !== this.props.defaultValue
-      || nextProps.error !== this.props.error
-      || nextProps.disabled !== this.props.disabled
-      || nextProps.editable !== this.props.editable
-      || nextState.focus !== this.state.focus
-    );
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+  componentDidUpdate() {
+    if (this.props.autoHeight) {
+      const textareaDom = (this.refs as any).textarea;
+      textareaDom.style.height = ''; // 字数减少时能自动减小高度
+      textareaDom.style.height = `${textareaDom.scrollHeight}px`;
+    }
   }
 
   componentWillUnmount() {
@@ -67,11 +67,8 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     if (onChange) {
       onChange(value);
     }
-    if (this.props.autoHeight) {
-      const textareaDom = (this.refs as any).textarea;
-      textareaDom.style.height = ''; // 字数减少时能自动减小高度
-      textareaDom.style.height = `${textareaDom.scrollHeight}px`;
-    }
+    // 设置 defaultValue 时，用户输入不会触发 componentDidUpdate ，此处手工调用
+    this.componentDidUpdate();
   };
 
   onBlur = (e) => {
