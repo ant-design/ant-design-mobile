@@ -1,8 +1,9 @@
 import React from 'react';
 
 interface DatePickerProps {
-  defaultDate: any;
+  defaultDate?: any;
   value?: any;
+  onChange?: (x: any) => void;
   format?: (x: any) => void;
   cols?: number;
   mode?: string;
