@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Text, Dimensions, View } from 'react-native';
 import Flex from '../flex';
 import Carousel from '../carousel';
-import styles from './style';
+import GridStyle from './style';
 import { DataItem, GridProps } from './PropsType';
 
 export default class Grid extends React.Component<GridProps, any> {
@@ -12,6 +12,7 @@ export default class Grid extends React.Component<GridProps, any> {
     isCarousel: false,
     columnNum: 4,
     carouselMaxRow: 2,
+    styles: GridStyle,
   };
 
   getFlexItemStyle() {
@@ -22,14 +23,15 @@ export default class Grid extends React.Component<GridProps, any> {
   }
 
   render() {
-    const { data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {} } = this.props;
+    const { data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {}, styles } = this.props;
 
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);
 
     const renderItem = this.props.renderItem || ((dataItem: DataItem) => (
       <Flex direction="column" justify="center" style={{ flex: 1 }}>
-        <Image source={{ uri: dataItem.icon }} style={styles.icon} />
+        {React.isValidElement(dataItem.icon) ?
+        dataItem.icon : (<Image source={{ uri: dataItem.icon }} style={styles.icon} />)}
         <Text style={styles.text}>{dataItem.text}</Text>
       </Flex>
     ));
@@ -94,10 +96,8 @@ export default class Grid extends React.Component<GridProps, any> {
       }
     }
 
-    return (
-      <Flex direction="column">
-        {isCarousel && pageCount > 1 ? <Carousel infinite={false} dots>{pagesArr}</Carousel> : rowsArr}
-      </Flex>
-    );
+    return isCarousel && pageCount > 1 ? (
+      <Carousel infinite={false} dots>{pagesArr}</Carousel>
+    ) : <Flex direction="column">{rowsArr}</Flex>;
   }
 }
