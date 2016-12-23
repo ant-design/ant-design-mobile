@@ -14,31 +14,23 @@ const icons = [
 ];
 /* eslint global-require: 0 */
 
-class IconItems extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      first: false,
-    };
-  }
+class Demo extends React.Component {
   render() {
     return (<div>
       {
         icons.map((item) => (
-          <span key={item} className="icon-item-wrap" onClick={() => this.setState({ first: !this.state.first })}>
-            <Icon type={this.state.first ? icons[100] : item} />
+          <span key={item} className="icon-item-wrap">
+            <Icon type={item} />
             <span className="icon-item">{item}</span>
           </span>
         ))
       }
-      <div>
-        <span>自定义图标:</span> <Icon type={require('./reload.svg')} />
-      </div>
+      <div><span>自定义图标:</span> <Icon type={require('./reload.svg')} /></div>
     </div>);
   }
 }
 
-ReactDOM.render(<IconItems />, mountNode);
+ReactDOM.render(<Demo />, mountNode);
 ````
 
 ````css

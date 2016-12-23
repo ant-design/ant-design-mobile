@@ -30,7 +30,8 @@ export default class Grid extends React.Component<GridProps, any> {
 
     const renderItem = this.props.renderItem || ((dataItem: DataItem) => (
       <Flex direction="column" justify="center" style={{ flex: 1 }}>
-        <Image source={{ uri: dataItem.icon }} style={styles.icon} />
+        {React.isValidElement(dataItem.icon) ?
+        dataItem.icon : (<Image source={{ uri: dataItem.icon }} style={styles.icon} />)}
         <Text style={styles.text}>{dataItem.text}</Text>
       </Flex>
     ));

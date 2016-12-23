@@ -29,7 +29,8 @@ export default class Grid extends React.Component<GridProps, any> {
       <div className={`${prefixCls}-item-contain column-num-${columnNum}`}
         style={{ height: `${this.clientWidth / columnNum}px` }}
       >
-        <img className={`${prefixCls}-icon`} src={dataItem.icon} />
+        {React.isValidElement(dataItem.icon) ?
+        dataItem.icon : (<img className={`${prefixCls}-icon`} src={dataItem.icon} />)}
         <div className={`${prefixCls}-text`}>{dataItem.text}</div>
       </div>
     ));
