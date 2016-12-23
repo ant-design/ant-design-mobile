@@ -3,6 +3,18 @@ order: 4
 english: 更新日志
 ---
 
+### 0.9.13
+
+`2016-12-23`
+
+- 修复 TextareaItem 设置 autoHeight 初始高度不对的问题 #671
+- 修复 SreachBar placeholder 的 z-index 设置过高问题 #650
+- 修改 List 左右内容平均占据空间的样式设置，凸显内容的主次之分 #655
+- 全面替换 touchableFeedback 为 `rc-touchable`，同时修复 TS type 缺失问题 #636 #667
+- 修复 Modal 文档错误，优化 Modal、SegmentedControl、TabBar (#646) 的实现和示例
+- 修复 ListItem 没有 onClick 事件时也会触发点击反馈问题 #220#issuecomment-267587198
+- 优化 ListView、InputItem、TextareaItem 等组件文档
+
 ### 0.9.12
 
 `2016-12-15`
