@@ -13,9 +13,13 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   // fix android borderRadius
-  footerRadius: {
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     borderBottomLeftRadius: variables.radius_md,
-    borderBottomRightRadius : variables.radius_md,
+    borderBottomRightRadius: variables.radius_md,
   },
   header: {
     fontSize: variables.font_size_heading,
@@ -45,7 +49,7 @@ export default StyleSheet.create({
     fontSize: 40,
     fontWeight: '200',
     color: '#bcbcbc',
-    lineHeight:  30,
+    lineHeight: 30,
   },
   buttonGroupH: {
     flexDirection: 'row',
@@ -53,13 +57,13 @@ export default StyleSheet.create({
   buttonGroupV: {
     flexDirection: 'column',
   },
-  buttnWrapH: {
+  buttonWrapH: {
     borderColor: variables.border_color_base,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderRightWidth: StyleSheet.hairlineWidth,
     paddingVertical: 11,
   },
-  buttnWrapV: {
+  buttonWrapV: {
     borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: variables.border_color_base,
     paddingVertical: 11,

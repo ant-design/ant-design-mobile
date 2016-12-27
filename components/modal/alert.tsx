@@ -1,6 +1,6 @@
 import React from 'react';
 import topView from 'rn-topview';
-import { Text } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import Modal from './Modal';
 
 class Alert extends React.Component<any, any> {
@@ -26,7 +26,8 @@ class Alert extends React.Component<any, any> {
   render() {
     const { title, actions, content } = this.props;
     const footer = actions.map((button) => {
-      const orginPress = button.onPress || function() {};
+      const orginPress = button.onPress || function () {
+        };
       button.onPress = () => {
         orginPress();
         this.onClose();
@@ -42,7 +43,9 @@ class Alert extends React.Component<any, any> {
         footer={footer}
         onAnimationEnd={this.onAnimationEnd}
       >
-        <Text>{content}</Text>
+        <ScrollView>
+          <Text>{content}</Text>
+        </ScrollView>
       </Modal>
     );
   }
@@ -54,6 +57,6 @@ export default function (...args) {
   const actions = args[2] || [{ text: '确定' }];
 
   topView.set(
-    <Alert title={title} content={content} actions={actions} />
+    <Alert title={title} content={content} actions={actions}/>
   );
 }

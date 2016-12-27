@@ -57,7 +57,7 @@ export default class BasicModalExample extends React.Component<any, any> {
           <Button type="ghost" onClick={() => {
             alert(
               '标题',
-              'alert 内容',
+             ('alert 内容内容'),
               [
                 { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
                 { text: 'OK', onPress: () => console.log('ok') },

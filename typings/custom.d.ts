@@ -1,5 +1,7 @@
 declare module 'antd-mobile';
 
+declare module 'antd-mobile-demo-data';
+
 declare module 'rmc-list-view';
 
 declare module 'rc-collapse';
