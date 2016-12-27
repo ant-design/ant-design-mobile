@@ -8,6 +8,7 @@ import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Icon from 'antd/lib/icon';
 import Select from 'antd/lib/select';
+import { logoText } from '../../';
 
 const Option = Select.Option;
 
@@ -23,8 +24,7 @@ export default class Header extends React.Component {
     this.onScroll = debounce(() => {
       const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
       const clientHeight = document.documentElement.clientHeight;
-      // 设计基础暂时隐藏
-      // if ((scrollTop < 2 * clientHeight && scrollTop >= clientHeight) || scrollTop >= 2 * clientHeight) {
+
       if (scrollTop >= 2 * clientHeight) {
         this.setState({ isFirstFrame: false });
       } else {
@@ -122,7 +122,7 @@ export default class Header extends React.Component {
             />
             <Link to="/" id="logo">
               <img alt="logo" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" />
-              <span>ANT DESIGN | MOBILE</span>
+              <span>{logoText}</span>
             </Link>
           </Col>
           <Col className={`nav ${this.state.menuVisible ? 'nav-show' : ''}`}
@@ -153,14 +153,6 @@ export default class Header extends React.Component {
                   组件
                 </Link>
               </Menu.Item>
-              {/*
-              设计基础先隐藏
-              <Menu.Item key="docs/pattern">
-                <Link to="/docs/pattern/color">
-                  设计基础
-                </Link>
-              </Menu.Item>
-              */}
             </Menu>
           </Col>
         </Row>

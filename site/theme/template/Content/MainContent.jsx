@@ -166,12 +166,6 @@ export default class MainContent extends React.Component {
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
-    // const locale = this.context.intl.locale;
-    // const moduleData = this.props.moduleData;
-    // const localizedPageData = moduleData.filter((page) =>
-    //   page.meta.filename.toLowerCase().startsWith(props.location.pathname)
-    // )[0];
-
     const moduleData = this.getModuleData();
     const localizedPageData = props.localizedPageData;
 

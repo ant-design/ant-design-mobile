@@ -8,19 +8,6 @@ import QRCode from 'qrcode.react';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 
-// function getOffsetTop(dom) {
-//   let top = 0;
-//   top += dom.offsetTop;
-
-//   while (dom.parentElement) {
-//     if (getComputedStyle(dom.parentElement).position === 'relative') {
-//       top += dom.parentElement.offsetTop;
-//     }
-//     dom = dom.parentElement;
-//   }
-//   return top;
-// }
-
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
     intl: React.PropTypes.object,
@@ -41,7 +28,6 @@ export default class ComponentDoc extends React.Component {
   getIndex(props) {
     const linkTo = props.location.hash.replace('#', '');
 
-    // const { meta } = props.doc;
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
             .filter((demoData) => !demoData.meta.hidden);
     const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
@@ -103,29 +89,7 @@ export default class ComponentDoc extends React.Component {
     });
   }
 
-  // onScrollEvent() {
-  //   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-  //   const asideDemo = document.getElementById('aside-demo');
-
-  //   const demoDom = document.getElementById('demo-code');
-  //   if (!demoDom) return;
-  //   const demoTop = getOffsetTop(demoDom);
-
-  //   const apiDom = document.getElementById('api');
-  //   if (!apiDom) return;
-  //   const apiTop = getOffsetTop(apiDom);
-
-  //   if (scrollTop + 568 >= apiTop || scrollTop - 40 < demoTop) {
-  //     if (asideDemo.className.indexOf('fixed') >= 0) {
-  //       asideDemo.className = asideDemo.className.replace(/fixed/ig, '');
-  //     }
-  //   } else if (asideDemo.className.indexOf('fixed') < 0) {
-  //     asideDemo.className += ' fixed';
-  //   }
-  // }
-
   componentDidMount() {
-    window.addEventListener('scroll', this.onScrollEvent);
     this.initExpandAll();
   }
 
@@ -133,7 +97,6 @@ export default class ComponentDoc extends React.Component {
     const props = this.props;
     const { doc, location } = props;
     const { content, meta } = doc;
-    // const locale = this.context.intl.locale;
 
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
             .filter((demoData) => !demoData.meta.hidden);
@@ -142,11 +105,6 @@ export default class ComponentDoc extends React.Component {
     const leftChildren = [];
 
     const currentIndex = this.state.currentIndex;
-
-    // const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
-
-    // const fileArr = demoSort[currentIndex].meta.filename.split('/');
-    // const filename = fileArr[fileArr.length - 1].split('.')[0];
 
     demos.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
