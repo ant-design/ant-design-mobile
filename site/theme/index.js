@@ -1,7 +1,7 @@
 const contentTmpl = './template/Content/index';
 
 module.exports = {
-  logoText: 'ANT DESIGN MOBILE',
+  siteTitle: 'ANT DESIGN MOBILE',
   categoryOrder: {
     Layout: 0,
     Navigation: 1,

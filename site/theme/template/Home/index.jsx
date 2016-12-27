@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import GitHubButton from 'react-github-button';
 import 'react-github-button/assets/style.css';
 import Icon from 'antd/lib/icon';
-import { logoText } from '../../';
+import { siteTitle } from '../../';
 
 export default class Home extends React.Component {
   componentWillMount() {
@@ -14,7 +14,7 @@ export default class Home extends React.Component {
     }
   }
   render() {
-    const title = `${logoText} | 移动端设计规范`;
+    const title = `${siteTitle} | 移动端设计规范`;
     return (
       <DocumentTitle title={title}>
         <div style={{ width: 500, padding: '150px 100px' }}>

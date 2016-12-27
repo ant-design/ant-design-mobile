@@ -8,7 +8,7 @@ import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Icon from 'antd/lib/icon';
 import Select from 'antd/lib/select';
-import { logoText } from '../../';
+import { siteTitle } from '../../';
 
 const Option = Select.Option;
 
@@ -122,7 +122,7 @@ export default class Header extends React.Component {
             />
             <Link to="/" id="logo">
               <img alt="logo" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" />
-              <span>{logoText}</span>
+              <span>{siteTitle}</span>
             </Link>
           </Col>
           <Col className={`nav ${this.state.menuVisible ? 'nav-show' : ''}`}
