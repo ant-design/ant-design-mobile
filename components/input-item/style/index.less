@@ -71,7 +71,7 @@
     color: @fill-base;
     background-color: @input-color-icon;
     background-repeat: no-repeat;
-    background-image: url("../../style/images/delete1.svg");
+    .encoded-svg-background('input_item_delete');
     background-size: @icon-size-sm auto;
     background-position: 4px 4px;
     &:active {
@@ -104,7 +104,7 @@
       height: @icon-size-sm;
       width: @icon-size-sm;
       margin-left: @v-spacing-sm;
-      background-image: url("../../style/images/error.svg");
+      .encoded-svg-background('error');
       background-size: @icon-size-sm auto;
     }
   }
