@@ -9,8 +9,7 @@ title: 基本
 import { Picker, List, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
-import district from 'site/data/district';
-import province from 'site/data/province-lite';
+import { district, provinceLite as province } from 'antd-mobile-demo-data';
 
 // 如果不是使用 List.Item 作为 children
 const CustomChildren = (props) => (
@@ -110,7 +109,7 @@ let Test = React.createClass({
       <WhiteSpace size="lg" />
       <List style={{ backgroundColor: 'white' }}>
         <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
-          initialValue: ['340000', '340800', '340824'],
+          initialValue: ['340000', '341500', '341502'],
         })}
         >
           <List.Item arrow="horizontal">省市区选择</List.Item>

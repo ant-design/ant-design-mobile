@@ -7,7 +7,7 @@ title: 索引列表（标题吸顶）
 
 
 ````jsx
-import provinceData from 'site/data/province';
+import { province as provinceData } from 'antd-mobile-demo-data';
 import { ListView, List, SearchBar } from 'antd-mobile';
 
 const { Item } = List;

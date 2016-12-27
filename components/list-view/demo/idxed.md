@@ -8,7 +8,7 @@ title: 索引列表
 
 ````jsx
 /* eslint no-mixed-operators: 0 */
-import province from 'site/data/province';
+import { province } from 'antd-mobile-demo-data';
 import { ListView, List } from 'antd-mobile';
 
 const { Item } = List;
