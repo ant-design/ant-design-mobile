@@ -32,7 +32,7 @@
     "classnames": "~2.2.1",
     "css-vendor": "~0.3.4",
     "moment": "~2.15.1",
-    "normalize.css": "~4.2.0",
+    "normalize.css": "^5.0.0",
     "nuka-carousel": "~2.0.3",
     "object-assign": "~4.1.0",
     "omit.js": "~0.1.0",
