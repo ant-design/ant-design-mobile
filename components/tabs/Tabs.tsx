@@ -15,6 +15,7 @@ class Tabs extends React.Component<TabsProps, any> {
     textColor: '#000',
     activeTextColor: '#108ee9',
     styles: styles,
+    barStyle: null,
   };
 
   static TabPane: any;
@@ -66,20 +67,21 @@ class Tabs extends React.Component<TabsProps, any> {
 
   renderTabBar = () => {
     const {
-      tabBarPosition, underlineColor, activeUnderlineColor, textColor, activeTextColor, styles,
+      tabBarPosition, underlineColor, activeUnderlineColor, textColor, activeTextColor, styles, barStyle,
     } = this.props;
-    const barStyle = tabBarPosition === 'top' ? styles.barTop : styles.barBottom;
+    const barBaseStyle = tabBarPosition === 'top' ? styles.barTop : styles.barBottom;
+    const linePosition = tabBarPosition === 'top' ? {} : { top: -1 };
     return (
       <DefaultTabBar
         activeTextColor={activeTextColor}
         inactiveTextColor={textColor}
-        style={[barStyle, { borderColor: underlineColor } ]}
+        style={[barBaseStyle, { borderColor: underlineColor }, barStyle ]}
         textStyle={[styles.text]}
         tabStyle={[styles.tab]}
         underlineStyle={[styles.underline, {
-          bottom: tabBarPosition === 'top' ? 0 : null,
+          bottom: tabBarPosition === 'top' ? -1 : null,
           backgroundColor: activeUnderlineColor,
-        }]}
+        }, linePosition]}
       />
     );
   }

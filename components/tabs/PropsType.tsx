@@ -12,6 +12,7 @@ interface TabsProps {
   textColor?: string;
   activeTextColor?: string;
   styles?: any;
+  barStyle?: any;
   /*web only*/
   className?: string;
   prefixCls?: string;
