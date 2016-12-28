@@ -7,7 +7,7 @@ title: 基本
 
 ````jsx
 
-import { DatePicker, List } from 'antd-mobile';
+import { DatePicker, List, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -38,6 +38,7 @@ let Test = React.createClass({
     return {
       date: zhNow,
       dpValue: null,
+      visible: false,
     };
   },
   onChange(date) {
@@ -97,7 +98,20 @@ let Test = React.createClass({
         >
           <List.Item arrow="horizontal">time(en_US)</List.Item>
         </DatePicker>
+        <List.Item extra={this.state.dpValue && this.state.dpValue.format()}>
+          <Button inline size="small" onClick={() => this.setState({ visible: true })}>自定义显示/隐藏</Button>
+        </List.Item>
       </List>
+      <DatePicker
+        visible={this.state.visible}
+        mode="date"
+        title={<span onClick={() => this.setState({ visible: false })}>点击可以关闭</span>}
+        extra="请选择(可选)"
+        onOk={() => console.log('onOk')}
+        onDismiss={() => console.log('onDismiss')}
+        value={this.state.dpValue}
+        onChange={(v) => this.setState({ dpValue: v, visible: false })}
+      />
       <DatePicker
         mode="date"
         title="选择日期"

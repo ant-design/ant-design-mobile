@@ -43,7 +43,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         dismissText={<span className={`${popupPrefixCls}-header-cancel-button`}>{dismissText}</span>}
         okText={<span className={`${popupPrefixCls}-header-ok-button`}>{okText}</span>}
       >
-        {React.cloneElement(children, { extra: value ? formatFn(this, value) : extra })}
+        {children && React.cloneElement(children, { extra: value ? formatFn(this, value) : extra })}
       </PopupDatePicker>
     );
   }
