@@ -45,35 +45,37 @@ english: Ant Design Mobile of React
 
 ```bash
 $ npm install antd-mobile --save
+$ npm install babel-plugin-import --save-dev
 ```
 
 ## 使用
 
 > 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56)
 
-Set webpack to resolve .web.js suffix
+#### Web 使用方式
 
-```
-resolve: {
-  modulesDirectories: ['node_modules', path.join(__dirname, '../node_modules')],
-  extensions: ['', '.web.js', '.js', '.json'],
-},
-```
+1. 首先需要引入『高清方案』设置：具体方法
 
-无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载，插件设置如下：
+  见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
 
-```js
-// .babelrc
-{"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}
-// or webpack config file
-webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
-```
+2. Set webpack to resolve .web.js suffix
 
-#### Web 使用场景
+  ```
+  resolve: {
+    modulesDirectories: ['node_modules', path.join(__dirname, '../node_modules')],
+    extensions: ['', '.web.js', '.js', '.json'],
+  },
+  ```
+3. 无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载，插件设置如下：
 
-首先需要引入『高清方案』设置：具体方法
-见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
+  ```js
+  // .babelrc
+  {"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}
+  // or webpack config file
+  webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
+  ```
 
+实例：
 ```jsx
 // import js and css modularly, parsed by babel-plugin-import
 import { Button } from 'antd-mobile';
@@ -82,11 +84,18 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 
 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md)
 
-#### React-Native 使用场景
+#### React-Native 使用方式
 
 > 注：`Accordion`、`Icon`、`Result`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
 > antd-mobile 0.9.x 建议用 react-native v0.34，1.0 (目前为 alpha) 建议 v0.39
 
+1. `.babelrc` 文件添加以下配置
+
+   ```json
+  {"plugins": [["import", { "libraryName": "antd-mobile" }]]}
+   ```
+
+实例：
 ```jsx
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
