@@ -77,19 +77,19 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       }
     });
 
+    const wrapCls = classNames({
+      [className as string]: className,
+      [prefixCls as string]: true,
+      [`${prefixCls}-vertical`]: props.vertical,
+    });
+
     return (
-      <div className={classNames({
-        [className as string]: className,
-        [prefixCls as string]: true,
-        [`${prefixCls}-vertical`]: props.vertical,
-      })}
-      >
-        <ReactCarousel
-          {...props}
-          decorators={Decorators}
-          afterSlide={this.onChange}
-        />
-      </div>
+      <ReactCarousel
+        {...props}
+        className={wrapCls}
+        decorators={Decorators}
+        afterSlide={this.onChange}
+      />
     );
   }
 }
