@@ -25,7 +25,8 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       [className as string]: className,
     });
 
-    const otherProps = omit(this.props, ['listPrefixCls', 'disabled', 'radioProps']);
+    // Note: if not omit `onChange`, it will trigger twice on check listitem
+    const otherProps = omit(this.props, ['listPrefixCls', 'onChange', 'disabled', 'radioProps']);
     if (disabled) {
       delete otherProps.onClick;
     } else {
