@@ -54,4 +54,12 @@
   &-active &-release {
     display: flex;
   }
+  &-deactive {
+    .@{pull-to-refresh}-ptr {
+      &-icon,
+      &-loading {
+        display: none;
+      }
+    }
+  }
 }
