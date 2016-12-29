@@ -25,7 +25,8 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
       [className as string]: className,
     });
 
-    const otherProps = omit(this.props, ['listPrefixCls', 'disabled', 'checkboxProps']);
+    // Note: if not omit `onChange`, it will trigger twice on check listitem
+    const otherProps = omit(this.props, ['listPrefixCls', 'onChange', 'disabled', 'checkboxProps']);
     if (disabled) {
       delete otherProps.onClick;
     } else {
