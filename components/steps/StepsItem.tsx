@@ -80,7 +80,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
     }
 
     return (
-      <View style={{flex:1, flexDirection: 'row'}}>
+      <View style={{ flexDirection: 'row'}}>
         <View style={{ flexDirection: 'column'}}>
           <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
             <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
