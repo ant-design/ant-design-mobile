@@ -11,17 +11,20 @@ const App = React.createClass({
   render() {
     return (<div>
       <div style={{ color: '#888', margin: '0.2rem' }}>normal</div>
-      <Carousel className="my-carousel" autoplay infinite
+      <Carousel
+        className="my-carousel" autoplay={false} infinite
         beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
         afterChange={(index) => console.log('slide to', index)}
       >
-        <div className="item">Carousel 1</div>
-        <div className="item">Carousel 2</div>
-        <div className="item">Carousel 3</div>
+        {['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'AiyWuByWklrrUDlFignR'].map((ii) => (
+          <a href="#" key={ii}><img src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`} /></a>
+        ))}
       </Carousel>
 
       <div style={{ color: '#888', margin: '0.2rem' }}>vertical</div>
-      <Carousel className="my-carousel" dots={false} dragging={false} autoplay infinite vertical>
+      <Carousel className="my-carousel"
+        dots={false} dragging={false} autoplay infinite vertical
+      >
         <div className="v-item">Carousel 1</div>
         <div className="v-item">Carousel 2</div>
         <div className="v-item">Carousel 3</div>
@@ -33,13 +36,17 @@ const App = React.createClass({
 ReactDOM.render(<App />, mountNode);
 ````
 ````css
-.my-carousel .slider {
+.my-carousel {
   background: #fff;
 }
-.my-carousel .item {
-  height: 3.6rem;
-  line-height: 3.6rem;
-  text-align: center;
+.my-carousel a {
+  display: inline-block;
+  width: 100%;
+  margin: 0; padding: 0;
+}
+.my-carousel a img {
+  width: 100%;
+  vertical-align: top;
 }
 .my-carousel .v-item {
   height: 0.72rem;
