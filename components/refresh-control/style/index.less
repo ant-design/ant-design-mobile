@@ -45,4 +45,12 @@
   &-active &-release {
     display: block;
   }
+  &-deactive {
+    .@{pull-to-refresh}-ptr {
+      &-icon,
+      &-loading {
+        display: none;
+      }
+    }
+  }
 }
