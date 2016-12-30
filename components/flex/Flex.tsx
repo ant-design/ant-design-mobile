@@ -17,7 +17,7 @@ export default class Flex extends React.Component<FlexProps, any> {
     let { style, direction, wrap, justify, align, children, onPress } = this.props;
     let transferConst = [justify, align];
     transferConst = transferConst.map((el) => {
-      let tempTxt = el;
+      let tempTxt;
       switch (el) {
         case 'start':
           tempTxt = 'flex-start';
@@ -32,6 +32,7 @@ export default class Flex extends React.Component<FlexProps, any> {
           tempTxt = 'space-around';
           break;
         default:
+          tempTxt = el;
           break;
       }
 

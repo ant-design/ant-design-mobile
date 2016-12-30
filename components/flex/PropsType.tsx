@@ -6,16 +6,16 @@ export interface FlexProps {
   style?: React.CSSProperties;
   /** web only */
   className?: string;
-  direction?: string;
-  wrap?: string;
-  justify?: string;
-  align?: string;
-  alignContent?: string;
+  direction?: 'row'|'row-reverse'|'column'|'column-reverse';
+  wrap?: 'nowrap'|'wrap'|'wrap-reverse';
+  justify?: 'start'|'end'|'center'|'between'|'around';
+  align?: 'top'|'start'|'middle'|'center'|'bottom'|'end'|'baseline'|'stretch';
+  alignContent?: 'start'|'end'|'center'|'between'|'around'|'stretch';
   children?: any;
   /** rn only */
-  onPress?: any;
+  onPress?: (e?: any) => void;
   /** web only */
-  onClick?: (_e: any) => void;
+  onClick?: (e?: any) => void;
 }
 
 export interface FlexItemProps {
@@ -25,6 +25,6 @@ export interface FlexItemProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  onClick?: (_e: any) => void;
+  onClick?: (e?: any) => void;
   children?: any;
 }
