@@ -41,7 +41,7 @@ module.exports = Object.assign({}, commonConfig, {
     config.postcss.push(pxtorem({
       rootValue: 100,
       propWhiteList: [],
-      selectorBlackList: [/^html$/, /^\.ant-/, /^\.github-/, /^\.gh-/],
+      // selectorBlackList: [/^html$/, /^\.ant-/, /^\.github-/, /^\.gh-/], // does't exist these class now.
     }));
 
     return config;

@@ -22,6 +22,10 @@ module.exports = {
   },
   webpackConfig(config) {
     configSvg(config, true);
+    config.externals = {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+    };
     config.module.noParse = [/moment.js/];
 
     config.resolve.alias = {

@@ -4,10 +4,8 @@ import ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
 import Footer from './Footer';
-import enLocale from '../../en-US.js';
-import cnLocale from '../../zh-CN.js';
+import config from '../../';
 import '../../static/style';
-// import * as utils from '../utils';
 
 // Expose to iframe
 window.react = React;
@@ -17,7 +15,7 @@ const isZhCN = (window.localStorage && localStorage.getItem('locale') !== 'en-US
   // (typeof localStorage !== 'undefined' && localStorage.getItem('locale') === 'zh-CN') ||
   // (navigator.language === 'zh-CN');
 
-const appLocale = isZhCN ? cnLocale : enLocale;
+const appLocale = isZhCN ? config.zhLocale : config.enLocale;
 addLocaleData(appLocale.data);
 
 let gaListenerSetted = false;
