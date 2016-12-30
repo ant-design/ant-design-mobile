@@ -1,8 +1,6 @@
 import React from 'react';
 import Swipeout from 'rc-swipeout';
-import Hammer from 'react-hammerjs';
 import classNames from 'classnames';
-import Modal from '../modal';
 import SwipeActionProps from './PropsType';
 
 export interface ButtonProps {
@@ -23,87 +21,10 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     onClose() {},
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showModal: false,
-    };
-  }
-
-  onLongTap = () => {
-    const { disabled, onOpen } = this.props;
-    if (disabled) {
-      return;
-    }
-    if (onOpen) {
-      onOpen();
-    }
-    this.setState({
-      showModal: true,
-    });
-  }
-
-  onClose() {
-    if (this.props.onClose) {
-      this.props.onClose();
-    }
-    this.setState({
-      showModal: false,
-    });
-  }
-
-  renderAndroid() {
-    const { children, title, autoClose, left = [], right = [] } = this.props;
-    const pressOption = {
-      recognizers: {
-        press: {
-          time: 500,
-          threshold: 50,
-        },
-      },
-    };
-    const actions = [...left, ...right].map((button: ButtonProps) => {
-      const orginPress = button.onPress || function() {};
-      return {
-        text: button.text,
-        style: button.style,
-        onPress: () => {
-          orginPress();
-          if (autoClose) {
-            this.onClose();
-          }
-        },
-      };
-    });
-
-    return (
-      <div>
-        <Hammer onPress={this.onLongTap} options={pressOption}>
-          {children}
-        </Hammer>
-        {
-          this.state.showModal ? (
-            <Modal
-              animated={false}
-              title={title}
-              transparent
-              closable={false}
-              maskClosable
-              footer={actions}
-              visible
-            />
-          ) : null
-        }
-      </div>
-    );
-  }
-
   render() {
     const {
       className, prefixCls, left = [], right = [], autoClose, disabled, onOpen, onClose, children,
     } = this.props;
-    const isAndroid = !!navigator.userAgent.match(/Android/i);
     const wrapClass = classNames({
       [`${prefixCls}`]: 1,
       [className as string]: !!className,
@@ -111,7 +32,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
 
     return (left.length || right.length) ? (
       <div className={wrapClass}>
-        {isAndroid ? this.renderAndroid() : (<Swipeout
+        <Swipeout
           prefixCls={prefixCls}
           left={left}
           right={right}
@@ -121,7 +42,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
           onClose={onClose}
         >
           {children}
-        </Swipeout>)}
+        </Swipeout>
       </div>
     ) : (
       <div className={wrapClass}>{children}</div>

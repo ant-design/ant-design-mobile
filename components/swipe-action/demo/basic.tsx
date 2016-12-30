@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
 import React from 'react';
-import { View, Platform } from 'react-native';
+import { View } from 'react-native';
 import { SwipeAction, List } from 'antd-mobile';
 
 export default class BasicSwipeActionExample extends React.Component<any, any> {
@@ -15,24 +15,24 @@ export default class BasicSwipeActionExample extends React.Component<any, any> {
               {
                 text: 'more',
                 onPress: () => console.log('more'),
-                style: Platform.OS === 'ios' ? { backgroundColor: 'orange', color: 'white' } : {},
+                style: { backgroundColor: 'orange', color: 'white' },
               },
               {
                 text: 'delete',
                 onPress: () => console.log('删除'),
-                style: Platform.OS === 'ios' ? { backgroundColor: 'red', color: 'white' } : {},
+                style: { backgroundColor: 'red', color: 'white' },
               },
             ]}
             left={[
               {
                 text: '阅读',
                 onPress: () => console.log('阅读'),
-                style: Platform.OS === 'ios' ? { backgroundColor: 'blue', color: 'white' } : {},
+                style: { backgroundColor: 'blue', color: 'white' },
               },
               {
                 text: '回复',
                 onPress: () => console.log('回复'),
-                style: Platform.OS === 'ios' ? { backgroundColor: 'green', color: 'white' } : {},
+                style: { backgroundColor: 'green', color: 'white' },
               },
             ]}
             onOpen={ () => console.log('open') }

@@ -1,5 +1,22 @@
-import { Platform } from 'react-native';
-import SwipeActionIOS from './swipe.ios';
-import SwipeActionAndroid from './swipe.android';
+import React from 'react';
+import Swipeout from 'rc-swipeout/lib/Swipeout';
+import SwipeActionProps from './PropsType';
 
-export default Platform.OS === 'ios' ? SwipeActionIOS : SwipeActionAndroid;
+class SwipeAction extends React.Component<SwipeActionProps, any> {
+  static defaultProps = {
+    autoClose: false,
+    disabled: false,
+    left: [],
+    right: [],
+    onOpen() {},
+    onClose() {},
+  };
+
+  render() {
+    return (
+      <Swipeout {...this.props} />
+    );
+  }
+}
+
+export default SwipeAction;
