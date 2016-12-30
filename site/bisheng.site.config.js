@@ -1,6 +1,5 @@
 const path = require('path');
 const commonConfig = require('./bisheng.common.config');
-const configSvg = require('../svg.config');
 
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
@@ -24,7 +23,7 @@ module.exports = Object.assign({}, commonConfig, {
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
   theme: './site/theme',
-  htmlTemplate: './site/theme/static/template.html',
+  htmlTemplate: path.join(__dirname, './theme/static/template.html'),
   pick: {
     components: commonConfig.pick.components,
     /* eslint-disable consistent-return */
@@ -47,31 +46,7 @@ module.exports = Object.assign({}, commonConfig, {
     verbose: true,
   },
   webpackConfig(config) {
-    configSvg(config, true);
-
-    config.module.noParse = [/moment.js/];
-    config.resolve.alias = {
-      'antd-mobile': process.cwd(),
-      site: path.join(process.cwd(), 'site'),
-    };
-
-    config.babel.plugins.push([
-      require.resolve('babel-plugin-transform-runtime'),
-      {
-        polyfill: false,
-        regenerator: true,
-      },
-    ]);
-
-    config.babel.plugins.push([
-      require.resolve('babel-plugin-import'),
-      {
-        style: true,
-        libraryName: 'antd-mobile',
-        libraryDirectory: 'components',
-      },
-    ]);
-
+    config = commonConfig.webpackConfig(config);
     return config;
   },
 });
