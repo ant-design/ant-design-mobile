@@ -1,5 +1,5 @@
-import enLocaleData from 'react-intl/locale-data/en';
-import zhLocaleData from 'react-intl/locale-data/zh';
+const enLocaleData = require('react-intl/locale-data/en');
+const zhLocaleData = require('react-intl/locale-data/zh');
 
 // 网站中需要配置中英文的地方比较少，不再单独分开不同语言的国际化文件，统一放到这里。
 // 这样能使上层 UI 库(如聚宝/网商等 UI)，不需要再拷贝网站文件，只需参照此配置文件模板、直接改变配置值并替换此文件即可。
