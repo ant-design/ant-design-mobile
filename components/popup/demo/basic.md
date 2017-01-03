@@ -6,58 +6,39 @@ title: 向下弹出效果
 Popup 向下弹出效果
 
 ````jsx
-import { Popup, List, Button } from 'antd-mobile';
+import { Popup, List, Button, InputItem } from 'antd-mobile';
 
-// const SelectorDataForPopup = [
-//   {
-//     label: '中餐',
-//     value: '21',
-//   }, {
-//     label: '还没生效',
-//     value: '22',
-//     disabled: true,
-//   }, {
-//     label: '关闭浮层',
-//     value: 'qx',
-//   }, {
-//     label: '自助餐',
-//     value: '24',
-//   }, {
-//     label: '快餐',
-//     value: '25',
-//   }, {
-//     label: '小吃',
-//     value: '26',
-//   },
-// ];
-
-const Test = React.createClass({
+const PopupContent = React.createClass({
   getInitialState() {
     return {
       sel: '',
     };
   },
-  onClick(e) {
-    e.preventDefault(); // 修复 Android 上点击穿透
-    Popup.show(
-      <List
-        renderHeader={() => '账户总览 (已绑定3个）'}
-      >
+  onSel(sel) {
+    this.setState({ sel });
+    this.props.onClose();
+  },
+  render() {
+    return (
+      <List renderHeader={() => `账户总览，选择了：${this.state.sel}`}>
         <List.Item
           thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-          onClick={() => { this.onClose('cancel'); }}
-        >东吴证券 (5728）</List.Item>
+          onClick={() => { this.onSel('东吴证券'); }}
+        >东吴证券</List.Item>
         <List.Item
           thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-          onClick={() => { this.onClose('cancel'); }}
-        >东吴证券 (5728）</List.Item>
-        <List.Item
-          thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-          arrow="horizontal"
-          onClick={() => { this.onClose('opt 1'); }}
-        >更多</List.Item>
-      </List>,
-    { onMaskClose: this.onMaskClose });
+          onClick={() => { this.onSel('西吴证券'); }}
+        >西吴证券</List.Item>
+        <InputItem value={this.state.val} onChange={(val) => this.setState({ val })}>输入内容</InputItem>
+      </List>
+    );
+  },
+});
+
+const Test = React.createClass({
+  onClick(e) {
+    e.preventDefault(); // 修复 Android 上点击穿透
+    Popup.show(<PopupContent onClose={() => Popup.hide()} />, { onMaskClose: this.onMaskClose });
   },
   onMaskClose() {
     console.log('onMaskClose');
@@ -67,28 +48,9 @@ const Test = React.createClass({
     //   setTimeout(resolve, 1000);
     // });
   },
-  onClose(sel) {
-    // if (sel === 'opt 1') {
-    //   // 演示再弹出内容
-    //   this.newInstance();
-    //   return;
-    // }
-    this.setState({ sel });
-    Popup.hide();
-  },
   // newInstance() {
-  //   const ins = Popup.newInstance();
-  //   const hide = (value) => {
-  //     if (value[0] === 'qx') {
-  //       ins.hide();
-  //     }
-  //   };
-  //   ins.show(<Menu
-  //     level={1}
-  //     value={[SelectorDataForPopup[0]]}
-  //     data={SelectorDataForPopup}
-  //     onChange={hide}
-  //   />, { maskClosable: true });
+  //  const ins = Popup.newInstance();
+  //  ins.show(<Button onClick={() => ins.hide()}>关闭</Button>);
   // },
   render() {
     return (<div style={{ padding: '0.15rem' }}>
