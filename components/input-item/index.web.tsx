@@ -114,6 +114,11 @@ class InputItem extends React.Component<InputItemProps, any> {
         focus: false,
       });
     }, 100);
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: false,
+      });
+    }
     const value = e.target.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
@@ -246,7 +251,7 @@ class InputItem extends React.Component<InputItemProps, any> {
         {clear && editable && !disabled && (value && value.length > 0) ?
           <div
             className={`${prefixCls}-clear`}
-            onTouchStart={(e) => { e.preventDefault(); this.clearInput();}}
+            onTouchStart={() => { this.clearInput();}}
           />
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
