@@ -28,7 +28,7 @@ english: Popover
 | triggerStyle (`rn only`)   | 触发元素外围容器样式    | Object |  -   |
 | overlayStyle (`rn only`)   | 弹出层外围容器样式    | Object |  -   |
 | contextStyle (`rn only`)   | 最外围容器样式    | Object |  -   |
-| renderOverlayComponent (`rn only`)   | 自定义弹出层的外围组件，默认是`ScrollView`，示例`(opts) => <Cus>{opts}</Cus>`  | Function |  -   |
+| renderOverlayComponent (`rn only`)   | 自定义弹出层的外围组件，默认是`ScrollView`，示例`(opts) => <Cus>{opts}</Cus>`  | Function(opts) |  -   |
 | name (`rn only`)   | menu 名字，用于手动触发开关 menu    | String |  -   |
 | openMenu / closeMenu / toggleMenu(`rn only`)   | 用于手动开关 menu，参数为上边 menu 的 name. 使用示例见 demo  | Function(name) |  -   |
 
@@ -37,4 +37,6 @@ english: Popover
 |------------|----------------|-------------|--------------|
 | children   | 节点内容    | String/React.node |  -   |
 | disabled   | 是否禁用    | Boolean |  false   |
-| iconName(web)   | icon 名称    | String |  -   |
+| style  | item 样式    | Object |  -   |
+| iconName (`web only`)   | icon 名称    | String |  -   |
+| value (`rn only`)  | 可作为选中的条目ID   | string/number |  -   |
