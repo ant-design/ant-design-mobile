@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, ViewStyle } from 'react-native';
+import { StyleSheet, View, Text, ViewStyle, Platform } from 'react-native';
 import { Popover } from 'antd-mobile';
 
 const Item = Popover.Item;
@@ -33,8 +33,8 @@ export default class PopoverExample extends React.Component<any, any> {
       <Item key={index} value={`option ${i}`}><Text>option {i}</Text></Item>
     ));
     overlay = overlay.concat([
-      <Item key="4" value="disabled" disabled><Text>disabled opt</Text></Item>,
-      <Item key="6" value="button ct"><Text>关闭</Text></Item>,
+      <Item key="4" value="disabled" disabled><Text style={{ color: '#ddd' }}>disabled opt</Text></Item>,
+      <Item key="6" value="button ct" style={{ backgroundColor: '#efeff4' }}><Text>关闭</Text></Item>,
     ]);
     return (<View>
       <View>
@@ -42,9 +42,10 @@ export default class PopoverExample extends React.Component<any, any> {
       </View>
       <View style={styles.menuContainer}>
         <Popover ref="mc" name="m"
+          style={{ backgroundColor: '#eee' }}
           overlay={overlay}
           contextStyle={styles.contextStyle}
-          overlayStyle={styles.overlayStyle}
+          overlayStyle={[styles.overlayStyle, Platform.OS === 'android' && styles.androidOverlayStyle]}
           triggerStyle={styles.triggerStyle}
           onSelect={this.onSelect}
         >
@@ -74,6 +75,12 @@ const styles = StyleSheet.create({
   overlayStyle: {
     left: 90,
     marginTop: 20,
+  },
+  // 在 iOS 上弹出层有阴影，Android 上没有，
+  // 详细：http://facebook.github.io/react-native/releases/0.39/docs/shadow-props.html#shadowcolor
+  androidOverlayStyle: {
+    borderWidth: 1,
+    borderColor: '#ccc',
   },
 });
 
