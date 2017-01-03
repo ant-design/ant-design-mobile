@@ -99,7 +99,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       this.setState({
         focus: false,
       });
-    }, 300);
+    }, 100);
     const value = e.target.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
