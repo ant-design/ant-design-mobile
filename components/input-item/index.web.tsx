@@ -109,15 +109,12 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   onInputBlur = (e) => {
-    const value = e.target.value;
-    if (!('focused' in this.props)) {
+    this.debounceTimeout = setTimeout(() => {
       this.setState({
-        focused: false,
+        focus: false,
       });
-    }
-    this.setState({
-      focus: false,
-    });
+    }, 100);
+    const value = e.target.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
     }
