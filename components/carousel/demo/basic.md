@@ -23,7 +23,7 @@ const App = React.createClass({
 
       <div style={{ color: '#888', margin: '0.2rem' }}>vertical</div>
       <Carousel className="my-carousel"
-        dots={false} dragging={false} autoplay infinite vertical
+        dots={false} dragging={false} swiping={false} autoplay infinite vertical
       >
         <div className="v-item">Carousel 1</div>
         <div className="v-item">Carousel 2</div>
