@@ -52,18 +52,22 @@ export default StyleSheet.create({
     lineHeight: 30,
   },
   buttonGroupH: {
+    flexGrow: 1,
     flexDirection: 'row',
   },
   buttonGroupV: {
+    flexGrow: 1,
     flexDirection: 'column',
   },
   buttonWrapH: {
+    flexGrow: 1,
     borderColor: variables.border_color_base,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderRightWidth: StyleSheet.hairlineWidth,
     paddingVertical: 11,
   },
   buttonWrapV: {
+    flexGrow: 1,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: variables.border_color_base,
     paddingVertical: 11,

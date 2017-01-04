@@ -42,6 +42,7 @@ export default StyleSheet.create({
     textAlign: 'right',
   },
   body: {
+    flexGrow: 1,
     paddingVertical: variables.v_spacing_md,
     minHeight: 48,
     borderTopWidth: variables.border_width_md,

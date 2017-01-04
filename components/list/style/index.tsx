@@ -37,6 +37,7 @@ export default {
     borderBottomColor: variables.border_color_base,
   },
   Item: {
+    flexGrow: 1,
     alignItems: 'center',
     flexDirection: 'row',
     paddingLeft: variables.h_spacing_lg,
