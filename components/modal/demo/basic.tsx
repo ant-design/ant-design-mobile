@@ -3,8 +3,6 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Modal, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
-const alert = Modal.alert;
-
 export default class BasicModalExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
@@ -42,20 +40,12 @@ export default class BasicModalExample extends React.Component<any, any> {
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
         <WingBlank>
-          <Button type="ghost" onClick={this.showModal}>
-            显示对话框
-          </Button>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onClick={this.showModal2}>
-            显示全屏对话框
-          </Button>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onClick={() => {
-            alert(
+          <Button onClick={this.showModal}>显示对话框</Button>
+          <WhiteSpace />
+          <Button onClick={this.showModal2}>显示全屏对话框</Button>
+          <WhiteSpace />
+          <Button onClick={() => {
+            Modal.alert(
               '标题',
              ('alert 内容内容'),
               [
