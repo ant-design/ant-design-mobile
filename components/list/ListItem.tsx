@@ -1,18 +1,25 @@
 import React from 'react';
-import { Image, View, Platform, TouchableHighlight, Text } from 'react-native';
+import { Image, View, TouchableHighlight, Text } from 'react-native';
 import { ListItemProps, BriefProps } from './PropsType';
 import listItemStyles from './style/index';
-import variables from '../style/themes/default';
 
 function noop() {
 }
 
 class Brief extends React.Component<BriefProps, any> {
   render() {
-    const { children, style, styles = listItemStyles } = this.props;
+    const { children, style, styles = listItemStyles, wrap } = this.props;
+
+    let numberOfLines = {};
+
+    if (wrap === false) {
+      numberOfLines = {
+        numberOfLines: 1,
+      };
+    }
     return (
       <View style={[styles.Brief]}>
-        <Text style={[styles.BriefText, style]} numberOfLines={1}>{children}</Text>
+        <Text style={[styles.BriefText, style]} {...numberOfLines}>{children}</Text>
       </View>
     );
   }
@@ -29,8 +36,23 @@ export default class Item extends React.Component<ListItemProps, any> {
     const {
       styles = listItemStyles,
       children, multipleLine, thumb, extra, arrow = '', style,
-      onClick = noop, onPressIn = noop, onPressOut = noop,
+      onClick = noop, onPressIn = noop, onPressOut = noop, wrap, disabled,
     } = this.props;
+
+    let numberOfLines = {};
+    if (wrap === false) {
+      numberOfLines = {
+        numberOfLines: 1,
+      };
+    }
+
+    let underlayColor = {};
+
+    if (!disabled && onClick !== noop) {
+      underlayColor = {
+        underlayColor: styles.underlayColor,
+      };
+    }
 
     let line = 1;
     let contentDom;
@@ -40,7 +62,7 @@ export default class Item extends React.Component<ListItemProps, any> {
         if (React.isValidElement(el)) {
           tempContentDom.push(el);
         } else {
-          tempContentDom.push(<Text style={[styles.Content]} numberOfLines={1} key={`${index}-children`}>{el}</Text>);
+          tempContentDom.push(<Text style={[styles.Content]} {...numberOfLines} key={`${index}-children`}>{el}</Text>);
         }
       });
       line = children.length;
@@ -51,7 +73,7 @@ export default class Item extends React.Component<ListItemProps, any> {
       } else {
         contentDom = (
           <View style={[styles.column]}>
-            <Text style={[styles.Content]} numberOfLines={1}>{children}</Text>
+            <Text style={[styles.Content]} {...numberOfLines}>{children}</Text>
           </View>
         );
       }
@@ -61,7 +83,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     if (extra) {
       extraDom = (
         <View style={[styles.column]}>
-          <Text style={[styles.Extra]} numberOfLines={1}>{extra}</Text>
+          <Text style={[styles.Extra]} {...numberOfLines}>{extra}</Text>
         </View>
       );
       if (React.isValidElement(extra)) {
@@ -72,7 +94,7 @@ export default class Item extends React.Component<ListItemProps, any> {
             if (typeof el === 'string') {
               tempExtraDom.push(
                 <Text
-                  numberOfLines={1}
+                  {...numberOfLines}
                   style={[styles.Extra]}
                   key={`${index}-children`}
                 >
@@ -95,27 +117,6 @@ export default class Item extends React.Component<ListItemProps, any> {
       }
     }
 
-    let itemHeight;
-    if (line === 2) {
-      if (Platform.OS === 'android') {
-        itemHeight = 60 + 2 * variables.v_spacing_sm;
-      } else {
-        itemHeight = 60 + variables.v_spacing_sm;
-      }
-    } else if (line > 2) {
-      if (Platform.OS === 'android') {
-        itemHeight = variables.list_item_height
-          + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)
-          + 2 * variables.v_spacing_sm
-          - 3;
-      } else {
-        itemHeight = variables.list_item_height
-          + (variables.font_size_subhead + variables.v_spacing_sm) * (line - 1)
-          + variables.v_spacing_sm
-          - 3;
-      }
-    }
-
     const arrEnum = {
       horizontal: <Image source={require('../style/images/arrow.png')} style={styles.Arrow} />,
       down: <Image source={require('../style/images/arrow-down.png')} style={styles.ArrowV} />,
@@ -123,7 +124,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     };
 
     const itemView = (
-      <View {...this.props} style={[styles.Item, line > 1 && { height: itemHeight }, style]}>
+      <View {...this.props} style={[styles.Item, style]}>
         {typeof thumb === 'string' ? (
           <Image
             source={{ uri: thumb }}
@@ -140,8 +141,8 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     return (
       <TouchableHighlight
-        activeOpacity={1}
-        underlayColor={styles.underlayColor}
+        activeOpacity={0.95}
+        {...underlayColor}
         onPress={onClick}
         onPressIn={onPressIn}
         onPressOut={onPressOut}

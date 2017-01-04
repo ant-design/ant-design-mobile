@@ -29,6 +29,7 @@ export interface ListItemProps {
   multipleLine?: boolean;
   children?: any;
   wrap?: boolean;
+  disabled?: boolean;
   line?: number;
   /** rn only */
   styles?: any;
@@ -39,6 +40,7 @@ export interface ListItemProps {
 export interface BriefProps {
   style?: React.CSSProperties;
   children?: any;
+  wrap?: boolean;
   /** rn only */
   styles?: any;
 }
