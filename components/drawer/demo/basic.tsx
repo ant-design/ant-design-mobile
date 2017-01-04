@@ -75,9 +75,9 @@ export class DrawerMain extends React.Component<any, any> {
   render() {
     return (
       <View style={{ flex: 1, marginTop: 114, padding: 8 }}>
-        <Button type="ghost" onClick={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
+        <Button onClick={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
         <WhiteSpace />
-        <Button type="ghost" onClick={() => Actions.pop()}>返回 demo list</Button>
+        <Button onClick={() => Actions.pop()}>返回 demo list</Button>
       </View>
     );
   }

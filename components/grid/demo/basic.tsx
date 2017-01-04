@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import { Grid } from 'antd-mobile';
 
 const data = Array.from(new Array(9)).map((_val, i) => ({
@@ -9,7 +9,7 @@ const data = Array.from(new Array(9)).map((_val, i) => ({
 
 export default class BasicGridExample extends React.Component<any, any> {
   render() {
-    return (<View>
+    return (<ScrollView>
       <View style={[{ margin: 10 }]}><Text>简单示例</Text></View>
       <View style={[{ padding: 10 }]}>
         <Grid data={data} hasLine={false} />
@@ -17,6 +17,6 @@ export default class BasicGridExample extends React.Component<any, any> {
 
       <View style={[{ margin: 10 }]}><Text>走马灯</Text></View>
       <Grid data={data} columnNum={3} isCarousel onClick={(_el, index) => alert(index)} />
-    </View>);
+    </ScrollView>);
   }
 }

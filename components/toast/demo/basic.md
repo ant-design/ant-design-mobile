@@ -33,29 +33,19 @@ function loadingToast() {
 const ToastExample = React.createClass({
   render() {
     return (
-      <div className="toast-container">
+      <WingBlank>
         <WhiteSpace />
-        <WingBlank>
-          <Button onClick={showToast}>纯文字 toast</Button>
-        </WingBlank>
+        <Button onClick={showToast}>纯文字 toast</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button onClick={successToast}>成功 toast</Button>
-        </WingBlank>
+        <Button onClick={successToast}>成功 toast</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button onClick={failToast}>失败 toast</Button>
-        </WingBlank>
+        <Button onClick={failToast}>失败 toast</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button onClick={offline}>网络 toast</Button>
-        </WingBlank>
+        <Button onClick={offline}>网络 toast</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button onClick={loadingToast}>加载中 toast</Button>
-        </WingBlank>
+        <Button onClick={loadingToast}>加载中 toast</Button>
         <WhiteSpace />
-      </div>
+      </WingBlank>
     );
   },
 });

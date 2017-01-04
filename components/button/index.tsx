@@ -77,7 +77,7 @@ export default class Button extends React.Component<tsProps, any> {
       styles[size],
       styles[type],
       disabled && styles.disabled,
-      this.state.pressIn && highlightStyles[type],
+      this.state.pressIn && activeStyle && highlightStyles[type],
     ];
 
     if (activeStyle && this.state.touchIt) {
