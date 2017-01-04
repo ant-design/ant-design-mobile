@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import React from 'react';
 /* tslint:enable:no-unused-variable */
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 /* tslint:disable:no-console */
@@ -9,7 +9,9 @@ export default () => (
   <View>
     <WhiteSpace />
     <WingBlank>
-      <Button onClick={e => console.log(e)}>default button</Button>
+      <Button onClick={() => {
+        Alert.alert( 'Button', 'button clicked' );
+      }}>default button</Button>
       <WhiteSpace />
       <Button type="primary">primary button</Button>
       <WhiteSpace />

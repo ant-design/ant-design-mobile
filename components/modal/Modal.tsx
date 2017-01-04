@@ -32,13 +32,14 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       transparent, visible, onClose,
     } = this.props;
 
-    const btnGroupStyle = footer && footer.length === 2 ? modalStyle.buttnGroupH : modalStyle.buttnGroupV;
-    const buttonWrapStyle = footer && footer.length === 2 ? modalStyle.buttnWrapH : modalStyle.buttnWrapV;
+    const btnGroupStyle = footer && footer.length === 2 ? modalStyle.buttonGroupH : modalStyle.buttonGroupV;
+    const buttonWrapStyle = footer && footer.length === 2 ? modalStyle.buttonWrapH : modalStyle.buttonWrapV;
 
     const footerDom = footer && footer.length ? (
       <View style={[btnGroupStyle, modalStyle.footerRadius]}>
         {
           footer.map((button: any, i) => {
+            const noneBorder = footer && footer.length === 2 && i === 1 ? { borderRightWidth: 0} : {};
             return (
               <TouchableHighlight key={i} style={{flex: 1}} underlayColor="#ddd" onPress={() => {
                 if (button.onPress) {
@@ -48,7 +49,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
                   onClose();
                 }
               }}>
-                <View style={[buttonWrapStyle]}>
+                <View style={[buttonWrapStyle, noneBorder]}>
                   <Text style={[modalStyle.buttonText]}>{button.text || `按钮${i}`}</Text>
                 </View>
               </TouchableHighlight>
@@ -67,7 +68,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
           style={[modalStyle.innerContainer, style]}
           visible={visible}
         >
-          <View style={{flex: 1}}>
+          <View>
             {title ? <Text style={[modalStyle.header]}>{title}</Text> : null}
             <View style={modalStyle.body}>{children}</View>
             {footer ? <View>{footerDom}</View> : null}

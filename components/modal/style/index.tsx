@@ -45,26 +45,25 @@ export default StyleSheet.create({
     fontSize: 40,
     fontWeight: '200',
     color: '#bcbcbc',
-    lineHeight:  30,
+    lineHeight:  40,
   },
-  buttnGroupH: {
-    flex: 1,
+  buttonGroupH: {
+    flexGrow: 1,
     flexDirection: 'row',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderColor: variables.border_color_base,
   },
-  buttnGroupV: {
-    flex: 1,
+  buttonGroupV: {
+    flexGrow: 1,
     flexDirection: 'column',
   },
-  buttnWrapH: {
-    flex: 1,
+  buttonWrapH: {
+    flexGrow: 1,
     borderColor: variables.border_color_base,
-    borderRightWidth: variables.border_width_sm,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderRightWidth: StyleSheet.hairlineWidth,
     paddingVertical: 11,
   },
-  buttnWrapV: {
-    flex: 1,
+  buttonWrapV: {
+    flexGrow: 1,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: variables.border_color_base,
     paddingVertical: 11,

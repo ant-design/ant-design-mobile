@@ -150,7 +150,7 @@ if (Platform.OS === 'ios') {
     },
     close(androidActionSheetName) {
       // ActionSheet.instances will cause memory leak?
-      ActionSheet.instances[androidActionSheetName].animatedHide();
+      ActionSheet.instances[androidActionSheetName].onClose();
     },
   };
 }

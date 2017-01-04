@@ -40,18 +40,19 @@ export default class BasicModalExample extends React.Component<any, any> {
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
         <WingBlank>
-          <Button type="ghost" onPress={this.showModal}>
+          <Button type="ghost" onClick={this.showModal}>
             显示对话框
           </Button>
         </WingBlank>
         <WhiteSpace />
         <WingBlank>
-          <Button type="ghost" onPress={this.showModal2}>
+          <Button type="ghost" onClick={this.showModal2}>
             显示全屏对话框
           </Button>
         </WingBlank>
         <Modal
           transparent={false}
+          onClose={this.onClose}
           visible={this.state.visible2}
           style={{flex: 1}}
         >
@@ -59,7 +60,7 @@ export default class BasicModalExample extends React.Component<any, any> {
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
           </View>
-          <Button type="primary" inline onPress={this.onClose2}>close modal</Button>
+          <Button type="primary" inline onClick={this.onClose2}>close modal</Button>
         </Modal>
         <Modal
           title="测试"
@@ -79,7 +80,7 @@ export default class BasicModalExample extends React.Component<any, any> {
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>
           </View>
-          <Button type="primary" inline onPress={this.onClose}>close modal</Button>
+          <Button type="primary" inline onClick={this.onClose}>close modal</Button>
         </Modal>
       </View>
     );

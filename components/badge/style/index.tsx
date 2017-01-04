@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import variables from '../../style/themes/default';
 
 const grid = 4;
@@ -25,7 +25,7 @@ export default StyleSheet.create({
   },
   textDom: {
     paddingVertical: 0.5 * grid,
-    paddingHorizontal: 2 * grid,
+    paddingHorizontal: (Platform.OS === 'ios' ? 1.5 : 2) * grid,
     backgroundColor: variables.brand_important,
     borderRadius: 4 * variables.radius_sm,
     borderStyle: 'solid',

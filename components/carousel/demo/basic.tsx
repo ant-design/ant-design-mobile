@@ -46,11 +46,8 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#fff',
   } as ViewStyle,
-  slide: {
-    flex: 1,
-  } as ViewStyle,
   container: {
-    flex: 1,
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
   } as ViewStyle,
@@ -58,7 +55,4 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 36,
   } as ViewStyle,
-  image: {
-    flex: 1,
-  },
 });
