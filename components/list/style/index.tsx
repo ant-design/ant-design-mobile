@@ -53,7 +53,6 @@ export default {
     minHeight: variables.list_item_height,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: variables.border_color_base,
-
   },
   Thumb: {
     width: variables.icon_size_md,
@@ -63,13 +62,15 @@ export default {
   Content: {
     color: variables.color_text_base,
     fontSize: variables.font_size_heading,
-    lineHeight: variables.font_size_heading * 1.2,
+    lineHeight: variables.font_size_heading * 1.1,
+    textAlignVertical: 'center',
   },
   Extra: {
     color: variables.color_text_caption,
     fontSize: variables.font_size_heading,
-    lineHeight: variables.font_size_heading * 1.2,
+    lineHeight: variables.font_size_heading * 1.1,
     textAlign: 'right',
+    textAlignVertical: 'center',
   },
   Brief: {
     minHeight: variables.font_size_icontext,
@@ -77,12 +78,14 @@ export default {
   BriefText: {
     color: variables.color_text_caption,
     fontSize: variables.font_size_subhead,
-    lineHeight: variables.font_size_heading * 1.2,
+    paddingTop: variables.v_spacing_xs,
+    textAlignVertical: 'center',
   },
   Arrow: {
     width: 8,
     height: 13,
     marginLeft: variables.h_spacing_md,
+    marginTop: variables.v_spacing_xs,
   },
   ArrowV: {
     width: 13,

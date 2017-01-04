@@ -36,7 +36,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     const {
       styles = listItemStyles,
       children, multipleLine, thumb, extra, arrow = '', style,
-      onClick = noop, onPressIn = noop, onPressOut = noop, wrap, disabled,
+      onClick, onPressIn = noop, onPressOut = noop, wrap, disabled, align,
     } = this.props;
 
     let numberOfLines = {};
@@ -48,13 +48,29 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     let underlayColor = {};
 
-    if (!disabled && onClick !== noop) {
+    if (!disabled && onClick) {
       underlayColor = {
-        underlayColor: styles.underlayColor,
+        underlayColor: listItemStyles.underlayColor,
+        activeOpacity: 0.5,
+      };
+    } else {
+      underlayColor = {
+        activeOpacity: 1,
       };
     }
 
-    let line = 1;
+    let alignStyle = {};
+
+    if (align === 'top') {
+      alignStyle = {
+        alignItems: 'flex-start',
+      };
+    } else if (align === 'bottom') {
+      alignStyle = {
+        alignItems: 'flex-end',
+      };
+    }
+
     let contentDom;
     if (Array.isArray(children)) {
       const tempContentDom: any[] = [];
@@ -65,7 +81,6 @@ export default class Item extends React.Component<ListItemProps, any> {
           tempContentDom.push(<Text style={[styles.Content]} {...numberOfLines} key={`${index}-children`}>{el}</Text>);
         }
       });
-      line = children.length;
       contentDom = <View style={[styles.column]}>{tempContentDom}</View>;
     } else {
       if (React.isValidElement(children)) {
@@ -105,7 +120,6 @@ export default class Item extends React.Component<ListItemProps, any> {
               tempExtraDom.push(el);
             }
           });
-          line = extraChildren.length > line ? extraChildren.length : line;
           extraDom = (
             <View style={[styles.column]}>
               {tempExtraDom}
@@ -131,19 +145,18 @@ export default class Item extends React.Component<ListItemProps, any> {
             style={[styles.Thumb, multipleLine && styles.multipleLine.Thumb]}
           />
         ) : thumb}
-        <View style={[styles.Line, multipleLine && styles.multipleLine.Line]}>
+        <View style={[styles.Line, multipleLine && styles.multipleLine.Line, multipleLine && alignStyle]}>
           {contentDom}
           {extraDom}
-          {arrEnum[arrow] || <View style={styles.Arrow} />}
+          {arrow ? (arrEnum[arrow] || <View style={styles.Arrow} />) : null}
         </View>
       </View>
     );
 
     return (
       <TouchableHighlight
-        activeOpacity={0.95}
         {...underlayColor}
-        onPress={onClick}
+        onPress={onClick ? onClick : undefined}
         onPressIn={onPressIn}
         onPressOut={onPressOut}
       >
