@@ -33,8 +33,7 @@ const App = React.createClass({
 });
 ReactDOM.render(<App />, mountNode);
 ```
-
-<style>
+````css
 .demo-preview-item .am-slider-wrapper {
   margin-bottom: 0.3rem;
 }
@@ -50,4 +49,4 @@ ReactDOM.render(<App />, mountNode);
 .demo-preview-item .am-slider-wrapper:last-child {
   margin-bottom: 0.2rem;
 }
-</style>
+````

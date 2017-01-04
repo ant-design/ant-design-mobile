@@ -57,8 +57,7 @@ const App1 = React.createClass({
 
 ReactDOM.render(<App1 />, mountNode);
 ````
-
-<style>
+````css
 .my-drawer {
   position: relative;
   height: 100%;
@@ -72,4 +71,4 @@ ReactDOM.render(<App1 />, mountNode);
 .my-drawer .am-drawer-sidebar .am-list {
   padding: 0;
 }
-</style>
+````
