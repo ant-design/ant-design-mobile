@@ -15,15 +15,15 @@ export default class SliderAntm extends React.Component<SliderProps, any> {
     return (
       <View>
         <Slider
-          value = {defaultValue || value}
-          minimumValue = {min}
-          maximumValue = {max}
+          value={defaultValue || value}
+          minimumValue={min}
+          maximumValue={max}
           step={step}
           minimumTrackTintColor={'#2db7f5'}
           maximumTrackTintColor={'#ccc'}
           disabled={disabled}
           onValueChange={onChange}
-          onSlidingComplete = {onAfterChange}
+          onSlidingComplete={onAfterChange}
         />
       </View>
     );
