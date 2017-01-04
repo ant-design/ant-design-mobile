@@ -87,7 +87,6 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 #### React-Native 使用方式
 
 > 注：`Accordion`、`Icon`、`Result`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
-> antd-mobile 0.9.x 建议用 react-native v0.34，1.0 (目前为 alpha) 建议 v0.39
 
 1. `.babelrc` 文件添加以下配置
 
