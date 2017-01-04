@@ -66,6 +66,18 @@ export default class Demo extends React.Component {
     const introChildren = props.utils
       .toReactComponent(['div'].concat(localizeIntro));
 
+    const hsNode = highlightedStyle ? (
+      <div key="style" className="highlight">
+        <pre>
+          <code
+            className="css"
+            dangerouslySetInnerHTML={{
+              __html: highlightedStyle,
+            }}
+          />
+        </pre>
+      </div>) : null;
+
     return (
       <section className={codeBoxClass} id={meta.id} onClick={this.handleClick}>
         <Modal
@@ -83,6 +95,7 @@ export default class Demo extends React.Component {
           >
             {props.utils.toReactComponent(highlightedCode)}
           </div>
+          {hsNode}
         </Modal>
 
         <section className="code-box-meta markdown">
@@ -116,20 +129,7 @@ export default class Demo extends React.Component {
           <div className="highlight">
             {props.utils.toReactComponent(highlightedCode)}
           </div>
-          {
-            highlightedStyle ?
-              <div key="style" className="highlight">
-                <pre>
-                  <code
-                    className="css"
-                    dangerouslySetInnerHTML={{
-                      __html: highlightedStyle,
-                    }}
-                  />
-                </pre>
-              </div> :
-              null
-          }
+          {hsNode}
         </section>
       </section>
     );
