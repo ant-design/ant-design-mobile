@@ -40,15 +40,10 @@ export default class BasicModalExample extends React.Component<any, any> {
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
         <WingBlank>
-          <Button type="ghost" onClick={this.showModal}>
-            显示对话框
-          </Button>
-        </WingBlank>
-        <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onClick={this.showModal2}>
-            显示全屏对话框
-          </Button>
+          <Button onClick={this.showModal}>显示对话框</Button>
+          <WhiteSpace />
+          <Button onClick={this.showModal2}>显示全屏对话框</Button>
+          <WhiteSpace />
         </WingBlank>
         <Modal
           transparent={false}
@@ -69,12 +64,10 @@ export default class BasicModalExample extends React.Component<any, any> {
           maskClosable
           visible={this.state.visible}
           closable
-          footer={
-          [
-            { text: 'cancel', onPress: () => console.log('cancel') },
-            { text: 'ok', onPress: () => console.log('ok') },
-          ]
-        }
+          footer={[
+            { text: 'Cancel', onPress: () => console.log('cancel') },
+            { text: 'Ok', onPress: () => console.log('ok') },
+          ]}
         >
           <View style={{ paddingVertical: 20 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>

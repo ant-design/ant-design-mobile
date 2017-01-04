@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 import React from 'react';
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
-import { View, DeviceEventEmitter } from 'react-native';
+import { DeviceEventEmitter } from 'react-native';
 
 function showToast() {
   Toast.info('这是一个 toast 提示!!!');
@@ -38,29 +38,19 @@ export default class ToastExample extends React.Component<any, any> {
 
   render() {
     return (
-      <View style={{marginTop: 30}}>
+      <WingBlank style={{ marginTop: 30 }}>
         <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onClick={showToast}>纯文字 toast</Button>
-        </WingBlank>
+        <Button onClick={showToast}>纯文字 toast</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onClick={successToast}>成功 toast</Button>
-        </WingBlank>
+        <Button onClick={successToast}>成功 toast</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onClick={failToast}>失败 toast</Button>
-        </WingBlank>
+        <Button onClick={failToast}>失败 toast</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onClick={offline}>网络 toast</Button>
-        </WingBlank>
+        <Button onClick={offline}>网络 toast</Button>
         <WhiteSpace />
-        <WingBlank>
-          <Button type="ghost" onClick={loadingToast}>加载中 toast</Button>
-        </WingBlank>
+        <Button onClick={loadingToast}>加载中 toast</Button>
         <WhiteSpace />
-      </View>
+      </WingBlank>
     );
   }
 }
