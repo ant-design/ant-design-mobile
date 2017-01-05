@@ -8,6 +8,18 @@
   position: relative;
   &-content {
     position: relative;
+    z-index: 10;
+  }
+  &-cover {
+    position: absolute;
+    z-index: 11;
+    background: transparent;
+    height: 100%;
+    top: 0;
+    display: none;
+  }
+  & .@{swipeout-prefix-cls}-content,
+  & .@{swipeout-prefix-cls}-actions {
     transition: all 250ms;
   }
   &-actions {
@@ -39,19 +51,5 @@
     &-text {
       padding: 0 @h-spacing-sm;
     }
-  }
-  &-android-actions {
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: @brand-primary;
-    font-size: @font-size-base;
-  }
-  &-android-btn {
-    .hairline-top(@border-color-base);
-    padding: @h-spacing-lg;
-    position: relative;
-    .ellipsis();
-    line-height: 1;
   }
 }
