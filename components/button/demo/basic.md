@@ -16,7 +16,7 @@ const ButtonExample = React.createClass({
         <Button className="btn" type="primary">primary 按钮</Button>
         <Button className="btn" disabled onClick={e => console.log(e)}>disabled 按钮</Button>
         <Button className="btn" loading>loading 按钮</Button>
-        <Button className="btn" icon="check-circle-o">success 按钮</Button>
+        <Button className="btn" icon="check-circle-o">带图标按钮</Button>
 
         <div style={{ height: '0.16rem' }} />
         <Button className="btn" activeStyle={false}>无点击反馈</Button>
