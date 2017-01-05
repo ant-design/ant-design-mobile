@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  DeviceEventEmitter,
-} from 'react-native';
+import { DeviceEventEmitter } from 'react-native';
 import styles from './style/index';
 import topView from 'rn-topview';
 import Modal from 'rc-dialog/lib/Modal';
@@ -10,14 +8,10 @@ import PopupProps from './PropsType';
 type animationType = 'none' | 'slide-up' | 'slide-down' | 'fade';
 
 class Popup extends React.Component<PopupProps, any> {
-  static defaultProps = {
-    animationType: 'slide-down',
-  };
-
   constructor(props) {
     super(props);
     this.state = {
-      visible: this.props.visible || false,
+      visible: true,
     };
   }
 
@@ -43,6 +37,20 @@ class Popup extends React.Component<PopupProps, any> {
     }
   }
 
+  onMaskClose = () => {
+    const onMaskClose = this.props.onMaskClose;
+    if (onMaskClose) {
+      const res = onMaskClose();
+      if (res && (res as any).then) {
+        (res as any).then(() => {
+          this.hide();
+        });
+      } else {
+        this.hide();
+      }
+    }
+  }
+
   render() {
     return (
       <Modal
@@ -51,7 +59,8 @@ class Popup extends React.Component<PopupProps, any> {
         animationType={this.props.animationType as animationType}
         wrapStyle={this.props.animationType === 'slide-up' ? styles.wrap : styles.wrapTop}
         visible={this.state.visible}
-        onClose={this.props.maskClosable ? this.hide : undefined}
+        maskClosable={this.props.maskClosable}
+        onClose={this.onMaskClose}
       >
         {this.props.children}
       </Modal>
@@ -60,9 +69,17 @@ class Popup extends React.Component<PopupProps, any> {
 }
 
 export default {
-  show(content, options) {
+  show(content, options = {
+    animationType: 'slide-down',
+    maskClosable: true,
+    onMaskClose() {},
+  }) {
     topView.set(
-      <Popup animationType={options.animationType} visible>
+      <Popup
+        animationType={options.animationType}
+        maskClosable={options.maskClosable}
+        onMaskClose={options.onMaskClose}
+      >
         {content}
       </Popup>
     );

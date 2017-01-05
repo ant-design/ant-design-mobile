@@ -1,7 +1,7 @@
 export interface PopupProps {
   animationType?: string;
   maskClosable?: boolean;
-  visible: boolean;
+  onMaskClose?: () => any;
 }
 
 export default PopupProps;

@@ -38,13 +38,20 @@ export default class PopupExample extends React.Component<any, any> {
 
   render() {
     return (
-      <View style={{ margin: 8 }}>
+      <View style={{ marginTop: 30 }}>
         <WhiteSpace />
         <Button onClick={() => Popup.show(this.getPopupContent(0))}>向下弹出效果</Button>
         <WhiteSpace />
-        <Button onClick={Popup.show(this.getPopupContent(1), {
-          maskClosable: true, animationType: 'slide-up',
-        })}>向上弹出效果</Button>
+        <Button onClick={() =>
+          Popup.show(
+            this.getPopupContent(1),
+            {
+              maskClosable: true,
+              animationType: 'slide-up',
+              onMaskClose: () => new Promise(resolve => {setTimeout(resolve, 1000);}),
+            }
+          )
+        }>向上弹出效果</Button>
       </View>
     );
   }
