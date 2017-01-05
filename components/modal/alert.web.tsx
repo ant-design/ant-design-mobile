@@ -18,9 +18,15 @@ export default function (...args) {
   let div: any = document.createElement('div');
   document.body.appendChild(div);
 
+  ['hashchange', 'popstate'].map((event) => {
+    window.addEventListener(event, close, false);
+  });
   function close() {
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);
+    ['hashchange', 'popstate'].map((event) => {
+      window.removeEventListener(event, close, false);
+    });
   }
 
   const footer = actions.map((button) => {

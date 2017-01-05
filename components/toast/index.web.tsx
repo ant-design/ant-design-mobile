@@ -45,14 +45,23 @@ function notice(content, type, duration = 3, onClose) {
       </div>
     ),
     onClose: () => {
-      if (onClose) {
-        onClose();
-      }
-      instance.destroy();
-      instance = null;
-      messageInstance = null;
+      close();
     },
   });
+  ['hashchange', 'popstate'].map((event) => {
+    window.addEventListener(event, close, false);
+  });
+  function close() {
+    if (onClose) {
+      onClose();
+    }
+    instance.destroy();
+    instance = null;
+    messageInstance = null;
+    ['hashchange', 'popstate'].map((event) => {
+      window.removeEventListener(event, close, false);
+    });
+  }
 }
 
 export default {
