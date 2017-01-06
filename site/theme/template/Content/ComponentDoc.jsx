@@ -183,9 +183,7 @@ export default class ComponentDoc extends React.Component {
                         <img width="350Px" role="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
                       </div>
                       <div style={{ height: '40Px' }}>
-                        <div style={{ width: '350Px', height: '28Px', lineHeight: '28Px', color: '#fff', backgroundColor: '#A2A2A2', margin: '0 auto', borderRadius: '4Px' }}>
-                          http://mobile.ant.design/kitchen-sink
-                        </div>
+                        <div className="url-box">{iframeUrl}</div>
                       </div>
                     </div>
                     <section className="code-box-demo code-box-demo-preview">
