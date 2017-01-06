@@ -15,7 +15,7 @@ export default class Home extends React.Component {
   }
   render() {
     const title = `${siteTitle} | 移动端设计规范`;
-    const iframeUrl = location.port ? 'http://localhost:8002/' : 'https://mobile.ant.design/kitchen-sink/';
+    const iframeUrl = location.port ? 'http://localhost:8002/' : `${location.href}kitchen-sink/`;
     return (
       <DocumentTitle title={title}>
         <div className="home-main">
