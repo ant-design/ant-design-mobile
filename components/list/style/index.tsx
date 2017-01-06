@@ -62,13 +62,13 @@ export default {
   Content: {
     color: variables.color_text_base,
     fontSize: variables.font_size_heading,
-    lineHeight: variables.font_size_heading * 1.1,
+    lineHeight: Math.round(variables.font_size_heading * 1.1),
     textAlignVertical: 'center',
   },
   Extra: {
     color: variables.color_text_caption,
     fontSize: variables.font_size_heading,
-    lineHeight: variables.font_size_heading * 1.1,
+    lineHeight: Math.round(variables.font_size_heading * 1.1),
     textAlign: 'right',
     textAlignVertical: 'center',
   },
