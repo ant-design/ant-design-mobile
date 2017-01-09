@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabBarIOS } from 'react-native';
 import assign from 'object-assign';
-import TabBarProps from './PropsType';
+import { TabBarProps } from './PropsType';
 
 class TabBar extends React.Component<TabBarProps, any> {
   static defaultProps = {

@@ -4,38 +4,37 @@ import Tab from './Tab.web';
 import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from 'rc-tabs/lib/TabBar';
 import getDataAttr from '../_util/getDataAttr';
+import { TabBarProps, TabBarItemProps } from './PropsType';
 
-const AntTabBar = React.createClass({
-  statics: {
-    Item() {
-    },
-  },
-  getDefaultProps() {
-    return {
-      prefixCls: 'am-tab-bar',
-      barTintColor: 'white',
-      tintColor: '#108ee9',
-      unselectedTintColor: '#888',
-    };
-  },
+class AntTabBar extends React.Component<TabBarProps, any> {
+  static defaultProps = {
+    prefixCls: 'am-tab-bar',
+    barTintColor: 'white',
+    tintColor: '#108ee9',
+    hidden: false,
+    unselectedTintColor: '#888',
+    placeholder: '正在加载',
+  };
 
-  onChange(key) {
+  static Item = React.createClass<TabBarItemProps, any>({ render() { return null; }});
+
+  onChange = key => {
     React.Children.forEach(this.props.children, (c: any) => {
       if (c.key === key && c.props.onPress) {
         c.props.onPress();
       }
     });
-  },
+  }
 
-  renderTabBar() {
-    const { onTabClick, barTintColor, hidden, prefixCls } = this.props;
+  renderTabBar = () => {
+    const { barTintColor, hidden, prefixCls } = this.props;
     const barCls = hidden ? `${prefixCls}-bar-hidden` : '';
-    return <TabBar className={barCls} onTabClick={onTabClick} style={{ backgroundColor: barTintColor }}/>;
-  },
+    return <TabBar className={barCls} style={{ backgroundColor: barTintColor }}/>;
+  }
 
-  renderTabContent() {
+  renderTabContent = () => {
     return <TabContent animated={false} />;
-  },
+  }
 
   render() {
     let activeKey;
@@ -62,7 +61,7 @@ const AntTabBar = React.createClass({
       />);
       return (
         <TabPane
-          placeholder="正在加载"
+          placeholder={this.props.placeholder}
           tab={tab}
           key={c.key}
         >
@@ -81,7 +80,7 @@ const AntTabBar = React.createClass({
         {panels}
       </Tabs>
     );
-  },
-});
+  }
+}
 
 export default AntTabBar;

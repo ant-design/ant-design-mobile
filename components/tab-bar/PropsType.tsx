@@ -1,4 +1,6 @@
-interface TabBarProps {
+import React from 'react';
+
+export interface TabBarProps {
   barTintColor?: string;
   tintColor?: string;
   unselectedTintColor?: string;
@@ -7,8 +9,16 @@ interface TabBarProps {
   prefixCls?: string;
   className?: string;
   hidden?: boolean;
+  placeholder?: React.ReactNode;
   /** rn android only**/
   styles?: any;
 }
 
-export default TabBarProps;
+export interface TabBarItemProps {
+  badge?: string | number;
+  onPress?: () => void;
+  selected?: boolean;
+  icon?: any;
+  selectedIcon?: any;
+  title: string;
+}
