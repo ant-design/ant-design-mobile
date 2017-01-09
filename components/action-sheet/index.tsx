@@ -9,79 +9,12 @@ import {
 } from 'react-native';
 import styles, { vars as variables } from './style/index';
 import topView from 'rn-topview';
-import Modal from 'rc-dialog/lib/Modal';
+import ActionSheetAndroidContainer from './AndroidContainer';
 
-export interface Props {
-  name?: string;
-  maskClosable?: boolean;
-}
+let ActionSheet = ActionSheetIOS as any;
 
-let ActionSheet;
-
-class ActionSheetAndroid extends React.Component<Props, any> {
-  static defaultProps = {
-    maskClosable: true,
-  };
-
-  timer: number;
-
-  anim: any;
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: true,
-    };
-    ActionSheet.instances[props.name] = this;
-  }
-
-  componentWillMount() {
-    DeviceEventEmitter.addListener('antActionSheetHide', () => {
-      this.setState({
-        visible: false,
-      });
-    });
-  }
-
-  componentWillUnmount() {
-    (DeviceEventEmitter as any).removeAllListeners('antActionSheetHide');
-  }
-
-  onClose = () => {
-    this.setState({
-      visible: false,
-    });
-  };
-
-  onAnimationEnd(visible) {
-    if (!visible) {
-      topView.remove();
-    }
-  };
-
-  render() {
-    return (
-      <Modal
-        animationDuration={200}
-        animateAppear
-        onClose={this.onClose}
-        visible={this.state.visible}
-        onAnimationEnd={this.onAnimationEnd}
-        style={styles.content}
-        animationType="slide-up"
-      >
-
-        {this.props.children}
-      </Modal>
-    );
-  }
-}
-
-if (Platform.OS === 'ios') {
-  ActionSheet = ActionSheetIOS;
-} else {
+if (Platform.OS !== 'ios') {
   ActionSheet = {
-    instances: {},
     showActionSheetWithOptions(config, callback) {
       const { title, message, options, destructiveButtonIndex, cancelButtonIndex } = config;
       const titleMsg = [
@@ -98,7 +31,7 @@ if (Platform.OS === 'ios') {
         <View>
           {titleMsg}
           <View>
-            {options.map((item, index) => (
+            {(options as Array<string>).map((item, index) => (
               <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
                 <TouchableHighlight
                   style={[
@@ -123,12 +56,16 @@ if (Platform.OS === 'ios') {
       );
 
       topView.set(
-        <ActionSheetAndroid name={config.androidActionSheetName || 'defaultActionSheet'}>
+        <ActionSheetAndroidContainer visible onAnimationEnd={visible => {
+          if(!visible) {
+            topView.remove();
+          }
+        }}>
           {children}
-        </ActionSheetAndroid>
+        </ActionSheetAndroidContainer>
       );
     },
-    showShareActionSheetWithOptions(config) {
+    showShareActionSheetWithOptions(config: any) {
       const { url, message, excludedActivityTypes } = config;
       const titleMsg = [
         url ? <View style={styles.title} key="0"><Text>{url}</Text></View> : null,
@@ -143,14 +80,17 @@ if (Platform.OS === 'ios') {
         </View>
       );
       topView.set(
-        <ActionSheetAndroid name={config.androidActionSheetName || 'defaultShareActionSheet'}>
+        <ActionSheetAndroidContainer visible onAnimationEnd={visible => {
+          if(!visible) {
+            topView.remove();
+          }
+        }}>
           {children}
-        </ActionSheetAndroid>
+        </ActionSheetAndroidContainer>
       );
     },
-    close(androidActionSheetName) {
-      // ActionSheet.instances will cause memory leak?
-      ActionSheet.instances[androidActionSheetName].onClose();
+    close() {
+       (DeviceEventEmitter as any).emit('antActionSheetHide');
     },
   };
 }
