@@ -18,7 +18,7 @@ ReactDOM.render(
       <List.Item.Brief>可进行收款、退款、折扣管理、查看数据等操作</List.Item.Brief>
     </List.Item>
     <List.Item
-      extra={<Button size="small" inline>small</Button>}
+      extra={<Button type="primary" size="small" inline>small</Button>}
       multipleLine
     >
       区域经理
