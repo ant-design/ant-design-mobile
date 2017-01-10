@@ -10,6 +10,7 @@ interface ButtonProps {
   /** web only */
   prefixCls?: string;
   activeStyle?: any;
+  icon?: any;
   /** rn only */
   onPressIn?: (x: any) => void;
   onPressOut?: (x: any) => void;

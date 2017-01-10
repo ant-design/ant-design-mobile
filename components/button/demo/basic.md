@@ -8,6 +8,7 @@ title: 类型、尺寸
 ````jsx
 import { Button, Flex } from 'antd-mobile';
 
+/* eslint global-require: 0 */
 const ButtonExample = React.createClass({
   render() {
     return (<div className="btn-container">
@@ -16,6 +17,7 @@ const ButtonExample = React.createClass({
         <Button className="btn" disabled onClick={e => console.log(e)}>disabled 按钮</Button>
         <Button className="btn" type="ghost" loading>loading 按钮</Button>
         <Button className="btn" type="ghost" icon="check-circle-o">带图标按钮</Button>
+        <Button className="btn" type="ghost" icon={require('!svg-sprite!./reload.svg')}>本地图标</Button>
 
         <div style={{ height: '0.16rem' }} />
         <Button className="btn" type="ghost" activeStyle={false}>无点击反馈</Button>

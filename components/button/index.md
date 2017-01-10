@@ -24,7 +24,7 @@ source: design
 | inline (`WEB only`)     | 是否是行内按钮   | boolean |   false  |
 | across (`WEB only`)     | 是否通栏展示  | boolean |   false  |
 | loading (`WEB only`)	   | 设置按钮载入状态	  | boolean	 | false |
-| icon (`WEB only`)     | icon 名 (注意：loading 设置后此项设置失效)  | string |   -  |
+| icon (`WEB only`)  | 可以是 Icon 组件里包含的 icon 的名字，也可以是 require 本地 svg 图标 (注意：loading 设置后此项设置失效) | string/require(./local.svg) | -  |
 | onPressIn (`RN only`)   | 同 RN TouchableHighlight onPressIn | (e: Object): void |   无  |
 | onPressOut (`RN only`)    | 同 RN TouchableHighlight onPressOut | (e: Object): void |   无  |
 | onShowUnderlay (`RN only`)    | 同 RN TouchableHighlight onShowUnderlay | (e: Object): void |   无  |
