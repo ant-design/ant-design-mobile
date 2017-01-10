@@ -25,6 +25,7 @@ export { default as Popup } from './components/popup/';
 export { default as Progress } from './components/progress/';
 export { default as Radio } from './components/radio/';
 export { default as RefreshControl } from './components/refresh-control/';
+export { default as Result } from './components/result/';
 export { default as SearchBar } from './components/search-bar/';
 export { default as SegmentedControl } from './components/segmented-control/';
 export { default as Slider } from './components/slider/';

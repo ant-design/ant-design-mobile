@@ -1,9 +1,7 @@
 import React from 'react';
 
 interface ResultProps {
-  prefixCls?: string;
   style?: React.CSSProperties;
-  className?: string;
   imgUrl?: string;
   img?: React.ReactNode;
   title?: React.ReactNode;
@@ -11,6 +9,11 @@ interface ResultProps {
   buttonText?: string;
   buttonType?: 'primary' | 'ghost';
   buttonClick?: () => void;
+  /** below web only */
+  prefixCls?: string;
+  className?: string;
+  /** below rn only */
+  styles?: any;
 }
 
 export default ResultProps;

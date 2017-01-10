@@ -75,6 +75,12 @@ module.exports = {
       module: require('../components/popup/demo/basic'), // 必须
     },
     {
+      title: 'Result', // 必须
+      description: '结果页',
+      icon: 'https://os.alipayobjects.com/rmsportal/nREwETegxvDndJZ.png',
+      module: require('../components/result/demo/basic'),
+    },
+    {
       title: 'Toast', // 必须
       description: '轻提示',
       icon: 'https://os.alipayobjects.com/rmsportal/nREwETegxvDndJZ.png',

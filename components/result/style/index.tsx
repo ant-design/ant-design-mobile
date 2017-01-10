@@ -1,0 +1,42 @@
+import variables from '../../style/themes/default';
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
+  result: {
+    alignItems: 'center',
+    paddingVertical: variables.v_spacing_xl,
+    backgroundColor: variables.fill_base,
+    borderBottomColor: variables.border_color_base,
+  },
+  imgWrap: {
+    margin: 0,
+  },
+  img: {
+    width: 60,
+    height: 60,
+  },
+  title: {
+    marginTop: variables.v_spacing_lg,
+    paddingHorizontal: variables.h_spacing_lg,
+  },
+  titleText: {
+    fontSize: variables.font_size_display_md,
+    color: variables.color_text_base,
+  },
+  message: {
+    marginTop: variables.v_spacing_lg,
+    paddingHorizontal: variables.h_spacing_lg,
+  },
+  messageText: {
+    fontSize: variables.font_size_caption,
+    color: variables.color_text_caption,
+  },
+  buttonWrap: {
+    flexDirection: 'row',
+    marginTop: variables.v_spacing_lg,
+    paddingHorizontal: variables.h_spacing_lg,
+  },
+  button: {
+    flex: 1,
+  },
+});

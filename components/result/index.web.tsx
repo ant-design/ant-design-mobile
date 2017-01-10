@@ -2,17 +2,16 @@ import React from 'react';
 import Button from '../button';
 import classNames from 'classnames';
 import ResultProps from './PropsType';
-function noop() {}
 
 export default class Result extends React.Component<ResultProps, any> {
   static defaultProps = {
     prefixCls: 'am-result',
     buttonType: '',
-    buttonClick: noop,
+    buttonClick: () => {},
   };
 
   render() {
-    let { prefixCls, className, img, imgUrl, title, message, buttonText, buttonClick, buttonType } = this.props;
+    const { prefixCls, className, img, imgUrl, title, message, buttonText, buttonClick, buttonType } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,
