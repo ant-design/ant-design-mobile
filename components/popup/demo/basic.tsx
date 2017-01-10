@@ -38,7 +38,7 @@ export default class PopupExample extends React.Component<any, any> {
 
   render() {
     return (
-      <View style={{ marginTop: 30 }}>
+      <View style={{ marginTop: 30, paddingHorizontal: 30 }}>
         <WhiteSpace />
         <Button onClick={() => Popup.show(this.getPopupContent(0))}>向下弹出效果</Button>
         <WhiteSpace />
