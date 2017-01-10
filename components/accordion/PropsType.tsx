@@ -1,8 +1,15 @@
 import React from 'react';
 
 interface AccordionProps {
-  prefixCls?: string;
   style?: React.CSSProperties;
+  /** below web only */
+  className?: string;
+  prefixCls?: string;
+  activeKey?: string | Array<string>;
+  defaultActiveKey?: string | Array<string>;
+  openAnimation?: any;
+  accordion?: boolean;
+  onChange?: (x: any) => void;
 }
 
 export default AccordionProps;
