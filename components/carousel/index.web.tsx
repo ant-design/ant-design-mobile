@@ -24,7 +24,13 @@ export default class Carousel extends React.Component<CarouselProps, any> {
   }
 
   onChange = (index) => {
-    this.setState({ selectedIndex: index });
+    this.setState({
+      selectedIndex: index,
+    }, () => {
+      if (this.props.afterChange) {
+        this.props.afterChange(index);
+      }
+    });
   }
 
   render() {
@@ -34,7 +40,6 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       wrapAround: props.infinite,
       slideIndex: props.selectedIndex,
       beforeSlide: props.beforeChange,
-      afterSlide: props.afterChange,
     });
 
     let Decorators: any[] = [];
