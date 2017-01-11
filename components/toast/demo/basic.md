@@ -12,6 +12,10 @@ function showToast() {
   Toast.info('这是一个 toast 提示!!!', 1);
 }
 
+function showToastNoMask() {
+  Toast.info('无 mask 的 toast !!!', 2, null, false);
+}
+
 function successToast() {
   Toast.success('加载成功!!!', 1);
 }
@@ -36,6 +40,8 @@ const ToastExample = React.createClass({
       <WingBlank>
         <WhiteSpace />
         <Button onClick={showToast}>纯文字 toast</Button>
+        <WhiteSpace />
+        <Button onClick={showToastNoMask}>无 mask</Button>
         <WhiteSpace />
         <Button onClick={successToast}>成功 toast</Button>
         <WhiteSpace />

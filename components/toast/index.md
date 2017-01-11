@@ -18,11 +18,11 @@ source: design
 
 ## API ( 适用平台：WEB、React-Native )
 
-- `Toast.success(content, duration, onClose)`
-- `Toast.fail(content, duration, onClose)`
-- `Toast.info(content, duration, onClose)`
-- `Toast.loading(content, duration, onClose)`
-- `Toast.offline(content, duration, onClose)`
+- `Toast.success(content, duration, onClose, mask)`
+- `Toast.fail(content, duration, onClose, mask)`
+- `Toast.info(content, duration, onClose, mask)`
+- `Toast.loading(content, duration, onClose, mask)`
+- `Toast.offline(content, duration, onClose, mask)`
 
 组件提供了五个静态方法，参数如下：
 
@@ -31,6 +31,7 @@ source: design
 | content    | 提示内容       | React.Element or String    | 无           |
 | duration   | 自动关闭的延时，单位秒 | number                 | 3          |
 | onClose    | 关闭后回调 |  Function                 | 无          |
+| mask    | 是否显示透明蒙层，防止触摸穿透 |  Boolean  | true          |
 
 > **注：**  duration = 0 时，onClose 无效，toast 不会消失；隐藏 toast 需要手动调用 hide
 

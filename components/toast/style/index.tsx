@@ -9,11 +9,10 @@ export default StyleSheet.create({
     bottom: 0,
     right: 0,
     backgroundColor: 'transparent',
-  },
-  innerContainer: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  innerContainer: {
     backgroundColor: 'transparent',
   },
   innerWrap: {

@@ -7,16 +7,17 @@ import Icon from '../icon';
 let messageInstance;
 let prefixCls = 'am-toast';
 
-function getMessageInstance() {
+function getMessageInstance(mask) {
   messageInstance = (Notification as any).newInstance({
     prefixCls,
-    style: { top: 0 },
+    style: { top: (mask ? 0 : '50%')  },
     transitionName: 'am-fade',
+    className: mask ? `${prefixCls}-mask` : '',
   });
   return messageInstance;
 }
 
-function notice(content, type, duration = 3, onClose) {
+function notice(content, type, duration = 3, onClose, mask = true) {
   let iconType = ({
     info: '',
     success: require('./style/assets/success.svg'),
@@ -25,12 +26,7 @@ function notice(content, type, duration = 3, onClose) {
     loading: 'loading',
   })[type];
 
-  if (typeof duration === 'function') {
-    onClose = duration;
-    duration = 3;
-  }
-
-  let instance = getMessageInstance();
+  let instance = getMessageInstance(mask);
   instance.notice({
     duration,
     style: {},
@@ -58,23 +54,23 @@ function notice(content, type, duration = 3, onClose) {
 export default {
   SHORT: 3,
   LONG: 8,
-  show(content: string, duration?: number) {
-    return notice(content, 'info', duration, () => {});
+  show(content: string, duration?: number, mask?: boolean) {
+    return notice(content, 'info', duration, () => {}, mask);
   },
-  info(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'info', duration, onClose);
+  info(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'info', duration, onClose, mask);
   },
-  success(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'success', duration, onClose);
+  success(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'success', duration, onClose, mask);
   },
-  fail(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'fail', duration, onClose);
+  fail(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'fail', duration, onClose, mask);
   },
-  offline(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'offline', duration, onClose);
+  offline(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'offline', duration, onClose, mask);
   },
-  loading(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'loading', duration, onClose);
+  loading(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'loading', duration, onClose, mask);
   },
   hide() {
     if (messageInstance) {

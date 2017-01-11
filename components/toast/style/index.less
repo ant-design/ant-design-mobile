@@ -6,28 +6,42 @@
 .@{toastPrefixCls} {
   position: fixed;
   width: 100%;
-  height: 100%;
-  .display-box();
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   z-index: @toastZIndex;
-  left: 0;
-  &-text {
-    min-width: 1.2rem;
-    display: inline-block;
-    margin: auto @h-spacing-lg;
-    border-radius: @radius-sm;
-    color: @color-text-base-inverse;
-    background-color: @fill-overlay-inverse;
-    font-size: @font-size-base;
-    line-height: 1.18;
-    padding: @v-spacing-md @h-spacing-lg;
-    &&-icon {
-      border-radius: @radius-lg;
-      padding: @v-spacing-lg @h-spacing-lg;
-      .@{toastPrefixCls}-text-info {
-        margin-top: @v-spacing-sm;
+  font-size: @font-size-base;
+  text-align: center;
+
+  &&-mask {
+    height: 100%;
+    .display-box();
+    justify-content: center;
+    align-items: center;
+    left: 0;
+  }
+
+  &-notice {
+    width: auto;
+    vertical-align: middle;
+    position: absolute;
+    left: 50%;
+  }
+
+  &-notice-content {
+    position: relative;
+    right: 50%;
+    display: block;
+    .@{toastPrefixCls}-text {
+      min-width: 1.2rem;
+      border-radius: @radius-sm;
+      color: @color-text-base-inverse;
+      background-color: @fill-overlay-inverse;
+      line-height: 1.18;
+      padding: @v-spacing-md @h-spacing-lg;
+      &.@{toastPrefixCls}-text-icon {
+        border-radius: @radius-lg;
+        padding: @v-spacing-lg @h-spacing-lg;
+        .@{toastPrefixCls}-text-info {
+          margin-top: @v-spacing-sm;
+        }
       }
     }
   }

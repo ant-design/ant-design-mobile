@@ -12,6 +12,7 @@ export interface ToastProps {
   content: string;
   duration?: number;
   onClose?: () => void;
+  mask?: boolean;
   type?: string;
   onAnimationEnd?: () => void;
   styles?: any;
@@ -20,6 +21,7 @@ export interface ToastProps {
 export default class ToastContainer extends React.Component<ToastProps, any> {
   static defaultProps = {
     duration: 3,
+    mask: true,
     onClose() {
     },
     styles: ToastContainerStyle,
@@ -77,7 +79,7 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
   }
 
   render() {
-    const { type = '', content, styles } = this.props;
+    const { type = '', content, styles, mask } = this.props;
     const iconType = {
       success: require('./images/success.png'),
       fail: require('./images/fail.png'),
@@ -102,7 +104,7 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
     }
 
     return (
-      <View style={[styles.container]}>
+      <View style={[styles.container]} pointerEvents={mask ? undefined : 'box-none'}>
         <View style={[styles.innerContainer]}>
           <Animated.View style={{opacity: this.state.fadeAnim}}>
             <View style={[styles.innerWrap, iconDom ? styles.iconToast : styles.textToast]}>
