@@ -1,26 +1,28 @@
 import React from 'react';
-import { DeviceEventEmitter, ActionSheetIOS, Platform } from 'react-native';
+import { ActionSheetIOS, Platform } from 'react-native';
 import topView from 'rn-topview';
 import ActionSheetAndroidContainer from './AndroidContainer';
 
 let ActionSheet = ActionSheetIOS as any;
 
 if (Platform.OS !== 'ios') {
+  let instance;
+
+  const saveInstance = (i) => {
+    instance = i;
+  };
+
   ActionSheet = {
     showActionSheetWithOptions(config, callback) {
-      function cb(index) {
-        (DeviceEventEmitter as any).emit('antActionSheetHide');
-        if (callback) {
-          callback(index);
-        }
-      }
-
       topView.set(
-        <ActionSheetAndroidContainer visible onAnimationEnd={visible => {
+        <ActionSheetAndroidContainer
+          visible
+          ref={saveInstance}
+          onAnimationEnd={visible => {
           if(!visible) {
             topView.remove();
           }
-        }} config={config} callback={cb}/>
+        }} config={config} callback={callback}/>
       );
     },
     showShareActionSheetWithOptions(config: any) {
@@ -33,7 +35,9 @@ if (Platform.OS !== 'ios') {
       );
     },
     close() {
-      (DeviceEventEmitter as any).emit('antActionSheetHide');
+      if (instance) {
+        instance.close();
+      }
     },
   };
 }

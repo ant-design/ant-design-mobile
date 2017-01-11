@@ -1,5 +1,5 @@
 import React from 'react';
-import { DeviceEventEmitter, View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import styles, { vars as variables } from './style/index';
 import Modal from 'rc-dialog/lib/Modal';
 
@@ -24,14 +24,12 @@ const ActionSheetAndroid = React.createClass<Props, any>({
     };
   },
 
-  componentWillMount() {
-    DeviceEventEmitter.addListener('antActionSheetHide', () => {
-      this.close();
-    });
-  },
-
-  componentWillUnmount() {
-    (DeviceEventEmitter as any).removeAllListeners('antActionSheetHide');
+  confirm(index) {
+    const { callback } = this.props;
+    if (callback) {
+      callback(index);
+    }
+    this.close();
   },
 
   close() {
@@ -72,7 +70,7 @@ const ActionSheetAndroid = React.createClass<Props, any>({
                   <TouchableHighlight
                     style={[ styles.btn ]}
                     underlayColor={variables.fill_tap}
-                    onPress={() => callback && callback(index) }
+                    onPress={() => this.confirm(index) }
                   >
                     <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : null ]}>
                       {item}
