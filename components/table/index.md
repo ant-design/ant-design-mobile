@@ -14,7 +14,7 @@ english: Table
 所以 **绝大多数情况下、不要使用 table，移动端常见的列表数据、或类似 table 的数据展示需求，使用 List / ListView 组件代替。**
 只在如 demo 展示的「锁定标题列」这种极特殊需求情况下使用。
 
-> table 实现直接依赖 [rc-table@5](https://github.com/react-component/table) ，
+> table 实现直接依赖 [rc-table@4](https://github.com/react-component/table) ，
 使用遇到问题在 [antd issue](https://github.com/ant-design/ant-design/issues) 里查找答案或提问。
 
 ## API ( 适用平台：WEB )
