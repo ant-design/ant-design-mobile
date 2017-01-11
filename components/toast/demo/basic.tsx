@@ -8,7 +8,11 @@ function showToast() {
 }
 
 function successToast() {
-  Toast.success('加载成功!!!', 2);
+  Toast.success('加载成功!!!', 1);
+}
+
+function showToastNoMask() {
+  Toast.info('无 mask 的 toast !!!', 1, null, false);
 }
 
 function failToast() {
@@ -20,7 +24,7 @@ function offline() {
 }
 
 function loadingToast() {
-  Toast.loading('加载中...', () => {
+  Toast.loading('加载中...', 1, () => {
     console.log('加载完成!!!');
   });
 }
@@ -50,7 +54,9 @@ export default class ToastExample extends React.Component<any, any> {
 
   render() {
     return (
-      <WingBlank style={{ marginTop: 30 }}>
+      <WingBlank style={{ marginTop: 80 }}>
+        <WhiteSpace />
+        <Button onClick={showToastNoMask}>无 mask</Button>
         <WhiteSpace />
         <Button onClick={showToast}>纯文字 toast</Button>
         <WhiteSpace />

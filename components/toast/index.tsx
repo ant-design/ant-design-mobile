@@ -2,18 +2,14 @@ import React from 'react';
 import topView from 'rn-topview';
 import ToastContainer from './ToastContainer';
 
-function notice(content, type, duration = 3, onClose) {
-  if (typeof duration === 'function') {
-    onClose = duration;
-    duration = 3;
-  }
-
+function notice(content, type, duration = 3, onClose, mask = true) {
   topView.set(
     <ToastContainer
       content={content}
       duration={duration}
       onClose={onClose}
       type={type}
+      mask={mask}
       onAnimationEnd={() => {
         topView.remove();
       }}
@@ -24,24 +20,24 @@ function notice(content, type, duration = 3, onClose) {
 export default {
   SHORT: 3,
   LONG: 8,
-  show(content: string, duration?: number) {
+  show(content: string, duration?: number, mask?: boolean) {
     return notice(content, 'info', duration, () => {
-    });
+    }, mask);
   },
-  info(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'info', duration, onClose);
+  info(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'info', duration, onClose, mask);
   },
-  success(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'success', duration, onClose);
+  success(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'success', duration, onClose, mask);
   },
-  fail(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'fail', duration, onClose);
+  fail(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'fail', duration, onClose, mask);
   },
-  offline(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'offline', duration, onClose);
+  offline(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'offline', duration, onClose, mask);
   },
-  loading(content: string, duration?: number, onClose?: () => void) {
-    return notice(content, 'loading', duration, onClose);
+  loading(content: string, duration?: number, onClose?: () => void, mask?: boolean) {
+    return notice(content, 'loading', duration, onClose, mask);
   },
   hide() {
     topView.remove();
