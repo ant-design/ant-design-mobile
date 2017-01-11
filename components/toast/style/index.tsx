@@ -16,7 +16,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
-  innnerWrap: {
+  innerWrap: {
     alignItems: 'center',
     backgroundColor: variables.fill_overlay_inverse,
     minWidth: 100,

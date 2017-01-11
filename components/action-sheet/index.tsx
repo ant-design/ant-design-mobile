@@ -8,12 +8,19 @@ let ActionSheet = ActionSheetIOS as any;
 if (Platform.OS !== 'ios') {
   ActionSheet = {
     showActionSheetWithOptions(config, callback) {
+      function cb(index) {
+        (DeviceEventEmitter as any).emit('antActionSheetHide');
+        if (callback) {
+          callback(index);
+        }
+      }
+
       topView.set(
         <ActionSheetAndroidContainer visible onAnimationEnd={visible => {
           if(!visible) {
             topView.remove();
           }
-        }} config={config} callback={callback} />
+        }} config={config} callback={cb}/>
       );
     },
     showShareActionSheetWithOptions(config: any) {
@@ -22,11 +29,11 @@ if (Platform.OS !== 'ios') {
           if(!visible) {
             topView.remove();
           }
-        }} config={config} share />
+        }} config={config} share/>
       );
     },
     close() {
-       (DeviceEventEmitter as any).emit('antActionSheetHide');
+      (DeviceEventEmitter as any).emit('antActionSheetHide');
     },
   };
 }
