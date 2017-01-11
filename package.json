@@ -26,6 +26,7 @@
     "lib"
   ],
   "license": "MIT",
+  "main": "lib/index.web.js",
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "babel-runtime": "6.x",
