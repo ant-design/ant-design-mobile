@@ -39,7 +39,7 @@ const ActionSheetAndroid = React.createClass<Props, any>({
   },
 
   render() {
-    const { config, share, callback, onAnimationEnd } = this.props;
+    const { config, share, onAnimationEnd } = this.props;
     const {
       title, message, url, options, destructiveButtonIndex, cancelButtonIndex, excludedActivityTypes,
     } = config;
@@ -65,20 +65,23 @@ const ActionSheetAndroid = React.createClass<Props, any>({
           <View>
             {share ? (
                 excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)
-              ) : (options as Array<string>).map((item, index) => (
-                <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
-                  <TouchableHighlight
-                    style={[ styles.btn ]}
-                    underlayColor={variables.fill_tap}
-                    onPress={() => this.confirm(index) }
-                  >
-                    <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : null ]}>
-                      {item}
-                    </Text>
-                  </TouchableHighlight>
-                  {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
-                </View>
-              ))}
+              ) : (
+                options as Array<string>).map((item, index) => (
+                  <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
+                    <TouchableHighlight
+                      style={[ styles.btn ]}
+                      underlayColor={variables.fill_tap}
+                      onPress={() => this.confirm(index) }
+                    >
+                      <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : null ]}>
+                        {item}
+                      </Text>
+                    </TouchableHighlight>
+                    {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
+                  </View>
+                )
+              )
+            }
           </View>
         </View>
       </Modal>
