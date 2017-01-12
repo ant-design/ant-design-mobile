@@ -52,6 +52,11 @@ const Demo = React.createClass({
     };
   },
 
+  componentDidMount() {
+    // you can scroll to the specified position
+    // this.refs.lv.refs.listview.scrollTo(0, 200);
+  },
+
   onEndReached(event) {
     // load new data
     console.log('reach end', event);
@@ -101,7 +106,7 @@ const Demo = React.createClass({
       );
     };
     return (
-      <ListView
+      <ListView ref="lv"
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
         renderFooter={() => <div style={{ padding: 30, textAlign: 'center' }}>
