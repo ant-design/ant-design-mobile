@@ -26,6 +26,7 @@
     "lib"
   ],
   "license": "MIT",
+  "main": "lib/warn.js",
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "babel-runtime": "6.x",
@@ -72,6 +73,7 @@
     "babel-eslint": "^6.0.4",
     "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "~6.15.0",
+    "babel-preset-react-native": "^1.9.1",
     "bisheng": "^0.16.0",
     "bisheng-plugin-antd": "^0.4.0",
     "bisheng-plugin-description": "^0.1.1",
