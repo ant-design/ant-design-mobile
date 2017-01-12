@@ -14,9 +14,6 @@ export default class BasicInputItemExample extends React.Component<any, any> {
       labelnum1: '',
       labelnum2: '',
       labelnum3: '',
-      labelnum4: '',
-      labelnum5: '',
-      labelnum6: '',
       text: '',
       bankCard: '',
       phone: '',
@@ -34,9 +31,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <List
-          renderHeader={() => '基本'}
-        >
+        <List renderHeader={() => '基本'}>
           <InputItem
             clear
             error
@@ -73,7 +68,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             }}
             placeholder="无标签"
           />
-          <InputItem
+          <InputItem defaultValue="xx"
             clear
             placeholder="自动获取光标"
             autoFocus
@@ -133,43 +128,8 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             labelNumber={4}
             placeholder="四个字标签（默认）"
           >四字标签</InputItem>
-          <InputItem
-            clear
-            value={this.state.labelnum4}
-            onChange={(value) => {
-              this.setState({
-                labelnum4: value,
-              });
-            }}
-            labelNumber={5}
-            placeholder="五个字标签"
-          >五个字标签</InputItem>
-          <InputItem
-            clear
-            value={this.state.labelnum5}
-            onChange={(value) => {
-              this.setState({
-                labelnum5: value,
-              });
-            }}
-            labelNumber={6}
-            placeholder="六个字标签"
-          >六个字标签六</InputItem>
-          <InputItem
-            clear
-            value={this.state.labelnum6}
-            onChange={(value) => {
-              this.setState({
-                labelnum6: value,
-              });
-            }}
-            labelNumber={7}
-            placeholder="七个字标签"
-          >七个字标签七个</InputItem>
         </List>
-        <List
-          renderHeader={() => '格式'}
-        >
+        <List renderHeader={() => '格式'}>
           <InputItem
             clear
             error

@@ -5,6 +5,13 @@ import variables from '../style/themes/default';
 import TextAreaItemProps from './PropsType';
 import TextAreaItemStyle from './style/index';
 
+function fixControlledValue(value) {
+  if (typeof value === 'undefined' || value === null) {
+    return '';
+  }
+  return value;
+}
+
 export default class TextAreaItem extends React.Component<TextAreaItemProps, any> {
   static defaultProps = {
     onChange() {
@@ -19,8 +26,6 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     error: false,
     editable: true,
     rows: 1,
-    value: '',
-    placeholder: '',
     count: 0,
     keyboardType: 'default',
     autoHeight: false,
@@ -31,17 +36,15 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value,
       inputCount: 0,
       height: props.rows > 1 ? 6 * props.rows * 4 : variables.list_item_height,
     };
   }
 
   onChange = (event) => {
-
     const text = event.nativeEvent.text;
     let height;
-    const { autoHeight, rows } = this.props;
+    const { autoHeight, rows, onChange } = this.props;
 
     if (autoHeight) {
       height = event.nativeEvent.contentSize.height;
@@ -52,18 +55,31 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     }
 
     this.setState({
-      value: text,
       inputCount: text.length,
       height,
     });
-    if (this.props.onChange) {
-      this.props.onChange({ text });
+    if (onChange) {
+      onChange(text);
     }
   }
 
   render() {
     const { inputCount } = this.state;
-    const { rows, error, clear, count, autoHeight, last, onErrorClick, styles } = this.props;
+    const {
+      value, defaultValue,
+      rows, error, clear, count, autoHeight, last, onErrorClick, styles,
+    } = this.props;
+
+    let valueProps;
+    if ('value' in this.props) {
+      valueProps = {
+        value: fixControlledValue(value),
+      };
+    } else {
+      valueProps = {
+        defaultValue,
+      };
+    }
 
     const containerStyle = {
       borderBottomWidth: last ? 0 : variables.border_width_sm,
@@ -77,8 +93,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     const maxLength = count > 0 ? count : undefined;
     const restProps = assign({}, this.props);
     [
-      'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'onChange', 'value',
-      'multiline', 'numberOfLines', 'maxLength', 'styles',
+      'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'styles',
     ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
@@ -88,15 +103,15 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     return (
       <View style={[styles.container, containerStyle, { position: 'relative' }]}>
         <TextInput
-          style={[styles.input, textareaStyle, {height: Math.max(45, this.state.height)}]}
+          clearButtonMode={clear ? 'while-editing' : 'never'}
+          underlineColorAndroid="transparent"
+          style={[styles.input, textareaStyle, { height: Math.max(45, this.state.height) }]}
+          {...restProps}
+          {...valueProps}
           onChange={(event) => this.onChange(event)}
-          value={this.state.value}
           multiline={rows > 1 || autoHeight}
           numberOfLines={rows}
           maxLength={maxLength}
-          clearButtonMode={clear ? 'while-editing' : 'never'}
-          underlineColorAndroid="transparent"
-          {...restProps}
         />
         {error ? <TouchableWithoutFeedback onPress={onErrorClick}>
           <View style={[styles.errorIcon]}>

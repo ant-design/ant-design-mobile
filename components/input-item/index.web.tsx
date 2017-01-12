@@ -39,7 +39,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     super(props);
     this.state = {
       focused: props.focused || false,
-      placeholder: this.props.placeholder,
+      placeholder: props.placeholder,
     };
   }
 

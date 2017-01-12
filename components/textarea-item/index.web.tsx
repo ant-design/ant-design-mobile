@@ -20,7 +20,6 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   static defaultProps = {
     prefixCls: 'am-textarea',
     prefixListCls: 'am-list',
-    title: '',
     autoHeight: false,
     editable: true,
     disabled: false,

@@ -8,11 +8,17 @@ import InputItemStyle from './style/index';
 const noop: any = () => {
 };
 
+function fixControlledValue(value) {
+  if (typeof value === 'undefined' || value === null) {
+    return '';
+  }
+  return value;
+}
+
 export default class InputItem extends React.Component<InputItemProps, any> {
   static defaultProps = {
     type: 'text',
     editable: true,
-    value: '',
     clear: false,
     onChange: noop,
     onBlur: noop,
@@ -29,10 +35,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     styles: InputItemStyle,
     focused: false,
   };
-
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     if (this.props.autoFocus || this.props.focused) {
@@ -55,7 +57,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         }
         break;
       case 'bankCard':
-
         text = text.replace(/\D/g, '');
         if (maxLength > 0) {
           text = text.substring(0, maxLength);
@@ -101,8 +102,20 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   render() {
     const {
+      value, defaultValue,
       type, style, clear, children, error, extra, labelNumber, last, onExtraClick = noop, onErrorClick = noop, styles,
     } = this.props;
+
+    let valueProps;
+    if ('value' in this.props) {
+      valueProps = {
+        value: fixControlledValue(value),
+      };
+    } else {
+      valueProps = {
+        defaultValue,
+      };
+    }
 
     const containerStyle = {
       borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth,
@@ -123,8 +136,8 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
     const restProps = assign({}, this.props);
     [
-      'type', 'style', 'clear', 'children', 'error', 'extra', 'labelNumber', 'last', 'onExtraClick', 'onErrorClick',
-      'keyboardType', 'onChange', 'secureTextEntry', 'styles',
+      'type', 'clear', 'children', 'error', 'extra', 'labelNumber', 'last',
+      'onExtraClick', 'onErrorClick', 'styles',
     ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
@@ -148,28 +161,25 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         {children ? <Text style={[styles.text, textStyle]}>{children}</Text> : null}
         <TextInput
           ref="input"
+          clearButtonMode={clear ? 'while-editing' : 'never'}
+          underlineColorAndroid="transparent"
+          {...restProps}
+          {...valueProps}
           style={[styles.input, inputStyle]}
           keyboardType={keyboardType}
           onChange={(event) => this.onChange(event.nativeEvent.text)}
           secureTextEntry={type === 'password'}
-          clearButtonMode={clear ? 'while-editing' : 'never'}
-          underlineColorAndroid="transparent"
-          {...restProps}
           onBlur={this.onInputBlur}
           onFocus={this.onInputFocus}
         />
-        {extra ? <TouchableWithoutFeedback
-          onPress={onExtraClick}
-        >
+        {extra ? <TouchableWithoutFeedback onPress={onExtraClick}>
           <View>
             {typeof extra === 'string' ? <Text style={[styles.extra, extraStyle]}>{extra}</Text> : extra}
           </View>
         </TouchableWithoutFeedback> : null}
         {
           error &&
-          <TouchableWithoutFeedback
-            onPress={onErrorClick}
-          >
+          <TouchableWithoutFeedback onPress={onErrorClick}>
             <View style={[styles.errorIcon]}>
               <Image
                 source={require('../style/images/error.png')}
