@@ -114,7 +114,7 @@
     "react-dom": "~15.4.1",
     "react-github-button": "^0.1.9",
     "react-intl": "^2.0.1",
-    "react-native": "~0.39.0",
+    "react-native": "~0.40.0",
     "react-native-code-push": "~1.16.0-beta",
     "react-native-router-flux": "^3.30.3",
     "react-router": "^3.0.0",
