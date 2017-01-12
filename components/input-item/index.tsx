@@ -162,7 +162,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           onPress={onExtraClick}
         >
           <View>
-            <Text style={[styles.extra, extraStyle]}>{extra}</Text>
+            {typeof extra === 'string' ? <Text style={[styles.extra, extraStyle]}>{extra}</Text> : extra}
           </View>
         </TouchableWithoutFeedback> : null}
         {

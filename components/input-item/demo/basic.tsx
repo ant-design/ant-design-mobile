@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { InputItem, List, Button } from 'antd-mobile';
 
 export default class BasicInputItemExample extends React.Component<any, any> {
@@ -59,7 +59,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 value,
               });
             }}
-            extra="元"
+            extra={<Text>元</Text>}
             placeholder="不可编辑"
             editable={false}
           >输入框</InputItem>
