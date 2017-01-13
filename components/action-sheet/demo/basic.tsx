@@ -15,7 +15,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <View>
+      <View style={{marginTop: 30}}>
         <View style={[{ padding: 8 }]}>
           <Button onClick={this.showActionSheet}>默认状态操作列表</Button>
         </View>
@@ -44,15 +44,13 @@ export default React.createClass({
     });
   },
   showShareActionSheet() {
-    const androidActionSheetName = 'acn';
     const opts = {
       url: 'https://www.alipay.com/',
       message: 'message to go with the shared url',
       excludedActivityTypes: [
-        <Button onClick={() => ActionSheet.close(androidActionSheetName)}>close ActionSheet</Button>,
+        <Button onClick={() => ActionSheet.close()}>close ActionSheet</Button>,
       ] as any[],
       subject: (null as any),
-      androidActionSheetName,
     };
     if (Platform.OS === 'ios') {
       opts.subject = 'a subject to go in the email heading';
