@@ -6,7 +6,7 @@ title: 基本
 数据级联选择示例. ([rc-form 文档](https://github.com/react-component/form))
 
 ````jsx
-import { Picker, List } from 'antd-mobile';
+import { Picker, List, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 import { district, provinceLite as province } from 'antd-mobile-demo-data';
@@ -15,10 +15,10 @@ import { district, provinceLite as province } from 'antd-mobile-demo-data';
 const CustomChildren = (props) => (
   <div
     onClick={props.onClick}
-    style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
+    style={{ backgroundColor: '#fff', padding: '0 0.3rem' }}
   >
-    {props.children}
-    <span style={{ float: 'right' }}>{props.extra}</span>
+    <span style={{ display: 'inline-block', width: '40%' }}>{props.children}</span>
+    <span style={{ height: '0.9rem', lineHeight: '0.9rem', float: 'right' }}>{props.extra}</span>
   </div>
 );
 
@@ -35,7 +35,7 @@ let Test = React.createClass({
       this.setState({
         data: province,
       });
-    }, 500);
+    }, 120);
   },
   onPickerChange(val) {
     console.log(val);
@@ -82,14 +82,17 @@ let Test = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
-      <List style={{ backgroundColor: 'white' }}>
+      <WhiteSpace size="lg" />
+      <List style={{ backgroundColor: 'white' }} className="picker-list">
         <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
           initialValue: ['340000', '341500', '341502'],
         })}
         >
           <List.Item arrow="horizontal">省市区选择</List.Item>
         </Picker>
-        <Picker data={this.state.data} cols={this.state.cols}
+        <Picker
+          data={this.state.data}
+          cols={this.state.cols}
           {...getFieldProps('district2')}
           onPickerChange={this.onPickerChange}
         >
@@ -99,6 +102,8 @@ let Test = React.createClass({
           <List.Item arrow="horizontal">选择省份</List.Item>
         </Picker>
       </List>
+
+      <WhiteSpace size="lg" />
       <Picker
         data={district}
         title="选择地区"
@@ -115,4 +120,9 @@ let Test = React.createClass({
 Test = createForm()(Test);
 
 ReactDOM.render(<Test />, mountNode);
+````
+````css
+.picker-list .am-list-item .am-list-line .am-list-extra {
+  flex-basis: initial;
+}
 ````
