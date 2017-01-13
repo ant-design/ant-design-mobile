@@ -3,6 +3,20 @@ order: 4
 english: 更新日志
 ---
 
+### 0.9.14
+
+`2017-01-13`
+
+- 修复 Carousel afterChange 不触发问题 #711
+- 修复 RadioItem、CheckboxItem 组件 onChange 事件触发两次问题 #689 #721
+- 修复相关 RN 组件，使之能与最新版 RN 兼容
+- 修复各组件的 TypeScript 类型定义缺失或错误的问题 #667
+- 给 package.json 添加 main 字段，加入错误提示，解决常见上手使用问题 #602
+- 更新 rc-swipeout 依赖，添加更多特性
+- 优化 DatePicker 组件、可以自定义关闭日期选择的弹出框 #639
+- 对 Table、ListView、Radio、Modal、Toast、Carousel 等组件或 demo 做细节优化(含RN)
+- rn-tabs 增加 `barStyle`  属性，更加方便配置样式 #676
+
 ### 0.9.13
 
 `2016-12-23`
