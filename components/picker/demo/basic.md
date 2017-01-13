@@ -15,10 +15,10 @@ import { district, provinceLite as province } from 'antd-mobile-demo-data';
 const CustomChildren = (props) => (
   <div
     onClick={props.onClick}
-    style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
+    style={{ backgroundColor: '#fff', padding: '0 0.3rem' }}
   >
-    {props.children}
-    <span style={{ float: 'right' }}>{props.extra}</span>
+    <span style={{ display: 'inline-block', width: '40%' }}>{props.children}</span>
+    <span style={{ height: '0.9rem', lineHeight: '0.9rem', float: 'right' }}>{props.extra}</span>
   </div>
 );
 
@@ -107,7 +107,7 @@ let Test = React.createClass({
     const { getFieldProps } = this.props.form;
     return (<div>
       <WhiteSpace size="lg" />
-      <List style={{ backgroundColor: 'white' }}>
+      <List style={{ backgroundColor: 'white' }} className="picker-list">
         <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
           initialValue: ['340000', '341500', '341502'],
         })}
@@ -126,6 +126,8 @@ let Test = React.createClass({
           <List.Item arrow="horizontal">选择省份</List.Item>
         </Picker>
       </List>
+
+      <WhiteSpace size="lg" />
       <Picker
         data={district}
         title="选择地区"
@@ -135,6 +137,8 @@ let Test = React.createClass({
       >
         <CustomChildren>省市区选择(自定义 children)</CustomChildren>
       </Picker>
+
+      <WhiteSpace size="lg" />
       <Picker
         data={seasons}
         title="选择季节"
@@ -152,4 +156,9 @@ let Test = React.createClass({
 Test = createForm()(Test);
 
 ReactDOM.render(<Test />, mountNode);
+````
+````css
+.picker-list .am-list-item .am-list-line .am-list-extra {
+  flex-basis: initial;
+}
 ````
