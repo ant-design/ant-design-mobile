@@ -1,5 +1,5 @@
 if (typeof console !== 'undefined' && console.error) {
-  console.error(`Note:
-please use https://github.com/ant-design/babel-plugin-import to reduce app bundle size.`);
+  console.error(`Note: must use https://github.com/ant-design/babel-plugin-import .
+For more information, please see https://github.com/ant-design/ant-design-mobile/issues/602 `);
 }
 export default {};
