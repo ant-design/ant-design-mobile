@@ -44,12 +44,11 @@ export default React.createClass({
     });
   },
   showShareActionSheet() {
-    const androidActionSheetName = 'acn';
     const opts = {
       url: 'https://www.alipay.com/',
       message: 'message to go with the shared url',
       excludedActivityTypes: [
-        <Button onClick={() => ActionSheet.close(androidActionSheetName)}>close ActionSheet</Button>,
+        <Button onClick={() => ActionSheet.close()}>close ActionSheet</Button>,
       ] as any[],
       subject: (null as any),
     };

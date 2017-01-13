@@ -1,7 +1,8 @@
 import React from 'react';
-import { DeviceEventEmitter } from 'react-native';
 import topView from 'rn-topview';
 import PopupContainer from './PopupContainer';
+
+let popupInstance;
 
 export default {
   show(content, options = {
@@ -11,6 +12,7 @@ export default {
   }) {
     topView.set(
       <PopupContainer
+        ref={i => popupInstance = i}
         animationType={options.animationType}
         maskClosable={options.maskClosable}
         onMaskClose={options.onMaskClose}
@@ -26,6 +28,8 @@ export default {
     );
   },
   hide() {
-    (DeviceEventEmitter as any).emit('PopupHide');
+    if (popupInstance) {
+      popupInstance.hide();
+    }
   },
 };

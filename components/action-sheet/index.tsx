@@ -27,11 +27,15 @@ if (Platform.OS !== 'ios') {
     },
     showShareActionSheetWithOptions(config: any) {
       topView.set(
-        <ActionSheetAndroidContainer visible onAnimationEnd={visible => {
-          if(!visible) {
-            topView.remove();
-          }
-        }} config={config} share/>
+        <ActionSheetAndroidContainer
+          visible
+          ref={saveInstance}
+          onAnimationEnd={visible => {
+            if(!visible) {
+              topView.remove();
+            }
+          }} config={config} share
+        />
       );
     },
     close() {

@@ -26,7 +26,6 @@ source: design
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
-- androidActionSheetName (string) - android 平台下可以传入一个名字
 
 `callback`支持返回 Promise
 
@@ -42,9 +41,7 @@ source: design
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
-- androidActionSheetName (string) - android 平台下可以传入一个名字
 
 `callback`支持返回 Promise
 
-#### static close() - (web only) programmatically close.
-#### static close(androidActionSheetName) - (android only) programmatically close.
+#### static close() - (web、android only) programmatically close.

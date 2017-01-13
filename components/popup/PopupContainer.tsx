@@ -1,27 +1,16 @@
 import React from 'react';
-import { DeviceEventEmitter } from 'react-native';
 import styles from './style/index';
 import Modal from 'rc-dialog/lib/Modal';
 import PopupProps from './PropsType';
 
 type animationType = 'none' | 'slide-up' | 'slide-down' | 'fade';
 
-export default class Popup extends React.Component<PopupProps, any> {
+export default class PopupContainer extends React.Component<PopupProps, any> {
   constructor(props) {
     super(props);
     this.state = {
       visible: props.visible || false,
     };
-  }
-
-  componentWillMount() {
-    DeviceEventEmitter.addListener('PopupHide', () => {
-      this.hide();
-    });
-  }
-
-  componentWillUnmount() {
-    (DeviceEventEmitter as any).removeAllListeners('PopupHide');
   }
 
   hide() {
