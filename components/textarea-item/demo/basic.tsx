@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { TextAreaItem, List } from 'antd-mobile';
+import { TextareaItem, List } from 'antd-mobile';
 
 export default class BasicTextAreaItemExample extends React.Component<any, any> {
   constructor(props) {
@@ -40,40 +40,40 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
         <List
           renderHeader={() => '基本' }
         >
-          <TextAreaItem
+          <TextareaItem
             rows = {4}
             placeholder="固定行数"
             onChange={(e) => this.onChange(e)}
             onFocus={() => this.onFocus()}
           />
-          <TextAreaItem
+          <TextareaItem
             rows = {5}
             count = {100}
             placeholder="多行带计数"
             onChange={(e) => this.onChange(e)}
             onFocus={() => this.onFocus()}
           />
-          <TextAreaItem
+          <TextareaItem
             keyboardType="email-address"
             value={this.state.value1}
             onChange={(e) => this.onChange(e)}
           />
-          <TextAreaItem
+          <TextareaItem
             placeholder="高度自适应"
             autoHeight = {true}
             onChange={(e) => this.onChange(e)}
           />
-          <TextAreaItem
+          <TextareaItem
             value="不可编辑 editable = {false}"
             editable = {false}
           />
-          <TextAreaItem
+          <TextareaItem
             clear={false}
             placeholder="最大长度10，不带清除clear={false}"
             count = {10}
             title="标题"
           />
-          <TextAreaItem
+          <TextareaItem
             error
             value="报错样式 error={true}"
             count = {200}
