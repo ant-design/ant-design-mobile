@@ -6,8 +6,8 @@ import List from '../list';
 const { Item } = List;
 
 export default function handleProps(props, isIndexed) {
-  let [{ renderHeader, renderFooter, renderSectionHeader, renderRow }, restProps] =
-    splitObject(props, ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderRow']);
+  let [{ renderHeader, renderFooter, renderSectionHeader, renderRow, renderBodyComponent }, restProps] =
+    splitObject(props, ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderRow', 'renderBodyComponent']);
   const listPrefixCls = props.listPrefixCls;
 
   const extraProps = {
@@ -24,6 +24,10 @@ export default function handleProps(props, isIndexed) {
   if (renderFooter) {
     extraProps.renderFooter =
       () => <div className={`${listPrefixCls}-footer`}>{renderFooter() }</div>;
+  }
+  if (renderBodyComponent) {
+    extraProps.renderBodyComponent =
+      () => <div className={`${listPrefixCls}-body`}>{renderBodyComponent() }</div>;
   }
   if (renderSectionHeader) {
     extraProps.renderSectionHeader = isIndexed ?
