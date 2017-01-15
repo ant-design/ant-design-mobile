@@ -166,7 +166,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
         {count > 0 && rows > 1
-          ? (<span className={`${prefixCls}-count`}><span>{value && value.length}</span>/{count}</span>)
+          ? (<span className={`${prefixCls}-count`}><span>{value ? value.length : 0}</span>/{count}</span>)
           : null}
       </div>
     );
