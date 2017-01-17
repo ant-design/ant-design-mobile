@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'bisheng/router';
 
 export default function NotFound() {
   return (

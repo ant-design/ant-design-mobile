@@ -1,6 +1,6 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
-import { Link } from 'react-router';
+import { Link } from 'bisheng/router';
 import GitHubButton from 'react-github-button';
 import 'react-github-button/assets/style.css';
 import Icon from 'antd/lib/icon';

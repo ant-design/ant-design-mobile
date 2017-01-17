@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Promise from 'bluebird';
 import scrollIntoView from 'dom-scroll-into-view';
 import config from '../../';
 import './Demo.less';

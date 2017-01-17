@@ -1,5 +1,4 @@
 import React from 'react';
-import Promise from 'bluebird';
 import MainContent from './MainContent';
 
 // locale copy from layout

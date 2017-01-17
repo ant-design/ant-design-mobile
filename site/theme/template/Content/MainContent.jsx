@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'bisheng/router';
 import Menu from 'antd/lib/menu';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
