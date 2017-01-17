@@ -35,7 +35,7 @@ english: ListView
 - useBodyScroll (boolean, false) - 使用 html 的 `body` 作为滚动容器
 - stickyHeader (boolean, false) - 固定区块标题到页面顶部 (注意: 设置后会自动使用 html 的 `body` 作为滚动容器)
     - 开启 sticky 后还可以设置 stickyProps / stickyContainerProps (详见 [react-sticky](https://github.com/captivationsoftware/react-sticky))
-- renderBodyComponent (function, () => React.Element) - 渲染自定义的 body 组件
+- renderBodyComponent (function, () => React.Element) - 自定义 body 的包裹组件
 - renderSectionBodyWrapper (function, (sectionID: any) => React.Element) - 渲染自定义的区块包裹组件
 - useZscroller (boolean, false) - 使用 zscroller 来模拟实现滚动容器 (可用于一些低端 Android 机上)
     - 注意：开启后`useBodyScroll`和`stickyHeader`设置会自动被忽略

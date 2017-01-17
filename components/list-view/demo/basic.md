@@ -34,6 +34,15 @@ const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
+function MyBody(props) {
+  return (
+    <div className="am-list-body my-body">
+      <span style={{ display: 'none' }}>you can custom body wrap element</span>
+      {props.children}
+    </div>
+  );
+}
+
 const Demo = React.createClass({
   getInitialState() {
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
@@ -137,6 +146,7 @@ const Demo = React.createClass({
         renderSectionHeader={(sectionData) => (
           <div>{`任务 ${sectionData.split(' ')[1]}`}</div>
         )}
+        renderBodyComponent={() => <MyBody />}
         renderRow={row}
         renderSeparator={separator}
         className="fortest"
