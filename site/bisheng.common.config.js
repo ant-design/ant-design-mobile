@@ -25,6 +25,9 @@ module.exports = {
     config.externals = {
       react: 'React',
       'react-dom': 'ReactDOM',
+      'react-router': 'ReactRouter',
+      history: 'History',
+      'babel-polyfill': 'this', // hack babel-polyfill has no exports
     };
     config.module.noParse = [/moment.js/];
 
