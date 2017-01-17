@@ -73,7 +73,7 @@ const Demo = React.createClass({
         dataSource={this.state.dataSource}
         renderHeader={() => <span>头部内容请自定义</span>}
         renderFooter={() => <span>尾部内容请自定义</span>}
-        renderSectionHeader={(sectionData) => (<div>{sectionData}</div>)}
+        renderSectionHeader={(sectionData) => (<div className="ih">{sectionData}</div>)}
         renderRow={(rowData) => (<Item>{rowData}</Item>)}
         className="am-list"
         stickyHeader

@@ -6,16 +6,15 @@ import List from '../list';
 const { Item } = List;
 
 export default function handleProps(props, isIndexed) {
-  let [{ renderHeader, renderFooter, renderSectionHeader, renderRow }, restProps] =
-    splitObject(props, ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderRow']);
+  let [{ renderHeader, renderFooter, renderSectionHeader, renderBodyComponent }, restProps] =
+    splitObject(props, ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderBodyComponent']);
   const listPrefixCls = props.listPrefixCls;
 
   const extraProps = {
     renderHeader: null as any,
     renderFooter: null as any,
     renderSectionHeader: null as any,
-    renderBodyComponent: () => <div className={`${listPrefixCls}-body`} />,
-    renderRow,
+    renderBodyComponent: renderBodyComponent || (() => <div className={`${listPrefixCls}-body`} />),
   };
   if (renderHeader) {
     extraProps.renderHeader =
@@ -28,9 +27,9 @@ export default function handleProps(props, isIndexed) {
   if (renderSectionHeader) {
     extraProps.renderSectionHeader = isIndexed ?
       (sectionData, sectionID) => (<div>
-        <Item>{renderSectionHeader(sectionData, sectionID) }</Item>
+        <Item prefixCls={listPrefixCls}>{renderSectionHeader(sectionData, sectionID) }</Item>
       </div>) :
-      (sectionData, sectionID) => <Item>{renderSectionHeader(sectionData, sectionID)}</Item>;
+      (sectionData, sectionID) => <Item prefixCls={listPrefixCls}>{renderSectionHeader(sectionData, sectionID)}</Item>;
   }
   return { restProps, extraProps };
 }

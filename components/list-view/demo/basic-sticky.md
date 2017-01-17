@@ -143,6 +143,9 @@ const Demo = React.createClass({
           // topOffset: -43,
           // isActive: false, // 关闭 sticky 效果
         }}
+        stickyContainerProps={{
+          className: 'for-stickyContainer-demo',
+        }}
       />
     );
   },
