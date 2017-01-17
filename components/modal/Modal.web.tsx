@@ -74,6 +74,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
+      [`${prefixCls}-android`]: !!navigator.userAgent.match(/Android/i),
     });
 
     let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);

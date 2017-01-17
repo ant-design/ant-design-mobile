@@ -6,8 +6,6 @@
 .@{switchPrefixCls} {
   display: inline-block;
   vertical-align: middle;
-  width: 102px;
-  height: 62px;
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
@@ -79,6 +77,37 @@
     &:disabled {
       &+ .checkbox {
         opacity: @opacity-disabled;
+      }
+    }
+  }
+  &&-android {
+    margin-right: @v-spacing-sm;
+    .checkbox {
+      width: 210px;
+      height: 66px;
+      border-radius: 10px;
+      background: #A7AAA6;
+      &:before {
+        display: none;
+      }
+      &:after {
+        width: 102px;
+        height: 60px;
+        border-radius: 7px;
+        box-shadow: none;
+      }
+    }
+    input[type="checkbox"] {
+      &:checked {
+        &+ .checkbox {
+          background: @switch-fill-android;
+          &:before {
+            .transform(scale(0));
+          }
+          &:after {
+            .transform(translateX(102px));
+          }
+        }
       }
     }
   }

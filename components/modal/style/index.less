@@ -65,4 +65,66 @@
       padding: @v-spacing-xs 0;
     }
   }
+  &&-android {
+    .@{modalPrefixClass}-content {
+      border-radius: 0;
+      padding-top: @v-spacing-lg;
+      .@{modalPrefixClass}-header {
+        padding: @v-spacing-md 48px 24px;
+        .@{modalPrefixClass}-title {
+          text-align: left;
+          font-size: @font-size-display-md;
+          color: @color-text-base;
+        }
+      }
+      .@{modalPrefixClass}-body {
+        font-size: @font-size-caption;
+        color: @color-text-base;
+        text-align: left;
+        padding: 0 48px @v-spacing-lg;
+        line-height: 1.5;
+        .@{modalPrefixClass}-input {
+          border-left: 0;
+          border-right: 0;
+          border-radius: 0;
+          &:first-child {
+            border-top: 0;
+          }
+        }
+      }
+      .@{modalPrefixClass}-footer {
+        padding-bottom: 2*@v-spacing-sm;
+        .@{modalPrefixClass}-button-group-h {
+          overflow: hidden;
+          border-top: 0;
+          justify-content: flex-end;
+          padding: 0 2*@v-spacing-sm;
+          .@{modalPrefixClass}-button {
+            flex: initial;
+            margin-left: 6px;
+            padding: 0 @h-spacing-lg;
+            height: 96px;
+            box-sizing: border-box;
+            &:first-child {
+              border-right: 0;
+              color: #777;
+            }
+          }
+        }
+        .@{modalPrefixClass}-button-group-v {
+          display: flex;
+          justify-content: flex-end;
+          overflow: hidden;
+          padding: 0 2*@v-spacing-sm;
+          .@{modalPrefixClass}-button {
+            border-top: 0;
+            padding: 0 @h-spacing-lg;
+            margin-left: 6px;
+            height: 96px;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+  }
 }

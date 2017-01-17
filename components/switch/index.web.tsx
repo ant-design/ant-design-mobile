@@ -23,6 +23,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,
+      [`${prefixCls}-android`]: !!navigator.userAgent.match(/Android/i),
     });
 
     return (<label className={wrapCls} style={style}>
