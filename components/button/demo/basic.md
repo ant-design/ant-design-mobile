@@ -20,7 +20,7 @@ const ButtonExample = React.createClass({
         <Button className="btn" icon={require('!svg-sprite!./reload.svg')}>本地图标</Button>
 
         <div style={{ height: '0.16rem' }} />
-        <Button className="btn" activeStyle={false}>无点击反馈</Button>
+        {/* <Button className="btn" activeStyle={false}>无点击反馈</Button> */}
         <Button className="btn" activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
 
         <p style={{ margin: 10, color: '#999' }}>inline / small</p>
