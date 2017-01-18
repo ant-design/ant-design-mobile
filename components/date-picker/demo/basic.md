@@ -51,6 +51,7 @@ let Test = React.createClass({
     const { getFieldProps } = this.props.form;
     return (<div>
       <List
+        className="date-picker-list"
         renderHeader={() => '选择时间'}
         style={{ backgroundColor: 'white' }}
       >
@@ -128,4 +129,9 @@ let Test = React.createClass({
 Test = createForm()(Test);
 
 ReactDOM.render(<Test />, mountNode);
+````
+````css
+.date-picker-list .am-list-item .am-list-line .am-list-extra {
+  flex-basis: initial;
+}
 ````
