@@ -21,6 +21,6 @@ req.keys().forEach((mod) => {
 
 
 if (typeof console !== 'undefined' && console.warn) {
-  console.warn(`you are using prebuild antd-mobile,
+  console.warn(`You are using prebuilt antd-mobile,
 please use https://github.com/ant-design/babel-plugin-import to reduce app bundle size.`);
 }
