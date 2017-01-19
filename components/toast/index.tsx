@@ -3,6 +3,7 @@ import topView from 'rn-topview';
 import ToastContainer from './ToastContainer';
 
 function notice(content, type, duration = 3, onClose, mask = true) {
+  topView.remove();
   topView.set(
     <ToastContainer
       content={content}
