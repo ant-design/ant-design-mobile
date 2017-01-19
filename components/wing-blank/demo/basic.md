@@ -5,7 +5,7 @@ title: 基本
 
 ```<WingBlank size='md'>...</WingBlank>```
 
-````jsx
+````__react
 import { WingBlank, WhiteSpace, Button } from 'antd-mobile';
 
 

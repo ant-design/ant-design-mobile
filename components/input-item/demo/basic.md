@@ -5,7 +5,7 @@ title: 示例集合
 
 受控组件建议使用([rc-form 文档](https://github.com/react-component/form))
 
-````jsx
+````__react
 import { List, InputItem, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 

@@ -5,7 +5,7 @@ title: 手风琴模式
 
 Accordion
 
-````jsx
+````__react
 import { Accordion, List } from 'antd-mobile';
 
 const AccordionExmple = React.createClass({

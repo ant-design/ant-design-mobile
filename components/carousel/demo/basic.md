@@ -4,7 +4,7 @@ title: 示例
 ---
 
 
-````jsx
+````__react
 import { Carousel } from 'antd-mobile';
 
 const App = React.createClass({

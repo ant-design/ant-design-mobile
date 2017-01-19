@@ -4,7 +4,7 @@ title: 基本
 ---
 
 
-````jsx
+````__react
 import { Icon } from 'antd-mobile';
 
 const icons = [

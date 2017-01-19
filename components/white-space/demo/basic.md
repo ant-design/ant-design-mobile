@@ -6,7 +6,7 @@ title: 基本
 上下留白 ```<WhiteSpace size='md' />```
 
 
-````jsx
+````__react
 import { WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 const WhiteSpaceExample = React.createClass({

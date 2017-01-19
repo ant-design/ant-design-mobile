@@ -5,7 +5,7 @@ title: 默认
 
 Card 默认样式
 
-````jsx
+````__react
 import { Card, WingBlank, WhiteSpace } from 'antd-mobile';
 
 ReactDOM.render(

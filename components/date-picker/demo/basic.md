@@ -5,7 +5,7 @@ title: 基本
 
 日期时间选择示例 ([rc-form 文档](https://github.com/react-component/form))
 
-````jsx
+````__react
 
 import { DatePicker, List, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';

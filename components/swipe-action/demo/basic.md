@@ -4,7 +4,7 @@ title: 基本使用
 ---
 
 
-````jsx
+````__react
 import { SwipeAction, List } from 'antd-mobile';
 
 const SwipeActionExample = React.createClass({

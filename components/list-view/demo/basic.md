@@ -7,7 +7,7 @@ title: 自定义容器
 
 > 同时建议设置`body`的`overflow: hidden`
 
-````jsx
+````__react
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView } from 'antd-mobile';
 

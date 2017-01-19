@@ -4,7 +4,7 @@ title: 示例
 ---
 
 
-````jsx
+````__react
 import { List } from 'antd-mobile';
 
 const Item = List.Item;

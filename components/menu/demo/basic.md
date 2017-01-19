@@ -3,7 +3,7 @@ order: 0
 title: 一级菜单
 ---
 
-````jsx
+````__react
 import { Menu } from 'antd-mobile';
 
 const data = [

@@ -3,7 +3,7 @@ order: 0
 title: 示例
 ---
 
-````jsx
+````__react
 import { Grid } from 'antd-mobile';
 
 const data = Array.from(new Array(9)).map((_val, i) => ({

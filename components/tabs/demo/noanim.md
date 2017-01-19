@@ -5,7 +5,7 @@ title: 无动画
 
 禁用切换动画效果
 
-````jsx
+````__react
 import { Tabs, WhiteSpace } from 'antd-mobile';
 
 const TabPane = Tabs.TabPane;

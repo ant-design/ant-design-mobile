@@ -6,7 +6,7 @@ title: 索引列表（标题吸顶）
 用于通讯薄等场景 “吸顶”(sticky)
 
 
-````jsx
+````__react
 import { province as provinceData } from 'antd-mobile-demo-data';
 import { ListView, List, SearchBar } from 'antd-mobile';
 

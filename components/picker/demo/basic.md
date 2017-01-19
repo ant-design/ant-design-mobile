@@ -5,7 +5,7 @@ title: 基本
 
 数据级联选择示例. ([rc-form 文档](https://github.com/react-component/form))
 
-````jsx
+````__react
 import { Picker, List, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 

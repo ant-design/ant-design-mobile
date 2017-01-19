@@ -8,7 +8,7 @@ title: 基本
 
 
 
-```jsx
+```__react
 
 import { Slider, WingBlank, WhiteSpace } from 'antd-mobile';
 

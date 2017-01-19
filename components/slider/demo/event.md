@@ -7,7 +7,7 @@ title: 事件
 
 
 
-````jsx
+````__react
 import { Slider, WingBlank, WhiteSpace } from 'antd-mobile';
 
 function log(value) {

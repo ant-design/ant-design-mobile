@@ -5,7 +5,7 @@ title: 基本
 
 Accordion
 
-````jsx
+````__react
 import { Accordion, List } from 'antd-mobile';
 
 const AccordionExmple = React.createClass({

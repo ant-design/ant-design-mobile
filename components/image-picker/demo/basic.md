@@ -3,7 +3,7 @@ order: 0
 title: 简单的图片选择组件
 ---
 
-````jsx
+````__react
 import { ImagePicker, Button } from 'antd-mobile';
 
 const data = [{

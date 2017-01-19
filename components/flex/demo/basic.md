@@ -4,7 +4,7 @@ title: 示例集合
 ---
 
 
-````jsx
+````__react
 import { Flex, WhiteSpace } from 'antd-mobile';
 
 const PlaceHolder = (props) => (

@@ -5,7 +5,7 @@ title: 类型、尺寸
 
 按钮
 
-````jsx
+````__react
 import { Button, Flex } from 'antd-mobile';
 
 /* eslint global-require: 0 */

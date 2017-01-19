@@ -5,7 +5,7 @@ title: 示例集合
 
 ([rc-form 文档](https://github.com/react-component/form))
 
-````jsx
+````__react
 import { List, TextareaItem } from 'antd-mobile';
 import { createForm } from 'rc-form';
 

@@ -5,7 +5,7 @@ title: 应用场景示例
 
 和 List / Flex 结合使用示例
 
-````jsx
+````__react
 import { Button, List } from 'antd-mobile';
 
 ReactDOM.render(

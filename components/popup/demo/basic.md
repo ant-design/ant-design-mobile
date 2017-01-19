@@ -5,7 +5,7 @@ title: 向下弹出效果
 
 Popup 向下弹出效果
 
-````jsx
+````__react
 import { Popup, List, Button, InputItem } from 'antd-mobile';
 
 const PopupContent = React.createClass({

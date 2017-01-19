@@ -5,7 +5,7 @@ title: propmt
 
 包含输入普通文字, 密码, 登录信息样式
 
-````jsx
+````__react
 import { Modal, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const prompt = Modal.prompt;

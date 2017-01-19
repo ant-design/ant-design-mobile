@@ -6,7 +6,7 @@ title: 基本
 遮罩层模式
 
 
-````jsx
+````__react
 import { Drawer, List, NavBar } from 'antd-mobile';
 
 const App1 = React.createClass({

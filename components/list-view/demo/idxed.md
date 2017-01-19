@@ -6,7 +6,7 @@ title: 索引列表
 用于通讯薄等场景
 
 
-````jsx
+````__react
 /* eslint no-mixed-operators: 0 */
 import { province } from 'antd-mobile-demo-data';
 import { ListView, List } from 'antd-mobile';

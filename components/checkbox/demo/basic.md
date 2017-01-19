@@ -4,7 +4,7 @@ title: 示例
 ---
 
 
-````jsx
+````__react
 import { List, Checkbox, Flex } from 'antd-mobile';
 
 const CheckboxItem = Checkbox.CheckboxItem;

@@ -28,8 +28,8 @@ module.exports = Object.assign({}, commonConfig, {
     },
   },
   plugins: [
-    'bisheng-plugin-react?lang=__react',
     'bisheng-plugin-antd',
+    'bisheng-plugin-react?lang=__react',
   ],
   doraConfig: {
     verbose: true,

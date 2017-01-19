@@ -4,7 +4,7 @@ title: Popover
 ---
 
 
-````jsx
+````__react
 /* eslint global-require: 0 */
 import { Popover, NavBar, Icon } from 'antd-mobile';
 

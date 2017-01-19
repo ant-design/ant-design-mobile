@@ -3,7 +3,7 @@ order: 0
 title: 示例
 ---
 
-````jsx
+````__react
 import { SegmentedControl, WingBlank } from 'antd-mobile';
 
 const SegmentedControlExample = React.createClass({

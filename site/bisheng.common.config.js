@@ -32,6 +32,7 @@ module.exports = {
     config.module.noParse = [/moment.js/];
 
     config.resolve.alias = {
+      'antd-mobile/lib': path.join(process.cwd(), 'components'),
       'antd-mobile': process.cwd(),
       site: path.join(process.cwd(), 'site'),
     };

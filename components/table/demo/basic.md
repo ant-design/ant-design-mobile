@@ -5,7 +5,7 @@ title: 锁定标题列
 
 标题列锁定，可横向滚动
 
-````jsx
+````__react
 import { Table } from 'antd-mobile';
 
 const columns = [

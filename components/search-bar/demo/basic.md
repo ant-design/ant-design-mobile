@@ -3,7 +3,7 @@ order: 0
 title: 示例
 ---
 
-````jsx
+````__react
 import { SearchBar } from 'antd-mobile';
 
 const SearchBarExample = React.createClass({

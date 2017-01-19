@@ -4,7 +4,7 @@ title: 示例
 ---
 
 
-````jsx
+````__react
 import { List, Radio, Flex } from 'antd-mobile';
 
 const RadioItem = Radio.RadioItem;

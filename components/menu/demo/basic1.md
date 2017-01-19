@@ -3,7 +3,7 @@ order: 1
 title: 二级菜单
 ---
 
-````jsx
+````__react
 import { Menu } from 'antd-mobile';
 
 const data = [
