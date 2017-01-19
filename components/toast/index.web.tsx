@@ -8,6 +8,10 @@ let messageInstance;
 let prefixCls = 'am-toast';
 
 function getMessageInstance() {
+  if (messageInstance) {
+    messageInstance.destroy();
+    messageInstance = null;
+  }
   messageInstance = (Notification as any).newInstance({
     prefixCls,
     style: { top: 0 },

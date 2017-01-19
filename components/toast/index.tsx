@@ -7,7 +7,7 @@ function notice(content, type, duration = 3, onClose) {
     onClose = duration;
     duration = 3;
   }
-
+  topView.remove();
   topView.set(
     <ToastContainer
       content={content}
