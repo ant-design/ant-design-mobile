@@ -3,7 +3,7 @@ order: 0
 english: Ant Design Mobile of React
 ---
 
-`antd-mobile` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
+`antd-mobile` 是 [Ant Design](http://ant.design) 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
 
 <div class="pic-plus">
   <img width="160" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png">
@@ -26,20 +26,18 @@ english: Ant Design Mobile of React
 }
 </style>
 
-[Ant Design](http://ant.design) 在中后台领域的耕耘取得了很多成绩，使得 Ant Design 设计规范和 React 逐渐成为蚂蚁金服主流的前端产品开发模式，也受到社区的广泛关注。我们没有止步于此，一年后推出了 Ant Design 移动端规范及其实现。
+## 特性和优势
 
-随着蚂蚁金服中后台的移动端需求增多，不同的设计规范及研发方式，给设计者和开发者带来大量的重复工作，降低了产品的研发效率。
+- UI 样式高度可配置，拓展性更强，轻松适应各类产品风格
+- 基于 React Native 的 iOS / Android / Web 多平台支持，组件丰富、能全面覆盖各类场景
+- 内置 "组件按需加载" / "Web 页面高清显示" / "SVG Icon" 等优化方案，一体式开发
+- 使用 TypeScript 开发，提供类型定义文件，支持类型及属性智能提示，方便业务开发
 
-我们希望为设计者和开发者提供一套统一的设计规范，可以降低设计、开发成本，减少沟通误差。不同于大多数设计规范，我们抽象出通用组件的基础样式和组件属性，使得拓展性更强。基于这套规范我们可以快速实现页面，提高研发效率，也希望借此推进蚂蚁金服各应用向设计规范化的方向发展。
+## 适用场景
 
-在工程方面，我们继续推进和发展 React 全家桶技术栈，探索多端同栈、可预测、高效的研发模式。
-
-## 特性
-
-- 基于 Ant Design 移动设计规范。
-- 规则化的视觉样式配置，适应各类产品风格。
-- 基于 React Native 的多平台支持。
-- 使用 TypeScript 开发，提供类型定义文件。
+- 适合于中大型产品应用
+- 适合于基于 react / react-native 的多终端应用
+- 适合不同 UI 风格的高度定制需求的应用
 
 ## 安装
 
@@ -50,7 +48,7 @@ $ npm install babel-plugin-import --save-dev
 
 ## 使用
 
-> 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56)
+> 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56) 及 [官方示例集](https://github.com/ant-design/antd-mobile-samples)
 
 #### Web 使用方式
 
@@ -86,7 +84,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 
 #### React-Native 使用方式
 
-> 注：`Accordion`、`Icon`、`Result`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
+> 注：`Accordion`、`Icon`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
 
 1. `.babelrc` 文件添加以下配置
 
