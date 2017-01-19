@@ -9,16 +9,8 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)。
 
-
-## 标准开发
-
-实际项目开发中，你会需要对 ES2015 和 JSX 代码的构建、调试、代理、打包部署等一系列工程化的需求。
-我们提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
-
 ### 1. 安装工具
 确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
-
-可以使用蚂蚁提供的[开发工具文档](http://ant-tool.github.io/)
 
 ### 2. 创建一个项目
 
@@ -28,23 +20,9 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 [见此使用示例](/docs/react/introduce#使用)
 
-### 4. 开发调试
+### 4. 开发调试 & 构建和部署
 
-一键启动调试，访问 http://127.0.0.1:8000 查看效果。
-
-```bash
-$ npm start
-```
-
-### 5. 构建和部署
-
-```bash
-$ npm run build
-```
-
-入口文件会构建到 `dist` 目录中，你可以自由部署到不同环境中进行引用。
-
-> 上述例子用于帮助你理解 Ant Design React 的使用流程，并非真实的开发过程，你可以根据自己的项目开发流程进行接入。
+Web 和 React Native 两种使用方式有区别，按照 readme 文档说明分别使用
 
 ## 自行构建
 
