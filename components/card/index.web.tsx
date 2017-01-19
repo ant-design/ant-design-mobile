@@ -21,7 +21,7 @@ export default class Card extends React.Component <CardProps, any> {
   static Footer = CardFooter;
 
   render() {
-    const { prefixCls, full, children, className } = this.props;
+    const { prefixCls, full, className, ...resetProps } = this.props;
     const wrapCls = classNames({
       [prefixCls as string]: true,
       [`${prefixCls}-full`]: full,
@@ -29,9 +29,7 @@ export default class Card extends React.Component <CardProps, any> {
     });
 
     return (
-      <div className={wrapCls}>
-        {children}
-      </div>
+      <div className={wrapCls} {...resetProps} />
     );
   }
 }

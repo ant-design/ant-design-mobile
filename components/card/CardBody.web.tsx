@@ -14,14 +14,14 @@ export default class CardBody extends React.Component<CardBodyProps, any> {
   };
 
   render() {
-    const { prefixCls, children, className } = this.props;
+    const { prefixCls, className, ...restProps } = this.props;
     const wrapCls = classNames({
       [`${prefixCls}-body`]: true,
       [className as string]: className,
     });
 
     return (
-      <div className={wrapCls}>{children}</div>
+      <div className={wrapCls} {...restProps} />
     );
   }
 }

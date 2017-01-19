@@ -17,7 +17,7 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
   };
 
   render() {
-    const { title, thumb, thumbStyle, extra, style, styles } = this.props;
+    const { title, thumb, thumbStyle, extra, style, styles, ...restProps } = this.props;
 
     const titleDom = React.isValidElement(title) ? (
       <View style={{ flex: 1 }}>{title}</View>
@@ -32,7 +32,7 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
     );
 
     return (
-      <View style={[styles.headerWrap, style]}>
+      <View style={[styles.headerWrap, style]} {...restProps}>
         <View style={[styles.headerTitle]}>
           { thumb ? <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} /> : null }
           {titleDom}

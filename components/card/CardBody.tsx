@@ -13,9 +13,9 @@ export default class CardBody extends React.Component<CardBodyProps, any> {
   };
 
   render() {
-    let { children, style, styles } = this.props;
+    let { style, styles, ...restProps } = this.props;
     return (
-      <View style={[styles.body, style]}>{children}</View>
+      <View style={[styles.body, style]} {...restProps} />
     );
   }
 }
