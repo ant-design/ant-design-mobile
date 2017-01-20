@@ -8,8 +8,8 @@ module.exports = Object.assign({}, commonConfig, {
     './docs',
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
-  theme: './site/desktop',
-  htmlTemplate: path.join(__dirname, './desktop/static/template.html'),
+  theme: './site/desktop/src',
+  htmlTemplate: path.join(__dirname, './desktop/src/static/template.html'),
   doraConfig: {
     verbose: true,
   },
