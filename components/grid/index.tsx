@@ -28,8 +28,8 @@ export default class Grid extends React.Component<GridProps, any> {
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);
 
-    const renderItem = this.props.renderItem || ((dataItem: DataItem) => (
-      <Flex direction="column" justify="center" style={{ flex: 1 }}>
+    const renderItem = this.props.renderItem || ((dataItem: DataItem, index: number) => (
+      <Flex direction="column" justify="center" style={{ flex: 1 }} onPress={() => onClick(dataItem, index)}>
         {React.isValidElement(dataItem.icon) ?
         dataItem.icon : (<Image source={{ uri: dataItem.icon }} style={styles.icon} />)}
         <Text style={styles.text}>{dataItem.text}</Text>
