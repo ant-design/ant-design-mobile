@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import scrollIntoView from 'dom-scroll-into-view';
 import config from '../../';
-import './Demo.less';
 
 const locale = (
   window.localStorage &&
