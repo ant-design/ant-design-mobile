@@ -15,7 +15,8 @@ module.exports = function (config, includeDemo) {
       /components\/result\/demo/,
     ]);
   }
-  // exclude the default svg-url-loader from atool-build https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js#L161
+  // exclude the default svg-url-loader from
+  // atool-build https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L161
   config.module.loaders.forEach(loader => {
     if (loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
       loader.exclude = svgDirs;
