@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Icon } from 'antd-mobile';
 import config from '../../';
-import './index.less';
+import '../../static/style';
 
 function getQuery(searchStr) {
   let query = {};
