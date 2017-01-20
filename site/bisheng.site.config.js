@@ -22,8 +22,8 @@ module.exports = Object.assign({}, commonConfig, {
     './docs',
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
-  theme: './site/theme',
-  htmlTemplate: path.join(__dirname, './theme/static/template.html'),
+  theme: './site/desktop',
+  htmlTemplate: path.join(__dirname, './desktop/static/template.html'),
   pick: {
     components: commonConfig.pick.components,
     /* eslint-disable consistent-return */
