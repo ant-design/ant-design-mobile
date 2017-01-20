@@ -27,6 +27,8 @@ interface TextAreaItemProps {
   editable?: boolean;
   disabled?: boolean;
   labelNumber?: number;
+  autoFocus?: boolean;
+  focused?: boolean;
   /** rn only */
   keyboardType?: string;
   last?: boolean;

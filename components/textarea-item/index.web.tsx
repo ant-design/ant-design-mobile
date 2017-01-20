@@ -13,7 +13,8 @@ function fixControlledValue(value) {
 }
 
 export interface TextareaItemState {
-  focus: boolean;
+  focus?: boolean;
+  focused?: boolean;
 }
 
 export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
@@ -40,17 +41,33 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     super(props);
     this.state = {
       focus: false,
+      focused: props.focused || false,
     };
   }
 
   componentDidMount() {
     this.componentDidUpdate();
+    if (this.props.autoFocus || this.state.focused) {
+      (this.refs as any).textarea.focus();
+    }
   }
+
   componentDidUpdate() {
     if (this.props.autoHeight) {
       const textareaDom = (this.refs as any).textarea;
       textareaDom.style.height = ''; // 字数减少时能自动减小高度
       textareaDom.style.height = `${textareaDom.scrollHeight}px`;
+    }
+    if (this.state.focused) {
+      (this.refs as any).textarea.focus();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ('focused' in nextProps) {
+      this.setState({
+        focused: nextProps.focused,
+      });
     }
   }
 
@@ -75,7 +92,12 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       this.setState({
         focus: false,
       });
-    }, 500);
+    }, 100);
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: false,
+      });
+    }
     const value = e.target.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
@@ -83,6 +105,16 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   };
 
   onFocus = (e) => {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
+    }
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: true,
+      });
+    }
+
     this.setState({
       focus: true,
     });
@@ -111,7 +143,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
       'clear', 'children', 'error', 'className', 'count', 'labelNumber', 'title', 'onErrorClick',
-      'autoHeight',
+      'autoHeight', 'autoFocus', 'focused',
     ]);
 
     let valueProps;
