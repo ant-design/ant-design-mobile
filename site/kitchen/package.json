@@ -1,0 +1,9 @@
+{
+  "name": "bisheng-theme-antd-mobile-kitchen",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "file": ["lib"],
+  "scripts": {
+  },
+  "license": "MIT"
+}
