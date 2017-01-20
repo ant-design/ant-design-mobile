@@ -10,8 +10,8 @@ module.exports = Object.assign({}, commonConfig, {
   output: './_site/kitchen-sink',
   root: '/kitchen-sink/',
   entryName: 'kitchen-sink',
-  theme: './site/mobile',
-  htmlTemplate: path.join(__dirname, './mobile/static/template.html'),
+  theme: './site/kitchen/src',
+  htmlTemplate: path.join(__dirname, './kitchen/src/static/template.html'),
   doraConfig: {
     verbose: true,
     plugins: ['dora-plugin-upload'],
