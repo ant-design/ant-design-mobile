@@ -6,19 +6,47 @@ title: 示例集合
 ([rc-form 文档](https://github.com/react-component/form))
 
 ````__react
-import { List, TextareaItem } from 'antd-mobile';
+import { List, TextareaItem, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let TextareaItemExample = React.createClass({
+  getInitialState() {
+    return {
+      focused: false,
+    };
+  },
   render() {
     const { getFieldProps } = this.props.form;
     return (<List>
       <TextareaItem
         title="标题"
-        placeholder="请输入"
+        placeholder="自动获取光标"
         data-seed="logId"
-        autoFocus autoHeight
+        autoFocus
+        autoHeight
       />
+      <TextareaItem
+        title="标题"
+        placeholder="点击下方按钮该输入框会获取光标"
+        data-seed="logId"
+        autoHeight
+        focused={this.state.focused}
+        onFocus={() => {
+          this.setState({
+            focused: false,
+          });
+        }}
+      />
+      <List.Item>
+        <Button
+          onClick={() => {
+            this.setState({
+              focused: true,
+            });
+          }}
+          type="primary"
+        >点击获取光标</Button>
+      </List.Item>
       <TextareaItem
         {...getFieldProps('control')}
         title="标题"
