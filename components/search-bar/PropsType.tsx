@@ -14,6 +14,8 @@ export interface SearchBarProps {
   cancelText?: string;
   disabled?: boolean;
   styles?: any;
+  autoFocus?: boolean;
+  focused?: boolean;
   /** web only */
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -24,6 +26,7 @@ export interface SearchBarProps {
 export interface SearchBarState {
   value?: string;
   focus?: boolean;
+  focused?: boolean;
 }
 
 export const defaultProps = {

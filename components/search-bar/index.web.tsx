@@ -21,12 +21,16 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     this.state = {
       value,
       focus: false,
+      focused: props.focused || false,
     };
   }
 
   componentDidMount() {
     const initBtn = window.getComputedStyle(this.refs.rightBtn);
     this.rightBtnInitMarginleft = initBtn['margin-left'];
+    if (this.props.autoFocus || this.state.focused) {
+      (this.refs as any).searchInput.focus();
+    }
     this.componentDidUpdate();
   }
   componentDidUpdate() {
@@ -43,12 +47,20 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           `-${this.refs.rightBtn.offsetWidth + parseInt(this.rightBtnInitMarginleft, 10)}px`;
       }
     }
+    if (this.state.focused) {
+      (this.refs as any).searchInput.focus();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value,
+      });
+    }
+    if ('focused' in nextProps) {
+      this.setState({
+        focused: nextProps.focused,
       });
     }
   }
@@ -76,6 +88,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     });
     this.firstFocus = true;
 
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: true,
+      });
+    }
+
     if (this.props.onFocus) {
       this.props.onFocus();
     }
@@ -85,6 +103,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     this.setState({
       focus: false,
     });
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: false,
+      });
+    }
 
     if (this.props.onBlur) {
       this.props.onBlur();
