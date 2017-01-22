@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './ListItem';
+import Item from './ListItem.web';
 import classNames from 'classnames';
 import { ListProps } from './PropsType';
 
