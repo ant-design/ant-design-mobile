@@ -1,56 +1,33 @@
-import { WhiteSpace, WingBlank, Button } from 'antd-mobile';
+import { WhiteSpace } from 'antd-mobile';
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
-export default class BasicWhiteSpaceExample extends React.Component<any, any> {
+const PlaceHolder = (props) => (
+  <View style={{
+    backgroundColor: '#ebebef',
+    height: 30,
+  }} {...props}
+  ><Text style={{ color: '#bbb', textAlign: 'center', lineHeight: 30 }}>Block</Text></View>
+);
+
+export default class WhiteSpaceExample extends React.Component<any, any> {
   render() {
     return (
       <View>
         <WhiteSpace size="xs" />
-        <WingBlank>
-          <Button type="primary">上下留白xs</Button>
-        </WingBlank>
-        <WhiteSpace size="xs" />
-        <View style={{
-          borderBottomColor: '#108ee9',
-          borderBottomWidth: 0.5,
-        }}/>
+        <PlaceHolder />
+
         <WhiteSpace size="sm" />
-        <WingBlank>
-          <Button type="primary">上下留白sm</Button>
-        </WingBlank>
-        <WhiteSpace size="sm" />
-        <View style={{
-          borderBottomColor: '#108ee9',
-          borderBottomWidth: 0.5,
-        }}/>
-        <WhiteSpace size="md" />
-        <WingBlank>
-          <Button type="primary">上下留白md(默认)</Button>
-        </WingBlank>
-        <WhiteSpace size="md" />
-        <View style={{
-          borderBottomColor: '#108ee9',
-          borderBottomWidth: 0.5,
-        }}/>
+        <PlaceHolder />
+
+        <WhiteSpace />
+        <PlaceHolder />
+
         <WhiteSpace size="lg" />
-        <WingBlank>
-          <Button type="primary">上下留白lg</Button>
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <View style={{
-          borderBottomColor: '#108ee9',
-          borderBottomWidth: 0.5,
-        }}/>
+        <PlaceHolder />
+
         <WhiteSpace size="xl" />
-        <WingBlank>
-          <Button type="primary">上下留白xl</Button>
-        </WingBlank>
-        <WhiteSpace size="xl" />
-        <View style={{
-          borderBottomColor: '#108ee9',
-          borderBottomWidth: 0.5,
-        }}/>
+        <PlaceHolder />
       </View>
     );
   }
