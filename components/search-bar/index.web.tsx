@@ -97,6 +97,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onFocus) {
       this.props.onFocus();
     }
+    if (document.activeElement.tagName.toLowerCase() === 'input') {
+      window.setTimeout(function() {
+        try {
+          document.activeElement.scrollIntoViewIfNeeded();
+        } catch (e) { }
+      }, 0);
+    }
   };
 
   onBlur = () => {

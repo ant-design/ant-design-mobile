@@ -122,6 +122,14 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     if (this.props.onFocus) {
       this.props.onFocus(value);
     }
+
+    if (document.activeElement.tagName.toLowerCase() === 'textarea') {
+      window.setTimeout(function() {
+        try {
+          document.activeElement.scrollIntoViewIfNeeded();
+        } catch (e) { }
+      }, 0);
+    }
   };
 
   onErrorClick = () => {

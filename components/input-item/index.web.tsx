@@ -144,6 +144,13 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (this.props.onFocus) {
       this.props.onFocus(value);
     }
+    if (document.activeElement.tagName.toLowerCase() === 'input') {
+      window.setTimeout(function() {
+        try {
+          document.activeElement.scrollIntoViewIfNeeded();
+        } catch (e) { }
+      }, 0);
+    }
   }
 
   onExtraClick = (e) => {
