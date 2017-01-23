@@ -131,7 +131,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     }
 
     if (document.activeElement.tagName.toLowerCase() === 'textarea') {
-      this.scrollIntoViewTimeout = setTimeout(function() {
+      this.scrollIntoViewTimeout = setTimeout(() => {
         try {
           document.activeElement.scrollIntoViewIfNeeded();
         } catch (e) { }

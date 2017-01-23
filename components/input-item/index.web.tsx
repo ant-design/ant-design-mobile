@@ -150,7 +150,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.props.onFocus(value);
     }
     if (document.activeElement.tagName.toLowerCase() === 'input') {
-      this.scrollIntoViewTimeout = setTimeout(function() {
+      this.scrollIntoViewTimeout = setTimeout(() => {
         try {
           document.activeElement.scrollIntoViewIfNeeded();
         } catch (e) { }

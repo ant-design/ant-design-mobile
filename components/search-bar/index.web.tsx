@@ -106,7 +106,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.props.onFocus();
     }
     if (document.activeElement.tagName.toLowerCase() === 'input') {
-      this.scrollIntoViewTimeout = setTimeout(function() {
+      this.scrollIntoViewTimeout = setTimeout(() => {
         try {
           document.activeElement.scrollIntoViewIfNeeded();
         } catch (e) { }
