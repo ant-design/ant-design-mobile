@@ -31,7 +31,7 @@ export default class List extends React.Component<ListProps, any> {
       {headerDom}
       <View style={styles.Body}>
         {children}
-        <View style={[styles.BodyBottomLine]}></View>
+        <View style={[styles.BodyBottomLine]}/>
       </View>
       {footerDom}
     </View>);
