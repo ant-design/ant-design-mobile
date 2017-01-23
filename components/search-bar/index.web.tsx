@@ -181,10 +181,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         <div className={`${prefixCls}-input`}>
           <div className={`${prefixCls}-synthetic-ph`} ref="syntheticPh">
             <span className={`${prefixCls}-synthetic-ph-container`} ref="syntheticPhContainer">
-              <i className={`${prefixCls}-synthetic-ph-icon`}></i>
-              <span className={`${prefixCls}-synthetic-ph-placeholder`} style={{
-                visibility: placeholder && !value ? 'visible' : 'hidden',
-              }}>{placeholder}</span>
+              <i className={`${prefixCls}-synthetic-ph-icon`}/>
+              <span
+                className={`${prefixCls}-synthetic-ph-placeholder`}
+                style={{visibility: placeholder && !value ? 'visible' : 'hidden'}}
+              >
+                {placeholder}
+              </span>
             </span>
           </div>
           <input
