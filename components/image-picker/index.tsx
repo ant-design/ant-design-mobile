@@ -119,24 +119,29 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
 
   render() {
     const { styles, files = [] } = this.props;
+    const filesView = files.map((item: any, index) => (
+      <View key={index} style={[styles.item, styles.size]}>
+        <Image
+          source={{ uri: item.url }}
+          style={[styles.size, styles.image]}
+        />
+        <TouchableWithoutFeedback onPress={() => this.removeImage(index)}>
+          <View style={styles.closeWrap}>
+            <Text style={styles.closeText}>×</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    ));
+
+    const imageRollEl = (
+      <ImageRoll
+        onCancel={this.hideImageRoll}
+        onSelected={imgObj => this.addImage(imgObj)}
+      />
+    );
     return (
       <View style={styles.container}>
-        {
-          files.map((item: any, index) => (
-            <View key={index} style={[styles.item, styles.size]}>
-              <Image
-                source={{ uri: item.url }}
-                style={[styles.size, styles.image]}
-              />
-              <TouchableWithoutFeedback onPress={() => this.removeImage(index)}>
-                <View style={styles.closeWrap}>
-                  <Text style={styles.closeText}>×</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
-          ))
-        }
-
+        { filesView }
         <TouchableWithoutFeedback
           onPress={this.showPicker}
           onPressIn={this.onPressIn}
@@ -149,12 +154,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             <Text style={[styles.plusNormal, styles.plusText]}>+</Text>
           </View>
         </TouchableWithoutFeedback>
-
-        {
-          this.state.visible ? (
-            <ImageRoll onCancel={this.hideImageRoll} onSelected={imgObj => this.addImage(imgObj)} />
-          ) : null
-        }
+        { this.state.visible ? imageRollEl : null }
       </View>
     );
   }

@@ -15,6 +15,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     files: [],
     onChange: noop,
     onImageClick: noop,
+    onAddImageClick: noop,
     selectable: true,
   };
 
@@ -150,29 +151,31 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       );
     });
 
+    const selectEl = (
+      <Touchable activeClassName={`${prefixCls}-upload-btn-active`}>
+        <div
+          className={`${prefixCls}-item ${prefixCls}-upload-btn`}
+          style={itemStyle}
+          onClick={onAddImageClick}
+        >
+          <input
+            style={itemStyle}
+            ref="fileSelectorInput"
+            type="file"
+            accept="image/jpg,image/jpeg,image/png,image/gif"
+            onChange={() => { this.onFileChange(); }}
+          />
+        </div>
+      </Touchable>
+    );
+
     return (
       <div className={wrapCls} style={style}>
         <div className={`${prefixCls}-list`}>
           <WingBlank size="md">
             <Flex wrap="wrap">
               {imgItemList}
-              {selectable && <Touchable activeClassName={`${prefixCls}-upload-btn-active`}><div
-                className={`${prefixCls}-item ${prefixCls}-upload-btn`}
-                style={itemStyle}
-                onClick={() => {
-                  if (onAddImageClick) {
-                    onAddImageClick();
-                  }
-                }}
-              >
-                {!onAddImageClick ? <input
-                  style={itemStyle}
-                  ref="fileSelectorInput"
-                  type="file"
-                  accept="image/jpg,image/jpeg,image/png,image/gif"
-                  onChange={() => { this.onFileChange(); }}
-                /> : null}
-              </div></Touchable>}
+              {selectable && selectEl}
             </Flex>
           </WingBlank>
         </div>
