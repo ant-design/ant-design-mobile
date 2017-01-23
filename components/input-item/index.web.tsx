@@ -152,7 +152,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (document.activeElement.tagName.toLowerCase() === 'input') {
       this.scrollIntoViewTimeout = setTimeout(() => {
         try {
-          document.activeElement.scrollIntoViewIfNeeded();
+          (document.activeElement as any).scrollIntoViewIfNeeded();
         } catch (e) { }
       }, 0);
     }
