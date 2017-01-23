@@ -40,11 +40,15 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       }
     });
 
-    return (<ListItem
-      {...otherProps}
-      prefixCls={listPrefixCls}
-      className={wrapCls}
-      extra={<Radio {...radioProps} {...extraProps} />}
-    >{children}</ListItem>);
+    return (
+      <ListItem
+        {...otherProps}
+        prefixCls={listPrefixCls}
+        className={wrapCls}
+        extra={<Radio {...radioProps} {...extraProps} />}
+      >
+        {children}
+      </ListItem>
+    );
   }
 }
