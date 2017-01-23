@@ -45,6 +45,8 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
       prefixCls={listPrefixCls}
       className={wrapCls}
       thumb={<Checkbox {...checkboxProps} {...extraProps} />}
-    >{children}</ListItem>);
+    >
+      {children}
+    </ListItem>);
   }
 }
