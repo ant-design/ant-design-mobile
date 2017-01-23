@@ -34,6 +34,7 @@ class InputItem extends React.Component<InputItemProps, any> {
   };
 
   debounceTimeout: any;
+  scrollIntoViewTimeout: any;
 
   constructor(props) {
     super(props);
@@ -60,6 +61,10 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
       this.debounceTimeout = null;
+    }
+    if (this.scrollIntoViewTimeout) {
+      clearTimeout(this.scrollIntoViewTimeout);
+      this.scrollIntoViewTimeout = null;
     }
   }
 
@@ -145,7 +150,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.props.onFocus(value);
     }
     if (document.activeElement.tagName.toLowerCase() === 'input') {
-      window.setTimeout(function() {
+      this.scrollIntoViewTimeout = setTimeout(function() {
         try {
           document.activeElement.scrollIntoViewIfNeeded();
         } catch (e) { }

@@ -36,6 +36,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   };
 
   debounceTimeout: any;
+  scrollIntoViewTimeout: any;
 
   constructor(props) {
     super(props);
@@ -74,6 +75,12 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
+    }
+
+    if (this.scrollIntoViewTimeout) {
+      clearTimeout(this.scrollIntoViewTimeout);
+      this.scrollIntoViewTimeout = null;
     }
   }
 
@@ -124,7 +131,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     }
 
     if (document.activeElement.tagName.toLowerCase() === 'textarea') {
-      window.setTimeout(function() {
+      this.scrollIntoViewTimeout = setTimeout(function() {
         try {
           document.activeElement.scrollIntoViewIfNeeded();
         } catch (e) { }
