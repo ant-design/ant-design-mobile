@@ -32,16 +32,19 @@ export default function (...args) {
     return button;
   });
 
-  ReactDOM.render(<Modal
-    visible
-    transparent
-    prefixCls={prefixCls}
-    title={title}
-    transitionName="am-zoom"
-    closable={false}
-    maskClosable={false}
-    footer={footer}
-    maskTransitionName="am-fade">
-    <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
-  </Modal>, div);
+  ReactDOM.render(
+    <Modal
+      visible
+      transparent
+      prefixCls={prefixCls}
+      title={title}
+      transitionName="am-zoom"
+      closable={false}
+      maskClosable={false}
+      footer={footer}
+      maskTransitionName="am-fade"
+    >
+      <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
+    </Modal>, div
+  );
 }

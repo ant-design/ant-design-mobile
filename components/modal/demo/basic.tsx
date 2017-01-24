@@ -16,27 +16,42 @@ export default class BasicModalExample extends React.Component<any, any> {
     this.setState({
       visible: true,
     });
-  };
+  }
 
   showModal2 = () => {
     this.setState({
       visible2: true,
     });
-  };
+  }
 
   onClose = () => {
     this.setState({
       visible: false,
     });
-  };
+  }
 
   onClose2 = () => {
     this.setState({
       visible2: false,
     });
-  };
+  }
+
+  onButtonClick = () => {
+    Modal.alert(
+      '标题',
+     ('alert 内容内容'),
+      [
+        { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
+        { text: 'OK', onPress: () => console.log('ok') },
+      ],
+    );
+  }
 
   render() {
+    const footerButtons = [
+      { text: 'Cancel', onPress: () => console.log('cancel') },
+      { text: 'Ok', onPress: () => console.log('ok') },
+    ];
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
         <WingBlank>
@@ -44,18 +59,7 @@ export default class BasicModalExample extends React.Component<any, any> {
           <WhiteSpace />
           <Button onClick={this.showModal2}>显示全屏对话框</Button>
           <WhiteSpace />
-          <Button onClick={() => {
-            Modal.alert(
-              '标题',
-             ('alert 内容内容'),
-              [
-                { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
-                { text: 'OK', onPress: () => console.log('ok') },
-              ]
-            );
-          }}>
-            显示 Modal.alert
-          </Button>
+          <Button onClick={this.onButtonClick}>显示 Modal.alert</Button>
         </WingBlank>
         <Modal
           transparent={false}
@@ -75,10 +79,7 @@ export default class BasicModalExample extends React.Component<any, any> {
           maskClosable
           visible={this.state.visible}
           closable
-          footer={[
-            { text: 'Cancel', onPress: () => console.log('cancel') },
-            { text: 'Ok', onPress: () => console.log('ok') },
-          ]}
+          footer={footerButtons}
         >
           <View style={{ paddingVertical: 20 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>

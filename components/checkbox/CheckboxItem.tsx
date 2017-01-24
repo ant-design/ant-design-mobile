@@ -17,24 +17,32 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
     if (this.props.onClick) {
       this.props.onClick();
     }
-  };
+  }
 
   render() {
-    let {style, checkboxStyle, defaultChecked, checked, disabled, children, extra, line, onChange, styles} = this.props;
-
-    return (<ListItem
-      style={style}
-      onClick={disabled ? undefined : this.handleClick}
-      line={line}
-      extra={extra}
-      thumb={<Checkbox
+    let {
+      style, checkboxStyle, defaultChecked, checked, disabled, children, extra, line, onChange, styles,
+    } = this.props;
+    const thumbEl = (
+      <Checkbox
         ref={refCheckbox}
         style={[styles.checkboxItemCheckbox, checkboxStyle]}
         defaultChecked={defaultChecked}
         checked={checked}
         onChange={onChange}
         disabled={disabled}
-      />}
-    >{children}</ListItem>);
+      />
+    );
+    return (
+      <ListItem
+        style={style}
+        onClick={disabled ? undefined : this.handleClick}
+        line={line}
+        extra={extra}
+        thumb={thumbEl}
+      >
+        {children}
+      </ListItem>
+    );
   }
 }

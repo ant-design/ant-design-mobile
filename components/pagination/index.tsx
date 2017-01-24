@@ -12,8 +12,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     simple: false,
     prevText: 'Prev',
     nextText: 'Next',
-    onChange: () => {
-    },
+    onChange: () => {},
     indicatorStyle: null,
     styles: PaginationStyle,
   };
@@ -43,26 +42,34 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   render() {
     const { styles, style, mode, total, simple, prevText, nextText } = this.props;
     const current = this.state.current;
-
+    const simpleItem = !simple ? (
+      <Flex.Item>
+        <View style={[styles.numberStyle]}>
+          <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
+          <Text style={[styles.totalStyle]}>/{total}</Text>
+        </View>
+      </Flex.Item>
+    ) : <Flex.Item />;
     let markup = (
       <Flex>
         <Flex.Item>
-          <Button inline disabled={current <= 0}
+          <Button
+            inline
+            disabled={current <= 0}
             onClick={() => this.onChange(current - 1)}
-          >{prevText}</Button>
+          >
+            {prevText}
+          </Button>
         </Flex.Item>
-        {!simple ?
-          <Flex.Item>
-            <View style={[styles.numberStyle]}>
-              <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
-              <Text style={[styles.totalStyle]}>/{total}</Text>
-            </View>
-          </Flex.Item> : <Flex.Item />
-        }
+        { simpleItem }
         <Flex.Item>
-          <Button inline disabled={current >= total - 1}
+          <Button
+            inline
+            disabled={current >= total - 1}
             onClick={() => this.onChange(this.state.current + 1)}
-          >{nextText}</Button>
+          >
+            {nextText}
+          </Button>
         </Flex.Item>
       </Flex>
     );
@@ -77,9 +84,10 @@ export default class Pagination extends React.Component<PaginationProps, any> {
       const arr: any = [];
       for (let i = 0; i < total; i++) {
         arr.push(
-          <View key={`dot-${i}`} style={[
-            styles.pointStyle, styles.spaceStyle, i === current && styles.pointActiveStyle,
-          ]} />
+          <View
+            key={`dot-${i}`}
+            style={[ styles.pointStyle, styles.spaceStyle, i === current && styles.pointActiveStyle ]}
+          />,
         );
       }
       markup = <View style={[styles.indicatorStyle, this.props.indicatorStyle]}>{arr}</View>;

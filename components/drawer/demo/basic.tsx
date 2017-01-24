@@ -20,32 +20,35 @@ export default class DrawerExample extends React.Component<any, any> {
     Actions.refresh({ key: this.props.navigationState.key, open: isOpen });
   }
   render() {
-    const sidebar = (<ScrollView style={[styles.container, { backgroundColor: '#fff' }]}>
-      <List>
+    const itemArr = Array.apply(null, Array(20)).map(function (_, i) { return i; }).map((_i, index) => {
+      if (index === 0) {
+        return (
+          <List.Item
+            key={index}
+            thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
+            multipleLine
+          >
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Text>分类 - {index}</Text>
+              <Button type="primary" size="small" onClick={() => this.drawer.drawer.closeDrawer()}>
+                关闭 drawer
+              </Button>
+            </View>
+          </List.Item>
+        );
+      }
+      return (
+        <List.Item key={index} thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png">
+          <Text>分类 - {index}</Text>
+        </List.Item>
+      );
+    });
 
-          {Array.apply(null, Array(20)).map(function (_, i) {return i;}).map((_i, index) => {
-            if (index === 0) {
-              return (<List.Item key={index}
-                thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-                multipleLine
-              >
-                <View style={{
-                  flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-                }}>
-                  <Text>分类 - {index}</Text>
-                  <Button type="primary" size="small" onClick={() => this.drawer.drawer.closeDrawer()}>
-                    关闭 drawer
-                  </Button>
-                </View>
-              </List.Item>);
-            }
-            return (<List.Item key={index}
-              thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-            ><Text>分类 - {index}</Text></List.Item>);
-          })}
-
-      </List>
-    </ScrollView>);
+    const sidebar = (
+      <ScrollView style={[styles.container, { backgroundColor: '#fff' }]}>
+        <List>{itemArr}</List>
+      </ScrollView>
+    );
 
     const drawerProps = {
       position: 'left',
@@ -53,13 +56,15 @@ export default class DrawerExample extends React.Component<any, any> {
     };
 
     return (
-      <Drawer sidebar={sidebar} {...drawerProps} ref={d => {
-        this.drawer = d;
-        DrawerExample.drawer = d;
-      } }>
+      <Drawer
+        sidebar={sidebar}
+        {...drawerProps}
+        ref={ d => { this.drawer = d; DrawerExample.drawer = d; } }
+      >
         <DefaultRenderer
           navigationState={this.props.navigationState.children[0]}
-          onNavigate={this.props.onNavigate} />
+          onNavigate={this.props.onNavigate}
+        />
       </Drawer>
     );
   }

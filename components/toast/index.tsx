@@ -4,6 +4,9 @@ import ToastContainer from './ToastContainer';
 
 function notice(content, type, duration = 3, onClose, mask = true) {
   topView.remove();
+  function animationEnd() {
+    topView.remove();
+  }
   topView.set(
     <ToastContainer
       content={content}
@@ -11,10 +14,8 @@ function notice(content, type, duration = 3, onClose, mask = true) {
       onClose={onClose}
       type={type}
       mask={mask}
-      onAnimationEnd={() => {
-        topView.remove();
-      }}
-    />
+      onAnimationEnd={animationEnd}
+    />,
   );
 }
 

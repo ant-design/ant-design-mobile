@@ -71,13 +71,16 @@ export default class Progress extends React.Component<ProgressProps, any> {
       child = <Animated.View style={[styles.progressBar, style, percentStyle]} />;
     }
 
-    return (<View onLayout={this.onLayout}
-      style={[
-        styles.progressOuter,
-        position === 'fixed' ? { position: 'absolute', top: 0 } : null,
-        unfilled === 'hide' ? { backgroundColor: 'transparent' } : null,
-      ]}>
-      {child}
-    </View>);
+    const outerStyle = [
+      styles.progressOuter,
+      position === 'fixed' ? { position: 'absolute', top: 0 } : null,
+      unfilled === 'hide' ? { backgroundColor: 'transparent' } : null,
+    ];
+
+    return (
+      <View onLayout={this.onLayout} style={outerStyle}>
+        {child}
+      </View>
+    );
   }
 }

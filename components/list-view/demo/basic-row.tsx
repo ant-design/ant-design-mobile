@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { View, Text, TouchableHighlight, Image } from 'react-native';
 import { ListView } from 'antd-mobile';
@@ -61,65 +62,56 @@ export default React.createClass({
 
   render() {
     const separator = (sectionID, rowID) => (
-      <View key={`${sectionID}-${rowID}`} style={{
-        backgroundColor: '#F5F5F9',
-        height: 8,
-        borderStyle: 'solid',
-        borderTopWidth: 1,
-        borderTopColor: '#ECECED',
-        borderBottomWidth: 1,
-        borderBottomColor: '#ECECED',
-      }}></View>
+      <View
+        key={`${sectionID}-${rowID}`}
+        style={{
+          backgroundColor: '#F5F5F9',
+          height: 8,
+          borderStyle: 'solid',
+          borderTopWidth: 1,
+          borderTopColor: '#ECECED',
+          borderBottomWidth: 1,
+          borderBottomColor: '#ECECED',
+        }}
+      />
     );
     const row = (_rowData, sectionID, rowID, highlightRow = (_sId, _rId) => {}) => {
       if (index < 0) {
         index = data.length - 1;
       }
       const obj = data[index--];
-      return (<View key={rowID}>
-        <TouchableHighlight underlayColor={'rgba(100,100,100,0.2)'}
-          style={[{
-            padding: 8,
-            backgroundColor: 'white',
-          }]}
-          onPress={() => {
-            highlightRow(sectionID, rowID);
-          }}
-        >
-          <View>
-            <View style={[{
-              marginBottom: 8,
-              borderStyle: 'solid',
-              borderBottomWidth: 1,
-              borderBottomColor: '#F6F6F6',
-            }]}>
-              <Text style={{
-                fontSize: 18,
-                fontWeight: '500',
-                padding: 2,
-              }}>{obj.title}</Text>
-            </View>
-            <View style={[{
-              flexDirection: 'row',
-            }]}>
-              <Image style={[{ height: 64, width: 64, marginRight: 8 }]} source={{ uri: obj.img }} />
-              <View>
-                <Text>{obj.des} - {rowID}</Text>
-                <Text>{this.props.highlightRow}</Text>
-                <Text><Text style={[{ fontSize: 24, color: '#FF6E27' }]}>35</Text>元/任务</Text>
+      return (
+        <View key={rowID}>
+          <TouchableHighlight
+            underlayColor={'rgba(100,100,100,0.2)'}
+            style={[{ padding: 8, backgroundColor: 'white' }]}
+            onPress={() => { highlightRow(sectionID, rowID); }}
+          >
+            <View>
+              <View
+                style={[{ marginBottom: 8, borderStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#F6F6F6' }]}
+              >
+                <Text style={{ fontSize: 18, fontWeight: '500', padding: 2 }}>{obj.title}</Text>
+              </View>
+              <View style={[{ flexDirection: 'row' }]}>
+                <Image style={[{ height: 64, width: 64, marginRight: 8 }]} source={{ uri: obj.img }} />
+                <View>
+                  <Text>{obj.des} - {rowID}</Text>
+                  <Text>{this.props.highlightRow}</Text>
+                  <Text><Text style={[{ fontSize: 24, color: '#FF6E27' }]}>35</Text>元/任务</Text>
+                </View>
               </View>
             </View>
-          </View>
-        </TouchableHighlight>
-      </View>);
+          </TouchableHighlight>
+        </View>
+      );
     };
+    const loadingTxt = this.state.isLoading ? '加载中...' : '加载完毕';
     return (
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <Text>header</Text>}
-        renderFooter={() => <Text style={{ padding: 30, textAlign: 'center' }}>
-          {this.state.isLoading ? '加载中...' : '加载完毕'}
-        </Text>}
+        renderFooter={() => <Text style={{ padding: 30, textAlign: 'center' }}> {loadingTxt} </Text>}
         renderRow={row}
         renderSeparator={separator}
         pageSize={4}
@@ -127,10 +119,6 @@ export default React.createClass({
         scrollEventThrottle={20}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        onChangeVisibleRows={(_visibleRows, _changedRows) => {
-          /* tslint no-console: 0 */
-          // console.log(visibleRows, changedRows);
-        }}
       />
     );
   },

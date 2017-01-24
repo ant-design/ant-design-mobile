@@ -29,24 +29,28 @@ export default class ImagePickerExample extends React.Component<any, any> {
     };
   }
 
+  handleFileChange = (files) => {
+    this.setState({
+      files,
+    });
+  }
+
+  handleFile2Change = (files2) => {
+    this.setState({
+      files2,
+    });
+  }
+
   render() {
     return (
       <View style={{ marginTop: 20, marginLeft: 20 }}>
         <ImagePicker
-          onChange={(files) => {
-            this.setState({
-              files,
-            });
-          }}
+          onChange={this.handleFileChange}
           files={this.state.files}
         />
         <WhiteSpace />
         <ImagePicker
-          onChange={(files2) => {
-            this.setState({
-              files2,
-            });
-          }}
+          onChange={this.handleFile2Change}
           files={this.state.files2}
         />
       </View>

@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import ResultStyle from './style';

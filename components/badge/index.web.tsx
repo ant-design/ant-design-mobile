@@ -49,12 +49,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return (
       <span className={badgeCls} title={text}>
         {children}
-        {
-          !hidden &&
-          <sup className={scrollNumberCls} style={style} >
-            {text}
-          </sup>
-        }
+        { !hidden && <sup className={scrollNumberCls} style={style} > {text} </sup> }
       </span>);
   }
 }

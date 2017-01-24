@@ -20,7 +20,9 @@ export default class MIndexedList extends React.Component<tsPropsType, any> {
         sectionBodyClassName={`${prefixCls}-section-body ${listPrefixCls}-body`}
         {...restProps}
         {...extraProps}
-      >{this.props.children}</IndexedList>
+      >
+        {this.props.children}
+      </IndexedList>
     );
   }
 }

@@ -16,7 +16,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     if (this.props.onChange) {
       this.props.onChange(checked);
     }
-  };
+  }
 
   render() {
     let { prefixCls, style, name, checked, disabled, className } = this.props;
@@ -35,7 +35,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
           checked={checked}
           onChange={this.onChange}
         />
-        <div className="checkbox"></div>
+        <div className="checkbox" />
       </label>);
   }
 }

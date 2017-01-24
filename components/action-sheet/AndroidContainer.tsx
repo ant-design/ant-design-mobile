@@ -44,10 +44,28 @@ const ActionSheetAndroid = React.createClass<Props, any>({
       title, message, url, options, destructiveButtonIndex, cancelButtonIndex, excludedActivityTypes,
     } = config;
     const titleMsg = share ? (
-        url && <View style={styles.title} key="0"><Text>{url}</Text></View>
-      ) : (
-        title && <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View>
-      );
+      url && <View style={styles.title} key="0"><Text>{url}</Text></View>
+    ) : (
+      title && <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View>
+    );
+    const content = share ? (
+      excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)
+    ) : (
+      options as Array<string>).map((item, index) => (
+        <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
+          <TouchableHighlight
+            style={[ styles.btn ]}
+            underlayColor={variables.fill_tap}
+            onPress={() => this.confirm(index) }
+          >
+            <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : null ]}>
+              {item}
+            </Text>
+          </TouchableHighlight>
+          {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
+        </View>
+      ),
+    );
     return (
       <Modal
         animationDuration={200}
@@ -62,27 +80,7 @@ const ActionSheetAndroid = React.createClass<Props, any>({
         <View>
           {titleMsg}
           {message && <View style={styles.message} key="1"><Text>{message}</Text></View> }
-          <View>
-            {share ? (
-                excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)
-              ) : (
-                options as Array<string>).map((item, index) => (
-                  <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
-                    <TouchableHighlight
-                      style={[ styles.btn ]}
-                      underlayColor={variables.fill_tap}
-                      onPress={() => this.confirm(index) }
-                    >
-                      <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : null ]}>
-                        {item}
-                      </Text>
-                    </TouchableHighlight>
-                    {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
-                  </View>
-                )
-              )
-            }
-          </View>
+          <View>{content}</View>
         </View>
       </Modal>
     );

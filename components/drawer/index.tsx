@@ -18,7 +18,7 @@ export default class Drawer extends React.Component<tsPropsType, any> {
     }, restProps] = splitObject(
       this.props,
       ['children', 'sidebar', 'onOpenChange', 'position',
-        'drawerWidth', 'drawerBackgroundColor']
+        'drawerWidth', 'drawerBackgroundColor'],
     );
     if (Platform.OS === 'android') {
       position = DrawerLayout.positions.Left;

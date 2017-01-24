@@ -57,20 +57,22 @@ export default React.createClass({
     const rows = this.state.rowData.map((row, ii) => {
       return <Row key={ii} data={row} onClick={this.onClick} />;
     });
+    const rcEl = (
+      <RefreshControl
+        refreshing={this.state.isRefreshing}
+        onRefresh={this.onRefresh}
+        tintColor="#ff0000"
+        title="Loading..."
+        titleColor="#00ff00"
+        colors={['#ff0000', '#00ff00', '#0000ff']}
+        progressBackgroundColor="#ffff00"
+      />
+    );
     return (
       <ScrollView
         style={styles.scrollview}
-        refreshControl={
-          (<RefreshControl
-            refreshing={this.state.isRefreshing}
-            onRefresh={this.onRefresh}
-            tintColor="#ff0000"
-            title="Loading..."
-            titleColor="#00ff00"
-            colors={['#ff0000', '#00ff00', '#0000ff']}
-            progressBackgroundColor="#ffff00"
-          /> as any)
-        }>
+        refreshControl={rcEl}
+      >
         {rows}
       </ScrollView>
     );

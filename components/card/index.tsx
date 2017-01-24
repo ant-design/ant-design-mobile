@@ -25,12 +25,13 @@ export default class Card extends React.Component<CardProps, any> {
   render() {
     const styles = this.props.styles;
     const cardStyle = this.props.full ? styles.full : {};
+    const childDom = React.Children.map(this.props.children, (child) => React.cloneElement(
+        child as React.ReactElement<any>, { styles },
+      ),
+    );
     return (
       <View style={[styles.card, cardStyle, this.props.style]}>
-        {React.Children.map(this.props.children, (child) => React.cloneElement(
-            child as React.ReactElement<any>, { styles }
-          )
-        )}
+        {childDom}
       </View>
     );
   }

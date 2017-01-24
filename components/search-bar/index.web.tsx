@@ -78,7 +78,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onSubmit) {
       this.props.onSubmit(this.state.value);
     }
-  };
+  }
 
   onChange = (e) => {
     const value = e.target.value;
@@ -88,7 +88,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onChange) {
       this.props.onChange(value);
     }
-  };
+  }
 
   onFocus = () => {
     this.setState({
@@ -105,6 +105,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onFocus) {
       this.props.onFocus();
     }
+
     if (document.activeElement.tagName.toLowerCase() === 'input') {
       this.scrollIntoViewTimeout = setTimeout(() => {
         try {
@@ -127,7 +128,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onBlur) {
       this.props.onBlur();
     }
-  };
+  }
 
   onClear = () => {
     if (!('value' in this.props)) {
@@ -140,7 +141,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onChange) {
       this.props.onChange('');
     }
-  };
+  }
 
   onCancel = () => {
     if (this.props.onCancel) {
@@ -149,7 +150,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.onClear();
     }
     (this.refs as any).searchInput.blur();
-  };
+  }
 
   render() {
     const {
@@ -181,10 +182,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         <div className={`${prefixCls}-input`}>
           <div className={`${prefixCls}-synthetic-ph`} ref="syntheticPh">
             <span className={`${prefixCls}-synthetic-ph-container`} ref="syntheticPhContainer">
-              <i className={`${prefixCls}-synthetic-ph-icon`}></i>
-              <span className={`${prefixCls}-synthetic-ph-placeholder`} style={{
-                visibility: placeholder && !value ? 'visible' : 'hidden',
-              }}>{placeholder}</span>
+              <i className={`${prefixCls}-synthetic-ph-icon`}/>
+              <span
+                className={`${prefixCls}-synthetic-ph-placeholder`}
+                style={{visibility: placeholder && !value ? 'visible' : 'hidden'}}
+              >
+                {placeholder}
+              </span>
             </span>
           </div>
           <input

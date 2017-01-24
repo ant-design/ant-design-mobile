@@ -64,13 +64,13 @@
     "zscroller": "~0.2.2"
   },
   "devDependencies": {
-    "@types/react": "~0.14.41",
+    "@types/react": "^15.0.0",
     "@types/react-dom": "~0.14.18",
-    "@types/react-native": "~0.29.36",
+    "@types/react-native": "~0.37.8",
     "antd": "2.x",
     "antd-mobile-demo-data": "^0.1.1",
-    "antd-tools": "0.14.2",
-    "babel-eslint": "^6.0.4",
+    "antd-tools": "^0.16.1",
+    "babel-eslint": "^7.1.0",
     "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "~6.15.0",
     "babel-preset-react-native": "^1.9.1",

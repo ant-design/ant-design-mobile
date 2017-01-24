@@ -5,15 +5,16 @@ import { View, Text, ScrollView } from 'react-native';
 const Circle = React.createClass({
   render() {
     const size = this.props.size || 20;
+    const style = {
+      borderRadius: size / 2,
+      backgroundColor: '#527fe4',
+      width: size,
+      height: size,
+      margin: 1,
+    };
     return (
       <View
-        style={{
-          borderRadius: size / 2,
-          backgroundColor: '#527fe4',
-          width: size,
-          height: size,
-          margin: 1,
-        }}
+        style={style}
       />
     );
   },

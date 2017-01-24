@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { Image, Text, Dimensions, View } from 'react-native';
 import Flex from '../flex';
@@ -46,27 +47,28 @@ export default class Grid extends React.Component<GridProps, any> {
         if (dataIndex < dataLength) {
           const el = data && data[dataIndex];
           rowArr.push(
-            <Flex.Item key={j} style={[styles.grayBorderBox, flexItemStyle, {
-              borderLeftWidth: hasLine && j === 0 ? 1 : 0,
-            }]}
+            <Flex.Item
+              key={j}
+              style={[styles.grayBorderBox, flexItemStyle, { borderLeftWidth: hasLine && j === 0 ? 1 : 0 }]}
               onPress={() => onClick(el, dataIndex)}
             >
               {renderItem(el, dataIndex)}
-            </Flex.Item>
+            </Flex.Item>,
           );
         } else {
           rowArr.push(
-            <Flex.Item key={j} style={[styles.grayBorderBox, flexItemStyle]} />
+            <Flex.Item key={j} style={[styles.grayBorderBox, flexItemStyle]} />,
           );
         }
       }
+      const boxBorderStyle = {
+        borderTopWidth: hasLine && i === 0 ? 1 : 0,
+        borderBottomWidth: hasLine ? 1 : 0,
+      };
       rowsArr.push(
-        <Flex key={i} style={[styles.grayBorderBox, {
-          borderTopWidth: hasLine && i === 0 ? 1 : 0,
-          borderBottomWidth: hasLine ? 1 : 0,
-        }]}>
+        <Flex key={i} style={[styles.grayBorderBox, boxBorderStyle]}>
           {rowArr}
-        </Flex>
+        </Flex>,
       );
     }
 
@@ -84,15 +86,21 @@ export default class Grid extends React.Component<GridProps, any> {
             for (let jjj = 0; jjj < columnNum; jjj++) {
               res.push(<Flex.Item key={jjj} style={[styles.grayBorderBox, flexItemStyle]} />);
             }
-            pageRows.push(<Flex key={rowIndex}
-              style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
-              {res}
-            </Flex>);
+            pageRows.push(
+              <Flex key={rowIndex} style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
+                {res}
+              </Flex>
+            );
           }
         }
-        pagesArr.push(<View key={pageIndex} style={[styles.grayBorderBox, {
-          borderTopWidth: hasLine && pageIndex !== 0 ? 1 : 0,
-        }]}>{pageRows}</View>);
+        pagesArr.push(
+          <View
+            key={pageIndex}
+            style={[styles.grayBorderBox, { borderTopWidth: hasLine && pageIndex !== 0 ? 1 : 0 }]}
+          >
+            {pageRows}
+          </View>
+        );
       }
     }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text } from 'react-native';
 import BadgeStyle from './style/index';
 import BadgeProps from './PropsType';
 
@@ -19,25 +19,17 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const badgeText = typeof text === 'number' && text > overflowNum ? `${overflowNum}+` : text;
 
     const badgeCls = corner ? 'textCorner' : 'textDom';
+    const contentDom = !dot ? (
+      <View style={ [styles[badgeCls], styles[`${badgeCls}${size}`]] }>
+        <Text style={ [styles.text] }>{badgeText}</Text>
+      </View>
+    ) : <View style={ [styles.dot, styles[`dotSize${size}`] ] } />;
 
     return (
       <View style={[ styles.wrap, style ]}>
         <View style={ [styles[`${badgeCls}Wrap`]] }>
           {children}
-          {
-            !dot ? (
-              <TouchableWithoutFeedback>
-                <View style={ [styles[badgeCls], styles[`${badgeCls}${size}`]] }>
-                  <Text style={ [styles.text] }>{badgeText}</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            ) : (
-              <TouchableWithoutFeedback>
-                <View style={ [styles.dot, styles[`dotSize${size}`] ] } />
-              </TouchableWithoutFeedback>
-            )
-          }
-
+          {contentDom}
         </View>
       </View>
     );

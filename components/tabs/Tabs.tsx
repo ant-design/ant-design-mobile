@@ -71,6 +71,10 @@ class Tabs extends React.Component<TabsProps, any> {
     } = this.props;
     const barBaseStyle = tabBarPosition === 'top' ? styles.barTop : styles.barBottom;
     const linePosition = tabBarPosition === 'top' ? {} : { top: -1 };
+    const underlineStyle = [styles.underline, {
+      bottom: tabBarPosition === 'top' ? -1 : null,
+      backgroundColor: activeUnderlineColor,
+    }, linePosition];
     return (
       <DefaultTabBar
         activeTextColor={activeTextColor}
@@ -78,10 +82,7 @@ class Tabs extends React.Component<TabsProps, any> {
         style={[barBaseStyle, { borderColor: underlineColor }, barStyle ]}
         textStyle={[styles.text]}
         tabStyle={[styles.tab]}
-        underlineStyle={[styles.underline, {
-          bottom: tabBarPosition === 'top' ? -1 : null,
-          backgroundColor: activeUnderlineColor,
-        }, linePosition]}
+        underlineStyle={underlineStyle}
       />
     );
   }

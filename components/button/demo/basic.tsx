@@ -9,9 +9,7 @@ export default () => (
   <View>
     <WhiteSpace />
     <WingBlank>
-      <Button onClick={() => {
-        Alert.alert( 'Button', 'button clicked' );
-      }}>default button</Button>
+      <Button onClick={() => { Alert.alert( 'Button', 'button clicked' ); }}>default button</Button>
       <WhiteSpace />
       <Button type="primary">primary button</Button>
       <WhiteSpace />
@@ -24,10 +22,7 @@ export default () => (
       <Button activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
     </WingBlank>
 
-    <WingBlank style={{
-      marginTop: 20,
-      flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    }}>
+    <WingBlank style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
       <Text>小按钮</Text>
       <Button type="ghost" size="small">ghost small button</Button>
     </WingBlank>

@@ -1,16 +1,16 @@
 interface ButtonProps {
   type?: 'primary' | 'warning' | 'ghost';
   size?: 'large' | 'small';
+  activeStyle?: boolean|Object;
+  disabled?: boolean;
+  onClick?: (x: any) => void;
+  style?: Object|Array<Object>;
+  /** web only */
   inline?: boolean;
   across?: boolean;
-  disabled?: boolean;
   loading?: boolean;
-  style?: {};
-  onClick?: (x: any) => void;
-  /** web only */
-  prefixCls?: string;
-  activeStyle?: any;
   icon?: any;
+  prefixCls?: string;
   /** rn only */
   onPressIn?: (x: any) => void;
   onPressOut?: (x: any) => void;

@@ -45,7 +45,7 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
     const animArr = [
       timing(
         this.state.fadeAnim,
-        { toValue: 1, duration: 200 }
+        { toValue: 1, duration: 200 },
       ),
       Animated.delay(duration * 1000),
     ];
@@ -53,8 +53,8 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
       animArr.push(
         timing(
           this.state.fadeAnim,
-          { toValue: 0, duration: 200 }
-        )
+          { toValue: 0, duration: 200 },
+        ),
       );
     }
     this.anim = Animated.sequence(animArr);

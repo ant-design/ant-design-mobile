@@ -96,6 +96,21 @@ export default class Modal extends React.Component<TagProps, any> {
     const sizeWrapStyle = small ? styles.wrapSmall : {};
     const sizeTextStyle = small ? styles.textSmall : {};
 
+    const closableDom = closable && !small && !disabled ? (
+      <TouchableWithoutFeedback
+        onPressIn={this.onPressIn}
+        onPressOut={this.onPressOut}
+        onPress={this.onTagClose}
+      >
+        <View
+          ref={component => this.closeDom = component}
+          style={[styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid]}
+        >
+          <Text style={[styles.closeText, Platform.OS === 'android' ? styles.closeTransform : {}]}>×</Text>
+        </View>
+      </TouchableWithoutFeedback>
+    ) : null;
+
     return !this.state.closed ? (
       <View style={[ styles.tag, style ]}>
         <TouchableWithoutFeedback onPress={this.onClick}>
@@ -103,17 +118,7 @@ export default class Modal extends React.Component<TagProps, any> {
             <Text style={[styles.text, sizeTextStyle, textStyle]}>{children} </Text>
           </View>
         </TouchableWithoutFeedback>
-        { closable && !small && !disabled && <TouchableWithoutFeedback
-          onPressIn={this.onPressIn}
-          onPressOut={this.onPressOut}
-          onPress={this.onTagClose}
-        >
-          <View
-            ref={component => this.closeDom = component}
-            style={[styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid]}>
-            <Text style={[styles.closeText, Platform.OS === 'android' ? styles.closeTransform : {}]}>×</Text>
-          </View>
-        </TouchableWithoutFeedback> }
+        {closableDom}
       </View>
     ) : null;
   }

@@ -7,10 +7,12 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {
     mode: '',
     onClick() {},
-    icon: <Image
+    icon: (
+      <Image
         source={{ uri: 'https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png' }}
         style={{ width: 14, height:12 }}
-      />,
+      />
+    ),
     styles: NoticeStyle,
   };
 

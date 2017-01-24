@@ -35,13 +35,7 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
 
   _renderSpinner() {
     return (
-      <View
-        style={[{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }]}
-      >
+      <View style={this.props.styles.spinner} >
         <ActivityIndicator
           color={this.props.color}
           size={this.props.size}

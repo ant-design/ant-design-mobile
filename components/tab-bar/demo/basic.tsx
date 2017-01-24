@@ -7,18 +7,21 @@ export default class BasicTabBarExample extends React.Component <any, any> {
     super(props);
     this.state = {
       selectedTab: 'redTab',
-      notifCount: 0,
-      presses: 0,
     };
   }
 
-  renderContent(pageText, num?: number) {
+  renderContent(pageText) {
     return (
       <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
         <Text style={{ margin: 50 }}>{pageText}</Text>
-        <Text style={{ margin: 50 }}>{num} re-renders of the {pageText}</Text>
       </View>
     );
+  }
+
+  onChangeTab(tabName) {
+    this.setState({
+      selectedTab: tabName,
+    });
   }
 
   render() {
@@ -33,52 +36,37 @@ export default class BasicTabBarExample extends React.Component <any, any> {
           icon={require('./alipay.png')}
           selectedIcon={require('./alipay_sel.png')}
           selected={this.state.selectedTab === 'blueTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'blueTab',
-            });
-          }}>
+          onPress={() => this.onChangeTab('blueTab')}
+        >
           {this.renderContent('生活 Tab')}
         </TabBar.Item>
         <TabBar.Item
           icon={require('./koubei.png')}
           selectedIcon={require('./koubei_sel.png')}
           title="口碑"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
+          badge={2}
           selected={this.state.selectedTab === 'redTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'redTab',
-              notifCount: this.state.notifCount + 1,
-            });
-          }}>
-          {this.renderContent('口碑 Tab', this.state.notifCount)}
+          onPress={() => this.onChangeTab('redTab')}
+        >
+          {this.renderContent('口碑 Tab')}
         </TabBar.Item>
         <TabBar.Item
           icon={require('./friend.png')}
           selectedIcon={require('./friend_sel.png')}
           title="朋友"
           selected={this.state.selectedTab === 'greenTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'greenTab',
-              presses: this.state.presses + 1,
-            });
-          }}>
-          {this.renderContent('朋友 Tab', this.state.presses)}
+          onPress={() => this.onChangeTab('greenTab')}
+        >
+          {this.renderContent('朋友 Tab')}
         </TabBar.Item>
         <TabBar.Item
           icon={require('./busi.png')}
           selectedIcon={require('./busi_sel.png')}
           title="我的"
           selected={this.state.selectedTab === 'yellowTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'yellowTab',
-              presses: this.state.presses + 1,
-            });
-          }}>
-          {this.renderContent('我的 Tab', this.state.presses)}
+          onPress={() => this.onChangeTab('yellowTab')}
+        >
+          {this.renderContent('我的 Tab')}
         </TabBar.Item>
       </TabBar>
     );

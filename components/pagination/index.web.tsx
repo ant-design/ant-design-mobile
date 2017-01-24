@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
 import Button from '../button';
@@ -12,8 +13,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     simple: false,
     prevText: 'Prev',
     nextText: 'Next',
-    onChange: () => {
-    },
+    onChange: () => { },
   };
 
   constructor(props) {
@@ -45,9 +45,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     let markup = (
       <Flex>
         <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-prev`}>
-          <Button inline disabled={current <= 0}
-            onClick={() => this.onChange(current - 1)}
-          >{prevText}</Button>
+          <Button inline disabled={current <= 0} onClick={() => this.onChange(current - 1)}>{prevText}</Button>
         </Flex.Item>
         {this.props.children ? (<Flex.Item>{this.props.children}</Flex.Item>) : (!simple &&
           <Flex.Item className={`${prefixCls}-wrap`}>
@@ -55,9 +53,13 @@ export default class Pagination extends React.Component<PaginationProps, any> {
           </Flex.Item>)
         }
         <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}>
-          <Button inline disabled={current >= total - 1}
+          <Button
+            inline
+            disabled={current >= total - 1}
             onClick={() => this.onChange(this.state.current + 1)}
-          >{nextText}</Button>
+          >
+            {nextText}
+          </Button>
         </Flex.Item>
       </Flex>
     );
@@ -71,19 +73,26 @@ export default class Pagination extends React.Component<PaginationProps, any> {
       const arr: any = [];
       for (let i = 0; i < total; i++) {
         arr.push(
-          <div key={`dot-${i}`} className={classNames({
-            [`${prefixCls}-wrap-dot`]: true,
-            [`${prefixCls}-wrap-dot-active`]: i === current,
-          })}>
+          <div
+            key={`dot-${i}`}
+            className={classNames({
+              [`${prefixCls}-wrap-dot`]: true,
+              [`${prefixCls}-wrap-dot-active`]: i === current,
+            })}
+          >
             <span />
-          </div>
+          </div>,
         );
       }
       markup = <div className={`${prefixCls}-wrap`}>{arr}</div>;
     }
-    return <div className={classNames({
-        [className as string]: className,
-        [prefixCls as string]: true,
-      })} style={style}>{markup}</div>;
+    return (
+      <div
+        className={classNames({ [className as string]: className, [prefixCls as string]: true })}
+        style={style}
+      >
+        {markup}
+      </div>
+    );
   }
 }
