@@ -27,12 +27,12 @@ class TabBar extends React.Component <TabBarProps, any> {
     React.Children.forEach(children, (child: any, idx) => {
       if (content) {
         newChildren.push(
-          <View key={idx} style={[
-            styles.contentItem,
-            idx === selectedIndex ? styles.contentItemSelected : null,
-          ]}>
+          <View
+            key={idx}
+            style={[ styles.contentItem, idx === selectedIndex ? styles.contentItemSelected : null ]}
+          >
             {child.props.children}
-          </View>
+          </View>,
         );
       } else {
         newChildren.push(React.cloneElement(child, {

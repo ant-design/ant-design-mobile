@@ -6,6 +6,12 @@ import TabBar from 'rc-tabs/lib/TabBar';
 import getDataAttr from '../_util/getDataAttr';
 import { TabBarProps, TabBarItemProps } from './PropsType';
 
+export class Item extends React.Component<TabBarItemProps, any> {
+  render() {
+    return null;
+  }
+}
+
 class AntTabBar extends React.Component<TabBarProps, any> {
   static defaultProps = {
     prefixCls: 'am-tab-bar',
@@ -16,7 +22,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
     placeholder: '正在加载',
   };
 
-  static Item = React.createClass<TabBarItemProps, any>({ render() { return null; }});
+  public static Item = Item;
 
   onChange = key => {
     React.Children.forEach(this.props.children, (c: any) => {

@@ -31,20 +31,22 @@ export default class TabBarItem extends React.Component<TabBarItemProps, any> {
       onPress, badge, styles,
     } = this.props;
     const itemSelectedStyle = selected ? styles.barItemSelected : null;
+    const badgeDom = badge ? (
+      <View style={[styles.badge]}>
+        <Text style={[styles.badgeText]}>{badge}</Text>
+      </View>
+    ) : null;
     return (
       <TouchableWithoutFeedback onPress={onPress}>
         <View style={[styles.barItem, itemSelectedStyle]}>
           <View>
             <Image source={selected ? selectedIcon : icon} style={styles.barIcon} />
-            { badge && <View style={[styles.badge]}>
-              <Text style={[styles.badgeText]}>{badge}</Text>
-            </View> }
+            {badgeDom}
           </View>
-          <Text style={[
-            styles.barItemTitle,
-            {color: selected ? tintColor : unselectedTintColor},
-          ]}>{title}</Text>
-          </View>
+          <Text style={[ styles.barItemTitle, {color: selected ? tintColor : unselectedTintColor} ]}>
+            {title}
+          </Text>
+        </View>
       </TouchableWithoutFeedback>
     );
   }

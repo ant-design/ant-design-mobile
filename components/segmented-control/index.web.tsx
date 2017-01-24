@@ -53,14 +53,17 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-selected`]: selected,
     });
+
+    const itemStyle = {
+      color: selected ? '#fff' : tintColor,
+      backgroundColor: selected ? tintColor : '#fff',
+      borderColor: tintColor,
+    };
     return (
       <Touchable key={idx} disabled={disabled} activeClassName={`${prefixCls}-item-active`}>
-        <div className={itemCls}
-          style={{
-            color: selected ? '#fff' : tintColor,
-            backgroundColor: selected ? tintColor : '#fff',
-            borderColor: tintColor,
-          }}
+        <div
+          className={itemCls}
+          style={itemStyle}
           onClick={disabled ? undefined : (e) => this.onClick(e, idx, value)}
         >
           <div className={`${prefixCls}-item-inner`} />

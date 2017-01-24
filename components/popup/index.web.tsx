@@ -58,18 +58,23 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     },
   };
 
-  ReactDOM.render(<Dialog
-    prefixCls={prefixCls}
-    visible
-    title=""
-    footer=""
-    className={`${prefixCls}-${animationType}`}
-    transitionName={transitionName || transName}
-    maskTransitionName={maskTransitionName || 'am-fade'}
-    maskClosable={maskClosable}
-    wrapProps={props.wrapProps || {}}
-    maskProps={props.maskProps || maskProps}
-  >{content}</Dialog>, div);
+  ReactDOM.render(
+    <Dialog
+      prefixCls={prefixCls}
+      visible
+      title=""
+      footer=""
+      className={`${prefixCls}-${animationType}`}
+      transitionName={transitionName || transName}
+      maskTransitionName={maskTransitionName || 'am-fade'}
+      maskClosable={maskClosable}
+      wrapProps={props.wrapProps || {}}
+      maskProps={props.maskProps || maskProps}
+    >
+      {content}
+    </Dialog>,
+    div
+  );
 
   return {
     instanceId,

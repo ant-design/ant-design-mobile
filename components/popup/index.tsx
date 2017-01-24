@@ -16,15 +16,11 @@ export default {
         animationType={options.animationType}
         maskClosable={options.maskClosable}
         onMaskClose={options.onMaskClose}
-        onAnimationEnd={visible => {
-          if (!visible) {
-            topView.remove();
-          }
-        }}
+        onAnimationEnd={visible => { if (!visible) { topView.remove(); } }}
         visible
       >
         {content}
-      </PopupContainer>
+      </PopupContainer>,
     );
   },
   hide() {

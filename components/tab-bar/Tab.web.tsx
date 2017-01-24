@@ -9,23 +9,17 @@ class Tab extends React.Component<any, any> {
 
     const iconRes = selected ? selectedIcon : icon;
     const iconDom = React.isValidElement(iconRes) ? iconRes : (
-      <img className={`${prefixCls}-image`}
-        src={ iconRes.uri || iconRes } alt={title} />
+      <img className={`${prefixCls}-image`} src={ iconRes.uri || iconRes } alt={title} />
     );
     const iconColor = selected ? tintColor : unselectedTintColor;
     return (
       <div {...this.props.dataAttrs}>
         <div className={`${prefixCls}-icon`} style={{ color: iconColor }}>
-          { badge ? (
-              <Badge text={badge} className={`${prefixCls}-badge`}>
-                {iconDom}
-              </Badge>
-            ) : iconDom
-          }
+          { badge ? <Badge text={badge} className={`${prefixCls}-badge`}> {iconDom} </Badge> : iconDom }
         </div>
-        <p className={`${prefixCls}-title`} style={{
-           color: selected ? tintColor : unselectedTintColor,
-        }}>{title}</p>
+        <p className={`${prefixCls}-title`} style={{ color: selected ? tintColor : unselectedTintColor }}>
+          {title}
+        </p>
       </div>
     );
   }

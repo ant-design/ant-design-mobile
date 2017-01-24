@@ -38,7 +38,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
 
     return (
       <div className={wrapCls}>
-        <div ref="bar" className={`${prefixCls}-bar`} style={assign({}, style, percentStyle)}></div>
+        <div ref="bar" className={`${prefixCls}-bar`} style={assign({}, style, percentStyle)} />
       </div>
     );
   }

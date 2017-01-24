@@ -41,7 +41,9 @@ export default class PopoverExample extends React.Component<any, any> {
         <Text style={{ marginTop: 30, marginLeft: 100 }}>选择了：{this.state.selected}</Text>
       </View>
       <View style={styles.menuContainer}>
-        <Popover ref="mc" name="m"
+        <Popover
+          ref="mc"
+          name="m"
           style={{ backgroundColor: '#eee' }}
           overlay={overlay}
           contextStyle={styles.contextStyle}

@@ -36,22 +36,24 @@ export default class PopupExample extends React.Component<any, any> {
     Popup.hide();
   }
 
+  showPopup = () => {
+    Popup.show(
+      this.getPopupContent(1),
+      {
+        maskClosable: true,
+        animationType: 'slide-up',
+        onMaskClose: () => new Promise(resolve => { setTimeout(resolve, 1000); }),
+      },
+    );
+  }
+
   render() {
     return (
       <View style={{ marginTop: 30, paddingHorizontal: 30 }}>
         <WhiteSpace />
         <Button onClick={() => Popup.show(this.getPopupContent(0))}>向下弹出效果</Button>
         <WhiteSpace />
-        <Button onClick={() =>
-          Popup.show(
-            this.getPopupContent(1),
-            {
-              maskClosable: true,
-              animationType: 'slide-up',
-              onMaskClose: () => new Promise(resolve => {setTimeout(resolve, 1000);}),
-            }
-          )
-        }>向上弹出效果</Button>
+        <Button onClick={this.showPopup}>向上弹出效果</Button>
       </View>
     );
   }

@@ -68,15 +68,16 @@ export default class Tag extends React.Component<TagProps, any> {
       [`${prefixCls}-closable`]: closable,
     });
 
+    const closableDom = closable && !disabled && !small ? (
+      <div className={`${prefixCls}-close`} onClick={this.onTagClose}>
+        <Icon type="cross-circle" size="xs" />
+      </div>
+    ) : null;
+
     return !this.state.closed ? (
       <div {...getDataAttr(this.props)} className={wrapCls} onClick={this.onClick} style={style}>
         <div className={`${prefixCls}-text`}>{children}</div>
-        { closable && !disabled && !small && <div
-          className={`${prefixCls}-close`}
-          onClick={this.onTagClose}
-        >
-          <Icon type="cross-circle" size="xs" />
-        </div> }
+        {closableDom}
       </div>
     ) : null;
   }

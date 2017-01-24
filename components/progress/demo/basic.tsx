@@ -19,14 +19,15 @@ export default class BasicProgressExample extends React.Component<any, any> {
   }
 
   render() {
+    const viewStyle = {
+      marginTop: 80,
+      flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+    };
     return (
       <View>
         <Progress percent={90} position="fixed" />
 
-        <View style={{
-          marginTop: 80,
-          flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-        }}>
+        <View style={[viewStyle]}>
           <View style={{ marginRight: 10, height: 4, flex: 1 }}><Progress percent={this.state.percent} /></View>
           <Text>{this.state.percent}%</Text>
         </View>

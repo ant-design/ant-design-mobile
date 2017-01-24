@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import assign from 'object-assign';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native';
@@ -86,7 +87,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     if (onChange) {
       onChange(text);
     }
-  };
+  }
 
   onInputBlur = () => {
     if (this.props.onBlur) {

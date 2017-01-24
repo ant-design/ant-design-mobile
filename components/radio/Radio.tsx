@@ -37,7 +37,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     if (this.props.onChange) {
       this.props.onChange({target: {checked: true}});
     }
-  };
+  }
 
   render(): JSX.Element {
     let {style, disabled, children, styles} = this.props;

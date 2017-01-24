@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { Image, View, TouchableHighlight, Text } from 'react-native';
 import { ListItemProps, BriefProps } from './PropsType';
@@ -114,7 +115,7 @@ export default class Item extends React.Component<ListItemProps, any> {
                   key={`${index}-children`}
                 >
                   {el}
-                </Text>
+                </Text>,
               );
             } else {
               tempExtraDom.push(el);

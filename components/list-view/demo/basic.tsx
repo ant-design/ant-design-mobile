@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { View, Text, TouchableHighlight, Image } from 'react-native';
 import { ListView } from 'antd-mobile';
@@ -75,17 +76,27 @@ export default React.createClass({
       });
     }, 1000);
   },
+  renderSectionHeader(sectionData) {
+    return (
+      <Text style={[{ padding: 10, color: 'blue', backgroundColor: 'rgba(150, 150, 150, 0.6)' }]}>
+        {`任务 ${sectionData.split(' ')[1]}`}
+      </Text>
+    );
+  },
   render() {
     const separator = (sectionID, rowID) => (
-      <View key={`${sectionID}-${rowID}`} style={{
-        backgroundColor: '#F5F5F9',
-        height: 8,
-        borderStyle: 'solid',
-        borderTopWidth: 1,
-        borderTopColor: '#ECECED',
-        borderBottomWidth: 1,
-        borderBottomColor: '#ECECED',
-      }}></View>
+      <View
+        key={`${sectionID}-${rowID}`}
+        style={{
+          backgroundColor: '#F5F5F9',
+          height: 8,
+          borderStyle: 'solid',
+          borderTopWidth: 1,
+          borderTopColor: '#ECECED',
+          borderBottomWidth: 1,
+          borderBottomColor: '#ECECED',
+        }}
+      />
     );
     const row = (_rowData, sectionID, rowID, highlightRow = (_sId, _rId) => {}) => {
       if (index < 0) {
@@ -93,31 +104,18 @@ export default React.createClass({
       }
       const obj = data[index--];
       return (<View key={rowID}>
-        <TouchableHighlight underlayColor={'rgba(100,100,100,0.2)'}
-          style={[{
-            padding: 8,
-            backgroundColor: 'white',
-          }]}
-          onPress={() => {
-            highlightRow(sectionID, rowID);
-          }}
+        <TouchableHighlight
+          underlayColor={'rgba(100,100,100,0.2)'}
+          style={[{ padding: 8, backgroundColor: 'white' }]}
+          onPress={() => { highlightRow(sectionID, rowID); }}
         >
           <View>
-            <View style={[{
-              marginBottom: 8,
-              borderStyle: 'solid',
-              borderBottomWidth: 1,
-              borderBottomColor: '#F6F6F6',
-            }]}>
-              <Text style={{
-                fontSize: 18,
-                fontWeight: '500',
-                padding: 2,
-              }}>{obj.title}</Text>
+            <View
+              style={[{ marginBottom: 8, borderStyle: 'solid', borderBottomWidth: 1, borderBottomColor: '#F6F6F6' }]}
+            >
+              <Text style={{ fontSize: 18, fontWeight: '500', padding: 2 }}>{obj.title}</Text>
             </View>
-            <View style={[{
-              flexDirection: 'row',
-            }]}>
+            <View style={[{ flexDirection: 'row' }]}>
               <Image style={[{ height: 64, width: 64, marginRight: 8 }]} source={{ uri: obj.img }} />
               <View>
                 <Text>{obj.des} - {rowID}</Text>
@@ -129,31 +127,21 @@ export default React.createClass({
         </TouchableHighlight>
       </View>);
     };
+    const loadingTxt = this.state.isLoading ? '加载中...' : '加载完毕';
     return (
       <ListView
         dataSource={this.state.dataSource}
         renderHeader={() => <Text style={[{ padding: 30 }]}>列表头</Text>}
-        renderFooter={() => <Text style={[{ padding: 30, textAlign: 'center' }]}>
-          {this.state.isLoading ? '加载中...' : '加载完毕'}
-        </Text>}
-        renderSectionHeader={(sectionData) => <Text style={[{
-          padding: 10, color: 'blue',
-          backgroundColor: 'rgba(150, 150, 150, 0.6)',
-        }]}>
-            {`任务 ${sectionData.split(' ')[1]}`}
-          </Text>}
+        renderFooter={() => <Text style={[{ padding: 30, textAlign: 'center' }]}> {loadingTxt} </Text>}
+        renderSectionHeader={this.renderSectionHeader}
         renderRow={row}
         renderSeparator={separator}
         pageSize={4}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        onChangeVisibleRows={(_visibleRows, _changedRows) => {
-          // console.log(visibleRows, changedRows);
-        }}
       />
     );
   },
 });
-
 export const title = 'ListView';
 export const description = 'ListView example';

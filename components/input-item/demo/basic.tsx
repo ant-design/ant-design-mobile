@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
 import { InputItem, List, Button } from 'antd-mobile';
@@ -44,7 +45,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             }}
             extra="元"
             placeholder="有标签"
-          >输入框</InputItem>
+          >
+            输入框
+          </InputItem>
           <InputItem
             clear
             onErrorPress={() => { alert(1); }}
@@ -57,7 +60,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             extra={<Text>元</Text>}
             placeholder="不可编辑"
             editable={false}
-          >输入框</InputItem>
+          >
+            输入框
+          </InputItem>
           <InputItem
             clear
             value={this.state.value1}
@@ -68,11 +73,14 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             }}
             placeholder="无标签"
           />
-          <InputItem defaultValue="xx"
+          <InputItem
+            defaultValue="xx"
             clear
             placeholder="自动获取光标"
             autoFocus
-          >标题</InputItem>
+          >
+            标题
+          </InputItem>
           <InputItem
             clear
             placeholder="点击下方按钮该输入框会获取光标"
@@ -82,7 +90,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 focused: false,
               });
             }}
-          >标题</InputItem>
+          >
+            标题
+          </InputItem>
           <List.Item>
             <Button
               onClick={() => {
@@ -91,7 +101,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 });
               }}
               type="primary"
-            >点击获取光标</Button>
+            >
+              点击获取光标
+            </Button>
           </List.Item>
         </List>
         <List renderHeader={() => '固定标签字数'} >
@@ -105,7 +117,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             }}
             labelNumber={2}
             placeholder="两个字标签"
-          >姓名</InputItem>
+          >
+            姓名
+          </InputItem>
           <InputItem
             clear
             value={this.state.labelnum2}
@@ -116,7 +130,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             }}
             labelNumber={3}
             placeholder="三个字标签"
-          >校验码</InputItem>
+          >
+            校验码
+          </InputItem>
           <InputItem
             clear
             value={this.state.labelnum3}
@@ -127,7 +143,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             }}
             labelNumber={4}
             placeholder="四个字标签（默认）"
-          >四字标签</InputItem>
+          >
+            四字标签
+          </InputItem>
         </List>
         <List renderHeader={() => '格式'}>
           <InputItem
@@ -140,7 +158,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 });
               }}
             placeholder="text"
-          >文本输入</InputItem>
+          >
+            文本输入
+          </InputItem>
           <InputItem
             clear
             type="bankCard"
@@ -151,7 +171,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 });
               }}
             placeholder="bankCard"
-          >银行卡</InputItem>
+          >
+            银行卡
+          </InputItem>
           <InputItem
             clear
             type="phone"
@@ -162,7 +184,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 });
               }}
             placeholder="phone"
-          >手机号</InputItem>
+          >
+            手机号
+          </InputItem>
           <InputItem
             clear
             type="password"
@@ -173,7 +197,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 });
               }}
             placeholder="password"
-          >密码</InputItem>
+          >
+            密码
+          </InputItem>
           <InputItem
             clear
             type="number"
@@ -184,7 +210,9 @@ export default class BasicInputItemExample extends React.Component<any, any> {
                 });
               }}
             placeholder="number"
-          >数字</InputItem>
+          >
+            数字
+          </InputItem>
         </List>
       </ScrollView>
     );

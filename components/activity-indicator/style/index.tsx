@@ -34,4 +34,9 @@ export default StyleSheet.create({
     fontSize: 14,
     marginTop: 4,
   },
+  spinner: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

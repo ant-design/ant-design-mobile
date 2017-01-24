@@ -38,7 +38,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     if (this.props.maskClosable && this.props.onClose) {
       this.props.onClose();
     }
-  };
+  }
 
   onFooterLayout = (e) => {
     if (this.root) {
@@ -46,11 +46,11 @@ class AntmModal extends React.Component<ModalPropsType, any> {
         style: [{ paddingBottom: e.nativeEvent.layout.height }, maxHeight],
       });
     }
-  };
+  }
 
   saveRoot = (root) => {
     this.root = root;
-  };
+  }
 
   render() {
     const {
@@ -65,48 +65,59 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       horizontalFlex = { flex: 1 };
     }
     const buttonWrapStyle = footer && footer.length === 2 ? styles.buttonWrapH : styles.buttonWrapV;
-    const footerDom = footer && footer.length ? (
-        <View style={[btnGroupStyle, styles.footer]} onLayout={this.onFooterLayout}>
-          {
-            footer.map((button: any, i) => {
-              let buttonStyle = {};
-              if (button.style) {
-                buttonStyle = button.style;
-                if (typeof buttonStyle === 'string') {
-                  const styleMap = {
-                    'cancel': { fontWeight: 'bold' },
-                    'default': {},
-                    'destructive': { color: 'red' },
-                  };
-                  buttonStyle = styleMap[buttonStyle] || {};
-                }
-              }
-              const noneBorder = footer && footer.length === 2 && i === 1 ? { borderRightWidth: 0 } : {};
-
-              return (
-                <TouchableHighlight key={i} style={horizontalFlex} underlayColor="#ddd" onPress={() => {
-                if (button.onPress) {
-                  button.onPress();
-                }
-                if (onClose) {
-                  onClose();
-                }
-              }}>
-                  <View style={[buttonWrapStyle, noneBorder]}>
-                    <Text style={[styles.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
-                  </View>
-                </TouchableHighlight>
-              );
-            })
+    let footerDom;
+    if (footer && footer.length) {
+      const footerButtons = footer.map((button: any, i) => {
+        let buttonStyle = {};
+        if (button.style) {
+          buttonStyle = button.style;
+          if (typeof buttonStyle === 'string') {
+            const styleMap = {
+              'cancel': { fontWeight: 'bold' },
+              'default': {},
+              'destructive': { color: 'red' },
+            };
+            buttonStyle = styleMap[buttonStyle] || {};
           }
+        }
+        const noneBorder = footer && footer.length === 2 && i === 1 ? { borderRightWidth: 0 } : {};
+        const onPressFn = function() {
+          if (button.onPress) {
+            button.onPress();
+          }
+          if (onClose) {
+            onClose();
+          }
+        };
+        return (
+          <TouchableHighlight key={i} style={horizontalFlex} underlayColor="#ddd" onPress={onPressFn}>
+            <View style={[buttonWrapStyle, noneBorder]}>
+              <Text style={[styles.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
+            </View>
+          </TouchableHighlight>
+        );
+      });
+      footerDom = (
+        <View style={[btnGroupStyle, styles.footer]} onLayout={this.onFooterLayout}>
+          {footerButtons}
         </View>
-      ) : null;
+      );
+    }
 
     let animType = this.props.animationType;
     if (transparent) {
       if (animType === 'slide') {
         animType = 'slide-up';
       }
+      const closableDom = closable ? (
+        <View style={[styles.closeWrap]}>
+          <TouchableWithoutFeedback onPress={onClose}>
+            <View>
+              <Text style={[styles.close]}>×</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+      ) : null;
       return (
         <RCModal
           onClose={this.onMaskClose}
@@ -121,13 +132,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
             {title ? <Text style={[styles.header]}>{title}</Text> : null}
             <View style={[styles.body, bodyStyle]}>{children}</View>
             {footerDom}
-            {closable ? <View style={[styles.closeWrap]}>
-                <TouchableWithoutFeedback onPress={onClose}>
-                  <View>
-                    <Text style={[styles.close]}>×</Text>
-                  </View>
-                </TouchableWithoutFeedback>
-              </View> : null}
+            {closableDom}
           </View>
         </RCModal>
       );

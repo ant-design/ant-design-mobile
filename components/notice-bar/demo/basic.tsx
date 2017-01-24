@@ -5,6 +5,13 @@ import { NoticeBar, WhiteSpace } from 'antd-mobile';
 
 export default class NoticeBarExample extends React.Component<any, any> {
   render() {
+    const customIcon = (
+      <Image
+        source={{uri: 'https://zos.alipayobjects.com/rmsportal/bRnouywfdRsCcLU.png'}}
+        style={{ width: 12, height: 12 }}
+      />
+    );
+
     return (
       <View style={{ marginTop: 10 }}>
         <WhiteSpace size="lg" />
@@ -16,12 +23,7 @@ export default class NoticeBarExample extends React.Component<any, any> {
         <WhiteSpace size="lg" />
         <NoticeBar
           mode="closable"
-          icon={
-            <Image
-              source={{uri: 'https://zos.alipayobjects.com/rmsportal/bRnouywfdRsCcLU.png'}}
-              style={{ width: 12, height: 12 }}
-            />
-          }
+          icon={customIcon}
         >
           自定义 NoticeBar 前面的图标
         </NoticeBar>

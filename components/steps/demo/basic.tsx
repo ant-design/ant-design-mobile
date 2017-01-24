@@ -3,6 +3,12 @@ const Step = Steps.Step;
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 
+export type StepItem = {
+  title: string;
+  description: string;
+  status?: string;
+};
+
 export default class BasicTimelineExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
@@ -20,57 +26,51 @@ export default class BasicTimelineExample extends React.Component<any, any> {
       ],
     };
   }
+
+  getSteps(steps: Array<StepItem>  = []) {
+    steps.map((item, index) => (
+      <Step key={index} title={item.title} description={item.description} status={item.status} />
+    ));
+  }
+
   render() {
-    return (<ScrollView
-      style={{ flex: 1 }}
-      automaticallyAdjustContentInsets={false}
-      showsHorizontalScrollIndicator={false}
-      showsVerticalScrollIndicator={false}
-    >
-      <View style={{marginTop: 60}}>
-        <WingBlank size="lg">
-          <Steps size="small" current={1}>
-            {
-              this.state.steps1.map((item, index) => (
-                <Step key={index} title={item.title} description={item.description} status={item.status} />
-              ))
-            }
-          </Steps>
-        </WingBlank>
-      </View>
-      <View>
-        <WingBlank size="lg">
-          <Steps size="small">
-            {
-              this.state.steps2.map((item, index) => (
-                <Step key={index} title={item.title} description={item.description} status={item.status} />
-              ))
-            }
-          </Steps>
-        </WingBlank>
-      </View>
-      <View>
-        <WingBlank size="lg">
-          <Steps current={1}>
-            {
-              this.state.steps1.map((item, index) => (
-                <Step key={index} title={item.title} description={item.description} status={item.status} />
-              ))
-            }
-          </Steps>
-        </WingBlank>
-      </View>
-      <View>
-        <WingBlank size="lg">
-          <Steps>
-            {
-              this.state.steps2.map((item, index) => (
-                <Step key={index} title={item.title} description={item.description} status={item.status} />
-              ))
-            }
-          </Steps>
-        </WingBlank>
-      </View>
-    </ScrollView>);
+    const { steps1, steps2 } = this.state;
+    return (
+      <ScrollView
+        style={{ flex: 1 }}
+        automaticallyAdjustContentInsets={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={{marginTop: 60}}>
+          <WingBlank size="lg">
+            <Steps size="small" current={1}>
+              {this.getSteps(steps1)}
+            </Steps>
+          </WingBlank>
+        </View>
+        <View>
+          <WingBlank size="lg">
+            <Steps size="small">
+              {this.getSteps(steps2)}
+            </Steps>
+          </WingBlank>
+        </View>
+        <View>
+          <WingBlank size="lg">
+            <Steps current={1}>
+              {this.getSteps(steps1)}
+            </Steps>
+          </WingBlank>
+        </View>
+        <View>
+          <WingBlank size="lg">
+            <Steps>
+              {this.getSteps(steps2)}
+            </Steps>
+          </WingBlank>
+        </View>
+      </ScrollView>
+    );
   }
 }

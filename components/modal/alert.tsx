@@ -7,16 +7,18 @@ export default function (...args) {
   const content = args[1];
   const actions = args[2] || [{ text: '确定' }];
 
+  const onAnimationEnd = (visible) => {
+    if (!visible) {
+      topView.remove();
+    }
+  };
+
   topView.set(
     <AlertContainer
       title={title}
       content={content}
       actions={actions}
-      onAnimationEnd={visible => {
-        if (!visible) {
-          topView.remove();
-        }
-      }}
-    />
+      onAnimationEnd={onAnimationEnd}
+    />,
   );
 }

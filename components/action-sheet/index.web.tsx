@@ -1,4 +1,5 @@
 /* tslint:disable:no-unused-variable */
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 /* tslint:enable:no-unused-variable */
 import ReactDOM from 'react-dom';
@@ -83,7 +84,7 @@ function createActionSheet(flag, config, callback) {
                   <div {...itemProps}>
                     {item}
                     {cancelButtonIndex === index ?
-                    <span className={`${prefixCls}-cancel-button-mask`}></span> : null}
+                    <span className={`${prefixCls}-cancel-button-mask`} /> : null}
                   </div>
                 </Touchable>
               );
@@ -133,18 +134,23 @@ function createActionSheet(flag, config, callback) {
     [`${prefixCls}-${mode}`]: true,
   });
 
-  ReactDOM.render(<Dialog
-    visible
-    title=""
-    footer=""
-    prefixCls={prefixCls}
-    className={rootCls}
-    transitionName={transitionName || `am-slide-up`}
-    maskTransitionName={maskTransitionName || `am-fade`}
-    onClose={close}
-    maskClosable={maskClosable}
-    wrapProps={props.wrapProps || {}}
-  >{children}</Dialog>, div);
+  ReactDOM.render(
+    <Dialog
+      visible
+      title=""
+      footer=""
+      prefixCls={prefixCls}
+      className={rootCls}
+      transitionName={transitionName || `am-slide-up`}
+      maskTransitionName={maskTransitionName || `am-fade`}
+      onClose={close}
+      maskClosable={maskClosable}
+      wrapProps={props.wrapProps || {}}
+    >
+      {children}
+    </Dialog>,
+    div
+  );
 
   return {
     close,

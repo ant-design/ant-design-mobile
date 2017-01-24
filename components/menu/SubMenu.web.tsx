@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
 import List from '../list/index';
@@ -24,7 +25,7 @@ export default class SubMenu extends React.Component<any, any> {
     if (this.props.onSel) {
       this.props.onSel(dataItem);
     }
-  };
+  }
   render() {
     const { subMenuPrefixCls, radioPrefixCls, subMenuData } = this.props;
     const { selItem } = this.state;
@@ -46,7 +47,9 @@ export default class SubMenu extends React.Component<any, any> {
               disabled={dataItem.disabled}
               onChange={() => this.onClick(dataItem)}
             />}
-          >{dataItem.label}</List.Item>
+          >
+            {dataItem.label}
+          </List.Item>
         ))}
       </List>
     );

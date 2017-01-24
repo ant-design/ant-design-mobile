@@ -13,7 +13,7 @@ export default class AgreeItem extends React.Component<AgreeItemPropsType, any> 
   handleClick = () => {
     let checkBox: Checkbox = this.refs[refCheckbox] as Checkbox;
     checkBox.handleClick();
-  };
+  }
 
   render(): JSX.Element {
     let {style, checkboxStyle, children, disabled, checked, defaultChecked, onChange, styles} = this.props;

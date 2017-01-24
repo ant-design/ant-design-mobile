@@ -59,17 +59,17 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
         itemRadius = styles.itemRightRadius;
       }
 
+      const itemStyle = [styles.item, itemRadius, {
+        backgroundColor: idx === selectedIndex ? tintColor : '#fff',
+        borderColor: tintColor,
+      }];
+
       return (
         <TouchableWithoutFeedback key={idx} onPress={(e?: any) => this.onPress(e, idx, value)}>
-          <View
-            style={[styles.item, itemRadius, {
-              backgroundColor: idx === selectedIndex ? tintColor : '#fff',
-              borderColor: tintColor,
-            }]}
-          >
-            <Text style={[styles.itemText, {
-              color: idx === selectedIndex ? '#fff' : tintColor,
-            }]}>{value}</Text>
+          <View style={itemStyle} >
+            <Text style={[styles.itemText, { color: idx === selectedIndex ? '#fff' : tintColor }]}>
+              {value}
+            </Text>
           </View>
         </TouchableWithoutFeedback>
       );

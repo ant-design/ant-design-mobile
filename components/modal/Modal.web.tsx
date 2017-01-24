@@ -47,14 +47,18 @@ export default class Modal extends React.Component<ModalProps, any> {
       }
     }
 
+    const onClickFn = function(e) {
+      e.preventDefault();
+      if (button.onPress) {
+        button.onPress();
+      }
+    };
+
     return (
       <Touchable activeClassName={`${prefixCls}-button-active`} key={i}>
-        <a className={`${prefixCls}-button`} style={buttonStyle} href="#" onClick={(e) => {
-          e.preventDefault();
-          if (button.onPress) {
-            button.onPress();
-          }
-        }}>{button.text || `Button`}</a>
+        <a className={`${prefixCls}-button`} style={buttonStyle} href="#" onClick={onClickFn}>
+          {button.text || `Button`}
+        </a>
       </Touchable>
     );
   }

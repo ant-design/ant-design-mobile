@@ -50,13 +50,7 @@ export default class Picker extends React.Component<IPickerView, any> {
           onValueChange={props.onChange}
           pickerPrefixCls={props.pickerPrefixCls}
         >
-          {props.data.map(children => {
-            return {
-              props: {
-                children,
-              },
-            };
-          })}
+          {props.data.map(children => { return { props: { children } }; })}
         </MultiPicker>
       );
     }

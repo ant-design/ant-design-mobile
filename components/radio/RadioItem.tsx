@@ -16,7 +16,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   handleClick = () => {
     let radio: Radio = this.refs[refRadio] as Radio;
     radio.handleClick();
-  };
+  }
 
   render() {
     let {style, radioStyle, defaultChecked, checked, disabled, children, onChange, styles} = this.props;
@@ -31,17 +31,25 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       </Text>);
     }
 
-    return (<ListItem
-      style={style}
-      onClick={disabled ? undefined : this.handleClick}
-      extra={<Radio
+    const radioEl = (
+      <Radio
         ref={refRadio}
         style={radioStyle}
         defaultChecked={defaultChecked}
         checked={checked}
         onChange={onChange}
         disabled={disabled}
-      />}
-    >{contentDom}</ListItem>);
+      />
+    );
+
+    return (
+      <ListItem
+        style={style}
+        onClick={disabled ? undefined : this.handleClick}
+        extra={radioEl}
+      >
+        {contentDom}
+      </ListItem>
+    );
   }
 }

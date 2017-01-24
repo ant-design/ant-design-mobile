@@ -40,7 +40,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     if (this.props.onChange) {
       this.props.onChange({target: { checked }});
     }
-  };
+  }
 
   render(): JSX.Element {
     let {style, disabled, children, styles} = this.props;
@@ -64,11 +64,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       <TouchableWithoutFeedback onPress={this.handleClick}>
         <View style={[styles.wrapper]}>
           <Image source={imgSrc} style={[styles.icon, style]} />
-          {
-            typeof children === 'string' ? (
-              <Text style={styles.iconRight}>{this.props.children}</Text>
-            ) : children
-          }
+          { typeof children === 'string' ? ( <Text style={styles.iconRight}>{this.props.children}</Text>) : children }
         </View>
       </TouchableWithoutFeedback>
     );

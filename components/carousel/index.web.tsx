@@ -53,21 +53,20 @@ export default class Carousel extends React.Component<CarouselProps, any> {
             for (let i = 0; i < slideCount; i += slidesToScroll) {
               arr.push(i);
             }
+            const dotDom = arr.map(function(index) {
+              const dotCls = classNames({
+                [`${prefixCls}-wrap-dot`]: true,
+                [`${prefixCls}-wrap-dot-active`]: index === current,
+              });
+              return (
+                <div className={dotCls} key={index}>
+                  <span />
+                </div>
+              );
+            });
             return (
               <div className={`${prefixCls}-wrap`}>
-                {
-                  arr.map(function(index) {
-                    const dotCls = classNames({
-                      [`${prefixCls}-wrap-dot`]: true,
-                      [`${prefixCls}-wrap-dot-active`]: index === current,
-                    });
-                    return (
-                      <div className={dotCls} key={index}>
-                        <span></span>
-                      </div>
-                    );
-                  })
-                }
+                {dotDom}
               </div>
             );
           },

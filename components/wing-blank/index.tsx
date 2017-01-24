@@ -13,12 +13,12 @@ class WingBlank extends React.Component<WingBlankProps, any> {
 
   render() {
     const { size, style, children } = this.props;
-    return (<View style={[{
-      marginLeft: varibles[`h_spacing_${size}`],
-      marginRight: varibles[`h_spacing_${size}`]}, style]}
-    >
-      {children}
-    </View>);
+    const margin = varibles[`h_spacing_${size}`];
+    return (
+      <View style={[{ marginLeft: margin, marginRight: margin }, style]}>
+        {children}
+      </View>
+    );
   }
 }
 

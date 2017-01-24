@@ -12,17 +12,22 @@ if (Platform.OS !== 'ios') {
     instance = i;
   };
 
+  const onAnimationEnd = (visible) => {
+    if (!visible) {
+      topView.remove();
+    }
+  };
+
   ActionSheet = {
     showActionSheetWithOptions(config, callback) {
       topView.set(
         <ActionSheetAndroidContainer
           visible
           ref={saveInstance}
-          onAnimationEnd={visible => {
-          if(!visible) {
-            topView.remove();
-          }
-        }} config={config} callback={callback}/>
+          onAnimationEnd={onAnimationEnd}
+          config={config}
+          callback={callback}
+        />,
       );
     },
     showShareActionSheetWithOptions(config: any) {
@@ -30,12 +35,10 @@ if (Platform.OS !== 'ios') {
         <ActionSheetAndroidContainer
           visible
           ref={saveInstance}
-          onAnimationEnd={visible => {
-            if(!visible) {
-              topView.remove();
-            }
-          }} config={config} share
-        />
+          onAnimationEnd={onAnimationEnd}
+          config={config}
+          share
+        />,
       );
     },
     close() {

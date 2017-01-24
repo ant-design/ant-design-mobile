@@ -26,14 +26,20 @@ export default function (...args) {
 
   let inputDom;
 
+  const focusFn = function(input) {
+    setTimeout(() => {
+      if (input) {
+        input.focus();
+      }
+    }, 500);
+  };
+
   switch (type) {
     case 'login-password':
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" defaultValue={defaultValue} ref={input => setTimeout(() => {
-              if (input) { input.focus(); }
-            }, 500)} onChange={onChange} />
+            <input type="text" defaultValue={defaultValue} ref={input => focusFn(input)} onChange={onChange} />
           </div>
           <div className={`${prefixCls}-input`}>
             <input type="password" defaultValue="" onChange={onChange} />
@@ -45,9 +51,7 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="password" defaultValue="" ref={input => setTimeout(() => {
-              if (input) { input.focus(); }
-            }, 500)} onChange={onChange} />
+            <input type="password" defaultValue="" ref={input => focusFn(input)} onChange={onChange} />
           </div>
         </div>
       );
@@ -58,9 +62,7 @@ export default function (...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" defaultValue={defaultValue} ref={input => setTimeout(() => {
-              if (input) { input.focus(); }
-            }, 500)} onChange={onChange} />
+            <input type="text" defaultValue={defaultValue} ref={input => focusFn(input)} onChange={onChange} />
           </div>
         </div>
       );
@@ -121,16 +123,19 @@ export default function (...args) {
     return button;
   });
 
-  ReactDOM.render(<Modal
-    visible
-    transparent
-    prefixCls={prefixCls}
-    title={title}
-    closable={false}
-    maskClosable={false}
-    transitionName="am-zoom"
-    footer={footer}
-    maskTransitionName="am-fade">
-    <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
-  </Modal>, div);
+  ReactDOM.render(
+    <Modal
+      visible
+      transparent
+      prefixCls={prefixCls}
+      title={title}
+      closable={false}
+      maskClosable={false}
+      transitionName="am-zoom"
+      footer={footer}
+      maskTransitionName="am-fade"
+    >
+      <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
+    </Modal>, div
+  );
 }
