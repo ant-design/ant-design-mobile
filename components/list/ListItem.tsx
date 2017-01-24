@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { Image, View, TouchableHighlight, Text } from 'react-native';
 import { ListItemProps, BriefProps } from './PropsType';

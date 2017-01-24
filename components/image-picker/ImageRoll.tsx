@@ -48,7 +48,7 @@ export default class ImageRoll extends React.Component<ImageRollProps, any> {
       <Modal animationType="slide" visible onRequestClose={() => {}} transparent={false}>
         <View style={{flex: 1}}>
           <StatusBar barStyle="light-content" />
-          <View style={styles.statusBarBg}></View>
+          <View style={styles.statusBarBg}/>
           <View style={[styles.naviBar]}>
             <Text style={[styles.barTitle]}>Photos</Text>
             <TouchableOpacity onPress={this.props.onCancel}>

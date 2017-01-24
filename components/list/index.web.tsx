@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import Item from './ListItem';
 import classNames from 'classnames';

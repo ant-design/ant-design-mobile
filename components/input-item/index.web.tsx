@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
 import InputItemProps from './PropsType';

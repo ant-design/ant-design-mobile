@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import assign from 'object-assign';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
