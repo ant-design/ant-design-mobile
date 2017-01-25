@@ -14,7 +14,7 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
   };
 
   render() {
-    const { content, extra, styles, style } = this.props;
+    const { content, extra, styles, style, ...restProps } = this.props;
 
     const contentDom = React.isValidElement(content) ? (
       <View style={{ flex: 1 }}>{content}</View>
@@ -29,7 +29,7 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
     );
 
     return (
-      <View style={[styles.footerWrap, style]}>
+      <View style={[styles.footerWrap, style]} {...restProps}>
         {contentDom}
         { extra ? extraDom : null }
       </View>
