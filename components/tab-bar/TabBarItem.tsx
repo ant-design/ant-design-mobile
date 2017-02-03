@@ -12,9 +12,12 @@ export interface TabBarItemProps {
   title: string;
   tintColor?: string;
   unselectedTintColor?: string;
+  /*react-native android only*/
+  iconStyle?: any;
   /*react-native ios only*/
   systemIcon?: any;
   renderAsOriginal?: boolean;
+  /* react-native only */
   styles?: any;
   /*web only*/
   rootPrefixCls?: string;
@@ -28,14 +31,14 @@ export default class TabBarItem extends React.Component<TabBarItemProps, any> {
   render() {
     const {
       title, selected, tintColor, unselectedTintColor, icon, selectedIcon,
-      onPress, badge, styles,
+      onPress, badge, styles, iconStyle,
     } = this.props;
     const itemSelectedStyle = selected ? styles.barItemSelected : null;
     return (
       <TouchableWithoutFeedback onPress={onPress}>
         <View style={[styles.barItem, itemSelectedStyle]}>
           <View>
-            <Image source={selected ? selectedIcon : icon} style={styles.barIcon} />
+            <Image source={selected ? selectedIcon : icon} style={[styles.barIcon, iconStyle]} />
             { badge && <View style={[styles.badge]}>
               <Text style={[styles.badgeText]}>{badge}</Text>
             </View> }
