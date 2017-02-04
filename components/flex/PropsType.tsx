@@ -12,8 +12,6 @@ export interface FlexProps {
   align?: 'top'|'start'|'middle'|'center'|'bottom'|'end'|'baseline'|'stretch';
   alignContent?: 'start'|'end'|'center'|'between'|'around'|'stretch';
   children?: any;
-  /** rn only */
-  onPress?: (e?: any) => void;
   /** web only */
   onClick?: (e?: any) => void;
 }
