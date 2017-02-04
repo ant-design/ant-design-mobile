@@ -17,8 +17,8 @@ const CustomChildren = (props) => (
     onClick={props.onClick}
     style={{ backgroundColor: '#fff', padding: '0 0.3rem' }}
   >
-    <span style={{ display: 'inline-block', width: '40%' }}>{props.children}</span>
-    <span style={{ height: '0.9rem', lineHeight: '0.9rem', float: 'right' }}>{props.extra}</span>
+    <span style={{ display: 'inline-block', height: '0.9rem', lineHeight: '0.9rem', width: '60%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{props.children}</span>
+    <span style={{ display: 'inline-block', height: '0.9rem', lineHeight: '0.9rem', float: 'right' }}>{props.extra}</span>
   </div>
 );
 
