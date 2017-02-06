@@ -17,8 +17,10 @@ const CustomChildren = (props) => (
     onClick={props.onClick}
     style={{ backgroundColor: '#fff', padding: '0 0.3rem' }}
   >
-    <span style={{ display: 'inline-block', height: '0.9rem', lineHeight: '0.9rem', width: '60%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{props.children}</span>
-    <span style={{ display: 'inline-block', height: '0.9rem', lineHeight: '0.9rem', float: 'right' }}>{props.extra}</span>
+    <div style={{display: 'flex', height: '0.9rem', lineHeight: '0.9rem'}}>
+      <div style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', }}>{props.children}</div>
+      <div style={{ textAlign: 'right'}}>{props.extra}</div>
+    </div>
   </div>
 );
 
@@ -112,7 +114,20 @@ let Test = React.createClass({
           initialValue: ['340000', '341500', '341502'],
         })}
         >
-          <List.Item arrow="horizontal">省市区选择</List.Item>
+          <List.Item arrow="horizontal">选择地区（多列，联动）</List.Item>
+        </Picker>
+        <Picker
+          data={seasons}
+          title="选择季节"
+          cascade={false}
+          extra="请选择(可选)"
+          value={this.state.sValue}
+          onChange={(v) => this.setState({ sValue: v })}
+        >
+          <List.Item arrow="horizontal">选择季节（多列，不联动）</List.Item>
+        </Picker>
+        <Picker data={district} cols={1} {...getFieldProps('district3')} className="forss">
+          <List.Item arrow="horizontal">选择地区（单列）</List.Item>
         </Picker>
         <Picker
           data={this.state.data}
@@ -120,10 +135,7 @@ let Test = React.createClass({
           {...getFieldProps('district2')}
           onPickerChange={this.onPickerChange}
         >
-          <List.Item arrow="horizontal" onClick={this.onClick}>省市选择(异步加载)</List.Item>
-        </Picker>
-        <Picker data={district} cols={1} {...getFieldProps('district3')} className="forss">
-          <List.Item arrow="horizontal">选择省份</List.Item>
+          <List.Item arrow="horizontal" onClick={this.onClick}>选择地区（单列，异步加载）</List.Item>
         </Picker>
       </List>
 
@@ -135,20 +147,11 @@ let Test = React.createClass({
         value={this.state.pickerValue}
         onChange={(v) => this.setState({ pickerValue: v })}
       >
-        <CustomChildren>省市区选择(自定义 children)</CustomChildren>
+        <CustomChildren>选择地区（自定义 children）</CustomChildren>
       </Picker>
 
       <WhiteSpace size="lg" />
-      <Picker
-        data={seasons}
-        title="选择季节"
-        cascade={false}
-        extra="请选择(可选)"
-        value={this.state.sValue}
-        onChange={(v) => this.setState({ sValue: v })}
-      >
-        <List.Item arrow="horizontal">选择季节</List.Item>
-      </Picker>
+
     </div>);
   },
 });
