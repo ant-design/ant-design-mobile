@@ -32,6 +32,7 @@ export default class Footer extends React.Component {
             </div>
           </li>
           <li>
+            <h2>相关站点</h2>
             <div><a href="http://motion.ant.design">Ant Motion</a> - 设计动效</div>
             <div><a href="http://ux.ant.design">Ant UX</a> - 页面逻辑素材</div>
           </li>
