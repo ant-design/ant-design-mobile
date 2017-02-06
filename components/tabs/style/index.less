@@ -2,9 +2,54 @@
 @import '../../style/mixins';
 
 @tabs-prefix-cls: am-tabs;
+@page-hide-color: rgba(255, 255, 255, 0);
+@page-show-color: rgba(255, 255, 255, 1);
 
 .@{tabs-prefix-cls} {
   overflow: hidden;
+
+  &.@{tabs-prefix-cls}-rightpage {
+    .@{tabs-prefix-cls}-bar {
+      .@{tabs-prefix-cls}-tab {
+        &:last-of-type:after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: block;
+          width: 118px;
+          height: 100%;
+          content: ' ';
+          z-index: 1000;
+          background: #FFF;
+          background: -moz-linear-gradient(left, @page-hide-color, @page-show-color);
+          background: -webkit-gradient(linear,0% 0%, 100% 0%, from(@page-hide-color), to(@page-show-color));
+          background: -o-linear-gradient(left, @page-hide-color, @page-show-color);
+        }
+      }
+    }
+  }
+
+  &.@{tabs-prefix-cls}-leftpage {
+    .@{tabs-prefix-cls}-bar {
+      .@{tabs-prefix-cls}-tab {
+        &:nth-child(2)::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 118px;
+          height: 100%;
+          content: ' ';
+          z-index: 1000;
+          background: #FFF;
+          background: -moz-linear-gradient(left, @page-show-color, @page-hide-color);
+          background: -webkit-gradient(linear,0% 0%, 100% 0%, from(@page-show-color), to(@page-hide-color));
+          background: -o-linear-gradient(left, @page-show-color, @page-hide-color);
+        }
+      }
+    }
+  }
+
   &-bar {
     display: flex;
     position: relative;
