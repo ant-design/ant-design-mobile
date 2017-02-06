@@ -114,6 +114,7 @@ module.exports = {
       component: contentTmpl,
     }, {
       path: '/changelog',
+      dataPath: 'CHANGELOG',
       component: contentTmpl,
     }, {
       path: '/components/:children',
