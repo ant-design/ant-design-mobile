@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import scrollIntoView from 'dom-scroll-into-view';
-import config from '../../';
 
 const locale = (
   window.localStorage &&
@@ -42,7 +41,7 @@ export default class Home extends React.Component {
     }, 200);
   }
   render() {
-    const { demos, location, picked } = this.props;
+    const { demos, location, picked, themeConfig: config } = this.props;
 
     let demoMeta;
     const name = this.props.params.component;

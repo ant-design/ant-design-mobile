@@ -1,6 +1,5 @@
 import React from 'react';
 import { List, Icon } from 'antd-mobile';
-import config from '../../';
 import '../../static/style';
 
 function getQuery(searchStr) {
@@ -31,7 +30,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { picked } = this.props;
+    const { picked, themeConfig: config } = this.props;
     const lists = {};
     const query = getQuery(window.location.search);
     picked.components.forEach(i => {
