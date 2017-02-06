@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import TagProps from './PropsType';
-import Icon from '../icon';
+import Icon from '../icon/index.web';
 import getDataAttr from '../_util/getDataAttr';
 
 export default class Tag extends React.Component<TagProps, any> {

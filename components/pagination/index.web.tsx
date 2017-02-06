@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import Button from '../button';
-import Flex from '../flex';
+import Button from '../button/index.web';
+import Flex from '../flex/index.web';
 import PaginationProps from './PropsType';
 
 export default class Pagination extends React.Component<PaginationProps, any> {

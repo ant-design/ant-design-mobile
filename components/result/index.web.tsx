@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../button';
+import Button from '../button/index.web';
 import classNames from 'classnames';
 import ResultProps from './PropsType';
 
