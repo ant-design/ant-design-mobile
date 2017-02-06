@@ -97,7 +97,7 @@ module.exports = {
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2',
-    'bisheng-plugin-antd',
+    'bisheng-plugin-antd?noPreview',
   ],
   routes: {
     path: '/',
