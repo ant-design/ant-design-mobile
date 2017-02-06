@@ -18,7 +18,7 @@ const maxDate = moment('2018-12-03 +0800', 'YYYY-MM-DD Z').utcOffset(8);
 const minDate = moment('2015-08-06 +0800', 'YYYY-MM-DD Z').utcOffset(8);
 
 const maxTime = moment('22:00 +0800', 'HH:mm Z').utcOffset(8);
-const minTime = moment('00:30 +0800', 'HH:mm Z').utcOffset(8);
+const minTime = moment('08:30 +0800', 'HH:mm Z').utcOffset(8);
 
 const gmtNow = moment().utcOffset(0);
 
@@ -52,7 +52,6 @@ let Test = React.createClass({
     return (<div>
       <List
         className="date-picker-list"
-        renderHeader={() => '选择时间'}
         style={{ backgroundColor: 'white' }}
       >
         <DatePicker
@@ -68,7 +67,7 @@ let Test = React.createClass({
           <List.Item arrow="horizontal">日期</List.Item>
         </DatePicker>
         <DatePicker mode="time" {...getFieldProps('time1')}>
-          <List.Item arrow="horizontal">时间,不限定上下限</List.Item>
+          <List.Item arrow="horizontal">时间</List.Item>
         </DatePicker>
         <DatePicker
           mode="time"
@@ -78,7 +77,7 @@ let Test = React.createClass({
           minDate={minTime}
           maxDate={maxTime}
         >
-          <List.Item arrow="horizontal">时间</List.Item>
+          <List.Item arrow="horizontal">时间，限定上下限</List.Item>
         </DatePicker>
         <DatePicker className="forss"
           mode="datetime"
@@ -99,8 +98,8 @@ let Test = React.createClass({
         >
           <List.Item arrow="horizontal">time(en_US)</List.Item>
         </DatePicker>
-        <List.Item extra={this.state.dpValue && this.state.dpValue.format()}>
-          <Button inline size="small" onClick={() => this.setState({ visible: true })}>自定义显示/隐藏</Button>
+        <List.Item extra={this.state.dpValue && this.state.dpValue.format('HH:mm Z')}>
+          <Button type="primary" inline size="small" onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</Button>
         </List.Item>
       </List>
       <DatePicker
