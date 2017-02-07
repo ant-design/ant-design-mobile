@@ -52,11 +52,7 @@ $ npm install babel-plugin-import --save-dev
 
 #### Web 使用方式
 
-1. 首先需要引入『高清方案』设置：具体方法
-
-  见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
-
-2. Set webpack to resolve .web.js suffix
+- 设置 webpack 的 resolve
 
   ```
   resolve: {
@@ -64,7 +60,8 @@ $ npm install babel-plugin-import --save-dev
     extensions: ['', '.web.js', '.js', '.json'],
   },
   ```
-3. 无需单独引入样式，使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 按需加载，插件设置如下：
+
+- 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 插件支持组件按需加载，设置如下：
 
   ```js
   // .babelrc
@@ -73,20 +70,34 @@ $ npm install babel-plugin-import --save-dev
   webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
   ```
 
-实例：
+- 入口页面必需的设置：
+    - 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
+    - 引入 [FastClick](https://github.com/ftlabs/fastclick) (关联 [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
+    - 引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)，示例代码如：
+        ```js
+        if(!window.Promise) {
+          document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+        }
+        ```
+
+组件使用实例：
+
 ```jsx
-// import js and css modularly, parsed by babel-plugin-import
+// Auto import js and css modularly, parsed by babel-plugin-import
 import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
-如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md)
+> 遇到部分组件 Icon 图标不会显示？需要按照 [Icon 组件文档](https://github.com/ant-design/ant-design-mobile/blob/master/components/icon/index.md#如何使用)进行设置。
+>
+> 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md)，
+> 示例：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
 #### React-Native 使用方式
 
 > 注：`Accordion`、`Icon`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
 
-1. `.babelrc` 文件添加以下配置
+- `.babelrc` 文件添加以下配置
 
    ```json
   {"plugins": [["import", { "libraryName": "antd-mobile" }]]}
