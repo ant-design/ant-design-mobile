@@ -40,7 +40,7 @@ source: design
 | message      | 提示信息                  | String 或 React.Element    | 无    |
 | actions         | 按钮组, [{text, onPress, style}]       | Array | 无            |
 
-### Modal.prompt(title?, message?, callbackOrActions, type?, defaultValue?) ( 适用平台：WEB )
+### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?) ( 适用平台：WEB )
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
