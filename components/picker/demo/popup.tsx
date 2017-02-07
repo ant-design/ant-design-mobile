@@ -30,7 +30,6 @@ export default class PopupExample extends React.Component<any, any> {
         <Picker
           data={this.state.data}
           cols={2}
-          triggerType="onClick"
           value={this.state.value}
           onChange={this.onChange}
         >

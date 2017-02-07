@@ -12,6 +12,7 @@ function getDefaultProps() {
     return values.join(',');
   };
   return {
+    triggerType: 'onClick',
     prefixCls: 'am-picker',
     pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
