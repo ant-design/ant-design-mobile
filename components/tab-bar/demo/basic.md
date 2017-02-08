@@ -21,7 +21,7 @@ const TabBarExample = React.createClass({
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
         <div style={{ paddingTop: 60 }}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
-        <a style={{ display: 'block', marginTop: 40, color: '#108ee9' }} onClick={(e) => {
+        <a style={{ display: 'block', marginTop: 40, marginBottom: 600, color: '#108ee9' }} onClick={(e) => {
           e.preventDefault();
           this.setState({
             hidden: !this.state.hidden,
