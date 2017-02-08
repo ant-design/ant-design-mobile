@@ -20,7 +20,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
   }
 
   componentWillReceiveProps(nextProps: CheckboxProps): void {
-    if ('checked' in nextProps) {
+    if (typeof nextProps.checked === 'boolean') {
       this.setState({
         checked: !!nextProps.checked,
       });
@@ -32,7 +32,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       return;
     }
     const checked = !this.state.checked;
-    if (!('checked' in this.props)) {
+    if (!(typeof this.props.checked === 'boolean')) {
       this.setState({
         checked,
       });
