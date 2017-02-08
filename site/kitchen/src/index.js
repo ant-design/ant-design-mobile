@@ -38,11 +38,9 @@ module.exports = {
   ],
   routes: [{
     path: '/',
-    dataPath: '/',
     component: './template/KitchenSink/index',
   }, {
-    path: '/:component/',
-    dataPath: '/components/:component',
+    path: '/components/:component',
     component: './template/KitchenSink/Demo',
   }],
 };

@@ -59,9 +59,9 @@ export default class App extends React.Component {
       }
     });
 
-    let rootPath = '/kitchen-sink';
+    let rootPath = '/kitchen-sink/components';
     if (window.location.port) {
-      rootPath = '';
+      rootPath = '/components';
     }
 
     return (<div className="am-demo-page">
