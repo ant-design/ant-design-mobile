@@ -11,6 +11,7 @@ interface ButtonProps {
   loading?: boolean;
   icon?: any;
   prefixCls?: string;
+  className?: string;
   /** rn only */
   onPressIn?: (x: any) => void;
   onPressOut?: (x: any) => void;
