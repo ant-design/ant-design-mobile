@@ -39,6 +39,17 @@
       }
       &-icon {
         display: flex;
+
+        .tab-badge {
+          :last-child {
+            left: @icon-size-md;
+          }
+        }
+        .tab-dot {
+          :last-child {
+            left: @icon-size-md * 0.8;
+          }
+        }
       }
     }
   }
