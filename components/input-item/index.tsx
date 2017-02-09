@@ -111,6 +111,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       <View style={[InputItemStyle.container, containerStyle, style]}>
         {children ? <Text style={[InputItemStyle.text, textStyle]}>{children}</Text> : null}
         <TextInput
+          ref="input"
           style={[InputItemStyle.input, inputStyle]}
           keyboardType={type === 'number' || type === 'bankCard' ? 'numeric' : 'default'}
           onChange={(event) => this.onChange(event.nativeEvent.text)}
