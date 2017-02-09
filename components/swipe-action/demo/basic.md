@@ -10,7 +10,6 @@ import { SwipeAction, List } from 'antd-mobile';
 const SwipeActionExample = React.createClass({
   render() {
     return (
-      <List>
         <SwipeAction
           style={{ backgroundColor: 'gray' }}
           autoClose
@@ -48,7 +47,6 @@ const SwipeActionExample = React.createClass({
               左右都可操作
           </List.Item>
         </SwipeAction>
-      </List>
     );
   },
 });
