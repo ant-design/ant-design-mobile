@@ -29,7 +29,7 @@ const CustomChildren = (props) => (
     style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
   >
     {props.children}
-    <span style={{ float: 'right' }}>{props.extra}</span>
+    <span style={{ float: 'right', color: '#888' }}>{props.extra}</span>
   </div>
 );
 
@@ -89,7 +89,7 @@ let Test = React.createClass({
         <DatePicker
           mode="time"
           format={val => val.format('HH:mm Z')}
-          okText="Ok"
+          okText="OK"
           dismissText="Cancel"
           locale={enUs}
           {...getFieldProps('customformat', {
