@@ -57,6 +57,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
       const tab = (<Tab
         prefixCls={`${this.props.prefixCls}-tab`}
         badge={cProps.badge}
+        dot={cProps.dot}
         selected={cProps.selected}
         icon={cProps.icon}
         selectedIcon={cProps.selectedIcon}

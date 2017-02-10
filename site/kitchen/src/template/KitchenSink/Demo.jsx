@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import scrollIntoView from 'dom-scroll-into-view';
+// import scrollIntoView from 'dom-scroll-into-view';
 
 const locale = (
   window.localStorage &&
@@ -29,16 +29,18 @@ export function collect(nextProps, callback) {
 
 export default class Home extends React.Component {
   componentDidMount() {
-    this.componentDidUpdate();
+    // this.componentDidUpdate();
   }
   componentDidUpdate() {
-    setTimeout(() => {
-      if (location.hash && document.querySelector(location.hash)) {
-        scrollIntoView(document.querySelector(location.hash), document.body, {
-          alignWithTop: true,
-        });
-      }
-    }, 200);
+    // 暂时好像不需要？
+    // setTimeout(() => {
+    //   if (location.hash && document.querySelector(location.hash)) {
+    //     debugger
+    //     scrollIntoView(document.querySelector(location.hash), document.body, {
+    //       alignWithTop: true,
+    //     });
+    //   }
+    // }, 200);
   }
   render() {
     const { demos, location, picked, themeConfig: config } = this.props;

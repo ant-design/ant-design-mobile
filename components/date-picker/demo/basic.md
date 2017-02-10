@@ -29,7 +29,7 @@ const CustomChildren = (props) => (
     style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
   >
     {props.children}
-    <span style={{ float: 'right' }}>{props.extra}</span>
+    <span style={{ float: 'right', color: '#888' }}>{props.extra}</span>
   </div>
 );
 
@@ -89,7 +89,7 @@ let Test = React.createClass({
         <DatePicker
           mode="time"
           format={val => val.format('HH:mm Z')}
-          okText="Ok"
+          okText="OK"
           dismissText="Cancel"
           locale={enUs}
           {...getFieldProps('customformat', {
@@ -99,28 +99,28 @@ let Test = React.createClass({
           <List.Item arrow="horizontal">time(en_US)</List.Item>
         </DatePicker>
         <List.Item extra={this.state.dpValue && this.state.dpValue.format('HH:mm Z')}>
-          <Button type="primary" inline size="small" onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</Button>
+          <div onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</div>
         </List.Item>
+          <DatePicker
+            visible={this.state.visible}
+            mode="date"
+            title={<span onClick={() => this.setState({ visible: false })}>点击可以关闭</span>}
+            extra="请选择(可选)"
+            onOk={() => console.log('onOk')}
+            onDismiss={() => console.log('onDismiss')}
+            value={this.state.dpValue}
+            onChange={(v) => this.setState({ dpValue: v, visible: false })}
+          />
+          <DatePicker
+            mode="date"
+            title="选择日期"
+            extra="请选择(可选)"
+            value={this.state.dpValue}
+            onChange={(v) => this.setState({ dpValue: v })}
+          >
+            <CustomChildren>时间选择(自定义 children)</CustomChildren>
+          </DatePicker>
       </List>
-      <DatePicker
-        visible={this.state.visible}
-        mode="date"
-        title={<span onClick={() => this.setState({ visible: false })}>点击可以关闭</span>}
-        extra="请选择(可选)"
-        onOk={() => console.log('onOk')}
-        onDismiss={() => console.log('onDismiss')}
-        value={this.state.dpValue}
-        onChange={(v) => this.setState({ dpValue: v, visible: false })}
-      />
-      <DatePicker
-        mode="date"
-        title="选择日期"
-        extra="请选择(可选)"
-        value={this.state.dpValue}
-        onChange={(v) => this.setState({ dpValue: v })}
-      >
-        <CustomChildren>时间选择(自定义 children)</CustomChildren>
-      </DatePicker>
     </div>);
   },
 });

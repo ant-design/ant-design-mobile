@@ -19,7 +19,7 @@ const CustomChildren = (props) => (
   >
     <div style={{display: 'flex', height: '0.9rem', lineHeight: '0.9rem'}}>
       <div style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', }}>{props.children}</div>
-      <div style={{ textAlign: 'right'}}>{props.extra}</div>
+      <div style={{ textAlign: 'right', color: '#888'}}>{props.extra}</div>
     </div>
   </div>
 );
@@ -137,9 +137,6 @@ let Test = React.createClass({
         >
           <List.Item arrow="horizontal" onClick={this.onClick}>选择地区（单列，异步加载）</List.Item>
         </Picker>
-      </List>
-
-      <WhiteSpace size="lg" />
       <Picker
         data={district}
         title="选择地区"
@@ -149,9 +146,7 @@ let Test = React.createClass({
       >
         <CustomChildren>选择地区（自定义 children）</CustomChildren>
       </Picker>
-
-      <WhiteSpace size="lg" />
-
+      </List>
     </div>);
   },
 });

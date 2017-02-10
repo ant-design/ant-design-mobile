@@ -16,16 +16,19 @@ const icons = [
 
 class Demo extends React.Component {
   render() {
-    return (<div>
+    return (<div className="container">
       {
         icons.map((item) => (
-          <span key={item} className="icon-item-wrap">
+          <div key={item} className="icon-item-wrap">
             <Icon type={item} />
-            <span className="icon-item">{item}</span>
-          </span>
+            <div className="icon-item">{item}</div>
+          </div>
         ))
       }
-      <div><span>自定义图标:</span> <Icon type={require('./reload.svg')} /></div>
+      <div key="customIcon" className="icon-item-wrap">
+        <Icon type={require('./reload.svg')} />
+        <div className="icon-item">自定义图标</div>
+      </div>
     </div>);
   }
 }
@@ -34,13 +37,15 @@ ReactDOM.render(<Demo />, mountNode);
 ````
 
 ````css
-.icon-item-wrap {
-  width: 1.5rem;
-  text-align: center;
-  display: inline-block;
-  margin-bottom: 0.24rem;
+.container {
+  margin-top: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
 }
-.icon-item {
-	display: block;
+.icon-item-wrap {
+  height: 1.5rem;
+  flex: 0 0 33%;
+  text-align: center;
 }
 ````

@@ -107,7 +107,7 @@ const App = React.createClass({
         scrollEventThrottle={20}
         onScroll={this.onScroll}
         style={{
-          height: document.body.clientHeight / 2,
+          height: document.documentElement.clientHeight,
           border: '1px solid #ddd',
           margin: '0.1rem 0',
         }}

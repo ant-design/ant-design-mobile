@@ -131,7 +131,7 @@ export default class ComponentDoc extends React.Component {
     const path = doc.meta.filename.split('/')[1];
     const isLocalMode = window.location.port;
     const host = isLocalMode ? 'localhost:8002' : window.location.host;
-    const demoUrl = `${protocol}/${host}/kitchen-sink/${path}/`;
+    const demoUrl = `${protocol}/${host}/kitchen-sink/components/${path}/`;
 
     const PopoverContent = (<div>
       <h4 style={{ margin: '8Px 0 12Px' }}>扫二维码查看演示效果</h4>
@@ -140,8 +140,8 @@ export default class ComponentDoc extends React.Component {
 
     const { title, subtitle, chinese, english } = meta;
     const iframeUrl = currentIndex === 0 ?
-            `${protocol}//${host}${isLocalMode ? '' : '/kitchen-sink'}/${path}/#${path}-demo-${currentIndex}` :
-            `${protocol}//${host}${isLocalMode ? '' : '/kitchen-sink'}/${path}/#${path}-demo-${currentIndex}`;
+            `${protocol}//${host}${isLocalMode ? '/components' : '/kitchen-sink/components'}/${path}/#${path}-demo-${currentIndex}` :
+            `${protocol}//${host}${isLocalMode ? '/components' : '/kitchen-sink/components'}/${path}/#${path}-demo-${currentIndex}`;
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>

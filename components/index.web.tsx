@@ -25,6 +25,7 @@ export { default as NoticeBar } from './notice-bar/index.web';
 
 export { default as Pagination } from './pagination/index.web';
 export { default as Picker } from './picker/index';
+export { default as PickerView } from './picker-view/index';
 export { default as Popover } from './popover/index.web';
 export { default as Popup } from './popup/index.web';
 export { default as Progress } from './progress/index.web';
