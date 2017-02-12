@@ -65,11 +65,11 @@ ReactDOM.render(<App />, mountNode);
   overflow: auto;
 }
 .my-drawer .am-drawer-sidebar {
-  max-width: 4.6rem;
   background-color: #fff;
   overflow: auto;
 }
 .my-drawer .am-drawer-sidebar .am-list {
+  width: 6rem;
   padding: 0;
 }
 ````
