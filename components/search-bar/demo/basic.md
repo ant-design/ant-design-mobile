@@ -63,3 +63,9 @@ const SearchBarExample = React.createClass({
 
 ReactDOM.render(<SearchBarExample />, mountNode);
 ````
+
+```css
+.am-search {
+  border-bottom: 1px solid #ccc;
+}
+```
