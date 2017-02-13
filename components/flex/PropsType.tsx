@@ -14,6 +14,8 @@ export interface FlexProps {
   children?: any;
   /** web only */
   onClick?: (e?: any) => void;
+  /** rn only */
+  onPress?: (e?: any) => void;
 }
 
 export interface FlexItemProps {
