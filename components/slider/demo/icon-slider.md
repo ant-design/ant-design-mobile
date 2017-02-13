@@ -50,7 +50,7 @@ const IconSlider = React.createClass({
 });
 
 ReactDOM.render(
-  <IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
+  <IconSlider min={0} max={20} value={0} icon={['check-circle', 'cross-circle']} />
 , mountNode);
 ````
 
@@ -60,7 +60,7 @@ ReactDOM.render(
   padding: 0 0.62rem;
 }
 
-.iconWrapper .anticon {
+.iconWrapper .am-icon {
   position: absolute;
   top: -0.18rem;
   width: 0.44rem;
@@ -70,11 +70,11 @@ ReactDOM.render(
   color: #000;
 }
 
-.iconWrapper .anticon:first-child {
+.iconWrapper .am-icon:first-child {
   left: 0;
 }
 
-.iconWrapper .anticon:last-child {
+.iconWrapper .am-icon:last-child {
   right: 0;
 }
 
