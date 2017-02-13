@@ -1,7 +1,5 @@
-
-
 module.exports = function (config, includeDemo) {
-  let svgDirs = [
+  var svgDirs = [
     /components\/icon\/style\/assets/,
     /components\/notice-bar\/style\/assets/,
     /components\/toast\/style\/assets/,
