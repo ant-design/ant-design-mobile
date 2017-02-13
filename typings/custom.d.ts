@@ -63,3 +63,5 @@ declare module 'rmc-pull-to-refresh';
 declare module 'react-native-scrollable-tab-view';
 
 declare module 'zscroller';
+
+declare module 'shallowequal';

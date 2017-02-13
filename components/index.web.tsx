@@ -36,6 +36,8 @@ export { default as Result } from './result/index.web';
 export { default as SearchBar } from './search-bar/index.web';
 export { default as SegmentedControl } from './segmented-control/index.web';
 export { default as Slider } from './slider/index.web';
+export { default as Range } from './range/index.web';
+export { default as createTooltip } from './create-tooltip/index.web';
 export { default as Stepper } from './stepper/index.web';
 export { default as Steps } from './steps/index.web';
 export { default as SwipeAction } from './swipe-action/index.web';
