@@ -32,6 +32,8 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   onClick(e, index, value) {
     const { disabled, onChange, onValueChange } = this.props;
     if (!disabled && this.state.selectedIndex !== index) {
+      // just do a mock so that the api to be the same as react-native
+      e.nativeEvent = e.nativeEvent ? e.nativeEvent : {};
       e.nativeEvent.selectedSegmentIndex = index;
       e.nativeEvent.value = value;
       if (onChange) {
@@ -60,11 +62,15 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       borderColor: tintColor,
     };
     return (
-      <Touchable key={idx} disabled={disabled} activeClassName={`${prefixCls}-item-active`}>
+      <Touchable
+        key={idx}
+        disabled={disabled}
+        activeClassName={`${prefixCls}-item-active`}
+        onPress={disabled ? undefined : (e) => this.onClick(e, idx, value)}
+      >
         <div
           className={itemCls}
           style={itemStyle}
-          onClick={disabled ? undefined : (e) => this.onClick(e, idx, value)}
         >
           <div className={`${prefixCls}-item-inner`} />
           {value}

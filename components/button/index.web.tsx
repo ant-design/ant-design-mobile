@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
-import splitObject from '../_util/splitObject';
 import tsProps from './PropsType';
 import Touchable from 'rc-touchable';
 
@@ -38,12 +37,8 @@ class Button extends React.Component<tsProps, any> {
   };
 
   render() {
-    let [{
-      children, className, prefixCls, type, size, inline, across,
-      disabled, icon, loading, activeStyle,
-    }, restProps] = splitObject(this.props,
-      ['children', 'className', 'prefixCls', 'type', 'size', 'inline', 'across',
-        'disabled', 'icon', 'loading', 'activeStyle']);
+    const { children, className, prefixCls, type, size, inline, across,
+      disabled, icon, loading, activeStyle, onClick, ...restProps } = this.props;
 
     const wrapCls = {
       [className as string]: className,
@@ -71,13 +66,12 @@ class Button extends React.Component<tsProps, any> {
         activeClassName={activeStyle ? `${prefixCls}-active` : undefined}
         disabled={disabled}
         activeStyle={activeStyle}
+        onPress={disabled ? () => {} : onClick}
       >
         <a
-          {...restProps}
           role="button"
           className={classNames(wrapCls)}
-          disabled={disabled}
-          onClick={disabled ? () => {} : this.props.onClick}
+          {...restProps}
         >
           {iconType ? <Icon type={iconType} /> : null}
           {kids}
