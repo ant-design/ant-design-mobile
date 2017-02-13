@@ -7,7 +7,7 @@ title: 自定义容器
 
 > 同时建议设置`body`的`overflow: hidden`
 
-````__react
+````jsx
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView } from 'antd-mobile';
 
@@ -143,7 +143,7 @@ const Demo = React.createClass({
         renderFooter={() => <div style={{ padding: 30, textAlign: 'center' }}>
           {this.state.isLoading ? '加载中...' : '加载完毕'}
         </div>}
-        renderSectionHeader={(sectionData) => (
+        renderSectionHeader={sectionData => (
           <div>{`任务 ${sectionData.split(' ')[1]}`}</div>
         )}
         renderBodyComponent={() => <MyBody />}

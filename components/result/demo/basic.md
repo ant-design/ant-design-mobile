@@ -3,7 +3,7 @@ order: 0
 title: 示例
 ---
 
-````__react
+````jsx
 /* eslint global-require: 0 */
 import { Result, Icon } from 'antd-mobile';
 

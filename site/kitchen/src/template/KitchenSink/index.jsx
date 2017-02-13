@@ -33,7 +33,7 @@ export default class App extends React.Component {
     const { picked, themeConfig: config } = this.props;
     const lists = {};
     const query = getQuery(window.location.search);
-    picked.components.forEach(i => {
+    picked.components.forEach((i) => {
       const meta = i.meta;
       if (!lists[meta.type]) {
         lists[meta.type] = [];
@@ -42,7 +42,7 @@ export default class App extends React.Component {
       if (fileName && config.indexDemos.indexOf(fileName) > -1) {
         // add demos
         const demos = [];
-        picked.indexDemos.forEach(j => {
+        picked.indexDemos.forEach((j) => {
           if (j.component === fileName) {
             demos.push(j.meta);
           }
@@ -92,7 +92,7 @@ export default class App extends React.Component {
               className={this.state.cateOpend[index] ? 'category-open' : 'category-closed'}
             >
               {
-                lists[cate].map(item => {
+                lists[cate].map((item) => {
                   const paths = item.filename.split('/');
                   if (config.indexDemos.indexOf(paths[1]) > -1) {
                     return item.demos.map(j => (

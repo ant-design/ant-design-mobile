@@ -5,10 +5,10 @@ title: 基本
 
 ```<WingBlank size='md'>...</WingBlank>```
 
-````__react
+````jsx
 import { WingBlank, WhiteSpace } from 'antd-mobile';
 
-const PlaceHolder = (props) => (
+const PlaceHolder = props => (
   <div style={{
     backgroundColor: '#ebebef',
     color: '#bbb',

@@ -3,7 +3,7 @@ order: 0
 title: 选择器
 ---
 
-````__react
+````jsx
 import { PickerView } from 'antd-mobile';
 
 const seasons = [

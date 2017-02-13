@@ -5,7 +5,7 @@ title: 向下弹出效果
 
 Popup 向下弹出效果
 
-````__react
+````jsx
 import { Popup, List, Button, InputItem } from 'antd-mobile';
 
 const PopupContent = React.createClass({
@@ -29,7 +29,7 @@ const PopupContent = React.createClass({
           thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
           onClick={() => { this.onSel('西吴证券'); }}
         >西吴证券</List.Item>
-        <InputItem value={this.state.val} onChange={(val) => this.setState({ val })}>输入内容</InputItem>
+        <InputItem value={this.state.val} onChange={val => this.setState({ val })}>输入内容</InputItem>
       </List>
     );
   },

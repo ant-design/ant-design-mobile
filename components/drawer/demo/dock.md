@@ -6,7 +6,7 @@ title: 嵌入文档模式
 嵌入到文档流中
 
 
-````__react
+````jsx
 import { Drawer, List, NavBar } from 'antd-mobile';
 
 const App = React.createClass({

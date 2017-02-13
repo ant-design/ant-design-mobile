@@ -4,7 +4,7 @@ title: 示例
 ---
 
 
-````__react
+````jsx
 import { List, Checkbox, Flex } from 'antd-mobile';
 
 const CheckboxItem = Checkbox.CheckboxItem;
@@ -34,7 +34,7 @@ const Test = React.createClass({
 
       <Flex>
         <Flex.Item>
-          <AgreeItem data-seed="logId" onChange={(e) => console.log('checkbox', e)}>
+          <AgreeItem data-seed="logId" onChange={e => console.log('checkbox', e)}>
             已阅读协议<a onClick={(e) => { e.preventDefault(); alert('打开协议'); }}>《协议链接》</a>
           </AgreeItem>
         </Flex.Item>

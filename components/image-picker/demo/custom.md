@@ -3,7 +3,7 @@ order: 1
 title: 自定义选择图片的方法
 ---
 
-````__react
+````jsx
 import { ImagePicker } from 'antd-mobile';
 
 const data = [{
@@ -17,7 +17,7 @@ const data = [{
 const ImagePickerExample = React.createClass({
   getInitialState() {
     return {
-      files: data
+      files: data,
     };
   },
   onChange(files, type, index) {
@@ -41,15 +41,15 @@ const ImagePickerExample = React.createClass({
   render() {
     const { files } = this.state;
     return (
-        <div>
-            <ImagePicker
-                files={files}
-                onChange={this.onChange}
-                onImageClick={(index, fs) => console.log(index, fs)}
-                selectable={files.length < 5}
-                onAddImageClick={this.onAddImageClick}
-            />
-        </div>
+      <div>
+        <ImagePicker
+          files={files}
+          onChange={this.onChange}
+          onImageClick={(index, fs) => console.log(index, fs)}
+          selectable={files.length < 5}
+          onAddImageClick={this.onAddImageClick}
+        />
+      </div>
     );
   },
 });

@@ -5,7 +5,7 @@ title: 向上弹出效果
 
 Popup 向上弹出效果
 
-````__react
+````jsx
 import { Popup, List, Button, Icon } from 'antd-mobile';
 
 // fix touch to scroll background page on iOS

@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import scrollIntoView from 'dom-scroll-into-view';
+import collect from 'bisheng/collect';
 
 const locale = (
   window.localStorage &&
   localStorage.getItem('locale') !== 'en-US'
 ) ? 'zh-CN' : 'en-US';
 
-export function collect(nextProps, callback) {
-  const pageData = nextProps.location.pathname === 'changelog' ?
-    nextProps.data.CHANGELOG : nextProps.pageData;
+@collect(async (nextProps) => {
+  const pageData = nextProps.pageData;
+  if (!pageData) {
+    throw 404; // eslint-disable-line no-throw-literal
+  }
   const pageDataPromise = typeof pageData === 'function' ?
     pageData() : (pageData[locale] || pageData.index[locale] || pageData.index)();
   const promises = [pageDataPromise];
@@ -17,16 +19,13 @@ export function collect(nextProps, callback) {
   if (demos) {
     promises.push(demos());
   }
-  Promise.all(promises)
-    .then((list) => {
-      callback(null, {
-        ...nextProps,
-        localizedPageData: list[0],
-        demos: list[1],
-      });
-    });
-}
+  const list = await Promise.all(promises);
 
+  return {
+    localizedPageData: list[0],
+    demos: list[1],
+  };
+})
 export default class Home extends React.Component {
   componentDidMount() {
     // this.componentDidUpdate();
@@ -47,7 +46,7 @@ export default class Home extends React.Component {
 
     let demoMeta;
     const name = this.props.params.component;
-    picked.components.forEach(i => {
+    picked.components.forEach((i) => {
       const meta = i.meta;
       if (meta.filename.split('/')[1] === name) {
         demoMeta = meta;

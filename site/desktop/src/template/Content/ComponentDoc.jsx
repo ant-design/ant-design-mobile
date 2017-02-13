@@ -27,15 +27,15 @@ export default class ComponentDoc extends React.Component {
   getIndex(props) {
     const linkTo = props.location.hash.replace('#', '');
 
-    const demos = Object.keys(props.demos).map((key) => props.demos[key])
-            .filter((demoData) => !demoData.meta.hidden);
+    const demos = Object.keys(props.demos).map(key => props.demos[key])
+            .filter(demoData => !demoData.meta.hidden);
     const demoSort = demos.sort((a, b) => parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10));
 
     demos.map((item, index) => {
       item.index = index;
     });
 
-    const linkIndex = linkTo ? demoSort.filter((item) => (item.meta.id === linkTo))[0].index : 0;
+    const linkIndex = linkTo ? demoSort.filter(item => (item.meta.id === linkTo))[0].index : 0;
     return linkIndex;
   }
 
@@ -67,8 +67,8 @@ export default class ComponentDoc extends React.Component {
     const codeExpandList = {};
     // const { meta } = this.props.doc;
     const props = this.props;
-    const demos = Object.keys(props.demos).map((key) => props.demos[key])
-            .filter((demoData) => !demoData.meta.hidden);
+    const demos = Object.keys(props.demos).map(key => props.demos[key])
+            .filter(demoData => !demoData.meta.hidden);
 
     this.setState({
       expandAll: !this.state.expandAll,
@@ -79,8 +79,8 @@ export default class ComponentDoc extends React.Component {
   initExpandAll = (nextProps) => {
     const codeExpandList = {};
     const props = nextProps || this.props;
-    const demos = Object.keys(props.demos).map((key) => props.demos[key])
-            .filter((demoData) => !demoData.meta.hidden);
+    const demos = Object.keys(props.demos).map(key => props.demos[key])
+            .filter(demoData => !demoData.meta.hidden);
 
     this.setState({
       expandAll: true,
@@ -97,8 +97,8 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = props;
     const { content, meta } = doc;
 
-    const demos = Object.keys(props.demos).map((key) => props.demos[key])
-            .filter((demoData) => !demoData.meta.hidden);
+    const demos = Object.keys(props.demos).map(key => props.demos[key])
+            .filter(demoData => !demoData.meta.hidden);
     const expand = this.state.expandAll;
 
     const leftChildren = [];
@@ -119,7 +119,7 @@ export default class ComponentDoc extends React.Component {
             currentIndex={currentIndex}
             utils={props.utils}
             expand={expand} pathname={location.pathname}
-          />
+          />,
         );
       });
     const expandTriggerClass = classNames({
@@ -155,7 +155,7 @@ export default class ComponentDoc extends React.Component {
             {
               props.utils.toReactComponent(
               ['section', { className: 'markdown' }]
-              .concat(getChildren(content))
+              .concat(getChildren(content)),
               )
             }
 
@@ -202,7 +202,7 @@ export default class ComponentDoc extends React.Component {
               ['section', {
                 id: 'api',
                 className: 'markdown api-container',
-              }].concat(getChildren(doc.api || ['placeholder']))
+              }].concat(getChildren(doc.api || ['placeholder'])),
             )
           }
         </article>

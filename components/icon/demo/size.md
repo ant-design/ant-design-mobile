@@ -3,7 +3,7 @@ order: 1
 title: 大小
 ---
 
-````__react
+````jsx
 import { Icon } from 'antd-mobile';
 
 ReactDOM.render(<div className="container2">

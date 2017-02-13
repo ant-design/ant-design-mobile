@@ -3,7 +3,7 @@ order: 0
 title: NavBar
 ---
 
-````__react
+````jsx
 import { NavBar, Icon } from 'antd-mobile';
 
 ReactDOM.render(

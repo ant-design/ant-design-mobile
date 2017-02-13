@@ -4,7 +4,7 @@ title: 示例
 ---
 
 
-````__react
+````jsx
 import { List } from 'antd-mobile';
 
 const Item = List.Item;
@@ -14,13 +14,13 @@ const ListExample = React.createClass({
   getInitialState() {
     return {
       disabled: false,
-    }
+    };
   },
   render() {
     return (<div>
       <List renderHeader={() => '左侧无icon'} className="my-list">
         <Item data-seed="logId">标题文字点击无反馈，文字超长则隐藏，文字超长则隐藏</Item>
-         <Item disabled={this.state.disabled} extra=""  onClick={() => {console.log('click', this.state.disabled);this.setState({disabled: true})}}>点击 toggle disabled</Item>
+        <Item disabled={this.state.disabled} extra="" onClick={() => { console.log('click', this.state.disabled); this.setState({ disabled: true }); }}>点击 toggle disabled</Item>
         <Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</Item>
         <Item extra="箭头向右" arrow="horizontal" onClick={() => {}}>标题文字</Item>
         <Item extra="箭头向下" arrow="down" onClick={() => {}}>标题文字</Item>

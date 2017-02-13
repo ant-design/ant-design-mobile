@@ -4,10 +4,10 @@ title: 示例集合
 ---
 
 
-````__react
+````jsx
 import { Flex, WhiteSpace } from 'antd-mobile';
 
-const PlaceHolder = (props) => (
+const PlaceHolder = props => (
   <div style={{
     backgroundColor: '#ebebef',
     color: '#bbb',

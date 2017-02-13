@@ -6,7 +6,7 @@ title: ListView RefreshControl
 下拉刷新
 
 
-````__react
+````jsx
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { RefreshControl, ListView } from 'antd-mobile';
 

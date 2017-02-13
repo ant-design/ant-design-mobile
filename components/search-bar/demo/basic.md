@@ -3,7 +3,7 @@ order: 0
 title: 示例
 ---
 
-````__react
+````jsx
 import { SearchBar, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const SearchBarExample = React.createClass({
@@ -34,7 +34,7 @@ const SearchBarExample = React.createClass({
           });
         }}
       />
-      <WhiteSpace/>
+      <WhiteSpace />
       <WingBlank>
         <Button
           onClick={() => {
@@ -45,13 +45,13 @@ const SearchBarExample = React.createClass({
           type="primary"
         >点击获取光标</Button>
       </WingBlank>
-      <WhiteSpace/>
+      <WhiteSpace />
       <p style={{ padding: 10, color: '#999' }}>显示取消按钮</p>
       <SearchBar
         value={this.state.value}
         placeholder="搜索"
-        onSubmit={(value) => console.log(value, 'onSubmit')}
-        onClear={(value) => console.log(value, 'onClear')}
+        onSubmit={value => console.log(value, 'onSubmit')}
+        onClear={value => console.log(value, 'onClear')}
         onFocus={() => console.log('onFocus')}
         onBlur={() => console.log('onBlur')}
         showCancelButton

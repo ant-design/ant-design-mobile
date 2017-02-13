@@ -5,7 +5,7 @@ title: 基本用法
 
 基本的活动指示器。
 
-````__react
+````jsx
 import { ActivityIndicator, WingBlank, WhiteSpace, Button } from 'antd-mobile';
 
 const App = React.createClass({

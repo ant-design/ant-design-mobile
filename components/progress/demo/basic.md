@@ -6,7 +6,7 @@ title: 基本
 基本功能展示
 
 
-````__react
+````jsx
 import { Progress, Button } from 'antd-mobile';
 
 const MyProgress = React.createClass({

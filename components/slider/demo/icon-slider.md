@@ -7,7 +7,7 @@ title: 带 icon 的滑块
 
 
 
-````__react
+````jsx
 import { Slider, WhiteSpace, WingBlank } from 'antd-mobile';
 import Icon from '../../icon';
 

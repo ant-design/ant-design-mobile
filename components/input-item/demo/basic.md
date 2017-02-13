@@ -5,8 +5,8 @@ title: 示例集合
 
 受控组件建议使用([rc-form 文档](https://github.com/react-component/form))
 
-````__react
-import { List, InputItem, Button, WhiteSpace } from 'antd-mobile';
+````jsx
+import { List, InputItem, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let BasicInputExample = React.createClass({
@@ -20,38 +20,38 @@ let BasicInputExample = React.createClass({
     return (
       <div>
         <List renderHeader={() => '自定义获取光标'}>
-        <InputItem
-          {...getFieldProps('autofocus')}
-          clear
-          placeholder="自动获取光标"
-          autoFocus
-        >标题</InputItem>
-        <InputItem
-          {...getFieldProps('focus')}
-          clear
-          placeholder="点击下方按钮该输入框会获取光标"
-          focused={this.state.focused}
-          onFocus={() => {
-            this.setState({
-              focused: false,
-            });
-          }}
-        >标题</InputItem>
-        <List.Item>
-          <div
-            style={{width: '100%', color: '#108ee9', textAlign: 'center'}}
-            onClick={() => {
+          <InputItem
+            {...getFieldProps('autofocus')}
+            clear
+            placeholder="自动获取光标"
+            autoFocus
+          >标题</InputItem>
+          <InputItem
+            {...getFieldProps('focus')}
+            clear
+            placeholder="点击下方按钮该输入框会获取光标"
+            focused={this.state.focused}
+            onFocus={() => {
               this.setState({
-                focused: true,
+                focused: false,
               });
             }}
-          >
+          >标题</InputItem>
+          <List.Item>
+            <div
+              style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
+              onClick={() => {
+                this.setState({
+                  focused: true,
+                });
+              }}
+            >
           点击获取光标
         </div>
-        </List.Item>
+          </List.Item>
         </List>
         <List renderHeader={() => '受控 / 非受控'}>
-         <InputItem
+          <InputItem
             {...getFieldProps('control')}
             placeholder="Hello World"
           >受控组件</InputItem>

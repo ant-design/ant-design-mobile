@@ -5,9 +5,9 @@ title: 基本
 
 日期时间选择示例 ([rc-form 文档](https://github.com/react-component/form))
 
-````__react
+````jsx
 
-import { DatePicker, List, Button } from 'antd-mobile';
+import { DatePicker, List } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -23,7 +23,7 @@ const minTime = moment('08:30 +0800', 'HH:mm Z').utcOffset(8);
 const gmtNow = moment().utcOffset(0);
 
 // 如果不是使用 List.Item 作为 children
-const CustomChildren = (props) => (
+const CustomChildren = props => (
   <div
     onClick={props.onClick}
     style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
@@ -101,25 +101,25 @@ let Test = React.createClass({
         <List.Item extra={this.state.dpValue && this.state.dpValue.format('HH:mm Z')}>
           <div onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</div>
         </List.Item>
-          <DatePicker
-            visible={this.state.visible}
-            mode="date"
-            title={<span onClick={() => this.setState({ visible: false })}>点击可以关闭</span>}
-            extra="请选择(可选)"
-            onOk={() => console.log('onOk')}
-            onDismiss={() => console.log('onDismiss')}
-            value={this.state.dpValue}
-            onChange={(v) => this.setState({ dpValue: v, visible: false })}
-          />
-          <DatePicker
-            mode="date"
-            title="选择日期"
-            extra="请选择(可选)"
-            value={this.state.dpValue}
-            onChange={(v) => this.setState({ dpValue: v })}
-          >
-            <CustomChildren>时间选择(自定义 children)</CustomChildren>
-          </DatePicker>
+        <DatePicker
+          visible={this.state.visible}
+          mode="date"
+          title={<span onClick={() => this.setState({ visible: false })}>点击可以关闭</span>}
+          extra="请选择(可选)"
+          onOk={() => console.log('onOk')}
+          onDismiss={() => console.log('onDismiss')}
+          value={this.state.dpValue}
+          onChange={v => this.setState({ dpValue: v, visible: false })}
+        />
+        <DatePicker
+          mode="date"
+          title="选择日期"
+          extra="请选择(可选)"
+          value={this.state.dpValue}
+          onChange={v => this.setState({ dpValue: v })}
+        >
+          <CustomChildren>时间选择(自定义 children)</CustomChildren>
+        </DatePicker>
       </List>
     </div>);
   },

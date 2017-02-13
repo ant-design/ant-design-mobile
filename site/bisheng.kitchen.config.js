@@ -4,9 +4,9 @@ const commonConfig = require('./bisheng.common.config');
 
 module.exports = Object.assign({}, commonConfig, {
   port: 8002,
-  source: [
-    './components',
-  ],
+  source: {
+    components: './components',
+  },
   output: './_site/kitchen-sink',
   root: '/kitchen-sink/',
   entryName: 'kitchen-sink',

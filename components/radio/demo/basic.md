@@ -4,7 +4,7 @@ title: 示例
 ---
 
 
-````__react
+````jsx
 import { List, Radio, Flex, WhiteSpace } from 'antd-mobile';
 
 const RadioItem = Radio.RadioItem;
@@ -24,7 +24,7 @@ const Test = React.createClass({
       value,
     });
   },
-   onChange2(value) {
+  onChange2(value) {
     console.log('checkbox');
     this.setState({
       value2: value,
@@ -49,7 +49,7 @@ const Test = React.createClass({
           </RadioItem>
         ))}
       </List>
-       <WhiteSpace size="lg" />
+      <WhiteSpace size="lg" />
       <List>
         {data2.map(i => (
           <RadioItem key={i.value} checked={value2 === i.value} onChange={() => this.onChange2(i.value)}>
@@ -65,7 +65,7 @@ const Test = React.createClass({
           </RadioItem>
         ))}
       </List>
-       <WhiteSpace size="lg" />
+      <WhiteSpace size="lg" />
       <List>
         {data2.map(i => (
           <RadioItem key={i.value} checked={value4 === i.value} onChange={() => this.onChange4(i.value)} disabled>
@@ -76,7 +76,7 @@ const Test = React.createClass({
       <Flex style={{ padding: '0.3rem' }}>
         <Flex.Item style={{ padding: '0.3rem 0', color: '#888', flex: 'none' }}>Radio 演示 (自定义样式)</Flex.Item>
         <Flex.Item>
-          <Radio className="my-radio" onChange={(e) => console.log('checkbox', e)}>同意协议</Radio>
+          <Radio className="my-radio" onChange={e => console.log('checkbox', e)}>同意协议</Radio>
         </Flex.Item>
       </Flex>
     </div>);

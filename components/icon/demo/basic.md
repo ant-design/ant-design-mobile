@@ -4,7 +4,7 @@ title: 基本
 ---
 
 
-````__react
+````jsx
 import { Icon } from 'antd-mobile';
 
 const icons = [
@@ -18,7 +18,7 @@ class Demo extends React.Component {
   render() {
     return (<div className="container">
       {
-        icons.map((item) => (
+        icons.map(item => (
           <div key={item} className="icon-item-wrap">
             <Icon type={item} />
             <div className="icon-item">{item}</div>
