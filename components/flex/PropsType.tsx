@@ -16,15 +16,24 @@ export interface FlexProps {
   onClick?: (e?: any) => void;
   /** rn only */
   onPress?: (e?: any) => void;
+  onLongPress?: any;
+  onPressIn?: any;
+  onPressOut?: any;
+  disabled?: boolean;
 }
 
 export interface FlexItemProps {
   flex?: number;
-  onPress?: any;
   /** web only */
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
   onClick?: (e?: any) => void;
   children?: any;
+  /* touchableWithoutFeedback prop */
+  onPress?: any;
+  onLongPress?: any;
+  onPressIn?: any;
+  onPressOut?: any;
+  disabled?: boolean;
 }
