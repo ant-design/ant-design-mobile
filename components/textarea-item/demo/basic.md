@@ -39,17 +39,18 @@ let TextareaItemExample = React.createClass({
               });
             }}
           />
-          <List.Item>
-            <Button
-              onClick={() => {
-                this.setState({
-                  focused: true,
-                });
-              }}
-              type="primary"
-            >点击获取光标</Button>
-          </List.Item>
-        </List>
+        <List.Item>
+          <div
+            style={{width: '100%', color: '#108ee9', textAlign: 'center'}}
+            onClick={() => {
+              this.setState({
+                focused: true,
+              });
+            }}
+          >
+          点击获取光标
+        </div>
+        </List.Item>        </List>
         <WhiteSpace/>
         <List renderHeader={() => '受控 / 非受控'}>
           <TextareaItem

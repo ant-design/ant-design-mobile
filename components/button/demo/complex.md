@@ -9,7 +9,7 @@ title: 应用场景示例
 import { Button, List } from 'antd-mobile';
 
 ReactDOM.render(
-  <List style={{ margin: '0.1rem 0.3rem', backgroundColor: 'white' }}>
+  <List style={{ margin: '0.1rem 0', backgroundColor: 'white' }}>
     <List.Item
       extra={<Button type="ghost" size="small" inline>small</Button>}
       multipleLine
