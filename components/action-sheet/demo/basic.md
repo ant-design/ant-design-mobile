@@ -4,7 +4,7 @@ title: 基本用法示例
 ---
 
 
-````__react
+````jsx
 /* eslint global-require: 0 */
 import { ActionSheet, Button, Toast, Icon } from 'antd-mobile';
 

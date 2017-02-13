@@ -6,7 +6,7 @@ title: 嵌入文档模式
 嵌入到文档流中
 
 
-````__react
+````jsx
 import { Drawer, List, NavBar } from 'antd-mobile';
 
 const App = React.createClass({
@@ -65,11 +65,11 @@ ReactDOM.render(<App />, mountNode);
   overflow: auto;
 }
 .my-drawer .am-drawer-sidebar {
-  max-width: 4.6rem;
   background-color: #fff;
   overflow: auto;
 }
 .my-drawer .am-drawer-sidebar .am-list {
+  width: 6rem;
   padding: 0;
 }
 ````

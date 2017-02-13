@@ -15,7 +15,7 @@ export function collectDocs(docs) {
 }
 
 export function getMenuItems(moduleData) {
-  const menuMeta = moduleData.map((item) => item.meta);
+  const menuMeta = moduleData.map(item => item.meta);
   const menuItems = {};
   menuMeta.sort((a, b) => (
     parseInt(a.order, 10) - parseInt(b.order, 10)

@@ -5,7 +5,7 @@ title: 基本
 
 基本对话框
 
-````__react
+````jsx
 import { Modal, Button } from 'antd-mobile';
 
 const App = React.createClass({

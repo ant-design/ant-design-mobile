@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import { FlexItemProps } from './PropsType';
 
 export default class FlexItem extends React.Component<FlexItemProps, any> {
@@ -7,14 +7,18 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
     flex: 1,
   };
   render() {
-    let { style, children, flex } = this.props;
+    let { style, children, flex, onPress, ...restProps } = this.props;
     const flexItemStyle = {
       flex: flex || 1,
     };
+    // support other touchablewithoutfeedback props
+    // TODO  support TouchableHighlight
     return (
-      <View style={[flexItemStyle, style]}>
-        {children}
-      </View>
+      <TouchableWithoutFeedback onPress={onPress} {...restProps}>
+        <View style={[flexItemStyle, style]}>
+          {children}
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

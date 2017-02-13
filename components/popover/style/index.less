@@ -8,7 +8,6 @@
   font-size: @font-size-subhead;
   color: @color-text-base;
   background-color: @fill-base;
-  // border: @border-width-sm solid @border-color-base;
   border-radius: @radius-sm;
   box-shadow: 0 0 4px @color-shadow;
   overflow: hidden; // for popover item active background color not overflow
@@ -21,13 +20,17 @@
     align-items: center;
     height: @option-height;
     box-sizing: border-box;
-    border-bottom: @border-width-sm solid @border-color-base;
+    border-top: @border-width-sm solid @border-color-base;
     padding: 0 @h-spacing-md;
   }
-  &:last-child {
+  &:first-child,
+  &.@{popoverPrefixCls}-item-active {
     .@{popoverPrefixCls}-item-container {
-      border-bottom: 0;
+      border-top: 0;
     }
+  }
+  &.@{popoverPrefixCls}-item-active + .@{popoverPrefixCls}-item .@{popoverPrefixCls}-item-container {
+    border-top: 0;
   }
   &.@{popoverPrefixCls}-item-active {
     background-color: @border-color-base;

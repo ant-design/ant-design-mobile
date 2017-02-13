@@ -1,4 +1,4 @@
-import React from 'react';
+import collect from 'bisheng/collect';
 import MainContent from './MainContent';
 
 // locale copy from layout
@@ -7,11 +7,11 @@ const locale = (
     localStorage.getItem('locale') !== 'en-US'
 ) ? 'zh-CN' : 'en-US';
 
-export function collect(nextProps, callback) {
-  const pageData = nextProps.pageData;
+
+export default collect(async (nextProps) => {
+  const pageData = nextProps.location.pathname === 'changelog' ? nextProps.pageData.CHANGELOG : nextProps.pageData;
   if (!pageData) {
-    callback(404, nextProps);
-    return;
+    throw 404; // eslint-disable-line no-throw-literal
   }
 
   const pageDataPromise = typeof pageData === 'function' ?
@@ -20,19 +20,14 @@ export function collect(nextProps, callback) {
 
   const pathname = nextProps.location.pathname;
   const demos = nextProps.utils.get(
-    nextProps.data, [...pathname.split('/'), 'demo']
+    nextProps.data, [...pathname.split('/'), 'demo'],
   );
   if (demos) {
     promises.push(demos());
   }
-  Promise.all(promises)
-    .then((list) => callback(null, {
-      ...nextProps,
-      localizedPageData: list[0],
-      demos: list[1],
-    }));
-}
-
-export default (props) => (
-  <MainContent {...props} />
-);
+  const list = await Promise.all(promises);
+  return {
+    localizedPageData: list[0],
+    demos: list[1],
+  };
+})(MainContent);

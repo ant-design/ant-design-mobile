@@ -5,7 +5,7 @@ title: 通栏
 
 Card 通栏样式
 
-````__react
+````jsx
 import { Card, WhiteSpace } from 'antd-mobile';
 
 ReactDOM.render(

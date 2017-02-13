@@ -4,7 +4,7 @@ title: 示例
 ---
 
 
-````__react
+````jsx
 import { Carousel } from 'antd-mobile';
 
 const App = React.createClass({
@@ -14,9 +14,9 @@ const App = React.createClass({
       <Carousel
         className="my-carousel" autoplay={false} infinite
         beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-        afterChange={(index) => console.log('slide to', index)}
+        afterChange={index => console.log('slide to', index)}
       >
-        {['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'AiyWuByWklrrUDlFignR'].map((ii) => (
+        {['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'AiyWuByWklrrUDlFignR'].map(ii => (
           <a href="#" key={ii}><img src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`} /></a>
         ))}
       </Carousel>

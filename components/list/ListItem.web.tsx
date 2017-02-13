@@ -1,7 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 import Touchable from 'rc-touchable';
 import { ListItemProps, BriefProps } from './PropsType';
 
@@ -25,12 +24,10 @@ class ListItem extends React.Component<ListItemProps, any> {
   static Brief = Brief;
 
   render() {
-    const [{
+
+    const {
       prefixCls, className, activeStyle, error, align, wrap, disabled,
-      children, multipleLine, thumb, extra, arrow,
-    }, restProps] = splitObject(this.props,
-      ['prefixCls', 'className', 'activeStyle', 'error', 'align', 'wrap', 'disabled',
-        'children', 'multipleLine', 'thumb', 'extra', 'arrow']);
+      children, multipleLine, thumb, extra, arrow, onClick, ...restProps} = this.props;
 
     const wrapCls = {
       [className as string]: className,
@@ -71,7 +68,8 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     return (
       <Touchable
-        disabled={disabled || !restProps.onClick}
+        disabled={disabled || !onClick}
+        onPress={onClick}
         activeStyle={activeStyle}
         activeClassName={`${prefixCls}-item-active`}
       >

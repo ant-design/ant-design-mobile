@@ -4,7 +4,7 @@ title: 通告栏
 ---
 
 
-````__react
+````jsx
 import { NoticeBar, WhiteSpace, Icon } from 'antd-mobile';
 
 const NoticeBarExample = React.createClass({

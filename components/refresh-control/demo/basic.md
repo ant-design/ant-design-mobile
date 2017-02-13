@@ -6,7 +6,7 @@ title: ListView RefreshControl
 下拉刷新
 
 
-````__react
+````jsx
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { RefreshControl, ListView } from 'antd-mobile';
 
@@ -107,7 +107,7 @@ const App = React.createClass({
         scrollEventThrottle={20}
         onScroll={this.onScroll}
         style={{
-          height: document.body.clientHeight / 2,
+          height: document.documentElement.clientHeight,
           border: '1px solid #ddd',
           margin: '0.1rem 0',
         }}

@@ -5,7 +5,7 @@ title: 示例
 
 基本的分页器。
 
-````__react
+````jsx
 import { Pagination, Icon } from 'antd-mobile';
 
 const App = React.createClass({

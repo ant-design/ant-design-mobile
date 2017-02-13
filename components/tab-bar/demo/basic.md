@@ -5,7 +5,7 @@ title: APP型选项卡
 
 多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。
 
-````__react
+````jsx
 import { TabBar, Icon } from 'antd-mobile';
 
 /* eslint global-require: 0 */
@@ -62,6 +62,7 @@ const TabBarExample = React.createClass({
           selectedIcon={<Icon type="koubei" size="md" />}
           title="口碑"
           key="口碑"
+          badge={'new'}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => {
             this.setState({
@@ -89,6 +90,7 @@ const TabBarExample = React.createClass({
           }
           title="朋友"
           key="朋友"
+          dot
           selected={this.state.selectedTab === 'greenTab'}
           onPress={() => {
             this.setState({

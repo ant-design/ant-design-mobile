@@ -3,7 +3,7 @@ order: 1
 title: 水平方向的步骤条
 ---
 
-````__react
+````jsx
 /* eslint global-require: 0 */
 import { Steps, WingBlank, WhiteSpace, Icon } from 'antd-mobile';
 

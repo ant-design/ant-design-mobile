@@ -18,6 +18,7 @@ export interface ListItemProps {
   /** web only */
   prefixCls?: string;
   style?: any;
+  activeStyle?: any;
   /** web only */
   className?: string;
   thumb?: ReactNode | null;

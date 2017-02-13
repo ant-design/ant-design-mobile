@@ -4,7 +4,7 @@ title: 步骤条
 ---
 
 
-````__react
+````jsx
 /* eslint global-require: 0 */
 import { Steps, WingBlank, WhiteSpace, Icon } from 'antd-mobile';
 

@@ -3,8 +3,8 @@ order: 0
 title: 菜单
 ---
 
-````__react
-import { Menu } from 'antd-mobile';
+````jsx
+import { Menu, ActivityIndicator } from 'antd-mobile';
 
 const data = [
   {
@@ -18,7 +18,7 @@ const data = [
       {
         label: '全部美食',
         value: '22',
-        disabled: true,
+        disabled: false,
       },
       {
         label: '中餐',
@@ -84,11 +84,11 @@ const MenuExample = React.createClass({
   },
   onChange(value) {
     let label = '';
-    data.forEach(dataItem => {
+    data.forEach((dataItem) => {
       if (dataItem.value === value[0]) {
         label = dataItem.label;
         if (dataItem.children && value[1]) {
-          dataItem.children.forEach(cItem => {
+          dataItem.children.forEach((cItem) => {
             if (cItem.value === value[1]) {
               label += ` ${cItem.label}`;
             }
@@ -99,8 +99,8 @@ const MenuExample = React.createClass({
     console.log(label);
   },
   render() {
-    return this.state.initData ? <Menu data={data} value={['2', '22']} onChange={this.onChange} />
-      : <div>loading...</div>;
+    return this.state.initData ? <Menu data={data} value={['2', '22']} onChange={this.onChange} height={document.documentElement.clientHeight * 0.6} />
+      : <div style={{ width: '100%', height: document.documentElement.clientHeight, display: 'flex', justifyContent: 'center' }}><ActivityIndicator size="large" /></div>;
   },
 });
 

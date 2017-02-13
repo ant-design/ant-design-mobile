@@ -6,7 +6,7 @@ title: 基本
 数字输入框。
 
 
-````__react
+````jsx
 import { List, Stepper } from 'antd-mobile';
 
 const Demo = React.createClass({

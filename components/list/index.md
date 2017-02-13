@@ -35,6 +35,7 @@ source: design
 | error    | 报错样式,右侧文字颜色变成橙色 | Boolean  | `false`  |
 | multipleLine    | 多行 | Boolean  | `false`  |
 | wrap    | 是否换行，默认情况下，文字超长会被隐藏， | Boolean  | `false`  |
+| activeStyle(`Web only`)    | 自定义active的样式 | Object  |   |
 
 ### List.Item.Brief
 
