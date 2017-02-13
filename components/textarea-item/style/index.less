@@ -148,3 +148,13 @@
     color: @color-text-disabled;
   }
 }
+
+.@{listPrefixCls} {
+  &-body {
+    .@{listPrefixCls}-item {
+      &:last-child {
+        .hairline-remove-right-bottom();
+      }
+    }
+  }
+}
