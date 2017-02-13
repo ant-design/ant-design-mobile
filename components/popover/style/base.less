@@ -1,4 +1,4 @@
-@popover-arrow-width: 20px;
+@popover-arrow-width: 14px;
 
 // Base class
 .@{popoverPrefixCls} {
@@ -27,10 +27,7 @@
   position: absolute;
   width: @popover-arrow-width;
   height: @popover-arrow-width;
-  // border-top: @border-width-sm solid @border-color-base;
-  // border-left: @border-width-sm solid @border-color-base;
-  // border-bottom: 0;
-  // border-right: 0;
+  border-radius: 2px;
   background-color: @fill-base;
   transform: rotate(45deg);
   z-index: 0;
