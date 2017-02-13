@@ -29,7 +29,15 @@ let BasicInputExample = React.createClass({
         <InputItem
           {...getFieldProps('focus')}
           clear
-          placeholder="点击下方按钮该输入框会获取光标"
+          placeholder=""
+          extra={<span
+            style={{margin: '0 30px 0 16px', color: '#2dv7f5'}}
+            onClick={() => {
+              this.setState({
+                focused: true,
+              });
+            }}
+          >点击获取光标</span>}
           focused={this.state.focused}
           onFocus={() => {
             this.setState({
@@ -37,16 +45,6 @@ let BasicInputExample = React.createClass({
             });
           }}
         >标题</InputItem>
-        <List.Item>
-          <Button
-            onClick={() => {
-              this.setState({
-                focused: true,
-              });
-            }}
-            type="primary"
-          >点击获取光标</Button>
-        </List.Item>
         </List>
         <List renderHeader={() => '受控 / 非受控'}>
          <InputItem
