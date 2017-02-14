@@ -88,6 +88,8 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
+> 服务端渲染问题：请参考[此处](https://github.com/ant-design/ant-design-mobile/pull/758)讨论的方式做服务端渲染，另外不保证所有组件都支持服务端渲染。
+>
 > 遇到部分组件 Icon 图标不会显示？需要按照 [Icon 组件文档](https://github.com/ant-design/ant-design-mobile/blob/master/components/icon/index.md#如何使用)进行设置。
 >
 > 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md)，
@@ -103,7 +105,8 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
   {"plugins": [["import", { "libraryName": "antd-mobile" }]]}
    ```
 
-实例：
+组件使用实例：
+
 ```jsx
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
