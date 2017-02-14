@@ -37,17 +37,12 @@ class InputItem extends React.Component<InputItemProps, any> {
   debounceTimeout: any;
   scrollIntoViewTimeout: any;
 
-  isAndroid: boolean;
-
   constructor(props) {
     super(props);
     this.state = {
       focused: props.focused || false,
       placeholder: props.placeholder,
     };
-  }
-  componentWillMount() {
-    this.isAndroid = (/android/i).test(navigator.userAgent);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -222,7 +217,6 @@ class InputItem extends React.Component<InputItemProps, any> {
 
     const controlCls = classNames({
       [`${prefixCls}-control`]: true,
-      [`${prefixCls}-control-android`]: this.isAndroid,
     });
 
     let inputType: any = 'text';
