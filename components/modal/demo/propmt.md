@@ -6,7 +6,7 @@ title: propmt
 包含输入普通文字, 密码, 登录信息样式
 
 ````jsx
-import { Modal, Button, WingBlank, WhiteSpace } from 'antd-mobile';
+import { Modal, Button, WingBlank, WhiteSpace, Toast } from 'antd-mobile';
 
 const prompt = Modal.prompt;
 
@@ -15,11 +15,21 @@ const App = React.createClass({
     return (
       <WingBlank size="lg">
         <WhiteSpace size="lg" />
-        <Button onClick={() => prompt('输入名字', '这是名字的 message', [
+        <Button onClick={() => prompt('输入名字', '这是名字的 message',
+          [
             { text: '取消' },
-            { text: '提交', onPress: value => console.log(`输入的内容:${value}`) },
-        ])}
-        >输入框按钮按钮 </Button>
+            {
+              text: '提交',
+              onPress: value => new Promise((resolve) => {
+                Toast.info('onPress promise', 1);
+                setTimeout(() => {
+                  resolve();
+                  console.log(`value:${value}`);
+                }, 1000);
+              }),
+            },
+          ])}
+        >按钮 Promise</Button>
 
         <WhiteSpace size="lg" />
         <Button onClick={() => prompt('默认值', '默认值 defaultValue 类型', [
