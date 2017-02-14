@@ -92,6 +92,8 @@ export default {
   // 高度
   // ---
   option_height: 42,           // action_sheet、picker 的选项高度
+  line_height_base: 1,           // 单行行高
+  line_height_paragraph: 1.5,    // 多行行高
 
   // 图标尺寸
   // ---
