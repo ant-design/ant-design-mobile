@@ -16,8 +16,8 @@ const Tabs = React.createClass<TabsProps, any>({
       prefixCls: 'am-tabs',
       animated: true,
       swipeable: true,
-      onChange() {},
       tabBarPosition: 'top',
+      onChange() {},
       onTabClick() {},
     };
   },
@@ -59,6 +59,13 @@ const Tabs = React.createClass<TabsProps, any>({
     this.props.onTabClick(key);
   },
 
+  handleTabChange(key) {
+    this.setState({
+      viewportStartTabIndex: this.getStartTabIndex(key),
+    });
+    this.props.onChange(key);
+  },
+
   getStartTabIndex(activeTabKey) {
     const { children } = this.props;
     const { viewportStartTabIndex } = this.state;
@@ -92,6 +99,7 @@ const Tabs = React.createClass<TabsProps, any>({
   render() {
     const newProps = {
       ...this.props,
+      onChange: this.handleTabChange,
       children: this.getChildren(),
       className: this.getClassName(),
     };
