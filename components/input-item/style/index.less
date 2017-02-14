@@ -53,11 +53,18 @@
       box-sizing: border-box;
       &::-webkit-input-placeholder {
         color: @color-text-placeholder;
-        line-height: @line-height-base;
+        line-height: 1.5;
       }
       &:disabled {
         color: @color-text-disabled;
         background-color: #fff;
+      }
+    }
+    &.@{inputPrefixCls}-control-android {
+      input {
+        &::-webkit-input-placeholder {
+          line-height: 1.2;
+        }
       }
     }
   }
