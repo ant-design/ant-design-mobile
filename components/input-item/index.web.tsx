@@ -39,12 +39,17 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
 
   debounceTimeout: any;
 
+  isAndroid: boolean;
+
   constructor(props) {
     super(props);
     this.state = {
       focus: false,
       placeholder: this.props.placeholder,
     };
+  }
+  componentWillMount() {
+    this.isAndroid = (/android/i).test(navigator.userAgent);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -158,6 +163,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
+      [`${prefixCls}-android`]: focus,
       [className as string]: className,
     });
 
@@ -169,6 +175,11 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
       [`${prefixCls}-label-5`]: labelNumber === 5,
       [`${prefixCls}-label-6`]: labelNumber === 6,
       [`${prefixCls}-label-7`]: labelNumber === 7,
+    });
+
+    const controlCls = classNames({
+      [`${prefixCls}-control`]: true,
+      [`${prefixCls}-control-android`]: this.isAndroid,
     });
 
     let inputType = 'text';
@@ -199,7 +210,7 @@ class InputItem extends React.Component<InputItemProps, InputItemState> {
     return (
       <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
-        <div className={`${prefixCls}-control`}>
+        <div className={controlCls}>
           <input ref="input"
             {...patternProps}
             {...otherProps}

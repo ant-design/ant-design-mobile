@@ -54,10 +54,17 @@
       &::-webkit-input-placeholder {
         font-size: @font-size-heading;
         color: @color-text-placeholder;
-        line-height: 1.6;
+        line-height: 1.5;
       }
       &:disabled {
         color: @color-text-disabled;
+      }
+    }
+    &.@{inputPrefixCls}-control-android {
+      input {
+        &::-webkit-input-placeholder {
+          line-height: 1.2;
+        }
       }
     }
   }
