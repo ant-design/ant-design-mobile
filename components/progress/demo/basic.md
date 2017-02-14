@@ -28,7 +28,7 @@ const MyProgress = React.createClass({
       <div className="progress-container">
         <Progress percent={30} position="fixed" />
         <div style={{ height: 36 }} />
-        <Progress percent={40} position="normal" unfilled="hide" />
+        <Progress percent={40} position="normal" unfilled="hide" appearTransition />
         <div className="show-info">
           <div className="progress"><Progress percent={percent} position="normal" /></div>
           <div>{percent}%</div>
