@@ -5,7 +5,7 @@ title: body 容器
 
 使用 html 的 `body` 作为滚动容器
 
-````__react
+````jsx
 /* eslint no-dupe-keys: 0 */
 import { ListView } from 'antd-mobile';
 

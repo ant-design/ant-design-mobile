@@ -5,7 +5,7 @@ title: 表单中的应用示例
 
 表单集合. (使用 [rc-form 文档](https://github.com/react-component/form) 做表单验证)
 
-````__react
+````jsx
 import { List, InputItem, Switch, Stepper, Slider, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 

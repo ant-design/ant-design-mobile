@@ -14,7 +14,7 @@ export default class Article extends React.Component {
       return;
     }
     const checkImgUrl = 'http://alipay-rmsdeploy-dev-image.oss-cn-hangzhou-zmf.aliyuncs.com/rmsportal/JdVaTbZzPxEldUi.png';
-    utils.ping(checkImgUrl, status => {
+    utils.ping(checkImgUrl, (status) => {
       if (status === 'responded') {
         links.forEach(link => (link.style.display = 'block'));
       }
@@ -57,7 +57,7 @@ export default class Article extends React.Component {
           {
             !description ? null :
               props.utils.toReactComponent(
-                ['section', { className: 'markdown' }].concat(getChildren(description))
+                ['section', { className: 'markdown' }].concat(getChildren(description)),
               )
           }
           {
@@ -67,7 +67,7 @@ export default class Article extends React.Component {
           }
           {
             this.getArticle(props.utils.toReactComponent(
-              ['section', { className: 'markdown' }].concat(getChildren(content.content))
+              ['section', { className: 'markdown' }].concat(getChildren(content.content)),
             ))
           }
         </article>

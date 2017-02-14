@@ -6,10 +6,10 @@ title: 基本
 上下留白 ```<WhiteSpace size='md' />```
 
 
-````__react
+````jsx
 import { WhiteSpace } from 'antd-mobile';
 
-const PlaceHolder = (props) => (
+const PlaceHolder = props => (
   <div style={{
     backgroundColor: '#ebebef',
     color: '#bbb',

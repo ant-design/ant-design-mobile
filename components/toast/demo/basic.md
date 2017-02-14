@@ -5,7 +5,7 @@ title: 普通
 
 纯文字、纯图标、成功、失败、离线、loading
 
-````__react
+````jsx
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 function showToast() {

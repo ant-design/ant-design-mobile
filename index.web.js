@@ -1,7 +1,7 @@
 /* eslint no-console:0 */
 // export components to browser's window for `dist/antd-mobile.js`
 
-var req = require.context('./components', true, /^\.\/[^_][\w-]+\/style\/index\.web\.tsx?$/);
+const req = require.context('./components', true, /^\.\/[^_][\w-]+\/style\/index\.web\.tsx?$/);
 
 req.keys().forEach((mod) => {
   req(mod);

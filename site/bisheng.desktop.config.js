@@ -3,11 +3,11 @@ const commonConfig = require('./bisheng.common.config');
 
 module.exports = Object.assign({}, commonConfig, {
   port: 8001,
-  source: [
-    './components',
-    './docs',
-    'CHANGELOG.md', // TODO: fix it in bisheng
-  ],
+  source: {
+    components: './components',
+    docs: './docs',
+    CHANGELOG: 'CHANGELOG.md',
+  },
   theme: './site/desktop/src',
   htmlTemplate: path.join(__dirname, './desktop/src/static/template.html'),
   doraConfig: {

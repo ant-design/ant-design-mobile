@@ -5,8 +5,8 @@ title: 示例集合
 
 ([rc-form 文档](https://github.com/react-component/form))
 
-````__react
-import { List, TextareaItem, Button, WhiteSpace } from 'antd-mobile';
+````jsx
+import { List, TextareaItem, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 let TextareaItemExample = React.createClass({
@@ -40,17 +40,19 @@ let TextareaItemExample = React.createClass({
             }}
           />
           <List.Item>
-            <Button
+            <div
+              style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
               onClick={() => {
                 this.setState({
                   focused: true,
                 });
               }}
-              type="primary"
-            >点击获取光标</Button>
+            >
+              点击获取光标
+            </div>
           </List.Item>
         </List>
-        <WhiteSpace/>
+        <WhiteSpace />
         <List renderHeader={() => '受控 / 非受控'}>
           <TextareaItem
             {...getFieldProps('control')}
@@ -76,7 +78,7 @@ let TextareaItemExample = React.createClass({
             placeholder="固定行数,rows"
           />
         </List>
-        <WhiteSpace/>
+        <WhiteSpace />
         <List renderHeader={() => '带清除按钮'}>
           <TextareaItem
             {...getFieldProps('clear1')}
@@ -85,7 +87,7 @@ let TextareaItemExample = React.createClass({
             placeholder="输入会显示清除按钮"
           />
         </List>
-        <WhiteSpace/>
+        <WhiteSpace />
         <List renderHeader={() => '标题可自定义（文字 / 图片 / 无标题）'}>
           <TextareaItem
             {...getFieldProps('title3')}
@@ -93,7 +95,7 @@ let TextareaItemExample = React.createClass({
             placeholder="标题可以自定义"
           />
         </List>
-        <WhiteSpace/>
+        <WhiteSpace />
         <List renderHeader={() => '限制输入字符数量'}>
           <TextareaItem
             {...getFieldProps('note4')}
@@ -101,7 +103,7 @@ let TextareaItemExample = React.createClass({
             count={10}
           />
         </List>
-        <WhiteSpace/>
+        <WhiteSpace />
         <List renderHeader={() => '带计数'}>
           <TextareaItem
             {...getFieldProps('count', {
@@ -111,7 +113,7 @@ let TextareaItemExample = React.createClass({
             count={100}
           />
         </List>
-        <WhiteSpace/>
+        <WhiteSpace />
         <List renderHeader={() => '不可编辑 / 禁用'}>
           <TextareaItem
             {...getFieldProps('note6', {

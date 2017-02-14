@@ -5,7 +5,7 @@ title: alert
 
 包含无按钮, 确认框, 多按钮情况
 
-````__react
+````jsx
 import { Modal, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const alert = Modal.alert;

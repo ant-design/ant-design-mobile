@@ -6,7 +6,7 @@ title: 索引列表
 用于通讯薄等场景
 
 
-````__react
+````jsx
 /* eslint no-mixed-operators: 0 */
 import { province } from 'antd-mobile-demo-data';
 import { ListView, List } from 'antd-mobile';
@@ -33,7 +33,7 @@ const Demo = React.createClass({
       dataBlob[item] = item;
       rowIDs[index] = [];
 
-      province[item].forEach(jj => {
+      province[item].forEach((jj) => {
         rowIDs[index].push(jj.value);
         dataBlob[jj.value] = jj.label;
       });
@@ -50,8 +50,8 @@ const Demo = React.createClass({
         dataSource={this.state.dataSource}
         renderHeader={() => <span>头部内容请自定义</span>}
         renderFooter={() => <span>尾部内容请自定义</span>}
-        renderSectionHeader={(sectionData) => (<div className="ih">{sectionData}</div>)}
-        renderRow={(rowData) => (<Item>{rowData}</Item>)}
+        renderSectionHeader={sectionData => (<div className="ih">{sectionData}</div>)}
+        renderRow={rowData => (<Item>{rowData}</Item>)}
         className="fortest"
         style={{
           height: document.body.clientHeight * 3 / 4,

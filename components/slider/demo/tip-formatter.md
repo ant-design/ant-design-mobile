@@ -7,7 +7,7 @@ title: 自定义提示
 
 
 
-````__react
+````jsx
 import { Slider, WhiteSpace, WingBlank } from 'antd-mobile';
 
 function formatter(value) {

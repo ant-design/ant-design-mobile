@@ -6,7 +6,7 @@ title: 超出界面宽度，多于5个标签
 可视区最多显示5个标签，点击两侧的标签后，滑动tabs
 
 
-````__react
+````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
 
 const TabPane = Tabs.TabPane;

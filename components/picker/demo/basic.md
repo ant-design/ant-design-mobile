@@ -5,21 +5,21 @@ title: 基本
 
 数据级联选择示例. ([rc-form 文档](https://github.com/react-component/form))
 
-````__react
+````jsx
 import { Picker, List, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 import { district, provinceLite as province } from 'antd-mobile-demo-data';
 
 // 如果不是使用 List.Item 作为 children
-const CustomChildren = (props) => (
+const CustomChildren = props => (
   <div
     onClick={props.onClick}
     style={{ backgroundColor: '#fff', padding: '0 0.3rem' }}
   >
-    <div style={{display: 'flex', height: '0.9rem', lineHeight: '0.9rem'}}>
-      <div style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', }}>{props.children}</div>
-      <div style={{ textAlign: 'right', color: '#888'}}>{props.extra}</div>
+    <div style={{ display: 'flex', height: '0.9rem', lineHeight: '0.9rem' }}>
+      <div style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{props.children}</div>
+      <div style={{ textAlign: 'right', color: '#888' }}>{props.extra}</div>
     </div>
   </div>
 );
@@ -68,7 +68,7 @@ let Test = React.createClass({
     let colNum = 1;
     const d = [...this.state.data];
     if (val[0] === 'zj') {
-      d.forEach(i => {
+      d.forEach((i) => {
         if (i.value === 'zj') {
           colNum = 2;
           if (!i.children) {
@@ -80,7 +80,7 @@ let Test = React.createClass({
               label: '杭州',
             }];
           } else if (val[1] === 'zj-hz') {
-            i.children.forEach(j => {
+            i.children.forEach((j) => {
               if (j.value === 'zj-hz') {
                 j.children = [{
                   value: 'zj-hz-xh',
@@ -122,7 +122,7 @@ let Test = React.createClass({
           cascade={false}
           extra="请选择(可选)"
           value={this.state.sValue}
-          onChange={(v) => this.setState({ sValue: v })}
+          onChange={v => this.setState({ sValue: v })}
         >
           <List.Item arrow="horizontal">选择季节（多列，不联动）</List.Item>
         </Picker>
@@ -137,15 +137,15 @@ let Test = React.createClass({
         >
           <List.Item arrow="horizontal" onClick={this.onClick}>选择地区（单列，异步加载）</List.Item>
         </Picker>
-      <Picker
-        data={district}
-        title="选择地区"
-        extra="请选择(可选)"
-        value={this.state.pickerValue}
-        onChange={(v) => this.setState({ pickerValue: v })}
-      >
-        <CustomChildren>选择地区（自定义 children）</CustomChildren>
-      </Picker>
+        <Picker
+          data={district}
+          title="选择地区"
+          extra="请选择(可选)"
+          value={this.state.pickerValue}
+          onChange={v => this.setState({ pickerValue: v })}
+        >
+          <CustomChildren>选择地区（自定义 children）</CustomChildren>
+        </Picker>
       </List>
     </div>);
   },
