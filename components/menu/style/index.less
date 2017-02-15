@@ -5,6 +5,7 @@
 @subMenuPrefixCls: am-sub-menu;
 @flexPrefixCls: am-flexbox;
 @listPrefixCls: am-list;
+@firstMenuColor: #F7F7F7;
 
 .@{menuPrefixCls} {
   background-color: @fill-body;
@@ -25,12 +26,14 @@
         }
       }
       &:first-child {
+        background-color: @firstMenuColor;
         .@{listPrefixCls} {
           .@{listPrefixCls}-body {
+            background-color: @firstMenuColor;
             .hairline-remove-right-bottom();
           }
           .@{listPrefixCls}-item {
-            background-color: @fill-body;
+            background-color: @firstMenuColor;
             .@{listPrefixCls}-line {
               .hairline-remove-right-bottom();
               .@{listPrefixCls}-content {
