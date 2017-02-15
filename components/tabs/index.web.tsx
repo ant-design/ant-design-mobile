@@ -17,6 +17,7 @@ const Tabs = React.createClass<TabsProps, any>({
       animated: true,
       swipeable: true,
       tabBarPosition: 'top',
+      hammerOptions: {},
       onChange() {},
       onTabClick() {},
     };
@@ -38,9 +39,9 @@ const Tabs = React.createClass<TabsProps, any>({
   },
 
   renderTabContent() {
-    const { animated, swipeable } = this.props;
+    const { animated, swipeable, hammerOptions } = this.props;
     return swipeable ? (
-      <SwipeableTabContent animated={animated} />
+      <SwipeableTabContent animated={animated} hammerOptions={hammerOptions}/>
     ) : (
       <TabContent animated={animated} />
     );
