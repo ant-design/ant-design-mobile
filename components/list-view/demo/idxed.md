@@ -54,7 +54,7 @@ const Demo = React.createClass({
         renderRow={rowData => (<Item>{rowData}</Item>)}
         className="fortest"
         style={{
-          height: document.body.clientHeight * 3 / 4,
+          height: document.documentElement.clientHeight * 3 / 4,
           overflow: 'auto',
         }}
         quickSearchBarStyle={{

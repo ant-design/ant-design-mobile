@@ -84,7 +84,7 @@ const Test = React.createClass({
     });
   },
   render() {
-    return (<div style={{ margin: '0 0.15rem' }}>
+    return (<div className="actionSheetContainer">
       <div style={{ margin: '0.15rem 0' }}>
         <Button onClick={this.showActionSheet}>默认状态</Button>
       </div>
@@ -100,7 +100,12 @@ const Test = React.createClass({
 
 ReactDOM.render(<Test />, mountNode);
 ````
+
 ````css
+.actionSheetContainer {
+  margin: 0 0.3rem;
+}
+
 .my-action-sheet .am-action-sheet-share-list-item-icon img {
   width: 0.72rem;
 }

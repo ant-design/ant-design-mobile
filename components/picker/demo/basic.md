@@ -53,6 +53,7 @@ let Test = React.createClass({
       data: [],
       cols: 1,
       pickerValue: [],
+      asyncValue: [],
       sValue: ['2013', '春'],
     };
   },
@@ -67,6 +68,7 @@ let Test = React.createClass({
     console.log(val);
     let colNum = 1;
     const d = [...this.state.data];
+    const asyncValue = [...val];
     if (val[0] === 'zj') {
       d.forEach((i) => {
         if (i.value === 'zj') {
@@ -79,6 +81,7 @@ let Test = React.createClass({
               value: 'zj-hz',
               label: '杭州',
             }];
+            asyncValue.push('zj-nb');
           } else if (val[1] === 'zj-hz') {
             i.children.forEach((j) => {
               if (j.value === 'zj-hz') {
@@ -86,6 +89,7 @@ let Test = React.createClass({
                   value: 'zj-hz-xh',
                   label: '西湖区',
                 }];
+                asyncValue.push('zj-hz-xh');
               }
             });
             colNum = 3;
@@ -98,6 +102,7 @@ let Test = React.createClass({
     this.setState({
       data: d,
       cols: colNum,
+      asyncValue,
     });
   },
   // setVal() {
@@ -132,10 +137,10 @@ let Test = React.createClass({
         <Picker
           data={this.state.data}
           cols={this.state.cols}
-          {...getFieldProps('district2')}
+          value={this.state.asyncValue}
           onPickerChange={this.onPickerChange}
         >
-          <List.Item arrow="horizontal" onClick={this.onClick}>选择地区（单列，异步加载）</List.Item>
+          <List.Item arrow="horizontal" onClick={this.onClick}>选择地区（多列，异步加载）</List.Item>
         </Picker>
         <Picker
           data={district}

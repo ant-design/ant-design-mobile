@@ -116,7 +116,7 @@
       flex: 1;
       color: @color-text-base;
       font-size: @font-size-heading;
-      line-height: 1.2;
+      line-height: @line-height-paragraph;
       text-align: left;
       .ellipsis();
       padding-top: 14px;
@@ -127,7 +127,7 @@
       flex-basis: 36%;
       color: @color-text-caption;
       font-size: 32px; // 视觉要求先暂时写死
-      line-height: 1.2;
+      line-height: @line-height-paragraph;
       text-align: right;
       .ellipsis();
       padding-top: 14px;
@@ -140,7 +140,7 @@
     .@{listPrefixCls}-brief {
       color: @color-text-caption;
       font-size: @font-size-subhead;
-      line-height: 1.2;
+      line-height: @line-height-paragraph;
       margin-top: @v-spacing-sm;
       .ellipsis();
     }

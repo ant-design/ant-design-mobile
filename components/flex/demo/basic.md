@@ -101,7 +101,7 @@ ReactDOM.render(<FlexExample />, mountNode);
 ````
 ````css
 .flex-container {
-  padding: 0.18rem;
+  margin: 0 0.30rem;
 }
 .flex-container .title {
   color: #888;
