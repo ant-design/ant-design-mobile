@@ -60,6 +60,7 @@ const ListExample = React.createClass({
 
 ReactDOM.render(<ListExample />, mountNode);
 ````
+
 ````css
 .my-list .spe .am-list-extra {
   flex-basis: initial;

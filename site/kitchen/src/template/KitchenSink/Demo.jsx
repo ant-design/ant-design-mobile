@@ -90,7 +90,7 @@ export default class Home extends React.Component {
           demoSort.map((i, index) => (
             <div className="demo-preview-item" id={`${name}-demo-${i.meta.order}`} key={index}>
               <div className="demoTitle">{i.meta.title}</div>
-              {i.preview(React, ReactDOM)}
+              <div className="demoContainer">{i.preview(React, ReactDOM)}</div>
               {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
             </div>
           ))

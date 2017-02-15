@@ -38,7 +38,7 @@ ReactDOM.render(<App />, mountNode);
 ````
 ````css
 .pagination-container {
-  padding: 0 0.2rem;
+  margin: 0 0.3rem;
 }
 .pagination-container .title {
   margin: 0.2rem 0;
