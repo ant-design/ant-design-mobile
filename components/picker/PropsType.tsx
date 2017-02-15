@@ -1,21 +1,19 @@
 import React from 'react';
+import { IPopupCascaderProps } from 'rmc-cascader/lib/Popup';
+import { CascaderValue } from 'rmc-cascader/lib/CascaderTypes';
 
-interface Props {
+interface Props extends IPopupCascaderProps {
   data: any;
   cascade?: boolean;
   value?: Array<string|number>;
   format?: (values) => void;
   cols?: number;
   extra?: string;
-  dismissText?: string|React.ReactElement<any>; // React.ReactElement only for web
-  okText?: string|React.ReactElement<any>; // React.ReactElement only for web
-  title?: string|React.ReactElement<any>; // React.ReactElement only for web
   children?: any;
   /** web only */
-  prefixCls?: string;
   pickerPrefixCls?: string;
   popupPrefixCls?: string;
-  onPickerChange?: (values) => void;
+  onPickerChange?: (value: CascaderValue) => void;
   /**rn only**/
 }
 
