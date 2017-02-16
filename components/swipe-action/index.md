@@ -1,11 +1,11 @@
 ---
 category: Components
 type: Gesture
-chinese: 滑动或长按操作
+chinese: 滑动操作
 english: SwipeAction
 ---
 
-滑动（ iOS ）或长按（ android ）操作组件。
+滑动操作组件。
 
 ### 定义／Definition
 结合手势操作，从屏幕唤出删除键。
