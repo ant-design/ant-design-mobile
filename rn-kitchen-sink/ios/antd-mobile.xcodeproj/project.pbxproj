@@ -30,6 +30,7 @@
 		9356BB671DEEBE0C00E00E20 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9356BAD11DEEBBC900E00E20 /* libRCTWebSocket.a */; };
 		9356BB6A1DEEBE1500E00E20 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9356BB691DEEBE1500E00E20 /* AVFoundation.framework */; };
 		9356BB6C1DEEBE1D00E00E20 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9356BB6B1DEEBE1D00E00E20 /* libz.tbd */; };
+		93A3E9DF1E559595008622D3 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93A3E9DE1E559595008622D3 /* iconfont.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,7 @@
 		9356BB5A1DEEBD6500E00E20 /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanViewController.m; path = "antd-mobile/ScanViewController.m"; sourceTree = "<group>"; };
 		9356BB691DEEBE1500E00E20 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9356BB6B1DEEBE1D00E00E20 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		93A3E9DE1E559595008622D3 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconfont.ttf; path = "antd-mobile/iconfont.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				93A3E9DE1E559595008622D3 /* iconfont.ttf */,
 				9356BB531DEEBD5E00E00E20 /* RNAppInfo.h */,
 				9356BB541DEEBD5E00E00E20 /* RNAppInfo.m */,
 				13B07FAE1A68108700A75B9A /* antd-mobile */,
@@ -686,6 +689,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				93A3E9DF1E559595008622D3 /* iconfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,6 +39,12 @@ module.exports = {
       module: require('../components/drawer/demo/basic'),
     },
     {
+      title: 'Icon',
+      description: '图标',
+      icon: 'https://os.alipayobjects.com/rmsportal/yhnfleZZoezOjtU.png',
+      module: require('../components/icon/demo/basic'),
+    },
+    {
       title: 'List',
       description: '列表',
       icon: 'https://os.alipayobjects.com/rmsportal/tiapjpdKPQGHhnC.png',

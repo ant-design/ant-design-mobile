@@ -15,7 +15,7 @@ SVG 图标 (参考：[为什么使用 svg 替换 iconfont](https://github.com/an
 
 - 命名顺序：`[icon名]-[形状可选]-[描线与否]-[方向可选]`。
 
-## 如何使用
+## 如何使用 (WEB)
 
 首先安装依赖：
 
@@ -108,12 +108,26 @@ module.exports = function(webpackConfig, env) {
 > 还有一种不推荐但很简便的方式：`<Icon type={require('!svg-sprite!./reload.svg')} />`
 这样就不需要将本地 svg 文件所在路径加入到`svgDirs`数组里了，[详细参考 webpack loaders-in-require](http://webpack.github.io/docs/using-loaders.html#loaders-in-require)
 
+## 如何使用 (RN)
 
-## API ( 适用平台：WEB )
+> RN 版本由于 Icon 无法做纯 UI，需要 native 支持
+
+- 下载 `https://at.alicdn.com/t/font_r5u29ls31bgldi.ttf` 重命名为 `anticon.ttf`
+- 打开 iOS 项目 `info.plist` 文件，添加 `Fonts provided by application`，指定一个 item 的值为 `anticon.ttf`；
+- 将 `anticon.ttf` 拖进项目；
+
+使用方式：
+
+```html
+内置的几个图标： <Icon type="check" size="md" color="red" />
+自定义图标：<Icon type={'\ue601'} size={55} /> (具体参看 demo)
+```
+> 注： 自定义图标需要先查找对应图标的 unicode 字符，可以去 ant.design 官网用 chrome 调试工具查看对应图标的值
+
+## API ( 适用平台：WEB & RN )
 
 | 成员        | 说明           | 类型            | 默认值       |
 |------------|----------------|----------------|--------------|
-| type    |   内置 icon 名称或 require 资源    | String / reqiure('xxx')  |  |
-| size    |   图标大小    | 'xxs'/'xs'/'sm'/'md'/'lg'  | `md` |
-
-> 注: RN 版本由于 Icon 无法做纯 UI，推荐使用 https://github.com/oblador/react-native-vector-icons
+| type    |   内置 icon 名称或 require 资源(`web`) 或 unicode (`RN`)    | String / reqiure('xxx') / `\ue601`  |  |
+| size    |   图标大小    | 'xxs'/'xs'/'sm'/'md'/'lg' (RN/WEB)/ number  | `md` |
+| color (`RN`) | 图标颜色  | Color | '#000' |
