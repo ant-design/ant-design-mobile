@@ -27,6 +27,7 @@ export default {
   fill_disabled: '#ddd',                       // 通用失效背景
   fill_mask: 'rgba(0, 0, 0, .4)',              // 遮罩背景
   fill_overlay_inverse: 'rgba(0, 0, 0, .8)',   // 浮层背景 _ 反色，用于 toast
+  color_icon_base: '#ccc',
 
   // 透明度
   opacity_disabled: '0.3',   // switch checkbox radio 等组件禁用的透明度
@@ -137,6 +138,7 @@ export default {
   input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
   input_font_size: 14,
   input_color_icon: '#ccc',
+  search_color_icon: '#4A4A4A',
   input_color_icon_tap: brandPrimary,
   input_color_icon_inverse: 'rgba(255, 255, 255, .6)',
   input_color_icon_tap_inverse: 'rgba(255, 255, 255, .4)',
