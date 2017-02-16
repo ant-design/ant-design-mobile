@@ -6,7 +6,7 @@ title: 基本
 基本对话框
 
 ````jsx
-import { Modal, Button } from 'antd-mobile';
+import { Modal, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const App = React.createClass({
   getInitialState() {
@@ -27,8 +27,12 @@ const App = React.createClass({
   },
   render() {
     return (
-      <div style={{ padding: '0.3rem' }}>
-        <Button onClick={this.showModal}>Modal 对话框</Button>
+      <div>
+        <WhiteSpace />
+        <WingBlank>
+          <Button onClick={this.showModal}>Modal 对话框</Button>
+        </WingBlank>
+        <WhiteSpace />
         <Modal
           title="这是 title"
           transparent
