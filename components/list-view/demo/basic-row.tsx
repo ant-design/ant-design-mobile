@@ -110,7 +110,7 @@ export default React.createClass({
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderHeader={() => <Text>header</Text>}
+        renderHeader={() => <Text style={[{ padding: 8 }]}>列表头</Text>}
         renderFooter={() => <Text style={{ padding: 30, textAlign: 'center' }}> {loadingTxt} </Text>}
         renderRow={row}
         renderSeparator={separator}

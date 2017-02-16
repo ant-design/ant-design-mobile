@@ -78,7 +78,7 @@ export default React.createClass({
   },
   renderSectionHeader(sectionData) {
     return (
-      <Text style={[{ padding: 10, color: 'blue', backgroundColor: 'rgba(150, 150, 150, 0.6)' }]}>
+      <Text style={[{ padding: 10, backgroundColor: 'rgba(255,255,255,0.8)' }]}>
         {`任务 ${sectionData.split(' ')[1]}`}
       </Text>
     );
@@ -131,7 +131,7 @@ export default React.createClass({
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderHeader={() => <Text style={[{ padding: 30 }]}>列表头</Text>}
+        renderHeader={() => <Text style={[{ padding: 8 }]}>列表头</Text>}
         renderFooter={() => <Text style={[{ padding: 30, textAlign: 'center' }]}> {loadingTxt} </Text>}
         renderSectionHeader={this.renderSectionHeader}
         renderRow={row}

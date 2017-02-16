@@ -13,7 +13,7 @@ module.exports = Object.assign({}, commonConfig, {
   theme: './site/kitchen/src',
   htmlTemplate: path.join(__dirname, './kitchen/src/static/template.html'),
   themeConfig: {
-    siteTitle: 'AlipayUI',
+    siteTitle: 'Ant Design Mobile',
     siteSubTitle: '支付宝移动端组件库',
     indexDemos: ['drawer', 'list-view'], // 这些组件每个 demo 都需要全屏展示，首页直接放其各个 demo 链接
     hashSpliter: '-demo-', // URL 中记录到 hash 里的特殊标记
