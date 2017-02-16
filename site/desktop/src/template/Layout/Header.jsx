@@ -8,7 +8,10 @@ import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Icon from 'antd/lib/icon';
 import Select from 'antd/lib/select';
-import { siteTitle } from '../../';
+import { version as packageVersions } from 'antd-mobile/package.json';
+import { docVersions, siteTitle } from '../../';
+
+docVersions[packageVersions] = packageVersions;
 
 const Option = Select.Option;
 
@@ -111,6 +114,10 @@ export default class Header extends React.Component {
       'home-nav-white': !this.state.isFirstFrame,
     });
 
+    const docOptions = Object.keys(docVersions).map(version => (
+      <Option value={docVersions[version]} key={version}>{version}</Option>
+    ));
+
     return (
       <header id="header" className={headerClassName}>
         <Row>
@@ -139,6 +146,17 @@ export default class Header extends React.Component {
                 onSelect={this.handleSearch}
               >
                 {options}
+              </Select>
+            </div>
+
+            <div style={{ float: 'right', margin: '29Px 0 0 10Px' }}>
+              <Select
+                size="small"
+                dropdownMatchSelectWidth={false}
+                defaultValue={packageVersions}
+                onChange={(url) => { window.location.href = url; }}
+              >
+                {docOptions}
               </Select>
             </div>
 
