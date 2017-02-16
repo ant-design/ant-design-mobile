@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 表单中的应用示例
+title: 可输入列表
 ---
 
 表单集合. (使用 [rc-form 文档](https://github.com/react-component/form) 做表单验证)
