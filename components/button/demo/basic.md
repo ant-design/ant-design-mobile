@@ -11,8 +11,8 @@ import { Button, Flex } from 'antd-mobile';
 /* eslint global-require: 0 */
 const ButtonExample = React.createClass({
   render() {
-    return (<div className="btn-container">
-      <div style={{ margin: '0 0.3rem' }}>
+    return (<div className="btn-container need-left-right-margin">
+      <div>
         <Button className="btn" type="primary">primary 按钮</Button>
         <Button className="btn" disabled onClick={e => console.log(e)}>disabled 按钮</Button>
         <Button className="btn" loading>loading 按钮</Button>
@@ -35,10 +35,8 @@ const ButtonExample = React.createClass({
 });
 ReactDOM.render(<ButtonExample />, mountNode);
 ````
+
 ````css
-.btn-container {
-  margin: 0.32rem 0;
-}
 .btn-container .btn {
   margin: 0.16rem 0;
 }
