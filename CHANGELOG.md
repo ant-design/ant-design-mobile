@@ -8,40 +8,44 @@ english: 更新日志
 `2017-02-17`
 
 ## New Feature
-- Icon 从 iconfont 转为使用 svg 图片 #156
-- Button 新增`across`API，支持通栏按钮
-- Progress 组件新增`appearTransition` API，支持初始显示的动画效果
-- Checkbox / Radio 组件支持 children #499
-- NoticeBar 支持 marquee；Steps 支持横向图标
-- TabBar web icon 属性新增 React.Node 支持（可以使用 Icon 或者 background）
-- Toast 新增 duration = 0 效果（不会自动消失）
-- 各组件 RN 版本加入`styles`属性，支持完全自定义组件细节样式 #560
-- 增加 Icon 组件 RN 版本，接入指南见： https://github.com/ant-design/ant-design-mobile/blob/master/components/icon/index.md#如何使用-rn
-- 新增 [LocaleProvider](https://mobile.ant.design/components/locale-provider)，内置中英语言包（默认中文)。且所有组件可以用 `props.locale` 覆盖全局 `LocaleProvider` 配置
-- `Tabs`超过5个自动分页，新增 `props.hammerOptions ` 可配置手势变量, 参考 [API文档](https://mobile.ant.design/components/tabs)
-- `TabBar` 新增 `props.dot` 支持 dot 类型的 Badge
-- Modal alert&prompt onPress 支持 promise；
-- RN Flex 支持更多 touchableWithOutFeedback props；
+
+- Icon 从 iconfont 转为使用 svg 图片 [#156](https://github.com/ant-design/ant-design-mobile/issues/156)。
+- Icon 增加 React Native 版本，[接入指南](https://github.com/ant-design/ant-design-mobile/blob/master/components/icon/index.md#如何使用-rn)。
+- Button 新增 `across` API，支持通栏按钮。
+- Progress 组件新增 `appearTransition` API，支持初始显示的动画效果。
+- Checkbox / Radio 组件支持 children [#499](https://github.com/ant-design/ant-design-mobile/issues/499)。
+- NoticeBar 支持 `marqueeProps`。
+- Steps 支持横向图标。
+- TabBar web icon 属性新增 `React.Node` 支持（可以使用 Icon 或者 background）。
+- Toast 新增 `duration = 0` 效果（不会自动消失）。
+- 各组件 RN 版本加入 `styles` 属性，支持完全自定义组件细节样式 [#560](https://github.com/ant-design/ant-design-mobile/issues/560)。
+- 新增 [LocaleProvider](https://mobile.ant.design/components/locale-provider)，内置中英语言包（默认中文)；且所有组件可以用 `props.locale` 覆盖全局 `LocaleProvider` 配置。
+- `Tabs` 超过5个自动分页，新增 `hammerOptions` API 可配置手势变量, 参考 [API文档](https://mobile.ant.design/components/tabs)。
+- `TabBar` 支持 `dot`  dot 类型的 Badge。
+- Modal alert 和 prompt 的 `onPress` AI 支持 promise, 参考 [demo](https://github.com/ant-design/ant-design-mobile/blob/master/components/modal/demo/alert.md)。
+- RN Flex 支持更多 `touchableWithOutFeedback` 属性。
 
 ## Break Change
-- NoticeBar type 变为 icon ，支持完全的自定义内容
-- Popover iconName 变为 icon ；分割线的 css 设置从 border 底边线修改为顶边线
-- 修改部分 css 变量名和变量值、如：zindex 等
-- RN List 去除 last 属性
-- `DatePicker`, `Pagination` 不再接受`okText`, `dismissText`属性，`DatePicker`的`locale`属性结构变化，参见 [升级文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/upgrade-notes.md#其他常用组件更新注意事项)
-- Web `Slider` 拆分成 `Slider`, `Range`, `createTooltip`, 使用方式参见 [Slider文档](https://mobile.ant.design/components/slider), [Range文档](https://mobile.ant.design/components/range)
-- Toast 更改为 single instance，新显示的 toast 会覆盖老的；同时增加 mask 特性；
-- Modal & Switch 增加 android 平台独立 UI；
+
+- NoticeBar type 变为 icon ，支持完全的自定义内容。
+- Popover `iconName` 变为 `icon` ；分割线的 css 设置从底边线修改为顶边线。
+- 修改部分 css 变量名和变量值、如：zindex 等。
+- RN List 去除 last 属性。
+- `DatePicker` 和 `Pagination` 不再接受 `okText`, `dismissText` 属性；`DatePicker`的`locale`属性结构变化，参见 [升级文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/upgrade-notes.md#其他常用组件更新注意事项)。
+- 原 Web 版 `Slider` 拆分成 `Slider`, `Range`, `createTooltip`, 使用方式参见 [Slider文档](https://mobile.ant.design/components/slider), [Range文档](https://mobile.ant.design/components/range)。
+- Toast 更改为 single instance，新显示的 toast 会覆盖老的；同时增加 mask 特性；。
+- Modal 和 Switch 增加 android 平台独立 UI。
 
 ## Improve & Bugfix
-- 各组件核心实现、样式、demo 等全面优化
-- 各输入类组件受控与非受控状态问题修复
-- RN Carousel 支持根据子视图高度自适应，去除 height，width 设置
-- 修复部分组件(多为依赖 List)的多余边线等细节问题
-- 网站重新设计、更加轻盈简洁；优化了网站资源大小、加载速度更快
-- 修复 RN `CheckBox` 受控模式下的bug https://github.com/ant-design/ant-design-mobile/issues/784
-- RN android tabbar 添加 iconStyle 支持；
-- Modal，Toast，ActionSheet 从 api中 拆分出 component 形式；
+
+- 各组件核心实现、样式、演示等全面优化。
+- 各输入类组件受控与非受控状态问题修复。
+- RN Carousel 支持根据子视图高度自适应，去除 height，width 设置。
+- 修复部分组件(多为依赖 List)的多余边线等细节问题。
+- 网站重新设计、更加轻盈简洁；优化了网站资源大小、加载速度更快。
+- 修复 RN `CheckBox` 受控模式下的bug [#784](https://github.com/ant-design/ant-design-mobile/issues/784)。
+- RN android tabbar 添加 iconStyle 支持。
+- Modal，Toast，ActionSheet 从 api中 拆分出 component 形式。
 
 ### 0.9.15
 
