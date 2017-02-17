@@ -133,7 +133,7 @@
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt",
     "dist": "antd-tools run dist",
     "build": "npm run dist",
-    "compile": "antd-tools run compile --ignore-error",
+    "compile": "antd-tools run compile",
     "watch-tsc": "antd-tools run watch-tsc",
     "clean": "antd-tools run clean",
     "start": "concurrently \"bisheng start -c ./site/bisheng.desktop.config.js --no-livereload\" \"bisheng start -c ./site/bisheng.kitchen.config.js --no-livereload\"",
