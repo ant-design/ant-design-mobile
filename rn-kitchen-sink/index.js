@@ -11,8 +11,7 @@ import {
 
 import { Scene, Router, Reducer, Actions, ActionConst } from 'react-native-router-flux';
 
-// import Home from './components/Home';
-import Home from '../components/steps/demo/basic.js';
+import Home from './components/Home';
 import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { UIVIEWS, UICONTROLS, OTHERS, UIBARS } from './demoList';
