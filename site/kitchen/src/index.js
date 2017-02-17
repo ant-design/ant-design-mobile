@@ -1,6 +1,19 @@
 const path = require('path');
 
 const indexDemos = ['drawer', 'list-view'];
+const pluginAntdConfig = {
+  babelConfig: {
+    plugins: [
+      [
+        require.resolve('babel-plugin-import'), {
+          style: true,
+          libraryName: 'antd-mobile',
+          libraryDirectory: 'components',
+        },
+      ],
+    ],
+  },
+};
 
 module.exports = {
   lazyLoad(nodePath, nodeValue) {
@@ -33,7 +46,7 @@ module.exports = {
     },
   },
   plugins: [
-    'bisheng-plugin-antd',
+    `bisheng-plugin-antd?${JSON.stringify(pluginAntdConfig)}`,
     'bisheng-plugin-react?lang=__react',
   ],
   routes: [{
