@@ -19,6 +19,5 @@ english: Pagination
 |  total  | 数据总数 | number  |  0  |
 |  simple  | 是否显示数值 | boolean | true  |
 |  disabled  | 禁用状态 | boolean | false  |
-|  prevText  | 上一页按钮文案 | string/React.Element | `Prev`  |
-|  nextText  | 下一页按钮文案 | string/React.Element | `Next`  |
+| locale |  国际化, 可以覆盖全局`LocaleProvider`的配置 | Object：{prevText, nextText} | 无 |
 |  onChange | change 事件触发的回调函数 | (e: Object): void | 无 |

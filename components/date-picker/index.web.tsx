@@ -17,6 +17,7 @@ function getDefaultProps() {
 
 export default class DatePicker extends React.Component<tsPropsType, any> {
   static defaultProps = getDefaultProps();
+
   static contextTypes = {
     antLocale: React.PropTypes.object,
   };

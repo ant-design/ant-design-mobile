@@ -16,6 +16,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
   static contextTypes = {
     antLocale: React.PropTypes.object,
   };
+
   render() {
     const { props, context } = this;
     const {children, extra, value, defaultDate, styles} = props;

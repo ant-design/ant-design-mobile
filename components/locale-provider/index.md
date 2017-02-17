@@ -20,7 +20,7 @@ import enUS from 'antd-mobile/lib/locale-provider/en_US';
 return <LocaleProvider locale={enUS}><App /></LocaleProvider>;
 ```
 
-我们暂时只提供英语，中文两种语言支持，所有语言包可以在 [这里](https://github.com/ant-design/ant-design-mobile/blob/master/components/locale-provider/) 找到。
+我们暂时只提供英语，中文两种语言支持（`默认语言是中文`），所有语言包可以在 [这里](https://github.com/ant-design/ant-design-mobile/blob/master/components/locale-provider/) 找到。
 
 ### 增加语言包
 

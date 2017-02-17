@@ -20,9 +20,7 @@ english: DatePicker
 | minDate   | 最小可选日期,格式同 value | [moment](http://momentjs.com/)  |  -  |
 | maxDate   | 最大可选日期,格式同 value | [moment](http://momentjs.com/)  |  -  |
 | onChange   | 时间发生变化的回调函数  | (date: Object): void |  无  |
-| locale   | 国际化配置 (可自行构造，结构为 {year, month, day, hour, minute})	 | Object  | DatePicker.locale.zh_CN |
-| okText   | 选中的文案 | string/React.ReactElement |  `确定`  |
-| dismissText  | 取消选中的文案 | string/React.ReactElement |  `取消`  |
+| locale   | 国际化，可覆盖全局`LocalwProvider`的配置 | Object: {DatePickerLocale: {year, month, day, hour, minute}, okText, dismissText} |  无 |
 | title  | 弹框的标题 | string/React.ReactElement |  无  |
 | format  | 格式化选中的值 | (value:moment) => string/string | `(val) => { return val; }`  |
 | extra   | DatePicker children 建议是 List.Item, 如果不是，需要是自定义组件(组件内需处理`onClick`/`extra`属性) | String  |  `请选择`  |
