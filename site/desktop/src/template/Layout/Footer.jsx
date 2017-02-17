@@ -26,7 +26,7 @@ export default class Footer extends React.Component {
             <h2>联系我们</h2>
             <div>
               <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
-                谈论
+                在线讨论
               </a>
             </div>
             <div>

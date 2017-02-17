@@ -1,3 +1,4 @@
+/* eslint arrow-body-style: 0 */
 import React from 'react';
 import { List, Icon } from 'antd-mobile';
 import '../../static/style';
@@ -27,6 +28,10 @@ export default class App extends React.Component {
 
   onOpenChange = () => {
     this.setState({ open: !this.state.open });
+  }
+
+  addSearch = () => {
+    return window.location.search ? `/${window.location.search}` : '';
   }
 
   render() {
@@ -99,7 +104,7 @@ export default class App extends React.Component {
                       <List.Item
                         arrow="horizontal"
                         key={`${j.filename}-${cate}`}
-                        onClick={() => location.href = `${rootPath}/${paths[1]}/${window.location.search}#${
+                        onClick={() => location.href = `${rootPath}/${paths[1]}${this.addSearch()}#${
                           paths[1] + config.hashSpliter + j.order
                         }`}
                       >
@@ -111,7 +116,7 @@ export default class App extends React.Component {
                     <List.Item
                       arrow="horizontal"
                       key={`${item.filename}-${cate}`}
-                      onClick={() => { location.href = `${rootPath}/${paths[1]}/${window.location.search}`; }}
+                      onClick={() => { location.href = `${rootPath}/${paths[1]}${this.addSearch()}`; }}
                     >
                       {`${item.english} ${item.chinese}`}
                     </List.Item>

@@ -7,7 +7,7 @@ export default function NotFound() {
     <div id="page-404">
       <section>
         <h1>404</h1>
-        <p>你要找的页面不存在 <Link to="/">返回首页</Link></p>
+        <p>你要找的页面不存在 <Link to="/kitchen-sink">返回首页</Link></p>
       </section>
       <style
         dangerouslySetInnerHTML={{
