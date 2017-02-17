@@ -11,6 +11,7 @@ module.exports = function (config, includeDemo) {
       /components\/popover\/demo/,
       /components\/action-sheet\/demo/,
       /components\/result\/demo/,
+      /components\/menu\/demo/,
     ]);
   }
   // exclude the default svg-url-loader from

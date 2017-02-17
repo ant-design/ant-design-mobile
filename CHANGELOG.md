@@ -3,6 +3,17 @@ order: 4
 english: 更新日志
 ---
 
+### 0.9.15
+
+`2017-02-15`
+
+- 修复并优化 TextareaItem, Accordion, Popover, ListView, InputItem 等组件细节问题 #724 #725 #788 #426
+- 修复 RN Grid 的 onClick点击失效问题 #755
+- Toast 组件修改成单例模式，避免多个 toast 同时或无序出现的问题 #745
+- Modal 组件在 alert / prompt 的 action 里增加 Promise 支持
+- TabBar 组件 Android 代码新增 iconStyle 属性支持 #776
+- SwipeAction 组件增加遮罩背景样式，并优化 demo
+
 ### 0.9.14
 
 `2017-01-13`

@@ -107,7 +107,7 @@ export default function (...args) {
         text: item.text,
         onPress: () => {
           if (item.onPress) {
-            getArgs(item.onPress);
+            return getArgs(item.onPress);
           }
         },
       };
@@ -117,8 +117,14 @@ export default function (...args) {
   const footer = actions.map((button) => {
     const orginPress = button.onPress || function() {};
     button.onPress = () => {
-      orginPress();
-      close();
+      const res = orginPress();
+      if (res && res.then) {
+        res.then(() => {
+          close();
+        });
+      } else {
+        close();
+      }
     };
     return button;
   });

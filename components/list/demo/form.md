@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 表单中的应用示例
+title: 可输入列表
 ---
 
 表单集合. (使用 [rc-form 文档](https://github.com/react-component/form) 做表单验证)
@@ -66,11 +66,11 @@ let BasicInput = React.createClass({
         >确认信息</Item>
         <Item><Slider range defaultValue={[20, 50]} /></Item>
         <Item extra={<Stepper style={{ width: '100%', minWidth: '2rem' }} showNumber size="small" defaultValue={20} />}>预定人数</Item>
+        <Item>
+          <Button type="primary" onClick={this.onSubmit} inline>提交验证</Button>
+          <Button onClick={this.onReset} inline style={{ marginLeft: 5 }}>重置</Button>
+        </Item>
       </List>
-      <div style={{ margin: 12 }}>
-        <Button type="primary" onClick={this.onSubmit} inline>提交验证</Button>
-        <Button onClick={this.onReset} inline style={{ marginLeft: 5 }}>重置</Button>
-      </div>
     </form>);
   },
 });

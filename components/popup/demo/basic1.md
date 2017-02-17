@@ -46,7 +46,7 @@ const Test = React.createClass({
           <List.Item key={index}>{i}</List.Item>
         ))}
       </List>
-      <ul style={{ padding: '0.18rem 0.3rem' }}>
+      <ul style={{ padding: '0.18rem 0.3rem', listStyle: 'none' }}>
         <li>投资说明投资说明...</li>
         <li style={{ marginTop: '0.18rem' }}>
           <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>

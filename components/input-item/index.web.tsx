@@ -201,6 +201,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
+      [`${prefixCls}-android`]: focus,
       [className as string]: className,
     });
 
@@ -212,6 +213,10 @@ class InputItem extends React.Component<InputItemProps, any> {
       [`${prefixCls}-label-5`]: labelNumber === 5,
       [`${prefixCls}-label-6`]: labelNumber === 6,
       [`${prefixCls}-label-7`]: labelNumber === 7,
+    });
+
+    const controlCls = classNames({
+      [`${prefixCls}-control`]: true,
     });
 
     let inputType: any = 'text';
@@ -244,7 +249,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     return (
       <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
-        <div className={`${prefixCls}-control`}>
+        <div className={controlCls}>
           <input
             ref="input"
             {...patternProps}

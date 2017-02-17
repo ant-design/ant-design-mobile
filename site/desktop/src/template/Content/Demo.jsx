@@ -1,3 +1,4 @@
+/* eslint react/no-danger: 0 */
 import React from 'react';
 import classNames from 'classnames';
 import Button from 'antd/lib/button';

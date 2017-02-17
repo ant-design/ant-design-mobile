@@ -20,8 +20,7 @@
   &-body {
     position: relative;
     background-color: @fill-base;
-    .hairline-top(@list-body-border-color, @list-body-border-width);
-    // .hairline-bottom(@list-body-border-color, 0, @list-body-border-width);
+    .hairline-top(@border-color-base);
     // 注意：如果元素的 overflow 有 scroll 出现，其伪元素 绝对定位 显示将出错，例如 bottom: 0
     &:after {
       display: block;
@@ -116,7 +115,7 @@
       flex: 1;
       color: @color-text-base;
       font-size: @font-size-heading;
-      line-height: 1.2;
+      line-height: @line-height-paragraph;
       text-align: left;
       .ellipsis();
       padding-top: 14px;
@@ -127,7 +126,7 @@
       flex-basis: 36%;
       color: @color-text-caption;
       font-size: 32px; // 视觉要求先暂时写死
-      line-height: 1.2;
+      line-height: @line-height-paragraph;
       text-align: right;
       .ellipsis();
       padding-top: 14px;
@@ -140,7 +139,7 @@
     .@{listPrefixCls}-brief {
       color: @color-text-caption;
       font-size: @font-size-subhead;
-      line-height: 1.2;
+      line-height: @line-height-paragraph;
       margin-top: @v-spacing-sm;
       .ellipsis();
     }

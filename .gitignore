@@ -33,7 +33,6 @@ rn-kitchen-sink/android/.gradle
 rn-kitchen-sink/android/app/build
 rn-kitchen-sink/android/build
 rn-kitchen-sink/android/local.properties
-rn-kitchen-sink/android/app/src/main/assets
 rn-kitchen-sink/android/app/src/main/res/drawable*
 xcuserdata
 components/**/*.jsx

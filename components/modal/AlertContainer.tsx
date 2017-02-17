@@ -23,7 +23,7 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
     };
   }
 
-  onClose = () => {
+  onClose() {
     this.setState({
       visible: false,
     });
@@ -32,11 +32,16 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
   render() {
     const { title, actions, content, onAnimationEnd } = this.props;
     const footer = actions.map((button) => {
-      const orginPress = button.onPress || function () {
-        };
+      const orginPress = button.onPress || function () {};
       button.onPress = () => {
-        orginPress();
-        this.onClose();
+        const res = orginPress();
+        if (res && (res as any).then) {
+          (res as any).then(() => {
+            this.onClose();
+          });
+        } else {
+          this.onClose();
+        }
       };
       return button;
     });
@@ -45,7 +50,7 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
         transparent
         title={title}
         visible={this.state.visible}
-        onClose={this.onClose}
+        onClose={() => this.onClose}
         footer={footer}
         onAnimationEnd={onAnimationEnd}
       >

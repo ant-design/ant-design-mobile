@@ -1,21 +1,7 @@
 import React from 'react';
-import Select from 'antd/lib/select';
-import { version as packageVersions } from 'antd-mobile/package.json';
-import { docVersions } from '../../';
-
-const Option = Select.Option;
-docVersions[packageVersions] = packageVersions;
 
 export default class Footer extends React.Component {
-
-  handleVersionChange = (url) => {
-    window.location.href = url;
-  }
-
   render() {
-    const options = Object.keys(docVersions).map(version => (
-      <Option value={docVersions[version]} key={version}>{version}</Option>
-    ));
     return (
       <footer id="footer">
         <ul>
@@ -38,24 +24,20 @@ export default class Footer extends React.Component {
           </li>
           <li>
             <h2>联系我们</h2>
-            <a target="_blank" rel="noopener noreferrer" href="http://github.com/ant-design/ant-design-mobile/issues">
-              反馈和建议
-            </a>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
+                谈论
+              </a>
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="http://github.com/ant-design/ant-design-mobile/issues">
+                报告 Bug
+              </a>
+            </div>
           </li>
           <li>
             <div>©2016 蚂蚁金服体验技术部 & 口碑终端技术部出品</div>
             <div>Powered by <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
-            <div>
-              文档版本：
-              <Select
-                size="small"
-                dropdownMatchSelectWidth={false}
-                defaultValue={packageVersions}
-                onChange={this.handleVersionChange}
-              >
-                {options}
-              </Select>
-            </div>
           </li>
         </ul>
       </footer>

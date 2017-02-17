@@ -151,7 +151,7 @@ const Demo = React.createClass({
         renderSeparator={separator}
         className="fortest"
         style={{
-          height: document.body.clientHeight * 3 / 4,
+          height: document.documentElement.clientHeight * 3 / 4,
           overflow: 'auto',
           border: '1px solid #ddd',
           margin: '0.1rem 0',

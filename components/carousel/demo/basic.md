@@ -5,12 +5,12 @@ title: 示例
 
 
 ````jsx
-import { Carousel } from 'antd-mobile';
+import { Carousel, WhiteSpace } from 'antd-mobile';
 
 const App = React.createClass({
   render() {
-    return (<div>
-      <div style={{ color: '#888', margin: '0.2rem' }}>normal</div>
+    return (<div className="need-left-right-margin">
+      <div className="sub-title">normal</div>
       <Carousel
         className="my-carousel" autoplay={false} infinite
         beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
@@ -20,8 +20,8 @@ const App = React.createClass({
           <a href="#" key={ii}><img src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`} /></a>
         ))}
       </Carousel>
-
-      <div style={{ color: '#888', margin: '0.2rem' }}>vertical</div>
+      <WhiteSpace />
+      <div className="sub-title">vertical</div>
       <Carousel className="my-carousel"
         dots={false} dragging={false} swiping={false} autoplay infinite vertical
       >

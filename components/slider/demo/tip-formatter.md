@@ -20,12 +20,12 @@ const App = React.createClass({
       <div className="am-slider-example">
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">格式化Tooltip</p>
+          <div className="sub-title">格式化Tooltip</div>
           <Slider tipFormatter={formatter} />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">隐藏Tooltip</p>
+          <div className="sub-title">隐藏Tooltip</div>
           <Slider tipFormatter={null} />
         </WingBlank>
         <WhiteSpace size="lg" />

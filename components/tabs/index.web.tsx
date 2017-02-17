@@ -16,8 +16,9 @@ const Tabs = React.createClass<TabsProps, any>({
       prefixCls: 'am-tabs',
       animated: true,
       swipeable: true,
-      onChange() {},
       tabBarPosition: 'top',
+      hammerOptions: {},
+      onChange() {},
       onTabClick() {},
     };
   },
@@ -38,9 +39,9 @@ const Tabs = React.createClass<TabsProps, any>({
   },
 
   renderTabContent() {
-    const { animated, swipeable } = this.props;
+    const { animated, swipeable, hammerOptions } = this.props;
     return swipeable ? (
-      <SwipeableTabContent animated={animated} />
+      <SwipeableTabContent animated={animated} hammerOptions={hammerOptions}/>
     ) : (
       <TabContent animated={animated} />
     );
@@ -57,6 +58,13 @@ const Tabs = React.createClass<TabsProps, any>({
       viewportStartTabIndex: this.getStartTabIndex(key),
     });
     this.props.onTabClick(key);
+  },
+
+  handleTabChange(key) {
+    this.setState({
+      viewportStartTabIndex: this.getStartTabIndex(key),
+    });
+    this.props.onChange(key);
   },
 
   getStartTabIndex(activeTabKey) {
@@ -92,6 +100,7 @@ const Tabs = React.createClass<TabsProps, any>({
   render() {
     const newProps = {
       ...this.props,
+      onChange: this.handleTabChange,
       children: this.getChildren(),
       className: this.getClassName(),
     };
