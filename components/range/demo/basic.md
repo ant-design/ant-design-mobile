@@ -7,40 +7,39 @@ title: 基本使用
 基本滑动条。当 `disabled` 为 `true` 时，滑块处于不可用状态。
 
 
+
 ````jsx
-import { Slider, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
+import { Range, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
 
-const SliderWithTooltip = createTooltip(Slider);
-
-class App extends React.Component {
-  log = (name) => {
+const RangeWithTooltip = createTooltip(Range);
+const App = React.createClass({
+  log(name) {
     return (value) => {
       console.log(`${name}: ${value}`);
     };
-  }
+  },
   render() {
     return (
       <div className="am-slider-example">
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider</p>
-          <Slider defaultValue={26} min={0} max={30} />
+          <p className="title">Range, 基础使用</p>
+          <Range min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider 带 ToolTip</p>
-          <SliderWithTooltip defaultValue={26} min={0} max={30} />
+          <p className="title">Range, 带 Tooltip</p>
+          <RangeWithTooltip min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider 禁用</p>
-          <Slider defaultValue={26} min={0} max={30} disabled/>
+          <p className="title">Range, 禁用</p>
+          <Range min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} disabled/>
         </WingBlank>
       </div>
     );
-  }
-}
-
+  },
+});
 ReactDOM.render(<App />, mountNode);
 ````
 
