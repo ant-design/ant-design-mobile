@@ -50,3 +50,5 @@ export { default as Toast } from './toast/index.web';
 export { default as View } from './view/index.web';
 export { default as WhiteSpace } from './white-space/index.web';
 export { default as WingBlank } from './wing-blank/index.web';
+
+export { default as LocaleProvider } from './locale-provider/index';

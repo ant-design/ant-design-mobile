@@ -1,1 +1,7 @@
-export { default } from 'rmc-date-picker/lib/locale/zh_CN';
+import DatePickerLocale from 'rmc-date-picker/lib/locale/zh_CN';
+
+export default {
+  okText: '确定',
+  dismissText: '取消',
+  DatePickerLocale,
+};
