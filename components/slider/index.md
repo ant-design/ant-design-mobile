@@ -29,3 +29,14 @@ english: Slider
 | marks (`web only`)     |  Object{Number:String}     | { }    | 刻度标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内 |
 | dots (`web only`)     |  Boolean     | false    | 是否只能拖拽到刻度上 |
 | included (`web only`)    |  Boolean     | true    | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 |
+
+## ToolTip(Web Only)
+
+注：1.0.x 之后将原先的`Slider`拆分成了`Slider`, `Range`, `creatToolTip`, 以便用户按需加载相应的功能使用, 例如带 `tooltip` 的 `slider` 使用方式如下:
+
+````jsx
+import { Slider, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
+
+const SliderWithTooltip = createTooltip(Slider); // High Order Component
+<SliderWithTooltip defaultValue={26} min={0} max={30} />
+````

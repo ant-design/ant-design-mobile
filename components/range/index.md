@@ -32,3 +32,14 @@ english: Range
 | count | number | `1` | Determine how many ranges to render, and multiple handles will be rendered (number + 1). |
 | allowCross | boolean | `true` | `allowCross` could be set as `true` to allow those handles to cross. |
 | pushable | boolean or number | `true` | `pushable` could be set as `true` to allow pushing of surrounding handles when moving an handle. When set to a number, the number will be the minimum ensured distance between handles. Example: ![](http://i.giphy.com/l46Cs36c9HrHMExoc.gif) |
+
+## ToolTip(Web Only)
+
+注：1.0.x 之后将原先的`Slider`拆分成了`Slider`, `Range`, `creatToolTip`, 以便用户按需加载相应的功能使用, 例如带 `tooltip` 的 `slider` 使用方式如下:
+
+````jsx
+import { Range, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
+
+const RangeWithTooltip = createTooltip(Range); // High Order Component
+<RangeWithTooltip defaultValue={[4, 16]} min={0} max={30} />
+````

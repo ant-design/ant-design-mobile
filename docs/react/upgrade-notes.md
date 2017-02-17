@@ -17,6 +17,8 @@ Icon 组件基础的使用方式没有变化、比如：`<Icon type="check" />`�
 所以 css font-size 设置不再生效；相对于其他元素的位置偏移设置也与原来的略有不同；
 工具上的设置要求比之前更加复杂；详细参考 [Icon 文档](https://mobile.ant.design/components/icon/)。
 
+### Web `Slider` 拆分成 `Slider`, `Range`, `createTooltip`, 使用方式参见 [Slider文档](https://mobile.ant.design/components/slider), [Range文档](https://mobile.ant.design/components/range)
+
 ### 其他常用组件更新注意事项
 
 > 主要介绍组件核心实现的变更。如无特别说明、组件 API 均向前兼容（新增的 API 请查看对应组件文档）
