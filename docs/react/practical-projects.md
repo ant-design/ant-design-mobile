@@ -53,8 +53,8 @@ webpack: bundle build is now finished.
 
 - `npm install antd-mobile babel-plugin-import --save` 安装依赖
 - 不需要再设置 resolve (因为 atool-build 内部已经设置好)
-- `babel-plugin-import` 是用来按需加载脚本和样式，编辑 `webpack.config.js`，使 `babel-plugin-import` 插件生效
-- 高清方案设置，让页面显示效果更加细腻
+- `babel-plugin-import` 是用来按需加载脚本和样式，编辑 `.roadhogrc `，使 `babel-plugin-import` 插件生效。[参考文档](https://github.com/sorrycc/roadhog#extrababelplugins)
+- [高清方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)，让页面显示效果更加细腻
 
 
 ## 接下来：
