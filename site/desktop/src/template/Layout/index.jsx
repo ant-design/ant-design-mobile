@@ -30,11 +30,12 @@ export default class Layout extends React.Component {
     }
     return false;
   }
-
-  componentDidMount() {
+  componentWillMount() {
     if (this.checkIfMobile()) {
-      location.href = '/kitchen-sink/';
+      location.href = location.port ? 'http://127.0.0.1:8002/' : '/kitchen-sink/';
     }
+  }
+  componentDidMount() {
     if (typeof ga !== 'undefined' && !gaListenerSetted) {
       this.context.router.listen((loc) => {
         window.ga('send', 'pageview', loc.pathname + loc.search);
