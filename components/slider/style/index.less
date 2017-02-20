@@ -3,19 +3,10 @@
 
 @sliderPrefixCls: am-slider;
 
-// tooltip
-@tooltip-color: @color-text-base-inverse;
-@tooltip-bg: @fill-mask;
-@tooltip-arrow-width: 8px;
-@tooltip-distance: @tooltip-arrow-width + @v-spacing-sm;
-@tooltip-arrow-color: @tooltip-bg;
-
 .borderBox() {
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); //  remove tap highlight color for mobile safari
 }
-
-@import './tooltip.less';
 
 .@{sliderPrefixCls} {
   position: relative;

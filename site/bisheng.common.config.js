@@ -27,15 +27,6 @@ module.exports = {
       },
     ]);
 
-    config.babel.plugins.push([
-      'babel-plugin-import',
-      {
-        style: true,
-        libraryName: 'antd-mobile',
-        libraryDirectory: 'components',
-      },
-    ]);
-
     return config;
   },
 };

@@ -17,6 +17,8 @@ Icon 组件基础的使用方式没有变化、比如：`<Icon type="check" />`�
 所以 css font-size 设置不再生效；相对于其他元素的位置偏移设置也与原来的略有不同；
 工具上的设置要求比之前更加复杂；详细参考 [Icon 文档](https://mobile.ant.design/components/icon/)。
 
+### Web `Slider` 拆分成 `Slider`, `Range`, `createTooltip`, 使用方式参见 [Slider文档](https://mobile.ant.design/components/slider), [Range文档](https://mobile.ant.design/components/range)
+
 ### 其他常用组件更新注意事项
 
 > 主要介绍组件核心实现的变更。如无特别说明、组件 API 均向前兼容（新增的 API 请查看对应组件文档）
@@ -26,6 +28,8 @@ Icon 组件基础的使用方式没有变化、比如：`<Icon type="check" />`�
 - 可以使用 Carousel 组件实现移动端常见的带有内容走马灯效果的“单行通知“功能；同时 NoticeBar 组件加入常见的横向走马灯功能支持。
 - Popup 弹出层在 iOS 上使用时可能产生的内容滚动穿透、底部回弹遮挡页面内容等问题，在 demo 和 wiki 里加入了更多解决方法说明。
 - ListView 组件底层实现进行了许多优化，并在文档里加入了更详细的介绍。
+- `DatePicker`, `Pagination` 不再接受 `okText`, `dismissText`属性，而是默认内置中文文案，可以利用 [LocalProvider](https://mobile.ant.design/components/locale-provider/) 切换为英文文案。
+-  `DatePicker`的`locale`属性结构变化，原来的`DatePickerLocale: object`现为`{DatePickerLocale, okText, dismissText}`
 
 ## 0.8.x => 0.9
 

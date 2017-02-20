@@ -97,7 +97,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 
 #### React-Native 使用方式
 
-> 注：`Accordion`、`Icon`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
+> 注：`Accordion`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
 
 - `.babelrc` 文件添加以下配置
 

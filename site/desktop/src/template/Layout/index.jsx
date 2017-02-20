@@ -23,6 +23,18 @@ export default class Layout extends React.Component {
     router: React.PropTypes.object.isRequired,
   };
 
+  checkIfMobile = () => {
+    const ua = window.navigator.userAgent.toLowerCase();
+    if (ua.indexOf('android') !== -1 || ua.indexOf('iphone') !== -1) {
+      return true;
+    }
+    return false;
+  }
+  componentWillMount() {
+    if (this.checkIfMobile()) {
+      location.href = location.port ? 'http://127.0.0.1:8002/' : '/kitchen-sink/';
+    }
+  }
   componentDidMount() {
     if (typeof ga !== 'undefined' && !gaListenerSetted) {
       this.context.router.listen((loc) => {

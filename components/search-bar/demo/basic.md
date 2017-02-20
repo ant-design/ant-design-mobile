@@ -20,11 +20,14 @@ const SearchBarExample = React.createClass({
     this.setState({ value: '' });
   },
   render() {
-    return (<div>
+    return (<div className="need-left-right-margin">
+      <div className="sub-title">普通</div>
       <SearchBar placeholder="搜索" />
-      <p style={{ padding: 10, color: '#999' }}>自动获取光标</p>
+      <WhiteSpace />
+      <div className="sub-title">自动获取光标</div>
       <SearchBar placeholder="自动获取光标" autoFocus />
-      <p style={{ padding: 10, color: '#999' }}>手动获取获取光标</p>
+      <WhiteSpace />
+      <div className="sub-title">手动获取获取光标</div>
       <SearchBar
         placeholder="手动获取获取光标"
         focused={this.state.focused}
@@ -46,7 +49,7 @@ const SearchBarExample = React.createClass({
         >点击获取光标</Button>
       </WingBlank>
       <WhiteSpace />
-      <p style={{ padding: 10, color: '#999' }}>显示取消按钮</p>
+      <div className="sub-title">显示取消按钮</div>
       <SearchBar
         value={this.state.value}
         placeholder="搜索"

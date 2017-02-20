@@ -4,17 +4,20 @@ import Button from '../button';
 import Flex from '../flex';
 import PaginationProps from './PropsType';
 import PaginationStyle from './style/index';
+import { getComponentLocale } from '../_util/getLocale';
 
 export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
     mode: 'button',
     current: 0,
     simple: false,
-    prevText: 'Prev',
-    nextText: 'Next',
     onChange: () => {},
     indicatorStyle: null,
     styles: PaginationStyle,
+  };
+
+ static contextTypes = {
+    antLocale: React.PropTypes.object,
   };
 
   constructor(props) {
@@ -40,7 +43,10 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   render() {
-    const { styles, style, mode, total, simple, prevText, nextText } = this.props;
+    const { styles, style, mode, total, simple } = this.props;
+    const locale = getComponentLocale(this.props, this.context, 'Pagination', () => require('./locale/zh_CN'));
+    const { prevText, nextText } = locale;
+
     const current = this.state.current;
     const simpleItem = !simple ? (
       <Flex.Item>

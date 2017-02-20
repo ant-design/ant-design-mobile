@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="43px" viewBox="0 0 38 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>菜单</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-17.000000, -10.000000)" fill="#ffffff">
+            <g id="菜单" transform="translate(17.000000, 10.000000)">
+                <path d="M4.97379915e-14,2.00199958 C4.97379915e-14,0.896325744 0.90185079,1.42108547e-14 2.00285922,1.42108547e-14 L35.9971408,1.42108547e-14 C37.1032894,1.42108547e-14 38,0.898116112 38,2.00199958 L38,40.9980004 C38,42.1036743 37.0981492,43 35.9971408,43 L2.00285922,43 C0.896710617,43 4.97379915e-14,42.1018839 4.97379915e-14,40.9980004 L4.97379915e-14,2.00199958 Z M3,3 L3,40 L35,40 L35,3 L3,3 Z" id="Combined-Shape"></path>
+                <rect id="Rectangle-433" x="7" y="12" width="24.3589744" height="2.92307692" rx="1"></rect>
+                <rect id="Rectangle-433-Copy" x="7" y="20.7692308" width="20.4615385" height="2.92307692" rx="1"></rect>
+                <rect id="Rectangle-433-Copy-2" x="7" y="29.5128205" width="14.6153846" height="2.92307692" rx="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

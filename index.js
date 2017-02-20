@@ -40,3 +40,5 @@ export { default as TextareaItem } from './components/textarea-item/';
 export { default as Toast } from './components/toast/';
 export { default as WhiteSpace } from './components/white-space/';
 export { default as WingBlank } from './components/wing-blank/';
+
+export { default as LocaleProvider } from './components/locale-provider/';

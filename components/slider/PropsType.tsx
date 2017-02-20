@@ -1,4 +1,4 @@
-interface SliderProps {
+export interface SliderProps {
   onChange?: (value?: number) => void;
   onAfterChange?: (value?: number) => void;
   defaultValue?: number;

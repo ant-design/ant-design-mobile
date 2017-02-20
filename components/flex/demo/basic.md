@@ -23,7 +23,7 @@ const FlexExample = React.createClass({
   render() {
     return (
       <div className="flex-container">
-        <div className="title">基本</div>
+        <div className="sub-title">基本</div>
         <Flex>
           <Flex.Item><PlaceHolder /></Flex.Item>
           <Flex.Item><PlaceHolder /></Flex.Item>
@@ -43,7 +43,7 @@ const FlexExample = React.createClass({
         </Flex>
         <WhiteSpace size="lg" />
 
-        <div className="title">wrap 换行</div>
+        <div className="sub-title">wrap 换行</div>
         <Flex wrap="wrap">
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
@@ -55,7 +55,7 @@ const FlexExample = React.createClass({
         </Flex>
         <WhiteSpace size="lg" />
 
-        <div className="title">轴对齐方式</div>
+        <div className="sub-title">轴对齐方式</div>
         <Flex justify="center">
           <PlaceHolder className="inline" />
           <PlaceHolder className="inline" />
@@ -99,13 +99,10 @@ const FlexExample = React.createClass({
 
 ReactDOM.render(<FlexExample />, mountNode);
 ````
+
 ````css
 .flex-container {
   margin: 0 0.30rem;
-}
-.flex-container .title {
-  color: #888;
-  margin: 0.20rem 0;
 }
 .flex-container .inline {
   width: 1.6rem!important;

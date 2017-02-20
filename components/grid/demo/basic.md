@@ -19,15 +19,16 @@ const data1 = Array.from(new Array(5)).map((_val, i) => ({
 const GridExample = React.createClass({
   render() {
     return (<div>
+      <div className="sub-title">基本使用</div>
       <Grid data={data} />
 
-      <p style={{ margin: 10, color: '#999' }}>无边线</p>
+      <div className="sub-title">无边线</div>
       <Grid data={data} columnNum={3} hasLine={false} />
 
-      <p style={{ margin: 10, color: '#999' }}>走马灯</p>
+      <div className="sub-title">走马灯</div>
       <Grid data={data} columnNum={3} isCarousel onClick={(_el, index) => alert(index)} />
 
-      <p style={{ margin: 10, color: '#999' }}>自定义格子内容</p>
+      <div className="sub-title">自定义格子内容</div>
       <Grid data={data1} columnNum={3} hasLine={false}
         renderItem={(dataItem, index) => (
           <div style={{ margin: '0.16rem', background: '#f7f7f7', textAlign: 'center' }}>
@@ -43,4 +44,13 @@ const GridExample = React.createClass({
 });
 
 ReactDOM.render(<GridExample />, mountNode);
+````
+
+````css
+.am-grid {
+  border: 1px solid #ddd;
+}
+.sub-title {
+  margin-left: 30px;
+}
 ````

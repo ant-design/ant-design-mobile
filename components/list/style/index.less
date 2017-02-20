@@ -20,8 +20,7 @@
   &-body {
     position: relative;
     background-color: @fill-base;
-    .hairline-top(@list-body-border-color, @list-body-border-width);
-    // .hairline-bottom(@list-body-border-color, 0, @list-body-border-width);
+    .hairline-top(@border-color-base);
     // 注意：如果元素的 overflow 有 scroll 出现，其伪元素 绝对定位 显示将出错，例如 bottom: 0
     &:after {
       display: block;

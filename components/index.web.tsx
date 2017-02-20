@@ -36,6 +36,8 @@ export { default as Result } from './result/index.web';
 export { default as SearchBar } from './search-bar/index.web';
 export { default as SegmentedControl } from './segmented-control/index.web';
 export { default as Slider } from './slider/index.web';
+export { default as Range } from './range/index.web';
+export { default as createTooltip } from './create-tooltip/index.web';
 export { default as Stepper } from './stepper/index.web';
 export { default as Steps } from './steps/index.web';
 export { default as SwipeAction } from './swipe-action/index.web';
@@ -50,3 +52,5 @@ export { default as Toast } from './toast/index.web';
 export { default as View } from './view/index.web';
 export { default as WhiteSpace } from './white-space/index.web';
 export { default as WingBlank } from './wing-blank/index.web';
+
+export { default as LocaleProvider } from './locale-provider/index';
