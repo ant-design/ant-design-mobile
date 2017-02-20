@@ -7,7 +7,7 @@ title: 示例
 ````jsx
 import { Carousel, WhiteSpace } from 'antd-mobile';
 
-const App = React.createClass({
+class App extends React.Component {
   render() {
     return (<div className="need-left-right-margin">
       <div className="sub-title">normal</div>
@@ -30,8 +30,8 @@ const App = React.createClass({
         <div className="v-item">Carousel 3</div>
       </Carousel>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````
