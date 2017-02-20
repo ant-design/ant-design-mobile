@@ -8,21 +8,22 @@ title: 基本用法
 ````jsx
 import { ActivityIndicator, WingBlank, WhiteSpace, Button } from 'antd-mobile';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       animating: false,
     };
-  },
+  }
   componentWillUnmount() {
     clearTimeout(this.closeTimer);
-  },
-  showToast() {
+  }
+  showToast = () => {
     this.setState({ animating: !this.state.animating });
     this.closeTimer = setTimeout(() => {
       this.setState({ animating: !this.state.animating });
     }, 1000);
-  },
+  }
   render() {
     return (
       <div>
@@ -62,8 +63,8 @@ const App = React.createClass({
         </WingBlank>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````
