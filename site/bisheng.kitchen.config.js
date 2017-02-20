@@ -25,6 +25,7 @@ module.exports = Object.assign({}, commonConfig, {
       Feedback: '操作反馈',
       Combination: '组合组件',
       Gesture: '手势',
+      Other: '其他',
     },
     categoryOrder: {
       Layout: 0,
@@ -34,6 +35,7 @@ module.exports = Object.assign({}, commonConfig, {
       Feedback: 4,
       Combination: 6,
       Gesture: 5,
+      Other: 7,
     },
   },
   doraConfig: {

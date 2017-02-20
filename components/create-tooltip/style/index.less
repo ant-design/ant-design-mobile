@@ -1,4 +1,16 @@
-.@{sliderPrefixCls}-tooltip {
+@import '../../style/themes/default';
+
+@sliderPrefixCls: am-slider;
+
+// tooltip
+@tooltip-color: @color-text-base-inverse;
+@tooltip-bg: @fill-mask;
+@tooltip-arrow-width: 8px;
+@tooltip-distance: @tooltip-arrow-width + @v-spacing-sm;
+@tooltip-arrow-color: @tooltip-bg;
+
+.@{sliderPrefixCls}-tooltip,
+.rc-slider-tooltip {
   position: absolute;
   left: -9999px;
   top: -9999px;

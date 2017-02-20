@@ -112,8 +112,8 @@ const Demo = React.createClass({
           <div style={{ display: '-webkit-box', display: 'flex' }}>
             <img style={{ height: '1.28rem', marginRight: '0.08rem' }} src={obj.img} />
             <div style={{ display: 'inline-block' }}>
-              <p>{obj.des}</p>
-              <p><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
+              <p style={{ margin: 0, marginTop: '0.1rem' }}>{obj.des}</p>
+              <p style={{ marginTop: '0.2rem' }}><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
             </div>
           </div>
         </div>

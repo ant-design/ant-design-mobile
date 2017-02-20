@@ -6,10 +6,11 @@ title: 可输入列表
 表单集合. (使用 [rc-form 文档](https://github.com/react-component/form) 做表单验证)
 
 ````jsx
-import { List, InputItem, Switch, Stepper, Slider, Button } from 'antd-mobile';
+import { List, InputItem, Switch, Stepper, Range, Button, createTooltip } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 const Item = List.Item;
+const RangeWithTooltip = createTooltip(Range);
 
 let BasicInput = React.createClass({
   getInitialState() {
@@ -64,7 +65,7 @@ let BasicInput = React.createClass({
         <Item
           extra={<Switch {...getFieldProps('1', { initialValue: true, valuePropName: 'checked' })} />}
         >确认信息</Item>
-        <Item><Slider range defaultValue={[20, 50]} /></Item>
+        <Item><RangeWithTooltip defaultValue={[20, 50]} /></Item>
         <Item extra={<Stepper style={{ width: '100%', minWidth: '2rem' }} showNumber size="small" defaultValue={20} />}>预定人数</Item>
         <Item>
           <Button type="primary" onClick={this.onSubmit} inline>提交验证</Button>

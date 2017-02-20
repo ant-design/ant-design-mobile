@@ -1,4 +1,4 @@
-export interface SliderProps {
+export interface RangeProps {
   onChange?: (value?: number) => void;
   onAfterChange?: (value?: number) => void;
   defaultValue?: number;
@@ -12,4 +12,4 @@ export interface SliderProps {
   prefixCls?: string;
 }
 
-export default SliderProps;
+export default RangeProps;

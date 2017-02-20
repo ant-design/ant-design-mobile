@@ -19,6 +19,7 @@ const data1 = Array.from(new Array(5)).map((_val, i) => ({
 const GridExample = React.createClass({
   render() {
     return (<div>
+      <div className="sub-title">基本使用</div>
       <Grid data={data} />
 
       <div className="sub-title">无边线</div>
@@ -43,4 +44,13 @@ const GridExample = React.createClass({
 });
 
 ReactDOM.render(<GridExample />, mountNode);
+````
+
+````css
+.am-grid {
+  border: 1px solid #ddd;
+}
+.sub-title {
+  margin-left: 30px;
+}
 ````

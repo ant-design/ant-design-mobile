@@ -20,3 +20,6 @@ Picker 直接渲染在区域中
 | cascade    | 是否级联        | Boolean |  true  |
 | cols    | 列数        | Number |  `3`  |
 | onChange | 选中后的回调函数，如果使用[rc-form](https://github.com/react-component/form),一般不需要自己处理 | (val): void | - |
+| prefixCls (`Web Only`)   | prefix class        | string |  am-picker  |
+| pickerPrefixCls (`Web Only`)   | picker prefix class        | string |  am-picker-col  |
+| styles  (`Web Only`)  | additional style        | Object |  {}  |
