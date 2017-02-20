@@ -8,10 +8,10 @@ Accordion
 ````jsx
 import { Accordion, List } from 'antd-mobile';
 
-const AccordionExmple = React.createClass({
-  onChange(key) {
+class AccordionExmple extends React.Component {
+  onChange = (key) => {
     console.log(key);
-  },
+  }
   render() {
     return (
       <div style={{ marginTop: 10, marginBottom: 10 }}>
@@ -30,8 +30,8 @@ const AccordionExmple = React.createClass({
         </Accordion>
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<AccordionExmple />, mountNode);
 ````
