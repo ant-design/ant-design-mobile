@@ -1,8 +1,14 @@
 import React from 'react';
-import { IPopupCascaderProps } from 'rmc-cascader/lib/Popup';
 import { CascaderValue } from 'rmc-cascader/lib/CascaderTypes';
+import { IPopupPickerProps } from 'rmc-picker/lib/PopupPickerTypes';
 
-interface Props extends IPopupCascaderProps {
+//Partial IPopupCascaderProps
+export interface IPartialPopupCascaderProps extends IPopupPickerProps {
+    cascader?: React.ReactElement<ICascaderProps>;
+    onChange?: (date?: CascaderValue) => void;
+}
+
+interface Props extends IPartialPopupCascaderProps {
   data: any;
   cascade?: boolean;
   value?: Array<string|number>;
