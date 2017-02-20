@@ -34,6 +34,8 @@ rn-kitchen-sink/android/app/build
 rn-kitchen-sink/android/build
 rn-kitchen-sink/android/local.properties
 rn-kitchen-sink/android/app/src/main/res/drawable*
+rn-kitchen-sink/app/*.ipa
+rn-kitchen-sink/app/*.apk
 xcuserdata
 components/**/*.jsx
 components/**/*.js

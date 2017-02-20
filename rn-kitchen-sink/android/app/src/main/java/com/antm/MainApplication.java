@@ -24,18 +24,18 @@ public class MainApplication extends Application implements ReactApplication {
     }
 
     @Override
-    protected String getBundleAssetName() {
+    public String getBundleAssetName() {
         return "index.android.bundle";
     }
 
     @Override
-    protected String getJSMainModuleName() {
+    public String getJSMainModuleName() {
         return "rn-kitchen-sink/index.android";
     }
 
     @Override
     protected String getJSBundleFile() {
-        return CodePush.getBundleUrl();
+        return CodePush.getJSBundleFile();
     }
 
     @Override
