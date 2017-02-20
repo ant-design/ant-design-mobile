@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.antm"
-    android:versionCode="1"
-    android:versionName="0.8.0">
+    android:versionCode="2"
+    android:versionName="1.0.0">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>

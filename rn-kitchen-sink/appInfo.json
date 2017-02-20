@@ -1,10 +1,10 @@
 {
   "android": {
-    "appversion": "0.8.0",
-    "appurl": "https://os.alipayobjects.com/rmsportal/OKOocQHzDsUhPto.apk"
+    "appversion": "1.0.0",
+    "appurl": "https://mobile.ant.design/rn-kitchen-sink/antd-mobile.apk"
   },
   "ios": {
-    "appversion": "0.8.0",
-    "appurl": "https://os.alipayobjects.com/rmsportal/WSvYQroqcZNGUkR.html"
+    "appversion": "1.0.0",
+    "appurl": "https://mobile.ant.design/rn-kitchen-sink/qrcode.html"
   }
 }

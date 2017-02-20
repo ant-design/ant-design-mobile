@@ -11,19 +11,19 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://os.alipayobjects.com/rmsportal/SOGWBgBbcGNvpcn.ipa</string>
+					<string>https://mobile.ant.design/rn-kitchen-sink/antd-mobile.ipa</string>
 				</dict>
 				<dict>
 					<key>kind</key>
 					<string>display-image</string>
 					<key>url</key>
-					<string>https://zos.alipayobjects.com/rmsportal/lQTcQrtdVUjQzAT.png</string>
+					<string>https://mobile.ant.design/rn-kitchen-sink/assets/display.png</string>
 				</dict>
 				<dict>
 					<key>kind</key>
 					<string>full-size-image</string>
 					<key>url</key>
-					<string>https://zos.alipayobjects.com/rmsportal/qOiDbWgMcULOPtY.png</string>
+					<string>https://mobile.ant.design/rn-kitchen-sink/assets/fullsize.png</string>
 				</dict>
 			</array>
 			<key>metadata</key>
@@ -31,7 +31,7 @@
 				<key>bundle-identifier</key>
 				<string>com.mybank.ios.RNPlayground</string>
 				<key>bundle-version</key>
-				<string>0.8.0</string>
+				<string>1.0.0</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>title</key>

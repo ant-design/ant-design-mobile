@@ -95,8 +95,8 @@ android {
         applicationId "com.antm"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "0.8.0"
+        versionCode 2
+        versionName "1.0.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -109,20 +109,20 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
-    /** signingConfigs {
-    *    release {
-    *        storeFile file(MYAPP_RELEASE_STORE_FILE)
-    *        storePassword MYAPP_RELEASE_STORE_PASSWORD
-    *        keyAlias MYAPP_RELEASE_KEY_ALIAS
-    *        keyPassword MYAPP_RELEASE_KEY_PASSWORD
-    *    }
-    * }
-    */
+     signingConfigs {
+        release {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
+     }
+
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            //  signingConfig signingConfigs.release
+              signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
