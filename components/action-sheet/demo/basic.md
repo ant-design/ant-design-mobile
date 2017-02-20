@@ -19,15 +19,27 @@ if (isIPhone) {
   };
 }
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
+const iconList = [
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" />, title: '发送给朋友' },
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" />, title: '新浪微博' },
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" />, title: '生活圈' },
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" />, title: '微信好友' },
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" />, title: 'QQ' },
+  { icon: <Icon type={require('./refresh.svg')} />, title: '刷新' },
+  { icon: <Icon type={require('./link.svg')} />, title: '链接' },
+  { icon: <Icon type={require('./complaints.svg')} />, title: '投诉' },
+];
+
+class Test extends React.Component {
+  constructor() {
+    super();
+    this.state = {
       clicked: 'none',
       clicked1: 'none',
       clicked2: 'none',
     };
-  },
-  showActionSheet() {
+  }
+  showActionSheet = () => {
     const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
     ActionSheet.showActionSheetWithOptions({
       options: BUTTONS,
@@ -42,19 +54,9 @@ const Test = React.createClass({
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });
     });
-  },
-  icons: [
-    { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" />, title: '发送给朋友' },
-    { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" />, title: '新浪微博' },
-    { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" />, title: '生活圈' },
-    { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" />, title: '微信好友' },
-    { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" />, title: 'QQ' },
-    { icon: <Icon type={require('./refresh.svg')} />, title: '刷新' },
-    { icon: <Icon type={require('./link.svg')} />, title: '链接' },
-    { icon: <Icon type={require('./complaints.svg')} />, title: '投诉' },
-  ],
-  showShareActionSheet() {
-    const icons = [...this.icons];
+  }
+  showShareActionSheet = () => {
+    const icons = [...iconList];
     icons.length = 4;
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
@@ -70,9 +72,9 @@ const Test = React.createClass({
         setTimeout(resolve, 1000);
       });
     });
-  },
-  showShareActionSheetMulpitleLine() {
-    const icons = [[...this.icons], [this.icons[5], this.icons[6], this.icons[7]]];
+  }
+  showShareActionSheetMulpitleLine = () => {
+    const icons = [[...iconList], [iconList[5], iconList[6], iconList[7]]];
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
       // title: '标题',
@@ -82,7 +84,7 @@ const Test = React.createClass({
     (buttonIndex, rowIndex) => {
       this.setState({ clicked2: buttonIndex > -1 ? icons[rowIndex][buttonIndex].title : 'cancel' });
     });
-  },
+  }
   render() {
     return (<div className="actionSheetContainer">
       <div style={{ margin: '0.15rem 0' }}>
@@ -95,8 +97,8 @@ const Test = React.createClass({
         <Button onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能</Button>
       </div>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<Test />, mountNode);
 ````
