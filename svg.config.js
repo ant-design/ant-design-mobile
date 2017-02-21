@@ -3,6 +3,7 @@ module.exports = function (config, includeDemo) {
     /components\/icon\/style\/assets/,
     /components\/notice-bar\/style\/assets/,
     /components\/toast\/style\/assets/,
+    /components\/stepper\/style\/assets/,
   ];
   if (includeDemo) {
     svgDirs = svgDirs.concat([
