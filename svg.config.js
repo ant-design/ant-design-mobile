@@ -1,18 +1,20 @@
+const path = require('path');
+
 module.exports = function (config, includeDemo) {
   var svgDirs = [
-    /components\/icon\/style\/assets/,
-    /components\/notice-bar\/style\/assets/,
-    /components\/toast\/style\/assets/,
-    /components\/stepper\/style\/assets/,
+    path.resolve(__dirname, 'components/icon/style/assets/'),
+    path.resolve(__dirname, 'components/notice-bar/style/assets/'),
+    path.resolve(__dirname, 'components/toast/style/assets/'),
+    path.resolve(__dirname, 'components/stepper/style/assets/'),
   ];
   if (includeDemo) {
     svgDirs = svgDirs.concat([
-      /components\/steps\/demo/,
-      /components\/icon\/demo/,
-      /components\/popover\/demo/,
-      /components\/action-sheet\/demo/,
-      /components\/result\/demo/,
-      /components\/menu\/demo/,
+      path.resolve(__dirname, 'components/steps/demo/'),
+      path.resolve(__dirname, 'components/icon/demo/'),
+      path.resolve(__dirname, 'components/popover/demo/'),
+      path.resolve(__dirname, 'components/action-sheet/demo/'),
+      path.resolve(__dirname, 'components/result/demo/'),
+      path.resolve(__dirname, 'components/menu/demo/'),
     ]);
   }
   // exclude the default svg-url-loader from
@@ -26,7 +28,7 @@ module.exports = function (config, includeDemo) {
   // Can not process SVG files twice
   if (config.module.loaders[0].loader !== 'svg-sprite') {
     config.module.loaders.unshift({
-      test: /\.svg$/,
+      test: /\.(svg)$/i,
       loader: 'svg-sprite',
       include: svgDirs,
     });

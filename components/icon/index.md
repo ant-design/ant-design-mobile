@@ -17,69 +17,82 @@ SVG 图标 (参考：[为什么使用 svg 替换 iconfont](https://github.com/an
 
 ## 如何使用 (WEB)
 
-首先安装依赖：
+一. 首先安装依赖：
 
 ```sh
-npm install svg-sprite-loader glob --save-dev
+npm install svg-sprite-loader glob -D
 ```
 
-> 我们使用 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 方案来实现图标 sprite 效果，
+> Note: 我们使用 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 方案来实现图标 sprite 效果，
 这能避免一个页面多次引用同一个 svg 图标产生重复代码。
->
-> 我们使用 [glob](https://github.com/isaacs/node-glob) 来查找项目中所有用到的 svg 图标文件路径，再给 svg-sprite-loader 插件处理。
 
-在`webpack.config.js`文件里加入以下代码：
+二. 在`webpack.config.js`文件里进行如下配置：
 
-- 如果使用纯粹的 webpack ，配置如下：
+#### 如果使用纯粹的 webpack ，配置如下：
 
 ```js
-const glob = require('glob');
+const path = require('path');
+const glob = require("glob");
 
-const svgDirs = []; // 如果需要本地部署图标，需要在此加入本地图标路径，本地部署方式见以下文档
-// 把`antd-mobile/lib`目录下的 svg 文件加入进来，给 svg-sprite-loader 插件处理
+// 1. 如需添加私有图标，可在如下的 svgDirs 数组中加入本地 svg 文件路径
+const svgDirs = [
+  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 自己私人的 svg 存放目录
+];
+
+// 2. 把属于 antd-mobile 内置 svg 文件也加入进来
+// 正常情况下路径在`node_modules/antd-mobile/lib`目录下
+// 但 cnpm 之类工具可能改变 node_modules 安装目录结构，如遇问题请检查本机依赖路径是否正确
 glob.sync('node_modules/**/*antd-mobile/lib', { dot: true }).forEach(p => {
-  svgDirs.push(new RegExp(p));
+  svgDirs.push(path.resolve(__dirname, p));
 });
 
+// 3. 配置 webpack loader
 module.exports = {
-  // ...
   module: {
-    // ...
     loaders: [
-      // ...
-      // 注意：如果有其他 svg loader 设置，请 exclude 掉这里的 svgDirs 目录。
-      // 少数情况下，如果你的项目能预见到所有 svg 图标都需要 svg-sprite 处理，你可以不设置 include ，也即不需要枚举 svg 文件路径
-      { test: /\.svg$/, loader: 'svg-sprite', include: svgDirs },
+      {
+        test: /\.(svg)$/i,
+        loader: 'svg-sprite',
+        include: svgDirs,  // 把 svgDirs 路径下的所有 svg 文件交给 svg-sprite-loader 插件处理
+      },
     ]
   }
 };
 ```
 
-- 如果使用 [atool-build](https://github.com/ant-tool/atool-build) 作为构建工具，webpack.config.js 文件写法稍有不同，配置如下：
+#### 如果使用 [atool-build](https://github.com/ant-tool/atool-build) 作为构建工具，webpack.config.js 文件写法稍有不同，配置如下：
 
 ```js
-module.exports = function(webpackConfig, env) {
-  // ...
+const path = require('path');
+const glob = require("glob");
 
-  // svg icon config
-  const svgDirs = []; // 如果需要本地部署图标，需要在此加入本地图标路径，本地部署方式见以下文档
-  // 把`antd-mobile/lib`目录下的 svg 文件加入进来，给 svg-sprite-loader 插件处理
-  glob.sync('node_modules/**/*antd-mobile/lib', { dot: true }).forEach(p => {
-    svgDirs.push(new RegExp(p));
-  });
-  // exclude the default svg-url-loader from
-  // atool-build https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L161
+module.exports = function(webpackConfig, env) {
+
+// 1. 如需添加私有图标，可在如下的 svgDirs 数组中加入本地 svg 文件路径
+const svgDirs = [
+  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 自己私人的 svg 存放目录
+];
+
+// 2. 把属于 antd-mobile 内置 svg 文件也加入进来
+// 正常情况下路径在`node_modules/antd-mobile/lib`目录下
+// 但 cnpm 之类工具可能改变 node_modules 安装目录结构，如遇问题请检查本机依赖路径是否正确
+glob.sync('node_modules/**/*antd-mobile/lib', { dot: true }).forEach(p => {
+  svgDirs.push(path.resolve(__dirname, p));
+});
+
+  // 3. 因为一个 SVG 文件不能被处理两遍. exclude 掉 atool-build 默认为svg配置的svg-url-loade
+  // https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L161
+  // https://github.com/kisenka/svg-sprite-loader/issues/4
   webpackConfig.module.loaders.forEach(loader => {
     if (loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
       loader.exclude = svgDirs;
     }
   });
-  // Note: https://github.com/kisenka/svg-sprite-loader/issues/4
-  // Can not process SVG files twice. You need to make sure of it yourself.
+  // 4. 配置 webpack loader
   webpackConfig.module.loaders.unshift({
-    test: /\.svg$/,
+    test: /\.(svg)$/i,
     loader: 'svg-sprite',
-    include: svgDirs,
+    include: svgDirs, // 把 svgDirs 路径下的所有 svg 文件交给 svg-sprite-loader 插件处理
   });
 
   return webpackConfig;
@@ -92,7 +105,7 @@ module.exports = function(webpackConfig, env) {
 <Icon type="check" />
 ```
 
-> 注意：仅内置部分必要的图标，所有图标名字列表请查看 demo
+> 注意：仅内置部分必要的图标，所有图标名字列表请查看 [demo](https://mobile.ant.design/components/icon)
 
 #### 遇到某些组件内依赖的 Icon (或自己使用 Icon 组件) 时图标不会显示的问题？
 
