@@ -9,7 +9,7 @@ title: 类型、尺寸
 import { Button, Flex } from 'antd-mobile';
 
 /* eslint global-require: 0 */
-const ButtonExample = React.createClass({
+class ButtonExample extends React.Component {
   render() {
     return (<div className="btn-container need-left-right-margin">
       <div>
@@ -31,8 +31,8 @@ const ButtonExample = React.createClass({
         </Flex>
       </div>
     </div>);
-  },
-});
+  }
+}
 ReactDOM.render(<ButtonExample />, mountNode);
 ````
 

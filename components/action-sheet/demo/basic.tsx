@@ -6,13 +6,14 @@ const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
 const DESTRUCTIVE_INDEX = 3;
 const CANCEL_INDEX = 4;
 
-export default React.createClass({
-  getInitialState() {
-    return {
+class Test extends React.Component<any, any> {
+  constructor() {
+    super();
+    this.state = {
       clicked: 'none',
       text: '',
     };
-  },
+  }
   render() {
     return (
       <View style={{marginTop: 30}}>
@@ -30,8 +31,8 @@ export default React.createClass({
         </Text>
       </View>
     );
-  },
-  showActionSheet() {
+  }
+  showActionSheet = () => {
     ActionSheet.showActionSheetWithOptions({
       title: '标题',
       message: '我是描述我是描述',
@@ -42,8 +43,8 @@ export default React.createClass({
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });
     });
-  },
-  showShareActionSheet() {
+  }
+  showShareActionSheet = () => {
     const opts = {
       url: 'https://www.alipay.com/',
       message: 'message to go with the shared url',
@@ -69,8 +70,8 @@ export default React.createClass({
       }
       this.setState({text});
     });
-  },
-});
+  }
+}
 
 export const title = 'ActionSheet';
 export const description = 'ActionSheet example';

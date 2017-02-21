@@ -10,10 +10,10 @@ import { List, Checkbox, Flex } from 'antd-mobile';
 const CheckboxItem = Checkbox.CheckboxItem;
 const AgreeItem = Checkbox.AgreeItem;
 
-const Test = React.createClass({
-  onChange(val) {
+class Test extends React.Component {
+  onChange = (val) => {
     console.log(val);
-  },
+  }
   render() {
     const data = [
       { value: 0, label: '博士' },
@@ -40,8 +40,8 @@ const Test = React.createClass({
         </Flex.Item>
       </Flex>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<Test />, mountNode);
 ````
