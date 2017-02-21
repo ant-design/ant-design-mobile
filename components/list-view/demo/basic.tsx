@@ -26,8 +26,12 @@ const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
-export default React.createClass({
-  getInitialState() {
+export default class BasicDemo extends React.Component<any, any> {
+  private dataBlob;
+  private sectionIDs;
+  private rowIDs;
+  constructor(props) {
+    super(props);
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
     const getRowData = (dataBlob, _sectionID, rowID) => dataBlob[rowID];
 
@@ -41,31 +45,31 @@ export default React.createClass({
     this.dataBlob = {};
     this.sectionIDs = [];
     this.rowIDs = [];
-    this._genData = (pIndex = 0) => {
-      for (let i = 0; i < NUM_SECTIONS; i++) {
-        let ii = pIndex * NUM_SECTIONS + i;
-        const sectionName = `Section ${ii}`;
-        this.sectionIDs.push(sectionName);
-        this.dataBlob[sectionName] = sectionName;
-        this.rowIDs[ii] = [];
-
-        for (let jj = 0; jj < NUM_ROWS_PER_SECTION; jj++) {
-          const rowName = `S${ii}, R${jj}`;
-          this.rowIDs[ii].push(rowName);
-          this.dataBlob[rowName] = rowName;
-        }
-      }
-      // new object ref
-      this.sectionIDs = [].concat(this.sectionIDs);
-      this.rowIDs = [].concat(this.rowIDs);
-    };
     this._genData();
-    return {
+    this.state = {
       dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
       headerPressCount: 0,
     };
-  },
-  onEndReached(_event) {
+  }
+  _genData = (pIndex = 0) => {
+    for (let i = 0; i < NUM_SECTIONS; i++) {
+      let ii = pIndex * NUM_SECTIONS + i;
+      const sectionName = `Section ${ii}`;
+      this.sectionIDs.push(sectionName);
+      this.dataBlob[sectionName] = sectionName;
+      this.rowIDs[ii] = [];
+
+      for (let jj = 0; jj < NUM_ROWS_PER_SECTION; jj++) {
+        const rowName = `S${ii}, R${jj}`;
+        this.rowIDs[ii].push(rowName);
+        this.dataBlob[rowName] = rowName;
+      }
+    }
+    // new object ref
+    this.sectionIDs = [].concat(this.sectionIDs);
+    this.rowIDs = [].concat(this.rowIDs);
+  };
+  onEndReached = (_event) => {
     // load new data
     this.setState({ isLoading: true });
     setTimeout(() => {
@@ -75,14 +79,14 @@ export default React.createClass({
         isLoading: false,
       });
     }, 1000);
-  },
-  renderSectionHeader(sectionData) {
+  }
+  renderSectionHeader = (sectionData) => {
     return (
       <Text style={[{ padding: 10, backgroundColor: 'rgba(255,255,255,0.8)' }]}>
         {`任务 ${sectionData.split(' ')[1]}`}
       </Text>
     );
-  },
+  }
   render() {
     const separator = (sectionID, rowID) => (
       <View
@@ -141,7 +145,8 @@ export default React.createClass({
         onEndReachedThreshold={10}
       />
     );
-  },
-});
+  }
+}
+
 export const title = 'ListView';
 export const description = 'ListView example';

@@ -2,23 +2,21 @@ import { Button, Flex, WingBlank, WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
-const Circle = React.createClass({
-  render() {
-    const size = this.props.size || 20;
-    const style = {
-      borderRadius: size / 2,
-      backgroundColor: '#527fe4',
-      width: size,
-      height: size,
-      margin: 1,
-    };
-    return (
-      <View
-        style={style}
-      />
-    );
-  },
-});
+const Circle = () => {
+  const size = this.props.size || 20;
+  const style = {
+    borderRadius: size / 2,
+    backgroundColor: '#527fe4',
+    width: size,
+    height: size,
+    margin: 1,
+  };
+  return (
+    <View
+      style={style}
+    />
+  );
+};
 
 export default class FlexExample extends React.Component<any, any> {
   render() {

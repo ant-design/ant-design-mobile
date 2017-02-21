@@ -12,13 +12,11 @@ import { createForm } from 'rc-form';
 const Item = List.Item;
 const RangeWithTooltip = createTooltip(Range);
 
-let BasicInput = React.createClass({
-  getInitialState() {
-    return {
-      value: 1,
-    };
-  },
-  onSubmit() {
+class BasicInput extends React.Component {
+  state = {
+    value: 1,
+  }
+  onSubmit = () => {
     this.props.form.validateFields({ force: true }, (error) => {
       if (!error) {
         console.log(this.props.form.getFieldsValue());
@@ -26,17 +24,17 @@ let BasicInput = React.createClass({
         alert('校验失败');
       }
     });
-  },
-  onReset() {
+  }
+  onReset = () => {
     this.props.form.resetFields();
-  },
-  validateAccount(rule, value, callback) {
+  }
+  validateAccount = (rule, value, callback) => {
     if (value && value.length > 4) {
       callback();
     } else {
       callback(new Error('帐号至少4个字符'));
     }
-  },
+  }
   render() {
     const { getFieldProps, getFieldError } = this.props.form;
 
@@ -73,9 +71,9 @@ let BasicInput = React.createClass({
         </Item>
       </List>
     </form>);
-  },
-});
+  }
+}
 
-BasicInput = createForm()(BasicInput);
-ReactDOM.render(<BasicInput />, mountNode);
+const BasicInputWrapper = createForm()(BasicInput);
+ReactDOM.render(<BasicInputWrapper />, mountNode);
 ````

@@ -12,8 +12,9 @@ import { ListView, List, SearchBar } from 'antd-mobile';
 
 const { Item } = List;
 
-const Demo = React.createClass({
-  getInitialState() {
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
     const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
@@ -40,14 +41,14 @@ const Demo = React.createClass({
       });
       return ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs);
     };
-    return {
+    this.state = {
       inputValue: '',
       dataSource: this.createDs(dataSource, provinceData),
       headerPressCount: 0,
     };
-  },
+  }
 
-  onSearch(val) {
+  onSearch = (val) => {
     const pd = { ...provinceData };
     Object.keys(pd).forEach((item) => {
       pd[item] = pd[item].filter(jj => jj.spell.toLocaleLowerCase().indexOf(val) > -1);
@@ -56,7 +57,7 @@ const Demo = React.createClass({
       inputValue: val,
       dataSource: this.createDs(this.state.dataSource, pd),
     });
-  },
+  }
 
   render() {
     return (<div style={{ paddingTop: '0.88rem', position: 'relative' }}>
@@ -87,8 +88,8 @@ const Demo = React.createClass({
         delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}
       />
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

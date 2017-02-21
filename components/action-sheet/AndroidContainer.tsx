@@ -11,32 +11,30 @@ export interface Props {
   callback?: (index: number) => void;
 }
 
-const ActionSheetAndroid = React.createClass<Props, any>({
-  getDefaultProps() {
-    return {
-      share: false,
-    };
-  },
-
-  getInitialState() {
-    return {
+class ActionSheetAndroid extends React.Component<Props, any> {
+  static defaultProps = {
+    share: false,
+  };
+  constructor(props) {
+    super(props);
+    this.state = {
       visible: this.props.visible || false,
     };
-  },
+  };
 
-  confirm(index) {
+  confirm = (index) => {
     const { callback } = this.props;
     if (callback) {
       callback(index);
     }
     this.close();
-  },
+  }
 
-  close() {
+  close = () => {
     this.setState({
       visible: false,
     });
-  },
+  }
 
   render() {
     const { config, share, onAnimationEnd } = this.props;
@@ -84,7 +82,7 @@ const ActionSheetAndroid = React.createClass<Props, any>({
         </View>
       </Modal>
     );
-  },
-});
+  }
+}
 
 export default ActionSheetAndroid;
