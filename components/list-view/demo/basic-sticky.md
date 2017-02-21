@@ -66,12 +66,35 @@ class Demo extends React.Component {
       this.sectionIDs = [].concat(this.sectionIDs);
       this.rowIDs = [].concat(this.rowIDs);
     };
-    this.genData();
+
     this.state = {
       dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
-      isLoading: false,
+      isLoading: true,
     };
   }
+
+  componentDidMount() {
+    // you can scroll to the specified position
+    // this.refs.lv.refs.listview.scrollTo(0, 200);
+
+    // simulate initial Ajax
+    setTimeout(() => {
+      this.genData();
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+        isLoading: false,
+      });
+    }, 600);
+  }
+
+  // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.dataSource !== this.props.dataSource) {
+  //     this.setState({
+  //       dataSource: this.state.dataSource.cloneWithRowsAndSections(nextProps.dataSource),
+  //     });
+  //   }
+  // }
 
   onEndReached = (event) => {
     // load new data
@@ -85,6 +108,7 @@ class Demo extends React.Component {
       });
     }, 1000);
   }
+
   render() {
     const separator = (sectionID, rowID) => (
       <div key={`${sectionID}-${rowID}`} style={{
@@ -120,8 +144,9 @@ class Demo extends React.Component {
         </div>
       );
     };
+
     return (
-      <ListView
+      <ListView ref="lv"
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
         renderFooter={() => <div style={{ padding: 30, textAlign: 'center' }}>

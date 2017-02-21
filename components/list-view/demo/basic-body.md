@@ -46,17 +46,35 @@ class Demo extends React.Component {
       }
       return dataBlob;
     };
-    this.rData = this.genData();
+
     this.state = {
-      dataSource: dataSource.cloneWithRows(this.rData),
-      isLoading: false,
+      dataSource: dataSource.cloneWithRows({}),
+      isLoading: true,
     };
   }
 
   componentDidMount() {
     // you can scroll to the specified position
     // this.refs.lv.refs.listview.scrollTo(0, 200);
+
+    // simulate initial Ajax
+    setTimeout(() => {
+      this.rData = this.genData();
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
+        isLoading: false,
+      });
+    }, 600);
   }
+
+  // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.dataSource !== this.props.dataSource) {
+  //     this.setState({
+  //       dataSource: this.state.dataSource.cloneWithRows(nextProps.dataSource),
+  //     });
+  //   }
+  // }
 
   onEndReached = (event) => {
     // load new data
