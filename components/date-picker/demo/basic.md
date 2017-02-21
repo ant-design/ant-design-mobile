@@ -33,20 +33,18 @@ const CustomChildren = props => (
   </div>
 );
 
-let Test = React.createClass({
-  getInitialState() {
-    return {
-      date: zhNow,
-      dpValue: null,
-      visible: false,
-    };
-  },
-  onChange(date) {
+class Test extends React.Component {
+  state = {
+    date: zhNow,
+    dpValue: null,
+    visible: false,
+  }
+  onChange = (date) => {
     // console.log('onChange', date);
     this.setState({
       date,
     });
-  },
+  }
   render() {
     const { getFieldProps } = this.props.form;
     return (<div>
@@ -122,12 +120,12 @@ let Test = React.createClass({
         </DatePicker>
       </List>
     </div>);
-  },
-});
+  }
+}
 
-Test = createForm()(Test);
+const TestWrapper = createForm()(Test);
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<TestWrapper />, mountNode);
 ````
 ````css
 .date-picker-list .am-list-item .am-list-line .am-list-extra {

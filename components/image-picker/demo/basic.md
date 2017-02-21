@@ -14,18 +14,16 @@ const data = [{
   id: '2122',
 }];
 
-const ImagePickerExample = React.createClass({
-  getInitialState() {
-    return {
-      files: data,
-    };
-  },
-  onChange(files, type, index) {
+class ImagePickerExample extends React.Component {
+  state = {
+    files: data,
+  }
+  onChange = (files, type, index) => {
     console.log(files, type, index);
     this.setState({
       files,
     });
-  },
+  }
   render() {
     const { files } = this.state;
     return (
@@ -38,8 +36,8 @@ const ImagePickerExample = React.createClass({
         />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<ImagePickerExample />, mountNode);
 ````

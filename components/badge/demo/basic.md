@@ -9,7 +9,7 @@ title: 综合示例
 ````jsx
 import { List, Badge } from 'antd-mobile';
 
-ReactDOM.render(
+const BadgeDemo = () => (
   <List renderHeader={() => ''}>
     <List.Item extra="内容内容" arrow="horizontal">
       <Badge dot>
@@ -57,8 +57,10 @@ ReactDOM.render(
       超出99<Badge text={100} style={{ marginLeft: 12 }} />
     </List.Item>
   </List>
-, mountNode);
+);
+ReactDOM.render(<BadgeDemo />, mountNode);
 ````
+
 ````css
 .special-badge .am-list-line {
   padding-right: 0;

@@ -10,12 +10,10 @@ import { List } from 'antd-mobile';
 const Item = List.Item;
 const Brief = Item.Brief;
 
-const ListExample = React.createClass({
-  getInitialState() {
-    return {
-      disabled: false,
-    };
-  },
+class ListExample extends React.Component {
+  state = {
+    disabled: false,
+  }
   render() {
     return (<div>
       <List renderHeader={() => '基本样式'} className="my-list">
@@ -71,8 +69,8 @@ const ListExample = React.createClass({
         </Item>
       </List>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<ListExample />, mountNode);
 ````

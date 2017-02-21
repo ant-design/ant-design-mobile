@@ -32,8 +32,9 @@ const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
-const Demo = React.createClass({
-  getInitialState() {
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
     const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
@@ -66,13 +67,13 @@ const Demo = React.createClass({
       this.rowIDs = [].concat(this.rowIDs);
     };
     this.genData();
-    return {
+    this.state = {
       dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
       isLoading: false,
     };
-  },
+  }
 
-  onEndReached(event) {
+  onEndReached = (event) => {
     // load new data
     console.log('reach end', event);
     this.setState({ isLoading: true });
@@ -83,7 +84,7 @@ const Demo = React.createClass({
         isLoading: false,
       });
     }, 1000);
-  },
+  }
   render() {
     const separator = (sectionID, rowID) => (
       <div key={`${sectionID}-${rowID}`} style={{
@@ -148,8 +149,8 @@ const Demo = React.createClass({
         }}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

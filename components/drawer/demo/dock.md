@@ -9,17 +9,15 @@ title: 嵌入文档模式
 ````jsx
 import { Drawer, List, NavBar } from 'antd-mobile';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      docked: false,
-    };
-  },
-  onDock(d) {
+class App extends React.Component {
+  state = {
+    docked: false,
+  }
+  onDock = (d) => {
     this.setState({
       [d]: !this.state[d],
     });
-  },
+  }
   render() {
     const sidebar = (<List>
       {[...Array(20).keys()].map((i, index) => {
@@ -54,8 +52,8 @@ const App = React.createClass({
         请点击左上角图标
       </Drawer>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````
