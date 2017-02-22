@@ -9,14 +9,17 @@ title: 基本
 ````jsx
 import { List, Stepper } from 'antd-mobile';
 
-const Demo = React.createClass({
-  getInitialState() {
-    return { val: 3 };
-  },
-  onChange(val) {
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      val: 3,
+    };
+  }
+  onChange = (val) => {
     // console.log(val);
     this.setState({ val });
-  },
+  }
   render() {
     return (
       <List renderHeader={() => '演示'}>
@@ -38,7 +41,7 @@ const Demo = React.createClass({
         </List.Item>
       </List>
     );
-  },
-});
+  }
+}
 ReactDOM.render(<Demo />, mountNode);
 ````

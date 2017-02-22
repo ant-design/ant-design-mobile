@@ -19,19 +19,20 @@ if (isIPhone) {
   };
 }
 
+const iconList = [
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" />, title: '发送给朋友' },
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" />, title: '新浪微博' },
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" />, title: '生活圈' },
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" />, title: '微信好友' },
+  { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" />, title: 'QQ' },
+  { icon: <Icon type={require('./refresh.svg')} />, title: '刷新' },
+  { icon: <Icon type={require('./link.svg')} />, title: '链接' },
+  { icon: <Icon type={require('./complaints.svg')} />, title: '投诉' },
+];
+
 class Test extends React.Component {
   constructor() {
     super();
-    this.icons = [
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" />, title: '发送给朋友' },
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" />, title: '新浪微博' },
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" />, title: '生活圈' },
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" />, title: '微信好友' },
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" />, title: 'QQ' },
-      { icon: <Icon type={require('./refresh.svg')} />, title: '刷新' },
-      { icon: <Icon type={require('./link.svg')} />, title: '链接' },
-      { icon: <Icon type={require('./complaints.svg')} />, title: '投诉' },
-    ];
     this.state = {
       clicked: 'none',
       clicked1: 'none',
@@ -55,7 +56,7 @@ class Test extends React.Component {
     });
   }
   showShareActionSheet = () => {
-    const icons = [...this.icons];
+    const icons = [...iconList];
     icons.length = 4;
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
@@ -73,7 +74,7 @@ class Test extends React.Component {
     });
   }
   showShareActionSheetMulpitleLine = () => {
-    const icons = [[...this.icons], [this.icons[5], this.icons[6], this.icons[7]]];
+    const icons = [[...iconList], [iconList[5], iconList[6], iconList[7]]];
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
       // title: '标题',

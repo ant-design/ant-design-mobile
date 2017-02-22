@@ -33,6 +33,8 @@ source: design
 | activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |
 | textColor(`react-native only`) |   文字颜色       |  string    |    `#000`        |
 | activeTextColor(`react-native only`) |   选中文字颜色       |  string    |    `#108ee9`        |
+| prefixCls(`web only`) |  className 前缀      |  string    |    `am-tabs`        |
+| className(`web only`) |   额外的 className      |  string    |    无        |
 
 ### Tabs.TabPane
 

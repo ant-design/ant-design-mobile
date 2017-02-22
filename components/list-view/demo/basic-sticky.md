@@ -32,8 +32,9 @@ const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
-const Demo = React.createClass({
-  getInitialState() {
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
     const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
@@ -65,14 +66,37 @@ const Demo = React.createClass({
       this.sectionIDs = [].concat(this.sectionIDs);
       this.rowIDs = [].concat(this.rowIDs);
     };
-    this.genData();
-    return {
-      dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
-      isLoading: false,
-    };
-  },
 
-  onEndReached(event) {
+    this.state = {
+      dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+      isLoading: true,
+    };
+  }
+
+  componentDidMount() {
+    // you can scroll to the specified position
+    // this.refs.lv.refs.listview.scrollTo(0, 200);
+
+    // simulate initial Ajax
+    setTimeout(() => {
+      this.genData();
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+        isLoading: false,
+      });
+    }, 600);
+  }
+
+  // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.dataSource !== this.props.dataSource) {
+  //     this.setState({
+  //       dataSource: this.state.dataSource.cloneWithRowsAndSections(nextProps.dataSource),
+  //     });
+  //   }
+  // }
+
+  onEndReached = (event) => {
     // load new data
     console.log('reach end', event);
     this.setState({ isLoading: true });
@@ -83,7 +107,8 @@ const Demo = React.createClass({
         isLoading: false,
       });
     }, 1000);
-  },
+  }
+
   render() {
     const separator = (sectionID, rowID) => (
       <div key={`${sectionID}-${rowID}`} style={{
@@ -119,8 +144,9 @@ const Demo = React.createClass({
         </div>
       );
     };
+
     return (
-      <ListView
+      <ListView ref="lv"
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
         renderFooter={() => <div style={{ padding: 30, textAlign: 'center' }}>
@@ -148,8 +174,8 @@ const Demo = React.createClass({
         }}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

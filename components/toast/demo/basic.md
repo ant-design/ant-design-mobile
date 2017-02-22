@@ -34,27 +34,23 @@ function loadingToast() {
   });
 }
 
-const ToastExample = React.createClass({
-  render() {
-    return (
-      <WingBlank>
-        <WhiteSpace />
-        <Button onClick={showToast}>纯文字 toast</Button>
-        <WhiteSpace />
-        <Button onClick={showToastNoMask}>无 mask</Button>
-        <WhiteSpace />
-        <Button onClick={successToast}>成功 toast</Button>
-        <WhiteSpace />
-        <Button onClick={failToast}>失败 toast</Button>
-        <WhiteSpace />
-        <Button onClick={offline}>网络 toast</Button>
-        <WhiteSpace />
-        <Button onClick={loadingToast}>加载中 toast</Button>
-        <WhiteSpace />
-      </WingBlank>
-    );
-  },
-});
+const ToastExample = () => (
+  <WingBlank>
+    <WhiteSpace />
+    <Button onClick={showToast}>纯文字 toast</Button>
+    <WhiteSpace />
+    <Button onClick={showToastNoMask}>无 mask</Button>
+    <WhiteSpace />
+    <Button onClick={successToast}>成功 toast</Button>
+    <WhiteSpace />
+    <Button onClick={failToast}>失败 toast</Button>
+    <WhiteSpace />
+    <Button onClick={offline}>网络 toast</Button>
+    <WhiteSpace />
+    <Button onClick={loadingToast}>加载中 toast</Button>
+    <WhiteSpace />
+  </WingBlank>
+);
 
 ReactDOM.render(<ToastExample />, mountNode);
 ````

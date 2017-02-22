@@ -22,16 +22,21 @@ const steps = [{
 
 ReactDOM.render(
   <WingBlank mode={20} className="stepsExample">
-    <WhiteSpace mode={20} />
+    <div className="sub-title">水平小尺寸</div>
+    <WhiteSpace />
     <Steps current={1} direction="horizontal" size="small">{steps}</Steps>
+    <div className="sub-title">水平正常尺寸</div>
+    <WhiteSpace />
     <Steps current={1} direction="horizontal">{steps}</Steps>
-    <WhiteSpace mode={20} />
+    <div className="sub-title">水平自定义icon</div>
+    <WhiteSpace />
     <Steps direction="horizontal">
       <Step title="步骤1" icon={<Icon type={require('./pay-circle.svg')} />} />
       <Step status="error" title="步骤2" icon={<Icon type={require('./pay-circle.svg')} />} />
       <Step title="步骤3" icon={<Icon type={require('./pay-circle.svg')} />} />
     </Steps>
-    <WhiteSpace mode={20} />
+    <div className="sub-title">水平 timeline 模式</div>
+    <WhiteSpace />
     <Steps current={-1} direction="horizontal" size="small" className="timeline">
       <Step title="现在" description="立即买入" icon={<span className="fake-icon" />} />
       <Step title="11月3日" description="买入成功" icon={<span className="fake-icon" />} />
@@ -40,6 +45,7 @@ ReactDOM.render(
   </WingBlank>
 , mountNode);
 ````
+
 ````css
 .stepsExample .timeline.am-steps.am-steps-small
 .am-steps-item.am-steps-custom

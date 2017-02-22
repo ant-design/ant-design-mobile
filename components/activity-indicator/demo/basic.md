@@ -9,13 +9,13 @@ title: 基本用法
 import { ActivityIndicator, WingBlank, WhiteSpace, Button } from 'antd-mobile';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       animating: false,
     };
   }
-  componentWillUnmount = () => {
+  componentWillUnmount() {
     clearTimeout(this.closeTimer);
   }
   showToast = () => {

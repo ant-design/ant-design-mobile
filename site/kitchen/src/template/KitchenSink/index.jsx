@@ -68,7 +68,6 @@ export default class App extends React.Component {
     if (window.location.port) {
       rootPath = '/components';
     }
-
     return (<div className="am-demo-page">
       <div className="am-demo-hd">
         <h1 className="am-demo-title">{config.siteTitle}</h1>
@@ -97,7 +96,7 @@ export default class App extends React.Component {
               className={this.state.cateOpend[index] ? 'category-open' : 'category-closed'}
             >
               {
-                lists[cate].map((item) => {
+                lists[cate].sort((a, b) => b.english < a.english).map((item) => {
                   const paths = item.filename.split('/');
                   if (config.indexDemos.indexOf(paths[1]) > -1) {
                     return item.demos.map(j => (

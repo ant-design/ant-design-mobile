@@ -9,12 +9,10 @@ title: 示例集合
 import { List, InputItem, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
-let BasicInputExample = React.createClass({
-  getInitialState() {
-    return {
-      focused: false,
-    };
-  },
+class BasicInputExample extends React.Component {
+  state = {
+    focused: false,
+  }
   render() {
     const { getFieldProps } = this.props.form;
     return (
@@ -134,11 +132,11 @@ let BasicInputExample = React.createClass({
         </List>
       </div>
     );
-  },
-});
+  }
+}
 
-BasicInputExample = createForm()(BasicInputExample);
-ReactDOM.render(<BasicInputExample />, mountNode);
+const BasicInputExampleWrapper = createForm()(BasicInputExample);
+ReactDOM.render(<BasicInputExampleWrapper />, mountNode);
 ````
 
 ````css

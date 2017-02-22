@@ -31,8 +31,9 @@ let index = data.length - 1;
 const NUM_ROWS = 20;
 let pageIndex = 0;
 
-const Demo = React.createClass({
-  getInitialState() {
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
     const dataSource = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
@@ -45,19 +46,37 @@ const Demo = React.createClass({
       }
       return dataBlob;
     };
-    this.rData = this.genData();
-    return {
-      dataSource: dataSource.cloneWithRows(this.rData),
-      isLoading: false,
+
+    this.state = {
+      dataSource: dataSource.cloneWithRows({}),
+      isLoading: true,
     };
-  },
+  }
 
   componentDidMount() {
     // you can scroll to the specified position
     // this.refs.lv.refs.listview.scrollTo(0, 200);
-  },
 
-  onEndReached(event) {
+    // simulate initial Ajax
+    setTimeout(() => {
+      this.rData = this.genData();
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
+        isLoading: false,
+      });
+    }, 600);
+  }
+
+  // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.dataSource !== this.props.dataSource) {
+  //     this.setState({
+  //       dataSource: this.state.dataSource.cloneWithRows(nextProps.dataSource),
+  //     });
+  //   }
+  // }
+
+  onEndReached = (event) => {
     // load new data
     console.log('reach end', event);
     this.setState({ isLoading: true });
@@ -68,7 +87,7 @@ const Demo = React.createClass({
         isLoading: false,
       });
     }, 1000);
-  },
+  }
 
   render() {
     const separator = (sectionID, rowID) => (
@@ -124,8 +143,8 @@ const Demo = React.createClass({
         onEndReachedThreshold={10}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

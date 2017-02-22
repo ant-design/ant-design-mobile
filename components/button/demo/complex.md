@@ -8,7 +8,7 @@ title: 应用场景示例
 ````jsx
 import { Button, List } from 'antd-mobile';
 
-ReactDOM.render(
+const ComplexButtonDemo = () => (
   <List style={{ margin: '0.1rem 0', backgroundColor: 'white' }}>
     <List.Item
       extra={<Button type="ghost" size="small" inline>small</Button>}
@@ -24,8 +24,8 @@ ReactDOM.render(
       区域经理
       <List.Item.Brief>可进行收款、退款、折扣管理、查看数据等操作</List.Item.Brief>
     </List.Item>
-  </List>,
-  mountNode,
+  </List>
 );
 
+ReactDOM.render(<ComplexButtonDemo />, mountNode);
 ````
