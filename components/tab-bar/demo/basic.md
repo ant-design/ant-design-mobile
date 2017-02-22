@@ -10,13 +10,16 @@ import { TabBar, Icon } from 'antd-mobile';
 
 /* eslint global-require: 0 */
 
-const TabBarExample = React.createClass({
-  getInitialState() {
-    return {
+class TabBarExample extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
       selectedTab: 'redTab',
       hidden: false,
     };
-  },
+  }
+
   renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
@@ -32,7 +35,8 @@ const TabBarExample = React.createClass({
         </a>
       </div>
     );
-  },
+  }
+
   render() {
     return (
       <TabBar
@@ -126,8 +130,8 @@ const TabBarExample = React.createClass({
         </TabBar.Item>
       </TabBar>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<TabBarExample />, mountNode);
 ````
