@@ -20,10 +20,10 @@ SVG 图标 (参考：[为什么使用 svg 替换 iconfont](https://github.com/an
 一. 首先安装依赖：
 
 ```sh
-npm install svg-sprite-loader glob -D
+npm install svg-sprite-loader -D
 ```
 
-> Note: 我们使用 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 方案来实现图标 sprite 效果，
+> Tip: 我们使用 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 方案来实现图标 sprite 效果，
 这能避免一个页面多次引用同一个 svg 图标产生重复代码。
 
 二. 在`webpack.config.js`文件里进行如下配置：
@@ -32,7 +32,6 @@ npm install svg-sprite-loader glob -D
 
 ```js
 const path = require('path');
-const glob = require("glob");
 
 // 1. 如需添加私有图标，可在如下的 svgDirs 数组中加入本地 svg 文件路径
 const svgDirs = [
@@ -40,11 +39,8 @@ const svgDirs = [
 ];
 
 // 2. 把属于 antd-mobile 内置 svg 文件也加入进来
-// 正常情况下路径在`node_modules/antd-mobile/lib`目录下
-// 但 cnpm 之类工具可能改变 node_modules 安装目录结构，如遇问题请检查本机依赖路径是否正确
-glob.sync('node_modules/**/*antd-mobile/lib', { dot: true }).forEach(p => {
-  svgDirs.push(path.resolve(__dirname, p));
-});
+const antdDir = require.resolve('antd-mobile').replace(/warn\.js$/, '');
+svgDirs.push(antdDir);
 
 // 3. 配置 webpack loader
 module.exports = {
@@ -64,7 +60,6 @@ module.exports = {
 
 ```js
 const path = require('path');
-const glob = require("glob");
 
 module.exports = function(webpackConfig, env) {
 
@@ -74,11 +69,9 @@ const svgDirs = [
 ];
 
 // 2. 把属于 antd-mobile 内置 svg 文件也加入进来
-// 正常情况下路径在`node_modules/antd-mobile/lib`目录下
-// 但 cnpm 之类工具可能改变 node_modules 安装目录结构，如遇问题请检查本机依赖路径是否正确
-glob.sync('node_modules/**/*antd-mobile/lib', { dot: true }).forEach(p => {
-  svgDirs.push(path.resolve(__dirname, p));
-});
+const antdDir = require.resolve('antd-mobile').replace(/warn\.js$/, '');
+svgDirs.push(antdDir);
+
 
   // 3. 因为一个 SVG 文件不能被处理两遍. exclude 掉 atool-build 默认为svg配置的svg-url-loade
   // https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L161
@@ -107,16 +100,9 @@ glob.sync('node_modules/**/*antd-mobile/lib', { dot: true }).forEach(p => {
 
 > 注意：仅内置部分必要的图标，所有图标名字列表请查看 [demo](https://mobile.ant.design/components/icon), 同时我们提供了 iconfont 对应的 svg 图标方便下载使用，[svg 图标地址 https://github.com/ant-design/ant-design-icons](https://github.com/ant-design/ant-design-icons)
 
-#### 遇到某些组件内依赖的 Icon (或自己使用 Icon 组件) 时图标不会显示的问题？
-
-有些 npm 包管理器(如 cnpm)，并非是按照官方的 npm 包管理器方式组织`node_modules`里的包文件，
-例如其安装的包所在的路径可能并不在`node_modules`下的直接子目录里，或者会把各个安装包的目录名字修改掉。
-此时需要你按实际情况修改`glob.sync('node_modules/**/*antd-mobile/lib', ...)`里的路径查找规则。
-
-
 ## 本地部署
 
-支持本地 svg 图标，使用方式如`<Icon type={require('./reload.svg')} />`，此时需要在以上设置代码的`svgDirs`数组里加入本地图标路径，给 svg-sprite-loader 插件处理。
+支持添加本地私有的 svg 图标，使用方式如`<Icon type={require('./reload.svg')} />`，此时需要在以上 `webpack.config.js` 的`svgDirs` 数组里加入本地图标路径，给 svg-sprite-loader 插件处理。
 
 > 还有一种不推荐但很简便的方式：`<Icon type={require('!svg-sprite!./reload.svg')} />`
 这样就不需要将本地 svg 文件所在路径加入到`svgDirs`数组里了，[详细参考 webpack loaders-in-require](http://webpack.github.io/docs/using-loaders.html#loaders-in-require)
