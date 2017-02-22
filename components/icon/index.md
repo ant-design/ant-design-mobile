@@ -105,7 +105,7 @@ glob.sync('node_modules/**/*antd-mobile/lib', { dot: true }).forEach(p => {
 <Icon type="check" />
 ```
 
-> 注意：仅内置部分必要的图标，所有图标名字列表请查看 [demo](https://mobile.ant.design/components/icon)
+> 注意：仅内置部分必要的图标，所有图标名字列表请查看 [demo](https://mobile.ant.design/components/icon), 同时我们提供了 iconfont 对应的 svg 图标方便下载使用，[svg 图标地址 https://github.com/ant-design/ant-design-icons](https://github.com/ant-design/ant-design-icons)
 
 #### 遇到某些组件内依赖的 Icon (或自己使用 Icon 组件) 时图标不会显示的问题？
 
