@@ -33,16 +33,11 @@ npm install svg-sprite-loader -D
 ```js
 const path = require('path');
 
-// 1. 如需添加私有图标，可在如下的 svgDirs 数组中加入本地 svg 文件路径
 const svgDirs = [
-  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 自己私人的 svg 存放目录
+  require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
+  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
 ];
 
-// 2. 把属于 antd-mobile 内置 svg 文件也加入进来
-const antdDir = require.resolve('antd-mobile').replace(/warn\.js$/, '');
-svgDirs.push(antdDir);
-
-// 3. 配置 webpack loader
 module.exports = {
   module: {
     loaders: [
@@ -63,21 +58,17 @@ const path = require('path');
 
 module.exports = function(webpackConfig, env) {
 
-// 1. 如需添加私有图标，可在如下的 svgDirs 数组中加入本地 svg 文件路径
+
 const svgDirs = [
-  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 自己私人的 svg 存放目录
+  require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
+  // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
 ];
 
-// 2. 把属于 antd-mobile 内置 svg 文件也加入进来
-const antdDir = require.resolve('antd-mobile').replace(/warn\.js$/, '');
-svgDirs.push(antdDir);
-
-
-  // 3. 因为一个 SVG 文件不能被处理两遍. exclude 掉 atool-build 默认为svg配置的svg-url-loade
-  // https://github.com/ant-tool/atool-build/blob/e4bd2959689b6a95cb5c1c854a5db8c98676bdb3/src/getWebpackCommonConfig.js#L161
+  // 因为一个 SVG 文件不能被处理两遍. 在 atool-build 默认为 svg配置的svg-url-loade 里 exclude 掉需要 svg-sprite-loader处理的目录
+  // https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js#L162
   // https://github.com/kisenka/svg-sprite-loader/issues/4
   webpackConfig.module.loaders.forEach(loader => {
-    if (loader.test && loader.test.toString() === '/\\.svg(\\?v=\\d+\\.\\d+\\.\\d+)?$/') {
+    if (loader.test && typeof loader.test.test === 'function' && loader.test.test.('.svg')) {
       loader.exclude = svgDirs;
     }
   });
@@ -92,13 +83,20 @@ svgDirs.push(antdDir);
 }
 ```
 
-组件中使用示例代码如下:
+#### 如果使用 [dva-cli](https://github.com/dvajs/dva-cli) 创建项目，则默认构建工具为 [roadhog](https://github.com/sorrycc/roadhog)，其配置方式参考 [官方文档](https://github.com/sorrycc/roadhog#svgspriteloaderdirs)
+
+> roadhog 版本必须 >=  0.6.0-beta1
+
+## 组件中使用示例代码如下:
 
 ```html
 <Icon type="check" />
 ```
 
 > 注意：仅内置部分必要的图标，所有图标名字列表请查看 [demo](https://mobile.ant.design/components/icon), 同时我们提供了 iconfont 对应的 svg 图标方便下载使用，[svg 图标地址 https://github.com/ant-design/ant-design-icons](https://github.com/ant-design/ant-design-icons)
+
+> 如果使用 [dva-cli](https://github.com/dvajs/dva-cli) 初始化的项目，则默认使用[roadhog](https://github.com/sorrycc/roadhog), roadhog 的 `.roadhogrc` 文件暂不支持配置 webpack loader, 不过 roadhog 仍然支持用 `webpack.config.js` 配置。
+> 
 
 ## 本地部署
 
