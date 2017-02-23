@@ -97,6 +97,7 @@
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
     "lesshint": "^2.1.0",
+    "lint-staged": "^3.3.1",
     "lodash.debounce": "^4.0.6",
     "postcss-pxtorem": "^3.3.1",
     "pre-commit": "1.x",
@@ -147,13 +148,29 @@
     "_android": "node node_modules/react-native/local-cli/cli.js run-android --root rn-kitchen-sink",
     "build-rn-ios": "node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file rn-kitchen-sink/index.ios.js --bundle-output rn-kitchen-sink/ios/bundle/index.ios.bundle --assets-dest rn-kitchen-sink/ios/bundle",
     "build-rn-android": "node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file rn-kitchen-sink/index.android.js --bundle-output rn-kitchen-sink/android/bundle/index.android.bundle --assets-dest rn-kitchen-sink/android/bundle",
-    "build-rn": "antd-tools run tsc && npm run build-rn-ios && npm run build-rn-android"
+    "build-rn": "antd-tools run tsc && npm run build-rn-ios && npm run build-rn-android",
+    "lint-staged": "lint-staged",
+    "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint -c node_modules/antd-tools/lib/tslint.json",
+    "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
+    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
+  },
+  "lint-staged": {
+    "components/**/*.tsx": [
+      "lint-staged:ts"
+    ],
+    "{tests,site,scripts,components}/**/*.{js,jsx}": [
+      "lint-staged:es"
+    ],
+    "components/**/*.less": "stylelint --syntax less",
+    "components/*/demo/*.md": [
+      "lint-staged:demo"
+    ]
   },
   "config": {
     "port": 8001
   },
   "typings": "lib/index.web.d.ts",
   "pre-commit": [
-    "lint"
+    "lint-staged"
   ]
 }
