@@ -3,7 +3,7 @@ import { View, Text, TouchableWithoutFeedback, Platform } from 'react-native';
 import TagStyle from './style/index';
 import TagProps from './PropsType';
 
-export default class Modal extends React.Component<TagProps, any> {
+export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
     disabled: false,
     small: false,
