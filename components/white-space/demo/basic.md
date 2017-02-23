@@ -21,7 +21,7 @@ const PlaceHolder = props => (
   >Block</div>
 );
 
-const WhiteSpaceExample = React.createClass({
+class WhiteSpaceExample extends React.Component {
   render() {
     return (
       <div>
@@ -41,8 +41,8 @@ const WhiteSpaceExample = React.createClass({
         <PlaceHolder />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<WhiteSpaceExample />, mountNode);
 ````
