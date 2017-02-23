@@ -27,7 +27,7 @@ export default {
   fill_disabled: '#ddd',                       // 通用失效背景
   fill_mask: 'rgba(0, 0, 0, .4)',              // 遮罩背景
   fill_overlay_inverse: 'rgba(0, 0, 0, .8)',   // 浮层背景 _ 反色，用于 toast
-  color_icon_base: '#ccc',
+  color_icon_base: '#ccc',                     // 许多小图标的背景，比如一些小圆点，加减号
 
   // 透明度
   opacity_disabled: '0.3',   // switch checkbox radio 等组件禁用的透明度
@@ -48,10 +48,10 @@ export default {
   // ---
   font_size_icontext: 10,
   font_size_caption_sm: 12,
-  font_size_base: 13,
-  font_size_subhead: 14,
-  font_size_caption: 15,
-  font_size_heading: 16,
+  font_size_base: 14,
+  font_size_subhead: 15,
+  font_size_caption: 16,
+  font_size_heading: 17,
   font_size_display_sm: 18,
   font_size_display_md: 21,
   font_size_display_lg: 24,
@@ -108,7 +108,7 @@ export default {
   // ---
   ease_in_out_quint: 'cubic_bezier(0.86, 0, 0.07, 1)',
 
-  // 组件
+  // 组件变量
   // ---
 
   // button
@@ -136,12 +136,9 @@ export default {
 
   // input
   input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
-  input_font_size: 14,
+  input_font_size: 17,
   input_color_icon: '#ccc',
-  search_color_icon: '#4A4A4A',
   input_color_icon_tap: brandPrimary,
-  input_color_icon_inverse: 'rgba(255, 255, 255, .6)',
-  input_color_icon_tap_inverse: 'rgba(255, 255, 255, .4)',
 
   // tabs
   tabs_color: brandPrimary,
@@ -160,6 +157,8 @@ export default {
   // search_bar
   search_bar_fill: '#efeff4',
   search_bar_input_height: 28,
+  searchbar_font_size: 15,
+  search_color_icon: '#bbbbbb', // input search icon 的背景色
 
   // notice_bar
   notice_bar_fill: '#fffada',

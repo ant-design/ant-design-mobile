@@ -8,16 +8,14 @@ Popup 向下弹出效果
 ````jsx
 import { Popup, List, Button, InputItem } from 'antd-mobile';
 
-const PopupContent = React.createClass({
-  getInitialState() {
-    return {
-      sel: '',
-    };
-  },
-  onSel(sel) {
+class PopupContent extends React.Component {
+  state = {
+    sel: '',
+  };
+  onSel = (sel) => {
     this.setState({ sel });
     this.props.onClose();
-  },
+  };
   render() {
     return (
       <List renderHeader={() => `账户总览，选择了：${this.state.sel}`}>
@@ -32,32 +30,32 @@ const PopupContent = React.createClass({
         <InputItem value={this.state.val} onChange={val => this.setState({ val })}>输入内容</InputItem>
       </List>
     );
-  },
-});
+  }
+}
 
-const Test = React.createClass({
-  onClick(e) {
+const Test = () => {
+  this.onClick = (e) => {
     e.preventDefault(); // 修复 Android 上点击穿透
     Popup.show(<PopupContent onClose={() => Popup.hide()} />, { onMaskClose: this.onMaskClose });
-  },
-  onMaskClose() {
+  };
+  this.onMaskClose = () => {
     console.log('onMaskClose');
     // also support Promise
     // return new Promise((resolve) => {
     //   console.log('1000ms 后关闭');
     //   setTimeout(resolve, 1000);
     // });
-  },
+  };
   // newInstance() {
   //  const ins = Popup.newInstance();
   //  ins.show(<Button onClick={() => ins.hide()}>关闭</Button>);
   // },
-  render() {
-    return (<div style={{ padding: '0.15rem' }}>
+  return (
+    <div style={{ padding: '0.15rem' }}>
       <Button onClick={this.onClick}>显示</Button>
-    </div>);
-  },
-});
+    </div>
+  );
+};
 
 ReactDOM.render(<Test />, mountNode);
 ````

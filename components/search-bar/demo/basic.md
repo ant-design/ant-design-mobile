@@ -6,19 +6,17 @@ title: 示例
 ````jsx
 import { SearchBar, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
-const SearchBarExample = React.createClass({
-  getInitialState() {
-    return {
-      value: '美食',
-      focused: false,
-    };
-  },
-  onChange(value) {
+class SearchBarExample extends React.Component {
+  state = {
+    value: '美食',
+    focused: false,
+  };
+  onChange= (value) => {
     this.setState({ value });
-  },
-  clear() {
+  };
+  clear = () => {
     this.setState({ value: '' });
-  },
+  };
   render() {
     return (<div className="need-left-right-margin">
       <div className="sub-title">普通</div>
@@ -61,8 +59,8 @@ const SearchBarExample = React.createClass({
         onChange={this.onChange}
       />
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<SearchBarExample />, mountNode);
 ````

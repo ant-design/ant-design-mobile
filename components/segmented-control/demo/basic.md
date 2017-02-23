@@ -6,13 +6,13 @@ title: 示例
 ````jsx
 import { SegmentedControl, WingBlank } from 'antd-mobile';
 
-const SegmentedControlExample = React.createClass({
-  onChange(e) {
+class SegmentedControlExample extends React.Component {
+  onChange = (e) => {
     console.log(`selectedIndex:${e.nativeEvent.selectedSegmentIndex}`);
-  },
-  onValueChange(value) {
+  }
+  onValueChange = (value) => {
     console.log(value);
-  },
+  }
   render() {
     return (
       <WingBlank size="lg" className="sc-example">
@@ -40,8 +40,8 @@ const SegmentedControlExample = React.createClass({
         />
       </WingBlank>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<SegmentedControlExample />, mountNode);
 ````

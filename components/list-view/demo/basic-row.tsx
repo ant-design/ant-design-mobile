@@ -26,28 +26,30 @@ let index = data.length - 1;
 const NUM_ROWS = 20;
 let pageIndex = 0;
 
-export default React.createClass({
-  getInitialState() {
+export default class BasicRowDemo extends React.Component<any, any> {
+  private rData;
+  constructor(props) {
+    super(props);
     const dataSource = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
-
-    this.genData = (pIndex = 0) => {
-      const dataBlob = {};
-      for (let i = 0; i < NUM_ROWS; i++) {
-        const ii = (pIndex * NUM_ROWS) + i;
-        dataBlob[`${ii}`] = `row - ${ii}`;
-      }
-      return dataBlob;
-    };
     this.rData = {};
-    return {
+    this.state = {
       dataSource: dataSource.cloneWithRows(this.genData()),
       isLoading: false,
     };
-  },
+  }
 
-  onEndReached(_event) {
+  genData = (pIndex = 0) => {
+    const dataBlob = {};
+    for (let i = 0; i < NUM_ROWS; i++) {
+      const ii = (pIndex * NUM_ROWS) + i;
+      dataBlob[`${ii}`] = `row - ${ii}`;
+    }
+    return dataBlob;
+  };
+
+  onEndReached = (_event) => {
     // load new data
     // console.log('reach end', event);
     this.setState({ isLoading: true });
@@ -58,7 +60,7 @@ export default React.createClass({
         isLoading: false,
       });
     }, 1000);
-  },
+  }
 
   render() {
     const separator = (sectionID, rowID) => (
@@ -121,8 +123,8 @@ export default React.createClass({
         onEndReachedThreshold={10}
       />
     );
-  },
-});
+  }
+}
 
 export const title = 'ListView Row';
 export const description = 'ListView Row example';

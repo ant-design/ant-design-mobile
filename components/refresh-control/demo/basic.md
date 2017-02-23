@@ -31,8 +31,9 @@ let index = data.length - 1;
 
 let pageIndex = 0;
 
-const App = React.createClass({
-  getInitialState() {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
     const dataSource = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
@@ -41,12 +42,12 @@ const App = React.createClass({
     for (let i = 0; i < 20; i++) {
       this.initData.push(`r${i}`);
     }
-    return {
+    this.state = {
       dataSource: dataSource.cloneWithRows(this.initData),
       refreshing: false,
     };
-  },
-  onRefresh() {
+  }
+  onRefresh = () => {
     this.setState({ refreshing: true });
     setTimeout(() => {
       this.initData = [`ref${pageIndex++}`, ...this.initData];
@@ -55,10 +56,10 @@ const App = React.createClass({
         refreshing: false,
       });
     }, 1000);
-  },
-  onScroll() {
+  };
+  onScroll = () => {
     console.log('sss');
-  },
+  };
   render() {
     const separator = (sectionID, rowID) => (
       <div
@@ -118,8 +119,8 @@ const App = React.createClass({
         />}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

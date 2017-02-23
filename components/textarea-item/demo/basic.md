@@ -9,12 +9,10 @@ title: 示例集合
 import { List, TextareaItem, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
-let TextareaItemExample = React.createClass({
-  getInitialState() {
-    return {
-      focused: false,
-    };
-  },
+class TextareaItemExample extends React.Component {
+  state = {
+    focused: false,
+  };
   render() {
     const { getFieldProps } = this.props.form;
     return (
@@ -130,12 +128,12 @@ let TextareaItemExample = React.createClass({
         </List>
       </div>
     );
-  },
-});
+  }
+}
 
-TextareaItemExample = createForm()(TextareaItemExample);
+const TextareaItemExampleWrapper = createForm()(TextareaItemExample);
 
-ReactDOM.render(<TextareaItemExample />, mountNode);
+ReactDOM.render(<TextareaItemExampleWrapper />, mountNode);
 ````
 
 

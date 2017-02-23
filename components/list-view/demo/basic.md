@@ -11,6 +11,16 @@ title: 自定义容器
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView } from 'antd-mobile';
 
+
+function MyBody(props) {
+  return (
+    <div className="am-list-body my-body">
+      <span style={{ display: 'none' }}>you can custom body wrap element</span>
+      {props.children}
+    </div>
+  );
+}
+
 const data = [
   {
     img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
@@ -34,17 +44,9 @@ const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
-function MyBody(props) {
-  return (
-    <div className="am-list-body my-body">
-      <span style={{ display: 'none' }}>you can custom body wrap element</span>
-      {props.children}
-    </div>
-  );
-}
-
-const Demo = React.createClass({
-  getInitialState() {
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
     const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
@@ -76,19 +78,37 @@ const Demo = React.createClass({
       this.sectionIDs = [].concat(this.sectionIDs);
       this.rowIDs = [].concat(this.rowIDs);
     };
-    this.genData();
-    return {
+
+    this.state = {
       dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
-      isLoading: false,
+      isLoading: true,
     };
-  },
+  }
 
   componentDidMount() {
     // you can scroll to the specified position
     // this.refs.lv.refs.listview.scrollTo(0, 200);
-  },
 
-  onEndReached(event) {
+    // simulate initial Ajax
+    setTimeout(() => {
+      this.genData();
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
+        isLoading: false,
+      });
+    }, 600);
+  }
+
+  // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.dataSource !== this.props.dataSource) {
+  //     this.setState({
+  //       dataSource: this.state.dataSource.cloneWithRowsAndSections(nextProps.dataSource),
+  //     });
+  //   }
+  // }
+
+  onEndReached = (event) => {
     // load new data
     console.log('reach end', event);
     this.setState({ isLoading: true });
@@ -99,7 +119,7 @@ const Demo = React.createClass({
         isLoading: false,
       });
     }, 1000);
-  },
+  }
 
   render() {
     const separator = (sectionID, rowID) => (
@@ -136,6 +156,7 @@ const Demo = React.createClass({
         </div>
       );
     };
+
     return (<div style={{ margin: '0 auto', width: '96%' }}>
       <ListView ref="lv"
         dataSource={this.state.dataSource}
@@ -164,8 +185,8 @@ const Demo = React.createClass({
         onEndReachedThreshold={10}
       />
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

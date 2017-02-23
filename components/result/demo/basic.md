@@ -47,6 +47,9 @@ const ResultExample = () => (<div className="result-example">
 ReactDOM.render(<ResultExample />, mountNode);
 ````
 ````css
+.sub-title {
+  margin-left: 0.3rem;
+}
 .result-example .icon {
   width: 1.2rem;
   height: 1.2rem;

@@ -5,6 +5,7 @@ import TabsProps from './PropsType';
 import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
 import TabContent from 'rc-tabs/lib/TabContent';
 import InkTabBar from 'rc-tabs/lib/InkTabBar';
+import assign from 'object-assign';
 
 const Tabs = React.createClass<TabsProps, any>({
   statics: {
@@ -102,7 +103,7 @@ const Tabs = React.createClass<TabsProps, any>({
       ...this.props,
       onChange: this.handleTabChange,
       children: this.getChildren(),
-      className: this.getClassName(),
+      className: assign(this.getClassName(), this.props.className),
     };
     return (
       <RcTabs

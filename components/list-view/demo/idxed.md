@@ -13,8 +13,9 @@ import { ListView, List } from 'antd-mobile';
 
 const { Item } = List;
 
-const Demo = React.createClass({
-  getInitialState() {
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
     const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
@@ -38,11 +39,11 @@ const Demo = React.createClass({
         dataBlob[jj.value] = jj.label;
       });
     });
-    return {
+    this.state = {
       dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
       headerPressCount: 0,
     };
-  },
+  }
 
   render() {
     return (
@@ -65,8 +66,8 @@ const Demo = React.createClass({
         delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ````

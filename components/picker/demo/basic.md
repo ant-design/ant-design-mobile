@@ -47,24 +47,22 @@ const seasons = [
   ],
 ];
 
-let Test = React.createClass({
-  getInitialState() {
-    return {
-      data: [],
-      cols: 1,
-      pickerValue: [],
-      asyncValue: [],
-      sValue: ['2013', '春'],
-    };
-  },
-  onClick() {
+class Test extends React.Component {
+  state = {
+    data: [],
+    cols: 1,
+    pickerValue: [],
+    asyncValue: [],
+    sValue: ['2013', '春'],
+  };
+  onClick = () => {
     setTimeout(() => {
       this.setState({
         data: province,
       });
     }, 120);
-  },
-  onPickerChange(val) {
+  };
+  onPickerChange = (val) => {
     console.log(val);
     let colNum = 1;
     const d = [...this.state.data];
@@ -104,7 +102,7 @@ let Test = React.createClass({
       cols: colNum,
       asyncValue,
     });
-  },
+  };
   // setVal() {
   //   this.props.form.setFieldsValue({
   //     district: ['340000', '340800', '340822'],
@@ -153,12 +151,12 @@ let Test = React.createClass({
         </Picker>
       </List>
     </div>);
-  },
-});
+  }
+}
 
-Test = createForm()(Test);
+const TestWrapper = createForm()(Test);
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<TestWrapper />, mountNode);
 ````
 ````css
 .picker-list .am-list-item .am-list-line .am-list-extra {

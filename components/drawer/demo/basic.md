@@ -9,17 +9,15 @@ title: 基本
 ````jsx
 import { Drawer, List, NavBar } from 'antd-mobile';
 
-const App1 = React.createClass({
-  getInitialState() {
-    return {
-      open: false,
-      position: 'left',
-    };
-  },
-  onOpenChange(isOpen) {
-    console.log(isOpen, arguments);
+class App1 extends React.Component {
+  state = {
+    open: false,
+    position: 'left',
+  }
+  onOpenChange = (...args) => {
+    console.log(args);
     this.setState({ open: !this.state.open });
-  },
+  }
   render() {
     const sidebar = (<List>
       {[...Array(20).keys()].map((i, index) => {
@@ -53,8 +51,8 @@ const App1 = React.createClass({
         请点击左上角图标
       </Drawer>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<App1 />, mountNode);
 ````

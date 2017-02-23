@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactTimerMixin from 'react-timer-mixin';
 import Pagination from '../pagination';
 import {
   View,
@@ -10,28 +9,30 @@ import {
 import CarouselStyle from './style';
 import CarouselProps from './PropsType';
 
-const Carousel = React.createClass<CarouselProps, any>({
-  mixins: [ReactTimerMixin],
+class Carousel extends React.Component<CarouselProps, any> {
 
-  getDefaultProps() {
-    return {
-      bounces: true,
-      infinite: false,
-      dots: true,
-      autoplay: false,
-      autoplayTimeout: 2.5,
-      selectedIndex: 0,
-      // vertical 目前只实现 pagination，内容 vertical 由于自动高度拿不到，暂时无法实现
-      vertical: false,
-      styles: CarouselStyle,
-    };
-  },
+  static defaultProps: CarouselProps = {
+    bounces: true,
+    infinite: false,
+    dots: true,
+    autoplay: false,
+    autoplayTimeout: 2.5,
+    selectedIndex: 0,
+    // vertical 目前只实现 pagination，内容 vertical 由于自动高度拿不到，暂时无法实现
+    vertical: false,
+    styles: CarouselStyle,
+  };
 
-  getInitialState() {
+  private autoplayTimer;
+  private androidScrollEndTimer;
+  private scrollEndTimter;
+
+  constructor(props) {
+    super(props);
     const { children, selectedIndex } = this.props;
     const count = children ? children.length || 1 : 0;
-    const index = count > 1 ? Math.min(selectedIndex, count - 1) : 0;
-    return {
+    const index = count > 1 ? Math.min(selectedIndex as number, count - 1) : 0;
+    this.state = {
       width: 0,
       isScrolling: false,
       autoplayEnd: false,
@@ -39,13 +40,18 @@ const Carousel = React.createClass<CarouselProps, any>({
       selectedIndex: index,
       offset: { x: 0, y: 0 },
     };
-  },
+  }
 
   componentDidMount() {
     this.autoplay();
-  },
+  }
 
-  loopJump() {
+  componentWillUnMount() {
+    clearTimeout(this.autoplayTimer);
+    clearTimeout(this.androidScrollEndTimer);
+    clearTimeout(this.scrollEndTimter);
+  }
+  loopJump = () => {
     // iOS 通过 contentOffet 可以平滑过度，不需要做处理
     if (this.state.loopJump && Platform.OS === 'android') {
       const index = this.state.selectedIndex + (this.props.infinite ? 1 : 0);
@@ -54,9 +60,9 @@ const Carousel = React.createClass<CarouselProps, any>({
         (this.refs as any).scrollview.scrollTo({ x, y: 0 }, false);
       }, 10);
     }
-  },
+  }
 
-  autoplay() {
+  autoplay = () => {
     const { children, autoplay, infinite, autoplayTimeout } = this.props;
     const { isScrolling, autoplayEnd, selectedIndex } = this.state;
     const count = children ? children.length || 1 : 0;
@@ -66,16 +72,16 @@ const Carousel = React.createClass<CarouselProps, any>({
 
     clearTimeout(this.autoplayTimer);
 
-    this.autoplayTimer = this.setTimeout(() => {
+    this.autoplayTimer = setTimeout(() => {
       if (!infinite && (selectedIndex === count - 1)) {
         // !infinite && last one, autoplay end
         return this.setState({ autoplayEnd: true });
       }
       this.scrollNextPage();
     }, autoplayTimeout * 1000);
-  },
+  }
 
-  onScrollBegin(e) {
+  onScrollBegin = (e) => {
     this.setState({
       isScrolling: true,
     }, () => {
@@ -83,9 +89,9 @@ const Carousel = React.createClass<CarouselProps, any>({
         this.props.onScrollBeginDrag(e, this.state, this);
       }
     });
-  },
+  }
 
-  onScrollEnd(e) {
+  onScrollEnd = (e) => {
     this.setState({ isScrolling: false });
     // android incompatible
     if (!e.nativeEvent.contentOffset) {
@@ -97,16 +103,16 @@ const Carousel = React.createClass<CarouselProps, any>({
 
     this.updateIndex(e.nativeEvent.contentOffset);
 
-    this.setTimeout(() => {
+    this.scrollEndTimter = setTimeout(() => {
       this.autoplay();
       this.loopJump();
       if (this.props.onMomentumScrollEnd) {
         this.props.onMomentumScrollEnd(e, this.state, this);
       }
     });
-  },
+  }
 
-  onScrollEndDrag(e) {
+  onScrollEndDrag = (e) => {
     const { offset, selectedIndex } = this.state;
     const previousOffset = offset.x;
     const newOffset = e.nativeEvent.x;
@@ -117,9 +123,9 @@ const Carousel = React.createClass<CarouselProps, any>({
         isScrolling: false,
       });
     }
-  },
+  }
 
-  updateIndex(offset) {
+  updateIndex = (offset) => {
     let state = this.state;
     let selectedIndex = state.selectedIndex;
     let diff = offset.x - state.offset.x;
@@ -156,9 +162,9 @@ const Carousel = React.createClass<CarouselProps, any>({
     if (afterChange) {
       afterChange(selectedIndex);
     }
-  },
+  }
 
-  scrollNextPage() {
+  scrollNextPage = () => {
     const { children, infinite } = this.props;
     const count = children ? children.length || 1 : 0;
     if (this.state.isScrolling || count < 2) {
@@ -179,7 +185,7 @@ const Carousel = React.createClass<CarouselProps, any>({
 
     // trigger onScrollEnd manually in android
     if (Platform.OS === 'android') {
-      this.setTimeout(() => {
+      this.androidScrollEndTimer = setTimeout(() => {
         this.onScrollEnd({
           nativeEvent: {
             position: diff,
@@ -187,9 +193,9 @@ const Carousel = React.createClass<CarouselProps, any>({
         });
       }, 0);
     }
-  },
+  }
 
-  renderContent(pages) {
+  renderContent = (pages) => {
       const others = {
         onScrollBeginDrag: this.onScrollBegin,
         onMomentumScrollEnd: this.onScrollEnd,
@@ -215,9 +221,9 @@ const Carousel = React.createClass<CarouselProps, any>({
           {pages}
         </ScrollView>
       );
-  },
+  }
 
-  renderDots(index) {
+  renderDots = (index) => {
     const { children, vertical, styles } = this.props;
     const positionStyle = vertical ? 'paginationY' : 'paginationX';
     const flexDirection = vertical ? 'column' : 'row';
@@ -231,13 +237,13 @@ const Carousel = React.createClass<CarouselProps, any>({
         total={count}
       />
     );
-  },
+  }
 
-  onLayout(e) {
+  onLayout = (e) => {
     // for horizontal, get width, scollTo
     const props = this.props;
     const count = props.children ? props.children.length || 1 : 0;
-    const selectedIndex = count > 1 ? Math.min(props.selectedIndex, count - 1) : 0;
+    const selectedIndex = count > 1 ? Math.min(props.selectedIndex as number, count - 1) : 0;
     const width = e.nativeEvent.layout.width;
     const offsetX = width * (selectedIndex + (props.infinite ? 1 : 0));
     this.setState({
@@ -245,10 +251,10 @@ const Carousel = React.createClass<CarouselProps, any>({
       offset: { x: offsetX, y: 0 },
     }, () => {
       if (Platform.OS === 'android') {
-        this.refs.scrollview.scrollTo({ y: 0, x: offsetX }, false);
+        (this.refs as any).scrollview.scrollTo({ y: 0, x: offsetX }, false);
       }
     });
-  },
+  }
 
   render() {
     let state = this.state;
@@ -285,7 +291,7 @@ const Carousel = React.createClass<CarouselProps, any>({
         {dots && this.renderDots(this.state.selectedIndex)}
       </View>
     );
-  },
-});
+  }
+}
 
 export default Carousel;
