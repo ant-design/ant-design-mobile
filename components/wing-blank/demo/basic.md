@@ -20,21 +20,17 @@ const PlaceHolder = props => (
   >Block</div>
 );
 
-const WingBlankExample = React.createClass({
-  render() {
-    return (
-      <div style={{ padding: '0.3rem 0' }}>
-        <WingBlank><PlaceHolder /></WingBlank>
+const WingBlankExample = () => (
+  <div style={{ padding: '0.3rem 0' }}>
+    <WingBlank><PlaceHolder /></WingBlank>
 
-        <WhiteSpace size="lg" />
-        <WingBlank size="md"><PlaceHolder /></WingBlank>
+    <WhiteSpace size="lg" />
+    <WingBlank size="md"><PlaceHolder /></WingBlank>
 
-        <WhiteSpace size="lg" />
-        <WingBlank size="sm"><PlaceHolder /></WingBlank>
-      </div>
-    );
-  },
-});
+    <WhiteSpace size="lg" />
+    <WingBlank size="sm"><PlaceHolder /></WingBlank>
+  </div>
+);
 
 ReactDOM.render(<WingBlankExample />, mountNode);
 ````

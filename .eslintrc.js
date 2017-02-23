@@ -27,8 +27,6 @@ const eslintrc = {
     'func-names': 0,
     'react/sort-comp': 0,
     'react/prop-types': 0,
-    'react/prefer-es6-class': 0,
-    'react/prefer-stateless-function': 0,
     'react/jsx-first-prop-new-line': 0,
     'no-param-reassign': 0,
     'no-return-assign': 0,

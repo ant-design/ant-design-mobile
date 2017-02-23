@@ -21,28 +21,24 @@ const PlaceHolder = props => (
   >Block</div>
 );
 
-class WhiteSpaceExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <WhiteSpace size="xs" />
-        <PlaceHolder />
+const WhiteSpaceExample = () => (
+  <div>
+    <WhiteSpace size="xs" />
+    <PlaceHolder />
 
-        <WhiteSpace size="sm" />
-        <PlaceHolder />
+    <WhiteSpace size="sm" />
+    <PlaceHolder />
 
-        <WhiteSpace />
-        <PlaceHolder />
+    <WhiteSpace />
+    <PlaceHolder />
 
-        <WhiteSpace size="lg" />
-        <PlaceHolder />
+    <WhiteSpace size="lg" />
+    <PlaceHolder />
 
-        <WhiteSpace size="xl" />
-        <PlaceHolder />
-      </div>
-    );
-  }
-}
+    <WhiteSpace size="xl" />
+    <PlaceHolder />
+  </div>
+);
 
 ReactDOM.render(<WhiteSpaceExample />, mountNode);
 ````

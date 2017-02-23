@@ -14,19 +14,17 @@ const data = [{
   id: '2122',
 }];
 
-const ImagePickerExample = React.createClass({
-  getInitialState() {
-    return {
-      files: data,
-    };
-  },
-  onChange(files, type, index) {
+class ImagePickerExample extends React.Component {
+  state = {
+    files: data,
+  };
+  onChange = (files, type, index) => {
     console.log(files, type, index);
     this.setState({
       files,
     });
-  },
-  onAddImageClick(e) {
+  };
+  onAddImageClick = (e) => {
     e.preventDefault();
     this.setState({
       files: this.state.files.concat({
@@ -34,10 +32,10 @@ const ImagePickerExample = React.createClass({
         id: '3',
       }),
     });
-  },
-  onTabChange(key) {
+  };
+  onTabChange = (key) => {
     console.log(key);
-  },
+  };
   render() {
     const { files } = this.state;
     return (
@@ -51,8 +49,8 @@ const ImagePickerExample = React.createClass({
         />
       </div>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<ImagePickerExample />, mountNode);
 ````
