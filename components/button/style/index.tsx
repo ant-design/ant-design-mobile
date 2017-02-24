@@ -1,100 +1,90 @@
 import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
-export const highlightStyles = {
-  default: {
+export default StyleSheet.create({
+  defaultHighlight: {
     backgroundColor: variables.fill_tap,
     borderColor: variables.border_color_base,
   },
-  primary: {
+  primaryHighlight: {
     backgroundColor: variables.primary_button_fill_tap,
     borderColor: variables.primary_button_fill,
   },
-  ghost: {
+  ghostHighlight: {
     backgroundColor: variables.ghost_button_fill_tap,
     borderColor: variables.ghost_button_color,
   },
-  warning: {
+  warningHighlight: {
     backgroundColor: variables.brand_warning,
     borderColor: variables.brand_warning,
   },
-};
-export const rawStyles = {
   wrapperStyle: {
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: variables.radius_md,
     borderWidth: 1,
   },
-  large: {
+  largeRaw: {
     height: variables.button_height,
     paddingLeft: variables.h_spacing_lg,
     paddingRight: variables.h_spacing_lg,
   },
-  small: {
+  smallRaw: {
     height: variables.button_height_sm,
     paddingLeft: variables.h_spacing_sm,
     paddingRight: variables.h_spacing_sm,
   },
-  default: {
+  defaultRaw: {
     backgroundColor: variables.fill_base,
     borderColor: variables.border_color_base,
   },
-  primary: {
+  primaryRaw: {
     backgroundColor: variables.primary_button_fill,
     borderColor: variables.primary_button_fill,
   },
-  ghost: {
+  ghostRaw: {
     backgroundColor: 'transparent',
     borderColor: variables.ghost_button_color,
   },
-  warning: {
+  warningRaw: {
     backgroundColor: variables.fill_base,
     borderColor: variables.brand_warning,
   },
-  disabled: {
+  disabledRaw: {
     backgroundColor: variables.fill_disabled,
     borderColor: variables.fill_disabled,
   },
-};
-
-export const highlightTextStyles = {
-  default: {
+  defaultHighlightText: {
     color: variables.color_text_base,
   },
-  primary: {
+  primaryHighlightText: {
     color: variables.color_text_base_inverse,
   },
-  ghost: {
+  ghostHighlightText: {
     color: variables.color_text_base_inverse,
   },
-  warning: {
+  warningHighlightText: {
     color: variables.color_text_base_inverse,
   },
-};
-export const rawTextStyles = {
-  large: {
+  largeRawText: {
     fontSize: variables.button_font_size,
   },
-  small: {
+  smallRawText: {
     fontSize: variables.button_font_size_sm,
   },
-  default: {
+  defaultRawText: {
     color: variables.color_text_base,
   },
-  primary: {
+  primaryRawText: {
     color: variables.color_text_base_inverse,
   },
-  ghost: {
+  ghostRawText: {
     color: variables.ghost_button_color,
   },
-  warning: {
+  warningRawText: {
     color: variables.brand_warning,
   },
-  disabled: {
+  disabledRawText: {
     color: variables.color_text_disabled,
   },
-};
-export const textStyles = StyleSheet.create(rawTextStyles);
-
-export default StyleSheet.create(rawStyles);
+});
