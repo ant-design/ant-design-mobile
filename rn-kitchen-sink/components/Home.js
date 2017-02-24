@@ -119,12 +119,8 @@ class Home extends React.Component {
         });
       }
       switch (syncStatus) {
-        case 0: {
-          Alert.alert(null, '最新版本');
-        } break;
-        case 3: {
-          Alert.alert(null, '发生错误');
-        } break;
+        case 0: Alert.alert(null, '最新版本'); break;
+        case 3: Alert.alert(null, '发生错误'); break;
         default: break;
       }
     };
