@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 });
 
 let isMainScreen = false;
-const reducerCreate = params => {
+const reducerCreate = (params) => {
   const defaultReducer = new Reducer(params);
   return (state, action) => {
     if (action.type === ActionConst.FOCUS && action.scene && action.scene.initial) {
@@ -72,26 +72,18 @@ class AntmRnApp extends React.Component {
   }
 
   render() {
-    const scenes = [...UIVIEWS, ...UICONTROLS, ...OTHERS, ...UIBARS].map(component => {
+    const scenes = [...UIVIEWS, ...UICONTROLS, ...OTHERS, ...UIBARS].map((component) => {
       const Module = component.module.default;
-      const Component = React.createClass({
-        render() {
-          return (
-            <View style={styles.content}>
-              <Module />
-            </View>
-          );
-        },
-      });
+      const Component = () => (
+        <View style={styles.content}>
+          <Module />
+        </View>
+      );
 
       if (component.title === 'Drawer') {
-        const DrawerMainComponent = React.createClass({
-          render() {
-            return (
-              <component.module.DrawerMain drawerComponent={Module} />
-            );
-          },
-        });
+        const DrawerMainComponent = () => (
+          <component.module.DrawerMain drawerComponent={Module} />
+        );
         return (
           <Scene key="Drawer" component={Module} duration={200} direction="vertical">
             <Scene key="main" navigationBarStyle={styles.navigationBarStyle} titleStyle={styles.titleStyle}>

@@ -119,9 +119,10 @@
     "svg-sprite-loader": "^0.0.31"
   },
   "scripts": {
-    "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint",
+    "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint && npm run applint",
     "srclint": "eslint site scripts --ext '.js,.jsx'",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
+    "applint": "eslint rn-kitchen-sink --ext '.js'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components/ -r scripts/lesshint-report.js",
     "eslint-fix": "eslint --fix site scripts ./*.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
