@@ -10,26 +10,24 @@ import assign from 'object-assign';
 export default class Tabs extends React.Component<TabsProps, any> {
   static TabPane = TabPane;
 
-  getDefaultProps() {
-    return {
-      prefixCls: 'am-tabs',
-      animated: true,
-      swipeable: true,
-      tabBarPosition: 'top',
-      hammerOptions: {},
-      onChange() {},
-      onTabClick() {},
-    };
-  }
+  static defaultProps = {
+    prefixCls: 'am-tabs',
+    animated: true,
+    swipeable: true,
+    tabBarPosition: 'top',
+    hammerOptions: {},
+    onChange() {},
+    onTabClick() {},
+  };
 
-  getInitialState() {
+  constructor(props) {
+    super(props);
     const { activeKey, defaultActiveKey, children } = this.props;
     const activeTabKey = activeKey || defaultActiveKey || children[0].props.key;
     const activeTabIndex = children.findIndex(tabPane => tabPane.key === activeTabKey);
-    return {
-      // 超过5个的情况下，保证初始时 activeTab 显示在屏幕中间，便于向两侧翻页
+    this.setState({
       viewportStartTabIndex: children.length > 5 && activeTabIndex >= 3 ? activeTabIndex - 2 : 0,
-    };
+    });
   }
 
   renderTabBar = () => {
