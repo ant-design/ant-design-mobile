@@ -1,43 +1,21 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { Image, View, TouchableHighlight, Text } from 'react-native';
-import { ListItemProps, BriefProps } from './PropsType';
-import listItemStyles from './style/index';
+import { ListItemProps } from './PropsType';
 
 function noop() {
 }
 
-class Brief extends React.Component<BriefProps, any> {
-  render() {
-    const { children, style, styles = listItemStyles, wrap } = this.props;
-
-    let numberOfLines = {};
-
-    if (wrap === false) {
-      numberOfLines = {
-        numberOfLines: 1,
-      };
-    }
-    return (
-      <View style={[styles.Brief]}>
-        <Text style={[styles.BriefText, style]} {...numberOfLines}>{children}</Text>
-      </View>
-    );
-  }
-}
-
 export default class Item extends React.Component<ListItemProps, any> {
   static defaultProps = {
-    error: false,
     multipleLine: false,
     wrap: false,
   };
   static Brief: any;
   render() {
     const {
-      styles = listItemStyles,
-      children, multipleLine, thumb, extra, arrow = '', style,
-      onClick, onPressIn = noop, onPressOut = noop, wrap, disabled, align,
+      styles, children, multipleLine, thumb, extra, arrow = '', style, onClick,
+      onPressIn = noop, onPressOut = noop, wrap, disabled, align, ...restProps,
     } = this.props;
 
     let numberOfLines = {};
@@ -51,7 +29,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     if (!disabled && onClick) {
       underlayColor = {
-        underlayColor: listItemStyles.underlayColor,
+        underlayColor: styles.underlayColor,
         activeOpacity: 0.5,
       };
     } else {
@@ -139,14 +117,14 @@ export default class Item extends React.Component<ListItemProps, any> {
     };
 
     const itemView = (
-      <View {...this.props} style={[styles.Item, style]}>
+      <View {...restProps} style={[styles.Item, style]}>
         {typeof thumb === 'string' ? (
           <Image
             source={{ uri: thumb }}
-            style={[styles.Thumb, multipleLine && styles.multipleLine.Thumb]}
+            style={[styles.Thumb, multipleLine && styles.multipleThumb]}
           />
         ) : thumb}
-        <View style={[styles.Line, multipleLine && styles.multipleLine.Line, multipleLine && alignStyle]}>
+        <View style={[styles.Line, multipleLine && styles.multipleLine, multipleLine && alignStyle]}>
           {contentDom}
           {extraDom}
           {arrow ? (arrEnum[arrow] || <View style={styles.Arrow} />) : null}
@@ -166,5 +144,3 @@ export default class Item extends React.Component<ListItemProps, any> {
     );
   }
 }
-
-Item.Brief = Brief;
