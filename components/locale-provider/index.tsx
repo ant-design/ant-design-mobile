@@ -27,7 +27,6 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
   }
 
   render() {
-
     return React.Children.only(this.props.children);
   }
 }

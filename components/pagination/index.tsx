@@ -4,7 +4,8 @@ import Button from '../button';
 import Flex from '../flex';
 import PaginationProps from './PropsType';
 import PaginationStyle from './style/index';
-// import { getComponentLocale } from '../_util/getLocale';
+import { getComponentLocale } from '../_util/getLocale';
+import zh_CN from './locale/zh_CN';
 
 export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
@@ -44,8 +45,8 @@ export default class Pagination extends React.Component<PaginationProps, any> {
 
   render() {
     const { styles, style, mode, total, simple } = this.props;
-    // const locale = getComponentLocale(this.props, this.context, 'Pagination', () => require('./locale/zh_CN'));
-    // const { prevText, nextText } = locale.default;
+    const locale = getComponentLocale(this.props, this.context, 'Pagination', () => zh_CN);
+    const { prevText, nextText } = locale;
 
     const current = this.state.current;
     const simpleItem = !simple ? (
@@ -64,7 +65,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
             disabled={current <= 0}
             onClick={() => this.onChange(current - 1)}
           >
-            上一页
+            {prevText}
           </Button>
         </Flex.Item>
         { simpleItem }
@@ -74,7 +75,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
             disabled={current >= total - 1}
             onClick={() => this.onChange(this.state.current + 1)}
           >
-            下一页
+            {nextText}
           </Button>
         </Flex.Item>
       </Flex>

@@ -242,6 +242,12 @@ module.exports = {
       module: require('../components/grid/demo/basic'),
     },
     {
+      title: 'LocaleProvider',
+      description: '国际化',
+      icon: 'https://os.alipayobjects.com/rmsportal/HzRRcuwtqUCCOBg.png',
+      module: require('../components/locale-provider/demo/basic'),
+    },
+    {
       title: 'WhiteSpace',
       description: '上下留白',
       icon: 'https://os.alipayobjects.com/rmsportal/NfomhEsOdhFxEws.png',
