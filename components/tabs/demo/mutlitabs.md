@@ -35,7 +35,7 @@ const makeMultiTabPane = (count) => {
 
 const TabExample = () => (
   <div>
-    <Tabs defaultActiveKey="8" onChange={callback}>
+    <Tabs defaultActiveKey="8" onChange={callback} pageSize={5}>
       {makeMultiTabPane(11)}
     </Tabs>
     <WhiteSpace />

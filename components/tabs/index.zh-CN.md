@@ -33,6 +33,9 @@ title: 标签页
 | activeTextColor(`react-native only`) |   选中文字颜色       |  string    |    `#108ee9`        |
 | prefixCls(`web only`) |  className 前缀      |  string    |    `am-tabs`        |
 | className(`web only`) |   额外的 className      |  string    |    无        |
+| pageSize(`web only`) |  可视区显示的 tab 数量，可以看做一页     |  number    |    5       |
+| speed(`web only`) |   多页模式下，TabBar 滑动的速度      |  Number: 1 ~ 10    |    8        |
+| tabBarhammerOptions(`web only`) |   同hammerOptions，对 TabBar 的滑动手势进行配置      |  Obejct    |    {}        |
 
 ### Tabs.TabPane
 
