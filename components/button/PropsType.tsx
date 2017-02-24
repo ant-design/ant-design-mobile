@@ -13,10 +13,10 @@ interface ButtonProps {
   prefixCls?: string;
   className?: string;
   /** rn only */
-  onPressIn?: (x: any) => void;
-  onPressOut?: (x: any) => void;
-  onShowUnderlay?: (x: any) => void;
-  onHideUnderlay?: (x: any) => void;
+  onPressIn?: (x?: any) => void;
+  onPressOut?: (x?: any) => void;
+  onShowUnderlay?: (x?: any) => void;
+  onHideUnderlay?: (x?: any) => void;
   styles?: any;
 }
 

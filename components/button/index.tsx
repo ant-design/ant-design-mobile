@@ -1,8 +1,6 @@
 import React from 'react';
-import { View, TouchableHighlight, Text } from 'react-native';
-import buttonStyles, {
-  rawStyles as rs, highlightStyles as hs, textStyles as ts, highlightTextStyles as hts,
-} from './style/index';
+import { TouchableHighlight, Text, StyleSheet } from 'react-native';
+import buttonStyles from './style/index';
 import tsProps from './PropsType';
 
 export default class Button extends React.Component<tsProps, any> {
@@ -10,16 +8,17 @@ export default class Button extends React.Component<tsProps, any> {
     pressIn: false,
     disabled: false,
     activeStyle: {},
-    onClick: (_x: any) => {
+    onClick: (_x?: any) => {
     },
-    onPressIn: (_x: any) => {
+    onPressIn: (_x?: any) => {
     },
-    onPressOut: (_x: any) => {
+    onPressOut: (_x?: any) => {
     },
-    onShowUnderlay: (_x: any) => {
+    onShowUnderlay: (_x?: any) => {
     },
-    onHideUnderlay: (_x: any) => {
+    onHideUnderlay: (_x?: any) => {
     },
+    styles: buttonStyles,
   };
 
   constructor(props) {
@@ -64,55 +63,48 @@ export default class Button extends React.Component<tsProps, any> {
   }
 
   render() {
-    const { size = 'large', type = 'default', disabled, activeStyle, styles = buttonStyles } = this.props;
-    const { rawStyles = rs, highlightStyles = hs, textStyles = ts, highlightTextStyles = hts } = styles;
+    // TODO: replace `TouchableHighlight` with `TouchableWithoutFeedback` in version 1.1.0
+    // for using setNativeProps to improve performance
+    const {
+      size = 'large', type = 'default', disabled, activeStyle, onClick, style, styles, ...restProps,
+    } = this.props;
+
     const textStyle = [
-      textStyles[size],
-      textStyles[type],
-      disabled && textStyles.disabled,
-      this.state.pressIn && highlightTextStyles[type],
+      styles[`${size}RawText`],
+      styles[`${type}RawText`],
+      disabled && styles.disabledRawText,
+      this.state.pressIn && styles[`${type}HighlightText`],
     ];
-    const wrapperStyle: any = [
+
+    const wrapperStyle = [
       styles.wrapperStyle,
-      styles[size],
-      styles[type],
-      disabled && styles.disabled,
-      this.state.pressIn && activeStyle && highlightStyles[type],
+      styles[`${size}Raw`],
+      styles[`${type}Raw`],
+      disabled && styles.disabledRaw,
+      this.state.pressIn && activeStyle && styles[`${type}Highlight`],
+      activeStyle && this.state.touchIt && activeStyle,
+      style,
     ];
 
-    if (activeStyle && this.state.touchIt) {
-      wrapperStyle.push(activeStyle);
-    }
-    wrapperStyle.push(this.props.style);
-
-    const newChild = (
-      <Text style={textStyle}>
-        {this.props.children}
-      </Text>
-    );
-
-    if (disabled) {
-      return (
-        <View {...this.props} style={wrapperStyle}>
-          {newChild}
-        </View>
-      );
-    }
+    const underlayColor = StyleSheet.flatten(
+      styles[activeStyle ? `${type}Highlight` : `${type}Raw`]
+    ).backgroundColor;
 
     return (
       <TouchableHighlight
         activeOpacity={1}
         delayPressOut={1}
-        {...this.props}
-        underlayColor={activeStyle ? highlightStyles[type].backgroundColor : rawStyles[type].backgroundColor}
+        underlayColor={underlayColor}
         style={wrapperStyle}
-        onPress={(e?: any) => this.props.onClick && this.props.onClick(e)}
+        onPress={(e?: any) => onClick && onClick(e)}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
         onShowUnderlay={this.onShowUnderlay}
         onHideUnderlay={this.onHideUnderlay}
+        disabled={disabled}
+        {...restProps}
       >
-        {newChild}
+        <Text style={textStyle}>{this.props.children}</Text>
       </TouchableHighlight>
     );
   }
