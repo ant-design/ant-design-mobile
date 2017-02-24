@@ -7,68 +7,68 @@ import TabContent from 'rc-tabs/lib/TabContent';
 import InkTabBar from 'rc-tabs/lib/InkTabBar';
 import assign from 'object-assign';
 
-const Tabs = React.createClass<TabsProps, any>({
-  statics: {
-    TabPane,
-  },
+export default class Tabs extends React.Component<TabsProps, any> {
+  static TabPane = TabPane;
 
-  getDefaultProps() {
-    return {
-      prefixCls: 'am-tabs',
-      animated: true,
-      swipeable: true,
-      tabBarPosition: 'top',
-      hammerOptions: {},
-      onChange() {},
-      onTabClick() {},
-    };
-  },
+  static defaultProps = {
+    prefixCls: 'am-tabs',
+    animated: true,
+    swipeable: true,
+    tabBarPosition: 'top',
+    hammerOptions: {},
+    onChange() {},
+    onTabClick() {},
+  };
 
-  getInitialState() {
+  constructor(props) {
+    super(props);
     const { activeKey, defaultActiveKey, children } = this.props;
     const activeTabKey = activeKey || defaultActiveKey || children[0].props.key;
     const activeTabIndex = children.findIndex(tabPane => tabPane.key === activeTabKey);
-    return {
-      // 超过5个的情况下，保证初始时 activeTab 显示在屏幕中间，便于向两侧翻页
+    this.setState({
       viewportStartTabIndex: children.length > 5 && activeTabIndex >= 3 ? activeTabIndex - 2 : 0,
-    };
-  },
+    });
+  }
 
-  renderTabBar() {
+  renderTabBar = () => {
     const {props} = this;
     return <InkTabBar onTabClick={this.handleTabClick} inkBarAnimated={props.animated}/>;
-  },
+  }
 
-  renderTabContent() {
+  renderTabContent = () => {
     const { animated, swipeable, hammerOptions } = this.props;
     return swipeable ? (
       <SwipeableTabContent animated={animated} hammerOptions={hammerOptions}/>
     ) : (
       <TabContent animated={animated} />
     );
-  },
+  }
 
-  getChildren() {
+  getChildren = () => {
     const { children } = this.props;
     const { viewportStartTabIndex } = this.state;
     return children.slice(viewportStartTabIndex, viewportStartTabIndex + 5);
-  },
+  }
 
-  handleTabClick(key) {
+  handleTabClick = (key) => {
     this.setState({
       viewportStartTabIndex: this.getStartTabIndex(key),
     });
-    this.props.onTabClick(key);
-  },
+    if (typeof this.props.onTabClick === 'function') {
+      this.props.onTabClick(key);
+    }
+  }
 
-  handleTabChange(key) {
+  handleTabChange = (key) => {
     this.setState({
       viewportStartTabIndex: this.getStartTabIndex(key),
     });
-    this.props.onChange(key);
-  },
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(key);
+    }
+  }
 
-  getStartTabIndex(activeTabKey) {
+  getStartTabIndex = (activeTabKey) => {
     const { children } = this.props;
     const { viewportStartTabIndex } = this.state;
     const activeTabIndex = children.findIndex(tabPane => tabPane.key === activeTabKey);
@@ -86,9 +86,9 @@ const Tabs = React.createClass<TabsProps, any>({
     }
     // 未到两侧，不翻页
     return viewportStartTabIndex;
-  },
+  }
 
-  getClassName() {
+  getClassName = () => {
     const { viewportStartTabIndex } = this.state;
     const totalTabsCount = this.props.children.length;
     const cls = className({
@@ -96,7 +96,7 @@ const Tabs = React.createClass<TabsProps, any>({
       [`${this.props.prefixCls}-rightpage`]: totalTabsCount > 5 && viewportStartTabIndex + 4 < totalTabsCount - 1,
     });
     return cls;
-  },
+  }
 
   render() {
     const newProps = {
@@ -112,7 +112,5 @@ const Tabs = React.createClass<TabsProps, any>({
         {...newProps}
       />
     );
-  },
-});
-
-export default Tabs;
+  }
+}

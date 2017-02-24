@@ -6,6 +6,8 @@ interface TabsProps {
   tabBarPosition?: 'top' | 'bottom';
   animated?: boolean;
   swipeable?: boolean;
+  children?: any;
+  hammerOptions?: any;
   /*rn only*/
   underlineColor?: string;
   activeUnderlineColor?: string;
