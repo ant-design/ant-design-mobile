@@ -82,6 +82,7 @@
     "bisheng-plugin-toc": "^0.4.0",
     "clipboard": "^1.5.5",
     "concurrently": "~2.1.0",
+    "cross-env": "^3.1.4",
     "dom-scroll-into-view": "^1.2.0",
     "dora-plugin-upload": "^0.3.1",
     "enquire.js": "^2.1.1",
