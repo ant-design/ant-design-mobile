@@ -76,12 +76,14 @@ export default class Grid extends React.Component<GridProps, any> {
     }
 
     return (
-      <div className={classNames({
-        [prefixCls as string]: true,
-        [`${prefixCls}-line`]: hasLine,
-        [className as string]: className,
-      })}>
-        {isCarousel && pageCount > 1 ? <Carousel>{pagesArr}</Carousel> : rowsArr}
+      <div
+        className={classNames({
+          [prefixCls as string]: true,
+          [`${prefixCls}-line`]: hasLine,
+          [className as string]: className,
+        })}
+      >
+        {isCarousel && pageCount > 1 ? <Carousel initialSlideWidth={this.clientWidth}>{pagesArr}</Carousel> : rowsArr}
       </div>
     );
   }
