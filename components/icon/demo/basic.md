@@ -16,20 +16,18 @@ const icons = [
 ];
 /* eslint global-require: 0 */
 
-class Demo extends React.Component {
-  render() {
-    const data = icons.map(item => ({
-      icon: (<Icon type={item} />),
-      text: item,
-    })).concat([{
-      icon: (<Icon type={require('./reload.svg')} />),
-      text: '自定义图标',
-    }]);
-    return (
-      <Grid data={data} columnNum={3} hasLine={false} />
-    );
-  }
-}
+const Demo = () => {
+  const data = icons.map(item => ({
+    icon: (<Icon type={item} />),
+    text: item,
+  })).concat([{
+    icon: (<Icon type={require('./reload.svg')} />),
+    text: '自定义图标',
+  }]);
+  return (
+    <Grid data={data} columnNum={3} hasLine={false} />
+  );
+};
 
 ReactDOM.render(<Demo />, mountNode);
 ````

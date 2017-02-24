@@ -10,25 +10,23 @@ import { Popover, NavBar, Icon } from 'antd-mobile';
 
 const Item = Popover.Item;
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      visible: true,
-      selected: '',
-    };
-  },
-  onSelect(opt) {
+class App extends React.Component {
+  state = {
+    visible: true,
+    selected: '',
+  };
+  onSelect = (opt) => {
     // console.log(opt.props.value);
     this.setState({
       visible: false,
       selected: opt.props.value,
     });
-  },
-  handleVisibleChange(visible) {
+  };
+  handleVisibleChange = (visible) => {
     this.setState({
       visible,
     });
-  },
+  };
   render() {
     let offsetX = -10; // just for pc demo
     if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
@@ -68,8 +66,8 @@ const App = React.createClass({
         NavBar
       </NavBar>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

@@ -28,18 +28,16 @@ const seasons = [
     },
   ],
 ];
-const PickerViewExample = React.createClass({
-  getInitialState() {
-    return {
-      value: null,
-    };
-  },
-  onChange(value) {
+class PickerViewExample extends React.Component {
+  state = {
+    value: null,
+  };
+  onChange = (value) => {
     console.log(value);
     this.setState({
       value,
     });
-  },
+  };
   render() {
     return (
       <PickerView
@@ -49,8 +47,8 @@ const PickerViewExample = React.createClass({
         cascade={false}
       />
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<PickerViewExample />, mountNode);
 ````

@@ -30,7 +30,7 @@ return <LocaleProvider locale={enUS}><App /></LocaleProvider>;
 
 本模块仅用于组件的内建文案，若有业务文案的国际化需求，建议使用 [react-intl](https://github.com/yahoo/react-intl)，可参考示例：[Intl demo 1](http://github.com/ant-design/intl-example) 和 [Intl demo 2](http://yiminghe.me/learning-react/examples/react-intl.html?locale=en-US)。
 
-## API （ WEB ）
+## API
 
 | 参数    | 说明           | 类型              | 默认值        |
 |--------|----------------|------------------|--------------|

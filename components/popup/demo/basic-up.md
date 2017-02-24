@@ -20,13 +20,11 @@ if (isIPhone) {
   };
 }
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      sel: '',
-    };
-  },
-  onClick() {
+class Test extends React.Component {
+  state = {
+    sel: '',
+  };
+  onClick = () => {
     Popup.show(<div>
       <List renderHeader={() => (
         <div style={{ position: 'relative' }}>
@@ -53,17 +51,17 @@ const Test = React.createClass({
         </li>
       </ul>
     </div>, { animationType: 'slide-up', wrapProps, maskClosable: false });
-  },
-  onClose(sel) {
+  };
+  onClose = (sel) => {
     this.setState({ sel });
     Popup.hide();
-  },
+  };
   render() {
     return (<div style={{ padding: '0.15rem' }}>
       <Button onClick={this.onClick}>显示</Button>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<Test />, mountNode);
 ````

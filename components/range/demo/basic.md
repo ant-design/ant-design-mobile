@@ -13,34 +13,33 @@ title: 基本使用
 import { Range, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
 
 const RangeWithTooltip = createTooltip(Range);
-const App = React.createClass({
-  log(name) {
+const App = () => {
+  this.log = (name) => {
     return (value) => {
       console.log(`${name}: ${value}`);
     };
-  },
-  render() {
-    return (
-      <div className="am-slider-example">
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <p className="title">Range, 基础使用</p>
-          <Range min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <p className="title">Range, 带 Tooltip</p>
-          <RangeWithTooltip min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <p className="title">Range, 禁用</p>
-          <Range min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} disabled />
-        </WingBlank>
-      </div>
-    );
-  },
-});
+  };
+  return (
+    <div className="am-slider-example">
+      <WhiteSpace size="lg" />
+      <WingBlank size="lg">
+        <p className="title">Range, 基础使用</p>
+        <Range min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
+      </WingBlank>
+      <WhiteSpace size="lg" />
+      <WingBlank size="lg">
+        <p className="title">Range, 带 Tooltip</p>
+        <RangeWithTooltip min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
+      </WingBlank>
+      <WhiteSpace size="lg" />
+      <WingBlank size="lg">
+        <p className="title">Range, 禁用</p>
+        <Range min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} disabled />
+      </WingBlank>
+    </div>
+  );
+};
+
 ReactDOM.render(<App />, mountNode);
 ````
 

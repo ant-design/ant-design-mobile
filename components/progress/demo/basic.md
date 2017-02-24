@@ -9,19 +9,17 @@ title: 基本
 ````jsx
 import { Progress, Button } from 'antd-mobile';
 
-const MyProgress = React.createClass({
-  getInitialState() {
-    return {
-      percent: 50,
-    };
-  },
-  add() {
+class MyProgress extends React.Component {
+  state = {
+    percent: 50,
+  };
+  add = () => {
     let p = this.state.percent + 10;
     if (this.state.percent >= 100) {
       p = 0;
     }
     this.setState({ percent: p });
-  },
+  }
   render() {
     const { percent } = this.state;
     return (
@@ -36,8 +34,9 @@ const MyProgress = React.createClass({
         <Button inline style={{ marginTop: 20 }} onClick={this.add}>(+-)10</Button>
       </div>
     );
-  },
-});
+  }
+}
+
 ReactDOM.render(<MyProgress />, mountNode);
 ````
 ````css

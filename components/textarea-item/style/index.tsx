@@ -1,6 +1,7 @@
+import { StyleSheet } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default {
+export default StyleSheet.create({
   container: {
     marginLeft: variables.h_spacing_lg,
     borderBottomWidth: variables.border_width_sm,
@@ -29,4 +30,4 @@ export default {
     right: variables.h_spacing_md,
     bottom: variables.h_spacing_md,
   },
-};
+});

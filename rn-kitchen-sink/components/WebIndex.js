@@ -8,6 +8,29 @@ import {
   Platform,
 } from 'react-native';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    ...Platform.select({
+      ios: {
+        marginTop: 64,
+      },
+      android: {
+        marginTop: 44,
+      },
+    }),
+  },
+  webView: {
+    flex: 1,
+  },
+  loading: {
+    marginTop: 64,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
 export default class WebIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -51,26 +74,3 @@ export default class WebIndex extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    ...Platform.select({
-      ios: {
-        marginTop: 64,
-      },
-      android: {
-        marginTop: 44,
-      },
-    }),
-  },
-  webView: {
-    flex: 1,
-  },
-  loading: {
-    marginTop: 64,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

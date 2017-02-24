@@ -90,7 +90,7 @@ export default class Grid extends React.Component<GridProps, any> {
           [className as string]: className,
         })}
       >
-        {isCarousel && pageCount > 1 ? <Carousel>{pagesArr}</Carousel> : rowsArr}
+        {isCarousel && pageCount > 1 ? <Carousel initialSlideWidth={this.clientWidth}>{pagesArr}</Carousel> : rowsArr}
       </div>
     );
   }

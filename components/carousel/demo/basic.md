@@ -7,31 +7,29 @@ title: 示例
 ````jsx
 import { Carousel, WhiteSpace } from 'antd-mobile';
 
-class App extends React.Component {
-  render() {
-    return (<div className="need-left-right-margin">
-      <div className="sub-title">normal</div>
-      <Carousel
-        className="my-carousel" autoplay={false} infinite
-        beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-        afterChange={index => console.log('slide to', index)}
-      >
-        {['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'AiyWuByWklrrUDlFignR'].map(ii => (
-          <a href="#" key={ii}><img src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`} /></a>
-        ))}
-      </Carousel>
-      <WhiteSpace />
-      <div className="sub-title">vertical</div>
-      <Carousel className="my-carousel"
-        dots={false} dragging={false} swiping={false} autoplay infinite vertical
-      >
-        <div className="v-item">Carousel 1</div>
-        <div className="v-item">Carousel 2</div>
-        <div className="v-item">Carousel 3</div>
-      </Carousel>
-    </div>);
-  }
-}
+const App = () => (
+  <div className="need-left-right-margin">
+    <div className="sub-title">normal</div>
+    <Carousel
+      className="my-carousel" autoplay={false} infinite
+      beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+      afterChange={index => console.log('slide to', index)}
+    >
+      {['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'AiyWuByWklrrUDlFignR'].map(ii => (
+        <a href="#" key={ii}><img src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`} /></a>
+      ))}
+    </Carousel>
+    <WhiteSpace />
+    <div className="sub-title">vertical</div>
+    <Carousel className="my-carousel"
+      dots={false} dragging={false} swiping={false} autoplay infinite vertical
+    >
+      <div className="v-item">Carousel 1</div>
+      <div className="v-item">Carousel 2</div>
+      <div className="v-item">Carousel 3</div>
+    </Carousel>
+  </div>
+);
 
 ReactDOM.render(<App />, mountNode);
 ````

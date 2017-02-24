@@ -9,27 +9,25 @@ import { List, Radio, Flex, WhiteSpace } from 'antd-mobile';
 
 const RadioItem = Radio.RadioItem;
 
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      value: 0,
-      value2: 0,
-      value3: 0,
-      value4: 0,
-    };
-  },
-  onChange(value) {
+class Test extends React.Component {
+  state = {
+    value: 0,
+    value2: 0,
+    value3: 0,
+    value4: 0,
+  };
+  onChange = (value) => {
     console.log('checkbox');
     this.setState({
       value,
     });
-  },
-  onChange2(value) {
+  };
+  onChange2 = (value) => {
     console.log('checkbox');
     this.setState({
       value2: value,
     });
-  },
+  };
   render() {
     const { value, value2, value3, value4 } = this.state;
     const data = [
@@ -80,8 +78,8 @@ const Test = React.createClass({
         </Flex.Item>
       </Flex>
     </div>);
-  },
-});
+  }
+}
 
 ReactDOM.render(<Test />, mountNode);
 ````

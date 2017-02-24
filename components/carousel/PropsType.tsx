@@ -18,6 +18,7 @@ interface Props {
   onScrollBeginDrag?: Function;
   onMomentumScrollEnd?: Function;
   styles?: any;
+  initialSlideWidth?: number;
 }
 
 export default Props;
