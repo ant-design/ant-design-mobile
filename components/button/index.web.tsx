@@ -68,14 +68,14 @@ class Button extends React.Component<tsProps, any> {
         activeStyle={activeStyle}
         onPress={disabled ? () => {} : onClick}
       >
-        <a
+        <div
           role="button"
           className={classNames(wrapCls)}
           {...restProps}
         >
           {iconType ? <Icon type={iconType} /> : null}
           {kids}
-        </a>
+        </div>
       </Touchable>
     );
   }
