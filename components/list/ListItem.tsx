@@ -2,6 +2,7 @@
 import React from 'react';
 import { Image, View, TouchableHighlight, Text } from 'react-native';
 import { ListItemProps } from './PropsType';
+import listItemStyles from './style/index';
 
 function noop() {
 }
@@ -10,6 +11,7 @@ export default class Item extends React.Component<ListItemProps, any> {
   static defaultProps = {
     multipleLine: false,
     wrap: false,
+    styles: listItemStyles,
   };
   static Brief: any;
   render() {

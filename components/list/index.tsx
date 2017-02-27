@@ -52,7 +52,7 @@ export default class List extends React.Component<ListProps, any> {
     return (<View {...restProps} style={style as ViewStyle}>
       {headerDom}
       <View style={styles.Body}>
-        { React.Children.map(children, (child) => React.cloneElement(child as any, { styles })) }
+        {children}
         <View style={[styles.BodyBottomLine]}/>
       </View>
       {footerDom}
