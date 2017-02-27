@@ -25,9 +25,9 @@ source: design
 - destructiveButtonIndex (int) - 按钮列表中破坏性按钮（一般为删除）的索引位置
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
-- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
+- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许 `web only`
 
-`callback`支持返回 Promise
+`callback`支持返回 Promise `web only` ( for ActionSheetiOS)
 
 #### static showShareActionSheetWithOptions(options: Object, callback: Function)
 
@@ -40,8 +40,8 @@ source: design
 - cancelButtonText (string) - (web only) 默认为`取消`
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息
-- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
+- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许 `web only`
 
-`callback`支持返回 Promise
+`callback`支持返回 Promise `web only` ( for ActionSheetiOS)
 
 #### static close() - (web、android only) programmatically close.
