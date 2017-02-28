@@ -46,7 +46,7 @@ class Carousel extends React.Component<CarouselProps, any> {
     this.autoplay();
   }
 
-  componentWillUnMount() {
+  componentWillUnmount() {
     clearTimeout(this.autoplayTimer);
     clearTimeout(this.androidScrollEndTimer);
     clearTimeout(this.scrollEndTimter);
