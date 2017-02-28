@@ -8,7 +8,7 @@ import { Platform } from 'react-native';
 export default class Stepper extends React.Component<StepProps, any> {
   static defaultProps = {
     step: 1,
-    readOnly: false,
+    readOnly: true,
     disabled: false,
     styles,
   };
