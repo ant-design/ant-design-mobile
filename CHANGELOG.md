@@ -3,6 +3,12 @@ order: 4
 english: 更新日志
 ---
 
+### 0.9.17
+
+`2017-02-28`
+
+- 修复 List 组件 children 和 extra 为undefined的渲染逻辑。
+
 ### 0.9.16
 
 `2017-02-24`
