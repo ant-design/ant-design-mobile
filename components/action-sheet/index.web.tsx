@@ -143,7 +143,7 @@ function createActionSheet(flag, config, callback) {
       className={rootCls}
       transitionName={transitionName || `am-slide-up`}
       maskTransitionName={maskTransitionName || `am-fade`}
-      onClose={close}
+      onClose={() => cb(cancelButtonIndex || -1)}
       maskClosable={maskClosable}
       wrapProps={props.wrapProps || {}}
     >

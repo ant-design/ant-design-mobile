@@ -22,15 +22,11 @@ class ActionSheetAndroid extends React.Component<Props, any> {
     };
   };
 
-  confirm = (index) => {
+  confirm(index) {
     const { callback } = this.props;
     if (callback) {
       callback(index);
     }
-    this.close();
-  }
-
-  close = () => {
     this.setState({
       visible: false,
     });
@@ -73,7 +69,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
         style={styles.content}
         animationType="slide-up"
         maskClosable
-        onClose={this.close}
+        onClose={() => this.confirm(cancelButtonIndex || -1)}
       >
         <View>
           {titleMsg}
