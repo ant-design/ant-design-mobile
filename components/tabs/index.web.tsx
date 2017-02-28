@@ -5,7 +5,6 @@ import TabsProps from './PropsType';
 import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
 import TabContent from 'rc-tabs/lib/TabContent';
 import InkTabBar from 'rc-tabs/lib/InkTabBar';
-import assign from 'object-assign';
 
 const Tabs = React.createClass<TabsProps, any>({
   statics: {
@@ -94,6 +93,7 @@ const Tabs = React.createClass<TabsProps, any>({
     const cls = className({
       [`${this.props.prefixCls}-leftpage`]: totalTabsCount > 5 && viewportStartTabIndex > 0,
       [`${this.props.prefixCls}-rightpage`]: totalTabsCount > 5 && viewportStartTabIndex + 4 < totalTabsCount - 1,
+      [this.props.className]: this.props.className,
     });
     return cls;
   },
@@ -103,7 +103,7 @@ const Tabs = React.createClass<TabsProps, any>({
       ...this.props,
       onChange: this.handleTabChange,
       children: this.getChildren(),
-      className: assign(this.getClassName(), this.props.className),
+      className: this.getClassName(),
     };
     return (
       <RcTabs
