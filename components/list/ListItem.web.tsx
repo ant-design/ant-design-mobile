@@ -62,8 +62,8 @@ class ListItem extends React.Component<ListItemProps, any> {
         {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
       </div> : null}
       <div className={lineCls}>
-        {children !== null && children !== undefined ? <div className={`${prefixCls}-content`}>{children}</div> : null}
-        {extra !== null && extra !== undefined ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
+        {children !== undefined ? <div className={`${prefixCls}-content`}>{children}</div> : null}
+        {extra !== undefined ? <div className={`${prefixCls}-extra`}>{extra}</div> : null}
         {arrow ? <div className={arrowCls} /> : null}
       </div>
     </div>;
