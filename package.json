@@ -118,7 +118,8 @@
     "react-native-router-flux": "^3.30.3",
     "react-stateless-wrapper": "~1.0.2",
     "reqwest": "~2.0.5",
-    "svg-sprite-loader": "^0.0.31"
+    "svg-sprite-loader": "^0.0.31",
+    "typescript": "~2.1.6"
   },
   "scripts": {
     "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint && npm run applint",
