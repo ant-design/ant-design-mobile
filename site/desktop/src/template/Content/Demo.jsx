@@ -1,9 +1,8 @@
 /* eslint react/no-danger: 0 */
 import React from 'react';
 import classNames from 'classnames';
-import Button from 'antd/lib/button';
-import Modal from 'antd/lib/modal';
-import Radio from 'antd/lib/radio';
+import { FormattedMessage } from 'react-intl';
+import { Button, Modal, Radio } from 'antd';
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -112,10 +111,10 @@ export default class Demo extends React.Component {
         <Modal
           ref="modal"
           visible={state.fullscreen}
-          title={meta.title} onCancel={this.handleCancel}
+          title={localizedTitle} onCancel={this.handleCancel}
           width={900}
           footer={[
-            <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>返 回</Button>,
+            <Button key="back" type="ghost" size="large" onClick={this.handleCancel}><FormattedMessage id="app.ComponentDoc.Modal.return" /></Button>,
           ]}
         >
           {this.renderDemoCode(highlightedCode, true)}

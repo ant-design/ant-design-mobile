@@ -5,8 +5,7 @@ import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
-import * as utils from '../utils';
-import config from '../../';
+import * as utils from '../../../../utils';
 
 const SubMenu = Menu.SubMenu;
 
@@ -89,13 +88,16 @@ export default class MainContent extends React.Component {
   }
 
   generateSubMenuItems(obj) {
+    const { themeConfig } = this.props;
+    const { categoryOrder } = themeConfig;
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
-      .sort((a, b) => config.typeOrder[a] - config.typeOrder[b])
+      .sort((a, b) => categoryOrder[a] - categoryOrder[b])
       .map((type, index) => {
         const groupItems = obj[type].sort((a, b) => (
           (a.title || a.english).charCodeAt(0) - (b.title || b.english).charCodeAt(0)
         )).map(this.generateMenuItem.bind(this, false));
+
         return (
           <Menu.ItemGroup title={type} key={index}>
             {groupItems}
@@ -111,19 +113,17 @@ export default class MainContent extends React.Component {
     const moduleName = /^components/.test(pathname) ?
       'components' : pathname.split('/').slice(0, 2).join('/');
     return moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
-      [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
+      [...props.picked.components.filter(item => item.meta.filename.includes(this.context.intl.locale)), ...props.picked['docs/react'], ...props.picked.changelog] :
       props.picked[moduleName];
   }
 
   getMenuItems() {
-    // const moduleData = this.props.moduleData;
-    // const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
     const moduleData = this.getModuleData();
     const menuItems = utils.getMenuItems(moduleData);
 
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
-      .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+      .sort((a, b) => this.props.themeConfig.categoryOrder[a] - this.props.themeConfig.categoryOrder[b])
       .map((category) => {
         const subMenuItems = this.generateSubMenuItems(menuItems[category]);
         return (
@@ -168,6 +168,11 @@ export default class MainContent extends React.Component {
 
     const moduleData = this.getModuleData();
     const localizedPageData = props.localizedPageData;
+    const demos = props.demos;
+
+    const DemoEl = demos ? (
+      <ComponentDoc {...props} doc={localizedPageData} demos={demos} />
+      ) : <Article {...props} content={localizedPageData} />;
 
     return (
       <div className="main-wrapper">
@@ -182,11 +187,7 @@ export default class MainContent extends React.Component {
             </Menu>
           </Col>
           <Col lg={19} md={18} sm={24} xs={24} className="main-container">
-            {
-              props.utils.get(props, 'pageData.demo') ? (
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
-              ) : <Article {...props} content={localizedPageData} />
-            }
+            {DemoEl}
           </Col>
         </Row>
         <Row>
