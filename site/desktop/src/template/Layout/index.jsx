@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
 import Footer from './Footer';
-import config from '../../';
-import '../../static/style';
+import enLocale from '../../en-US';
+import cnLocale from '../../zh-CN';
+import * as utils from '../../../../utils';
 
-// Expose to iframe
-window.react = React;
-window['react-dom'] = ReactDOM;
+if (typeof window !== 'undefined') {
+  /* eslint-disable global-require */
+  require('../../static/style');
 
-const isZhCN = (window.localStorage && localStorage.getItem('locale') !== 'en-US');
-  // (typeof localStorage !== 'undefined' && localStorage.getItem('locale') === 'zh-CN') ||
-  // (navigator.language === 'zh-CN');
+  // Expose to iframe
+  window.react = React;
+  window['react-dom'] = ReactDOM;
+}
 
-const appLocale = isZhCN ? config.zhLocale : config.enLocale;
-addLocaleData(appLocale.data);
 
-let gaListenerSetted = false;
 export default class Layout extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object.isRequired,
   };
+  constructor(props) {
+    super(props);
+    const pathname = props.location.pathname;
+    const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
+    addLocaleData(appLocale.data);
+    this.state = {
+      isFirstScreen: true,
+      appLocale,
+    };
+  }
 
   checkIfMobile = () => {
     const ua = window.navigator.userAgent.toLowerCase();
@@ -36,22 +45,38 @@ export default class Layout extends React.Component {
     }
   }
   componentDidMount() {
-    if (typeof ga !== 'undefined' && !gaListenerSetted) {
+    if (typeof window.ga !== 'undefined') {
       this.context.router.listen((loc) => {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       });
-      gaListenerSetted = true;
     }
+
+    const nprogressHiddenStyle = document.getElementById('nprogress-style');
+    if (nprogressHiddenStyle) {
+      this.timer = setTimeout(() => {
+        nprogressHiddenStyle.parentNode.removeChild(nprogressHiddenStyle);
+      }, 0);
+    }
+  }
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
+
+  onEnterChange = (mode) => {
+    this.setState({
+      isFirstScreen: mode === 'enter',
+    });
   }
 
   render() {
-    const props = this.props;
+    const { children, ...restProps } = this.props;
+    const { appLocale, isFirstScreen } = this.state;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <div className="page-wrapper">
-          <Header {...props} />
-          {props.children}
-          <Footer />
+          <Header {...restProps} isFirstScreen={isFirstScreen} />
+          {cloneElement(children, { onEnterChange: this.onEnterChange })}
+          <Footer {...restProps} />
         </div>
       </IntlProvider>
     );

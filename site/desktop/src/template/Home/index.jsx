@@ -2,11 +2,20 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'bisheng/router';
 import GitHubButton from 'react-github-button';
+import { injectIntl } from 'react-intl';
 import 'react-github-button/assets/style.css';
 import Icon from 'antd/lib/icon';
-import { siteTitle } from '../../';
+import * as utils from '../../../../utils';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    const pathname = props.location.pathname;
+    const isZhCN = utils.isZhCN(pathname);
+    this.state = {
+      isZhCN,
+    };
+  }
   componentWillMount() {
     if (location.hash) {
       const pathname = location.hash.replace(/^#/, '').replace('?scrollTo=', '#');
@@ -14,10 +23,13 @@ export default class Home extends React.Component {
     }
   }
   render() {
-    const title = `${siteTitle} | 移动端设计规范`;
-    const iframeUrl = location.port ? 'http://localhost:8002/' : `${location.href}kitchen-sink/`;
+    const { isZhCN } = this.state;
+    let iframeUrl = location.port ? 'http://localhost:8002/' : `${location.href}kitchen-sink/`;
+    if (isZhCN) {
+      iframeUrl = `${iframeUrl}?lang=zh-CN`;
+    }
     return (
-      <DocumentTitle title={title}>
+      <DocumentTitle title={`Ant Design Mobile - ${this.props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
         <div className="home-main">
           <div className="home-iframe">
             <div style={{ width: '377Px', height: '620Px' }}>
@@ -40,9 +52,9 @@ export default class Home extends React.Component {
             </div>
           </div>
           <div className="banner-text-wrapper">
-            <h2 key="h2">移动端设计指南&前端框架</h2>
+            <h2 key="h2">{this.props.intl.formatMessage({ id: 'app.home.centerSlogan' })}</h2>
             <div>
-              设计、前端高效协同，快速搭建移动端组件库
+              {this.props.intl.formatMessage({ id: 'app.home.centerSubSlogan' })}
               <GitHubButton
                 key="github-button"
                 type="stargazers"
@@ -52,7 +64,7 @@ export default class Home extends React.Component {
             </div>
             <div className="start-button-wrap" key="button">
               <Link to="/docs/react/introduce">
-                <Icon type="smile-circle" /> 开始探索
+                <Icon type="smile-circle" /> {this.props.intl.formatMessage({ id: 'app.home.centerStart' })}
               </Link>
             </div>
             <img className="qr" src="https://zos.alipayobjects.com/rmsportal/TrdkqxQcrAUcmYelQUNK.png" />
@@ -62,3 +74,5 @@ export default class Home extends React.Component {
     );
   }
 }
+
+export default injectIntl(Home);
