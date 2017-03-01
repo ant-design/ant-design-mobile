@@ -209,7 +209,7 @@ class Carousel extends React.Component<CarouselProps, any> {
           pagingEnabled
           bounces={!!this.props.bounces}
           scrollEventThrottle={100}
-          removeClippedSubviews={true}
+          removeClippedSubviews={false}
           automaticallyAdjustContentInsets={false}
           directionalLockEnabled={true}
           showsHorizontalScrollIndicator={false}
