@@ -68,7 +68,7 @@ const svgDirs = [
   // https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js#L162
   // https://github.com/kisenka/svg-sprite-loader/issues/4
   webpackConfig.module.loaders.forEach(loader => {
-    if (loader.test && typeof loader.test.test === 'function' && loader.test.test.('.svg')) {
+    if (loader.test && typeof loader.test.test === 'function' && loader.test.test('.svg')) {
       loader.exclude = svgDirs;
     }
   });

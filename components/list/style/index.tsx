@@ -92,35 +92,13 @@ export default {
     height: 8,
     marginLeft: variables.h_spacing_md,
   },
-  Error: {
-    Body: {
-      borderTopColor: 'red',
-    },
-    Item: {
-      borderBottomColor: 'red',
-    },
-    Line: {
-      borderBottomColor: 'red',
-    },
-  },
-  Last: {
-    Item: {
-      borderBottomWidth: 0,
-      borderBottomColor: variables.border_color_base,
-    },
-    Line: {
-      borderBottomWidth: 0,
-    },
-  },
   multipleLine: {
-    Line: {
-      paddingTop: variables.v_spacing_sm,
-      paddingBottom: variables.v_spacing_sm,
-    },
-    Thumb: {
-      width: variables.icon_size_lg,
-      height: variables.icon_size_lg,
-    },
+    paddingTop: variables.v_spacing_sm,
+    paddingBottom: variables.v_spacing_sm,
+  },
+  multipleThumb: {
+    width: variables.icon_size_lg,
+    height: variables.icon_size_lg,
   },
   column: {
     flex: 1,

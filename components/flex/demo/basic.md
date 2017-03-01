@@ -1,7 +1,17 @@
 ---
 order: 0
-title: 示例集合
+title:
+  zh-CN: 示例集合
+  en-US: Example Collection
 ---
+
+## zh-CN
+
+基础使用
+
+## en-US
+
+Basic use of Flex
 
 
 ````jsx

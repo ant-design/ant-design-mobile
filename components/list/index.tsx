@@ -1,14 +1,35 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ViewStyle } from 'react-native';
 import Item from './ListItem';
-import { ListProps } from './PropsType';
+import { ListProps, BriefProps } from './PropsType';
 import listStyles from './style/index';
+
+class Brief extends React.Component<BriefProps, any> {
+  render() {
+    const { children, style, styles = listStyles, wrap } = this.props;
+
+    let numberOfLines = {};
+
+    if (wrap === false) {
+      numberOfLines = {
+        numberOfLines: 1,
+      };
+    }
+    return (
+      <View style={[styles.Brief]}>
+        <Text style={[styles.BriefText, style]} {...numberOfLines}>{children}</Text>
+      </View>
+    );
+  }
+}
 
 export default class List extends React.Component<ListProps, any> {
   static Item = Item;
 
   render() {
-    let { children, style, renderHeader, renderFooter, styles = listStyles } = this.props;
+    let {
+      children, style, renderHeader, renderFooter, styles = listStyles, ...restProps,
+    } = this.props;
 
     let headerDom: React.ReactElement<any> | null = null;
     let footerDom: React.ReactElement<any> | null = null;
@@ -27,7 +48,8 @@ export default class List extends React.Component<ListProps, any> {
       }
       footerDom = <View>{content}</View>;
     }
-    return (<View {...this.props} style={[style]}>
+
+    return (<View {...restProps} style={style as ViewStyle}>
       {headerDom}
       <View style={styles.Body}>
         {children}
@@ -37,3 +59,5 @@ export default class List extends React.Component<ListProps, any> {
     </View>);
   }
 }
+
+Item.Brief = Brief;

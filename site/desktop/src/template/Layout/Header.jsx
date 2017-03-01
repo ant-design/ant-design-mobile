@@ -1,17 +1,12 @@
 import React from 'react';
 import { Link } from 'bisheng/router';
+import { FormattedMessage } from 'react-intl';
 import enquire from 'enquire.js';
 import debounce from 'lodash.debounce';
 import classNames from 'classnames';
-import Menu from 'antd/lib/menu';
-import Row from 'antd/lib/row';
-import Col from 'antd/lib/col';
-import Icon from 'antd/lib/icon';
-import Select from 'antd/lib/select';
+import { Select, Menu, Row, Col, Icon, Button } from 'antd';
 import { version as packageVersions } from 'antd-mobile/package.json';
-import { docVersions, siteTitle } from '../../';
-
-docVersions[packageVersions] = packageVersions;
+import * as utils from '../../../../utils';
 
 const Option = Select.Option;
 
@@ -87,8 +82,25 @@ export default class Header extends React.Component {
     option.props['data-label'].indexOf(value.toLowerCase()) > -1
   )
 
+  handleLangChange = () => {
+    const pathname = this.props.location.pathname;
+    const currentProtocol = `${location.protocol}//`;
+    const currentHref = location.href.substr(currentProtocol.length);
+
+    if (utils.isLocalStorageNameSupported()) {
+      localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
+    }
+
+    location.href = currentProtocol + currentHref.replace(
+      location.pathname,
+      utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
+    );
+  }
+
   render() {
-    const { location, picked } = this.props;
+    const { location, picked, themeConfig } = this.props;
+    const { siteTitle } = themeConfig;
+    const docVersions = { ...themeConfig.docVersions, [packageVersions]: packageVersions };
     const components = picked.components;
     const module = location.pathname.split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
@@ -97,14 +109,19 @@ export default class Header extends React.Component {
       activeMenuItem = 'components';
     }
 
+    const locale = this.context.intl.locale;
+    const isZhCN = locale === 'zh-CN';
+    const excludedSuffix = isZhCN ? 'en-US.md' : 'zh-CN.md';
     const options = components
+      .filter(({ meta }) => !meta.filename.endsWith(excludedSuffix))
       .map(({ meta }) => {
         const pathSnippet = meta.filename.split('/')[1];
         const url = `/components/${pathSnippet}`;
+        const subtitle = meta.subtitle;
         return (
           <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
             <strong>{meta.title || meta.english}</strong>
-            <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
+            {subtitle && <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>}
           </Option>
         );
       });
@@ -138,7 +155,7 @@ export default class Header extends React.Component {
             <div id="search-box">
               <Select combobox
                 dropdownClassName="component-select"
-                placeholder="搜索组件..."
+                placeholder={locale === 'zh-CN' ? '搜索组件...' : 'Search Components...'}
                 value={undefined}
                 optionFilterProp="data-label"
                 optionLabelProp="data-label"
@@ -147,6 +164,12 @@ export default class Header extends React.Component {
               >
                 {options}
               </Select>
+            </div>
+
+            <div style={{ float: 'right', margin: '29Px 0 0 10Px' }}>
+              <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
+                <FormattedMessage id="app.header.lang" />
+              </Button>
             </div>
 
             <div style={{ float: 'right', margin: '29Px 0 0 10Px' }}>
@@ -160,15 +183,15 @@ export default class Header extends React.Component {
               </Select>
             </div>
 
-            <Menu mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav">
+            <Menu mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
               <Menu.Item key="home">
-                <Link to="/">
-                  首页
+                <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+                  <FormattedMessage id="app.header.menu.home" />
                 </Link>
               </Menu.Item>
-              <Menu.Item key="components">
-                <Link to="/docs/react/introduce">
-                  组件
+              <Menu.Item key="docs/react">
+                <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                  <FormattedMessage id="app.header.menu.components" />
                 </Link>
               </Menu.Item>
             </Menu>

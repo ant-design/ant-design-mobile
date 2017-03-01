@@ -2,32 +2,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import collect from 'bisheng/collect';
-
-const locale = (
-  window.localStorage &&
-  localStorage.getItem('locale') !== 'en-US'
-) ? 'zh-CN' : 'en-US';
+import { getQuery } from '../../../../utils';
 
 @collect(async (nextProps) => {
-  const pageData = nextProps.pageData;
+  const pathname = nextProps.location.pathname;
+  const pageDataPath = pathname.replace('-cn', '').split('/');
+  const pageData = nextProps.utils.get(nextProps.data, pageDataPath);
   if (!pageData) {
     throw 404; // eslint-disable-line no-throw-literal
   }
+
+  const locale = getQuery('lang') || 'en-US';
   const pageDataPromise = typeof pageData === 'function' ?
     pageData() : (pageData[locale] || pageData.index[locale] || pageData.index)();
-  const promises = [pageDataPromise];
-  const demos = nextProps.utils.get(nextProps.data, ['components', nextProps.params.component, 'demo']);
-  if (demos) {
-    promises.push(demos());
+  const demosFetcher = nextProps.utils.get(nextProps.data, ['components', nextProps.params.component, 'demo']);
+  if (demosFetcher) {
+    const [localizedPageData, demos] = await Promise.all([pageDataPromise, demosFetcher()]);
+    return { localizedPageData, demos, locale };
   }
-  const list = await Promise.all(promises);
 
-  return {
-    localizedPageData: list[0],
-    demos: list[1],
-  };
+  return { localizedPageData: await pageDataPromise, locale };
 })
-export default class Home extends React.Component {
+export default class Demo extends React.Component {
   componentDidMount() {
     // this.componentDidUpdate();
   }
@@ -43,8 +39,7 @@ export default class Home extends React.Component {
     // }, 200);
   }
   render() {
-    const { demos, location, picked, themeConfig: config } = this.props;
-
+    const { demos, location, picked, themeConfig: config, locale } = this.props;
     let demoMeta;
     const name = this.props.params.component;
     picked.components.forEach((i) => {
@@ -79,7 +74,7 @@ export default class Home extends React.Component {
     const isLocalMode = window.location.port;
     const linkUrl = isLocalMode ? '' : 'kitchen-sink/';
 
-    return (
+    const DemoEl = (
       <div id={name} style={style} className="demo">
         <div className="demoName">
           <a className="icon" href={`/${linkUrl}${window.location.search}`} />
@@ -89,7 +84,7 @@ export default class Home extends React.Component {
         {
           demoSort.map((i, index) => (
             <div className="demo-preview-item" id={`${name}-demo-${i.meta.order}`} key={index}>
-              <div className="demoTitle">{i.meta.title}</div>
+              <div className="demoTitle">{i.meta.title[locale]}</div>
               <div className="demoContainer">{i.preview(React, ReactDOM)}</div>
               {i.style ? <style dangerouslySetInnerHTML={{ __html: i.style }} /> : null}
             </div>
@@ -97,5 +92,6 @@ export default class Home extends React.Component {
         }
       </div>
     );
+    return DemoEl;
   }
 }

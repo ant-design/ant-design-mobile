@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 示例
+title:
+  zh-CN: 示例集合
+  en-US: Example Collection
 ---
 
 
