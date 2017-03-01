@@ -31,5 +31,5 @@
 
 <!--
   Compile or tool configuration issues: Put the sample code on GitHub/Coding.net, so we can figure it out.
-  Runtime issues: Please fork https://codepen.io/warmhug/pen/bwRPvx to re-produce you issue.
+  Runtime issues: Please fork http://codepen.io/paranoidjk/pen/LWpaKe to re-produce you issue.
  -->
