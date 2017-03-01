@@ -6,6 +6,7 @@ import assign from 'object-assign';
 import tsPropsType from './PropsType';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
+import zh_CN from './locale/zh_CN';
 
 export default class DatePicker extends React.Component<tsPropsType, any> {
   static defaultProps = assign({
@@ -23,7 +24,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     const extraProps = {
       extra: value ? formatFn(this, value) : extra,
     };
-    const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
+    const locale = getComponentLocale(props, context, 'DatePicker', () => zh_CN);
     const localeCode = getLocaleCode(context);
     const { okText, dismissText, DatePickerLocale } = locale;
 

@@ -83,7 +83,7 @@ class Home extends React.Component {
     const appVersion = AppInfo.getInfoShortVersion();
     fetch('https://raw.githubusercontent.com/ant-design/ant-design-mobile/master/rn-kitchen-sink/appInfo.json')
     .then(response => response.json())
-    .then(responseJson => {
+    .then((responseJson) => {
       const os = Platform.OS;
       if (responseJson[os]) {
         const newestVersion = responseJson[os].appversion;
@@ -98,7 +98,7 @@ class Home extends React.Component {
             [
               { text: '取消', style: 'cancel' },
               { text: '下载', onPress: () => Linking.openURL(appUrl) },
-            ]
+            ],
           );
         } else {
           this.updateDemo();
@@ -119,12 +119,8 @@ class Home extends React.Component {
         });
       }
       switch (syncStatus) {
-        case 0: {
-          Alert.alert(null, '最新版本');
-        } break;
-        case 3: {
-          Alert.alert(null, '发生错误');
-        } break;
+        case 0: Alert.alert(null, '最新版本'); break;
+        case 3: Alert.alert(null, '发生错误'); break;
         default: break;
       }
     };

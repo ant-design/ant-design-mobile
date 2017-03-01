@@ -2,7 +2,7 @@ import React, { Children, cloneElement } from 'react';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Timeline from 'antd/lib/timeline';
-import * as utils from '../utils';
+import * as utils from '../../../../utils';
 
 export default class Article extends React.Component {
   componentDidMount() {

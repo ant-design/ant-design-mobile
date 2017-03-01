@@ -42,3 +42,4 @@ components/**/*.js
 my-release-key.keystore
 .vscode
 yarn.lock
+npm-debug.log*

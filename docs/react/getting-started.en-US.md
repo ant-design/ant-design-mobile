@@ -14,7 +14,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 2. 创建一个项目
 
-手动从脚手架工具里拷贝 [MobileDemo](https://github.com/ant-design/antd-init/tree/master/boilerplates/MobileDemo)
+手动从脚手架工具里拷贝 [MobileDemo](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web)
 
 ### 3. 使用组件
 

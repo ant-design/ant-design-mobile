@@ -25,8 +25,13 @@ module.exports = {
         polyfill: false,
         regenerator: true,
       },
+    ], [
+      'import',
+      {
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'components',
+      },
     ]);
-
     return config;
   },
 };

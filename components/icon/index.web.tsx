@@ -17,6 +17,8 @@ export default class Icon extends React.Component<IconPropType, any> {
     let svg;
     try {
       svg = require(`./style/assets/${this.props.type}.svg`);
+    } catch (e) {
+
     } finally {
       return svg;
     }

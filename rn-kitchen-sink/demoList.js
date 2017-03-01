@@ -1,3 +1,4 @@
+/* eslint global-require: 0 */
 module.exports = {
   UIBARS: [
     {
@@ -239,6 +240,12 @@ module.exports = {
       description: '网格列表',
       icon: 'https://os.alipayobjects.com/rmsportal/UBGcnLKfVQIXgUb.png',
       module: require('../components/grid/demo/basic'),
+    },
+    {
+      title: 'LocaleProvider',
+      description: '国际化',
+      icon: 'https://os.alipayobjects.com/rmsportal/HzRRcuwtqUCCOBg.png',
+      module: require('../components/locale-provider/demo/basic'),
     },
     {
       title: 'WhiteSpace',

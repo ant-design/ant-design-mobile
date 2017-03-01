@@ -1,6 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
+import { FormattedMessage } from 'react-intl';
 import Icon from 'antd/lib/icon';
 import Popover from 'antd/lib/popover';
 import QRCode from 'qrcode.react';
@@ -139,9 +140,11 @@ export default class ComponentDoc extends React.Component {
     </div>);
 
     const { title, subtitle, chinese, english } = meta;
-    const iframeUrl = currentIndex === 0 ?
-            `${protocol}//${host}${isLocalMode ? '/components' : '/kitchen-sink/components'}/${path}#${path}-demo-${currentIndex}` :
-            `${protocol}//${host}${isLocalMode ? '/components' : '/kitchen-sink/components'}/${path}#${path}-demo-${currentIndex}`;
+    const hash = `#${path}-demo-${currentIndex}`;
+    const mainPath = isLocalMode ? 'components' : 'kitchen-sink/components';
+    const search = this.context.intl.locale === 'zh-CN' ? '?lang=zh-CN' : '';
+    const iframeUrl = `${protocol}//${host}/${mainPath}/${path}${search}${hash}`;
+
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
@@ -161,9 +164,12 @@ export default class ComponentDoc extends React.Component {
 
             <section id="demoTitle" className="demo-title-wrapper">
               <h2 id="demoTitle" className="demo-title">
-                代码演示
-                <Icon type="appstore" className={expandTriggerClass}
-                  title="展开全部代码" onClick={this.handleExpandToggle}
+                <FormattedMessage id="app.ComponentDoc.codeTitle" />
+                <Icon
+                  type="appstore"
+                  className={expandTriggerClass}
+                  title={<FormattedMessage id="app.ComponentDoc.codeExpand" />}
+                  onClick={this.handleExpandToggle}
                 />
               </h2>
             </section>

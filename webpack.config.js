@@ -1,5 +1,3 @@
-
-
 const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
 const pxtorem = require('postcss-pxtorem');
 const configSvg = require('./svg.config');

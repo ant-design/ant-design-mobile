@@ -6,7 +6,7 @@ const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
 const DESTRUCTIVE_INDEX = 3;
 const CANCEL_INDEX = 4;
 
-class Test extends React.Component<any, any> {
+export default class Test extends React.Component<any, any> {
   constructor() {
     super();
     this.state = {

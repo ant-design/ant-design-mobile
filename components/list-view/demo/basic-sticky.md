@@ -125,20 +125,13 @@ class Demo extends React.Component {
       }
       const obj = data[index--];
       return (
-        <div key={rowID}
-          style={{
-            padding: '0.08rem 0.16rem',
-            backgroundColor: 'white',
-          }}
-        >
-          <h3 style={{ padding: 2, marginBottom: '0.08rem', borderBottom: '1px solid #F6F6F6' }}>
-            {obj.title}
-          </h3>
-          <div style={{ display: '-webkit-box', display: 'flex' }}>
-            <img style={{ height: '1.28rem', marginRight: '0.08rem' }} src={obj.img} />
-            <div style={{ display: 'inline-block' }}>
-              <p style={{ margin: 0, marginTop: '0.1rem' }}>{obj.des}</p>
-              <p style={{ marginTop: '0.2rem' }}><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</p>
+        <div key={rowID} className="row">
+          <div className="row-title">{obj.title}</div>
+          <div style={{ display: '-webkit-box', display: 'flex', padding: '0.3rem 0' }}>
+            <img style={{ height: '1.28rem', marginRight: '0.3rem' }} src={obj.img} />
+            <div className="row-text">
+              <div style={{ marginBottom: '0.16rem', fontWeight: 'bold' }}>{obj.des}</div>
+              <div><span style={{ fontSize: '0.6rem', color: '#FF6E27' }}>35</span>元/任务</div>
             </div>
           </div>
         </div>
@@ -178,4 +171,22 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
+````
+````css
+.row {
+  padding: 0 0.3rem;
+  background-color: white;
+}
+.row-title {
+  height: 1rem;
+  line-height: 1rem;
+  color: #888;
+  font-size: 0.36rem;
+  border-bottom: 1px solid #F6F6F6;
+}
+.row-text {
+  display: inline-block;
+  font-size: 0.32rem;
+  line-height: 1;
+}
 ````

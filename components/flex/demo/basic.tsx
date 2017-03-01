@@ -2,8 +2,8 @@ import { Button, Flex, WingBlank, WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
-const Circle = () => {
-  const size = this.props.size || 20;
+const Circle = (props) => {
+  const size = props.size || 20;
   const style = {
     borderRadius: size / 2,
     backgroundColor: '#527fe4',

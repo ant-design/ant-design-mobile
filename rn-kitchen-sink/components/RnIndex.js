@@ -1,3 +1,4 @@
+/* eslint no-console:0 */
 import React from 'react';
 import {
   StyleSheet,
@@ -44,7 +45,7 @@ export default class RnIndex extends React.Component {
 
   search(text) {
     const regex = new RegExp(String(text), 'i');
-    const filter = (component) => regex.test(component.title);
+    const filter = component => regex.test(component.title);
 
     this.setState({
       uiViews: UIVIEWS.filter(filter),
@@ -59,9 +60,7 @@ export default class RnIndex extends React.Component {
     const { uiViews, uiControls, others, uiBars } = this.state;
     return (
       <View style={styles.container}>
-        <SearchBar onChange={(text) => {
-          this.search(text);
-        }} />
+        <SearchBar onChange={(text) => { this.search(text); }} />
         <ScrollView>
           {
             [['UI Views', uiViews],

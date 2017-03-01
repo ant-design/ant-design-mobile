@@ -34,11 +34,7 @@ class PopupContent extends React.Component {
 }
 
 const Test = () => {
-  this.onClick = (e) => {
-    e.preventDefault(); // 修复 Android 上点击穿透
-    Popup.show(<PopupContent onClose={() => Popup.hide()} />, { onMaskClose: this.onMaskClose });
-  };
-  this.onMaskClose = () => {
+  const onMaskClose = () => {
     console.log('onMaskClose');
     // also support Promise
     // return new Promise((resolve) => {
@@ -46,13 +42,17 @@ const Test = () => {
     //   setTimeout(resolve, 1000);
     // });
   };
+  const onClick = (e) => {
+    e.preventDefault(); // 修复 Android 上点击穿透
+    Popup.show(<PopupContent onClose={() => Popup.hide()} />, { onMaskClose });
+  };
   // newInstance() {
   //  const ins = Popup.newInstance();
   //  ins.show(<Button onClick={() => ins.hide()}>关闭</Button>);
   // },
   return (
     <div style={{ padding: '0.15rem' }}>
-      <Button onClick={this.onClick}>显示</Button>
+      <Button onClick={onClick}>显示</Button>
     </div>
   );
 };
