@@ -78,4 +78,23 @@ export default StyleSheet.create({
     fontSize: variables.link_button_font_size,
     backgroundColor: 'transparent',
   },
+  operationContainer: {
+    paddingTop: 0,
+  },
+  operationBody: {
+    paddingBottom: 0,
+    paddingHorizontal: 0,
+  },
+  buttonWrapOperation: {
+    flexGrow: 1,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderColor: variables.border_color_base,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+  },
+  buttonTextOperation: {
+    color: variables.color_text_base,
+    fontSize: variables.link_button_font_size,
+    backgroundColor: 'transparent',
+  },
 });
