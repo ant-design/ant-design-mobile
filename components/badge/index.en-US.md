@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Data Display
-chinese: 徽标数
-english: Badge
+title: Badge
 ---
 
 

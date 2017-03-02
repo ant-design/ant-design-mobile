@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Navigation
-chinese: 分页器
-english: Pagination
+title: Pagination
 ---
 
 分隔长列表，每次只加载一个页面。

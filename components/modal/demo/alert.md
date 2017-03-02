@@ -1,6 +1,8 @@
 ---
 order: 1
-title: alert
+title:
+  zh-CN: 警告弹窗
+  en-US: alert
 ---
 
 包含无按钮, 确认框, 多按钮情况

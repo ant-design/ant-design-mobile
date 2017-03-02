@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 图片选择器
-english: ImagePicker
+title: ImagePicker
 ---
 
 注意：只是图片选择器，一般用于上传图片前的文件选择操作，但不包括图片上传的功能

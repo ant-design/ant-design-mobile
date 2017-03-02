@@ -1,6 +1,8 @@
 ---
 order: 0
-title: Popover
+title:
+  zh-CN: 气泡
+  en-US: Popover
 ---
 
 

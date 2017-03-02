@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Navigation
-chinese: 标签栏
-english: TabBar
-source: design
+title: TabBar
 ---
 
 位于 APP 底部，方便用户在不同功能模块之间进行快速切换。

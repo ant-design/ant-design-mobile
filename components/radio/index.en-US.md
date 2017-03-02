@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 单选框
-english: Radio
-source: design
+title: Radio
 ---
 
 单选框

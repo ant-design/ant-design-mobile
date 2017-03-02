@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 菜单
+title:
+  zh-CN: 菜单
+  en-US: Menu
 ---
 
 ````jsx

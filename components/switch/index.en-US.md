@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 滑动开关
-english: Switch
-source: design
+title: Switch
 ---
 
 

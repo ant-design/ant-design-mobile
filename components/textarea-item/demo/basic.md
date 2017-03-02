@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 示例集合
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 ([rc-form 文档](https://github.com/react-component/form))

@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 选择器
-english: Picker
-source: design
+title: Picker
 ---
 
 在一组预设值中进行选择，eg：省市区选择。

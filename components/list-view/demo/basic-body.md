@@ -1,6 +1,8 @@
 ---
 order: 1
-title: body 容器
+title:
+  zh-CN: 'body 容器'
+  en-US: 'use `<body>`  container'
 ---
 
 使用 html 的 `body` 作为滚动容器

@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Navigation
-chinese: 气泡
-english: Popover
-source: design
+title: 气泡
 ---
 
 

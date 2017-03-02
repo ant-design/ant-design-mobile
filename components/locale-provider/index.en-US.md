@@ -1,7 +1,6 @@
 ---
 category: Components
-chinese: 国际化
-english: LocaleProvider
+title: LocaleProvider
 type: Other
 ---
 

@@ -1,6 +1,8 @@
 ---
 order: 4
-title: 索引列表（标题吸顶）
+title:
+  zh-CN: '索引列表（标题吸顶）'
+  en-US: 'Index List (Title position top)'
 ---
 
 用于通讯薄等场景 “吸顶”(sticky)

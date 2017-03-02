@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Combination
-chinese: 结果页
-source: design
-english: Result
+title: Result
 ---
 
 在整张页面中组织插画、图标、文字等内容，向用户反馈操作结果。

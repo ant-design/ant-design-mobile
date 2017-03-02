@@ -1,6 +1,8 @@
 ---
 order: 0
-title: NavBar
+title:
+  zh-CN: 导航栏
+  en-US: NavBar
 ---
 
 ````jsx

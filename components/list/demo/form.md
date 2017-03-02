@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 可输入列表
+title:
+  zh-CN: 可输入列表
+  en-US: 'Input List'
 ---
 
 表单集合. (使用 [rc-form 文档](https://github.com/react-component/form) 做表单验证)

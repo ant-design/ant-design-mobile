@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 步骤条
+title:
+  zh-CN: 步骤条
+  en-US: Steps
 ---
 
 

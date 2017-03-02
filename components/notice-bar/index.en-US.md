@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Display
-chinese: 通告栏
-english: NoticeBar
-source: design
+title: NoticeBar
 ---
 
 在导航栏下方，一般用作系统提醒、活动提醒等通知。

@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Feedback
-chinese: 进度条
-english: Progress
+title: 进度条
 ---
 
 表明某个任务的当前进度。

@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Data Display
-chinese: 标签
-english: Tag
+title: Tag
 ---
 
 进行标记和分类的小标签，用于标记事物的属性和维度，以及进行分类。

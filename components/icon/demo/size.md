@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 大小
+title:
+  zh-CN: 大小
+  en-US: Size
 ---
 
 ````jsx

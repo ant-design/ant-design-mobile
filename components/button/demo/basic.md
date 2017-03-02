@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 类型、尺寸
+title:
+  zh-CN: '类型、尺寸'
+  en-US: 'Type, Size'
 ---
 
 按钮

@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Navigation
-chinese: 抽屉
-english: Drawer
+title: 抽屉
 ---
 
 

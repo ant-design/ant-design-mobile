@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 基本用法
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 基本的活动指示器。

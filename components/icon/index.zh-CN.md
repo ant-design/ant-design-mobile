@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Data Display
-chinese: 图标
-english: Icon
+title: 图标
 ---
 
 SVG 图标 (参考：[为什么使用 svg 替换 iconfont](https://github.com/ant-design/ant-design-mobile/wiki/Why-use-svg-icon))

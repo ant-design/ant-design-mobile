@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 手风琴模式
+title:
+  zh-CN: 手风琴模式
+  en-US: 'Accordion Mode'
 ---
 
 Accordion

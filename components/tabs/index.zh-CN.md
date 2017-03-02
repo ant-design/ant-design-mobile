@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Navigation
-chinese: 标签页
-english: Tabs
-source: design
+title: 标签页
 ---
 
 

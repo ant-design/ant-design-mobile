@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 选择器
-english: PickerView
-source: design
+title: 选择器
 ---
 
 Picker 直接渲染在区域中

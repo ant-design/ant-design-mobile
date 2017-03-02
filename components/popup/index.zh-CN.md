@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Feedback
-chinese: 弹出层
-english: Popup
+title: 弹出层
 ---
 
 

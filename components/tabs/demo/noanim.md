@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 无动画
+title:
+  zh-CN: 无动画
+  en-US: 'No animation'
 ---
 
 禁用切换动画效果

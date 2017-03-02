@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Gesture
-chinese: 滑动操作
-english: SwipeAction
+title: 滑动操作
 ---
 
 滑动操作组件。

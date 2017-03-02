@@ -1,10 +1,8 @@
 ---
 category: Components
 type: Data Display
-chinese: 步骤条
+title: 步骤条
 cols: 1
-english: Steps
-source: design
 ---
 
 

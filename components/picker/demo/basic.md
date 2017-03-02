@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 基本
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 数据级联选择示例. ([rc-form 文档](https://github.com/react-component/form))

@@ -1,6 +1,8 @@
 ---
 order: 2
-title: propmt
+title:
+  zh-CN: 输入弹窗
+  en-US: propmt
 ---
 
 包含输入普通文字, 密码, 登录信息样式

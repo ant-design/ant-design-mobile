@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 文本输入
-english: InputItem
-source: design
+title: InputItem
 ---
 
 

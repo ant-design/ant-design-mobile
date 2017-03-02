@@ -1,6 +1,8 @@
 ---
 order: 0
-title: ListView RefreshControl
+title:
+  zh-CN: 'ListView 下拉刷新'
+  en-US: 'ListView RefreshControl'
 ---
 
 下拉刷新

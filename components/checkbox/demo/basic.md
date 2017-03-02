@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: 示例集合
-  en-US: Example Collection
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 

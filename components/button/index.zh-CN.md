@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 按钮
-english: Button
-source: design
+title: 按钮
 ---
 
 点击后会触发一个操作。

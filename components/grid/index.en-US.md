@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Data Display
-chinese: 九宫格
-english: Grid
+title: Grid
 ---
 
 在水平和垂直方向，将布局切分成若干等大的区块。

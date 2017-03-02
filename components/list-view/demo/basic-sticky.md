@@ -1,6 +1,8 @@
 ---
 order: 2
-title: 标题吸顶（body 容器）
+title:
+  zh-CN: '标题吸顶（body 容器)'
+  en-US: 'Title positon top (use `<body>`  container)'
 ---
 
 区块标题 “吸顶”(sticky) 功能示例

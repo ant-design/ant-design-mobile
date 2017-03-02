@@ -1,10 +1,7 @@
 ---
 category: Components
 type: Feedback
-chinese: 轻提示
-noinstant: true
-english: Toast
-source: design
+title: Toast
 ---
 
 

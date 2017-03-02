@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 搜索栏
-english: SearchBar
-source: design
+title: 搜索栏
 ---
 
 一般可位于 NavBar 下方，通过『取消按钮』退出激活状态。

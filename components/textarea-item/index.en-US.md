@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 多行输入
-english: TextareaItem
-source: design
+title: TextareaItem
 ---
 
 

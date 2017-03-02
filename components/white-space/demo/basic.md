@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 基本
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 上下留白 ```<WhiteSpace size='md' />```

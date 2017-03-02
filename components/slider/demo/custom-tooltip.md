@@ -1,6 +1,8 @@
 ---
 order: 2
-title: 自定义滑动反馈
+title:
+  zh-CN: 自定义滑动反馈
+  en-US: 'Custom slider handle'
 ---
 
 

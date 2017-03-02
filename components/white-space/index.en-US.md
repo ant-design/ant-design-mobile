@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Layout
-chinese: 上下留白
-english: WhiteSpace
+title: WhiteSpace
 ---
 
 WhiteSpace 是 Flex 布局的控件之一。
