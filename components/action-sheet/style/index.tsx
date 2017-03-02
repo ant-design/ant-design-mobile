@@ -5,7 +5,7 @@ export const vars = variables;
 
 export default StyleSheet.create({
   container: {
-    zIndex: vars.modal_zindex,
+    zIndex: vars.action_sheet_zindex,
   },
   wrap: {
     position: 'absolute',
