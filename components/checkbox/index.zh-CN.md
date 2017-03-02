@@ -1,7 +1,9 @@
 ---
 category: Components
 type: Data Entry
-title: 复选框
+chinese: 复选框
+english: Checkbox
+source: design
 ---
 
 复选框

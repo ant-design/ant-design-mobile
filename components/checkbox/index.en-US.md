@@ -1,21 +1,23 @@
 ---
 category: Components
 type: Data Entry
-title: Checkbox
+chinese: 复选框
+english: Checkbox
+source: design
 ---
 
-Checkbox
+复选框
 
-## API ( Support Platform：WEB、React-Native )
+## API ( 适用平台：WEB、React-Native )
 
 ### Checkbox
 
 | 成员             | 说明           | 类型           | 默认值       |
 |---------------- |----------------|-------------|--------------
-| defaultChecked  |  whether is checked when init  | Boolean   |   |
-| checked         |  whether is checked now (Controlled Mode)   | Boolean  |   |
-| disabled        |  whether is been disabled       | Boolean |  false  |
-| onChange        | callback when check status is changed | (e: Object): void |     |
+| defaultChecked  |  初始是否选中  | Boolean   | 无  |
+| checked         |   指定当前是否选中   | Boolean  | 无  |
+| disabled        |         | Boolean |  false  |
+| onChange        | change 事件触发的回调函数 | (e: Object): void |   无  |
 
 ### Checkbox.CheckboxItem
 
