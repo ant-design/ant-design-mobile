@@ -72,6 +72,7 @@
     "antd-mobile-demo-data": "^0.1.1",
     "antd-tools": "^0.16.1",
     "babel-eslint": "^7.1.0",
+    "babel-jest": "^19.0.0",
     "babel-plugin-import": "^1.1.1",
     "babel-plugin-transform-runtime": "~6.15.0",
     "babel-preset-react-native": "^1.9.1",
@@ -86,6 +87,8 @@
     "dom-scroll-into-view": "^1.2.0",
     "dora-plugin-upload": "^0.3.1",
     "enquire.js": "^2.1.1",
+    "enzyme": "^2.7.1",
+    "enzyme-to-json": "^1.5.0",
     "eslint": "^3.3.1",
     "eslint-config-airbnb": "latest",
     "eslint-plugin-babel": "^4.0.0",
@@ -94,6 +97,7 @@
     "eslint-plugin-markdown": "1.0.0-beta.3",
     "eslint-plugin-react": "^6.1.2",
     "eslint-tinker": "^0.4.0",
+    "jest": "^19.0.2",
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
@@ -115,11 +119,14 @@
     "react-intl": "^2.2.3",
     "react-native": "~0.39.0",
     "react-native-code-push": "~1.16.0-beta",
+    "react-native-mock": "^0.3.1",
     "react-native-router-flux": "^3.30.3",
     "react-stateless-wrapper": "~1.0.2",
+    "react-test-renderer": "^15.4.2",
     "reqwest": "~2.0.5",
     "svg-sprite-loader": "^0.0.31",
-    "typescript": "~2.1.6"
+    "typescript": "~2.1.6",
+    "typescript-babel-jest": "^1.0.1"
   },
   "scripts": {
     "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint && npm run applint",
@@ -132,6 +139,7 @@
     "pre-publish": "node ./scripts/build-less-entry",
     "prepublish": "antd-tools run guard",
     "test": "npm run lint && npm run dist",
+    "jest": "jest",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt",
     "dist": "antd-tools run dist",
     "build": "npm run dist",
@@ -168,6 +176,34 @@
     ],
     "components/*/demo/*.md": [
       "lint-staged:demo"
+    ]
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "md"
+    ],
+    "modulePathIgnorePatterns": [
+      "/_site/"
+    ],
+    "testPathIgnorePatterns": [
+      "dekko",
+      "/node_modules/",
+      "node"
+    ],
+    "transform": {
+      "\\.tsx?$": "./node_modules/typescript-babel-jest",
+      "\\.js$": "./node_modules/babel-jest"
+    },
+    "testRegex": ".*\\.test\\.js$",
+    "collectCoverageFrom": [
+      "components/**/*.{ts,tsx}",
+      "!components/*/style/index.tsx"
     ]
   },
   "config": {
