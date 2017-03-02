@@ -34,7 +34,7 @@ export default class Button extends React.Component<tsProps, any> {
       this.setState({ pressIn: true });
     }
     if (this.props.onPressIn) {
-      this.props.onPressIn(arg);
+      (this.props.onPressIn as any)(...arg);
     }
   }
   onPressOut = (...arg) => {
@@ -42,7 +42,7 @@ export default class Button extends React.Component<tsProps, any> {
       this.setState({ pressIn: false });
     }
     if (this.props.onPressOut) {
-      this.props.onPressOut(arg);
+      (this.props.onPressOut as any)(...arg);
     }
   }
   onShowUnderlay = (...arg) => {
@@ -50,7 +50,7 @@ export default class Button extends React.Component<tsProps, any> {
       this.setState({ touchIt: true });
     }
     if (this.props.onShowUnderlay) {
-      this.props.onShowUnderlay(arg);
+      (this.props.onShowUnderlay as any)(...arg);
     }
   }
   onHideUnderlay = (...arg) => {
@@ -58,7 +58,7 @@ export default class Button extends React.Component<tsProps, any> {
       this.setState({ touchIt: false });
     }
     if (this.props.onHideUnderlay) {
-      this.props.onHideUnderlay(arg);
+      (this.props.onHideUnderlay as any)(...arg);
     }
   }
 
@@ -68,6 +68,13 @@ export default class Button extends React.Component<tsProps, any> {
     const {
       size = 'large', type = 'default', disabled, activeStyle, onClick, style, styles, ...restProps,
     } = this.props;
+
+    ['activeOpacity', 'delayPressOut', 'underlayColor', 'onPress', 'onPressIn',
+     'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
+       if (restProps.hasOwnProperty(prop)) {
+         delete restProps[prop];
+       }
+     });
 
     const textStyle = [
       styles[`${size}RawText`],
