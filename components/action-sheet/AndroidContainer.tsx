@@ -61,22 +61,24 @@ class ActionSheetAndroid extends React.Component<Props, any> {
       ),
     );
     return (
-      <Modal
-        animationDuration={200}
-        animateAppear
-        visible={this.state.visible}
-        onAnimationEnd={onAnimationEnd}
-        style={styles.content}
-        animationType="slide-up"
-        maskClosable
-        onClose={() => this.confirm(cancelButtonIndex || -1)}
-      >
-        <View>
-          {titleMsg}
-          {message && <View style={styles.message} key="1"><Text>{message}</Text></View> }
-          <View>{content}</View>
-        </View>
-      </Modal>
+      <View style={styles.container}>
+        <Modal
+          animationDuration={200}
+          animateAppear
+          visible={this.state.visible}
+          onAnimationEnd={onAnimationEnd}
+          style={styles.content}
+          animationType="slide-up"
+          maskClosable
+          onClose={() => this.confirm(cancelButtonIndex || -1)}
+        >
+          <View>
+            {titleMsg}
+            {message && <View style={styles.message} key="1"><Text>{message}</Text></View> }
+            <View>{content}</View>
+          </View>
+        </Modal>
+      </View>
     );
   }
 }

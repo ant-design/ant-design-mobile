@@ -4,6 +4,9 @@ import { StyleSheet, ViewStyle } from 'react-native';
 export const vars = variables;
 
 export default StyleSheet.create({
+  container: {
+    zIndex: vars.modal_zindex,
+  },
   wrap: {
     position: 'absolute',
     left: 0,

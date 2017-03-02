@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import styles from './style/index';
 import Modal from 'rc-dialog/lib/Modal';
 import PopupProps from './PropsType';
@@ -35,17 +36,19 @@ export default class PopupContainer extends React.Component<PopupProps, any> {
 
   render() {
     return (
-      <Modal
-        animateAppear
-        onAnimationEnd={this.props.onAnimationEnd}
-        animationType={this.props.animationType as animationType}
-        wrapStyle={this.props.animationType === 'slide-up' ? styles.wrap : styles.wrapTop}
-        visible={this.state.visible}
-        maskClosable={this.props.maskClosable}
-        onClose={this.onMaskClose}
-      >
-        {this.props.children}
-      </Modal>
+      <View style={styles.container}>
+        <Modal
+          animateAppear
+          onAnimationEnd={this.props.onAnimationEnd}
+          animationType={this.props.animationType as animationType}
+          wrapStyle={this.props.animationType === 'slide-up' ? styles.wrap : styles.wrapTop}
+          visible={this.state.visible}
+          maskClosable={this.props.maskClosable}
+          onClose={this.onMaskClose}
+        >
+          {this.props.children}
+        </Modal>
+      </View>
     );
   }
 }

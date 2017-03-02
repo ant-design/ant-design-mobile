@@ -3,6 +3,9 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
+    zIndex: variables.modal_zindex,
+  },
+  wrap: {
     justifyContent: 'center',
     alignItems: 'center',
   },
