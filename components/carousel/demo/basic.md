@@ -7,10 +7,10 @@ title:
 
 
 ````jsx
-import { Carousel, WhiteSpace } from 'antd-mobile';
+import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const App = () => (
-  <div className="need-left-right-margin">
+  <WingBlank>
     <div className="sub-title">normal</div>
     <Carousel
       className="my-carousel" autoplay={false} infinite
@@ -30,7 +30,7 @@ const App = () => (
       <div className="v-item">Carousel 2</div>
       <div className="v-item">Carousel 3</div>
     </Carousel>
-  </div>
+  </WingBlank>
 );
 
 ReactDOM.render(<App />, mountNode);

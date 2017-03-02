@@ -21,13 +21,13 @@ class SearchBarExample extends React.Component {
   };
   render() {
     return (<div>
-      <div className="sub-title need-left-right-margin">普通</div>
+      <WingBlank><div className="sub-title">普通</div></WingBlank>
       <SearchBar placeholder="搜索" />
       <WhiteSpace />
-      <div className="sub-title need-left-right-margin">自动获取光标</div>
+      <WingBlank><div className="sub-title">自动获取光标</div></WingBlank>
       <SearchBar placeholder="自动获取光标" autoFocus />
       <WhiteSpace />
-      <div className="sub-title need-left-right-margin">手动获取获取光标</div>
+      <WingBlank><div className="sub-title">手动获取获取光标</div></WingBlank>
       <SearchBar
         placeholder="手动获取获取光标"
         focused={this.state.focused}
@@ -49,7 +49,7 @@ class SearchBarExample extends React.Component {
         >点击获取光标</Button>
       </WingBlank>
       <WhiteSpace />
-      <div className="sub-title need-left-right-margin">显示取消按钮</div>
+      <WingBlank><div className="sub-title">显示取消按钮</div></WingBlank>
       <SearchBar
         value={this.state.value}
         placeholder="搜索"
