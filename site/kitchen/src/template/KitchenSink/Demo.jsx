@@ -78,8 +78,7 @@ export default class Demo extends React.Component {
       <div id={name} style={style} className="demo">
         <div className="demoName">
           <a className="icon" href={`/${linkUrl}${window.location.search}`} />
-          {demoMeta.english}
-          <span className="ch">{demoMeta.chinese}</span>
+          {demoMeta.title}
         </div>
         {
           demoSort.map((i, index) => (
