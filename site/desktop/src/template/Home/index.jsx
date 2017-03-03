@@ -24,7 +24,7 @@ class Home extends React.Component {
   }
   render() {
     const { isZhCN } = this.state;
-    let iframeUrl = location.port ? 'http://localhost:8002/' : `${location.href}kitchen-sink/`;
+    let iframeUrl = location.port ? 'http://localhost:8002/' : `${location.origin}/kitchen-sink/`;
     if (isZhCN) {
       iframeUrl = `${iframeUrl}?lang=zh-CN`;
     }
