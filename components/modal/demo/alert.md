@@ -5,7 +5,13 @@ title:
   en-US: alert
 ---
 
-包含无按钮, 确认框, 多按钮情况
+## zh-CN
+
+包含无按钮, 确认框, 多按钮情况。
+
+## en-US
+
+Including situations like no button, confirm button and multiple buttons.
 
 ````jsx
 import { Modal, Button, WhiteSpace, WingBlank, Toast } from 'antd-mobile';

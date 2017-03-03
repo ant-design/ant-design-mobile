@@ -14,6 +14,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     style: {},
     onShow() {},
     footer: [],
+    closable: false,
     operation: false,
   };
 
@@ -74,6 +75,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       maskTransitionName,
       style,
       footer = [],
+      closable,
       operation,
     } = this.props;
 
@@ -121,6 +123,7 @@ export default class Modal extends React.Component<ModalProps, any> {
         style={rootStyle}
         footer={footerDom}
         wrapProps={wrapProps}
+        closable={closable}
         {...restProps}
       />
     );
