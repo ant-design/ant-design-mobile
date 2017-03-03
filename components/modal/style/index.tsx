@@ -81,4 +81,16 @@ export default StyleSheet.create({
     fontSize: variables.link_button_font_size,
     backgroundColor: 'transparent',
   },
+  operationContainer: {
+    paddingTop: 0,
+  },
+  operationBody: {
+    paddingBottom: 0,
+    paddingHorizontal: 0,
+  },
+  buttonTextOperation: {
+    color: variables.color_text_base,
+    textAlign: 'left',
+    paddingHorizontal: 15,
+  },
 });
