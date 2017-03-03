@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
 import Modal from './Modal';
 import modalStyle from './style/index';
 
@@ -30,12 +29,8 @@ export default class OperationContainer extends React.Component<OperationContain
 
   render() {
     const { actions, onAnimationEnd } = this.props;
-    const btnGroupStyle = modalStyle.buttonGroupV;
-    const buttonWrapStyle = modalStyle.buttonWrapOperation;
-
-    const operations = actions.map((button, i) => {
-      const orginPress = button.onPress || function () {
-      };
+    const footer = actions.map((button) => {
+      const orginPress = button.onPress || function () {};
       button.onPress = () => {
         const res = orginPress();
         if (res && (res as any).then) {
@@ -46,20 +41,11 @@ export default class OperationContainer extends React.Component<OperationContain
           this.onClose();
         }
       };
-      let buttonStyle = modalStyle.buttonTextOperation;
-      if (button.style) {
-        buttonStyle = button.style;
-      }
-      return (
-        <TouchableHighlight key={i} underlayColor="#ddd" onPress={button.onPress}>
-          <View style={[buttonWrapStyle]}>
-            <Text style={[buttonStyle]}>{button.text || `按钮${i}`}</Text>
-          </View>
-        </TouchableHighlight>
-      );
+      return button;
     });
     return (
       <Modal
+        operation
         transparent
         maskClosable
         visible={this.state.visible}
@@ -67,11 +53,8 @@ export default class OperationContainer extends React.Component<OperationContain
         onAnimationEnd={onAnimationEnd}
         style={modalStyle.operationContainer}
         bodyStyle={modalStyle.operationBody}
-      >
-        <View style={[btnGroupStyle]}>
-          {operations}
-        </View>
-      </Modal>
+        footer={footer}
+      />
     );
   }
 }

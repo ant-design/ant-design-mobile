@@ -18,7 +18,6 @@ const App = () => (
     <Button onClick={() => operation([
       { text: '标为未读', onPress: () => console.log('标为未读被点击了') },
       { text: '置顶聊天', onPress: () => console.log('置顶聊天被点击了') },
-      { text: '删除该聊天', onPress: () => console.log('删除该聊天被点击了') },
     ])}
     >操作按钮</Button>
     <WhiteSpace size="lg" />

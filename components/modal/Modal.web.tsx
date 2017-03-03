@@ -14,6 +14,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     style: {},
     onShow() {},
     footer: [],
+    operation: false,
   };
 
   isInModal(e) {
@@ -73,6 +74,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       maskTransitionName,
       style,
       footer = [],
+      operation,
     } = this.props;
 
     const wrapCls = classNames({
@@ -84,7 +86,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
     let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
 
-    const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 ? 'h' : 'v'}`;
+    const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`;
     const footerDom = footer.length ? <div className={btnGroupClass}>
       {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
     </div> : null;

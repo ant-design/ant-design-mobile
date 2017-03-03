@@ -34,6 +34,7 @@ export default function (...args) {
   ReactDOM.render(
     <Modal
       visible
+      operation
       transparent
       prefixCls={prefixCls}
       transitionName="am-zoom"
