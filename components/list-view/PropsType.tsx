@@ -19,7 +19,7 @@ interface Props {
   renderScrollComponent?: Function;
   scrollRenderAheadDistance?: number;
   onChangeVisibleRows?: Function;
-  /** web only */
+  /** below web only */
   className?: string;
   prefixCls?: string;
   listPrefixCls?: string;
@@ -34,6 +34,13 @@ interface Props {
   stickyHeader?: boolean;
   stickyProps?: any; // https://github.com/captivationsoftware/react-sticky/blob/master/README.md#sticky--props
   stickyContainerProps?: any;
+  scrollerOptions?: any;
+  /** below web only, work at `ListView.IndexedList` */
+  onQuickSearch?: Function;
+  quickSearchBarStyle?: React.CSSProperties;
+  quickSearchBarTop?: Object;
+  delayTime?: number;
+  delayActivityIndicator?: any;
 }
 
 export default Props;
