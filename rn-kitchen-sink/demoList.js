@@ -22,6 +22,12 @@ module.exports = {
   ],
   UIVIEWS: [
     {
+      title: 'Accordion',
+      description: '手风琴',
+      icon: 'https://os.alipayobjects.com/rmsportal/gfWmRfZNzMyVUss.png',
+      module: require('../components/accordion/demo/basic'),
+    },
+    {
       title: 'ActionSheet',
       description: '动作面板',
       icon: 'https://zos.alipayobjects.com/rmsportal/cYmaBafYBnAxCqQ.png',

@@ -1,0 +1,667 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 10,
+      "marginTop": 80,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderTopColor": "#ddd",
+        "borderTopWidth": 0.5,
+      }
+    }
+  >
+    <View>
+      <View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "paddingLeft": 15,
+                "paddingRight": 30,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "height": 45,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                标题一
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 15,
+                  "width": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "flexDirection": "row",
+                    "fontFamily": "anticon",
+                    "fontSize": 15,
+                  }
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          pointerEvents="none"
+          style={
+            Object {
+              "height": 0,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            onLayout={[Function]}
+            style={Object {}}
+          >
+            <View
+              style={undefined}
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "borderTopColor": "#ddd",
+                    "borderTopWidth": 0.5,
+                  }
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      undefined,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#fff",
+                          "flexDirection": "row",
+                          "flexGrow": 1,
+                          "paddingLeft": 15,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderBottomColor": "#ddd",
+                            "borderBottomWidth": 0.5,
+                            "flex": 1,
+                            "flexDirection": "row",
+                            "minHeight": 45,
+                            "paddingBottom": 6,
+                            "paddingRight": 15,
+                            "paddingTop": 6,
+                          },
+                          false,
+                          false,
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "flex": 1,
+                              "flexDirection": "column",
+                            },
+                          ]
+                        }
+                      >
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          numberOfLines={1}
+                          style={
+                            Array [
+                              Object {
+                                "color": "#000",
+                                "fontSize": 17,
+                                "lineHeight": 19,
+                                "textAlignVertical": "center",
+                              },
+                            ]
+                          }
+                        >
+                          子内容一
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      undefined,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#fff",
+                          "flexDirection": "row",
+                          "flexGrow": 1,
+                          "paddingLeft": 15,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderBottomColor": "#ddd",
+                            "borderBottomWidth": 0.5,
+                            "flex": 1,
+                            "flexDirection": "row",
+                            "minHeight": 45,
+                            "paddingBottom": 6,
+                            "paddingRight": 15,
+                            "paddingTop": 6,
+                          },
+                          false,
+                          false,
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "flex": 1,
+                              "flexDirection": "column",
+                            },
+                          ]
+                        }
+                      >
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          numberOfLines={1}
+                          style={
+                            Array [
+                              Object {
+                                "color": "#000",
+                                "fontSize": 17,
+                                "lineHeight": 19,
+                                "textAlignVertical": "center",
+                              },
+                            ]
+                          }
+                        >
+                          子内容二
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
+                      undefined,
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#fff",
+                          "flexDirection": "row",
+                          "flexGrow": 1,
+                          "paddingLeft": 15,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "borderBottomColor": "#ddd",
+                            "borderBottomWidth": 0.5,
+                            "flex": 1,
+                            "flexDirection": "row",
+                            "minHeight": 45,
+                            "paddingBottom": 6,
+                            "paddingRight": 15,
+                            "paddingTop": 6,
+                          },
+                          false,
+                          false,
+                        ]
+                      }
+                    >
+                      <View
+                        style={
+                          Array [
+                            Object {
+                              "flex": 1,
+                              "flexDirection": "column",
+                            },
+                          ]
+                        }
+                      >
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          numberOfLines={1}
+                          style={
+                            Array [
+                              Object {
+                                "color": "#000",
+                                "fontSize": 17,
+                                "lineHeight": 19,
+                                "textAlignVertical": "center",
+                              },
+                            ]
+                          }
+                        >
+                          子内容三
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#fff",
+                        "borderBottomColor": "#ddd",
+                        "borderBottomWidth": 0.5,
+                        "bottom": 0,
+                        "height": 1,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "paddingLeft": 15,
+                "paddingRight": 30,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "height": 45,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                标题二
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 15,
+                  "width": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "flexDirection": "row",
+                    "fontFamily": "anticon",
+                    "fontSize": 15,
+                  }
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          pointerEvents="auto"
+          style={false}
+        >
+          <View
+            onLayout={[Function]}
+            style={Object {}}
+          >
+            <View
+              style={
+                Object {
+                  "borderBottomColor": "#ddd",
+                  "borderBottomWidth": 0.5,
+                  "paddingHorizontal": 8,
+                  "paddingVertical": 9,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#333",
+                    "fontSize": 15,
+                  }
+                }
+              >
+                this is panel content2 or other
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "paddingLeft": 15,
+                "paddingRight": 30,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "height": 45,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 17,
+                  }
+                }
+              >
+                标题三
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 15,
+                  "width": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "flexDirection": "row",
+                    "fontFamily": "anticon",
+                    "fontSize": 15,
+                  }
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          pointerEvents="none"
+          style={
+            Object {
+              "height": 0,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <View
+            onLayout={[Function]}
+            style={Object {}}
+          >
+            <View
+              style={
+                Object {
+                  "borderBottomColor": "#ddd",
+                  "borderBottomWidth": 0.5,
+                  "paddingHorizontal": 8,
+                  "paddingVertical": 9,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#333",
+                    "fontSize": 15,
+                  }
+                }
+              >
+                文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -10,6 +10,7 @@ interface AccordionProps {
   openAnimation?: any;
   accordion?: boolean;
   onChange?: (x: any) => void;
+  styles?: any;
 }
 
 export default AccordionProps;
