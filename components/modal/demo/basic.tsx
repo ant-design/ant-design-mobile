@@ -47,6 +47,14 @@ export default class BasicModalExample extends React.Component<any, any> {
     );
   }
 
+  onButtonClick2 = () => {
+    Modal.operation([
+      { text: '标为未读', onPress: () => console.log('标为未读被点击了') },
+      { text: '置顶聊天', onPress: () => console.log('置顶聊天被点击了') },
+      { text: '删除该聊天', onPress: () => console.log('删除该聊天被点击了') },
+    ]);
+  }
+
   render() {
     const footerButtons = [
       { text: 'Cancel', onPress: () => console.log('cancel') },
@@ -60,6 +68,8 @@ export default class BasicModalExample extends React.Component<any, any> {
           <Button onClick={this.showModal2}>显示全屏对话框</Button>
           <WhiteSpace />
           <Button onClick={this.onButtonClick}>显示 Modal.alert</Button>
+          <WhiteSpace />
+          <Button onClick={this.onButtonClick2}>显示 Modal.opertation</Button>
         </WingBlank>
         <Modal
           transparent={false}
