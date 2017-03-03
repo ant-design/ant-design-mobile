@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 复选框
+title: Checkbox
+subtitle: 复选框
 ---
 
 复选框

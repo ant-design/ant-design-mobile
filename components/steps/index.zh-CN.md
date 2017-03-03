@@ -1,8 +1,8 @@
 ---
 category: Components
 type: Data Display
-title: 步骤条
-cols: 1
+title: Steps
+subtitle: 步骤条
 ---
 
 

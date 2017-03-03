@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Display
-title: 列表
+title: List
+subtitle: 列表
 ---
 
 

@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Display
-title: 卡片
+title: Card
+subtitle: 卡片
 ---
 
 

@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Navigation
-title: 标签页
+title: Tabs
+subtitle: 标签页
 ---
 
 

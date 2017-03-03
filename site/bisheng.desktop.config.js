@@ -32,6 +32,16 @@ module.exports = Object.assign({}, commonConfig, {
       Other: 7,
       其他: 7,
     },
+    cateChinese: {
+      Layout: '布局',
+      Navigation: '导航',
+      'Data Entry': '数据录入',
+      'Data Display': '数据展示',
+      Feedback: '操作反馈',
+      Gesture: '手势',
+      Combination: '组合组件',
+      Other: '其他',
+    },
     docVersions: {
       '0.7.x': 'http://07x.mobile.ant.design/',
       '0.8.x': 'http://08x.mobile.ant.design/',

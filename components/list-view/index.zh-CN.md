@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Combination
-title: 长列表
+title: ListView
+subtitle: 长列表
 ---
 
 最适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果

@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 步进器
+title: Stepper
+subtitle: 步进器
 ---
 
 用作增加或者减少当前数值。

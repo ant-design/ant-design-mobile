@@ -87,14 +87,14 @@ export default class App extends React.Component {
                       }}
                       className="am-demo-category"
                     >
-                      <div className="am-demo-category-name">{cate}</div>
+                      <div className="am-demo-category-name">{appLocale.locale === 'en-US' ? cate : `${config.cateChinese[cate]} ${cate}`}</div>
                       <div className="am-demo-category-arrow"><span><Icon type="down" /></span></div>
                     </div>
                   )}
                   className={this.state.cateOpend[index] ? 'category-open' : 'category-closed'}
                 >
                   {
-                    lists[cate].sort((a, b) => b.english < a.english).map((item) => {
+                    lists[cate].sort((a, b) => a.title > b.title).map((item) => {
                       const paths = item.filename.split('/');
                       if (config.indexDemos.indexOf(paths[1]) > -1) {
                         return item.demos.map(j => (
@@ -105,7 +105,7 @@ export default class App extends React.Component {
                               paths[1] + config.hashSpliter + j.order
                             }`}
                           >
-                            {`${item.english} ${item.chinese}-${j.title}`}
+                            {`${item.title} ${appLocale.locale === 'zh-CN' ? item.subtitle : ''}-${j.title[appLocale.locale]}`}
                           </List.Item>
                         ));
                       }
@@ -115,7 +115,8 @@ export default class App extends React.Component {
                           key={`${item.filename}-${cate}`}
                           onClick={() => { location.href = `${rootPath}/${paths[1]}${this.addSearch()}`; }}
                         >
-                          {`${item.title}`}
+                          {`${item.title} `}
+                          {!item.subtitle || appLocale.locale === 'en-US' ? null : item.subtitle}
                         </List.Item>
                       );
                     })

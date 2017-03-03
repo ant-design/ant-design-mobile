@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Layout
-title: 两翼留白
+title: WingBlank
+subtitle: 两翼留白
 ---
 
 WingBlank 是 Flex 布局的控件之一。

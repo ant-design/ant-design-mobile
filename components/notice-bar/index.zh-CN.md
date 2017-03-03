@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Display
-title: 通告栏
+title: NoticeBar
+subtitle: 通告栏
 ---
 
 在导航栏下方，一般用作系统提醒、活动提醒等通知。

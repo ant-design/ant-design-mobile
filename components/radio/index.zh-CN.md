@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 单选框
+title: Radio
+subtitle: 单选框
 ---
 
 单选框

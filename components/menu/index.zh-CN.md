@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Navigation
-title: 菜单
+title: Menu
+subtitle: 菜单
 ---
 
 在一个临时的面板上显示一组操作。

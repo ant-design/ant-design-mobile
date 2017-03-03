@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 选择器
+title: PickerView
+subtitle: 选择器
 ---
 
 Picker 直接渲染在区域中

@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 多行输入
+title: TextareaItem
+subtitle: 多行输入
 ---
 
 

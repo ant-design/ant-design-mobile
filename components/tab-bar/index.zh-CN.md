@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Navigation
-title: 标签栏
+title: TabBar
+subtitle: 标签栏
 ---
 
 位于 APP 底部，方便用户在不同功能模块之间进行快速切换。

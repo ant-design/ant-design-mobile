@@ -2,6 +2,7 @@
 category: Components
 type: Navigation
 title: Pagination
+subtitle: 分页器
 ---
 
 分隔长列表，每次只加载一个页面。

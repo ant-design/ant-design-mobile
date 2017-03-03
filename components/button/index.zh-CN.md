@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 按钮
+title: Button
+subtitle: 按钮
 ---
 
 点击后会触发一个操作。

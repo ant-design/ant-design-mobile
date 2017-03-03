@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Feedback
-title: 活动指示器
+title: ActivityIndicator
+subtitle: 活动指示器
 ---
 
 

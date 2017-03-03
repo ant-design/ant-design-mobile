@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Feedback
-title: 轻提示
+title: Toast
+subtitle: 轻提示
 ---
 
 

@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Navigation
-title: 气泡
+title: Popover
+subtitle: 气泡
 ---
 
 

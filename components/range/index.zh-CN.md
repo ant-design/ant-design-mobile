@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 区域选择
+title: Range
+subtitle: 区域选择
 ---
 
 

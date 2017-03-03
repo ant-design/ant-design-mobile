@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Gesture
-title: 下拉刷新
+title: RefreshControl
+subtitle: 下拉刷新
 ---
 
 通过触发，立刻重新加载内容。

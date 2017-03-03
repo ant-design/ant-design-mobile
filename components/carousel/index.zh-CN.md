@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Display
-title: 走马灯
+title: Carousel
+subtitle: 走马灯
 ---
 
 走马灯，轮播图

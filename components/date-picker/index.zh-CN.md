@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 日期选择
+title: DatePicker
+subtitle: 日期选择
 ---
 
 用于选择日期或者时间。

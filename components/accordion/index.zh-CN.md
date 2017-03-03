@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Display
-title: 手风琴
+title: Accordion
+subtitle: 手风琴
 ---
 
 可以折叠/展开的内容区域。

@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Display
-title: 表格
+title: Table
+subtitle: 表格
 ---
 
 由于以下原因：
