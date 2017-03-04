@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ant Design Mobile | 移动端设计规范</title>
+    <title>Ant Design Mobile | A Mobile Design Specification</title>
     <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/index.css"/>
     <!--[if lte IE 10]>
@@ -28,11 +28,50 @@
         ga('send', 'pageview');
         /* eslint-enable */
       }
+     (function() {
+        function isLocalStorageNameSupported() {
+          const testKey = 'test';
+          const storage = window.localStorage;
+          try {
+            storage.setItem(testKey, '1');
+            storage.removeItem(testKey);
+            return true;
+          } catch (error) {
+            return false;
+          }
+        }
+        // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
+        var pathname = location.pathname;
+        function isZhCN(pathname) {
+          return /-cn\/?$/.test(pathname);
+        }
+        function getLocalizedPathname(path, zhCN) {
+          var pathname = path.startsWith('/') ? path : '/' + path;
+          if (!zhCN) { // to enUS
+            return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
+          } else if (pathname === '/') {
+            return '/index-cn';
+          } else if (pathname.endsWith('/')) {
+            return pathname.replace(/\/$/, '-cn/');
+          }
+          return pathname + '-cn';
+        }
+        // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
+        if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
+          var lang = (window.localStorage && localStorage.getItem('locale')) || navigator.language;
+          if ((lang === 'zh-CN') !== isZhCN(pathname)) {
+            location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+          }
+        }
+        document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
+      })()
     </script>
   </head>
   <body>
     <div id="react-content"></div>
-    <script src="https://as.alipayobjects.com/g/component/??react/15.3.2/react.min.js,react/15.3.2/react-dom.min.js"></script>
+    <!-- <script src="https://as.alipayobjects.com/g/component/??react/15.3.2/react.min.js,react/15.3.2/react-dom.min.js"></script> -->
+    <!-- 调试的时候可以用未压缩版本 -->
+    <script src="https://as.alipayobjects.com/g/component/??react/15.3.2/react.js,react/15.3.2/react-dom.js"></script>
     <!-- react-router@3.0.1 -->
     <script src="https://os.alipayobjects.com/rmsportal/cKhWVRQekamWvdBwZcGT.js"></script>
     <!-- history@3.2.1 -->
