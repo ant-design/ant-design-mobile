@@ -19,7 +19,7 @@ function callback(key) {
 
 const TabExample = () => (
   <div>
-    <Tabs defaultActiveKey="1" onChange={callback}>
+    <Tabs defaultActiveKey="2" onChange={callback}>
       <TabPane tab="选项卡一" key="1">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           选项卡一内容

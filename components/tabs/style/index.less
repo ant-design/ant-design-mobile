@@ -44,21 +44,25 @@
       background: -o-linear-gradient(left,  @page-hide-color, @page-show-color);
     }
 
-    .@{tabs-prefix-cls}-nav-swipe {
-      position: relative;
-      left: 0;
+    .@{tabs-prefix-cls}-nav-swipe-container {
+      width: 100%;
+      .@{tabs-prefix-cls}-nav-swipe {
+        position: relative;
+        left: 0;
 
-      .@{tabs-prefix-cls}-nav {
-        width: 100%;
-        display: flex;
-        flex: 1;
+        .@{tabs-prefix-cls}-nav {
+          width: 100%;
+          display: flex;
+          flex: 1;
 
-        .@{tabs-prefix-cls}-tab {
-          justify-content: center;
-          flex: 0 0 20%;
+          .@{tabs-prefix-cls}-tab {
+            justify-content: center;
+            flex: 0 0 20%;
+          }
         }
       }
     }
+
 
     .@{tabs-prefix-cls}-tab {
       display: flex;
