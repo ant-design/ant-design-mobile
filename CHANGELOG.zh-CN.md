@@ -13,6 +13,13 @@ title: 更新日志
 
 ---
 
+### 1.0.3
+
+`2017-03-04`
+
+## Bug Fix
+- 修复 `Tabs` 在设置 pageSize 情况下宽度计算的问题。（[#935](https://github.com/ant-design/ant-design-mobile/issues/935)）
+
 ### 1.0.2
 
 `2017-03-04`
