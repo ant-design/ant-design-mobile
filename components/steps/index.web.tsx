@@ -42,9 +42,11 @@ export default class Steps extends React.Component<StepsProps, any> {
   render() {
     this.stepRefs = [];
     const { children, current, status } = this.props;
-    const newChildren = React.Children.map(children, (item: any, index) => {
+    // flattern the array at first https://github.com/ant-design/ant-design-mobile/issues/934
+    let newChildren: Array<any> = React.Children.map(children, item => item);
+    newChildren = React.Children.map(newChildren, (item: any, index) => {
       let className = item.props.className;
-      if (index < children.length - 1 && children[index + 1].props.status === 'error') {
+      if (index < newChildren.length - 1 && newChildren[index + 1].props.status === 'error') {
         className = className ? `${className} error-tail` : 'error-tail';
       }
 
