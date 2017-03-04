@@ -11,7 +11,7 @@ function pickerGenerator(module) {
   /* eslint-disable consistent-return */
   return (markdownData) => {
     const filename = markdownData.meta.filename;
-    if (tester.test(filename) && !/\.en-US\.md/.test(filename)) {
+    if (tester.test(filename)) {
       return {
         meta: markdownData.meta,
       };
@@ -64,7 +64,7 @@ module.exports = {
     },
     /* eslint-disable consistent-return */
     changelog(markdownData) {
-      if (markdownData.meta.filename === 'CHANGELOG.md') {
+      if (/CHANGELOG/.test(markdownData.meta.filename)) {
         return {
           meta: markdownData.meta,
         };

@@ -1,6 +1,6 @@
 ---
 order: 4
-english: 更新日志
+title: Change Log
 ---
 
 `antd-mobile` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
@@ -12,6 +12,33 @@ english: 更新日志
 * 大版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
+### 1.0.2
+
+`2017-03-04`
+
+## Feature
+- Tabs 新增 `pageSize` API，新增支持 swipeableTabBar 滑动头部。 （[#882](https://github.com/ant-design/ant-design-mobile/pull/882)）
+- Modal 增加 Modal.operation ([#925](https://github.com/ant-design/ant-design-mobile/pull/925)) 感谢 @lixiaoyang1992
+- 新增 Russian Locale ([#901](https://github.com/ant-design/ant-design-mobile/pull/901)) 感谢 @NeonXP
+
+## Bug Fix
+- Stepper `onChange` 重复触发 （[#891](https://github.com/ant-design/ant-design-mobile/issues/891)）
+- 修复 CheckboxItem 与 BrowserSync 不兼容的问题 ([#350](https://github.com/ant-design/ant-design-mobile/issues/350))
+- 修复 Tabs `className` 校验的 bug ([#904](https://github.com/ant-design/ant-design-mobile/issues/904))
+- RN stepper `readOnly` 默认改为 `false` ([#890](https://github.com/ant-design/ant-design-mobile/issues/890))
+- 修复Grid在较老旧Android版本上宽度计算的问题
+- 修复 RN android Tabbar 和 Toast、Popup、ActionSheet 混合使用时 zIndex 混乱的 bug；（[#910](https://github.com/ant-design/ant-design-mobile/issues/910)）
+- 修复 RN Carousel android 闪烁、componentWillUnmount 不执行的 bug；([#899](https://github.com/ant-design/ant-design-mobile/issues/899),[#906](https://github.com/ant-design/ant-design-mobile/issues/906))
+- 修复 ActionSheet(web & RN) maskClosable 不支持 callback index 的问题；([#908](https://github.com/ant-design/ant-design-mobile/issues/908))
+- 修复 RN Button 回调参数错误，restProps 覆盖问题；
+
+
+## Improve
+- Icon 增加 try catch，避免控制台报错 ([#895](https://github.com/ant-design/ant-design-mobile/issues/895))
+- 官网重构支持国际化，自动检测浏览器语言并支持中/英文切换
+- 文档翻译进行中，欢迎参与贡献~ ([#329](https://github.com/ant-design/ant-design-mobile/issues/329))
+- 官方 demo 更新 [antd-mobile-samples](https://github.com/ant-design/antd-mobile-samples)
 
 
 ### 1.0.1
