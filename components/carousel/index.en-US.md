@@ -14,6 +14,7 @@ title: Carousel
 | dots | 是否显示面板指示点 | Boolean   | true |
 | vertical | 垂直显示(web 为内容，rn 为 pagination) | Boolean   | false |
 | autoplay | 是否自动切换 | Boolean   | false |
+| autoplayInterval |  Interval for autoplay iteration |    Number  |  3000         |
 | infinite | 是否循环播放 | Boolean   | false |
 | afterChange  | 切换面板后的回调函数     | (current: number): void  | 无
 | easing (`web only`) | 动画效果 | String   | linear |
