@@ -35,7 +35,7 @@ export default class App extends React.Component {
   }
 
   addSearch = () => {
-    return window.location.search ? `/${window.location.search}` : '';
+    return window.location.search || '';
   }
 
   render() {
