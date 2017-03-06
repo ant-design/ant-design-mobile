@@ -17,24 +17,22 @@
 
 #### What did you do? Please provide steps to re-produce your problem.（请提供复现步骤）
 
-e.g. What components are imported and what configurations are made（例如：引入了什么组件，传入了何种参数和配置）
+<!-- e.g. What components are imported and what configurations are made（例如：引入了什么组件，传入了何种参数和配置-->
 
 #### What do you expected?（预期的正常效果）
 
-e.g. It works fine as official website（例如：期望像某个官方demo一样正常展示）
+<!-- e.g. It works fine as official website（例如：期望像某个官方demo一样正常展示)-->
 
 #### What happen?（发生了何种非正常现象）
 
-e.g. Style is not as expected。And it will be better to provide screenshot（例如：样式显示不正常，建议提供屏幕截图）
+<!--e.g. Style is not as expected。And it will be better to provide screenshot（例如：样式显示不正常，建议提供屏幕截图）-->
 
 #### Re-producible online demo (可复现的在线demo)
 
-
+<!--
 Compile or tool configuration issues: Put the sample code on GitHub/Coding.net, so we can figure it out.（构建工具或环境配置类问题请提供 github 项目示例源码偏于排查）
 
 Runtime issues: Please fork this [Codepen](http://codepen.io/paranoidjk/pen/LWpaKe) to re-produce you issue.（其他问题建议fork 此 [在线demo](http://codepen.io/paranoidjk/pen/LWpaKe) ）
-
-
-
+-->
 
 
