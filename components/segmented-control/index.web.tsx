@@ -66,11 +66,11 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
         key={idx}
         disabled={disabled}
         activeClassName={`${prefixCls}-item-active`}
-        onPress={disabled ? undefined : (e) => this.onClick(e, idx, value)}
       >
         <div
           className={itemCls}
           style={itemStyle}
+          onClick={disabled ? undefined : (e) => this.onClick(e, idx, value)}
         >
           <div className={`${prefixCls}-item-inner`} />
           {value}
