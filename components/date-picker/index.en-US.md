@@ -12,7 +12,7 @@ title: DatePicker
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型       | 默认值       |
+| 属性        | 说明           | 类型       | 默认值       |
 |------------|----------------|-----------|--------------|
 | mode  | 日期选择的类型,可以是日期`date`、时间`time`、日期+时间`datetime` 、年`year`, 月 `month` | String | `date`  |
 | value | 当前选中时间,各种mode下格式分别为:`YYYY-MM-DD`、`HH:mm`、`YYYY-MM-DD HH:mm` | [moment](http://momentjs.com/) | 无 |

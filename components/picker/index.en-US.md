@@ -13,7 +13,7 @@ title: Picker
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型            | 默认值       |
+| 属性        | 说明           | 类型            | 默认值       |
 |------------|----------------|--------------------|--------------|
 | data    | 数据源        | Array<{value, label, children: Array}> |   -  |
 | value   | 值, 格式[value1, value2, value3], 对应数据源的N级value    | Array  | - |

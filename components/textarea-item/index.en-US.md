@@ -14,7 +14,7 @@ title: TextareaItem
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型             | 默认值       |
+| 属性        | 说明           | 类型             | 默认值       |
 |------------|----------------|-----------------|--------------|
 | value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |

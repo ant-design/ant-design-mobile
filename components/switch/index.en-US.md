@@ -15,7 +15,7 @@ title: Switch
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型         | 默认值       |
+| 属性        | 说明           | 类型         | 默认值       |
 |------------|----------------|-------------|--------------|
 | checked    | 是否默认选中    | Boolean       |   false  |
 | disabled   | 是否不可修改    | Boolean       |   false  |

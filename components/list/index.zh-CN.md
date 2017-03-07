@@ -17,14 +17,14 @@ subtitle: 列表
 
 ### List
 
-| 成员        | 说明           | 类型               | 默认值       |
+| 属性        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
 | renderHeader       | list heder  | (): void |  无  |
 | renderFooter       | list footer  | (): void |  无  |
 
 ### List.Item
 
-| 成员        | 说明           | 类型       | 默认值       |
+| 属性        | 说明           | 类型       | 默认值       |
 |------------|----------------|----------------|
 | thumb       | 缩略图(当为 string 类型时作为 img src)  | String/React.Element |  无  |
 | extra      | 右边内容        | String/React.Element |  无  |

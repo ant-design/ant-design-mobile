@@ -10,7 +10,7 @@ Checkbox
 
 ### Checkbox
 
-| 成员             | 说明           | 类型           | 默认值       |
+| 属性             | 说明           | 类型           | 默认值       |
 |---------------- |----------------|-------------|--------------
 | defaultChecked  |  whether is checked when init  | Boolean   |   |
 | checked         |  whether is checked now (Controlled Mode)   | Boolean  |   |

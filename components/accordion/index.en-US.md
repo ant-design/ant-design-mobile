@@ -15,7 +15,7 @@ title: Accordion
 
 ### Accordion  ( 适用平台：WEB )
 
-| 成员        | 说明           | 类型       | 默认值       |
+| 属性        | 说明           | 类型       | 默认值       |
 |------------|----------------|----------|-------------|
 | activeKey        | 当前激活 tab 面板的 key| Array or String   | 默认无，accordion模式下默认第一个元素|
 | defaultActiveKey | 初始化选中面板的 key | String   | 无 |
@@ -25,7 +25,7 @@ title: Accordion
 
 ### Accordion.Panel  ( 适用平台：WEB )
 
-| 成员        | 说明           | 类型       | 默认值       |
+| 属性        | 说明           | 类型       | 默认值       |
 |------------|----------------|----------|-------------|
 | key  | 对应 activeKey   | String                  | 无     |
 | header | 面板头内容 | React.Element or String | 无     |

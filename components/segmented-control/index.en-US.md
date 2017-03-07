@@ -16,7 +16,7 @@ title: SegmentedControl
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型               | 默认值       |
+| 属性        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | prefixCls(`web only`)  | 样式前缀        | String |  `am-segment`  |
 | className(`web only`) | 样式类        | String |    |

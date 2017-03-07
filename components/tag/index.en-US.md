@@ -12,7 +12,7 @@ title: Tag
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型      | 默认值       |
+| 属性        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | small   |  小号标签  |   Boolean    |  false  |
 | disabled   | 是否不可用      | Boolean |    false  |

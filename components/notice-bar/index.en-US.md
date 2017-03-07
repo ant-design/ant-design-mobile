@@ -11,7 +11,7 @@ title: NoticeBar
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型         | 默认值       |
+| 属性        | 说明           | 类型         | 默认值       |
 |------------|----------------|--------------|
 | mode    | 提示类型，可选`closable`,`link`   | String |  ''  |
 | icon    |  notice 前的图标  |  React.Element | `<Icon type={require('./trips.svg')} size="xxs" />`|

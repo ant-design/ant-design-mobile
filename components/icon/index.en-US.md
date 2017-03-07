@@ -122,7 +122,7 @@ const svgDirs = [
 
 ## API ( 适用平台：WEB & RN )
 
-| 成员        | 说明           | 类型            | 默认值       |
+| 属性        | 说明           | 类型            | 默认值       |
 |------------|----------------|----------------|--------------|
 | type    |   内置 icon 名称或 require 资源(`web`) 或 unicode (`RN`)    | String / reqiure('xxx') / `\ue601`  |  |
 | size    |   图标大小    | 'xxs'/'xs'/'sm'/'md'/'lg' (RN/WEB)/ number  | `md` |
