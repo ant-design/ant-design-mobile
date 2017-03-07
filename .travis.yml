@@ -4,3 +4,9 @@ language: node_js
 
 node_js:
   - "6"
+
+env:
+  - MAX_WORKERS=2
+
+script:
+  - npm run test-all
