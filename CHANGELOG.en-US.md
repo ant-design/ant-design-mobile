@@ -13,6 +13,14 @@ title: Change Log
 
 ---
 
+### 1.0.4
+
+`2017-03-07`
+
+## Bug Fix
+- 修复 `Button`, `ListItem` 在 Android 上点击穿透的问题。（[#937](https://github.com/ant-design/ant-design-mobile/issues/937)）
+
+
 ### 1.0.3
 
 `2017-03-04`
