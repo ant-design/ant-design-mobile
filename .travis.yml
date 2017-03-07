@@ -6,7 +6,20 @@ node_js:
   - "6"
 
 env:
-  - MAX_WORKERS=2
+  matrix:
+    - TEST_TYPE=lint
+    - TEST_TYPE=build
+    - TEST_TYPE=test:web
+    - TEST_TYPE=test:rn
 
 script:
-  - npm run test-all
+  - |
+    if [ "$TEST_TYPE" = lint ]; then
+      npm run lint
+    elif [ "$TEST_TYPE" = build ]; then
+      npm run dist
+    elif [ "$TEST_TYPE" = test:web ]; then
+      npm run test:web -- -w 2
+    elif [ "$TEST_TYPE" = test:rn ]; then
+      npm run test:rn -- -w 2
+    fi
