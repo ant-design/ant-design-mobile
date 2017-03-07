@@ -5,7 +5,13 @@ title:
   en-US: Basic
 ---
 
-基本对话框
+## zh-CN
+
+基本对话框。
+
+## en-US
+
+Basic Modal.
 
 ````jsx
 import { Modal, Button, WhiteSpace, WingBlank } from 'antd-mobile';
