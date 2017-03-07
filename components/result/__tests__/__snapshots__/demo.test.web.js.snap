@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/result/demo/basic.md correctly 1`] = `
+<div
+  class="result-example"
+>
+  <div
+    class="sub-title"
+  >
+    支付成功
+  </div>
+  <div
+    class="am-result"
+  >
+    <div
+      class="am-result-pic"
+    >
+      <svg
+        class="am-icon am-icon-[object Object] am-icon-md icon"
+      >
+        <use
+          xlink:href="#[object Object]"
+        />
+      </svg>
+    </div>
+    <div
+      class="am-result-title"
+    >
+      支付成功
+    </div>
+    <div
+      class="am-result-message"
+    >
+      <div>
+        <div
+          style="font-size:0.72rem;color:#000;line-height:1;"
+        >
+          998.00
+        </div>
+        <del>
+          1098元
+        </del>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="sub-title"
+  >
+    验证成功
+  </div>
+  <div
+    class="am-result"
+  >
+    <div
+      class="am-result-pic"
+    >
+      <svg
+        class="am-icon am-icon-check-circle am-icon-md icon"
+        style="fill:#1F90E6;"
+      >
+        <use
+          xlink:href="#check-circle"
+        />
+      </svg>
+    </div>
+    <div
+      class="am-result-title"
+    >
+      验证成功
+    </div>
+    <div
+      class="am-result-message"
+    >
+      所提交内容已成功完成验证
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="sub-title"
+  >
+    支付失败
+  </div>
+  <div
+    class="am-result"
+  >
+    <div
+      class="am-result-pic"
+    >
+      <svg
+        class="am-icon am-icon-cross-circle-o am-icon-md icon"
+        style="fill:#F13642;"
+      >
+        <use
+          xlink:href="#cross-circle-o"
+        />
+      </svg>
+    </div>
+    <div
+      class="am-result-title"
+    >
+      支付失败
+    </div>
+    <div
+      class="am-result-message"
+    >
+      所选银行卡余额不足
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="sub-title"
+  >
+    等待处理
+  </div>
+  <div
+    class="am-result"
+  >
+    <div
+      class="am-result-pic"
+    >
+      <svg
+        class="am-icon am-icon-[object Object] am-icon-md icon"
+      >
+        <use
+          xlink:href="#[object Object]"
+        />
+      </svg>
+    </div>
+    <div
+      class="am-result-title"
+    >
+      等待处理
+    </div>
+    <div
+      class="am-result-message"
+    >
+      已提交申请，等待银行处理
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="sub-title"
+  >
+    操作失败
+  </div>
+  <div
+    class="am-result"
+  >
+    <div
+      class="am-result-pic"
+    >
+      <svg
+        class="am-icon am-icon-[object Object] am-icon-md icon"
+      >
+        <use
+          xlink:href="#[object Object]"
+        />
+      </svg>
+    </div>
+    <div
+      class="am-result-title"
+    >
+      无法完成操作
+    </div>
+    <div
+      class="am-result-message"
+    >
+      由于你的支付宝账户还未绑定淘宝账户请登请登录www.taobao.com
+    </div>
+  </div>
+</div>
+`;

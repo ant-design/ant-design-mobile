@@ -1,0 +1,306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
+<div
+  class="am-list"
+>
+  <div
+    class="am-list-header"
+  />
+  <div
+    class="am-list-body"
+  >
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          <span
+            class="am-badge"
+            title=""
+          >
+            <span
+              style="width:0.52rem;height:0.52rem;background:#ddd;display:inline-block;"
+            />
+            <sup
+              class="am-badge-dot"
+            >
+                
+            </sup>
+          </span>
+          <span
+            style="margin-left:12px;"
+          >
+            小圆点
+          </span>
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          内容内容
+        </div>
+        <div
+          class="am-list-arrow am-list-arrow-horizontal"
+        />
+      </div>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-thumb"
+      >
+        <img
+          src="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
+        />
+      </div>
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          文本内容
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <span
+            class="am-badge am-badge-not-a-wrapper"
+            title="77"
+          >
+            <sup
+              class="am-badge-text"
+            >
+               77 
+            </sup>
+          </span>
+        </div>
+        <div
+          class="am-list-arrow am-list-arrow-horizontal"
+        />
+      </div>
+    </div>
+    <div
+      class="special-badge am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          文本内容
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <span
+            class="am-badge am-badge-not-a-wrapper"
+            title="促"
+          >
+            <sup
+              class="am-badge-text"
+            >
+               促 
+            </sup>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          文本内容
+          <span
+            class="am-badge am-badge-not-a-wrapper"
+            title="new"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;"
+            >
+               new 
+            </sup>
+          </span>
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          内容内容
+        </div>
+        <div
+          class="am-list-arrow am-list-arrow-horizontal"
+        />
+      </div>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          营销：
+          <span
+            class="am-badge am-badge-not-a-wrapper am-badge-hot"
+            title="减"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;"
+            >
+               减 
+            </sup>
+          </span>
+          <span
+            class="am-badge am-badge-not-a-wrapper am-badge-hot"
+            title="惠"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;"
+            >
+               惠 
+            </sup>
+          </span>
+          <span
+            class="am-badge am-badge-not-a-wrapper am-badge-hot"
+            title="免"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;"
+            >
+               免 
+            </sup>
+          </span>
+          <span
+            class="am-badge am-badge-not-a-wrapper am-badge-hot"
+            title="反"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;"
+            >
+               反 
+            </sup>
+          </span>
+          <span
+            class="am-badge am-badge-not-a-wrapper am-badge-hot"
+            title="HOT"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;"
+            >
+               HOT 
+            </sup>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          自定义：
+          <span
+            class="am-badge am-badge-not-a-wrapper"
+            title="4"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;"
+            >
+               4 
+            </sup>
+          </span>
+          <span
+            class="am-badge am-badge-not-a-wrapper"
+            title="券"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;padding:0 0.06rem;background-color:#f19736;border-radius:2px;"
+            >
+               券 
+            </sup>
+          </span>
+          <span
+            class="am-badge am-badge-not-a-wrapper"
+            title="NEW"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;padding:0 0.06rem;background-color:#21b68a;border-radius:2px;"
+            >
+               NEW 
+            </sup>
+          </span>
+          <span
+            class="am-badge am-badge-not-a-wrapper"
+            title="自动缴费"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;padding:0 0.06rem;background-color:#fff;border-radius:2px;color:#f19736;border:1px solid #f19736;"
+            >
+               自动缴费 
+            </sup>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          超出99
+          <span
+            class="am-badge am-badge-not-a-wrapper"
+            title="99+"
+          >
+            <sup
+              class="am-badge-text"
+              style="margin-left:12px;"
+            >
+               99+ 
+            </sup>
+          </span>
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          内容内容
+        </div>
+        <div
+          class="am-list-arrow am-list-arrow-horizontal"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

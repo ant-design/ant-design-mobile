@@ -69,6 +69,7 @@
     "@types/react-dom": "~0.14.18",
     "@types/react-native": "~0.37.8",
     "antd": "2.x",
+    "antd-demo-jest": "^1.2.0",
     "antd-mobile-demo-data": "^0.1.1",
     "antd-tools": "^0.16.1",
     "babel-eslint": "^7.1.0",
@@ -104,6 +105,7 @@
     "lesshint": "^2.1.0",
     "lint-staged": "^3.3.1",
     "lodash.debounce": "^4.0.6",
+    "mockdate": "^2.0.1",
     "postcss-pxtorem": "^3.3.1",
     "pre-commit": "1.x",
     "promise": "~7.0.4",
@@ -139,7 +141,9 @@
     "pre-publish": "node ./scripts/build-less-entry",
     "prepublish": "antd-tools run guard",
     "test": "npm run lint && npm run dist",
-    "jest": "jest",
+    "jest": "npm run jest:rn && npm run jest:web",
+    "jest:rn": "jest --config .jest.json",
+    "jest:web": "jest --config .jest.web.json",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt",
     "dist": "antd-tools run dist",
     "build": "npm run dist",
@@ -176,34 +180,6 @@
     ],
     "components/*/demo/*.md": [
       "lint-staged:demo"
-    ]
-  },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "md"
-    ],
-    "modulePathIgnorePatterns": [
-      "/_site/"
-    ],
-    "testPathIgnorePatterns": [
-      "dekko",
-      "/node_modules/",
-      "node"
-    ],
-    "transform": {
-      "\\.tsx?$": "./node_modules/typescript-babel-jest",
-      "\\.js$": "./node_modules/babel-jest"
-    },
-    "testRegex": ".*\\.test\\.js$",
-    "collectCoverageFrom": [
-      "components/**/*.{ts,tsx}",
-      "!components/*/style/index.tsx"
     ]
   },
   "config": {

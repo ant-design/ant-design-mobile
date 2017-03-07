@@ -1,0 +1,582 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/notice-bar/demo/basic.tsx correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": 10,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 15,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fffada",
+          "flexDirection": "row",
+          "height": 36,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "marginLeft": 15,
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 14,
+          }
+        }
+      />
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#f4333c",
+            "flex": 1,
+            "fontSize": 15,
+            "marginRight": 15,
+          },
+          Object {
+            "marginLeft": 5,
+          },
+        ]
+      }
+    >
+      国庆期间余额宝收益和转出到账时间
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 15,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fffada",
+          "flexDirection": "row",
+          "height": 36,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "marginLeft": 15,
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 14,
+          }
+        }
+      />
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#f4333c",
+            "flex": 1,
+            "fontSize": 15,
+            "marginRight": 15,
+          },
+          Object {
+            "marginLeft": 5,
+          },
+        ]
+      }
+    >
+      国庆期间余额宝收益和转出到账时间1
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#f4333c",
+              "fontSize": 18,
+              "fontWeight": "200",
+              "marginRight": 15,
+            },
+          ]
+        }
+      >
+        ×
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 15,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fffada",
+          "flexDirection": "row",
+          "height": 36,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "marginLeft": 15,
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://zos.alipayobjects.com/rmsportal/bRnouywfdRsCcLU.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 12,
+          }
+        }
+      />
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#f4333c",
+            "flex": 1,
+            "fontSize": 15,
+            "marginRight": 15,
+          },
+          Object {
+            "marginLeft": 5,
+          },
+        ]
+      }
+    >
+      自定义 NoticeBar 前面的图标
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#f4333c",
+              "fontSize": 18,
+              "fontWeight": "200",
+              "marginRight": 15,
+            },
+          ]
+        }
+      >
+        ×
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 15,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fffada",
+          "flexDirection": "row",
+          "height": 36,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "marginLeft": 15,
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 14,
+          }
+        }
+      />
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#f4333c",
+            "flex": 1,
+            "fontSize": 15,
+            "marginRight": 15,
+          },
+          Object {
+            "marginLeft": 5,
+          },
+        ]
+      }
+    >
+      国庆期间余额宝收益和转出到账时间
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#f4333c",
+            "fontSize": 10,
+            "fontWeight": "500",
+            "marginRight": 15,
+            "transform": Array [
+              Object {
+                "rotate": "225deg",
+              },
+            ],
+          },
+        ]
+      }
+    >
+      ∟
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 15,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fffada",
+          "flexDirection": "row",
+          "height": 36,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "marginLeft": 15,
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 14,
+          }
+        }
+      />
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#f4333c",
+            "flex": 1,
+            "fontSize": 15,
+            "marginRight": 15,
+          },
+          Object {
+            "marginLeft": 5,
+          },
+        ]
+      }
+    >
+      国庆期间余额宝收益和转出到账时间
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#f4333c",
+            "fontSize": 10,
+            "fontWeight": "500",
+            "marginRight": 15,
+            "transform": Array [
+              Object {
+                "rotate": "225deg",
+              },
+            ],
+          },
+        ]
+      }
+    >
+      ∟
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 15,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fffada",
+          "flexDirection": "row",
+          "height": 36,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#f4333c",
+            "flex": 1,
+            "fontSize": 15,
+            "marginRight": 15,
+          },
+          Object {
+            "marginLeft": 15,
+          },
+        ]
+      }
+    >
+      去除 NoticeBar 默认的喇叭图标
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={undefined}
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#f4333c",
+              "fontSize": 18,
+              "fontWeight": "200",
+              "marginRight": 15,
+            },
+          ]
+        }
+      >
+        ×
+      </Text>
+    </View>
+  </View>
+</View>
+`;

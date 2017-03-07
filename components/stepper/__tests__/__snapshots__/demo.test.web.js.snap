@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
+<div
+  class="am-list"
+>
+  <div
+    class="am-list-header"
+  >
+    演示
+  </div>
+  <div
+    class="am-list-body"
+  >
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          显示数值
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <div
+            class="am-stepper showNumber"
+            style="width:100%;min-width:2rem;"
+          >
+            <div
+              class="am-stepper-handler-wrap"
+            >
+              <span
+                class="am-stepper-handler am-stepper-handler-up "
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-[object Object] am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#[object Object]"
+                  />
+                </svg>
+              </span>
+              <span
+                class="am-stepper-handler am-stepper-handler-down "
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-[object Object] am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#[object Object]"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="am-stepper-input-wrap"
+            >
+              <input
+                autocomplete="off"
+                class="am-stepper-input"
+                max="10"
+                min="1"
+                value="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          禁用
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <div
+            class="am-stepper showNumber am-stepper-disabled"
+            style="width:100%;min-width:2rem;"
+          >
+            <div
+              class="am-stepper-handler-wrap"
+            >
+              <span
+                class="am-stepper-handler am-stepper-handler-up "
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-[object Object] am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#[object Object]"
+                  />
+                </svg>
+              </span>
+              <span
+                class="am-stepper-handler am-stepper-handler-down "
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-[object Object] am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#[object Object]"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              class="am-stepper-input-wrap"
+            >
+              <input
+                autocomplete="off"
+                class="am-stepper-input"
+                disabled=""
+                max="10"
+                min="1"
+                value="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

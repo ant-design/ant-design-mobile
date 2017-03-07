@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
+<div
+  class="am-wingblank am-wingblank-lg"
+>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    class="am-button"
+    role="button"
+  >
+    <span>
+      纯文字 toast
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    class="am-button"
+    role="button"
+  >
+    <span>
+      无 mask
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    class="am-button"
+    role="button"
+  >
+    <span>
+      成功 toast
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    class="am-button"
+    role="button"
+  >
+    <span>
+      失败 toast
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    class="am-button"
+    role="button"
+  >
+    <span>
+      网络 toast
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    class="am-button"
+    role="button"
+  >
+    <span>
+      加载中 toast
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
+`;

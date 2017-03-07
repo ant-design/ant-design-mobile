@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/progress/demo/basic.md correctly 1`] = `
+<div
+  class="progress-container"
+>
+  <div
+    class="am-progress-outer am-progress-fixed-outer"
+  >
+    <div
+      class="am-progress-bar"
+      style="width:30%;height:0;"
+    />
+  </div>
+  <div
+    style="height:36px;"
+  />
+  <div
+    class="am-progress-outer am-progress-hide-outer"
+  >
+    <div
+      class="am-progress-bar"
+      style="width:0;height:0;"
+    />
+  </div>
+  <div
+    class="show-info"
+  >
+    <div
+      class="progress"
+    >
+      <div
+        class="am-progress-outer"
+      >
+        <div
+          class="am-progress-bar"
+          style="width:50%;height:0;"
+        />
+      </div>
+    </div>
+    <div>
+      50%
+    </div>
+  </div>
+  <a
+    class="am-button am-button-inline"
+    role="button"
+    style="margin-top:20px;"
+  >
+    <span>
+      (+-)10
+    </span>
+  </a>
+</div>
+`;

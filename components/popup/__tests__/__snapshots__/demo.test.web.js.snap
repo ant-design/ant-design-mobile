@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/popup/demo/basic.md correctly 1`] = `
+<div
+  style="padding:0.15rem;"
+>
+  <a
+    class="am-button"
+    role="button"
+  >
+    <span>
+      显 示
+    </span>
+  </a>
+</div>
+`;
+
+exports[`renders ./components/popup/demo/basic-up.md correctly 1`] = `
+<div
+  style="padding:0.15rem;"
+>
+  <a
+    class="am-button"
+    role="button"
+  >
+    <span>
+      显 示
+    </span>
+  </a>
+</div>
+`;

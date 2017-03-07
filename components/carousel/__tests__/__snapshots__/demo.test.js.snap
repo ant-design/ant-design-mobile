@@ -1,0 +1,428 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": 30,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 15,
+      }
+    }
+  >
+    <View
+      onLayout={[Function]}
+    >
+      <ScrollView
+        afterChange={[Function]}
+        automaticallyAdjustContentInsets={false}
+        autoplay={true}
+        autoplayInterval={3000}
+        autoplayTimeout={2}
+        bounces={true}
+        contentContainerStyle={
+          Object {
+            "backgroundColor": "#fff",
+          }
+        }
+        contentOffset={
+          Object {
+            "x": 0,
+            "y": 0,
+          }
+        }
+        directionalLockEnabled={true}
+        dots={true}
+        horizontal={true}
+        infinite={true}
+        onMomentumScrollEnd={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        pagingEnabled={true}
+        removeClippedSubviews={false}
+        scrollEventThrottle={100}
+        selectedIndex={2}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        style={
+          Object {
+            "backgroundColor": "#fff",
+          }
+        }
+        styles={
+          Object {
+            "pagination": Object {
+              "alignItems": "center",
+              "position": "absolute",
+            },
+            "paginationX": Object {
+              "bottom": 10,
+              "left": 0,
+              "right": 0,
+            },
+            "paginationY": Object {
+              "bottom": 0,
+              "right": 10,
+              "top": 0,
+            },
+          }
+        }
+        vertical={false}
+      >
+        <View
+          style={
+            Object {
+              "width": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "height": 150,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "backgroundColor": "#ccc",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              Carousel 5
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "height": 150,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "backgroundColor": "red",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              Carousel 1
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "height": 150,
+                  "justifyContent": "center",
+                },
+                undefined,
+                Object {
+                  "backgroundColor": "blue",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              Carousel 2
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "height": 150,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "backgroundColor": "yellow",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              Carousel 3
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "height": 150,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "backgroundColor": "black",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              Carousel 4
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "height": 150,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "backgroundColor": "#ccc",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              Carousel 5
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "width": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "height": 150,
+                  "justifyContent": "center",
+                },
+                Object {
+                  "backgroundColor": "red",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              Carousel 1
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "position": "absolute",
+              },
+              Object {
+                "bottom": 10,
+                "left": 0,
+                "right": 0,
+              },
+            ],
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ccc",
+                  "borderRadius": 8,
+                  "height": 8,
+                  "width": 8,
+                },
+                Object {
+                  "marginHorizontal": 2.5,
+                  "marginVertical": 3,
+                },
+                false,
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ccc",
+                  "borderRadius": 8,
+                  "height": 8,
+                  "width": 8,
+                },
+                Object {
+                  "marginHorizontal": 2.5,
+                  "marginVertical": 3,
+                },
+                false,
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ccc",
+                  "borderRadius": 8,
+                  "height": 8,
+                  "width": 8,
+                },
+                Object {
+                  "marginHorizontal": 2.5,
+                  "marginVertical": 3,
+                },
+                Object {
+                  "backgroundColor": "#888",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ccc",
+                  "borderRadius": 8,
+                  "height": 8,
+                  "width": 8,
+                },
+                Object {
+                  "marginHorizontal": 2.5,
+                  "marginVertical": 3,
+                },
+                false,
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ccc",
+                  "borderRadius": 8,
+                  "height": 8,
+                  "width": 8,
+                },
+                Object {
+                  "marginHorizontal": 2.5,
+                  "marginVertical": 3,
+                },
+                false,
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Carousel 根据内容自适应高度
+    </Text>
+  </View>
+</View>
+`;

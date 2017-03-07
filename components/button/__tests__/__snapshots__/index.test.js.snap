@@ -44,24 +44,32 @@ exports[`Button renders correctly 1`] = `
   }
   testID={undefined}
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+  <View
     style={
-      Array [
-        Object {
-          "fontSize": 18,
-        },
-        Object {
-          "color": "#000",
-        },
-        false,
-        false,
-      ]
+      Object {
+        "flexDirection": "row",
+      }
     }
   >
-    foo
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "fontSize": 18,
+          },
+          Object {
+            "color": "#000",
+          },
+          false,
+          false,
+        ]
+      }
+    >
+      foo
+    </Text>
+  </View>
 </View>
 `;

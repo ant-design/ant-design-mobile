@@ -1,0 +1,420 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      自定义获取光标
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          标题
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="自动获取光标"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          标题
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="点击下方按钮该输入框会获取光标"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            <div
+              style="width:100%;color:#108ee9;text-align:center;"
+            >
+              点击获取光标
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      受控 / 非受控
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          受控组件
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="Hello World"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          非受控组件
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            data-seed="logId"
+            placeholder="请输入内容"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      带清除按钮
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          标题
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="带清除按钮，输入会显示"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      标题字数
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          标题过长超过默认的5个字
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="限制标题显示的长度"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      标题可自定义（文字 / 图片 / 无标题）
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="无 label"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          <div
+            style="background-image:url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png);background-size:cover;height:0.44rem;width:0.44rem;"
+          />
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="标题可自定义为icon，图片或文字"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      右侧注释可自定义
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          价格
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="0.00"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="am-input-extra"
+        >
+          元
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      格式
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          银行卡
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder=""
+            type="tel"
+            value="8888 8888 8888 8888"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          手机号码
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="186 1234 1234"
+            type="tel"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          密码
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="****"
+            type="password"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          数字键盘
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            pattern="[0-9]*"
+            placeholder="点击会弹出数字键盘"
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      不可编辑 / 禁用
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          姓名
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder=""
+            readonly=""
+            type="text"
+            value="不可编辑"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item am-input-disabled"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          姓名
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            disabled=""
+            placeholder=""
+            type="text"
+            value="这个是禁用状态的样式"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

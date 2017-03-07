@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-image-picker"
+  >
+    <div
+      class="am-image-picker-list"
+    >
+      <div
+        class="am-wingblank am-wingblank-md"
+      >
+        <div
+          class="am-flexbox am-flexbox-wrap am-flexbox-align-middle"
+        >
+          <div
+            class="am-image-picker-item"
+            style="width:-9px;height:-9px;"
+          >
+            <div
+              class="am-image-picker-item-remove"
+            />
+            <div
+              class="am-image-picker-item-content"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);"
+            />
+          </div>
+          <div
+            class="am-image-picker-item"
+            style="width:-9px;height:-9px;"
+          >
+            <div
+              class="am-image-picker-item-remove"
+            />
+            <div
+              class="am-image-picker-item-content"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);"
+            />
+          </div>
+          <div
+            class="am-image-picker-item am-image-picker-upload-btn"
+            style="width:-9px;height:-9px;"
+          >
+            <input
+              accept="image/jpg,image/jpeg,image/png,image/gif"
+              style="width:-9px;height:-9px;"
+              type="file"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
+<div>
+  <div
+    class="am-image-picker"
+  >
+    <div
+      class="am-image-picker-list"
+    >
+      <div
+        class="am-wingblank am-wingblank-md"
+      >
+        <div
+          class="am-flexbox am-flexbox-wrap am-flexbox-align-middle"
+        >
+          <div
+            class="am-image-picker-item"
+            style="width:-9px;height:-9px;"
+          >
+            <div
+              class="am-image-picker-item-remove"
+            />
+            <div
+              class="am-image-picker-item-content"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);"
+            />
+          </div>
+          <div
+            class="am-image-picker-item"
+            style="width:-9px;height:-9px;"
+          >
+            <div
+              class="am-image-picker-item-remove"
+            />
+            <div
+              class="am-image-picker-item-content"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);"
+            />
+          </div>
+          <div
+            class="am-image-picker-item am-image-picker-upload-btn"
+            style="width:-9px;height:-9px;"
+          >
+            <input
+              accept="image/jpg,image/jpeg,image/png,image/gif"
+              style="width:-9px;height:-9px;"
+              type="file"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

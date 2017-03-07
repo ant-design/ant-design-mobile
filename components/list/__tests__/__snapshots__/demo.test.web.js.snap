@@ -1,0 +1,644 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/list/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-list my-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      基本样式
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            标题文字
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            内容内容
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list my-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      带副标题
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line am-list-line-multiple"
+        >
+          <div
+            class="am-list-content"
+          >
+            标题文字 
+            <div
+              class="am-list-brief"
+            >
+              副标题
+            </div>
+          </div>
+          <div
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-thumb"
+        >
+          <img
+            src="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          />
+        </div>
+        <div
+          class="am-list-line am-list-line-multiple"
+        >
+          <div
+            class="am-list-content"
+          >
+            标题文字 
+            <div
+              class="am-list-brief"
+            >
+              副标题
+            </div>
+          </div>
+          <div
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list my-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      右侧自定义（无内容 / 文字 / 图片）
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            标题文字
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            标题文字
+          </div>
+          <div
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            标题文字
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            内容内容
+          </div>
+          <div
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-top"
+      >
+        <div
+          class="am-list-thumb"
+        >
+          <img
+            src="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          />
+        </div>
+        <div
+          class="am-list-line am-list-line-multiple"
+        >
+          <div
+            class="am-list-content"
+          >
+            标题文字 
+            <div
+              class="am-list-brief"
+            >
+              副标题
+            </div>
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            10:30
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list my-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      垂直居中对齐
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line am-list-line-multiple"
+        >
+          <div
+            class="am-list-content"
+          >
+            标题文字 
+            <div
+              class="am-list-brief"
+            >
+              副标题
+            </div>
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            内容内容
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      左侧带图标
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-thumb"
+        >
+          <img
+            src="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          />
+        </div>
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            我的钱包
+          </div>
+          <div
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-thumb"
+        >
+          <img
+            src="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+          />
+        </div>
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            我的花销占比
+          </div>
+          <div
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list my-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      文字换行
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-list-item-middle"
+        data-seed="logId"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            单行模式，文字超长则隐藏；文本内容文本内容文本内容文本内容
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line am-list-line-wrap"
+        >
+          <div
+            class="am-list-content"
+          >
+            多行模式，文字超长则换行；文本内容文本内容文本内容文本内容文本内容文本内容
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-top"
+      >
+        <div
+          class="am-list-line am-list-line-multiple am-list-line-wrap"
+        >
+          <div
+            class="am-list-content"
+          >
+            多行标题文字超长直接折行，文字可能比较长、文字可能比较长、
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            内容内容
+          </div>
+        </div>
+      </div>
+      <div
+        class="spe am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line am-list-line-wrap"
+        >
+          <div
+            class="am-list-content"
+          >
+            极个别情况下，单行标题文字可能比较长，文字可能比较长、文字可能比较长、靠近右边会折行
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            没有箭头
+          </div>
+          <div
+            class="am-list-arrow"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list my-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      其他
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            点击禁用
+          </div>
+          <div
+            class="am-list-extra"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            <select>
+              <option
+                selected=""
+                value="1"
+              >
+                这是原生 html select
+              </option>
+              <option
+                disabled=""
+                value="2"
+              >
+                不可选
+              </option>
+              <option
+                value="3"
+              >
+                选项3
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/list/demo/form.md correctly 1`] = `
+<form>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      验证表单
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          帐号
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="请输入账号"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          密码
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="请输入密码"
+            type="password"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            确认信息
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            <label
+              class="am-switch"
+            >
+              <input
+                checked=""
+                class="am-switch-checkbox"
+                name=""
+                type="checkbox"
+              />
+              <div
+                class="checkbox"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            <div
+              class="am-slider-wrapper"
+            >
+              <div
+                class="am-slider"
+              >
+                <div
+                  class="am-slider-rail"
+                />
+                <div
+                  class="am-slider-track am-slider-track-1"
+                  style="visibility:visible;left:20%;width:30%;"
+                />
+                <div
+                  class="am-slider-step"
+                />
+                <div
+                  class="am-slider-handle am-slider-handle-1"
+                  style="left:20%;"
+                />
+                <div
+                  class="am-slider-handle am-slider-handle-2"
+                  style="left:50%;"
+                />
+                <div
+                  class="am-slider-mark"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            预定人数
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            <div
+              class="am-stepper showNumber"
+              style="width:100%;min-width:2rem;"
+            >
+              <div
+                class="am-stepper-handler-wrap"
+              >
+                <span
+                  class="am-stepper-handler am-stepper-handler-up "
+                  unselectable="unselectable"
+                >
+                  <svg
+                    class="am-icon am-icon-[object Object] am-icon-xxs"
+                  >
+                    <use
+                      xlink:href="#[object Object]"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="am-stepper-handler am-stepper-handler-down "
+                  unselectable="unselectable"
+                >
+                  <svg
+                    class="am-icon am-icon-[object Object] am-icon-xxs"
+                  >
+                    <use
+                      xlink:href="#[object Object]"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="am-stepper-input-wrap"
+              >
+                <input
+                  autocomplete="off"
+                  class="am-stepper-input"
+                  max="Infinity"
+                  min="-Infinity"
+                  value="20"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            <a
+              class="am-button am-button-primary am-button-inline"
+              role="button"
+            >
+              <span>
+                提交验证
+              </span>
+            </a>
+            <a
+              class="am-button am-button-inline"
+              role="button"
+              style="margin-left:5px;"
+            >
+              <span>
+                重 置
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-list-footer"
+    />
+  </div>
+</form>
+`;
