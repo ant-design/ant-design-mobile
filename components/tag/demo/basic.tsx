@@ -11,23 +11,23 @@ export default class BasicTagExample extends React.Component<any, any> {
   render() {
     return (
       <View style={{ padding: 10 }}>
-        <Tag>通用标签</Tag>
+        <Tag>Basic</Tag>
         <WhiteSpace />
-        <Tag selected>默认选中标签</Tag>
+        <Tag selected>Selected</Tag>
         <WhiteSpace />
-        <Tag disabled>失效标签</Tag>
+        <Tag disabled>Disabled</Tag>
         <WhiteSpace />
-        <Tag onChange={onChange}>事件回调</Tag>
+        <Tag onChange={onChange}>Callback</Tag>
         <WhiteSpace />
         <Tag
           closable
           onClose={() => { console.log('onClose'); }}
           afterClose={() => { console.log('afterClose'); }}
         >
-          可关闭标签
+          Closable
         </Tag>
         <WhiteSpace />
-        <Tag small>小号标签</Tag>
+        <Tag small>Small and Readonly</Tag>
       </View>
     );
   }

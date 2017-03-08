@@ -5,7 +5,7 @@ title:
   en-US: Basic
 ---
 
-标签分为选择型标签和只读型标签，只读型标签为小标签无交互过程，仅展示内容。
+There are two kinds of Tag, selectable and readonly type, the latter is a smaller tag without interactive behavior, which is typically used for display content.
 
 ````jsx
 import { Tag } from 'antd-mobile';
@@ -16,19 +16,19 @@ function onChange(selected) {
 
 ReactDOM.render(
   <div className="tag-container">
-    <Tag data-seed="logId">通用标签</Tag>
-    <Tag selected>默认选中</Tag>
-    <Tag disabled>失效标签</Tag>
-    <Tag onChange={onChange}>事件回调</Tag>
+    <Tag data-seed="logId">Basic</Tag>
+    <Tag selected>Selected</Tag>
+    <Tag disabled>Disabled</Tag>
+    <Tag onChange={onChange}>Callback</Tag>
     <Tag closable onClose={() => {
       console.log('onClose');
     }} afterClose={() => {
       console.log('afterClose');
     }}
     >
-      可关闭标签
+      Closable
     </Tag>
-    <Tag small>小号只读标签</Tag>
+    <Tag small>Small and Readonly</Tag>
   </div>
 , mountNode);
 ````
