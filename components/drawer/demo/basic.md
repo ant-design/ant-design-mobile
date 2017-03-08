@@ -5,7 +5,13 @@ title:
   en-US: Basic
 ---
 
+## zh-CN
+
 遮罩层模式
+
+## en-US
+
+Overlayer mode
 
 
 ````jsx
@@ -27,11 +33,11 @@ class App1 extends React.Component {
           return (<List.Item key={index}
             thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
             multipleLine
-          >分类</List.Item>);
+          >Category</List.Item>);
         }
         return (<List.Item key={index}
           thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-        >分类{index}</List.Item>);
+        >Category{index}</List.Item>);
       })}
     </List>);
 
@@ -41,7 +47,7 @@ class App1 extends React.Component {
       onOpenChange: this.onOpenChange,
     };
     return (<div>
-      <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>基本</NavBar>
+      <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>Basic</NavBar>
       <Drawer
         className="my-drawer"
         style={{ minHeight: document.documentElement.clientHeight - 200 }}
@@ -50,7 +56,7 @@ class App1 extends React.Component {
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
         {...drawerProps}
       >
-        请点击左上角图标
+        Click upper-left corner icon
       </Drawer>
     </div>);
   }
