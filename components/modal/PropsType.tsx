@@ -22,6 +22,7 @@ interface ModalProps {
   wrapClassName?: string;
   touchFeedback?: boolean;
   wrapProps?: {};
+  operation?: boolean;
 };
 
 export default ModalProps;

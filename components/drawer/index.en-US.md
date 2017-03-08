@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Navigation
-chinese: 抽屉
-english: Drawer
+title: Drawer
 ---
 
 
@@ -14,7 +13,7 @@ english: Drawer
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型      | 默认值       |
+| 属性        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | children | 主要内容 | any | - |
 | sidebar | 抽屉里的内容 | any | - |

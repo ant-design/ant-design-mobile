@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Navigation
-chinese: 气泡
-english: Popover
-source: design
+title: Popover
 ---
 
 
@@ -16,7 +14,7 @@ source: design
 ## API ( 适用平台：WEB、React-Native )
 
 ### Popover
-| 成员        | 说明           | 类型         | 默认值       |
+| 属性        | 说明           | 类型         | 默认值       |
 |------------|----------------|-------------|--------------|
 | visible (`web only`)   | 当前显隐状态    | Boolean |  false   |
 | onVisibleChange (`web only`)   | 当显隐状态变化时回调函数    | (visible: bool): void |  -   |
@@ -34,7 +32,7 @@ source: design
 | openMenu / closeMenu / toggleMenu(`rn only`)   | 用于手动开关 menu，参数为上边 menu 的 name. 使用示例见 demo  | Function(name) |  -   |
 
 ### Popover.Item
-| 成员        | 说明           | 类型         | 默认值       |
+| 属性        | 说明           | 类型         | 默认值       |
 |------------|----------------|-------------|--------------|
 | children   | 节点内容    | String/React.node |  -   |
 | disabled   | 是否禁用    | Boolean |  false   |

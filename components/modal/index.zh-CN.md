@@ -1,9 +1,8 @@
 ---
 category: Components
 type: Feedback
-chinese: 对话框
-english: Modal
-source: design
+title: Modal
+subtitle: 对话框
 ---
 
 用作显示系统的重要信息，并请求用户进行操作反馈，eg：删除某个重要内容时，弹出 Modal 进行二次确认。
@@ -25,7 +24,7 @@ source: design
 | visible      | 对话框是否可见 | Boolean          | false           |
 | onClose      | 点击 x 或 mask 回调       | (): void   | 无 |
 | title (only transparent)       | 标题           | React.Element    | 无           |
-| closable    | 是否显示关闭按钮 | Boolean    | true        |
+| closable    | 是否显示关闭按钮 | Boolean    | `false`        |
 | maskClosable (only transparent) | 点击蒙层是否允许关闭 | Boolean   | true       |
 | footer  (only not transparent)     | 底部内容       |  Array [{text, onPress}]    | [] |
 | transparent | 是否弹窗模式       | Boolean   |  false |
@@ -49,3 +48,9 @@ source: design
 | callbackOrActions  | 按钮组 [{text, onPress}] 或回调函数      | Array or Function | 无            |
 | type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue       | 默认值(input 为 password 类型不支持)   | String |   -  |
+
+### Modal.operation(actions?) ( 适用平台：WEB、React-Native )
+
+| 参数             | 说明                                         | 类型     | 默认值        |
+|------------------|----------------------------------------------|----------|---------------|
+| actions         | 按钮组, [{text, onPress, style}]       | Array | 无            |

@@ -67,8 +67,8 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
   render() {
     const { inputCount } = this.state;
     const {
-      value, defaultValue,
-      rows, error, clear, count, autoHeight, last, onErrorClick, styles,
+      value, defaultValue, rows, error, clear, count, autoHeight, last, onErrorClick,
+      styles, style,
     } = this.props;
 
     let valueProps;
@@ -94,7 +94,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     const maxLength = count > 0 ? count : undefined;
     const restProps = assign({}, this.props);
     [
-      'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'styles',
+      'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'styles', 'style',
     ].forEach(prop => {
       if (restProps.hasOwnProperty(prop)) {
         delete restProps[prop];
@@ -102,7 +102,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     });
 
     return (
-      <View style={[styles.container, containerStyle, { position: 'relative' }]}>
+      <View style={[styles.container, containerStyle, style, { position: 'relative' }]}>
         <TextInput
           clearButtonMode={clear ? 'while-editing' : 'never'}
           underlineColorAndroid="transparent"

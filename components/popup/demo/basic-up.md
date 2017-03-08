@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 向上弹出效果
+title:
+  zh-CN: 向上弹出效果
+  en-US: 'open from bottom to top'
 ---
 
 Popup 向上弹出效果

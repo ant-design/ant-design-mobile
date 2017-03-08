@@ -1,8 +1,8 @@
 ---
 category: Components
 type: Data Display
-chinese: 走马灯
-english: Carousel
+title: Carousel
+subtitle: 走马灯
 ---
 
 走马灯，轮播图

@@ -16,7 +16,7 @@ class Carousel extends React.Component<CarouselProps, any> {
     infinite: false,
     dots: true,
     autoplay: false,
-    autoplayTimeout: 2.5,
+    autoplayInterval: 3000,
     selectedIndex: 0,
     // vertical 目前只实现 pagination，内容 vertical 由于自动高度拿不到，暂时无法实现
     vertical: false,
@@ -63,7 +63,7 @@ class Carousel extends React.Component<CarouselProps, any> {
   }
 
   autoplay = () => {
-    const { children, autoplay, infinite, autoplayTimeout } = this.props;
+    const { children, autoplay, infinite, autoplayInterval } = this.props;
     const { isScrolling, autoplayEnd, selectedIndex } = this.state;
     const count = children ? children.length || 1 : 0;
     if ( !Array.isArray(children) || !autoplay || isScrolling || autoplayEnd ) {
@@ -78,7 +78,7 @@ class Carousel extends React.Component<CarouselProps, any> {
         return this.setState({ autoplayEnd: true });
       }
       this.scrollNextPage();
-    }, autoplayTimeout * 1000);
+    }, autoplayInterval);
   }
 
   onScrollBegin = (e) => {

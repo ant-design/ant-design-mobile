@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 嵌入文档模式
+title:
+  zh-CN: 嵌入文档模式
+  en-US: 'Inner Document'
 ---
 
 嵌入到文档流中

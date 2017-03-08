@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 通栏
+title:
+  zh-CN: 通栏
+  en-US: Full
 ---
 
 Card 通栏样式

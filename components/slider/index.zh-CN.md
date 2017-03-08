@@ -1,8 +1,8 @@
 ---
 category: Components
 type: Data Entry
-chinese: 滑动输入条
-english: Slider
+title: Slider
+subtitle: 滑动输入条
 ---
 
 

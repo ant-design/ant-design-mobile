@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Data Display
-chinese: 九宫格
-english: Grid
+title: Grid
 ---
 
 在水平和垂直方向，将布局切分成若干等大的区块。
@@ -13,7 +12,7 @@ english: Grid
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型            | 默认值       |
+| 属性        | 说明           | 类型            | 默认值       |
 |------------|----------------|----------------|--------------|
 | data    |    传入的菜单数据     | `Array<{icon, text}>`  | [] |
 | onClick    |   点击每个菜单的回调函数   | (el: Object, index: number): void  | - |

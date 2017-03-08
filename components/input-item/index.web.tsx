@@ -189,9 +189,10 @@ class InputItem extends React.Component<InputItemProps, any> {
       error, className, extra, labelNumber, maxLength,
     } = this.props;
 
+    // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style', 'focused',
       'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
-      'updatePlaceholder',
+      'updatePlaceholder', 'placeholderTextColor',
     ]);
 
     const { placeholder, focus } = this.state;

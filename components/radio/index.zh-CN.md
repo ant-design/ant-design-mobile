@@ -1,9 +1,8 @@
 ---
 category: Components
 type: Data Entry
-chinese: 单选框
-english: Radio
-source: design
+title: Radio
+subtitle: 单选框
 ---
 
 单选框
@@ -12,7 +11,7 @@ source: design
 
 ### Radio
 
-| 成员        | 说明           | 类型          | 默认值       |
+| 属性        | 说明           | 类型          | 默认值       |
 |------------|----------------|------------|--------------|
 | name    |   name  | String |   无  |
 | defaultChecked |   初始是否选中   | Boolean  | 无  |

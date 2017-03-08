@@ -173,4 +173,9 @@ export default {
 
   // table
   table_title_height: 30,
+
+  toast_zindex: 1999,
+  action_sheet_zindex: 1000,
+  popup_zindex: 999,
+  modal_zindex: 999,
 };

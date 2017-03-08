@@ -1,6 +1,8 @@
 ---
 order: 3
-title: 索引列表
+title:
+  zh-CN: '索引列表'
+  en-US: 'Index List'
 ---
 
 用于通讯薄等场景

@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 示例
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 ````jsx
@@ -48,5 +50,10 @@ ReactDOM.render(<SegmentedControlExample />, mountNode);
 ````css
 .sc-example {
   padding-bottom: 0.26rem;
+}
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
 }
 ````

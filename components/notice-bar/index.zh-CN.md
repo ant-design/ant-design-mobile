@@ -1,9 +1,8 @@
 ---
 category: Components
 type: Data Display
-chinese: 通告栏
-english: NoticeBar
-source: design
+title: NoticeBar
+subtitle: 通告栏
 ---
 
 在导航栏下方，一般用作系统提醒、活动提醒等通知。
@@ -13,7 +12,7 @@ source: design
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型         | 默认值       |
+| 属性        | 说明           | 类型         | 默认值       |
 |------------|----------------|--------------|
 | mode    | 提示类型，可选`closable`,`link`   | String |  ''  |
 | icon    |  notice 前的图标  |  React.Element | `<Icon type={require('./trips.svg')} size="xxs" />`|

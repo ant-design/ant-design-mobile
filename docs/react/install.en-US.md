@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 安装
+title: Install
 ---
 
 ## 使用 npm 安装

@@ -1,8 +1,8 @@
 ---
 category: Components
 type: Navigation
-chinese: 菜单
-english: Menu
+title: Menu
+subtitle: 菜单
 ---
 
 在一个临时的面板上显示一组操作。
@@ -13,7 +13,7 @@ english: Menu
 
 ## API ( 适用平台：WEB )
 
-| 成员        | 说明           | 类型        | 默认值       |
+| 属性        | 说明           | 类型        | 默认值       |
 |------------|----------------|-------------|--------------|
 | data    |  数据(isLeaf 设置后 children 无效)  | `Array<{label, value, disabled?, children<data>?, isLeaf?}>` | [] |
 | level    |  菜单级数，可选1/2  | number  | 2 |

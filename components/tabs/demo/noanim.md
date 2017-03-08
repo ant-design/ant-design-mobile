@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 无动画
+title:
+  zh-CN: 无动画
+  en-US: 'No animation'
 ---
 
 禁用切换动画效果
@@ -17,7 +19,7 @@ function callback(key) {
 const TabExample = () => (
   <div>
     <WhiteSpace />
-    <Tabs defaultActiveKey="1" animated={false} onChange={callback}>
+    <Tabs defaultActiveKey="3" animated={false} onChange={callback}>
       <TabPane tab="选项卡一" key="1">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
            选项卡一内容

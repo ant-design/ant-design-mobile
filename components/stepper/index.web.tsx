@@ -28,6 +28,7 @@ export default class Stepper extends React.Component<StepProps, any> {
         className={stepperClass}
         upHandler={<Icon type={require('./style/assets/plus.svg')} size="xxs" />}
         downHandler={<Icon type={require('./style/assets/minus.svg')} size="xxs" />}
+        useTouch
       />
     );
   }

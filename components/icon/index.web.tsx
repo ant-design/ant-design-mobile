@@ -13,6 +13,10 @@ export interface IconPropType {
 }
 
 export default class Icon extends React.Component<IconPropType, any> {
+  static defaultProps = {
+    size: 'md',
+  };
+
   renderSvg = () => {
     let svg;
     try {
@@ -24,7 +28,7 @@ export default class Icon extends React.Component<IconPropType, any> {
     }
   }
   render() {
-    const { type, className, style, size = 'md' } = this.props;
+    const { type, className, style, size, ...restProps } = this.props;
     let xlinkHref = this.renderSvg();
     let outerIcon;
     if (!xlinkHref) {
@@ -39,7 +43,7 @@ export default class Icon extends React.Component<IconPropType, any> {
       [`am-icon-${size}`]: true,
       [className as string]: !!className,
     });
-    return <svg className={iconClassName} style={style}>
+    return <svg className={iconClassName} style={style} {...restProps}>
       <use xlinkHref={xlinkHref} />
     </svg>;
   }

@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 水平方向的步骤条
+title:
+  zh-CN: 水平方向的步骤条
+  en-US: 'horizontal steps'
 ---
 
 ````jsx
@@ -59,5 +61,10 @@ ReactDOM.render(
   top: 0.06rem;
   padding: 0 0.16rem;
   background-color: transparent;
+}
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
 }
 ````

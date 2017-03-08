@@ -1,6 +1,10 @@
 import { StyleSheet, ViewStyle } from 'react-native';
+import variables from '../../style/themes/default';
 
 export default StyleSheet.create({
+  container: {
+    zIndex: variables.popup_zindex,
+  },
   wrap: {
     flexDirection: 'column',
     justifyContent: 'flex-end',

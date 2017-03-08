@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Data Display
-chinese: 徽标数
-english: Badge
+title: Badge
 ---
 
 
@@ -16,7 +15,7 @@ english: Badge
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型      | 默认值       |
+| 属性        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | size       | 大小              |   'small' / 'large'    |   `small`       |
 | text       | 展示的数字或文案，当为数字时候，大于 overflowCount <br/> 时显示为 ${overflowCount}+，为 0 时隐藏     |   String`|`Number   |   -  |

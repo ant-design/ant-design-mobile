@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 步骤条
+title:
+  zh-CN: 步骤条
+  en-US: Steps
 ---
 
 
@@ -60,4 +62,12 @@ ReactDOM.render(
     </Steps>
   </WingBlank>
 , mountNode);
+````
+
+````css
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
+}
 ````

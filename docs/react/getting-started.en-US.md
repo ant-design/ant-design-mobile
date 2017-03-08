@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 快速上手
+title: Getting Started
 ---
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。

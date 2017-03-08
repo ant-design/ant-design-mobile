@@ -4,6 +4,7 @@ interface Props {
   dots?: boolean;
   vertical?: boolean;
   autoplay?: boolean;
+  autoplayInterval?: number;
   infinite?: boolean;
   easing?: string;
   beforeChange?: (from: number, to: number) => void;
@@ -14,7 +15,6 @@ interface Props {
   prefixCls?: string;
   /** below rn only */
   bounces?: boolean;
-  autoplayTimeout?: number;
   onScrollBeginDrag?: Function;
   onMomentumScrollEnd?: Function;
   styles?: any;

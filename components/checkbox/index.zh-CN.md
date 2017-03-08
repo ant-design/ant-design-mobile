@@ -1,7 +1,8 @@
 ---
 category: Components
 type: Data Entry
-title: 复选框
+title: Checkbox
+subtitle: 复选框
 ---
 
 复选框
@@ -10,7 +11,7 @@ title: 复选框
 
 ### Checkbox
 
-| 成员             | 说明           | 类型           | 默认值       |
+| 属性             | 说明           | 类型           | 默认值       |
 |---------------- |----------------|-------------|--------------
 | defaultChecked  |  初始是否选中  | Boolean   | 无  |
 | checked         |   指定当前是否选中   | Boolean  | 无  |

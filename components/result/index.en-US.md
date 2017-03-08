@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Combination
-chinese: 结果页
-source: design
-english: Result
+title: Result
 ---
 
 在整张页面中组织插画、图标、文字等内容，向用户反馈操作结果。
@@ -15,7 +13,7 @@ english: Result
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型               | 默认值       |
+| 属性        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | imgUrl    | 插图 url    | string / Image Source(rn)  |  -  |
 | img   | 插图元素 (可以为`<img src="" />`/`<Icon type="" />`等), 会覆盖 imgUrl 设置  | React.Element | -  |

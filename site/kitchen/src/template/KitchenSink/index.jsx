@@ -7,6 +7,16 @@ import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import { getQuery } from '../../../../utils';
 
+const sort = (a, b) => {
+  if (a > b) {
+    return 1;
+  }
+  if (a < b) {
+    return -1;
+  }
+  return 0;
+};
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +35,7 @@ export default class App extends React.Component {
   }
 
   addSearch = () => {
-    return window.location.search ? `/${window.location.search}` : '';
+    return window.location.search || '';
   }
 
   render() {
@@ -74,7 +84,7 @@ export default class App extends React.Component {
           <div className="am-demo-bd">
             {
               Object.keys(lists)
-              .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+              .sort((a, b) => sort(config.categoryOrder[a], config.categoryOrder[b]))
               .map((cate, index) => (lists[cate].length ? (
                 <List
                   key={`${cate}-${index}`}
@@ -87,17 +97,17 @@ export default class App extends React.Component {
                       }}
                       className="am-demo-category"
                     >
-                      <div className="am-demo-category-name">{cate}</div>
+                      <div className="am-demo-category-name">{appLocale.locale === 'en-US' ? cate : `${config.cateChinese[cate]} ${cate}`}</div>
                       <div className="am-demo-category-arrow"><span><Icon type="down" /></span></div>
                     </div>
                   )}
                   className={this.state.cateOpend[index] ? 'category-open' : 'category-closed'}
                 >
                   {
-                    lists[cate].sort((a, b) => b.english < a.english).map((item) => {
+                    lists[cate].sort((a, b) => sort(a.title.toLowerCase(), b.title.toLowerCase())).map((item) => {
                       const paths = item.filename.split('/');
                       if (config.indexDemos.indexOf(paths[1]) > -1) {
-                        return item.demos.map(j => (
+                        return item.demos.sort((a, b) => a.order > b.order).map(j => (
                           <List.Item
                             arrow="horizontal"
                             key={`${j.filename}-${cate}`}
@@ -105,7 +115,7 @@ export default class App extends React.Component {
                               paths[1] + config.hashSpliter + j.order
                             }`}
                           >
-                            {`${item.english} ${item.chinese}-${j.title}`}
+                            {`${item.title} ${appLocale.locale === 'zh-CN' ? item.subtitle : ''}-${j.title[appLocale.locale]}`}
                           </List.Item>
                         ));
                       }
@@ -115,7 +125,8 @@ export default class App extends React.Component {
                           key={`${item.filename}-${cate}`}
                           onClick={() => { location.href = `${rootPath}/${paths[1]}${this.addSearch()}`; }}
                         >
-                          {`${item.title}`}
+                          {`${item.title} `}
+                          {!item.subtitle || appLocale.locale === 'en-US' ? null : item.subtitle}
                         </List.Item>
                       );
                     })

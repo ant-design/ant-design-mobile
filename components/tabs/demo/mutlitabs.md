@@ -1,6 +1,8 @@
 ---
 order: 2
-title: 超出界面宽度，多于5个标签
+title:
+  zh-CN: '超出界面宽度，多于5个标签'
+  en-US: 'overflow, more than 5 tabs'
 ---
 
 可视区最多显示5个标签，点击两侧的标签后，滑动tabs
@@ -33,7 +35,7 @@ const makeMultiTabPane = (count) => {
 
 const TabExample = () => (
   <div>
-    <Tabs defaultActiveKey="8" onChange={callback}>
+    <Tabs defaultActiveKey="8" onChange={callback} pageSize={5}>
       {makeMultiTabPane(11)}
     </Tabs>
     <WhiteSpace />

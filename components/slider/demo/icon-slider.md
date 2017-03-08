@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 带 icon 的滑块
+title:
+  zh-CN: '带 icon 的滑块'
+  en-US: 'Slider with Icon'
 ---
 
 滑块左右可以设置图标来表达业务含义。

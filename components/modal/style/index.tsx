@@ -3,6 +3,9 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
+    zIndex: variables.modal_zindex,
+  },
+  wrap: {
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -77,5 +80,17 @@ export default StyleSheet.create({
     color: variables.color_link,
     fontSize: variables.link_button_font_size,
     backgroundColor: 'transparent',
+  },
+  operationContainer: {
+    paddingTop: 0,
+  },
+  operationBody: {
+    paddingBottom: 0,
+    paddingHorizontal: 0,
+  },
+  buttonTextOperation: {
+    color: variables.color_text_base,
+    textAlign: 'left',
+    paddingHorizontal: 15,
   },
 });

@@ -11,6 +11,7 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: variables.toast_zindex,
   },
   innerContainer: {
     backgroundColor: 'transparent',

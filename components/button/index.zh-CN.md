@@ -1,9 +1,8 @@
 ---
 category: Components
 type: Data Entry
-chinese: 按钮
-english: Button
-source: design
+title: Button
+subtitle: 按钮
 ---
 
 点击后会触发一个操作。
@@ -14,7 +13,7 @@ source: design
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型      | 默认值       |
+| 属性        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | type       | 按钮类型，可选值为`primary`/`ghost`/`warning`或者不设     |   string   |   -  |
 | size       | 设置按钮大小，可选值为`large`、`small` | string | `large`|

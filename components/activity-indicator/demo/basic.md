@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 基本用法
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 基本的活动指示器。
@@ -77,5 +79,10 @@ ReactDOM.render(<App />, mountNode);
 .align {
   display: flex;
   flex-direction: column;
+}
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
 }
 ````

@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 多行输入
-english: TextareaItem
-source: design
+title: TextareaItem
 ---
 
 
@@ -16,7 +14,7 @@ source: design
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型             | 默认值       |
+| 属性        | 说明           | 类型             | 默认值       |
 |------------|----------------|-----------------|--------------|
 | value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |

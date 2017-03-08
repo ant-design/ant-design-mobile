@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 示例集合
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 受控组件建议使用([rc-form 文档](https://github.com/react-component/form))

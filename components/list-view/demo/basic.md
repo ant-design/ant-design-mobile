@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 自定义容器
+title:
+  zh-CN: 自定义容器
+  en-US: 'Custom container'
 ---
 
 > 注意：需要设置 ListView 的 style 的 `height`/`overflow`，以此作为滚动容器。

@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 自定义选择图片的方法
+title:
+  zh-CN: 自定义选择图片的方法
+  en-US: 'Cutom how to choose file'
 ---
 
 ````jsx

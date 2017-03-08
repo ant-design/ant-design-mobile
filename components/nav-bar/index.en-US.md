@@ -1,9 +1,7 @@
 ---
 category: Components
 type: Navigation
-chinese: 导航栏
-english: NavBar
-display: false
+title: NavBar
 ---
 
 位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。
@@ -17,7 +15,7 @@ display: false
 
 ## API ( 适用平台：WEB )
 
-| 成员        | 说明           | 类型      | 默认值       |
+| 属性        | 说明           | 类型      | 默认值       |
 |------------|----------------|--------------------|--------------|
 | children   | 导航内容      | any |    无  |
 | mode   | 导航模式   | string |  'dark' enum{'dark', 'light'} |

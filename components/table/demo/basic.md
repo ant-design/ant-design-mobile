@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 锁定标题列
+title:
+  zh-CN: 锁定标题列
+  en-US: 'scroll on the x axis'
 ---
 
 标题列锁定，可横向滚动

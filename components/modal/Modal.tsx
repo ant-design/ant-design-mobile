@@ -30,6 +30,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     transparent: false,
     animateAppear: true,
     styles: modalStyle,
+    operation: false,
   };
 
   root: any;
@@ -55,12 +56,12 @@ class AntmModal extends React.Component<ModalPropsType, any> {
   render() {
     const {
       title, closable, footer, children, style, animateAppear,
-      transparent, visible, onClose, bodyStyle, onAnimationEnd, styles,
+      transparent, visible, onClose, bodyStyle, onAnimationEnd, styles, operation,
     } = this.props;
 
     let btnGroupStyle = styles.buttonGroupV;
     let horizontalFlex = {};
-    if (footer && footer.length === 2) {
+    if (footer && footer.length === 2 && !operation) {
       btnGroupStyle = styles.buttonGroupH;
       horizontalFlex = { flex: 1 };
     }
@@ -69,6 +70,9 @@ class AntmModal extends React.Component<ModalPropsType, any> {
     if (footer && footer.length) {
       const footerButtons = footer.map((button: any, i) => {
         let buttonStyle = {};
+        if (operation) {
+          buttonStyle = styles.buttonTextOperation;
+        }
         if (button.style) {
           buttonStyle = button.style;
           if (typeof buttonStyle === 'string') {
@@ -119,37 +123,41 @@ class AntmModal extends React.Component<ModalPropsType, any> {
         </View>
       ) : null;
       return (
-        <RCModal
-          onClose={this.onMaskClose}
-          animationType={animType}
-          wrapStyle={transparent ? styles.container : undefined}
-          style={[styles.innerContainer, style]}
-          visible={visible}
-          onAnimationEnd={onAnimationEnd}
-          animateAppear={animateAppear}
-        >
-          <View style={maxHeight} ref={this.saveRoot}>
-            {title ? <Text style={[styles.header]}>{title}</Text> : null}
-            <View style={[styles.body, bodyStyle]}>{children}</View>
-            {footerDom}
-            {closableDom}
-          </View>
-        </RCModal>
+        <View style={styles.container}>
+          <RCModal
+            onClose={this.onMaskClose}
+            animationType={animType}
+            wrapStyle={transparent ? styles.wrap : undefined}
+            style={[styles.innerContainer, style]}
+            visible={visible}
+            onAnimationEnd={onAnimationEnd}
+            animateAppear={animateAppear}
+          >
+            <View style={maxHeight} ref={this.saveRoot}>
+              {title ? <Text style={[styles.header]}>{title}</Text> : null}
+              <View style={[styles.body, bodyStyle]}>{children}</View>
+              {footerDom}
+              {closableDom}
+            </View>
+          </RCModal>
+        </View>
       );
     }
     if (animType === 'slide-up' || animType === 'slide-down' || animType === 'slide') {
       animType = 'slide';
     }
     return (
-      <Modal
-        visible={visible}
-        animationType={animType}
-        onRequestClose={this.onMaskClose}
-      >
-        <View style={style}>
-          {children}
-        </View>
-      </Modal>
+      <View style={styles.container}>
+        <Modal
+          visible={visible}
+          animationType={animType}
+          onRequestClose={this.onMaskClose}
+        >
+          <View style={style}>
+            {children}
+          </View>
+        </Modal>
+      </View>
     );
   }
 }

@@ -1,9 +1,8 @@
 ---
 category: Components
 type: Data Entry
-chinese: 搜索栏
-english: SearchBar
-source: design
+title: SearchBar
+subtitle: 搜索栏
 ---
 
 一般可位于 NavBar 下方，通过『取消按钮』退出激活状态。
@@ -15,7 +14,7 @@ source: design
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型               | 默认值       |
+| 属性        | 说明           | 类型               | 默认值       |
 |------------|----------------|--------------------|--------------|
 | defaultValue |    搜索框的默认值     | String |    |
 | value      |  搜索框的当前值  | String |    |

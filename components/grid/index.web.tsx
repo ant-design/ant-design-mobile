@@ -48,17 +48,19 @@ export default class Grid extends React.Component<GridProps, any> {
         const dataIndex = i * columnNum + j;
         if (dataIndex < dataLength) {
           const el = data && data[dataIndex];
-          rowArr.push(
-            <Flex.Item
-              key={`griditem-${dataIndex}`}
-              className={`${prefixCls}-item`}
-              onClick={() => onClick(el, dataIndex)}
-            >
-              {renderItem(el, dataIndex)}
-            </Flex.Item>,
-          );
+          rowArr.push(<Flex.Item
+            key={`griditem-${dataIndex}`}
+            className={`${prefixCls}-item`}
+            onClick={() => onClick(el, dataIndex)}
+            style={{ width: `${this.clientWidth / columnNum}px` }}
+          >
+            {renderItem(el, dataIndex)}
+          </Flex.Item>);
         } else {
-          rowArr.push(<Flex.Item key={`griditem-${dataIndex}`} />);
+          rowArr.push(<Flex.Item
+            key={`griditem-${dataIndex}`}
+            style={{ width: `${this.clientWidth / columnNum}px` }}
+          />);
         }
       }
       rowsArr.push(<Flex justify="center" align="stretch" key={`gridline-${i}`}>{rowArr}</Flex>);

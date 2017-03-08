@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: 示例集合
-  en-US: Example Collection
+  zh-CN: 基本示例
+  en-US: Basic
 ---
 
 ## zh-CN
@@ -117,5 +117,10 @@ ReactDOM.render(<FlexExample />, mountNode);
 .flex-container .small {
   height: 0.4rem!important;
   line-height: 0.4rem!important;
+}
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
 }
 ```

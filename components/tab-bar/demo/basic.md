@@ -1,6 +1,8 @@
 ---
 order: 0
-title: APP型选项卡
+title:
+  zh-CN: 'APP 型选项卡'
+  en-US: 'APP Tab Bar'
 ---
 
 多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。

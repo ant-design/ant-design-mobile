@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 示例
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 基本的分页器。
@@ -40,5 +42,10 @@ ReactDOM.render(<App />, mountNode);
 .pagination-container .arrow-align {
   display: flex;
   align-items: center;
+}
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
 }
 ````

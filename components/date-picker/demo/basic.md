@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 基本
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 日期时间选择示例 ([rc-form 文档](https://github.com/react-component/form))
@@ -62,10 +64,10 @@ class Test extends React.Component {
           minDate={minDate}
           maxDate={maxDate}
         >
-          <List.Item arrow="horizontal">日期</List.Item>
+          <List.Item arrow="horizontal">日期(CST)</List.Item>
         </DatePicker>
         <DatePicker mode="time" {...getFieldProps('time1')}>
-          <List.Item arrow="horizontal">时间</List.Item>
+          <List.Item arrow="horizontal">时间(local time)</List.Item>
         </DatePicker>
         <DatePicker
           mode="time"
@@ -75,7 +77,7 @@ class Test extends React.Component {
           minDate={minTime}
           maxDate={maxTime}
         >
-          <List.Item arrow="horizontal">时间，限定上下限</List.Item>
+          <List.Item arrow="horizontal">时间(CST)，限定上下限</List.Item>
         </DatePicker>
         <DatePicker className="forss"
           mode="datetime"
@@ -94,7 +96,7 @@ class Test extends React.Component {
             initialValue: gmtNow,
           })}
         >
-          <List.Item arrow="horizontal">time(en_US)</List.Item>
+          <List.Item arrow="horizontal">time(utc, UK time)</List.Item>
         </DatePicker>
         <List.Item extra={this.state.dpValue && this.state.dpValue.format('HH:mm Z')}>
           <div onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</div>

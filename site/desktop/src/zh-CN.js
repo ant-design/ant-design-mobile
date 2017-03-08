@@ -19,6 +19,7 @@ module.exports = {
     'app.footer.antux': '页面逻辑素材',
     'app.footer.author': '蚂蚁金服体验技术部 & 口碑终端技术部出品',
     'app.ComponentDoc.codeTitle': '代码演示',
+    'app.ComponentDoc.codeQrcode': '扫二维码查看演示效果',
     'app.ComponentDoc.codeExpand': '展开全部代码',
     'app.ComponentDoc.Modal.return': '返 回',
   },

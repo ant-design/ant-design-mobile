@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 国际化
+title:
+  zh-CN: 国际化
+  en-US: i18n
 ---
 
 用 `LocaleProvider` 包裹你的应用，并引用对应的语言包。

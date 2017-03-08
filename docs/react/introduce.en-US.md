@@ -94,6 +94,9 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 >
 > 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md)，
 > 示例：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
+>
+> 注意：在 webpack 环境里、除了要安装以上必选的依赖外，一定不要忘记用
+> `npm i style-loader css-loader less less-loader --save-dev`安装通用的基础的依赖项，避免出现低级错误！
 
 #### React-Native 使用方式
 

@@ -1,8 +1,7 @@
 ---
 category: Components
 type: Data Entry
-chinese: 步进器
-english: Stepper
+title: Stepper
 ---
 
 用作增加或者减少当前数值。
@@ -12,7 +11,7 @@ english: Stepper
 
 ## API ( 适用平台：WEB、React-Native )
 
-| 成员        | 说明           | 类型               | 默认值       |
+| 属性        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
 | min     | 最小值   | Number | -Infinity        |
 | max     | 最大值       | Number      | Infinity           |

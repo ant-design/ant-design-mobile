@@ -1,9 +1,17 @@
 ---
 order: 2
-title: propmt
+title:
+  zh-CN: 输入弹窗
+  en-US: propmt
 ---
 
-包含输入普通文字, 密码, 登录信息样式
+## zh-CN
+
+包含输入普通文字, 密码, 登录信息样式。
+
+## en-US
+
+Including normal text input modal, password input modal and login information input modal.
 
 ````jsx
 import { Modal, Button, WingBlank, WhiteSpace, Toast } from 'antd-mobile';

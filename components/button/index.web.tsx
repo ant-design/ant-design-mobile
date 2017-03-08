@@ -66,12 +66,12 @@ class Button extends React.Component<tsProps, any> {
         activeClassName={activeStyle ? `${prefixCls}-active` : undefined}
         disabled={disabled}
         activeStyle={activeStyle}
-        onPress={disabled ? () => {} : onClick}
       >
         <a
           role="button"
           className={classNames(wrapCls)}
           {...restProps}
+          onClick={disabled ? undefined : onClick}
         >
           {iconType ? <Icon type={iconType} /> : null}
           {kids}

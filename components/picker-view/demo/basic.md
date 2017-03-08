@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 选择器
+title:
+  zh-CN: 选择器
+  en-US: 'Picker View'
 ---
 
 ````jsx

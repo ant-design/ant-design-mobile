@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 通告栏
+title:
+  en-US: 'Notice Bar'
+  zh-CN: 通告栏
 ---
 
 

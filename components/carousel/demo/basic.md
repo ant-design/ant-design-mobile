@@ -1,14 +1,16 @@
 ---
 order: 0
-title: 示例
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 
 ````jsx
-import { Carousel, WhiteSpace } from 'antd-mobile';
+import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
 
 const App = () => (
-  <div className="need-left-right-margin">
+  <WingBlank>
     <div className="sub-title">normal</div>
     <Carousel
       className="my-carousel" autoplay={false} infinite
@@ -28,7 +30,7 @@ const App = () => (
       <div className="v-item">Carousel 2</div>
       <div className="v-item">Carousel 3</div>
     </Carousel>
-  </div>
+  </WingBlank>
 );
 
 ReactDOM.render(<App />, mountNode);
@@ -50,5 +52,10 @@ ReactDOM.render(<App />, mountNode);
   height: 0.72rem;
   line-height: 0.72rem;
   padding-left: 0.2rem;
+}
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
 }
 ````

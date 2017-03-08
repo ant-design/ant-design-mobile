@@ -1,6 +1,8 @@
 ---
 order: 4
-title: 综合示例
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 结合列表的案例参考
