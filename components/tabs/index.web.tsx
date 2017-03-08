@@ -27,11 +27,11 @@ const Tabs = React.createClass<TabsProps, any>({
   },
 
   renderTabBar() {
-    const { children, animated, speed, pageSize, tabBarhammerOptions } = this.props;
+    const { children, animated, speed, pageSize, tabBarhammerOptions, onTabClick } = this.props;
     if (children.length > pageSize) {
       return (
         <SwipeableInkTabBar
-          onTabClick={this.handleSwipeTabClick}
+          onTabClick={onTabClick}
           speed={speed}
           pageSize={pageSize}
           hammerOptions={tabBarhammerOptions}
