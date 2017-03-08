@@ -26,7 +26,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
     <div
       class="am-navbar-title"
     >
-      基本
+      Basic
     </div>
     <div
       class="am-navbar-right"
@@ -61,7 +61,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类
+                Category
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类1
+                Category1
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类2
+                Category2
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类3
+                Category3
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类4
+                Category4
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类5
+                Category5
               </div>
             </div>
           </div>
@@ -181,7 +181,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类6
+                Category6
               </div>
             </div>
           </div>
@@ -201,7 +201,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类7
+                Category7
               </div>
             </div>
           </div>
@@ -221,7 +221,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类8
+                Category8
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类9
+                Category9
               </div>
             </div>
           </div>
@@ -261,7 +261,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类10
+                Category10
               </div>
             </div>
           </div>
@@ -281,7 +281,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类11
+                Category11
               </div>
             </div>
           </div>
@@ -301,7 +301,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类12
+                Category12
               </div>
             </div>
           </div>
@@ -321,7 +321,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类13
+                Category13
               </div>
             </div>
           </div>
@@ -341,7 +341,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类14
+                Category14
               </div>
             </div>
           </div>
@@ -361,7 +361,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类15
+                Category15
               </div>
             </div>
           </div>
@@ -381,7 +381,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类16
+                Category16
               </div>
             </div>
           </div>
@@ -401,7 +401,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类17
+                Category17
               </div>
             </div>
           </div>
@@ -421,7 +421,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类18
+                Category18
               </div>
             </div>
           </div>
@@ -441,7 +441,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类19
+                Category19
               </div>
             </div>
           </div>
@@ -456,7 +456,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
       class="am-drawer-content"
       style="color:#A6A6A6;text-align:center;padding-top:42px;"
     >
-      请点击左上角图标
+      Click upper-left corner icon
     </div>
   </div>
 </div>
@@ -490,7 +490,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
     <div
       class="am-navbar-title"
     >
-      嵌入文档
+      Docked in document
     </div>
     <div
       class="am-navbar-right"
@@ -526,7 +526,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类
+                Category
               </div>
             </div>
           </div>
@@ -546,7 +546,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类1
+                Category1
               </div>
             </div>
           </div>
@@ -566,7 +566,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类2
+                Category2
               </div>
             </div>
           </div>
@@ -586,7 +586,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类3
+                Category3
               </div>
             </div>
           </div>
@@ -606,7 +606,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类4
+                Category4
               </div>
             </div>
           </div>
@@ -626,7 +626,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类5
+                Category5
               </div>
             </div>
           </div>
@@ -646,7 +646,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类6
+                Category6
               </div>
             </div>
           </div>
@@ -666,7 +666,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类7
+                Category7
               </div>
             </div>
           </div>
@@ -686,7 +686,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类8
+                Category8
               </div>
             </div>
           </div>
@@ -706,7 +706,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类9
+                Category9
               </div>
             </div>
           </div>
@@ -726,7 +726,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类10
+                Category10
               </div>
             </div>
           </div>
@@ -746,7 +746,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类11
+                Category11
               </div>
             </div>
           </div>
@@ -766,7 +766,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类12
+                Category12
               </div>
             </div>
           </div>
@@ -786,7 +786,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类13
+                Category13
               </div>
             </div>
           </div>
@@ -806,7 +806,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类14
+                Category14
               </div>
             </div>
           </div>
@@ -826,7 +826,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类15
+                Category15
               </div>
             </div>
           </div>
@@ -846,7 +846,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类16
+                Category16
               </div>
             </div>
           </div>
@@ -866,7 +866,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类17
+                Category17
               </div>
             </div>
           </div>
@@ -886,7 +886,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类18
+                Category18
               </div>
             </div>
           </div>
@@ -906,7 +906,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                分类19
+                Category19
               </div>
             </div>
           </div>
@@ -921,7 +921,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
       class="am-drawer-content"
       style="color:#A6A6A6;text-align:center;padding-top:42px;"
     >
-      请点击左上角图标
+      Click upper-left corner icon
     </div>
   </div>
 </div>
