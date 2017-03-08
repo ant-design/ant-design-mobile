@@ -62,4 +62,9 @@ ReactDOM.render(
   padding: 0 0.16rem;
   background-color: transparent;
 }
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
+}
 ````

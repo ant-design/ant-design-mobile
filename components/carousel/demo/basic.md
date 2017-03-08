@@ -53,4 +53,9 @@ ReactDOM.render(<App />, mountNode);
   line-height: 0.72rem;
   padding-left: 0.2rem;
 }
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
+}
 ````

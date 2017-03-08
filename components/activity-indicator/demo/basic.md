@@ -80,4 +80,9 @@ ReactDOM.render(<App />, mountNode);
   display: flex;
   flex-direction: column;
 }
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
+}
 ````

@@ -56,4 +56,9 @@ ReactDOM.render(<ResultExample />, mountNode);
   width: 1.2rem;
   height: 1.2rem;
 }
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
+}
 ````

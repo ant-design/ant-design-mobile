@@ -51,4 +51,9 @@ ReactDOM.render(<SegmentedControlExample />, mountNode);
 .sc-example {
   padding-bottom: 0.26rem;
 }
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
+}
 ````

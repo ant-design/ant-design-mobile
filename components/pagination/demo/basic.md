@@ -43,4 +43,9 @@ ReactDOM.render(<App />, mountNode);
   display: flex;
   align-items: center;
 }
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
+}
 ````

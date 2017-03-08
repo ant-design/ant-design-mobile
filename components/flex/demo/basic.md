@@ -118,4 +118,9 @@ ReactDOM.render(<FlexExample />, mountNode);
   height: 0.4rem!important;
   line-height: 0.4rem!important;
 }
+.sub-title {
+  color: #888;
+  font-size: 28px;
+  padding: 30px 0 18px 0;
+}
 ```
