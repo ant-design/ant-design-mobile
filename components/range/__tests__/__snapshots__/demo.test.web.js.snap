@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/range/demo/basic.md correctly 1`] = `
+<div
+  class="am-slider-example"
+>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-wingblank am-wingblank-lg"
+  >
+    <p
+      class="title"
+    >
+      Range, 基础使用
+    </p>
+    <div
+      class="am-slider-wrapper"
+    >
+      <div
+        class="am-slider"
+      >
+        <div
+          class="am-slider-rail"
+        />
+        <div
+          class="am-slider-track am-slider-track-1"
+          style="visibility:visible;left:15%;width:35%;"
+        />
+        <div
+          class="am-slider-step"
+        />
+        <div
+          class="am-slider-handle am-slider-handle-1"
+          style="left:15%;"
+        />
+        <div
+          class="am-slider-handle am-slider-handle-2"
+          style="left:50%;"
+        />
+        <div
+          class="am-slider-mark"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-wingblank am-wingblank-lg"
+  >
+    <p
+      class="title"
+    >
+      Range, 带 Tooltip
+    </p>
+    <div
+      class="am-slider-wrapper"
+    >
+      <div
+        class="am-slider"
+      >
+        <div
+          class="am-slider-rail"
+        />
+        <div
+          class="am-slider-track am-slider-track-1"
+          style="visibility:visible;left:15%;width:35%;"
+        />
+        <div
+          class="am-slider-step"
+        />
+        <div
+          class="am-slider-handle am-slider-handle-1"
+          style="left:15%;"
+        />
+        <div
+          class="am-slider-handle am-slider-handle-2"
+          style="left:50%;"
+        />
+        <div
+          class="am-slider-mark"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-wingblank am-wingblank-lg"
+  >
+    <p
+      class="title"
+    >
+      Range, 禁用
+    </p>
+    <div
+      class="am-slider-wrapper"
+    >
+      <div
+        class="am-slider am-slider-disabled"
+      >
+        <div
+          class="am-slider-rail"
+        />
+        <div
+          class="am-slider-track am-slider-track-1"
+          style="visibility:visible;left:15%;width:35%;"
+        />
+        <div
+          class="am-slider-step"
+        />
+        <div
+          class="am-slider-handle am-slider-handle-1"
+          disabled=""
+          style="left:15%;"
+        />
+        <div
+          class="am-slider-handle am-slider-handle-2"
+          disabled=""
+          style="left:50%;"
+        />
+        <div
+          class="am-slider-mark"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

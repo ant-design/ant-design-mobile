@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tab-bar/demo/basic.tsx correctly 1`] = `
+<RCTTabBar
+  barTintColor="#ccc"
+  itemPositioning={undefined}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+  tintColor="#33A3F4"
+  translucent={true}
+  unselectedTintColor="#949494"
+>
+  <RCTTabBarItem
+    icon={1}
+    onPress={[Function]}
+    selected={false}
+    selectedIcon={1}
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+    title="生活"
+  >
+    <View />
+  </RCTTabBarItem>
+  <RCTTabBarItem
+    badge={2}
+    icon={1}
+    onPress={[Function]}
+    selected={true}
+    selectedIcon={1}
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+    title="口碑"
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "white",
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "margin": 50,
+          }
+        }
+      >
+        口碑 Tab
+      </Text>
+    </View>
+  </RCTTabBarItem>
+  <RCTTabBarItem
+    icon={1}
+    onPress={[Function]}
+    selected={false}
+    selectedIcon={1}
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+    title="朋友"
+  >
+    <View />
+  </RCTTabBarItem>
+  <RCTTabBarItem
+    icon={1}
+    onPress={[Function]}
+    selected={false}
+    selectedIcon={1}
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+    title="我的"
+  >
+    <View />
+  </RCTTabBarItem>
+</RCTTabBar>
+`;

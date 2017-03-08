@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-list picker-list"
+    style="background-color:white;"
+  >
+    <div
+      class="am-list-body"
+    >
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              选择地区（多列，联动）
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              安徽省,六安市,金安区
+            </div>
+            <div
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              选择季节（多列，不联动）
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              2013,春
+            </div>
+            <div
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              选择地区（单列）
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              请选择
+            </div>
+            <div
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              选择地区（多列，异步加载）
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              请选择
+            </div>
+            <div
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style="background-color:#fff;padding:0 0.3rem;"
+        >
+          <div
+            style="display:flex;height:0.9rem;line-height:0.9rem;"
+          >
+            <div
+              style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+            >
+              选择地区（自定义 children）
+            </div>
+            <div
+              style="text-align:right;color:#888;"
+            >
+              请选择(可选)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

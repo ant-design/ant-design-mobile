@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
+<div
+  class=""
+>
+  <div>
+    <div
+      class="top-nav-bar am-navbar am-navbar-light"
+    >
+      <div
+        class="am-navbar-left"
+      >
+        <span
+          class="am-navbar-left-icon"
+        >
+          <svg
+            class="am-icon am-icon-[object Object] am-icon-md"
+          >
+            <use
+              xlink:href="#[object Object]"
+            />
+          </svg>
+        </span>
+        <span
+          class="am-navbar-left-content"
+        >
+          菜单
+        </span>
+      </div>
+      <div
+        class="am-navbar-title"
+      >
+        标题
+      </div>
+      <div
+        class="am-navbar-right"
+      />
+    </div>
+  </div>
+</div>
+`;

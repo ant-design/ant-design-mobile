@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
+<div
+  class="am-tab-bar am-tab-bar-bottom"
+>
+  <div
+    class="am-tab-bar-content am-tab-bar-content-no-animated"
+  >
+    <div
+      aria-hidden="true"
+      class="am-tab-bar-tabpane am-tab-bar-tabpane-inactive"
+      role="tabpanel"
+    >
+      正在加载
+    </div>
+    <div
+      aria-hidden="false"
+      class="am-tab-bar-tabpane am-tab-bar-tabpane-active"
+      role="tabpanel"
+    >
+      <div
+        style="background-color:white;height:100%;text-align:center;"
+      >
+        <div
+          style="padding-top:60px;"
+        >
+          你已点击“口碑” tab， 当前展示“口碑”信息
+        </div>
+        <a
+          style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+        >
+          点击切换 tab-bar 显示/隐藏
+        </a>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      class="am-tab-bar-tabpane am-tab-bar-tabpane-inactive"
+      role="tabpanel"
+    >
+      正在加载
+    </div>
+    <div
+      aria-hidden="true"
+      class="am-tab-bar-tabpane am-tab-bar-tabpane-inactive"
+      role="tabpanel"
+    >
+      正在加载
+    </div>
+  </div>
+  <div
+    class="am-tab-bar-bar"
+    role="tablist"
+    style="background-color:white;"
+    tabindex="0"
+  >
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class=" am-tab-bar-tab"
+      role="tab"
+    >
+      <div
+        data-seed="logId"
+      >
+        <div
+          class="am-tab-bar-tab-icon"
+          style="color:#949494;"
+        >
+          <span
+            class="am-tab-bar-tab-badge tab-badge am-badge"
+            title="1"
+          >
+             
+            <div
+              style="width:0.44rem;height:0.44rem;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  0.42rem 0.42rem no-repeat;"
+            />
+             
+            <sup
+              class="am-badge-text"
+            >
+               1 
+            </sup>
+          </span>
+        </div>
+        <p
+          class="am-tab-bar-tab-title"
+          style="color:#949494;"
+        >
+          生活
+        </p>
+      </div>
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="true"
+      class="am-tab-bar-tab-active am-tab-bar-tab"
+      role="tab"
+    >
+      <div
+        data-seed="logId1"
+      >
+        <div
+          class="am-tab-bar-tab-icon"
+          style="color:#33A3F4;"
+        >
+          <span
+            class="am-tab-bar-tab-badge tab-badge am-badge"
+            title="new"
+          >
+             
+            <svg
+              class="am-icon am-icon-koubei am-icon-md"
+            >
+              <use
+                xlink:href="#koubei"
+              />
+            </svg>
+             
+            <sup
+              class="am-badge-text"
+            >
+               new 
+            </sup>
+          </span>
+        </div>
+        <p
+          class="am-tab-bar-tab-title"
+          style="color:#33A3F4;"
+        >
+          口碑
+        </p>
+      </div>
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class=" am-tab-bar-tab"
+      role="tab"
+    >
+      <div>
+        <div
+          class="am-tab-bar-tab-icon"
+          style="color:#949494;"
+        >
+          <span
+            class="am-tab-bar-tab-badge tab-dot am-badge"
+            title=""
+          >
+            <div
+              style="width:0.44rem;height:0.44rem;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  0.42rem 0.42rem no-repeat;"
+            />
+            <sup
+              class="am-badge-dot"
+            >
+                
+            </sup>
+          </span>
+        </div>
+        <p
+          class="am-tab-bar-tab-title"
+          style="color:#949494;"
+        >
+          朋友
+        </p>
+      </div>
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class=" am-tab-bar-tab"
+      role="tab"
+    >
+      <div>
+        <div
+          class="am-tab-bar-tab-icon"
+          style="color:#949494;"
+        >
+          <img
+            alt="我的"
+            class="am-tab-bar-tab-image"
+            src="https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg"
+          />
+        </div>
+        <p
+          class="am-tab-bar-tab-title"
+          style="color:#949494;"
+        >
+          我的
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

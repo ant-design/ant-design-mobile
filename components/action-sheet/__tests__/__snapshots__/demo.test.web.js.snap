@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
+<div
+  class="actionSheetContainer"
+>
+  <div
+    style="margin:0.15rem 0;"
+  >
+    <a
+      class="am-button"
+      role="button"
+    >
+      <span>
+        默认状态
+      </span>
+    </a>
+  </div>
+  <div
+    style="margin:0.15rem 0;"
+  >
+    <a
+      class="am-button"
+      role="button"
+    >
+      <span>
+        分享功能
+      </span>
+    </a>
+  </div>
+  <div
+    style="margin:0.15rem 0;"
+  >
+    <a
+      class="am-button"
+      role="button"
+    >
+      <span>
+        带多行按钮的分享功能
+      </span>
+    </a>
+  </div>
+</div>
+`;

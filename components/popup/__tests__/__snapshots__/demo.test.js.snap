@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/popup/demo/basic.tsx correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": 30,
+      "paddingHorizontal": 30,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 9,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "justifyContent": "center",
+          },
+          Object {
+            "height": 42,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+          },
+          Object {
+            "backgroundColor": "#fff",
+            "borderColor": "#ddd",
+          },
+          false,
+          false,
+          false,
+          undefined,
+        ],
+      ]
+    }
+    testID={undefined}
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+            },
+            Object {
+              "color": "#000",
+            },
+            false,
+            false,
+          ]
+        }
+      >
+        向下弹出效果
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 9,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "justifyContent": "center",
+          },
+          Object {
+            "height": 42,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+          },
+          Object {
+            "backgroundColor": "#fff",
+            "borderColor": "#ddd",
+          },
+          false,
+          false,
+          false,
+          undefined,
+        ],
+      ]
+    }
+    testID={undefined}
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 18,
+            },
+            Object {
+              "color": "#000",
+            },
+            false,
+            false,
+          ]
+        }
+      >
+        向上弹出效果
+      </Text>
+    </View>
+  </View>
+</View>
+`;

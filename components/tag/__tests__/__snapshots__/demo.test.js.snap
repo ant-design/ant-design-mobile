@@ -1,0 +1,519 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tag/demo/basic.tsx correctly 1`] = `
+<View
+  style={
+    Object {
+      "padding": 10,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 3,
+          "flexDirection": "row",
+          "overflow": "visible",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 3,
+            "borderStyle": "solid",
+            "borderWidth": 0.5,
+            "overflow": "hidden",
+            "paddingHorizontal": 15,
+            "paddingVertical": 6,
+          },
+          Object {},
+          Object {
+            "backgroundColor": "#fff",
+            "borderColor": "#ddd",
+          },
+        ]
+      }
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+            Object {},
+            Object {
+              "color": "#888",
+            },
+          ]
+        }
+      >
+        Basic
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 9,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 3,
+          "flexDirection": "row",
+          "overflow": "visible",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 3,
+            "borderStyle": "solid",
+            "borderWidth": 0.5,
+            "overflow": "hidden",
+            "paddingHorizontal": 15,
+            "paddingVertical": 6,
+          },
+          Object {},
+          Object {
+            "backgroundColor": "#fff",
+            "borderColor": "#108ee9",
+          },
+        ]
+      }
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+            Object {},
+            Object {
+              "color": "#108ee9",
+            },
+          ]
+        }
+      >
+        Selected
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 9,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 3,
+          "flexDirection": "row",
+          "overflow": "visible",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 3,
+            "borderStyle": "solid",
+            "borderWidth": 0.5,
+            "overflow": "hidden",
+            "paddingHorizontal": 15,
+            "paddingVertical": 6,
+          },
+          Object {},
+          Object {
+            "backgroundColor": "#ddd",
+            "borderWidth": 0,
+          },
+        ]
+      }
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+            Object {},
+            Object {
+              "color": "#bbb",
+            },
+          ]
+        }
+      >
+        Disabled
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 9,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 3,
+          "flexDirection": "row",
+          "overflow": "visible",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 3,
+            "borderStyle": "solid",
+            "borderWidth": 0.5,
+            "overflow": "hidden",
+            "paddingHorizontal": 15,
+            "paddingVertical": 6,
+          },
+          Object {},
+          Object {
+            "backgroundColor": "#fff",
+            "borderColor": "#ddd",
+          },
+        ]
+      }
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+            Object {},
+            Object {
+              "color": "#888",
+            },
+          ]
+        }
+      >
+        Callback
+         
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 9,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 3,
+          "flexDirection": "row",
+          "overflow": "visible",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 3,
+            "borderStyle": "solid",
+            "borderWidth": 0.5,
+            "overflow": "hidden",
+            "paddingHorizontal": 15,
+            "paddingVertical": 6,
+          },
+          Object {},
+          Object {
+            "backgroundColor": "#fff",
+            "borderColor": "#ddd",
+          },
+        ]
+      }
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+            Object {},
+            Object {
+              "color": "#888",
+            },
+          ]
+        }
+      >
+        Closable
+         
+      </Text>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#bbb",
+            "position": "absolute",
+          },
+          Object {
+            "borderRadius": 8,
+            "height": 16,
+            "left": -5,
+            "overflow": "hidden",
+            "top": -4,
+            "width": 16,
+          },
+        ]
+      }
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#fff",
+              "fontSize": 20,
+              "lineHeight": 18,
+              "textAlign": "center",
+            },
+            Object {},
+          ]
+        }
+      >
+        ×
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 9,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderRadius": 3,
+          "flexDirection": "row",
+          "overflow": "visible",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderRadius": 3,
+            "borderStyle": "solid",
+            "borderWidth": 0.5,
+            "overflow": "hidden",
+            "paddingHorizontal": 15,
+            "paddingVertical": 6,
+          },
+          Object {
+            "paddingHorizontal": 5,
+            "paddingVertical": 1.5,
+          },
+          Object {
+            "backgroundColor": "#fff",
+            "borderColor": "#ddd",
+          },
+        ]
+      }
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 10,
+            },
+            Object {
+              "color": "#888",
+            },
+          ]
+        }
+      >
+        Small and Readonly
+         
+      </Text>
+    </View>
+  </View>
+</View>
+`;

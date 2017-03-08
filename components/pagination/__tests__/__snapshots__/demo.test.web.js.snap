@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
+<div
+  class="pagination-container"
+>
+  <p
+    class="sub-title"
+  >
+    按钮内带文本
+  </p>
+  <div
+    class="am-pagination"
+  >
+    <div
+      class="am-flexbox am-flexbox-align-middle"
+    >
+      <div
+        class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
+      >
+        <a
+          class="am-button am-button-inline"
+          role="button"
+        />
+      </div>
+      <div
+        class="am-flexbox-item am-pagination-wrap"
+      >
+        <span
+          class="active"
+        >
+          2
+        </span>
+        /
+        <span>
+          5
+        </span>
+      </div>
+      <div
+        class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
+      >
+        <a
+          class="am-button am-button-inline"
+          role="button"
+        />
+      </div>
+    </div>
+  </div>
+  <p
+    class="sub-title"
+  >
+    带文本和icon
+  </p>
+  <div
+    class="am-pagination"
+  >
+    <div
+      class="am-flexbox am-flexbox-align-middle"
+    >
+      <div
+        class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
+      >
+        <a
+          class="am-button am-button-inline"
+          role="button"
+        />
+      </div>
+      <div
+        class="am-flexbox-item am-pagination-wrap"
+      >
+        <span
+          class="active"
+        >
+          2
+        </span>
+        /
+        <span>
+          5
+        </span>
+      </div>
+      <div
+        class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
+      >
+        <a
+          class="am-button am-button-inline"
+          role="button"
+        />
+      </div>
+    </div>
+  </div>
+  <p
+    class="sub-title"
+  >
+    隐藏数字
+  </p>
+  <div
+    class="am-pagination"
+  >
+    <div
+      class="am-flexbox am-flexbox-align-middle"
+    >
+      <div
+        class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
+      >
+        <a
+          class="am-button am-button-inline"
+          role="button"
+        />
+      </div>
+      <div
+        class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
+      >
+        <a
+          class="am-button am-button-inline"
+          role="button"
+        />
+      </div>
+    </div>
+  </div>
+  <p
+    class="sub-title"
+  >
+    只显示数字
+  </p>
+  <div
+    class="am-pagination"
+  >
+    <div
+      class="am-pagination-wrap"
+    >
+      <span
+        class="active"
+      >
+        4
+      </span>
+      /
+      <span>
+        5
+      </span>
+    </div>
+  </div>
+  <p
+    class="sub-title"
+  >
+    点状
+  </p>
+  <div
+    class="am-pagination"
+    style="margin-bottom:0.32rem;"
+  >
+    <div
+      class="am-pagination-wrap"
+    >
+      <div
+        class="am-pagination-wrap-dot"
+      >
+        <span />
+      </div>
+      <div
+        class="am-pagination-wrap-dot"
+      >
+        <span />
+      </div>
+      <div
+        class="am-pagination-wrap-dot am-pagination-wrap-dot-active"
+      >
+        <span />
+      </div>
+      <div
+        class="am-pagination-wrap-dot"
+      >
+        <span />
+      </div>
+      <div
+        class="am-pagination-wrap-dot"
+      >
+        <span />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
+<div>
+  <a
+    class="am-button am-button-primary"
+    role="button"
+  >
+    <span>
+      change to chinese
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div>
+    <div
+      class="am-pagination"
+    >
+      <div
+        class="am-flexbox am-flexbox-align-middle"
+      >
+        <div
+          class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
+        >
+          <a
+            class="am-button am-button-inline"
+            role="button"
+          >
+            <span>
+              Prev
+            </span>
+          </a>
+        </div>
+        <div
+          class="am-flexbox-item am-pagination-wrap"
+        >
+          <span
+            class="active"
+          >
+            2
+          </span>
+          /
+          <span>
+            5
+          </span>
+        </div>
+        <div
+          class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
+        >
+          <a
+            class="am-button am-button-inline"
+            role="button"
+          >
+            <span>
+              Next
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-whitespace am-whitespace-md"
+    />
+    <div
+      class="am-list date-picker-list"
+      style="background-color:white;"
+    >
+      <div
+        class="am-list-body"
+      >
+        <div>
+          <div
+            class="am-list-item am-list-item-middle"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                日期
+              </div>
+              <div
+                class="am-list-extra"
+              >
+                点击查看国际化
+              </div>
+              <div
+                class="am-list-arrow am-list-arrow-horizontal"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
