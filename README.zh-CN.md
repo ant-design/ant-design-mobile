@@ -7,7 +7,12 @@
 </p>
 
 # Ant Design Mobile
-[![](https://img.shields.io/travis/ant-design/ant-design-mobile.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design-mobile) [![npm package](https://img.shields.io/npm/v/antd-mobile.svg?style=flat-square)](https://www.npmjs.org/package/antd-mobile) [![NPM downloads](http://img.shields.io/npm/dm/antd-mobile.svg?style=flat-square)](https://npmjs.org/package/antd-mobile) [![Dependency Status](https://david-dm.org/ant-design/ant-design-mobile.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-mobile) [![CDNJS](https://img.shields.io/cdnjs/v/antd-mobile.svg?style=flat-square)](https://cdnjs.com/libraries/antd-mobile)
+[![](https://img.shields.io/travis/ant-design/ant-design-mobile.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design-mobile)
+[![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design-mobile.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design-mobile)
+[![npm package](https://img.shields.io/npm/v/antd-mobile.svg?style=flat-square)](https://www.npmjs.org/package/antd-mobile)
+[![NPM downloads](http://img.shields.io/npm/dm/antd-mobile.svg?style=flat-square)](https://npmjs.org/package/antd-mobile)
+[![Dependency Status](https://david-dm.org/ant-design/ant-design-mobile.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-mobile)
+[![CDNJS](https://img.shields.io/cdnjs/v/antd-mobile.svg?style=flat-square)](https://cdnjs.com/libraries/antd-mobile)
 
 Ant Design 移动端设计规范。`antd-mobile` 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
 
