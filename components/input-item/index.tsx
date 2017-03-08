@@ -52,11 +52,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   onChange = (text) => {
     const { maxLength, onChange, type } = this.props;
     switch (type) {
-      case 'text':
-        if (maxLength > 0) {
-          text = text.substring(0, maxLength);
-        }
-        break;
       case 'bankCard':
         text = text.replace(/\D/g, '');
         if (maxLength > 0) {
@@ -75,9 +70,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         } else if (valueLen >= 8) {
           text = `${text.substr(0, 3)} ${text.substr(3, 4)} ${text.substr(7)}`;
         }
-        break;
-      case 'number':
-        text = text.replace(/\D/g, '');
         break;
       case 'password':
         break;
@@ -103,8 +95,8 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   render() {
     const {
-      value, defaultValue,
-      type, style, clear, children, error, extra, labelNumber, last, onExtraClick = noop, onErrorClick = noop, styles,
+      value, defaultValue, type, style, clear, children, error, extra, labelNumber,
+      last, onExtraClick = noop, onErrorClick = noop, styles,
     } = this.props;
 
     let valueProps;
@@ -151,8 +143,12 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
     let keyboardType: any = 'default';
 
-    if (type === 'number' || type === 'bankCard') {
+    if (type === 'number') {
       keyboardType = 'numeric';
+    } else if (type === 'bankCard') {
+      keyboardType = 'number-pad'; // 不带小数点
+    } else if (type === 'phone') {
+      keyboardType = 'phone-pad';
     } else if (type && keyboardTypeArray.indexOf(type) > -1) {
       keyboardType = type;
     }
