@@ -19,7 +19,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              日期
+              日期(CST)
             </div>
             <div
               class="am-list-extra"
@@ -42,7 +42,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              时间
+              时间(local time)
             </div>
             <div
               class="am-list-extra"
@@ -65,7 +65,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              时间，限定上下限
+              时间(CST)，限定上下限
             </div>
             <div
               class="am-list-extra"
@@ -111,7 +111,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              time(en_US)
+              time(utc, UK time)
             </div>
             <div
               class="am-list-extra"

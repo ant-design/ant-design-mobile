@@ -7,7 +7,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    小尺寸
+    Small size
   </div>
   <div
     class="am-whitespace am-whitespace-md"
@@ -20,6 +20,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -51,12 +52,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            已完成
+            Finished
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -66,6 +67,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -91,12 +93,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            进行中
+            In Progress
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -132,12 +134,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            待运行
+            Waiting
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -146,7 +148,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    小尺寸, 单行文字流程
+    Small size, single line text
   </div>
   <div
     class="am-whitespace am-whitespace-md"
@@ -159,6 +161,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -190,7 +193,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            已完成
+            Finished
           </div>
         </div>
       </div>
@@ -200,6 +203,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -225,7 +229,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            进行中
+            In Progress
           </div>
         </div>
       </div>
@@ -261,7 +265,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            待运行
+            Waiting
           </div>
         </div>
       </div>
@@ -270,7 +274,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    正常尺寸
+    Default size
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
@@ -283,6 +287,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -308,12 +313,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            已完成
+            Finished
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -323,6 +328,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -354,12 +360,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            出错
+            Error
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -395,12 +401,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            待运行
+            Waiting
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -409,7 +415,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    自定义 status 
+    Customized status 
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
@@ -422,6 +428,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -453,7 +460,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤1
+            Step 1
           </div>
         </div>
       </div>
@@ -463,6 +470,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -494,7 +502,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤2
+            Step 2
           </div>
         </div>
       </div>
@@ -530,7 +538,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤3
+            Step 3
           </div>
         </div>
       </div>
@@ -539,7 +547,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    自定义 icon 
+    Customized icon 
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
@@ -552,6 +560,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -583,12 +592,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤1
+            Step 1
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -598,6 +607,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -629,12 +639,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤2
+            Step 2
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -670,12 +680,12 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤3
+            Step 3
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -684,7 +694,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    多 steps 
+    Multiple steps 
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
@@ -697,6 +707,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -728,7 +739,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤1
+            Step 1
           </div>
         </div>
       </div>
@@ -738,6 +749,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -769,7 +781,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤2
+            Step 2
           </div>
         </div>
       </div>
@@ -779,6 +791,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:0;"
       >
         <i />
       </div>
@@ -810,7 +823,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤3
+            Step 3
           </div>
         </div>
       </div>
@@ -846,7 +859,7 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤4
+            Step 4
           </div>
         </div>
       </div>
@@ -862,7 +875,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    水平小尺寸
+    Horizontal small size
   </div>
   <div
     class="am-whitespace am-whitespace-md"
@@ -876,6 +889,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:1px;"
       >
         <i />
       </div>
@@ -907,12 +921,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            已完成
+            Finished
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -923,6 +937,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:1px;"
       >
         <i />
       </div>
@@ -948,12 +963,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            进行中
+            In Progress
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -989,12 +1004,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            待运行
+            Waiting
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -1003,7 +1018,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    水平正常尺寸
+    Horizontal default size
   </div>
   <div
     class="am-whitespace am-whitespace-md"
@@ -1017,6 +1032,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:1px;"
       >
         <i />
       </div>
@@ -1048,12 +1064,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            已完成
+            Finished
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -1064,6 +1080,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:1px;"
       >
         <i />
       </div>
@@ -1089,12 +1106,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            进行中
+            In Progress
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -1130,12 +1147,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            待运行
+            Waiting
           </div>
           <div
             class="am-steps-description"
           >
-            这里是信息的描述
+            This is description
           </div>
         </div>
       </div>
@@ -1144,7 +1161,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    水平自定义icon
+    Horizontal customized icon
   </div>
   <div
     class="am-whitespace am-whitespace-md"
@@ -1158,6 +1175,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:1px;"
       >
         <i />
       </div>
@@ -1189,7 +1207,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤1
+            Step 1
           </div>
         </div>
       </div>
@@ -1200,6 +1218,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:1px;"
       >
         <i />
       </div>
@@ -1231,7 +1250,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤2
+            Step 2
           </div>
         </div>
       </div>
@@ -1267,7 +1286,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            步骤3
+            Step 3
           </div>
         </div>
       </div>
@@ -1276,7 +1295,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    水平 timeline 模式
+    Horizontal timeline mode
   </div>
   <div
     class="am-whitespace am-whitespace-md"
@@ -1290,6 +1309,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:1px;"
       >
         <i />
       </div>
@@ -1317,12 +1337,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            现在
+            Now
           </div>
           <div
             class="am-steps-description"
           >
-            立即买入
+            Buy
           </div>
         </div>
       </div>
@@ -1333,6 +1353,7 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     >
       <div
         class="am-steps-tail"
+        style="padding-right:1px;"
       >
         <i />
       </div>
@@ -1360,12 +1381,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            11月3日
+            Nov. 3rd
           </div>
           <div
             class="am-steps-description"
           >
-            买入成功
+            Buy success
           </div>
         </div>
       </div>
@@ -1397,12 +1418,12 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
           <div
             class="am-steps-title"
           >
-            11月4日
+            Nov. 4th
           </div>
           <div
             class="am-steps-description"
           >
-            收益到账
+            Profit arrival
           </div>
         </div>
       </div>
