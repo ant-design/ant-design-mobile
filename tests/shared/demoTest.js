@@ -14,7 +14,7 @@ export function webDemoTest(component, options = {}) {
       testMethod = test.skip;
     }
     testMethod(`renders ${file} correctly`, () => {
-      MockDate.set(new Date('2016-11-22').getTime() + (new Date().getTimezoneOffset() * 60 * 1000));
+      MockDate.set(new Date('2016-11-22').getTime());
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
       expect(renderToJson(wrapper)).toMatchSnapshot();
