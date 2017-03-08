@@ -19,7 +19,9 @@ script:
     elif [ "$TEST_TYPE" = build ]; then
       npm run dist
     elif [ "$TEST_TYPE" = test:web ]; then
-      npm run test:web -- -w 2
+      npm run test:web -- -w 2 --coverage && \
+      bash <(curl -s https://codecov.io/bash) -cF web
     elif [ "$TEST_TYPE" = test:rn ]; then
-      npm run test:rn -- -w 2
+      npm run test:rn -- -w 2 --coverage && \
+      bash <(curl -s https://codecov.io/bash) -cF rn
     fi
