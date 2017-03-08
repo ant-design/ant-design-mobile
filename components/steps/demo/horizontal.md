@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 水平方向的步骤条
-  en-US: 'horizontal steps'
+  en-US: 'Horizontal Steps'
 ---
 
 ````jsx
@@ -12,37 +12,37 @@ import { Steps, WingBlank, WhiteSpace, Icon } from 'antd-mobile';
 const Step = Steps.Step;
 
 const steps = [{
-  title: '已完成',
-  description: '这里是信息的描述',
+  title: 'Finished',
+  description: 'This is description',
 }, {
-  title: '进行中',
-  description: '这里是信息的描述',
+  title: 'In Progress',
+  description: 'This is description',
 }, {
-  title: '待运行',
-  description: '这里是信息的描述',
+  title: 'Waiting',
+  description: 'This is description',
 }].map((s, i) => <Step key={i} title={s.title} description={s.description} />);
 
 ReactDOM.render(
   <WingBlank mode={20} className="stepsExample">
-    <div className="sub-title">水平小尺寸</div>
+    <div className="sub-title">Horizontal small size</div>
     <WhiteSpace />
     <Steps current={1} direction="horizontal" size="small">{steps}</Steps>
-    <div className="sub-title">水平正常尺寸</div>
+    <div className="sub-title">Horizontal default size</div>
     <WhiteSpace />
     <Steps current={1} direction="horizontal">{steps}</Steps>
-    <div className="sub-title">水平自定义icon</div>
+    <div className="sub-title">Horizontal customized icon</div>
     <WhiteSpace />
     <Steps direction="horizontal">
-      <Step title="步骤1" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step status="error" title="步骤2" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="步骤3" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step status="error" title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step title="Step 3" icon={<Icon type={require('./pay-circle.svg')} />} />
     </Steps>
-    <div className="sub-title">水平 timeline 模式</div>
+    <div className="sub-title">Horizontal timeline mode</div>
     <WhiteSpace />
     <Steps current={-1} direction="horizontal" size="small" className="timeline">
-      <Step title="现在" description="立即买入" icon={<span className="fake-icon" />} />
-      <Step title="11月3日" description="买入成功" icon={<span className="fake-icon" />} />
-      <Step title="11月4日" description="收益到账" icon={<span className="fake-icon" />} />
+      <Step title="Now" description="Buy" icon={<span className="fake-icon" />} />
+      <Step title="Nov. 3rd" description="Buy success" icon={<span className="fake-icon" />} />
+      <Step title="Nov. 4th" description="Profit arrival" icon={<span className="fake-icon" />} />
     </Steps>
   </WingBlank>
 , mountNode);
