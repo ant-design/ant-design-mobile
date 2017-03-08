@@ -25,6 +25,7 @@
   "testRegex": ".*\\.test\\.js$",
   "collectCoverageFrom": [
     "components/**/*.{ts,tsx}",
+    "!components/**/demo/*.{ts,tsx}",
     "!components/**/*.web.{ts,tsx}",
     "!components/*/style/index.tsx"
   ]
