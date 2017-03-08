@@ -31,7 +31,7 @@ subtitle: 步骤条
 |----------|------------------------------------------|-------------|-------|
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |
 | size | 尺寸，支持设置小尺寸`small` | string | - |
-| direction | step 样式   |  `vertical` \ `horizontal` | `vertical`  |
+| direction | step 样式   |  Enum { 'vertical', 'horizontal' } | `vertical`  |
 
 ### Steps.Step
 
@@ -39,7 +39,7 @@ subtitle: 步骤条
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |----------|-----------------------------------------|------------|-------|
-| status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | string | `wait` |
+| status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。 | Enum { 'wait', 'process', 'finish', 'error' } | `wait` |
 | title | 标题 | React.Element | -     |
 | description | 步骤的详情描述，可选 | React.Element | -  |
 | icon | 步骤图标，可选 | string/React.Element | - |

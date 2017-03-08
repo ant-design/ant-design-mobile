@@ -5,41 +5,41 @@ cols: 1
 title: Steps
 ---
 
+Steps is typically used for displaying the progress of a task, or guiding users through the steps of a complex flow.
 
-显示一个任务的进度；或者引导用户完成某个复杂任务。
+### Rules
 
-### 规则
-- 应用在离散和时间较长的进度显示，eg：转账进度；如果任务是连续和短暂的，应该使用 Progress 来显示，eg：打开页面。
-- 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务，eg：用户注册新账号。
+- Suitable for step-by-step and long-lasting task, e.g. the process of transfer accounts. If the task is continuous and short, such as opening a page, component `Progress` will fit better.
+- When the task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier, e.g. register new account.
 
 
 ## API
 
 ```jsx
 <Steps>
-  <Step title="第一步" />
-  <Step title="第二步" />
-  <Step title="第三步" />
+  <Step title="First" />
+  <Step title="Second" />
+  <Step title="Third" />
 </Steps>
 ```
 
-### Steps ( 适用平台：WEB、React-Native )
+### Steps ( Support Platform：WEB、React-Native )
 
-整体步骤条。
+The Steps container.
 
-| 参数      | 说明                                      | 类型         | 默认值 |
+| Property      | Description                                      | Type         | Default |
 |----------|------------------------------------------|-------------|-------|
-| current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |
-| size | 尺寸，支持设置小尺寸`small` | string | - |
-| direction | step 样式   |  `vertical` \ `horizontal` | `vertical`  |
+| current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | `0` |
+| size | To specify the size of the step bar, a smaller size can be achieved by setting it to `small` | string | - |
+| direction | To specify the direction of the step bar   | Enum { 'vertical', 'horizontal' }  | `vertical`  |
 
 ### Steps.Step
 
-步骤条内的每一个步骤。
+A single step used as child component of the Step.
 
-| 参数      | 说明                                     | 类型       | 默认值 |
+| Property      | Description                                     | Type       | Default |
 |----------|-----------------------------------------|------------|-------|
-| status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | string | `wait` |
-| title | 标题 | React.Element | -     |
-| description | 步骤的详情描述，可选 | React.Element | -  |
-| icon | 步骤图标，可选 | string/React.Element | - |
+| status | To specify the status. It will be automatically set by `current` of `Steps` if not configured. | Enum { 'wait', 'process', 'finish', 'error' } | `wait` |
+| title | Title of the step | React.Element | -     |
+| description | Detail of the step(optional property) | React.Element | -  |
+| icon | Icon of the step(optional property) | string/React.Element | - |
