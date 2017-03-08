@@ -4,20 +4,20 @@ type: Data Display
 title: Tag
 ---
 
-进行标记和分类的小标签，用于标记事物的属性和维度，以及进行分类。
+Tag for categorizing or markuping, can be used to make classification or mark the attributes and dimensions of objects.
 
-### 规则
-- 标签文字必须显示完全。
+### Rules
 
+- The content should be displayed completely.
 
-## API ( 适用平台：WEB、React-Native )
+## API ( Support Platform：WEB、React-Native )
 
-| 属性        | 说明           | 类型      | 默认值       |
+| Property        | Description           | Type      | Default       |
 |------------|----------------|--------------------|--------------|
-| small   |  小号标签  |   Boolean    |  false  |
-| disabled   | 是否不可用      | Boolean |    false  |
-| closable   | 是否关闭（非 disabled small 状态） | Boolean | false |
-| selected   | 是否默认选中      | Boolean |    false  |
-| onChange   | 切换选中回调函数 | (selected: bool): void |   无  |
-| onClose   | 点关闭时的回调函数 | (): void |   无  |
-| afterClose   | 关闭后的回调 | (): void |   无  |
+| small   |  Whether to show a smaller size  |   Boolean    |  `false`  |
+| disabled   | Whether is disabled      | Boolean |    `false`  |
+| closable   | Whether can be closed(invalid in `small` or `disabled` mode) | Boolean | `false` |
+| selected   | Whether is selected by default     | Boolean |   `false`  |
+| onChange   | The callback function that is triggered when the selected state changes. | (selected: bool): void |   -  |
+| onClose   | The callback function that is triggered when the tag is closed. | (): void |   -  |
+| afterClose   | The callback function that is triggered after close. | (): void |   -  |
