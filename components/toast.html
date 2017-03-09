@@ -28,6 +28,25 @@
         ga('send', 'pageview');
         /* eslint-enable */
       }
+      (function() {
+        function checkIfMobile() {
+          var ua = window.navigator.userAgent.toLowerCase();
+          if (ua.indexOf('android') !== -1 || ua.indexOf('iphone') !== -1) {
+            return true;
+          }
+          return false;
+        }
+        function checkIfCn() {
+          return window.navigator.language === 'zh-CN';
+        }
+        if (checkIfMobile()) {
+          var url =  = location.port ? 'http://127.0.0.1:8002/' : window.location.origin + '/kitchen-sink/';
+          if (checkIfCn()) {
+            url = url + '?lang=zh-CN';
+          }
+          location.href = url;
+        }
+      })()
      (function() {
         function isLocalStorageNameSupported() {
           const testKey = 'test';
