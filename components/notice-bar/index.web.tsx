@@ -2,7 +2,7 @@ import React from 'react';
 import assign from 'object-assign';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
-import Icon from '../icon';
+import Icon from '../icon/index.web';
 import NoticeBarProps from './PropsType';
 import Marquee from './Marquee';
 

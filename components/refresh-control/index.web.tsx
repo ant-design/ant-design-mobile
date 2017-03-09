@@ -2,7 +2,7 @@
 import React from 'react';
 /* tslint:enable:no-unused-variable */
 import ListView from 'rmc-list-view';
-import Icon from '../icon';
+import Icon from '../icon/index.web';
 // import tsPropsType from './PropsType';
 import assign from 'object-assign';
 

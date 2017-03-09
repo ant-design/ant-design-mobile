@@ -2,8 +2,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import List from '../list';
-import Flex from '../flex';
+import List from '../list/index.web';
+import Flex from '../flex/index.web';
 import SubMenu from './SubMenu.web';
 import { MenuProps } from './PropsType';
 
