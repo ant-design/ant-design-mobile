@@ -21,44 +21,57 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
 
   // http://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
   getOrientation = (file, callback) => {
-    if (!(/iphone|ipad/i).test(navigator.userAgent)) {
-      callback('-1');
-    } else {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const view = new DataView((e.target as any).result);
-        if (view.getUint16(0, false) !== 0xFFD8) {
-          return callback(-2);
-        }
-        let length = view.byteLength;
-        let offset = 2;
-        while (offset < length) {
-          const marker = view.getUint16(offset, false);
-          offset += 2;
-          if (marker === 0xFFE1) {
-            let tmp = view.getUint32(offset += 2, false);
-            if (tmp !== 0x45786966) {
-              return callback(-1);
-            }
-            let little = view.getUint16(offset += 6, false) === 0x4949;
-            offset += view.getUint32(offset + 4, little);
-            let tags = view.getUint16(offset, little);
-            offset += 2;
-            for (let i = 0; i < tags; i++) {
-              if (view.getUint16(offset + (i * 12), little) === 0x0112) {
-                return callback(view.getUint16(offset + (i * 12) + 8, little));
-              }
-            }
-          } else if ((marker & 0xFF00) !== 0xFF00) {
-            break;
-          } else {
-            offset += view.getUint16(offset, false);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const view = new DataView((e.target as any).result);
+      if (view.getUint16(0, false) !== 0xFFD8) {
+        return callback(-2);
+      }
+      let length = view.byteLength;
+      let offset = 2;
+      while (offset < length) {
+        const marker = view.getUint16(offset, false);
+        offset += 2;
+        if (marker === 0xFFE1) {
+          let tmp = view.getUint32(offset += 2, false);
+          if (tmp !== 0x45786966) {
+            return callback(-1);
           }
+          let little = view.getUint16(offset += 6, false) === 0x4949;
+          offset += view.getUint32(offset + 4, little);
+          let tags = view.getUint16(offset, little);
+          offset += 2;
+          for (let i = 0; i < tags; i++) {
+            if (view.getUint16(offset + (i * 12), little) === 0x0112) {
+              return callback(view.getUint16(offset + (i * 12) + 8, little));
+            }
+          }
+        } else if ((marker & 0xFF00) !== 0xFF00) {
+          break;
+        } else {
+          offset += view.getUint16(offset, false);
         }
-        return callback(-1);
-      };
-      reader.readAsArrayBuffer(file.slice(0, 64 * 1024));
+      }
+      return callback(-1);
+    };
+    reader.readAsArrayBuffer(file.slice(0, 64 * 1024));
+  }
+
+  getRotation = (orientation = 1) => {
+    let imgRotation = 0;
+    switch (orientation) {
+      case 3:
+        imgRotation = 180;
+        break;
+      case 6:
+        imgRotation = 90;
+        break;
+      case 8:
+        imgRotation = 270;
+      break;
+      default:
     }
+    return imgRotation;
   }
 
   removeImage = (index) => {
@@ -136,8 +149,12 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       height: `${customWidth}px`,
     };
     files.forEach((image: any, index: number) => {
+      const curStyle = {
+        ...itemStyle,
+        transform: `rotate(${this.getRotation(image.orientation)}deg)`,
+      };
       imgItemList.push(
-        <div key={index} className={`${prefixCls}-item`} style={itemStyle}>
+        <div key={index} className={`${prefixCls}-item`} style={curStyle}>
           <div
             className={`${prefixCls}-item-remove`}
             onClick={() => { this.removeImage(index); }}
