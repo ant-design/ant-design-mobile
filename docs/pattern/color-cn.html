@@ -37,14 +37,16 @@
           return false;
         }
         function checkIfCn() {
-          return window.navigator.language === 'zh-CN';
+          return window.navigator.language.toLowerCase === 'zh-cn'; // wtf safari is 'zh-CN', while chrome and other is 'zh-CN'
         }
         if (checkIfMobile()) {
           var url = location.port ? 'http://127.0.0.1:8002/' : window.location.origin + '/kitchen-sink/';
           if (checkIfCn()) {
             url = url + '?lang=zh-CN';
+          } else {
+            url = url + '?lang=en-US';
           }
-          location.href = url;
+          return location.href = url;
         }
         function isLocalStorageNameSupported() {
           const testKey = 'test';
@@ -75,8 +77,8 @@
         }
         // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
         if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
-          var lang = (window.localStorage && localStorage.getItem('locale')) || navigator.language;
-          if ((lang === 'zh-CN') !== isZhCN(pathname)) {
+          var lang = (window.localStorage && localStorage.getItem('locale'));
+          if ((lang === 'zh-CN' || window.navigator.language.toLowerCase() === 'zh-cn') !== isZhCN(pathname)) {
             location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
           }
         }
