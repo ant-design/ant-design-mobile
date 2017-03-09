@@ -181,9 +181,6 @@
       "lint-staged:demo"
     ]
   },
-  "tnpm": {
-    "mode": "yarn"
-  },
   "config": {
     "port": 8001
   },

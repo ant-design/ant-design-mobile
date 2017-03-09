@@ -16,7 +16,7 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-image-picker-item"
-            style="width:-9px;height:-9px;"
+            style="width:-9px;height:-9px;transform:rotate(0deg);"
           >
             <div
               class="am-image-picker-item-remove"
@@ -28,7 +28,7 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
           </div>
           <div
             class="am-image-picker-item"
-            style="width:-9px;height:-9px;"
+            style="width:-9px;height:-9px;transform:rotate(0deg);"
           >
             <div
               class="am-image-picker-item-remove"
@@ -71,7 +71,7 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
         >
           <div
             class="am-image-picker-item"
-            style="width:-9px;height:-9px;"
+            style="width:-9px;height:-9px;transform:rotate(0deg);"
           >
             <div
               class="am-image-picker-item-remove"
@@ -83,7 +83,7 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
           </div>
           <div
             class="am-image-picker-item"
-            style="width:-9px;height:-9px;"
+            style="width:-9px;height:-9px;transform:rotate(0deg);"
           >
             <div
               class="am-image-picker-item-remove"
