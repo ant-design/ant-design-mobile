@@ -28,7 +28,7 @@
         ga('send', 'pageview');
         /* eslint-enable */
       }
-      (function() {
+     (function() {
         function checkIfMobile() {
           var ua = window.navigator.userAgent.toLowerCase();
           if (ua.indexOf('android') !== -1 || ua.indexOf('iphone') !== -1) {
@@ -46,8 +46,6 @@
           }
           location.href = url;
         }
-      })()
-     (function() {
         function isLocalStorageNameSupported() {
           const testKey = 'test';
           const storage = window.localStorage;
