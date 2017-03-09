@@ -40,7 +40,7 @@
           return window.navigator.language === 'zh-CN';
         }
         if (checkIfMobile()) {
-          var url =  = location.port ? 'http://127.0.0.1:8002/' : window.location.origin + '/kitchen-sink/';
+          var url = location.port ? 'http://127.0.0.1:8002/' : window.location.origin + '/kitchen-sink/';
           if (checkIfCn()) {
             url = url + '?lang=zh-CN';
           }
