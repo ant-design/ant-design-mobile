@@ -142,7 +142,7 @@ export default class ComponentDoc extends React.Component {
     const { title, subtitle, chinese, english } = meta;
     const hash = `#${path}-demo-${currentIndex}`;
     const mainPath = isLocalMode ? 'components' : 'kitchen-sink/components';
-    const search = this.context.intl.locale === 'zh-CN' ? '?lang=zh-CN' : '';
+    const search = this.context.intl.locale === 'zh-CN' ? '?lang=zh-CN' : '?lang=en-US';
     const iframeUrl = `${protocol}//${host}/${mainPath}/${path}${search}${hash}`;
 
     return (

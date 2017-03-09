@@ -27,6 +27,8 @@ class Home extends React.Component {
     let iframeUrl = location.port ? 'http://localhost:8002/' : `${location.origin}/kitchen-sink/`;
     if (isZhCN) {
       iframeUrl = `${iframeUrl}?lang=zh-CN`;
+    } else {
+      iframeUrl = `${iframeUrl}?lang=en-US`;
     }
     return (
       <DocumentTitle title={`Ant Design Mobile - ${this.props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
