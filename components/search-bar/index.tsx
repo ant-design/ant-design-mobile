@@ -18,7 +18,10 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     } else {
       value = '';
     }
-    this.state = { value };
+    this.state = {
+      value,
+      focus: false,
+    };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -51,6 +54,23 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     }
   }
 
+  onFocus = () => {
+    this.setState({
+      focus: true,
+    });
+    if (this.props.onFocus) {
+      this.props.onFocus();
+    }
+  };
+
+  onBlur = () => {
+    this.setState({
+      focus: false,
+    });
+    if (this.props.onBlur) {
+      this.props.onBlur();
+    }
+  }
   render() {
     const { showCancelButton, cancelText, disabled, styles } = this.props;
     const restProps = assign({}, this.props);
@@ -61,7 +81,8 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         delete restProps[prop];
       }
     });
-    const { value } = this.state;
+    const { value, focus } = this.state;
+    const _showCancelButton = showCancelButton || focus;
 
     return (
       <View style={styles.wrapper}>
@@ -75,6 +96,8 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           clearButtonMode="always"
           underlineColorAndroid="transparent"
           {...restProps}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
         />
         <Image
           source={require('../style/images/search.png')}
@@ -82,13 +105,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           resizeMode="stretch"
         />
         {
-          showCancelButton ? (
+          _showCancelButton &&
             <View style={styles.cancelTextContainer}>
               <Text style={styles.cancelText} onPress={this.onCancel}>
                 {cancelText}
               </Text>
             </View>
-          ) : null
         }
       </View>
     );
