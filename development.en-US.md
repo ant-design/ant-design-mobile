@@ -1,13 +1,13 @@
 # Development
 
-## 环境
+## Environment
 
 ```
 node = 6+
 npm = 3+
 ```
 
-## 代码风格
+## Code convention for antd-mobile
 
 TypeScript
 
@@ -15,25 +15,25 @@ TypeScript
 $ npm run lint
 ```
 
-### API 规范
+### API Design Philosophy
 
-设计原则
+Basic principles:
 
-1. 尽量和 react-native 一致。
-2. react-native 没有的组件，参考 antd。
-3. antd 也没有的, 发 issue 讨论。
+1. remain the same with react-native as much as possible.
+2. components which react-native do not have, should follow [antd convention](https://ant.design/)。
+3. components which totally new, please open a issue and we will discuss about it.
 
-组件名以 `-` 分割, 例如 `date-picker`，文件后缀名统一为 `.tsx`。
+component name separate with `-`, such as `date-picker`，and file Extensions should be `.tsx`。
 
 
-### 组件实现
+### Components Implementation
 
-- 尽量使用 react-component/xx 的组件, 有问题 pr 到 react-component/xx
-- 尽量使用知名开源组件
-- 复杂组件拆分到 react-component/xx 单独维护
-- 不符合以上情况发帖讨论
+- prefer to use [react-component](https://github.com/react-component/), you can PR to react-component if you find any problem.
+- prefer to use well-known and open-source component.
+- complicated component should abstract it's basic logic into [react-component](https://github.com/react-component/)
+- any problem you do not sure, open a issue and discuss.
 
-### web 组件规范
+### Web Components specification
 
 - `components/button/index.web.tsx`
 
@@ -71,9 +71,9 @@ import './index.less';
 }
 ```
 
-### react-native 组件规范
+### React-Native Components specification
 
-无特殊情况（iOS Android 代码完全一致）不用带后缀.
+general we do not distinguish Android and Ios, so no suffix.
 
 - `components/button/index.tsx`
 
@@ -81,7 +81,7 @@ import './index.less';
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-// 可独立到 components/button/style/index.tsx
+// just a example, may extract style to components/button/style/index.tsx
 const styles = StyleSheet.create({
   button: {
     borderRadius: 4,
@@ -121,27 +121,27 @@ exports.description = 'button example';
 exports.demo = BasicButtonExample;
 ```
 
-## 开发流程
+## Development
 
 ```bash
 $ npm install
 ```
 
-### web 流程
+### Development(Web)
 
 ```bash
 $ npm start
 ```
 
-测试单个组件使用 COMPONENT_STYLE 环境变量, 例如
+want to test a single Component? use `COMPONENT_STYLE`, eg:
 
 ```bash
 $ COMPONENT_STYLE=button npm start
 ```
 
-访问：http://localhost:8001/
+open at browser：http://localhost:8001/
 
-### react-native 流程
+### Development(react-native)
 
 ```bash
 # In one terminal tab
@@ -154,27 +154,27 @@ $ npm run ios / android
 
 If you need to add a new component, then modify `rn-kitchen-sink/demoList.js` and `./index.js`.
 
-### 提交代码
+### Tips about Pull Request
 
-自己从 master 新开一个分支开发.
+Fork and git clone, and check a new branch from `master`.
 
 ```bash
 git checkout -b xx-feature
 ```
 
-开发完成后。
+After you are done.
 
 ```bash
 $ git add --all
-$ git commit -am "描述"
+$ git commit -am "some description"
 $ git pull --rebase origin master
-// 解决冲突
+// fix some conflict if need be
 $ git push origin xx-feature:xx-feature
 ```
 
-提交 mr, 指定相应人员 review, 根据反馈进一步修改提交.
+Open Pull Request, assign a owner, and we will follow and review this.
 
-由 review 人合并进主干后
+After you pr is merged into master.
 
 ```bash
 $ git checkout master
