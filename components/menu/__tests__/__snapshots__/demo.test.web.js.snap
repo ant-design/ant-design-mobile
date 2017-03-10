@@ -25,13 +25,13 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
         <span
           class="am-navbar-left-content"
         >
-          菜单
+          Menu
         </span>
       </div>
       <div
         class="am-navbar-title"
       >
-        标题
+        Here is title
       </div>
       <div
         class="am-navbar-right"
