@@ -3,8 +3,6 @@ order: 4
 title: 更新日志
 ---
 
-`antd-mobile` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
-
 #### 发布周期
 
 * patch 版本：每周末会进行日常 bugfix 更新。（如果有紧急的 bugfix，则任何时候都可发布）
@@ -12,6 +10,31 @@ title: 更新日志
 * 大版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
+### 1.0.5
+
+`2017-03-10`
+
+## Feature
+- 补全 `accordion` React-Native 版本 ([#931](https://github.com/ant-design/ant-design-mobile/pull/931))
+- `stepper` 图标支持用户自定义 ([链接](https://github.com/ant-design/ant-design-mobile/commit/78ab295f69cd1441b600aa6c2d921c7d658096ca))
+- 补全 React-Native `Button` 的 loading 样式 （[#946](https://github.com/ant-design/ant-design-mobile/issues/946)）
+- React-Native `InputItem` 支持输入小数 （[950](https://github.com/ant-design/ant-design-mobile/issues/950)）
+- `Icon` 支持直接添加事件 ([#955](https://github.com/ant-design/ant-design-mobile/issues/955))
+- React-Native `InputItem`, `TextItem` 支持自定义 style ([#949](https://github.com/ant-design/ant-design-mobile/issues/949))
+
+## Bug Fix
+- React Native `SearchBar` 自动显示取消按钮 ([#957](https://github.com/ant-design/ant-design-mobile/issues/957))
+- 修复 `Tabs` 在低版本 Android 浏览器兼容性问题 ([#940](https://github.com/ant-design/ant-design-mobile/issues/940))
+- React Native 修复 `Card` extra 覆盖的bug ([#969](https://github.com/ant-design/ant-design-mobile/issues/969))
+- 修复 `ImagePicker` 图片旋转方向问题 ([#944](https://github.com/ant-design/ant-design-mobile/issues/944))
+- 修复 `Step` 水平溢出的问题 ([#952](https://github.com/ant-design/ant-design-mobile/issues/952))
+
+## Improve && Enhancement
+- 新增 Web && React Native 组件的 snapshot 测试，覆盖率 59% ([#921](https://github.com/ant-design/ant-design-mobile/pull/921))
+- 文档翻译进度 ([#329](https://github.com/ant-design/ant-design-mobile/issues/329))
+- [官方 Demo 集合](https://github.com/ant-design/antd-mobile-samples) 新增 roadhog 示例
+
 
 ### 1.0.4
 
