@@ -144,7 +144,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ## 链接
 
 - [首页](/)
-- [开发文档](http://github.com/ant-design/ant-design-mobile/blob/master/development.md)
+- [开发文档](http://github.com/ant-design/ant-design-mobile/blob/master/development.en-US.md)
 - [React 模块](http://github.com/react-component)
 
 ## 谁在使用

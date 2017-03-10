@@ -1,4 +1,4 @@
-[English](./README.md) | 简体中文
+[English](./README.en-US.md) | 简体中文
 
 <p align="center">
   <a href="http://mobile.ant.design">
@@ -37,7 +37,7 @@ http://mobile.ant.design/kitchen-sink/
 
 ## 安装 & 使用
 
-[introduce](docs/react/introduce.md#安装)
+[introduce](docs/react/introduce.zh-CN.md#安装)
 
 ## 浏览器支持
 
@@ -47,7 +47,7 @@ http://mobile.ant.design/kitchen-sink/
 ## 链接
 
 - [首页](http://mobile.ant.design)
-- [开发文档](development.md)
+- [开发文档](development.zh-CN.md)
 - [底层 React 模块](http://github.com/react-component)
 
 ## 欢迎贡献

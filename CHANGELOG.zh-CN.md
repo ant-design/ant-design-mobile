@@ -92,7 +92,7 @@ title: 更新日志
 ## New Feature
 
 - Icon 从 iconfont 转为使用 svg 图片 [#156](https://github.com/ant-design/ant-design-mobile/issues/156)。
-- Icon 增加 React Native 版本，[接入指南](https://github.com/ant-design/ant-design-mobile/blob/master/components/icon/index.md#如何使用-rn)。
+- Icon 增加 React Native 版本，[接入指南](https://github.com/ant-design/ant-design-mobile/blob/master/components/icon/index.zh-CN.md#如何使用-rn)。
 - Button 新增 `across` API，支持通栏按钮。
 - Progress 组件新增 `appearTransition` API，支持初始显示的动画效果。
 - Checkbox / Radio 组件支持 children [#499](https://github.com/ant-design/ant-design-mobile/issues/499)。
@@ -113,7 +113,7 @@ title: 更新日志
 - Popover `iconName` 变为 `icon` ；分割线的 css 设置从底边线修改为顶边线。
 - 修改部分 css 变量名和变量值、如：zindex 等。
 - RN List 去除 last 属性。
-- `DatePicker` 和 `Pagination` 不再接受 `okText`, `dismissText` 属性；`DatePicker`的`locale`属性结构变化，参见 [升级文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/upgrade-notes.md#其他常用组件更新注意事项)。
+- `DatePicker` 和 `Pagination` 不再接受 `okText`, `dismissText` 属性；`DatePicker`的`locale`属性结构变化，参见 [升级文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/upgrade-notes.zh-CN.md#其他常用组件更新注意事项)。
 - 原 Web 版 `Slider` 拆分成 `Slider`, `Range`, `createTooltip`, 使用方式参见 [Slider文档](https://mobile.ant.design/components/slider), [Range文档](https://mobile.ant.design/components/range)。
 - Toast 更改为 single instance，新显示的 toast 会覆盖老的；同时增加 mask 特性；。
 - Modal 和 Switch 增加 android 平台独立 UI。

@@ -92,7 +92,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 
 > 服务端渲染问题：请参考[此处](https://github.com/ant-design/ant-design-mobile/pull/758)讨论的方式做服务端渲染，另外不保证所有组件都支持服务端渲染。
 >
-> 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md)，
+> 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.zh-CN.md)，
 > 示例：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 >
 > 注意：在 webpack 环境里、除了要安装以上必选的依赖外，一定不要忘记用
@@ -144,7 +144,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ## 链接
 
 - [首页](/)
-- [开发文档](http://github.com/ant-design/ant-design-mobile/blob/master/development.md)
+- [开发文档](http://github.com/ant-design/ant-design-mobile/blob/master/development.zh-CN.md)
 - [React 模块](http://github.com/react-component)
 
 ## 谁在使用
