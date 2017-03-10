@@ -80,6 +80,10 @@ class Demo extends React.Component {
 
   onEndReached = (event) => {
     // load new data
+    // hasMore: from backend data, indicates whether it is the last page, here is false
+    if (this.state.isLoading && !this.state.hasMore) {
+      return;
+    }
     console.log('reach end', event);
     this.setState({ isLoading: true });
     setTimeout(() => {
