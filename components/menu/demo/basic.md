@@ -12,61 +12,61 @@ import { Menu, ActivityIndicator, NavBar } from 'antd-mobile';
 const data = [
   {
     value: '1',
-    label: '全部分类',
+    label: 'All Categories',
     isLeaf: true,
   }, {
     value: '2',
-    label: '美食',
+    label: 'Food',
     children: [
       {
-        label: '全部美食',
+        label: 'All Foods',
         value: '22',
         disabled: false,
       },
       {
-        label: '中餐',
+        label: 'Chinese Food',
         value: '21',
       }, {
-        label: '火锅',
+        label: 'Hot Pot',
         value: '23',
       }, {
-        label: '自助餐',
+        label: 'Buffet',
         value: '24',
       }, {
-        label: '快餐',
+        label: 'Fast Food',
         value: '25',
       }, {
-        label: '小吃',
+        label: 'Snack',
         value: '26',
       }, {
-        label: '面包甜点',
+        label: 'Bread',
         value: '27',
       }, {
-        label: '生鲜水果',
+        label: 'Fruit',
         value: '28',
       }, {
-        label: '面食',
+        label: 'Noodle',
         value: '29',
       }, {
-        label: '休闲食品',
+        label: 'Leisure Food',
         value: '210',
       }],
   }, {
     value: '3',
-    label: '超市',
+    label: 'Supermarket',
     children: [
       {
-        label: '全部超市',
+        label: 'All Supermarkets',
         value: '31',
       }, {
-        label: '超市',
+        label: 'Supermarket',
         value: '32',
         disabled: true,
       }, {
-        label: '便利店',
+        label: 'C-Store',
         value: '33',
       }, {
-        label: '个人护理',
+        label: 'Personal Care',
         value: '34',
       }],
   },
@@ -97,7 +97,7 @@ class MenuExample extends React.Component {
     console.log(label);
   }
   handleClick = (e) => {
-    e.preventDefault(); // 修复 Android 上点击穿透
+    e.preventDefault(); // Fix event propagation on Android
     this.setState({
       show: !this.state.show,
     });
@@ -131,13 +131,13 @@ class MenuExample extends React.Component {
       <div className={show ? 'menu-active' : ''}>
         <div>
           <NavBar
-            leftContent="菜单"
+            leftContent="Menu"
             mode="light"
             iconName={require('./menu.svg')}
             onLeftClick={this.handleClick}
             className="top-nav-bar"
           >
-            标题
+            Here is title
           </NavBar>
         </div>
         {show ? initData ? menuEl : loadingEl : null}
