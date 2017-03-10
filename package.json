@@ -47,7 +47,7 @@
     "rc-steps": "~2.4.1",
     "rc-swipeout": "~1.2.4",
     "rc-table": "~5.2.2",
-    "rc-tabs": "~7.2.0",
+    "rc-tabs": "~7.3.1",
     "rc-tooltip": "~3.4.2",
     "rc-touchable": "~1.0.11",
     "react-hammerjs": "^0.5.0",
