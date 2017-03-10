@@ -4,18 +4,19 @@ type: Navigation
 title: Menu
 ---
 
-在一个临时的面板上显示一组操作。
+Show a seires of operations on a panel.
 
-### 规则
-- 至少包含 2 个以上的菜单项。
-- 不应该被当做主要导航方式。
+### Rules
 
-## API ( 适用平台：WEB )
+- Should includes more than 2 menu items.
+- Should not be used as main navigation.
 
-| 属性        | 说明           | 类型        | 默认值       |
+## API ( Support Platform：WEB )
+
+| Property        | Description           | Type        | Default       |
 |------------|----------------|-------------|--------------|
-| data    |  数据(isLeaf 设置后 children 无效)  | `Array<{label, value, disabled?, children<data>?, isLeaf?}>` | [] |
-| level    |  菜单级数，可选1/2  | number  | 2 |
-| value    |  初始值，一级和二级筛选数据的`value`组成的数组  | Array | [] |
-| onChange    |   选择后的回调函数    | (item: Object): void  |  |
-| height    |   筛选组件的高度   | number  | `document.documentElement.clientHeight / 2` |
+| data    | `Menu` data (children will be ignored when `isLeaf` is true). | `Array<{label, value, disabled?, children<data>?, isLeaf?}>` | [] |
+| level    | `Menu` levels, available values: `1`, `2`.  | number  | 2 |
+| value    |  Selected value of `Menu`, it's a array which includes first and second level's `value`. | Array | [] |
+| onChange    | Callback called when menu item is selected.  | (item: Object): void  |  |
+| height    |   Height of `Menu`.  | number  | `document.documentElement.clientHeight / 2` |
