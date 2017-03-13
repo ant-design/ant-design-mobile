@@ -16,26 +16,26 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-image-picker-item"
-            style="width:-9px;height:-9px;transform:rotate(0deg);"
+            style="width:-9px;height:-9px;"
           >
             <div
               class="am-image-picker-item-remove"
             />
             <div
               class="am-image-picker-item-content"
-              style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);transform:rotate(0deg);"
             />
           </div>
           <div
             class="am-image-picker-item"
-            style="width:-9px;height:-9px;transform:rotate(0deg);"
+            style="width:-9px;height:-9px;"
           >
             <div
               class="am-image-picker-item-remove"
             />
             <div
               class="am-image-picker-item-content"
-              style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);transform:rotate(0deg);"
             />
           </div>
           <div
@@ -71,26 +71,26 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
         >
           <div
             class="am-image-picker-item"
-            style="width:-9px;height:-9px;transform:rotate(0deg);"
+            style="width:-9px;height:-9px;"
           >
             <div
               class="am-image-picker-item-remove"
             />
             <div
               class="am-image-picker-item-content"
-              style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);transform:rotate(0deg);"
             />
           </div>
           <div
             class="am-image-picker-item"
-            style="width:-9px;height:-9px;transform:rotate(0deg);"
+            style="width:-9px;height:-9px;"
           >
             <div
               class="am-image-picker-item-remove"
             />
             <div
               class="am-image-picker-item-content"
-              style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);transform:rotate(0deg);"
             />
           </div>
           <div

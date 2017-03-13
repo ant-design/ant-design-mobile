@@ -149,12 +149,12 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       height: `${customWidth}px`,
     };
     files.forEach((image: any, index: number) => {
-      const curStyle = {
-        ...itemStyle,
+      const imgStyle = {
+        backgroundImage: `url(${image.url})`,
         transform: `rotate(${this.getRotation(image.orientation)}deg)`,
       };
       imgItemList.push(
-        <div key={index} className={`${prefixCls}-item`} style={curStyle}>
+        <div key={index} className={`${prefixCls}-item`} style={itemStyle}>
           <div
             className={`${prefixCls}-item-remove`}
             onClick={() => { this.removeImage(index); }}
@@ -162,7 +162,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           <div
             className={`${prefixCls}-item-content`}
             onClick={() => { this.onImageClick(index); }}
-            style={{ backgroundImage: `url(${image.url})` }}
+            style={imgStyle}
           />
         </div>,
       );
