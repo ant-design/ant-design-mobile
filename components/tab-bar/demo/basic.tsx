@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { TabBar } from 'antd-mobile';
+import { TabBar, SearchBar } from 'antd-mobile';
 
 export default class BasicTabBarExample extends React.Component <any, any> {
   constructor(props) {
@@ -13,6 +13,10 @@ export default class BasicTabBarExample extends React.Component <any, any> {
   renderContent(pageText) {
     return (
       <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
+        <SearchBar
+          placeholder="搜索"
+          showCancelButton
+        />
         <Text style={{ margin: 50 }}>{pageText}</Text>
       </View>
     );
