@@ -14,7 +14,7 @@ SVG 图标 (参考：[为什么使用 svg 替换 iconfont](https://github.com/an
 
 - 命名顺序：`[icon名]-[形状可选]-[描线与否]-[方向可选]`。
 
-## 如何使用 (WEB)
+## 如何使用 (WEB 版)
 
 一. 首先安装依赖：
 
@@ -95,7 +95,7 @@ const svgDirs = [
 > 注意：仅内置部分必要的图标，所有图标名字列表请查看 [demo](https://mobile.ant.design/components/icon), 同时我们提供了 iconfont 对应的 svg 图标方便下载使用，[svg 图标地址 https://github.com/ant-design/ant-design-icons](https://github.com/ant-design/ant-design-icons)
 
 > 如果使用 [dva-cli](https://github.com/dvajs/dva-cli) 初始化的项目，则默认使用[roadhog](https://github.com/sorrycc/roadhog), roadhog 的 `.roadhogrc` 文件暂不支持配置 webpack loader, 不过 roadhog 仍然支持用 `webpack.config.js` 配置。
-> 
+>
 
 ## 本地部署
 
@@ -104,7 +104,7 @@ const svgDirs = [
 > 还有一种不推荐但很简便的方式：`<Icon type={require('!svg-sprite!./reload.svg')} />`
 这样就不需要将本地 svg 文件所在路径加入到`svgDirs`数组里了，[详细参考 webpack loaders-in-require](http://webpack.github.io/docs/using-loaders.html#loaders-in-require)
 
-## 如何使用 (RN)
+## 如何使用 (RN 版)
 
 > RN 版本由于 Icon 无法做纯 UI，需要 native 支持
 
@@ -124,6 +124,6 @@ const svgDirs = [
 
 | 属性        | 说明           | 类型            | 默认值       |
 |------------|----------------|----------------|--------------|
-| type    |   内置 icon 名称或 require 资源(`web`) 或 unicode (`RN`)    | String / reqiure('xxx') / `\ue601`  |  |
-| size    |   图标大小    | 'xxs'/'xs'/'sm'/'md'/'lg' (RN/WEB)/ number  | `md` |
-| color (`RN`) | 图标颜色  | Color | '#000' |
+| type    |   内置 icon 名称或 require 资源(`web`) 或 unicode (`RN`)    | String / reqiure('xxx')   |
+| size    |   图标大小    | 'xxs'/'xs'/'sm'/'md'/'lg' (`RN/WEB`)/ number(`RN Only`)  | `md` |
+| color(`RN Only`) | 图标颜色  | Color | '#000' |
