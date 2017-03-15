@@ -14,7 +14,9 @@ Use to show important information for the system, and ask for user feedback. eg:
 
 ## API
 
-### Modal ( Support Platform：WEB、React-Native )
+ Support WEB, React-Native.
+
+### Modal
 
 | Property             | Description                    | Type     | Default        |
 |------------------|-----------------------|----------|---------------|
@@ -37,6 +39,8 @@ Use to show important information for the system, and ask for user feedback. eg:
 | message      | message                  | String or React.Element    | -    |
 | actions         | button group, [{text, onPress, style}]       | Array | -            |
 
+call `Modal.alert(title, message, actions?).close()`  can close Alert Modal outside anywhere as you wish.
+
 ### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?) ( Support Platform：WEB )
 
 | Property             | Description                                         | Type     | Default        |
@@ -47,8 +51,12 @@ Use to show important information for the system, and ask for user feedback. eg:
 | type       | prompt style   | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue       | Default(input whick type is password is not supported)   | String |   -  |
 
+call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?).close()` can close prompt Modal outside anywhere as you wish.
+
 ### Modal.operation(actions?) ( Support Platform：WEB、React-Native )
 
 | Property             | Description                                         | Type     | Default        |
 |------------------|----------------------------------------------|----------|---------------|
 | actions         | button group, [{text, onPress, style}]       | Array | -            |
+
+call Modal.operation(actions?).close()` can close Operation Modal outside anywhere as you wish.

@@ -46,4 +46,8 @@ export default function (...args) {
       className="am-modal-operation"
     /> , div
   );
+
+  return {
+    close,
+  };
 }

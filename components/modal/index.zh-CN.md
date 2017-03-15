@@ -16,7 +16,9 @@ subtitle: 对话框
 
 ## API
 
-### Modal ( 适用平台：WEB、React-Native )
+适用平台：WEB、React-Native
+
+### Modal
 
 | 参数             | 说明                    | 类型     | 默认值        |
 |------------------|-----------------------|----------|---------------|
@@ -39,6 +41,8 @@ subtitle: 对话框
 | message      | 提示信息                  | String 或 React.Element    | 无    |
 | actions         | 按钮组, [{text, onPress, style}]       | Array | 无            |
 
+`Modal.alert(title, message, actions?).close()` 可以在外部关闭 Alert
+
 ### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?) ( 适用平台：WEB )
 
 | 参数             | 说明                                         | 类型     | 默认值        |
@@ -49,8 +53,12 @@ subtitle: 对话框
 | type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue       | 默认值(input 为 password 类型不支持)   | String |   -  |
 
+Modal.prompt(title, message, callbackOrActions, type?, defaultValue?).close()` 可以在外部关闭 prompt
+
 ### Modal.operation(actions?) ( 适用平台：WEB、React-Native )
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
 | actions         | 按钮组, [{text, onPress, style}]       | Array | 无            |
+
+Modal.operation(actions?).close()` 可以在外部关闭 operation
