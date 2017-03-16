@@ -22,6 +22,7 @@
     border-top: @border-width-sm solid @border-color-base;
     .display-box();
     .@{modalPrefixClass}-button {
+      -webkit-touch-callout: none;
       .box-flex();
       .button-common();
       &:first-child {
@@ -33,6 +34,7 @@
 
   &-button-group-v {
     .@{modalPrefixClass}-button {
+      -webkit-touch-callout: none;
       display: block;
       border-top: @border-width-sm solid @border-color-base;
       .button-common();
