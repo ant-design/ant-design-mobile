@@ -18,14 +18,21 @@ import { Modal, Button, WhiteSpace, WingBlank, Toast } from 'antd-mobile';
 
 const alert = Modal.alert;
 
+const showAlert = () => {
+  const alertInstance = alert('删除', '确定删除么???', [
+    { text: 'Cancel', onPress: () => console.log('cancel'), style: 'default' },
+    { text: 'OK', onPress: () => console.log('ok'), style: { fontWeight: 'bold' } },
+  ]);
+  setTimeout(() => {
+    // 可以调用close方法以在外部close
+    alertInstance.close();
+  }, 1000);
+};
+
 const App = () => (
   <WingBlank size="lg">
     <WhiteSpace size="lg" />
-    <Button onClick={() => alert('删除', '确定删除么???', [
-      { text: 'Cancel', onPress: () => console.log('cancel'), style: 'default' },
-      { text: 'OK', onPress: () => console.log('ok'), style: { fontWeight: 'bold' } },
-    ])}
-    >自定义按钮 </Button>
+    <Button onClick={showAlert}> 自定义按钮 </Button>
 
     <WhiteSpace size="lg" />
     <Button onClick={() => alert('删除', '确定删除么???', [

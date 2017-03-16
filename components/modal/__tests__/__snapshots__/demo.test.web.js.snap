@@ -12,7 +12,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-      自定义按钮 
+       自定义按钮 
     </span>
   </a>
   <div
