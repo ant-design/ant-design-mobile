@@ -65,3 +65,5 @@ declare module 'react-native-scrollable-tab-view';
 declare module 'zscroller';
 
 declare module 'shallowequal';
+
+declare module 'react-native-collapsible/Accordion';
