@@ -15,9 +15,9 @@ subtitle: 分页器
 | 参数      | 说明                                     | 类型    |默认值 |
 |-----------|----------------------------------------|--------|--------|
 |  mode  | 形态，可选`button`,`number`,`pointer` | string | `button`  |
-|  current  | 当前索引 | number  |  无  |
+|  current  | 当前索引(注意索引是从0开始计数的) | number  |  无  |
 |  total  | 数据总数 | number  |  0  |
-|  simple  | 是否显示数值 | boolean | true  |
+|  simple  | 是否隐藏数值 | boolean | false  |
 |  disabled  | 禁用状态 | boolean | false  |
 | locale |  国际化, 可以覆盖全局`LocaleProvider`的配置 | Object：{prevText, nextText} | 无 |
 |  onChange | change 事件触发的回调函数 | (e: Object): void | 无 |
