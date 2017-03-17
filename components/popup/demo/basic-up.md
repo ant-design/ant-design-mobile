@@ -14,11 +14,11 @@ import { Popup, List, Button, Icon } from 'antd-mobile';
 // https://github.com/ant-design/ant-design-mobile/issues/307
 // https://github.com/ant-design/ant-design-mobile/issues/163
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
-let wrapProps;
+let maskProps;
 if (isIPhone) {
   // Note: the popup content will not scroll.
-  wrapProps = {
-    // onTouchStart: e => e.preventDefault(),
+  maskProps = {
+    onTouchStart: e => e.preventDefault(),
   };
 }
 
@@ -52,7 +52,7 @@ class Test extends React.Component {
           <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>
         </li>
       </ul>
-    </div>, { animationType: 'slide-up', wrapProps, maskClosable: false });
+    </div>, { animationType: 'slide-up', maskProps, maskClosable: false });
   };
   onClose = (sel) => {
     this.setState({ sel });
