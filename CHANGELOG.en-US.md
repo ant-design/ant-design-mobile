@@ -11,6 +11,24 @@ title: Change Log
 
 ---
 
+`2017-03-17`
+
+# 1.0.6
+
+## Feature
+
+- Modal 添加 close api，方便手工销毁，#995
+
+## Bug Fix
+
+- 修复 ImagePicker clear icon 旋转问题，#944
+
+## Improve && Enhancement
+
+- 优化 Modal button 长按的默认行为；
+- Stepper、Toast、Modal 依赖的 rc-util 升级，去除控制台中 warning，#959
+- 部分文档优化；#997 #993 #984 #1009；部分 demo 优化；
+
 ### 1.0.5
 
 `2017-03-10`
