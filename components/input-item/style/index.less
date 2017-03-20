@@ -62,8 +62,7 @@
     }
   }
   .@{inputPrefixCls}-clear {
-    visibility: hidden;
-    display: block;
+    display: none;
     width: @icon-size-sm;
     height: @icon-size-sm;
     border-radius: 50%;
@@ -81,7 +80,7 @@
   }
   &.@{inputPrefixCls}-focus {
     .@{inputPrefixCls}-clear {
-      visibility: visible;
+      display: block;
     }
   }
   .@{inputPrefixCls}-extra {
