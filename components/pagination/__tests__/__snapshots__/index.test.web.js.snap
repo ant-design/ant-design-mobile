@@ -27,7 +27,7 @@ exports[`Pagination renders correctly 1`] = `
       <span
         class="active"
       >
-        4
+        3
       </span>
       /
       <span>

@@ -189,7 +189,10 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
                     "backgroundColor": "#fff",
                     "borderColor": "#ddd",
                   },
-                  false,
+                  Object {
+                    "backgroundColor": "#ddd",
+                    "borderColor": "#ddd",
+                  },
                   false,
                   false,
                   undefined,
@@ -218,7 +221,9 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
                     Object {
                       "color": "#000",
                     },
-                    false,
+                    Object {
+                      "color": "#bbb",
+                    },
                     false,
                   ]
                 }
@@ -274,7 +279,7 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
                 ]
               }
             >
-              2
+              1
             </Text>
             <Text
               accessible={true}
