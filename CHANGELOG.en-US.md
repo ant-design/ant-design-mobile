@@ -14,6 +14,19 @@ timeline: true
 
 ---
 
+`2017-xx-xx`
+
+### 2.0.0
+
+
+## New Feature
+
+
+## Break Change
+
+- `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+
+
 ## 1.4.0
 
 `2017-06-24`
@@ -188,6 +201,10 @@ timeline: true
 
 ## 1.0.8
 
+## Improve & Bugfix
+
+>>>>>>> feat: pagination current start from 1. close #1009
+
 `2017-04-07`
 
 - **Feature**
@@ -206,6 +223,7 @@ timeline: true
 
 
 ## 1.0.7
+
 
 `2017-03-24`
 
@@ -226,8 +244,11 @@ timeline: true
   - DatePicker 确保默认日期在 `minDate`, `maxDate` 范围内 （[#1033](https://github.com/ant-design/ant-design-mobile/issues/1033)）
 
 
+<<<<<<< HEAD
 ## 1.0.6
 
+=======
+>>>>>>> feat: pagination current start from 1. close #1009
 `2017-03-17`
 
 - **Feature**

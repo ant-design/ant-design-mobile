@@ -14,6 +14,17 @@ timeline: true
 
 ---
 
+`2017-xx-xx`
+
+### 2.0.0
+
+## New Feature
+
+
+## Break Change
+
+- `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+
 ## 1.4.0
 
 `2017-06-24`
@@ -188,6 +199,8 @@ timeline: true
 
 ## 1.0.8
 
+## Improve & Bugfix
+
 `2017-04-07`
 
 - **Feature**
@@ -227,6 +240,7 @@ timeline: true
 
 
 ## 1.0.6
+
 
 `2017-03-17`
 
