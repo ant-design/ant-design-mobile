@@ -149,7 +149,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
                 ]
               }
             >
-              上一页
+              上一步
             </Text>
           </View>
         </View>
@@ -310,7 +310,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
                 ]
               }
             >
-              下一页
+              下一步
             </Text>
           </View>
         </View>
@@ -454,7 +454,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
                 ]
               }
             >
-              上一页
+              上一步
             </Text>
           </View>
         </View>
@@ -572,7 +572,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
                 ]
               }
             >
-              下一页
+              下一步
             </Text>
           </View>
         </View>
