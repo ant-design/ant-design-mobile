@@ -14,6 +14,19 @@ timeline: true
 
 ---
 
+
+### 2.0.0
+
+`2017-xx-xx`
+
+## New Feature
+
+
+## Break Change
+
+- `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+
+
 ## 1.4.2
 
 `2017-07-12`
@@ -26,7 +39,6 @@ timeline: true
 - **Improve && Enhancement**
   - 升级 Slider 依赖的 rc-slider 版本。
   - 部分组件文档国际化完善，增加部分组件测试用例。
-  
 
 ## 1.4.1
 
@@ -47,6 +59,7 @@ timeline: true
   - 更新主要的介绍文档 ([#1503](https://github.com/ant-design/ant-design-mobile/pull/1503))
   - 去除 object-assign 依赖，改为使用 es6 展开操作符 ([67e0ee6](https://github.com/ant-design/ant-design-mobile/commit/67e0ee6a985d1e143f3dbbf63988d01a05d67b59))
   - 网站信息结构优化，并增加拷贝代码按钮 ([#1481](https://github.com/ant-design/ant-design-mobile/issues/1481))
+
 
 ## 1.4.0
 
@@ -222,6 +235,7 @@ timeline: true
 
 ## 1.0.8
 
+
 `2017-04-07`
 
 - **Feature**
@@ -240,6 +254,7 @@ timeline: true
 
 
 ## 1.0.7
+
 
 `2017-03-24`
 
@@ -260,8 +275,11 @@ timeline: true
   - DatePicker 确保默认日期在 `minDate`, `maxDate` 范围内 （[#1033](https://github.com/ant-design/ant-design-mobile/issues/1033)）
 
 
+<<<<<<< HEAD
 ## 1.0.6
 
+=======
+>>>>>>> feat: pagination current start from 1. close #1009
 `2017-03-17`
 
 - **Feature**
