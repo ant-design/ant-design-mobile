@@ -72,7 +72,7 @@
     "antd": "2.x",
     "antd-demo-jest": "^1.2.0",
     "antd-mobile-demo-data": "^0.1.1",
-    "antd-tools": "^0.16.1",
+    "antd-tools": "^0.18.1",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^19.0.0",
     "babel-plugin-import": "^1.1.1",
