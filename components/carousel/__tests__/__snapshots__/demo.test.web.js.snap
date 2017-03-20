@@ -26,10 +26,11 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
         >
           <a
-            href="#"
+            href="http://www.baidu.com"
+            style="height:200px;"
           >
             <img
-              src="https://zos.alipayobjects.com/rmsportal/AiyWuByWklrrUDlFignR.png"
+              src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>
         </li>
@@ -38,10 +39,11 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
         >
           <a
-            href="#"
+            href="http://www.baidu.com"
+            style="height:200px;"
           >
             <img
-              src="https://zos.alipayobjects.com/rmsportal/TekJlZRVCjLFexlOCuWn.png"
+              src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>
         </li>
@@ -50,10 +52,11 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
         >
           <a
-            href="#"
+            href="http://www.baidu.com"
+            style="height:200px;"
           >
             <img
-              src="https://zos.alipayobjects.com/rmsportal/AiyWuByWklrrUDlFignR.png"
+              src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>
         </li>
@@ -67,12 +70,12 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         class="am-carousel-wrap"
       >
         <div
-          class="am-carousel-wrap-dot am-carousel-wrap-dot-active"
+          class="am-carousel-wrap-dot"
         >
           <span />
         </div>
         <div
-          class="am-carousel-wrap-dot"
+          class="am-carousel-wrap-dot am-carousel-wrap-dot-active"
         >
           <span />
         </div>
