@@ -21,7 +21,11 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <a
           class="am-button am-button-inline"
           role="button"
-        />
+        >
+          <span>
+            上一步
+          </span>
+        </a>
       </div>
       <div
         class="am-flexbox-item am-pagination-wrap"
@@ -42,7 +46,11 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <a
           class="am-button am-button-inline"
           role="button"
-        />
+        >
+          <span>
+            下一步
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -63,7 +71,20 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <a
           class="am-button am-button-inline"
           role="button"
-        />
+        >
+          <div
+            class="arrow-align"
+          >
+            <svg
+              class="am-icon am-icon-left am-icon-md"
+            >
+              <use
+                xlink:href="#left"
+              />
+            </svg>
+            上一步
+          </div>
+        </a>
       </div>
       <div
         class="am-flexbox-item am-pagination-wrap"
@@ -84,7 +105,20 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <a
           class="am-button am-button-inline"
           role="button"
-        />
+        >
+          <div
+            class="arrow-align"
+          >
+            下一步
+            <svg
+              class="am-icon am-icon-right am-icon-md"
+            >
+              <use
+                xlink:href="#right"
+              />
+            </svg>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -105,7 +139,11 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <a
           class="am-button am-button-inline"
           role="button"
-        />
+        >
+          <span>
+            上一步
+          </span>
+        </a>
       </div>
       <div
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
@@ -113,7 +151,11 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <a
           class="am-button am-button-inline"
           role="button"
-        />
+        >
+          <span>
+            下一步
+          </span>
+        </a>
       </div>
     </div>
   </div>
