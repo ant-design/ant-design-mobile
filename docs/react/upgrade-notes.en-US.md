@@ -5,6 +5,10 @@ title: Upgrade
 
 Here list some of main incompatible changes and recommended changes in the upgrade. See [Changelog](/changelog) for all changes.
 
+## 1.0.x => 1.1.0
+
+- `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+
 ## 0.9.x => 1.0
 
 After 1.0, `antd-mobile` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).

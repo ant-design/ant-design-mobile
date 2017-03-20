@@ -118,7 +118,10 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
                   "backgroundColor": "#fff",
                   "borderColor": "#ddd",
                 },
-                false,
+                Object {
+                  "backgroundColor": "#ddd",
+                  "borderColor": "#ddd",
+                },
                 false,
                 false,
                 undefined,
@@ -147,7 +150,9 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
                   Object {
                     "color": "#000",
                   },
-                  false,
+                  Object {
+                    "color": "#bbb",
+                  },
                   false,
                 ]
               }
@@ -203,7 +208,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
               ]
             }
           >
-            2
+            1
           </Text>
           <Text
             accessible={true}
@@ -429,7 +434,10 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
                   "backgroundColor": "#fff",
                   "borderColor": "#ddd",
                 },
-                false,
+                Object {
+                  "backgroundColor": "#ddd",
+                  "borderColor": "#ddd",
+                },
                 false,
                 false,
                 undefined,
@@ -458,7 +466,9 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
                   Object {
                     "color": "#000",
                   },
-                  false,
+                  Object {
+                    "color": "#bbb",
+                  },
                   false,
                 ]
               }
@@ -635,7 +645,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        4
+        3
       </Text>
       <Text
         accessible={true}
@@ -716,7 +726,9 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
               "marginHorizontal": 2.5,
               "marginVertical": 3,
             },
-            undefined,
+            Object {
+              "backgroundColor": "#888",
+            },
           ]
         }
       />
@@ -733,9 +745,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
               "marginHorizontal": 2.5,
               "marginVertical": 3,
             },
-            Object {
-              "backgroundColor": "#888",
-            },
+            false,
           ]
         }
       />
