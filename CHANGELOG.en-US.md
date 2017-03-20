@@ -242,6 +242,10 @@ timeline: true
 
 ## 1.0.8
 
+## Improve & Bugfix
+
+>>>>>>> feat: pagination current start from 1. close #1009
+
 `2017-04-07`
 
 - **Feature**

@@ -240,6 +240,8 @@ timeline: true
 
 ## 1.0.8
 
+## Improve & Bugfix
+
 `2017-04-07`
 
 - **Feature**
