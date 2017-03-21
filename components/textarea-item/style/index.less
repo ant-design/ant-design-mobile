@@ -95,8 +95,7 @@
   }
 }
 .@{textareaPrefixCls}-clear {
-  visibility: hidden;
-  display: block;
+  display: none;
   width: @icon-size-sm;
   height: @icon-size-sm;
   margin-top: 24px;
@@ -114,7 +113,7 @@
 }
 &.@{textareaPrefixCls}-focus {
   .@{textareaPrefixCls}-clear {
-    visibility: visible;
+    display: block;
   }
 }
 .@{textareaPrefixCls}-count {
