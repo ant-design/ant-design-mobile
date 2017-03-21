@@ -115,12 +115,10 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
         />
         <div
           class="am-slider-handle am-slider-handle-1"
-          disabled=""
           style="left:15%;"
         />
         <div
           class="am-slider-handle am-slider-handle-2"
-          disabled=""
           style="left:50%;"
         />
         <div
