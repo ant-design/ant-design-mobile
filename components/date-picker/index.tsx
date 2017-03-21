@@ -12,6 +12,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
   static defaultProps = assign({
     triggerType: 'onClick',
     styles: PopupStyles,
+    minuteStep: 1,
   }, getDefaultProps());
 
   static contextTypes = {
@@ -38,6 +39,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     }
     const dataPicker = (
       <RCDatePicker
+        minuteStep={props.minuteStep}
         locale={DatePickerLocale}
         mode={props.mode}
         minDate={props.minDate}

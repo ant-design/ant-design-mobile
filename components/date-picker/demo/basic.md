@@ -66,7 +66,7 @@ class Test extends React.Component {
         >
           <List.Item arrow="horizontal">日期(CST)</List.Item>
         </DatePicker>
-        <DatePicker mode="time" {...getFieldProps('time1')}>
+        <DatePicker mode="time" {...getFieldProps('time1')} minuteStep={5}>
           <List.Item arrow="horizontal">时间(local time)</List.Item>
         </DatePicker>
         <DatePicker

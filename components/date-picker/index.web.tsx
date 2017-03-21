@@ -12,6 +12,7 @@ function getDefaultProps() {
     prefixCls: 'am-picker',
     pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
+    minuteStep: 1,
   }, getProps());
 }
 
@@ -41,6 +42,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
 
     const dataPicker = (
       <RCDatePicker
+        minuteStep={props.minuteStep}
         locale={DatePickerLocale}
         minDate={props.minDate}
         maxDate={props.maxDate}

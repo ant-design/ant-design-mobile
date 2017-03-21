@@ -13,6 +13,7 @@ interface DatePickerProps {
   maxDate?: any;
   locale?: any;
   disabled?: boolean;
+  minuteStep?: number;
   /** rn only */
   triggerTypes?: string;
   styles?: any;
