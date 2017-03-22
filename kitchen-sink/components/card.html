@@ -44,6 +44,20 @@
         ga('send', 'pageview');
         /* eslint-enable */
       }
+      if (!String.prototype.includes) {
+        String.prototype.includes = function(search, start) {
+          'use strict';
+          if (typeof start !== 'number') {
+            start = 0;
+          }
+
+          if (start + search.length > this.length) {
+            return false;
+          } else {
+            return this.indexOf(search, start) !== -1;
+          }
+        };
+      }
     </script>
     <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/kitchen-sink/kitchen-sink.css"/>
