@@ -180,3 +180,36 @@ After you pr is merged into master.
 $ git checkout master
 $ git pull
 ```
+
+### Run tests
+
+Run all test:
+
+```bash
+$ npm test
+```
+
+Run web component tests：
+
+```bash
+$ npm run test:web
+```
+
+Run RN component tests：
+
+```bash
+$ npm run test:rn
+```
+
+Update snapshot：
+
+```bash
+$ npm run test:web -- -u // Update web component's snapshots
+$ npm run test:rn -- -u // Update RN component's snapshots
+```
+
+Run specific test:
+
+```bash
+$ npm run test:web -- components/button/__tests__/index.test.web.js -t 'pressIn'
+```

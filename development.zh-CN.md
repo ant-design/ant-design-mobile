@@ -180,3 +180,36 @@ $ git push origin xx-feature:xx-feature
 $ git checkout master
 $ git pull
 ```
+
+### 运行测试
+
+运行所有测试：
+
+```bash
+$ npm test
+```
+
+运行 web 组件测试：
+
+```bash
+$ npm run test:web
+```
+
+运行 RN 组件测试：
+
+```bash
+$ npm run test:rn
+```
+
+更新 snapshot：
+
+```bash
+$ npm run test:web -- -u // 更新 web 组件的
+$ npm run test:rn -- -u // 更新 RN 组件的
+```
+
+只运行某文件的某个测试：
+
+```bash
+$ npm run test:web -- components/button/__tests__/index.test.web.js -t 'pressIn'
+```
