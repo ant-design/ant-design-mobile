@@ -1,3 +1,4 @@
+ /* tslint:disable: jsx-no-multiline-js */
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 
@@ -89,8 +90,14 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
           { <View style={[styles[`tail_default${sizeCls}`], styles[tailBottomCls]]} /> }
         </View>
         <View style={styles[`content${sizeCls}`]}>
-          <Text style={[styles[`title${sizeCls}`]]}>{ title }</Text>
-          <Text style={[styles[`description${sizeCls}`]]}>{ description }</Text>
+          {typeof title !== 'object' ?
+            <Text style={[styles[`title${sizeCls}`]]}>{ title }</Text>
+            : <View>{ title }</View>
+          }
+          {typeof description !== 'object' ?
+            <Text style={[styles[`description${sizeCls}`]]}>{ description }</Text>
+            : <View> { description }</View>
+          }
         </View>
       </View>
     );
