@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import PopupStyles from '../picker/styles';
-import { formatFn, getProps as getDefaultProps } from './utils';
+import { formatFn, getProps as getDefaultProps, getDefaultDate } from './utils';
 import assign from 'object-assign';
 import tsPropsType from './PropsType';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
@@ -44,7 +44,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         mode={props.mode}
         minDate={props.minDate}
         maxDate={props.maxDate}
-        defaultDate={value || defaultDate}
+        defaultDate={value || getDefaultDate(this.props)}
       />
     );
     const newProps = {
@@ -57,7 +57,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         datePicker={dataPicker}
         styles={styles}
         {...newProps}
-        date={value || defaultDate}
+        date={value || getDefaultDate(this.props)}
       >
         {React.cloneElement(children, extraProps)}
       </PopupDatePicker>

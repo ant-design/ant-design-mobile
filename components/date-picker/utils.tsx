@@ -28,9 +28,23 @@ export function getProps() {
   return {
     mode: 'datetime',
     extra: '请选择',
-    defaultDate: moment(),
     onChange() {
     },
     title: '',
   };
+}
+
+export function getDefaultDate(props) {
+  const { defaultDate, minDate, maxDate } = props;
+  if (defaultDate) {
+    return defaultDate;
+  }
+  const now = moment();
+  if (minDate && now.isBefore(minDate)) {
+    return minDate;
+  }
+  if (maxDate && maxDate.isBefore(now)) {
+    return minDate;
+  }
+  return now;
 }

@@ -16,7 +16,7 @@ import 'moment/locale/zh-cn';
 import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
 const zhNow = moment().locale('zh-cn').utcOffset(8);
-const maxDate = moment('2018-12-03 +0800', 'YYYY-MM-DD Z').utcOffset(8);
+const maxDate = moment('2016-12-03 +0800', 'YYYY-MM-DD Z').utcOffset(8);
 const minDate = moment('2015-08-06 +0800', 'YYYY-MM-DD Z').utcOffset(8);
 
 const maxTime = moment('22:00 +0800', 'HH:mm Z').utcOffset(8);
@@ -59,7 +59,7 @@ class Test extends React.Component {
           title="选择日期"
           extra="可选,小于结束日期"
           {...getFieldProps('date1', {
-            initialValue: zhNow,
+
           })}
           minDate={minDate}
           maxDate={maxDate}

@@ -24,7 +24,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-extra"
             >
-              2016-11-22
+              可选,小于结束日期
             </div>
             <div
               class="am-list-arrow am-list-arrow-horizontal"
