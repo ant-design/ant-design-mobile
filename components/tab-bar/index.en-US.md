@@ -34,4 +34,4 @@ title: TabBar
 | icon  | 默认展示图片 | Image Source(rn) \ web 方式见 demo |      |
 | selectedIcon  |  选中后的展示图片 | Image Source(rn) \ web 方式见 demo |      |
 | title  |  标题文字 | String |      |
-| iconStyle  |  icon 样式 (`rn android only`) | String | { width: 28, height: 28 }     |
+| iconStyle  |  icon 样式 (`rn android only`)（ios 更多API请参考 [tabbarios](https://facebook.github.io/react-native/docs/tabbarios.html） | String | { width: 28, height: 28 }     |
