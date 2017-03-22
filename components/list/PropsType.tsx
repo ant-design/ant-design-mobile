@@ -36,6 +36,7 @@ export interface ListItemProps {
   styles?: any;
   onPressIn?: (e?: any) => void;
   onPressOut?: (e?: any) => void;
+  material?: boolean;
 }
 
 export interface BriefProps {

@@ -48,6 +48,22 @@
   overflow: hidden;
   .box-align;
   transition: background-color 200ms;
+  .@{listPrefixCls}-riple {
+    position: absolute;
+    background: transparent;
+    display: inline-block;
+    overflow: hidden;
+    will-change: box-shadow,transform;
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1), background-color .2s cubic-bezier(.4,0,.2,1), color .2s cubic-bezier(.4,0,.2,1);
+    outline: none;
+    cursor: pointer;
+    border-radius: 100%;
+    transform: scale(0);
+    &.@{listPrefixCls}-riple-animate {
+      background-color: hsla(0, 0%, 62%, .2);
+      animation: ripple 1s linear;
+    }
+  }
   &.@{listPrefixCls}-item-top {
     .@{listPrefixCls}-line {
       .box-align(flex-start);
@@ -197,4 +213,8 @@
     appearance: none;
     background-color: transparent;
   }
+}
+
+@keyframes ripple {
+    100% {opacity: 0; transform: scale(2.5);}
 }
