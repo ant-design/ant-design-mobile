@@ -36,7 +36,8 @@ export default class ComponentDoc extends React.Component {
       item.index = index;
     });
 
-    const linkIndex = linkTo ? demoSort.filter(item => (item.meta.id === linkTo))[0].index : 0;
+    const targetDemo = demoSort.filter(item => (item.meta.id === linkTo))[0];
+    const linkIndex = linkTo && targetDemo ? targetDemo.index : 0;
     return linkIndex;
   }
 
