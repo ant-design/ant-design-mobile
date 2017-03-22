@@ -43,7 +43,7 @@
     "rc-drawer": "~0.4.9",
     "rc-input-number": "~3.4.2",
     "rc-notification": "~1.4.1",
-    "rc-slider": "~6.1.0",
+    "rc-slider": "~6.3.0",
     "rc-steps": "~2.4.1",
     "rc-swipeout": "~1.2.4",
     "rc-table": "~5.2.2",
@@ -186,7 +186,7 @@
     "mode": "yarn"
   },
   "engines": {
-    "node" : ">=v6.9.0"
+    "node": ">=v6.9.0"
   },
   "config": {
     "port": 8001

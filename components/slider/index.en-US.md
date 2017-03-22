@@ -27,6 +27,8 @@ Properties | Descrition | Type | Default
 | disabled    |  Boolean     | false    | 值为 `true` 时，滑块为禁用状态 |
 | onChange    |  Function     | Noop    | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。 |
 | onAfterChange    |  Function     | Noop    | 与 `ontouchend` 触发时机一致，把当前值作为参数传入。 |
+| maximumTrackTintColor    |  String     | `#108ee9`    | The color used for the track to the right of the button. Overrides the default blue gradient image on iOS. ( Also can custom theme to define color in web) |
+| minimumTrackTintColor    |  String     | `#ddd`    | The color used for the track to the left of the button. Overrides the default blue gradient image on iOS. ( Also can custom theme to define color in web) |
 | marks (`web only`)     |  Object{Number:String}     | { }    | 刻度标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内 |
 | dots (`web only`)     |  Boolean     | false    | 是否只能拖拽到刻度上 |
 | included (`web only`)    |  Boolean     | true    | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 |

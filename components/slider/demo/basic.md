@@ -39,6 +39,10 @@ class App extends React.Component {
           <p className="title">Slider 禁用</p>
           <Slider defaultValue={26} min={0} max={30} disabled onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
+        <WingBlank size="lg">
+          <p className="title">Slider 自定义颜色</p>
+          <Slider defaultValue={26} min={0} max={30} minimumTrackTintColor="red" maximumTrackTintColor="blue" />
+        </WingBlank>
       </div>
     );
   }
