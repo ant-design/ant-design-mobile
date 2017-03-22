@@ -51,9 +51,9 @@ class App1 extends React.Component {
       <Drawer
         className="my-drawer"
         style={{ minHeight: document.documentElement.clientHeight - 200 }}
-        sidebar={sidebar}
         dragHandleStyle={{ display: 'none' }}
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
+        sidebar={sidebar}
         {...drawerProps}
       >
         Click upper-left corner icon
