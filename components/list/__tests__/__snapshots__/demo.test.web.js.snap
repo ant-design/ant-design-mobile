@@ -69,6 +69,27 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         class="am-list-item am-list-item-middle"
       >
         <div
+          class="am-list-line am-list-line-multiple"
+        >
+          <div
+            class="am-list-content"
+          >
+            开启material点击效果
+            <div
+              class="am-list-brief"
+            >
+              仅Android有效且设置了Click事件
+            </div>
+          </div>
+          <div
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
           class="am-list-thumb"
         >
           <img
