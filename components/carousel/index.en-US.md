@@ -6,10 +6,12 @@ title: Carousel
 
 走马灯，轮播图
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 参数             | 说明              | 类型     | 默认值             |
-|------------------|------------------|----------|------------------|
+Support WEB, React-Native.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | selectedIndex |  手动设置当前显示的索引  |  number  |  0  |
 | dots | 是否显示面板指示点 | Boolean   | true |
 | vertical | 垂直显示(web 为内容，rn 为 pagination) | Boolean   | false |

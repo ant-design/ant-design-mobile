@@ -11,12 +11,14 @@ title: TabBar
 - 即使某个 Tab 不可用，也不要禁用或者移除该 Tab。
 - 使用 Badge 进行提示，足不出户也能知道有内容更新。
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+Support WEB, React-Native.
 
 ### TabBar
 
-| 参数             | 说明                                         | 类型     | 默认值        |
-|------------------|----------------------------------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | barTintColor        | tabbar 背景色                     | String   | `white`            |
 | tintColor         | 选中的字体颜色                               | String | `#108ee9`         |
 | unselectedTintColor       | 未选中的字体颜色  | String | '#888'           |
@@ -25,8 +27,8 @@ title: TabBar
 
 ### TabBar.Item
 
-| 参数 | 说明             | 类型                    | 默认值 |
-|------|------------------|-------------------------|--------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | badge  | 徽标数  | Number \ String           | 无     |
 | dot(`Web Only`)  | 是否在右上角显示小红点（在设置badge的情况下失效）  | Boolean            |  false  |
 | onPress  | bar 点击触发，需要自己改变组件 state & selecte={true} | Function | `(){}`     |

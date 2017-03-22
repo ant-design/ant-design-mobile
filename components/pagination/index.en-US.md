@@ -9,10 +9,12 @@ title: Pagination
 ### 规则
 - 当加载/渲染所有数据将花费很多时间或者流量时使用
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 参数      | 说明                                     | 类型    |默认值 |
-|-----------|----------------------------------------|--------|--------|
+Support WEB, React-Native.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 |  mode  | 形态，可选`button`,`number`,`pointer` | string | `button`  |
 |  current  | 当前索引(注意索引是从0开始计数的) | number  |  无  |
 |  total  | 数据总数 | number  |  0  |

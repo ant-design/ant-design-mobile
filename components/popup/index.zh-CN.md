@@ -12,7 +12,9 @@ subtitle: 弹出层
 - 提供清晰的关闭按钮。
 - Popup 会打断用户操作，所以用在重要的时候， eg.买入股票。
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+适用平台：WEB、React-Native
 
 #### static show(content: React.Element, options: Object):
 

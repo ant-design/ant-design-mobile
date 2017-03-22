@@ -23,7 +23,9 @@ Steps is typically used for displaying the progress of a task, or guiding users 
 </Steps>
 ```
 
-### Steps ( Support Platform：WEB、React-Native )
+### Steps
+
+Support WEB, React-Native.
 
 The Steps container.
 

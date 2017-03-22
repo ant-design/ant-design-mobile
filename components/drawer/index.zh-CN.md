@@ -12,10 +12,12 @@ subtitle: 抽屉
 - 是 Android 推荐的导航方式，常见于该平台应用。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型      | 默认值       |
-|------------|----------------|--------------------|--------------|
+适用平台：WEB、React-Native
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | sidebar | 抽屉里的内容 | ReactNode | - |
 | onOpenChange | open 状态切换时调用 | (open: bool): void | - |
 | position | 抽屉所在位置 | String | 'left', enum{'left', 'right', 'top'(`web only`), 'bottom'(`web only`)} |

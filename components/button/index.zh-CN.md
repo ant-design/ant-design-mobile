@@ -11,10 +11,12 @@ subtitle: 按钮
 - 同个页面只有一个主按钮。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型      | 默认值       |
-|------------|----------------|--------------------|--------------|
+适用平台：WEB、React-Native
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | type       | 按钮类型，可选值为`primary`/`ghost`/`warning`或者不设     |   string   |   -  |
 | size       | 设置按钮大小，可选值为`large`、`small` | string | `large`|
 | activeStyle  | 禁止点击反馈效果(设为 false)，也可设置为自己的点击 style | false/{} | {} |

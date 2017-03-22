@@ -15,10 +15,12 @@ subtitle: 分段器
 - 尽可能保持文案长度一致。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型               | 默认值       |
-|------------|----------------|--------------------|--------------|
+适用平台：WEB、React-Native
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | prefixCls(`web only`)  | 样式前缀        | String |  `am-segment`  |
 | className(`web only`) | 样式类        | String |    |
 | style | 自定义样式        | Object | `{}`   |

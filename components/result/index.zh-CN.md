@@ -12,10 +12,12 @@ subtitle: 结果页
 - 个性化且优美的插画，可以提升品牌形象。
 - 对于错误类型的结果页，页面中需要提供明确的行动点，eg：重新加载。
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型               | 默认值       |
-|------------|----------------|--------------------|--------------|
+适用平台：WEB、React-Native
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | imgUrl    | 插图 url    | string / Image Source(rn)  |  -  |
 | img   | 插图元素 (可以为`<img src="" />`/`<Icon type="" />`等), 会覆盖 imgUrl 设置  | React.Element | -  |
 | title    |    title 文案     | String/React.Element |  -  |

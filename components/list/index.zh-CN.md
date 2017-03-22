@@ -13,19 +13,21 @@ subtitle: 列表
 - 主要信息和主要操作放在列表的左边，次要信息和次要操作放在列表的右边。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+适用平台：WEB、React-Native
 
 ### List
 
-| 属性        | 说明           | 类型               | 默认值       |
-|-------------|----------------|--------------------|--------------|
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | renderHeader       | list heder  | (): void |  无  |
 | renderFooter       | list footer  | (): void |  无  |
 
 ### List.Item
 
-| 属性        | 说明           | 类型       | 默认值       |
-|------------|----------------|----------------|
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | thumb       | 缩略图(当为 string 类型时作为 img src)  | String/React.Element |  无  |
 | extra      | 右边内容        | String/React.Element |  无  |
 | arrow      | 箭头方向(右,上,下), 可选`horizontal`,`up`,`down`,`empty`，如果是`empty`则存在对应的dom,但是不显示   | String |   无  |

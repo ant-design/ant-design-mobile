@@ -10,10 +10,12 @@ Drawer is a panel that displays the app's navigation options on the left edge of
 
 - Recommaned way to show navigation options on Android, it is a common pattern found in Android APPs.
 
-## API ( Support Platform：WEB、React-Native )
+## API
 
-| Property        | Description           | Type      | Default       |
-|------------|----------------|--------------------|--------------|
+Support WEB, React-Native.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | sidebar | The sidebar content. | ReactNode | - |
 | onOpenChange | Callback called when open state of `Drawer` changes. | (open: bool): void | - |
 | position | Position of `Drawer`. | String | 'left', enum{'left', 'right', 'top'(`web only`), 'bottom'(`web only`)} |

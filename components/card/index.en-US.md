@@ -13,28 +13,32 @@ title: Card
 
 ## API
 
-### Card ( 适用平台：WEB、React-Native )
+Support WEB, React-Native.
 
-| 属性        | 说明           | 类型               | 默认值       |
-|-------------|----------------|--------------------|--------------|
+### Card
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 |   full  |  是否通栏  | boolean | `false` |
 
-### Card.Header ( 适用平台：WEB、React-Native )
-| 属性        | 说明           | 类型               | 默认值       |
-|-------------|----------------|------------------|--------------|
+### Card.Header
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 |title| 卡片标题 | React.Element、String | |
 |thumb| 卡片标题图片 | String |  |
 |thumbStyle| 标题图片样式 | Object | {} |
 |extra| 卡片标题辅助内容 | React.Element、String |  |
 
-### Card.Body ( 适用平台：WEB、React-Native )
-| 属性        | 说明           | 类型               | 默认值       |
-|-------------|----------------|--------------------|--------------|
+### Card.Body
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 |无| | | |
 
-### Card.Footer ( 适用平台：WEB、React-Native )
+### Card.Footer
 
-| 属性        | 说明           | 类型        |   默认值       |
-|-------------|----------------|--------------------|--------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 |content|尾部内容 | React.Element、String | |
 |extra| 尾部辅助内容 | React.Element、String |  |

@@ -14,12 +14,12 @@ Use to show important information for the system, and ask for user feedback. eg:
 
 ## API
 
- Support WEB, React-Native.
+Support WEB, React-Native.
 
 ### Modal
 
-| Property             | Description                    | Type     | Default        |
-|------------------|-----------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | prefixCls (web only)      | Class name prefix of elements |    String   | `am-modal`      |
 | visible      | Determine whether a modal dialog is visible or not | Boolean          | false           |
 | onClose      | Callback for clicking close icon x or mask        | (): void   | - |
@@ -33,8 +33,8 @@ Use to show important information for the system, and ask for user feedback. eg:
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 
-| Property             | Description                                         | Type     | Default        |
-|------------------|----------------------------------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | title        | title                      | String or React.Element   | -            |
 | message      | message                  | String or React.Element    | -    |
 | actions         | button group, [{text, onPress, style}]       | Array | -            |
@@ -43,8 +43,8 @@ call `Modal.alert(title, message, actions?).close()`  can close Alert Modal outs
 
 ### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?) ( Support Platform：WEB )
 
-| Property             | Description                                         | Type     | Default        |
-|------------------|----------------------------------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | title        | title                      | String or React.Element   | -            |
 | message      | message                  | String or React.Element                    | -    |
 | callbackOrActions  | button group [{text, onPress}] or callback      | Array or Function | -            |
@@ -55,8 +55,8 @@ call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?).close
 
 ### Modal.operation(actions?) ( Support Platform：WEB、React-Native )
 
-| Property             | Description                                         | Type     | Default        |
-|------------------|----------------------------------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | actions         | button group, [{text, onPress, style}]       | Array | -            |
 
 call Modal.operation(actions?).close()` can close Operation Modal outside anywhere as you wish.

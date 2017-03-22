@@ -23,7 +23,9 @@ subtitle: 步骤条
 </Steps>
 ```
 
-### Steps ( 适用平台：WEB、React-Native )
+### Steps
+
+适用平台：WEB、React-Native
 
 整体步骤条。
 

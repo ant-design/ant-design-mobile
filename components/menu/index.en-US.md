@@ -11,10 +11,12 @@ Show a seires of operations on a panel.
 - Should includes more than 2 menu items.
 - Should not be used as main navigation.
 
-## API ( Support Platform：WEB )
+## API
 
-| Property        | Description           | Type        | Default       |
-|------------|----------------|-------------|--------------|
+Support WEB.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | data    | `Menu` data (children will be ignored when `isLeaf` is true). | `Array<{label, value, disabled?, children<data>?, isLeaf?}>` | [] |
 | level    | `Menu` levels, available values: `1`, `2`.  | number  | 2 |
 | value    |  Selected value of `Menu`, it's a array which includes first and second level's `value`. | Array | [] |

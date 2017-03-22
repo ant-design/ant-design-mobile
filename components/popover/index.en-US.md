@@ -11,11 +11,14 @@ title: Popover
 - 通过点击背景的任一位置，进行退出。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+Support WEB, React-Native.
 
 ### Popover
-| 属性        | 说明           | 类型         | 默认值       |
-|------------|----------------|-------------|--------------|
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | visible (`web only`)   | 当前显隐状态    | Boolean |  false   |
 | onVisibleChange (`web only`)   | 当显隐状态变化时回调函数    | (visible: bool): void |  -   |
 | placement (`web only`)   | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'} | String |  'bottomRight'   |
@@ -32,8 +35,9 @@ title: Popover
 | openMenu / closeMenu / toggleMenu(`rn only`)   | 用于手动开关 menu，参数为上边 menu 的 name. 使用示例见 demo  | Function(name) |  -   |
 
 ### Popover.Item
-| 属性        | 说明           | 类型         | 默认值       |
-|------------|----------------|-------------|--------------|
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | children   | 节点内容    | String/React.node |  -   |
 | disabled   | 是否禁用    | Boolean |  false   |
 | style  | item 样式    | Object |  -   |
