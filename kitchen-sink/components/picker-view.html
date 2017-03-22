@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>支付宝移动组件库</title>
+    <script src="//cdn.bootcss.com/babel-polyfill/7.0.0-alpha.1/polyfill.min.js"></script>
     <script>
       (function (baseFontSize, fontscale) {
         var _baseFontSize = baseFontSize || 100;
@@ -43,20 +44,6 @@
         ga('create', 'UA-72788897-2', 'auto');
         ga('send', 'pageview');
         /* eslint-enable */
-      }
-      if (!String.prototype.includes) {
-        String.prototype.includes = function(search, start) {
-          'use strict';
-          if (typeof start !== 'number') {
-            start = 0;
-          }
-
-          if (start + search.length > this.length) {
-            return false;
-          } else {
-            return this.indexOf(search, start) !== -1;
-          }
-        };
       }
     </script>
     <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" type="image/x-icon">
