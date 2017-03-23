@@ -3,6 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>支付宝移动组件库</title>
+    <script src="https://jsconsole.com/js/remote.js?982138f0-4e50-483c-b20f-2f7414685242"></script>
+    <script>
+      // 我们这里采用的做法是直接判断 window.Intl 是否存在，从而确定是否要引入 polyfill 文件
+      // 下面的 cdn 地址大家可以修改成本地资源文件，或者参考官方文档其他引入方式
+      if (!window.Intl) {
+        document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/Intl.js">' + '<' + '/script>');
+        document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/locale-data/jsonp/en.js">' + '<' + '/script>');
+      }
+    </script>
     <script>
       (function (baseFontSize, fontscale) {
         var _baseFontSize = baseFontSize || 100;
