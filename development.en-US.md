@@ -213,3 +213,11 @@ Run specific test:
 ```bash
 $ npm run test:web -- components/button/__tests__/index.test.web.js -t 'pressIn'
 ```
+
+Debug test:
+
+1. `npm install -g node-inspector` require node 6；
+1. Add `debugger` to your code;
+1. Run `node --debug-brk ./node_modules/.bin/jest -i -c .jest.json -i components/button/__tests/index.test.js` (.jest.web.json for web component);
+1. Run `node-inspector`；
+1. Open `http://127.0.0.1:8080/?port=5858`, a breakpoint will be set at the first line of the Jest CLI script. Click the button that looks like a "play" button in the upper right hand side of the screen to continue execution. When Jest executes the test that contains the debugger statement, execution will pause and you can examine the current scope and call stack.
