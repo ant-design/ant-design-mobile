@@ -55,3 +55,5 @@ jest.mock('UIManager', () => ({
 // https://github.com/facebook/react-native/issues/11969
 global.cancelAnimationFrame = jest.fn();
 global.requestAnimationFrame = jest.fn();
+
+require('react-native-mock/mock');

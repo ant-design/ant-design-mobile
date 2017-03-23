@@ -1,5 +1,4 @@
 // import React from 'react';
-import 'react-native-mock/mock';
 // import renderer from 'react-test-renderer';
 // import { shallow } from 'enzyme';
 
