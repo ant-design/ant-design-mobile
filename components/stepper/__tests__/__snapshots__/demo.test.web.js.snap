@@ -21,7 +21,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          显示数值(pc 上操作无效)
+          显示数值(默认使用 TouchEvent, for Mobile)
         </div>
         <div
           class="am-list-extra"
@@ -82,7 +82,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          显示数值(只用于 pc 演示，勿用于实际项目)
+          显示数值(使用 MouseEvent, for PC)
         </div>
         <div
           class="am-list-extra"
@@ -127,7 +127,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 class="am-stepper-input"
                 max="10"
                 min="1"
-                value="3"
+                value="2"
               />
             </div>
           </div>

@@ -535,32 +535,36 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             class="am-list-content"
           >
             <div
-              class="am-slider-wrapper"
+              style="position:relative;top:-0.14rem;"
             >
               <div
-                class="am-slider"
+                class="am-slider-wrapper"
               >
                 <div
-                  class="am-slider-rail"
-                />
-                <div
-                  class="am-slider-track am-slider-track-1"
-                  style="visibility:visible;left:20%;width:30%;"
-                />
-                <div
-                  class="am-slider-step"
-                />
-                <div
-                  class="am-slider-handle am-slider-handle-1"
-                  style="left:20%;"
-                />
-                <div
-                  class="am-slider-handle am-slider-handle-2"
-                  style="left:50%;"
-                />
-                <div
-                  class="am-slider-mark"
-                />
+                  class="am-slider"
+                >
+                  <div
+                    class="am-slider-rail"
+                  />
+                  <div
+                    class="am-slider-track am-slider-track-1"
+                    style="visibility:visible;left:20%;width:60%;"
+                  />
+                  <div
+                    class="am-slider-step"
+                  />
+                  <div
+                    class="am-slider-handle am-slider-handle-1"
+                    style="left:20%;"
+                  />
+                  <div
+                    class="am-slider-handle am-slider-handle-2"
+                    style="left:80%;"
+                  />
+                  <div
+                    class="am-slider-mark"
+                  />
+                </div>
               </div>
             </div>
           </div>
