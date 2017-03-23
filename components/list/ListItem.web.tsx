@@ -19,7 +19,7 @@ class ListItem extends React.Component<ListItemProps, any> {
     error: false,
     multipleLine: false,
     wrap: false,
-    material: false,
+    styleMode: 'auto',
   };
 
   static Brief = Brief;
@@ -41,8 +41,8 @@ class ListItem extends React.Component<ListItemProps, any> {
   }
 
   onClick = (ev) => {
-    const { onClick, material } = this.props;
-    if (!!navigator.userAgent.match(/Android/i) && !!onClick && material) {
+    const { onClick, styleMode } = this.props;
+    if (styleMode === 'android' || (styleMode === 'auto' && !!navigator.userAgent.match(/Android/i))) {
       if (this.debounceTimeout) {
         clearTimeout(this.debounceTimeout);
         this.debounceTimeout = null;
@@ -80,7 +80,7 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     const {
       prefixCls, className, activeStyle, error, align, wrap, disabled,
-      children, multipleLine, thumb, extra, arrow, onClick, material, ...restProps} = this.props;
+      children, multipleLine, thumb, extra, arrow, onClick, styleMode, ...restProps} = this.props;
 
     const { coverRipleStyle, RipleClicked } = this.state;
     const wrapCls = {
@@ -111,6 +111,7 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
 
+    const isAndroid = styleMode === 'android' || (styleMode === 'auto' && !!navigator.userAgent.match(/Android/i));
     const content = <div
       {...restProps}
       onClick={(ev) => {
@@ -126,7 +127,7 @@ class ListItem extends React.Component<ListItemProps, any> {
         {extra !== undefined && <div className={`${prefixCls}-extra`}>{extra}</div>}
         {arrow && <div className={arrowCls} />}
       </div>
-      {!!navigator.userAgent.match(/Android/i) && material && <div style={coverRipleStyle} className={ripleCls} />}
+      { isAndroid && <div style={coverRipleStyle} className={ripleCls} />}
     </div>;
 
     return (

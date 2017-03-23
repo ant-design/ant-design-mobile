@@ -16,6 +16,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     footer: [],
     closable: false,
     operation: false,
+    styleMode: 'auto',
   };
 
   isInModal(e) {
@@ -77,12 +78,14 @@ export default class Modal extends React.Component<ModalProps, any> {
       footer = [],
       closable,
       operation,
+      styleMode,
     } = this.props;
 
+    const isAndroid = styleMode === 'android' || (styleMode === 'auto' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
-      [`${prefixCls}-android`]: !!navigator.userAgent.match(/Android/i),
+      [`${prefixCls}-android`]: isAndroid,
     });
 
     let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);

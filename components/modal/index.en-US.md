@@ -30,6 +30,7 @@ Properties | Descrition | Type | Default
 | transparent | transparent mode or full screen mode       | Boolean   |  false |
 | animationType (`rn only`) | Options: 'slide-down/up'(only transparent) / 'fade' / 'slide'(only not tranparent) | String |   fade |
 | style (`web only`) |  style    | Object | transparent: {width: '286px', height: 'auto'}, <br />not transparent:  {width: '100%', height: '100%'} (web)|
+| styleMode (`web only`) |  set the special style depends on platform, Options  `android`, `ios`， default to be `auto`， which means we will detect UA and change the component style | String | `'auto'`|
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 

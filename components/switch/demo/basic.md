@@ -51,6 +51,24 @@ let SwitchExample = (props) => {
           disabled
         />}
       >默认开不可修改</List.Item>
+      <List.Item
+        extra={<Switch
+          {...getFieldProps('Switch5', {
+            initialValue: false,
+            valuePropName: 'checked',
+          })}
+          styleMode="android"
+        />}
+      >Android平台样式</List.Item>
+      <List.Item
+        extra={<Switch
+          {...getFieldProps('Switch6', {
+            initialValue: true,
+            valuePropName: 'checked',
+          })}
+          styleMode="ios"
+        />}
+      >iOS平台样式</List.Item>
     </List>
   );
 };
