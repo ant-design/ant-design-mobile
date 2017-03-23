@@ -36,7 +36,7 @@ Properties | Descrition | Type | Default
 | multipleLine    | 多行 | Boolean  | `false`  |
 | wrap    | 是否换行，默认情况下，文字超长会被隐藏， | Boolean  | `false`  |
 | activeStyle(`web only`)    | 自定义active的样式 | Object  |   |
-| material(`web only`)    | 开启material design点击效果（水波） | Boolean  | `false` |
+| platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios`， default to be `cross`， which means we will detect UA and change the component style | String | `'cross'`|
 
 ### List.Item.Brief
 

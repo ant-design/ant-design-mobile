@@ -37,7 +37,7 @@ subtitle: 列表
 | multipleLine    | 多行 | Boolean  | `false`  |
 | wrap    | 是否换行，默认情况下，文字超长会被隐藏， | Boolean  | `false`  |
 | activeStyle(`web only`)    | 自定义active的样式 | Object  |   |
-| material(`web only`)    | 开启material design点击效果（水波） | Boolean  | false |
+| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `cross`， 即组件会自动检测设备 UA 应用不同平台的样式    | String | `'cross'`|
 
 ### List.Item.Brief
 

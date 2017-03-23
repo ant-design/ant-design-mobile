@@ -67,7 +67,37 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-        Modal 对话框
+        Modal 对话框 (自动检测平台)
+      </span>
+    </a>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-wingblank am-wingblank-lg"
+  >
+    <a
+      class="am-button"
+      role="button"
+    >
+      <span>
+         Modal 对话框 （Android）
+      </span>
+    </a>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-wingblank am-wingblank-lg"
+  >
+    <a
+      class="am-button"
+      role="button"
+    >
+      <span>
+         Modal 对话框 （iOS）
       </span>
     </a>
   </div>

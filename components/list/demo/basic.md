@@ -29,9 +29,9 @@ class ListExample extends React.Component {
           arrow="horizontal"
           multipleLine
           onClick={() => {}}
-          material
+          platform="android"
         >
-          开启material点击效果<Brief>仅Android有效且设置了Click事件</Brief>
+          ListItem （Android）<Brief>设置了Click事件会有material水波纹点击效果</Brief>
         </Item>
         <Item
           arrow="horizontal"

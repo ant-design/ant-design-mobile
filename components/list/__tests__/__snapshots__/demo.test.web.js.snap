@@ -74,17 +74,20 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            开启material点击效果
+            ListItem （Android）
             <div
               class="am-list-brief"
             >
-              仅Android有效且设置了Click事件
+              设置了Click事件会有material水波纹点击效果
             </div>
           </div>
           <div
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"

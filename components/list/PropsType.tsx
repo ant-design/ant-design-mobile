@@ -32,11 +32,11 @@ export interface ListItemProps {
   wrap?: boolean;
   disabled?: boolean;
   line?: number;
+  platform?: string;
   /** rn only */
   styles?: any;
   onPressIn?: (e?: any) => void;
   onPressOut?: (e?: any) => void;
-  material?: boolean;
 }
 
 export interface BriefProps {

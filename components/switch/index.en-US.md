@@ -23,3 +23,4 @@ Properties | Descrition | Type | Default
 | disabled   | 是否不可修改    | Boolean       |   false  |
 | onChange   | change 事件触发的回调函数 | (checked: bool): void |  无  |
 | name(`web only`)  | switch 的 name    | String   |      |
+| platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios`， default to be `cross`， which means we will detect UA and change the component style | String | `'cross'`|

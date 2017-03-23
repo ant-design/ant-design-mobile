@@ -132,6 +132,65 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         </div>
       </div>
     </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          Android平台样式
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <label
+            class="am-switch am-switch-android"
+          >
+            <input
+              class="am-switch-checkbox"
+              name=""
+              type="checkbox"
+            />
+            <div
+              class="checkbox"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          iOS平台样式
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <label
+            class="am-switch"
+          >
+            <input
+              checked=""
+              class="am-switch-checkbox"
+              name=""
+              type="checkbox"
+            />
+            <div
+              class="checkbox"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
