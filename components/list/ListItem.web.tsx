@@ -19,7 +19,7 @@ class ListItem extends React.Component<ListItemProps, any> {
     error: false,
     multipleLine: false,
     wrap: false,
-    styleMode: 'auto',
+    platform: 'cross',
   };
 
   static Brief = Brief;
@@ -41,8 +41,8 @@ class ListItem extends React.Component<ListItemProps, any> {
   }
 
   onClick = (ev) => {
-    const { onClick, styleMode } = this.props;
-    if (styleMode === 'android' || (styleMode === 'auto' && !!navigator.userAgent.match(/Android/i))) {
+    const { onClick, platform } = this.props;
+    if (platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i))) {
       if (this.debounceTimeout) {
         clearTimeout(this.debounceTimeout);
         this.debounceTimeout = null;
@@ -80,7 +80,7 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     const {
       prefixCls, className, activeStyle, error, align, wrap, disabled,
-      children, multipleLine, thumb, extra, arrow, onClick, styleMode, ...restProps} = this.props;
+      children, multipleLine, thumb, extra, arrow, onClick, platform, ...restProps} = this.props;
 
     const { coverRipleStyle, RipleClicked } = this.state;
     const wrapCls = {
@@ -111,7 +111,7 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
 
-    const isAndroid = styleMode === 'android' || (styleMode === 'auto' && !!navigator.userAgent.match(/Android/i));
+    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
     const content = <div
       {...restProps}
       onClick={(ev) => {

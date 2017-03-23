@@ -68,7 +68,7 @@ class App extends React.Component {
           visible={this.state.modal2}
           onClose={this.onClose('modal2')}
           footer={[{ text: '确定', onPress: () => { console.log('ok'); this.onClose('modal2')(); } }]}
-          styleMode="android"
+          platform="android"
         >
           这是内容...<br />
           这是内容...<br />
@@ -84,7 +84,7 @@ class App extends React.Component {
           visible={this.state.modal3}
           onClose={this.onClose('modal3')}
           footer={[{ text: '确定', onPress: () => { console.log('ok'); this.onClose('modal3')(); } }]}
-          styleMode="ios"
+          platform="ios"
         >
           这是内容...<br />
           这是内容...<br />

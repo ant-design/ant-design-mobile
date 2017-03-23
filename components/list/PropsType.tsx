@@ -32,7 +32,7 @@ export interface ListItemProps {
   wrap?: boolean;
   disabled?: boolean;
   line?: number;
-  styleMode?: string;
+  platform?: string;
   /** rn only */
   styles?: any;
   onPressIn?: (e?: any) => void;

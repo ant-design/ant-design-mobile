@@ -29,7 +29,7 @@ class ListExample extends React.Component {
           arrow="horizontal"
           multipleLine
           onClick={() => {}}
-          styleMode="android"
+          platform="android"
         >
           ListItem （Android）<Brief>设置了Click事件会有material水波纹点击效果</Brief>
         </Item>

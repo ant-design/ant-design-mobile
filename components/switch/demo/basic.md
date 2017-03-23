@@ -57,7 +57,7 @@ let SwitchExample = (props) => {
             initialValue: false,
             valuePropName: 'checked',
           })}
-          styleMode="android"
+          platform="android"
         />}
       >Android平台样式</List.Item>
       <List.Item
@@ -66,7 +66,7 @@ let SwitchExample = (props) => {
             initialValue: true,
             valuePropName: 'checked',
           })}
-          styleMode="ios"
+          platform="ios"
         />}
       >iOS平台样式</List.Item>
     </List>

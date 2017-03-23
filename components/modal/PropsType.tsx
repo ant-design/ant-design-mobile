@@ -23,7 +23,7 @@ interface ModalProps {
   touchFeedback?: boolean;
   wrapProps?: {};
   operation?: boolean;
-  styleMode?: string;
+  platform?: string;
 };
 
 export default ModalProps;

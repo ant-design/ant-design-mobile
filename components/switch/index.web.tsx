@@ -9,7 +9,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     checked: false,
     disabled: false,
     onChange() {},
-    styleMode: 'auto',
+    platform: 'cross',
   };
 
   onChange = (e) => {
@@ -20,8 +20,8 @@ export default class Switch extends React.Component<SwitchProps, any> {
   }
 
   render() {
-    let { prefixCls, style, name, checked, disabled, className, styleMode } = this.props;
-    const isAndroid = styleMode === 'android' || (styleMode === 'auto' && !!navigator.userAgent.match(/Android/i));
+    let { prefixCls, style, name, checked, disabled, className, platform } = this.props;
+    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,

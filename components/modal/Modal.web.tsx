@@ -16,7 +16,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     footer: [],
     closable: false,
     operation: false,
-    styleMode: 'auto',
+    platform: 'cross',
   };
 
   isInModal(e) {
@@ -78,10 +78,10 @@ export default class Modal extends React.Component<ModalProps, any> {
       footer = [],
       closable,
       operation,
-      styleMode,
+      platform,
     } = this.props;
 
-    const isAndroid = styleMode === 'android' || (styleMode === 'auto' && !!navigator.userAgent.match(/Android/i));
+    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
