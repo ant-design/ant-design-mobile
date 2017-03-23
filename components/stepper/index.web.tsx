@@ -11,6 +11,7 @@ export default class Stepper extends React.Component<StepProps, any> {
     readOnly: false,
     showNumber: false,
     focusOnUpDown: false,
+    useTouch: true,
   };
 
   render() {
@@ -24,7 +25,6 @@ export default class Stepper extends React.Component<StepProps, any> {
       <RcInputNumber
         upHandler={<Icon type={require('./style/assets/plus.svg')} size="xxs" />}
         downHandler={<Icon type={require('./style/assets/minus.svg')} size="xxs" />}
-        useTouch
         {...restProps}
         ref="inputNumber"
         className={stepperClass}
