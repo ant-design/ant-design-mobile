@@ -42,7 +42,8 @@ class ListItem extends React.Component<ListItemProps, any> {
 
   onClick = (ev) => {
     const { onClick, platform } = this.props;
-    if (platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i))) {
+    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
+    if (!!onClick && isAndroid) {
       if (this.debounceTimeout) {
         clearTimeout(this.debounceTimeout);
         this.debounceTimeout = null;
