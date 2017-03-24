@@ -11,6 +11,28 @@ title: Change Log
 
 ---
 
+`2017-03-24`
+
+# 1.0.7
+
+## Feature
+- Steps 支持自定义颜色。（[#1024](https://github.com/ant-design/ant-design-mobile/pull/1024)）
+- ListItem 在 Android 上点击新增水波纹动效。（[链接](https://github.com/ant-design/ant-design-mobile/commit/d8fd66992fdfe53745fb43d9e27bffd025b8fdb0)）
+
+## Bug Fix
+- DatePicker 接收 `minuteStep`。 ([#1020](https://github.com/ant-design/ant-design-mobile/issues/1020))
+- 修复 Stepper 的 icon 多重边框问题。（[#1038](https://github.com/ant-design/ant-design-mobile/issues/1038)）
+- 修复 SearchBar placeholder 在聚焦时显示不全的问题。（[#1047](https://github.com/ant-design/ant-design-mobile/issues/1047)）
+
+## Improve && Enhancement
+- Modal, Switch, ListItem 新增 `platform` 参数，可自定义组件样式是否区分 Android/iOS 平台。([#1030](https://github.com/ant-design/ant-design-mobile/issues/1030))
+- SearchBar 自定义主题时的布局优化。 ([#1014](https://github.com/ant-design/ant-design-mobile/issues/1014))
+- InputItem, TextareaItem, SearchBar 组件样式优化，增大可点击区域。 ([#1017](https://github.com/ant-design/ant-design-mobile/issues/1017))
+- React-Native Steps 支持 React.Node 类型的 `title`, `description`。 [#1008](https://github.com/ant-design/ant-design-mobile/issues/1008)
+- DatePicker 确保默认日期在 `minDate`, `maxDate` 范围内 （[#1033](https://github.com/ant-design/ant-design-mobile/issues/1033)）
+
+
+
 `2017-03-17`
 
 # 1.0.6
@@ -103,10 +125,10 @@ title: Change Log
 ## Feature
 - roadhog 支持配置 svg-sprite-loader [icon文档](https://mobile.ant.design/components/icon) ([#144](https://github.com/sorrycc/roadhog/pull/144))
 - React Native 增加 `LocalProvider` 国际化方案 ([#886](https://github.com/ant-design/ant-design-mobile/pull/886))
-- React Native `Button` , `Progress`, `TextareaItem` 支持自定义样式 ([#560](https://github.com/ant-design/ant-design-mobile/issues/560)) 
+- React Native `Button` , `Progress`, `TextareaItem` 支持自定义样式 ([#560](https://github.com/ant-design/ant-design-mobile/issues/560))
 - 提供 0.9.x iconfont 图标对应的 svg icon ([#866](https://github.com/ant-design/ant-design-mobile/issues/866))
 
-## Improve 
+## Improve
 - 所有 demo 代码迁移到 ES6 class 和 Pure function，去除 React.createClass ([#824](https://github.com/ant-design/ant-design-mobile/issues/824))
 - NavBar 返回间隔从 margin 改为 padding，增大点击区域 ([#844](https://github.com/ant-design/ant-design-mobile/issues/844))
 - carouse 去除 mixin ([#859](https://github.com/ant-design/ant-design-mobile/pull/859))
