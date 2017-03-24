@@ -44,7 +44,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return (
       <span className={badgeCls}>
         {children}
-        {(text || dot) ? <sup className={scrollNumberCls} {...restProps}>{text}</sup> : null}
+        {(text || dot) && <sup className={scrollNumberCls} {...restProps}>{text}</sup>}
       </span>
     );
   }

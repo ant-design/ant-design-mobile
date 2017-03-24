@@ -53,7 +53,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     return (<TouchableWithoutFeedback onPress={this.handleClick}>
         <View style={[styles.wrapper]}>
           <Image source={imgSrc} style={[styles.icon, style]} />
-          { typeof children === 'string' ? <Text>{this.props.children}</Text> : children }
+          {typeof children === 'string' ? <Text>{this.props.children}</Text> : children}
         </View>
       </TouchableWithoutFeedback>
     );

@@ -47,7 +47,7 @@ export default class BasicRowDemo extends React.Component<any, any> {
       dataBlob[`${ii}`] = `row - ${ii}`;
     }
     return dataBlob;
-  };
+  }
 
   onEndReached = (_event) => {
     // load new data

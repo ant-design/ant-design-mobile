@@ -35,7 +35,7 @@ export default class AgreeItem extends React.Component<AgreeItemPropsType, any> 
           defaultChecked={defaultChecked}
           onChange={onChange}
         />
-        <View style={{flex:1}}>
+        <View style={{flex: 1}}>
           {contentDom}
         </View>
       </View>

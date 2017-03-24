@@ -55,8 +55,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
         {this.props.children ? (<Flex.Item>{this.props.children}</Flex.Item>) : (!simple &&
           <Flex.Item className={`${prefixCls}-wrap`}>
             <span className="active">{current + 1}</span>/<span>{total}</span>
-          </Flex.Item>)
-        }
+          </Flex.Item>)}
         <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}>
           <Button
             inline

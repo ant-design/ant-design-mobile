@@ -34,10 +34,10 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
     return (
       <View style={[styles.headerWrap, style]} {...restProps}>
         <View style={[styles.headerTitle]}>
-          { thumb ? <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} /> : null }
+          {thumb ? <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} /> : null}
           {titleDom}
         </View>
-        { extra ? extraDom : null }
+        {extra ? extraDom : null}
       </View>
     );
   }

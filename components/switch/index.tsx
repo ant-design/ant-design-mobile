@@ -22,7 +22,7 @@ export default class AntmSwitch extends React.Component<SwitchProps, any> {
     return (
       <Switch
         style={style}
-        onValueChange={(value) => {this.onChange(value);}}
+        onValueChange={(value) => {this.onChange(value); }}
         value={checked}
         disabled={disabled}
       />

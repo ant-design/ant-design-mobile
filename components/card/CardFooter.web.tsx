@@ -23,7 +23,7 @@ export default class CardFooter extends React.Component <CardFooterProps, any> {
     return (
       <div className={wrapCls} {...restProps}>
         <div className={`${prefixCls}-footer-content`}>{content}</div>
-        { extra && <div className={`${prefixCls}-footer-extra`}>{extra}</div> }
+        {extra && <div className={`${prefixCls}-footer-extra`}>{extra}</div>}
       </div>
     );
   }

@@ -64,7 +64,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       <TouchableWithoutFeedback onPress={this.handleClick}>
         <View style={[styles.wrapper]}>
           <Image source={imgSrc} style={[styles.icon, style]} />
-          { typeof children === 'string' ? ( <Text style={styles.iconRight}>{this.props.children}</Text>) : children }
+          {typeof children === 'string' ? ( <Text style={styles.iconRight}>{this.props.children}</Text>) : children}
         </View>
       </TouchableWithoutFeedback>
     );

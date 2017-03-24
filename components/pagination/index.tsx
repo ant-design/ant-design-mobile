@@ -68,7 +68,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
             {prevText}
           </Button>
         </Flex.Item>
-        { simpleItem }
+        {simpleItem}
         <Flex.Item>
           <Button
             inline

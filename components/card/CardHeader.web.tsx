@@ -26,10 +26,10 @@ export default class CardHeader extends React.Component <CardHeaderProps, any> {
     return (
       <div className={wrapCls} {...restProps}>
         <div className={`${prefixCls}-header-content`}>
-          { thumb ? <img style={thumbStyle} src={thumb} /> : null }
+          {thumb ? <img style={thumbStyle} src={thumb} /> : null}
           {title}
         </div>
-        { extra ? <div className={`${prefixCls}-header-extra`}>{extra}</div> : null }
+        {extra ? <div className={`${prefixCls}-header-extra`}>{extra}</div> : null}
       </div>
     );
   }

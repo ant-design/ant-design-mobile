@@ -53,7 +53,7 @@ export default function (...args) {
       maskTransitionName="am-fade"
     >
       <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
-    </Modal>, div
+    </Modal>, div,
   );
 
   return {

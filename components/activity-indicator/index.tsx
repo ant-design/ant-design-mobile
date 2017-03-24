@@ -26,7 +26,7 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
               color="white"
               size="large"
             />
-            { this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>) }
+            {this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>)}
           </View>
         </View>
       </View>
@@ -40,7 +40,7 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
           color={this.props.color}
           size={this.props.size}
         />
-        { this.props.text && (<Text style={[this.props.styles.tip]}>{this.props.text}</Text>) }
+        {this.props.text && (<Text style={[this.props.styles.tip]}>{this.props.text}</Text>)}
       </View>
     );
   }

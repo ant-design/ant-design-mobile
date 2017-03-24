@@ -116,7 +116,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         } catch (e) { }
       }, 100);
     }
-  };
+  }
 
   onBlur = () => {
     setTimeout(() => {

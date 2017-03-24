@@ -89,7 +89,7 @@ export default class Grid extends React.Component<GridProps, any> {
             pageRows.push(
               <Flex key={rowIndex} style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
                 {res}
-              </Flex>
+              </Flex>,
             );
           }
         }
@@ -99,7 +99,7 @@ export default class Grid extends React.Component<GridProps, any> {
             style={[styles.grayBorderBox, { borderTopWidth: hasLine && pageIndex !== 0 ? 1 : 0 }]}
           >
             {pageRows}
-          </View>
+          </View>,
         );
       }
     }

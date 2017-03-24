@@ -86,13 +86,13 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
           <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
             <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
           </View>
-          { <View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} /> }
-          { <View style={[styles[`tail_default${sizeCls}`], styles[tailBottomCls]]} /> }
+          {<View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} />}
+          {<View style={[styles[`tail_default${sizeCls}`], styles[tailBottomCls]]} />}
         </View>
         <View style={styles[`content${sizeCls}`]}>
           {typeof title !== 'object' ?
-            <Text style={[styles[`title${sizeCls}`]]}>{ title }</Text>
-            : <View>{ title }</View>
+            <Text style={[styles[`title${sizeCls}`]]}>{title}</Text>
+            : <View>{title}</View>
           }
           {typeof description !== 'object' ?
             <Text style={[styles[`description${sizeCls}`]]}>{ description }</Text>

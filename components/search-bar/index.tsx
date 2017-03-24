@@ -61,7 +61,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onFocus) {
       this.props.onFocus();
     }
-  };
+  }
 
   onBlur = () => {
     this.setState({

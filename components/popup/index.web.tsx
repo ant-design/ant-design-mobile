@@ -73,7 +73,7 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     >
       {content}
     </Dialog>,
-    div
+    div,
   );
 
   return {

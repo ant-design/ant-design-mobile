@@ -21,7 +21,7 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
         <View style={{ padding: 10 }}>
           <Checkbox
             checked={this.state.checkBox1}
-            style={{tintColor:'#f00'}}
+            style={{tintColor: '#f00'}}
             onChange={(event) => { this.setState({ checkBox1: event.target.checked }); }}
           />
           <WhiteSpace />
@@ -37,7 +37,7 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
         <WhiteSpace />
         <AgreeItem
           checked={this.state.agreeItem1}
-          checkboxStyle={{tintColor:'#f00'}}
+          checkboxStyle={{tintColor: '#f00'}}
           onChange={(event) => { this.setState({ agreeItem1: event.target.checked }); }}
         >
           同意 《信用支付服务合同

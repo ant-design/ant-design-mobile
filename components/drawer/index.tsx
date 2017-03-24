@@ -23,7 +23,7 @@ export default class Drawer extends React.Component<tsPropsType, any> {
         renderNavigationView={() => sidebar}
         drawerPosition={position}
         onDrawerOpen={() => onOpenChange(true)}
-        onDrawerClose={() => onOpenChange(false) }
+        onDrawerClose={() => onOpenChange(false)}
         {...restProps}
       >
         {children}

@@ -118,7 +118,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
           <View style={[styles.errorIcon]}>
             <Image
               source={require('../style/images/error.png')}
-              style={{ width: variables.icon_size_xs, height:variables.icon_size_xs }}
+              style={{ width: variables.icon_size_xs, height: variables.icon_size_xs }}
             />
           </View>
         </TouchableWithoutFeedback> : null}
