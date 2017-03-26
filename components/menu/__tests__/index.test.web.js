@@ -31,14 +31,12 @@ describe('Menu', () => {
   });
 
   it('controll by value', () => {
-    if (typeof document === 'undefined') return;
     const wrapper = mount(<Menu data={data} value={['2', '22']} />);
     expect(wrapper.find('.am-list-item').at(1).hasClass('am-menu-selected')).toBe(true);
     expect(wrapper.find('.am-list-item').at(3).hasClass('am-sub-menu-item-selected')).toBe(true);
   });
 
   it('fires change event when item is selected', () => {
-    if (typeof document === 'undefined') return;
     jest.useFakeTimers();
     const handleChange = jest.fn();
     const wrapper = mount(<Menu data={data} onChange={handleChange} />);
@@ -55,13 +53,11 @@ describe('Menu', () => {
     });
 
     it('controll by value', () => {
-      if (typeof document === 'undefined') return;
       const wrapper = mount(<Menu data={data} level="1" value={['2']} />);
       expect(wrapper.find('.am-list-item').at(1).hasClass('am-sub-menu-item-selected')).toBe(true);
     });
 
     it('fires change event when item is selected', () => {
-      if (typeof document === 'undefined') return;
       jest.useFakeTimers();
       const handleChange = jest.fn();
       const wrapper = mount(<Menu data={data} level="1" onChange={handleChange} />);

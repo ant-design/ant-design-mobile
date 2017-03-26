@@ -12,7 +12,6 @@ describe('NavBar', () => {
   });
 
   it('trigger event correctly', () => {
-    if (typeof document === 'undefined') return;
     const onLeftClick = (e) => {
       // console.log('onLeftClick');
       expect(e.target.className).toBe('am-navbar-left');
