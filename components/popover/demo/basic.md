@@ -31,7 +31,7 @@ class App extends React.Component {
   };
   render() {
     let offsetX = -10; // just for pc demo
-    if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+    if (typeof navigator !== 'undefined' && /(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
       offsetX = -26;
     }
     return (<div>

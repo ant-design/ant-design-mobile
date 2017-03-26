@@ -110,7 +110,7 @@ class App extends React.Component {
         scrollEventThrottle={20}
         onScroll={this.onScroll}
         style={{
-          height: document.documentElement.clientHeight,
+          height: typeof document !== 'undefined' ? document.documentElement.clientHeight : 0,
           border: '1px solid #ddd',
           margin: '0.1rem 0',
         }}

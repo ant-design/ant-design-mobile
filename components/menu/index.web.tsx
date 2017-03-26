@@ -68,8 +68,9 @@ export default class Menu extends React.Component<MenuProps, any> {
     const subValue = value && value.length && value[value.length - 1];
     const subSelInitItem = subMenuData.filter(dataItem => dataItem.value === subValue);
 
+    const clientHeight = typeof document !== 'undefined' ? document.documentElement.clientHeight : 0;
     const heightStyle = {
-      height: `${Math.round(height || document.documentElement.clientHeight / 2)}px`,
+      height: `${Math.round(height || clientHeight / 2)}px`,
       overflowY: 'scroll',
     };
 

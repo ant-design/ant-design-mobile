@@ -171,7 +171,7 @@ class Demo extends React.Component {
         renderSeparator={separator}
         className="fortest"
         style={{
-          height: document.documentElement.clientHeight * 3 / 4,
+          height: (typeof document !== 'undefined' ? document.documentElement.clientHeight : 0) * 3 / 4,
           overflow: 'auto',
           border: '1px solid #ddd',
           margin: '0.1rem 0',

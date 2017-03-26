@@ -8,7 +8,7 @@ describe('Drawer', () => {
     const wrapper = render(
       <Drawer
         className="my-drawer"
-        style={{ minHeight: document.documentElement.clientHeight - 200 }}
+        style={{ minHeight: (typeof document !== 'undefined' ? document.documentElement.clientHeight : 0) - 200 }}
         dragHandleStyle={{ display: 'none' }}
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
         sidebar={<span>sidebar content</span>}
@@ -23,6 +23,7 @@ describe('Drawer', () => {
   });
 
   it('check open/close state', () => {
+    if (typeof document === 'undefined') return;
     function onOpenChange(arg) {
       expect(arg).toBe(false);
     }
