@@ -1,6 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import Flex from '../flex';
 import Carousel from '../carousel/index.web';
 import { DataItem, GridProps } from './PropsType';
