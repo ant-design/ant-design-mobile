@@ -120,17 +120,18 @@ class MenuExample extends React.Component {
 
   render() {
     const { initData, show } = this.state;
+    const height = (typeof document !== 'undefined' ? document.documentElement.clientHeight : 0) * 0.6;
     const menuEl = (
       <Menu
         className="foo-menu"
         data={initData}
         value={['1', '3']}
         onChange={this.onChange}
-        height={document.documentElement.clientHeight * 0.6}
+        height={height}
       />
       );
     const loadingEl = (
-      <div style={{ width: '100%', height: document.documentElement.clientHeight * 0.6, display: 'flex', justifyContent: 'center' }}>
+      <div style={{ width: '100%', height, display: 'flex', justifyContent: 'center' }}>
         <ActivityIndicator size="large" />
       </div>
     );

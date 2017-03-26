@@ -5,6 +5,7 @@ import ActionSheet from '../index.web';
 
 describe('ActionSheet', () => {
   it('showActionSheetWithOptions correctly', () => {
+    if (typeof document === 'undefined') return;
     const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
     ActionSheet.showActionSheetWithOptions({
       options: BUTTONS,
@@ -22,6 +23,7 @@ describe('ActionSheet', () => {
   });
 
   it('showShareActionSheetWithOptions correctly', () => {
+    if (typeof document === 'undefined') return;
     const iconList = [
       { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" />, title: '发送给朋友' },
       { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" />, title: '新浪微博' },

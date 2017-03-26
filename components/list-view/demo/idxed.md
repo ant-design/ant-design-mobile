@@ -57,7 +57,7 @@ class Demo extends React.Component {
         renderRow={rowData => (<Item>{rowData}</Item>)}
         className="fortest"
         style={{
-          height: document.documentElement.clientHeight * 3 / 4,
+          height: (typeof document !== 'undefined' ? document.documentElement.clientHeight : 0) * 3 / 4,
           overflow: 'auto',
         }}
         quickSearchBarStyle={{
