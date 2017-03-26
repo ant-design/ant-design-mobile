@@ -1,6 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import React from 'react';
 /* tslint:enable:no-unused-variable */
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import ListView from 'rmc-list-view';
 import Icon from '../icon';
 // import tsPropsType from './PropsType';
@@ -18,7 +19,7 @@ ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaul
   ],
   loading: <Icon type="loading" />,
   refreshing: false,
-  distanceToRefresh: 50 / 2 * (typeof window !== 'undefined' ? (window as any).devicePixelRatio : 2),
+  distanceToRefresh: 50 / 2 * (canUseDom() ? (window as any).devicePixelRatio : 2),
 });
 
 export default ListView.RefreshControl;

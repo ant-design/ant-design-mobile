@@ -1,6 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import assign from 'object-assign';
 import List from '../list';
 import Flex from '../flex';
@@ -68,7 +69,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     const subValue = value && value.length && value[value.length - 1];
     const subSelInitItem = subMenuData.filter(dataItem => dataItem.value === subValue);
 
-    const clientHeight = typeof document !== 'undefined' ? document.documentElement.clientHeight : 0;
+    const clientHeight = canUseDom() ? document.documentElement.clientHeight : 0;
     const heightStyle = {
       height: `${Math.round(height || clientHeight / 2)}px`,
       overflowY: 'scroll',

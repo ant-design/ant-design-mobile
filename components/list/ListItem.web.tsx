@@ -1,6 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import Touchable from 'rc-touchable';
 import { ListItemProps, BriefProps } from './PropsType';
 
@@ -113,7 +114,7 @@ class ListItem extends React.Component<ListItemProps, any> {
     });
 
     const isAndroid = platform === 'android' ||
-      (platform === 'cross' && typeof navigator !== 'undefined' && !!navigator.userAgent.match(/Android/i));
+      (platform === 'cross' && canUseDom() && !!navigator.userAgent.match(/Android/i));
     const content = <div
       {...restProps}
       onClick={(ev) => {
