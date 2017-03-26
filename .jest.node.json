@@ -22,7 +22,7 @@
     "\\.js$": "./node_modules/babel-jest",
     "\\.md$": "./node_modules/antd-demo-jest"
   },
-  "testRegex": ".*\\.test\\.web\\.js$",
+  "testRegex": "demo\\.test\\.web\\.js$",
   "collectCoverageFrom": [
     "components/**/*.web.{ts,tsx}",
     "!components/*/style/index.tsx"

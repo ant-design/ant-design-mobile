@@ -23,7 +23,6 @@ describe('Drawer', () => {
   });
 
   it('check open/close state', () => {
-    if (typeof document === 'undefined') return;
     function onOpenChange(arg) {
       expect(arg).toBe(false);
     }
