@@ -118,25 +118,23 @@ exports[`renders ./components/steps/demo/basic.tsx correctly 1`] = `
                   allowFontScaling={true}
                   ellipsizeMode="tail"
                 >
+                  title:
                   Finished
                 </Text>
               </View>
             </View>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontSize": 12,
-                  },
-                ]
-              }
-            >
-              This is description
-            </Text>
+            <View>
+              <View>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                >
+                  desc:
+                  This is description
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
         <View
@@ -224,25 +222,23 @@ exports[`renders ./components/steps/demo/basic.tsx correctly 1`] = `
                   allowFontScaling={true}
                   ellipsizeMode="tail"
                 >
+                  title:
                   In Progress
                 </Text>
               </View>
             </View>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontSize": 12,
-                  },
-                ]
-              }
-            >
-              This is description
-            </Text>
+            <View>
+              <View>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                >
+                  desc:
+                  This is description
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
         <View
@@ -330,25 +326,23 @@ exports[`renders ./components/steps/demo/basic.tsx correctly 1`] = `
                   allowFontScaling={true}
                   ellipsizeMode="tail"
                 >
+                  title:
                   Waiting
                 </Text>
               </View>
             </View>
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontSize": 12,
-                  },
-                ]
-              }
-            >
-              This is description
-            </Text>
+            <View>
+              <View>
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                >
+                  desc:
+                  This is description
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </View>

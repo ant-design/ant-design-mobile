@@ -35,8 +35,8 @@ export default class BasicTimelineExample extends React.Component<any, any> {
               this.state.steps1.map((item, index) => (
                 <Step
                   key={index}
-                  title={<View><Text>{item.title}</Text></View>}
-                  description={item.description}
+                  title={<View><Text>title:{item.title}</Text></View>}
+                  description={<View><Text>desc:{item.description}</Text></View>}
                   status={item.status}
                 />
               ))
