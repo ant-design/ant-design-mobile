@@ -18,7 +18,7 @@ English | [简体中文](./README.zh-CN.md)
 
 A configurable Mobile UI specification and React-based implementation.
 
-[中文 README](README-zh_CN.md)
+[中文 README](README.zh_CN.md)
 
 ## Features
 
