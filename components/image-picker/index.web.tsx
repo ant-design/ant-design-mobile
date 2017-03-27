@@ -10,6 +10,7 @@ import Touchable from 'rc-touchable';
 
 const Item = Flex.Item;
 function noop() { }
+const _canUseDom = canUseDom();
 
 export default class ImagePicker extends React.Component<ImagePickerPropTypes, any> {
   static defaultProps = {

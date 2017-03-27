@@ -11,6 +11,8 @@ import Flex from '../flex/index.web';
 import SubMenu from './SubMenu.web';
 import { MenuProps } from './PropsType';
 
+const _canUseDom = canUseDom();
+
 export default class Menu extends React.Component<MenuProps, any> {
   static defaultProps = {
     prefixCls: 'am-menu',
