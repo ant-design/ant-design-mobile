@@ -18,6 +18,7 @@ interface TabsProps {
   /*web only*/
   className?: string;
   prefixCls?: string;
+  destroyInactiveTabPane?: boolean;
 }
 
 export default TabsProps;

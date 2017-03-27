@@ -14,10 +14,12 @@ title: SegmentedControl
 - 尽可能保持文案长度一致。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型               | 默认值       |
-|------------|----------------|--------------------|--------------|
+Support WEB, React-Native.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | prefixCls(`web only`)  | 样式前缀        | String |  `am-segment`  |
 | className(`web only`) | 样式类        | String |    |
 | style | 自定义样式        | Object | `{}`   |

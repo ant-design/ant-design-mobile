@@ -16,11 +16,16 @@ class Demo extends React.Component {
     super(props);
     this.state = {
       val: 3,
+      val1: 2,
     };
   }
   onChange = (val) => {
     // console.log(val);
     this.setState({ val });
+  }
+  onChange1 = (val1) => {
+    // console.log(val);
+    this.setState({ val1 });
   }
   render() {
     return (
@@ -30,8 +35,19 @@ class Demo extends React.Component {
             style={{ width: '100%', minWidth: '2rem' }}
             showNumber max={10} min={1} value={this.state.val} onChange={this.onChange}
           />}
+          wrap
         >
-        显示数值
+        显示数值(默认使用 TouchEvent, for Mobile)
+        </List.Item>
+        <List.Item extra={
+          <Stepper
+            style={{ width: '100%', minWidth: '2rem' }}
+            showNumber max={10} min={1} value={this.state.val1} onChange={this.onChange1}
+            useTouch={false}
+          />}
+          wrap
+        >
+        显示数值(使用 MouseEvent, for PC)
         </List.Item>
         <List.Item extra={
           <Stepper

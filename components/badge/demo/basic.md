@@ -5,35 +5,40 @@ title:
   en-US: Basic
 ---
 
-结合列表的案例参考
+## zh-CN
 
+结合列表的案例参考。
+
+## en-US
+
+Usage cases.
 
 ````jsx
 import { List, Badge } from 'antd-mobile';
 
 const BadgeDemo = () => (
   <List renderHeader={() => ''}>
-    <List.Item extra="内容内容" arrow="horizontal">
+    <List.Item extra="Extra content" arrow="horizontal">
       <Badge dot>
         <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
       </Badge>
-      <span style={{ marginLeft: 12 }}>小圆点</span>
+      <span style={{ marginLeft: 12 }}>Dot Badge</span>
     </List.Item>
     <List.Item
       thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
       extra={<Badge text={77} />}
       arrow="horizontal"
     >
-      文本内容
+      Content
     </List.Item>
     <List.Item className="special-badge" extra={<Badge text={'促'} />}>
-      文本内容
+      Content
     </List.Item>
-    <List.Item extra="内容内容" arrow="horizontal">
-      文本内容<Badge text={'new'} style={{ marginLeft: 12 }} />
+    <List.Item extra="Extra content" arrow="horizontal">
+      Content<Badge text={'new'} style={{ marginLeft: 12 }} />
     </List.Item>
     <List.Item>
-      营销：
+      Marketing:
       <Badge text="减" hot style={{ marginLeft: 12 }} />
       <Badge text="惠" hot style={{ marginLeft: 12 }} />
       <Badge text="免" hot style={{ marginLeft: 12 }} />
@@ -41,7 +46,7 @@ const BadgeDemo = () => (
       <Badge text="HOT" hot style={{ marginLeft: 12 }} />
     </List.Item>
     <List.Item>
-      自定义：
+      Customize
       <Badge text={4} style={{ marginLeft: 12 }} />
       <Badge text="券" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#f19736', borderRadius: 2 }} />
       <Badge text="NEW" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#21b68a', borderRadius: 2 }} />
@@ -55,11 +60,12 @@ const BadgeDemo = () => (
       }}
       />
     </List.Item>
-    <List.Item extra="内容内容" arrow="horizontal">
-      超出99<Badge text={100} style={{ marginLeft: 12 }} />
+    <List.Item extra="Extra content" arrow="horizontal">
+      Overflow<Badge text={100} style={{ marginLeft: 12 }} />
     </List.Item>
   </List>
 );
+
 ReactDOM.render(<BadgeDemo />, mountNode);
 ````
 

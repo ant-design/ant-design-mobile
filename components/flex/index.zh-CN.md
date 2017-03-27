@@ -10,12 +10,14 @@ Flex 是 CSS flex 布局的一个封装。
 
 
 
-## API ( Support PlatForm：WEB、React-Native )
+## API
+
+适用平台：WEB、React-Native
 
 ### Flex
 
-| 属性        | 说明           | 类型         | 默认值       |
-|------------|----------------|-----------|---------------|
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | direction    |   how flex items are placed in the flex container，value could be `row`,`row-reverse`,`column`,`column-reverse`,RN 仅支持`row`,`column`  | String  | `row` |
 | wrap    |  子元素的换行方式，可选`nowrap`,`wrap`,`wrap-reverse`,RN 仅支持`nowrap`,`wrap`  | String  | `nowrap` |
 | justify  | 子元素在主轴上的对齐方式，可选`start`,`end`,`center`,`between`,`around`    | String   | `start` |

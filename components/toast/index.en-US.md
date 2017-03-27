@@ -13,7 +13,9 @@ title: Toast
 - 有 Icon 的 Toast，字数为 4-6 个；没有 Icon 的 Toast，字数不宜超过 14 个。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+Support WEB, React-Native.
 
 - `Toast.success(content, duration, onClose, mask)`
 - `Toast.fail(content, duration, onClose, mask)`
@@ -23,8 +25,8 @@ title: Toast
 
 组件提供了五个静态方法，参数如下：
 
-| 参数       | 说明           | 类型                       | 默认值       |
-|------------|----------------|----------------------------|--------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | content    | 提示内容       | React.Element or String    | 无           |
 | duration   | 自动关闭的延时，单位秒 | number                 | 3          |
 | onClose    | 关闭后回调 |  Function                 | 无          |

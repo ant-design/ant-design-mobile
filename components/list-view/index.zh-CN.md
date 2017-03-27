@@ -8,7 +8,9 @@ subtitle: 长列表
 最适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+适用平台：WEB、React-Native
 
 - React-Native 平台直接使用 [React Native ListView](https://facebook.github.io/react-native/docs/listview.html#content)
 - WEB 平台使用 [React Native ListView(v0.26) 的 API](http://facebook.github.io/react-native/releases/0.26/docs/listview.html)，但有一些差异，以下列出差异详情

@@ -6,12 +6,14 @@ title: Checkbox
 
 Checkbox
 
-## API ( Support Platform：WEB、React-Native )
+## API
+
+Support WEB, React-Native.
 
 ### Checkbox
 
-| 属性             | 说明           | 类型           | 默认值       |
-|---------------- |----------------|-------------|--------------
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | defaultChecked  |  whether is checked when init  | Boolean   |   |
 | checked         |  whether is checked now (Controlled Mode)   | Boolean  |   |
 | disabled        |  whether is been disabled       | Boolean |  false  |

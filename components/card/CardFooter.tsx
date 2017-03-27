@@ -23,7 +23,7 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
     );
 
     const extraDom = React.isValidElement(extra) ? (
-      <View style={{ flex: 1 }}>{content}</View>
+      <View style={{ flex: 1 }}>{extra}</View>
     ) : (
       <Text style={[styles.footerExtra]}>{extra}</Text>
     );

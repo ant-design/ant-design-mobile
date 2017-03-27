@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu level 1 renders correctly 1`] = `
+<div
+  class="am-menu"
+  style="height:0px;overflow-y:scroll;"
+>
+  <div
+    class="am-flexbox am-flexbox-align-top"
+  >
+    <div
+      class="am-flexbox-item"
+      style="height:0px;overflow-y:scroll;"
+    >
+      <div
+        class="am-list am-sub-menu"
+        style="padding-top:0;"
+      >
+        <div
+          class="am-list-body"
+        >
+          <div
+            class="am-radio-item am-list-item am-list-item-middle"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Item1
+              </div>
+              <div
+                class="am-list-extra"
+              >
+                <label
+                  class="am-radio-wrapper"
+                >
+                  <span
+                    class="am-radio"
+                  >
+                    <input
+                      class="am-radio-input"
+                      type="radio"
+                    />
+                    <span
+                      class="am-radio-inner"
+                    />
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="am-radio-item am-list-item am-list-item-middle"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Item2
+              </div>
+              <div
+                class="am-list-extra"
+              >
+                <label
+                  class="am-radio-wrapper"
+                >
+                  <span
+                    class="am-radio"
+                  >
+                    <input
+                      class="am-radio-input"
+                      type="radio"
+                    />
+                    <span
+                      class="am-radio-inner"
+                    />
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Menu renders correctly 1`] = `
+<div
+  class="am-menu"
+  style="height:0px;overflow-y:scroll;"
+>
+  <div
+    class="am-flexbox am-flexbox-align-top"
+  >
+    <div
+      class="am-flexbox-item"
+      style="height:0px;overflow-y:scroll;"
+    >
+      <div
+        class="am-list"
+      >
+        <div
+          class="am-list-body"
+        >
+          <div
+            class="am-menu-selected am-list-item am-list-item-middle"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Item1
+              </div>
+            </div>
+          </div>
+          <div
+            class="am-list-item am-list-item-middle"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Item2
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item"
+      style="height:0px;overflow-y:scroll;"
+    >
+      <div
+        class="am-list am-sub-menu"
+        style="padding-top:0;"
+      >
+        <div
+          class="am-list-body"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

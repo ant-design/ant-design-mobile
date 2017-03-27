@@ -14,10 +14,12 @@ subtitle: 滑动输入条
 - 一般水平放置。
 
 
-## Common API ( 适用平台：WEB、React-Native )
+## Common API
 
-| 参数        | 类型           | 默认值               | 说明       |
-|------------|----------------|--------------------|--------------|
+适用平台：WEB、React-Native
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | min    |  Number     | 0     | 最小值 |
 | max    |  Number     | 100    | 最大值 |
 | step    |  Number or null     | 1    | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 `null`，此时 Slider 的可选值仅有 marks 标出来的部分。 |
@@ -25,6 +27,8 @@ subtitle: 滑动输入条
 | defaultValue    |  Number   | 0     | 设置初始取值。|
 | disabled    |  Boolean     | false    | 值为 `true` 时，滑块为禁用状态 |
 | onChange    |  Function     | Noop    | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。 |
+| maximumTrackTintColor(`web & iOS`)    |  String     | `#108ee9`（RN)    | 底部背景色。 (web 端可以使用 theme 来定义颜色) |
+| minimumTrackTintColor(`web & iOS`)    |  String     | `#ddd` (RN)   | 当前选中部分的颜色。(web 端可以使用 theme 来定义颜色) |
 | onAfterChange    |  Function     | Noop    | 与 `ontouchend` 触发时机一致，把当前值作为参数传入。 |
 | marks (`web only`)     |  Object{Number:String}     | { }    | 刻度标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内 |
 | dots (`web only`)     |  Boolean     | false    | 是否只能拖拽到刻度上 |

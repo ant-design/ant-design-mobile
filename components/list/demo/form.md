@@ -65,7 +65,7 @@ class BasicInput extends React.Component {
         <Item
           extra={<Switch {...getFieldProps('1', { initialValue: true, valuePropName: 'checked' })} />}
         >确认信息</Item>
-        <Item><RangeWithTooltip defaultValue={[20, 50]} /></Item>
+        <Item><div style={{ position: 'relative', top: '-0.14rem' }}><RangeWithTooltip defaultValue={[20, 80]} /></div></Item>
         <Item extra={<Stepper style={{ width: '100%', minWidth: '2rem' }} showNumber size="small" defaultValue={20} />}>预定人数</Item>
         <Item>
           <Button type="primary" onClick={this.onSubmit} inline>提交验证</Button>

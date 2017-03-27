@@ -7,12 +7,14 @@ subtitle: 单选框
 
 单选框
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+适用平台：WEB、React-Native
 
 ### Radio
 
-| 属性        | 说明           | 类型          | 默认值       |
-|------------|----------------|------------|--------------|
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | name    |   name  | String |   无  |
 | defaultChecked |   初始是否选中   | Boolean  | 无  |
 | checked    |   指定当前是否选中  | Boolean  | 无  |

@@ -11,10 +11,12 @@ subtitle: 九宫格
 - 区块中的内容应该是同类元素，eg：都是图片，或者都是图标+文字。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型            | 默认值       |
-|------------|----------------|----------------|--------------|
+适用平台：WEB、React-Native
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | data    |    传入的菜单数据     | `Array<{icon, text}>`  | [] |
 | onClick    |   点击每个菜单的回调函数   | (el: Object, index: number): void  | - |
 | columnNum    |   列数     | number  |  `4` |

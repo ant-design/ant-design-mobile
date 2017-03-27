@@ -11,10 +11,12 @@ subtitle: 标签
 - 标签文字必须显示完全。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型      | 默认值       |
-|------------|----------------|--------------------|--------------|
+适用平台：WEB、React-Native
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | small   |  小号标签  |   Boolean    |  `false`  |
 | disabled   | 是否不可用      | Boolean |    `false`  |
 | closable   | 是否关闭（非 disabled small 状态） | Boolean | `false` |

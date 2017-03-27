@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
-import splitObject from '../_util/splitObject';
 import NavBarProps from './PropsType';
 
 export default class NavBar extends React.Component<NavBarProps, any> {
@@ -14,16 +13,17 @@ export default class NavBar extends React.Component<NavBarProps, any> {
   };
 
   render() {
-    let [{
-      prefixCls, children, mode, className, iconName, leftContent, rightContent, onLeftClick,
-    }, restProps] = splitObject(this.props,
-      ['prefixCls', 'children', 'mode', 'className',
-        'iconName', 'leftContent', 'rightContent', 'onLeftClick']);
+    const {
+      prefixCls, className, children, mode, iconName, leftContent, rightContent, onLeftClick,
+      ...restProps,
+    } = this.props;
+
     const wrapCls = classNames({
       [className as string]: className,
       [prefixCls as string]: true,
       [`${prefixCls}-${mode}`]: true,
     });
+
     return (
       <div {...restProps} className={wrapCls}>
         <div className={`${prefixCls}-left`} onClick={onLeftClick}>

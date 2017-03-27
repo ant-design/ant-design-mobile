@@ -10,6 +10,7 @@ export interface IconPropType {
   className?: string;
   style?: React.CSSProperties;
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
+  onClick?: (e?: any) => void;
 }
 
 export default class Icon extends React.Component<IconPropType, any> {

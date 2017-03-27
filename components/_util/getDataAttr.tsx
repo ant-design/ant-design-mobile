@@ -1,9 +1,8 @@
-export default function getDataAttr(props) {
-  const dataAttrs = {};
-  Object.keys(props).forEach(i => {
-    if (i.indexOf('data-') === 0) {
-      dataAttrs[i] = props[i];
+export default (props) => {
+  return Object.keys(props).reduce((prev, key) => {
+    if (key.substr(0, 5) === 'aria-' || key.substr(0, 5) === 'data-' || key === 'role') {
+      prev[key] = props[key];
     }
-  });
-  return dataAttrs;
-}
+    return prev;
+  }, {});
+};

@@ -2,10 +2,6 @@ import React from 'react';
 import { View, Text, Platform } from 'react-native';
 import { ActionSheet, Button } from 'antd-mobile';
 
-const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
-const DESTRUCTIVE_INDEX = 3;
-const CANCEL_INDEX = 4;
-
 export default class Test extends React.Component<any, any> {
   constructor() {
     super();
@@ -33,12 +29,13 @@ export default class Test extends React.Component<any, any> {
     );
   }
   showActionSheet = () => {
+    const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
     ActionSheet.showActionSheetWithOptions({
       title: '标题',
       message: '我是描述我是描述',
       options: BUTTONS,
-      cancelButtonIndex: CANCEL_INDEX,
-      destructiveButtonIndex: DESTRUCTIVE_INDEX,
+      cancelButtonIndex: 4,
+      destructiveButtonIndex: 3,
     },
     (buttonIndex) => {
       this.setState({ clicked: BUTTONS[buttonIndex] });

@@ -9,10 +9,12 @@ title: Stepper
 ### 规则
 - 当想要对数值进行小幅度调整时，可以使用 Stepper，eg：将年化收益从 4.00% 调整到 4.05%。
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型               | 默认值       |
-|-------------|----------------|--------------------|--------------|
+Support WEB, React-Native.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | min     | 最小值   | Number | -Infinity        |
 | max     | 最大值       | Number      | Infinity           |
 | value     | 当前值       | Number      |            |

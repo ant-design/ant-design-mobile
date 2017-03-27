@@ -16,7 +16,7 @@ import { Range, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
 
 const RangeWithTooltip = createTooltip(Range);
 const App = () => {
-  this.log = (name) => {
+  const log = (name) => {
     return (value) => {
       console.log(`${name}: ${value}`);
     };
@@ -26,17 +26,17 @@ const App = () => {
       <WhiteSpace size="lg" />
       <WingBlank size="lg">
         <p className="title">Range, 基础使用</p>
-        <Range min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
+        <Range min={0} max={20} defaultValue={[3, 10]} onChange={log('change')} onAfterChange={log('afterChange')} />
       </WingBlank>
       <WhiteSpace size="lg" />
       <WingBlank size="lg">
         <p className="title">Range, 带 Tooltip</p>
-        <RangeWithTooltip min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
+        <RangeWithTooltip min={0} max={20} defaultValue={[3, 10]} onChange={log('change')} onAfterChange={log('afterChange')} />
       </WingBlank>
       <WhiteSpace size="lg" />
       <WingBlank size="lg">
         <p className="title">Range, 禁用</p>
-        <Range min={0} max={20} defaultValue={[3, 10]} onChange={this.log('change')} onAfterChange={this.log('afterChange')} disabled />
+        <Range min={0} max={20} defaultValue={[3, 10]} onChange={log('change')} onAfterChange={log('afterChange')} disabled />
       </WingBlank>
     </div>
   );

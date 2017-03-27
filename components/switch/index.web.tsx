@@ -9,6 +9,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     checked: false,
     disabled: false,
     onChange() {},
+    platform: 'cross',
   };
 
   onChange = (e) => {
@@ -19,11 +20,12 @@ export default class Switch extends React.Component<SwitchProps, any> {
   }
 
   render() {
-    let { prefixCls, style, name, checked, disabled, className } = this.props;
+    let { prefixCls, style, name, checked, disabled, className, platform } = this.props;
+    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,
-      [`${prefixCls}-android`]: !!navigator.userAgent.match(/Android/i),
+      [`${prefixCls}-android`]: isAndroid,
     });
 
     return (<label className={wrapCls} style={style}>

@@ -6,8 +6,10 @@ title: WhiteSpace
 
 WhiteSpace 是 Flex 布局的控件之一。
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型            | 默认值       |
-|------------|----------------|----------------|--------------|
+Support WEB, React-Native.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | size       |  上下留白的间距，可选`xs`,`sm`,`md`,`lg`,`xl`  | string | `md`  |

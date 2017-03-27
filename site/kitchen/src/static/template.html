@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <title>支付宝移动组件库</title>
     <script>
+      if (!window.Intl) {
+        document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js">' + '<' + '/script>');
+      }
+    </script>
+    <script>
       (function (baseFontSize, fontscale) {
         var _baseFontSize = baseFontSize || 100;
         var _fontscale = fontscale || 1;

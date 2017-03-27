@@ -25,7 +25,20 @@ class ListExample extends React.Component {
         <Item arrow="horizontal" multipleLine>
           标题文字 <Brief>副标题</Brief>
         </Item>
-        <Item arrow="horizontal" thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png" multipleLine>
+        <Item
+          arrow="horizontal"
+          multipleLine
+          onClick={() => {}}
+          platform="android"
+        >
+          ListItem （Android）<Brief>设置了Click事件会有material水波纹点击效果</Brief>
+        </Item>
+        <Item
+          arrow="horizontal"
+          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          multipleLine
+          onClick={() => {}}
+        >
           标题文字 <Brief>副标题</Brief>
         </Item>
       </List>

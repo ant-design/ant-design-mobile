@@ -2,7 +2,7 @@
 import React from 'react';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
-import { formatFn, getProps } from './utils';
+import { formatFn, getProps, getDefaultDate } from './utils';
 import assign from 'object-assign';
 import tsPropsType from './PropsType';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
@@ -12,6 +12,7 @@ function getDefaultProps() {
     prefixCls: 'am-picker',
     pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
+    minuteStep: 1,
   }, getProps());
 }
 
@@ -41,15 +42,17 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
 
     const dataPicker = (
       <RCDatePicker
+        minuteStep={props.minuteStep}
         locale={DatePickerLocale}
         minDate={props.minDate}
         maxDate={props.maxDate}
         mode={props.mode}
         pickerPrefixCls={props.pickerPrefixCls}
         prefixCls={props.prefixCls}
-        defaultDate={value || defaultDate}
+        defaultDate={value || getDefaultDate(this.props)}
       />
     );
+
     return (
       <PopupDatePicker
         datePicker={dataPicker}
@@ -58,7 +61,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         maskTransitionName="am-fade"
         {...props}
         prefixCls={popupPrefixCls}
-        date={value || defaultDate}
+        date={value || getDefaultDate(this.props)}
         dismissText={dismissText}
         okText={okText}
       >

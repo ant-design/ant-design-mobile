@@ -8,6 +8,8 @@ export interface SliderProps {
   max?: number;
   step?: number;
   disabled?: boolean;
+  maximumTrackTintColor?: string;
+  minimumTrackTintColor?: string;
   /* web only */
   prefixCls?: string;
 }

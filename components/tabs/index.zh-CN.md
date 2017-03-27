@@ -13,12 +13,14 @@ subtitle: 标签页
 - 在 iOS 端的次级页面中，不建议使用左右滑动来切换 Tab，这个和 iOS 的左滑返回存在冲突，eg：详情页中 Tabs。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+适用平台：WEB、React-Native
 
 ### Tabs
 
-| 参数             | 说明                                         | 类型     | 默认值        |
-|------------------|----------------------------------------------|----------|---------------|
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | activeKey        | 当前激活 tab 面板的 key                      | String   | 无            |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板    |
 | onChange         | 切换面板的回调                        | (key: string): void | 无            |
@@ -40,7 +42,7 @@ subtitle: 标签页
 
 ### Tabs.TabPane
 
-| 参数 | 说明             | 类型                    | 默认值 |
-|------|------------------|-------------------------|--------|
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | key  | 对应 activeKey   | String                  | 无     |
 | tab  | 选项卡头显示文字 | React.Element or String | 无     |

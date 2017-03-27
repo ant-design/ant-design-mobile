@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/card/demo/basic.md correctly 1`] = `
+<div
+  class="am-wingblank am-wingblank-lg"
+>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-card"
+  >
+    <div
+      class="am-card-header"
+    >
+      <div
+        class="am-card-header-content"
+      >
+        <img
+          src="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
+        />
+        这是 title
+      </div>
+      <div
+        class="am-card-header-extra"
+      >
+        <span>
+          this is extra
+        </span>
+      </div>
+    </div>
+    <div
+      class="am-card-body"
+    >
+      <div>
+        这是卡片内容
+      </div>
+    </div>
+    <div
+      class="am-card-footer"
+    >
+      <div
+        class="am-card-footer-content"
+      >
+        这是卡尾
+      </div>
+      <div
+        class="am-card-footer-extra"
+      >
+        <div>
+          这是尾部介绍
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+</div>
+`;
+
+exports[`renders ./components/card/demo/full.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-card am-card-full"
+  >
+    <div
+      class="am-card-header"
+    >
+      <div
+        class="am-card-header-content"
+      >
+        <img
+          src="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
+        />
+        这是 title
+      </div>
+      <div
+        class="am-card-header-extra"
+      >
+        <span>
+          this is extra
+        </span>
+      </div>
+    </div>
+    <div
+      class="am-card-body"
+    >
+      <div>
+        这是卡片内容
+      </div>
+    </div>
+    <div
+      class="am-card-footer"
+    >
+      <div
+        class="am-card-footer-content"
+      >
+        这是卡尾
+      </div>
+      <div
+        class="am-card-footer-extra"
+      >
+        <div>
+          这是尾部介绍
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

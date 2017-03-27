@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/menu/demo/basic.tsx correctly 1`] = `
+<div>
+  TODO for react-native
+</div>
+`;

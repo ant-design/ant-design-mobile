@@ -1,0 +1,2871 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/list-view/demo/basic.tsx correctly 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 195,
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={10}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={4}
+  removeClippedSubviews={true}
+  renderFooter={[Function]}
+  renderHeader={[Function]}
+  renderRow={[Function]}
+  renderSectionHeader={[Function]}
+  renderSeparator={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={
+    Array [
+      1,
+      11,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "padding": 8,
+        },
+      ]
+    }
+  >
+    列表头
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "rgba(255,255,255,0.8)",
+          "padding": 10,
+        },
+      ]
+    }
+  >
+    任务 0
+  </Text>
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            食惠周
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S0, R0
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            麦当劳邀您过周末
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S0, R1
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            相约酒店
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S0, R2
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            食惠周
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S0, R3
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            麦当劳邀您过周末
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S0, R4
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "rgba(255,255,255,0.8)",
+          "padding": 10,
+        },
+      ]
+    }
+  >
+    任务 1
+  </Text>
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            相约酒店
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S1, R0
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            食惠周
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S1, R1
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            麦当劳邀您过周末
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S1, R2
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            相约酒店
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S1, R3
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            食惠周
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              S1, R4
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "padding": 30,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+     
+    加载完毕
+     
+  </Text>
+</ScrollView>
+`;
+
+exports[`renders ./components/list-view/demo/basic-row.tsx correctly 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={10}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={4}
+  removeClippedSubviews={true}
+  renderFooter={[Function]}
+  renderHeader={[Function]}
+  renderRow={[Function]}
+  renderSeparator={[Function]}
+  scrollEventThrottle={20}
+  scrollRenderAheadDistance={500}
+  stickyHeaderIndices={Array []}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "padding": 8,
+        },
+      ]
+    }
+  >
+    列表头
+  </Text>
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            食惠周
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              0
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            麦当劳邀您过周末
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              1
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            相约酒店
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              2
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            食惠周
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              3
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            麦当劳邀您过周末
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              4
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            相约酒店
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              5
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            食惠周
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              6
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            麦当劳邀您过周末
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              7
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            相约酒店
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              8
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "padding": 8,
+            },
+          ],
+        ]
+      }
+      testID={undefined}
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#F6F6F6",
+                "borderBottomWidth": 1,
+                "borderStyle": "solid",
+                "marginBottom": 8,
+              },
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 18,
+                "fontWeight": "500",
+                "padding": 2,
+              }
+            }
+          >
+            食惠周
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "height": 64,
+                  "marginRight": 8,
+                  "width": 64,
+                },
+              ]
+            }
+          />
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              不是所有的兼职汪都需要风吹日晒
+               - 
+              9
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#FF6E27",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                35
+              </Text>
+              元/任务
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#F5F5F9",
+        "borderBottomColor": "#ECECED",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "borderTopColor": "#ECECED",
+        "borderTopWidth": 1,
+        "height": 8,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "padding": 30,
+        "textAlign": "center",
+      }
+    }
+  >
+     
+    加载完毕
+     
+  </Text>
+</ScrollView>
+`;

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
+<div
+  class="tag-container"
+>
+  <div
+    class="am-tag am-tag-normal"
+    data-seed="logId"
+  >
+    <div
+      class="am-tag-text"
+    >
+      Basic
+    </div>
+  </div>
+  <div
+    class="am-tag am-tag-active"
+  >
+    <div
+      class="am-tag-text"
+    >
+      Selected
+    </div>
+  </div>
+  <div
+    class="am-tag am-tag-disabled"
+  >
+    <div
+      class="am-tag-text"
+    >
+      Disabled
+    </div>
+  </div>
+  <div
+    class="am-tag am-tag-normal"
+  >
+    <div
+      class="am-tag-text"
+    >
+      Callback
+    </div>
+  </div>
+  <div
+    class="am-tag am-tag-normal am-tag-closable"
+  >
+    <div
+      class="am-tag-text"
+    >
+      Closable
+    </div>
+    <div
+      class="am-tag-close"
+    >
+      <svg
+        class="am-icon am-icon-cross-circle am-icon-xs"
+      >
+        <use
+          xlink:href="#cross-circle"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="am-tag am-tag-normal am-tag-small"
+  >
+    <div
+      class="am-tag-text"
+    >
+      Small and Readonly
+    </div>
+  </div>
+</div>
+`;

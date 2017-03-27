@@ -11,8 +11,12 @@ interface Props {
   transitions?: boolean;
   touch?: boolean;
   dragToggleDistance?: number;
-  /** web only */
+  /** below web only */
   prefixCls?: string;
+  /** below rn only */
+  onOpenChange?: (_x: boolean) => void;
+  drawerWidth?: number;
+  drawerBackgroundColor?: string;
 }
 
 export default Props;

@@ -7,6 +7,7 @@ interface SwitchProps {
   prefixCls?: string;
   className?: string;
   name?: string;
+  platform?: string;
 }
 
 export default SwitchProps;

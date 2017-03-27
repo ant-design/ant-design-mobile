@@ -20,8 +20,8 @@ const sort = (a, b) => {
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    const lang = getQuery('lang');
-    const appLocale = lang === 'zh-CN' ? cnLocale : enLocale;
+    const lang = getQuery('lang') || window.navigator.language;
+    const appLocale = lang.toLowerCase() === 'zh-cn' ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
     this.state = {
       open: false,
@@ -71,7 +71,7 @@ export default class App extends React.Component {
       });
 
     let rootPath = '/kitchen-sink/components';
-    if (window.location.port) {
+    if (window.location.port === '8002') {
       rootPath = '/components';
     }
     return (

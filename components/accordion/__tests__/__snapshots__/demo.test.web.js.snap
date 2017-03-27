@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
+<div
+  style="margin-top:10px;margin-bottom:10px;"
+>
+  <div
+    class="am-accordion my-accordion"
+  >
+    <div
+      class="am-accordion-item"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        标题一
+      </div>
+    </div>
+    <div
+      class="am-accordion-item pad"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        标题二
+      </div>
+    </div>
+    <div
+      class="am-accordion-item pad"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        标题三
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
+<div
+  style="margin-top:10px;margin-bottom:10px;"
+>
+  <div
+    class="am-accordion my-accordion"
+  >
+    <div
+      class="am-accordion-item am-accordion-item-active"
+    >
+      <div
+        aria-expanded="true"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        标题一
+      </div>
+      <div
+        class="am-accordion-content am-accordion-content-active"
+        role="tabpanel"
+      >
+        <div
+          class="am-accordion-content-box"
+        >
+          <div
+            class="am-list my-list"
+          >
+            <div
+              class="am-list-body"
+            >
+              <div
+                class="am-list-item am-list-item-middle"
+              >
+                <div
+                  class="am-list-line"
+                >
+                  <div
+                    class="am-list-content"
+                  >
+                    子内容一
+                  </div>
+                </div>
+              </div>
+              <div
+                class="am-list-item am-list-item-middle"
+              >
+                <div
+                  class="am-list-line"
+                >
+                  <div
+                    class="am-list-content"
+                  >
+                    子内容二
+                  </div>
+                </div>
+              </div>
+              <div
+                class="am-list-item am-list-item-middle"
+              >
+                <div
+                  class="am-list-line"
+                >
+                  <div
+                    class="am-list-content"
+                  >
+                    子内容三
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-accordion-item pad"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        标题二
+      </div>
+    </div>
+    <div
+      class="am-accordion-item pad"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        标题三
+      </div>
+    </div>
+  </div>
+</div>
+`;

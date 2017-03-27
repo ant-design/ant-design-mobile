@@ -100,7 +100,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 
 #### React-Native 使用方式
 
-> 注：`Accordion`、`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
+> 注：`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
 
 - `.babelrc` 文件添加以下配置
 
@@ -144,7 +144,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ## 链接
 
 - [首页](/)
-- [开发文档](http://github.com/ant-design/ant-design-mobile/blob/master/development.md)
+- [开发文档](http://github.com/ant-design/ant-design-mobile/blob/master/development.en-US.md)
 - [React 模块](http://github.com/react-component)
 
 ## 谁在使用

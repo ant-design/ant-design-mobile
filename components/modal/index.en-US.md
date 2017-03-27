@@ -14,10 +14,12 @@ Use to show important information for the system, and ask for user feedback. eg:
 
 ## API
 
-### Modal ( Support Platform：WEB、React-Native )
+Support WEB, React-Native.
 
-| Property             | Description                    | Type     | Default        |
-|------------------|-----------------------|----------|---------------|
+### Modal
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | prefixCls (web only)      | Class name prefix of elements |    String   | `am-modal`      |
 | visible      | Determine whether a modal dialog is visible or not | Boolean          | false           |
 | onClose      | Callback for clicking close icon x or mask        | (): void   | - |
@@ -27,28 +29,35 @@ Use to show important information for the system, and ask for user feedback. eg:
 | footer  (only not transparent)     | footer content       |  Array [{text, onPress}]    | [] |
 | transparent | transparent mode or full screen mode       | Boolean   |  false |
 | animationType (`rn only`) | Options: 'slide-down/up'(only transparent) / 'fade' / 'slide'(only not tranparent) | String |   fade |
-| style (`web only`) |  style    | Object | transparent: {width: '286px', height: 'auto'}, <br />not transparent:  {width: '100%', height: '100%'} (web)|
+| style (`web only`) |  style    | Object | transparent: {width: '286px', height: 'cross'}, <br />not transparent:  {width: '100%', height: '100%'} (web)|
+| platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios`， default to be `cross`， which means we will detect UA and change the component style | String | `'cross'`|
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 
-| Property             | Description                                         | Type     | Default        |
-|------------------|----------------------------------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | title        | title                      | String or React.Element   | -            |
 | message      | message                  | String or React.Element    | -    |
 | actions         | button group, [{text, onPress, style}]       | Array | -            |
 
+call `Modal.alert(title, message, actions?).close()`  can close Alert Modal outside anywhere as you wish.
+
 ### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?) ( Support Platform：WEB )
 
-| Property             | Description                                         | Type     | Default        |
-|------------------|----------------------------------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | title        | title                      | String or React.Element   | -            |
 | message      | message                  | String or React.Element                    | -    |
 | callbackOrActions  | button group [{text, onPress}] or callback      | Array or Function | -            |
 | type       | prompt style   | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue       | Default(input whick type is password is not supported)   | String |   -  |
 
+call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?).close()` can close prompt Modal outside anywhere as you wish.
+
 ### Modal.operation(actions?) ( Support Platform：WEB、React-Native )
 
-| Property             | Description                                         | Type     | Default        |
-|------------------|----------------------------------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | actions         | button group, [{text, onPress, style}]       | Array | -            |
+
+call Modal.operation(actions?).close()` can close Operation Modal outside anywhere as you wish.

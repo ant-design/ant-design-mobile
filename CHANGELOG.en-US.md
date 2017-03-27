@@ -3,8 +3,6 @@ order: 4
 title: Change Log
 ---
 
-`antd-mobile` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
-
 #### 发布周期
 
 * patch 版本：每周末会进行日常 bugfix 更新。（如果有紧急的 bugfix，则任何时候都可发布）
@@ -12,6 +10,70 @@ title: Change Log
 * 大版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
+`2017-03-24`
+
+# 1.0.7
+
+## Feature
+- Steps 支持自定义颜色。（[#1024](https://github.com/ant-design/ant-design-mobile/pull/1024)）
+- ListItem 在 Android 上点击新增水波纹动效。（[链接](https://github.com/ant-design/ant-design-mobile/commit/d8fd66992fdfe53745fb43d9e27bffd025b8fdb0)）
+
+## Bug Fix
+- DatePicker 接收 `minuteStep`。 ([#1020](https://github.com/ant-design/ant-design-mobile/issues/1020))
+- 修复 Stepper 的 icon 多重边框问题。（[#1038](https://github.com/ant-design/ant-design-mobile/issues/1038)）
+- 修复 SearchBar placeholder 在聚焦时显示不全的问题。（[#1047](https://github.com/ant-design/ant-design-mobile/issues/1047)）
+
+## Improve && Enhancement
+- Modal, Switch, ListItem 新增 `platform` 参数，可自定义组件样式是否区分 Android/iOS 平台。([#1030](https://github.com/ant-design/ant-design-mobile/issues/1030))
+- SearchBar 自定义主题时的布局优化。 ([#1014](https://github.com/ant-design/ant-design-mobile/issues/1014))
+- InputItem, TextareaItem, SearchBar 组件样式优化，增大可点击区域。 ([#1017](https://github.com/ant-design/ant-design-mobile/issues/1017))
+- React-Native Steps 支持 React.Node 类型的 `title`, `description`。 [#1008](https://github.com/ant-design/ant-design-mobile/issues/1008)
+- DatePicker 确保默认日期在 `minDate`, `maxDate` 范围内 （[#1033](https://github.com/ant-design/ant-design-mobile/issues/1033)）
+
+
+
+`2017-03-17`
+
+# 1.0.6
+
+## Feature
+
+- Modal 添加 close api，方便手工销毁，#995
+
+## Bug Fix
+
+- 修复 ImagePicker clear icon 旋转问题，#944
+
+## Improve && Enhancement
+
+- 优化 Modal button 长按的默认行为；
+- Stepper、Toast、Modal 依赖的 rc-util 升级，去除控制台中 warning，#959
+- 部分文档优化；#997 #993 #984 #1009；部分 demo 优化；
+
+### 1.0.5
+
+`2017-03-10`
+
+## Feature
+- 补全 `accordion` React-Native 版本 ([#931](https://github.com/ant-design/ant-design-mobile/pull/931))
+- `stepper` 图标支持用户自定义 ([链接](https://github.com/ant-design/ant-design-mobile/commit/78ab295f69cd1441b600aa6c2d921c7d658096ca))
+- 补全 React-Native `Button` 的 loading 样式 （[#946](https://github.com/ant-design/ant-design-mobile/issues/946)）
+- React-Native `InputItem` 支持输入小数 （[950](https://github.com/ant-design/ant-design-mobile/issues/950)）
+- `Icon` 支持直接添加事件 ([#955](https://github.com/ant-design/ant-design-mobile/issues/955))
+- React-Native `InputItem`, `TextItem` 支持自定义 style ([#949](https://github.com/ant-design/ant-design-mobile/issues/949))
+
+## Bug Fix
+- React Native `SearchBar` 自动显示取消按钮 ([#957](https://github.com/ant-design/ant-design-mobile/issues/957))
+- 修复 `Tabs` 在低版本 Android 浏览器兼容性问题 ([#940](https://github.com/ant-design/ant-design-mobile/issues/940))
+- React Native 修复 `Card` extra 覆盖的bug ([#969](https://github.com/ant-design/ant-design-mobile/issues/969))
+- 修复 `ImagePicker` 图片旋转方向问题 ([#944](https://github.com/ant-design/ant-design-mobile/issues/944))
+- 修复 `Step` 水平溢出的问题 ([#952](https://github.com/ant-design/ant-design-mobile/issues/952))
+
+## Improve && Enhancement
+- 新增 Web && React Native 组件的 snapshot 测试，覆盖率 59% ([#921](https://github.com/ant-design/ant-design-mobile/pull/921))
+- 文档翻译进度 ([#329](https://github.com/ant-design/ant-design-mobile/issues/329))
+- [官方 Demo 集合](https://github.com/ant-design/antd-mobile-samples) 新增 roadhog 示例
 
 ### 1.0.4
 
@@ -63,10 +125,10 @@ title: Change Log
 ## Feature
 - roadhog 支持配置 svg-sprite-loader [icon文档](https://mobile.ant.design/components/icon) ([#144](https://github.com/sorrycc/roadhog/pull/144))
 - React Native 增加 `LocalProvider` 国际化方案 ([#886](https://github.com/ant-design/ant-design-mobile/pull/886))
-- React Native `Button` , `Progress`, `TextareaItem` 支持自定义样式 ([#560](https://github.com/ant-design/ant-design-mobile/issues/560)) 
+- React Native `Button` , `Progress`, `TextareaItem` 支持自定义样式 ([#560](https://github.com/ant-design/ant-design-mobile/issues/560))
 - 提供 0.9.x iconfont 图标对应的 svg icon ([#866](https://github.com/ant-design/ant-design-mobile/issues/866))
 
-## Improve 
+## Improve
 - 所有 demo 代码迁移到 ES6 class 和 Pure function，去除 React.createClass ([#824](https://github.com/ant-design/ant-design-mobile/issues/824))
 - NavBar 返回间隔从 margin 改为 padding，增大点击区域 ([#844](https://github.com/ant-design/ant-design-mobile/issues/844))
 - carouse 去除 mixin ([#859](https://github.com/ant-design/ant-design-mobile/pull/859))
@@ -93,7 +155,7 @@ title: Change Log
 ## New Feature
 
 - Icon 从 iconfont 转为使用 svg 图片 [#156](https://github.com/ant-design/ant-design-mobile/issues/156)。
-- Icon 增加 React Native 版本，[接入指南](https://github.com/ant-design/ant-design-mobile/blob/master/components/icon/index.md#如何使用-rn)。
+- Icon 增加 React Native 版本，[接入指南](https://github.com/ant-design/ant-design-mobile/blob/master/components/icon/index.en-US.md#如何使用-rn)。
 - Button 新增 `across` API，支持通栏按钮。
 - Progress 组件新增 `appearTransition` API，支持初始显示的动画效果。
 - Checkbox / Radio 组件支持 children [#499](https://github.com/ant-design/ant-design-mobile/issues/499)。
@@ -114,7 +176,7 @@ title: Change Log
 - Popover `iconName` 变为 `icon` ；分割线的 css 设置从底边线修改为顶边线。
 - 修改部分 css 变量名和变量值、如：zindex 等。
 - RN List 去除 last 属性。
-- `DatePicker` 和 `Pagination` 不再接受 `okText`, `dismissText` 属性；`DatePicker`的`locale`属性结构变化，参见 [升级文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/upgrade-notes.md#其他常用组件更新注意事项)。
+- `DatePicker` 和 `Pagination` 不再接受 `okText`, `dismissText` 属性；`DatePicker`的`locale`属性结构变化，参见 [升级文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/upgrade-notes.en-US.md#其他常用组件更新注意事项)。
 - 原 Web 版 `Slider` 拆分成 `Slider`, `Range`, `createTooltip`, 使用方式参见 [Slider文档](https://mobile.ant.design/components/slider), [Range文档](https://mobile.ant.design/components/range)。
 - Toast 更改为 single instance，新显示的 toast 会覆盖老的；同时增加 mask 特性；。
 - Modal 和 Switch 增加 android 平台独立 UI。

@@ -1,13 +1,11 @@
 /* tslint:disable:no-unused-variable */
 import React from 'react';
 /* tslint:enable:no-unused-variable */
-import splitObject from '../_util/splitObject';
 import List from '../list';
 const { Item } = List;
 
 export default function handleProps(props, isIndexed) {
-  let [{ renderHeader, renderFooter, renderSectionHeader, renderBodyComponent }, restProps] =
-    splitObject(props, ['renderHeader', 'renderFooter', 'renderSectionHeader', 'renderBodyComponent']);
+  let { renderHeader, renderFooter, renderSectionHeader, renderBodyComponent, ...restProps } = props;
   const listPrefixCls = props.listPrefixCls;
 
   const extraProps = {

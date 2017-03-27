@@ -1,0 +1,361 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-tabs am-tabs-top"
+  >
+    <div
+      class="am-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="am-tabs-ink-bar am-tabs-ink-bar-animated"
+      />
+      <div
+        aria-disabled="false"
+        aria-selected="false"
+        class=" am-tabs-tab"
+        role="tab"
+      >
+        选项卡一
+      </div>
+      <div
+        aria-disabled="false"
+        aria-selected="true"
+        class="am-tabs-tab-active am-tabs-tab"
+        role="tab"
+      >
+        选项卡二
+      </div>
+      <div
+        aria-disabled="false"
+        aria-selected="false"
+        class=" am-tabs-tab"
+        role="tab"
+      >
+        选项卡三
+      </div>
+    </div>
+    <div
+      class="am-tabs-content am-tabs-content-animated"
+      style="transform:translateX(-100%) translateZ(0);-webkit-transform:translateX(-100%) translateZ(0);-moz-transform:translateX(-100%) translateZ(0);"
+    >
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="false"
+        class="am-tabs-tabpane am-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
+        >
+          选项卡二内容
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
+<div>
+  <div
+    class="am-tabs am-tabs-top"
+  >
+    <div
+      class="am-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="am-tabs-nav-container am-tabs-nav-swipe-container am-tabs-prevpage am-tabs-nextpage"
+      >
+        <div
+          class="am-tabs-nav-wrap"
+        >
+          <div
+            class="am-tabs-nav-swipe"
+          >
+            <div
+              class="am-tabs-nav"
+            >
+              <div
+                class="am-tabs-ink-bar am-tabs-ink-bar-animated"
+              />
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项0
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项3
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项4
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项5
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项6
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项7
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="am-tabs-tab-active am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项8
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项9
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项10
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class=" am-tabs-tab"
+                role="tab"
+                style="display:flex;flex:0 0 20%;"
+              >
+                选项11
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-tabs-content am-tabs-content-animated"
+      style="transform:translateX(-800%) translateZ(0);-webkit-transform:translateX(-800%) translateZ(0);-moz-transform:translateX(-800%) translateZ(0);"
+    >
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="false"
+        class="am-tabs-tabpane am-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
+        >
+          选项8内容
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-tabs am-tabs-top"
+  >
+    <div
+      class="am-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="am-tabs-ink-bar am-tabs-ink-bar-no-animated"
+      />
+      <div
+        aria-disabled="false"
+        aria-selected="false"
+        class=" am-tabs-tab"
+        role="tab"
+      >
+        选项卡一
+      </div>
+      <div
+        aria-disabled="false"
+        aria-selected="false"
+        class=" am-tabs-tab"
+        role="tab"
+      >
+        选项卡二
+      </div>
+      <div
+        aria-disabled="false"
+        aria-selected="true"
+        class="am-tabs-tab-active am-tabs-tab"
+        role="tab"
+      >
+        选项卡三
+      </div>
+    </div>
+    <div
+      class="am-tabs-content am-tabs-content-no-animated"
+    >
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="false"
+        class="am-tabs-tabpane am-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
+        >
+          选项卡三内容
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
+`;
