@@ -8,8 +8,6 @@ import Flex from '../flex';
 import SubMenu from './SubMenu.web';
 import { MenuProps } from './PropsType';
 
-const _canUseDom = canUseDom();
-
 export default class Menu extends React.Component<MenuProps, any> {
   static defaultProps = {
     prefixCls: 'am-menu',
@@ -71,7 +69,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     const subValue = value && value.length && value[value.length - 1];
     const subSelInitItem = subMenuData.filter(dataItem => dataItem.value === subValue);
 
-    const clientHeight = _canUseDom ? document.documentElement.clientHeight : 0;
+    const clientHeight = canUseDom() ? document.documentElement.clientHeight : 0;
     const heightStyle = {
       height: `${Math.round(height || clientHeight / 2)}px`,
       overflowY: 'scroll',

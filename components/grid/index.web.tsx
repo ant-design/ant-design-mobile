@@ -6,8 +6,6 @@ import Flex from '../flex';
 import Carousel from '../carousel/index.web';
 import { DataItem, GridProps } from './PropsType';
 
-const _canUseDom = canUseDom();
-
 export default class Grid extends React.Component<GridProps, any> {
   static defaultProps = {
     data: [],

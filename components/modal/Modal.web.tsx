@@ -6,8 +6,6 @@ import assign from 'object-assign';
 import Touchable from 'rc-touchable';
 import ModalProps from './PropsType';
 
-const _canUseDom = canUseDom();
-
 export default class Modal extends React.Component<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
@@ -89,7 +87,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     } = this.props;
 
     const isAndroid = platform === 'android' ||
-      (platform === 'cross' && _canUseDom && !!navigator.userAgent.match(/Android/i));
+      (platform === 'cross' && canUseDom() && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,

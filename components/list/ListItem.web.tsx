@@ -5,8 +5,6 @@ import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import Touchable from 'rc-touchable';
 import { ListItemProps, BriefProps } from './PropsType';
 
-const _canUseDom = canUseDom();
-
 export class Brief extends React.Component<BriefProps, any> {
   render() {
     return (
@@ -116,7 +114,7 @@ class ListItem extends React.Component<ListItemProps, any> {
     });
 
     const isAndroid = platform === 'android' ||
-      (platform === 'cross' && _canUseDom && !!navigator.userAgent.match(/Android/i));
+      (platform === 'cross' && canUseDom() && !!navigator.userAgent.match(/Android/i));
     const content = <div
       {...restProps}
       onClick={(ev) => {

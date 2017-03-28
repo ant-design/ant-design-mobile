@@ -7,8 +7,6 @@ import Icon from '../icon';
 // import tsPropsType from './PropsType';
 import assign from 'object-assign';
 
-const _canUseDom = canUseDom();
-
 ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaultProps, {
   prefixCls: 'am-refresh-control',
   icon: [
@@ -21,7 +19,7 @@ ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaul
   ],
   loading: <Icon type="loading" />,
   refreshing: false,
-  distanceToRefresh: 50 / 2 * (_canUseDom ? (window as any).devicePixelRatio : 2),
+  distanceToRefresh: 50 / 2 * (canUseDom() ? (window as any).devicePixelRatio : 2),
 });
 
 export default ListView.RefreshControl;
