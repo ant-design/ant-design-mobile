@@ -133,11 +133,12 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
 
   render() {
-    const { prefixCls, style, className, files = [],
+    const { prefixCls, style, width, className, files = [],
        selectable, onAddImageClick } = this.props;
     const dpr = window.devicePixelRatio || 1;
     const imgItemList: any[] = [];
-    const customWidth = ((document.documentElement.clientWidth - 18 * dpr - 6 * dpr * 3) / 4);
+    const clientWidth = width || document.documentElement.clientWidth;
+    const customWidth = ((clientWidth - 18 * dpr - 6 * dpr * 3) / 4);
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,

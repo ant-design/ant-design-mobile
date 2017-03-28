@@ -12,6 +12,7 @@ export interface ImagePickerPropTypes {
   onImageClick?: (index?: number, files?: Array<{}>) => void;
   onAddImageClick?: () => void;
   selectable?: boolean;
+  width?: number;
 }
 
 export interface ImageRollProps {

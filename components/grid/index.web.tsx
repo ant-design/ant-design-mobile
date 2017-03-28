@@ -15,13 +15,14 @@ export default class Grid extends React.Component<GridProps, any> {
     prefixCls: 'am-grid',
   };
 
-  clientWidth = document.documentElement.clientWidth;
-
   render() {
     const {
-      prefixCls, className,
+      prefixCls, className, width,
       data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {},
     } = this.props;
+
+    const gridWidth = width || document.documentElement.clientWidth;
+    const itemWidth = gridWidth / columnNum;
 
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);
@@ -29,7 +30,7 @@ export default class Grid extends React.Component<GridProps, any> {
     const renderItem = this.props.renderItem || ((dataItem: DataItem) => (
       <div
         className={`${prefixCls}-item-contain column-num-${columnNum}`}
-        style={{ height: `${this.clientWidth / columnNum}px` }}
+        style={{ height: `${itemWidth}px` }}
       >
         {
           React.isValidElement(dataItem.icon) ? dataItem.icon : (
@@ -52,14 +53,14 @@ export default class Grid extends React.Component<GridProps, any> {
             key={`griditem-${dataIndex}`}
             className={`${prefixCls}-item`}
             onClick={() => onClick(el, dataIndex)}
-            style={{ width: `${this.clientWidth / columnNum}px` }}
+            style={{ width: `${itemWidth}px` }}
           >
             {renderItem(el, dataIndex)}
           </Flex.Item>);
         } else {
           rowArr.push(<Flex.Item
             key={`griditem-${dataIndex}`}
-            style={{ width: `${this.clientWidth / columnNum}px` }}
+            style={{ width: `${itemWidth}px` }}
           />);
         }
       }
@@ -92,7 +93,7 @@ export default class Grid extends React.Component<GridProps, any> {
           [className as string]: className,
         })}
       >
-        {isCarousel && pageCount > 1 ? <Carousel initialSlideWidth={this.clientWidth}>{pagesArr}</Carousel> : rowsArr}
+        {isCarousel && pageCount > 1 ? <Carousel initialSlideWidth={gridWidth}>{pagesArr}</Carousel> : rowsArr}
       </div>
     );
   }
