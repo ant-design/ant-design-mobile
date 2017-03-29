@@ -20,7 +20,7 @@ export default class Modal extends React.Component<ModalProps, any> {
   };
 
   isInModal(e) {
-    if (!/ip[honead]+/.test(navigator.userAgent)) {
+    if (!/\biPhone\b|\biPod\b/i.test(navigator.userAgent)) {
       return;
     }
 
