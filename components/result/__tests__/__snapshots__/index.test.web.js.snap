@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result renders correctly 1`] = `
+<div
+  class="am-result"
+>
+  <div
+    class="am-result-pic"
+    style="background-image:url(https://zos.alipayobjects.com/rmsportal/qlMpMyJTcSjMpKAgtcEt.png);"
+  />
+  <div
+    class="am-result-title"
+  >
+    验证成功
+  </div>
+  <div
+    class="am-result-message"
+  >
+    所提交内容已成功完成验证
+  </div>
+</div>
+`;
