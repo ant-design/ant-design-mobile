@@ -16,7 +16,7 @@ title: 更新日志
 # 1.0.7
 
 ## Feature
-- Steps 支持自定义颜色。（[#1024](https://github.com/ant-design/ant-design-mobile/pull/1024)）
+- Slider 支持自定义颜色。（[#1024](https://github.com/ant-design/ant-design-mobile/pull/1024)）
 - ListItem 在 Android 上点击新增水波纹动效。（[链接](https://github.com/ant-design/ant-design-mobile/commit/d8fd66992fdfe53745fb43d9e27bffd025b8fdb0)）
 
 ## Bug Fix
