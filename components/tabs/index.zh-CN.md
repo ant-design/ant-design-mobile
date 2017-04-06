@@ -34,6 +34,7 @@ subtitle: 标签页
 | activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |
 | textColor(`react-native only`) |   文字颜色       |  string    |    `#000`        |
 | activeTextColor(`react-native only`) |   选中文字颜色       |  string    |    `#108ee9`        |
+| barStyle(`react-native only`) |   tabs bar  样式       |  object    |    `{}`        |
 | prefixCls(`web only`) |  className 前缀      |  string    |    `am-tabs`        |
 | className(`web only`) |   额外的 className      |  string    |    无        |
 | pageSize(`web only`) |  可视区显示的 tab 数量，可以看做一页     |  number    |    5       |
