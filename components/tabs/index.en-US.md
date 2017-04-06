@@ -40,8 +40,6 @@ Properties | Descrition | Type | Default
 | speed(`web only`) |   多页模式下，TabBar 滑动的速度      |  Number: 1 ~ 10    |    8        |
 | tabBarhammerOptions(`web only`) |   同hammerOptions，对 TabBar 的滑动手势进行配置      |  Obejct    |    {}        |
 
-
->>>>>>> update tabs doc: barStyle, close #1096
 ### Tabs.TabPane
 
 Properties | Descrition | Type | Default
