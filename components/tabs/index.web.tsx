@@ -24,7 +24,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
   renderTabBar = () => {
     const { children, animated, speed, pageSize, tabBarhammerOptions, onTabClick } = this.props;
-    if (children.length > pageSize) {
+    if (children.length > (pageSize as number)) {
       return (
         <SwipeableInkTabBar
           onTabClick={onTabClick}
@@ -34,7 +34,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         />
       );
     }
-    return <InkTabBar inkBarAnimated={animated} />;
+    return <InkTabBar inkBarAnimated={animated} onTabClick={onTabClick} />;
   }
 
   renderTabContent = () => {
