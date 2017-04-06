@@ -15,12 +15,14 @@ subtitle: 滑动操作
 2. 点击任意删除按钮之外任意处或往回滑动该列表可撤销该操作。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+适用平台：WEB、React-Native
 
 ### SwipeAction
 
-| 参数             | 说明                                         | 类型     | 默认值        |
-|------------------|----------------------------------------------|----------|---------------|
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | style           | swipeout style (iOS only)      | Object |             |
 | left       | swipeout buttons on left      | Array | `null` |
 | right       | swipeout buttons on right      | Array | `null` |

@@ -4,7 +4,7 @@ type: Feedback
 title: ActivityIndicator
 ---
 
-
+活动指示器。
 表明某个任务正在进行中。
 
 ### 规则
@@ -16,6 +16,8 @@ title: ActivityIndicator
 
 ## API
 
+Support WEB, React-Native.
+
 ```jsx
 <ActivityIndicator />
 <ActivityIndicator color="white" />
@@ -25,12 +27,10 @@ title: ActivityIndicator
 <ActivityIndicator toast text="正在加载" />
 ```
 
-### ActivityIndicator ( 适用平台：WEB、React-Native )
+### ActivityIndicator
 
-活动指示器。
-
-| 参数      | 说明                  | 类型      |默认值 |
-|-----------|----------------------|----------|---------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 |  animating  | 显隐状态 | boolean  | true  |
 |  color  | spinner颜色，可选`gray`/`white` | string  | gray  |
 |  size  | spinner大小，可选`small`/`large` | string  | small  |

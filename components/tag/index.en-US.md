@@ -10,10 +10,12 @@ Tag for categorizing or markuping, can be used to make classification or mark th
 
 - The content should be displayed completely.
 
-## API ( Support Platform：WEB、React-Native )
+## API
 
-| Property        | Description           | Type      | Default       |
-|------------|----------------|--------------------|--------------|
+Support WEB, React-Native.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | small   |  Whether to show a smaller size  |   Boolean    |  `false`  |
 | disabled   | Whether is disabled      | Boolean |    `false`  |
 | closable   | Whether can be closed(invalid in `small` or `disabled` mode) | Boolean | `false` |

@@ -11,9 +11,14 @@
 .@{sliderPrefixCls} {
   position: relative;
   margin: 32px 0px;
-  height: 4px;
-  background-color: @border-color-base;
-  box-sizing: border-box;
+
+  &-rail {
+    position: absolute;
+    width: 100%;
+    background-color: @border-color-base;
+    height: 4px;
+    box-sizing: border-box;
+  }
 
   &-wrapper {
     padding: 0 32px;

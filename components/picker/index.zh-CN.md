@@ -12,10 +12,12 @@ subtitle: 选择器
 - 尽量使用 Picker 来帮助用户完成输入，避免用户通过键盘直接输入。
 - DatePicker 是 Picker 的特定模式。
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型            | 默认值       |
-|------------|----------------|--------------------|--------------|
+适用平台：WEB、React-Native
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
 | data    | 数据源        | Array<{value, label, children: Array}> |   -  |
 | value   | 值, 格式[value1, value2, value3], 对应数据源的N级value    | Array  | - |
 | format  | 格式化选中值的函数  | (val): void | `(values) => { return values.join(','); } ` |

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer renders correctly 1`] = `
+<View
+  onMoveShouldSetResponder={[Function]}
+  onMoveShouldSetResponderCapture={[Function]}
+  onResponderEnd={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderReject={[Function]}
+  onResponderRelease={[Function]}
+  onResponderStart={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  onStartShouldSetResponderCapture={[Function]}
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Main
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    pointerEvents="none"
+    style={
+      Object {
+        "backgroundColor": "#000",
+        "bottom": 0,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "zIndex": 1000,
+      }
+    }
+    testID={undefined}
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "transform": Array [
+          Object {
+            "translateX": -300,
+          },
+        ],
+        "width": 300,
+        "zIndex": 1001,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      Text
+    </Text>
+  </View>
+</View>
+`;

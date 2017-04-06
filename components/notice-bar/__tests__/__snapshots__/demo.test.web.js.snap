@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-notice-bar"
+  >
+    <div
+      class="am-notice-bar-icon"
+    >
+       
+      <svg
+        class="am-icon am-icon-[object Object] am-icon-xxs"
+      >
+        <use
+          xlink:href="#[object Object]"
+        />
+      </svg>
+       
+    </div>
+    <div
+      class="am-notice-bar-content"
+    >
+      <div
+        class="am-notice-bar-marquee-wrap "
+        style="overflow:hidden;"
+      >
+        <div
+          class="am-notice-bar-marquee"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block;padding:0 0.15rem;"
+        >
+          国庆期间余额宝收益和转出到账时间通知：由于国庆到来，余额宝收益到账将延迟，特此通知 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-notice-bar"
+  >
+    <div
+      class="am-notice-bar-icon"
+    >
+       
+      <svg
+        class="am-icon am-icon-[object Object] am-icon-xxs"
+      >
+        <use
+          xlink:href="#[object Object]"
+        />
+      </svg>
+       
+    </div>
+    <div
+      class="am-notice-bar-content"
+    >
+      <div
+        class="am-notice-bar-marquee-wrap "
+        style="overflow:hidden;"
+      >
+        <div
+          class="am-notice-bar-marquee"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block;"
+        >
+          国庆期间余额宝收益和转出到账时间 
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-notice-bar-operation"
+    >
+      <svg
+        class="am-icon am-icon-right am-icon-md"
+      >
+        <use
+          xlink:href="#right"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-notice-bar"
+  >
+    <div
+      class="am-notice-bar-content"
+    >
+      <div
+        class="am-notice-bar-marquee-wrap "
+        style="overflow:hidden;"
+      >
+        <div
+          class="am-notice-bar-marquee"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block;"
+        >
+          去除 NoticeBar 默认的喇叭图标 
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-notice-bar-operation"
+    >
+      <svg
+        class="am-icon am-icon-cross am-icon-md"
+      >
+        <use
+          xlink:href="#cross"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-notice-bar"
+  >
+    <div
+      class="am-notice-bar-icon"
+    >
+       
+      <svg
+        class="am-icon am-icon-check-circle-o am-icon-xxs"
+      >
+        <use
+          xlink:href="#check-circle-o"
+        />
+      </svg>
+       
+    </div>
+    <div
+      class="am-notice-bar-content"
+    >
+      <div
+        class="am-notice-bar-marquee-wrap "
+        style="overflow:hidden;"
+      >
+        <div
+          class="am-notice-bar-marquee"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block;"
+        >
+          自定义 NoticeBar 前面的小图标 
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-notice-bar-operation"
+    >
+      <svg
+        class="am-icon am-icon-cross am-icon-md"
+      >
+        <use
+          xlink:href="#cross"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;

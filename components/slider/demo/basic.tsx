@@ -69,6 +69,11 @@ export default class BasicSliderExample extends React.Component<any, any> {
           <Slider defaultValue={0.15} onAfterChange={(value) => this.onAfterChange(value)} />
         </View>
 
+        <View style={{marginTop: 20}}>
+          <Text>custom color: </Text>
+          <Slider defaultValue={0.15} minimumTrackTintColor="red" maximumTrackTintColor="blue" />
+        </View>
+
       </View>
     );
   }

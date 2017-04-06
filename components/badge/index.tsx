@@ -7,29 +7,36 @@ export default class Badge extends React.Component<BadgeProps, any> {
   static defaultProps = {
     size: 'small',
     overflowCount: 99,
-    corner: false,
     dot: false,
+    corner: false,
     styles: BadgeStyle,
   };
 
   render() {
-    const {size, overflowCount, corner, dot, text, children, styles, style} = this.props;
+    let {
+      styles, style,
+      children, text, size, overflowCount, dot, corner, ...restProps, // todo: hot
+    } = this.props;
 
-    const overflowNum = overflowCount || 99;
-    const badgeText = typeof text === 'number' && text > overflowNum ? `${overflowNum}+` : text;
+    text = typeof text === 'number' && text > overflowCount ? `${overflowCount}+` : text;
+
+    // dot mode don't need text
+    if (dot) {
+      text = '';
+    }
 
     const badgeCls = corner ? 'textCorner' : 'textDom';
     const contentDom = !dot ? (
-      <View style={ [styles[badgeCls], styles[`${badgeCls}${size}`]] }>
-        <Text style={ [styles.text] }>{badgeText}</Text>
+      <View {...restProps} style={ [styles[badgeCls], styles[`${badgeCls}${size}`]] }>
+        <Text style={ [styles.text] }>{text}</Text>
       </View>
-    ) : <View style={ [styles.dot, styles[`dotSize${size}`] ] } />;
+    ) : <View {...restProps} style={ [styles.dot, styles[`dotSize${size}`] ] } />;
 
     return (
       <View style={[ styles.wrap, style ]}>
         <View style={ [styles[`${badgeCls}Wrap`]] }>
           {children}
-          {contentDom}
+          {(text || dot) ? contentDom : null}
         </View>
       </View>
     );

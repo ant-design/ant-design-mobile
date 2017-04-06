@@ -144,4 +144,8 @@ export default function (...args) {
       <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
     </Modal>, div
   );
+
+  return {
+    close,
+  };
 }

@@ -2,6 +2,7 @@
 
 interface NavBarProps {
   prefixCls?: string;
+  className?: string;
   children?: any;
   mode?: 'dark' | 'light';
   iconName?: string | boolean | null;

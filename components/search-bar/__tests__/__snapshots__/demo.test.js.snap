@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/search-bar/demo/basic.tsx correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginTop": 30,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ddd",
+        "flexDirection": "row",
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+      }
+    }
+  >
+    <TextInput
+      clearButtonMode="always"
+      defaultValue="初始值"
+      editable={true}
+      onBlur={[Function]}
+      onChangeText={[Function]}
+      onClear={[Function]}
+      onFocus={[Function]}
+      onSubmit={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="搜索"
+      prefixCls="am-search"
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "backgroundColor": "#fff",
+          "borderColor": "#ddd",
+          "borderRadius": 5,
+          "borderWidth": 0.5,
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+          "height": 28,
+          "paddingBottom": 0,
+          "paddingLeft": 35,
+          "paddingRight": 35,
+          "paddingTop": 0,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value="初始值"
+    />
+    <Image
+      resizeMode="stretch"
+      source={1}
+      style={
+        Object {
+          "height": 15,
+          "left": 16,
+          "position": "absolute",
+          "tintColor": "#ccc",
+          "top": 14.5,
+          "width": 15,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ddd",
+        "flexDirection": "row",
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+      }
+    }
+  >
+    <TextInput
+      clearButtonMode="always"
+      editable={true}
+      onBlur={[Function]}
+      onCancel={[Function]}
+      onChangeText={[Function]}
+      onClear={[Function]}
+      onFocus={[Function]}
+      onSubmit={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="搜索"
+      prefixCls="am-search"
+      style={
+        Object {
+          "alignSelf": "stretch",
+          "backgroundColor": "#fff",
+          "borderColor": "#ddd",
+          "borderRadius": 5,
+          "borderWidth": 0.5,
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+          "height": 28,
+          "paddingBottom": 0,
+          "paddingLeft": 35,
+          "paddingRight": 35,
+          "paddingTop": 0,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value="美食"
+    />
+    <Image
+      resizeMode="stretch"
+      source={1}
+      style={
+        Object {
+          "height": 15,
+          "left": 16,
+          "position": "absolute",
+          "tintColor": "#ccc",
+          "top": 14.5,
+          "width": 15,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 28,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#108ee9",
+            "fontSize": 16,
+            "paddingLeft": 15,
+          }
+        }
+      >
+        取消
+      </Text>
+    </View>
+  </View>
+</View>
+`;

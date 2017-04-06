@@ -11,10 +11,12 @@ title: SearchBar
 - 提供提示文案，帮助用户输入，eg：关键词、双十一特卖。
 - 在搜索栏下方，可提供有用的标签文案，帮助用户通过点击直接完成输入，eg：最近搜索的内容。
 
-## API ( 适用平台：WEB、React-Native )
+## API
 
-| 属性        | 说明           | 类型               | 默认值       |
-|------------|----------------|--------------------|--------------|
+Support WEB, React-Native.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | defaultValue |    搜索框的默认值     | String |    |
 | value      |  搜索框的当前值  | String |    |
 | placeholder    |    placeholder     | String |    |

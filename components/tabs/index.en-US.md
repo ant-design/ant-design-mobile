@@ -12,12 +12,14 @@ title: Tabs
 - 在 iOS 端的次级页面中，不建议使用左右滑动来切换 Tab，这个和 iOS 的左滑返回存在冲突，eg：详情页中 Tabs。
 
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+Support WEB, React-Native.
 
 ### Tabs
 
-| 参数             | 说明                                         | 类型     | 默认值        |
-|------------------|----------------------------------------------|----------|---------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | activeKey        | 当前激活 tab 面板的 key                      | String   | 无            |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板    |
 | onChange         | 切换面板的回调                        | (key: string): void | 无            |
@@ -31,12 +33,16 @@ title: Tabs
 | activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |
 | textColor(`react-native only`) |   文字颜色       |  string    |    `#000`        |
 | activeTextColor(`react-native only`) |   选中文字颜色       |  string    |    `#108ee9`        |
+| barStyle(`react-native only`) |   style for tabs bar       |  object    |    `{}`        |
 | prefixCls(`web only`) |  className 前缀      |  string    |    `am-tabs`        |
 | className(`web only`) |   额外的 className      |  string    |    无        |
+| pageSize(`web only`) |  可视区显示的 tab 数量，可以看做一页     |  number    |    5       |
+| speed(`web only`) |   多页模式下，TabBar 滑动的速度      |  Number: 1 ~ 10    |    8        |
+| tabBarhammerOptions(`web only`) |   同hammerOptions，对 TabBar 的滑动手势进行配置      |  Obejct    |    {}        |
 
 ### Tabs.TabPane
 
-| 参数 | 说明             | 类型                    | 默认值 |
-|------|------------------|-------------------------|--------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | key  | 对应 activeKey   | String                  | 无     |
 | tab  | 选项卡头显示文字 | React.Element or String | 无     |

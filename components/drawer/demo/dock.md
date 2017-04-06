@@ -2,10 +2,16 @@
 order: 1
 title:
   zh-CN: 嵌入文档模式
-  en-US: 'Inner Document'
+  en-US: Docked in document
 ---
 
+## zh-CN
+
 嵌入到文档流中
+
+## en-US
+
+Docked in document
 
 
 ````jsx
@@ -27,11 +33,11 @@ class App extends React.Component {
           return (<List.Item key={index}
             thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
             multipleLine
-          >分类</List.Item>);
+          >Category</List.Item>);
         }
         return (<List.Item key={index}
           thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-        >分类{index}</List.Item>);
+        >Category{index}</List.Item>);
       })}
     </List>);
 
@@ -41,17 +47,17 @@ class App extends React.Component {
       position: 'left',
     };
     return (<div style={{ height: '100%' }}>
-      <NavBar iconName="ellipsis" onLeftClick={() => this.onDock('docked')}>嵌入文档</NavBar>
+      <NavBar iconName="ellipsis" onLeftClick={() => this.onDock('docked')}>Docked in document</NavBar>
       <Drawer
         className="my-drawer"
         style={{ minHeight: document.documentElement.clientHeight - 200 }}
-        sidebar={sidebar}
         dragHandleStyle={{ display: 'none' }}
-        sidebarStyle={{ border: '1px solid #ddd' }}
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
+        sidebarStyle={{ border: '1px solid #ddd' }}
+        sidebar={sidebar}
         {...drawerProps}
       >
-        请点击左上角图标
+        Click upper-left corner icon
       </Drawer>
     </div>);
   }

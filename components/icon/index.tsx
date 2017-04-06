@@ -24,7 +24,7 @@ const iconMap = {
 
 export default class Icon extends React.Component<any, any> {
   static defaultProps = {
-    size: 22,
+    size: 'md',
     color: '#000',
   };
 

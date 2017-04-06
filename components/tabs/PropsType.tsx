@@ -6,6 +6,7 @@ interface TabsProps {
   tabBarPosition?: 'top' | 'bottom';
   animated?: boolean;
   swipeable?: boolean;
+  children?: any;
   /*rn only*/
   underlineColor?: string;
   activeUnderlineColor?: string;
@@ -16,6 +17,11 @@ interface TabsProps {
   /*web only*/
   className?: string;
   prefixCls?: string;
+  destroyInactiveTabPane?: boolean;
+  pageSize?: Number;
+  speed?: Number;
+  tabBarhammerOptions?: any;
+  hammerOptions?: any;
 }
 
 export default TabsProps;

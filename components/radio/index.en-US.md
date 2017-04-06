@@ -6,12 +6,14 @@ title: Radio
 
 单选框
 
-## API ( 适用平台：WEB、React-Native )
+## API
+
+Support WEB, React-Native.
 
 ### Radio
 
-| 属性        | 说明           | 类型          | 默认值       |
-|------------|----------------|------------|--------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | name    |   name  | String |   无  |
 | defaultChecked |   初始是否选中   | Boolean  | 无  |
 | checked    |   指定当前是否选中  | Boolean  | 无  |

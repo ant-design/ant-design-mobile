@@ -2,6 +2,9 @@ import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+  },
   defaultHighlight: {
     backgroundColor: variables.fill_tap,
     borderColor: variables.border_color_base,
@@ -86,5 +89,8 @@ export default StyleSheet.create({
   },
   disabledRawText: {
     color: variables.color_text_disabled,
+  },
+  indicator: {
+    marginRight: variables.h_spacing_md,
   },
 });

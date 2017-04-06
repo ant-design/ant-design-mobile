@@ -2,22 +2,22 @@
 import { Steps, WingBlank } from 'antd-mobile';
 const Step = Steps.Step;
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 
 export default class BasicTimelineExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
       steps1: [
-        {title: '已完成', description: '这里是信息的描述'},
-        {title: '进行中', description: '这里是信息的描述'},
-        {title: '待运行', description: '这里是信息的描述'},
+        {title: 'Finished', description: 'This is description'},
+        {title: 'In Progress', description: 'This is description'},
+        {title: 'Waiting', description: 'This is description'},
       ],
       steps2: [
-        {title: '已完成', description: '这里是信息的描述', status: 'finish'},
-        {title: '进行中', description: '这里是信息的描述', status: 'process'},
-        {title: '待运行', description: '这里是信息的描述', status: 'error'},
-        {title: '再来一个待运行', description: '这里是信息的描述', status: 'wait'},
+        {title: 'Finished', description: 'This is description', status: 'finish'},
+        {title: 'In Progress', description: 'This is description', status: 'process'},
+        {title: 'Waiting', description: 'This is description', status: 'error'},
+        {title: 'Waiting', description: 'This is description', status: 'wait'},
       ],
     };
   }
@@ -33,7 +33,12 @@ export default class BasicTimelineExample extends React.Component<any, any> {
           <Steps size="small" current={1}>
             {
               this.state.steps1.map((item, index) => (
-                <Step key={index} title={item.title} description={item.description} status={item.status} />
+                <Step
+                  key={index}
+                  title={<View><Text>title:{item.title}</Text></View>}
+                  description={<View><Text>desc:{item.description}</Text></View>}
+                  status={item.status}
+                />
               ))
             }
           </Steps>

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListView renders correctly 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 2,
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={Array []}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    row 1
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    row 2
+  </Text>
+</ScrollView>
+`;

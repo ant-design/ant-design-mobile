@@ -16,10 +16,12 @@ title: Table
 > table 实现直接依赖 [rc-table@5](https://github.com/react-component/table) ，
 使用遇到问题在 [antd issue](https://github.com/ant-design/ant-design/issues) 里查找答案或提问。
 
-## API ( 适用平台：WEB )
+## API
 
-| 参数         | 说明                          | 类型     | 默认值        |
-|-------------|-------------------------------|----------|-------------|
+Support WEB.
+
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | columns     | 表格列的配置描述，具体项见下表       | Array   |    -       |
 | dataSource  | 数据数组	 | Array   |  -   |
 | direction   | 排列方式 horizon/vetical/mix        | String | horizon   |
@@ -28,8 +30,8 @@ title: Table
 
 ### columns
 
-| 参数        | 说明                  | 类型     | 默认值        |
-|-------------|----------------------|----------|-------------|
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 | title  | 列头显示文字    | String or React.Element  |  -  |
 | key | React 需要的 key，建议设置	 | String   |  -  |
 | dataIndex   | 列数据在数据项中对应的 key，支持 a.b.c 的嵌套写法  | String | - |

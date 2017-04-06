@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover renders correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={undefined}
+  >
+    <View
+      collapsable={false}
+      style={undefined}
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={undefined}
+        testID={undefined}
+      >
+        trigger
+      </View>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "bottom": -1334,
+          "left": 0,
+          "opacity": 0,
+          "position": "absolute",
+          "top": 1334,
+        },
+        null,
+      ]
+    }
+    testID={undefined}
+  />
+</View>
+`;

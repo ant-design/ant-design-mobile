@@ -1,7 +1,6 @@
 import React from 'react';
 import assign from 'object-assign';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 import Icon from '../icon';
 import NoticeBarProps from './PropsType';
 import Marquee from './Marquee';
@@ -34,8 +33,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   }
 
   render() {
-    const [{ mode, icon, onClick, children, className, prefixCls, marqueeProps }, restProps] = splitObject(this.props,
-      ['mode', 'icon', 'onClick', 'children', 'className', 'prefixCls', 'marqueeProps']);
+    const { mode, icon, onClick, children, className, prefixCls, marqueeProps, ...restProps } = this.props;
 
     const extraProps: any = {};
     let operationDom: any = null;

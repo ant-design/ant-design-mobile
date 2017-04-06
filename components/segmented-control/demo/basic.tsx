@@ -21,20 +21,20 @@ export default class BasicTagExample extends React.Component<any, any> {
           disabled
         />
         <WhiteSpace size="lg" />
-        <Text>设置 tintColor, style </Text>
+        <Text>设置 tintColor, style</Text>
         <SegmentedControl
           values={['切换一', '切换二', '切换三']}
           tintColor={'#ff0000'}
           style={{ height: 40, width: 280 }}
         />
         <WhiteSpace size="lg" />
-        <Text>设置默认选中 selectedIndex </Text>
+        <Text>设置默认选中 selectedIndex</Text>
         <SegmentedControl
           selectedIndex={1}
           values={['切换一', '切换二', '切换三']}
         />
         <WhiteSpace size="lg" />
-        <Text>事件 onChange/onValueChange </Text>
+        <Text>事件 onChange/onValueChange</Text>
         <SegmentedControl
           values={['切换一', '切换二', '切换三']}
           onChange={this.onChange}

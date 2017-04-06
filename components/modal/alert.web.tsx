@@ -11,7 +11,9 @@ export default function (...args) {
 
   if (!title && !content) {
     // console.log('Must specify either an alert title, or message, or both');
-    return;
+    return {
+      close: () => {},
+    };
   }
 
   const prefixCls = 'am-modal';
@@ -53,4 +55,8 @@ export default function (...args) {
       <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
     </Modal>, div
   );
+
+  return {
+    close,
+  };
 }
