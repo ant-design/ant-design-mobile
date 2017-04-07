@@ -24,8 +24,8 @@ class SearchBarExample extends React.Component {
       <WingBlank><div className="sub-title">普通</div></WingBlank>
       <SearchBar placeholder="搜索" />
       <WhiteSpace />
-      <WingBlank><div className="sub-title">自动获取光标</div></WingBlank>
-      <SearchBar placeholder="自动获取光标" autoFocus />
+      <WingBlank><div className="sub-title">自动获取光标，支付宝客户端有效</div></WingBlank>
+      <SearchBar placeholder="自动获取光标，支付宝客户端有效" autoFocus />
       <WhiteSpace />
       <WingBlank><div className="sub-title">手动获取获取光标</div></WingBlank>
       <SearchBar
