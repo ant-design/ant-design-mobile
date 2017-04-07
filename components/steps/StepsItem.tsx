@@ -95,8 +95,8 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
             : <View>{title}</View>
           }
           {typeof description !== 'object' ?
-            <Text style={[styles[`description${sizeCls}`]]}>{ description }</Text>
-            : <View>{ description }</View>
+            <Text style={[styles[`description${sizeCls}`]]}>{description}</Text>
+            : <View>{description}</View>
           }
         </View>
       </View>

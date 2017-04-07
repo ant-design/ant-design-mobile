@@ -28,7 +28,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const badgeCls = corner ? 'textCorner' : 'textDom';
     const contentDom = !dot ? (
       <View {...restProps} style={[styles[badgeCls], styles[`${badgeCls}${size}`]]}>
-        <Text style={ [styles.text] }>{text}</Text>
+        <Text style={[styles.text]}>{text}</Text>
       </View>
     ) : <View {...restProps} style={[styles.dot, styles[`dotSize${size}`]]} />;
 

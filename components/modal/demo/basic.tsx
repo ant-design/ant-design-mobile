@@ -69,7 +69,7 @@ export default class BasicModalExample extends React.Component<any, any> {
       '这是密码message,可以不要',
       password => console.log(`password: ${password}`),
       'secure-text',
-      'defaultValue'
+      'defaultValue',
     );
   }
 
