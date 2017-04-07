@@ -36,8 +36,10 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
   componentDidUpdate() {
     // 检测是否包含名为 ${this.props.prefixCls}-start 样式，生成动画
+    // offsetWidth 某些时候是向上取整，某些时候是向下取整，不能用
+    const realWidth = this.refs.syntheticPhContainer.getBoundingClientRect().width; // 包含小数
     if (this.refs.searchInputContainer.className.indexOf(`${this.props.prefixCls}-start`) > -1) {
-      this.refs.syntheticPh.style.width = `${Math.ceil(this.refs.syntheticPhContainer.offsetWidth)}px`;
+      this.refs.syntheticPh.style.width = `${Math.ceil(realWidth)}px`;
       if (!this.props.showCancelButton) {
         this.refs.rightBtn.style.marginRight = 0;
       }
