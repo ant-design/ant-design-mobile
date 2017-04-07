@@ -41,10 +41,27 @@ class App extends React.Component {
         </WingBlank>
         <WingBlank size="lg">
           <p className="title">Slider 自定义颜色</p>
-          <Slider defaultValue={26} min={0} max={30} maximumTrackStyle={{ backgroundColor: 'red', height: 10 }}
-            minimumTrackStyle={{ backgroundColor: 'blue', height: 10 }}
-            handleStyle={{ borderColor: 'blue', height: 28, width: 28, marginLeft: -14, marginTop: -9,
-              backgroundColor: 'blue' }} />
+          <Slider
+            defaultValue={26}
+            min={0}
+            max={30}
+            maximumTrackStyle={{
+              backgroundColor: 'red',
+              height: 10,
+            }}
+            minimumTrackStyle={{
+              backgroundColor: 'blue',
+              height: 10,
+            }}
+            handleStyle={{
+              borderColor: 'blue',
+              height: 28,
+              width: 28,
+              marginLeft: -14,
+              marginTop: -9,
+              backgroundColor: 'blue',
+            }}
+          />
         </WingBlank>
       </div>
     );
