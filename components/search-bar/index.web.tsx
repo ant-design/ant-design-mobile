@@ -78,6 +78,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onSubmit) {
       this.props.onSubmit(this.state.value);
     }
+    (this.refs as any).searchInput.blur();
   }
 
   onChange = (e) => {
