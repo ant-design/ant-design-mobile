@@ -23,7 +23,7 @@ class BasicInputExample extends React.Component {
           <InputItem
             {...getFieldProps('autofocus')}
             clear
-            placeholder="自动获取光标"
+            placeholder="自动获取光标，支付宝客户端有效"
             autoFocus
           >标题</InputItem>
           <InputItem

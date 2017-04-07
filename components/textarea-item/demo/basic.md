@@ -22,7 +22,7 @@ class TextareaItemExample extends React.Component {
         <List renderHeader={() => '自定义获取光标'}>
           <TextareaItem
             title="标题"
-            placeholder="自动获取光标"
+            placeholder="自动获取光标，支付宝客户端有效"
             data-seed="logId"
             autoFocus
             autoHeight

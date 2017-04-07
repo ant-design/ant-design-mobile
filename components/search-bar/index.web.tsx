@@ -29,7 +29,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   componentDidMount() {
     const initBtn = window.getComputedStyle(this.refs.rightBtn);
     this.rightBtnInitMarginleft = initBtn['margin-left'];
-    if (this.props.autoFocus || this.state.focused) {
+    if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
       (this.refs as any).searchInput.focus();
     }
     this.componentDidUpdate();
@@ -114,7 +114,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         try {
           (document.activeElement as any).scrollIntoViewIfNeeded();
         } catch (e) { }
-      }, 0);
+      }, 100);
     }
   };
 
@@ -123,12 +123,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.setState({
         focus: false,
       });
-      if (!('focused' in this.props)) {
-        this.setState({
-          focused: false,
-        });
-      }
     }, 0);
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: false,
+      });
+    }
     if (this.props.onBlur) {
       this.props.onBlur();
     }
