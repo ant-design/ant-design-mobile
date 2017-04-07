@@ -17,36 +17,31 @@ export default class BasicTagExample extends React.Component<any, any> {
             <View style={{ width: 52, height: 52, backgroundColor: 'rgba(255, 140, 101, 0.15)' }} />
           </Badge>
 
-          <WhiteSpace />
-          <WhiteSpace />
+          <WhiteSpace size="lg" />
 
-          <Badge text={109} overflowCount ={100}>
+          <Badge text={109} overflowCount={100}>
             <View style={{ width: 52, height: 52, backgroundColor: 'rgba(255, 140, 101, 0.15)' }} />
           </Badge>
 
-          <WhiteSpace />
-          <WhiteSpace />
+          <WhiteSpace size="lg" />
 
           <Badge text={109}>
             <View style={{ width: 52, height: 52, backgroundColor: 'rgba(255, 140, 101, 0.15)' }} />
           </Badge>
 
-          <WhiteSpace />
-          <WhiteSpace />
+          <WhiteSpace size="lg" />
 
           <Badge text="new">
             <View style={{ width: 52, height: 52, backgroundColor: 'rgba(255, 140, 101, 0.15)' }} />
           </Badge>
 
-          <WhiteSpace />
-          <WhiteSpace />
+          <WhiteSpace size="lg" />
 
           <Badge text={109} dot>
             <View style={{ width: 52, height: 52, backgroundColor: 'rgba(255, 140, 101, 0.15)' }} />
           </Badge>
 
-          <WhiteSpace />
-          <WhiteSpace />
+          <WhiteSpace size="lg" />
 
           <Badge text={33} corner>
             <View style={{ width: 52, height: 52, backgroundColor: 'rgba(255, 140, 101, 0.15)' }} />

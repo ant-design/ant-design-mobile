@@ -11,12 +11,29 @@ title: 更新日志
 
 ---
 
+`2017-04-07`
+
+# 1.0.8
+
+## Feature
+- RN modal 增加 Modal.prompt #1089
+## Bug Fix
+- 修复 InputItem、TextareaItem、Search autofocus 的 bug #1103
+- 修复 SearchBar 点击 `x` 取消时，placeholder 显示不正确的 bug #1047
+- 修复 TextareaItem 输入 emoji 表情，字符统计错误问题 #1085
+- 修复 SearchBar 提交后不自动隐藏键盘的问题；
+- 修复 Tabs onTabClick 无效问题 #1099
+- 修复 RN Steps 空格引起的问题 #1008
+## Improve && Enhancement
+- 更新 rc-slider 版本，增加 `minimumTrackStyle`、`maximumTrackStyle`、`handleStyle` 属性；
+
+
 `2017-03-24`
 
 # 1.0.7
 
 ## Feature
-- Steps 支持自定义颜色。（[#1024](https://github.com/ant-design/ant-design-mobile/pull/1024)）
+- Slider 支持自定义颜色。（[#1024](https://github.com/ant-design/ant-design-mobile/pull/1024)）
 - ListItem 在 Android 上点击新增水波纹动效。（[链接](https://github.com/ant-design/ant-design-mobile/commit/d8fd66992fdfe53745fb43d9e27bffd025b8fdb0)）
 
 ## Bug Fix

@@ -5,9 +5,6 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
   class="am-list"
 >
   <div
-    class="am-list-header"
-  />
-  <div
     class="am-list-body"
   >
     <div
@@ -21,16 +18,13 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         >
           <span
             class="am-badge"
-            title=""
           >
             <span
               style="width:0.52rem;height:0.52rem;background:#ddd;display:inline-block;"
             />
             <sup
               class="am-badge-dot"
-            >
-                
-            </sup>
+            />
           </span>
           <span
             style="margin-left:12px;"
@@ -71,18 +65,43 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         >
           <span
             class="am-badge am-badge-not-a-wrapper"
-            title="77"
           >
             <sup
               class="am-badge-text"
             >
-               77 
+              55+
             </sup>
           </span>
         </div>
         <div
           class="am-list-arrow am-list-arrow-horizontal"
         />
+      </div>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          <span
+            class="am-badge am-badge-corner-wrapper"
+          >
+            <div
+              class="corner-badge"
+            >
+              Use corner prop
+            </div>
+            <sup
+              class="am-badge-corner"
+            >
+              促
+            </sup>
+          </span>
+        </div>
       </div>
     </div>
     <div
@@ -94,19 +113,18 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Content
+          Custom corner
         </div>
         <div
           class="am-list-extra"
         >
           <span
             class="am-badge am-badge-not-a-wrapper"
-            title="促"
           >
             <sup
               class="am-badge-text"
             >
-               促 
+              促
             </sup>
           </span>
         </div>
@@ -121,23 +139,26 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Content
+          <span
+            class="am-badge"
+          >
+            text number 0
+          </span>
           <span
             class="am-badge am-badge-not-a-wrapper"
-            title="new"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;"
             >
-               new 
+              new
             </sup>
           </span>
         </div>
         <div
           class="am-list-extra"
         >
-          Extra content
+          Extra
         </div>
         <div
           class="am-list-arrow am-list-arrow-horizontal"
@@ -156,57 +177,52 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           Marketing:
           <span
             class="am-badge am-badge-not-a-wrapper am-badge-hot"
-            title="减"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;"
             >
-               减 
+              减
             </sup>
           </span>
           <span
             class="am-badge am-badge-not-a-wrapper am-badge-hot"
-            title="惠"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;"
             >
-               惠 
+              惠
             </sup>
           </span>
           <span
             class="am-badge am-badge-not-a-wrapper am-badge-hot"
-            title="免"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;"
             >
-               免 
+              免
             </sup>
           </span>
           <span
             class="am-badge am-badge-not-a-wrapper am-badge-hot"
-            title="反"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;"
             >
-               反 
+              反
             </sup>
           </span>
           <span
             class="am-badge am-badge-not-a-wrapper am-badge-hot"
-            title="HOT"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;"
             >
-               HOT 
+              HOT
             </sup>
           </span>
         </div>
@@ -224,81 +240,35 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           Customize
           <span
             class="am-badge am-badge-not-a-wrapper"
-            title="4"
-          >
-            <sup
-              class="am-badge-text"
-              style="margin-left:12px;"
-            >
-               4 
-            </sup>
-          </span>
-          <span
-            class="am-badge am-badge-not-a-wrapper"
-            title="券"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;padding:0 0.06rem;background-color:#f19736;border-radius:2px;"
             >
-               券 
+              券
             </sup>
           </span>
           <span
             class="am-badge am-badge-not-a-wrapper"
-            title="NEW"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;padding:0 0.06rem;background-color:#21b68a;border-radius:2px;"
             >
-               NEW 
+              NEW
             </sup>
           </span>
           <span
             class="am-badge am-badge-not-a-wrapper"
-            title="自动缴费"
           >
             <sup
               class="am-badge-text"
               style="margin-left:12px;padding:0 0.06rem;background-color:#fff;border-radius:2px;color:#f19736;border:1px solid #f19736;"
             >
-               自动缴费 
+              自动缴费
             </sup>
           </span>
         </div>
-      </div>
-    </div>
-    <div
-      class="am-list-item am-list-item-middle"
-    >
-      <div
-        class="am-list-line"
-      >
-        <div
-          class="am-list-content"
-        >
-          Overflow
-          <span
-            class="am-badge am-badge-not-a-wrapper"
-            title="99+"
-          >
-            <sup
-              class="am-badge-text"
-              style="margin-left:12px;"
-            >
-               99+ 
-            </sup>
-          </span>
-        </div>
-        <div
-          class="am-list-extra"
-        >
-          Extra content
-        </div>
-        <div
-          class="am-list-arrow am-list-arrow-horizontal"
-        />
       </div>
     </div>
   </div>

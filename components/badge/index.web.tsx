@@ -5,29 +5,24 @@ import BadgeProps from './PropsType';
 export default class Badge extends React.Component<BadgeProps, any> {
   static defaultProps = {
     prefixCls: 'am-badge',
-    text: null,
+    size: 'small',
+    overflowCount: 99,
     dot: false,
     corner: false,
-    overflowCount: 99,
-    size: null,
   };
 
   render() {
-    let { text, prefixCls, overflowCount, className, style, children, hot } = this.props;
+    let {
+      className, prefixCls,
+      children, text, size, overflowCount, dot, corner, hot, ...restProps,
+    } = this.props;
 
-    const dot = this.props.dot;
-    const size = this.props.size;
-    const corner = this.props.corner;
-
-    text = text > overflowCount ? `${overflowCount}+` : text;
+    text = typeof text === 'number' && text > overflowCount ? `${overflowCount}+` : text;
 
     // dot mode don't need text
     if (dot) {
       text = '';
     }
-
-    // null undefined "" "0" 0
-    const hidden = (!text || text === '0') && !dot;
 
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: dot,
@@ -47,9 +42,10 @@ export default class Badge extends React.Component<BadgeProps, any> {
     });
 
     return (
-      <span className={badgeCls} title={text}>
+      <span className={badgeCls}>
         {children}
-        { !hidden && <sup className={scrollNumberCls} style={style} > {text} </sup> }
-      </span>);
+        {(text || dot) ? <sup className={scrollNumberCls} {...restProps}>{text}</sup> : null}
+      </span>
+    );
   }
 }

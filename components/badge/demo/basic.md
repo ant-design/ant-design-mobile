@@ -17,7 +17,7 @@ Usage cases.
 import { List, Badge } from 'antd-mobile';
 
 const BadgeDemo = () => (
-  <List renderHeader={() => ''}>
+  <List>
     <List.Item extra="Extra content" arrow="horizontal">
       <Badge dot>
         <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
@@ -26,16 +26,20 @@ const BadgeDemo = () => (
     </List.Item>
     <List.Item
       thumb="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
-      extra={<Badge text={77} />}
+      extra={<Badge text={77} overflowCount={55} />}
       arrow="horizontal"
     >
       Content
     </List.Item>
+    <List.Item><Badge text={'促'} corner>
+      <div className="corner-badge">Use corner prop</div>
+    </Badge></List.Item>
     <List.Item className="special-badge" extra={<Badge text={'促'} />}>
-      Content
+      Custom corner
     </List.Item>
-    <List.Item extra="Extra content" arrow="horizontal">
-      Content<Badge text={'new'} style={{ marginLeft: 12 }} />
+    <List.Item extra="Extra" arrow="horizontal">
+      <Badge text={0} style={{ marginLeft: 12 }}>text number 0</Badge>
+      <Badge text={'new'} style={{ marginLeft: 12 }} />
     </List.Item>
     <List.Item>
       Marketing:
@@ -47,7 +51,6 @@ const BadgeDemo = () => (
     </List.Item>
     <List.Item>
       Customize
-      <Badge text={4} style={{ marginLeft: 12 }} />
       <Badge text="券" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#f19736', borderRadius: 2 }} />
       <Badge text="NEW" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#21b68a', borderRadius: 2 }} />
       <Badge text="自动缴费" style={{
@@ -60,9 +63,6 @@ const BadgeDemo = () => (
       }}
       />
     </List.Item>
-    <List.Item extra="Extra content" arrow="horizontal">
-      Overflow<Badge text={100} style={{ marginLeft: 12 }} />
-    </List.Item>
   </List>
 );
 
@@ -70,6 +70,10 @@ ReactDOM.render(<BadgeDemo />, mountNode);
 ````
 
 ````css
+.corner-badge {
+  height: 100px;
+  width: 400px;
+}
 .special-badge .am-list-line {
   padding-right: 0;
 }

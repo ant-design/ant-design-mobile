@@ -6,13 +6,10 @@ import TabContent from 'rc-tabs/lib/TabContent';
 import InkTabBar from 'rc-tabs/lib/InkTabBar';
 import SwipeableInkTabBar from 'rc-tabs/lib/SwipeableInkTabBar';
 
-const Tabs = React.createClass<TabsProps, any>({
-  statics: {
-    TabPane,
-  },
+export default class Tabs extends React.Component<TabsProps, any> {
+  static TabPane = TabPane;
 
-  getDefaultProps() {
-    return {
+  static defaultProps = {
       prefixCls: 'am-tabs',
       animated: true,
       swipeable: true,
@@ -23,12 +20,11 @@ const Tabs = React.createClass<TabsProps, any>({
       speed: 8,
       onChange() {},
       onTabClick() {},
-    };
-  },
+  };
 
-  renderTabBar() {
+  renderTabBar = () => {
     const { children, animated, speed, pageSize, tabBarhammerOptions, onTabClick } = this.props;
-    if (children.length > pageSize) {
+    if (children.length > (pageSize as number)) {
       return (
         <SwipeableInkTabBar
           onTabClick={onTabClick}
@@ -38,17 +34,17 @@ const Tabs = React.createClass<TabsProps, any>({
         />
       );
     }
-    return <InkTabBar inkBarAnimated={animated} />;
-  },
+    return <InkTabBar inkBarAnimated={animated} onTabClick={onTabClick} />;
+  }
 
-  renderTabContent() {
+  renderTabContent = () => {
     const { animated, swipeable, hammerOptions } = this.props;
     return swipeable ? (
       <SwipeableTabContent animated={animated} hammerOptions={hammerOptions} />
     ) : (
       <TabContent animated={animated} />
     );
-  },
+  }
 
   render() {
     return (
@@ -58,7 +54,5 @@ const Tabs = React.createClass<TabsProps, any>({
         {...this.props}
       />
     );
-  },
-});
-
-export default Tabs;
+  }
+}

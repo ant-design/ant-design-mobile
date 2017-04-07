@@ -7,7 +7,6 @@ interface TabsProps {
   animated?: boolean;
   swipeable?: boolean;
   children?: any;
-  hammerOptions?: any;
   /*rn only*/
   underlineColor?: string;
   activeUnderlineColor?: string;
@@ -19,6 +18,10 @@ interface TabsProps {
   className?: string;
   prefixCls?: string;
   destroyInactiveTabPane?: boolean;
+  pageSize?: Number;
+  speed?: Number;
+  tabBarhammerOptions?: any;
+  hammerOptions?: any;
 }
 
 export default TabsProps;

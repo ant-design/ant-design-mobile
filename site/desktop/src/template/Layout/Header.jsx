@@ -194,6 +194,15 @@ export default class Header extends React.Component {
                   <FormattedMessage id="app.header.menu.components" />
                 </Link>
               </Menu.Item>
+              <Menu.Item key="design">
+                <a href="http://design.alipay.com/design/mobile/easy" target="_blank" rel="noopener noreferrer">
+                  <FormattedMessage id="app.header.menu.design" />
+                  <Icon
+                    style={{ marginLeft: 6, verticalAlign: 3 }}
+                    type="export"
+                  />
+                </a>
+              </Menu.Item>
             </Menu>
           </Col>
         </Row>

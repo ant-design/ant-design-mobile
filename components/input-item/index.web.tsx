@@ -70,7 +70,7 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   componentDidMount() {
-    if (this.props.autoFocus || this.state.focused) {
+    if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
       (this.refs as any).input.focus();
     }
   }
@@ -155,7 +155,7 @@ class InputItem extends React.Component<InputItemProps, any> {
         try {
           (document.activeElement as any).scrollIntoViewIfNeeded();
         } catch (e) { }
-      }, 0);
+      }, 100);
     }
   }
 

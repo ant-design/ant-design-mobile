@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress renders correctly 1`] = `
+<div
+  class="am-progress-outer am-progress-fixed-outer"
+>
+  <div
+    class="am-progress-bar"
+    style="width:30%;height:0;"
+  />
+</div>
+`;

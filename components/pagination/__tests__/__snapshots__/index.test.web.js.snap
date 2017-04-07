@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders correctly 1`] = `
+<div
+  class="am-pagination"
+>
+  <div
+    class="am-flexbox am-flexbox-align-middle"
+  >
+    <div
+      class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
+    >
+      <a
+        class="am-button am-button-inline"
+        role="button"
+      />
+    </div>
+    <div
+      class="am-flexbox-item am-pagination-wrap"
+    >
+      <span
+        class="active"
+      >
+        4
+      </span>
+      /
+      <span>
+        5
+      </span>
+    </div>
+    <div
+      class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
+    >
+      <a
+        class="am-button am-button-inline"
+        role="button"
+      />
+    </div>
+  </div>
+</div>
+`;
