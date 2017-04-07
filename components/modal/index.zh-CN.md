@@ -46,8 +46,6 @@ subtitle: 对话框
 
 ### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?)
 
-适用平台：WEB
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | title        | 标题                      | String 或 React.Element   | 无            |
