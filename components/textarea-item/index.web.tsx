@@ -160,10 +160,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   render() {
     let {
-      prefixCls, prefixListCls, style, title, value, defaultValue, clear, rows, count,
+      prefixCls, prefixListCls, style, title, value, defaultValue, clear,
       editable, disabled, error, className, labelNumber, autoHeight,
     } = this.props;
-
+    const count = this.props.count as number;
+    const rows = this.props.rows as number;
     // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
       'clear', 'children', 'error', 'className', 'count', 'labelNumber', 'title', 'onErrorClick',

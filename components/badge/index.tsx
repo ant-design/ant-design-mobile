@@ -18,7 +18,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       children, text, size, overflowCount, dot, corner, ...restProps, // todo: hot
     } = this.props;
 
-    text = typeof text === 'number' && text > overflowCount ? `${overflowCount}+` : text;
+    text = typeof text === 'number' && text > (overflowCount as number) ? `${overflowCount}+` : text;
 
     // dot mode don't need text
     if (dot) {

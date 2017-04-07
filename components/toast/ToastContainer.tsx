@@ -37,7 +37,8 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
   }
 
   componentDidMount() {
-    const { onClose, duration, onAnimationEnd } = this.props;
+    const { onClose, onAnimationEnd } = this.props;
+    const duration = this.props.duration as number;
     const timing = Animated.timing;
     if (this.anim) {
       this.anim = null;

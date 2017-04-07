@@ -24,8 +24,10 @@ export default class Grid extends React.Component<GridProps, any> {
   }
 
   render() {
-    const { data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {}, styles } = this.props;
-
+    const { data, hasLine, isCarousel, onClick = () => {}, styles } = this.props;
+    // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/11640
+    const columnNum = this.props.columnNum as number;
+    const carouselMaxRow = this.props.carouselMaxRow as number;
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);
 

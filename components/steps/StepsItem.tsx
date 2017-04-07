@@ -21,9 +21,13 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
 
   render() {
     const {
-      size, current, index, last, title, description,
-      status, errorTail, icon, styles,
+      size, last, title, description,
+      status, icon, styles,
     } = this.props;
+
+    const index = this.props.index as number;
+    const current = this.props.current as number;
+    const errorTail = this.props.errorTail as number;
 
     let headCls: string = '';
     let tailTopCls: string = '';
