@@ -107,7 +107,7 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
     return (
       <View style={[styles.container]} pointerEvents={mask ? undefined : 'box-none'}>
         <View style={[styles.innerContainer]}>
-          <Animated.View style={{opacity: this.state.fadeAnim}}>
+          <Animated.View style={{ opacity: this.state.fadeAnim }}>
             <View style={[styles.innerWrap, iconDom ? styles.iconToast : styles.textToast]}>
               {iconDom}
               <Text style={styles.content}>{content}</Text>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableWithoutFeedback, Image, View, Text } from 'react-native';
+import { TouchableWithoutFeedback, Image, View, Text } from 'react-native';
 import { CheckboxProps } from './PropsType';
 import CheckboxStyle from './style/index';
 
@@ -38,12 +38,12 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       });
     }
     if (this.props.onChange) {
-      this.props.onChange({target: { checked }});
+      this.props.onChange({ target: { checked } });
     }
   }
 
   render(): JSX.Element {
-    let {style, disabled, children, styles} = this.props;
+    let { style, disabled, children, styles } = this.props;
     let checked = this.state.checked;
     let imgSrc;
     if (checked) {

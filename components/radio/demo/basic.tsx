@@ -38,8 +38,8 @@ export default class BasicRadioExample extends React.Component<any, any> {
           <WhiteSpace />
         </View>
 
-        <List style={{marginTop: 12}}>
-          <Text style={{marginTop: 12}}>表单单选项，普通列表中单选项</Text>
+        <List style={{ marginTop: 12 }}>
+          <Text style={{ marginTop: 12 }}>表单单选项，普通列表中单选项</Text>
           <RadioItem
             checked={this.state.part2Value === 1}
             onChange={(event) => {

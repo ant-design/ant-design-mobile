@@ -20,7 +20,7 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
     const styles = this.props.styles;
     return (
       <View style={[styles.container]}>
-        <View style={[styles.innerContainer, { height: 89}]}>
+        <View style={[styles.innerContainer, { height: 89 }]}>
           <View style={[styles.wrapper]}>
             <ActivityIndicator
               color="white"

@@ -62,7 +62,7 @@ export default class BasicListExample extends React.Component<any, any> {
           <Item
             extra={<Image
               source={{ uri: 'https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png' }}
-              style={{width: 29, height: 29}}
+              style={{ width: 29, height: 29 }}
             />}
             arrow="horizontal"
           >

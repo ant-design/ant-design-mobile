@@ -19,7 +19,7 @@ export default class PopupExample extends React.Component<any, any> {
   }
 
   onChange = (value) => {
-    this.setState({value});
+    this.setState({ value });
   }
 
   render() {

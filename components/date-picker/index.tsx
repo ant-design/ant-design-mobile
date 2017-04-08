@@ -21,7 +21,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
 
   render() {
     const { props, context } = this;
-    const {children, extra, value, defaultDate, styles} = props;
+    const { children, extra, value, defaultDate, styles } = props;
     const extraProps = {
       extra: value ? formatFn(this, value) : extra,
     };

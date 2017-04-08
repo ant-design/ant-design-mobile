@@ -75,7 +75,7 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   render() {
-    const {children, disabled, small, closable, styles, style} = this.props;
+    const { children, disabled, small, closable, styles, style } = this.props;
     const selected = this.state.selected;
 
     let wrapStyle;

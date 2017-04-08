@@ -7,7 +7,7 @@ export default class NoticeBarExample extends React.Component<any, any> {
   render() {
     const customIcon = (
       <Image
-        source={{uri: 'https://zos.alipayobjects.com/rmsportal/bRnouywfdRsCcLU.png'}}
+        source={{ uri: 'https://zos.alipayobjects.com/rmsportal/bRnouywfdRsCcLU.png' }}
         style={{ width: 12, height: 12 }}
       />
     );
