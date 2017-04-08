@@ -114,7 +114,7 @@
     "react-native-router-flux": "^3.30.3",
     "react-test-renderer": "^15.4.2",
     "svg-sprite-loader": "^0.3.0",
-    "typescript": "~2.1.6",
+    "typescript": "~2.2.2",
     "typescript-babel-jest": "^1.0.1"
   },
   "scripts": {
