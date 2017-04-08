@@ -14,5 +14,6 @@
   "spaceAroundOperator": false,
   "spaceAroundComma": false,
   "maxCharPerLine": false,
-  "newlineAfterBlock": false
+  "newlineAfterBlock": false,
+  "universalSelector": false
 }
