@@ -104,8 +104,14 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -235,8 +241,14 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -371,8 +383,14 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -508,8 +526,14 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-error am-steps-custom"
+      class="am-steps-item am-steps-status-error am-steps-custom"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -650,8 +674,14 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom"
+      class="am-steps-item am-steps-status-wait am-steps-custom"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -829,8 +859,14 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom"
+      class="am-steps-item am-steps-status-wait am-steps-custom"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -974,8 +1010,14 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -1117,8 +1159,14 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -1256,8 +1304,14 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom"
+      class="am-steps-item am-steps-status-wait am-steps-custom"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
@@ -1392,8 +1446,14 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-item-last am-steps-status-wait am-steps-custom"
+      class="am-steps-item am-steps-status-wait am-steps-custom"
     >
+      <div
+        class="am-steps-tail"
+        style="padding-right:0;"
+      >
+        <i />
+      </div>
       <div
         class="am-steps-step"
       >
