@@ -12,7 +12,7 @@ export default class Test extends React.Component<any, any> {
   }
   render() {
     return (
-      <View style={{marginTop: 30}}>
+      <View style={{ marginTop: 30 }}>
         <View style={[{ padding: 8 }]}>
           <Button onClick={this.showActionSheet}>默认状态操作列表</Button>
         </View>
@@ -65,7 +65,7 @@ export default class Test extends React.Component<any, any> {
       } else {
         text = '您没有分享';
       }
-      this.setState({text});
+      this.setState({ text });
     });
   }
 }

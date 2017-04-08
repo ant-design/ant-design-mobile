@@ -98,7 +98,7 @@ function createActionSheet(flag, config, callback) {
       mode = 'share';
       const multipleLine = options.length && Array.isArray(options[0]) || false;
       const createList = (item, index, rowIndex = 0) => (
-        <div className={`${prefixCls}-share-list-item`} key={index} onClick={() => cb(index, rowIndex) }>
+        <div className={`${prefixCls}-share-list-item`} key={index} onClick={() => cb(index, rowIndex)}>
           <div className={`${prefixCls}-share-list-item-icon`}>
             {item.iconName ? <Icon type={item.iconName}/> : item.icon}
           </div>
@@ -149,7 +149,7 @@ function createActionSheet(flag, config, callback) {
     >
       {children}
     </Dialog>,
-    div
+    div,
   );
 
   return {

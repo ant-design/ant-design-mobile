@@ -7,7 +7,7 @@ export default class ResultExample extends React.Component<any, any> {
     return (<ScrollView style={{ backgroundColor: '#F5F5F9', flex: 1 }}>
       <Text style={{ margin: 10, color: '#999' }}>uri</Text>
       <Result
-        imgUrl={{uri: 'https://zos.alipayobjects.com/rmsportal/GcBguhrOdlYvGfnsXgrE.png'}}
+        imgUrl={{ uri: 'https://zos.alipayobjects.com/rmsportal/GcBguhrOdlYvGfnsXgrE.png' }}
         title="验证成功"
         message="所提交内容已成功完成验证"
       />

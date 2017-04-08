@@ -50,7 +50,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
           <TouchableHighlight
             style={[ styles.btn ]}
             underlayColor={variables.fill_tap}
-            onPress={() => this.confirm(index) }
+            onPress={() => this.confirm(index)}
           >
             <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : null ]}>
               {item}
@@ -74,7 +74,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
         >
           <View>
             {titleMsg}
-            {message && <View style={styles.message} key="1"><Text>{message}</Text></View> }
+            {message && <View style={styles.message} key="1"><Text>{message}</Text></View>}
             <View>{content}</View>
           </View>
         </Modal>

@@ -11,7 +11,7 @@ export default class Item extends React.Component<any, any> {
 
   render() {
 
-    const { children, className, prefixCls, icon, disabled, firstItem, activeStyle, ...restProps} = this.props;
+    const { children, className, prefixCls, icon, disabled, firstItem, activeStyle, ...restProps } = this.props;
     const cls = {
       [className as string]: !!className,
       [`${prefixCls}-item`]: true,

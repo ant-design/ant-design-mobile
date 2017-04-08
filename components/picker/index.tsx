@@ -69,7 +69,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
           prefixCls={props.prefixCls}
           pickerPrefixCls={props.pickerPrefixCls}
         >
-          { props.data.map(d => { return { props: { children: d } }; }) }
+          {props.data.map(d => { return { props: { children: d } }; })}
         </MultiPicker>
       );
       popupMoreProps = {

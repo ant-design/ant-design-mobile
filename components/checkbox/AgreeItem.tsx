@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableWithoutFeedback, Text} from 'react-native';
+import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import Checkbox from './Checkbox';
 import { AgreeItemPropsType } from './PropsType';
 import AgreeItemstyle from './style/index';
@@ -16,7 +16,7 @@ export default class AgreeItem extends React.Component<AgreeItemPropsType, any> 
   }
 
   render(): JSX.Element {
-    let {style, checkboxStyle, children, disabled, checked, defaultChecked, onChange, styles} = this.props;
+    let { style, checkboxStyle, children, disabled, checked, defaultChecked, onChange, styles } = this.props;
 
     let contentDom;
     if (React.isValidElement(children)) {
@@ -35,7 +35,7 @@ export default class AgreeItem extends React.Component<AgreeItemPropsType, any> 
           defaultChecked={defaultChecked}
           onChange={onChange}
         />
-        <View style={{flex:1}}>
+        <View style={{ flex: 1 }}>
           {contentDom}
         </View>
       </View>

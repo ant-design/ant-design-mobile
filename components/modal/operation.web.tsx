@@ -44,7 +44,7 @@ export default function (...args) {
       footer={footer}
       maskTransitionName="am-fade"
       className="am-modal-operation"
-    /> , div
+    /> , div,
   );
 
   return {

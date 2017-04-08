@@ -51,7 +51,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
       }
       children.push(c);
     });
-    const {tintColor, unselectedTintColor} = this.props;
+    const { tintColor, unselectedTintColor } = this.props;
     const panels = children.map((c: any) => {
       const cProps = c.props;
       const tab = (<Tab

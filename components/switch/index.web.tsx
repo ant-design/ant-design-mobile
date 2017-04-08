@@ -33,7 +33,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
           type="checkbox"
           name={name}
           className={`${prefixCls}-checkbox`}
-          {...(disabled ? { disabled: 'disabled' } : '') }
+          {...(disabled ? { disabled: 'disabled' } : '')}
           checked={checked}
           onChange={this.onChange}
         />

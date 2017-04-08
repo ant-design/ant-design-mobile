@@ -14,7 +14,7 @@ export default class PopupExample extends React.Component<any, any> {
   getPopupContent = (num) => {
     return (
       <View>
-        <List renderHeader={() => '委托买入' }>
+        <List renderHeader={() => '委托买入'}>
           <List.Item>股票名称</List.Item>
           <List.Item>股票代码</List.Item>
           <List.Item>买入价格</List.Item>

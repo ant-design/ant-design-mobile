@@ -20,13 +20,13 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
     const styles = this.props.styles;
     return (
       <View style={[styles.container]}>
-        <View style={[styles.innerContainer, { height: 89}]}>
+        <View style={[styles.innerContainer, { height: 89 }]}>
           <View style={[styles.wrapper]}>
             <ActivityIndicator
               color="white"
               size="large"
             />
-            { this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>) }
+            {this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>)}
           </View>
         </View>
       </View>
@@ -40,7 +40,7 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
           color={this.props.color}
           size={this.props.size}
         />
-        { this.props.text && (<Text style={[this.props.styles.tip]}>{this.props.text}</Text>) }
+        {this.props.text && (<Text style={[this.props.styles.tip]}>{this.props.text}</Text>)}
       </View>
     );
   }

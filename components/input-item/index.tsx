@@ -50,7 +50,8 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   }
 
   onChange = (text) => {
-    const { maxLength, onChange, type } = this.props;
+    const { onChange, type } = this.props;
+    const maxLength = this.props.maxLength as number;
     switch (type) {
       case 'bankCard':
         text = text.replace(/\D/g, '');
@@ -95,10 +96,10 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   render() {
     const {
-      value, defaultValue, type, style, clear, children, error, extra, labelNumber,
+      value, defaultValue, type, style, clear, children, error, extra,
       last, onExtraClick = noop, onErrorClick = noop, styles,
     } = this.props;
-
+    const labelNumber = this.props.labelNumber as number;
     let valueProps;
     if ('value' in this.props) {
       valueProps = {

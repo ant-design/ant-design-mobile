@@ -16,7 +16,7 @@ function onTabClick(key) {
 export default class BasicTabsExample extends React.Component <any, any> {
   render() {
     return (
-      <View style={{ flex: 1, paddingTop: 20}}>
+      <View style={{ flex: 1, paddingTop: 20 }}>
         <Tabs defaultActiveKey="1" onChange={onChange} onTabClick={onTabClick}>
           <TabPane tab="选项卡一" key="1">
             <View style={{ alignItems: 'center', justifyContent: 'center', height: 100 }}>

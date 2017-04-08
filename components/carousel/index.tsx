@@ -263,7 +263,7 @@ class Carousel extends React.Component<CarouselProps, any> {
 
     if (!children) {
       return (
-        <Text style={{backgroundColor: 'white'}}>
+        <Text style={{ backgroundColor: 'white' }}>
           You are supposed to add children inside Carousel
         </Text>
       );

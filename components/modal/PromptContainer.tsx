@@ -118,7 +118,7 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
         onAnimationEnd={onAnimationEnd}
       >
         <View>
-          { message && message.length && <Text style={styles.message}>{message}</Text> }
+          {message && message.length && <Text style={styles.message}>{message}</Text>}
           <View style={styles.inputGroup}>
             { type !== 'secure-text' && (
                 <View style={firstStyle}>

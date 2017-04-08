@@ -46,7 +46,7 @@ export default class TabBarItem extends React.Component<TabBarItemProps, any> {
             <Image source={selected ? selectedIcon : icon} style={[styles.barIcon, iconStyle]} />
             {badgeDom}
           </View>
-          <Text style={[ styles.barItemTitle, {color: selected ? tintColor : unselectedTintColor} ]}>
+          <Text style={[ styles.barItemTitle, { color: selected ? tintColor : unselectedTintColor } ]}>
             {title}
           </Text>
         </View>

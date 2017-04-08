@@ -75,7 +75,7 @@ const Marquee = React.createClass<MarqueeProp, any>({
     const timeout = isLeading ? this.props.leading : TIMEOUT;
 
     const animate = () => {
-      const {overflowWidth} = this.state;
+      const { overflowWidth } = this.state;
       let animatedWidth = this.state.animatedWidth + 1;
       const isRoundOver = animatedWidth > overflowWidth;
 

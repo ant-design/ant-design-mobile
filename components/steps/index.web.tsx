@@ -41,7 +41,8 @@ export default class Steps extends React.Component<StepsProps, any> {
   }
   render() {
     this.stepRefs = [];
-    const { children, current, status } = this.props;
+    const { children, status } = this.props;
+    const current = this.props.current as number;
     // flattern the array at first https://github.com/ant-design/ant-design-mobile/issues/934
     let newChildren: Array<any> = React.Children.map(children, item => item);
     newChildren = React.Children.map(newChildren, (item: any, index) => {

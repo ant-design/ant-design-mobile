@@ -116,7 +116,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         } catch (e) { }
       }, 100);
     }
-  };
+  }
 
   onBlur = () => {
     setTimeout(() => {
@@ -189,7 +189,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
               <i className={`${prefixCls}-synthetic-ph-icon`}/>
               <span
                 className={`${prefixCls}-synthetic-ph-placeholder`}
-                style={{visibility: placeholder && !value ? 'visible' : 'hidden'}}
+                style={{ visibility: placeholder && !value ? 'visible' : 'hidden' }}
               >
                 {placeholder}
               </span>

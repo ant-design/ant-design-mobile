@@ -38,8 +38,8 @@ export default class BasicSwipeActionExample extends React.Component<any, any> {
             style={{ backgroundColor: 'transparent' }}
             right={right}
             left={left}
-            onOpen={ () => console.log('open') }
-            onClose={ () => console.log('close') }
+            onOpen={() => console.log('open')}
+            onClose={() => console.log('close')}
           >
             <List.Item extra="额外参数">
               简单例子 - 左右都可操作
