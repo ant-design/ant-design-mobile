@@ -23,3 +23,4 @@ Properties | Descrition | Type | Default
 | isCarousel    |   是否跑马灯,     | boolean  | `false` |
 | carouselMaxRow    |   如果是跑马灯, 一页跑马灯需要展示的行数   | number  | `2` |
 | renderItem    |   自定义每个 grid 条目的创建函数   | (el, index) => React.Node  | - |
+| width(`web only`)    |   Width, Use for get edge length of items   | number  | `document.documentElement.clientWidth` |
