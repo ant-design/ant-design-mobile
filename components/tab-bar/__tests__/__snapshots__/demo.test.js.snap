@@ -69,12 +69,12 @@ exports[`renders ./components/tab-bar/demo/basic.tsx correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "#ddd",
+            "alignItems": "center",
+            "backgroundColor": "#efeff4",
             "flexDirection": "row",
-            "paddingBottom": 8,
+            "height": 44,
             "paddingLeft": 8,
             "paddingRight": 8,
-            "paddingTop": 8,
           }
         }
       >
