@@ -21,9 +21,13 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
 
   render() {
     const {
-      size, current, index, last, title, description,
-      status, errorTail, icon, styles,
+      size, last, title, description,
+      status, icon, styles,
     } = this.props;
+
+    const index = this.props.index as number;
+    const current = this.props.current as number;
+    const errorTail = this.props.errorTail as number;
 
     let headCls: string = '';
     let tailTopCls: string = '';
@@ -81,22 +85,22 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
     }
 
     return (
-      <View style={{ flexDirection: 'row'}}>
-        <View style={{ flexDirection: 'column'}}>
+      <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'column' }}>
           <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
             <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
           </View>
-          { <View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} /> }
-          { <View style={[styles[`tail_default${sizeCls}`], styles[tailBottomCls]]} /> }
+          {<View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} />}
+          {<View style={[styles[`tail_default${sizeCls}`], styles[tailBottomCls]]} />}
         </View>
         <View style={styles[`content${sizeCls}`]}>
           {typeof title !== 'object' ?
-            <Text style={[styles[`title${sizeCls}`]]}>{ title }</Text>
-            : <View>{ title }</View>
+            <Text style={[styles[`title${sizeCls}`]]}>{title}</Text>
+            : <View>{title}</View>
           }
           {typeof description !== 'object' ?
-            <Text style={[styles[`description${sizeCls}`]]}>{ description }</Text>
-            : <View>{ description }</View>
+            <Text style={[styles[`description${sizeCls}`]]}>{description}</Text>
+            : <View>{description}</View>
           }
         </View>
       </View>

@@ -31,7 +31,7 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
     return (
       <View style={[styles.footerWrap, style]} {...restProps}>
         {contentDom}
-        { extra ? extraDom : null }
+        {extra ? extraDom : null}
       </View>
     );
   }

@@ -59,7 +59,7 @@ export default class DrawerExample extends React.Component<any, any> {
       <Drawer
         sidebar={sidebar}
         {...drawerProps}
-        ref={ d => { this.drawer = d; DrawerExample.drawer = d; } }
+        ref={d => { this.drawer = d; DrawerExample.drawer = d; }}
       >
         <DefaultRenderer
           navigationState={this.props.navigationState.children[0]}
@@ -80,7 +80,7 @@ export class DrawerMain extends React.Component<any, any> {
   render() {
     return (
       <View style={{ flex: 1, marginTop: 114, padding: 8 }}>
-        <Button onClick={() => this.drawer && this.drawer.openDrawer() }>打开 drawer</Button>
+        <Button onClick={() => this.drawer && this.drawer.openDrawer()}>打开 drawer</Button>
         <WhiteSpace />
         <Button onClick={() => Actions.pop()}>返回 demo list</Button>
       </View>

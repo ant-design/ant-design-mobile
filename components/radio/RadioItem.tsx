@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import Radio from './Radio';
 import List from '../list';
 import { RadioItemProps } from './PropsType';
@@ -19,7 +19,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   }
 
   render() {
-    let {style, radioStyle, defaultChecked, checked, disabled, children, onChange, styles} = this.props;
+    let { style, radioStyle, defaultChecked, checked, disabled, children, onChange, styles } = this.props;
 
     let contentDom: React.ReactElement<any> | null = null;
     if (children && React.isValidElement(children)) {

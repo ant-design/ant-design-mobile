@@ -9,15 +9,15 @@ export default class BasicTimelineExample extends React.Component<any, any> {
     super(props);
     this.state = {
       steps1: [
-        {title: 'Finished', description: 'This is description'},
-        {title: 'In Progress', description: 'This is description'},
-        {title: 'Waiting', description: 'This is description'},
+        { title: 'Finished', description: 'This is description' },
+        { title: 'In Progress', description: 'This is description' },
+        { title: 'Waiting', description: 'This is description' },
       ],
       steps2: [
-        {title: 'Finished', description: 'This is description', status: 'finish'},
-        {title: 'In Progress', description: 'This is description', status: 'process'},
-        {title: 'Waiting', description: 'This is description', status: 'error'},
-        {title: 'Waiting', description: 'This is description', status: 'wait'},
+        { title: 'Finished', description: 'This is description', status: 'finish' },
+        { title: 'In Progress', description: 'This is description', status: 'process' },
+        { title: 'Waiting', description: 'This is description', status: 'error' },
+        { title: 'Waiting', description: 'This is description', status: 'wait' },
       ],
     };
   }
@@ -28,7 +28,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}
     >
-      <View style={{marginTop: 60}}>
+      <View style={{ marginTop: 60 }}>
         <WingBlank size="lg">
           <Steps size="small" current={1}>
             {

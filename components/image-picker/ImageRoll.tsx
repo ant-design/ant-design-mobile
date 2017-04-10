@@ -46,7 +46,7 @@ export default class ImageRoll extends React.Component<ImageRollProps, any> {
   render() {
     return (
       <Modal animationType="slide" visible onRequestClose={() => {}} transparent={false}>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <StatusBar barStyle="light-content" />
           <View style={styles.statusBarBg}/>
           <View style={[styles.naviBar]}>

@@ -29,15 +29,17 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   componentDidMount() {
     const initBtn = window.getComputedStyle(this.refs.rightBtn);
     this.rightBtnInitMarginleft = initBtn['margin-left'];
-    if (this.props.autoFocus || this.state.focused) {
+    if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
       (this.refs as any).searchInput.focus();
     }
     this.componentDidUpdate();
   }
   componentDidUpdate() {
     // 检测是否包含名为 ${this.props.prefixCls}-start 样式，生成动画
+    // offsetWidth 某些时候是向上取整，某些时候是向下取整，不能用
+    const realWidth = this.refs.syntheticPhContainer.getBoundingClientRect().width; // 包含小数
     if (this.refs.searchInputContainer.className.indexOf(`${this.props.prefixCls}-start`) > -1) {
-      this.refs.syntheticPh.style.width = `${Math.ceil(this.refs.syntheticPhContainer.offsetWidth)}px`;
+      this.refs.syntheticPh.style.width = `${Math.ceil(realWidth)}px`;
       if (!this.props.showCancelButton) {
         this.refs.rightBtn.style.marginRight = 0;
       }
@@ -112,21 +114,21 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         try {
           (document.activeElement as any).scrollIntoViewIfNeeded();
         } catch (e) { }
-      }, 0);
+      }, 100);
     }
-  };
+  }
 
   onBlur = () => {
     setTimeout(() => {
       this.setState({
         focus: false,
       });
-      if (!('focused' in this.props)) {
-        this.setState({
-          focused: false,
-        });
-      }
     }, 0);
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: false,
+      });
+    }
     if (this.props.onBlur) {
       this.props.onBlur();
     }
@@ -187,7 +189,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
               <i className={`${prefixCls}-synthetic-ph-icon`}/>
               <span
                 className={`${prefixCls}-synthetic-ph-placeholder`}
-                style={{visibility: placeholder && !value ? 'visible' : 'hidden'}}
+                style={{ visibility: placeholder && !value ? 'visible' : 'hidden' }}
               >
                 {placeholder}
               </span>

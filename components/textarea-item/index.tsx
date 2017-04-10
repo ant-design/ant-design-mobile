@@ -45,8 +45,8 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
   onChange = (event) => {
     const text = event.nativeEvent.text;
     let height;
-    const { autoHeight, rows, onChange } = this.props;
-
+    const { autoHeight, onChange } = this.props;
+    const rows = this.props.rows as number;
     if (autoHeight) {
       height = event.nativeEvent.contentSize.height;
     } else if (rows > 1) {
@@ -67,9 +67,11 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
   render() {
     const { inputCount } = this.state;
     const {
-      value, defaultValue, rows, error, clear, count, autoHeight, last, onErrorClick,
+      value, defaultValue, error, clear, autoHeight, last, onErrorClick,
       styles, style,
     } = this.props;
+    const rows = this.props.rows as number;
+    const count = this.props.count as number;
 
     let valueProps;
     if ('value' in this.props) {
@@ -118,7 +120,7 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
           <View style={[styles.errorIcon]}>
             <Image
               source={require('../style/images/error.png')}
-              style={{ width: variables.icon_size_xs, height:variables.icon_size_xs }}
+              style={{ width: variables.icon_size_xs, height: variables.icon_size_xs }}
             />
           </View>
         </TouchableWithoutFeedback> : null}

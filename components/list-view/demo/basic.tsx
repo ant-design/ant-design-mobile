@@ -68,7 +68,7 @@ export default class BasicDemo extends React.Component<any, any> {
     // new object ref
     this.sectionIDs = [].concat(this.sectionIDs);
     this.rowIDs = [].concat(this.rowIDs);
-  };
+  }
   onEndReached = (_event) => {
     // load new data
     this.setState({ isLoading: true });

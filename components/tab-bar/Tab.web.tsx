@@ -6,7 +6,7 @@ class Tab extends React.Component<any, any> {
     const { dot, badge, selected, selectedIcon, icon, title, prefixCls } = this.props;
     const iconRes = selected ? selectedIcon : icon;
     const iconDom = React.isValidElement(iconRes) ? iconRes : (
-      <img className={`${prefixCls}-image`} src={ iconRes.uri || iconRes } alt={title} />
+      <img className={`${prefixCls}-image`} src={iconRes.uri || iconRes} alt={title} />
     );
     if (badge) {
       return (

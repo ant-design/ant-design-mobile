@@ -141,7 +141,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     );
     return (
       <View style={styles.container}>
-        { filesView }
+        {filesView}
         <TouchableWithoutFeedback
           onPress={this.showPicker}
           onPressIn={this.onPressIn}
@@ -154,7 +154,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             <Text style={[styles.plusNormal, styles.plusText]}>+</Text>
           </View>
         </TouchableWithoutFeedback>
-        { this.state.visible ? imageRollEl : null }
+        {this.state.visible ? imageRollEl : null}
       </View>
     );
   }

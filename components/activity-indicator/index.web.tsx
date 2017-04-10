@@ -32,7 +32,7 @@ export default class ActivityIndicator extends React.Component<ActivityIndicator
           <div className={wrapClass}>
             <div className={`${prefixCls}-content`}>
               <span className={spinnerClass} />
-              { text && (<span className={`${prefixCls}-toast`}>{text}</span>) }
+              {text && (<span className={`${prefixCls}-toast`}>{text}</span>)}
             </div>
           </div>
         );
@@ -40,7 +40,7 @@ export default class ActivityIndicator extends React.Component<ActivityIndicator
         return (
           <div className={wrapClass}>
             <span className={spinnerClass} />
-            { text && (<span className={`${prefixCls}-tip`}>{text}</span>) }
+            {text && (<span className={`${prefixCls}-tip`}>{text}</span>)}
           </div>
         );
       }

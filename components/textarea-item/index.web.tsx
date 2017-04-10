@@ -13,6 +13,12 @@ function fixControlledValue(value) {
   return value;
 }
 
+const regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+
+function countSymbols(text = '') {
+  return text.replace(regexAstralSymbols, '_').length;
+}
+
 export interface TextareaItemState {
   focus?: boolean;
   focused?: boolean;
@@ -49,7 +55,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   componentDidMount() {
     this.componentDidUpdate();
-    if (this.props.autoFocus || this.state.focused) {
+    if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
       (this.refs as any).textarea.focus();
     }
   }
@@ -136,9 +142,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
         try {
           (document.activeElement as any).scrollIntoViewIfNeeded();
         } catch (e) { }
-      }, 0);
+      }, 100);
     }
-  };
+  }
 
   onErrorClick = () => {
     if (this.props.onErrorClick) {
@@ -154,10 +160,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   render() {
     let {
-      prefixCls, prefixListCls, style, title, value, defaultValue, clear, rows, count,
+      prefixCls, prefixListCls, style, title, value, defaultValue, clear,
       editable, disabled, error, className, labelNumber, autoHeight,
     } = this.props;
-
+    const count = this.props.count as number;
+    const rows = this.props.rows as number;
     // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
       'clear', 'children', 'error', 'className', 'count', 'labelNumber', 'title', 'onErrorClick',
@@ -195,10 +202,10 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       [`${prefixCls}-label-6`]: labelNumber === 6,
       [`${prefixCls}-label-7`]: labelNumber === 7,
     });
-
+    const characterLength = countSymbols(value);
     return (
       <div className={wrapCls} style={style}>
-        {title ? (<div className={labelCls}>{title}</div>) : null}
+        {title && <div className={labelCls}>{title}</div>}
         <div className={`${prefixCls}-control`}>
           <textarea
             ref="textarea"
@@ -211,13 +218,13 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
             readOnly={!editable}
           />
         </div>
-        {clear && editable && value && value.length > 0 ?
-          (<div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />)
-          : null}
-        {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
-        {count > 0 && rows > 1
-          ? (<span className={`${prefixCls}-count`}><span>{value ? value.length : 0}</span>/{count}</span>)
-          : null}
+        {clear && editable && value && characterLength > 0 &&
+          <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
+        }
+        {error && <div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />}
+        {count > 0 && rows > 1 &&
+          <span className={`${prefixCls}-count`}><span>{value ? characterLength : 0}</span>/{count}</span>
+        }
       </div>
     );
   }

@@ -16,7 +16,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       className, prefixCls,
       children, text, size, overflowCount, dot, corner, hot, ...restProps,
     } = this.props;
-
+    overflowCount = overflowCount as number;
     text = typeof text === 'number' && text > overflowCount ? `${overflowCount}+` : text;
 
     // dot mode don't need text
@@ -44,7 +44,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return (
       <span className={badgeCls}>
         {children}
-        {(text || dot) ? <sup className={scrollNumberCls} {...restProps}>{text}</sup> : null}
+        {(text || dot) && <sup className={scrollNumberCls} {...restProps}>{text}</sup>}
       </span>
     );
   }

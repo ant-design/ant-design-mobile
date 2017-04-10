@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {WhiteSpace, Checkbox, List} from 'antd-mobile';
+import { View, Text } from 'react-native';
+import { WhiteSpace, Checkbox, List } from 'antd-mobile';
 const AgreeItem = Checkbox.AgreeItem;
 const CheckboxItem = Checkbox.CheckboxItem;
 
@@ -21,7 +21,7 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
         <View style={{ padding: 10 }}>
           <Checkbox
             checked={this.state.checkBox1}
-            style={{tintColor:'#f00'}}
+            style={{ tintColor: '#f00' }}
             onChange={(event) => { this.setState({ checkBox1: event.target.checked }); }}
           />
           <WhiteSpace />
@@ -37,7 +37,7 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
         <WhiteSpace />
         <AgreeItem
           checked={this.state.agreeItem1}
-          checkboxStyle={{tintColor:'#f00'}}
+          checkboxStyle={{ tintColor: '#f00' }}
           onChange={(event) => { this.setState({ agreeItem1: event.target.checked }); }}
         >
           同意 《信用支付服务合同
@@ -47,8 +47,8 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
         <WhiteSpace />
         <AgreeItem checked disabled>强制选中,不可编辑 《信用支付服务合同信用支付服务合同信用支付服务合同》</AgreeItem>
 
-        <List style={{marginTop: 12}}>
-          <Text style={{marginTop: 12}}>表单多选项，普通列表中多选项</Text>
+        <List style={{ marginTop: 12 }}>
+          <Text style={{ marginTop: 12 }}>表单多选项，普通列表中多选项</Text>
           <CheckboxItem
             checked={this.state.checkboxItem1}
             onChange={(event) => { this.setState({ checkboxItem1: event.target.checked }); }}

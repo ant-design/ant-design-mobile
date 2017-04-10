@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableWithoutFeedback, Image, Text, View} from 'react-native';
+import { TouchableWithoutFeedback, Image, Text, View } from 'react-native';
 import { RadioProps } from './PropsType';
 import RadioStyle from './style/index';
 
@@ -35,12 +35,12 @@ export default class Radio extends React.Component<RadioProps, any> {
       });
     }
     if (this.props.onChange) {
-      this.props.onChange({target: {checked: true}});
+      this.props.onChange({ target: { checked: true } });
     }
   }
 
   render(): JSX.Element {
-    let {style, disabled, children, styles} = this.props;
+    let { style, disabled, children, styles } = this.props;
     let checked = this.state.checked;
     let imgSrc = undefined as any;
     if (checked) {
@@ -53,7 +53,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     return (<TouchableWithoutFeedback onPress={this.handleClick}>
         <View style={[styles.wrapper]}>
           <Image source={imgSrc} style={[styles.icon, style]} />
-          { typeof children === 'string' ? <Text>{this.props.children}</Text> : children }
+          {typeof children === 'string' ? <Text>{this.props.children}</Text> : children}
         </View>
       </TouchableWithoutFeedback>
     );

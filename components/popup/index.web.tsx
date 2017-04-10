@@ -11,7 +11,7 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     prefixCls: 'am-popup',
     animationType: 'slide-down',
   }, config);
-  const {prefixCls, transitionName, maskTransitionName, maskClosable = true, animationType} = props;
+  const { prefixCls, transitionName, maskTransitionName, maskClosable = true, animationType } = props;
 
   let div: any = document.createElement('div');
   document.body.appendChild(div);
@@ -73,7 +73,7 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     >
       {content}
     </Dialog>,
-    div
+    div,
   );
 
   return {

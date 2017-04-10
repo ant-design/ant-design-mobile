@@ -19,7 +19,7 @@ export default class PopupExample extends React.Component<any, any> {
   }
 
   onChange = (value) => {
-    this.setState({value});
+    this.setState({ value });
   }
 
   render() {
@@ -29,8 +29,8 @@ export default class PopupExample extends React.Component<any, any> {
           defaultDate={defaultDate}
           value={this.state.value}
           mode="date"
-          minDate={this.date1MinDate || (this.date1MinDate = moment('2015-08-06','YYYY-MM-DD'))}
-          maxDate={this.date1MaxDate || (this.date1MaxDate = moment('2016-12-06','YYYY-MM-DD'))}
+          minDate={this.date1MinDate || (this.date1MinDate = moment('2015-08-06', 'YYYY-MM-DD'))}
+          maxDate={this.date1MaxDate || (this.date1MaxDate = moment('2016-12-06', 'YYYY-MM-DD'))}
           onChange={this.onChange}
           format={val => val.fromNow()}
         >
