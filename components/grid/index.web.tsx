@@ -15,8 +15,6 @@ export default class Grid extends React.Component<GridProps, any> {
     prefixCls: 'am-grid',
   };
 
-  clientWidth = document.documentElement.clientWidth;
-
   render() {
     const {
       prefixCls, className,
@@ -28,19 +26,25 @@ export default class Grid extends React.Component<GridProps, any> {
 
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);
-
-    const renderItem = this.props.renderItem || ((dataItem: DataItem) => (
-      <div
-        className={`${prefixCls}-item-contain column-num-${columnNum}`}
-        style={{ height: `${this.clientWidth / columnNum}px` }}
-      >
-        {
-          React.isValidElement(dataItem.icon) ? dataItem.icon : (
-            <img className={`${prefixCls}-icon`} src={dataItem.icon} />
-          )
-        }
-        <div className={`${prefixCls}-text`}>{dataItem.text}</div>
-      </div>
+    const rowWidth = `${100 / columnNum}%`;
+    const colStyle = {
+      width: rowWidth,
+    };
+    const renderItem = ((dataItem: DataItem, index) => (
+        <div
+          className={`${prefixCls}-item-content`}
+        >
+          {this.props.renderItem ? this.props.renderItem(dataItem, index) :
+            <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
+              {
+                React.isValidElement(dataItem.icon) ? dataItem.icon : (
+                  <img className={`${prefixCls}-icon`} src={dataItem.icon} />
+                )
+              }
+              <div className={`${prefixCls}-text`}>{dataItem.text}</div>
+            </div>
+          }
+        </div>
     ));
 
     const rowsArr: any[] = [];
@@ -55,14 +59,14 @@ export default class Grid extends React.Component<GridProps, any> {
             key={`griditem-${dataIndex}`}
             className={`${prefixCls}-item`}
             onClick={() => onClick(el, dataIndex)}
-            style={{ width: `${this.clientWidth / columnNum}px` }}
+            style={colStyle}
           >
-            {renderItem(el, dataIndex)}
+            {el && renderItem(el, dataIndex)}
           </Flex.Item>);
         } else {
           rowArr.push(<Flex.Item
             key={`griditem-${dataIndex}`}
-            style={{ width: `${this.clientWidth / columnNum}px` }}
+            style={colStyle}
           />);
         }
       }
@@ -95,7 +99,7 @@ export default class Grid extends React.Component<GridProps, any> {
           [className as string]: className,
         })}
       >
-        {isCarousel && pageCount > 1 ? <Carousel initialSlideWidth={this.clientWidth}>{pagesArr}</Carousel> : rowsArr}
+        {isCarousel && pageCount > 1 ? <Carousel>{pagesArr}</Carousel> : rowsArr}
       </div>
     );
   }
