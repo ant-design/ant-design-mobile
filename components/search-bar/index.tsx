@@ -83,22 +83,23 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     });
     const { value, focus } = this.state;
     const _showCancelButton = showCancelButton || focus;
-
     return (
       <View style={styles.wrapper}>
-        <TextInput
-          value={value}
-          onChangeText={this.onChangeText}
-          style={styles.input}
-          editable={!disabled}
-          ref="searchInput"
-          onSubmitEditing={this.onSubmit}
-          clearButtonMode="always"
-          underlineColorAndroid="transparent"
-          {...restProps}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-        />
+        <View style={styles.inputWrapper}>
+          <TextInput
+            value={value}
+            onChangeText={this.onChangeText}
+            style={styles.input}
+            editable={!disabled}
+            ref="searchInput"
+            onSubmitEditing={this.onSubmit}
+            clearButtonMode="always"
+            underlineColorAndroid="transparent"
+            {...restProps}
+            onFocus={this.onFocus}
+            onBlur={this.onBlur}
+          />
+        </View>
         <Image
           source={require('../style/images/search.png')}
           style={styles.search}

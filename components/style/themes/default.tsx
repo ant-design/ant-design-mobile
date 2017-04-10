@@ -156,6 +156,7 @@ export default {
 
   // search_bar
   search_bar_fill: '#efeff4',
+  search_bar_height: 44,
   search_bar_input_height: 28,
   searchbar_font_size: 15,
   search_color_icon: '#bbbbbb', // input search icon 的背景色
