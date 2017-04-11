@@ -20,6 +20,10 @@ export default class Modal extends React.Component<ModalProps, any> {
   };
 
   isInModal(e) {
+    if (!/\biPhone\b|\biPod\b/i.test(navigator.userAgent)) {
+      return;
+    }
+
     // fix touch to scroll background page on iOS
     const prefixCls = this.props.prefixCls;
     const pNode = (node => {
@@ -114,8 +118,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       }
     });
 
-    const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
-    const wrapProps = isIPhone ? { onTouchStart: e => this.isInModal(e) } : {};
+    const wrapProps = { onTouchStart: e => this.isInModal(e) };
 
     return (
       <Dialog

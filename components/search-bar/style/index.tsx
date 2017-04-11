@@ -2,12 +2,15 @@ import variables from '../../style/themes/default';
 import { StyleSheet, ViewStyle } from 'react-native';
 
 export default StyleSheet.create({
+  inputWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+  },
   input: {
     borderRadius: variables.radius_md,
     backgroundColor: '#fff',
     borderColor: variables.border_color_base,
     borderWidth: variables.border_width_sm,
-    alignSelf: 'stretch',
     height: variables.search_bar_input_height,
     color: variables.color_text_base,
     fontSize: variables.font_size_base,
@@ -18,12 +21,12 @@ export default StyleSheet.create({
     paddingBottom: 0,
   } as ViewStyle,
   wrapper: {
-    backgroundColor: '#ddd',
-    paddingTop: 8,
-    paddingBottom: 8,
+    backgroundColor: variables.search_bar_fill,
+    height: variables.search_bar_height,
     paddingLeft: variables.h_spacing_md,
     paddingRight: variables.h_spacing_md,
     flexDirection: 'row',
+    alignItems: 'center',
   } as ViewStyle,
   cancelTextContainer: {
     height: variables.search_bar_input_height,
@@ -39,7 +42,7 @@ export default StyleSheet.create({
     tintColor: variables.input_color_icon,
     position: 'absolute',
     left: variables.h_spacing_md + 8,
-    top: (variables.search_bar_input_height - variables.icon_size_xxs) / 2 + 8,
+    top: (variables.search_bar_height - variables.icon_size_xxs) / 2,
     width: variables.icon_size_xxs,
     height: variables.icon_size_xxs,
   } as ViewStyle,

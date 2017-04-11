@@ -69,46 +69,54 @@ exports[`renders ./components/tab-bar/demo/basic.tsx correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "#ddd",
+            "alignItems": "center",
+            "backgroundColor": "#efeff4",
             "flexDirection": "row",
-            "paddingBottom": 8,
+            "height": 44,
             "paddingLeft": 8,
             "paddingRight": 8,
-            "paddingTop": 8,
           }
         }
       >
-        <TextInput
-          clearButtonMode="always"
-          editable={true}
-          onBlur={[Function]}
-          onChangeText={[Function]}
-          onClear={[Function]}
-          onFocus={[Function]}
-          onSubmit={[Function]}
-          onSubmitEditing={[Function]}
-          placeholder="搜索"
-          prefixCls="am-search"
+        <View
           style={
             Object {
-              "alignSelf": "stretch",
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-              "borderRadius": 5,
-              "borderWidth": 0.5,
-              "color": "#000",
               "flex": 1,
-              "fontSize": 14,
-              "height": 28,
-              "paddingBottom": 0,
-              "paddingLeft": 35,
-              "paddingRight": 35,
-              "paddingTop": 0,
+              "flexDirection": "row",
             }
           }
-          underlineColorAndroid="transparent"
-          value=""
-        />
+        >
+          <TextInput
+            clearButtonMode="always"
+            editable={true}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onClear={[Function]}
+            onFocus={[Function]}
+            onSubmit={[Function]}
+            onSubmitEditing={[Function]}
+            placeholder="搜索"
+            prefixCls="am-search"
+            style={
+              Object {
+                "backgroundColor": "#fff",
+                "borderColor": "#ddd",
+                "borderRadius": 5,
+                "borderWidth": 0.5,
+                "color": "#000",
+                "flex": 1,
+                "fontSize": 14,
+                "height": 28,
+                "paddingBottom": 0,
+                "paddingLeft": 35,
+                "paddingRight": 35,
+                "paddingTop": 0,
+              }
+            }
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
         <Image
           resizeMode="stretch"
           source={1}
