@@ -7,6 +7,7 @@ import Toast from '../toast';
 import { ImagePickerPropTypes } from './PropsType';
 import Touchable from 'rc-touchable';
 
+const Item = Flex.Item;
 function noop() { }
 
 export default class ImagePicker extends React.Component<ImagePickerPropTypes, any> {
@@ -135,65 +136,74 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   render() {
     const { prefixCls, style, className, files = [],
        selectable, onAddImageClick } = this.props;
-    const dpr = window.devicePixelRatio || 1;
     const imgItemList: any[] = [];
-    const customWidth = ((document.documentElement.clientWidth - 18 * dpr - 6 * dpr * 3) / 4);
 
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,
     });
 
-    const itemStyle = {
-      width: `${customWidth}px`,
-      height: `${customWidth}px`,
-    };
     files.forEach((image: any, index: number) => {
       const imgStyle = {
         backgroundImage: `url(${image.url})`,
         transform: `rotate(${this.getRotation(image.orientation)}deg)`,
       };
       imgItemList.push(
-        <div key={index} className={`${prefixCls}-item`} style={itemStyle}>
-          <div
-            className={`${prefixCls}-item-remove`}
-            onClick={() => { this.removeImage(index); }}
-          />
-          <div
-            className={`${prefixCls}-item-content`}
-            onClick={() => { this.onImageClick(index); }}
-            style={imgStyle}
-          />
-        </div>,
+        <Item>
+          <div key={index} className={`${prefixCls}-item`} >
+            <div
+              className={`${prefixCls}-item-remove`}
+              onClick={() => { this.removeImage(index); }}
+            />
+            <div
+              className={`${prefixCls}-item-content`}
+              onClick={() => { this.onImageClick(index); }}
+              style={imgStyle}
+            />
+          </div>
+        </Item>,
       );
     });
 
     const selectEl = (
       <Touchable activeClassName={`${prefixCls}-upload-btn-active`}>
-        <div
-          className={`${prefixCls}-item ${prefixCls}-upload-btn`}
-          style={itemStyle}
-          onClick={onAddImageClick}
-        >
-          <input
-            style={itemStyle}
-            ref="fileSelectorInput"
-            type="file"
-            accept="image/jpg,image/jpeg,image/png,image/gif"
-            onChange={() => { this.onFileChange(); }}
-          />
-        </div>
+        <Item>
+          <div
+            className={`${prefixCls}-item ${prefixCls}-upload-btn`}
+            onClick={onAddImageClick}
+          >
+            <input
+              ref="fileSelectorInput"
+              type="file"
+              accept="image/jpg,image/jpeg,image/png,image/gif"
+              onChange={() => { this.onFileChange(); }}
+            />
+          </div>
+        </Item>
       </Touchable>
     );
 
+    let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;
+    const length = allEl.length;
+    if (length !== 0 && length % 4 !== 0) {
+      const fillBlankEl = new Array(4 - length % 4).fill(<Item/>);
+      allEl = allEl.concat(fillBlankEl);
+    }
+    const flexEl: Array<Array<any>> = [];
+    for (let i = 0; i < allEl.length / 4; i++) {
+      const rowEl = allEl.slice(i * 4, i * 4 + 4);
+      flexEl.push(rowEl);
+    }
+    const renderEl = flexEl.map((item) => (
+      <Flex>
+        {item}
+      </Flex>
+    ));
     return (
       <div className={wrapCls} style={style}>
         <div className={`${prefixCls}-list`}>
           <WingBlank size="md">
-            <Flex wrap="wrap">
-              {imgItemList}
-              {selectable && selectEl}
-            </Flex>
+            {renderEl}
           </WingBlank>
         </div>
       </div>
