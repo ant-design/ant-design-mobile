@@ -13,13 +13,9 @@ import { ActionSheet, Button, Toast, Icon } from 'antd-mobile';
 // fix touch to scroll background page on iOS
 // https://github.com/ant-design/ant-design-mobile/issues/307
 // https://github.com/ant-design/ant-design-mobile/issues/163
-const isIPhone = typeof navigator !== 'undefined' && new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(navigator.userAgent);
-let wrapProps;
-if (isIPhone) {
-  wrapProps = {
-    onTouchStart: e => e.preventDefault(),
-  };
-}
+const wrapProps = {
+  onTouchStart: e => /\b(iPhone|iPod)\b/i.test(navigator.userAgent) && e.preventDefault(),
+};
 
 const iconList = [
   { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" alt="icon" />, title: '发送给朋友' },
