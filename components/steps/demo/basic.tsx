@@ -87,7 +87,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
               title="Wait"
               description="This is description"
               status="wait"
-              icon={ <Icon type="down" size={20} color="white" /> }
+              icon={<Icon type="down" size={20} color="white" />}
             />
           </Steps>
         </WingBlank>
