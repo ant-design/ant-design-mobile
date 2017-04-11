@@ -12,6 +12,7 @@ export default StyleSheet.create({
     borderWidth: variables.border_width_lg,
     borderColor: variables.brand_primary,
     borderStyle: 'solid',
+    overflow: 'hidden',
   },
   head_blue_s: {
     borderColor: variables.brand_primary,
@@ -35,6 +36,7 @@ export default StyleSheet.create({
     borderWidth: variables.border_width_lg,
     borderColor: variables.brand_primary,
     borderStyle: 'solid',
+    overflow: 'hidden',
   },
   head_blue_l: {
     borderColor: variables.brand_primary,

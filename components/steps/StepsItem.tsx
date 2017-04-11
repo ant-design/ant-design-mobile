@@ -88,7 +88,11 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flexDirection: 'column' }}>
           <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
-            <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
+            {
+              React.isValidElement(iconSource) ? iconSource : (
+                <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
+              )
+            }
           </View>
           {<View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} />}
           {<View style={[styles[`tail_default${sizeCls}`], styles[tailBottomCls]]} />}

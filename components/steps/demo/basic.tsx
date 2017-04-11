@@ -1,5 +1,5 @@
 /* tslint:disable:jsx-no-multiline-js */
-import { Steps, WingBlank } from 'antd-mobile';
+import { Steps, WingBlank, Icon } from 'antd-mobile';
 const Step = Steps.Step;
 import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
@@ -74,6 +74,21 @@ export default class BasicTimelineExample extends React.Component<any, any> {
                 <Step key={index} title={item.title} description={item.description} status={item.status} />
               ))
             }
+          </Steps>
+        </WingBlank>
+      </View>
+      <View>
+        <WingBlank size="lg">
+          <Steps current={1}>
+            <Step key={0} title="Finished" description="This is description" status="finish" />
+            <Step key={1} title="Progress" description="This is description" status="progress" />
+            <Step
+              key={2}
+              title="Wait"
+              description="This is description"
+              status="wait"
+              icon={ <Icon type="down" size={20} color="white" /> }
+            />
           </Steps>
         </WingBlank>
       </View>
