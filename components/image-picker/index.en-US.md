@@ -18,5 +18,6 @@ Properties | Descrition | Type | Default
 | onImageClick(`web only`)    | 点击图片触发的回调  | (index: number, files: Object): void |   |
 | onAddImageClick(`web only`) | 自定义选择图片的方法  | (): void |   |
 | selectable(`web only`) | 是否显示添加按钮  | boolean |  true |
+| maxWidth(`web only`) | 图片的最大宽度，超出最大宽度会等比压缩图片 | number | 1024 |
 
 > 注: RN 版本回传 assets-library (性能考虑)，需要使用 native 模块进行上传，可参考 https://github.com/facebook/react-native/issues/201
