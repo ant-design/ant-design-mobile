@@ -8,7 +8,7 @@ describe('Drawer', () => {
     const wrapper = render(
       <Drawer
         className="my-drawer"
-        style={{ minHeight: (typeof document !== 'undefined' ? document.documentElement.clientHeight : 0) - 200 }}
+        style={{ minHeight: document.documentElement.clientHeight - 200 }}
         dragHandleStyle={{ display: 'none' }}
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
         sidebar={<span>sidebar content</span>}
