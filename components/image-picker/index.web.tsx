@@ -1,7 +1,6 @@
 /* tslint:disable:no-bitwise */
 import React from 'react';
 import classNames from 'classnames';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
