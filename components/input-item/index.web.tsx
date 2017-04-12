@@ -89,7 +89,6 @@ class InputItem extends React.Component<InputItemProps, any> {
       case 'text':
         break;
       case 'bankCard':
-        value = value.replace(/\D/g, '');
         value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
