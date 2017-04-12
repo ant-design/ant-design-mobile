@@ -355,7 +355,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           <input
             pattern="[0-9]*"
             placeholder="点击会弹出数字键盘"
-            type="number"
+            type="text"
             value=""
           />
         </div>
