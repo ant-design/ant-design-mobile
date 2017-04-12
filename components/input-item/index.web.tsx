@@ -89,7 +89,6 @@ class InputItem extends React.Component<InputItemProps, any> {
       case 'text':
         break;
       case 'bankCard':
-        value = value.replace(/\D/g, '');
         value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
@@ -192,7 +191,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style', 'focused',
       'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
-      'updatePlaceholder', 'placeholderTextColor',
+      'updatePlaceholder', 'placeholderTextColor', 'autoFocus', 'type',
     ]);
 
     const { placeholder, focus } = this.state;
@@ -225,7 +224,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       inputType = 'tel';
     } else if (type === 'password') {
       inputType = 'password';
-    } else if (type !== 'text') {
+    } else if (type !== 'text' && type !== 'number') {
       inputType = type;
     }
 
