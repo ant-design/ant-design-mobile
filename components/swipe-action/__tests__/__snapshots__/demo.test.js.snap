@@ -138,7 +138,7 @@ exports[`renders ./components/swipe-action/demo/basic.tsx correctly 1`] = `
                       ]
                     }
                   >
-                    简单例子 - 左右都可操作
+                    Simple example: left and right buttons
                   </Text>
                 </View>
                 <View
@@ -168,7 +168,7 @@ exports[`renders ./components/swipe-action/demo/basic.tsx correctly 1`] = `
                       ]
                     }
                   >
-                    额外参数
+                    extra content
                   </Text>
                 </View>
               </View>
