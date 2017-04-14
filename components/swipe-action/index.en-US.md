@@ -6,7 +6,7 @@ title: SwipeAction
 
 iOS-style swipeout buttons that appear from behind a component.
 
-### 定义／Definition
+### Definition
 
 Call out oprations from one side of screen with gesture.
 

@@ -16,25 +16,25 @@ const SwipeActionExample = () => (
       autoClose
       right={[
         {
-          text: '取消',
-          onPress: () => console.log('取消'),
+          text: 'Cancel',
+          onPress: () => console.log('cancel'),
           style: { backgroundColor: '#ddd', color: 'white' },
         },
         {
-          text: '删除',
-          onPress: () => console.log('删除'),
+          text: 'Delete',
+          onPress: () => console.log('delete'),
           style: { backgroundColor: '#F4333C', color: 'white' },
         },
       ]}
       left={[
         {
-          text: '回复',
-          onPress: () => console.log('回复'),
+          text: 'Reply',
+          onPress: () => console.log('reply'),
           style: { backgroundColor: '#108ee9', color: 'white' },
         },
         {
-          text: '取消',
-          onPress: () => console.log('取消'),
+          text: 'Cancel',
+          onPress: () => console.log('cancel'),
           style: { backgroundColor: '#ddd', color: 'white' },
         },
       ]}
@@ -42,10 +42,10 @@ const SwipeActionExample = () => (
       onClose={() => console.log('global close')}
     >
       <List.Item
-        extra="更多"
+        extra="More"
         arrow="horizontal"
       >
-          左右都可操作
+        Have left and right buttons
       </List.Item>
     </SwipeAction>
     <SwipeAction
@@ -53,25 +53,25 @@ const SwipeActionExample = () => (
       autoClose
       right={[
         {
-          text: '取消',
-          onPress: () => console.log('取消'),
+          text: 'Cancel',
+          onPress: () => console.log('cancel'),
           style: { backgroundColor: '#ddd', color: 'white' },
         },
         {
-          text: '删除',
-          onPress: () => console.log('删除'),
+          text: 'Delete',
+          onPress: () => console.log('delete'),
           style: { backgroundColor: '#F4333C', color: 'white' },
         },
       ]}
       left={[
         {
-          text: '回复',
-          onPress: () => console.log('回复'),
+          text: 'Reply',
+          onPress: () => console.log('reply'),
           style: { backgroundColor: '#108ee9', color: 'white' },
         },
         {
-          text: '取消',
-          onPress: () => console.log('取消'),
+          text: 'Cancel',
+          onPress: () => console.log('cancel'),
           style: { backgroundColor: '#ddd', color: 'white' },
         },
       ]}
@@ -79,10 +79,10 @@ const SwipeActionExample = () => (
       onClose={() => console.log('global close')}
     >
       <List.Item
-        extra="更多"
+        extra="More"
         arrow="horizontal"
       >
-          左右都可操作
+        Have left and right buttons
       </List.Item>
     </SwipeAction>
   </List>
