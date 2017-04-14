@@ -19,7 +19,7 @@ exports[`renders ./components/card/demo/basic.md correctly 1`] = `
         <img
           src="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
         />
-        这是 title
+        This is title
       </div>
       <div
         class="am-card-header-extra"
@@ -33,7 +33,7 @@ exports[`renders ./components/card/demo/basic.md correctly 1`] = `
       class="am-card-body"
     >
       <div>
-        这是卡片内容
+        This is content of \`Card\`
       </div>
     </div>
     <div
@@ -42,13 +42,13 @@ exports[`renders ./components/card/demo/basic.md correctly 1`] = `
       <div
         class="am-card-footer-content"
       >
-        这是卡尾
+        footer content
       </div>
       <div
         class="am-card-footer-extra"
       >
         <div>
-          这是尾部介绍
+          extra footer content
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@ exports[`renders ./components/card/demo/full.md correctly 1`] = `
         <img
           src="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
         />
-        这是 title
+        This is title
       </div>
       <div
         class="am-card-header-extra"
@@ -90,7 +90,7 @@ exports[`renders ./components/card/demo/full.md correctly 1`] = `
       class="am-card-body"
     >
       <div>
-        这是卡片内容
+        This is content of \`Card\`
       </div>
     </div>
     <div
@@ -99,13 +99,13 @@ exports[`renders ./components/card/demo/full.md correctly 1`] = `
       <div
         class="am-card-footer-content"
       >
-        这是卡尾
+        footer content
       </div>
       <div
         class="am-card-footer-extra"
       >
         <div>
-          这是尾部介绍
+          extra footer content
         </div>
       </div>
     </div>
