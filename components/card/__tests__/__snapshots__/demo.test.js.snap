@@ -90,7 +90,7 @@ exports[`renders ./components/card/demo/basic.tsx correctly 1`] = `
               }
             }
           >
-            这是 title
+            This is title
           </Text>
         </View>
         <Text
@@ -169,7 +169,7 @@ exports[`renders ./components/card/demo/basic.tsx correctly 1`] = `
             }
           }
         >
-          这是卡尾
+          footer content
         </Text>
         <Text
           accessible={true}
@@ -185,7 +185,7 @@ exports[`renders ./components/card/demo/basic.tsx correctly 1`] = `
             ]
           }
         >
-          这是尾部介绍
+          footer extra content
         </Text>
       </View>
     </View>
@@ -275,7 +275,7 @@ exports[`renders ./components/card/demo/basic.tsx correctly 1`] = `
             }
           }
         >
-          这是 title
+          Full Column
         </Text>
       </View>
       <Text
@@ -354,7 +354,7 @@ exports[`renders ./components/card/demo/basic.tsx correctly 1`] = `
           }
         }
       >
-        这是卡尾
+        footer content
       </Text>
       <Text
         accessible={true}
@@ -370,7 +370,7 @@ exports[`renders ./components/card/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        这是尾部介绍
+        footer extra content
       </Text>
     </View>
   </View>
