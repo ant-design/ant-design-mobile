@@ -26,7 +26,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             <div
               class="am-swipe-text"
             >
-              回复
+              Reply
             </div>
           </div>
           <div
@@ -36,7 +36,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             <div
               class="am-swipe-text"
             >
-              取消
+              Cancel
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             <div
               class="am-swipe-text"
             >
-              取消
+              Cancel
             </div>
           </div>
           <div
@@ -60,7 +60,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             <div
               class="am-swipe-text"
             >
-              删除
+              Delete
             </div>
           </div>
         </div>
@@ -76,12 +76,12 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                左右都可操作
+                Have left and right buttons
               </div>
               <div
                 class="am-list-extra"
               >
-                更多
+                More
               </div>
               <div
                 class="am-list-arrow am-list-arrow-horizontal"
@@ -110,7 +110,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             <div
               class="am-swipe-text"
             >
-              回复
+              Reply
             </div>
           </div>
           <div
@@ -120,7 +120,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             <div
               class="am-swipe-text"
             >
-              取消
+              Cancel
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             <div
               class="am-swipe-text"
             >
-              取消
+              Cancel
             </div>
           </div>
           <div
@@ -144,7 +144,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             <div
               class="am-swipe-text"
             >
-              删除
+              Delete
             </div>
           </div>
         </div>
@@ -160,12 +160,12 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                左右都可操作
+                Have left and right buttons
               </div>
               <div
                 class="am-list-extra"
               >
-                更多
+                More
               </div>
               <div
                 class="am-list-arrow am-list-arrow-horizontal"
