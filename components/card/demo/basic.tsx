@@ -9,7 +9,7 @@ export default class BasicCardExample extends React.Component<any, any> {
         <WingBlank size="lg">
           <Card>
             <Card.Header
-              title="这是 title"
+              title="This is title"
               thumbStyle={{ width: 30, height: 30 }}
               thumb="http://gravatar.com/avatar/e9c13fb979736b16033acbce4c710ca1.png?size=32"
               extra="this is extra"
@@ -19,13 +19,13 @@ export default class BasicCardExample extends React.Component<any, any> {
                 <Text style={{ marginLeft: 16 }}>这是卡片内容</Text>
               </View>
             </Card.Body>
-            <Card.Footer content="这是卡尾" extra="这是尾部介绍" />
+            <Card.Footer content="footer content" extra="footer extra content" />
           </Card>
         </WingBlank>
         <WhiteSpace size="lg" />
         <Card full>
           <Card.Header
-            title="这是 title"
+            title="Full Column"
             thumbStyle={{ width: 30, height: 30 }}
             thumb="http://gravatar.com/avatar/e9c13fb979736b16033acbce4c710ca1.png?size=32"
             extra="this is extra"
@@ -35,7 +35,7 @@ export default class BasicCardExample extends React.Component<any, any> {
               <Text style={{ marginLeft: 16 }}>这是卡片内容</Text>
             </View>
           </Card.Body>
-          <Card.Footer content="这是卡尾" extra="这是尾部介绍" />
+          <Card.Footer content="footer content" extra="footer extra content" />
         </Card>
       </View>
     );
