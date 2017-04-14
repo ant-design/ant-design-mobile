@@ -35,7 +35,7 @@ export default class BasicCarouselExample extends React.Component<any, any> {
               <Text>Carousel 5</Text>
             </View>
           </Carousel>
-          <Text>Carousel 根据内容自适应高度</Text>
+          <Text>Carousel can be adjusted height based on content</Text>
         </View>
       </View>
     );
