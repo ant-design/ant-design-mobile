@@ -153,7 +153,8 @@ export default class Header extends React.Component {
             lg={19} md={18} sm={17} xs={0} style={{ display: 'block' }}
           >
             <div id="search-box">
-              <Select combobox
+              <Select
+                mode="combobox"
                 dropdownClassName="component-select"
                 placeholder={locale === 'zh-CN' ? '搜索组件...' : 'Search Components...'}
                 value={undefined}
