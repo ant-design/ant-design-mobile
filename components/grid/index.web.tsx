@@ -79,8 +79,6 @@ export default class Grid extends React.Component<GridProps, any> {
       width: rowWidth,
     };
 
-    const pageCount = Math.ceil(rowCount / carouselMaxRow);
-
     const rowsArr: any[] = [];
 
     for (let i = 0; i < rowCount; i++) {
@@ -107,13 +105,23 @@ export default class Grid extends React.Component<GridProps, any> {
       rowsArr.push(<Flex justify="center" align="stretch" key={`gridline-${i}`}>{rowArr}</Flex>);
     }
 
+    const pageCount = Math.ceil(rowCount / carouselMaxRow);
     const isCarouselMode = isCarousel && pageCount > 1;
-
-    const renderEl = isCarouselMode ? initialSlideWidth > 0 ?
-        <Carousel initialSlideWidth={initialSlideWidth}>{this.renderCarousel(rowsArr, pageCount, rowCount)}</Carousel>
-          : null
-          : rowsArr;
-
+    let renderEl;
+    if (isCarouselMode) {
+      if (initialSlideWidth > 0) {
+        renderEl = (
+          <Carousel initialSlideWidth={initialSlideWidth}>
+            {this.renderCarousel(rowsArr, pageCount, rowCount)}
+          </Carousel>
+        );
+      } else {
+        // server side render
+        renderEl = null;
+      }
+    } else {
+      renderEl = rowsArr;
+    }
     return (
       <div
         className={classNames({
