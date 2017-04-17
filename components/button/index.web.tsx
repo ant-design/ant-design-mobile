@@ -73,7 +73,7 @@ class Button extends React.Component<tsProps, any> {
           {...restProps}
           onClick={disabled ? undefined : onClick}
         >
-          {iconType ? <Icon type={iconType} /> : null}
+          {iconType ? <Icon type={iconType} size={size === 'small' ? 'xxs' : 'md'}/> : null}
           {kids}
         </a>
       </Touchable>
