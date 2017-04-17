@@ -5,7 +5,7 @@ title:
   en-US: Basic
 ---
 
-When using `Carousel` in web projects, you will have the problem of how to deal with each item which height will be changed.
+When using `Carousel` in web projects, you may have problem about how to deal with variable item height.
 
 > [issues/1002](https://github.com/ant-design/ant-design-mobile/issues/1002#issuecomment-287301262)、[nuka-carousel/issues/103](https://github.com/FormidableLabs/nuka-carousel/issues/103)
 

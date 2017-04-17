@@ -421,7 +421,7 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
     >
-      Carousel can be adjusted height based on content
+      Carousel will adjust height based on content
     </Text>
   </View>
 </View>
