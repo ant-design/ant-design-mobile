@@ -22,7 +22,7 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
       <span
         class="am-navbar-left-content"
       >
-        返回
+        back
       </span>
     </div>
     <div
