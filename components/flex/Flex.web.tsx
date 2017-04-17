@@ -12,7 +12,9 @@ export default class Flex extends React.Component<FlexProps, any> {
   };
 
   render() {
-    let { direction, wrap, justify, align, alignContent, className, children, prefixCls, style, onClick } = this.props;
+    let {
+      direction, wrap, justify, align, alignContent, className, children, prefixCls, style, ...restProps,
+    } = this.props;
 
     const wrapCls = classNames({
       [prefixCls as string]: true,
@@ -48,7 +50,7 @@ export default class Flex extends React.Component<FlexProps, any> {
     });
 
     return (
-      <div className={wrapCls} style={style} onClick={onClick}>
+      <div className={wrapCls} style={style} {...restProps}>
         {children}
       </div>
     );
