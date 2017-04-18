@@ -41,9 +41,7 @@ class IconSlider extends React.Component {
         <WingBlank size="lg">
           <div className="iconWrapper">
             <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
-            <WingBlank size="md">
-              <SliderWithTooltip {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
-            </WingBlank>
+            <SliderWithTooltip {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
             <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
           </div>
         </WingBlank>
@@ -66,7 +64,7 @@ ReactDOM.render(
 
 .iconWrapper .am-icon {
   position: absolute;
-  top: -0.22rem;
+  top: -0.18rem;
   width: 0.44rem;
   height: 0.44rem;
   line-height: 1;
@@ -82,7 +80,7 @@ ReactDOM.render(
   right: 0;
 }
 
-.am-icon.anticon-highlight {
+.anticon.anticon-highlight {
   color: #666;
 }
 ````
