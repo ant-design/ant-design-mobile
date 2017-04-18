@@ -103,9 +103,9 @@
     "pre-commit": "1.x",
     "qrcode.react": "^0.6.1",
     "rc-form": "1.x",
-    "react": "~15.5.0",
+    "react": "^15.0.0",
     "react-document-title": "^2.0.1",
-    "react-dom": "~15.4.1",
+    "react-dom": "^15.0.0",
     "react-github-button": "^0.1.9",
     "react-intl": "^2.2.3",
     "react-native": "~0.39.0",
@@ -171,9 +171,6 @@
   },
   "tnpm": {
     "mode": "yarn"
-  },
-  "engines": {
-    "node": ">=v6.9.0"
   },
   "config": {
     "port": 8001
