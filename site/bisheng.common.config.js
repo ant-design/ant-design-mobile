@@ -4,13 +4,13 @@ const configSvg = require('../svg.config');
 module.exports = {
   webpackConfig(config) {
     configSvg(config, true);
-    config.externals = {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-      'react-router': 'ReactRouter',
-      history: 'History',
-      'babel-polyfill': 'this', // hack babel-polyfill has no exports
-    };
+    // config.externals = {
+    //   react: 'React',
+    //   'react-dom': 'ReactDOM',
+    //   'react-router': 'ReactRouter',
+    //   history: 'History',
+    //   'babel-polyfill': 'this', // hack babel-polyfill has no exports
+    // };
     config.module.noParse = [/moment.js/];
 
     config.resolve.alias = {
