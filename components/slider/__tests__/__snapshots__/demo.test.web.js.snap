@@ -225,32 +225,28 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
         />
       </svg>
       <div
-        class="am-wingblank am-wingblank-md"
+        class="am-slider-wrapper"
       >
         <div
-          class="am-slider-wrapper"
+          class="am-slider"
         >
           <div
-            class="am-slider"
-          >
-            <div
-              class="am-slider-rail"
-            />
-            <div
-              class="am-slider-track"
-              style="visibility:visible;left:0%;width:0%;"
-            />
-            <div
-              class="am-slider-step"
-            />
-            <div
-              class="am-slider-handle"
-              style="left:0%;"
-            />
-            <div
-              class="am-slider-mark"
-            />
-          </div>
+            class="am-slider-rail"
+          />
+          <div
+            class="am-slider-track"
+            style="visibility:visible;left:0%;width:0%;"
+          />
+          <div
+            class="am-slider-step"
+          />
+          <div
+            class="am-slider-handle"
+            style="left:0%;"
+          />
+          <div
+            class="am-slider-mark"
+          />
         </div>
       </div>
       <svg
