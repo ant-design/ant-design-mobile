@@ -13,7 +13,6 @@ export default class Grid extends React.Component<GridProps, any> {
     columnNum: 4,
     carouselMaxRow: 2,
     prefixCls: 'am-grid',
-    onClick: () => {},
   };
   constructor(props) {
     super(props);
@@ -45,13 +44,13 @@ export default class Grid extends React.Component<GridProps, any> {
     }
     return pagesArr;
   }
-  renderItem = (dataItem: DataItem, index: number, columnNum: number) => {
+  renderItem = (dataItem: DataItem, index: number, columnNum: number, renderItem: any) => {
     const { prefixCls } = this.props;
     return (
       <div
         className={`${prefixCls}-item-content`}
       >
-        {this.props.renderItem ? this.props.renderItem(dataItem, index) :
+        {renderItem ? renderItem(dataItem, index) :
           <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
             {
               React.isValidElement(dataItem.icon) ? dataItem.icon : (
@@ -65,10 +64,10 @@ export default class Grid extends React.Component<GridProps, any> {
     );
   }
   render() {
-    const { prefixCls, className, data, hasLine, isCarousel } = this.props;
-    const columnNum = this.props.columnNum as number;
-    const carouselMaxRow = this.props.carouselMaxRow as number;
-    const onClick = this.props.onClick as any;
+    const { prefixCls, className, data, hasLine, isCarousel, ...restProps } = this.props;
+    let { columnNum, carouselMaxRow, onClick = () => {}, renderItem, ...restPropsForCarousel } = restProps;
+    columnNum = columnNum as number;
+    carouselMaxRow = carouselMaxRow as number;
 
     const { initialSlideWidth } = this.state;
 
@@ -93,7 +92,7 @@ export default class Grid extends React.Component<GridProps, any> {
             onClick={() => onClick(el, dataIndex)}
             style={colStyle}
           >
-            {el && this.renderItem(el, dataIndex, columnNum)}
+            {el && this.renderItem(el, dataIndex, columnNum, renderItem)}
           </Flex.Item>);
         } else {
           rowArr.push(<Flex.Item
@@ -111,7 +110,7 @@ export default class Grid extends React.Component<GridProps, any> {
     if (isCarouselMode) {
       if (initialSlideWidth > 0) {
         renderEl = (
-          <Carousel initialSlideWidth={initialSlideWidth}>
+          <Carousel initialSlideWidth={initialSlideWidth} {...restPropsForCarousel}>
             {this.renderCarousel(rowsArr, pageCount, rowCount)}
           </Carousel>
         );
