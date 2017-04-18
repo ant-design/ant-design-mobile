@@ -75,7 +75,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   }
                 }
               >
-                标题一
+                Title 1
               </Text>
             </View>
             <View
@@ -211,7 +211,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                             ]
                           }
                         >
-                          子内容一
+                          Content 1
                         </Text>
                       </View>
                     </View>
@@ -299,7 +299,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                             ]
                           }
                         >
-                          子内容二
+                          Content 2
                         </Text>
                       </View>
                     </View>
@@ -387,7 +387,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                             ]
                           }
                         >
-                          子内容三
+                          Content 3
                         </Text>
                       </View>
                     </View>
@@ -471,7 +471,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   }
                 }
               >
-                标题二
+                Title 2
               </Text>
             </View>
             <View
@@ -495,14 +495,19 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   }
                 }
               >
-                
+                
               </Text>
             </View>
           </View>
         </View>
         <View
-          pointerEvents="auto"
-          style={false}
+          pointerEvents="none"
+          style={
+            Object {
+              "height": 0,
+              "overflow": "hidden",
+            }
+          }
         >
           <View
             onLayout={[Function]}
@@ -592,7 +597,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   }
                 }
               >
-                标题三
+                Title 3
               </Text>
             </View>
             <View
@@ -616,19 +621,14 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   }
                 }
               >
-                
+                
               </Text>
             </View>
           </View>
         </View>
         <View
-          pointerEvents="none"
-          style={
-            Object {
-              "height": 0,
-              "overflow": "hidden",
-            }
-          }
+          pointerEvents="auto"
+          style={false}
         >
           <View
             onLayout={[Function]}
@@ -655,7 +655,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   }
                 }
               >
-                文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本
+                Text text text text text text text text text text text text text text text
               </Text>
             </View>
           </View>

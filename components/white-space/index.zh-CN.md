@@ -5,7 +5,7 @@ title: WhiteSpace
 subtitle: 上下留白
 ---
 
-WhiteSpace 是 Flex 布局的控件之一。
+布局控件
 
 ## API
 

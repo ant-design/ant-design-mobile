@@ -169,7 +169,6 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
           >
             <input
               class="am-checkbox-input"
-              data-seed="logId"
               type="checkbox"
             />
             <span
