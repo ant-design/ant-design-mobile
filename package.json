@@ -150,7 +150,7 @@
     "clean": "antd-tools run clean",
     "start": "concurrently \"bisheng start -c ./site/bisheng.desktop.config.js --no-livereload\" \"bisheng start -c ./site/bisheng.kitchen.config.js --no-livereload\"",
     "demo": "bisheng start -c ./site/bisheng.kitchen.config.js",
-    "site": "concurrently \"bisheng build -c ./site/bisheng.desktop.config.js\" \"bisheng build -c ./site/bisheng.kitchen.config.js\" && node scripts/copy-app-res",
+    "site": "concurrently \"bisheng build --ssr -c ./site/bisheng.desktop.config.js\" \"bisheng build --ssr -c ./site/bisheng.kitchen.config.js\" && node scripts/copy-app-res",
     "pc": "bisheng start -c ./site/bisheng.desktop.config.js",
     "mobile": "bisheng start -c ./site/bisheng.kitchen.config.js",
     "deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
