@@ -24,9 +24,9 @@ function getMessageInstance(mask) {
 function notice(content, type, duration = 3, onClose, mask = true) {
   let iconType = ({
     info: '',
-    success: require('./style/assets/success.svg'),
-    fail: require('./style/assets/fail.svg'),
-    offline: require('./style/assets/dislike.svg'),
+    success: require('./style/assets/success.icon.svg'),
+    fail: require('./style/assets/fail.icon.svg'),
+    offline: require('./style/assets/dislike.icon.svg'),
     loading: 'loading',
   })[type];
 

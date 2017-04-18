@@ -23,7 +23,7 @@ const Demo = () => {
     icon: (<Icon type={item} />),
     text: item,
   })).concat([{
-    icon: (<Icon type={require('./reload.svg')} />),
+    icon: (<Icon type={require('./reload.icon.svg')} />),
     text: '自定义图标',
   }]);
   return (

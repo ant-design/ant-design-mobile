@@ -52,6 +52,14 @@ module.exports = {
 
 #### 如果使用 [atool-build](https://github.com/ant-tool/atool-build) 作为构建工具，webpack.config.js 文件写法稍有不同，配置如下：
 
+#####  atool-build 版本 >= 0.10.0 && antd-mobile >= 1.1.0
+
+- atool-build `0.10.0` 开始, 会对匹配 `*.icon.svg` 的文件自动进行处理。antd-mobile 从 `1.1.0` 开始对此进行了适配。
+- 如果使用 antd-mobile 内置 icon 无需任何配置。
+- 如果用户需要添加本地的 svg 图片文件，请保证文件名称满足 `*.icon.svg`。
+
+#####  atool-build 版本 < 0.10.0
+
 ```js
 const path = require('path');
 

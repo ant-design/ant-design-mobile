@@ -9,7 +9,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {
     prefixCls: 'am-notice-bar',
     mode: '',
-    icon: <Icon type={require('./style/assets/trips.svg')} size="xxs" />,
+    icon: <Icon type={require('./style/assets/trips.icon.svg')} size="xxs" />,
     onClick() {},
   };
 

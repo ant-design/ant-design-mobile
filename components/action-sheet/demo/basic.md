@@ -27,9 +27,9 @@ const iconList = [
   { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" />, title: '生活圈' },
   { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" />, title: '微信好友' },
   { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" />, title: 'QQ' },
-  { icon: <Icon type={require('./refresh.svg')} />, title: '刷新' },
-  { icon: <Icon type={require('./link.svg')} />, title: '链接' },
-  { icon: <Icon type={require('./complaints.svg')} />, title: '投诉' },
+  { icon: <Icon type={require('./refresh.icon.svg')} />, title: '刷新' },
+  { icon: <Icon type={require('./link.icon.svg')} />, title: '链接' },
+  { icon: <Icon type={require('./complaints.icon.svg')} />, title: '投诉' },
 ];
 
 class Test extends React.Component {
