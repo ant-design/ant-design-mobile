@@ -9,6 +9,7 @@ export interface ListProps {
   children?: any;
   renderHeader?: Function;
   renderFooter?: Function;
+  role?: string;
   /** rn only */
   styles?: any;
 }
@@ -33,6 +34,7 @@ export interface ListItemProps {
   disabled?: boolean;
   line?: number;
   platform?: string;
+  role?: string;
   /** rn only */
   styles?: any;
   onPressIn?: (e?: any) => void;

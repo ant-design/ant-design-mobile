@@ -72,8 +72,9 @@ class Button extends React.Component<tsProps, any> {
           className={classNames(wrapCls)}
           {...restProps}
           onClick={disabled ? undefined : onClick}
+          aria-disabled={disabled}
         >
-          {iconType ? <Icon type={iconType} size={size === 'small' ? 'xxs' : 'md'}/> : null}
+          {iconType ? <Icon aria-hidden="true" type={iconType} size={size === 'small' ? 'xxs' : 'md'}/> : null}
           {kids}
         </a>
       </Touchable>

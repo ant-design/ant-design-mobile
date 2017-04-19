@@ -63,7 +63,7 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     return (
       <Touchable activeClassName={`${prefixCls}-button-active`} key={i}>
-        <a className={`${prefixCls}-button`} style={buttonStyle} href="#" onClick={onClickFn}>
+        <a className={`${prefixCls}-button`} role="button" style={buttonStyle} href="#" onClick={onClickFn}>
           {button.text || `Button`}
         </a>
       </Touchable>
@@ -96,7 +96,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
 
     const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`;
-    const footerDom = footer.length ? <div className={btnGroupClass}>
+    const footerDom = footer.length ? <div className={btnGroupClass} role="group">
       {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
     </div> : null;
 

@@ -3,6 +3,7 @@
 exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
 <div>
   <a
+    aria-disabled="false"
     class="am-button am-button-primary"
     role="button"
   >
@@ -24,6 +25,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
         >
           <a
+            aria-disabled="false"
             class="am-button am-button-inline"
             role="button"
           >
@@ -33,6 +35,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           </a>
         </div>
         <div
+          aria-live="assertive"
           class="am-flexbox-item am-pagination-wrap"
         >
           <span
@@ -49,6 +52,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
           class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
         >
           <a
+            aria-disabled="false"
             class="am-button am-button-inline"
             role="button"
           >
@@ -87,6 +91,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
                 点击查看国际化
               </div>
               <div
+                aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
               />
             </div>
