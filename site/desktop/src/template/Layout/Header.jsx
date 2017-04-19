@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import enquire from 'enquire.js';
@@ -12,8 +13,8 @@ const Option = Select.Option;
 
 export default class Header extends React.Component {
   static contextTypes = {
-    router: React.PropTypes.object.isRequired,
-    intl: React.PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
   }
 
   constructor(props) {

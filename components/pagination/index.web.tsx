@@ -1,5 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Button from '../button';
 import Flex from '../flex';
@@ -16,7 +17,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   constructor(props) {

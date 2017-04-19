@@ -1,12 +1,13 @@
 /* eslint react/no-danger: 0 */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { Button, Modal, Radio } from 'antd';
 
 export default class Demo extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object,
+    intl: PropTypes.object,
   }
 
   state = {

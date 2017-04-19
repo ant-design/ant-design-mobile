@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
@@ -10,7 +11,7 @@ import Demo from './Demo';
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object,
+    intl: PropTypes.object,
   }
 
   constructor(props) {
