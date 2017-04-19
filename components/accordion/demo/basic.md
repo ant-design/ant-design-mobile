@@ -17,7 +17,7 @@ class AccordionExmple extends React.Component {
   render() {
     return (
       <div style={{ marginTop: 10, marginBottom: 10 }}>
-        <Accordion defaultActiveKey="0" className="my-accordion">
+        <Accordion defaultActiveKey="0" className="my-accordion" onChange={this.onChange}>
           <Accordion.Panel header="Title 1">
             <List className="my-list">
               <List.Item>Content 1</List.Item>
