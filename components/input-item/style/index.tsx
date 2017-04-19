@@ -23,7 +23,7 @@ export default StyleSheet.create({
     flex: 1,
     height: variables.list_item_height,
     backgroundColor: variables.fill_base,
-    fontSize: variables.font_size_heading,
+    fontSize: variables.input_font_size,
   },
   extra: {
     marginLeft: variables.h_spacing_sm,
