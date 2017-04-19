@@ -52,6 +52,8 @@ $ npm install babel-plugin-import --save-dev
 
 #### Web 使用方式
 
+> 以下使用 webpack@1.x 版本，如果是 webpack@2.x 请自己修改相应配置语法
+
 - 设置 webpack 的 resolve
 
   ```
