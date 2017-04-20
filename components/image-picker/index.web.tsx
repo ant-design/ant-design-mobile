@@ -18,6 +18,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     onImageClick: noop,
     onAddImageClick: noop,
     selectable: true,
+    maxWidth: 1024,
   };
 
   // http://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
@@ -69,7 +70,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         break;
       case 8:
         imgRotation = 270;
-      break;
+        break;
       default:
     }
     return imgRotation;
@@ -102,6 +103,91 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     }
   }
 
+  /**
+    * Detecting vertical squash in loaded image.
+    * Fixes a bug which squash image vertically while drawing into canvas for some images.
+    * This is a bug in iOS6 devices. This function from https://github.com/stomita/ios-imagefile-megapixel
+    * With react fix by n7best
+    */
+  detectVerticalSquash(img) {
+    let data;
+    let ih = img.naturalHeight;
+    let canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = ih;
+    let ctx = canvas.getContext('2d');
+    if (!ctx) {
+      return 1;
+    }
+    ctx.drawImage(img, 0, 0);
+    try {
+      // Prevent cross origin error
+      data = ctx.getImageData(0, 0, 1, ih).data;
+    } catch (err) {
+      return 1;
+    }
+    // search image edge pixel position in case it is squashed vertically.
+    let sy = 0;
+    let ey = ih;
+    let py = ih;
+    while (py > sy) {
+      let alpha = data[(py - 1) * 4 + 3];
+      if (alpha === 0) {
+        ey = py;
+      } else {
+        sy = py;
+      }
+      py = (ey + sy) >> 1;
+    }
+    let ratio = (py / ih);
+    return (ratio === 0) ? 1 : ratio;
+  }
+
+  compressImage = (src, cb) => {
+    let img = new Image();
+    img.onload = () => {
+      let w = Math.min(this.props.maxWidth, img.width);
+      let h = img.height * (w / img.width);
+      let canvas = document.createElement('canvas');
+      let ctx = canvas.getContext('2d');
+
+      if (ctx) {
+        let drawImage = ctx.drawImage;
+        ctx.drawImage = (_img: HTMLImageElement, sx, sy, sw, sh: number, dx, dy, dw, dh: number) => {
+          let vertSquashRatio = 1;
+          // Detect if img param is indeed image
+          if (!!_img && _img.nodeName === 'IMG') {
+            vertSquashRatio = this.detectVerticalSquash(_img);
+            if (typeof sw === 'undefined') {
+              sw = _img.naturalWidth;
+            }
+            if (typeof sh === 'undefined') {
+              sh = _img.naturalHeight;
+            }
+          }
+          // Execute several cases (Firefox does not handle undefined as no param)
+          // by call (apply is bad performance)
+          if (arguments.length === 9) {
+            drawImage.call(ctx, _img, sx, sy, sw, sh, dx, dy, dw, dh / vertSquashRatio);
+          } else if (typeof sw !== 'undefined') {
+            drawImage.call(ctx, _img, sx, sy, sw, sh / vertSquashRatio);
+          } else {
+            drawImage.call(ctx, _img, sx, sy);
+          }
+        };
+
+        canvas.width = w;
+        canvas.height = h;
+        ctx.drawImage(img, 0, 0, w, h);
+        // get image type
+        let type = src.substring(src.indexOf(':') + 1, src.indexOf(';'));
+        let base64Url = canvas.toDataURL(type);
+        cb(base64Url);
+      }
+    };
+    img.src = src;
+  }
+
   onFileChange = () => {
     const fileSelectorEl = (this.refs as any).fileSelectorInput;
     if (fileSelectorEl.files && fileSelectorEl.files.length) {
@@ -120,10 +206,13 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           if (res > 0) {
             orientation = res;
           }
-          this.addImage({
-            url: dataURL,
-            orientation,
-            file,
+          // compress image
+          this.compressImage(dataURL, (url) => {
+            this.addImage({
+              url,
+              orientation,
+              file,
+            });
           });
 
           fileSelectorEl.value = '';
@@ -135,7 +224,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
 
   render() {
     const { prefixCls, style, className, files = [],
-       selectable, onAddImageClick } = this.props;
+      selectable, onAddImageClick } = this.props;
     const imgItemList: any[] = [];
 
     const wrapCls = classNames({
@@ -186,7 +275,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;
     const length = allEl.length;
     if (length !== 0 && length % 4 !== 0) {
-      const fillBlankEl = new Array(4 - length % 4).fill(<Item/>);
+      const fillBlankEl = new Array(4 - length % 4).fill(<Item />);
       allEl = allEl.concat(fillBlankEl);
     }
     const flexEl: Array<Array<any>> = [];
