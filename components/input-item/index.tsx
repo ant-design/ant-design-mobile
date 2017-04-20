@@ -76,7 +76,10 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       case 'password':
         break;
       case 'number':
-        text = text.replace(/\D/g, '');
+        text = text.replace(/\..*/, c => "." + c.replace(/\./g, () => ""));
+        if (text === '.') {
+          text = '';
+        }
         break;
       default:
         break;
