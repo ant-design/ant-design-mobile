@@ -5,6 +5,7 @@
 */
 
 import React from 'react';
+import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
 import assign from 'object-assign';
 
@@ -18,7 +19,7 @@ export interface MarqueeProp {
   fps?: number;
 }
 
-const Marquee = React.createClass<MarqueeProp, any>({
+const Marquee = createReactClass<MarqueeProp, any>({
   getDefaultProps() {
     return {
       text: '',

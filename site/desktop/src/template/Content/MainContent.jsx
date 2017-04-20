@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import Menu from 'antd/lib/menu';
 import Row from 'antd/lib/row';
@@ -11,7 +12,7 @@ const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
   }
 
   componentDidMount() {

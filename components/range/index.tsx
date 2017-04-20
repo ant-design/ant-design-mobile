@@ -1,7 +1,8 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import RangeProps from './PropsType';
 
-const Range = React.createClass<RangeProps, any>({
+const Range = createReactClass<RangeProps, any>({
   render() {
     return <div>TODO for react-native</div>;
   },

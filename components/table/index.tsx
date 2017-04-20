@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-const Table = React.createClass<any, any>({
+const Table = createReactClass<any, any>({
   render() {
     return <div>TODO for react-native</div>;
   },

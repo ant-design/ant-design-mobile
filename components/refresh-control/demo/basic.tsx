@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import { StyleSheet, View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { RefreshControl } from 'antd-mobile';
 
@@ -36,7 +37,7 @@ class Row extends React.Component<any, any> {
   }
 }
 
-export default React.createClass({
+export default createReactClass({
   getInitialState() {
     return {
       isRefreshing: false,

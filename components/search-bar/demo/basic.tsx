@@ -1,8 +1,9 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import { View, Alert } from 'react-native';
 import { SearchBar } from 'antd-mobile';
 
-export default React.createClass({
+export default createReactClass({
   getInitialState() {
     return {
       value: '美食',
