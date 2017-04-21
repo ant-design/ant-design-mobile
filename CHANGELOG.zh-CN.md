@@ -11,6 +11,28 @@ title: 更新日志
 
 ---
 
+`2017-04-21`
+
+# 1.1.0
+
+## Bug Fix
+- 修复 `Steps` 溢出。（(#5623)[https://github.com/ant-design/ant-design/issues/5623](https://github.com/ant-design/ant-design/issues/5623)）
+- 搜索框支持在主题变量自定义高度，背景色等。（[PR 1113](https://github.com/ant-design/ant-design-mobile/pull/1113)）[@yezongyang](https://github.com/yezongyang)
+- 修复 React-Native `Steps` 不支持自定义 Icon ([#1088](https://github.com/ant-design/ant-design-mobile/issues/1088))
+- 修复 `Progress` 不支持自定义 `className`。（[PR 1126](https://github.com/ant-design/ant-design-mobile/pull/1126)）
+- 修复 React-Native `InputItem` 不支持自定义内容。([#1113](https://github.com/ant-design/ant-design-mobile/issues/1133))
+- 修复 `InputItem` 数字键盘在 Android 的兼容问题。([#1073](https://github.com/ant-design/ant-design-mobile/issues/1073))。
+- 修复 `InputItem` autoFocus 在 safari 无法聚焦的 bug。([PR 1134](https://github.com/ant-design/ant-design-mobile/pull/1134))
+- 修复小尺寸 `Button` 的 loading icon 尺寸。([587963](https://github.com/ant-design/ant-design-mobile/commit/587936abc43015ed2fa9be1b3493b3a8c4f98334))
+- 修复部分 React15.5 关于 PropType 和 CreateClass 的 warning。([#1118](https://github.com/ant-design/ant-design-mobile/issues/1118))
+- 修复部分内置 svg 背景的尺寸。([#1140](https://github.com/ant-design/ant-design-mobile/issues/1140))
+
+## Improve && Enhancement
+- 重构 `Grid`, `ImagePicker`, `Modal` 以支持服务端渲染。
+- `Flex`, `FlexItem` 支持传递 `data-` 等任意自定义属性。([#1150](https://github.com/ant-design/ant-design-mobile/issues/1150))
+- `Grid` 在 carousel 模式下支持 `Carousel` 的相应 API。（[#1164](https://github.com/ant-design/ant-design-mobile/issues/1164)）
+
+
 `2017-04-07`
 
 # 1.0.8
