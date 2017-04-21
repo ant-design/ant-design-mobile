@@ -13,7 +13,7 @@ title: 更新日志
 
 `2017-04-21`
 
-# 1.0.9
+# 1.1.0
 
 ## Bug Fix
 - 修复 `Steps` 溢出。（(#5623)[https://github.com/ant-design/ant-design/issues/5623](https://github.com/ant-design/ant-design/issues/5623)）
