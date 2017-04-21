@@ -149,7 +149,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         transform: `rotate(${this.getRotation(image.orientation)}deg)`,
       };
       imgItemList.push(
-        <Item>
+        <Item key={`item-${index}`}>
           <div key={index} className={`${prefixCls}-item`} >
             <div
               className={`${prefixCls}-item-remove`}
@@ -166,7 +166,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     });
 
     const selectEl = (
-      <Touchable activeClassName={`${prefixCls}-upload-btn-active`}>
+      <Touchable activeClassName={`${prefixCls}-upload-btn-active`} key="select">
         <Item>
           <div
             className={`${prefixCls}-item ${prefixCls}-upload-btn`}
@@ -186,7 +186,11 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;
     const length = allEl.length;
     if (length !== 0 && length % 4 !== 0) {
-      const fillBlankEl = new Array(4 - length % 4).fill(<Item/>);
+      const blankCount = 4 - length % 4;
+      let fillBlankEl: Array<any> = [];
+      for (let i = 0; i < blankCount; i++) {
+        fillBlankEl.push(<Item key={`blank-${i}`}/>);
+      }
       allEl = allEl.concat(fillBlankEl);
     }
     const flexEl: Array<Array<any>> = [];
@@ -194,8 +198,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       const rowEl = allEl.slice(i * 4, i * 4 + 4);
       flexEl.push(rowEl);
     }
-    const renderEl = flexEl.map((item) => (
-      <Flex>
+    const renderEl = flexEl.map((item, index) => (
+      <Flex key={`flex-${index}`}>
         {item}
       </Flex>
     ));
