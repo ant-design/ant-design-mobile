@@ -13,9 +13,7 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
     hitSlop={undefined}
-    isTVSelectable={true}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -52,7 +50,6 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
       ]
     }
     testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -158,9 +155,7 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
             accessibilityLabel={undefined}
             accessibilityTraits={undefined}
             accessible={true}
-            hasTVPreferredFocus={undefined}
             hitSlop={undefined}
-            isTVSelectable={true}
             onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -197,7 +192,6 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
               ]
             }
             testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <View
               style={
@@ -322,9 +316,7 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
             accessibilityLabel={undefined}
             accessibilityTraits={undefined}
             accessible={true}
-            hasTVPreferredFocus={undefined}
             hitSlop={undefined}
-            isTVSelectable={true}
             onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -361,7 +353,6 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
               ]
             }
             testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <View
               style={
@@ -428,9 +419,7 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
             accessibilityLabel={undefined}
             accessibilityTraits={undefined}
             accessible={true}
-            hasTVPreferredFocus={undefined}
             hitSlop={undefined}
-            isTVSelectable={true}
             onLayout={undefined}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -447,7 +436,6 @@ exports[`renders ./components/locale-provider/demo/basic.tsx correctly 1`] = `
               ]
             }
             testID={undefined}
-            tvParallaxProperties={undefined}
           >
             <View
               style={
