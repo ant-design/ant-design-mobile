@@ -22,3 +22,4 @@ subtitle: 菜单
 | value    |  初始值，一级和二级筛选数据的`value`组成的数组  | Array | [] |
 | onChange    |   选择后的回调函数    | (item: Object): void  |  |
 | height    |   筛选组件的高度   | number  | `document.documentElement.clientHeight / 2` |
+| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `cross`， 即组件会自动检测设备 UA 应用不同平台的样式    | String | `'cross'`|

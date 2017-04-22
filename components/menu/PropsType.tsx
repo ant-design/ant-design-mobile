@@ -22,4 +22,5 @@ export interface MenuProps {
   onChange?: Function;
   level?: number;
   height?: number;
+  platform?: string;
 }

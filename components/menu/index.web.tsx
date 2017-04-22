@@ -55,7 +55,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
 
   render() {
-    const { className, style, height, data = [], prefixCls, value, level } = this.props;
+    const { className, style, height, data = [], prefixCls, value, level, platform } = this.props;
     const { firstLevelSelectValue } = this.state;
 
     let subMenuData = data[0].children || [];
@@ -88,6 +88,7 @@ export default class Menu extends React.Component<MenuProps, any> {
                 {data.map((dataItem, index) => (
                   <List.Item
                     className={dataItem.value === firstLevelSelectValue ? `${prefixCls}-selected` : ''}
+                    platform={platform}
                     onClick={() => this.onClickFirstLevelItem(dataItem)}
                     key={`listitem-1-${index}`}
                   >
@@ -103,6 +104,7 @@ export default class Menu extends React.Component<MenuProps, any> {
               radioPrefixCls={this.props.radioPrefixCls}
               subMenuData={subMenuData}
               selItem={subSelInitItem}
+              platform={platform}
               onSel={this.onClickSubMenuItem}
             />
           </Flex.Item>
