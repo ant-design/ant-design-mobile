@@ -68,7 +68,10 @@ export default class MainContent extends React.Component {
       ];
     }
     const disabled = item.disabled;
-    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
+    let url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
+    if (item.filename.includes('zh-CN')) {
+      url = `${url}-cn`;
+    }
     const child = !item.link ?
       (<Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
         {text}
@@ -98,7 +101,6 @@ export default class MainContent extends React.Component {
         const groupItems = obj[type].sort((a, b) => (
           (a.title || a.english).charCodeAt(0) - (b.title || b.english).charCodeAt(0)
         )).map(this.generateMenuItem.bind(this, false));
-
         return (
           <Menu.ItemGroup title={type} key={index}>
             {groupItems}
@@ -123,7 +125,6 @@ export default class MainContent extends React.Component {
   getMenuItems() {
     const moduleData = this.getModuleData();
     const menuItems = utils.getMenuItems(moduleData);
-
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
       .sort((a, b) => this.props.themeConfig.categoryOrder[a] - this.props.themeConfig.categoryOrder[b])
@@ -176,7 +177,6 @@ export default class MainContent extends React.Component {
     const DemoEl = demos ? (
       <ComponentDoc {...props} doc={localizedPageData} demos={demos} />
       ) : <Article {...props} content={localizedPageData} />;
-
     return (
       <div className="main-wrapper">
         <Row>

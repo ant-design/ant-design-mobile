@@ -145,7 +145,7 @@ export default class Header extends React.Component {
               onClick={this.handleMenuIconClick}
               type="menu"
             />
-            <Link to="/" id="logo">
+            <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" />
               <span>{siteTitle}</span>
             </Link>
