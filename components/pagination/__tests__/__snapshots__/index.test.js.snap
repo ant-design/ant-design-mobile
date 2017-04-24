@@ -66,7 +66,9 @@ exports[`Pagination renders correctly 1`] = `
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -103,6 +105,7 @@ exports[`Pagination renders correctly 1`] = `
           ]
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -227,7 +230,9 @@ exports[`Pagination renders correctly 1`] = `
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -264,6 +269,7 @@ exports[`Pagination renders correctly 1`] = `
           ]
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
           style={

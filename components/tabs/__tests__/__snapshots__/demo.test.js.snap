@@ -56,6 +56,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
         accessibilityTraits="button"
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -70,6 +71,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -116,6 +118,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
         accessibilityTraits="button"
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -130,6 +133,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -176,6 +180,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
         accessibilityTraits="button"
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -190,6 +195,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -243,7 +249,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
         }
       />
     </View>
-    <ScrollView
+    <RCTScrollView
       alwaysBounceVertical={false}
       automaticallyAdjustContentInsets={false}
       contentOffset={
@@ -263,56 +269,58 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
       scrollsToTop={false}
       showsHorizontalScrollIndicator={false}
     >
-      <View
-        style={
-          Object {
-            "width": 750,
-          }
-        }
-      >
-        <View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "height": 100,
-                "justifyContent": "center",
-              }
+      <View>
+        <View
+          style={
+            Object {
+              "width": 750,
             }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+          }
+        >
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 100,
+                  "justifyContent": "center",
+                }
+              }
             >
-              选项卡一内容
-            </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+              >
+                选项卡一内容
+              </Text>
+            </View>
           </View>
         </View>
-      </View>
-      <View
-        style={
-          Object {
-            "width": 750,
-          }
-        }
-      >
         <View
-          tabLabel="选项卡二"
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "width": 750,
+          style={
+            Object {
+              "width": 750,
+            }
           }
-        }
-      >
+        >
+          <View
+            tabLabel="选项卡二"
+          />
+        </View>
         <View
-          tabLabel="选项卡三"
-        />
+          style={
+            Object {
+              "width": 750,
+            }
+          }
+        >
+          <View
+            tabLabel="选项卡三"
+          />
+        </View>
       </View>
-    </ScrollView>
+    </RCTScrollView>
   </View>
 </View>
 `;

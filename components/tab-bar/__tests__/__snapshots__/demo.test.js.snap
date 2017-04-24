@@ -14,6 +14,7 @@ exports[`renders ./components/tab-bar/demo/basic.tsx correctly 1`] = `
   }
   tintColor="#33A3F4"
   translucent={true}
+  unselectedItemTintColor={undefined}
   unselectedTintColor="#949494"
 >
   <RCTTabBarItem

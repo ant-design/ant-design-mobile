@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
-<ScrollView
+<RCTScrollView
   automaticallyAdjustContentInsets={false}
   showsHorizontalScrollIndicator={false}
   showsVerticalScrollIndicator={false}
@@ -11,523 +11,508 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
     }
   }
 >
-  <View
-    style={undefined}
-  >
-    <View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+  <View>
+    <View
+      style={undefined}
+    >
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "#f5f5f9",
+              "color": "#888",
+              "fontSize": 14,
+              "paddingBottom": 9,
+              "paddingLeft": 15,
+              "paddingRight": 15,
+              "paddingTop": 15,
+            }
+          }
+        >
+          基本
+        </Text>
+      </View>
+      <View
         style={
           Object {
-            "backgroundColor": "#f5f5f9",
-            "color": "#888",
-            "fontSize": 14,
-            "paddingBottom": 9,
-            "paddingLeft": 15,
-            "paddingRight": 15,
-            "paddingTop": 15,
+            "backgroundColor": "#fff",
+            "borderTopColor": "#ddd",
+            "borderTopWidth": 0.5,
           }
         }
-      >
-        基本
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#fff",
-          "borderTopColor": "#ddd",
-          "borderTopWidth": 0.5,
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
-          }
-        >
-          输入框
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onErrorPress={[Function]}
-          onFocus={[Function]}
-          placeholder="有标签"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#f50",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={undefined}
-          testID={undefined}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#888",
-                  "fontSize": 15,
-                  "marginLeft": 5,
-                },
-                Object {
-                  "width": 17,
-                },
-              ]
-            }
-          >
-            元
-          </Text>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "height": 21,
-                "marginLeft": 5,
-                "width": 21,
-              },
-            ]
-          }
-          testID={undefined}
-        >
-          <Image
-            source={1}
-            style={
-              Object {
-                "height": 18,
-                "width": 18,
-              }
-            }
-          />
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
-          }
-        >
-          输入框
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={false}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onErrorPress={[Function]}
-          onFocus={[Function]}
-          placeholder="不可编辑"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value="不可编辑"
-        />
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={undefined}
-          testID={undefined}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-          >
-            元
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="无标签"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
-          }
-        >
-          标题
-        </Text>
-        <TextInput
-          autoFocus={true}
-          clearButtonMode="while-editing"
-          defaultValue="xx"
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="自动获取光标"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
-          }
-        >
-          标题
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          defaultValue={undefined}
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="点击下方按钮该输入框会获取光标"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-        />
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
       >
         <View
           style={
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#fff",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
                 "flexDirection": "row",
-                "flexGrow": 1,
-                "paddingLeft": 15,
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
               },
               undefined,
             ]
           }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            输入框
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onErrorPress={[Function]}
+            onFocus={[Function]}
+            placeholder="有标签"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#f50",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={undefined}
+            testID={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "color": "#888",
+                    "fontSize": 15,
+                    "marginLeft": 5,
+                  },
+                  Object {
+                    "width": 17,
+                  },
+                ]
+              }
+            >
+              元
+            </Text>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 21,
+                  "marginLeft": 5,
+                  "width": 21,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "height": 18,
+                  "width": 18,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            输入框
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={false}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onErrorPress={[Function]}
+            onFocus={[Function]}
+            placeholder="不可编辑"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value="不可编辑"
+          />
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={undefined}
+            testID={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            >
+              元
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="无标签"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            标题
+          </Text>
+          <TextInput
+            autoFocus={true}
+            clearButtonMode="while-editing"
+            defaultValue="xx"
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="自动获取光标"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            标题
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            defaultValue={undefined}
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="点击下方按钮该输入框会获取光标"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+          />
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              undefined,
+            ]
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
         >
           <View
             style={
               Array [
                 Object {
                   "alignItems": "center",
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "flex": 1,
+                  "backgroundColor": "#fff",
                   "flexDirection": "row",
-                  "minHeight": 45,
-                  "paddingBottom": 6,
-                  "paddingRight": 15,
-                  "paddingTop": 6,
+                  "flexGrow": 1,
+                  "paddingLeft": 15,
                 },
-                false,
-                false,
+                undefined,
               ]
             }
           >
@@ -535,806 +520,829 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
               style={
                 Array [
                   Object {
+                    "alignItems": "center",
+                    "borderBottomColor": "#ddd",
+                    "borderBottomWidth": 0.5,
                     "flex": 1,
-                    "flexDirection": "column",
+                    "flexDirection": "row",
+                    "minHeight": 45,
+                    "paddingBottom": 6,
+                    "paddingRight": 15,
+                    "paddingTop": 6,
                   },
+                  false,
+                  false,
                 ]
               }
             >
               <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "transparent",
+                      "flex": 1,
+                      "flexDirection": "column",
                     },
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "borderRadius": 5,
-                        "borderWidth": 1,
-                        "justifyContent": "center",
-                      },
-                      Object {
-                        "height": 42,
-                        "paddingLeft": 15,
-                        "paddingRight": 15,
-                      },
-                      Object {
-                        "backgroundColor": "#108ee9",
-                        "borderColor": "#108ee9",
-                      },
-                      false,
-                      false,
-                      false,
-                      undefined,
-                    ],
                   ]
                 }
-                testID={undefined}
               >
                 <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
                   style={
-                    Object {
-                      "flexDirection": "row",
-                    }
-                  }
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                      },
                       Array [
                         Object {
-                          "fontSize": 18,
+                          "alignItems": "center",
+                          "borderRadius": 5,
+                          "borderWidth": 1,
+                          "justifyContent": "center",
                         },
                         Object {
-                          "color": "#fff",
+                          "height": 42,
+                          "paddingLeft": 15,
+                          "paddingRight": 15,
+                        },
+                        Object {
+                          "backgroundColor": "#108ee9",
+                          "borderColor": "#108ee9",
                         },
                         false,
                         false,
-                      ]
+                        false,
+                        undefined,
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "flexDirection": "row",
+                      }
                     }
                   >
-                    点击获取光标
-                  </Text>
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Array [
+                          Object {
+                            "fontSize": 18,
+                          },
+                          Object {
+                            "color": "#fff",
+                          },
+                          false,
+                          false,
+                        ]
+                      }
+                    >
+                      点击获取光标
+                    </Text>
+                  </View>
                 </View>
               </View>
             </View>
           </View>
         </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "bottom": 0,
-              "height": 1,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-            },
-          ]
-        }
-      />
-    </View>
-  </View>
-  <View
-    style={undefined}
-  >
-    <View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "backgroundColor": "#f5f5f9",
-            "color": "#888",
-            "fontSize": 14,
-            "paddingBottom": 9,
-            "paddingLeft": 15,
-            "paddingRight": 15,
-            "paddingTop": 15,
-          }
-        }
-      >
-        固定标签字数
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#fff",
-          "borderTopColor": "#ddd",
-          "borderTopWidth": 0.5,
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 35.7,
-              },
-            ]
-          }
-        >
-          姓名
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="两个字标签"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 53.550000000000004,
-              },
-            ]
-          }
-        >
-          校验码
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="三个字标签"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
-          }
-        >
-          四字标签
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="四个字标签（默认）"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "bottom": 0,
-              "height": 1,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-            },
-          ]
-        }
-      />
-    </View>
-  </View>
-  <View
-    style={undefined}
-  >
-    <View>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "backgroundColor": "#f5f5f9",
-            "color": "#888",
-            "fontSize": 14,
-            "paddingBottom": 9,
-            "paddingLeft": 15,
-            "paddingRight": 15,
-            "paddingTop": 15,
-          }
-        }
-      >
-        格式
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#fff",
-          "borderTopColor": "#ddd",
-          "borderTopWidth": 0.5,
-        }
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
-          }
-        >
-          文本输入
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="text"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#f50",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
         <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
             Array [
               Object {
-                "height": 21,
-                "marginLeft": 5,
-                "width": 21,
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "bottom": 0,
+                "height": 1,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
               },
             ]
           }
-          testID={undefined}
-        >
-          <Image
-            source={1}
-            style={
-              Object {
-                "height": 18,
-                "width": 18,
-              }
+        />
+      </View>
+    </View>
+    <View
+      style={undefined}
+    >
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "#f5f5f9",
+              "color": "#888",
+              "fontSize": 14,
+              "paddingBottom": 9,
+              "paddingLeft": 15,
+              "paddingRight": 15,
+              "paddingTop": 15,
             }
+          }
+        >
+          固定标签字数
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#fff",
+            "borderTopColor": "#ddd",
+            "borderTopWidth": 0.5,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 35.7,
+                },
+              ]
+            }
+          >
+            姓名
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="两个字标签"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
           />
         </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 53.550000000000004,
+                },
+              ]
+            }
+          >
+            校验码
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="三个字标签"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            四字标签
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="四个字标签（默认）"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "bottom": 0,
+                "height": 1,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+              },
+            ]
+          }
+        />
       </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
+    </View>
+    <View
+      style={undefined}
+    >
+      <View>
         <Text
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
           style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
+            Object {
+              "backgroundColor": "#f5f5f9",
+              "color": "#888",
+              "fontSize": 14,
+              "paddingBottom": 9,
+              "paddingLeft": 15,
+              "paddingRight": 15,
+              "paddingTop": 15,
+            }
           }
         >
-          银行卡
+          格式
         </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="number-pad"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="bankCard"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
       </View>
       <View
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
+          Object {
+            "backgroundColor": "#fff",
+            "borderTopColor": "#ddd",
+            "borderTopWidth": 0.5,
+          }
         }
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
           style={
             Array [
               Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
               },
               Object {
-                "width": 71.4,
+                "borderBottomWidth": 0.5,
               },
+              undefined,
             ]
           }
         >
-          手机号
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="phone-pad"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="phone"
-          secureTextEntry={false}
-          size="large"
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            文本输入
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="text"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#f50",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 21,
+                  "marginLeft": 5,
+                  "width": 21,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "height": 18,
+                  "width": 18,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            银行卡
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="number-pad"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="bankCard"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            手机号
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="phone-pad"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="phone"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            密码
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="default"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="password"
+            secureTextEntry={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "height": 45.5,
+                "marginBottom": 0,
+                "marginLeft": 15,
+                "marginTop": 0,
+                "paddingRight": 15,
+              },
+              Object {
+                "borderBottomWidth": 0.5,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 17,
+                  "marginRight": 5,
+                  "textAlignVertical": "center",
+                },
+                Object {
+                  "width": 71.4,
+                },
+              ]
+            }
+          >
+            数字
+          </Text>
+          <TextInput
+            clearButtonMode="while-editing"
+            editable={true}
+            focused={false}
+            keyboardType="numeric"
+            labelPosition="left"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="number"
+            secureTextEntry={false}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 45,
+                },
+                Object {
+                  "color": "#000",
+                },
+              ]
+            }
+            textAlign="left"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <View
           style={
             Array [
               Object {
                 "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "bottom": 0,
+                "height": 1,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
               },
             ]
           }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
         />
       </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
-          }
-        >
-          密码
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="default"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="password"
-          secureTextEntry={true}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "height": 45.5,
-              "marginBottom": 0,
-              "marginLeft": 15,
-              "marginTop": 0,
-              "paddingRight": 15,
-            },
-            Object {
-              "borderBottomWidth": 0.5,
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 17,
-                "marginRight": 5,
-                "textAlignVertical": "center",
-              },
-              Object {
-                "width": 71.4,
-              },
-            ]
-          }
-        >
-          数字
-        </Text>
-        <TextInput
-          clearButtonMode="while-editing"
-          editable={true}
-          focused={false}
-          keyboardType="numeric"
-          labelPosition="left"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          placeholder="number"
-          secureTextEntry={false}
-          size="large"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "flex": 1,
-                "fontSize": 17,
-                "height": 45,
-              },
-              Object {
-                "color": "#000",
-              },
-            ]
-          }
-          textAlign="left"
-          underlineColorAndroid="transparent"
-          value=""
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "bottom": 0,
-              "height": 1,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-            },
-          ]
-        }
-      />
     </View>
   </View>
-</ScrollView>
+</RCTScrollView>
 `;

@@ -1,2267 +1,2258 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/grid/demo/basic.tsx correctly 1`] = `
-<ScrollView>
-  <View
-    style={
-      Array [
-        Object {
-          "margin": 10,
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      简单示例
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "padding": 10,
-        },
-      ]
-    }
-  >
+<RCTScrollView>
+  <View>
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "flexDirection": "column",
-            "flexWrap": "nowrap",
-            "justifyContent": "flex-start",
+            "margin": 10,
           },
-          undefined,
         ]
       }
-      testID={undefined}
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
+      <Text
         accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "flexWrap": "nowrap",
-              "justifyContent": "flex-start",
-            },
-            Array [
-              Object {
-                "borderColor": "#ddd",
-              },
-              Object {
-                "borderBottomWidth": 0,
-                "borderTopWidth": 0,
-              },
-            ],
-          ]
-        }
-        testID={undefined}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
       >
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字0
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字1
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字2
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字3
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "flexWrap": "nowrap",
-              "justifyContent": "flex-start",
-            },
-            Array [
-              Object {
-                "borderColor": "#ddd",
-              },
-              Object {
-                "borderBottomWidth": 0,
-                "borderTopWidth": 0,
-              },
-            ],
-          ]
-        }
-        testID={undefined}
-      >
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字4
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字5
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字6
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字7
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "flexWrap": "nowrap",
-              "justifyContent": "flex-start",
-            },
-            Array [
-              Object {
-                "borderColor": "#ddd",
-              },
-              Object {
-                "borderBottomWidth": 0,
-                "borderTopWidth": 0,
-              },
-            ],
-          ]
-        }
-        testID={undefined}
-      >
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-                Object {
-                  "borderLeftWidth": 0,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "center",
-                },
-                Object {
-                  "flex": 1,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={
-                Object {
-                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                }
-              }
-              style={
-                Object {
-                  "height": 22,
-                  "width": 22,
-                }
-              }
-            />
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 12,
-                  "marginTop": 9,
-                }
-              }
-            >
-              名字8
-            </Text>
-          </View>
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        />
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        />
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hitSlop={undefined}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "flex": 1,
-              },
-              Array [
-                Object {
-                  "borderColor": "#ddd",
-                },
-                Object {
-                  "borderRightWidth": 0,
-                  "height": 187.5,
-                },
-              ],
-            ]
-          }
-          testID={undefined}
-        />
-      </View>
+        简单示例
+      </Text>
     </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "margin": 10,
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      走马灯
-    </Text>
-  </View>
-  <View
-    onLayout={[Function]}
-  >
-    <ScrollView
-      automaticallyAdjustContentInsets={false}
-      autoplay={false}
-      autoplayInterval={3000}
-      bounces={true}
-      contentContainerStyle={undefined}
-      contentOffset={
-        Object {
-          "x": 0,
-          "y": 0,
-        }
-      }
-      directionalLockEnabled={true}
-      dots={true}
-      horizontal={true}
-      infinite={false}
-      onMomentumScrollEnd={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      pagingEnabled={true}
-      removeClippedSubviews={false}
-      scrollEventThrottle={100}
-      selectedIndex={0}
-      showsHorizontalScrollIndicator={false}
-      showsVerticalScrollIndicator={false}
-      styles={
-        Object {
-          "pagination": Object {
-            "alignItems": "center",
-            "position": "absolute",
-          },
-          "paginationX": Object {
-            "bottom": 10,
-            "left": 0,
-            "right": 0,
-          },
-          "paginationY": Object {
-            "bottom": 0,
-            "right": 10,
-            "top": 0,
-          },
-        }
-      }
-      vertical={false}
-    >
-      <View
-        style={
-          Object {
-            "width": 0,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "borderColor": "#ddd",
-              },
-              Object {
-                "borderTopWidth": 0,
-              },
-            ]
-          }
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "flex-start",
-                },
-                Array [
-                  Object {
-                    "borderColor": "#ddd",
-                  },
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderTopWidth": 1,
-                  },
-                ],
-              ]
-            }
-            testID={undefined}
-          >
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 1,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字0
-                </Text>
-              </View>
-            </View>
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 0,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字1
-                </Text>
-              </View>
-            </View>
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 0,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字2
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "flex-start",
-                },
-                Array [
-                  Object {
-                    "borderColor": "#ddd",
-                  },
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderTopWidth": 0,
-                  },
-                ],
-              ]
-            }
-            testID={undefined}
-          >
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 1,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字3
-                </Text>
-              </View>
-            </View>
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 0,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字4
-                </Text>
-              </View>
-            </View>
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 0,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字5
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "width": 0,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "borderColor": "#ddd",
-              },
-              Object {
-                "borderTopWidth": 1,
-              },
-            ]
-          }
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "flex-start",
-                },
-                Array [
-                  Object {
-                    "borderColor": "#ddd",
-                  },
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderTopWidth": 0,
-                  },
-                ],
-              ]
-            }
-            testID={undefined}
-          >
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 1,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字6
-                </Text>
-              </View>
-            </View>
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 0,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字7
-                </Text>
-              </View>
-            </View>
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                    Object {
-                      "borderLeftWidth": 0,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            >
-              <View
-                accessibilityComponentType={undefined}
-                accessibilityLabel={undefined}
-                accessibilityTraits={undefined}
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "flexWrap": "nowrap",
-                      "justifyContent": "center",
-                    },
-                    Object {
-                      "flex": 1,
-                    },
-                  ]
-                }
-                testID={undefined}
-              >
-                <Image
-                  source={
-                    Object {
-                      "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 22,
-                      "width": 22,
-                    }
-                  }
-                />
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontSize": 12,
-                      "marginTop": 9,
-                    }
-                  }
-                >
-                  名字8
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "flexWrap": "nowrap",
-                  "justifyContent": "flex-start",
-                },
-                Array [
-                  Object {
-                    "borderColor": "#ddd",
-                  },
-                  Object {
-                    "borderBottomWidth": 1,
-                  },
-                ],
-              ]
-            }
-            testID={undefined}
-          >
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            />
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            />
-            <View
-              accessibilityComponentType={undefined}
-              accessibilityLabel={undefined}
-              accessibilityTraits={undefined}
-              accessible={true}
-              hitSlop={undefined}
-              onLayout={undefined}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                  },
-                  Array [
-                    Object {
-                      "borderColor": "#ddd",
-                    },
-                    Object {
-                      "borderRightWidth": 1,
-                      "height": 187.5,
-                    },
-                  ],
-                ]
-              }
-              testID={undefined}
-            />
-          </View>
-        </View>
-      </View>
-    </ScrollView>
     <View
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "padding": 10,
           },
+        ]
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
           Array [
             Object {
+              "alignItems": "center",
+              "flexDirection": "column",
+              "flexWrap": "nowrap",
+              "justifyContent": "flex-start",
+            },
+            undefined,
+          ]
+        }
+        testID={undefined}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "flexWrap": "nowrap",
+                "justifyContent": "flex-start",
+              },
+              Array [
+                Object {
+                  "borderColor": "#ddd",
+                },
+                Object {
+                  "borderBottomWidth": 0,
+                  "borderTopWidth": 0,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字0
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字1
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字2
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字3
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "flexWrap": "nowrap",
+                "justifyContent": "flex-start",
+              },
+              Array [
+                Object {
+                  "borderColor": "#ddd",
+                },
+                Object {
+                  "borderBottomWidth": 0,
+                  "borderTopWidth": 0,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字4
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字5
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字6
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字7
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "flexWrap": "nowrap",
+                "justifyContent": "flex-start",
+              },
+              Array [
+                Object {
+                  "borderColor": "#ddd",
+                },
+                Object {
+                  "borderBottomWidth": 0,
+                  "borderTopWidth": 0,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                  Object {
+                    "borderLeftWidth": 0,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          >
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hitSlop={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "flexWrap": "nowrap",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+              testID={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 22,
+                    "width": 22,
+                  }
+                }
+              />
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontSize": 12,
+                    "marginTop": 9,
+                  }
+                }
+              >
+                名字8
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          />
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          />
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                },
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderRightWidth": 0,
+                    "height": 187.5,
+                  },
+                ],
+              ]
+            }
+            testID={undefined}
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "margin": 10,
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        走马灯
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+    >
+      <RCTScrollView
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayInterval={3000}
+        bounces={true}
+        contentContainerStyle={undefined}
+        contentOffset={
+          Object {
+            "x": 0,
+            "y": 0,
+          }
+        }
+        directionalLockEnabled={true}
+        dots={true}
+        horizontal={true}
+        infinite={false}
+        onMomentumScrollEnd={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        pagingEnabled={true}
+        removeClippedSubviews={false}
+        scrollEventThrottle={100}
+        selectedIndex={0}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        styles={
+          Object {
+            "pagination": Object {
               "alignItems": "center",
               "position": "absolute",
             },
-            Object {
+            "paginationX": Object {
               "bottom": 10,
               "left": 0,
               "right": 0,
             },
-          ],
-        ]
-      }
-    >
+            "paginationY": Object {
+              "bottom": 0,
+              "right": 10,
+              "top": 0,
+            },
+          }
+        }
+        vertical={false}
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "width": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderTopWidth": 0,
+                  },
+                ]
+              }
+            >
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits={undefined}
+                accessible={true}
+                hitSlop={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "justifyContent": "flex-start",
+                    },
+                    Array [
+                      Object {
+                        "borderColor": "#ddd",
+                      },
+                      Object {
+                        "borderBottomWidth": 1,
+                        "borderTopWidth": 1,
+                      },
+                    ],
+                  ]
+                }
+                testID={undefined}
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 1,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字0
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 0,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字1
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 0,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字2
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits={undefined}
+                accessible={true}
+                hitSlop={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "justifyContent": "flex-start",
+                    },
+                    Array [
+                      Object {
+                        "borderColor": "#ddd",
+                      },
+                      Object {
+                        "borderBottomWidth": 1,
+                        "borderTopWidth": 0,
+                      },
+                    ],
+                  ]
+                }
+                testID={undefined}
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 1,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字3
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 0,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字4
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 0,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字5
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "width": 0,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#ddd",
+                  },
+                  Object {
+                    "borderTopWidth": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits={undefined}
+                accessible={true}
+                hitSlop={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "justifyContent": "flex-start",
+                    },
+                    Array [
+                      Object {
+                        "borderColor": "#ddd",
+                      },
+                      Object {
+                        "borderBottomWidth": 1,
+                        "borderTopWidth": 0,
+                      },
+                    ],
+                  ]
+                }
+                testID={undefined}
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 1,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字6
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 0,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字7
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                        Object {
+                          "borderLeftWidth": 0,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                >
+                  <View
+                    accessibilityComponentType={undefined}
+                    accessibilityLabel={undefined}
+                    accessibilityTraits={undefined}
+                    accessible={true}
+                    hitSlop={undefined}
+                    onLayout={undefined}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "column",
+                          "flexWrap": "nowrap",
+                          "justifyContent": "center",
+                        },
+                        Object {
+                          "flex": 1,
+                        },
+                      ]
+                    }
+                    testID={undefined}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 22,
+                          "width": 22,
+                        }
+                      }
+                    />
+                    <Text
+                      accessible={true}
+                      allowFontScaling={true}
+                      ellipsizeMode="tail"
+                      style={
+                        Object {
+                          "color": "#000",
+                          "fontSize": 12,
+                          "marginTop": 9,
+                        }
+                      }
+                    >
+                      名字8
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View
+                accessibilityComponentType={undefined}
+                accessibilityLabel={undefined}
+                accessibilityTraits={undefined}
+                accessible={true}
+                hitSlop={undefined}
+                onLayout={undefined}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "flexWrap": "nowrap",
+                      "justifyContent": "flex-start",
+                    },
+                    Array [
+                      Object {
+                        "borderColor": "#ddd",
+                      },
+                      Object {
+                        "borderBottomWidth": 1,
+                      },
+                    ],
+                  ]
+                }
+                testID={undefined}
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                />
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                />
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  hitSlop={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "flex": 1,
+                      },
+                      Array [
+                        Object {
+                          "borderColor": "#ddd",
+                        },
+                        Object {
+                          "borderRightWidth": 1,
+                          "height": 187.5,
+                        },
+                      ],
+                    ]
+                  }
+                  testID={undefined}
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
       <View
         style={
           Array [
             Object {
-              "flexDirection": "row",
+              "alignItems": "center",
+              "justifyContent": "center",
             },
-            Object {
-              "flexDirection": "row",
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "position": "absolute",
+              },
+              Object {
+                "bottom": 10,
+                "left": 0,
+                "right": 0,
+              },
+            ],
           ]
         }
       >
@@ -2269,40 +2260,53 @@ exports[`renders ./components/grid/demo/basic.tsx correctly 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": "#ccc",
-                "borderRadius": 8,
-                "height": 8,
-                "width": 8,
+                "flexDirection": "row",
               },
               Object {
-                "marginHorizontal": 2.5,
-                "marginVertical": 3,
-              },
-              Object {
-                "backgroundColor": "#888",
+                "flexDirection": "row",
               },
             ]
           }
-        />
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ccc",
-                "borderRadius": 8,
-                "height": 8,
-                "width": 8,
-              },
-              Object {
-                "marginHorizontal": 2.5,
-                "marginVertical": 3,
-              },
-              false,
-            ]
-          }
-        />
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ccc",
+                  "borderRadius": 8,
+                  "height": 8,
+                  "width": 8,
+                },
+                Object {
+                  "marginHorizontal": 2.5,
+                  "marginVertical": 3,
+                },
+                Object {
+                  "backgroundColor": "#888",
+                },
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#ccc",
+                  "borderRadius": 8,
+                  "height": 8,
+                  "width": 8,
+                },
+                Object {
+                  "marginHorizontal": 2.5,
+                  "marginVertical": 3,
+                },
+                false,
+              ]
+            }
+          />
+        </View>
       </View>
     </View>
   </View>
-</ScrollView>
+</RCTScrollView>
 `;

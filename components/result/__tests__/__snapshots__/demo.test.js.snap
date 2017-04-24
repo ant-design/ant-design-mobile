@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/result/demo/basic.tsx correctly 1`] = `
-<ScrollView
+<RCTScrollView
   style={
     Object {
       "backgroundColor": "#F5F5F9",
@@ -9,450 +9,455 @@ exports[`renders ./components/result/demo/basic.tsx correctly 1`] = `
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#999",
-        "margin": 10,
-      }
-    }
-  >
-    uri
-  </Text>
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "borderBottomColor": "#ddd",
-          "paddingVertical": 21,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
       style={
         Object {
-          "margin": 0,
+          "color": "#999",
+          "margin": 10,
         }
       }
     >
-      <Image
-        source={
-          Object {
-            "uri": "https://zos.alipayobjects.com/rmsportal/GcBguhrOdlYvGfnsXgrE.png",
-          }
-        }
-        style={
-          Object {
-            "height": 60,
-            "width": 60,
-          }
-        }
-      />
-    </View>
+      uri
+    </Text>
     <View
       style={
-        Object {
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
+        Array [
           Object {
-            "color": "#000",
-            "fontSize": 21,
-          }
-        }
-      >
-        验证成功
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#888",
-            "fontSize": 16,
-          }
-        }
-      >
-        所提交内容已成功完成验证
-      </Text>
-    </View>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#999",
-        "margin": 10,
-      }
-    }
-  >
-    require
-  </Text>
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "borderBottomColor": "#ddd",
-          "paddingVertical": 21,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "default": true,
-          }
-        }
-        style={
-          Object {
-            "height": 60,
-            "width": 60,
-          }
-        }
-      />
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#000",
-            "fontSize": 21,
-          }
-        }
-      >
-        验证成功
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#888",
-            "fontSize": 16,
-          }
-        }
-      >
-        所提交内容已成功完成验证
-      </Text>
-    </View>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#999",
-        "margin": 10,
-      }
-    }
-  >
-    img
-  </Text>
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "borderBottomColor": "#ddd",
-          "paddingVertical": 21,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "default": true,
-          }
-        }
-        style={
-          Object {
-            "height": 60,
-            "width": 60,
-          }
-        }
-      />
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#000",
-            "fontSize": 21,
-          }
-        }
-      >
-        验证成功
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
-        所提交内容已成功完成验证
-      </Text>
-    </View>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "color": "#999",
-        "margin": 10,
-      }
-    }
-  >
-    button
-  </Text>
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#fff",
-          "borderBottomColor": "#ddd",
-          "paddingVertical": 21,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      style={
-        Object {
-          "margin": 0,
-        }
-      }
-    >
-      <Image
-        source={
-          Object {
-            "default": true,
-          }
-        }
-        style={
-          Object {
-            "height": 60,
-            "width": 60,
-          }
-        }
-      />
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#000",
-            "fontSize": 21,
-          }
-        }
-      >
-        验证成功
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#888",
-            "fontSize": 16,
-          }
-        }
-      >
-        所提交内容已成功完成验证
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "marginTop": 15,
-          "paddingHorizontal": 15,
-        }
+            "alignItems": "center",
+            "backgroundColor": "#fff",
+            "borderBottomColor": "#ddd",
+            "paddingVertical": 21,
+          },
+          undefined,
+        ]
       }
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 5,
-                "borderWidth": 1,
-                "justifyContent": "center",
-              },
-              Object {
-                "height": 42,
-                "paddingLeft": 15,
-                "paddingRight": 15,
-              },
-              Object {
-                "backgroundColor": "#108ee9",
-                "borderColor": "#108ee9",
-              },
-              false,
-              false,
-              false,
-              Object {
-                "flex": 1,
-              },
-            ],
-          ]
+          Object {
+            "margin": 0,
+          }
         }
-        testID={undefined}
       >
-        <View
+        <Image
+          source={
+            Object {
+              "uri": "https://zos.alipayobjects.com/rmsportal/GcBguhrOdlYvGfnsXgrE.png",
+            }
+          }
           style={
             Object {
-              "flexDirection": "row",
+              "height": 60,
+              "width": 60,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#000",
+              "fontSize": 21,
             }
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
+          验证成功
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#888",
+              "fontSize": 16,
+            }
+          }
+        >
+          所提交内容已成功完成验证
+        </Text>
+      </View>
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#999",
+          "margin": 10,
+        }
+      }
+    >
+      require
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fff",
+            "borderBottomColor": "#ddd",
+            "paddingVertical": 21,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "default": true,
+            }
+          }
+          style={
+            Object {
+              "height": 60,
+              "width": 60,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#000",
+              "fontSize": 21,
+            }
+          }
+        >
+          验证成功
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#888",
+              "fontSize": 16,
+            }
+          }
+        >
+          所提交内容已成功完成验证
+        </Text>
+      </View>
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#999",
+          "margin": 10,
+        }
+      }
+    >
+      img
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fff",
+            "borderBottomColor": "#ddd",
+            "paddingVertical": 21,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "default": true,
+            }
+          }
+          style={
+            Object {
+              "height": 60,
+              "width": 60,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#000",
+              "fontSize": 21,
+            }
+          }
+        >
+          验证成功
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+        >
+          所提交内容已成功完成验证
+        </Text>
+      </View>
+    </View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#999",
+          "margin": 10,
+        }
+      }
+    >
+      button
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fff",
+            "borderBottomColor": "#ddd",
+            "paddingVertical": 21,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "default": true,
+            }
+          }
+          style={
+            Object {
+              "height": 60,
+              "width": 60,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#000",
+              "fontSize": 21,
+            }
+          }
+        >
+          验证成功
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "#888",
+              "fontSize": 16,
+            }
+          }
+        >
+          所提交内容已成功完成验证
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "marginTop": 15,
+            "paddingHorizontal": 15,
+          }
+        }
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
               Array [
                 Object {
-                  "fontSize": 18,
+                  "alignItems": "center",
+                  "borderRadius": 5,
+                  "borderWidth": 1,
+                  "justifyContent": "center",
                 },
                 Object {
-                  "color": "#fff",
+                  "height": 42,
+                  "paddingLeft": 15,
+                  "paddingRight": 15,
+                },
+                Object {
+                  "backgroundColor": "#108ee9",
+                  "borderColor": "#108ee9",
                 },
                 false,
                 false,
-              ]
+                false,
+                Object {
+                  "flex": 1,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
             }
           >
-            完成
-          </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Object {
+                    "color": "#fff",
+                  },
+                  false,
+                  false,
+                ]
+              }
+            >
+              完成
+            </Text>
+          </View>
         </View>
       </View>
     </View>
   </View>
-</ScrollView>
+</RCTScrollView>
 `;
