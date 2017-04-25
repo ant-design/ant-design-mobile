@@ -6,6 +6,8 @@ import Icon from '../icon';
 // import tsPropsType from './PropsType';
 import assign from 'object-assign';
 
+const dpr = typeof window !== 'undefined' && (window as any).devicePixelRatio || 2;
+
 ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaultProps, {
   prefixCls: 'am-refresh-control',
   icon: [
@@ -18,7 +20,7 @@ ListView.RefreshControl.defaultProps = assign({}, ListView.RefreshControl.defaul
   ],
   loading: <Icon type="loading" />,
   refreshing: false,
-  distanceToRefresh: 50 / 2 * ((window as any).devicePixelRatio || 2),
+  distanceToRefresh: 50 / 2 * dpr,
 });
 
 export default ListView.RefreshControl;
