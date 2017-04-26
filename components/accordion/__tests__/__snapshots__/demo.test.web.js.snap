@@ -12,7 +12,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
     >
       <div
         aria-expanded="false"
-        class="am-accordion-header "
+        class="am-accordion-header"
         role="tab"
       >
         <i
@@ -26,7 +26,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
     >
       <div
         aria-expanded="false"
-        class="am-accordion-header "
+        class="am-accordion-header"
         role="tab"
       >
         <i
@@ -40,7 +40,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
     >
       <div
         aria-expanded="false"
-        class="am-accordion-header "
+        class="am-accordion-header"
         role="tab"
       >
         <i
@@ -65,7 +65,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
     >
       <div
         aria-expanded="true"
-        class="am-accordion-header "
+        class="am-accordion-header"
         role="tab"
       >
         <i
@@ -135,7 +135,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
     >
       <div
         aria-expanded="false"
-        class="am-accordion-header "
+        class="am-accordion-header"
         role="tab"
       >
         <i
@@ -149,7 +149,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
     >
       <div
         aria-expanded="false"
-        class="am-accordion-header "
+        class="am-accordion-header"
         role="tab"
       >
         <i
