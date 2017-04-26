@@ -140,7 +140,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
         </div>
@@ -160,7 +160,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -176,7 +176,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -192,7 +192,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -208,7 +208,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -224,7 +224,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -240,7 +240,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -256,7 +256,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -272,7 +272,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -288,7 +288,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -304,7 +304,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -320,7 +320,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
         </div>
@@ -344,7 +344,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
         </div>
@@ -364,7 +364,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -380,7 +380,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -396,7 +396,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -412,7 +412,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -428,7 +428,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -444,7 +444,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -460,7 +460,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -476,7 +476,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -492,7 +492,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
         </div>
@@ -686,7 +686,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="am-list-riple"
+                    class="am-list-ripple"
                   />
                 </div>
               </div>
@@ -708,7 +708,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -724,7 +724,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -740,7 +740,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -756,7 +756,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -772,7 +772,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -788,7 +788,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -804,7 +804,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -820,7 +820,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -836,7 +836,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -852,7 +852,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -868,7 +868,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
           </div>
@@ -900,7 +900,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="am-list-riple"
+                    class="am-list-ripple"
                   />
                 </div>
               </div>
@@ -922,7 +922,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -938,7 +938,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -954,7 +954,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -970,7 +970,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -986,7 +986,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -1002,7 +1002,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -1018,7 +1018,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -1034,7 +1034,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
             <div
@@ -1050,7 +1050,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="am-list-riple"
+                class="am-list-ripple"
               />
             </div>
           </div>

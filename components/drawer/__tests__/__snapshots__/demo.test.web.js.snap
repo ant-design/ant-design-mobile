@@ -65,7 +65,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -88,7 +88,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -111,7 +111,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -134,7 +134,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -157,7 +157,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -180,7 +180,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -203,7 +203,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -226,7 +226,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -249,7 +249,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -272,7 +272,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -295,7 +295,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -318,7 +318,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -341,7 +341,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -364,7 +364,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -387,7 +387,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -410,7 +410,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -433,7 +433,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -456,7 +456,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -479,7 +479,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -502,7 +502,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
         </div>
@@ -590,7 +590,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -613,7 +613,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -636,7 +636,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -659,7 +659,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -682,7 +682,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -705,7 +705,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -728,7 +728,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -751,7 +751,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -774,7 +774,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -797,7 +797,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -820,7 +820,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -843,7 +843,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -866,7 +866,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -889,7 +889,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -912,7 +912,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -935,7 +935,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -958,7 +958,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -981,7 +981,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -1004,7 +1004,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
           <div
@@ -1027,7 +1027,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="am-list-riple"
+              class="am-list-ripple"
             />
           </div>
         </div>

@@ -34,7 +34,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             />
           </div>
           <div
-            class="am-list-riple"
+            class="am-list-ripple"
           />
         </div>
       </div>
@@ -60,7 +60,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             />
           </div>
           <div
-            class="am-list-riple"
+            class="am-list-ripple"
           />
         </div>
       </div>
@@ -86,7 +86,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             />
           </div>
           <div
-            class="am-list-riple"
+            class="am-list-ripple"
           />
         </div>
       </div>
@@ -112,7 +112,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             />
           </div>
           <div
-            class="am-list-riple"
+            class="am-list-ripple"
           />
         </div>
       </div>
