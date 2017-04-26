@@ -82,6 +82,9 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -153,6 +156,9 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -225,6 +231,9 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
   </div>
 </div>

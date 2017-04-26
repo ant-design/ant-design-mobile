@@ -41,6 +41,9 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           class="am-list-arrow am-list-arrow-horizontal"
         />
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -77,6 +80,9 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           class="am-list-arrow am-list-arrow-horizontal"
         />
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -103,6 +109,9 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           </span>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="special-badge am-list-item am-list-item-middle"
@@ -129,6 +138,9 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           </span>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -164,6 +176,9 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           class="am-list-arrow am-list-arrow-horizontal"
         />
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -227,6 +242,9 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           </span>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -270,6 +288,9 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           </span>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
   </div>
 </div>

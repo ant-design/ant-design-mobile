@@ -150,6 +150,9 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
           </a>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -180,6 +183,9 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
           </a>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
   </div>
 </div>

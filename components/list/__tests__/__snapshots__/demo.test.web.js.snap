@@ -30,6 +30,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             内容内容
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
     </div>
   </div>
@@ -64,6 +67,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -116,6 +122,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
     </div>
   </div>
@@ -142,6 +151,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             标题文字
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -158,6 +170,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -179,6 +194,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-top"
@@ -209,6 +227,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             10:30
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
     </div>
   </div>
@@ -245,6 +266,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             内容内容
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
     </div>
   </div>
@@ -281,6 +305,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -304,6 +331,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
     </div>
   </div>
@@ -331,6 +361,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             单行模式，文字超长则隐藏；文本内容文本内容文本内容文本内容
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -344,6 +377,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             多行模式，文字超长则换行；文本内容文本内容文本内容文本内容文本内容文本内容
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-top"
@@ -362,6 +398,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             内容内容
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="spe am-list-item am-list-item-middle"
@@ -383,6 +422,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             class="am-list-arrow"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
     </div>
   </div>
@@ -412,6 +454,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             class="am-list-extra"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -443,6 +488,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             </select>
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
     </div>
   </div>
@@ -527,6 +575,9 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -572,6 +623,9 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -643,6 +697,9 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -672,6 +729,9 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             </a>
           </div>
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
     </div>
     <div

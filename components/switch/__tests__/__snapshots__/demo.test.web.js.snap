@@ -41,6 +41,9 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
           </label>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -70,6 +73,9 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
           </label>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -100,6 +106,9 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
           </label>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -131,6 +140,9 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
           </label>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -160,6 +172,9 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
           </label>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -190,6 +205,9 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
           </label>
         </div>
       </div>
+      <div
+        class="am-list-riple"
+      />
     </div>
   </div>
 </div>

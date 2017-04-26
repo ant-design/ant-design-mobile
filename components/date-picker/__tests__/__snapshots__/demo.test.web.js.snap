@@ -30,6 +30,9 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-riple"
+          />
         </div>
       </div>
       <div>
@@ -53,6 +56,9 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-riple"
+          />
         </div>
       </div>
       <div>
@@ -76,6 +82,9 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-riple"
+          />
         </div>
       </div>
       <div>
@@ -99,6 +108,9 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-riple"
+          />
         </div>
       </div>
       <div>
@@ -122,6 +134,9 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-riple"
+          />
         </div>
       </div>
       <div
@@ -141,6 +156,9 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             class="am-list-extra"
           />
         </div>
+        <div
+          class="am-list-riple"
+        />
       </div>
       <div>
         <div

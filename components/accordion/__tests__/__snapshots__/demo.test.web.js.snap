@@ -98,6 +98,9 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                     Content 1
                   </div>
                 </div>
+                <div
+                  class="am-list-riple"
+                />
               </div>
               <div
                 class="am-list-item am-list-item-middle"
@@ -111,6 +114,9 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                     Content 2
                   </div>
                 </div>
+                <div
+                  class="am-list-riple"
+                />
               </div>
               <div
                 class="am-list-item am-list-item-middle"
@@ -124,6 +130,9 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                     Content 3
                   </div>
                 </div>
+                <div
+                  class="am-list-riple"
+                />
               </div>
             </div>
           </div>
