@@ -84,6 +84,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
 
   onChange = (e) => {
+    if (!this.state.focus) {
+      this.setState({
+        focus: true,
+      });
+    }
     const value = e.target.value;
     if (!('value' in this.props)) {
       this.setState({ value });
