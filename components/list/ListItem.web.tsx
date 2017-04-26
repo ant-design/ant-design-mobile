@@ -81,7 +81,7 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     const {
       prefixCls, className, activeStyle, error, align, wrap, disabled,
-      children, multipleLine, thumb, extra, arrow, onClick, platform, ...restProps} = this.props;
+      children, multipleLine, thumb, extra, arrow, onClick, ...restProps} = this.props;
 
     const { coverRipleStyle, RipleClicked } = this.state;
     const wrapCls = {
@@ -112,7 +112,6 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
 
-    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
     const content = <div
       {...restProps}
       onClick={(ev) => {
@@ -128,7 +127,7 @@ class ListItem extends React.Component<ListItemProps, any> {
         {extra !== undefined && <div className={`${prefixCls}-extra`}>{extra}</div>}
         {arrow && <div className={arrowCls} />}
       </div>
-      {isAndroid && <div style={coverRipleStyle} className={ripleCls} />}
+      <div style={coverRipleStyle} className={ripleCls} />
     </div>;
 
     return (
