@@ -44,22 +44,31 @@ export default class Grid extends React.Component<GridProps, any> {
     }
     return pagesArr;
   }
-  renderItem = (dataItem: DataItem, index: number, columnNum: number, renderItem: any) => {
+  renderItem = (dataItem: DataItem | any, index: number, columnNum: number, renderItem: any) => {
     const { prefixCls } = this.props;
+    let itemEl: any = null;
+    if (renderItem) {
+      itemEl = renderItem(dataItem, index);
+    } else {
+      if (dataItem) {
+        const { icon, text } = dataItem;
+        itemEl = (
+          <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
+            {
+              React.isValidElement(icon) ? icon : (
+                <img className={`${prefixCls}-icon`} src={icon} />
+              )
+            }
+            <div className={`${prefixCls}-text`}>{text}</div>
+          </div>
+        );
+      }
+    }
     return (
       <div
         className={`${prefixCls}-item-content`}
       >
-        {renderItem ? renderItem(dataItem, index) :
-          <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
-            {
-              React.isValidElement(dataItem.icon) ? dataItem.icon : (
-                <img className={`${prefixCls}-icon`} src={dataItem.icon} />
-              )
-            }
-            <div className={`${prefixCls}-text`}>{dataItem.text}</div>
-          </div>
-        }
+        {itemEl}
       </div>
     );
   }
@@ -92,7 +101,7 @@ export default class Grid extends React.Component<GridProps, any> {
             onClick={() => onClick(el, dataIndex)}
             style={colStyle}
           >
-            {el && this.renderItem(el, dataIndex, columnNum, renderItem)}
+            {this.renderItem(el, dataIndex, columnNum, renderItem)}
           </Flex.Item>);
         } else {
           rowArr.push(<Flex.Item
