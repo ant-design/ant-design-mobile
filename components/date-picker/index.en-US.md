@@ -16,6 +16,7 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
+| type  | date show type, `single` is one date commponent，`multi` is the combined component of start time to end time | String | `single`  |
 | mode  | mode value, can be a `date` or `time` or `datetime` or `year` or `month` | String | `date` |
 | value | the currently selected value, corresponding mode under the format are: `YYYY-MM-DD` or `HH:mm` or `YYYY-MM-DD HH:mm` | [moment](http://momentjs.com/) | - |
 | minDate   | minimum date, the format is the same as value | [moment](http://momentjs.com/)  |  -  |
