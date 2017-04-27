@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
-import MRCDatePicker from './lib/MultiDatePicker';
+import MRCDatePicker from './MultiDatePicker';
 import { formatFn, getProps, getDefaultDate } from './utils';
 import assign from 'object-assign';
 import tsPropsType from './PropsType';
