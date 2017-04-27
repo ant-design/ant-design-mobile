@@ -16,15 +16,15 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| type  | date show type, `single` is one date commponent，`multi` is the combined component of start time to end time | String | `single`  |
 | mode  | mode value, can be a `date` or `time` or `datetime` or `year` or `month` | String | `date` |
-| value | the currently selected value, corresponding mode under the format are: `YYYY-MM-DD` or `HH:mm` or `YYYY-MM-DD HH:mm` | [moment](http://momentjs.com/) | - |
+| value | the currently selected value, corresponding mode under the format are: `YYYY-MM-DD` or `HH:mm` or `YYYY-MM-DD HH:mm`; if `type` is `multi`, the value will be an array of moment | [moment](http://momentjs.com/) | - |
+| minDate   | minimum date, the format is the same as value | [moment](http://momentjs.com/)  |  -  |
+| maxDate   | maximum date, the format is the same as value | [moment](http://momentjs.com/)  |  -  |
+| type  | date show type, `single` is one date commponent，`multi` is the combined component of start time to end time | String | `single`  |
 | minStartDate   | start minimum date(only worked for `multi` of `type`), the format is the same as value | [moment](http://momentjs.com/)  |  -  |
 | maxStartDate   | start maximum date(only worked for `multi` of `type`), the format is the same as value | [moment](http://momentjs.com/)  |  -  |
 | minEndDate   | end minimum date(only worked for `multi` of `type`), the format is the same as value | [moment](http://momentjs.com/)  |  -  |
 | maxEndDate   | end maximum date(only worked for `multi` of `type`), the format is the same as value | [moment](http://momentjs.com/)  |  -  |
-| minDate   | minimum date, the format is the same as value | [moment](http://momentjs.com/)  |  -  |
-| maxDate   | maximum date, the format is the same as value | [moment](http://momentjs.com/)  |  -  |
 | onChange  | change handler | (date: Object): void |  -  |
 | locale   | international, can override the configuration of the global `[LocaleProvider](https://mobile.ant.design/components/locale-provider)` | Object: {DatePickerLocale: {year, month, day, hour, minute}, okText, dismissText} |  -  |
 | title  | title | string/React.ReactElement |  -  |
