@@ -15,24 +15,30 @@ export default class NoticeBarExample extends React.Component<any, any> {
     return (
       <View style={{ marginTop: 10 }}>
         <WhiteSpace size="lg" />
-        <NoticeBar onClick={() => alert('click')}>国庆期间余额宝收益和转出到账时间</NoticeBar>
+        <NoticeBar onClick={() => alert('click')}>
+          Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
+        </NoticeBar>
         <WhiteSpace size="lg" />
         <NoticeBar mode="closable" onClick={() => alert('will close')}>
-          国庆期间余额宝收益和转出到账时间1
+          Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
         </NoticeBar>
         <WhiteSpace size="lg" />
         <NoticeBar
           mode="closable"
           icon={customIcon}
         >
-          自定义 NoticeBar 前面的图标
+          Customized icon.
         </NoticeBar>
         <WhiteSpace size="lg" />
-        <NoticeBar mode="link" onClick={() => alert('link')}>国庆期间余额宝收益和转出到账时间</NoticeBar>
+        <NoticeBar mode="link" onClick={() => alert('link')}>
+          Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
+        </NoticeBar>
         <WhiteSpace size="lg" />
-        <NoticeBar mode="link">国庆期间余额宝收益和转出到账时间</NoticeBar>
+        <NoticeBar mode="link">
+          Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
+        </NoticeBar>
         <WhiteSpace size="lg" />
-        <NoticeBar mode="closable" icon={null}>去除 NoticeBar 默认的喇叭图标</NoticeBar>
+        <NoticeBar mode="closable" icon={null}>Remove the default icon.</NoticeBar>
       </View>
     );
   }
