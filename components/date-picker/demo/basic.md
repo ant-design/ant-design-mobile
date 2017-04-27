@@ -14,7 +14,6 @@ import { createForm } from 'rc-form';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
-import MDatePicker from '../index';
 
 const zhNow = moment().locale('zh-cn').utcOffset(8);
 const maxDate = moment('2016-12-03 +0800', 'YYYY-MM-DD Z').utcOffset(8);
@@ -55,7 +54,7 @@ class Test extends React.Component {
         className="date-picker-list"
         style={{ backgroundColor: 'white' }}
       >
-        <MDatePicker
+        <DatePicker
           type="multi"
           title="组合DatePicker"
           extra="开始日期至结束日期"
@@ -68,7 +67,7 @@ class Test extends React.Component {
           }}
         >
           <List.Item arrow="horizontal">range(CST)</List.Item>
-        </MDatePicker>
+        </DatePicker>
         <DatePicker
           mode="date"
           title="选择日期"

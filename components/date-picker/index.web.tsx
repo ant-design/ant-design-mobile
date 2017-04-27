@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
-import MRCDatePicker from './MultiDatePicker';
+import RCMDatePicker from './MultiDatePicker';
 import { formatFn, getProps, getDefaultDate } from './utils';
 import assign from 'object-assign';
 import tsPropsType from './PropsType';
@@ -55,7 +55,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         defaultDate={value || getDefaultDate(this.props)}
       />
     ) : (
-      <MRCDatePicker
+      <RCMDatePicker
         minuteStep={props.minuteStep}
         locale={DatePickerLocale}
         minStartDate={props.minStartDate}
