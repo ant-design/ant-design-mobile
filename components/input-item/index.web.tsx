@@ -180,6 +180,8 @@ class InputItem extends React.Component<InputItemProps, any> {
       inputType = 'tel';
     } else if (type === 'password') {
       inputType = 'password';
+    } else if (type === 'digit') {
+      inputType = 'number';
     } else if (type !== 'text' && type !== 'number') {
       inputType = type;
     }
@@ -202,6 +204,13 @@ class InputItem extends React.Component<InputItemProps, any> {
       };
     }
 
+    let classNameProps;
+    if (type === 'digit') {
+      classNameProps = {
+        className: 'h5numInput'
+      }
+    }
+
     return (
       <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
@@ -210,6 +219,7 @@ class InputItem extends React.Component<InputItemProps, any> {
             {...patternProps}
             {...otherProps}
             {...valueProps}
+            {...classNameProps}
             type={inputType}
             maxLength={maxLength}
             name={name}
