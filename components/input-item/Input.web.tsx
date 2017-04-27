@@ -2,7 +2,6 @@ import React from 'react';
 import omit from 'omit.js';
 
 class Input extends React.Component<any, any> {
-  debounceTimeout: any;
   scrollIntoViewTimeout: any;
 
   constructor(props) {
@@ -27,10 +26,6 @@ class Input extends React.Component<any, any> {
   }
 
   componentWillUnmount() {
-    if (this.debounceTimeout) {
-      clearTimeout(this.debounceTimeout);
-      this.debounceTimeout = null;
-    }
     if (this.scrollIntoViewTimeout) {
       clearTimeout(this.scrollIntoViewTimeout);
       this.scrollIntoViewTimeout = null;
@@ -44,11 +39,6 @@ class Input extends React.Component<any, any> {
   }
 
   onInputBlur = (e) => {
-    this.debounceTimeout = setTimeout(() => {
-      this.setState({
-        focus: false,
-      });
-    }, 200);
     if (!('focused' in this.props)) {
       this.setState({
         focused: false,
@@ -61,19 +51,11 @@ class Input extends React.Component<any, any> {
   }
 
   onInputFocus = (e) => {
-    if (this.debounceTimeout) {
-      clearTimeout(this.debounceTimeout);
-      this.debounceTimeout = null;
-    }
     if (!('focused' in this.props)) {
       this.setState({
         focused: true,
       });
     }
-
-    this.setState({
-      focus: true,
-    });
 
     const value = e.target.value;
     if (this.props.onFocus) {
