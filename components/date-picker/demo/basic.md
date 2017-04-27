@@ -57,6 +57,7 @@ class Test extends React.Component {
       >
         <MDatePicker
           type="multi"
+          title="组合DatePicker"
           extra="开始日期至结束日期"
           minStartDate={minDate}
           maxStartDate={maxDate}
