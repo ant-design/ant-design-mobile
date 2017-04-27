@@ -34,6 +34,8 @@ class InputItem extends React.Component<InputItemProps, any> {
     updatePlaceholder: false,
   };
 
+  debounceTimeout: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -46,6 +48,13 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.setState({
         placeholder: nextProps.placeholder,
       });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
     }
   }
 
@@ -78,6 +87,30 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
     if (onChange) {
       onChange(value);
+    }
+  }
+
+  onInputFocus = (value) => {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
+    }
+    this.setState({
+      focus: true,
+    });
+    if (this.props.onFocus) {
+      this.props.onFocus(value);
+    }
+  }
+
+  onInputBlur = (value) => {
+    this.debounceTimeout = setTimeout(() => {
+      this.setState({
+        focus: false,
+      });
+    }, 200);
+    if (this.props.onBlur) {
+      this.props.onBlur(value);
     }
   }
 
@@ -182,6 +215,8 @@ class InputItem extends React.Component<InputItemProps, any> {
             name={name}
             placeholder={placeholder}
             onChange={this.onInputChange}
+            onFocus={this.onInputFocus}
+            onBlur={this.onInputBlur}
             readOnly={!editable}
             disabled={disabled}
           />
