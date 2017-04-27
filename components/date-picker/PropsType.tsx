@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface DatePickerProps {
+  type?: string;
   defaultDate?: any;
   value?: any;
   onChange?: (x: any) => void;
@@ -11,6 +12,10 @@ interface DatePickerProps {
   children?: any;
   minDate?: any;
   maxDate?: any;
+  minStartDate?: any;
+  maxStartDate?: any;
+  minEndDate?: any;
+  maxEndDate?: any;
   locale?: any;
   disabled?: boolean;
   minuteStep?: number;

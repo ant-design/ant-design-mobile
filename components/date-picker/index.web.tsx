@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
+import MRCDatePicker from './lib/MultiDatePicker';
 import { formatFn, getProps, getDefaultDate } from './utils';
 import assign from 'object-assign';
 import tsPropsType from './PropsType';
@@ -14,6 +15,7 @@ function getDefaultProps() {
     pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
     minuteStep: 1,
+    type: 'single', // single DatePicker or range DatePicker
   }, getProps());
 }
 
@@ -26,7 +28,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
 
   render() {
     const { props, context } = this;
-    const { children, value, defaultDate, extra, popupPrefixCls } = props;
+    const { children, value, defaultDate, extra, popupPrefixCls, type } = props;
 
     const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
     const localeCode = getLocaleCode(context);
@@ -41,12 +43,25 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
       }
     }
 
-    const dataPicker = (
+    const dataPicker = type === 'single' ? (
       <RCDatePicker
         minuteStep={props.minuteStep}
         locale={DatePickerLocale}
         minDate={props.minDate}
         maxDate={props.maxDate}
+        mode={props.mode}
+        pickerPrefixCls={props.pickerPrefixCls}
+        prefixCls={props.prefixCls}
+        defaultDate={value || getDefaultDate(this.props)}
+      />
+    ) : (
+      <MRCDatePicker
+        minuteStep={props.minuteStep}
+        locale={DatePickerLocale}
+        minStartDate={props.minStartDate}
+        maxStartDate={props.maxStartDate}
+        minEndDate={props.minEndDate}
+        maxEndDate={props.maxEndDate}
         mode={props.mode}
         pickerPrefixCls={props.pickerPrefixCls}
         prefixCls={props.prefixCls}

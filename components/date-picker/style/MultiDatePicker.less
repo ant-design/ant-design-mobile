@@ -1,0 +1,32 @@
+@pickerPrefixCls: am-picker;
+@pickerColPrefixCls: am-picker-col;
+
+.@{pickerPrefixCls}-title{
+  padding-top: .2rem;
+  padding-left: .3rem;
+  padding-bottom: .05rem;
+}
+
+.@{pickerPrefixCls} {
+  .@{pickerPrefixCls}-item{
+    .@{pickerColPrefixCls} {
+      height: 3.25rem;
+      .@{pickerColPrefixCls}-mask{
+        background-size: 100% 1.35rem;
+      }
+      .@{pickerColPrefixCls}-indicator{
+        top: 1.37rem;
+        height: .68rem;
+        background-size: 100% .02rem;
+      }
+      .@{pickerColPrefixCls}-item{
+        font-size: .32rem;
+        line-height: .68rem;
+        height: .68rem;
+      }
+      .@{pickerColPrefixCls}-content{
+        top: -0.7rem;
+      }
+    }
+  }
+}
