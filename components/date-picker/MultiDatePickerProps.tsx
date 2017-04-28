@@ -25,6 +25,8 @@ interface IMultiPickerProps {
   pickerItemStyle?: any;
   rootNativeProps?: any;
   indicatorStyle?: any;
+  startLabelText?: string|React.ReactElement<any>;
+  endLabelText?: string|React.ReactElement<any>;
   onValueChange?: (v?: any, i?: number|undefined) => void;
 }
 

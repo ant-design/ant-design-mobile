@@ -16,6 +16,8 @@ function getDefaultProps() {
     popupPrefixCls: 'am-picker-popup',
     minuteStep: 1,
     type: 'single', // single DatePicker or range DatePicker
+    startLabelText: '',
+    endLabelText: '',
   }, getProps());
 }
 
@@ -28,7 +30,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
 
   render() {
     const { props, context } = this;
-    const { children, value, defaultDate, extra, popupPrefixCls, type } = props;
+    const { children, value, defaultDate, extra, popupPrefixCls, type, startLabelText, endLabelText } = props;
 
     const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
     const localeCode = getLocaleCode(context);
@@ -66,6 +68,8 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         pickerPrefixCls={props.pickerPrefixCls}
         prefixCls={props.prefixCls}
         defaultDate={value || getDefaultDate(this.props)}
+        startLabelText={startLabelText}
+        endLabelText={endLabelText}
       />
     );
 

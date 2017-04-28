@@ -29,6 +29,8 @@ interface DatePickerProps {
   popupPrefixCls?: string;
   dismissText?: string|React.ReactElement<any>; // React.ReactElement only for web
   okText?: string|React.ReactElement<any>; // React.ReactElement only for web
+  startLabelText?: string|React.ReactElement<any>; // React.ReactElement only for web
+  endLabelText?: string|React.ReactElement<any>; // React.ReactElement only for web
 }
 
 export default DatePickerProps;

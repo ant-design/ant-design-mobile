@@ -58,6 +58,8 @@ class Test extends React.Component {
           type="multi"
           title="组合DatePicker"
           extra="开始日期至结束日期"
+          startLabelText={<em>定制开始时间文案</em>}
+          endLabelText="定制结束时间文案"
           minStartDate={minDate}
           maxStartDate={maxDate}
           minEndDate={minDate}
