@@ -83,7 +83,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     const { startTime, endTime, minStartDate, maxStartDate, minEndDate, maxEndDate } = this.state;
     return (
       <div {...rootNativeProps}>
-        <div className={`${prefixCls}-title`}>{startLabelText || startText}</div>
+        <div className={`${prefixCls}-popup-label-title`}>{startLabelText || startText}</div>
         <RCDatePicker
           rootNativeProps={{ 'data-xx': 'yy' }}
           date={startTime}
@@ -95,7 +95,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
           prefixCls={prefixCls}
           onDateChange={this.onDateStartTimeChangeFunc}
         />
-        <div className={`${prefixCls}-title`}>{endLabelText || endText}</div>
+        <div className={`${prefixCls}-popup-label-title`}>{endLabelText || endText}</div>
         <RCDatePicker
           rootNativeProps={{ 'data-xx': 'yy' }}
           date={endTime}

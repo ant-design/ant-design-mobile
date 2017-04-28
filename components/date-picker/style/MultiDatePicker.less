@@ -1,32 +1,37 @@
-@pickerPrefixCls: am-picker;
+/* resize part css for range DatePicker */
+
+@pickerPrefixPopCls: am-picker-popup;
 @pickerColPrefixCls: am-picker-col;
 
-.@{pickerPrefixCls}-title {
-  padding-top: .2rem;
-  padding-left: .3rem;
-  padding-bottom: .05rem;
+.@{pickerPrefixPopCls} {
+
+  &-label-title {
+    padding-top: .2rem;
+    padding-left: .3rem;
+    padding-bottom: .05rem;
+  }
 }
 
-.@{pickerPrefixCls} {
-  .@{pickerPrefixCls}-item {
-    .@{pickerColPrefixCls} {
-      height: 3.25rem;
-      .@{pickerColPrefixCls}-mask {
-        background-size: 100% 1.35rem;
-      }
-      .@{pickerColPrefixCls}-indicator {
-        top: 1.37rem;
-        height: .68rem;
-        background-size: 100% .02rem;
-      }
-      .@{pickerColPrefixCls}-item {
-        font-size: .32rem;
-        line-height: .68rem;
-        height: .68rem;
-      }
-      .@{pickerColPrefixCls}-content {
-        top: -0.7rem;
-      }
-    }
+.@{pickerColPrefixCls} {
+  height: 3.25rem;
+
+  &-mask {
+    background-size: 100% 1.35rem;
+  }
+
+  &-indicator {
+    top: 1.37rem;
+    height: .68rem;
+    background-size: 100% .02rem;
+  }
+
+  &-item {
+    font-size: .32rem;
+    line-height: .68rem;
+    height: .68rem;
+  }
+
+  &-content {
+    top: -0.7rem;
   }
 }
