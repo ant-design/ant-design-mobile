@@ -16,8 +16,8 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| data    |    ddata record array to be rendered     | `Array<{icon, text}>`  | [] |
-| onClick    |   callback that is called when each grid is clicked   | (el: Object, index: number): void  | - |
+| data    |    data record array to be rendered     | `Array<{icon, text}>`  | [] |
+| onClick    |   Handler to be called when the user taps the grid   | (el: Object, index: number): void  | - |
 | columnNum    |   the number of columns   | number  |  `4` |
 | hasLine    |   whether to show border    | boolean  |  `true` |
 | isCarousel    |   whether to be played as a Carousel    | boolean  | `false` |
