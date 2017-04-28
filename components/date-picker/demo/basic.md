@@ -17,7 +17,7 @@ import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
 const zhNow = moment().locale('zh-cn').utcOffset(8);
 const maxDate = moment('2016-12-03 +0800', 'YYYY-MM-DD Z').utcOffset(8);
-const minDate = moment('2015-08-06 +0800', 'YYYY-MM-DD Z').utcOffset(8);
+const minDate = moment('2014-08-06 +0800', 'YYYY-MM-DD Z').utcOffset(8);
 
 const maxTime = moment('22:00 +0800', 'HH:mm Z').utcOffset(8);
 const minTime = moment('08:30 +0800', 'HH:mm Z').utcOffset(8);
@@ -39,6 +39,7 @@ class Test extends React.Component {
   state = {
     date: zhNow,
     dpValue: null,
+    dpArrValues: null,
     visible: false,
   }
   onChange = (date) => {
@@ -56,6 +57,7 @@ class Test extends React.Component {
       >
         <DatePicker
           type="multi"
+          mode="date"
           title="组合DatePicker"
           extra="开始日期至结束日期"
           startLabelText={<em>定制开始时间文案</em>}
@@ -64,9 +66,10 @@ class Test extends React.Component {
           maxStartDate={maxDate}
           minEndDate={minDate}
           maxEndDate={maxDate}
-          onChange={(res) => {
-            console.log(res);
-          }}
+          value={this.state.dpArrValues}
+          onChange={v => this.setState({ dpArrValues: v })}
+          format={v => v.format('YYYY.MM.DD')}
+          onOk={v => console.log('onOk', v)}
         >
           <List.Item arrow="horizontal">range(CST)</List.Item>
         </DatePicker>
@@ -102,18 +105,6 @@ class Test extends React.Component {
         >
           <List.Item arrow="horizontal">日期+时间</List.Item>
         </DatePicker>
-        <DatePicker
-          mode="time"
-          format={val => val.format('HH:mm Z')}
-          okText="OK"
-          dismissText="Cancel"
-          locale={enUs}
-          {...getFieldProps('customformat', {
-            initialValue: gmtNow,
-          })}
-        >
-          <List.Item arrow="horizontal">time(utc, UK time)</List.Item>
-        </DatePicker>
         <List.Item extra={this.state.dpValue && this.state.dpValue.format('HH:mm Z')}>
           <div onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</div>
         </List.Item>
@@ -128,11 +119,25 @@ class Test extends React.Component {
           onChange={v => this.setState({ dpValue: v, visible: false })}
         />
         <DatePicker
+          mode="time"
+          format={val => val.format('HH:mm Z')}
+          okText="OK"
+          dismissText="Cancel"
+          locale={enUs}
+          {...getFieldProps('customformat', {
+            initialValue: gmtNow,
+          })}
+        >
+          <List.Item arrow="horizontal">time(utc, UK time)</List.Item>
+        </DatePicker>
+        <DatePicker
           mode="date"
           title="选择日期"
           extra="请选择(可选)"
           value={this.state.dpValue}
           onChange={v => this.setState({ dpValue: v })}
+          format={v => v.format('HH:mm Z')}
+          onOk={v => console.log('onOk', v)}
         >
           <CustomChildren>时间选择(自定义 children)</CustomChildren>
         </DatePicker>
