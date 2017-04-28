@@ -4,7 +4,7 @@ type: Data Display
 title: NoticeBar
 ---
 
-The NoticeBar is aimed for displaying a system message, event notice and etc. Which is under the navigation bar.
+Component to display a system message, event notice and etc. Which is under the navigation bar.
 
 ### Rules
 
