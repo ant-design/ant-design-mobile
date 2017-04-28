@@ -33,16 +33,16 @@ class Test extends React.Component {
   render() {
     const { value, value2, value3, value4 } = this.state;
     const data = [
-      { value: 0, label: '博士' },
-      { value: 1, label: '本科' },
+      { value: 0, label: 'Doctor' },
+      { value: 1, label: 'Bachelor' },
     ];
     const data2 = [
-      { value: 0, label: '篮球', extra: '辅助文字内容' },
-      { value: 1, label: '足球', extra: '辅助文字内容' },
+      { value: 0, label: 'Basketball', extra: 'Details' },
+      { value: 1, label: 'Football', extra: 'Details' },
     ];
 
     return (<div>
-      <List renderHeader={() => 'RadioItem 演示'}>
+      <List renderHeader={() => 'RadioItem Demo'}>
         {data.map(i => (
           <RadioItem key={i.value} checked={value === i.value} onChange={() => this.onChange(i.value)}>
             {i.label}
@@ -58,7 +58,7 @@ class Test extends React.Component {
         ))}
       </List>
 
-      <List renderHeader={() => '禁用状态'}>
+      <List renderHeader={() => 'Disabled'}>
         {data.map(i => (
           <RadioItem key={i.value} checked={value3 === i.value} onChange={() => this.onChange3(i.value)} disabled>
             {i.label}
@@ -74,9 +74,9 @@ class Test extends React.Component {
         ))}
       </List>
       <Flex style={{ padding: '0.3rem' }}>
-        <Flex.Item style={{ padding: '0.3rem 0', color: '#888', flex: 'none' }}>Radio 演示 (自定义样式)</Flex.Item>
+        <Flex.Item style={{ padding: '0.3rem 0', color: '#888', flex: 'none' }}>Radio Demo(Customized style)</Flex.Item>
         <Flex.Item>
-          <Radio className="my-radio" onChange={e => console.log('checkbox', e)}>同意协议</Radio>
+          <Radio className="my-radio" onChange={e => console.log('checkbox', e)}>Agree</Radio>
         </Flex.Item>
       </Flex>
     </div>);

@@ -53,7 +53,7 @@ exports[`renders ./components/radio/demo/basic.tsx correctly 1`] = `
         allowFontScaling={true}
         ellipsizeMode="tail"
       >
-        支持
+        Support
       </Text>
     </View>
     <View
@@ -143,7 +143,7 @@ exports[`renders ./components/radio/demo/basic.tsx correctly 1`] = `
           }
         }
       >
-        表单单选项，普通列表中单选项
+        Form radio, radio in general list.
       </Text>
       <View
         accessibilityComponentType={undefined}
@@ -229,7 +229,7 @@ exports[`renders ./components/radio/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                使用 Ant Desgin Component
+                Use Ant Desgin Component
               </Text>
             </View>
             <View
@@ -355,7 +355,7 @@ exports[`renders ./components/radio/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                使用 Ant Desgin Component
+                Use Ant Desgin Component
               </Text>
             </View>
             <View
@@ -483,7 +483,7 @@ exports[`renders ./components/radio/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                个性化调整disabled
+                Set disabled
               </Text>
             </View>
             <View
@@ -611,7 +611,7 @@ exports[`renders ./components/radio/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                个性化调整disabled
+                Set disabled
               </Text>
             </View>
             <View
