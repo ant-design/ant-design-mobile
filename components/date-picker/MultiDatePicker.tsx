@@ -64,6 +64,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
       prefixCls, pickerPrefixCls,
       rootNativeProps,
       mode, value, defaultDate,
+      startLabelText, endLabelText,
     } = props;
 
     const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
@@ -82,7 +83,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     const { startTime, endTime, minStartDate, maxStartDate, minEndDate, maxEndDate } = this.state;
     return (
       <div {...rootNativeProps}>
-        <div className={`${prefixCls}-title`}>{startText}</div>
+        <div className={`${prefixCls}-title`}>{startLabelText || startText}</div>
         <RCDatePicker
           rootNativeProps={{ 'data-xx': 'yy' }}
           date={startTime}
@@ -94,7 +95,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
           prefixCls={prefixCls}
           onDateChange={this.onDateStartTimeChangeFunc}
         />
-        <div className={`${prefixCls}-title`}>{endText}</div>
+        <div className={`${prefixCls}-title`}>{endLabelText || endText}</div>
         <RCDatePicker
           rootNativeProps={{ 'data-xx': 'yy' }}
           date={endTime}
