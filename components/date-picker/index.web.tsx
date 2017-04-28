@@ -18,6 +18,7 @@ function getDefaultProps() {
     type: 'single', // single DatePicker or range DatePicker
     startLabelText: '',
     endLabelText: '',
+    split: ' - ',
   }, getProps());
 }
 
@@ -29,8 +30,9 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
   };
 
   getFormatValue(val) {
+    const { split } = this.props;
     if (Object.prototype.toString.call(val) === '[object Array]') {
-      return formatFn(this, val[0]) + '-' + formatFn(this, val[1]);
+      return formatFn(this, val[0]) + split + formatFn(this, val[1]);
     }
     return formatFn(this, val);
   }
