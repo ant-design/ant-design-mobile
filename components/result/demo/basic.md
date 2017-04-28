@@ -12,7 +12,7 @@ import { Result, Icon, WhiteSpace } from 'antd-mobile';
 const ResultExample = () => (<div className="result-example">
   <div className="sub-title">支付成功</div>
   <Result
-    img={<Icon type={require('./alipay.svg')} className="icon" />}
+    img={<Icon type={require('./alipay.icon.svg')} className="icon" />}
     title="支付成功"
     message={<div><div style={{ fontSize: '0.72rem', color: '#000', lineHeight: 1 }}>998.00</div><del>1098元</del></div>}
   />
@@ -33,14 +33,14 @@ const ResultExample = () => (<div className="result-example">
   <WhiteSpace />
   <div className="sub-title">等待处理</div>
   <Result
-    img={<Icon type={require('./waiting.svg')} className="icon" />}
+    img={<Icon type={require('./waiting.icon.svg')} className="icon" />}
     title="等待处理"
     message="已提交申请，等待银行处理"
   />
   <WhiteSpace />
   <div className="sub-title">操作失败</div>
   <Result
-    img={<Icon type={require('./notice.svg')} className="icon" />}
+    img={<Icon type={require('./notice.icon.svg')} className="icon" />}
     title="无法完成操作"
     message="由于你的支付宝账户还未绑定淘宝账户请登请登录www.taobao.com"
   />

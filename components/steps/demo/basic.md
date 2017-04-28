@@ -39,26 +39,26 @@ ReactDOM.render(
     <div className="sub-title">Customized status </div>
     <WhiteSpace size="lg" />
     <Steps>
-      <Step status="finish" title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step status="process" title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step status="error" title="Step 3" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step status="finish" title="Step 1" icon={<Icon type={require('./pay-circle.icon.svg')} />} />
+      <Step status="process" title="Step 2" icon={<Icon type={require('./pay-circle.icon.svg')} />} />
+      <Step status="error" title="Step 3" icon={<Icon type={require('./pay-circle.icon.svg')} />} />
     </Steps>
 
     <div className="sub-title">Customized icon </div>
     <WhiteSpace size="lg" />
     <Steps current={1}>
-      <Step title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} description="This is description" />
-      <Step title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} description="This is description" />
-      <Step title="Step 3" icon={<Icon type={require('./pay-circle.svg')} />} description="This is description" />
+      <Step title="Step 1" icon={<Icon type={require('./pay-circle.icon.svg')} />} description="This is description" />
+      <Step title="Step 2" icon={<Icon type={require('./pay-circle.icon.svg')} />} description="This is description" />
+      <Step title="Step 3" icon={<Icon type={require('./pay-circle.icon.svg')} />} description="This is description" />
     </Steps>
 
     <div className="sub-title">Multiple steps </div>
     <WhiteSpace size="lg" />
     <Steps current={1}>
-      <Step title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="Step 3" status="error" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="Step 4" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step title="Step 1" icon={<Icon type={require('./pay-circle.icon.svg')} />} />
+      <Step title="Step 2" icon={<Icon type={require('./pay-circle.icon.svg')} />} />
+      <Step title="Step 3" status="error" icon={<Icon type={require('./pay-circle.icon.svg')} />} />
+      <Step title="Step 4" icon={<Icon type={require('./pay-circle.icon.svg')} />} />
     </Steps>
   </WingBlank>
 , mountNode);

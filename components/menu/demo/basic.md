@@ -133,7 +133,7 @@ class MenuExample extends React.Component {
           <NavBar
             leftContent="Menu"
             mode="light"
-            iconName={require('./menu.svg')}
+            iconName={require('./menu.icon.svg')}
             onLeftClick={this.handleClick}
             className="top-nav-bar"
           >
