@@ -4,10 +4,10 @@ type: Data Display
 title: Grid
 ---
 
-在水平和垂直方向，将布局切分成若干等大的区块。
+We divided the design area into a number of aliquots in horizontal and vertical.
 
-### 规则
-- 区块中的内容应该是同类元素，eg：都是图片，或者都是图标+文字。
+### Rules
+- The contents of the blocks should have the same type. eg: they are all pictures or icons with text.
 
 
 ## API
@@ -16,12 +16,12 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| data    |    传入的菜单数据     | `Array<{icon, text}>`  | [] |
-| onClick    |   点击每个菜单的回调函数   | (el: Object, index: number): void  | - |
-| columnNum    |   列数     | number  |  `4` |
-| hasLine    |   是否有边框     | boolean  |  `true` |
-| isCarousel    |   是否跑马灯,     | boolean  | `false` |
-| carouselMaxRow    |   如果是跑马灯, 一页跑马灯需要展示的行数   | number  | `2` |
-| renderItem    |   自定义每个 grid 条目的创建函数   | (el, index) => React.Node  | - |
+| data    |    data record array to be rendered     | `Array<{icon, text}>`  | [] |
+| onClick    |   Handler to be called when the user taps the grid   | (el: Object, index: number): void  | - |
+| columnNum    |   the number of columns   | number  |  `4` |
+| hasLine    |   whether to show border    | boolean  |  `true` |
+| isCarousel    |   whether to be played as a Carousel    | boolean  | `false` |
+| carouselMaxRow    |   the max number of rows to be showed each page of the Carousel   | number  | `2` |
+| renderItem    |   custom function to create each grid item   | (el, index) => React.Node  | - |
 
-`isCarousel = true` 模式时，还可以传递 [carousel](https://mobile.ant.design/components/carousel) 相关的 API。
+When `isCarousel = true`, the APIs of [carousel](https://mobile.ant.design/components/carousel) also can be delivered. 

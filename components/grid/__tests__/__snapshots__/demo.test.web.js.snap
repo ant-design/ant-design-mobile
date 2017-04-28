@@ -5,7 +5,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    基本使用
+    basic usage
   </div>
   <div
     class="am-grid am-grid-line"
@@ -30,7 +30,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字0
+              name0
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字1
+              name1
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字2
+              name2
             </div>
           </div>
         </div>
@@ -96,99 +96,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字3
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
-    >
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              名字4
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              名字5
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              名字6
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              名字7
+              name3
             </div>
           </div>
         </div>
@@ -214,7 +122,99 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字8
+              name4
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:25%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-4"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name5
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:25%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-4"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name6
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:25%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-4"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name7
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+    >
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:25%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-4"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name8
             </div>
           </div>
         </div>
@@ -236,7 +236,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    无边线
+    no border
   </div>
   <div
     class="am-grid"
@@ -261,7 +261,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字0
+              name0
             </div>
           </div>
         </div>
@@ -283,7 +283,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字1
+              name1
             </div>
           </div>
         </div>
@@ -305,77 +305,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字2
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
-    >
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-3"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              名字3
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-3"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              名字4
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-3"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              名字5
+              name2
             </div>
           </div>
         </div>
@@ -401,7 +331,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字6
+              name3
             </div>
           </div>
         </div>
@@ -423,7 +353,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字7
+              name4
             </div>
           </div>
         </div>
@@ -445,7 +375,77 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
             <div
               class="am-grid-text"
             >
-              名字8
+              name5
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+    >
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name6
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name7
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name8
             </div>
           </div>
         </div>
@@ -455,7 +455,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    走马灯
+    carousel
   </div>
   <div
     class="am-grid am-grid-line"
@@ -463,7 +463,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    自定义格子内容
+    custom content
   </div>
   <div
     class="am-grid"
@@ -485,7 +485,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
               style="background:rgba(0, 0, 0, 0.1);padding:0.08rem;"
             >
               <span>
-                1.名字0
+                1.name0
               </span>
             </div>
             <img
@@ -509,7 +509,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
               style="background:rgba(0, 0, 0, 0.1);padding:0.08rem;"
             >
               <span>
-                2.名字1
+                2.name1
               </span>
             </div>
             <img
@@ -533,7 +533,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
               style="background:rgba(0, 0, 0, 0.1);padding:0.08rem;"
             >
               <span>
-                3.名字2
+                3.name2
               </span>
             </div>
             <img
@@ -561,7 +561,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
               style="background:rgba(0, 0, 0, 0.1);padding:0.08rem;"
             >
               <span>
-                4.名字3
+                4.name3
               </span>
             </div>
             <img
@@ -585,7 +585,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
               style="background:rgba(0, 0, 0, 0.1);padding:0.08rem;"
             >
               <span>
-                5.名字4
+                5.name4
               </span>
             </div>
             <img
