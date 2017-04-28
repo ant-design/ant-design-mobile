@@ -16,6 +16,7 @@ interface DatePickerProps {
   maxStartDate?: any;
   minEndDate?: any;
   maxEndDate?: any;
+  split?: string;
   locale?: any;
   disabled?: boolean;
   minuteStep?: number;

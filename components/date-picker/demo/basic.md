@@ -58,6 +58,7 @@ class Test extends React.Component {
         <DatePicker
           type="multi"
           mode="date"
+          split=" 至 "
           title="组合DatePicker"
           extra="开始日期至结束日期"
           startLabelText={<em>定制开始时间文案</em>}
@@ -68,7 +69,7 @@ class Test extends React.Component {
           maxEndDate={maxDate}
           value={this.state.dpArrValues}
           onChange={v => this.setState({ dpArrValues: v })}
-          format={v => v.format('YYYY.MM.DD')}
+          format={v => v.format('YYYY-MM-DD')}
           onOk={v => console.log('onOk', v)}
         >
           <List.Item arrow="horizontal">range(CST)</List.Item>
