@@ -48,6 +48,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     }, () => {
       this.onValueChange(0, time);
     });
+    // this.onValueChange(0, time);
   }
 
   onDateEndTimeChangeFunc = (time) => {
@@ -56,6 +57,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     }, () => {
       this.onValueChange(1, time);
     });
+    // this.onValueChange(1, time);
   }
 
   render() {

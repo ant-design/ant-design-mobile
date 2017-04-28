@@ -28,6 +28,13 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     antLocale: PropTypes.object,
   };
 
+  getFormatValue(val) {
+    if (Object.prototype.toString.call(val) === '[object Array]') {
+      return formatFn(this, val[0]) + '-' + formatFn(this, val[1]);
+    }
+    return formatFn(this, val);
+  }
+
   render() {
     const { props, context } = this;
     const { children, value, defaultDate, extra, popupPrefixCls, type, startLabelText, endLabelText } = props;
@@ -65,11 +72,13 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         minEndDate={props.minEndDate}
         maxEndDate={props.maxEndDate}
         mode={props.mode}
+        format={props.format}
         pickerPrefixCls={props.pickerPrefixCls}
         prefixCls={props.prefixCls}
         defaultDate={value || getDefaultDate(this.props)}
         startLabelText={startLabelText}
         endLabelText={endLabelText}
+        onValueChange={props.onChange}
       />
     );
 
@@ -85,7 +94,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         dismissText={dismissText}
         okText={okText}
       >
-        {children && React.cloneElement(children, { extra: value ? formatFn(this, value) : extra })}
+        {children && React.cloneElement(children, { extra: value ? this.getFormatValue(value) : extra })}
       </PopupDatePicker>
     );
   }

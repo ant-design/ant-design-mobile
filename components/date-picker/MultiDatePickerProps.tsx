@@ -17,6 +17,7 @@ interface IMultiPickerProps {
   endTime?: any;
   defaultDate?: any;
   locale?: any;
+  format?: (x: any) => void;
   minStartDate?: any;
   maxStartDate?: any;
   minEndDate?: any;
