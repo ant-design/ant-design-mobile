@@ -14,6 +14,27 @@ timeline: true
 
 ---
 
+## 1.1.1
+
+`2017-04-28`
+
+- **Feature**
+  - `InputItem`添加唤起自定义数字键盘特性（仅支付宝等客户端）。([#1231](https://github.com/ant-design/ant-design-mobile/pull/1231))
+
+- **Bug Fix**
+  - 修复 `Grid`的`renderItem`方法。([链接](https://github.com/ant-design/ant-design-mobile/commit/1316154cce6324c04a2cd7f36c8d229573dcde6b))
+  - 修复`SearchBar`clear icon可能不出现的问题。([#1204](https://github.com/ant-design/ant-design-mobile/issues/1204))
+  - 修复`InputItem`的`placeholder`声明，改为可选。([#1216](https://github.com/ant-design/ant-design-mobile/pull/1216))
+  - 修复`TabBar`声明文件，`TabBarItemProps`部分的新增`dot`。([#1209](https://github.com/ant-design/ant-design-mobile/pull/1209))
+  - 修复网站的语言切换逻辑。([链接](https://github.com/ant-design/ant-design-mobile/commit/ec839dc4fdc7bfd54a9bd389cd3699bcbf8ac1ee))
+  - `RefreshControl`支持SSR渲染。([#1201](https://github.com/ant-design/ant-design-mobile/pull/1201))
+
+- **Improve && Enhancement**
+  - 优化`Icon`组件内置的svg文件，做最小化处理。([#1220](https://github.com/ant-design/ant-design-mobile/pull/1220))
+  - 完成`NoticeBar`、`Grid`、`Radio`组件英文文档的翻译工作。([#1230](https://github.com/ant-design/ant-design-mobile/pull/1230))、([#1228](https://github.com/ant-design/ant-design-mobile/pull/1228))、([#1227](https://github.com/ant-design/ant-design-mobile/pull/1227))
+  - `InputItem`为支付宝小程序拆分出单独的内部组件`Input`。([#1225](https://github.com/ant-design/ant-design-mobile/pull/1225))
+  - `Card`组件整合声明文件。([#1222](https://github.com/ant-design/ant-design-mobile/pull/1222))
+
 ## 1.1.0
 
 `2017-04-21`
