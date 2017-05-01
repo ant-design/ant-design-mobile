@@ -7,7 +7,6 @@ const now = moment();
 import 'moment/locale/zh-cn';
 import 'moment/locale/en-gb';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
-import './style/MultiDatePicker.less';
 
 class MultiPicker extends React.Component<MultiPickerProps, any> {
   static defaultProps = {
