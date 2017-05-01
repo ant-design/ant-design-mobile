@@ -18,7 +18,7 @@ function getDefaultProps() {
     type: 'single', // single DatePicker or range DatePicker
     startLabelText: '',
     endLabelText: '',
-    split: ' - ',
+    split: '-',
   }, getProps());
 }
 
