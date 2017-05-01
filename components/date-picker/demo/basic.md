@@ -58,7 +58,7 @@ class Test extends React.Component {
         <DatePicker
           type="multi"
           mode="date"
-          split=" 至 "
+          split="至"
           title="组合DatePicker"
           extra="开始日期至结束日期"
           startLabelText={<em>定制开始时间文案</em>}
