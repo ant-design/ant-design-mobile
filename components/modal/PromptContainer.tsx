@@ -127,6 +127,7 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
                     onChangeText={(value) => { this.onChangeText('text', value); }}
                     value={this.state.text}
                     style={styles.input}
+                    underlineColorAndroid="transparent"
                   />
                 </View>
               )
@@ -140,6 +141,7 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
                     onChangeText={(value) => { this.onChangeText('password', value); }}
                     value={this.state.password}
                     style={styles.input}
+                    underlineColorAndroid="transparent"
                   />
                 </View>
               )
