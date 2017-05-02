@@ -93,6 +93,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             </div>
             <div
               class="am-list-ripple"
+              style="display:none;"
             />
           </div>
         </div>
@@ -184,6 +185,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
             </div>
             <div
               class="am-list-ripple"
+              style="display:none;"
             />
           </div>
         </div>

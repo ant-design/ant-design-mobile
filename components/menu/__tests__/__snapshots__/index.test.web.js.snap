@@ -52,6 +52,7 @@ exports[`Menu level 1 renders correctly 1`] = `
             </div>
             <div
               class="am-list-ripple"
+              style="display:none;"
             />
           </div>
           <div
@@ -87,6 +88,7 @@ exports[`Menu level 1 renders correctly 1`] = `
             </div>
             <div
               class="am-list-ripple"
+              style="display:none;"
             />
           </div>
         </div>
@@ -128,6 +130,7 @@ exports[`Menu renders correctly 1`] = `
             </div>
             <div
               class="am-list-ripple"
+              style="display:none;"
             />
           </div>
           <div
@@ -144,6 +147,7 @@ exports[`Menu renders correctly 1`] = `
             </div>
             <div
               class="am-list-ripple"
+              style="display:none;"
             />
           </div>
         </div>

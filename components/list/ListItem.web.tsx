@@ -28,7 +28,7 @@ class ListItem extends React.Component<ListItemProps, any> {
   constructor(props) {
     super(props);
     this.state = {
-      coverRippleStyle: {},
+      coverRippleStyle: { display: 'none' },
       RippleClicked: false,
     };
   }
@@ -65,7 +65,7 @@ class ListItem extends React.Component<ListItemProps, any> {
       }, () => {
         this.debounceTimeout = setTimeout(() => {
           this.setState({
-            coverRippleStyle: {},
+            coverRippleStyle: { display: 'none' },
             RippleClicked: false,
           });
         }, 1000);
