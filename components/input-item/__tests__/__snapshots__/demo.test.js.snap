@@ -101,7 +101,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -243,7 +243,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -318,7 +318,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -391,7 +391,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -462,7 +462,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -729,7 +729,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -800,7 +800,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -871,7 +871,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -992,7 +992,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -1097,7 +1097,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -1168,7 +1168,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -1239,7 +1239,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
@@ -1310,7 +1310,7 @@ exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "backgroundColor": "#fff",
+                  "backgroundColor": "transparent",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 45,
