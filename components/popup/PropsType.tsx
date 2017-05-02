@@ -1,4 +1,5 @@
 export interface PopupProps {
+  style?: any;
   animationType?: string;
   maskClosable?: boolean;
   onMaskClose?: () => any;
