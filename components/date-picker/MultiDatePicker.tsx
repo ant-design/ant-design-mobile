@@ -2,7 +2,8 @@ import React from 'react';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import MultiPickerProps from './MultiDatePickerProps';
 import moment from 'moment';
-const minDate = moment([2015, 8, 15, 0, 0, 0]);
+const minDate = moment('2000-1-1 00:00');
+const maxDate = moment('2030-12-31 23:59');
 const now = moment();
 import 'moment/locale/zh-cn';
 import 'moment/locale/en-gb';
@@ -21,9 +22,9 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     super(props);
     this.state = {
       minStartDate: this.props.minStartDate || minDate,
-      maxStartDate: this.props.maxStartDate || moment(),
+      maxStartDate: this.props.maxStartDate || maxDate,
       minEndDate: this.props.minEndDate || minDate,
-      maxEndDate: this.props.maxEndDate || moment(),
+      maxEndDate: this.props.maxEndDate || maxDate,
       startTime: this.props.startTime || now,
       endTime: this.props.endTime || now,
     };
@@ -47,7 +48,6 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     }, () => {
       this.onValueChange(0, time);
     });
-    // this.onValueChange(0, time);
   }
 
   onDateEndTimeChangeFunc = (time) => {
@@ -56,7 +56,6 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     }, () => {
       this.onValueChange(1, time);
     });
-    // this.onValueChange(1, time);
   }
 
   render() {
