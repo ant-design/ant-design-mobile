@@ -36,7 +36,7 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
     };
   }
 
-  onClose() {
+  onClose = () => {
     this.setState({
       visible: false,
     });
@@ -113,7 +113,7 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
         transparent
         title={title}
         visible={this.state.visible}
-        onClose={() => this.onClose}
+        onClose={this.onClose}
         footer={footer}
         onAnimationEnd={onAnimationEnd}
       >
