@@ -39,14 +39,14 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
     let operationDom: any = null;
     if (mode === 'closable') {
       operationDom = (
-        <div className={`${prefixCls}-operation`} onClick={this.onClick}>
+        <div className={`${prefixCls}-operation`} onClick={this.onClick} role="button" aria-label="close">
           <Icon type="cross" size="md" />
         </div>
       );
     } else {
       if (mode === 'link') {
         operationDom = (
-          <div className={`${prefixCls}-operation`}>
+          <div className={`${prefixCls}-operation`} role="button" aria-label="go to detail">
             <Icon type="right" size="md" />
           </div>
         );
@@ -68,8 +68,8 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
     }, marqueeProps);
 
     return this.state.show ? (
-      <div className={wrapCls} {...restProps} {...extraProps}>
-        {icon ? <div className={`${prefixCls}-icon`}> {icon} </div> : null}
+      <div className={wrapCls} {...restProps} {...extraProps} role="alert">
+        {icon ? <div className={`${prefixCls}-icon`} aria-hidden="true"> {icon} </div> : null}
         <div className={`${prefixCls}-content`}>
           <Marquee prefixCls={prefixCls} text={children} {...marquee} />
         </div>

@@ -13,6 +13,7 @@ export interface SliderProps {
   minimumTrackTintColor?: string;
   /* web only */
   prefixCls?: string;
+  handle?: any;
   maximumTrackStyle?: string;
   minimumTrackStyle?: number;
   handleStyle?: number;

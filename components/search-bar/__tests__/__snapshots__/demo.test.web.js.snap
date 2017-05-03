@@ -159,6 +159,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-lg"
   >
     <a
+      aria-disabled="false"
       class="am-button am-button-primary"
       role="button"
     >

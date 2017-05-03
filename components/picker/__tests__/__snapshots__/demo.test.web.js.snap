@@ -30,6 +30,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
               安徽省,六安市,金安区
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
@@ -53,6 +54,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
               2013,春
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
@@ -76,6 +78,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
               请选择
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
@@ -99,6 +102,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
               请选择
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>

@@ -12,14 +12,14 @@ export default class List extends React.Component<ListProps, any> {
   };
 
   render() {
-    let { prefixCls, children, className, style, renderHeader, renderFooter } = this.props;
+    let { prefixCls, children, className, style, renderHeader, renderFooter, ...restProps } = this.props;
     const wrapCls = classNames({
       [prefixCls as string]: true,
       [className as string]: className,
     });
 
     return (
-      <div className={wrapCls} style={style}>
+      <div className={wrapCls} style={style} {...restProps}>
         {renderHeader ? (<div className={`${prefixCls}-header`}>
           {typeof renderHeader === 'function' ? renderHeader() : renderHeader}
         </div>) : null}

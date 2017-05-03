@@ -5,6 +5,7 @@ exports[`renders ./components/popup/demo/basic.md correctly 1`] = `
   style="padding:0.15rem;"
 >
   <a
+    aria-disabled="false"
     class="am-button"
     role="button"
   >
@@ -20,6 +21,7 @@ exports[`renders ./components/popup/demo/basic-up.md correctly 1`] = `
   style="padding:0.15rem;"
 >
   <a
+    aria-disabled="false"
     class="am-button"
     role="button"
   >

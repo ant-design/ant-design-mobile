@@ -35,12 +35,12 @@ function notice(content, type, duration = 3, onClose, mask = true) {
     duration,
     style: {},
     content: !!iconType ? (
-      <div className={`${prefixCls}-text ${prefixCls}-text-icon`}>
+      <div className={`${prefixCls}-text ${prefixCls}-text-icon`} role="alert" aria-live="assertive">
         <Icon type={iconType} size="lg" />
         <div className={`${prefixCls}-text-info`}>{content}</div>
       </div>
     ) : (
-      <div className={`${prefixCls}-text`}>
+      <div className={`${prefixCls}-text`} role="alert" aria-live="assertive">
         <div>{content}</div>
       </div>
     ),

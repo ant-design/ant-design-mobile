@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
@@ -26,8 +27,14 @@ export default class NavBar extends React.Component<NavBarProps, any> {
 
     return (
       <div {...restProps} className={wrapCls}>
-        <div className={`${prefixCls}-left`} onClick={onLeftClick}>
-          {iconName ? <span className={`${prefixCls}-left-icon`}><Icon type={iconName}/></span> : null}
+        <div className={`${prefixCls}-left`} role="button" onClick={onLeftClick}>
+          {
+            iconName && (
+              <span className={`${prefixCls}-left-icon`} aria-hidden="true">
+                <Icon type={iconName}/>
+              </span>
+            )
+          }
           <span className={`${prefixCls}-left-content`}>{leftContent}</span>
         </div>
         <div className={`${prefixCls}-title`}>{children}</div>
