@@ -14,7 +14,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 2. 创建一个项目
 
-手动从脚手架工具里拷贝 [MobileDemo](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web)
+从 [这里](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web) 拷贝并修改
 
 ### 3. 使用组件
 
@@ -22,7 +22,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 4. 开发调试 & 构建和部署
 
-Web 和 React Native 两种使用方式有区别，按照 readme 文档说明分别使用
+Web 和 React Native 两种使用方式有区别，按照 README 文档说明分别使用。
 
 ## 自行构建
 
