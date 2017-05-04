@@ -5,7 +5,7 @@ title: WingBlank
 subtitle: 两翼留白
 ---
 
-WingBlank 是 Flex 布局的控件之一。
+布局控件
 
 ## API
 

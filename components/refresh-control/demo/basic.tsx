@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import { StyleSheet, View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { RefreshControl } from 'antd-mobile';
 
@@ -36,13 +37,13 @@ class Row extends React.Component<any, any> {
   }
 }
 
-export default React.createClass({
+export default createReactClass({
   getInitialState() {
     return {
       isRefreshing: false,
       loaded: 0,
       rowData: Array.from(new Array(20)).map(
-        (_val, i) => ({text: 'Initial row ' + i, clicks: 0})),
+        (_val, i) => ({ text: 'Initial row ' + i, clicks: 0 })),
     };
   },
 
@@ -79,7 +80,7 @@ export default React.createClass({
   },
 
   onRefresh() {
-    this.setState({isRefreshing: true});
+    this.setState({ isRefreshing: true });
     setTimeout(() => {
       // prepend 10 items
       const rowData = Array.from(new Array(10))

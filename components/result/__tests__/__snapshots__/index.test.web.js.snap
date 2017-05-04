@@ -3,6 +3,7 @@
 exports[`Result renders correctly 1`] = `
 <div
   class="am-result"
+  role="alert"
 >
   <div
     class="am-result-pic"

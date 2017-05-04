@@ -21,22 +21,24 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-swipe-btn "
+            role="button"
             style="background-color:#108ee9;color:white;"
           >
             <div
               class="am-swipe-text"
             >
-              回复
+              Reply
             </div>
           </div>
           <div
             class="am-swipe-btn "
+            role="button"
             style="background-color:#ddd;color:white;"
           >
             <div
               class="am-swipe-text"
             >
-              取消
+              Cancel
             </div>
           </div>
         </div>
@@ -45,22 +47,24 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-swipe-btn "
+            role="button"
             style="background-color:#ddd;color:white;"
           >
             <div
               class="am-swipe-text"
             >
-              取消
+              Cancel
             </div>
           </div>
           <div
             class="am-swipe-btn "
+            role="button"
             style="background-color:#F4333C;color:white;"
           >
             <div
               class="am-swipe-text"
             >
-              删除
+              Delete
             </div>
           </div>
         </div>
@@ -76,14 +80,15 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                左右都可操作
+                Have left and right buttons
               </div>
               <div
                 class="am-list-extra"
               >
-                更多
+                More
               </div>
               <div
+                aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
               />
             </div>
@@ -105,22 +110,24 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-swipe-btn "
+            role="button"
             style="background-color:#108ee9;color:white;"
           >
             <div
               class="am-swipe-text"
             >
-              回复
+              Reply
             </div>
           </div>
           <div
             class="am-swipe-btn "
+            role="button"
             style="background-color:#ddd;color:white;"
           >
             <div
               class="am-swipe-text"
             >
-              取消
+              Cancel
             </div>
           </div>
         </div>
@@ -129,22 +136,24 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-swipe-btn "
+            role="button"
             style="background-color:#ddd;color:white;"
           >
             <div
               class="am-swipe-text"
             >
-              取消
+              Cancel
             </div>
           </div>
           <div
             class="am-swipe-btn "
+            role="button"
             style="background-color:#F4333C;color:white;"
           >
             <div
               class="am-swipe-text"
             >
-              删除
+              Delete
             </div>
           </div>
         </div>
@@ -160,14 +169,15 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                左右都可操作
+                Have left and right buttons
               </div>
               <div
                 class="am-list-extra"
               >
-                更多
+                More
               </div>
               <div
+                aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
               />
             </div>

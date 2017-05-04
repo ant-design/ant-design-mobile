@@ -21,4 +21,6 @@ export interface TabBarItemProps {
   icon?: any;
   selectedIcon?: any;
   title: string;
+  /*web only*/
+  dot?: boolean;
 }

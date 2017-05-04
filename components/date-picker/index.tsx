@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import PopupStyles from '../picker/styles';
 import { formatFn, getProps as getDefaultProps, getDefaultDate } from './utils';
@@ -16,12 +17,12 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
   }, getDefaultProps());
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   render() {
     const { props, context } = this;
-    const {children, extra, value, defaultDate, styles} = props;
+    const { children, extra, value, defaultDate, styles } = props;
     const extraProps = {
       extra: value ? formatFn(this, value) : extra,
     };

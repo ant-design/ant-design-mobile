@@ -61,6 +61,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             </div>
           </div>
           <div
+            aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
@@ -82,6 +83,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             </div>
           </div>
           <div
+            aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
@@ -113,6 +115,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             </div>
           </div>
           <div
+            aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
@@ -155,6 +158,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             标题文字
           </div>
           <div
+            aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
@@ -176,6 +180,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             内容内容
           </div>
           <div
+            aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
@@ -278,6 +283,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             我的钱包
           </div>
           <div
+            aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
@@ -301,6 +307,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             我的花销占比
           </div>
           <div
+            aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
           />
         </div>
@@ -380,6 +387,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             没有箭头
           </div>
           <div
+            aria-hidden="true"
             class="am-list-arrow"
           />
         </div>
@@ -514,6 +522,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
           >
             <label
               class="am-switch"
+              role="switch"
             >
               <input
                 checked=""
@@ -595,7 +604,10 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                 class="am-stepper-handler-wrap"
               >
                 <span
+                  aria-disabled="false"
+                  aria-label="Increase Value"
                   class="am-stepper-handler am-stepper-handler-up "
+                  role="button"
                   unselectable="unselectable"
                 >
                   <svg
@@ -607,7 +619,10 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   </svg>
                 </span>
                 <span
+                  aria-disabled="false"
+                  aria-label="Decrease Value"
                   class="am-stepper-handler am-stepper-handler-down "
+                  role="button"
                   unselectable="unselectable"
                 >
                   <svg
@@ -620,7 +635,11 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                 </span>
               </div>
               <div
+                aria-valuemax="Infinity"
+                aria-valuemin="-Infinity"
+                aria-valuenow="20"
                 class="am-stepper-input-wrap"
+                role="spinbutton"
               >
                 <input
                   autocomplete="off"
@@ -644,6 +663,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             class="am-list-content"
           >
             <a
+              aria-disabled="false"
               class="am-button am-button-primary am-button-inline"
               role="button"
             >
@@ -652,6 +672,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
               </span>
             </a>
             <a
+              aria-disabled="false"
               class="am-button am-button-inline"
               role="button"
               style="margin-left:5px;"

@@ -34,7 +34,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               class="am-stepper-handler-wrap"
             >
               <span
+                aria-disabled="false"
+                aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -46,7 +49,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 </svg>
               </span>
               <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -59,7 +65,11 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
               class="am-stepper-input-wrap"
+              role="spinbutton"
             >
               <input
                 autocomplete="off"
@@ -95,7 +105,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               class="am-stepper-handler-wrap"
             >
               <span
+                aria-disabled="false"
+                aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -107,7 +120,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 </svg>
               </span>
               <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -120,7 +136,11 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="2"
               class="am-stepper-input-wrap"
+              role="spinbutton"
             >
               <input
                 autocomplete="off"
@@ -156,7 +176,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               class="am-stepper-handler-wrap"
             >
               <span
+                aria-disabled="true"
+                aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -168,7 +191,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 </svg>
               </span>
               <span
+                aria-disabled="true"
+                aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -181,7 +207,11 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
               class="am-stepper-input-wrap"
+              role="spinbutton"
             >
               <input
                 autocomplete="off"

@@ -1,4 +1,5 @@
 import React, { cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
@@ -19,7 +20,7 @@ if (typeof window !== 'undefined') {
 
 export default class Layout extends React.Component {
   static contextTypes = {
-    router: React.PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired,
   };
   constructor(props) {
     super(props);

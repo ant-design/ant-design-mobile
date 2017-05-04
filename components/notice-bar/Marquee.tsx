@@ -5,6 +5,7 @@
 */
 
 import React from 'react';
+import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
 import assign from 'object-assign';
 
@@ -18,7 +19,7 @@ export interface MarqueeProp {
   fps?: number;
 }
 
-const Marquee = React.createClass<MarqueeProp, any>({
+const Marquee = createReactClass<MarqueeProp, any>({
   getDefaultProps() {
     return {
       text: '',
@@ -62,7 +63,7 @@ const Marquee = React.createClass<MarqueeProp, any>({
       display: 'inline-block',
     }, this.props.style);
     return (
-      <div className={`${prefixCls}-marquee-wrap ${className}`} style={{ overflow: 'hidden' }}>
+      <div className={`${prefixCls}-marquee-wrap ${className}`} style={{ overflow: 'hidden' }} role="marquee">
         <div ref="text" className={`${prefixCls}-marquee`} style={style}>{text} </div>
       </div>
     );
@@ -75,7 +76,7 @@ const Marquee = React.createClass<MarqueeProp, any>({
     const timeout = isLeading ? this.props.leading : TIMEOUT;
 
     const animate = () => {
-      const {overflowWidth} = this.state;
+      const { overflowWidth } = this.state;
       let animatedWidth = this.state.animatedWidth + 1;
       const isRoundOver = animatedWidth > overflowWidth;
 

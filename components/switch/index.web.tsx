@@ -28,12 +28,12 @@ export default class Switch extends React.Component<SwitchProps, any> {
       [`${prefixCls}-android`]: isAndroid,
     });
 
-    return (<label className={wrapCls} style={style}>
+    return (<label className={wrapCls} style={style} role="switch">
         <input
           type="checkbox"
           name={name}
           className={`${prefixCls}-checkbox`}
-          {...(disabled ? { disabled: 'disabled' } : '') }
+          {...(disabled ? { disabled: 'disabled' } : '')}
           checked={checked}
           onChange={this.onChange}
         />

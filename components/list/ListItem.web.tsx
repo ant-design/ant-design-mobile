@@ -126,9 +126,9 @@ class ListItem extends React.Component<ListItemProps, any> {
       <div className={lineCls}>
         {children !== undefined && <div className={`${prefixCls}-content`}>{children}</div>}
         {extra !== undefined && <div className={`${prefixCls}-extra`}>{extra}</div>}
-        {arrow && <div className={arrowCls} />}
+        {arrow && <div className={arrowCls} aria-hidden="true" />}
       </div>
-      { isAndroid && <div style={coverRipleStyle} className={ripleCls} />}
+      {isAndroid && <div style={coverRipleStyle} className={ripleCls} />}
     </div>;
 
     return (

@@ -11,7 +11,7 @@ export default class Item extends React.Component<any, any> {
 
   render() {
 
-    const { children, className, prefixCls, icon, disabled, firstItem, activeStyle, ...restProps} = this.props;
+    const { children, className, prefixCls, icon, disabled, firstItem, activeStyle, ...restProps } = this.props;
     const cls = {
       [className as string]: !!className,
       [`${prefixCls}-item`]: true,
@@ -27,7 +27,7 @@ export default class Item extends React.Component<any, any> {
       <Touchable disabled={disabled} activeClassName={activeClass} activeStyle={activeStyle} >
         <div className={classNames(cls)} {...restProps}>
           <div className={`${prefixCls}-item-container`}>
-            {icon ? <span className={`${prefixCls}-item-icon`}>{icon}</span> : null}
+            {icon ? <span className={`${prefixCls}-item-icon`} aria-hidden="true">{icon}</span> : null}
             <span className={`${prefixCls}-item-content`}>{children}</span>
           </div>
         </div>

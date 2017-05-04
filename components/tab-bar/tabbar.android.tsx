@@ -54,7 +54,7 @@ class TabBar extends React.Component <TabBarProps, any> {
         <View style={styles.content}>
           {this.getPanes(true)}
         </View>
-        <View style={[styles.tabs, {backgroundColor: this.props.barTintColor}]}>
+        <View style={[styles.tabs, { backgroundColor: this.props.barTintColor }]}>
           {this.getPanes(false)}
         </View>
       </View>

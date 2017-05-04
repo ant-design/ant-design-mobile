@@ -4,12 +4,7 @@ type: Feedback
 title: Popup
 ---
 
-
-从顶部或底部浮出的模态，提供标题和关闭按钮，展示和当前内容相关的信息或提供相关操作。
-
-### 规则
-- 提供清晰的关闭按钮。
-- Popup 会打断用户操作，所以用在重要的时候， eg.买入股票。
+A modal box pops up from the top or bottom (will interrupt the user operation)
 
 ## API
 
@@ -17,20 +12,20 @@ Support WEB, React-Native.
 
 #### static show(content: React.Element, options: Object):
 
-`options`可选项：
+`options`:
 
-- maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
-- animationType (string) - 可选 `slide-down` (默认)、`slide-up` 弹出动画类型
-- transitionName (string) (`web only`) 自定义显示隐藏变换动画
-- maskTransitionName (string) (`web only`) 自定义遮罩层变换动画
-- onMaskClose (function) 遮罩层关闭时的回调，支持返回 Promise
+- maskClosable (bool) - Whether it's allowed to close when you click the mask (default true)
+- animationType (string) - Animation type, choose one of `slide-down`(default) and `slide-up`
+- transitionName (string) (`web only`) - Customize the transform animation used to show and hide
+- maskTransitionName (string) (`web only`) - Customize the transform animation used to the mask
+- onMaskClose (function) - The callback when the mask is closed, support `Promise`
 
-#### static hide(): 关闭 Popup
+#### static hide(): close Popup
 
 #### static newInstance() (`web only`)
-有些情况下，页面需要多处出现 Popup ，或在 Popup 里再产生 Popup。
+In some cases, the page needs multiple popups, For example, Popup in the Popup.
 
-返回 Popup 实例对象。对象包括：
+This function returns the Popup instance object, which includes:
 
-- show (function) - 同 static show
-- hide (function) - 同 static hide
+- show (function) - same as `static show`
+- hide (function) - same as `static hide`

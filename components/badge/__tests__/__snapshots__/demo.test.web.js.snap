@@ -38,6 +38,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           Extra content
         </div>
         <div
+          aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
         />
       </div>
@@ -74,6 +75,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           </span>
         </div>
         <div
+          aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
         />
       </div>
@@ -161,6 +163,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           Extra
         </div>
         <div
+          aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
         />
       </div>

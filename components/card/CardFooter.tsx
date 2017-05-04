@@ -1,12 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-
-export interface CardFooterProps {
-  content?: any;
-  extra?: any;
-  style?: {};
-  styles: any;
-}
+import { CardFooterProps } from './PropsType';
 
 export default class CardFooter extends React.Component<CardFooterProps, any> {
   static defaultProps = {
@@ -31,7 +25,7 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
     return (
       <View style={[styles.footerWrap, style]} {...restProps}>
         {contentDom}
-        { extra ? extraDom : null }
+        {extra ? extraDom : null}
       </View>
     );
   }

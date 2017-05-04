@@ -4,14 +4,15 @@ type: Gesture
 title: SwipeAction
 ---
 
-滑动操作组件。
+iOS-style swipeout buttons that appear from behind a component.
 
-### 定义／Definition
-结合手势操作，从屏幕唤出删除键。
+### Definition
 
-### 规则 / Rule
-1. 一次只可滑动一行列表
-2. 点击任意删除按钮之外任意处或往回滑动该列表可撤销该操作。
+Call out oprations from one side of screen with gesture.
+
+### Rules
+1. Only one row can be swiped at a time.
+2. Can hide oprations by clicking outside of buttons or swiping the list backforwards.
 
 
 ## API
@@ -22,19 +23,19 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| style           | swipeout style (iOS only)      | Object |             |
-| left       | swipeout buttons on left      | Array | `null` |
-| right       | swipeout buttons on right      | Array | `null` |
-| autoClose       | auto close on button press   | Boolean | `function() {}` |
-| onOpen       |    打开时回调函数   | (): void | `function() {}` |
-| disabled       |   disabled swipeout    | Boolean | `false` |
-| title          |    modal title (`android only`)   | String | `请确认操作` |
-| onClose (`web only`)   |  关闭时回调函数    | (): void | `function() {}` |
+| style           | style for `swipeout`   | Object |             |
+| left       | left buttons for `swipeout`      | Array | `null` |
+| right       | right buttons for `swipeout`    | Array | `null` |
+| autoClose       | auto hide after button is pressed   | Boolean | `function() {}` |
+| onOpen       |    callback function that is triggered when the buttons will be opened   | (): void | `function() {}` |
+| disabled       |   whether is disabled    | Boolean | `false` |
+| onClose   |  callback function that is triggered when the buttons will be closed | (): void | `function() {}` |
 
 ### Button
 
-| 参数 | 说明             | 类型                    | 默认值 |
+| Properties | Descrition             | Type                    | Default |
 |------|------------------|-------------------------|--------|
-| text       | button text     | String | `Click` |
-| style       | button style （iOS only）    | Object | `` |
-| onPress       | button press function     | (): void | `function() {}` |
+| text       | text of button    | String | `Click` |
+| style       | style of button     | Object | `` |
+| onPress       | callback function that is triggered when button will be pressed   | (): void | `function() {}` |
+| className(`web only`) | class name of button | String | |

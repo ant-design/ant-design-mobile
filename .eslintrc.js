@@ -21,6 +21,7 @@ const eslintrc = {
     'markdown',
     'react',
     'babel',
+    'jsx-a11y'
   ],
   rules: {
     'class-methods-use-this': 0,

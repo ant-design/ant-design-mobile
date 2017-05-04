@@ -14,7 +14,7 @@ interface InputItemProps {
   name?: string;
   value?: string;
   defaultValue?: string;
-  placeholder: string;
+  placeholder?: string;
   clear?: boolean;
   maxLength?: number;
   onChange?: Function;

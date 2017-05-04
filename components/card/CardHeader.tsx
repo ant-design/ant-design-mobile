@@ -1,14 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-
-export interface CardHeaderProps {
-  title?: any;
-  thumb?: string;
-  extra?: any;
-  thumbStyle?: {};
-  style?: any;
-  styles: any;
-}
+import { CardHeaderProps } from './PropsType';
 
 export default class CardHeader extends React.Component<CardHeaderProps, any> {
   static defaultProps = {
@@ -34,10 +26,10 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
     return (
       <View style={[styles.headerWrap, style]} {...restProps}>
         <View style={[styles.headerTitle]}>
-          { thumb ? <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} /> : null }
+          {thumb ? <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} /> : null}
           {titleDom}
         </View>
-        { extra ? extraDom : null }
+        {extra ? extraDom : null}
       </View>
     );
   }

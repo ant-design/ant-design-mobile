@@ -3,6 +3,7 @@ import React from 'react';
 function noop() {}
 
 export interface SearchBarProps {
+  defaultValue?: string;
   value?: string;
   placeholder?: string;
   onSubmit?: Function;

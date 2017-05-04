@@ -13,7 +13,7 @@ function getFormatter(type) {
 }
 
 export function formatFn(instance, value) {
-  const {format} = instance.props;
+  const { format } = instance.props;
   const type = typeof format;
   if (type === 'string') {
     return value.format(type);

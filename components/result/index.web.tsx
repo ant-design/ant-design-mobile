@@ -26,13 +26,13 @@ export default class Result extends React.Component<ResultProps, any> {
     }
 
     return (
-      <div className={wrapCls}>
+      <div className={wrapCls} role="alert">
         {imgContent}
-        {title ? <div className={`${prefixCls}-title`}>{title}</div> : null }
-        {message ? <div className={`${prefixCls}-message`}>{message}</div> : null }
+        {title ? <div className={`${prefixCls}-title`}>{title}</div> : null}
+        {message ? <div className={`${prefixCls}-message`}>{message}</div> : null}
         {buttonText ? <div className={`${prefixCls}-button`}>
           <Button type={buttonType} onClick={buttonClick}>{buttonText}</Button>
-        </div> : null }
+        </div> : null}
       </div>
     );
   }

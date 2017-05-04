@@ -24,8 +24,10 @@ export default class Grid extends React.Component<GridProps, any> {
   }
 
   render() {
-    const { data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {}, styles } = this.props;
-
+    const { data, hasLine, isCarousel, onClick = () => {}, styles } = this.props;
+    // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/11640
+    const columnNum = this.props.columnNum as number;
+    const carouselMaxRow = this.props.carouselMaxRow as number;
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);
 
@@ -89,7 +91,7 @@ export default class Grid extends React.Component<GridProps, any> {
             pageRows.push(
               <Flex key={rowIndex} style={[styles.grayBorderBox, { borderBottomWidth: hasLine ? 1 : 0 }]}>
                 {res}
-              </Flex>
+              </Flex>,
             );
           }
         }
@@ -99,7 +101,7 @@ export default class Grid extends React.Component<GridProps, any> {
             style={[styles.grayBorderBox, { borderTopWidth: hasLine && pageIndex !== 0 ? 1 : 0 }]}
           >
             {pageRows}
-          </View>
+          </View>,
         );
       }
     }

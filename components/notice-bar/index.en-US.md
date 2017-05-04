@@ -4,10 +4,11 @@ type: Data Display
 title: NoticeBar
 ---
 
-在导航栏下方，一般用作系统提醒、活动提醒等通知。
+Component to display a system message, event notice and etc. Which is under the navigation bar.
 
-### 规则
-- 需要引起用户关注时使用，重要级别低于 Modal ，高于 Toast。
+### Rules
+
+- Be used to attract user's attension, the importance level is lower than `Modal` and higher than `Toast`.
 
 ## API
 
@@ -15,7 +16,7 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| mode    | 提示类型，可选`closable`,`link`   | String |  ''  |
-| icon    |  notice 前的图标  |  React.Element | `<Icon type={require('./trips.svg')} size="xxs" />`|
-| onClick    | 点击关闭或者操作区域的回调函数        | (): void |   |
-| marqueeProps (`web only`) | marquee 参数       | Object | `{loop: false, leading: 500, trailing: 800, fps: 40, style: {}}`  |
+| mode    | Type of NoticeBar, options: `closable` `link`   | String |  ''  |
+| icon    | To set the icon before notice  |  React.Element | `<Icon type={require('./trips.svg')} size="xxs" />`|
+| onClick    | A callback function, can be executed when you close the notice or click on the operating area   | (): void |   |
+| marqueeProps (`web only`) | marquee params       | Object | `{loop: false, leading: 500, trailing: 800, fps: 40, style: {}}`  |

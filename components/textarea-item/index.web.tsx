@@ -144,7 +144,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
         } catch (e) { }
       }, 100);
     }
-  };
+  }
 
   onErrorClick = () => {
     if (this.props.onErrorClick) {
@@ -160,10 +160,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   render() {
     let {
-      prefixCls, prefixListCls, style, title, value, defaultValue, clear, rows, count,
+      prefixCls, prefixListCls, style, title, value, defaultValue, clear,
       editable, disabled, error, className, labelNumber, autoHeight,
     } = this.props;
-
+    const count = this.props.count as number;
+    const rows = this.props.rows as number;
     // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
       'clear', 'children', 'error', 'className', 'count', 'labelNumber', 'title', 'onErrorClick',
@@ -204,7 +205,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     const characterLength = countSymbols(value);
     return (
       <div className={wrapCls} style={style}>
-        {title && <div className={labelCls}>{title}</div> }
+        {title && <div className={labelCls}>{title}</div>}
         <div className={`${prefixCls}-control`}>
           <textarea
             ref="textarea"
@@ -220,7 +221,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
         {clear && editable && value && characterLength > 0 &&
           <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
         }
-        {error && <div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} /> }
+        {error && <div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />}
         {count > 0 && rows > 1 &&
           <span className={`${prefixCls}-count`}><span>{value ? characterLength : 0}</span>/{count}</span>
         }

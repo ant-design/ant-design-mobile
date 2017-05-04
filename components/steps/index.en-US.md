@@ -33,7 +33,7 @@ The Steps container.
 |----------|------------------------------------------|-------------|-------|
 | current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | `0` |
 | size | To specify the size of the step bar, a smaller size can be achieved by setting it to `small` | string | - |
-| direction | To specify the direction of the step bar   | Enum { 'vertical', 'horizontal' }  | `vertical`  |
+| direction | To specify the direction of the step bar(now only support `vertical` for react-native)   | Enum { 'vertical', 'horizontal' }  | `vertical`  |
 
 ### Steps.Step
 
@@ -44,4 +44,4 @@ A single step used as child component of the Step.
 | status | To specify the status. It will be automatically set by `current` of `Steps` if not configured. | Enum { 'wait', 'process', 'finish', 'error' } | `wait` |
 | title | Title of the step | React.Element | -     |
 | description | Detail of the step(optional property) | React.Element | -  |
-| icon | Icon of the step(optional property) | string/React.Element | - |
+| icon | Icon of the step(optional property) | object/React.Element | - |

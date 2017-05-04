@@ -1,17 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
-    <title>ellipsis-circle-cp</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
-        <g id="ellipsis-circle-cp">
-            <g id="Group">
-                <path d="M22.13,0.109 C10.049,0.109 0.255,9.903 0.255,21.984 C0.255,34.065 10.049,43.859 22.13,43.859 C34.211,43.859 44.005,34.065 44.005,21.984 C44.005,9.903 34.211,0.109 22.13,0.109 Z M22.13,40.8090008 C11.7336013,40.8090008 3.30499924,32.3803987 3.30499924,21.984 C3.30499924,11.5876013 11.7336013,3.15899924 22.13,3.15899924 C32.5263987,3.15899924 40.9550008,11.5876013 40.9550008,21.984 C40.9550008,32.3803987 32.5263987,40.8090008 22.13,40.8090008 Z" id="Shape"></path>
-                <circle id="Oval" cx="21.888" cy="22.701" r="2.445"></circle>
-                <circle id="Oval" cx="12.23" cy="22.701" r="2.445"></circle>
-                <circle id="Oval" cx="31.546" cy="22.701" r="2.445"></circle>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><title>ellipsis-circle-cp</title><g fill-rule="evenodd"><path d="M22.13.109C10.049.109.255 9.903.255 21.984s9.794 21.875 21.875 21.875 21.875-9.794 21.875-21.875S34.211.109 22.13.109zm0 40.7c-10.396 0-18.825-8.429-18.825-18.825 0-10.396 8.429-18.825 18.825-18.825 10.396 0 18.825 8.429 18.825 18.825 0 10.396-8.429 18.825-18.825 18.825z"/><circle cx="21.888" cy="22.701" r="2.445"/><circle cx="12.23" cy="22.701" r="2.445"/><circle cx="31.546" cy="22.701" r="2.445"/></g></svg>

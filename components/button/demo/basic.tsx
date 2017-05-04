@@ -6,7 +6,7 @@ import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 /* tslint:disable:no-console */
 export default () => (
-  <View style={{marginTop: 80}}>
+  <View style={{ marginTop: 80 }}>
     <WhiteSpace />
     <WingBlank>
       <Button onClick={() => { Alert.alert( 'Button', 'button clicked' ); }}>default button</Button>

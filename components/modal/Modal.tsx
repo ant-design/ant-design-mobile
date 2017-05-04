@@ -35,12 +35,6 @@ class AntmModal extends React.Component<ModalPropsType, any> {
 
   root: any;
 
-  onMaskClose = () => {
-    if (this.props.maskClosable && this.props.onClose) {
-      this.props.onClose();
-    }
-  }
-
   onFooterLayout = (e) => {
     if (this.root) {
       this.root.setNativeProps({
@@ -55,7 +49,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
 
   render() {
     const {
-      title, closable, footer, children, style, animateAppear,
+      title, closable, footer, children, style, animateAppear, maskClosable,
       transparent, visible, onClose, bodyStyle, onAnimationEnd, styles, operation,
     } = this.props;
 
@@ -125,13 +119,14 @@ class AntmModal extends React.Component<ModalPropsType, any> {
       return (
         <View style={styles.container}>
           <RCModal
-            onClose={this.onMaskClose}
+            onClose={onClose}
             animationType={animType}
             wrapStyle={transparent ? styles.wrap : undefined}
             style={[styles.innerContainer, style]}
             visible={visible}
             onAnimationEnd={onAnimationEnd}
             animateAppear={animateAppear}
+            maskClosable={maskClosable}
           >
             <View style={maxHeight} ref={this.saveRoot}>
               {title ? <Text style={[styles.header]}>{title}</Text> : null}
@@ -151,7 +146,7 @@ class AntmModal extends React.Component<ModalPropsType, any> {
         <Modal
           visible={visible}
           animationType={animType}
-          onRequestClose={this.onMaskClose}
+          onRequestClose={onClose}
         >
           <View style={style}>
             {children}

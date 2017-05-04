@@ -1,4 +1,5 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import classNames from 'classnames';
 import ReactCarousel from 'nuka-carousel';
 import assign from 'object-assign';
@@ -46,7 +47,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     const current = this.state.selectedIndex;
     if (props.dots) {
       Decorators = [{
-        component: React.createClass({
+        component: createReactClass({
           render() {
             const { slideCount, slidesToScroll } = this.props;
             const arr: number[] = [];

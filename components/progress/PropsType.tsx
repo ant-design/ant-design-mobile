@@ -10,6 +10,7 @@ interface ProgressProps {
   styles?: any;
   /** web only */
   prefixCls?: string;
+  className?: string;
   appearTransition?: boolean;
 }
 

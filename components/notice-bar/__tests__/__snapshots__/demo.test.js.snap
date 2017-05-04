@@ -86,7 +86,7 @@ exports[`renders ./components/notice-bar/demo/basic.tsx correctly 1`] = `
         ]
       }
     >
-      国庆期间余额宝收益和转出到账时间
+      Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
     </Text>
   </View>
   <View
@@ -154,7 +154,7 @@ exports[`renders ./components/notice-bar/demo/basic.tsx correctly 1`] = `
         ]
       }
     >
-      国庆期间余额宝收益和转出到账时间1
+      Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
     </Text>
     <View
       accessibilityComponentType={undefined}
@@ -256,7 +256,7 @@ exports[`renders ./components/notice-bar/demo/basic.tsx correctly 1`] = `
         ]
       }
     >
-      自定义 NoticeBar 前面的图标
+      Customized icon.
     </Text>
     <View
       accessibilityComponentType={undefined}
@@ -371,7 +371,7 @@ exports[`renders ./components/notice-bar/demo/basic.tsx correctly 1`] = `
         ]
       }
     >
-      国庆期间余额宝收益和转出到账时间
+      Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
     </Text>
     <Text
       accessible={true}
@@ -474,7 +474,7 @@ exports[`renders ./components/notice-bar/demo/basic.tsx correctly 1`] = `
         ]
       }
     >
-      国庆期间余额宝收益和转出到账时间
+      Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
     </Text>
     <Text
       accessible={true}
@@ -541,7 +541,7 @@ exports[`renders ./components/notice-bar/demo/basic.tsx correctly 1`] = `
         ]
       }
     >
-      去除 NoticeBar 默认的喇叭图标
+      Remove the default icon.
     </Text>
     <View
       accessibilityComponentType={undefined}

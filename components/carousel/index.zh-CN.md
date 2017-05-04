@@ -24,4 +24,4 @@ subtitle: 走马灯
 | onScrollBeginDrag (`rn only`) | 见 react-native scrollView onScrollBeginDrag | (): void | 无 |
 | bounces (`rn only`) | 见 react-native scrollView bounces       |   Boolean      | true |
 
-更多参数可参考：https://github.com/FormidableLabs/nuka-carousel
+更多参数可参考：https://github.com/FormidableLabs/nuka-carousel (`web only`)

@@ -4,7 +4,7 @@ type: Data Entry
 title: Radio
 ---
 
-单选框
+Radio.
 
 ## API
 
@@ -14,13 +14,14 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| name    |   name  | String |   无  |
-| defaultChecked |   初始是否选中   | Boolean  | 无  |
-| checked    |   指定当前是否选中  | Boolean  | 无  |
-| disabled      |  禁用  | Boolean |  false  |
-| onChange    | change 事件触发的回调函数 | (e: Object): void |   无  |
+| name    |   name  | String |   -  |
+| defaultChecked |   the initial checked state   | Boolean  | -  |
+| checked    |   to set the current checked state  | Boolean  | -  |
+| disabled      |  whether disabled  | Boolean |  false  |
+| onChange    | a callback function, can be executed when the checked state changes | (e: Object): void |  -  |
 
 ### Radio.RadioItem
 
-基于`List.Item`对`Radio`进行封装,`List.Item`的`extra`属性固定传入`Radio`,其他属性和`List.Item`一致。
-其他 API 和 Radio 相同。
+The encapsulation about `Radio` based on `List.Item`, the property `extra` of `List.Item` will be passed to `Radio`, while other properties remain the same.
+
+Other APIs are identical with `Radio`.

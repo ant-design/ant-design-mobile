@@ -4,16 +4,31 @@
 @imagePickerPrefixCls: am-image-picker;
 
 .@{imagePickerPrefixCls} {
-  & &-list {
+  &-list {
     padding-top: @v-spacing-md;
     margin-bottom: @h-spacing-lg;
-    .@{imagePickerPrefixCls}-item {
-      position: relative;
-      margin-right: @h-spacing-sm;
-      margin-bottom: @v-spacing-sm;
-      &:nth-child(4n) {
-        margin-right: 0;
+    .am-flexbox {
+      .am-flexbox-item {
+        position: relative;
+        margin-right: @h-spacing-sm;
+        margin-left: 0;
+        &:after {
+          display: block;
+          content: ' ';
+          padding-bottom: 100%;
+        }
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
       }
+      margin-bottom: @v-spacing-sm;
+    }
+    .@{imagePickerPrefixCls}-item {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 100%;
       .@{imagePickerPrefixCls}-item-remove {
         width: @icon-size-xxs;
         height: @icon-size-xxs;

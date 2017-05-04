@@ -14,6 +14,8 @@ subtitle: 下拉刷新
 
 ## API (web)
 
+> 注意：RefreshControl 会自动使用 ListView 的`useZscroller`(参考 ListView 代码)，所以需要给 ListView 设置固定的高度
+
 - icon (any) - 刷新指示icon, 包含 `pull` and `release` 状态
 - loading (any) - 加载指示器
 - distanceToRefresh (number, default: 50 / 2 * (window.devicePixelRatio || 2)) - 刷新距离

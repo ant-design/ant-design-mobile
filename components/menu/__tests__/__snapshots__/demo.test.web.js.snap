@@ -10,8 +10,10 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-navbar-left"
+        role="button"
       >
         <span
+          aria-hidden="true"
           class="am-navbar-left-icon"
         >
           <svg

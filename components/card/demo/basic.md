@@ -5,7 +5,13 @@ title:
   en-US: Default
 ---
 
+## zh-CN
+
 Card 默认样式
+
+## en-US
+
+Default Card
 
 ````jsx
 import { Card, WingBlank, WhiteSpace } from 'antd-mobile';
@@ -15,14 +21,14 @@ ReactDOM.render(
     <WhiteSpace size="lg" />
     <Card>
       <Card.Header
-        title="这是 title"
+        title="This is title"
         thumb="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
         extra={<span>this is extra</span>}
       />
       <Card.Body>
-        <div>这是卡片内容</div>
+        <div>This is content of `Card`</div>
       </Card.Body>
-      <Card.Footer content="这是卡尾" extra={<div>这是尾部介绍</div>} />
+      <Card.Footer content="footer content" extra={<div>extra footer content</div>} />
     </Card>
     <WhiteSpace size="lg" />
   </WingBlank>

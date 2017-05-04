@@ -14,6 +14,7 @@ class SearchBarExample extends React.Component {
     focused: false,
   };
   onChange= (value) => {
+    // console.log(value, 'onChange');
     this.setState({ value });
   };
   clear = () => {
@@ -57,6 +58,7 @@ class SearchBarExample extends React.Component {
         onClear={value => console.log(value, 'onClear')}
         onFocus={() => console.log('onFocus')}
         onBlur={() => console.log('onBlur')}
+        onCancel={() => console.log('onCancel')}
         showCancelButton
         onChange={this.onChange}
       />

@@ -1,12 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-
-export interface CardFooterProps {
-  prefixCls?: string;
-  content?: any;
-  className?: string;
-  extra?: any;
-}
+import { CardFooterProps } from './PropsType';
 
 export default class CardFooter extends React.Component <CardFooterProps, any> {
   static defaultProps = {
@@ -23,7 +17,7 @@ export default class CardFooter extends React.Component <CardFooterProps, any> {
     return (
       <div className={wrapCls} {...restProps}>
         <div className={`${prefixCls}-footer-content`}>{content}</div>
-        { extra && <div className={`${prefixCls}-footer-extra`}>{extra}</div> }
+        {extra && <div className={`${prefixCls}-footer-extra`}>{extra}</div>}
       </div>
     );
   }

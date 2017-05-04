@@ -69,7 +69,7 @@ export default class BasicModalExample extends React.Component<any, any> {
       '这是密码message,可以不要',
       password => console.log(`password: ${password}`),
       'secure-text',
-      'defaultValue'
+      'defaultValue',
     );
   }
 
@@ -97,6 +97,7 @@ export default class BasicModalExample extends React.Component<any, any> {
           transparent={false}
           visible={this.state.visible2}
           animationType="slide-up"
+          onClose={this.onClose2}
         >
           <View style={{ paddingVertical: 220 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>

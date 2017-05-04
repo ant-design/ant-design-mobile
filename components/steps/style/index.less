@@ -184,9 +184,12 @@
     display: inline-block;
     padding-right: 10px;
   }
-  &-item-last {
+  &-item:last-child {
     .@{stepsPrefixCls}-title {
       padding-right: 0;
+    }
+   .@{stepsPrefixCls}-tail {
+      display: none;
     }
   }
   &-description {

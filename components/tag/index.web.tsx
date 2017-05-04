@@ -69,8 +69,8 @@ export default class Tag extends React.Component<TagProps, any> {
     });
 
     const closableDom = closable && !disabled && !small ? (
-      <div className={`${prefixCls}-close`} onClick={this.onTagClose}>
-        <Icon type="cross-circle" size="xs" />
+      <div className={`${prefixCls}-close`} role="button" onClick={this.onTagClose} aria-label="remove tag">
+        <Icon type="cross-circle" size="xs" aria-hidden="true" />
       </div>
     ) : null;
 

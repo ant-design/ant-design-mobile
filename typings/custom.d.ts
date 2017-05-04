@@ -28,8 +28,6 @@ declare module 'rc-slider';
 
 declare module 'rc-swipeout*';
 
-declare module 'react-hammerjs';
-
 declare module 'nuka-carousel';
 
 declare module 'rc-tabs*';
@@ -43,8 +41,6 @@ declare module 'rc-notification';
 declare module 'react-native-camera-roll-picker';
 
 declare module 'react-mixin';
-
-declare module 'react-timer-mixin';
 
 declare module 'array-tree-filter';
 
@@ -61,9 +57,5 @@ declare module 'react-native-menu';
 declare module 'rmc-pull-to-refresh';
 
 declare module 'react-native-scrollable-tab-view';
-
-declare module 'zscroller';
-
-declare module 'shallowequal';
 
 declare module 'react-native-collapsible/Accordion';

@@ -14,31 +14,78 @@ export default class Grid extends React.Component<GridProps, any> {
     carouselMaxRow: 2,
     prefixCls: 'am-grid',
   };
-
-  clientWidth = document.documentElement.clientWidth;
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      initialSlideWidth: 0, // only used in carousel model
+    };
+  }
+  componentDidMount() {
+    this.setState({
+      initialSlideWidth: document.documentElement.clientWidth,
+    });
+  }
+  renderCarousel = (rowsArr, pageCount, rowCount) => {
+    const { prefixCls } = this.props;
+    const carouselMaxRow = this.props.carouselMaxRow as number;
+    const pagesArr: any[] = [];
+    for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
+      const pageRows: any[] = [];
+      for (let ii = 0; ii < carouselMaxRow; ii++) {
+        const rowIndex = pageIndex * carouselMaxRow + ii;
+        if (rowIndex < rowCount) {
+          pageRows.push(rowsArr[rowIndex]);
+        } else {
+          // 空节点为了确保末尾页的最后未到底的行有底线(样式中last-child会没线)
+          pageRows.push(<div key={`gridline-${rowIndex}`} />);
+        }
+      }
+      pagesArr.push(<div key={`pageitem-${pageIndex}`} className={`${prefixCls}-carousel-page`}>{pageRows}</div>);
+    }
+    return pagesArr;
+  }
+  renderItem = (dataItem: DataItem | any, index: number, columnNum: number, renderItem: any) => {
+    const { prefixCls } = this.props;
+    let itemEl: any = null;
+    if (renderItem) {
+      itemEl = renderItem(dataItem, index);
+    } else {
+      if (dataItem) {
+        const { icon, text } = dataItem;
+        itemEl = (
+          <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
+            {
+              React.isValidElement(icon) ? icon : (
+                <img className={`${prefixCls}-icon`} src={icon} />
+              )
+            }
+            <div className={`${prefixCls}-text`}>{text}</div>
+          </div>
+        );
+      }
+    }
+    return (
+      <div
+        className={`${prefixCls}-item-content`}
+      >
+        {itemEl}
+      </div>
+    );
+  }
   render() {
-    const {
-      prefixCls, className,
-      data, hasLine, columnNum, isCarousel, carouselMaxRow, onClick = () => {},
-    } = this.props;
+    const { prefixCls, className, data, hasLine, isCarousel, ...restProps } = this.props;
+    let { columnNum, carouselMaxRow, onClick = () => {}, renderItem, ...restPropsForCarousel } = restProps;
+    columnNum = columnNum as number;
+    carouselMaxRow = carouselMaxRow as number;
+
+    const { initialSlideWidth } = this.state;
 
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);
-
-    const renderItem = this.props.renderItem || ((dataItem: DataItem) => (
-      <div
-        className={`${prefixCls}-item-contain column-num-${columnNum}`}
-        style={{ height: `${this.clientWidth / columnNum}px` }}
-      >
-        {
-          React.isValidElement(dataItem.icon) ? dataItem.icon : (
-            <img className={`${prefixCls}-icon`} src={dataItem.icon} />
-          )
-        }
-        <div className={`${prefixCls}-text`}>{dataItem.text}</div>
-      </div>
-    ));
+    const rowWidth = `${100 / columnNum}%`;
+    const colStyle = {
+      width: rowWidth,
+    };
 
     const rowsArr: any[] = [];
 
@@ -52,14 +99,14 @@ export default class Grid extends React.Component<GridProps, any> {
             key={`griditem-${dataIndex}`}
             className={`${prefixCls}-item`}
             onClick={() => onClick(el, dataIndex)}
-            style={{ width: `${this.clientWidth / columnNum}px` }}
+            style={colStyle}
           >
-            {renderItem(el, dataIndex)}
+            {this.renderItem(el, dataIndex, columnNum, renderItem)}
           </Flex.Item>);
         } else {
           rowArr.push(<Flex.Item
             key={`griditem-${dataIndex}`}
-            style={{ width: `${this.clientWidth / columnNum}px` }}
+            style={colStyle}
           />);
         }
       }
@@ -67,23 +114,22 @@ export default class Grid extends React.Component<GridProps, any> {
     }
 
     const pageCount = Math.ceil(rowCount / carouselMaxRow);
-    const pagesArr: any[] = [];
-    if (isCarousel && pageCount > 1) {
-      for (let pageIndex = 0; pageIndex < pageCount; pageIndex++) {
-        const pageRows: any[] = [];
-        for (let ii = 0; ii < carouselMaxRow; ii++) {
-          const rowIndex = pageIndex * carouselMaxRow + ii;
-          if (rowIndex < rowCount) {
-            pageRows.push(rowsArr[rowIndex]);
-          } else {
-            // 空节点为了确保末尾页的最后未到底的行有底线(样式中last-child会没线)
-            pageRows.push(<div key={`gridline-${rowIndex}`} />);
-          }
-        }
-        pagesArr.push(<div key={`pageitem-${pageIndex}`} className={`${prefixCls}-carousel-page`}>{pageRows}</div>);
+    const isCarouselMode = isCarousel && pageCount > 1;
+    let renderEl;
+    if (isCarouselMode) {
+      if (initialSlideWidth > 0) {
+        renderEl = (
+          <Carousel initialSlideWidth={initialSlideWidth} {...restPropsForCarousel}>
+            {this.renderCarousel(rowsArr, pageCount, rowCount)}
+          </Carousel>
+        );
+      } else {
+        // server side render
+        renderEl = null;
       }
+    } else {
+      renderEl = rowsArr;
     }
-
     return (
       <div
         className={classNames({
@@ -92,7 +138,7 @@ export default class Grid extends React.Component<GridProps, any> {
           [className as string]: className,
         })}
       >
-        {isCarousel && pageCount > 1 ? <Carousel initialSlideWidth={this.clientWidth}>{pagesArr}</Carousel> : rowsArr}
+        {renderEl}
       </div>
     );
   }

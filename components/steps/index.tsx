@@ -39,7 +39,7 @@ export default class Steps extends React.Component<StepsProps, any> {
     const wrapView = this.props.direction === 'vertical' ? '' : 'warp_row';
     const styles = this.props.styles;
     return (
-      <View style={styles[wrapView]} onLayout={(e) => {this.onLayout(e);}}>
+      <View style={styles[wrapView]} onLayout={(e) => {this.onLayout(e); }}>
       {
         React.Children.map(children, (ele: any, idx) => {
           let errorTail = -1;
