@@ -17,15 +17,15 @@ export default () => (
       <WhiteSpace />
       <Button disabled>disable button</Button>
       <WhiteSpace />
-      <Button activeStyle={false}>无点击反馈</Button>
+      <Button activeStyle={false}>no feedback</Button>
       <WhiteSpace />
-      <Button activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button>
+      <Button activeStyle={{ backgroundColor: 'red' }}>custom feedback style</Button>
       <WhiteSpace />
       <Button loading>loading button</Button>
     </WingBlank>
 
     <WingBlank style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-      <Text>小按钮</Text>
+      <Text>small</Text>
       <Button type="ghost" size="small">ghost small button</Button>
     </WingBlank>
 

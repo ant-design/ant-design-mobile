@@ -5,7 +5,7 @@ title:
   en-US: 'Type, Size'
 ---
 
-按钮
+button
 
 ````jsx
 import { Button, Flex, WingBlank } from 'antd-mobile';
@@ -15,11 +15,15 @@ const ButtonExample = () => (
   <WingBlank>
     <div className="btn-container">
       <div>
-        <Button className="btn" type="primary">primary 按钮</Button>
-        <Button className="btn" disabled onClick={e => console.log(e)}>disabled 按钮</Button>
-        <Button className="btn" loading>loading 按钮</Button>
-        <Button className="btn" icon="check-circle-o">带图标按钮</Button>
-        <Button className="btn" icon={require('!svg-sprite!./reload.svg')}>本地图标</Button>
+        <Button className="btn" type="primary">primary button</Button>
+        <Button className="btn" disabled onClick={e => console.log(e)}>
+          disabled button
+        </Button>
+        <Button className="btn" loading>loading button</Button>
+        <Button className="btn" icon="check-circle-o">with icon</Button>
+        <Button className="btn" icon={require('!svg-sprite!./reload.svg')}>
+          with local icon
+        </Button>
 
         <div style={{ height: '0.16rem' }} />
         {/* <Button className="btn" activeStyle={false}>无点击反馈</Button> */}
