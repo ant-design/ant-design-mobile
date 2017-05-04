@@ -14,7 +14,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
         role="button"
       >
         <span>
-          primary 按钮
+          primary button
         </span>
       </a>
       <a
@@ -23,7 +23,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
         role="button"
       >
         <span>
-          disabled 按钮
+          disabled button
         </span>
       </a>
       <a
@@ -40,7 +40,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           />
         </svg>
         <span>
-          loading 按钮
+          loading button
         </span>
       </a>
       <a
@@ -57,7 +57,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           />
         </svg>
         <span>
-          带图标按钮
+          with icon
         </span>
       </a>
       <a
@@ -74,7 +74,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           />
         </svg>
         <span>
-          本地图标
+          with local icon
         </span>
       </a>
       <div
@@ -141,11 +141,11 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          区域经理
+          regional manager
           <div
             class="am-list-brief"
           >
-            可进行收款、退款、折扣管理、查看数据等操作
+            Can be collected, refund, discount management, view data and other operations
           </div>
         </div>
         <div
@@ -172,11 +172,11 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          区域经理
+          regional manager
           <div
             class="am-list-brief"
           >
-            可进行收款、退款、折扣管理、查看数据等操作
+            Can be collected, refund, discount management, view data and other operations
           </div>
         </div>
         <div
