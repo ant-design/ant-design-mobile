@@ -3,7 +3,7 @@ import React from 'react';
 export interface FlexProps {
   /** web only */
   prefixCls?: string;
-  style?: React.CSSProperties;
+  style?: any;
   /** web only */
   className?: string;
   direction?: 'row'|'row-reverse'|'column'|'column-reverse';
