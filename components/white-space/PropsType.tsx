@@ -6,7 +6,7 @@ export interface WhiteSpaceProps {
   /** web only */
   prefixCls?: string;
   /** web only */
-  style?: React.CSSProperties;
+  style?: any;
   /** web only */
   className?: string;
 }

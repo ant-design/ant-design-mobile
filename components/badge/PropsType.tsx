@@ -4,7 +4,7 @@ interface BadgeProps {
   corner?: boolean;
   dot?: boolean;
   text?: any;
-  style?: {};
+  style?: any;
   /** rn only */
   styles?: any;
   /** web only */
