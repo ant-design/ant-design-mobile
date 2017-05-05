@@ -4,7 +4,7 @@ import classNames from 'classnames';
 // http://stackoverflow.com/questions/29891458/webpack-require-every-file-in-directory
 // const svgRequire = (require as any).context('./style/assets', false, /\.svg$/);
 // svgRequire.keys().forEach(key => svgRequire(key));
-
+declare const require: Function;
 export interface IconPropType {
   type: string;
   className?: string;
