@@ -23,5 +23,6 @@ subtitle: 走马灯
 | beforeChange  (`web only`)     | 切换面板前的回调函数     | (from: number, to: number): void | 无
 | onScrollBeginDrag (`rn only`) | 见 react-native scrollView onScrollBeginDrag | (): void | 无 |
 | bounces (`rn only`) | 见 react-native scrollView bounces       |   Boolean      | true |
+| pagination (`rn only`) | 自定义 pagination     |   (props) => React.ReactNode      |  |
 
 更多参数可参考：https://github.com/FormidableLabs/nuka-carousel (`web only`)

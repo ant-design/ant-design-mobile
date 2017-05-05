@@ -21,5 +21,6 @@ Properties | Descrition | Type | Default
 | beforeChange  (`web only`)     | callback to be called before a slide is changed     | (from: number, to: number): void |
 | onScrollBeginDrag (`rn only`) | as same as react-native scrollView `onScrollBeginDrag` | (): void |  |
 | bounces (`rn only`) | as same as react-native scrollView `bounces`       |   Boolean      | true |
+| pagination (`rn only`) | A generator function which could be used to customized pagination. | (props) => React.ReactNode  | |
 
 More parameters can be found in: https://github.com/FormidableLabs/nuka-carousel (`web only`)
