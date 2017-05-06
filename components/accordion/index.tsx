@@ -65,7 +65,7 @@ class Accordion extends React.Component<AccordionProps, any> {
   }
 
   render() {
-    const { children, styles, defaultActiveKey, activeKey } = this.props;
+    const { children, style, styles, defaultActiveKey, activeKey } = this.props;
     let defaultActiveSection;
     let activeSection;
     const headers = React.Children.map(children, (child: any, index) => {
@@ -83,7 +83,7 @@ class Accordion extends React.Component<AccordionProps, any> {
     });
 
     return (
-      <View style={styles.container}>
+      <View style={[style, styles.container]}>
         <RNAccordion
           initiallyActiveSection={defaultActiveSection}
           activeSection={activeSection}
