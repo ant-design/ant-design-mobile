@@ -5,7 +5,7 @@ interface PaginationPropTypes {
   className?: string;
   mode?: 'button' | 'number' | 'pointer';
   simple?: Boolean;
-  style?: React.CSSProperties;
+  style?: any;
   current: number;
   total: number;
   prevText?: string;

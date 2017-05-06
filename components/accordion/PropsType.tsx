@@ -1,7 +1,8 @@
 import React from 'react';
 
 interface AccordionProps {
-  style?: React.CSSProperties;
+  styles?: any;
+  style?: any;
   /** below web only */
   className?: string;
   prefixCls?: string;
@@ -10,7 +11,6 @@ interface AccordionProps {
   openAnimation?: any;
   accordion?: boolean;
   onChange?: (x: any) => void;
-  styles?: any;
 }
 
 export default AccordionProps;

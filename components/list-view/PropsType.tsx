@@ -19,12 +19,12 @@ interface Props {
   renderScrollComponent?: Function;
   scrollRenderAheadDistance?: number;
   onChangeVisibleRows?: Function;
+  style?: any;
   /** below web only */
   className?: string;
   prefixCls?: string;
   listPrefixCls?: string;
   listViewPrefixCls?: string;
-  style?: React.CSSProperties;
   contentContainerStyle?: React.CSSProperties;
   renderBodyComponent?: Function;
   renderSectionBodyWrapper?: Function;
