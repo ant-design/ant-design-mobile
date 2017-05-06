@@ -92,6 +92,10 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
                 class="am-list-arrow am-list-arrow-horizontal"
               />
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>
@@ -181,6 +185,10 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
                 class="am-list-arrow am-list-arrow-horizontal"
               />
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>
