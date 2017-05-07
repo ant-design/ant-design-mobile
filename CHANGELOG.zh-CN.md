@@ -14,6 +14,29 @@ timeline: true
 
 ---
 
+## 1.1.2
+
+`2017-05-07`
+
+- **Bug Fix**
+  - 修复 单独使用 `Stepper` 缺少依赖的 Icon 样式问题。([d86c3dda](https://github.com/ant-design/ant-design-mobile/commit/d86c3dda267864721273f258dad3193c69d8e838)
+  - 修复 `Modal` 关闭按钮显示不齐的问题。([bf64803d](https://github.com/ant-design/ant-design-mobile/commit/bf64803d01082f0dd924c41ca778dfadb177bc92))
+  - 修复 `Switch` android 样式。（[56bf4a93](https://github.com/ant-design/ant-design-mobile/commit/56bf4a93f55f021206aa99551039e68c9518c85c)）
+  - 修复 `Slider` active 样式。（[5a012ead](https://github.com/ant-design/ant-design-mobile/commit/5a012ead269e212dda6fb751a29a1e43f28e9848)）
+  - 修复 `Stepper` 选中样式未自动消失的问题。([006a5e2](https://github.com/ant-design/ant-design-mobile/commit/006a5e2184f3402fa9351186d65f8ab24a7c4b23))
+  - 修复 RN `InputItem` 自定义字体大小。（[#1174](https://github.com/ant-design/ant-design-mobile/issues/1174)）([@kimjuny](https://github.com/kimjuny))
+  - 修复 RN `Popup` 自定义蒙版背景样式。（[#1234](https://github.com/ant-design/ant-design-mobile/issues/1234)）
+  - 修复 RN `Modal` 点击系统返回无法自动关闭的问题。 ([#1218](https://github.com/ant-design/ant-design-mobile/issues/1218))
+  - 修复 RN `Modal.prompt`, `InputItem` 样式。([#1199](https://github.com/ant-design/ant-design-mobile/issues/1199))
+  - 修复 Normalize.css 缺少对 body margin 重置的问题。（[#1264](https://github.com/ant-design/ant-design-mobile/issues/1264)）
+  - 修复 RN 所有组件统一接受 `style`, `styles` 参数的问题。（[#1262](https://github.com/ant-design/ant-design-mobile/pull/1262)）
+
+- **Improve && Enhancement**
+  - 所有组件支持无障碍访问。（[#1179](https://github.com/ant-design/ant-design-mobile/pull/1179)）
+  - 增大 `SearchBar` 取消按钮点击区域。([#1250](https://github.com/ant-design/ant-design-mobile/issues/1250))
+  - 重构 RN `Carousel` 以支持自定义 Pagination。（[#1146](https://github.com/ant-design/ant-design-mobile/issues/1146)）
+  - 重构 `ListItem` 以支持服务端渲染。（[#1219](https://github.com/ant-design/ant-design-mobile/pull/1219)）
+
 ## 1.1.1
 
 `2017-04-28`
