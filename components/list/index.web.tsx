@@ -1,10 +1,10 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import Item from './ListItem';
+import Item from './ListItem.web';
 import classNames from 'classnames';
-import { ListProps } from './PropsType';
+import { ListWebProps } from './PropsType';
 
-export default class List extends React.Component<ListProps, any> {
+export default class List extends React.Component<ListWebProps, any> {
   static Item = Item;
 
   static defaultProps = {

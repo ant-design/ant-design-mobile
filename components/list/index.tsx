@@ -1,29 +1,10 @@
 import React from 'react';
-import { View, Text, ViewStyle } from 'react-native';
+import { View, Text } from 'react-native';
 import Item from './ListItem';
-import { ListProps, BriefProps } from './PropsType';
+import { ListNativeProps } from './PropsType';
 import listStyles from './style/index';
 
-class Brief extends React.Component<BriefProps, any> {
-  render() {
-    const { children, style, styles = listStyles, wrap } = this.props;
-
-    let numberOfLines = {};
-
-    if (wrap === false) {
-      numberOfLines = {
-        numberOfLines: 1,
-      };
-    }
-    return (
-      <View style={[styles.Brief]}>
-        <Text style={[styles.BriefText, style]} {...numberOfLines}>{children}</Text>
-      </View>
-    );
-  }
-}
-
-export default class List extends React.Component<ListProps, any> {
+export default class List extends React.Component<ListNativeProps, any> {
   static Item = Item;
 
   render() {
@@ -42,14 +23,14 @@ export default class List extends React.Component<ListProps, any> {
       headerDom = <View>{content}</View>;
     }
     if (renderFooter) {
-      let content = typeof renderHeader === 'function' ? renderFooter() : renderFooter;
+      let content = typeof renderFooter === 'function' ? renderFooter() : renderFooter;
       if (typeof content === 'string') {
         content = <Text style={styles.Footer}>{content}</Text>;
       }
       footerDom = <View>{content}</View>;
     }
 
-    return (<View {...restProps} style={style as ViewStyle}>
+    return (<View {...restProps} style={style}>
       {headerDom}
       <View style={styles.Body}>
         {children}
@@ -59,5 +40,3 @@ export default class List extends React.Component<ListProps, any> {
     </View>);
   }
 }
-
-Item.Brief = Brief;
