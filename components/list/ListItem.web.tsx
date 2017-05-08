@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Touchable from 'rc-touchable';
 import { ListItemProps, BriefProps } from './PropsType';
+import omit from 'omit.js';
 
 export class Brief extends React.Component<BriefProps, any> {
   render() {
@@ -113,7 +114,7 @@ class ListItem extends React.Component<ListItemProps, any> {
     });
 
     const content = <div
-      {...restProps}
+      {...omit(restProps, ['platform'])}
       onClick={(ev) => {
         this.onClick(ev);
       }}
