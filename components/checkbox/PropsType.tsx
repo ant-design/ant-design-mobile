@@ -20,7 +20,6 @@ export interface CheckboxItemProps extends CheckboxProps {
   children?: any;
   extra?: any;
   onClick?: () => any;
-  line?: number;
   checkboxStyle?: any; // rn only
   checkboxProps?: Object;
 }
