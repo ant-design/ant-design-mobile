@@ -1,23 +1,40 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { Image, View, TouchableHighlight, Text } from 'react-native';
-import { ListItemProps } from './PropsType';
+import { ListItemNativeProps, BriefNativeProps } from './PropsType';
 import listItemStyles from './style/index';
+import listStyles from './style/index';
 
-function noop() {
+export class Brief extends React.Component<BriefNativeProps, any> {
+  render() {
+    const { children, style, styles = listStyles, wrap } = this.props;
+
+    let numberOfLines = {};
+
+    if (wrap === false) {
+      numberOfLines = {
+        numberOfLines: 1,
+      };
+    }
+    return (
+      <View style={[styles.Brief]}>
+        <Text style={[styles.BriefText, style]} {...numberOfLines}>{children}</Text>
+      </View>
+    );
+  }
 }
 
-export default class Item extends React.Component<ListItemProps, any> {
+export default class Item extends React.Component<ListItemNativeProps, any> {
   static defaultProps = {
     multipleLine: false,
     wrap: false,
     styles: listItemStyles,
   };
-  static Brief: any;
+  static Brief = Brief;
   render() {
     const {
-      styles, children, multipleLine, thumb, extra, arrow = '', style, onClick,
-      onPressIn = noop, onPressOut = noop, wrap, disabled, align, ...restProps,
+      styles = listItemStyles, children, multipleLine, thumb, extra, arrow, style, onClick,
+      onPressIn, onPressOut, wrap, disabled, align, ...restProps,
     } = this.props;
 
     let numberOfLines = {};
@@ -64,7 +81,7 @@ export default class Item extends React.Component<ListItemProps, any> {
       });
       contentDom = <View style={[styles.column]}>{tempContentDom}</View>;
     } else {
-      if (React.isValidElement(children)) {
+      if (React.isValidElement(children as Object)) {
         contentDom = <View style={[styles.column]}>{children}</View>;
       } else {
         contentDom = (
