@@ -65,6 +65,10 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>

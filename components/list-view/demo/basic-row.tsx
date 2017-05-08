@@ -7,7 +7,7 @@ import assign from 'object-assign';
 const data = [
   {
     img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
-    title: '相约酒店',
+    title: 'Meet hotel',
     des: '不是所有的兼职汪都需要风吹日晒',
   },
   {

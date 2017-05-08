@@ -3,32 +3,34 @@ order: 1
 title: Getting Started
 ---
 
-Ant Design React 致力于提供给程序员**愉悦**的开发体验。
+Ant Design React is dedicated to providing a good development experience for programmers.
 
 ---
 
-在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)。
+Before delving into Ant Design React, a good knowledge of [React](http://facebook.github.io/react/) and [ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
 
-### 1. 安装工具
-确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
+### 1. Installation
+Make sure that you had installed [Node.js](https://nodejs.org/en/)(> v4.x) correctly.
 
-### 2. 创建一个项目
+### 2. Create a New Project
 
-手动从脚手架工具里拷贝 [MobileDemo](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web)
+Copy and modify from [here](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web).
 
-### 3. 使用组件
+### 3. Use Components
 
-[见此使用示例](/docs/react/introduce#使用)
+[See here for details](/docs/react/introduce#使用).
 
-### 4. 开发调试 & 构建和部署
+### 4. Development & Debugging & Building & Deployment
 
-Web 和 React Native 两种使用方式有区别，按照 readme 文档说明分别使用
+Web and React Native are used in two ways, and are used separately according to the README documentation.
 
-## 自行构建
+## Customized Work Flow
 
-如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试。理论上你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates) 进行开发，如果遇到问题可参考我们所使用的 [webpack 配置](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) 进行 [定制](http://ant-tool.github.io/webpack-config.html)。
+If you want to customize your work flow, we recommend to use [webpack](http://webpack.github.io/) to build and debug code.
 
-## 小甜点
+Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in React ecosystem. If you encounter problems, you can use our [webpack config](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) and [modify it](http://ant-tool.github.io/webpack-config.html).
 
-- 你可以享用 `npm` 生态圈里的所有模块。
-- 我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) 的写法来提升编码的愉悦感。
+## Tips
+
+- You can use any `npm` modules.
+- We recommend to write code in [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) as `babel` has been integrated in our work flow.

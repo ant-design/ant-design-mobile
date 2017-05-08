@@ -9,8 +9,22 @@ import {
 import CarouselStyle from './style';
 import CarouselProps from './PropsType';
 
-class Carousel extends React.Component<CarouselProps, any> {
+const defaultPagination = (props) => {
+  const { styles, current, vertical, count } = props;
+  const positionStyle = vertical ? 'paginationY' : 'paginationX';
+  const flexDirection = vertical ? 'column' : 'row';
+  return (
+    <Pagination
+      style={[styles.pagination, styles[positionStyle]]}
+      indicatorStyle={{ flexDirection }}
+      current={current}
+      mode="pointer"
+      total={count}
+    />
+  );
+};
 
+class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps: CarouselProps = {
     bounces: true,
     infinite: false,
@@ -21,6 +35,7 @@ class Carousel extends React.Component<CarouselProps, any> {
     // vertical 目前只实现 pagination，内容 vertical 由于自动高度拿不到，暂时无法实现
     vertical: false,
     styles: CarouselStyle,
+    pagination: defaultPagination,
   };
 
   private autoplayTimer;
@@ -224,19 +239,14 @@ class Carousel extends React.Component<CarouselProps, any> {
   }
 
   renderDots = (index) => {
-    const { children, vertical, styles } = this.props;
-    const positionStyle = vertical ? 'paginationY' : 'paginationX';
-    const flexDirection = vertical ? 'column' : 'row';
+    const { children, vertical, styles, pagination } = this.props;
     const count = children ? children.length || 1 : 0;
-    return (
-      <Pagination
-        style={[styles.pagination, styles[positionStyle]]}
-        indicatorStyle={{ flexDirection }}
-        current={index}
-        mode="pointer"
-        total={count}
-      />
-    );
+    return pagination ? pagination({
+      styles,
+      vertical,
+      current: index,
+      count,
+    }) : null;
   }
 
   onLayout = (e) => {

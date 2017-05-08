@@ -1113,6 +1113,7 @@ exports[`renders ./components/grid/demo/basic.tsx correctly 1`] = `
         onMomentumScrollEnd={[Function]}
         onScrollBeginDrag={[Function]}
         onScrollEndDrag={[Function]}
+        pagination={[Function]}
         pagingEnabled={true}
         removeClippedSubviews={false}
         scrollEventThrottle={100}

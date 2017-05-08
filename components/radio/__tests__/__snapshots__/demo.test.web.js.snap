@@ -46,6 +46,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-radio-item am-list-item am-list-item-middle"
@@ -78,6 +82,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>
@@ -128,6 +136,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-radio-item am-list-item am-list-item-middle"
@@ -165,6 +177,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>
@@ -213,6 +229,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-radio-item am-radio-item-disabled am-list-item am-list-item-middle"
@@ -246,6 +266,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>
@@ -297,6 +321,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-radio-item am-radio-item-disabled am-list-item am-list-item-middle"
@@ -335,6 +363,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>

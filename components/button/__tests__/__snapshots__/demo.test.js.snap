@@ -440,7 +440,7 @@ exports[`renders ./components/button/demo/basic.tsx correctly 1`] = `
             ]
           }
         >
-          无点击反馈
+          no feedback
         </Text>
       </View>
     </View>
@@ -524,7 +524,7 @@ exports[`renders ./components/button/demo/basic.tsx correctly 1`] = `
             ]
           }
         >
-          自定义点击反馈 style
+          custom feedback style
         </Text>
       </View>
     </View>
@@ -645,7 +645,7 @@ exports[`renders ./components/button/demo/basic.tsx correctly 1`] = `
       allowFontScaling={true}
       ellipsizeMode="tail"
     >
-      小按钮
+      small
     </Text>
     <View
       accessibilityComponentType={undefined}

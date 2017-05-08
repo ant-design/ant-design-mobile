@@ -54,7 +54,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           <h3
             style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
           >
-            食惠周
+            Eat the week
           </h3>
           <div
             style="display:flex;"
@@ -66,17 +66,19 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <div
               style="display:inline-block;"
             >
-              <p>
+              <div
+                style="margin:0.1rem 0 0.2rem 0;"
+              >
                 不是所有的兼职汪都需要风吹日晒-r0
-              </p>
-              <p>
+              </div>
+              <div>
                 <span
                   style="font-size:1.6em;color:#FF6E27;"
                 >
                   35
                 </span>
                 元/任务
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -89,7 +91,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           <h3
             style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
           >
-            麦当劳邀您过周末
+            McDonald's invites you
           </h3>
           <div
             style="display:flex;"
@@ -101,17 +103,19 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <div
               style="display:inline-block;"
             >
-              <p>
+              <div
+                style="margin:0.1rem 0 0.2rem 0;"
+              >
                 不是所有的兼职汪都需要风吹日晒-r1
-              </p>
-              <p>
+              </div>
+              <div>
                 <span
                   style="font-size:1.6em;color:#FF6E27;"
                 >
                   35
                 </span>
                 元/任务
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -124,7 +128,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           <h3
             style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
           >
-            相约酒店
+            Meet hotel
           </h3>
           <div
             style="display:flex;"
@@ -136,17 +140,19 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <div
               style="display:inline-block;"
             >
-              <p>
+              <div
+                style="margin:0.1rem 0 0.2rem 0;"
+              >
                 不是所有的兼职汪都需要风吹日晒-r2
-              </p>
-              <p>
+              </div>
+              <div>
                 <span
                   style="font-size:1.6em;color:#FF6E27;"
                 >
                   35
                 </span>
                 元/任务
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -159,7 +165,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           <h3
             style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
           >
-            食惠周
+            Eat the week
           </h3>
           <div
             style="display:flex;"
@@ -171,17 +177,19 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <div
               style="display:inline-block;"
             >
-              <p>
+              <div
+                style="margin:0.1rem 0 0.2rem 0;"
+              >
                 不是所有的兼职汪都需要风吹日晒-r3
-              </p>
-              <p>
+              </div>
+              <div>
                 <span
                   style="font-size:1.6em;color:#FF6E27;"
                 >
                   35
                 </span>
                 元/任务
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -194,7 +202,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           <h3
             style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
           >
-            麦当劳邀您过周末
+            McDonald's invites you
           </h3>
           <div
             style="display:flex;"
@@ -206,17 +214,19 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <div
               style="display:inline-block;"
             >
-              <p>
+              <div
+                style="margin:0.1rem 0 0.2rem 0;"
+              >
                 不是所有的兼职汪都需要风吹日晒-r4
-              </p>
-              <p>
+              </div>
+              <div>
                 <span
                   style="font-size:1.6em;color:#FF6E27;"
                 >
                   35
                 </span>
                 元/任务
-              </p>
+              </div>
             </div>
           </div>
         </div>

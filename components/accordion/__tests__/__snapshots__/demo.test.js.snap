@@ -11,10 +11,13 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
 >
   <View
     style={
-      Object {
-        "borderTopColor": "#ddd",
-        "borderTopWidth": 0.5,
-      }
+      Array [
+        undefined,
+        Object {
+          "borderTopColor": "#ddd",
+          "borderTopWidth": 0.5,
+        },
+      ]
     }
   >
     <View>

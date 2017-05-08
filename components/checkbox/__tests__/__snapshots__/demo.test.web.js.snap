@@ -44,6 +44,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
             博士
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-checkbox-item am-list-item am-list-item-middle"
@@ -76,6 +80,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
             本科
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-checkbox-item am-list-item am-list-item-middle"
@@ -108,6 +116,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
             高中
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-checkbox-item am-checkbox-item-disabled am-list-item am-list-item-middle"
@@ -148,6 +160,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>

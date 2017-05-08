@@ -139,6 +139,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 </div>
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
         <div
@@ -156,6 +160,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -169,6 +177,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省0
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -182,6 +194,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省1
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -195,6 +211,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省2
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -208,6 +228,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省3
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -221,6 +245,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省4
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -234,6 +262,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省5
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -247,6 +279,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省6
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -260,6 +296,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省7
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -273,6 +313,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省8
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -286,6 +330,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 安徽省9
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
         <div
@@ -307,6 +355,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 </div>
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
         <div
@@ -324,6 +376,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -337,6 +393,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市0
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -350,6 +410,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市1
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -363,6 +427,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市2
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -376,6 +444,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市3
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -389,6 +461,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市4
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -402,6 +478,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市5
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -415,6 +495,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市6
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -428,6 +512,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
                 北京市7
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>
@@ -619,6 +707,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="am-list-ripple"
+                    style="display:none;"
+                  />
                 </div>
               </div>
             </div>
@@ -638,6 +730,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -651,6 +747,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省0
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -664,6 +764,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省1
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -677,6 +781,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省2
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -690,6 +798,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省3
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -703,6 +815,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省4
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -716,6 +832,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省5
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -729,6 +849,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省6
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -742,6 +866,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省7
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -755,6 +883,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省8
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -768,6 +900,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   安徽省9
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
           </div>
           <div>
@@ -797,6 +933,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="am-list-ripple"
+                    style="display:none;"
+                  />
                 </div>
               </div>
             </div>
@@ -816,6 +956,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -829,6 +973,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市0
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -842,6 +990,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市1
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -855,6 +1007,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市2
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -868,6 +1024,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市3
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -881,6 +1041,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市4
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -894,6 +1058,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市5
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -907,6 +1075,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市6
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
               class="am-list-item am-list-item-middle"
@@ -920,6 +1092,10 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
                   北京市7
                 </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
           </div>
         </div>

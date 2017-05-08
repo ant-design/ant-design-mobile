@@ -52,6 +52,10 @@ exports[`Menu level 1 renders correctly 1`] = `
                 </label>
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-radio-item am-list-item am-list-item-middle"
@@ -84,6 +88,10 @@ exports[`Menu level 1 renders correctly 1`] = `
                 </label>
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>
@@ -125,6 +133,10 @@ exports[`Menu renders correctly 1`] = `
                 Item1
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             aria-selected="false"
@@ -140,6 +152,10 @@ exports[`Menu renders correctly 1`] = `
                 Item2
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>

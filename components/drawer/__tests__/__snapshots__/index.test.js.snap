@@ -25,6 +25,7 @@ exports[`Drawer renders correctly 1`] = `
     style={
       Object {
         "flex": 1,
+        "zIndex": 0,
       }
     }
   >
@@ -65,12 +66,14 @@ exports[`Drawer renders correctly 1`] = `
     testID={undefined}
   />
   <View
+    accessibilityViewIsModal={false}
     style={
       Object {
         "backgroundColor": undefined,
         "bottom": 0,
         "left": 0,
         "position": "absolute",
+        "right": null,
         "top": 0,
         "transform": Array [
           Object {

@@ -17,7 +17,6 @@ export interface GridProps {
   renderItem?: (dataItem: DataItem | undefined, itemIndex: number) => React.ReactElement<any>;
   prefixCls?: string;
   className?: string;
-  style?: React.CSSProperties;
   /** rn only **/
   styles?: any;
 }
