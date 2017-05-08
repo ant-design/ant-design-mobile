@@ -21,7 +21,7 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
 
   render() {
     let {
-      style, checkboxStyle, defaultChecked, checked, disabled, children, extra, line, onChange, styles,
+      style, checkboxStyle, defaultChecked, checked, disabled, children, extra, onChange, styles,
     } = this.props;
     const thumbEl = (
       <Checkbox
@@ -37,7 +37,6 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
       <ListItem
         style={style}
         onClick={disabled ? undefined : this.handleClick}
-        line={line}
         extra={extra}
         thumb={thumbEl}
       >
