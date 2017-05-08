@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import SwitchProps from './PropsType';
 
 export default class Switch extends React.Component<SwitchProps, any> {
@@ -36,7 +35,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
   render() {
     let { prefixCls, style, name, checked, disabled, className, platform, ...restProps } = this.props;
     const isAndroid = platform === 'android' ||
-      (platform === 'cross' && canUseDom() && !!navigator.userAgent.match(/Android/i));
+      (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,

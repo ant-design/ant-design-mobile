@@ -2,8 +2,11 @@
 import React from 'react';
 import classNames from 'classnames';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
+=======
+>>>>>>> remove canUseDom
 import assign from 'object-assign';
 >>>>>>> replace typeof with rc-util#canUseDom
 import List from '../list/index.web';
