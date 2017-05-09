@@ -34,7 +34,7 @@ exports[`renders ./components/list-view/demo/basic.md correctly 1`] = `
         <div
           style="padding:30px;text-align:center;"
         >
-          加载中...
+          Loading...
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@ exports[`renders ./components/list-view/demo/basic-body.md correctly 1`] = `
     <div
       style="padding:30px;text-align:center;"
     >
-      加载中...
+      Loading...
     </div>
   </div>
 </div>
@@ -92,7 +92,7 @@ exports[`renders ./components/list-view/demo/basic-sticky.md correctly 1`] = `
     <div
       style="padding:30px;text-align:center;"
     >
-      加载中...
+      Loading...
     </div>
   </div>
 </div>
@@ -114,7 +114,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
         class="am-list-header"
       >
         <span>
-          头部内容请自定义
+          custom header
         </span>
       </div>
       <div
@@ -523,7 +523,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
         class="am-list-footer"
       >
         <span>
-          尾部内容请自定义
+          custom footer
         </span>
       </div>
     </div>
@@ -642,13 +642,13 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
               class="am-search-synthetic-ph-placeholder"
               style="visibility:visible;"
             >
-              搜索
+              Search
             </span>
           </span>
         </div>
         <input
           class="am-search-value"
-          placeholder="搜索"
+          placeholder="Search"
           type="search"
           value=""
         />
@@ -673,7 +673,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
         class="am-list-header"
       >
         <span>
-          头部内容请自定义
+          custom header
         </span>
       </div>
       <div>
@@ -1104,7 +1104,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
         class="am-list-footer"
       >
         <span>
-          尾部内容请自定义
+          custom footer
         </span>
       </div>
     </div>
