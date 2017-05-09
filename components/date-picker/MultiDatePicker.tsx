@@ -35,10 +35,8 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     return [startTime, endTime];
   }
   onValueChange = (i, v) => {
-    const value = this.getValue();
-    value[i] = v;
     if (this.props.onValueChange) {
-      this.props.onValueChange(value, i);
+      this.props.onValueChange(v, i);
     }
   }
 

@@ -4,6 +4,8 @@ interface DatePickerProps {
   type?: string;
   defaultDate?: any;
   value?: any;
+  onPickerChange?: (x?: any) => void;
+  onOk?: (x?: any) => void;
   onChange?: (x: any) => void;
   format?: (x: any) => void;
   cols?: number;

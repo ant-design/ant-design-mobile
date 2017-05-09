@@ -39,11 +39,10 @@ class Test extends React.Component {
   state = {
     date: zhNow,
     dpValue: null,
-    dpArrValues: null,
     visible: false,
   }
   onChange = (date) => {
-    // console.log('onChange', date);
+    console.log('onChange', date);
     this.setState({
       date,
     });
@@ -55,25 +54,6 @@ class Test extends React.Component {
         className="date-picker-list"
         style={{ backgroundColor: 'white' }}
       >
-        <DatePicker
-          type="multi"
-          mode="date"
-          split="至"
-          title="组合DatePicker"
-          extra="开始日期至结束日期"
-          startLabelText={<em>定制开始时间文案</em>}
-          endLabelText="定制结束时间文案"
-          minStartDate={minDate}
-          maxStartDate={maxDate}
-          minEndDate={minDate}
-          maxEndDate={maxDate}
-          value={this.state.dpArrValues}
-          onChange={v => this.setState({ dpArrValues: v })}
-          format={v => v.format('YYYY-MM-DD')}
-          onOk={v => console.log('onOk', v)}
-        >
-          <List.Item arrow="horizontal">range(CST)</List.Item>
-        </DatePicker>
         <DatePicker
           mode="date"
           title="选择日期"

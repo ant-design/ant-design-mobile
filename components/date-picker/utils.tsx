@@ -48,3 +48,5 @@ export function getDefaultDate(props) {
   }
   return now;
 }
+
+export function noop() {}

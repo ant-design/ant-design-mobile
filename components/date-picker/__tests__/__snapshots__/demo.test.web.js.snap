@@ -19,29 +19,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              range(CST)
-            </div>
-            <div
-              class="am-list-extra"
-            >
-              开始日期至结束日期
-            </div>
-            <div
-              class="am-list-arrow am-list-arrow-horizontal"
-            />
-          </div>
-        </div>
-      </div>
-      <div>
-        <div
-          class="am-list-item am-list-item-middle"
-        >
-          <div
-            class="am-list-line"
-          >
-            <div
-              class="am-list-content"
-            >
               日期(CST)
             </div>
             <div
@@ -175,6 +152,43 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           >
             请选择(可选)
           </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/custom.md correctly 1`] = `
+<div>
+  <div
+    class="am-list date-picker-list"
+    style="background-color:white;"
+  >
+    <div
+      class="am-list-body"
+    >
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              range(CST)
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              开始日期至结束日期
+            </div>
+            <div
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
         </div>
       </div>
     </div>

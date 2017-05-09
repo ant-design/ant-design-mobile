@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import RCMDatePicker from './MultiDatePicker';
-import { formatFn, getProps, getDefaultDate } from './utils';
+import { formatFn, getProps, getDefaultDate, noop } from './utils';
 import assign from 'object-assign';
 import tsPropsType from './PropsType';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
+import moment from 'moment';
+const now = moment();
 
 function getDefaultProps() {
   return assign({
@@ -19,6 +21,7 @@ function getDefaultProps() {
     startLabelText: '',
     endLabelText: '',
     split: '-',
+    onPickerChange: noop,
   }, getProps());
 }
 
@@ -29,12 +32,35 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     antLocale: PropTypes.object,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      startTime: now, // this.props.startTime || now,
+      endTime: now, // this.props.endTime || now,
+    };
+  }
+
   getFormatValue(val) {
     const { split } = this.props;
     if (Object.prototype.toString.call(val) === '[object Array]') {
       return formatFn(this, val[0]) + split + formatFn(this, val[1]);
     }
     return formatFn(this, val);
+  }
+
+  onPickerChange = (v) => {
+    if (this.props.onPickerChange) {
+      this.props.onPickerChange(v);
+    }
+  }
+
+  onOK = (v) => {
+    if (this.props.onChange) {
+      this.props.onChange(v);
+    }
+    if (this.props.onOk) {
+      this.props.onOk(v);
+    }
   }
 
   render() {
@@ -80,7 +106,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         defaultDate={value || getDefaultDate(this.props)}
         startLabelText={startLabelText}
         endLabelText={endLabelText}
-        onValueChange={props.onChange}
+        onValueChange={props.onPickerChange}
       />
     );
 
