@@ -26,7 +26,7 @@ const Page = () => (
       <DatePicker
         mode="date"
         title="Select date"
-        extra="Click to see LocaleProvider"
+        extra="Click to see i18n text"
         minDate={minDate}
         maxDate={maxDate}
       >
