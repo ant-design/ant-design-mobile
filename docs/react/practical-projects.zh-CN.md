@@ -11,17 +11,19 @@ title: 项目实战
 
 ---
 
-## 安装 dva
+## 安装 dva-cli
 
-通过 npm 安装 dva 。
+通过 npm 安装 dva-cli 并确保版本是 `0.7.0` 或以上。
 
 ```bash
 $ npm install dva-cli -g
+$ dva -v
+0.7.0
 ```
 
 ## 创建新应用
 
-安装完 dva-cli 之后，就可以在 terminal 里访问到 `dva` 命令。现在，你可以通过 `dva new` 创建新应用。
+安装完 dva-cli 之后，就可以在命令行里访问到 `dva` 命令（[不能访问？](http://stackoverflow.com/questions/15054388/global-node-modules-not-installing-correctly-command-not-found)）。现在，你可以通过 `dva new` 创建新应用。
 
 ```bash
 $ dva new dva-quickstart
@@ -39,10 +41,14 @@ $ npm start
 几秒钟后，你会看到以下输出：
 
 ```bash
-          proxy: load rule from proxy.config.js
-          proxy: listened on 8989
-📦  411/411 build modules
-webpack: bundle build is now finished.
+Compiled successfully!
+
+The app is running at:
+
+  http://localhost:8000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
 ```
 
 在浏览器里打开 http://localhost:8989 ，你会看到 dva 的欢迎界面。
@@ -52,7 +58,6 @@ webpack: bundle build is now finished.
 [见此使用示例](/docs/react/introduce#使用)，要点概括如下：
 
 - `npm install antd-mobile babel-plugin-import --save` 安装依赖
-- 不需要再设置 resolve (因为 atool-build 内部已经设置好)
 - `babel-plugin-import` 是用来按需加载脚本和样式，编辑 `.roadhogrc `，使 `babel-plugin-import` 插件生效。[参考文档](https://github.com/sorrycc/roadhog#extrababelplugins)
 - [高清方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)，让页面显示效果更加细腻
 - 配置 `svg-sprite-loader` 以支持 Icon 组件使用。[文档链接](https://github.com/sorrycc/roadhog#svgspriteloaderdirs) （roadhog >= 0.6.0-beta1）
@@ -74,19 +79,7 @@ webpack: bundle build is now finished.
 $ npm run build
 ```
 
-几秒后，输出应该如下：
-
-```bash
-Child
-    Time: 14008ms
-         Asset       Size  Chunks             Chunk Names
-    index.html  255 bytes          [emitted]
-     common.js    1.18 kB       0  [emitted]  common
-      index.js     504 kB    1, 0  [emitted]  index
-     index.css     127 kB    1, 0  [emitted]  index
-```
-
-`build` 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。然后你可以在 `dist/` 目录下找到这些文件。
+`build` 命令会打包所有的资源，包含 JavaScript, CSS, images, html 等。然后你可以在 `dist/` 目录下找到这些文件。
 
 ## 下一步
 
@@ -102,7 +95,9 @@ Child
 
 你可以：
 
-- 访问 [dva 官网](https://github.com/dvajs/dva)。
-- 查看所有 [API](https://github.com/dvajs/dva#api)。
-- [教程](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md)，一步步完成一个中型应用。
-- 看看 [dva 版 hackernews](https://github.com/dvajs/dva-hackernews) 是 [如何实现](https://github.com/sorrycc/blog/issues/9) 的。
+- 访问 [dva 官网](https://github.com/dvajs/dva)
+- 理解 dva 的 [8 个概念](https://github.com/dvajs/dva/blob/master/docs/Concepts_zh-CN.md) ，以及他们是如何串起来的
+- 掌握 dva 的[所有 API](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md)
+- 查看 [dva 知识地图](https://github.com/dvajs/dva-knowledgemap) ，包含 ES6, React, dva 等所有基础知识
+- 查看 [更多 FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)，看看别人通常会遇到什么问题
+- 如果你基于 dva-cli 创建项目，最好了解他的 [配置方式](https://github.com/sorrycc/roadhog#配置)
