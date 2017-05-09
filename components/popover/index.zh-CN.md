@@ -32,6 +32,8 @@ subtitle: 气泡
 | name (`rn only`)   | menu 名字，用于手动触发开关 menu    | String |  -   |
 | openMenu / closeMenu / toggleMenu(`rn only`)   | 用于手动开关 menu，参数为上边 menu 的 name. 使用示例见 demo  | Function(name) |  -   |
 
+更多 API 可查看 [rc-tooltip](https://github.com/react-component/tooltip#api)
+
 ### Popover.Item
 
 属性 | 说明 | 类型 | 默认值
