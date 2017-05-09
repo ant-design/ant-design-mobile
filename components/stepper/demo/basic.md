@@ -5,9 +5,6 @@ title:
   en-US: Basic
 ---
 
-数字输入框。
-
-
 ````jsx
 import { List, Stepper } from 'antd-mobile';
 
@@ -29,7 +26,7 @@ class Demo extends React.Component {
   }
   render() {
     return (
-      <List renderHeader={() => '演示'}>
+      <List renderHeader={() => 'Demos'}>
         <List.Item extra={
           <Stepper
             style={{ width: '100%', minWidth: '2rem' }}
@@ -37,7 +34,7 @@ class Demo extends React.Component {
           />}
           wrap
         >
-        显示数值(默认使用 TouchEvent, for Mobile)
+        Show number value(Use TouchEvent for mobile by default)
         </List.Item>
         <List.Item extra={
           <Stepper
@@ -47,7 +44,7 @@ class Demo extends React.Component {
           />}
           wrap
         >
-        显示数值(使用 MouseEvent, for PC)
+        Show number value(Use MouseEvent for PC by default)
         </List.Item>
         <List.Item extra={
           <Stepper
@@ -55,7 +52,7 @@ class Demo extends React.Component {
             showNumber max={10} min={1} defaultValue={3} disabled
           />}
         >
-        禁用
+        Disabled
         </List.Item>
       </List>
     );
