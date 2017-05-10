@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import List from '../list/index';
+import List from '../list/index.web';
 import Radio from '../radio/Radio.web';
 
 export default class SubMenu extends React.Component<any, any> {
