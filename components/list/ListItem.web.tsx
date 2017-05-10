@@ -2,10 +2,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import Touchable from 'rc-touchable';
-import { ListItemProps, BriefProps } from './PropsType';
+import { ListItemWebProps, BriefWebProps } from './PropsType';
 import omit from 'omit.js';
 
-export class Brief extends React.Component<BriefProps, any> {
+export class Brief extends React.Component<BriefWebProps, any> {
   render() {
     return (
       <div className="am-list-brief" style={this.props.style}>{this.props.children}</div>
@@ -13,8 +13,8 @@ export class Brief extends React.Component<BriefProps, any> {
   }
 }
 
-class ListItem extends React.Component<ListItemProps, any> {
-  static defaultProps = {
+class ListItem extends React.Component<ListItemWebProps, any> {
+  static defaultProps: Partial<ListItemWebProps> = {
     prefixCls: 'am-list',
     align: 'middle',
     error: false,
@@ -112,7 +112,6 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
-
     const content = <div
       {...omit(restProps, ['platform'])}
       onClick={(ev) => {
