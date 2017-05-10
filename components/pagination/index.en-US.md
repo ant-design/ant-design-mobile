@@ -21,5 +21,5 @@ Properties | Descrition | Type | Default
 |  total  | total number of data | number  |  0  |
 |  simple  | whether to hide number | boolean | false  |
 |  disabled  | whether is disabled | boolean | false  |
-| locale |  anguage package setting, you can override the configuration of the global `LocaleProvider | Object：{prevText, nextText} |  |
-|  onChange | a callback function, can be executed when the page number is changing, and it takes the resulting page index its arguments | (index: Number): void |  |
+| locale |  [i18n](/components/locale-provider/) setting, you can override the configuration of the global `LocaleProvider | Object：{prevText, nextText} |  |
+|  onChange | invoked with the new index when the value changes. | (index: Number): void |  |
