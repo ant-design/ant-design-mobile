@@ -44,7 +44,7 @@ class Demo extends React.Component {
           />}
           wrap
         >
-        Show number value(Use MouseEvent for PC by default)
+        Show number value(Use MouseEvent for PC)
         </List.Item>
         <List.Item extra={
           <Stepper
