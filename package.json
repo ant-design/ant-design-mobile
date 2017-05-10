@@ -48,7 +48,7 @@
     "rc-steps": "~2.5.1",
     "rc-swipeout": "~1.2.4",
     "rc-table": "~5.3.1",
-    "rc-tabs": "~7.3.1",
+    "rc-tabs": "~7.5.0",
     "rc-tooltip": "~3.4.3",
     "rc-touchable": "~1.1.0",
     "react-native-camera-roll-picker": "~1.1.6",
