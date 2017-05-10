@@ -8,6 +8,7 @@ interface SwitchProps {
   className?: string;
   name?: string;
   platform?: string;
+  onClick?: Function;
 }
 
 export default SwitchProps;
