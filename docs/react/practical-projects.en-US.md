@@ -55,7 +55,7 @@ Open http://localhost:8000 in your browser, you will see dva welcome page.
 
 ## Integrate antd-mobile
 
-[See here for details](/docs/react/introduce#使用), the process is summarized as follows:
+[See here for details](/docs/react/introduce#Usage), the process is summarized as follows:
 
 - `npm install antd-mobile babel-plugin-import --save` install dependency.
 - `babel-plugin-import` is used to load scripts and styles on demand, edit` .roadhogrc `so that the` babel-plugin-import` plugin takes effect. [see here for details](https://github.com/sorrycc/roadhog#extrababelplugins)
