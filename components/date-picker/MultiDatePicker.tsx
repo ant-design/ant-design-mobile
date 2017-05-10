@@ -40,7 +40,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     }
   }
 
-  onDateStartTimeChangeFunc = (time) => {
+  onDateStartTimeChange = (time) => {
     this.setState({
       startTime: time,
     }, () => {
@@ -48,7 +48,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
     });
   }
 
-  onDateEndTimeChangeFunc = (time) => {
+  onDateEndTimeChange = (time) => {
     this.setState({
       endTime: time,
     }, () => {
@@ -91,7 +91,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
           minDate={minStartDate}
           pickerPrefixCls={pickerPrefixCls}
           prefixCls={prefixCls}
-          onDateChange={this.onDateStartTimeChangeFunc}
+          onDateChange={this.onDateStartTimeChange}
         />
         <div className={`${prefixCls}-popup-label-title`}>{endLabelText || endText}</div>
         <RCDatePicker
@@ -103,7 +103,7 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
           minDate={minEndDate}
           pickerPrefixCls={pickerPrefixCls}
           prefixCls={prefixCls}
-          onDateChange={this.onDateEndTimeChangeFunc}
+          onDateChange={this.onDateEndTimeChange}
         />
       </div>
     );
