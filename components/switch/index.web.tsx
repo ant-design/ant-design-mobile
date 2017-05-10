@@ -20,9 +20,15 @@ export default class Switch extends React.Component<SwitchProps, any> {
     }
   }
 
-  onClick = () => {
+  onClick = (e) => {
     if (this.props.onClick) {
-      this.props.onClick();
+      let val;
+      if (e && e.target && e.target.checked !== undefined) {
+        val = e.target.checked;
+      } else {
+        val = this.props.checked;
+      }
+      this.props.onClick(val);
     }
   }
 
@@ -45,7 +51,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
           type="checkbox"
           name={name}
           className={`${prefixCls}-checkbox`}
-          {...(disabled ? { disabled: 'disabled' } : {})}
+          disabled={disabled}
           checked={checked}
           onChange={this.onChange}
           {...(!disabled ? { onClick: this.onClick } : {})}
