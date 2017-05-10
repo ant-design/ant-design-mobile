@@ -20,9 +20,10 @@ export default class Switch extends React.Component<SwitchProps, any> {
     }
   }
 
-  onClick = (value) => {
-  if (this.props.onClick) {
-      this.props.onClick(value);
+  onClick = () => {
+    const { checked } = this.props;
+    if (this.props.onClick) {
+      this.props.onClick(checked);
     }
   }
 
