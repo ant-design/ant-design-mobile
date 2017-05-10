@@ -54,7 +54,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
     }
   }
 
-  onOK = (v) => {
+  onPickerOK = (v) => {
     if (this.props.onChange) {
       this.props.onChange(v);
     }
@@ -121,6 +121,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         date={value || getDefaultDate(this.props)}
         dismissText={dismissText}
         okText={okText}
+        onOk={this.onPickerOK}
       >
         {children && React.cloneElement(children, { extra: value ? this.getFormatValue(value) : extra })}
       </PopupDatePicker>
