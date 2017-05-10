@@ -18,7 +18,7 @@ Copy and modify from [here](https://github.com/ant-design/antd-mobile-samples/tr
 
 ### 3. Use Components
 
-[See here for details](/docs/react/introduce#使用).
+[See here for details](/docs/react/introduce#Usage).
 
 ### 4. Development & Debugging & Building & Deployment
 

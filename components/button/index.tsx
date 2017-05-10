@@ -32,33 +32,25 @@ export default class Button extends React.Component<tsProps, any> {
   }
 
   onPressIn = (...arg) => {
-    if (!this.props.disabled) {
-      this.setState({ pressIn: true });
-    }
+    this.setState({ pressIn: true });
     if (this.props.onPressIn) {
       (this.props.onPressIn as any)(...arg);
     }
   }
   onPressOut = (...arg) => {
-    if (!this.props.disabled) {
-      this.setState({ pressIn: false });
-    }
+    this.setState({ pressIn: false });
     if (this.props.onPressOut) {
       (this.props.onPressOut as any)(...arg);
     }
   }
   onShowUnderlay = (...arg) => {
-    if (!this.props.disabled) {
-      this.setState({ touchIt: true });
-    }
+    this.setState({ touchIt: true });
     if (this.props.onShowUnderlay) {
       (this.props.onShowUnderlay as any)(...arg);
     }
   }
   onHideUnderlay = (...arg) => {
-    if (!this.props.disabled) {
-      this.setState({ touchIt: false });
-    }
+    this.setState({ touchIt: false });
     if (this.props.onHideUnderlay) {
       (this.props.onHideUnderlay as any)(...arg);
     }

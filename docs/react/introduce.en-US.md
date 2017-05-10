@@ -3,7 +3,7 @@ order: 0
 english: Ant Design Mobile of React
 ---
 
-`antd-mobile` 是 [Ant Design](http://ant.design) 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。
+`antd-mobile` is the React implementation of the [Ant Design](http://ant.design)'s mobile specification, serving the ant and koubei wireless service.
 
 <div class="pic-plus">
   <img width="160" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png">
@@ -26,35 +26,35 @@ english: Ant Design Mobile of React
 }
 </style>
 
-## 特性和优势
+## Features and Advantages
 
-- UI 样式高度可配置，拓展性更强，轻松适应各类产品风格
-- 基于 React Native 的 iOS / Android / Web 多平台支持，组件丰富、能全面覆盖各类场景
-- 内置 "组件按需加载" / "Web 页面高清显示" / "SVG Icon" 等优化方案，一体式开发
-- 使用 TypeScript 开发，提供类型定义文件，支持类型及属性智能提示，方便业务开发
+- The UI is fully Configurable and Scalable, easily adapt to all kinds of product style.
+- Support Web / iOS / Android platform (Based on React Native), has a wealth of components, can fully cover all kinds of scenes.
+- Built-in "Components are loaded on demand" / "Web page HD display" / "SVG Icon" optimization features, integrated development.
+- Use TypeScript to develop, provide type definition files, support type and attribute smart tips for easy business development.
 
-## 适用场景
+## Applicable Scenes
 
-- 适合于中大型产品应用
-- 适合于基于 react / react-native 的多终端应用
-- 适合不同 UI 风格的高度定制需求的应用
+- Medium-sized and large-scale applications.
+- Multi-terminal applications based on react / react-native.
+- Custom UI-style applications.
 
-## 安装
+## Installation
 
 ```bash
 $ npm install antd-mobile --save
 $ npm install babel-plugin-import --save-dev
 ```
 
-## 使用
+## Usage
 
-> 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56) 及 [官方示例集](https://github.com/ant-design/antd-mobile-samples)
+> If you encounter an error, please refer [#56](https://github.com/ant-design/ant-design-mobile/issues/56) and [Samples](https://github.com/ant-design/antd-mobile-samples) first.
 
-#### Web 使用方式
+#### Web usage
 
-> 以下使用 webpack@1.x 版本，如果是 webpack@2.x 请自己修改相应配置语法
+> The following use the webpack@1.x version, if it is webpack@2.x please modify the corresponding configuration yourself.
 
-- 设置 webpack 的 resolve
+- Set the `resolve` field on webpack configuration file.
 
   ```
   resolve: {
@@ -63,7 +63,7 @@ $ npm install babel-plugin-import --save-dev
   },
   ```
 
-- 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 插件支持组件按需加载，设置如下：
+- Use the [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) plugin support component to load on demand, set as follows:
 
   ```js
   // .babelrc
@@ -72,19 +72,19 @@ $ npm install babel-plugin-import --save-dev
   webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
   ```
 
-- 如果业务要使用 `Icon` 组件，需要配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), 配置方案见 [Icon 文档](https://mobile.ant.design/components/icon)
+- It is generally necessary to use the `Icon` component, need to configure [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), see [Icon docs](https://mobile.ant.design/components/icon) for details.
 
-- 入口页面必需的设置：
-    - 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
-    - 引入 [FastClick](https://github.com/ftlabs/fastclick) (关联 [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
-    - 引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)，示例代码如：
+- Entry html page Required settings:
+    - Use HD program settings, see [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE) for details.
+    - Use [FastClick](https://github.com/ftlabs/fastclick) (ref [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
+    - Use Promise fallback support (some Android phones do not support Promise), as follows:
         ```js
         if(!window.Promise) {
           document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
         }
         ```
 
-组件使用实例：
+Example of usage:
 
 ```jsx
 // Auto import js and css modularly, parsed by babel-plugin-import
@@ -92,25 +92,22 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
-> 服务端渲染问题：请参考[此处](https://github.com/ant-design/ant-design-mobile/pull/758)讨论的方式做服务端渲染，另外不保证所有组件都支持服务端渲染。
+> Other useful resources: [Server-side rendering discussion](https://github.com/ant-design/ant-design-mobile/pull/758) /
+> [Custom theme](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md).
 >
-> 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md)，
-> 示例：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
->
-> 注意：在 webpack 环境里、除了要安装以上必选的依赖外，一定不要忘记用
-> `npm i style-loader css-loader less less-loader --save-dev`安装通用的基础的依赖项，避免出现低级错误！
+> Your custom UI library based on antd-mobile: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
-#### React-Native 使用方式
+#### React-Native usage
 
-> 注：`Table`、`Menu`、`NavBar` 组件暂无 React Native 版本；
+> Note: `Table`/`Menu`/`NavBar` does not have React-Native implementation.
 
-- `.babelrc` 文件添加以下配置
+- Edit `.babelrc` as follows:
 
    ```json
   {"plugins": [["import", { "libraryName": "antd-mobile" }]]}
    ```
 
-组件使用实例：
+Example of usage:
 
 ```jsx
 import React, { Component } from 'react';
@@ -126,47 +123,44 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
-> 更多常见问题，请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
+> More common questions, please see [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki).
 
-## 版本
+## Version
 
-- 稳定版：[![npm package](http://img.shields.io/npm/v/antd-mobile.svg?style=flat-square)](http://npmjs.com/package/antd-mobile)
-- 开发版：[![npm package](https://cnpmjs.org/badge/v/antd-mobile.svg?tag=beta&style=flat-square)](http://npmjs.com/package/antd-mobile)
+- Stable: [![npm package](http://img.shields.io/npm/v/antd-mobile.svg?style=flat-square)](http://npmjs.com/package/antd-mobile)
+- Beta: [![npm package](https://cnpmjs.org/badge/v/antd-mobile.svg?tag=beta&style=flat-square)](http://npmjs.com/package/antd-mobile)
 
-## 体积
-
-- 构建后总体积：`~110KB`
-- 按需加载：只需引入业务中需要的组件即可，未 import 进来的组件不会打包进来。
-
-## 浏览器支持
+## Environment Support
 
 - `iOS`
 - `Android 4.0+`
 
-## 链接
+## Links
 
-- [首页](/)
-- [开发文档](http://github.com/ant-design/ant-design-mobile/blob/master/development.en-US.md)
-- [React 模块](http://github.com/react-component)
+- [Home Page](https://mobile.ant.design/)
+- [Developer Instruction](http://github.com/ant-design/ant-design-mobile/blob/master/development.en-US.md)
+- [React components](http://github.com/react-component)
 
-## 谁在使用
+## Companies using antd-mobile
 
-- 蚂蚁金服
-- 阿里巴巴
-- 口碑
+- [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
+- [Alibaba](http://www.alibaba.com/)
+- [Koubei](http://www.koubei.com/)
 
-## 如何贡献
+## Contributing
 
-在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md)。有任何建议或意见您可以 [Pull Request](https://github.com/ant-design/ant-design-mobile/pulls)，给我们 [报告 Bug](https://github.com/ant-design/ant-design-mobile/issues/new)。
+Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md) first.
 
-> 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)，更好的问题更容易获得帮助。
+If you'd like to help us improve antd-mobile, just create a [Pull Request](https://github.com/ant-design/ant-design-mobile/pulls). Feel free to report bugs and issues [here](https://github.com/ant-design/ant-design-mobile/issues/new).
 
-## 社区互助
+> If you're new to posting issues, we ask that you read [*How To Ask Questions The Smart Way*](http://www.catb.org/~esr/faqs/smart-questions.html) and [How to Ask a Question in Open Source Community](https://github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) prior to posting. Well written bug reports help us help you!
 
-如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。
+## Need Help?
 
-通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd`/`antd-mobile` 标签。
+For questions on how to use antd, please post questions to [stackoverflow](http://stackoverflow.com/questions/tagged/antd) using the `antd`/`antd-mobile` tag. If you're not finding what you need on stackoverflow, you can find us on [gitter](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) as well.
 
-1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（推荐）
+As always, we encourage experienced users to help those who are not familiar with `antd`!
+
+1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)
 2. [Segment Fault](https://segmentfault.com/t/antd)
 3. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

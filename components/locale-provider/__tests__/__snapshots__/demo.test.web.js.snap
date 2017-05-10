@@ -83,12 +83,12 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                日期
+                date
               </div>
               <div
                 class="am-list-extra"
               >
-                点击查看国际化
+                Click to see i18n text
               </div>
               <div
                 aria-hidden="true"

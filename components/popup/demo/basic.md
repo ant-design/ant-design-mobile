@@ -1,7 +1,7 @@
 ---
 order: 0
 title:
-  zh-CN: 向上弹出效果
+  zh-CN: 向下弹出效果
   en-US: 'open from top to bottom'
 ---
 

@@ -32,7 +32,6 @@ export interface ListItemProps {
   children?: any;
   wrap?: boolean;
   disabled?: boolean;
-  line?: number;
   platform?: string;
   role?: string;
   /** rn only */

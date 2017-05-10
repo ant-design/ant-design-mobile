@@ -11,12 +11,12 @@ const data = [
   },
   {
     img: 'https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png',
-    title: '麦当劳邀您过周末',
+    title: 'McDonald\'s invites you',
     des: '不是所有的兼职汪都需要风吹日晒',
   },
   {
     img: 'https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png',
-    title: '食惠周',
+    title: 'Eat the week',
     des: '不是所有的兼职汪都需要风吹日晒',
   },
 ];
@@ -83,7 +83,7 @@ export default class BasicDemo extends React.Component<any, any> {
   renderSectionHeader = (sectionData) => {
     return (
       <Text style={[{ padding: 10, backgroundColor: 'rgba(255,255,255,0.8)' }]}>
-        {`任务 ${sectionData.split(' ')[1]}`}
+        {`Task ${sectionData.split(' ')[1]}`}
       </Text>
     );
   }
@@ -124,18 +124,18 @@ export default class BasicDemo extends React.Component<any, any> {
               <View>
                 <Text>{obj.des} - {rowID}</Text>
                 <Text>{this.props.highlightRow}</Text>
-                <Text><Text style={[{ fontSize: 24, color: '#FF6E27' }]}>35</Text>元/任务</Text>
+                <Text><Text style={[{ fontSize: 24, color: '#FF6E27' }]}>35</Text>¥</Text>
               </View>
             </View>
           </View>
         </TouchableHighlight>
       </View>);
     };
-    const loadingTxt = this.state.isLoading ? '加载中...' : '加载完毕';
+    const loadingTxt = this.state.isLoading ? 'Loading...' : 'Loaded';
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderHeader={() => <Text style={[{ padding: 8 }]}>列表头</Text>}
+        renderHeader={() => <Text style={[{ padding: 8 }]}>header</Text>}
         renderFooter={() => <Text style={[{ padding: 30, textAlign: 'center' }]}> {loadingTxt} </Text>}
         renderSectionHeader={this.renderSectionHeader}
         renderRow={row}
