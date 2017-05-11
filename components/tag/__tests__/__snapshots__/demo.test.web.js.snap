@@ -50,9 +50,12 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
       Closable
     </div>
     <div
+      aria-label="remove tag"
       class="am-tag-close"
+      role="button"
     >
       <svg
+        aria-hidden="true"
         class="am-icon am-icon-cross-circle am-icon-xs"
       >
         <use

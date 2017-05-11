@@ -49,11 +49,9 @@
       background: #000;
     }
 
-    &-active {
-      &:active {
-        background-color: tint(@brand-primary, 20%);
-        box-shadow: 0 0 5px tint(@brand-primary, 20%);
-      }
+    &:active {
+      background-color: tint(@brand-primary, 20%);
+      box-shadow: 0 0 5px tint(@brand-primary, 20%);
     }
   }
 
@@ -117,6 +115,7 @@
     .@{sliderPrefixCls}-mark-text,
     .@{sliderPrefixCls}-dot {
       cursor: not-allowed;
+      box-shadow: none;
     }
   }
 }

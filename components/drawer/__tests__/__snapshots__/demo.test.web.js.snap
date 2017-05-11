@@ -7,8 +7,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-navbar-left"
+      role="button"
     >
       <span
+        aria-hidden="true"
         class="am-navbar-left-icon"
       >
         <svg
@@ -64,6 +66,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -84,6 +90,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category1
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -104,6 +114,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category2
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -124,6 +138,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category3
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -144,6 +162,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category4
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -164,6 +186,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category5
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -184,6 +210,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category6
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -204,6 +234,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category7
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -224,6 +258,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category8
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -244,6 +282,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category9
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -264,6 +306,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category10
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -284,6 +330,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category11
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -304,6 +354,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category12
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -324,6 +378,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category13
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -344,6 +402,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category14
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -364,6 +426,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category15
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -384,6 +450,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category16
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -404,6 +474,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category17
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -424,6 +498,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category18
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -444,6 +522,10 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
                 Category19
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>
@@ -471,8 +553,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
   >
     <div
       class="am-navbar-left"
+      role="button"
     >
       <span
+        aria-hidden="true"
         class="am-navbar-left-icon"
       >
         <svg
@@ -529,6 +613,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -549,6 +637,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category1
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -569,6 +661,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category2
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -589,6 +685,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category3
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -609,6 +709,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category4
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -629,6 +733,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category5
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -649,6 +757,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category6
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -669,6 +781,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category7
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -689,6 +805,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category8
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -709,6 +829,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category9
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -729,6 +853,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category10
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -749,6 +877,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category11
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -769,6 +901,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category12
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -789,6 +925,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category13
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -809,6 +949,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category14
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -829,6 +973,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category15
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -849,6 +997,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category16
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -869,6 +1021,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category17
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -889,6 +1045,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category18
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -909,6 +1069,10 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
                 Category19
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>

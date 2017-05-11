@@ -5,7 +5,7 @@ title: ListView
 subtitle: 长列表
 ---
 
-最适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果
+适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果
 
 
 ## API
@@ -15,9 +15,8 @@ subtitle: 长列表
 - React-Native 平台直接使用 [React Native ListView](https://facebook.github.io/react-native/docs/listview.html#content)
 - WEB 平台使用 [React Native ListView(v0.26) 的 API](http://facebook.github.io/react-native/releases/0.26/docs/listview.html)，但有一些差异，以下列出差异详情
 
-#### React Native ListView 在 WEB 平台上不被支持的 API 列表：
+#### React-Native-ListView 在 WEB 平台上不被支持的 API 列表：
 > 一般情况下，不支持“平台特有”的API，例如`android`endFillColor、`iOS`alwaysBounceHorizontal。
-另外，使用 css 代替 react-native 的 style 设置方式。
 
 - onChangeVisibleRows
 - stickyHeaderIndices
@@ -29,17 +28,17 @@ subtitle: 长列表
     - scrollEnabled
     - showsHorizontalScrollIndicator (可使用 css style 替代)
     - showsVerticalScrollIndicator (可使用 css style 替代)
-- [View](https://facebook.github.io/react-native/docs/view.html#props) 组件 API: **只支持`onLayout`**
+- [View](https://facebook.github.io/react-native/docs/view.html#props) 组件 API: 只支持`onLayout`(不完全)
 
 
 #### WEB 平台新增API
 
 - useBodyScroll (boolean, false) - 使用 html 的 `body` 作为滚动容器
 - stickyHeader (boolean, false) - 固定区块标题到页面顶部 (注意: 设置后会自动使用 html 的 `body` 作为滚动容器)
-    - 开启 sticky 后还可以设置 stickyProps / stickyContainerProps (详见 [react-sticky](https://github.com/captivationsoftware/react-sticky))
+    - 启用后还可以设置 `stickyProps / stickyContainerProps` (详见 [react-sticky](https://github.com/captivationsoftware/react-sticky))
 - renderBodyComponent (function, () => React.Element) - 自定义 body 的包裹组件
 - renderSectionBodyWrapper (function, (sectionID: any) => React.Element) - 渲染自定义的区块包裹组件
-- useZscroller (boolean, false) - 使用 zscroller 来模拟实现滚动容器 (可用于一些低端 Android 机上)
+- useZscroller (boolean, false) - 使用 [zscroller](https://github.com/yiminghe/zscroller) 来模拟实现滚动容器 (可用于一些低端 Android 机上)
     - 注意：开启后`useBodyScroll`和`stickyHeader`设置会自动被忽略
 - scrollerOptions - 详见 [zscroller options](https://github.com/yiminghe/zscroller#options)
 
@@ -53,7 +52,7 @@ subtitle: 长列表
 
 - quickSearchBarTop (object{value:string, label:string}, value/label 默认为'#') - 快捷导航栏最顶部按钮、常用于回到顶部
 - quickSearchBarStyle (object) - quickSearchBar 的 style
-- onQuickSearch (function, (sectionID: any, topId?:any) => void) 快捷导航切换时调用
+- onQuickSearch (function, (sectionID: any, topId?:any) => void) - 快捷导航切换时调用
 - delayTime (number) - 默认 100ms, 延迟渲染时间设置（用于首屏优化，一开始渲染`initialListSize`数量的数据，在此时间后、延迟渲染剩余的数据项、即`totalRowCount - initialListSize`）
 - delayActivityIndicator (react node) - 延迟渲染的 loading 指示器
 

@@ -21,6 +21,7 @@ export default StyleSheet.create({
     height: 22,
     fontSize: variables.font_size_base,
     paddingHorizontal: variables.h_spacing_sm,
+    paddingVertical: 0,
   },
   inputFirst: {
     borderTopWidth: StyleSheet.hairlineWidth,

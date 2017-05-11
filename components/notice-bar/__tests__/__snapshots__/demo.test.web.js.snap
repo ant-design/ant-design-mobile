@@ -7,8 +7,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   />
   <div
     class="am-notice-bar"
+    role="alert"
   >
     <div
+      aria-hidden="true"
       class="am-notice-bar-icon"
     >
        
@@ -26,6 +28,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-notice-bar-marquee-wrap "
+        role="marquee"
         style="overflow:hidden;"
       >
         <div
@@ -42,8 +45,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   />
   <div
     class="am-notice-bar"
+    role="alert"
   >
     <div
+      aria-hidden="true"
       class="am-notice-bar-icon"
     >
        
@@ -61,6 +66,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-notice-bar-marquee-wrap "
+        role="marquee"
         style="overflow:hidden;"
       >
         <div
@@ -72,7 +78,9 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
+      aria-label="go to detail"
       class="am-notice-bar-operation"
+      role="button"
     >
       <svg
         class="am-icon am-icon-right am-icon-md"
@@ -88,12 +96,14 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   />
   <div
     class="am-notice-bar"
+    role="alert"
   >
     <div
       class="am-notice-bar-content"
     >
       <div
         class="am-notice-bar-marquee-wrap "
+        role="marquee"
         style="overflow:hidden;"
       >
         <div
@@ -105,7 +115,9 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
+      aria-label="close"
       class="am-notice-bar-operation"
+      role="button"
     >
       <svg
         class="am-icon am-icon-cross am-icon-md"
@@ -121,8 +133,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   />
   <div
     class="am-notice-bar"
+    role="alert"
   >
     <div
+      aria-hidden="true"
       class="am-notice-bar-icon"
     >
        
@@ -140,6 +154,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-notice-bar-marquee-wrap "
+        role="marquee"
         style="overflow:hidden;"
       >
         <div
@@ -151,7 +166,9 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
+      aria-label="close"
       class="am-notice-bar-operation"
+      role="button"
     >
       <svg
         class="am-icon am-icon-cross am-icon-md"

@@ -5,7 +5,7 @@ title:
   en-US: i18n
 ---
 
-用 `LocaleProvider` 包裹你的应用，并引用对应的语言包。
+Wrap your app with `LocaleProvider`, and apply the corresponding language package.
 
 ````jsx
 import { Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button } from 'antd-mobile';
@@ -25,12 +25,12 @@ const Page = () => (
     >
       <DatePicker
         mode="date"
-        title="选择日期"
-        extra="点击查看国际化"
+        title="Select date"
+        extra="Click to see i18n text"
         minDate={minDate}
         maxDate={maxDate}
       >
-        <List.Item arrow="horizontal">日期</List.Item>
+        <List.Item arrow="horizontal">date</List.Item>
       </DatePicker>
     </List>
   </div>

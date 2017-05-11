@@ -9,7 +9,9 @@ exports[`Menu level 1 renders correctly 1`] = `
     class="am-flexbox am-flexbox-align-top"
   >
     <div
+      aria-hidden="false"
       class="am-flexbox-item"
+      role="tabpanel"
       style="height:0px;overflow-y:scroll;"
     >
       <div
@@ -50,6 +52,10 @@ exports[`Menu level 1 renders correctly 1`] = `
                 </label>
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
             class="am-radio-item am-list-item am-list-item-middle"
@@ -82,6 +88,10 @@ exports[`Menu level 1 renders correctly 1`] = `
                 </label>
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>
@@ -104,12 +114,15 @@ exports[`Menu renders correctly 1`] = `
     >
       <div
         class="am-list"
+        role="tablist"
       >
         <div
           class="am-list-body"
         >
           <div
+            aria-selected="true"
             class="am-menu-selected am-list-item am-list-item-middle"
+            role="tab"
           >
             <div
               class="am-list-line"
@@ -120,9 +133,15 @@ exports[`Menu renders correctly 1`] = `
                 Item1
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
           <div
+            aria-selected="false"
             class="am-list-item am-list-item-middle"
+            role="tab"
           >
             <div
               class="am-list-line"
@@ -133,12 +152,18 @@ exports[`Menu renders correctly 1`] = `
                 Item2
               </div>
             </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
           </div>
         </div>
       </div>
     </div>
     <div
+      aria-hidden="false"
       class="am-flexbox-item"
+      role="tabpanel"
       style="height:0px;overflow-y:scroll;"
     >
       <div

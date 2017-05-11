@@ -62,7 +62,7 @@ function createActionSheet(flag, config, callback) {
       mode = 'normal';
       children = (<div {...getDataAttr(props)}>
         {titleMsg}
-        <div className={`${prefixCls}-button-list`}>
+        <div className={`${prefixCls}-button-list`} role="group">
           {options.map((item, index) => {
             const cls = {
               [`${prefixCls}-button-list-item`]: true,
@@ -72,6 +72,7 @@ function createActionSheet(flag, config, callback) {
             const itemProps = {
               className: classNames(cls),
               onClick: () => cb(index),
+              role: 'button',
             };
             let bItem = (
               <Touchable key={index} activeClassName={`${prefixCls}-button-list-item-active`}>
@@ -98,7 +99,7 @@ function createActionSheet(flag, config, callback) {
       mode = 'share';
       const multipleLine = options.length && Array.isArray(options[0]) || false;
       const createList = (item, index, rowIndex = 0) => (
-        <div className={`${prefixCls}-share-list-item`} key={index} onClick={() => cb(index, rowIndex)}>
+        <div className={`${prefixCls}-share-list-item`} role="button" key={index} onClick={() => cb(index, rowIndex)}>
           <div className={`${prefixCls}-share-list-item-icon`}>
             {item.iconName ? <Icon type={item.iconName}/> : item.icon}
           </div>
@@ -118,7 +119,7 @@ function createActionSheet(flag, config, callback) {
             </div>
           )}
           <Touchable activeClassName={`${prefixCls}-share-cancel-button-active`}>
-            <div className={`${prefixCls}-share-cancel-button`} onClick={() => cb(-1)}>
+            <div className={`${prefixCls}-share-cancel-button`} role="button" onClick={() => cb(-1)}>
               {cancelButtonText}
             </div>
           </Touchable>

@@ -7,7 +7,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   <p
     class="sub-title"
   >
-    按钮内带文本
+    Button with text
   </p>
   <div
     class="am-pagination"
@@ -19,15 +19,17 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
       >
         <a
+          aria-disabled="false"
           class="am-button am-button-inline"
           role="button"
         >
           <span>
-            上一步
+            Prev
           </span>
         </a>
       </div>
       <div
+        aria-live="assertive"
         class="am-flexbox-item am-pagination-wrap"
       >
         <span
@@ -44,11 +46,12 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
       >
         <a
+          aria-disabled="false"
           class="am-button am-button-inline"
           role="button"
         >
           <span>
-            下一步
+            Next
           </span>
         </a>
       </div>
@@ -57,7 +60,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   <p
     class="sub-title"
   >
-    带文本和icon
+    Button with text and icon
   </p>
   <div
     class="am-pagination"
@@ -69,6 +72,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
       >
         <a
+          aria-disabled="false"
           class="am-button am-button-inline"
           role="button"
         >
@@ -87,6 +91,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         </a>
       </div>
       <div
+        aria-live="assertive"
         class="am-flexbox-item am-pagination-wrap"
       >
         <span
@@ -103,6 +108,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
       >
         <a
+          aria-disabled="false"
           class="am-button am-button-inline"
           role="button"
         >
@@ -125,7 +131,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   <p
     class="sub-title"
   >
-    隐藏数字
+    Hide number
   </p>
   <div
     class="am-pagination"
@@ -137,11 +143,12 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
       >
         <a
+          aria-disabled="false"
           class="am-button am-button-inline"
           role="button"
         >
           <span>
-            上一步
+            Prev
           </span>
         </a>
       </div>
@@ -149,11 +156,12 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
       >
         <a
+          aria-disabled="false"
           class="am-button am-button-inline"
           role="button"
         >
           <span>
-            下一步
+            Next
           </span>
         </a>
       </div>
@@ -162,7 +170,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   <p
     class="sub-title"
   >
-    只显示数字
+    Show number only
   </p>
   <div
     class="am-pagination"
@@ -184,7 +192,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   <p
     class="sub-title"
   >
-    点状
+    Point Style
   </p>
   <div
     class="am-pagination"

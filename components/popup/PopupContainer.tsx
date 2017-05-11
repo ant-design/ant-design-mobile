@@ -38,6 +38,7 @@ export default class PopupContainer extends React.Component<PopupProps, any> {
     return (
       <View style={styles.container}>
         <Modal
+          style={this.props.style}
           animateAppear
           onAnimationEnd={this.props.onAnimationEnd}
           animationType={this.props.animationType as animationType}

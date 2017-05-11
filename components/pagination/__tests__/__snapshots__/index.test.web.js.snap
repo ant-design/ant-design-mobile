@@ -11,11 +11,13 @@ exports[`Pagination renders correctly 1`] = `
       class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
     >
       <a
+        aria-disabled="false"
         class="am-button am-button-inline"
         role="button"
       />
     </div>
     <div
+      aria-live="assertive"
       class="am-flexbox-item am-pagination-wrap"
     >
       <span
@@ -32,6 +34,7 @@ exports[`Pagination renders correctly 1`] = `
       class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
     >
       <a
+        aria-disabled="false"
         class="am-button am-button-inline"
         role="button"
       />

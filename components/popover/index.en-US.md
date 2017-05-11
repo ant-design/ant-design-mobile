@@ -31,6 +31,8 @@ Properties | Descrition | Type | Default
 | name (`rn only`)   | menu name, used for manual control   | String |  -   |
 | openMenu / closeMenu / toggleMenu(`rn only`)   | Set the menu's open/close status, the parameter is menu name.  | Function(name) |  -   |
 
+more available API can be found at [rc-tooltip](https://github.com/react-component/tooltip#api)
+
 ### Popover.Item
 
 Properties | Descrition | Type | Default

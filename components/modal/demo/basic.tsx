@@ -97,6 +97,7 @@ export default class BasicModalExample extends React.Component<any, any> {
           transparent={false}
           visible={this.state.visible2}
           animationType="slide-up"
+          onClose={this.onClose2}
         >
           <View style={{ paddingVertical: 220 }}>
             <Text style={{ textAlign: 'center' }}>这是内容...</Text>

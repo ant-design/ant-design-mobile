@@ -5,7 +5,7 @@ title:
   en-US: 'Index List (Title position top)'
 ---
 
-用于通讯薄等场景 “吸顶”(sticky)
+sticky index List
 
 
 ````jsx
@@ -66,7 +66,7 @@ class Demo extends React.Component {
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
         <SearchBar
           value={this.state.inputValue}
-          placeholder="搜索"
+          placeholder="Search"
           onChange={this.onSearch}
           onClear={() => { console.log('onClear'); }}
           onCancel={() => { console.log('onCancel'); }}
@@ -74,8 +74,8 @@ class Demo extends React.Component {
       </div>
       <ListView.IndexedList
         dataSource={this.state.dataSource}
-        renderHeader={() => <span>头部内容请自定义</span>}
-        renderFooter={() => <span>尾部内容请自定义</span>}
+        renderHeader={() => <span>custom header</span>}
+        renderFooter={() => <span>custom footer</span>}
         renderSectionHeader={sectionData => (<div className="ih">{sectionData}</div>)}
         renderRow={rowData => (<Item>{rowData}</Item>)}
         className="am-list"
@@ -87,7 +87,7 @@ class Demo extends React.Component {
           top: 85,
         }}
         delayTime={10}
-        delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}
+        delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>rendering...</div>}
       />
     </div>);
   }

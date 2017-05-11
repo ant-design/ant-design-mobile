@@ -2,8 +2,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import List from '../list';
-import Flex from '../flex';
+import List from '../list/index.web';
+import Flex from '../flex/index.web';
 import SubMenu from './SubMenu.web';
 import { MenuProps } from './PropsType';
 
@@ -84,12 +84,14 @@ export default class Menu extends React.Component<MenuProps, any> {
         <Flex align="top">
           {level === 2 ? (
             <Flex.Item style={heightStyle}>
-              <List>
+              <List role="tablist">
                 {data.map((dataItem, index) => (
                   <List.Item
                     className={dataItem.value === firstLevelSelectValue ? `${prefixCls}-selected` : ''}
                     onClick={() => this.onClickFirstLevelItem(dataItem)}
                     key={`listitem-1-${index}`}
+                    role="tab"
+                    aria-selected={dataItem.value === firstLevelSelectValue}
                   >
                     {dataItem.label}
                   </List.Item>
@@ -97,7 +99,7 @@ export default class Menu extends React.Component<MenuProps, any> {
               </List>
             </Flex.Item>
           ) : null}
-          <Flex.Item style={heightStyle}>
+          <Flex.Item style={heightStyle} role="tabpanel" aria-hidden="false">
             <SubMenu
               subMenuPrefixCls={this.props.subMenuPrefixCls}
               radioPrefixCls={this.props.radioPrefixCls}

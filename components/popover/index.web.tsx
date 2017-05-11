@@ -23,7 +23,7 @@ export default class Popover extends React.Component<tsPropsType, any> {
   static Item = Item;
 
   render() {
-    const { overlay, onSelect = () => {} } = this.props;
+    const { overlay, onSelect = () => {}, ...restProps } = this.props;
 
     const overlayNode = recursiveCloneChildren(overlay, (child, index) => {
       const extraProps: any = { firstItem: false };
@@ -34,6 +34,6 @@ export default class Popover extends React.Component<tsPropsType, any> {
       }
       return child;
     });
-    return <Tooltip {...this.props} overlay={overlayNode} />;
+    return <Tooltip {...restProps} overlay={overlayNode} />;
   }
 }

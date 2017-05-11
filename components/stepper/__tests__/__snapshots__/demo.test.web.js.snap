@@ -7,7 +7,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
   <div
     class="am-list-header"
   >
-    演示
+    Demos
   </div>
   <div
     class="am-list-body"
@@ -21,7 +21,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          显示数值(默认使用 TouchEvent, for Mobile)
+          Show number value(Use TouchEvent for mobile by default)
         </div>
         <div
           class="am-list-extra"
@@ -82,6 +82,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -92,7 +96,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          显示数值(使用 MouseEvent, for PC)
+          Show number value(Use MouseEvent for PC)
         </div>
         <div
           class="am-list-extra"
@@ -153,6 +157,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -163,7 +171,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          禁用
+          Disabled
         </div>
         <div
           class="am-list-extra"
@@ -225,6 +233,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
     </div>
   </div>
 </div>

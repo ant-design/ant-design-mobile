@@ -3,7 +3,7 @@ import React from 'react';
 export interface FlexProps {
   /** web only */
   prefixCls?: string;
-  style?: React.CSSProperties;
+  style?: any;
   /** web only */
   className?: string;
   direction?: 'row'|'row-reverse'|'column'|'column-reverse';
@@ -27,7 +27,7 @@ export interface FlexItemProps {
   /** web only */
   prefixCls?: string;
   className?: string;
-  style?: React.CSSProperties;
+  style?: any;
   onClick?: (e?: any) => void;
   children?: any;
   /* touchableWithoutFeedback prop */

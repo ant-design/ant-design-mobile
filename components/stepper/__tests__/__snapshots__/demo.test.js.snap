@@ -558,7 +558,7 @@ exports[`renders ./components/stepper/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                禁用
+                Disabled
               </Text>
             </View>
             <View

@@ -1,14 +1,15 @@
 import React, { ReactNode } from 'react';
 
 export interface ListProps {
+  style?: any;
   /** web only */
   prefixCls?: string;
-  style?: React.CSSProperties;
   /** web only */
   className?: string;
   children?: any;
   renderHeader?: Function;
   renderFooter?: Function;
+  role?: string;
   /** rn only */
   styles?: any;
 }
@@ -31,8 +32,8 @@ export interface ListItemProps {
   children?: any;
   wrap?: boolean;
   disabled?: boolean;
-  line?: number;
   platform?: string;
+  role?: string;
   /** rn only */
   styles?: any;
   onPressIn?: (e?: any) => void;
@@ -40,7 +41,7 @@ export interface ListItemProps {
 }
 
 export interface BriefProps {
-  style?: React.CSSProperties;
+  style?: any;
   children?: any;
   wrap?: boolean;
   /** rn only */

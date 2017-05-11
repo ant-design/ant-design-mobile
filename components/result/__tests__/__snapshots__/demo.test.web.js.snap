@@ -11,6 +11,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-result"
+    role="alert"
   >
     <div
       class="am-result-pic"
@@ -53,6 +54,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-result"
+    role="alert"
   >
     <div
       class="am-result-pic"
@@ -87,6 +89,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-result"
+    role="alert"
   >
     <div
       class="am-result-pic"
@@ -121,6 +124,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-result"
+    role="alert"
   >
     <div
       class="am-result-pic"
@@ -154,6 +158,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-result"
+    role="alert"
   >
     <div
       class="am-result-pic"

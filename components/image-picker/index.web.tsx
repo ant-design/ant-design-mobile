@@ -153,10 +153,14 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           <div key={index} className={`${prefixCls}-item`} >
             <div
               className={`${prefixCls}-item-remove`}
+              role="button"
+              aria-label="Click and Remove this image"
               onClick={() => { this.removeImage(index); }}
             />
             <div
               className={`${prefixCls}-item-content`}
+              role="button"
+              aria-label="Image can be clicked"
               onClick={() => { this.onImageClick(index); }}
               style={imgStyle}
             />
@@ -171,6 +175,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           <div
             className={`${prefixCls}-item ${prefixCls}-upload-btn`}
             onClick={onAddImageClick}
+            role="button"
+            aria-label="Choose and add image"
           >
             <input
               ref="fileSelectorInput"
@@ -205,7 +211,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     ));
     return (
       <div className={wrapCls} style={style}>
-        <div className={`${prefixCls}-list`}>
+        <div className={`${prefixCls}-list`} role="group">
           <WingBlank size="md">
             {renderEl}
           </WingBlank>
