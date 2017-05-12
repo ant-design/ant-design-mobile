@@ -25,7 +25,7 @@ class BasicInputExample extends React.Component {
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List renderHeader={() => 'Customize to get the cursor'}>
+        <List renderHeader={() => 'Customize to focus'}>
           <InputItem
             {...getFieldProps('autofocus')}
             clear
@@ -71,7 +71,7 @@ class BasicInputExample extends React.Component {
           <InputItem
             {...getFieldProps('inputclear')}
             clear
-            placeholder="displayed while typing"
+            placeholder="displayed clear icon while typing"
           >标题</InputItem>
         </List>
         <WhiteSpace />

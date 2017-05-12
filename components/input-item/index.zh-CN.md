@@ -43,4 +43,4 @@ subtitle: 文本输入
 | prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
 | name (`web only`)   | input 的 name        | String |  无  |
 
-> 更多属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
+> 更多 react-native `InputItem` 属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)

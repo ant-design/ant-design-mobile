@@ -18,7 +18,7 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| type    | the type of `InputItem` which is one of `bankCard`, `phone` which the maxLength is 11 and setting will be ignored, `password`, `number`, `text`  | String |  `text`  |
+| type    | the type of `InputItem` which is one of `bankCard`, `phone`(which the maxLength is 11 and setting will be ignored), `password`, `number`, `text`  | String |  `text`  |
 | value | the value of input (see https://facebook.github.io/react/docs/forms.html for more information about controled component)  | String | |
 | defaultValue    | the initial input content        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
@@ -40,4 +40,4 @@ Properties | Descrition | Type | Default
 | prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |
 | name (`web only`)   | the name of input       | String |   |
 
-> More available API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
+> More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)

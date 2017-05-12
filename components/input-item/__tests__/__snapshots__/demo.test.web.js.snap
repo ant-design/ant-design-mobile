@@ -8,7 +8,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      Customize to get the cursor
+      Customize to focus
     </div>
     <div
       class="am-list-body"
@@ -147,7 +147,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="displayed while typing"
+            placeholder="displayed clear icon while typing"
             type="text"
             value=""
           />
