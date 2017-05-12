@@ -23,6 +23,7 @@ let SwitchExample = (props) => {
             initialValue: true,
             valuePropName: 'checked',
           })}
+          onClick={(checked) => { console.log(checked); }}
         />}
       >默认开</List.Item>
       <List.Item
@@ -31,6 +32,7 @@ let SwitchExample = (props) => {
             initialValue: false,
             valuePropName: 'checked',
           })}
+          onClick={(checked) => { console.log(checked); }}
         />}
       >默认关</List.Item>
       <List.Item
@@ -39,6 +41,7 @@ let SwitchExample = (props) => {
             initialValue: false,
             valuePropName: 'checked',
           })}
+          onClick={(checked) => { console.log(checked); }}
           disabled
         />}
       >默认关不可修改</List.Item>
@@ -48,6 +51,7 @@ let SwitchExample = (props) => {
             initialValue: true,
             valuePropName: 'checked',
           })}
+          onClick={(checked) => { console.log(checked); }}
           disabled
         />}
       >默认开不可修改</List.Item>
