@@ -5,7 +5,13 @@ title:
   en-US: Basic
 ---
 
-受控组件建议使用([rc-form 文档](https://github.com/react-component/form))
+## zh-CN
+
+受控组件建议使用([rc-form ](https://github.com/react-component/form))
+
+## en-US
+
+Recommended use of [rc-form ](https://github.com/react-component/form) for controlled component.
 
 ````jsx
 import { List, InputItem, WhiteSpace } from 'antd-mobile';
@@ -19,17 +25,17 @@ class BasicInputExample extends React.Component {
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List renderHeader={() => '自定义获取光标'}>
+        <List renderHeader={() => 'Customize to focus'}>
           <InputItem
             {...getFieldProps('autofocus')}
             clear
-            placeholder="自动获取光标，支付宝客户端有效"
+            placeholder="auto focus in Alipay client"
             autoFocus
           >标题</InputItem>
           <InputItem
             {...getFieldProps('focus')}
             clear
-            placeholder="点击下方按钮该输入框会获取光标"
+            placeholder="click the button below to focus"
             focused={this.state.focused}
             onFocus={() => {
               this.setState({
@@ -46,33 +52,33 @@ class BasicInputExample extends React.Component {
                 });
               }}
             >
-          点击获取光标
+          click to focus
         </div>
           </List.Item>
         </List>
-        <List renderHeader={() => '受控 / 非受控'}>
+        <List renderHeader={() => 'Whether is controlled'}>
           <InputItem
             {...getFieldProps('control')}
             placeholder="Hello World"
           >受控组件</InputItem>
           <InputItem
-            placeholder="请输入内容"
+            placeholder="please input content"
             data-seed="logId"
           >非受控组件</InputItem>
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '带清除按钮'}>
+        <List renderHeader={() => 'Show clear icon'}>
           <InputItem
             {...getFieldProps('inputclear')}
             clear
-            placeholder="带清除按钮，输入会显示"
+            placeholder="displayed clear icon while typing"
           >标题</InputItem>
         </List>
         <WhiteSpace />
         <List renderHeader={() => '标题字数'}>
           <InputItem
             {...getFieldProps('label8')}
-            placeholder="限制标题显示的长度"
+            placeholder="limited title length"
             labelNumber={5}
           >标题过长超过默认的5个字</InputItem>
         </List>
@@ -80,11 +86,11 @@ class BasicInputExample extends React.Component {
         <List renderHeader={() => '标题可自定义（文字 / 图片 / 无标题）'}>
           <InputItem
             {...getFieldProps('input3')}
-            placeholder="无 label"
+            placeholder="no label"
           />
           <InputItem
             {...getFieldProps('inputtitle2')}
-            placeholder="标题可自定义为icon，图片或文字"
+            placeholder="title can be icon，image or text"
           >
             <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '0.44rem', width: '0.44rem' }} />
           </InputItem>
@@ -94,7 +100,7 @@ class BasicInputExample extends React.Component {
           <InputItem
             {...getFieldProps('preice')}
             placeholder="0.00"
-            extra="元"
+            extra="¥"
           >价格</InputItem>
         </List>
         <WhiteSpace />
@@ -118,17 +124,17 @@ class BasicInputExample extends React.Component {
           <InputItem
             {...getFieldProps('number')}
             type="number"
-            placeholder="点击会弹出数字键盘"
+            placeholder="click to show number keyboard"
           >数字键盘</InputItem>
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '不可编辑 / 禁用'}>
+        <List renderHeader={() => 'Not editable / Disabled'}>
           <InputItem
-            value="不可编辑"
+            value="Not editable"
             editable={false}
           >姓名</InputItem>
           <InputItem
-            value="这个是禁用状态的样式"
+            value="style of disabled `InputItem`"
             disabled
           >姓名</InputItem>
         </List>

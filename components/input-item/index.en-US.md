@@ -4,14 +4,12 @@ type: Data Entry
 title: InputItem
 ---
 
+A foundational component for inputting text into the app via a keyboard.
 
-用于接受单行文本。
-
-
-### 规则
-- 支持通过键盘或者剪切板输入文本。
-- 通过光标可以在水平方向进行移动。
-- 对特定格式的文本进行处理，eg：隐藏密码。
+### Rule
+- Support text input via keyboard or clipboard.
+- The cursor can be moved horizontally.
+- Handle text with a specific format, eg: hide password.
 
 
 ## API
@@ -20,26 +18,26 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| type    | 银行卡`bankCard`,手机号`phone`（此时最大长度固定为11,`maxLength`设置无效）,密码`password`, 数字`number`（尽量唤起数字键盘）  | String |  `text`  |
-| value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
-| defaultValue    | 设置初始默认值        | String |  -  |
+| type    | the type of `InputItem` which is one of `bankCard`, `phone`(which the maxLength is 11 and setting will be ignored), `password`, `number`, `text`  | String |  `text`  |
+| value | the value of input (see https://facebook.github.io/react/docs/forms.html for more information about controled component)  | String | |
+| defaultValue    | the initial input content        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
-| editable    | 是否可编辑        | bool |  true  |
-| disabled    | 是否禁用        | bool |  false  |
-| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`,`value`设置才生效) | bool | false  |
-| maxLength      |  最大长度      | number |  无  |
-| onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
-| onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
-| onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
-| error       | 报错样式        | bool |  false  |
-| onErrorClick       | 点击报错 icon 触发的回调函数  | (e: Object): void |  无  |
-| extra       | 右边注释   | string or node |  ''  |
-| onExtraClick      | extra 点击事件触发的回调函数 | (e: Object): void |  无  |
-| labelNumber  | 定宽枚举值：`num * @input-label-width: 34px`，可用`2-7`之间的数字，一般(不能保证全部)能对应显示出相应个数的中文文字(不考虑英文字符) | number | `5` |
-| autoFocus   | 页面初始化时Input自动获取光标,每个页面只有一个Input的autpFocus会生效。（不保证所有浏览器都生效） | bool | false  |
-| focused   | 页面运行过程中,Input获取光标,当Input获取光标（`focused`更新为true）后，需要在`onFocus`或者`onBlur`时再次将该属性设置为false。 | bool | false  |
-| updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
-| prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
-| name (`web only`)   | input 的 name        | String |  无  |
+| editable    | whether is editable        | bool |  true  |
+| disabled    | whether is disabled       | bool |  false  |
+| clear      |  whether to display clear icon(it takes effect only `editable` is `true` or `disabled` is `false` or `value` has been set) | bool | false  |
+| maxLength      |  limits the maximum number of characters that can be entered      | number |    |
+| onChange    | callback that is called when the text input's text changes | (val: string): void |  -  |
+| onBlur     | callback that is called when the text input is blurred | (val: string): void |   -  |
+| onFocus    | callback that is called when the text input is focused | (val: string): void |  -  |
+| error       | whether to display error icon       | bool |  false  |
+| onErrorClick   | callback that is called when the error icon is clicked  | (e: Object): void |   |
+| extra       | the right content of `InputItem`   | string or node |  ''  |
+| onExtraClick      | callback that is called when the extra content is clicked | (e: Object): void |  |
+| labelNumber  | number of label text, valid value is 2 to 7 | number | `5` |
+| autoFocus   | whether to focus the input on `componentDidMount`, each page has only one `Input` can be auto focus.（Note: It is no guarantee that all browsers are supported） | bool | false  |
+| focused   | whether the `InputItem` has been focused on `componentDidMount`, you need to change this property on `onFocus` or `onBlur` callback | bool | false  |
+| updatePlaceholder (`web only`) | whether to replace the placeholder with cleared content | bool | false|
+| prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |
+| name (`web only`)   | the name of input       | String |   |
 
-> 更多属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
+> More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)

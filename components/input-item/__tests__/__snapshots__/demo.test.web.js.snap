@@ -8,7 +8,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      自定义获取光标
+      Customize to focus
     </div>
     <div
       class="am-list-body"
@@ -25,7 +25,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="自动获取光标，支付宝客户端有效"
+            placeholder="auto focus in Alipay client"
             type="text"
             value=""
           />
@@ -43,7 +43,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="点击下方按钮该输入框会获取光标"
+            placeholder="click the button below to focus"
             type="text"
             value=""
           />
@@ -61,7 +61,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             <div
               style="width:100%;color:#108ee9;text-align:center;"
             >
-              点击获取光标
+              click to focus
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      受控 / 非受控
+      Whether is controlled
     </div>
     <div
       class="am-list-body"
@@ -114,7 +114,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
         >
           <input
             data-seed="logId"
-            placeholder="请输入内容"
+            placeholder="please input content"
             type="text"
           />
         </div>
@@ -130,7 +130,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      带清除按钮
+      Show clear icon
     </div>
     <div
       class="am-list-body"
@@ -147,7 +147,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="带清除按钮，输入会显示"
+            placeholder="displayed clear icon while typing"
             type="text"
             value=""
           />
@@ -181,7 +181,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="限制标题显示的长度"
+            placeholder="limited title length"
             type="text"
             value=""
           />
@@ -210,7 +210,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="无 label"
+            placeholder="no label"
             type="text"
             value=""
           />
@@ -230,7 +230,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="标题可自定义为icon，图片或文字"
+            placeholder="title can be icon，image or text"
             type="text"
             value=""
           />
@@ -272,7 +272,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
         <div
           class="am-input-extra"
         >
-          元
+          ¥
         </div>
       </div>
     </div>
@@ -358,7 +358,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
         >
           <input
             pattern="[0-9]*"
-            placeholder="点击会弹出数字键盘"
+            placeholder="click to show number keyboard"
             type="text"
             value=""
           />
@@ -375,7 +375,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      不可编辑 / 禁用
+      Not editable / Disabled
     </div>
     <div
       class="am-list-body"
@@ -395,7 +395,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder=""
             readonly=""
             type="text"
-            value="不可编辑"
+            value="Not editable"
           />
         </div>
       </div>
@@ -414,7 +414,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             disabled=""
             placeholder=""
             type="text"
-            value="这个是禁用状态的样式"
+            value="style of disabled \`InputItem\`"
           />
         </div>
       </div>
