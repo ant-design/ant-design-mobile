@@ -71,7 +71,7 @@
     "antd-mobile-demo-data": "^0.1.1",
     "antd-tools": "^0.19.8",
     "babel-eslint": "^7.1.0",
-    "babel-jest": "^19.0.0",
+    "babel-jest": "^20.0.1",
     "babel-plugin-import": "^1.1.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react-native": "^1.9.1",
@@ -95,7 +95,7 @@
     "eslint-plugin-react": "^6.10.3",
     "eslint-tinker": "^0.4.0",
     "glob": "^7.1.1",
-    "jest": "^19.0.2",
+    "jest": "^20.0.1",
     "jest-serializer-html-string": "^1.0.1",
     "jsonml.js": "^0.1.0",
     "lesshint": "^3.1.1",
@@ -121,7 +121,7 @@
     "react-test-renderer": "^15.4.2",
     "svg-sprite-loader": "^0.3.0",
     "typescript": "~2.2.2",
-    "typescript-babel-jest": "^1.0.1"
+    "typescript-babel-jest": "^1.0.3"
   },
   "scripts": {
     "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint && npm run applint",
