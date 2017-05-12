@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import RCMDatePicker from './MultiDatePicker';
-import { formatFn, getProps, getDefaultDate, noop } from './utils';
+import { formatFn, getProps, getDefaultDate, getDefaultDateArray, noop } from './utils';
 import assign from 'object-assign';
 import tsPropsType from './PropsType';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
@@ -103,7 +103,9 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         format={props.format}
         pickerPrefixCls={props.pickerPrefixCls}
         prefixCls={props.prefixCls}
-        defaultDate={value || getDefaultDate(this.props)}
+        defaultDate={value || getDefaultDateArray(this.props)}
+        startTime={value && value[0] || getDefaultDateArray(this.props)[0]}
+        endTime={value && value[1] || getDefaultDateArray(this.props)[1]}
         startLabelText={startLabelText}
         endLabelText={endLabelText}
         onValueChange={props.onPickerChange}
@@ -118,7 +120,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         maskTransitionName="am-fade"
         {...props}
         prefixCls={popupPrefixCls}
-        date={value || getDefaultDate(this.props)}
+        date={value || (type === 'single' ? getDefaultDate(this.props) : getDefaultDateArray(this.props))}
         dismissText={dismissText}
         okText={okText}
         onOk={this.onPickerOK}

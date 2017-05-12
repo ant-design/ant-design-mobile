@@ -49,4 +49,30 @@ export function getDefaultDate(props) {
   return now;
 }
 
+export function getDefaultDateArray(props) {
+  const { defaultDate, minStartDate, maxStartDate, minEndDate, maxEndDate } = props;
+  if (defaultDate) {
+    return defaultDate;
+  }
+  const now = moment();
+
+  let startDefaultDate = now;
+  let endDefaultDate = now;
+
+  if (minStartDate && now.isBefore(minStartDate)) {
+    startDefaultDate = minStartDate;
+  }
+  if (maxStartDate && maxStartDate.isBefore(now)) {
+    startDefaultDate = minStartDate;
+  }
+  if (minEndDate && now.isBefore(minEndDate)) {
+    endDefaultDate = minEndDate;
+  }
+  if (maxEndDate && maxEndDate.isBefore(now)) {
+    endDefaultDate = minEndDate;
+  }
+
+  return [startDefaultDate, endDefaultDate];
+}
+
 export function noop() {}

@@ -138,6 +138,10 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             class="am-list-extra"
           />
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div>
         <div
@@ -166,28 +170,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             style="display:none;"
           />
         </div>
-      </div>
-      <div
-        class="am-list-item am-list-item-middle"
-      >
-        <div
-          class="am-list-line"
-        >
-          <div
-            class="am-list-content"
-          >
-            <div>
-              自定义控制显示/隐藏的元素
-            </div>
-          </div>
-          <div
-            class="am-list-extra"
-          />
-        </div>
-        <div
-          class="am-list-ripple"
-          style="display:none;"
-        />
       </div>
       <div>
         <div
@@ -225,7 +207,7 @@ exports[`renders ./components/date-picker/demo/custom.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              range(CST)
+              默认时间
             </div>
             <div
               class="am-list-extra"
@@ -233,9 +215,126 @@ exports[`renders ./components/date-picker/demo/custom.md correctly 1`] = `
               开始日期至结束日期
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              限制开始时间
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              开始日期至结束日期
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              限制结束时间
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              开始日期至结束日期
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              限制时间
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              开始日期至结束日期
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              全量配置
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              开始日期至结束日期
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
         </div>
       </div>
     </div>

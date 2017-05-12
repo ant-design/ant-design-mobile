@@ -7,6 +7,7 @@ const maxDate = moment('2030-12-31 23:59');
 const now = moment();
 import 'moment/locale/zh-cn';
 import 'moment/locale/en-gb';
+import { getDefaultDateArray } from './utils';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
 
 class MultiPicker extends React.Component<MultiPickerProps, any> {
@@ -25,8 +26,8 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
       maxStartDate: this.props.maxStartDate || maxDate,
       minEndDate: this.props.minEndDate || minDate,
       maxEndDate: this.props.maxEndDate || maxDate,
-      startTime: this.props.startTime || now,
-      endTime: this.props.endTime || now,
+      startTime: this.props.startTime,
+      endTime: this.props.endTime,
     };
   }
 
@@ -84,11 +85,12 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
         <div className={`${prefixCls}-popup-label-title`}>{startLabelText || startText}</div>
         <RCDatePicker
           rootNativeProps={{ 'data-xx': 'yy' }}
-          date={startTime}
           mode={mode}
           locale={locale}
+          defaultDate={(value && value[0]) || (defaultDate && defaultDate[0]) || getDefaultDateArray(this.props)[0]}
           maxDate={maxStartDate}
           minDate={minStartDate}
+          date={startTime}
           pickerPrefixCls={pickerPrefixCls}
           prefixCls={prefixCls}
           onDateChange={this.onDateStartTimeChange}
@@ -96,11 +98,12 @@ class MultiPicker extends React.Component<MultiPickerProps, any> {
         <div className={`${prefixCls}-popup-label-title`}>{endLabelText || endText}</div>
         <RCDatePicker
           rootNativeProps={{ 'data-xx': 'yy' }}
-          date={endTime}
           mode={mode}
           locale={locale}
+          defaultDate={(value && value[1]) || (defaultDate && defaultDate[1]) || getDefaultDateArray(this.props)[1]}
           maxDate={maxEndDate}
           minDate={minEndDate}
+          date={endTime}
           pickerPrefixCls={pickerPrefixCls}
           prefixCls={prefixCls}
           onDateChange={this.onDateEndTimeChange}
