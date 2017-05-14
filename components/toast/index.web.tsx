@@ -36,7 +36,7 @@ function notice(content, type, duration = 3, onClose, mask = true) {
     style: {},
     content: !!iconType ? (
       <div className={`${prefixCls}-text ${prefixCls}-text-icon`} role="alert" aria-live="assertive">
-        <Icon type={iconType} size="lg" />
+        <Icon type={iconType.id || iconType} size="lg" />
         <div className={`${prefixCls}-text-info`}>{content}</div>
       </div>
     ) : (
