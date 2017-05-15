@@ -60,6 +60,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             style="display:flex;"
           >
             <img
+              alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png"
               style="height:1.28rem;margin-right:0.08rem;"
             />
@@ -97,6 +98,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             style="display:flex;"
           >
             <img
+              alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png"
               style="height:1.28rem;margin-right:0.08rem;"
             />
@@ -134,6 +136,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             style="display:flex;"
           >
             <img
+              alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png"
               style="height:1.28rem;margin-right:0.08rem;"
             />
@@ -171,6 +174,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             style="display:flex;"
           >
             <img
+              alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png"
               style="height:1.28rem;margin-right:0.08rem;"
             />
@@ -208,6 +212,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             style="display:flex;"
           >
             <img
+              alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png"
               style="height:1.28rem;margin-right:0.08rem;"
             />

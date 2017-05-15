@@ -19,13 +19,13 @@ timeline: true
 `2017-05-14`
 
 - **Bug Fix**
- - 修复 `ListItem` unknown props warning。（[#1278](https://github.com/ant-design/ant-design-mobile/issues/1278)）
- - 修复 React Native `Pagination` disable 时的 active 样式问题。（[1b01652797](https://github.com/ant-design/ant-design-mobile/commit/1b01652797daebd1af0547f19b005199fa6413e5)）
- - 修复 React Native `List` renderFooter 错误。（[#1294](https://github.com/ant-design/ant-design-mobile/pull/1294/files)）
- - 修复 `tabs` createClass warning
+  - 修复 `ListItem` unknown props warning。（[#1278](https://github.com/ant-design/ant-design-mobile/issues/1278)）
+  - 修复 React Native `Pagination` disable 时的 active 样式问题。（[1b01652797](https://github.com/ant-design/ant-design-mobile/commit/1b01652797daebd1af0547f19b005199fa6413e5)）
+  - 修复 React Native `List` renderFooter 错误。（[#1294](https://github.com/ant-design/ant-design-mobile/pull/1294/files)）
+  - 修复 `tabs` createClass warning
 
 - **Improve && Enhancement**
- - `Switch` 支持 onClick ([#1290](https://github.com/ant-design/ant-design-mobile/issues/1290))
+  - `Switch` 支持 onClick ([#1290](https://github.com/ant-design/ant-design-mobile/issues/1290))
 
 ## 1.1.2
 

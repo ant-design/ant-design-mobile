@@ -218,6 +218,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-label am-textarea-label-5"
         >
           <img
+            alt="icon"
             src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
             style="width:0.56rem;height:0.56rem;"
           />
