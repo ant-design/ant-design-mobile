@@ -23,8 +23,8 @@ export default class Stepper extends React.Component<StepProps, any> {
 
     return (
       <RcInputNumber
-        upHandler={<Icon type={require('./style/assets/plus.svg')} size="xxs" />}
-        downHandler={<Icon type={require('./style/assets/minus.svg')} size="xxs" />}
+        upHandler={<Icon type={require('./style/assets/plus.svg').id} size="xxs" />}
+        downHandler={<Icon type={require('./style/assets/minus.svg').id} size="xxs" />}
         {...restProps}
         ref="inputNumber"
         className={stepperClass}

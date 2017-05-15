@@ -99,9 +99,9 @@ const svgDirs = [
 
 ## 本地部署
 
-支持添加本地私有的 svg 图标，使用方式如`<Icon type={require('./reload.svg')} />`，此时需要在以上 `webpack.config.js` 的`svgDirs` 数组里加入本地图标路径，给 svg-sprite-loader 插件处理。
+支持添加本地私有的 svg 图标，使用方式如`<Icon type={require('./reload.svg').id} />`，此时需要在以上 `webpack.config.js` 的`svgDirs` 数组里加入本地图标路径，给 svg-sprite-loader 插件处理。
 
-> 还有一种不推荐但很简便的方式：`<Icon type={require('!svg-sprite!./reload.svg')} />`
+> 还有一种不推荐但很简便的方式：`<Icon type={require('!svg-sprite!./reload.svg').id} />`
 这样就不需要将本地 svg 文件所在路径加入到`svgDirs`数组里了，[详细参考 webpack loaders-in-require](http://webpack.github.io/docs/using-loaders.html#loaders-in-require)
 
 ## 如何使用 (RN 版)

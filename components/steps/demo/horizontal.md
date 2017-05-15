@@ -33,9 +33,9 @@ ReactDOM.render(
     <div className="sub-title">Horizontal customized icon</div>
     <WhiteSpace />
     <Steps direction="horizontal">
-      <Step title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step status="error" title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="Step 3" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step title="Step 1" icon={<Icon type={require('./pay-circle.svg').id} />} />
+      <Step status="error" title="Step 2" icon={<Icon type={require('./pay-circle.svg').id} />} />
+      <Step title="Step 3" icon={<Icon type={require('./pay-circle.svg').id} />} />
     </Steps>
     <div className="sub-title">Horizontal timeline mode</div>
     <WhiteSpace />

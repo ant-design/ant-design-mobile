@@ -17,6 +17,6 @@ Support WEB, React-Native.
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | mode    | Type of NoticeBar, options: `closable` `link`   | String |  ''  |
-| icon    | To set the icon before notice  |  React.Element | `<Icon type={require('./trips.svg')} size="xxs" />`|
+| icon    | To set the icon before notice  |  React.Element | `<Icon type={require('./trips.svg').id} size="xxs" />`|
 | onClick    | A callback function, can be executed when you close the notice or click on the operating area   | (): void |   |
 | marqueeProps (`web only`) | marquee params       | Object | `{loop: false, leading: 500, trailing: 800, fps: 40, style: {}}`  |
