@@ -112,7 +112,8 @@ export default class Demo extends React.Component {
         <Modal
           ref="modal"
           visible={state.fullscreen}
-          title={localizedTitle} onCancel={this.handleCancel}
+          title={localizedTitle}
+          onCancel={this.handleCancel}
           width={900}
           footer={[
             <Button key="back" type="ghost" size="large" onClick={this.handleCancel}><FormattedMessage id="app.ComponentDoc.Modal.return" /></Button>,

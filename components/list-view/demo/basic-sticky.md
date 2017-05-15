@@ -117,12 +117,13 @@ class Demo extends React.Component {
 
   render() {
     const separator = (sectionID, rowID) => (
-      <div key={`${sectionID}-${rowID}`} style={{
-        backgroundColor: '#F5F5F9',
-        height: 8,
-        borderTop: '1px solid #ECECED',
-        borderBottom: '1px solid #ECECED',
-      }}
+      <div key={`${sectionID}-${rowID}`}
+        style={{
+          backgroundColor: '#F5F5F9',
+          height: 8,
+          borderTop: '1px solid #ECECED',
+          borderBottom: '1px solid #ECECED',
+        }}
       />
     );
     const row = (rowData, sectionID, rowID) => {
@@ -134,7 +135,7 @@ class Demo extends React.Component {
         <div key={rowID} className="row">
           <div className="row-title">{obj.title}</div>
           <div style={{ display: '-webkit-box', display: 'flex', padding: '0.3rem 0' }}>
-            <img style={{ height: '1.28rem', marginRight: '0.3rem' }} src={obj.img} />
+            <img style={{ height: '1.28rem', marginRight: '0.3rem' }} src={obj.img} alt="icon" />
             <div className="row-text">
               <div style={{ marginBottom: '0.16rem', fontWeight: 'bold' }}>{obj.des}</div>
               <div><span style={{ fontSize: '0.6rem', color: '#FF6E27' }}>35</span>¥</div>
@@ -148,9 +149,9 @@ class Demo extends React.Component {
       <ListView ref="lv"
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
-        renderFooter={() => <div style={{ padding: 30, textAlign: 'center' }}>
+        renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
           {this.state.isLoading ? 'Loading...' : 'Loaded'}
-        </div>}
+        </div>)}
         renderSectionHeader={sectionData => (
           <div>{`Task ${sectionData.split(' ')[1]}`}</div>
         )}

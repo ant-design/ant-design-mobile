@@ -91,7 +91,7 @@ class TextareaItemExample extends React.Component {
         <List renderHeader={() => '标题可自定义（文字 / 图片 / 无标题）'}>
           <TextareaItem
             {...getFieldProps('title3')}
-            title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" style={{ width: '0.56rem', height: '0.56rem' }} />}
+            title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" alt="icon" style={{ width: '0.56rem', height: '0.56rem' }} />}
             placeholder="标题可以自定义"
           />
         </List>

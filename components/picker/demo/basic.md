@@ -115,9 +115,12 @@ class Test extends React.Component {
     return (<div>
       <WhiteSpace size="lg" />
       <List style={{ backgroundColor: 'white' }} className="picker-list">
-        <Picker extra="请选择(可选)" data={district} title="选择地区" {...getFieldProps('district', {
-          initialValue: ['340000', '341500', '341502'],
-        })}
+        <Picker extra="请选择(可选)"
+          data={district}
+          title="选择地区"
+          {...getFieldProps('district', {
+            initialValue: ['340000', '341500', '341502'],
+          })}
         >
           <List.Item arrow="horizontal">选择地区（多列，联动）</List.Item>
         </Picker>

@@ -30,7 +30,11 @@ class Demo extends React.Component {
         <List.Item extra={
           <Stepper
             style={{ width: '100%', minWidth: '2rem' }}
-            showNumber max={10} min={1} value={this.state.val} onChange={this.onChange}
+            showNumber
+            max={10}
+            min={1}
+            value={this.state.val}
+            onChange={this.onChange}
           />}
           wrap
         >
@@ -39,7 +43,11 @@ class Demo extends React.Component {
         <List.Item extra={
           <Stepper
             style={{ width: '100%', minWidth: '2rem' }}
-            showNumber max={10} min={1} value={this.state.val1} onChange={this.onChange1}
+            showNumber
+            max={10}
+            min={1}
+            value={this.state.val1}
+            onChange={this.onChange1}
             useTouch={false}
           />}
           wrap
@@ -49,7 +57,11 @@ class Demo extends React.Component {
         <List.Item extra={
           <Stepper
             style={{ width: '100%', minWidth: '2rem' }}
-            showNumber max={10} min={1} defaultValue={3} disabled
+            showNumber
+            max={10}
+            min={1}
+            defaultValue={3}
+            disabled
           />}
         >
         Disabled

@@ -35,35 +35,37 @@ class App extends React.Component {
       offsetX = -26;
     }
     return (<div>
-      <NavBar iconName={false} mode="light" rightContent={
-        <Popover mask
-          visible={this.state.visible}
-          overlay={[
-            (<Item key="4" value="scan" icon={<Icon type={require('./scan.svg')} size="xs" />} data-seed="logId">扫一扫</Item>),
-            (<Item key="5" value="special" icon={<Icon type={require('./qrcode.svg')} size="xs" />} style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>),
-            (<Item key="6" value="button ct" icon={<Icon type={require('./help.svg')} size="xs" />}>
-              <span style={{ marginRight: 5 }}>帮助</span>
-            </Item>),
-          ]}
-          popupAlign={{
-            overflow: { adjustY: 0, adjustX: 0 },
-            offset: [offsetX, 15],
-          }}
-          onVisibleChange={this.handleVisibleChange}
-          onSelect={this.onSelect}
-        >
-          <div style={{
-            height: '100%',
-            padding: '0 0.3rem',
-            marginRight: '-0.3rem',
-            display: 'flex',
-            alignItems: 'center',
-          }}
+      <NavBar iconName={false}
+        mode="light"
+        rightContent={
+          <Popover mask
+            visible={this.state.visible}
+            overlay={[
+              (<Item key="4" value="scan" icon={<Icon type={require('./scan.svg')} size="xs" />} data-seed="logId">扫一扫</Item>),
+              (<Item key="5" value="special" icon={<Icon type={require('./qrcode.svg')} size="xs" />} style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>),
+              (<Item key="6" value="button ct" icon={<Icon type={require('./help.svg')} size="xs" />}>
+                <span style={{ marginRight: 5 }}>帮助</span>
+              </Item>),
+            ]}
+            popupAlign={{
+              overflow: { adjustY: 0, adjustX: 0 },
+              offset: [offsetX, 15],
+            }}
+            onVisibleChange={this.handleVisibleChange}
+            onSelect={this.onSelect}
           >
-            <Icon type="ellipsis" />
-          </div>
-        </Popover>
-      }
+            <div style={{
+              height: '100%',
+              padding: '0 0.3rem',
+              marginRight: '-0.3rem',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+            >
+              <Icon type="ellipsis" />
+            </div>
+          </Popover>
+        }
       >
         NavBar
       </NavBar>

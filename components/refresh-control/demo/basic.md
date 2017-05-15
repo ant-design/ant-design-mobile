@@ -90,7 +90,7 @@ class App extends React.Component {
             {obj.title}
           </h3>
           <div style={{ display: '-webkit-box', display: 'flex' }}>
-            <img style={{ height: '1.28rem', marginRight: '0.08rem' }} src={obj.img} />
+            <img style={{ height: '1.28rem', marginRight: '0.08rem' }} src={obj.img} alt="icon" />
             <div style={{ display: 'inline-block' }}>
               <div style={{ margin: '0.1rem 0 0.2rem 0' }}>{obj.des}-{rowData}</div>
               <div><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</div>

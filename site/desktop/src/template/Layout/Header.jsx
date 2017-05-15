@@ -151,7 +151,11 @@ export default class Header extends React.Component {
             </Link>
           </Col>
           <Col className={`nav ${this.state.menuVisible ? 'nav-show' : ''}`}
-            lg={19} md={18} sm={17} xs={0} style={{ display: 'block' }}
+            lg={19}
+            md={18}
+            sm={17}
+            xs={0}
+            style={{ display: 'block' }}
           >
             <div id="search-box">
               <Select
