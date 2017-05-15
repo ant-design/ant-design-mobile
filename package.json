@@ -115,7 +115,7 @@
     "react-native-mock": "^0.3.1",
     "react-native-router-flux": "~3.37.0",
     "react-test-renderer": "^15.4.2",
-    "svg-sprite-loader": "^0.3.0",
+    "svg-sprite-loader": "^0.3.1",
     "typescript": "~2.2.2",
     "typescript-babel-jest": "^1.0.1"
   },
