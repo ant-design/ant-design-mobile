@@ -85,7 +85,8 @@ export default class Modal extends React.Component<ModalProps, any> {
       platform,
     } = this.props;
 
-    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
+    const isAndroid = platform === 'android' ||
+      (platform === 'cross' && this.props.visible && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
