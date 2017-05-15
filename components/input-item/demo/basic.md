@@ -75,7 +75,7 @@ class BasicInputExample extends React.Component {
           >标题</InputItem>
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '标题字数'}>
+        <List renderHeader={() => 'Number of words for title'}>
           <InputItem
             {...getFieldProps('label8')}
             placeholder="limited title length"
@@ -83,7 +83,7 @@ class BasicInputExample extends React.Component {
           >标题过长超过默认的5个字</InputItem>
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '标题可自定义（文字 / 图片 / 无标题）'}>
+        <List renderHeader={() => 'Custom title（text / image / empty)'}>
           <InputItem
             {...getFieldProps('input3')}
             placeholder="no label"
@@ -96,7 +96,7 @@ class BasicInputExample extends React.Component {
           </InputItem>
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '右侧注释可自定义'}>
+        <List renderHeader={() => 'Customize the extra content in the right'}>
           <InputItem
             {...getFieldProps('preice')}
             placeholder="0.00"
@@ -104,7 +104,7 @@ class BasicInputExample extends React.Component {
           >价格</InputItem>
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '格式'}>
+        <List renderHeader={() => 'Format'}>
           <InputItem
             {...getFieldProps('bankCard', {
               initialValue: '8888 8888 8888 8888',
