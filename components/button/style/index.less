@@ -8,6 +8,7 @@
   outline: 0 none;
   -webkit-appearance: none;
   .box-sizing();
+
   padding: 0;
   text-align: center;
   font-size: @button-font-size;
@@ -55,8 +56,8 @@
     font-size: @button-font-size-sm;
     height: @button-height-sm;
     line-height: @button-height-sm;
-    .border-radius(@radius-md);
     padding: 0 @h-spacing-lg;
+    .border-radius(@radius-md);
   }
 
   &-warning {
@@ -70,9 +71,11 @@
   &-warning {
     &.@{buttonPrefixCls}-across {
       .border-radius(0);
+
       border-left: 0;
       border-right: 0;
     }
+
     &.@{buttonPrefixCls}-disabled {
       color: @color-text-disabled;
       background-color: @fill-disabled;

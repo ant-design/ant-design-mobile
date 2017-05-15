@@ -6,10 +6,12 @@
 .@{swipeout-prefix-cls} {
   overflow: hidden;
   position: relative;
+
   &-content {
     position: relative;
     z-index: 10;
   }
+
   &-cover {
     position: absolute;
     z-index: 11;
@@ -18,10 +20,12 @@
     top: 0;
     display: none;
   }
+
   & .@{swipeout-prefix-cls}-content,
   & .@{swipeout-prefix-cls}-actions {
     transition: all 250ms;
   }
+
   &-actions {
     position: absolute;
     top: 0;
@@ -31,15 +35,18 @@
     overflow: hidden;
     white-space: nowrap;
     transition: all 250ms;
+
     &-left {
       left: 0;
       width: 0;
     }
+
     &-right {
       right: 0;
       width: 0;
     }
   }
+
   &-btn {
     flex: 1;
     display: flex;
@@ -48,6 +55,7 @@
     position: relative;
     overflow: hidden;
     z-index: 99;
+
     &-text {
       padding: 0 @h-spacing-sm;
     }

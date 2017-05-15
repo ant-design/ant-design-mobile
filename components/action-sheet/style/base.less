@@ -7,7 +7,7 @@
     bottom: 0;
     left: 0;
     z-index: @action-sheet-zindex;
-    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
     outline: 0;
   }
 
@@ -20,6 +20,7 @@
     background-color: @fill-mask;
     height: 100%;
     z-index: @action-sheet-zindex;
+
     &-hidden {
       display: none;
     }

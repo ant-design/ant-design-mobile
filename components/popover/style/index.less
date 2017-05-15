@@ -1,5 +1,6 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
+
 @popoverPrefixCls: am-popover;
 
 @import './base';
@@ -15,6 +16,7 @@
 
 .@{popoverPrefixCls} .@{popoverPrefixCls}-item {
   padding: 0 @h-spacing-md;
+
   &-container {
     display: flex;
     align-items: center;
@@ -23,27 +25,34 @@
     border-top: @border-width-sm solid @border-color-base;
     padding: 0 @h-spacing-md;
   }
+
   &:first-child,
   &.@{popoverPrefixCls}-item-active {
     .@{popoverPrefixCls}-item-container {
       border-top: 0;
     }
   }
+
   &.@{popoverPrefixCls}-item-active + .@{popoverPrefixCls}-item .@{popoverPrefixCls}-item-container {
     border-top: 0;
   }
+
   &.@{popoverPrefixCls}-item-active {
     background-color: @border-color-base;
   }
+
   &.@{popoverPrefixCls}-item-active.@{popoverPrefixCls}-item-fix-active-arrow {
     position: relative;
   }
+
   &.@{popoverPrefixCls}-item-disabled {
     color: @color-text-disabled;
+
     &.@{popoverPrefixCls}-item-active {
       background-color: transparent;
     }
   }
+
   &-icon {
     margin-right: @h-spacing-md;
     width: @icon-size-xs;

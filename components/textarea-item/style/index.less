@@ -13,21 +13,27 @@
     padding-left: @h-spacing-lg;
     padding-right: @h-spacing-lg;
     .hairline-bottom(@border-color-base, @h-spacing-lg);
+
     &.@{textareaPrefixCls}-item-single-line {
       align-items: center;
+
       .@{textareaPrefixCls}-label {
         align-self: center;
       }
+
       .@{textareaPrefixCls}-control {
         padding-top: 0;
         padding-bottom: 0;
+
         textarea {
           line-height: @line-height-paragraph * @font-size-heading;
         }
       }
+
       .@{textareaPrefixCls}-clear {
         margin-top: 0;
       }
+
       &.@{textareaPrefixCls}-error {
         .@{textareaPrefixCls}-error-extra {
           margin-top: 0;
@@ -48,29 +54,38 @@
   margin-right: @h-spacing-sm;
   white-space: nowrap;
   overflow: hidden;
+
   &.@{textareaPrefixCls}-label-2 {
-    width: 2*@input-label-width;
+    width: 2 * @input-label-width;
   }
+
   &.@{textareaPrefixCls}-label-3 {
-    width: 3*@input-label-width;
+    width: 3 * @input-label-width;
   }
+
   &.@{textareaPrefixCls}-label-4 {
-    width: 4*@input-label-width;
+    width: 4 * @input-label-width;
   }
+
   &.@{textareaPrefixCls}-label-5 {
-    width: 5*@input-label-width;
+    width: 5 * @input-label-width;
   }
+
   &.@{textareaPrefixCls}-label-6 {
-    width: 6*@input-label-width;
+    width: 6 * @input-label-width;
   }
+
   &.@{textareaPrefixCls}-label-7 {
-    width: 7*@input-label-width;
+    width: 7 * @input-label-width;
   }
 }
+
 .@{textareaPrefixCls}-control {
   .box-flex(1);
+
   padding-top: 23px;
   padding-bottom: 21px;
+
   textarea {
     color: @color-text-base;
     font-size: @font-size-heading;
@@ -85,15 +100,18 @@
     resize: none;
     word-break: break-all;
     word-wrap: break-word;
+
     &::-webkit-input-placeholder {
       color: @color-text-placeholder;
     }
+
     &:disabled {
       color: @color-text-disabled;
       background-color: #fff;
     }
   }
 }
+
 .@{textareaPrefixCls}-clear {
   display: none;
   width: @icon-size-sm;
@@ -105,42 +123,49 @@
   color: #fff;
   background-color: @input-color-icon;
   background-repeat: no-repeat;
-  .encoded-svg-background('textarea_item_delete');
   background-size: @icon-size-sm auto;
+  .encoded-svg-background('textarea_item_delete');
+
   &:active {
     background-color: @input-color-icon-tap;
   }
 }
+
 &.@{textareaPrefixCls}-focus {
   .@{textareaPrefixCls}-clear {
     display: block;
   }
 }
+
 .@{textareaPrefixCls}-count {
   position: absolute;
   bottom: @v-spacing-sm;
   right: @h-spacing-sm;
   color: @color-text-placeholder;
   font-size: @font-size-base;
+
   span {
     color: @color-text-base;
   }
 }
+
 &.@{textareaPrefixCls}-error {
   .@{textareaPrefixCls}-control {
     textarea {
       color: #f50;
     }
   }
+
   .@{textareaPrefixCls}-error-extra {
     margin-top: 24px;
     width: @icon-size-sm;
     height: @icon-size-sm;
     margin-left: @h-spacing-md;
-    .encoded-svg-background('error');
     background-size: @icon-size-sm @icon-size-sm;
+    .encoded-svg-background('error');
   }
 }
+
 &.@{textareaPrefixCls}-disabled {
   .@{textareaPrefixCls}-label {
     color: @color-text-disabled;

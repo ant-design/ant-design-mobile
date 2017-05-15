@@ -10,8 +10,9 @@
   bottom: 0;
   width: 100%;
   background-color: @fill-base;
+
   &&-share {
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
   }
 
   &-title,
@@ -20,16 +21,20 @@
     padding: 0 @h-spacing-lg;
     text-align: center;
   }
+
   &-title {
     font-size: @font-size-heading;
   }
+
   &-message {
     color: @color-text-caption;
     font-size: @font-size-base;
   }
+
   &-button-list {
     text-align: center;
     color: @color-text-base;
+
     &-item {
       font-size: @font-size-heading;
       padding: 0;
@@ -44,20 +49,23 @@
         background-color: @fill-tap;
       }
     }
+
     .@{ActionSheetPrefixCls}-cancel-button {
       margin-top: @v-spacing-md;
       position: relative;
+
       &-mask {
         position: absolute;
         top: -@v-spacing-md;
         left: 0;
         width: 100%;
         height: @v-spacing-md;
-        background-color: #F7F7F7;
+        background-color: #f7f7f7;
         .hairline-top(@border-color-base);
         .hairline-bottom(@border-color-base);
       }
     }
+
     .@{ActionSheetPrefixCls}-destructive-button {
       color: @brand-error;
     }
@@ -68,12 +76,15 @@
       display: flex;
       position: relative;
       .hairline-top(@border-color-base);
+
       padding: @v-spacing-xl 0 @v-spacing-xl @h-spacing-lg;
       overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
+
       &-item {
         flex: none;
         margin: 0 24px 0 0;
+
         &-icon {
           margin-bottom: @v-spacing-md;
           width: 120px;
@@ -83,10 +94,12 @@
           display: flex;
           justify-content: center;
           align-items: center;
+
           .anticon {
             font-size: @font-size-display-xl;
           }
         }
+
         &-title {
           color: @color-text-caption;
           font-size: @font-size-icontext;
@@ -94,6 +107,7 @@
         }
       }
     }
+
     &-cancel-button {
       height: @option-height;
       line-height: @option-height;

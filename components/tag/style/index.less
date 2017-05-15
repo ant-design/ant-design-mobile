@@ -12,6 +12,7 @@
   text-align: center;
   height: @tag-height;
   line-height: @tag-height;
+
   &&-small {
     height: @tag-height-sm;
     line-height: @tag-height-sm;
@@ -36,14 +37,17 @@
     background-color: @fill-disabled;
     border: @border-width-sm solid @fill-disabled;
   }
+
   &-close {
     position: absolute;
     top: -18px;
     left: -20px;
     color: @color-text-placeholder;
+
     &:active {
       color: @color-text-caption;
     }
+
     .am-icon {
       background-color: @fill-base;
       border-radius: 18px;

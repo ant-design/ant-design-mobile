@@ -11,6 +11,7 @@
     padding-right: @h-spacing-lg;
     .hairline-bottom(@border-color-base, @h-spacing-lg);
   }
+
   .@{inputPrefixCls}-label {
     color: @color-text-base;
     font-size: @font-size-heading;
@@ -19,28 +20,36 @@
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
+
     &.@{inputPrefixCls}-label-2 {
-      width: 2*@input-label-width;
+      width: 2 * @input-label-width;
     }
+
     &.@{inputPrefixCls}-label-3 {
-      width: 3*@input-label-width;
+      width: 3 * @input-label-width;
     }
+
     &.@{inputPrefixCls}-label-4 {
-      width: 4*@input-label-width;
+      width: 4 * @input-label-width;
     }
+
     &.@{inputPrefixCls}-label-5 {
-      width: 5*@input-label-width;
+      width: 5 * @input-label-width;
     }
+
     &.@{inputPrefixCls}-label-6 {
-      width: 6*@input-label-width;
+      width: 6 * @input-label-width;
     }
+
     &.@{inputPrefixCls}-label-7 {
-      width: 7*@input-label-width;
+      width: 7 * @input-label-width;
     }
   }
+
   .@{inputPrefixCls}-control {
-    .box-flex(1);
     font-size: @input-font-size;
+    .box-flex(1);
+
     input {
       color: @color-text-base;
       font-size: @font-size-heading;
@@ -51,16 +60,19 @@
       background-color: transparent;
       line-height: @line-height-base;
       box-sizing: border-box;
+
       &::-webkit-input-placeholder {
         color: @color-text-placeholder;
         line-height: 1.2;
       }
+
       &:disabled {
         color: @color-text-disabled;
         background-color: #fff;
       }
     }
   }
+
   .@{inputPrefixCls}-clear {
     display: none;
     width: @icon-size-sm;
@@ -72,17 +84,21 @@
     background-color: @input-color-icon;
     background-repeat: no-repeat;
     .encoded-svg-background('input_item_delete');
+
     background-size: @icon-size-sm auto;
     background-position: 4px 4px;
+
     &:active {
       background-color: @input-color-icon-tap;
     }
   }
+
   &.@{inputPrefixCls}-focus {
     .@{inputPrefixCls}-clear {
       display: block;
     }
   }
+
   .@{inputPrefixCls}-extra {
     flex: initial;
     min-width: 0;
@@ -94,20 +110,24 @@
     font-size: @font-size-subhead;
     margin-left: @h-spacing-sm;
   }
+
   &.@{inputPrefixCls}-error {
     .@{inputPrefixCls}-control {
       input {
         color: #f50;
       }
     }
+
     .@{inputPrefixCls}-error-extra {
       height: @icon-size-sm;
       width: @icon-size-sm;
       margin-left: @v-spacing-sm;
       .encoded-svg-background('error');
+
       background-size: @icon-size-sm auto;
     }
   }
+
   &.@{inputPrefixCls}-disabled {
     .@{inputPrefixCls}-label {
       color: @color-text-disabled;

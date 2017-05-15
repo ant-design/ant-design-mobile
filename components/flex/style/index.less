@@ -1,20 +1,26 @@
 @import '../../style/mixins';
+
 @flexPrefixCls: am-flexbox;
+
 /* flexbox */
 .@{flexPrefixCls} {
   text-align: left;
   overflow-y: hidden;
   display: flex;
   .box-align;
+
   &&-dir-row {
     .flex-direction(row);
   }
+
   &&-dir-row-reverse {
     .flex-direction(row-reverse);
   }
+
   &&-dir-column {
     .flex-direction(column);
   }
+
   &&-dir-column-reverse {
     .flex-direction(column-reverse);
   }
@@ -22,9 +28,11 @@
   &&-nowrap {
     .flex-wrap(nowrap);
   }
+
   &&-wrap {
     .flex-wrap(wrap);
   }
+
   &&-wrap-reverse {
     .flex-wrap(wrap-reverse);
   }
@@ -32,15 +40,19 @@
   &&-justify-start {
     .flex-justify(flex-start);
   }
+
   &&-justify-end {
     .flex-justify(flex-end);
   }
+
   &&-justify-center {
     .flex-justify(center);
   }
+
   &&-justify-between {
     .flex-justify(space-between);
   }
+
   &&-justify-around {
     .flex-justify(space-around);
   }
@@ -48,15 +60,19 @@
   &&-align-top {
     .box-align(flex-start);
   }
+
   &&-align-bottom {
     .box-align(flex-end);
   }
+
   &&-align-middle {
     .box-align(center);
   }
+
   &&-align-stretch {
     .box-align(stretch);
   }
+
   &&-align-baseline {
     .box-align(baseline);
   }
@@ -64,28 +80,34 @@
   &&-align-content-start {
     .box-align-content(flex-start);
   }
+
   &&-align-content-end {
     .box-align(flex-end);
   }
+
   &&-align-content-center {
     .box-align(center);
   }
+
   &&-align-content-between {
     .box-align(stretch);
   }
+
   &&-align-content-around {
     .box-align(baseline);
   }
+
   &&-align-content-stretch {
     .box-align(baseline);
   }
 
-
   & &-item {
     .box-sizing();
     .box-flex(1);
+
     margin-left: @h-spacing-md;
     min-width: 20px;
+
     &:first-child {
       margin-left: 0;
     }

@@ -5,6 +5,7 @@
 
 .@{tabbar-prefix-cls} {
   overflow: hidden;
+
   &-bar {
     box-sizing: border-box;
     height: @tab-bar-height;
@@ -14,11 +15,13 @@
     width: 100%;
     display: flex;
     transition: bottom 0.2s;
-    .box-sizing();
     z-index: 100;
+    .box-sizing();
+
     &&-hidden {
       bottom: -@tab-bar-height;
     }
+
     .@{tabbar-prefix-cls}-tab {
       flex: 1;
       display: flex;
@@ -32,11 +35,13 @@
         height: @icon-size-md;
         vertical-align: middle;
       }
+
       &-title {
         font-size: @font-size-icontext;
         margin: @v-spacing-xs 0 0 0;
         line-height: @line-height-base;
       }
+
       &-icon {
         display: flex;
         justify-content: center;
@@ -47,6 +52,7 @@
             left: @icon-size-md;
           }
         }
+
         .tab-dot {
           :last-child {
             margin-top: 8px;
@@ -65,7 +71,7 @@
     }
 
     &-animated {
-      transition: transform .3s @ease-in-out-quint;
+      transition: transform 0.3s @ease-in-out-quint;
       display: flex;
       will-change: transform;
 

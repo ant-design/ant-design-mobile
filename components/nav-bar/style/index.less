@@ -2,14 +2,15 @@
 @import '../../style/themes/default';
 
 @navbar-height: 90px;
-
 @navbarPrefixCls: am-navbar;
+
 .@{navbarPrefixCls} {
   display: flex;
   align-items: center;
   height: @navbar-height;
   background-color: @brand-primary;
   color: @fill-base;
+
   &-left,
   &-title,
   &-right {
@@ -18,37 +19,46 @@
     display: flex;
     align-items: center;
   }
+
   &-left {
     padding-left: @h-spacing-lg;
     font-size: @link-button-font-size;
+
     &-icon {
       margin-right: @h-spacing-sm;
       display: inherit;
     }
   }
+
   &-title {
     justify-content: center;
     font-size: @font-size-display-sm;
     white-space: nowrap;
   }
+
   &-right {
     justify-content: flex-end;
     font-size: @link-button-font-size;
     margin-right: @h-spacing-lg;
+
     .anticon {
       margin-right: @h-spacing-sm;
+
       &:last-child {
         margin-right: 0;
       }
     }
+
     &-content {
       margin-right: @h-spacing-sm;
     }
   }
+
   &-light {
     background-color: @fill-base;
     color: @brand-primary;
   }
+
   &-light &-title {
     color: @color-text-base;
   }
