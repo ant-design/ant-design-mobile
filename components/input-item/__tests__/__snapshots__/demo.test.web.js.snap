@@ -164,7 +164,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      标题字数
+      Number of words for title
     </div>
     <div
       class="am-list-body"
@@ -198,7 +198,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      标题可自定义（文字 / 图片 / 无标题）
+      Custom title（text / image / empty)
     </div>
     <div
       class="am-list-body"
@@ -247,7 +247,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      右侧注释可自定义
+      Customize the extra content in the right
     </div>
     <div
       class="am-list-body"
@@ -286,7 +286,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      格式
+      Format
     </div>
     <div
       class="am-list-body"
