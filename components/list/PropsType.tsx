@@ -1,49 +1,74 @@
 import React, { ReactNode } from 'react';
+import { NativeProps, WebProps } from '../baseType';
 
 export interface ListProps {
-  style?: any;
-  /** web only */
-  prefixCls?: string;
-  /** web only */
-  className?: string;
-  children?: any;
-  renderHeader?: Function;
-  renderFooter?: Function;
-  role?: string;
-  /** rn only */
-  styles?: any;
+  renderHeader?: Function | JSX.Element;
+  renderFooter?: Function | JSX.Element;
+  children?: JSX.Element;
+}
+
+export interface ListWebProps extends WebProps, ListProps {
+
+}
+
+export interface ListNativeProps extends NativeProps, ListProps {
+  styles?: {
+    Header?: {};
+    Footer?: {};
+    Body?: {};
+    BodyBottomLine?: {};
+  };
 }
 
 export interface ListItemProps {
-  last?: boolean;
-  /** web only */
-  prefixCls?: string;
-  style?: any;
-  activeStyle?: any;
-  /** web only */
-  className?: string;
+  align?: 'top'|'middle'|'bottom';
+  disabled?: boolean;
+  multipleLine?: boolean;
+  children?: JSX.Element;
   thumb?: ReactNode | null;
   extra?: React.ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
-  align?: 'top'|'middle'|'bottom';
-  onClick?: (e?: any) => void;
-  error?: boolean;
-  multipleLine?: boolean;
-  children?: any;
   wrap?: boolean;
-  disabled?: boolean;
-  platform?: string;
-  role?: string;
-  /** rn only */
-  styles?: any;
-  onPressIn?: (e?: any) => void;
-  onPressOut?: (e?: any) => void;
+}
+
+export interface ListItemWebProps extends WebProps, ListItemProps {
+  activeStyle?: React.CSSProperties;
+  error?: boolean;
+  platform?: 'android' | 'ios' | 'cross';
+  onClick?: Function;
+}
+
+export interface ListItemNativeProps extends NativeProps, ListItemProps {
+  styles?: {
+    underlayColor: {},
+    Content: {},
+    column: {},
+    Extra: {},
+    Arrow: {},
+    ArrowV: {},
+    Item: {},
+    Thumb: {},
+    multipleThumb: {},
+    Line: {},
+    multipleLine: {},
+  };
+  onPressIn?: () => void;
+  onPressOut?: () => void;
+  onClick?: () => void;
 }
 
 export interface BriefProps {
-  style?: any;
-  children?: any;
+  children?: JSX.Element;
   wrap?: boolean;
-  /** rn only */
-  styles?: any;
+}
+
+export interface BriefWebProps extends WebProps, BriefProps {
+
+}
+
+export interface BriefNativeProps extends NativeProps, BriefProps {
+  styles: {
+    Brief: {},
+    BriefText: {},
+  };
 }
