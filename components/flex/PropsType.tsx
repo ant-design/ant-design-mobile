@@ -1,39 +1,40 @@
 import React from 'react';
+import { NativeProps, WebProps } from '../baseType';
 
 export interface FlexProps {
-  /** web only */
-  prefixCls?: string;
-  style?: any;
-  /** web only */
-  className?: string;
   direction?: 'row'|'row-reverse'|'column'|'column-reverse';
   wrap?: 'nowrap'|'wrap'|'wrap-reverse';
   justify?: 'start'|'end'|'center'|'between'|'around';
   align?: 'top'|'start'|'middle'|'center'|'bottom'|'end'|'baseline'|'stretch';
+  children?: JSX.Element;
+  disabled?: boolean;
+}
+
+export interface FlexWebProps extends WebProps, FlexProps {
   alignContent?: 'start'|'end'|'center'|'between'|'around'|'stretch';
-  children?: any;
-  /** web only */
-  onClick?: (e?: any) => void;
-  /** rn only */
+  onClick?: () => void;
+}
+
+export interface FlexNativeProps extends NativeProps, FlexProps {
   onPress?: (e?: any) => void;
   onLongPress?: any;
   onPressIn?: any;
   onPressOut?: any;
-  disabled?: boolean;
 }
 
 export interface FlexItemProps {
+  disabled?: boolean;
+  children?: JSX.Element;
+}
+
+export interface FlexItemWebProps extends WebProps, FlexItemProps {
+
+}
+
+export interface FlexItemNativeProps extends NativeProps, FlexItemProps {
   flex?: number;
-  /** web only */
-  prefixCls?: string;
-  className?: string;
-  style?: any;
-  onClick?: (e?: any) => void;
-  children?: any;
-  /* touchableWithoutFeedback prop */
-  onPress?: any;
+  onPress?: (e?: any) => void;
   onLongPress?: any;
   onPressIn?: any;
   onPressOut?: any;
-  disabled?: boolean;
 }
