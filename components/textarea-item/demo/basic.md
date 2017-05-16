@@ -5,7 +5,13 @@ title:
   en-US: Basic
 ---
 
-([rc-form 文档](https://github.com/react-component/form))
+## zh-CN
+
+受控组件建议使用([rc-form ](https://github.com/react-component/form))
+
+## en-US
+
+Recommended use of [rc-form ](https://github.com/react-component/form) for controlled component.
 
 ````jsx
 import { List, TextareaItem, WhiteSpace } from 'antd-mobile';
@@ -19,17 +25,17 @@ class TextareaItemExample extends React.Component {
     const { getFieldProps } = this.props.form;
     return (
       <div>
-        <List renderHeader={() => '自定义获取光标'}>
+        <List renderHeader={() => 'Customize to focus'}>
           <TextareaItem
             title="标题"
-            placeholder="自动获取光标，支付宝客户端有效"
+            placeholder="auto focus in Alipay client"
             data-seed="logId"
             autoFocus
             autoHeight
           />
           <TextareaItem
             title="标题"
-            placeholder="点击下方按钮该输入框会获取光标"
+            placeholder="click the button below to focus"
             data-seed="logId"
             autoHeight
             focused={this.state.focused}
@@ -48,12 +54,12 @@ class TextareaItemExample extends React.Component {
                 });
               }}
             >
-              点击获取光标
+              click to focus
             </div>
           </List.Item>
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '受控 / 非受控'}>
+        <List renderHeader={() => 'Whether is controlled'}>
           <TextareaItem
             {...getFieldProps('control')}
             title="受控组件"
@@ -62,10 +68,10 @@ class TextareaItemExample extends React.Component {
           <TextareaItem
             {...getFieldProps('control')}
             title="非受控组件"
-            placeholder="请输入内容"
+            placeholder="please input content"
           />
         </List>
-        <List renderHeader={() => '高度自适应 / 固定'}>
+        <List renderHeader={() => 'Auto / Fixed height'}>
           <TextareaItem
             {...getFieldProps('note3')}
             title="高度自适应"
@@ -75,36 +81,36 @@ class TextareaItemExample extends React.Component {
           <TextareaItem
             {...getFieldProps('note1')}
             rows={3}
-            placeholder="固定行数,rows"
+            placeholder="fixed number of lines"
           />
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '带清除按钮'}>
+        <List renderHeader={() => 'Show clear icon'}>
           <TextareaItem
             {...getFieldProps('clear1')}
             clear
             title="标题"
-            placeholder="输入会显示清除按钮"
+            placeholder="displayed clear icon while typing"
           />
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '标题可自定义（文字 / 图片 / 无标题）'}>
+        <List renderHeader={() => 'Custom title（text / image / empty）'}>
           <TextareaItem
             {...getFieldProps('title3')}
             title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" alt="icon" style={{ width: '0.56rem', height: '0.56rem' }} />}
-            placeholder="标题可以自定义"
+            placeholder="title can be customized"
           />
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '限制输入字符数量'}>
+        <List renderHeader={() => 'Limited value length'}>
           <TextareaItem
             {...getFieldProps('note4')}
-            placeholder="最多输入10个字符"
+            placeholder="can enter up to 10 characters"
             count={10}
           />
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '带计数'}>
+        <List renderHeader={() => 'Count'}>
           <TextareaItem
             {...getFieldProps('count', {
               initialValue: '计数功能,我的意见是...',
@@ -114,16 +120,16 @@ class TextareaItemExample extends React.Component {
           />
         </List>
         <WhiteSpace />
-        <List renderHeader={() => '不可编辑 / 禁用'}>
+        <List renderHeader={() => 'Not editable / Disabled'}>
           <TextareaItem
             {...getFieldProps('note6', {
-              initialValue: '不可编辑',
+              initialValue: 'not editable',
             })}
             title="姓名"
             editable={false}
           />
           <TextareaItem
-            value="这个是禁用的样式"
+            value="disabled style"
             title="姓名"
             disabled
           />

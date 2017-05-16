@@ -19,9 +19,9 @@ Support WEB, React-Native.
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | type    | the type of `InputItem` which is one of `bankCard`, `phone`(which the maxLength is 11 and setting will be ignored), `password`, `number`, `text`  | String |  `text`  |
-| value | the value of input (see https://facebook.github.io/react/docs/forms.html for more information about controled component)  | String | |
-| defaultValue    | the initial input content        | String |  -  |
-| placeholder      | placeholder        | String | ''  |
+| value | the value of input (see [react doc](https://facebook.github.io/react/docs/forms.html) for more information about controled component)  | String | |
+| defaultValue | provides an initial value that will change when the user starts typing. | String |  -  |
+| placeholder  | the string that will be rendered before text input has been entered. | String | ''  |
 | editable    | whether is editable        | bool |  true  |
 | disabled    | whether is disabled       | bool |  false  |
 | clear      |  whether to display clear icon(it takes effect only `editable` is `true` or `disabled` is `false` or `value` has been set) | bool | false  |
@@ -34,7 +34,7 @@ Properties | Descrition | Type | Default
 | extra       | the right content of `InputItem`   | string or node |  ''  |
 | onExtraClick      | callback that is called when the extra content is clicked | (e: Object): void |  |
 | labelNumber  | number of label text, valid value is 2 to 7 | number | `5` |
-| autoFocus   | whether to focus the input on `componentDidMount`, each page has only one `Input` can be auto focus.（Note: It is no guarantee that all browsers are supported） | bool | false  |
+| autoFocus   | whether to focus the input on `componentDidMount`, each page has only one `Input` can be auto focused.（Note: It is no guarantee that all browsers are supported） | bool | false  |
 | focused   | whether the `InputItem` has been focused on `componentDidMount`, you need to change this property on `onFocus` or `onBlur` callback | bool | false  |
 | updatePlaceholder (`web only`) | whether to replace the placeholder with cleared content | bool | false|
 | prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |

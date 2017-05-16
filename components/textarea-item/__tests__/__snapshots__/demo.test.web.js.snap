@@ -8,7 +8,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      自定义获取光标
+      Customize to focus
     </div>
     <div
       class="am-list-body"
@@ -26,7 +26,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
         >
           <textarea
             data-seed="logId"
-            placeholder="自动获取光标，支付宝客户端有效"
+            placeholder="auto focus in Alipay client"
             rows="1"
           />
         </div>
@@ -44,7 +44,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
         >
           <textarea
             data-seed="logId"
-            placeholder="点击下方按钮该输入框会获取光标"
+            placeholder="click the button below to focus"
             rows="1"
           />
         </div>
@@ -61,7 +61,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
             <div
               style="width:100%;color:#108ee9;text-align:center;"
             >
-              点击获取光标
+              click to focus
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      受控 / 非受控
+      Whether is controlled
     </div>
     <div
       class="am-list-body"
@@ -115,7 +115,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-control"
         >
           <textarea
-            placeholder="请输入内容"
+            placeholder="please input content"
             rows="1"
           />
         </div>
@@ -128,7 +128,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      高度自适应 / 固定
+      Auto / Fixed height
     </div>
     <div
       class="am-list-body"
@@ -157,7 +157,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-control"
         >
           <textarea
-            placeholder="固定行数,rows"
+            placeholder="fixed number of lines"
             rows="3"
           />
         </div>
@@ -173,7 +173,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      带清除按钮
+      Show clear icon
     </div>
     <div
       class="am-list-body"
@@ -190,7 +190,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-control"
         >
           <textarea
-            placeholder="输入会显示清除按钮"
+            placeholder="displayed clear icon while typing"
             rows="1"
           />
         </div>
@@ -206,7 +206,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      标题可自定义（文字 / 图片 / 无标题）
+      Custom title（text / image / empty）
     </div>
     <div
       class="am-list-body"
@@ -227,7 +227,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-control"
         >
           <textarea
-            placeholder="标题可以自定义"
+            placeholder="title can be customized"
             rows="1"
           />
         </div>
@@ -243,7 +243,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      限制输入字符数量
+      Limited value length
     </div>
     <div
       class="am-list-body"
@@ -256,7 +256,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
         >
           <textarea
             maxlength="10"
-            placeholder="最多输入10个字符"
+            placeholder="can enter up to 10 characters"
             rows="1"
           />
         </div>
@@ -272,7 +272,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      带计数
+      Count
     </div>
     <div
       class="am-list-body"
@@ -311,7 +311,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      不可编辑 / 禁用
+      Not editable / Disabled
     </div>
     <div
       class="am-list-body"
@@ -332,7 +332,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
             readonly=""
             rows="1"
           >
-            不可编辑
+            not editable
           </textarea>
         </div>
       </div>
@@ -352,7 +352,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
             placeholder=""
             rows="1"
           >
-            这个是禁用的样式
+            disabled style
           </textarea>
         </div>
       </div>
