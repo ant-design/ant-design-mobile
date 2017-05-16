@@ -5,7 +5,10 @@
     "unit-case": null,
     "function-linear-gradient-no-nonstandard-direction": null,
     "function-name-case": ["lower", {
-      ignoreFunctions: ["/encodeURIComponent/"]
+      "ignoreFunctions": ["/encodeURIComponent/"]
+    }],
+    "property-no-unknown": [true, {
+      "ignoreProperties": ["/overflow-scrolling/"]
     }]
   }
 }
