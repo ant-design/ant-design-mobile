@@ -1,23 +1,35 @@
-interface ButtonProps {
+import { NativeProps, WebProps } from '../baseType';
+
+export interface ButtonProps {
   type?: 'primary' | 'warning' | 'ghost';
   size?: 'large' | 'small';
   activeStyle?: boolean|Object;
   disabled?: boolean;
-  onClick?: (x: any) => void;
-  style?: Object|Array<Object>;
-  /** web only */
+  onClick?: (x?: any) => void;
+  loading?: boolean;
+}
+
+export interface ButtonWebProps extends WebProps, ButtonProps {
   inline?: boolean;
   across?: boolean;
-  loading?: boolean;
-  icon?: any;
-  prefixCls?: string;
-  className?: string;
-  /** rn only */
+  icon?: string;
+}
+
+export interface ButtonNativeProps extends NativeProps, ButtonProps {
   onPressIn?: (x?: any) => void;
   onPressOut?: (x?: any) => void;
   onShowUnderlay?: (x?: any) => void;
   onHideUnderlay?: (x?: any) => void;
-  styles?: any;
+  styles?: {
+    primaryRawText?: {},
+    warningRawText?: {},
+    ghostRawText?: {},
+    largeRawText?: {},
+    smallRawText?: {},
+    disabledRawText?: {},
+    wrapperStyle?: {},
+    disabledRaw?: {},
+    container?: {},
+    indicator?: {},
+  };
 }
-
-export default ButtonProps;
