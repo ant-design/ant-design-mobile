@@ -19,7 +19,7 @@ Support WEB, React-Native.
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | type    | the type of `InputItem` which is one of `bankCard`, `phone`(which the maxLength is 11 and setting will be ignored), `password`, `number`, `text`  | String |  `text`  |
-| value | the value of input (see https://facebook.github.io/react/docs/forms.html for more information about controled component)  | String | |
+| value | the value of input (see [react doc](https://facebook.github.io/react/docs/forms.html) for more information about controled component)  | String | |
 | defaultValue | provides an initial value that will change when the user starts typing. | String |  -  |
 | placeholder  | the string that will be rendered before text input has been entered. | String | ''  |
 | editable    | whether is editable        | bool |  true  |

@@ -190,7 +190,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-control"
         >
           <textarea
-            placeholder="displayed clear icn while typing"
+            placeholder="displayed clear icon while typing"
             rows="1"
           />
         </div>
@@ -311,7 +311,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      Non-editable / Disabled
+      Not editable / Disabled
     </div>
     <div
       class="am-list-body"

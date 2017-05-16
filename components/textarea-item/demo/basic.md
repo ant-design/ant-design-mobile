@@ -90,7 +90,7 @@ class TextareaItemExample extends React.Component {
             {...getFieldProps('clear1')}
             clear
             title="标题"
-            placeholder="displayed clear icn while typing"
+            placeholder="displayed clear icon while typing"
           />
         </List>
         <WhiteSpace />
@@ -120,7 +120,7 @@ class TextareaItemExample extends React.Component {
           />
         </List>
         <WhiteSpace />
-        <List renderHeader={() => 'Non-editable / Disabled'}>
+        <List renderHeader={() => 'Not editable / Disabled'}>
           <TextareaItem
             {...getFieldProps('note6', {
               initialValue: 'not editable',

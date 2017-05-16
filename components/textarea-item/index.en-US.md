@@ -18,7 +18,7 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| value | the value to show for the textarea (see https://facebook.github.io/react/docs/forms.html for more information about controled component)  | String | |
+| value | the value to show for the textarea (see [react doc](https://facebook.github.io/react/docs/forms.html) for more information about controled component)  | String | |
 | defaultValue | provides an initial value that will change when the user starts typing.  | String |  -  |
 | placeholder      | the string that will be rendered before text input has been entered. | String | ''  |
 | editable    | whether is editable         | bool |  true  |
