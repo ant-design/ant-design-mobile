@@ -12,14 +12,16 @@ title:
 import { WhiteSpace } from 'antd-mobile';
 
 const PlaceHolder = props => (
-  <div style={{
-    backgroundColor: '#ebebef',
-    color: '#bbb',
-    textAlign: 'center',
-    height: '0.6rem',
-    lineHeight: '0.6rem',
-    width: '100%',
-  }} {...props}
+  <div
+    style={{
+      backgroundColor: '#ebebef',
+      color: '#bbb',
+      textAlign: 'center',
+      height: '0.6rem',
+      lineHeight: '0.6rem',
+      width: '100%',
+    }}
+    {...props}
   >Block</div>
 );
 

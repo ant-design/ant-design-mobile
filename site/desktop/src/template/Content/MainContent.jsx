@@ -182,7 +182,8 @@ export default class MainContent extends React.Component {
         <Row>
           <Col lg={5} md={6} sm={24} xs={24}>
             <Menu
-              className="aside-container" mode="inline"
+              className="aside-container"
+              mode="inline"
               openKeys={Object.keys(utils.getMenuItems(moduleData))}
               selectedKeys={[activeMenuItem]}
             >
@@ -197,7 +198,8 @@ export default class MainContent extends React.Component {
           <Col
             lg={{ span: 19, offset: 5 }}
             md={{ span: 18, offset: 6 }}
-            sm={24} xs={24}
+            sm={24}
+            xs={24}
           >
             <section className="prev-next-nav">
               {

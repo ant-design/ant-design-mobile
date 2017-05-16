@@ -28,7 +28,8 @@ const App = () => (
     <Pagination total={5} current={1} locale={locale} />
 
     <p className="sub-title">Button with text and icon</p>
-    <Pagination total={5} current={1}
+    <Pagination total={5}
+      current={1}
       locale={{
         prevText: (<div className="arrow-align"><Icon type="left" />上一步</div>),
         nextText: (<div className="arrow-align">下一步<Icon type="right" /></div>),

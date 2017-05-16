@@ -106,7 +106,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               type="checkbox"
             />
             <div
-              class="checkbox"
+              class="checkbox checkbox-disabled"
             />
           </label>
         </div>
@@ -142,7 +142,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               type="checkbox"
             />
             <div
-              class="checkbox"
+              class="checkbox checkbox-disabled"
             />
           </label>
         </div>

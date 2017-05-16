@@ -30,6 +30,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
             style="height:200px;"
           >
             <img
+              alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>
@@ -43,6 +44,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
             style="height:200px;"
           >
             <img
+              alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>
@@ -56,6 +58,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
             style="height:200px;"
           >
             <img
+              alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>

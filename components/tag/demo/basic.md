@@ -26,11 +26,13 @@ ReactDOM.render(
     <Tag selected>Selected</Tag>
     <Tag disabled>Disabled</Tag>
     <Tag onChange={onChange}>Callback</Tag>
-    <Tag closable onClose={() => {
-      console.log('onClose');
-    }} afterClose={() => {
-      console.log('afterClose');
-    }}
+    <Tag closable
+      onClose={() => {
+        console.log('onClose');
+      }}
+      afterClose={() => {
+        console.log('afterClose');
+      }}
     >
       Closable
     </Tag>

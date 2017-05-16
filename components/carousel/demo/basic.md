@@ -31,7 +31,10 @@ class App extends React.Component {
       <WingBlank>
         <div className="sub-title">normal</div>
         <Carousel
-          className="my-carousel" autoplay={false} infinite selectedIndex={1}
+          className="my-carousel"
+          autoplay={false}
+          infinite
+          selectedIndex={1}
           beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
           afterChange={index => console.log('slide to', index)}
         >
@@ -39,6 +42,7 @@ class App extends React.Component {
             <a href="http://www.baidu.com" key={ii} style={hProp}>
               <img
                 src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`}
+                alt="icon"
                 onLoad={() => {
                   // fire window resize event to change height
                   window.dispatchEvent(new Event('resize'));
@@ -54,7 +58,12 @@ class App extends React.Component {
         <WhiteSpace />
         <div className="sub-title">vertical</div>
         <Carousel className="my-carousel"
-          dots={false} dragging={false} swiping={false} autoplay infinite vertical
+          dots={false}
+          dragging={false}
+          swiping={false}
+          autoplay
+          infinite
+          vertical
         >
           <div className="v-item">Carousel 1</div>
           <div className="v-item">Carousel 2</div>

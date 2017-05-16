@@ -121,7 +121,8 @@ export default class ComponentDoc extends React.Component {
             index={index}
             currentIndex={currentIndex}
             utils={props.utils}
-            expand={expand} pathname={location.pathname}
+            expand={expand}
+            pathname={location.pathname}
           />,
         );
       });
@@ -187,14 +188,16 @@ export default class ComponentDoc extends React.Component {
                   <div className="demo-preview-wrapper">
                     <div className="demo-preview-header">
                       <div className="demo-preview-statbar">
-                        <img width="350Px" role="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                        <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
                       </div>
                       <div style={{ height: '40Px' }}>
                         <div className="url-box">{iframeUrl}</div>
                       </div>
                     </div>
                     <section className="code-box-demo code-box-demo-preview">
-                      <iframe id="demoFrame" name="demoFrame"
+                      <iframe id="demoFrame"
+                        name="demoFrame"
+                        title="antd-mobile"
                         style={{ width: '377Px', height: '548Px', border: '1Px solid #F7F7F7', borderTop: 'none', boxShadow: '0 2Px 4Px #ebebeb' }}
                         src={iframeUrl}
                       />
