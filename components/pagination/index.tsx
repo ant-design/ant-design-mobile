@@ -62,7 +62,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
       <Flex>
         <Flex.Item>
           <Button
-            inline
             disabled={current <= 0}
             onClick={() => this.onChange(current - 1)}
           >
@@ -72,7 +71,6 @@ export default class Pagination extends React.Component<PaginationProps, any> {
         {simpleItem}
         <Flex.Item>
           <Button
-            inline
             disabled={current >= total - 1}
             onClick={() => this.onChange(this.state.current + 1)}
           >
