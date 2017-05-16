@@ -58,14 +58,14 @@
     display: inline-block;
     overflow: hidden;
     will-change: box-shadow, transform;
-    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
     outline: none;
     cursor: pointer;
     border-radius: 100%;
     transform: scale(0);
 
     &.@{listPrefixCls}-ripple-animate {
-      background-color: hsla(0, 0%, 62%, 0.2);
+      background-color: hsla(0, 0%, 62%, .2);
       animation: ripple 1s linear;
     }
   }

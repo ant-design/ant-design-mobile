@@ -9,6 +9,7 @@
     }],
     "property-no-unknown": [true, {
       "ignoreProperties": ["/overflow-scrolling/"]
-    }]
+    }],
+    "number-leading-zero": null
   }
 }

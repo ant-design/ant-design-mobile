@@ -13,7 +13,7 @@
   &-sidebar {
     z-index: 2;
     position: absolute;
-    transition: transform 0.3s ease-out;
+    transition: transform .3s ease-out;
     will-change: transform;
     overflow-y: auto;
   }
@@ -21,7 +21,7 @@
   &-draghandle {
     z-index: 1;
     position: absolute;
-    background-color: rgba(50, 50, 50, 0.1);
+    background-color: rgba(50, 50, 50, .1);
   }
 
   &-overlay {
@@ -33,7 +33,7 @@
     bottom: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease-out;
+    transition: opacity .5s ease-out;
     background-color: @fill-mask;
   }
 
@@ -44,7 +44,7 @@
     right: 0;
     bottom: 0;
     overflow: auto;
-    transition: left 0.3s ease-out, right 0.3s ease-out;
+    transition: left .3s ease-out, right .3s ease-out;
   }
 
   &&-left,
