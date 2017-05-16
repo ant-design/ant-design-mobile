@@ -53,14 +53,15 @@ const BadgeDemo = () => (
       Customize
       <Badge text="券" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#f19736', borderRadius: 2 }} />
       <Badge text="NEW" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#21b68a', borderRadius: 2 }} />
-      <Badge text="自动缴费" style={{
-        marginLeft: 12,
-        padding: '0 0.06rem',
-        backgroundColor: '#fff',
-        borderRadius: 2,
-        color: '#f19736',
-        border: '1px solid #f19736',
-      }}
+      <Badge text="自动缴费"
+        style={{
+          marginLeft: 12,
+          padding: '0 0.06rem',
+          backgroundColor: '#fff',
+          borderRadius: 2,
+          color: '#f19736',
+          border: '1px solid #f19736',
+        }}
       />
     </List.Item>
   </List>

@@ -44,7 +44,7 @@
         background-color: @brand-primary;
         width: 44px;
         height: 44px;
-        border-radius: 50%;
+        border-radius: @radius-circle;
         border: 0;
         > .@{stepsPrefixCls}-icon {
           color: @color-text-base-inverse;
@@ -118,7 +118,7 @@
           width: @defaultIconSize;
           height: @defaultIconSize;
           background-color: @fill-base;
-          border-radius: 50%;
+          border-radius: @radius-circle;
         }
       }
       &.@{stepsPrefixCls}-status-process {
@@ -136,7 +136,7 @@
           width: 40px;
           height: 40px;
           border: 4px solid @color-text-placeholder;
-          border-radius: 50%;
+          border-radius: @radius-circle;
           .am-icon {
             width: 36px;
             height: 36px;
@@ -286,7 +286,7 @@
     width: @smallIconSize;
     height: @smallIconSize;
     line-height: @smallIconSize;
-    border-radius: 50%;
+    border-radius: @radius-circle;
   }
 }
 

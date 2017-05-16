@@ -4,14 +4,14 @@ type: Navigation
 title: NavBar
 ---
 
-位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。
+Located above the app content area, below the system status bar, and provides navigation capabilities in a series of pages.
 
-### 规则
+### Rules
 
--  可在导航栏中显示当前视图的标题。如果标题非常冗长且无法精简，可以空缺。
--  可在导航栏中使用 SegmentedControl 对内容进行层级划分。
--  避免用过多的元素填满导航栏。一般情况下，一个『返回按钮』、一个『标题』、一个『当前视图的控件』就足够了；如果已经有了 SegmentedControl ，一般只搭配一个『返回按钮』或者『当前视图的控件』。
--  为图标和文字控件，提供更大的点击热区，至少在 44dp * 44dp 以上。
+- You can display the title of the current view in the NavBar. If the title is very lengthy and can not be streamlined, you can be vacant.
+- `SegmentedControl` component can be used to hierarchize content in the NavBar.
+- Avoid using too many elements to fill the navigation bar. In general, a "return button", a "title", a "current view of the control" is enough; if you already have a SegmentedControl, generally only with a "return button" or "current view of the control."
+- For icons and text controls, to provide greater click hotspots.
 
 ## API
 
@@ -19,9 +19,9 @@ Support WEB.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| children   | 导航内容      | any |    无  |
-| mode   | 导航模式   | string |  'dark' enum{'dark', 'light'} |
-| iconName   | 左边 icon name (设置为 false/null 不渲染此图标)  | string/false/null |  'left' |
-| leftContent   | 导航左边内容      | any |    无  |
-| rightContent   | 导航右边内容      | any |    无  |
-| onLeftClick   | 导航左边点击回调      | (e: Object): void |    无  |
+| children   | children content   | any |   -  |
+| mode   | style mode  | string |  'dark' enum{'dark', 'light'} |
+| iconName   | Left icon name (set to false / null does not render this icon)  | string/false/null |  'left' |
+| leftContent   | left content    | any |  - |
+| rightContent  | right content   | any |  - |
+| onLeftClick   | click the callback on the left  | (e: Object): void |  - |

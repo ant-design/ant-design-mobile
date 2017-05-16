@@ -7,8 +7,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   />
   <div
     class="am-notice-bar"
+    role="alert"
   >
     <div
+      aria-hidden="true"
       class="am-notice-bar-icon"
     >
        
@@ -26,13 +28,14 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-notice-bar-marquee-wrap "
+        role="marquee"
         style="overflow:hidden;"
       >
         <div
           class="am-notice-bar-marquee"
           style="position:relative;right:0;white-space:nowrap;display:inline-block;padding:0 0.15rem;"
         >
-          国庆期间余额宝收益和转出到账时间通知：由于国庆到来，余额宝收益到账将延迟，特此通知 
+          Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day. 
         </div>
       </div>
     </div>
@@ -42,8 +45,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   />
   <div
     class="am-notice-bar"
+    role="alert"
   >
     <div
+      aria-hidden="true"
       class="am-notice-bar-icon"
     >
        
@@ -61,18 +66,21 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-notice-bar-marquee-wrap "
+        role="marquee"
         style="overflow:hidden;"
       >
         <div
           class="am-notice-bar-marquee"
           style="position:relative;right:0;white-space:nowrap;display:inline-block;"
         >
-          国庆期间余额宝收益和转出到账时间 
+          Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day. 
         </div>
       </div>
     </div>
     <div
+      aria-label="go to detail"
       class="am-notice-bar-operation"
+      role="button"
     >
       <svg
         class="am-icon am-icon-right am-icon-md"
@@ -88,24 +96,28 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   />
   <div
     class="am-notice-bar"
+    role="alert"
   >
     <div
       class="am-notice-bar-content"
     >
       <div
         class="am-notice-bar-marquee-wrap "
+        role="marquee"
         style="overflow:hidden;"
       >
         <div
           class="am-notice-bar-marquee"
           style="position:relative;right:0;white-space:nowrap;display:inline-block;"
         >
-          去除 NoticeBar 默认的喇叭图标 
+          Remove the default icon. 
         </div>
       </div>
     </div>
     <div
+      aria-label="close"
       class="am-notice-bar-operation"
+      role="button"
     >
       <svg
         class="am-icon am-icon-cross am-icon-md"
@@ -121,8 +133,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   />
   <div
     class="am-notice-bar"
+    role="alert"
   >
     <div
+      aria-hidden="true"
       class="am-notice-bar-icon"
     >
        
@@ -140,18 +154,21 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-notice-bar-marquee-wrap "
+        role="marquee"
         style="overflow:hidden;"
       >
         <div
           class="am-notice-bar-marquee"
           style="position:relative;right:0;white-space:nowrap;display:inline-block;"
         >
-          自定义 NoticeBar 前面的小图标 
+          Customized icon. 
         </div>
       </div>
     </div>
     <div
+      aria-label="close"
       class="am-notice-bar-operation"
+      role="button"
     >
       <svg
         class="am-icon am-icon-cross am-icon-md"

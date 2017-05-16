@@ -3,12 +3,7 @@ import classNames from 'classnames';
 import CardHeader from './CardHeader';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';
-
-export interface CardProps {
-  prefixCls?: string;
-  className?: string;
-  full?: boolean;
-}
+import { CardProps } from './PropsType';
 
 export default class Card extends React.Component <CardProps, any> {
   static defaultProps = {

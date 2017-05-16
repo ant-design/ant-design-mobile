@@ -2,9 +2,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import Touchable from 'rc-touchable';
-import { ListItemProps, BriefProps } from './PropsType';
+import { ListItemWebProps, BriefWebProps } from './PropsType';
+import omit from 'omit.js';
 
-export class Brief extends React.Component<BriefProps, any> {
+export class Brief extends React.Component<BriefWebProps, any> {
   render() {
     return (
       <div className="am-list-brief" style={this.props.style}>{this.props.children}</div>
@@ -12,8 +13,8 @@ export class Brief extends React.Component<BriefProps, any> {
   }
 }
 
-class ListItem extends React.Component<ListItemProps, any> {
-  static defaultProps = {
+class ListItem extends React.Component<ListItemWebProps, any> {
+  static defaultProps: Partial<ListItemWebProps> = {
     prefixCls: 'am-list',
     align: 'middle',
     error: false,
@@ -28,8 +29,8 @@ class ListItem extends React.Component<ListItemProps, any> {
   constructor(props) {
     super(props);
     this.state = {
-      coverRipleStyle: {},
-      RipleClicked: false,
+      coverRippleStyle: { display: 'none' },
+      RippleClicked: false,
     };
   }
 
@@ -49,24 +50,24 @@ class ListItem extends React.Component<ListItemProps, any> {
         this.debounceTimeout = null;
       }
       let Item = ev.currentTarget;
-      let RipleWidth = Math.max(Item.offsetHeight, Item.offsetWidth);
+      let RippleWidth = Math.max(Item.offsetHeight, Item.offsetWidth);
       const ClientRect = ev.currentTarget.getBoundingClientRect();
       let pointX = ev.clientX - ClientRect.left - Item.offsetWidth / 2;
       let pointY = ev.clientY - ClientRect.top - Item.offsetWidth / 2;
-      const coverRipleStyle = {
-        width: `${RipleWidth}px`,
-        height: `${RipleWidth}px`,
+      const coverRippleStyle = {
+        width: `${RippleWidth}px`,
+        height: `${RippleWidth}px`,
         left: `${pointX}px`,
         top: `${pointY}px`,
       };
       this.setState({
-        coverRipleStyle,
-        RipleClicked: true,
+        coverRippleStyle,
+        RippleClicked: true,
       }, () => {
         this.debounceTimeout = setTimeout(() => {
           this.setState({
-            coverRipleStyle: {},
-            RipleClicked: false,
+            coverRippleStyle: { display: 'none' },
+            RippleClicked: false,
           });
         }, 1000);
       });
@@ -81,9 +82,9 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     const {
       prefixCls, className, activeStyle, error, align, wrap, disabled,
-      children, multipleLine, thumb, extra, arrow, onClick, platform, ...restProps} = this.props;
+      children, multipleLine, thumb, extra, arrow, onClick, ...restProps} = this.props;
 
-    const { coverRipleStyle, RipleClicked } = this.state;
+    const { coverRippleStyle, RippleClicked } = this.state;
     const wrapCls = {
       [className as string]: className,
       [`${prefixCls}-item`]: true,
@@ -94,9 +95,9 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-item-bottom`]: align === 'bottom',
     };
 
-    const ripleCls = classNames({
-      [`${prefixCls}-riple`]: true,
-      [`${prefixCls}-riple-animate`]: RipleClicked,
+    const rippleCls = classNames({
+      [`${prefixCls}-ripple`]: true,
+      [`${prefixCls}-ripple-animate`]: RippleClicked,
     });
 
     const lineCls = classNames({
@@ -111,10 +112,8 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
-
-    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
     const content = <div
-      {...restProps}
+      {...omit(restProps, ['platform'])}
       onClick={(ev) => {
         this.onClick(ev);
       }}
@@ -126,9 +125,9 @@ class ListItem extends React.Component<ListItemProps, any> {
       <div className={lineCls}>
         {children !== undefined && <div className={`${prefixCls}-content`}>{children}</div>}
         {extra !== undefined && <div className={`${prefixCls}-extra`}>{extra}</div>}
-        {arrow && <div className={arrowCls} />}
+        {arrow && <div className={arrowCls} aria-hidden="true" />}
       </div>
-      {isAndroid && <div style={coverRipleStyle} className={ripleCls} />}
+      <div style={coverRippleStyle} className={rippleCls} />
     </div>;
 
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import Menu from 'antd/lib/menu';
 import Row from 'antd/lib/row';
@@ -11,7 +12,7 @@ const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
   }
 
   componentDidMount() {
@@ -67,7 +68,10 @@ export default class MainContent extends React.Component {
       ];
     }
     const disabled = item.disabled;
-    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
+    let url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
+    if (item.filename.includes('zh-CN')) {
+      url = `${url}-cn`;
+    }
     const child = !item.link ?
       (<Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
         {text}
@@ -97,7 +101,6 @@ export default class MainContent extends React.Component {
         const groupItems = obj[type].sort((a, b) => (
           (a.title || a.english).charCodeAt(0) - (b.title || b.english).charCodeAt(0)
         )).map(this.generateMenuItem.bind(this, false));
-
         return (
           <Menu.ItemGroup title={type} key={index}>
             {groupItems}
@@ -122,7 +125,6 @@ export default class MainContent extends React.Component {
   getMenuItems() {
     const moduleData = this.getModuleData();
     const menuItems = utils.getMenuItems(moduleData);
-
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
       .sort((a, b) => this.props.themeConfig.categoryOrder[a] - this.props.themeConfig.categoryOrder[b])
@@ -175,13 +177,13 @@ export default class MainContent extends React.Component {
     const DemoEl = demos ? (
       <ComponentDoc {...props} doc={localizedPageData} demos={demos} />
       ) : <Article {...props} content={localizedPageData} />;
-
     return (
       <div className="main-wrapper">
         <Row>
           <Col lg={5} md={6} sm={24} xs={24}>
             <Menu
-              className="aside-container" mode="inline"
+              className="aside-container"
+              mode="inline"
               openKeys={Object.keys(utils.getMenuItems(moduleData))}
               selectedKeys={[activeMenuItem]}
             >
@@ -196,7 +198,8 @@ export default class MainContent extends React.Component {
           <Col
             lg={{ span: 19, offset: 5 }}
             md={{ span: 18, offset: 6 }}
-            sm={24} xs={24}
+            sm={24}
+            xs={24}
           >
             <section className="prev-next-nav">
               {

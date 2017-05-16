@@ -5,9 +5,7 @@ title:
   en-US: 'Custom container'
 ---
 
-> 注意：需要设置 ListView 的 style 的 `height`/`overflow`，以此作为滚动容器。
-
-> 同时建议设置`body`的`overflow: hidden`
+> Note: you need set `height`/`overflow` style.
 
 ````jsx
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
@@ -26,17 +24,17 @@ function MyBody(props) {
 const data = [
   {
     img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
-    title: '相约酒店',
+    title: 'Meet hotel',
     des: '不是所有的兼职汪都需要风吹日晒',
   },
   {
     img: 'https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png',
-    title: '麦当劳邀您过周末',
+    title: 'McDonald\'s invites you',
     des: '不是所有的兼职汪都需要风吹日晒',
   },
   {
     img: 'https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png',
-    title: '食惠周',
+    title: 'Eat the week',
     des: '不是所有的兼职汪都需要风吹日晒',
   },
 ];
@@ -129,12 +127,13 @@ class Demo extends React.Component {
 
   render() {
     const separator = (sectionID, rowID) => (
-      <div key={`${sectionID}-${rowID}`} style={{
-        backgroundColor: '#F5F5F9',
-        height: 8,
-        borderTop: '1px solid #ECECED',
-        borderBottom: '1px solid #ECECED',
-      }}
+      <div key={`${sectionID}-${rowID}`}
+        style={{
+          backgroundColor: '#F5F5F9',
+          height: 8,
+          borderTop: '1px solid #ECECED',
+          borderBottom: '1px solid #ECECED',
+        }}
       />
     );
     const row = (rowData, sectionID, rowID) => {
@@ -146,10 +145,10 @@ class Demo extends React.Component {
         <div key={rowID} className="row">
           <div className="row-title">{obj.title}</div>
           <div style={{ display: '-webkit-box', display: 'flex', padding: '0.3rem 0' }}>
-            <img style={{ height: '1.28rem', marginRight: '0.3rem' }} src={obj.img} />
+            <img style={{ height: '1.28rem', marginRight: '0.3rem' }} src={obj.img} alt="icon" />
             <div className="row-text">
               <div style={{ marginBottom: '0.16rem', fontWeight: 'bold' }}>{obj.des}</div>
-              <div><span style={{ fontSize: '0.6rem', color: '#FF6E27' }}>35</span>元/任务</div>
+              <div><span style={{ fontSize: '0.6rem', color: '#FF6E27' }}>35</span>¥</div>
             </div>
           </div>
         </div>
@@ -160,11 +159,11 @@ class Demo extends React.Component {
       <ListView ref="lv"
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
-        renderFooter={() => <div style={{ padding: 30, textAlign: 'center' }}>
-          {this.state.isLoading ? '加载中...' : '加载完毕'}
-        </div>}
+        renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
+          {this.state.isLoading ? 'Loading...' : 'Loaded'}
+        </div>)}
         renderSectionHeader={sectionData => (
-          <div>{`任务 ${sectionData.split(' ')[1]}`}</div>
+          <div>{`Task ${sectionData.split(' ')[1]}`}</div>
         )}
         renderBodyComponent={() => <MyBody />}
         renderRow={row}

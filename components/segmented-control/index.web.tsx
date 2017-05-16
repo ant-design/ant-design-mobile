@@ -70,6 +70,9 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
         <div
           className={itemCls}
           style={itemStyle}
+          role="tab"
+          aria-selected={selected && !disabled}
+          aria-disabled={disabled}
           onClick={disabled ? undefined : (e) => this.onClick(e, idx, value)}
         >
           <div className={`${prefixCls}-item-inner`} />
@@ -89,7 +92,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     });
 
     return (
-      <div className={wrapCls} style={style}>
+      <div className={wrapCls} style={style} role="tablist">
         {values.map((value, idx) => this.renderSegmentItem(idx, value, idx === this.state.selectedIndex))}
       </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ResultProps {
-  style?: React.CSSProperties;
+  style?: any;
   imgUrl?: string;
   img?: React.ReactNode;
   title?: React.ReactNode;

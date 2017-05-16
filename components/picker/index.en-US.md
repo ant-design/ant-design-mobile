@@ -4,12 +4,11 @@ type: Data Entry
 title: Picker
 ---
 
-在一组预设值中进行选择，eg：省市区选择。
+Choose from a set of data, e.g. Country choice.
 
-
-### 规则
-- 尽量使用 Picker 来帮助用户完成输入，避免用户通过键盘直接输入。
-- DatePicker 是 Picker 的特定模式。
+### Rules
+- Try to use Picker to help users complete the input, to avoid the user through the keyboard directly input.
+- DatePicker is Picker's specific pattern.
 
 ## API
 
@@ -17,17 +16,15 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| data    | 数据源        | Array<{value, label, children: Array}> |   -  |
-| value   | 值, 格式[value1, value2, value3], 对应数据源的N级value    | Array  | - |
-| format  | 格式化选中值的函数  | (val): void | `(values) => { return values.join(','); } ` |
-| cols    | 列数        | Number |  `3`  |
-| onChange | 选中后的回调函数，如果使用[rc-form](https://github.com/react-component/form),一般不需要自己处理 | (val): void | - |
-| onPickerChange | 每列数据选择变化后的回调函数   | (val): void | - |
-| children| 通常是 List.Item | Object |  List.Item  |
-| okText  | 选中的文案 | String |  `确定`  |
-| dismissText  | 取消选中的文案 | String |  `取消`  |
-| title  | 大标题 | String | - |
-| extra  | Picker children 建议是 List.Item, 如果不是，需要是自定义组件(组件内需处理`onClick`/`extra`属性) | String |  `请选择`  |
-| disabled  | 是否不可用 | Boolean | false |
-
-> 更多参数及支持情况可参考：https://github.com/react-component/m-cascader
+| data    | data source      | `Array<{value, label, children: Array}>` |   -  |
+| value   | the value, the format is `[value1, value2, value3]`, corresponds to the level value of the data source   | Array  | - |
+| format  | a function that formats the selected value  | (val): void | `(values) => { return values.join(','); } ` |
+| cols    | col numbers   | Number |  `3`  |
+| onChange | selected callback function, can use [rc-form](https://github.com/react-component/form) | (val): void | - |
+| onPickerChange | trigger on each column of selected data is changed  | (val): void | - |
+| children| usually `List.Item` | Object |  `List.Item`  |
+| okText  | ok text | String |  `确定`  |
+| dismissText  | dismiss text | String |  `取消`  |
+| title  | title | String | - |
+| extra  | Picker's children is best to `List.Item`, if not, need to be a custom component (the `onClick`/`extra` props need to be handled in the component) | String |  `请选择`  |
+| disabled  | set disabled | Boolean | false |

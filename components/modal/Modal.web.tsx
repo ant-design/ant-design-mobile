@@ -20,6 +20,10 @@ export default class Modal extends React.Component<ModalProps, any> {
   };
 
   isInModal(e) {
+    if (!/\biPhone\b|\biPod\b/i.test(navigator.userAgent)) {
+      return;
+    }
+
     // fix touch to scroll background page on iOS
     const prefixCls = this.props.prefixCls;
     const pNode = (node => {
@@ -59,7 +63,7 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     return (
       <Touchable activeClassName={`${prefixCls}-button-active`} key={i}>
-        <a className={`${prefixCls}-button`} style={buttonStyle} href="#" onClick={onClickFn}>
+        <a className={`${prefixCls}-button`} role="button" style={buttonStyle} href="#" onClick={onClickFn}>
           {button.text || `Button`}
         </a>
       </Touchable>
@@ -81,7 +85,8 @@ export default class Modal extends React.Component<ModalProps, any> {
       platform,
     } = this.props;
 
-    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
+    const isAndroid = platform === 'android' ||
+      (platform === 'cross' && this.props.visible && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
@@ -92,7 +97,7 @@ export default class Modal extends React.Component<ModalProps, any> {
     let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
 
     const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`;
-    const footerDom = footer.length ? <div className={btnGroupClass}>
+    const footerDom = footer.length ? <div className={btnGroupClass} role="group">
       {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
     </div> : null;
 
@@ -114,8 +119,7 @@ export default class Modal extends React.Component<ModalProps, any> {
       }
     });
 
-    const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
-    const wrapProps = isIPhone ? { onTouchStart: e => this.isInModal(e) } : {};
+    const wrapProps = { onTouchStart: e => this.isInModal(e) };
 
     return (
       <Dialog

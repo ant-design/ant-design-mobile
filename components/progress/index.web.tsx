@@ -24,20 +24,27 @@ export default class Progress extends React.Component<ProgressProps, any> {
     }
   }
   render() {
-    const { prefixCls, position, unfilled, style = {} } = this.props;
+    const { className, prefixCls, position, unfilled, style = {} } = this.props;
     const percentStyle = {
       width: this.noAppearTransition || !this.props.appearTransition ? `${this.props.percent}%` : 0,
       height: 0,
     };
 
     const wrapCls = classNames({
+      [className as string]: className,
       [`${prefixCls}-outer`]: true,
       [`${prefixCls}-fixed-outer`]: position === 'fixed',
       [`${prefixCls}-hide-outer`]: unfilled === 'hide',
     });
 
     return (
-      <div className={wrapCls}>
+      <div
+        className={wrapCls}
+        role="progressbar"
+        aria-valuenow={this.props.percent}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
         <div ref="bar" className={`${prefixCls}-bar`} style={assign({}, style, percentStyle)} />
       </div>
     );

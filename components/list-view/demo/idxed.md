@@ -5,7 +5,7 @@ title:
   en-US: 'Index List'
 ---
 
-用于通讯薄等场景
+Index List
 
 
 ````jsx
@@ -51,8 +51,8 @@ class Demo extends React.Component {
     return (
       <ListView.IndexedList
         dataSource={this.state.dataSource}
-        renderHeader={() => <span>头部内容请自定义</span>}
-        renderFooter={() => <span>尾部内容请自定义</span>}
+        renderHeader={() => <span>custom header</span>}
+        renderFooter={() => <span>custom footer</span>}
         renderSectionHeader={sectionData => (<div className="ih">{sectionData}</div>)}
         renderRow={rowData => (<Item>{rowData}</Item>)}
         className="fortest"
@@ -65,7 +65,7 @@ class Demo extends React.Component {
           top: 20,
         }}
         delayTime={10}
-        delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>渲染中...</div>}
+        delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>rendering...</div>}
       />
     );
   }

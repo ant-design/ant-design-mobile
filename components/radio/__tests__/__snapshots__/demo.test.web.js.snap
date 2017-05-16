@@ -8,7 +8,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      RadioItem 演示
+      RadioItem Demo
     </div>
     <div
       class="am-list-body"
@@ -23,7 +23,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            博士
+            Doctor
           </div>
           <div
             class="am-list-extra"
@@ -46,6 +46,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-radio-item am-list-item am-list-item-middle"
@@ -56,7 +60,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            本科
+            Bachelor
           </div>
           <div
             class="am-list-extra"
@@ -78,6 +82,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>
@@ -100,11 +108,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            篮球
+            Basketball
             <div
               class="am-list-brief"
             >
-              辅助文字内容
+              Details
             </div>
           </div>
           <div
@@ -128,6 +136,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-radio-item am-list-item am-list-item-middle"
@@ -138,11 +150,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            足球
+            Football
             <div
               class="am-list-brief"
             >
-              辅助文字内容
+              Details
             </div>
           </div>
           <div
@@ -165,6 +177,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>
@@ -174,7 +190,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      禁用状态
+      Disabled
     </div>
     <div
       class="am-list-body"
@@ -189,7 +205,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            博士
+            Doctor
           </div>
           <div
             class="am-list-extra"
@@ -213,6 +229,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-radio-item am-radio-item-disabled am-list-item am-list-item-middle"
@@ -223,7 +243,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            本科
+            Bachelor
           </div>
           <div
             class="am-list-extra"
@@ -246,6 +266,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>
@@ -268,11 +292,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            篮球
+            Basketball
             <div
               class="am-list-brief"
             >
-              辅助文字内容
+              Details
             </div>
           </div>
           <div
@@ -297,6 +321,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div
         class="am-radio-item am-radio-item-disabled am-list-item am-list-item-middle"
@@ -307,11 +335,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            足球
+            Football
             <div
               class="am-list-brief"
             >
-              辅助文字内容
+              Details
             </div>
           </div>
           <div
@@ -335,6 +363,10 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
     </div>
   </div>
@@ -346,7 +378,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
       style="padding:0.3rem 0;color:#888;flex:none;"
     >
-      Radio 演示 (自定义样式)
+      Radio Demo(Customized style)
     </div>
     <div
       class="am-flexbox-item"
@@ -365,7 +397,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
             class="am-radio-inner"
           />
         </span>
-        同意协议
+        Agree
       </label>
     </div>
   </div>

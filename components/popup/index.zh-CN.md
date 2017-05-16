@@ -5,12 +5,7 @@ title: Popup
 subtitle: 弹出层
 ---
 
-
-从顶部或底部浮出的模态，提供标题和关闭按钮，展示和当前内容相关的信息或提供相关操作。
-
-### 规则
-- 提供清晰的关闭按钮。
-- Popup 会打断用户操作，所以用在重要的时候， eg.买入股票。
+从顶部或底部浮出的模态框 (会打断用户操作)
 
 ## API
 
@@ -29,9 +24,9 @@ subtitle: 弹出层
 #### static hide(): 关闭 Popup
 
 #### static newInstance() (`web only`)
-有些情况下，页面需要多处出现 Popup ，或在 Popup 里再产生 Popup。
+有些情况下，页面需要多处出现 Popup ，比如在 Popup 里再产生 Popup。
 
-返回 Popup 实例对象。对象包括：
+这个函数会返回 Popup 实例对象，对象成员包括：
 
 - show (function) - 同 static show
 - hide (function) - 同 static hide

@@ -1,12 +1,13 @@
 /* eslint react/no-danger: 0 */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { Button, Modal, Radio } from 'antd';
 
 export default class Demo extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object,
+    intl: PropTypes.object,
   }
 
   state = {
@@ -111,7 +112,8 @@ export default class Demo extends React.Component {
         <Modal
           ref="modal"
           visible={state.fullscreen}
-          title={localizedTitle} onCancel={this.handleCancel}
+          title={localizedTitle}
+          onCancel={this.handleCancel}
           width={900}
           footer={[
             <Button key="back" type="ghost" size="large" onClick={this.handleCancel}><FormattedMessage id="app.ComponentDoc.Modal.return" /></Button>,

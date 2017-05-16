@@ -8,6 +8,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
     style="margin:0.15rem 0;"
   >
     <a
+      aria-disabled="false"
       class="am-button"
       role="button"
     >
@@ -20,6 +21,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
     style="margin:0.15rem 0;"
   >
     <a
+      aria-disabled="false"
       class="am-button"
       role="button"
     >
@@ -32,6 +34,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
     style="margin:0.15rem 0;"
   >
     <a
+      aria-disabled="false"
       class="am-button"
       role="button"
     >

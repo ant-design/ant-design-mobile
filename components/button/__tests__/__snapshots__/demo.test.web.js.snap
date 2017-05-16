@@ -9,26 +9,30 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   >
     <div>
       <a
+        aria-disabled="false"
         class="btn am-button am-button-primary"
         role="button"
       >
         <span>
-          primary 按钮
+          primary button
         </span>
       </a>
       <a
+        aria-disabled="true"
         class="btn am-button am-button-disabled"
         role="button"
       >
         <span>
-          disabled 按钮
+          disabled button
         </span>
       </a>
       <a
+        aria-disabled="false"
         class="btn am-button am-button-loading am-button-icon"
         role="button"
       >
         <svg
+          aria-hidden="true"
           class="am-icon am-icon-loading am-icon-md"
         >
           <use
@@ -36,14 +40,16 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           />
         </svg>
         <span>
-          loading 按钮
+          loading button
         </span>
       </a>
       <a
+        aria-disabled="false"
         class="btn am-button am-button-icon"
         role="button"
       >
         <svg
+          aria-hidden="true"
           class="am-icon am-icon-check-circle-o am-icon-md"
         >
           <use
@@ -51,14 +57,16 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           />
         </svg>
         <span>
-          带图标按钮
+          with icon
         </span>
       </a>
       <a
+        aria-disabled="false"
         class="btn am-button am-button-icon"
         role="button"
       >
         <svg
+          aria-hidden="true"
           class="am-icon am-icon-[object Object] am-icon-md"
         >
           <use
@@ -66,7 +74,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           />
         </svg>
         <span>
-          本地图标
+          with local icon
         </span>
       </a>
       <div
@@ -82,6 +90,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
         style="margin-bottom:0.16rem;"
       >
         <a
+          aria-disabled="false"
           class="am-button am-button-primary am-button-inline"
           role="button"
           style="margin-right:0.08rem;"
@@ -91,6 +100,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           </span>
         </a>
         <a
+          aria-disabled="false"
           class="am-button am-button-ghost am-button-small am-button-inline"
           role="button"
           style="margin-right:0.08rem;"
@@ -100,6 +110,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           </span>
         </a>
         <a
+          aria-disabled="false"
           class="am-button am-button-primary am-button-small am-button-inline"
           role="button"
         >
@@ -130,17 +141,18 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          区域经理
+          regional manager
           <div
             class="am-list-brief"
           >
-            可进行收款、退款、折扣管理、查看数据等操作
+            Can be collected, refund, discount management, view data and other operations
           </div>
         </div>
         <div
           class="am-list-extra"
         >
           <a
+            aria-disabled="false"
             class="am-button am-button-ghost am-button-small am-button-inline"
             role="button"
           >
@@ -150,6 +162,10 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
           </a>
         </div>
       </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -160,17 +176,18 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          区域经理
+          regional manager
           <div
             class="am-list-brief"
           >
-            可进行收款、退款、折扣管理、查看数据等操作
+            Can be collected, refund, discount management, view data and other operations
           </div>
         </div>
         <div
           class="am-list-extra"
         >
           <a
+            aria-disabled="false"
             class="am-button am-button-primary am-button-small am-button-inline"
             role="button"
           >
@@ -180,6 +197,10 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
           </a>
         </div>
       </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
     </div>
   </div>
 </div>

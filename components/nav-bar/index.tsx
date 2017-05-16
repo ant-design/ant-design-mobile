@@ -1,7 +1,8 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 import NavBarProps from './PropsType';
 
-const NavBar = React.createClass<NavBarProps, any>({
+const NavBar = createReactClass<NavBarProps, any>({
   render() {
     return <div>TODO for react-native</div>;
   },

@@ -18,7 +18,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
         <i
           class="arrow"
         />
-        标题一
+        Title 1
       </div>
     </div>
     <div
@@ -32,7 +32,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
         <i
           class="arrow"
         />
-        标题二
+        Title 2
       </div>
     </div>
     <div
@@ -46,7 +46,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
         <i
           class="arrow"
         />
-        标题三
+        Title 3
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
         <i
           class="arrow"
         />
-        标题一
+        Title 1
       </div>
       <div
         class="am-accordion-content am-accordion-content-active"
@@ -95,9 +95,13 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                   <div
                     class="am-list-content"
                   >
-                    子内容一
+                    Content 1
                   </div>
                 </div>
+                <div
+                  class="am-list-ripple"
+                  style="display:none;"
+                />
               </div>
               <div
                 class="am-list-item am-list-item-middle"
@@ -108,9 +112,13 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                   <div
                     class="am-list-content"
                   >
-                    子内容二
+                    Content 2
                   </div>
                 </div>
+                <div
+                  class="am-list-ripple"
+                  style="display:none;"
+                />
               </div>
               <div
                 class="am-list-item am-list-item-middle"
@@ -121,9 +129,13 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                   <div
                     class="am-list-content"
                   >
-                    子内容三
+                    Content 3
                   </div>
                 </div>
+                <div
+                  class="am-list-ripple"
+                  style="display:none;"
+                />
               </div>
             </div>
           </div>
@@ -141,7 +153,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
         <i
           class="arrow"
         />
-        标题二
+        Title 2
       </div>
     </div>
     <div
@@ -155,7 +167,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
         <i
           class="arrow"
         />
-        标题三
+        Title 3
       </div>
     </div>
   </div>

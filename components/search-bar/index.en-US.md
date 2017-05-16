@@ -4,12 +4,12 @@ type: Data Entry
 title: SearchBar
 ---
 
-一般可位于 NavBar 下方，通过『取消按钮』退出激活状态。
+Normally located below NavBar, the activation status is exited by the Cancel button.
 
-### 规则
+### Rules
 
-- 提供提示文案，帮助用户输入，eg：关键词、双十一特卖。
-- 在搜索栏下方，可提供有用的标签文案，帮助用户通过点击直接完成输入，eg：最近搜索的内容。
+- Should fill some text in placeholder to remind the user to enter the relevant content, such as: "双11特卖".
+- Below the SearchBar, you can provide useful labels copy to help users complete the input directly by clicking, such as: List some of the most recent search keywords.
 
 ## API
 
@@ -17,19 +17,19 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| defaultValue |    搜索框的默认值     | String |    |
-| value      |  搜索框的当前值  | String |    |
-| placeholder    |    placeholder     | String |    |
-| onSubmit    |    点击键盘的 enter 会触发 submit 事件    | (val: string): void |    |
-| onChange    |    change 事件的回调     | (val: string): void |    |
-| onFocus    |    focus 事件的回调     | (): void |    |
-| onBlur    |    blur 事件的回调     | (): void |    |
-| onCancel  | 点击`取消`链接,只会触发 onCancel 事件, 组件不再主动清除内部的 value 以及触发 onChange 事件  | (val: string): void |    |
-| showCancelButton    |    是否一直显示`取消`按钮     | bool |  `false`  |
-| cancelText    |   定制`取消`按钮的文字,     | String |  `取消`  |
-| disabled    |    禁用搜索栏,搜索栏只用于显示     | bool |  `false`  |
-| onClear(`web only`)    |    点击 clear 图标     | Func |    |
-| autoFocus(`web only`)   | 页面初始化时SearchBar自动获取光标,每个页面只有一个SearchBar的autpFocus会生效。（不保证所有浏览器都生效） | bool | false  |
-| focused(`web only`)   | 页面运行过程中,SearchBar获取光标,当SearchBar获取光标（`focused`更新为true）后，需要在`onFocus`或者`onBlur`时再次将该属性设置为false。 | bool | false  |
+| defaultValue |  the uncontrolled default value    | String |    |
+| value      |  the controlled current value  | String |    |
+| placeholder    |    placeholder   | String |    |
+| onSubmit    |  submit event (click the enter on the keyboard) | (val: string): void |    |
+| onChange    |    change event callback     | (val: string): void |    |
+| onFocus    |    focus event callback     | (): void |    |
+| onBlur    |    blur event callback     | (): void |    |
+| onCancel  | Click the `Cancel` button to trigger (The text of the input box is no longer automatically cleared) | (val: string): void |    |
+| showCancelButton |  Whether the `Cancel` button is always displayed  | bool |  `false`  |
+| cancelText  |  Customize the text of the `Cancel` button   | String |  `取消`  |
+| disabled    |   Set disabled  | bool |  `false`  |
+| onClear(`web only`)  |  Click the clear icon to trigger   | (val: string): void |    |
+| autoFocus(`web only`)   | When the page is initialized, SearchBar automatically gets the cursor, and each page has only one SearchBar's autoFocus to take effect (Not guaranteed to be compatible with all browsers) | bool | false  |
+| focused(`web only`) | Manual focus on SearchBar (After `focused` is set to true, you need to set this property to false again on `onFocus` or `onBlur` event) | bool | false  |
 
-注：RN 版本更多 API 请参考 [http://facebook.github.io/react-native/docs/textinput.html](http://facebook.github.io/react-native/docs/textinput.html)
+Note: RN version more API please refer to [http://facebook.github.io/react-native/docs/textinput.html](http://facebook.github.io/react-native/docs/textinput.html)

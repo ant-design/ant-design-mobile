@@ -27,9 +27,14 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               可选,小于结束日期
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
         </div>
       </div>
       <div>
@@ -50,9 +55,14 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               请选择
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
         </div>
       </div>
       <div>
@@ -73,9 +83,14 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               08:00
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
         </div>
       </div>
       <div>
@@ -96,9 +111,14 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               2016-11-22 08:00
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
         </div>
       </div>
       <div>
@@ -119,9 +139,14 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
               00:00 +00:00
             </div>
             <div
+              aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
             />
           </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
         </div>
       </div>
       <div
@@ -141,6 +166,10 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             class="am-list-extra"
           />
         </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
       </div>
       <div>
         <div

@@ -7,7 +7,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
   <div
     class="am-list-header"
   >
-    演示
+    Demos
   </div>
   <div
     class="am-list-body"
@@ -21,7 +21,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          显示数值(默认使用 TouchEvent, for Mobile)
+          Show number value(Use TouchEvent for mobile by default)
         </div>
         <div
           class="am-list-extra"
@@ -34,7 +34,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               class="am-stepper-handler-wrap"
             >
               <span
+                aria-disabled="false"
+                aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -46,7 +49,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 </svg>
               </span>
               <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -59,7 +65,11 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
               class="am-stepper-input-wrap"
+              role="spinbutton"
             >
               <input
                 autocomplete="off"
@@ -72,6 +82,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -82,7 +96,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          显示数值(使用 MouseEvent, for PC)
+          Show number value(Use MouseEvent for PC)
         </div>
         <div
           class="am-list-extra"
@@ -95,7 +109,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               class="am-stepper-handler-wrap"
             >
               <span
+                aria-disabled="false"
+                aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -107,7 +124,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 </svg>
               </span>
               <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -120,7 +140,11 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="2"
               class="am-stepper-input-wrap"
+              role="spinbutton"
             >
               <input
                 autocomplete="off"
@@ -133,6 +157,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -143,7 +171,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          禁用
+          Disabled
         </div>
         <div
           class="am-list-extra"
@@ -156,7 +184,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               class="am-stepper-handler-wrap"
             >
               <span
+                aria-disabled="true"
+                aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -168,7 +199,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 </svg>
               </span>
               <span
+                aria-disabled="true"
+                aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
+                role="button"
                 unselectable="unselectable"
               >
                 <svg
@@ -181,7 +215,11 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
               class="am-stepper-input-wrap"
+              role="spinbutton"
             >
               <input
                 autocomplete="off"
@@ -195,6 +233,10 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
     </div>
   </div>
 </div>

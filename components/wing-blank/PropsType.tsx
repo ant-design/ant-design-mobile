@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface WingBlankProps {
   size?: 'sm'|'md'|'lg';
-  style?: React.CSSProperties;
+  style?: any;
   /** web only */
   prefixCls?: string;
   /** web only */

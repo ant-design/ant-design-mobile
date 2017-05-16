@@ -168,7 +168,7 @@ After you are done.
 $ git add --all
 $ git commit -am "some description"
 $ git pull --rebase origin master
-// fix some conflict if need be
+# fix some conflict if need be
 $ git push origin xx-feature:xx-feature
 ```
 
@@ -204,8 +204,8 @@ $ npm run test:rn
 Update snapshot：
 
 ```bash
-$ npm run test:web -- -u // Update web component's snapshots
-$ npm run test:rn -- -u // Update RN component's snapshots
+$ npm run test:web -- -u # Update web component's snapshots
+$ npm run test:rn -- -u # Update RN component's snapshots
 ```
 
 Run specific test:

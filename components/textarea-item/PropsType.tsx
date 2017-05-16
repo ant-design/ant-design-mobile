@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface TextAreaItemProps {
+  style?: any;
   /** web only */
   prefixCls?: string;
   /** web only */
   prefixListCls?: string;
   /** web only */
   className?: string;
-  style?: React.CSSProperties;
   title?: React.ReactNode;
   maxLength?: number;
   /** web only */

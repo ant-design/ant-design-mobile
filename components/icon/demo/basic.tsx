@@ -5,7 +5,7 @@ const icons = [
   'check-circle', 'check', 'check-circle-o',
   'cross-circle', 'cross', 'cross-circle-o',
   'up', 'down', 'left',
-  'right', 'ellipsis', 'loading',
+  'right', 'ellipsis',
 ];
 
 export default class IConDemo extends React.Component<any, any> {

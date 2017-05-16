@@ -1,9 +1,1 @@
-<svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-    <defs></defs>
-    <g id="ALL-ICON" stroke-rule="evenodd" stroke-width="1" fill-rule="evenodd">
-        <g id="Group-15"  fill-rule="evenodd" transform="translate(6.000000, 6.000000)">
-            <rect id="Rectangle-1643" opacity="0" x="0" y="0" width="22" height="22"></rect>
-            <path d="M18.0084687,15.8522394 L26.9766601,6.8840479 L25.0926122,5 L16.1244208,13.9681915 L7.15622933,5 L5.27218143,6.8840479 L14.2403729,15.8522394 L5,25.0926122 L6.8840479,26.9766601 L16.1244208,17.7362872 L25.3647937,26.9766601 L27.2488416,25.0926122 L18.0084687,15.8522394 Z" id="Combined-Shape"></path>
-        </g>
-    </g>
-</svg>
+<svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><path d="M24.008 21.852l8.969-8.968L31.093 11l-8.969 8.968L13.156 11l-1.884 1.884 8.968 8.968-9.24 9.24 1.884 1.885 9.24-9.24 9.24 9.24 1.885-1.884-9.24-9.24z" fill-rule="evenodd"/></svg>

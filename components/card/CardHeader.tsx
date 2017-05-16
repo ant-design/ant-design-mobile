@@ -1,14 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-
-export interface CardHeaderProps {
-  title?: any;
-  thumb?: string;
-  extra?: any;
-  thumbStyle?: {};
-  style?: any;
-  styles: any;
-}
+import { CardHeaderProps } from './PropsType';
 
 export default class CardHeader extends React.Component<CardHeaderProps, any> {
   static defaultProps = {

@@ -156,7 +156,12 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
     return (
       <View style={[styles.container, containerStyle, style]}>
-        {children ? <Text style={[styles.text, textStyle]}>{children}</Text> : null}
+        {
+          children ? (
+            typeof children === 'string' ? <Text style={[styles.text, textStyle]}>{children}</Text> :
+            <View style={textStyle}>{children}</View>
+          ) : null
+        }
         <TextInput
           ref="input"
           clearButtonMode={clear ? 'while-editing' : 'never'}

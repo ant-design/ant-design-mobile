@@ -1,5 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Button from '../button';
 import Flex from '../flex';
@@ -16,7 +17,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   };
 
   static contextTypes = {
-    antLocale: React.PropTypes.object,
+    antLocale: PropTypes.object,
   };
 
   constructor(props) {
@@ -53,7 +54,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
           <Button inline disabled={current <= 0} onClick={() => this.onChange(current - 1)}>{prevText}</Button>
         </Flex.Item>
         {this.props.children ? (<Flex.Item>{this.props.children}</Flex.Item>) : (!simple &&
-          <Flex.Item className={`${prefixCls}-wrap`}>
+          <Flex.Item className={`${prefixCls}-wrap`} aria-live="assertive">
             <span className="active">{current + 1}</span>/<span>{total}</span>
           </Flex.Item>)}
         <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}>

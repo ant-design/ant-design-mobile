@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import enquire from 'enquire.js';
@@ -12,8 +13,8 @@ const Option = Select.Option;
 
 export default class Header extends React.Component {
   static contextTypes = {
-    router: React.PropTypes.object.isRequired,
-    intl: React.PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
   }
 
   constructor(props) {
@@ -144,16 +145,21 @@ export default class Header extends React.Component {
               onClick={this.handleMenuIconClick}
               type="menu"
             />
-            <Link to="/" id="logo">
+            <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" />
               <span>{siteTitle}</span>
             </Link>
           </Col>
           <Col className={`nav ${this.state.menuVisible ? 'nav-show' : ''}`}
-            lg={19} md={18} sm={17} xs={0} style={{ display: 'block' }}
+            lg={19}
+            md={18}
+            sm={17}
+            xs={0}
+            style={{ display: 'block' }}
           >
             <div id="search-box">
-              <Select combobox
+              <Select
+                mode="combobox"
                 dropdownClassName="component-select"
                 placeholder={locale === 'zh-CN' ? '搜索组件...' : 'Search Components...'}
                 value={undefined}

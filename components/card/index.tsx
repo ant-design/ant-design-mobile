@@ -4,12 +4,7 @@ import CardBody from './CardBody';
 import CardHeader from './CardHeader';
 import CardFooter from './CardFooter';
 import CardStyle from './style/index';
-
-export interface CardProps {
-  style?: {};
-  full?: boolean;
-  styles?: any;
-}
+import { CardProps } from './PropsType';
 
 export default class Card extends React.Component<CardProps, any> {
   static defaultProps = {

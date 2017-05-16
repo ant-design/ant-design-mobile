@@ -1,11 +1,11 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import InputItemProps from './PropsType';
 import omit from 'omit.js';
+import InputItemProps from './PropsType';
+import Input from './Input.web';
 
-function noop() {
-}
+function noop() { }
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -35,12 +35,10 @@ class InputItem extends React.Component<InputItemProps, any> {
   };
 
   debounceTimeout: any;
-  scrollIntoViewTimeout: any;
 
   constructor(props) {
     super(props);
     this.state = {
-      focused: props.focused || false,
       placeholder: props.placeholder,
     };
   }
@@ -51,33 +49,12 @@ class InputItem extends React.Component<InputItemProps, any> {
         placeholder: nextProps.placeholder,
       });
     }
-    if ('focused' in nextProps) {
-      this.setState({
-        focused: nextProps.focused,
-      });
-    }
   }
 
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
       this.debounceTimeout = null;
-    }
-    if (this.scrollIntoViewTimeout) {
-      clearTimeout(this.scrollIntoViewTimeout);
-      this.scrollIntoViewTimeout = null;
-    }
-  }
-
-  componentDidMount() {
-    if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
-      (this.refs as any).input.focus();
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.state.focused) {
-      (this.refs as any).input.focus();
     }
   }
 
@@ -89,7 +66,6 @@ class InputItem extends React.Component<InputItemProps, any> {
       case 'text':
         break;
       case 'bankCard':
-        value = value.replace(/\D/g, '');
         value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
@@ -114,48 +90,27 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
   }
 
-  onInputBlur = (e) => {
+  onInputFocus = (value) => {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
+    }
+    this.setState({
+      focus: true,
+    });
+    if (this.props.onFocus) {
+      this.props.onFocus(value);
+    }
+  }
+
+  onInputBlur = (value) => {
     this.debounceTimeout = setTimeout(() => {
       this.setState({
         focus: false,
       });
     }, 200);
-    if (!('focused' in this.props)) {
-      this.setState({
-        focused: false,
-      });
-    }
-    const value = e.target.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
-    }
-  }
-
-  onInputFocus = (e) => {
-    if (this.debounceTimeout) {
-      clearTimeout(this.debounceTimeout);
-      this.debounceTimeout = null;
-    }
-    if (!('focused' in this.props)) {
-      this.setState({
-        focused: true,
-      });
-    }
-
-    this.setState({
-      focus: true,
-    });
-
-    const value = e.target.value;
-    if (this.props.onFocus) {
-      this.props.onFocus(value);
-    }
-    if (document.activeElement.tagName.toLowerCase() === 'input') {
-      this.scrollIntoViewTimeout = setTimeout(() => {
-        try {
-          (document.activeElement as any).scrollIntoViewIfNeeded();
-        } catch (e) { }
-      }, 100);
     }
   }
 
@@ -190,9 +145,9 @@ class InputItem extends React.Component<InputItemProps, any> {
     } = this.props;
 
     // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
-    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style', 'focused',
+    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
       'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
-      'updatePlaceholder', 'placeholderTextColor',
+      'updatePlaceholder', 'placeholderTextColor', 'type',
     ]);
 
     const { placeholder, focus } = this.state;
@@ -225,7 +180,9 @@ class InputItem extends React.Component<InputItemProps, any> {
       inputType = 'tel';
     } else if (type === 'password') {
       inputType = 'password';
-    } else if (type !== 'text') {
+    } else if (type === 'digit') {
+      inputType = 'number';
+    } else if (type !== 'text' && type !== 'number') {
       inputType = type;
     }
 
@@ -247,22 +204,29 @@ class InputItem extends React.Component<InputItemProps, any> {
       };
     }
 
+    let classNameProps;
+    if (type === 'digit') {
+      classNameProps = {
+        className: 'h5numInput',
+      };
+    }
+
     return (
       <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={controlCls}>
-          <input
-            ref="input"
+          <Input
             {...patternProps}
             {...otherProps}
             {...valueProps}
+            {...classNameProps}
             type={inputType}
             maxLength={maxLength}
             name={name}
             placeholder={placeholder}
             onChange={this.onInputChange}
-            onBlur={this.onInputBlur}
             onFocus={this.onInputFocus}
+            onBlur={this.onInputBlur}
             readOnly={!editable}
             disabled={disabled}
           />

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface RadioProps {
-  style?: React.CSSProperties;
+  style?: any;
   defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;

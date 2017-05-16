@@ -20,7 +20,7 @@ SVG 图标 (参考：[为什么使用 svg 替换 iconfont](https://github.com/an
 一. 首先安装依赖：
 
 ```sh
-npm install svg-sprite-loader -D
+npm install svg-sprite-loader@0.3.1 -D
 ```
 
 > Tip: 我们使用 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 方案来实现图标 sprite 效果，
@@ -121,7 +121,9 @@ const svgDirs = [
 ```
 > 注： 自定义图标需要先查找对应图标的 unicode 字符，可以去 ant.design 官网用 chrome 调试工具查看对应图标的值
 
-## API ( 适用平台：WEB & RN )
+## API
+
+适用平台：WEB、React-Native
 
 | 属性        | 说明           | 类型            | 默认值       |
 |------------|----------------|----------------|--------------|

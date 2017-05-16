@@ -5,6 +5,6 @@ module.exports = {
   data: appLocaleData,
   messages: {
     'app.site.title': 'Ant Design Mobile',
-    'app.site.subTitle': 'Mobile Componets By Ant UED',
+    'app.site.subTitle': 'Mobile Components By Ant UED',
   },
 };

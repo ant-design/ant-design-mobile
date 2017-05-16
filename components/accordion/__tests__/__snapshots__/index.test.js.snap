@@ -3,10 +3,13 @@
 exports[`Accordion renders correctly 1`] = `
 <View
   style={
-    Object {
-      "borderTopColor": "#ddd",
-      "borderTopWidth": 0.5,
-    }
+    Array [
+      undefined,
+      Object {
+        "borderTopColor": "#ddd",
+        "borderTopWidth": 0.5,
+      },
+    ]
   }
 >
   <View>
@@ -16,7 +19,9 @@ exports[`Accordion renders correctly 1`] = `
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -33,6 +38,7 @@ exports[`Accordion renders correctly 1`] = `
           ]
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
           style={
@@ -142,7 +148,9 @@ exports[`Accordion renders correctly 1`] = `
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
+        hasTVPreferredFocus={undefined}
         hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -159,6 +167,7 @@ exports[`Accordion renders correctly 1`] = `
           ]
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <View
           style={

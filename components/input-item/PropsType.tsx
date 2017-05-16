@@ -1,11 +1,11 @@
 import React from 'react';
 
 interface InputItemProps {
+  style?: any;
   /** web only */
   prefixCls?: string;
   /** web only */
   prefixListCls?: string;
-  style?: React.CSSProperties;
   /** web only */
   className?: string;
   type?: 'text'|'bankCard'|'phone'|'password'|'number'|'idcard'|'digit';
@@ -14,7 +14,7 @@ interface InputItemProps {
   name?: string;
   value?: string;
   defaultValue?: string;
-  placeholder: string;
+  placeholder?: string;
   clear?: boolean;
   maxLength?: number;
   onChange?: Function;
