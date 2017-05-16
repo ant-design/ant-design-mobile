@@ -7,9 +7,6 @@
     "function-name-case": ["lower", {
       "ignoreFunctions": ["/encodeURIComponent/"]
     }],
-    "property-no-unknown": [true, {
-      "ignoreProperties": ["/overflow-scrolling/"]
-    }],
     "number-leading-zero": null
   }
 }
