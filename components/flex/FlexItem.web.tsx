@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import { FlexItemProps } from './PropsType';
+import { FlexItemWebProps } from './PropsType';
 
-export default class FlexItem extends React.Component<FlexItemProps, any> {
+export default class FlexItem extends React.Component<FlexItemWebProps, any> {
   static defaultProps = {
     prefixCls: 'am-flexbox',
   };
