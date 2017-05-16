@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
-import { FlexProps } from './PropsType';
+import { FlexNativeProps } from './PropsType';
 
-export default class Flex extends React.Component<FlexProps, any> {
+export default class Flex extends React.Component<FlexNativeProps, any> {
   static Item: any;
 
   static defaultProps = {
@@ -10,11 +10,10 @@ export default class Flex extends React.Component<FlexProps, any> {
     wrap: 'nowrap',
     justify: 'start',
     align: 'center',
-    onPress: () => {},
   };
 
   render() {
-    let { style, direction, wrap, justify, align, children, onPress, ...restProps } = this.props;
+    let { style, direction, wrap, justify, align, children, ...restProps } = this.props;
     let transferConst = [justify, align];
     transferConst = transferConst.map((el) => {
       let tempTxt;
@@ -46,7 +45,7 @@ export default class Flex extends React.Component<FlexProps, any> {
     };
 
     return (
-      <TouchableWithoutFeedback onPress={onPress} {...restProps}>
+      <TouchableWithoutFeedback {...restProps}>
         <View style={[flexStyle, style]}>
           {children}
         </View>

@@ -1,20 +1,20 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
-import { FlexItemProps } from './PropsType';
+import { FlexItemNativeProps } from './PropsType';
 
-export default class FlexItem extends React.Component<FlexItemProps, any> {
+export default class FlexItem extends React.Component<FlexItemNativeProps, any> {
   static defaultProps = {
     flex: 1,
   };
   render() {
-    let { style, children, flex, onPress, ...restProps } = this.props;
+    let { style, children, flex, ...restProps } = this.props;
     const flexItemStyle = {
       flex: flex || 1,
     };
     // support other touchablewithoutfeedback props
     // TODO  support TouchableHighlight
     return (
-      <TouchableWithoutFeedback onPress={onPress} {...restProps}>
+      <TouchableWithoutFeedback {...restProps}>
         <View style={[flexItemStyle, style]}>
           {children}
         </View>

@@ -1,14 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
-import { FlexProps } from './PropsType';
+import { FlexWebProps } from './PropsType';
 
-export default class Flex extends React.Component<FlexProps, any> {
+export default class Flex extends React.Component<FlexWebProps, any> {
   static Item: any;
 
   static defaultProps = {
     prefixCls: 'am-flexbox',
     align: 'center',
-    onClick: () => {},
   };
 
   render() {
