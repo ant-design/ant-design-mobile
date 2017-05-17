@@ -15,16 +15,19 @@
     font-size: @link-button-font-size;
     height: @across-button-height;
     line-height: @across-button-height;
-    .ellipsis();
     display: block;
+    .ellipsis();
   }
+
   &-button-group-h {
     border-top: @border-width-sm solid @border-color-base;
     .display-box();
+
     .@{modalPrefixClass}-button {
       -webkit-touch-callout: none;
       .box-flex();
       .button-common();
+
       &:first-child {
         color: @color-text-base;
         border-right: @border-width-sm solid @border-color-base;
@@ -49,75 +52,91 @@
     border-left: @border-width-sm solid @border-color-base;
     border-right: @border-width-sm solid @border-color-base;
     border-bottom: @border-width-sm solid @border-color-base;
+
     &:first-child {
       margin-top: @v-spacing-md;
       border-top: @border-width-sm solid @border-color-base;
       border-top-left-radius: @radius-sm;
       border-top-right-radius: @radius-sm;
     }
+
     &:last-child {
       border-bottom-left-radius: @radius-sm;
       border-bottom-right-radius: @radius-sm;
     }
+
     input {
       border: 0;
       width: 98%;
       .box-sizing();
+
       margin: 0;
       padding: @v-spacing-xs 0;
     }
   }
+
   &&-android {
     .@{modalPrefixClass}-content {
       border-radius: 0;
       padding-top: @v-spacing-lg;
+
       .@{modalPrefixClass}-header {
         padding: @v-spacing-md 48px 24px;
+
         .@{modalPrefixClass}-title {
           text-align: left;
           font-size: @font-size-display-md;
           color: @color-text-base;
         }
       }
+
       .@{modalPrefixClass}-body {
         font-size: @font-size-caption;
         color: @color-text-base;
         text-align: left;
         padding: 0 48px @v-spacing-lg;
         line-height: @line-height-paragraph;
+
         .@{modalPrefixClass}-input {
           border-left: 0;
           border-right: 0;
           border-radius: 0;
+
           &:first-child {
             border-top: 0;
           }
         }
       }
+
       .@{modalPrefixClass}-footer {
-        padding-bottom: 2*@v-spacing-sm;
+        padding-bottom: 2 * @v-spacing-sm;
+
         .@{modalPrefixClass}-button-group-h {
           overflow: hidden;
           border-top: 0;
           justify-content: flex-end;
-          padding: 0 2*@v-spacing-sm;
+          padding: 0 2 * @v-spacing-sm;
+
           .@{modalPrefixClass}-button {
             flex: initial;
             margin-left: 6px;
             padding: 0 @h-spacing-lg;
             height: 96px;
             box-sizing: border-box;
+
             &:first-child {
               border-right: 0;
               color: #777;
             }
           }
         }
+
         .@{modalPrefixClass}-button-group-v {
           display: flex;
           justify-content: flex-end;
           overflow: hidden;
-          padding: 0 2*@v-spacing-sm;
+          padding: 0 2 * @v-spacing-sm;
+
           .@{modalPrefixClass}-button {
             border-top: 0;
             padding: 0 @h-spacing-lg;

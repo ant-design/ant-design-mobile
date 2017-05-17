@@ -1,7 +1,6 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
 
-
 @stepsPrefixCls: am-steps;
 @errorTailCls: error-tail;
 @ellipsisItem: ellipsis-item;
@@ -23,16 +22,20 @@
       .@{stepsPrefixCls}-head-inner {
         border-color: @color-text-placeholder;
         background-color: @fill-base;
+
         > .@{stepsPrefixCls}-icon {
           color: @color-text-placeholder;
         }
       }
+
       .@{stepsPrefixCls}-title {
         color: @color-text-base;
       }
+
       .@{stepsPrefixCls}-description {
         color: @color-text-placeholder;
       }
+
       .@{stepsPrefixCls}-tail > i {
         background-color: @color-text-placeholder;
       }
@@ -46,35 +49,44 @@
         height: 44px;
         border-radius: @radius-circle;
         border: 0;
+
         > .@{stepsPrefixCls}-icon {
           color: @color-text-base-inverse;
         }
       }
+
       .@{stepsPrefixCls}-title {
         color: @color-text-base;
       }
+
       .@{stepsPrefixCls}-description {
         color: @color-text-placeholder;
       }
+
       .@{stepsPrefixCls}-tail > i {
         background-color: @brand-primary;
         width: 50%;
       }
     }
+
     &.@{stepsPrefixCls}-status-finish {
       .@{stepsPrefixCls}-head-inner {
         border-color: @brand-primary;
         background-color: @fill-base;
+
         > .@{stepsPrefixCls}-icon {
           color: @brand-primary;
         }
       }
+
       .@{stepsPrefixCls}-tail > i {
         background-color: @brand-primary;
       }
+
       .@{stepsPrefixCls}-title {
         color: @color-text-base;
       }
+
       .@{stepsPrefixCls}-description {
         color: @color-text-placeholder;
       }
@@ -84,16 +96,20 @@
       .@{stepsPrefixCls}-head-inner {
         border-color: @brand-error;
         background-color: @fill-base;
+
         > .@{stepsPrefixCls}-icon {
           color: @brand-error;
         }
       }
+
       .@{stepsPrefixCls}-title {
         color: @color-text-base;
       }
+
       .@{stepsPrefixCls}-description {
         color: @color-text-placeholder;
       }
+
       .@{stepsPrefixCls}-tail > i {
         background-color: @border-color-base;
       }
@@ -112,6 +128,7 @@
         border: 0;
         width: auto;
         height: auto;
+
         > .@{stepsPrefixCls}-icon {
           display: block;
           font-size: @defaultIconSize;
@@ -121,6 +138,7 @@
           border-radius: @radius-circle;
         }
       }
+
       &.@{stepsPrefixCls}-status-process {
         .@{stepsPrefixCls}-head-inner > .@{stepsPrefixCls}-icon {
           color: @brand-primary;
@@ -137,6 +155,7 @@
           height: 40px;
           border: 4px solid @color-text-placeholder;
           border-radius: @radius-circle;
+
           .am-icon {
             width: 36px;
             height: 36px;
@@ -144,6 +163,7 @@
         }
       }
     }
+
     &.@{errorTailCls} .@{stepsPrefixCls}-tail {
       background-color: @brand-error;
     }
@@ -184,14 +204,17 @@
     display: inline-block;
     padding-right: 10px;
   }
+
   &-item:last-child {
     .@{stepsPrefixCls}-title {
       padding-right: 0;
     }
-   .@{stepsPrefixCls}-tail {
+
+    .@{stepsPrefixCls}-tail {
       display: none;
     }
   }
+
   &-description {
     font-size: @font-size-subhead;
   }
@@ -201,6 +224,7 @@
     left: 0;
     width: 100%;
     top: 20px;
+
     > i {
       display: inline-block;
       vertical-align: top;
@@ -208,6 +232,7 @@
       height: 4px;
       width: 100%;
       position: relative;
+
       &:after {
         position: absolute;
         content: '';
@@ -224,16 +249,20 @@
     .@{stepsPrefixCls}-main {
       margin-top: 0;
     }
+
     .@{stepsPrefixCls}-title {
       font-size: @font-size-caption;
       color: @color-text-base;
     }
+
     .@{stepsPrefixCls}-description {
       font-size: @font-size-caption-sm;
       color: @color-text-placeholder;
     }
+
     .@{stepsPrefixCls}-tail {
       padding: 0 8px;
+
       > i {
         height: 1px;
         border-radius: 1px;
@@ -259,12 +288,14 @@
       width: @smallIconSize;
       height: @smallIconSize;
       background-color: @fill-base;
+
       .am-icon {
         width: 36px;
         height: 36px;
       }
     }
   }
+
   &&-small .@{ellipsisItem}&-item&-status-wait&-custom &-head-inner {
     > .@{stepsPrefixCls}-icon {
       .am-icon {
@@ -273,6 +304,7 @@
       }
     }
   }
+
   &&-small &-item&-status-wait&-custom &-head-inner {
     > .@{stepsPrefixCls}-icon {
       font-size: 20px;
@@ -281,6 +313,7 @@
       line-height: 28px;
     }
   }
+
   &&-small &-item&-status-process &-head-inner {
     box-sizing: border-box;
     width: @smallIconSize;
@@ -302,15 +335,18 @@
     width: 4px;
     padding: 0;
     background-color: @border-color-base;
+
     > i {
       height: 100%;
       width: 4px;
+
       &:after {
         height: 0;
         width: 100%;
       }
     }
   }
+
   .@{stepsPrefixCls}-status-finish {
     .@{stepsPrefixCls}-tail > i:after {
       height: 100%;
@@ -319,6 +355,7 @@
 
   .@{stepsPrefixCls}-head {
     float: left;
+
     &-inner {
       margin-right: @h-spacing-lg;
     }
@@ -328,6 +365,7 @@
     min-height: 140px;
     overflow: hidden;
     display: block;
+
     .@{stepsPrefixCls}-description {
       padding-bottom: @v-spacing-md;
     }
@@ -345,14 +383,17 @@
     left: 16px;
     padding: 0;
     width: 2px;
+
     > i {
       height: 100%;
     }
   }
+
   .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
     height: 50%;
     width: 2px;
   }
+
   .@{stepsPrefixCls}-item .@{stepsPrefixCls}-head-inner {
     margin-right: @h-spacing-md;
   }
@@ -360,11 +401,13 @@
 
 .@{stepsPrefixCls}-horizontal {
   &.@{stepsPrefixCls}-hidden {
-     visibility: hidden;
+    visibility: hidden;
   }
+
   .@{stepsPrefixCls}-description {
     max-width: 150px;
   }
+
   &.@{stepsPrefixCls}-small .@{stepsPrefixCls}-tail {
     top: 16px;
   }
@@ -377,28 +420,35 @@
     width: auto;
     background-color: @border-color-base;
   }
+
   .@{stepsPrefixCls}-item {
     .@{stepsPrefixCls}-step {
       display: inline-block;
       text-align: center;
     }
   }
+
   .@{stepsPrefixCls}-item:not(:first-child) .@{stepsPrefixCls}-head {
     margin-left: 0;
     padding-left: 0;
   }
+
   .@{stepsPrefixCls}-head {
     display: inline-block;
+
     &-inner {
       margin: 0 auto;
     }
   }
+
   .@{stepsPrefixCls}-main {
     display: block;
     margin-top: @v-spacing-sm;
+
     .@{stepsPrefixCls}-title {
       padding-right: 0;
     }
+
     .@{stepsPrefixCls}-description {
       text-align: left;
     }

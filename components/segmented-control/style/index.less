@@ -5,6 +5,7 @@
 
 .@{segment-prefix-cls} {
   .display-box;
+
   background-color: @fill-base;
   border-radius: @radius-md;
   overflow: hidden;
@@ -17,13 +18,14 @@
 
   &-item {
     .box-flex(1);
+
     display: flex;
     justify-content: center;
     align-items: center;
     color: @segmented-control-color;
     font-size: @font-size-base;
     line-height: @line-height-base;
-    transition: background 0.2s;
+    transition: background .2s;
     position: relative;
     border: @border-width-md solid @segmented-control-color;
     width: 100%;
@@ -56,7 +58,7 @@
         height: 100%;
         width: 100%;
         opacity: 0.1;
-        transition: background 0.2s;
+        transition: background .2s;
       }
     }
   }

@@ -1,21 +1,22 @@
 /*do not import this file except components/style/index.less*/
-
 .am {
   .effect() {
-    animation-duration: 0.2s;
+    animation-duration: .2s;
     animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+    animation-timing-function: cubic-bezier(.55, 0, .55, .2);
   }
 
   &-fade-enter,
   &-fade-appear {
     opacity: 0;
     .effect();
+
     animation-play-state: paused;
   }
 
   &-fade-leave {
     .effect();
+
     animation-play-state: paused;
   }
 
@@ -34,6 +35,7 @@
     0% {
       opacity: 0;
     }
+
     100% {
       opacity: 1;
     }
@@ -43,6 +45,7 @@
     0% {
       opacity: 1;
     }
+
     100% {
       opacity: 0;
     }
@@ -57,6 +60,7 @@
   &-slide-up-appear,
   &-slide-up-leave {
     .effect();
+
     animation-play-state: paused;
   }
 
@@ -75,19 +79,21 @@
     0% {
       transform: translate(0, 100%);
     }
+
     100% {
       transform: translate(0, 0);
     }
   }
+
   @keyframes amSlideUpOut {
     0% {
       transform: translate(0, 0);
     }
+
     100% {
       transform: translate(0, 100%);
     }
   }
-
 
   &&-zoom-enter,
   &&-zoom-leave {
@@ -98,12 +104,14 @@
   &-zoom-appear {
     opacity: 0;
     .effect();
+
     animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
     animation-play-state: paused;
   }
 
   &-zoom-leave {
     .effect();
+
     animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
     animation-play-state: paused;
   }
@@ -125,26 +133,27 @@
       transform-origin: 50% 50%;
       transform: scale(0, 0);
     }
+
     100% {
       opacity: 1;
       transform-origin: 50% 50%;
       transform: scale(1, 1);
     }
   }
+
   @keyframes amZoomOut {
     0% {
       opacity: 1;
       transform-origin: 50% 50%;
       transform: scale(1, 1);
     }
+
     100% {
       opacity: 0;
       transform-origin: 50% 50%;
       transform: scale(0, 0);
     }
   }
-
-
 
   &-slide-down-enter,
   &-slide-down-appear {
@@ -155,6 +164,7 @@
   &-slide-down-appear,
   &-slide-down-leave {
     .effect();
+
     animation-play-state: paused;
   }
 
@@ -173,14 +183,17 @@
     0% {
       transform: translate(0, -100%);
     }
+
     100% {
       transform: translate(0, 0);
     }
   }
+
   @keyframes amSlideDownOut {
     0% {
       transform: translate(0, 0);
     }
+
     100% {
       transform: translate(0, -100%);
     }

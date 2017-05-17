@@ -53,22 +53,27 @@
     position: absolute;
     display: inline-block;
     box-sizing: content-box;
+
     &-active {
       z-index: 2;
       background-color: @fill-tap;
     }
   }
+
   &-handler-up {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+
   &-handler-down {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
+
   &-handler-up-inner,
   &-handler-down-inner {
     .iconfont-mixin();
+
     user-select: none;
     right: 4px;
     color: @color-text-base;
@@ -93,6 +98,7 @@
     padding: 0;
     background: none;
     vertical-align: middle;
+
     &[disabled] {
       opacity: 1;
       color: @color-text-base;
@@ -101,21 +107,26 @@
 
   &.showNumber {
     width: 276px;
+
     .@{stepperPrefixCls}-input-wrap {
       display: inline-block;
     }
+
     .@{stepperPrefixCls}-input {
       display: inline-block;
     }
+
     .@{stepperPrefixCls}-handler-up {
       border-top-left-radius: @radius-md;
       border-bottom-left-radius: @radius-md;
     }
+
     .@{stepperPrefixCls}-handler-down {
       border-top-right-radius: @radius-md;
       border-bottom-right-radius: @radius-md;
       border-right: @border-width-md solid @border-color-base;
     }
+
     .@{stepperPrefixCls}-handler-down-disabled {
       right: -2px;
     }
@@ -124,6 +135,7 @@
   &-handler-up {
     cursor: pointer;
     right: 0;
+
     &-inner {
       &:before {
         text-align: center;
@@ -135,6 +147,7 @@
   &-handler-down {
     cursor: pointer;
     left: 0;
+
     &-inner {
       &:before {
         text-align: center;
@@ -164,6 +177,7 @@
     .@{stepperPrefixCls}-handler {
       opacity: @opacity-disabled;
     }
+
     .@{stepperPrefixCls}-input-wrap {
       opacity: @opacity-disabled;
     }

@@ -8,6 +8,7 @@
     background-color: @border-color-base;
     display: block;
   }
+
   &-fixed-outer {
     position: fixed;
     width: 100%;
@@ -15,11 +16,13 @@
     left: 0;
     z-index: @progress-zindex;
   }
+
   &-hide-outer {
     background-color: transparent;
   }
+
   &-bar {
     border: @border-width-lg solid @brand-primary;
-    transition: all 0.3s linear 0s;
+    transition: all .3s linear 0s;
   }
 }

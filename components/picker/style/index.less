@@ -18,7 +18,7 @@
     bottom: 0;
     left: 0;
     z-index: @picker-zindex;
-    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
     outline: 0;
   }
 
@@ -31,6 +31,7 @@
     background-color: @fill-mask;
     height: 100%;
     z-index: @picker-zindex;
+
     &-hidden {
       display: none;
     }
@@ -47,6 +48,7 @@
     // border-bottom: @border-width-sm solid @border-color-base;
     position: relative;
     .hairline-bottom(@border-color-base);
+
     & & {
       &-right {
         text-align: right;
@@ -58,6 +60,7 @@
     color: @brand-primary;
     font-size: @font-size-heading;
     padding: @v-spacing-md @h-spacing-lg;
+
     &-active {
       background-color: @fill-tap;
     }
@@ -65,6 +68,7 @@
 
   &-title {
     .box-flex(1);
+
     text-align: center;
     color: @color-text-base;
   }

@@ -11,20 +11,25 @@
   line-height: @notice-bar-height;
   color: @notice-bar-color;
   .display-box();
+
   &-content {
     .box-flex();
+
     width: 100%;
-    .ellipsis();
     margin: auto @h-spacing-lg;
+    .ellipsis();
   }
+
   &-icon {
     margin-left: @h-spacing-lg;
     display: flex;
     align-items: center;
+
     & + div {
       margin-left: @h-spacing-sm;
     }
   }
+
   &-operation {
     display: flex;
     align-items: center;

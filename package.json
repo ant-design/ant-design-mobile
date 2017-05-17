@@ -117,15 +117,17 @@
     "react-test-renderer": "^15.4.2",
     "svg-sprite-loader": "^0.3.1",
     "typescript": "~2.2.2",
-    "typescript-babel-jest": "^1.0.1"
+    "typescript-babel-jest": "^1.0.1",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0"
   },
   "scripts": {
-    "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint && npm run applint",
+    "lint": "npm run tslint && npm run srclint && npm run demolint && npm run stylelint && npm run applint",
     "srclint": "eslint site scripts --ext '.js,.jsx'",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
     "tslint-fix": "antd-tools run ts-lint-fix && npm run compile && rm -rf lib",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
-    "lesshint": "lesshint components/ -r scripts/lesshint-report.js",
+    "stylelint": "stylelint \"components/**/*.less\" --syntax less",
     "eslint-fix": "eslint --fix site scripts ./*.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
     "applint": "eslint rn-kitchen-sink --ext '.js'",
     "pre-publish": "node ./scripts/build-less-entry",

@@ -12,11 +12,13 @@
     width: 100%;
     box-sizing: border-box;
   }
+
   &-footer {
     padding: @v-spacing-md @h-spacing-lg @v-spacing-lg @h-spacing-lg;
     font-size: @font-size-base;
     color: @color-text-caption;
   }
+
   &-body {
     position: relative;
     background-color: @fill-base;
@@ -37,6 +39,7 @@
     }
   }
 }
+
 .@{listPrefixCls}-item {
   position: relative;
   display: flex;
@@ -46,55 +49,65 @@
   // box-sizing: content-box;
   vertical-align: middle;
   overflow: hidden;
-  .box-align;
   transition: background-color 200ms;
+  .box-align;
+
   .@{listPrefixCls}-ripple {
     position: absolute;
     background: transparent;
     display: inline-block;
     overflow: hidden;
     will-change: box-shadow, transform;
-    transition: box-shadow .2s cubic-bezier(.4,0,1,1), background-color .2s cubic-bezier(.4,0,.2,1), color .2s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
     outline: none;
     cursor: pointer;
     border-radius: 100%;
     transform: scale(0);
+
     &.@{listPrefixCls}-ripple-animate {
       background-color: hsla(0, 0%, 62%, .2);
       animation: ripple 1s linear;
     }
   }
+
   &.@{listPrefixCls}-item-top {
     .@{listPrefixCls}-line {
       .box-align(flex-start);
+
       .@{listPrefixCls}-arrow {
         margin-top: 4px;
       }
     }
   }
+
   &.@{listPrefixCls}-item-middle {
     .@{listPrefixCls}-line {
       .box-align(center);
     }
   }
+
   &.@{listPrefixCls}-item-bottom {
     .@{listPrefixCls}-line {
       .box-align(flex-end);
     }
   }
+
   &.@{listPrefixCls}-item-error {
     .@{listPrefixCls}-line {
       .@{listPrefixCls}-extra {
         color: #f50;
+
         .@{listPrefixCls}-brief {
           color: #f50;
         }
       }
     }
   }
+
   &.@{listPrefixCls}-item-active {
     background-color: @fill-tap;
   }
+
   &&-disabled {
     .@{listPrefixCls}-line {
       .@{listPrefixCls}-content,
@@ -103,20 +116,24 @@
       }
     }
   }
+
   img {
     width: @icon-size-md;
     height: @icon-size-md;
     vertical-align: middle;
   }
+
   /* list左图片显示*/
   .@{listPrefixCls}-thumb {
     &:first-child {
       margin-right: @h-spacing-lg;
     }
+
     &:last-child {
       margin-left: @h-spacing-md;
     }
   }
+
   .@{listPrefixCls}-line {
     position: relative;
     display: flex;
@@ -125,7 +142,9 @@
     padding-right: @h-spacing-lg;
     min-height: @list-item-height;
     overflow: hidden;
+
     // .hairline-bottom(@border-color-base);
+
     /* list左侧主内容*/
     .@{listPrefixCls}-content {
       flex: 1;
@@ -134,9 +153,11 @@
       line-height: @line-height-paragraph;
       text-align: left;
       .ellipsis();
+
       padding-top: 14px;
       padding-bottom: 14px;
     }
+
     /* list右补充内容*/
     .@{listPrefixCls}-extra {
       flex-basis: 36%;
@@ -145,12 +166,15 @@
       line-height: @line-height-paragraph;
       text-align: right;
       .ellipsis();
+
       padding-top: 14px;
       padding-bottom: 14px;
     }
+
     .@{listPrefixCls}-title {
       .ellipsis();
     }
+
     /* 辅助性文字*/
     .@{listPrefixCls}-brief {
       color: @color-text-caption;
@@ -159,6 +183,7 @@
       margin-top: @v-spacing-sm;
       .ellipsis();
     }
+
     /* list右侧箭头*/
     .@{listPrefixCls}-arrow {
       display: block;
@@ -166,42 +191,52 @@
       height: @icon-size-xxs;
       margin-left: @h-spacing-md;
       .encoded-svg-background('right');
+
       background-size: contain;
       background-repeat: no-repeat;
       background-position: 50% 50%;
       visibility: hidden;
+
       &-horizontal {
         visibility: visible;
       }
+
       &-vertical {
         visibility: visible;
         .transform(rotate(90deg));
       }
+
       &-vertical-up {
         visibility: visible;
         .transform(rotate(270deg));
       }
     }
+
     &-multiple {
       padding: 25px @h-spacing-lg 25px 0;
+
       .@{listPrefixCls}-content {
         padding-top: 0;
         padding-bottom: 0;
       }
+
       .@{listPrefixCls}-extra {
         padding-top: 0;
         padding-bottom: 0;
       }
     }
+
     &-wrap {
       .@{listPrefixCls}-content {
         white-space: normal;
       }
+
       .@{listPrefixCls}-extra {
         white-space: normal;
       }
     }
   }
+
   select {
     position: relative;
     display: block;

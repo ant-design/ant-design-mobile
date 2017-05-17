@@ -5,17 +5,20 @@
 @subMenuPrefixCls: am-sub-menu;
 @flexPrefixCls: am-flexbox;
 @listPrefixCls: am-list;
-@firstMenuColor: #F7F7F7;
+@firstMenuColor: #f7f7f7;
 
 .@{menuPrefixCls} {
   background-color: @fill-body;
+
   .@{flexPrefixCls} {
     .@{flexPrefixCls}-item {
       margin-left: 0;
       -webkit-overflow-scrolling: touch;
+
       .@{listPrefixCls} {
         padding: 0;
       }
+
       .@{listPrefixCls} {
         .@{listPrefixCls}-item {
           .@{listPrefixCls}-line {
@@ -25,42 +28,53 @@
           }
         }
       }
+
       &:first-child {
         background-color: @firstMenuColor;
+
         .@{listPrefixCls} {
           .@{listPrefixCls}-body {
             background-color: @firstMenuColor;
             .hairline-remove-right-bottom();
           }
+
           .@{listPrefixCls}-item {
             background-color: @firstMenuColor;
+
             .@{listPrefixCls}-line {
               .hairline-remove-right-bottom();
+
               .@{listPrefixCls}-content {
                 color: @color-text-base;
               }
             }
+
             &:last-child {
               .hairline-remove-right-bottom();
             }
+
             &.@{menuPrefixCls}-selected {
               background-color: @fill-base;
             }
           }
         }
       }
+
       &:last-child {
         background-color: @fill-base;
+
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
             background-color: @fill-base;
             .hairline-remove-right-bottom();
+
             .@{listPrefixCls}-line {
               // .hairline-bottom(@border-color-base);
               .@{listPrefixCls}-extra {
                 flex: 0;
               }
             }
+
             &.@{subMenuPrefixCls}-item-selected {
               .@{listPrefixCls}-line {
                 .@{listPrefixCls}-content {
@@ -68,6 +82,7 @@
                 }
               }
             }
+
             &.@{subMenuPrefixCls}-item-disabled {
               .@{listPrefixCls}-line {
                 .@{listPrefixCls}-content {
@@ -78,11 +93,13 @@
           }
         }
       }
+
       &:only-child {
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
             &:last-child {
               .hairline-bottom(@border-color-base);
+
               .@{listPrefixCls}-line {
                 .hairline-remove-right-bottom();
               }

@@ -11,6 +11,7 @@
   vertical-align: middle;
   width: @icon-size-sm;
   height: @icon-size-sm;
+
   &-inner {
     position: absolute;
     right: 0;
@@ -20,6 +21,7 @@
     .border-radius(@radius-circle);
     .box-sizing();
     .transform(rotate(0deg));
+
     &:after {
       position: absolute;
       display: none;
@@ -34,6 +36,7 @@
       .transform(rotate(45deg));
     }
   }
+
   &-input {
     position: absolute;
     top: 0;
@@ -45,20 +48,25 @@
     border: 0 none;
     appearance: none;
   }
+
   &.@{checkboxWarpPrefixCls}-checked {
     .@{checkboxInnerPrefixCls} {
       border-color: @brand-primary;
+
       &:after {
         display: block;
         border-color: @brand-primary;
       }
     }
   }
+
   &.@{checkboxWarpPrefixCls}-disabled {
     opacity: @opacity-disabled;
+
     &.@{checkboxWarpPrefixCls}-checked {
       .@{checkboxInnerPrefixCls} {
         border-color: @color-text-caption;
+
         &:after {
           border-color: @color-text-caption;
         }
@@ -73,6 +81,7 @@
       .@{listPrefixCls}-thumb {
         width: @icon-size-sm;
         height: @icon-size-sm;
+
         .@{checkboxWarpPrefixCls} {
           position: absolute;
           top: 0;
@@ -81,12 +90,14 @@
           bottom: 0;
           width: 100%;
           height: @list-item-height;
+
           &-inner {
             left: @h-spacing-lg;
             top: 24px;
           }
         }
       }
+
       &.@{checkboxWarpPrefixCls}-item-disabled {
         .@{listPrefixCls}-content {
           color: @color-text-disabled;
@@ -103,17 +114,20 @@
   margin-left: @h-spacing-lg;
   padding-top: @v-spacing-md;
   padding-bottom: @v-spacing-md;
+
   .@{checkboxWarpPrefixCls} {
     position: absolute;
     left: 0;
     top: 0;
     width: 2 * @h-spacing-lg;
     height: 100%;
+
     &-inner {
       left: 0;
       top: @v-spacing-xs + @v-spacing-md;
     }
   }
+
   .@{checkboxWarpPrefixCls}-agree-label {
     display: inline-block;
     font-size: @font-size-subhead;
@@ -121,9 +135,11 @@
     line-height: @line-height-paragraph;
     margin-left: 2 * @h-spacing-lg;
     margin-top: 2px;
+
     a {
       color: @brand-primary;
       transition: color .3s ease;
+
       &:active,
       &:hover {
         color: @brand-primary-tap;

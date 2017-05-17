@@ -3,23 +3,29 @@
 
 @flexPrefixCls: am-flexbox;
 @gridPrefixCls: am-grid;
+
 /* flexbox */
 .@{gridPrefixCls} {
   .@{flexPrefixCls} {
     background: @fill-base;
+
     .@{flexPrefixCls}-item {
       margin-left: 0;
+
       &.@{gridPrefixCls}-item {
         position: relative;
+
         &:active {
           background-color: @fill-tap;
         }
       }
+
       &.@{gridPrefixCls}-item:before {
         display: block;
         content: ' ';
         padding-bottom: 100%;
       }
+
       .@{gridPrefixCls}-item-content {
         position: absolute;
         top: 50%;
@@ -40,17 +46,20 @@
             width: 28%;
             height: 28%;
           }
+
           .@{gridPrefixCls}-text {
             margin-top: @v-spacing-md;
             font-size: @font-size-caption-sm;
             color: @color-text-base;
             text-align: center;
           }
+
           &.column-num-3 {
             .@{gridPrefixCls}-text {
               font-size: @font-size-caption;
             }
           }
+
           &.column-num-2 {
             .@{gridPrefixCls}-text {
               margin-top: @v-spacing-lg;
@@ -61,27 +70,32 @@
       }
     }
   }
+
   &.@{gridPrefixCls}-line {
     .@{flexPrefixCls} {
       position: relative;
       .hairline-bottom(@border-color-base);
+
       &:last-child {
         .hairline-remove-right-bottom();
       }
+
       .@{flexPrefixCls}-item {
         position: relative;
         .hairline-right(@border-color-base);
+
         &:last-child {
           .hairline-remove-right-bottom();
         }
       }
     }
+
     .@{gridPrefixCls}-carousel-page {
       border-right: @border-width-sm solid @border-color-base;
+
       &:first-child {
         border-left: @border-width-sm solid @border-color-base;
       }
     }
   }
-
 }
