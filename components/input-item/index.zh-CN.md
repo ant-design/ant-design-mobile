@@ -21,7 +21,7 @@ subtitle: 文本输入
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| type    | 银行卡`bankCard`,手机号`phone`（此时最大长度固定为11,`maxLength`设置无效）,密码`password`, 数字`number`（尽量唤起数字键盘）  | String |  `text`  |
+| type    | 银行卡`bankCard`,手机号`phone`（此时最大长度固定为11,`maxLength`设置无效）,密码`password`, 数字`number`（尽量唤起数字键盘，纯web环境目前无法唤起`带小数点`的数字键盘，如有此需求，目前需使用默认键盘并通过onChange自行处理）  | String |  `text`  |
 | value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
