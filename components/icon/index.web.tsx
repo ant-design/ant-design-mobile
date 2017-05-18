@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 // http://stackoverflow.com/questions/29891458/webpack-require-every-file-in-directory
