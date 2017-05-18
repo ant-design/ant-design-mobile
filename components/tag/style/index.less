@@ -4,14 +4,15 @@
 @tagPrefixCls: am-tag;
 
 .@{tagPrefixCls} {
-  border-radius: @radius-sm;
   display: inline-block;
   position: relative;
   font-size: @font-size-base;
-  padding: 0 @h-spacing-lg;
   text-align: center;
+  padding: 0 @h-spacing-lg;
   height: @tag-height;
   line-height: @tag-height;
+  border-radius: @radius-sm;
+  box-sizing: border-box;
 
   &&-small {
     height: @tag-height-sm;
