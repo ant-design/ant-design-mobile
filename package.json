@@ -146,7 +146,6 @@
     "site": "concurrently \"bisheng build -c ./site/bisheng.desktop.config.js\" \"bisheng build -c ./site/bisheng.kitchen.config.js\" && node scripts/copy-app-res",
     "pc": "bisheng start -c ./site/bisheng.desktop.config.js",
     "mobile": "bisheng start -c ./site/bisheng.kitchen.config.js",
-    "just-deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
     "deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
     "pub": "antd-tools run pub",
     "rn-start": "node node_modules/react-native/local-cli/cli.js start",
