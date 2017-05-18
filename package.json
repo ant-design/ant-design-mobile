@@ -117,11 +117,11 @@
     "react-native-mock": "^0.3.1",
     "react-native-router-flux": "~3.37.0",
     "react-test-renderer": "^15.4.2",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0",
     "svg-sprite-loader": "^0.3.1",
     "typescript": "~2.2.2",
-    "typescript-babel-jest": "^1.0.1",
-    "stylelint": "^7.10.1",
-    "stylelint-config-standard": "^16.0.0"
+    "typescript-babel-jest": "^1.0.1"
   },
   "scripts": {
     "lint": "npm run tslint && npm run srclint && npm run demolint && npm run stylelint && npm run applint",
@@ -150,7 +150,7 @@
     "mobile": "bisheng start -c ./site/bisheng.kitchen.config.js",
     "deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
     "pub": "antd-tools run pub",
-    "rn-start": "node node_modules/react-native/local-cli/cli.js start",
+    "rn-start": "BABEL_ENV=rn node node_modules/react-native/local-cli/cli.js start",
     "ios": "concurrently \"npm run watch-tsc\" \"npm run _ios\"",
     "android": "concurrently \"npm run watch-tsc\" \"npm run _android\"",
     "_ios": "BABEL_ENV=rn node node_modules/react-native/local-cli/cli.js run-ios --project-path rn-kitchen-sink/ios",
