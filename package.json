@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.1.3",
+  "version": "1.1.4-beta.0",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -23,10 +23,12 @@
   },
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "es"
   ],
   "license": "MIT",
   "main": "lib/warn.js",
+  "module": "es/warn.js",
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "babel-runtime": "6.x",
@@ -69,7 +71,7 @@
     "antd": "2.x",
     "antd-demo-jest": "^1.2.0",
     "antd-mobile-demo-data": "^0.1.1",
-    "antd-tools": "^0.19.8",
+    "antd-tools": "^1.1.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^19.0.0",
     "babel-plugin-import": "^1.1.1",
@@ -151,10 +153,10 @@
     "rn-start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "concurrently \"npm run watch-tsc\" \"npm run _ios\"",
     "android": "concurrently \"npm run watch-tsc\" \"npm run _android\"",
-    "_ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path rn-kitchen-sink/ios",
-    "_android": "node node_modules/react-native/local-cli/cli.js run-android --root rn-kitchen-sink",
-    "build-rn-ios": "node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file rn-kitchen-sink/index.ios.js --bundle-output rn-kitchen-sink/ios/bundle/index.ios.bundle --assets-dest rn-kitchen-sink/ios/bundle",
-    "build-rn-android": "node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file rn-kitchen-sink/index.android.js --bundle-output rn-kitchen-sink/android/bundle/index.android.bundle --assets-dest rn-kitchen-sink/android/bundle",
+    "_ios": "BABEL_ENV=rn node node_modules/react-native/local-cli/cli.js run-ios --project-path rn-kitchen-sink/ios",
+    "_android": "BABEL_ENV=rn node node_modules/react-native/local-cli/cli.js run-android --root rn-kitchen-sink",
+    "build-rn-ios": "BABEL_ENV=rn node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file rn-kitchen-sink/index.ios.js --bundle-output rn-kitchen-sink/ios/bundle/index.ios.bundle --assets-dest rn-kitchen-sink/ios/bundle",
+    "build-rn-android": "BABEL_ENV=rn node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file rn-kitchen-sink/index.android.js --bundle-output rn-kitchen-sink/android/bundle/index.android.bundle --assets-dest rn-kitchen-sink/android/bundle",
     "build-rn": "antd-tools run tsc && npm run build-rn-ios && npm run build-rn-android",
     "lint-staged": "lint-staged",
     "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint -c node_modules/antd-tools/lib/tslint.json",
