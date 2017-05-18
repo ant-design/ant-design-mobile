@@ -14,13 +14,14 @@
   background-color: @search-bar-fill;
 
   &-input {
+    flex: 1;
     position: relative;
     width: 100%;
     height: @search-bar-input-height;
     overflow: hidden;
     background-color: @fill-base;
-    flex: 1;
-    .border-radius(@radius-sm);
+    background-clip: padding-box;
+    border-radius: @radius-sm;
 
     .@{searchPrefixCls}-synthetic-ph,
     input[type="search"] {
@@ -68,7 +69,6 @@
       font-size: @searchbar-font-size;
       background-color: transparent;
       border: 0;
-      .border-radius(@radius-sm);
 
       &::-webkit-input-placeholder {
         background: none;

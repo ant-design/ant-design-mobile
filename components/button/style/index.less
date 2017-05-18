@@ -14,7 +14,7 @@
   font-size: @button-font-size;
   height: @button-height;
   line-height: @button-height;
-  .border-radius(@radius-md);
+  border-radius: @radius-md;
 
   // default
   color: @color-text-base;
@@ -57,7 +57,7 @@
     height: @button-height-sm;
     line-height: @button-height-sm;
     padding: 0 @h-spacing-lg;
-    .border-radius(@radius-md);
+    border-radius: @radius-md;
   }
 
   &-warning {
@@ -70,8 +70,7 @@
   &-ghost,
   &-warning {
     &.@{buttonPrefixCls}-across {
-      .border-radius(0);
-
+      border-radius: 0;
       border-left: 0;
       border-right: 0;
     }
