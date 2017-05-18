@@ -34,7 +34,8 @@ export default class Switch extends React.Component<SwitchProps, any> {
 
   render() {
     let { prefixCls, style, name, checked, disabled, className, platform } = this.props;
-    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
+    const isAndroid = platform === 'android' ||
+      (platform === 'cross' && typeof navigator !== 'undefined' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,
