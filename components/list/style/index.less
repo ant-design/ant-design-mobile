@@ -49,7 +49,7 @@
   vertical-align: middle;
   overflow: hidden;
   transition: background-color 200ms;
-  .box-align;
+  align-items: center;
 
   .@{listPrefixCls}-ripple {
     position: absolute;
@@ -71,7 +71,7 @@
 
   &.@{listPrefixCls}-item-top {
     .@{listPrefixCls}-line {
-      .box-align(flex-start);
+      align-items: flex-start;
 
       .@{listPrefixCls}-arrow {
         margin-top: 4px;
@@ -81,13 +81,13 @@
 
   &.@{listPrefixCls}-item-middle {
     .@{listPrefixCls}-line {
-      .box-align(center);
+      align-items: center;
     }
   }
 
   &.@{listPrefixCls}-item-bottom {
     .@{listPrefixCls}-line {
-      .box-align(flex-end);
+      align-items: flex-end;
     }
   }
 
@@ -202,12 +202,12 @@
 
       &-vertical {
         visibility: visible;
-        .transform(rotate(90deg));
+        transform: rotate(90deg);
       }
 
       &-vertical-up {
         visibility: visible;
-        .transform(rotate(270deg));
+        transform: rotate(270deg);
       }
     }
 

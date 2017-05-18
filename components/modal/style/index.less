@@ -21,11 +21,11 @@
 
   &-button-group-h {
     border-top: @border-width-sm solid @border-color-base;
-    .display-box();
+    display: flex;
 
     .@{modalPrefixClass}-button {
       -webkit-touch-callout: none;
-      .box-flex();
+      flex: 1;
       .button-common();
 
       &:first-child {

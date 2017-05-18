@@ -38,12 +38,12 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        .transform(rotate(90deg));
+        transform: rotate(90deg);
       }
 
       &[aria-expanded~="true"] {
         i {
-          .transform(rotate(270deg));
+          transform: rotate(270deg);
         }
       }
     }

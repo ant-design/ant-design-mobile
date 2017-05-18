@@ -4,7 +4,7 @@
 @segment-prefix-cls: am-segment;
 
 .@{segment-prefix-cls} {
-  .display-box;
+  display: flex;
 
   background-color: @fill-base;
   border-radius: @radius-md;
@@ -17,7 +17,7 @@
   }
 
   &-item {
-    .box-flex(1);
+    flex: 1;
 
     display: flex;
     justify-content: center;

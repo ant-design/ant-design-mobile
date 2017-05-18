@@ -9,8 +9,7 @@
   min-height: 1.92rem;
   position: relative;
   padding-bottom: @v-spacing-sm;
-  .display-box();
-
+  display: flex;
   flex-direction: column;
   background-color: @fill-base;
 
@@ -21,8 +20,7 @@
   }
 
   &-header {
-    .display-box();
-
+    display: flex;
     align-items: center;
     font-size: @font-size-heading;
     padding: @v-spacing-md @h-spacing-lg;
@@ -61,7 +59,7 @@
     font-size: @font-size-base;
     color: @color-text-caption;
     padding: 0 @h-spacing-lg;
-    .display-box();
+    display: flex;
 
     &-content {
       flex: 1;

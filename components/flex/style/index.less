@@ -7,103 +7,103 @@
   text-align: left;
   overflow-y: hidden;
   display: flex;
-  .box-align;
+  align-items: center;
 
   &&-dir-row {
-    .flex-direction(row);
+    flex-direction: row;
   }
 
   &&-dir-row-reverse {
-    .flex-direction(row-reverse);
+    flex-direction: row-reverse;
   }
 
   &&-dir-column {
-    .flex-direction(column);
+    flex-direction: column;
   }
 
   &&-dir-column-reverse {
-    .flex-direction(column-reverse);
+    flex-direction: column-reverse;
   }
 
   &&-nowrap {
-    .flex-wrap(nowrap);
+    flex-wrap: nowrap;
   }
 
   &&-wrap {
-    .flex-wrap(wrap);
+    flex-wrap: wrap;
   }
 
   &&-wrap-reverse {
-    .flex-wrap(wrap-reverse);
+    flex-wrap: wrap-reverse;
   }
 
   &&-justify-start {
-    .flex-justify(flex-start);
+    justify-content: flex-start;
   }
 
   &&-justify-end {
-    .flex-justify(flex-end);
+    justify-content: flex-end;
   }
 
   &&-justify-center {
-    .flex-justify(center);
+    justify-content: center;
   }
 
   &&-justify-between {
-    .flex-justify(space-between);
+    justify-content: space-between;
   }
 
   &&-justify-around {
-    .flex-justify(space-around);
+    justify-content: space-around;
   }
 
   &&-align-top {
-    .box-align(flex-start);
+    align-items: flex-start;
   }
 
   &&-align-bottom {
-    .box-align(flex-end);
+    align-items: flex-end;
   }
 
   &&-align-middle {
-    .box-align(center);
+    align-items: center;
   }
 
   &&-align-stretch {
-    .box-align(stretch);
+    align-items: stretch;
   }
 
   &&-align-baseline {
-    .box-align(baseline);
+    align-items: baseline;
   }
 
   &&-align-content-start {
-    .box-align-content(flex-start);
+    align-content: flex-start;
   }
 
   &&-align-content-end {
-    .box-align(flex-end);
+    align-items: flex-end;
   }
 
   &&-align-content-center {
-    .box-align(center);
+    align-items: center;
   }
 
   &&-align-content-between {
-    .box-align(stretch);
+    align-items: stretch;
   }
 
   &&-align-content-around {
-    .box-align(baseline);
+    align-items: baseline;
   }
 
   &&-align-content-stretch {
-    .box-align(baseline);
+    align-items: baseline;
   }
 
   & &-item {
     box-sizing: border-box;
-    .box-flex(1);
+    flex: 1;
 
     margin-left: @h-spacing-md;
     min-width: 20px;

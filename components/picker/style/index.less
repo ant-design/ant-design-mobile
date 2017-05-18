@@ -43,8 +43,8 @@
     background-position: bottom;
     background-size: 100% 1px;
     background-repeat: no-repeat;
-    .display-box;
-    .box-align;
+    display: flex;
+    align-items: center;
     // border-bottom: @border-width-sm solid @border-color-base;
     position: relative;
     .hairline-bottom(@border-color-base);
@@ -67,7 +67,7 @@
   }
 
   &-title {
-    .box-flex(1);
+    flex: 1;
 
     text-align: center;
     color: @color-text-base;

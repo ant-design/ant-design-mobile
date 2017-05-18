@@ -9,7 +9,7 @@
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
-  .align-self(center);
+  align-self: center;
 
   .checkbox {
     width: 102px;
@@ -38,7 +38,7 @@
       background: @fill-base;
       z-index: 1;
       transition: all 200ms;
-      .transform(scale(1));
+      transform: scale(1);
     }
 
     &:after {
@@ -51,7 +51,7 @@
       z-index: 2;
       left: 3px;
       top: 3px;
-      .transform(translateX(0px));
+      transform: translateX(0px);
 
       transition: all 200ms;
       box-shadow: 4px 4px 8px @color-shadow;
@@ -78,11 +78,11 @@
         background: @switch-fill;
 
         &:before {
-          .transform(scale(0));
+          transform: scale(0);
         }
 
         &:after {
-          .transform(translateX(40px));
+          transform: translateX(40px);
         }
       }
     }
@@ -119,11 +119,11 @@
           background: @switch-fill-android;
 
           &:before {
-            .transform(scale(0));
+            transform: scale(0);
           }
 
           &:after {
-            .transform(translateX(67px));
+            transform: translateX(67px);
           }
         }
       }
