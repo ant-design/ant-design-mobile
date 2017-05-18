@@ -1,20 +1,6 @@
 {
   "env": {
-    "rn": {
-      "presets": [
-        "react-native"
-      ],
-      "plugins": [
-        [
-          "import",
-          {
-            "libraryName": "antd-mobile",
-            "libraryDirectory": "components"
-          }
-        ]
-      ]
-    },
-    "test": {
+    "development": {
       "presets": [
         "react-native"
       ],
