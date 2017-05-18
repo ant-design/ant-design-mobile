@@ -13,6 +13,34 @@
           }
         ]
       ]
+    },
+    "production": {
+      "presets": [
+        "react-native"
+      ],
+      "plugins": [
+        [
+          "import",
+          {
+            "libraryName": "antd-mobile",
+            "libraryDirectory": "components"
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        "react-native"
+      ],
+      "plugins": [
+        [
+          "import",
+          {
+            "libraryName": "antd-mobile",
+            "libraryDirectory": "components"
+          }
+        ]
+      ]
     }
   }
 }
