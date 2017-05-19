@@ -143,13 +143,17 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (!('value' in this.props)) {
       this.setState({ value: '' });
     }
-    (this.refs as any).searchInput.focus();
     if (this.props.onClear) {
       this.props.onClear('');
     }
     if (this.props.onChange) {
       this.props.onChange('');
     }
+    // 加上setTimeout 为了解决Android的兼容性问题。
+    // https://github.com/ant-design/ant-design-mobile/issues/1341
+    setTimeout(() => {
+      (this.refs as any).searchInput.focus();
+    }, 0);
   }
 
   onCancel = () => {
