@@ -3,12 +3,6 @@ import Swipeout from 'rc-swipeout';
 import classNames from 'classnames';
 import SwipeActionProps from './PropsType';
 
-export interface ButtonProps {
-  text?: string;
-  onPress?: () => void;
-  style?: {};
-}
-
 class SwipeAction extends React.Component<SwipeActionProps, any> {
   static defaultProps = {
     prefixCls: 'am-swipe',
