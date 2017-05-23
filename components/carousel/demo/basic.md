@@ -21,7 +21,7 @@ class App extends React.Component {
     // simulate img loading
     setTimeout(() => {
       this.setState({
-        data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'AiyWuByWklrrUDlFignR'],
+        data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
       });
     }, 100);
   }
@@ -41,7 +41,7 @@ class App extends React.Component {
           {this.state.data.map(ii => (
             <a href="http://www.baidu.com" key={ii} style={hProp}>
               <img
-                src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`}
+                src={`https://zos.alipayobjects.com/rmsportal/${ii || 'QcWDkUhvYIVEcvtosxMF'}.png`}
                 alt="icon"
                 onLoad={() => {
                   // fire window resize event to change height
