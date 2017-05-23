@@ -25,4 +25,4 @@ subtitle: 走马灯
 | bounces (`rn only`) | 见 react-native scrollView bounces       |   Boolean      | true |
 | pagination (`rn only`) | 自定义 pagination     |   (props) => React.ReactNode      |  |
 
-更多参数可参考：https://github.com/FormidableLabs/nuka-carousel (`web only`)
+更多参数可参考: https://github.com/react-component/nuka-carousel (`web only`)

@@ -36,7 +36,6 @@
     "create-react-class": "^15.5.2",
     "moment": "~2.18.1",
     "normalize.css": "^7.0.0",
-    "nuka-carousel": "~2.0.4",
     "object-assign": "~4.1.0",
     "omit.js": "~0.1.0",
     "prop-types": "^15.5.8",
@@ -61,6 +60,7 @@
     "rmc-cascader": "^4.1.1",
     "rmc-date-picker": "^5.3.1",
     "rmc-list-view": "^0.7.4",
+    "rmc-nuka-carousel": "^2.2.0",
     "rmc-picker": "^3.8.0",
     "rn-topview": "~0.1.0"
   },
