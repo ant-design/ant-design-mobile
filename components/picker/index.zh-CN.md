@@ -23,6 +23,7 @@ subtitle: 选择器
 | cols    | 列数        | Number |  `3`  |
 | onChange | 选中后的回调，可使用[rc-form](https://github.com/react-component/form) | (val): void | - |
 | onPickerChange | 每列数据选择变化后的回调函数   | (val): void | - |
+| itemStyle | 每列样式  |   Object   | -  |
 | children| 通常是 `List.Item` | Object |  `List.Item`  |
 | okText  | 选中的文案 | String |  `确定`  |
 | dismissText  | 取消选中的文案 | String |  `取消`  |

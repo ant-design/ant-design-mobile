@@ -38,7 +38,7 @@ component name separate with `-`, such as `date-picker`，and file Extensions sh
 - `components/button/index.web.tsx`
 
 ```js
-import * as React from 'react';
+import React from 'react';
 
 class Button extends React.Component {
   static propTypes = {};
@@ -78,7 +78,7 @@ general we do not distinguish Android and Ios, so no suffix.
 - `components/button/index.tsx`
 
 ```jsx
-import * as React from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
 // just a example, may extract style to components/button/style/index.tsx

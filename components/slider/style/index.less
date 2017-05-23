@@ -10,7 +10,7 @@
 
 .@{sliderPrefixCls} {
   position: relative;
-  margin: 32px 0px;
+  margin: 32px 0;
 
   &-rail {
     position: absolute;
@@ -46,7 +46,6 @@
 
     &:focus {
       background-color: tint(@brand-primary, 20%);
-      background: #000;
     }
 
     &:active {
@@ -94,12 +93,15 @@
     cursor: pointer;
     border-radius: @radius-circle;
     vertical-align: middle;
+
     &:first-child {
       margin-left: -8px;
     }
+
     &:last-child {
       margin-left: -8px;
     }
+
     &-active {
       border-color: @brand-primary;
     }
@@ -107,6 +109,7 @@
 
   &-disabled {
     opacity: @opacity-disabled;
+
     .@{sliderPrefixCls}-track {
       height: 4px;
     }

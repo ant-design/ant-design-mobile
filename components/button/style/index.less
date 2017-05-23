@@ -7,13 +7,13 @@
   display: block;
   outline: 0 none;
   -webkit-appearance: none;
-  .box-sizing();
+  box-sizing: border-box;
   padding: 0;
   text-align: center;
   font-size: @button-font-size;
   height: @button-height;
   line-height: @button-height;
-  .border-radius(@radius-md);
+  border-radius: @radius-md;
 
   // default
   color: @color-text-base;
@@ -55,8 +55,8 @@
     font-size: @button-font-size-sm;
     height: @button-height-sm;
     line-height: @button-height-sm;
-    .border-radius(@radius-md);
     padding: 0 @h-spacing-lg;
+    border-radius: @radius-md;
   }
 
   &-warning {
@@ -69,10 +69,11 @@
   &-ghost,
   &-warning {
     &.@{buttonPrefixCls}-across {
-      .border-radius(0);
+      border-radius: 0;
       border-left: 0;
       border-right: 0;
     }
+
     &.@{buttonPrefixCls}-disabled {
       color: @color-text-disabled;
       background-color: @fill-disabled;

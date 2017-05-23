@@ -3,8 +3,8 @@ interface SwipeActionProps {
   autoClose?: boolean;
   disabled?: boolean;
   title?: string;
-  left?: Array<{}>;
-  right?: Array<{}>;
+  left?: Array<{text: string; onPress?: () => void; style?: any; className?: string}>;
+  right?: Array<{text: string; onPress?: () => void; style?: any; className?: string}>;
   onOpen?: () => void;
   style?: {};
   /** web only */

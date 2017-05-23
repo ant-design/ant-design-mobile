@@ -12,7 +12,7 @@
 
   &&-mask {
     height: 100%;
-    .display-box();
+    display: flex;
     justify-content: center;
     align-items: center;
     left: 0;
@@ -29,6 +29,7 @@
     position: relative;
     right: 50%;
     display: block;
+
     .@{toastPrefixCls}-text {
       min-width: 1.2rem;
       border-radius: @radius-sm;
@@ -36,9 +37,11 @@
       background-color: @fill-overlay-inverse;
       line-height: @line-height-paragraph;
       padding: @v-spacing-md @h-spacing-lg;
+
       &.@{toastPrefixCls}-text-icon {
-        border-radius: @radius-lg;
+        border-radius: @radius-md;
         padding: @v-spacing-lg @h-spacing-lg;
+
         .@{toastPrefixCls}-text-info {
           margin-top: @v-spacing-sm;
         }

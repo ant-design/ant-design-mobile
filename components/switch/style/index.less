@@ -9,7 +9,8 @@
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
-  .align-self(center);
+  align-self: center;
+
   .checkbox {
     width: 102px;
     height: 62px;
@@ -24,6 +25,7 @@
     cursor: pointer;
     position: relative;
     transition: all 300ms;
+
     &:before {
       content: ' ';
       position: absolute;
@@ -36,8 +38,9 @@
       background: @fill-base;
       z-index: 1;
       transition: all 200ms;
-      .transform(scale(1));
+      transform: scale(1);
     }
+
     &:after {
       content: ' ';
       height: 56px;
@@ -48,14 +51,16 @@
       z-index: 2;
       left: 3px;
       top: 3px;
-      .transform(translateX(0px));
+      transform: translateX(0);
       transition: all 200ms;
       box-shadow: 4px 4px 8px @color-shadow;
     }
+
     &.checkbox-disabled {
       z-index: 3;
     }
   }
+
   input[type="checkbox"] {
     position: absolute;
     top: 0;
@@ -66,32 +71,39 @@
     z-index: 2;
     border: 0 none;
     appearance: none;
+
     &:checked {
-      &+ .checkbox {
+      & + .checkbox {
         background: @switch-fill;
+
         &:before {
-          .transform(scale(0));
+          transform: scale(0);
         }
+
         &:after {
-          .transform(translateX(40px));
+          transform: translateX(40px);
         }
       }
     }
+
     &:disabled {
-      &+ .checkbox {
+      & + .checkbox {
         opacity: @opacity-disabled;
       }
     }
   }
+
   &&-android {
     .checkbox {
       width: 140px;
       height: 44px;
       border-radius: @radius-sm;
-      background: #A7AAA6;
+      background: #a7aaa6;
+
       &:before {
         display: none;
       }
+
       &:after {
         width: 67px;
         height: 38px;
@@ -99,15 +111,18 @@
         box-shadow: none;
       }
     }
+
     input[type="checkbox"] {
       &:checked {
-        &+ .checkbox {
+        & + .checkbox {
           background: @switch-fill-android;
+
           &:before {
-            .transform(scale(0));
+            transform: scale(0);
           }
+
           &:after {
-            .transform(translateX(67px));
+            transform: translateX(67px);
           }
         }
       }

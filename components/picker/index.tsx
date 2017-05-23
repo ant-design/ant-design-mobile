@@ -50,7 +50,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
 
   render() {
     const { props } = this;
-    const { children, value, extra, okText, dismissText, popupPrefixCls, cascade } = props;
+    const { children, value, extra, okText, itemStyle, dismissText, popupPrefixCls, cascade } = props;
     let cascader;
     let popupMoreProps = {};
     if (cascade) {
@@ -61,6 +61,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
           data={props.data}
           cols={props.cols}
           onChange={props.onPickerChange}
+          pickerItemStyle={itemStyle}
         />
       );
     } else {
@@ -68,6 +69,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
         <MultiPicker
           prefixCls={props.prefixCls}
           pickerPrefixCls={props.pickerPrefixCls}
+          pickerItemStyle={itemStyle}
         >
           {props.data.map(d => { return { props: { children: d } }; })}
         </MultiPicker>

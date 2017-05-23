@@ -1,4 +1,46 @@
 {
-  "presets": ["react-native"],
-  "plugins": [["import", { "libraryName": "antd-mobile", "libraryDirectory": "components" }]]
+  "env": {
+    "development": {
+      "presets": [
+        "react-native"
+      ],
+      "plugins": [
+        [
+          "import",
+          {
+            "libraryName": "antd-mobile",
+            "libraryDirectory": "components"
+          }
+        ]
+      ]
+    },
+    "production": {
+      "presets": [
+        "react-native"
+      ],
+      "plugins": [
+        [
+          "import",
+          {
+            "libraryName": "antd-mobile",
+            "libraryDirectory": "components"
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        "react-native"
+      ],
+      "plugins": [
+        [
+          "import",
+          {
+            "libraryName": "antd-mobile",
+            "libraryDirectory": "components"
+          }
+        ]
+      ]
+    }
+  }
 }

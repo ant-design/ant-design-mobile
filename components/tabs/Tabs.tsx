@@ -111,7 +111,7 @@ class Tabs extends React.Component<TabsProps, any> {
         scrollWithoutAnimation={!animated}
         initialPage={defaultActiveIndex}
         page={activeIndex}
-        locked={swipeable}
+        locked={!swipeable}
         renderTabBar={this.renderTabBar}
         onChangeTab={this.onTabClick}
       >

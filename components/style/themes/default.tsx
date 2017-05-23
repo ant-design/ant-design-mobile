@@ -169,8 +169,8 @@ export default {
   switch_fill: '#4dd865',
 
   // tag
-  tag_height: 24,
-  tag_small_height: 14,
+  tag_height: 25,
+  tag_small_height: 15,
 
   // table
   table_title_height: 30,

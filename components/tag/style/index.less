@@ -4,14 +4,16 @@
 @tagPrefixCls: am-tag;
 
 .@{tagPrefixCls} {
-  border-radius: @radius-sm;
   display: inline-block;
   position: relative;
   font-size: @font-size-base;
-  padding: 0 @h-spacing-lg;
   text-align: center;
+  padding: 0 @h-spacing-lg;
   height: @tag-height;
   line-height: @tag-height;
+  border-radius: @radius-sm;
+  box-sizing: border-box;
+
   &&-small {
     height: @tag-height-sm;
     line-height: @tag-height-sm;
@@ -36,14 +38,17 @@
     background-color: @fill-disabled;
     border: @border-width-sm solid @fill-disabled;
   }
+
   &-close {
     position: absolute;
     top: -18px;
     left: -20px;
     color: @color-text-placeholder;
+
     &:active {
       color: @color-text-caption;
     }
+
     .am-icon {
       background-color: @fill-base;
       border-radius: 18px;

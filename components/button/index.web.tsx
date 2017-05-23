@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
-import tsProps from './PropsType';
+import { ButtonWebProps } from './PropsType';
 import Touchable from 'rc-touchable';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -25,7 +25,7 @@ function insertSpace(child) {
   return child;
 }
 
-class Button extends React.Component<tsProps, any> {
+class Button extends React.Component<ButtonWebProps, any> {
   static defaultProps = {
     prefixCls: 'am-button',
     size: 'large',

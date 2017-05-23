@@ -10,6 +10,7 @@
     height: 100%;
     z-index: @modal-zindex;
     background-color: @fill-mask;
+
     &-hidden {
       display: none;
     }
@@ -26,7 +27,7 @@
     z-index: @modal-zindex;
     -webkit-overflow-scrolling: touch;
     outline: 0;
-    .display-box();
+    display: flex;
     align-items: center;
     justify-content: center;
   }
@@ -36,6 +37,7 @@
       border-radius: @radius-lg;
       height: auto;
       padding-top: @v-spacing-lg;
+
       .@{modalPrefixClass}-body {
         padding: 0 @h-spacing-lg @v-spacing-lg;
       }
@@ -74,6 +76,7 @@
     z-index: 999;
     height: @icon-size-sm;
     width: @icon-size-sm;
+
     &-x {
       display: inline-block;
       width: 30px;
@@ -96,9 +99,11 @@
       border-radius: @radius-lg;
       height: auto;
       padding-top: 0;
+
       .@{modalPrefixClass}-body {
         padding: 0;
       }
+
       .@{modalPrefixClass}-button {
         color: @color-text-base;
         text-align: start;

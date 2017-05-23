@@ -11,6 +11,7 @@ interface Props extends IPopupPickerProps {
   extra?: string;
   children?: any;
   onChange?: (date?: CascaderValue) => void;
+  itemStyle?: any;
   /** web only */
   pickerPrefixCls?: string;
   popupPrefixCls?: string;

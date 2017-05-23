@@ -59,9 +59,6 @@ class App extends React.Component {
       });
     }, 1000);
   };
-  onScroll = () => {
-    console.log('sss');
-  };
   render() {
     const separator = (sectionID, rowID) => (
       <div
@@ -108,7 +105,6 @@ class App extends React.Component {
         pageSize={5}
         scrollRenderAheadDistance={200}
         scrollEventThrottle={20}
-        onScroll={this.onScroll}
         style={{
           height: document.documentElement.clientHeight,
           border: '1px solid #ddd',
