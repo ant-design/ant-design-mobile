@@ -17,7 +17,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
 
   render() {
     const {
-      className, prefixCls, left = [], right = [], autoClose, disabled, onOpen, onClose, children,
+      className, style, prefixCls, left = [], right = [], autoClose, disabled, onOpen, onClose, children,
     } = this.props;
     const wrapClass = classNames({
       [`${prefixCls}`]: 1,
@@ -25,7 +25,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     });
 
     return (left.length || right.length) ? (
-      <div className={wrapClass}>
+      <div style={style} className={className}>
         <Swipeout
           prefixCls={prefixCls}
           left={left}
@@ -39,7 +39,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
         </Swipeout>
       </div>
     ) : (
-      <div className={wrapClass}>{children}</div>
+      <div style={style} className={wrapClass}>{children}</div>
     );
   }
 }

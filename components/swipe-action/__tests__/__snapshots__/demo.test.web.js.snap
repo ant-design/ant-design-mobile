@@ -8,7 +8,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
     class="am-list-body"
   >
     <div
-      class="am-swipe"
+      style="background-color:gray;"
     >
       <div
         class="am-swipe"
@@ -101,7 +101,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="am-swipe"
+      style="background-color:gray;"
     >
       <div
         class="am-swipe"
