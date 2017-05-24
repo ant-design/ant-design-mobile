@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
 
-export default function (...args) {
+export default function a(...args) {
   const title = args[0];
   const content = args[1];
   const actions = args[2] || [{ text: '确定' }];

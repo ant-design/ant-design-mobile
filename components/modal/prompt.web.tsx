@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
 
-export default function (...args) {
+export default function a(...args) {
   if (!args || !args[2]) {
     // console.log('Must specify callbackOrActions');
     return;
