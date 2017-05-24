@@ -21,7 +21,7 @@ class App extends React.Component {
     // simulate img loading
     setTimeout(() => {
       this.setState({
-        data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'AiyWuByWklrrUDlFignR'],
+        data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
       });
     }, 100);
   }
@@ -35,13 +35,14 @@ class App extends React.Component {
           autoplay={false}
           infinite
           selectedIndex={1}
+          swipeSpeed={35}
           beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
           afterChange={index => console.log('slide to', index)}
         >
           {this.state.data.map(ii => (
             <a href="http://www.baidu.com" key={ii} style={hProp}>
               <img
-                src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`}
+                src={`https://zos.alipayobjects.com/rmsportal/${ii || 'QcWDkUhvYIVEcvtosxMF'}.png`}
                 alt="icon"
                 onLoad={() => {
                   // fire window resize event to change height
@@ -58,16 +59,34 @@ class App extends React.Component {
         <WhiteSpace />
         <div className="sub-title">vertical</div>
         <Carousel className="my-carousel"
+          vertical
           dots={false}
           dragging={false}
           swiping={false}
           autoplay
           infinite
-          vertical
         >
           <div className="v-item">Carousel 1</div>
           <div className="v-item">Carousel 2</div>
           <div className="v-item">Carousel 3</div>
+        </Carousel>
+
+        <WhiteSpace />
+        <div className="sub-title">lottery</div>
+        <Carousel className="my-carousel"
+          vertical
+          dots={false}
+          dragging={false}
+          swiping={false}
+          autoplay
+          infinite
+          speed={200}
+          autoplayInterval={300}
+          resetAutoplay={false}
+        >
+          {['ring', 'ruby', 'iPhone', 'iPod', 'sorry', 'tourism', 'coke', 'ticket', 'note'].map(it => (
+            <div className="v-item">{it}</div>
+          ))}
         </Carousel>
       </WingBlank>
     );

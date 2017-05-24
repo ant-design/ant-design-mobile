@@ -50,6 +50,8 @@ $ npm install babel-plugin-import --save-dev
 
 > 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56) 及 [官方示例集](https://github.com/ant-design/antd-mobile-samples)
 
+> How antd mobile deal with web and react native code? see [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)
+
 #### Web 使用方式
 
 > 以下使用 webpack@1.x 版本，如果是 webpack@2.x 请自己修改相应配置语法

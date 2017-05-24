@@ -23,4 +23,4 @@ Properties | Descrition | Type | Default
 | bounces (`rn only`) | as same as react-native scrollView `bounces`       |   Boolean      | true |
 | pagination (`rn only`) | A generator function which could be used to customized pagination. | (props) => React.ReactNode  | |
 
-More parameters can be found in: https://github.com/FormidableLabs/nuka-carousel (`web only`)
+More parameters can be found in: https://github.com/react-component/nuka-carousel (`web only`)

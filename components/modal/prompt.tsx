@@ -2,7 +2,7 @@ import React from 'react';
 import topView from 'rn-topview';
 import PromptContainer from './PromptContainer';
 
-export default function (...args) {
+export default function a(...args) {
   if (!args || !args[2]) {
     console.error('Must specify callbackOrActions');
     return;

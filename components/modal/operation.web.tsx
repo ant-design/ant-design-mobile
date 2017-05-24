@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
 
-export default function (...args) {
+export default function a(...args) {
   const actions = args[0] || [{ text: '确定' }];
 
   const prefixCls = 'am-modal';

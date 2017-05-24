@@ -39,6 +39,8 @@ class App extends React.Component {
         mode="light"
         rightContent={
           <Popover mask
+            overlayClassName="fortest"
+            overlayStyle={{ color: 'currentColor' }}
             visible={this.state.visible}
             overlay={[
               (<Item key="4" value="scan" icon={<Icon type={require('./scan.svg')} size="xs" />} data-seed="logId">扫一扫</Item>),
@@ -47,7 +49,7 @@ class App extends React.Component {
                 <span style={{ marginRight: 5 }}>帮助</span>
               </Item>),
             ]}
-            popupAlign={{
+            align={{
               overflow: { adjustY: 0, adjustX: 0 },
               offset: [offsetX, 15],
             }}

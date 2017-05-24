@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.1.4-beta.1",
+  "version": "1.1.4-beta.2",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -36,7 +36,6 @@
     "create-react-class": "^15.5.2",
     "moment": "~2.18.1",
     "normalize.css": "^7.0.0",
-    "nuka-carousel": "~2.0.4",
     "object-assign": "~4.1.0",
     "omit.js": "~0.1.0",
     "prop-types": "^15.5.8",
@@ -60,7 +59,8 @@
     "react-native-scrollable-tab-view": "^0.7.2",
     "rmc-cascader": "^4.1.1",
     "rmc-date-picker": "^5.3.1",
-    "rmc-list-view": "^0.7.4",
+    "rmc-list-view": "^0.8.0",
+    "rmc-nuka-carousel": "^2.2.0",
     "rmc-picker": "^3.8.0",
     "rn-topview": "~0.1.0"
   },
@@ -159,7 +159,7 @@
     "build-rn-android": "node scripts/rn-mkdir && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file rn-kitchen-sink/index.android.js --bundle-output rn-kitchen-sink/android/bundle/index.android.bundle --assets-dest rn-kitchen-sink/android/bundle",
     "build-rn": "antd-tools run tsc && npm run build-rn-ios && npm run build-rn-android",
     "lint-staged": "lint-staged",
-    "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint -c node_modules/antd-tools/lib/tslint.json",
+    "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint -c node_modules/antd-tools/lib/tslint.json components/**/*.tsx",
     "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'"
   },

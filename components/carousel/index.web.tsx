@@ -1,7 +1,7 @@
 import React from 'react';
 import createReactClass from 'create-react-class';
 import classNames from 'classnames';
-import ReactCarousel from 'nuka-carousel';
+import ReactCarousel from 'rmc-nuka-carousel';
 import assign from 'object-assign';
 import CarouselProps from './PropsType';
 
