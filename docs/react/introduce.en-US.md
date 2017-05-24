@@ -49,6 +49,7 @@ $ npm install babel-plugin-import --save-dev
 ## Usage
 
 > If you encounter an error, please refer [#56](https://github.com/ant-design/ant-design-mobile/issues/56) and [Samples](https://github.com/ant-design/antd-mobile-samples) first.
+> How antd mobile deal with web and react native code? see [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)
 
 #### Web usage
 
