@@ -8,13 +8,12 @@ export default class ActivityIndicator extends React.Component<ActivityIndicator
     prefixCls: 'am-activity-indicator',
     animating: true,
     size: 'small',
-    color: 'gray',
     panelColor: 'rgba(34,34,34,0.6)',
     toast: false,
   };
 
   render() {
-    const { prefixCls, className, animating, toast, size, color, text } = this.props;
+    const { prefixCls, className, animating, toast, size, text } = this.props;
     const wrapClass = classNames({
       [`${prefixCls}`]: true,
       [`${prefixCls}-lg`]: size === 'large',
@@ -25,7 +24,6 @@ export default class ActivityIndicator extends React.Component<ActivityIndicator
     const spinnerClass = classNames({
       [`${prefixCls}-spinner`]: true,
       [`${prefixCls}-spinner-lg`]: !!toast || size === 'large',
-      [`${prefixCls}-spinner-white`]: !!toast || color === 'white',
     });
     if (animating) {
       if (toast) {

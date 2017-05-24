@@ -33,7 +33,7 @@ subtitle: 活动指示器
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 |  animating  | 显隐状态 | boolean  | true  |
-|  color  | spinner颜色，可选`gray`/`white` | string  | gray  |
 |  size  | spinner大小，可选`small`/`large` | string  | small  |
 |  toast  | loading样式类型 | boolean  | false  |
 |  text  | loading文本 | string |  -   |
+|  color (`RN only`)  | spinner颜色 | string  | gray  |
