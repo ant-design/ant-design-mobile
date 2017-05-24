@@ -19,11 +19,10 @@ Properties | Descrition | Type | Default
 | visible (`web only`)   | visible state  | Boolean |  false   |
 | onVisibleChange (`web only`)   | visible state change callback    | (visible: bool): void |  -   |
 | placement (`web only`)   | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'} | String |  'bottomRight'   |
-| popupAlign (`web only`)   | set offset, ref [dom-align](https://github.com/yiminghe/dom-align)'s `alignConfig`  | Object |  `{ overflow: { adjustY: 0, adjustX: 0 } }` (Disable position automatic adaptation) |
 | mask (`web only`)   | Whether to display the mask background layer  | Boolean |  false  |
 | overlay   | Popup layer content  | React.node |  -   |
 | onSelect   | when an option is selected    | (node: any, index?: number): void |  -   |
-| style  | set style  | Object |  -   |
+| style (`rn only`)  | set style  | Object |  -   |
 | triggerStyle (`rn only`)   | trigger style  | Object |  -   |
 | overlayStyle (`rn only`)   | overlay style  | Object |  -   |
 | contextStyle (`rn only`)   | context style  | Object |  -   |
@@ -31,7 +30,7 @@ Properties | Descrition | Type | Default
 | name (`rn only`)   | menu name, used for manual control   | String |  -   |
 | openMenu / closeMenu / toggleMenu(`rn only`)   | Set the menu's open/close status, the parameter is menu name.  | Function(name) |  -   |
 
-more available API can be found at [rc-tooltip](https://github.com/react-component/tooltip#api)
+more available API can be found at [rc-tooltip](https://github.com/react-component/tooltip#api) (`web only`)
 
 ### Popover.Item
 
