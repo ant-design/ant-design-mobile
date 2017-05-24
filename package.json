@@ -59,7 +59,7 @@
     "react-native-scrollable-tab-view": "^0.7.2",
     "rmc-cascader": "^4.1.1",
     "rmc-date-picker": "^5.3.1",
-    "rmc-list-view": "^0.7.4",
+    "rmc-list-view": "^0.8.0",
     "rmc-nuka-carousel": "^2.2.0",
     "rmc-picker": "^3.8.0",
     "rn-topview": "~0.1.0"
