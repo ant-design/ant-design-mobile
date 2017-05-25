@@ -1,7 +1,7 @@
 import React from 'react';
 import omit from 'omit.js';
 
-class Input extends React.Component<any, any> {
+class Input extends React.Component<React.ChangeTargetHTMLProps<HTMLInputElement>, any> {
   scrollIntoViewTimeout: any;
 
   constructor(props) {
