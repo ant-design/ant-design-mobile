@@ -18,7 +18,7 @@ export default StyleSheet.create({
   },
   innerWrap: {
     alignItems: 'center',
-    backgroundColor: variables.fill_overlay_inverse,
+    backgroundColor: variables.toast_fill,
     minWidth: 100,
   },
   iconToast: {
