@@ -67,7 +67,7 @@ class Button extends React.Component<ButtonWebProps, any> {
         disabled={disabled}
         activeStyle={activeStyle}
       >
-        <a
+        <div
           role="button"
           className={classNames(wrapCls)}
           {...restProps}
@@ -76,7 +76,7 @@ class Button extends React.Component<ButtonWebProps, any> {
         >
           {iconType ? <Icon aria-hidden="true" type={iconType} size={size === 'small' ? 'xxs' : 'md'}/> : null}
           {kids}
-        </a>
+        </div>
       </Touchable>
     );
   }
