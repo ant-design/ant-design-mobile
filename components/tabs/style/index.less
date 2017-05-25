@@ -5,6 +5,17 @@
 @page-hide-color: rgba(255, 255, 255, 0);
 @page-show-color: rgba(255, 255, 255, 1);
 
+.common-pagination() {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 118px;
+  height: 100%;
+  content: ' ';
+  z-index: 1000;
+}
+
 .@{tabs-prefix-cls} {
   overflow: hidden;
 
@@ -13,35 +24,15 @@
     position: relative;
 
     .@{tabs-prefix-cls}-prevpage:before {
-      pointer-events: none;
-      position: absolute;
-      top: 0;
+      .common-pagination();
       left: 0;
-      display: block;
-      width: 118px;
-      height: 100%;
-      content: ' ';
-      z-index: 1000;
-      background: #fff;
-      background: -moz-linear-gradient(left, @page-show-color, @page-hide-color);
-      background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(@page-show-color), to(@page-hide-color));
-      background: -o-linear-gradient(left, @page-show-color, @page-hide-color);
+      background: linear-gradient(to right, @page-show-color, @page-hide-color);
     }
 
     .@{tabs-prefix-cls}-nextpage:after {
-      pointer-events: none;
-      position: absolute;
-      top: 0;
+      .common-pagination();
       right: 0;
-      display: block;
-      width: 118px;
-      height: 100%;
-      content: ' ';
-      z-index: 1000;
-      background: #fff;
-      background: -moz-linear-gradient(left, @page-hide-color, @page-show-color);
-      background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(@page-hide-color), to(@page-show-color));
-      background: -o-linear-gradient(left, @page-hide-color, @page-show-color);
+      background: linear-gradient(to right, @page-hide-color, @page-show-color);
     }
 
     .@{tabs-prefix-cls}-nav-swipe-container {
