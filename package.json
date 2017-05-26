@@ -62,7 +62,8 @@
     "rmc-list-view": "^0.8.0",
     "rmc-nuka-carousel": "^2.2.0",
     "rmc-picker": "^3.8.0",
-    "rn-topview": "~0.1.0"
+    "rn-topview": "~0.1.0",
+    "warning": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "15.0.21",

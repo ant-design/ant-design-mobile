@@ -1,6 +1,7 @@
 import React from 'react';
 import assign from 'object-assign';
 import RcTable from 'rc-table';
+import warning from 'warning';
 
 export default class Table extends React.Component<any, any> {
   static defaultProps = {
@@ -9,6 +10,7 @@ export default class Table extends React.Component<any, any> {
   };
 
   render() {
+    warning(false, 'Table is going to be deprecated at antd-mobile@2.0. see https://goo.gl/xb0YEX');
     const { prefixCls, columns, dataSource, direction, scrollX, titleFixed } = this.props;
 
     const newProps = assign({}, this.props, { data: dataSource });
