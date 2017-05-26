@@ -6,7 +6,7 @@ module.exports = function (webpackConfig) {
   // fix `npm run dist` sourceMap error, do not know the reason
   delete webpackConfig.ts.compilerOptions.sourceMap;
 
-  webpackConfig = getWebpackConfig(webpackConfig);
+  webpackConfig = getWebpackConfig(webpackConfig, true);
   if (!Array.isArray(webpackConfig)) {
     webpackConfig = [webpackConfig, webpackConfig];
   }

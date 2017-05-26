@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.1.4-beta.2",
+  "version": "1.1.4-beta.4",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -139,8 +139,8 @@
     "test:rn": "jest --config .jest.json",
     "test:web": "jest --config .jest.web.json",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt",
-    "dist": "antd-tools run dist",
-    "build": "npm run dist",
+    "dist": "BABEL_ENV=dist antd-tools run dist",
+    "build": "BABEL_ENV=dist npm run dist",
     "compile": "BABEL_ENV=dist antd-tools run compile",
     "watch-tsc": "antd-tools run watch-tsc",
     "clean": "antd-tools run clean",
