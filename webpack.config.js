@@ -3,6 +3,9 @@ const pxtorem = require('postcss-pxtorem');
 const configSvg = require('./svg.config');
 
 module.exports = function (webpackConfig) {
+  // fix `npm run dist` sourceMap error, do not know the reason
+  delete webpackConfig.ts.compilerOptions.sourceMap;
+
   webpackConfig = getWebpackConfig(webpackConfig);
   if (!Array.isArray(webpackConfig)) {
     webpackConfig = [webpackConfig, webpackConfig];
@@ -14,5 +17,6 @@ module.exports = function (webpackConfig) {
     }));
     configSvg(config);
   });
+
   return webpackConfig;
 };
