@@ -116,7 +116,7 @@
     "react-native": "~0.42.0",
     "react-native-code-push": "~1.16.0-beta",
     "react-native-mock": "^0.3.1",
-    "react-native-router-flux": "~3.37.0",
+    "react-navigation": "^1.0.0-beta.11",
     "react-test-renderer": "^15.4.2",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
