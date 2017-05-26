@@ -1,5 +1,6 @@
 import React from 'react';
 import Tabs, { TabPane } from 'rc-tabs';
+import warning from 'warning';
 import Tab from './Tab.web';
 import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from 'rc-tabs/lib/TabBar';
@@ -45,7 +46,12 @@ class AntTabBar extends React.Component<TabBarProps, any> {
   render() {
     let activeKey;
     const children: any[] = [];
+    const _allKeys: any[] = [];
     React.Children.forEach(this.props.children, (c: any) => {
+      const hasKey = !!c.key;
+      const isUnique = _allKeys.indexOf(c.key) === -1;
+      warning(hasKey && isUnique, 'TabBar.Item must have a unique key!');
+      _allKeys.push(c.key);
       if (c.props.selected) {
         activeKey = c.key;
       }
