@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.1.4-beta.2",
+  "version": "1.1.4-beta.3",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -150,7 +150,7 @@
     "pc": "bisheng start -c ./site/bisheng.desktop.config.js",
     "mobile": "bisheng start -c ./site/bisheng.kitchen.config.js",
     "deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
-    "pub": "BABEL_ENV=dist antd-tools run pub",
+    "pub": "antd-tools run pub",
     "rn-start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "concurrently \"npm run watch-tsc\" \"npm run _ios\"",
     "android": "concurrently \"npm run watch-tsc\" \"npm run _android\"",
