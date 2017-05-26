@@ -11,7 +11,7 @@ export type OperationButtonType = {
 export interface OperationContainerProps {
   actions: Array<OperationButtonType>;
   onAnimationEnd?: (visible: boolean) => void;
-};
+}
 
 export default class OperationContainer extends React.Component<OperationContainerProps, any> {
   constructor(props) {

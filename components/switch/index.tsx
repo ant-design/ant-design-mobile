@@ -14,7 +14,7 @@ export default class AntmSwitch extends React.Component<SwitchProps, any> {
     if (this.props.onChange) {
       this.props.onChange(value);
     }
-  };
+  }
 
   render() {
     let { style, disabled, checked } = this.props;

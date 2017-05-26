@@ -20,7 +20,7 @@ class ActionSheetAndroid extends React.Component<Props, any> {
     this.state = {
       visible: this.props.visible || false,
     };
-  };
+  }
 
   confirm(index) {
     const { callback } = this.props;

@@ -24,6 +24,6 @@ interface ModalProps {
   wrapProps?: {};
   operation?: boolean;
   platform?: string;
-};
+}
 
 export default ModalProps;

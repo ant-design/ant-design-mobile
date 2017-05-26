@@ -18,7 +18,7 @@ export interface PropmptContainerProps {
   actions: Array<ButtonType>;
   onAnimationEnd?: (visible: boolean) => void;
   styles?: any;
-};
+}
 
 export default class PropmptContainer extends React.Component<PropmptContainerProps, any> {
   static defaultProps = {

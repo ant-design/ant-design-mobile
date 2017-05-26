@@ -69,7 +69,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         break;
       case 8:
         imgRotation = 270;
-      break;
+        break;
       default:
     }
     return imgRotation;
