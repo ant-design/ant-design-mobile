@@ -9,6 +9,7 @@ import {
   Alert,
   Linking,
   ActivityIndicator,
+  StatusBar,
 } from 'react-native';
 import { List } from 'antd-mobile';
 import codePush from 'react-native-code-push';
@@ -74,6 +75,11 @@ class Home extends React.Component {
       animating: false,
     };
   }
+
+  componentWillMount() {
+    StatusBar.setBarStyle('light-content');
+  }
+
   onCheckUpdate = () => {
     this.setState({
       animating: true,
