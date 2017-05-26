@@ -86,4 +86,4 @@ export class DrawerMain extends React.Component<any, any> {
       </View>
     );
   }
-};
+}
