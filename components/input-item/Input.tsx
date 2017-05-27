@@ -15,7 +15,7 @@ class Input extends React.Component<TextInputProps, any> {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ('focused' in nextProps) {
+    if (nextProps.focused !== this.state.focused) {
       this.setState({
         focused: nextProps.focused,
       });
