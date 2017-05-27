@@ -422,3 +422,39 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/input-item/demo/error.md correctly 1`] = `
+<div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Confirm when typing
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          手机号码
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="input your phone"
+            type="tel"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
