@@ -5,20 +5,11 @@ import {
   WebView,
   Modal,
   ActivityIndicator,
-  Platform,
 } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    ...Platform.select({
-      ios: {
-        marginTop: 64,
-      },
-      android: {
-        marginTop: 44,
-      },
-    }),
   },
   webView: {
     flex: 1,

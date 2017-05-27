@@ -9,8 +9,8 @@ import {
   Alert,
   Linking,
   ActivityIndicator,
+  StatusBar,
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import { List } from 'antd-mobile';
 import codePush from 'react-native-code-push';
 import AppInfo from './appInfo.js';
@@ -20,7 +20,6 @@ const codePushOptions = { checkFrequency: codePush.CheckFrequency.MANUAL };
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    marginTop: Platform.OS === 'ios' ? 64 : 44,
     flex: 1,
   },
   logo: {
@@ -76,6 +75,11 @@ class Home extends React.Component {
       animating: false,
     };
   }
+
+  componentWillMount() {
+    StatusBar.setBarStyle('light-content');
+  }
+
   onCheckUpdate = () => {
     this.setState({
       animating: true,
@@ -142,6 +146,7 @@ class Home extends React.Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <Image
@@ -154,11 +159,11 @@ class Home extends React.Component {
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/UIqwcqpVsIjvyYZ.png"
             arrow="horizontal"
-            onClick={Actions.web}
+            onClick={() => navigate('web')}
           >H5 组件</List.Item>
           <List.Item
             thumb="https://zos.alipayobjects.com/rmsportal/lSsJiCJnOzSnBJG.png"
-            onClick={Actions.native}
+            onClick={() => navigate('native')}
             arrow="horizontal"
           >React Native 组件</List.Item>
         </List>
