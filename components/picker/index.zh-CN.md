@@ -27,6 +27,8 @@ subtitle: 选择器
 | children| 通常是 `List.Item` | Object |  `List.Item`  |
 | okText  | 选中的文案 | String |  `确定`  |
 | dismissText  | 取消选中的文案 | String |  `取消`  |
+| onOk  | 点击选中时执行的回调 | (val): void  |  无 |
+| onDismiss  | 点击取消时执行的回调 | (): void  |  无  |
 | title  | 大标题 | String | - |
 | extra  | Picker children 建议是 `List.Item`, 如果不是，需要是自定义组件(组件内需处理`onClick`/`extra`属性) | String |  `请选择`  |
 | disabled  | 是否不可用 | Boolean | false |

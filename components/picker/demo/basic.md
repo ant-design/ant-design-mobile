@@ -121,6 +121,8 @@ class Test extends React.Component {
           {...getFieldProps('district', {
             initialValue: ['340000', '341500', '341502'],
           })}
+          onOk={e => console.log('ok', e)}
+          onDismiss={e => console.log('dismiss', e)}
         >
           <List.Item arrow="horizontal">选择地区（多列，联动）</List.Item>
         </Picker>

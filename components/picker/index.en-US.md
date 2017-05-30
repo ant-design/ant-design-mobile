@@ -26,6 +26,8 @@ Properties | Descrition | Type | Default
 | children| usually `List.Item` | Object |  `List.Item`  |
 | okText  | ok text | String |  `确定`  |
 | dismissText  | dismiss text | String |  `取消`  |
+| onOk  | handler called when click ok | (val): void  |  - |
+| onDismiss  | handler called when click cancel | (): void  |  -  |
 | title  | title | String | - |
 | extra  | Picker's children is best to `List.Item`, if not, need to be a custom component (the `onClick`/`extra` props need to be handled in the component) | String |  `请选择`  |
 | disabled  | set disabled | Boolean | false |
