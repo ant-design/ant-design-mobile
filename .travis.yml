@@ -9,7 +9,8 @@ env:
   matrix:
     - TEST_TYPE=lint
     - TEST_TYPE=build
-    - TEST_TYPE=test:web
+    - TEST_TYPE=test:web-react
+    - TEST_TYPE=test:web-preact
     - TEST_TYPE=test:rn
 
 script:
@@ -18,10 +19,13 @@ script:
       npm run lint
     elif [ "$TEST_TYPE" = build ]; then
       npm run dist
-    elif [ "$TEST_TYPE" = test:web ]; then
-      npm run test:web -- -w 2 --coverage && \
-      bash <(curl -s https://codecov.io/bash) -cF web
+    elif [ "$TEST_TYPE" = test:web-react ]; then
+      TEST_ENV=REACT npm run test:web-react -- -w 2 --coverage && \
+      bash <(curl -s https://codecov.io/bash) -cF web-react
+    elif [ "$TEST_TYPE" = test:web-preact ]; then
+      TEST_ENV=PREACT npm run test:web-preact -- -w 2 --coverage && \
+      bash <(curl -s https://codecov.io/bash) -cF web-preact
     elif [ "$TEST_TYPE" = test:rn ]; then
-      npm run test:rn -- -w 2 --coverage && \
+      TEST_ENV=RN npm run test:rn -- -w 2 --coverage && \
       bash <(curl -s https://codecov.io/bash) -cF rn
     fi
