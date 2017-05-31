@@ -1,4 +1,3 @@
-import React from 'react';
 import { NativeProps, WebProps } from '../baseType';
 
 export interface FlexProps {

@@ -72,10 +72,10 @@
     "antd": "2.x",
     "antd-demo-jest": "^1.2.0",
     "antd-mobile-demo-data": "^0.1.1",
-    "antd-tools": "^1.1.0",
+    "antd-tools": "^1.4.2",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^19.0.0",
-    "babel-plugin-import": "^1.1.1",
+    "babel-plugin-import": "^1.2.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react-native": "^1.9.1",
     "bisheng": "^0.23.3",
@@ -121,7 +121,7 @@
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "svg-sprite-loader": "^0.3.1",
-    "typescript": "~2.2.2",
+    "typescript": "~2.3.0",
     "typescript-babel-jest": "^1.0.1"
   },
   "scripts": {
