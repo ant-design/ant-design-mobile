@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: 输入弹窗
-  en-US: propmt
+  en-US: prompt
 ---
 
 ## zh-CN
