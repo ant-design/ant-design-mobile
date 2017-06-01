@@ -114,12 +114,20 @@ export default class Grid extends React.Component<GridProps, any> {
     }
 
     const pageCount = Math.ceil(rowCount / carouselMaxRow);
-    const isCarouselMode = isCarousel && pageCount > 1;
     let renderEl;
-    if (isCarouselMode) {
+    let carouselProps = {};
+    if (pageCount <= 1) {
+      carouselProps = {
+        ...carouselProps,
+        dots: false,
+        dragging: false,
+        swiping: false,
+      };
+    }
+    if (isCarousel) {
       if (initialSlideWidth > 0) {
         renderEl = (
-          <Carousel initialSlideWidth={initialSlideWidth} {...restPropsForCarousel}>
+          <Carousel initialSlideWidth={initialSlideWidth} {...restPropsForCarousel} {...carouselProps}>
             {this.renderCarousel(rowsArr, pageCount, rowCount)}
           </Carousel>
         );
