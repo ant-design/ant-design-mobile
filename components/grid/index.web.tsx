@@ -14,12 +14,9 @@ export default class Grid extends React.Component<GridProps, any> {
     carouselMaxRow: 2,
     prefixCls: 'am-grid',
   };
-  constructor(props) {
-    super(props);
-    this.state = {
-      initialSlideWidth: 0, // only used in carousel model
-    };
-  }
+  state = {
+    initialSlideWidth: 0, // only used in carousel model
+  };
   componentDidMount() {
     this.setState({
       initialSlideWidth: document.documentElement.clientWidth,
@@ -72,72 +69,94 @@ export default class Grid extends React.Component<GridProps, any> {
       </div>
     );
   }
-  render() {
-    const { prefixCls, className, data, hasLine, isCarousel, ...restProps } = this.props;
-    let { columnNum, carouselMaxRow, onClick = () => {}, renderItem, ...restPropsForCarousel } = restProps;
-    columnNum = columnNum as number;
-    carouselMaxRow = carouselMaxRow as number;
+  getRows = (rowCount, dataLength) => {
+    let { columnNum, data, renderItem, prefixCls, onClick } = this.props;
+    const rowsArr: any[] = [];
 
-    const { initialSlideWidth } = this.state;
+    columnNum = columnNum!;
 
-    const dataLength = data && data.length || 0;
-    const rowCount = Math.ceil(dataLength / columnNum);
     const rowWidth = `${100 / columnNum}%`;
     const colStyle = {
       width: rowWidth,
     };
 
-    const rowsArr: any[] = [];
-
     for (let i = 0; i < rowCount; i++) {
       const rowArr: any[] = [];
       for (let j = 0; j < columnNum; j++) {
         const dataIndex = i * columnNum + j;
+        let itemEl;
         if (dataIndex < dataLength) {
           const el = data && data[dataIndex];
-          rowArr.push(<Flex.Item
-            key={`griditem-${dataIndex}`}
-            className={`${prefixCls}-item`}
-            onClick={() => onClick(el, dataIndex)}
-            style={colStyle}
-          >
-            {this.renderItem(el, dataIndex, columnNum, renderItem)}
-          </Flex.Item>);
+          itemEl = (
+            <Flex.Item
+              key={`griditem-${dataIndex}`}
+              className={`${prefixCls}-item`}
+              onClick={() => onClick && onClick(el, dataIndex)}
+              style={colStyle}
+            >
+              {this.renderItem(el, dataIndex, columnNum, renderItem)}
+            </Flex.Item>
+          );
         } else {
-          rowArr.push(<Flex.Item
-            key={`griditem-${dataIndex}`}
-            style={colStyle}
-          />);
+          itemEl = (
+            <Flex.Item
+              key={`griditem-${dataIndex}`}
+              className={`${prefixCls}-item`}
+              style={colStyle}
+            >
+              <div className={`${prefixCls}-item-content`}>
+                <div className={`${prefixCls}-item-inner-content`} />
+              </div>
+            </Flex.Item>
+          );
         }
+        rowArr.push(itemEl);
       }
       rowsArr.push(<Flex justify="center" align="stretch" key={`gridline-${i}`}>{rowArr}</Flex>);
     }
+    return rowsArr;
+  }
+  render() {
+    const { prefixCls, className, data, hasLine, isCarousel, ...restProps } = this.props;
+    let { columnNum, carouselMaxRow, onClick, renderItem, ...restPropsForCarousel } = restProps;
 
-    const pageCount = Math.ceil(rowCount / carouselMaxRow);
+    const { initialSlideWidth } = this.state;
+
+    columnNum = columnNum!;
+    carouselMaxRow = carouselMaxRow!;
+
+    const dataLength = data && data.length || 0;
+
+    let rowCount;
+    let pageCount = 1;
+
+    let rowsArr;
     let renderEl;
-    let carouselProps = {};
-    if (pageCount <= 1) {
-      carouselProps = {
-        ...carouselProps,
-        dots: false,
-        dragging: false,
-        swiping: false,
-      };
-    }
-    if (isCarousel) {
-      if (initialSlideWidth > 0) {
-        renderEl = (
-          <Carousel initialSlideWidth={initialSlideWidth} {...restPropsForCarousel} {...carouselProps}>
-            {this.renderCarousel(rowsArr, pageCount, rowCount)}
-          </Carousel>
-        );
-      } else {
-        // server side render
-        renderEl = null;
+
+    if (isCarousel && initialSlideWidth > 0) {
+      // carousel mode && not server render. because carousel dependes on document
+      pageCount = Math.ceil(dataLength / (columnNum * carouselMaxRow));
+      rowCount = pageCount  * carouselMaxRow;
+      rowsArr = this.getRows(rowCount, dataLength);
+      let carouselProps = {};
+      if (pageCount <= 1) {
+        carouselProps = {
+          dots: false,
+          dragging: false,
+          swiping: false,
+        };
       }
+      renderEl = (
+        <Carousel initialSlideWidth={initialSlideWidth} {...restPropsForCarousel} {...carouselProps}>
+          {this.renderCarousel(rowsArr, pageCount, rowCount)}
+        </Carousel>
+      );
     } else {
+      rowCount = Math.ceil(dataLength / columnNum);
+      rowsArr = this.getRows(rowCount, dataLength);
       renderEl = rowsArr;
     }
+
     return (
       <div
         className={classNames({
