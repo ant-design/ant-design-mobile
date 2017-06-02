@@ -77,7 +77,7 @@ class BasicInputExample extends React.Component {
                 focused1: false,
               });
             }}
-          ><span onClick={() => this.setState({ focused1: true })}>标题</span></InputItem>
+          ><div onClick={() => this.setState({ focused1: true })}>标题</div></InputItem>
         </List>
         <List renderHeader={() => 'Show clear icon'}>
           <InputItem

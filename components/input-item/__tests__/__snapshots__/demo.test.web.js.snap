@@ -141,9 +141,9 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
         <div
           class="am-input-label am-input-label-5"
         >
-          <span>
+          <div>
             标题
-          </span>
+          </div>
         </div>
         <div
           class="am-input-control"
