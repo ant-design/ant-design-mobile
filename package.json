@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.1.4-beta.7",
+  "version": "1.2.0-beta.0",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -135,6 +135,8 @@
     "applint": "eslint rn-kitchen-sink --ext '.js'",
     "pre-publish": "node ./scripts/build-less-entry",
     "prepublish": "antd-tools run guard",
+    "prepare": "antd-tools run guard",
+    "prepublishOnly": "antd-tools run guard",
     "test": "npm run test:rn && npm run test:web",
     "test:rn": "jest --config .jest.json",
     "test:web": "jest --config .jest.web.json",
