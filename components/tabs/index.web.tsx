@@ -17,7 +17,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       hammerOptions: {},
       tabBarhammerOptions: {},
       pageSize: 5,
-      speed: 8,
+      speed: 10,
       onChange() {},
       onTabClick() {},
   };
