@@ -67,7 +67,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="slider-decorator-0"
-      style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);"
+      style="position:absolute;bottom:0;width:100%;text-align:center;"
     >
       <div
         class="am-carousel-wrap"
