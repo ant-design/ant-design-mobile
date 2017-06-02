@@ -20,6 +20,7 @@ import { createForm } from 'rc-form';
 class BasicInputExample extends React.Component {
   state = {
     focused: false,
+    focused1: false,
   }
   render() {
     const { getFieldProps } = this.props.form;
@@ -67,6 +68,17 @@ class BasicInputExample extends React.Component {
           >非受控组件</InputItem>
         </List>
         <WhiteSpace />
+        <List renderHeader={() => 'click label to focus input'}>
+          <InputItem
+            placeholder="click label to focus input"
+            focused={this.state.focused1}
+            onFocus={() => {
+              this.setState({
+                focused1: false,
+              });
+            }}
+          ><span onClick={() => this.setState({ focused1: true })}>标题</span></InputItem>
+        </List>
         <List renderHeader={() => 'Show clear icon'}>
           <InputItem
             {...getFieldProps('inputclear')}

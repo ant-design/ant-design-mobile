@@ -130,6 +130,38 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
+      click label to focus input
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          <span>
+            标题
+          </span>
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="click label to focus input"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
       Show clear icon
     </div>
     <div
