@@ -11,7 +11,7 @@ module.exports = {
     'app.home.slogan': 'Mobile Design Specification',
     'app.home.centerSlogan': 'Mobile Design Specification & FrontEnd Framwork',
     'app.home.centerSubSlogan': 'Designer and Frontend developer efficient coordination, quickly set up a mobile ui component library',
-    'app.home.centerStart': 'Getting Start',
+    'app.home.centerStart': 'Getting Started',
     'app.footer.links': 'Links',
     'app.footer.discuss': 'Chat Room',
     'app.footer.community': 'Community',
