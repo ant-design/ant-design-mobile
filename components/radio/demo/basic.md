@@ -14,6 +14,7 @@ const RadioItem = Radio.RadioItem;
 class Test extends React.Component {
   state = {
     value: 0,
+    value1: 0,
     value2: 0,
     value3: 0,
     value4: 0,
@@ -24,6 +25,12 @@ class Test extends React.Component {
       value,
     });
   };
+  onChange1 = (value) => {
+    console.log('checkbox');
+    this.setState({
+      value1: value,
+    });
+  };
   onChange2 = (value) => {
     console.log('checkbox');
     this.setState({
@@ -31,7 +38,7 @@ class Test extends React.Component {
     });
   };
   render() {
-    const { value, value2, value3, value4 } = this.state;
+    const { value, value1, value2, value3, value4 } = this.state;
     const data = [
       { value: 0, label: 'Doctor' },
       { value: 1, label: 'Bachelor' },
@@ -49,6 +56,13 @@ class Test extends React.Component {
           </RadioItem>
         ))}
       </List>
+      <WhiteSpace size="lg" />
+      <div className="am-list-header">Without List component</div>
+      {data.map(i => (
+        <RadioItem key={i.value} checked={value1 === i.value} onChange={() => this.onChange1(i.value)}>
+          {i.label}
+        </RadioItem>
+      ))}
       <WhiteSpace size="lg" />
       <List>
         {data2.map(i => (

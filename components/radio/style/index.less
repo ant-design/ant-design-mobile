@@ -3,19 +3,15 @@
 
 @listPrefixCls: am-list;
 @radioWarpPrefixCls: am-radio;
-@radioItemPrefixCls: ~"@{radioWarpPrefixCls}-item";
-@radioWrapperPrefixCls: ~"@{radioWarpPrefixCls}-wrapper";
 @radioInnerPrefixCls: ~"@{radioWarpPrefixCls}-inner";
+@radioWrapperCls: ~".@{radioWarpPrefixCls}-item .@{radioWarpPrefixCls}-wrapper";
 
-.@{radioItemPrefixCls} .@{radioWrapperPrefixCls} {
+@{radioWrapperCls} {
   position: absolute;
   left: -@icon-size-xxs;
   top: 0;
   width: e("calc(100% + @{icon-size-xxs})");
   height: 100%;
-  .@{radioWarpPrefixCls} {
-    margin: @icon-size-xxs @icon-size-xxs 0 0;
-  }
 }
 
 .@{radioWarpPrefixCls} {
@@ -24,6 +20,10 @@
   vertical-align: middle;
   width: @icon-size-xxs;
   height: @icon-size-xxs;
+
+  @{radioWrapperCls} & {
+    margin: @icon-size-xxs @icon-size-xxs 0 0;
+  }
 
   &-inner {
     position: absolute;
