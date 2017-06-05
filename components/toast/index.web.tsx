@@ -1,8 +1,7 @@
-/* tslint:disable:no-unused-variable */
 import React from 'react';
-/* tslint:enable:no-unused-variable */
 import Notification from 'rc-notification';
 import Icon from '../icon';
+import classnames from 'classnames';
 
 let messageInstance;
 let prefixCls = 'am-toast';
@@ -14,9 +13,12 @@ function getMessageInstance(mask) {
   }
   messageInstance = (Notification as any).newInstance({
     prefixCls,
-    style: { top: (mask ? 0 : '50%')  },
+    style: { }, // clear rc-notification default style
     transitionName: 'am-fade',
-    className: mask ? `${prefixCls}-mask` : '',
+    className: classnames({
+      [`${prefixCls}-mask`]: mask,
+      [`${prefixCls}-nomask`]: !mask,
+    }),
   });
   return messageInstance;
 }

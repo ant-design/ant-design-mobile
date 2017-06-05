@@ -14,6 +14,48 @@ timeline: true
 
 ---
 
+## 1.2.0
+
+`2017-06-03`
+
+- **Notice**
+  - antd-mobile `Icon` 所依赖的开源 webpack loader `svg-sprite-loader` 最近从 `0.3` 直接升级到了 `2.0`, 其配置方案发生了 break change，但由于此 loader 的版本由用户代码控制，而功能被 antd-mobile 和用户代码所共同依赖， antd-mobile 团队只能选择在 `2.0` 对其进行升级，请各位用户在 `antd-mobile@1.x` 期间暂时不要升级 `svg-sprite-loader`，在项目里仍然使用 `svg-sprite-loader@0.3.x` 即可。[#1283](https://github.com/ant-design/ant-design-mobile/issues/1283)
+  - 新增 warning，提醒用户 antd-mobile `2.0` 将会废弃 `Table`。[e1009015e](https://github.com/ant-design/ant-design-mobile/commit/e1009015e0c0740045995555831d1598a99c629f)
+
+- **Feature**
+  - 底层 Touch 事件库更新，所有 `onPress` 和 `onLongPress` 支持 `stopPropagation`。[e7400b699](https://github.com/ant-design/ant-design-mobile/commit/e7400b6994d3a9127bd1bd6fa418996ad8206f96)
+  - 重构 `carousel`, 新增 [swipeSpeed](https://github.com/react-component/nuka-carousel#modify-from-upstream-nuka-carousel204)  api 以自定义拖动速度。
+  - Theme 新增 `@toast-fill` 用于自定义 toast 背景色。[acaeff017171](https://github.com/ant-design/ant-design-mobile/commit/acaeff017171fd06bf8700b849a7fff917c6d260)
+  - 新增与 crate-react-app 和 create-react-native-app 脚手架配合使用的文档。[#1362](https://github.com/ant-design/ant-design-mobile/issues/1362)
+
+- **Bug Fix**
+  - 修复 `ListView` 中集成横滑组件, 如 `SwipeAction`, `Carousel`, 与上下滑动冲突的问题。[#1254](https://github.com/ant-design/ant-design-mobile/issues/1254)
+  - 修复 `Popover` 自定义样式的问题。[#1364](https://github.com/ant-design/ant-design-mobile/issues/1364)
+  - 修复 Theme `@radius-circle` 变量不生效 [#1301](https://github.com/ant-design/ant-design-mobile/issues/1301)
+  - 修复 Theme 无法自定义 `SearchBar` placeholder font-size [#1324](https://github.com/ant-design/ant-design-mobile/pull/1324)
+  - 修复 React-Native `picker` 无法自定义字体样式。 [#1323](https://github.com/ant-design/ant-design-mobile/issues/1323)
+  - 修复 SearchBar 在 android 的点击后无法 focus 问题。[#1342](https://github.com/ant-design/ant-design-mobile/issues/1341)
+  - 修复 React-Native `tabs` swipeable 属性无效的问题。[#1346](https://github.com/ant-design/ant-design-mobile/issues/1346)
+  - 修复 `InputItem` 等输入类组件文字被截断的问题。[#1358](https://github.com/ant-design/ant-design-mobile/issues/1358)
+  - 修复 SwipeAction 类名和样式。[e42430f9a68f2](https://github.com/ant-design/ant-design-mobile/commit/e42430f9a68f25a4b22cd2e65c05009fbb678fdd)
+  - 修复错误的 API 文档， `ActivityIndicator` color API 只有 React-Native 组件支持。[#1370](https://github.com/ant-design/ant-design-mobile/issues/1370)
+  - 修复 `Tabs` 当 liner-gradient 不支持时显示不正常的问题。[824da3466](https://github.com/ant-design/ant-design-mobile/commit/824da34667f9e974747d9f344b0bef3dc0bdae36)
+  - 修复 `Grid` 在 isCarousel 模式下不会自动填充空白格子的问题。[#1398](https://github.com/ant-design/ant-design-mobile/pull/1398)
+  - 修复 `Toast` 没有以自身中心点垂直居中的问题。[#1389](https://github.com/ant-design/ant-design-mobile/issues/1389)
+
+- **Improve && Enhancement**
+  - `Tabs` 头部滑动性能，体验优化。
+  - 增大 `SearchBar` 点击区域。[#1344](https://github.com/ant-design/ant-design-mobile/pull/1344)
+  - 重构 `Switch`, `Modal` 以支持服务端渲染 [#1307](https://github.com/ant-design/ant-design-mobile/pull/1307/)
+  - 优化 Flex, Button, List 的 typescript 定义。[#1339](https://github.com/ant-design/ant-design-mobile/issues/1339)
+  - `Button`, `Tag` 由外边框改为内边框，更符合设计规范。[4c8051032](https://github.com/ant-design/ant-design-mobile/commit/4c8051032005fe042df38d4b3bddf5f8405fb8fd)
+  - 新增 `pkg.module`, 指向 ES2015 modules，更好地支持 rollup 和 webpack2。[#12](https://github.com/react-component/react-component.github.io/issues/12)
+  - 重构 React-Native `Toast`, `ActivityIndicator` 样式，更改地支持通过 Theme 自定义。[b7094e2a2dc](https://github.com/ant-design/ant-design-mobile/commit/b7094e2a2dc0aa9433f2f2f7388a3e8313681888)
+  - `Tabs` 新增对 `TabPane.props.key` 的校验，必须存在且唯一。[#1365](https://github.com/ant-design/ant-design-mobile/issues/1365)
+  - 重构并从 React-Native `InputItem` 拆分出 `TextInput`，便于自定义样式。[#1174](https://github.com/ant-design/ant-design-mobile/issues/1174)
+  - 重构 `Grid`, 避免当格子数量变化，在 carousel 和非 carousel 模式切换后高度变化的情况。[63c28b31f](https://github.com/ant-design/ant-design-mobile/commit/63c28b31fba19cb7f68a36a71259a5b57ffe0bc8)
+  - 新增 demo 关于如何扩展 `InputItem` label 为可点击区域。[db8582781](https://github.com/ant-design/ant-design-mobile/commit/db8582781f0aa7663fb02db315de49cf9d00822b)
+
 ## 1.1.3
 
 `2017-05-14`
