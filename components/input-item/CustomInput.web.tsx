@@ -75,11 +75,7 @@ class NumberInput extends React.Component<any, any> {
     let { value, onChange, maxLength } = this.props;
     // 删除键
     if (KeyboardItemValue === 'delete') {
-      if (value === '') {
-        onChange({ target: { value: '' } });
-      } else {
-        onChange({ target: { value: value.substring(0, value.length - 1) } });
-      }
+      onChange({ target: { value: value.substring(0, value.length - 1) } });
     // 确认键
     } else if (KeyboardItemValue === 'confirm') {
       onChange({ target: { value: value } });
