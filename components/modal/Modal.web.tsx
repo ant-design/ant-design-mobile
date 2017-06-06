@@ -103,7 +103,7 @@ export default class Modal extends React.Component<ModalProps, any> {
 
     // transparent 模式下, 内容默认居中
     const rootStyle = transparent ? assign({
-      width: '5.4rem',
+      minWidth: '5.4rem',
       height: 'auto',
     }, style) : assign({
       width: '100%',
