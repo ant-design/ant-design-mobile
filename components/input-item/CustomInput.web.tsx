@@ -1,5 +1,5 @@
 import React from 'react';
-import H5NumberKeyBoard from './H5NumberKeyBoard';
+import CustomKeyboard from './CustomKeyboard.web';
 
 if ((window as any).Element && !Element.prototype.closest) {
   Element.prototype.closest =
@@ -15,7 +15,7 @@ if ((window as any).Element && !Element.prototype.closest) {
   };
 }
 
-class H5NumberInput extends React.Component<any, any> {
+class NumberInput extends React.Component<any, any> {
   static defaultProps = {
     onChange: () => {},
     onFocus: () => {},
@@ -71,7 +71,7 @@ class H5NumberInput extends React.Component<any, any> {
     this.props.onFocus(value);
   }
 
-  onKeyBoardClick = (KeyboardItemValue) => {
+  onKeyboardClick = (KeyboardItemValue) => {
     let { value, onChange, maxLength } = this.props;
     // 删除键
     if (KeyboardItemValue === 'delete') {
@@ -116,8 +116,8 @@ class H5NumberInput extends React.Component<any, any> {
       >
         {value}
       </div>
-      <H5NumberKeyBoard
-        onClick={this.onKeyBoardClick}
+      <CustomKeyboard
+        onClick={this.onKeyboardClick}
         hide={!focused}
         confirmDisabled={value === ''}
         preixCls={keyboardPrefixCls}
@@ -126,4 +126,4 @@ class H5NumberInput extends React.Component<any, any> {
   }
 }
 
-export default H5NumberInput;
+export default NumberInput;

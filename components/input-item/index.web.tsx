@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import InputItemProps from './PropsType';
 import Input from './Input.web';
-import H5NumberInput from './H5NumberInput.web';
+import CustomInput from './CustomInput.web';
 
 function noop() { }
 
@@ -228,8 +228,9 @@ class InputItem extends React.Component<InputItemProps, any> {
       <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={controlCls}>
-          {type === 'h5number' ? (
-            <H5NumberInput
+          {type === 'money' ? (
+            <CustomInput
+              type={type}
               maxLength={maxLength}
               placeholder={placeholder}
               onChange={this.onInputChange}

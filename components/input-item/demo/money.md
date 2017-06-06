@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: H5版带小数点数字键盘
-  en-US: H5NumberInput
+  zh-CN: 金额键盘
+  en-US: MoneyInput
 ---
 
 ## zh-CN
@@ -19,7 +19,7 @@ import { createForm } from 'rc-form';
 
 class H5NumberInputExample extends React.Component {
   state = {
-    h5focused: false,
+    moneyfocused: false,
   }
   render() {
     const { getFieldProps } = this.props.form;
@@ -27,18 +27,18 @@ class H5NumberInputExample extends React.Component {
       <div>
         <List renderHeader={() => 'Format'}>
           <InputItem
-            {...getFieldProps('h5number', {
+            {...getFieldProps('money', {
               initialValue: '222',
             })}
-            type="h5number"
-            placeholder="h5number keyboard"
+            type="money"
+            placeholder="money keyboard"
             clear
             maxLength={10}
             autoFocus
           />
           <InputItem placeholder="22">普通键盘</InputItem>
           <InputItem
-            {...getFieldProps('h5number2', {
+            {...getFieldProps('money2', {
               normalize: (v, prev) => {
                 if (v && !/^(([1-9]\d*)|0)(\.\d{0,2}?)?$/.test(v)) {
                   if (v === '.') {
@@ -49,21 +49,21 @@ class H5NumberInputExample extends React.Component {
                 return v;
               },
             })}
-            type="h5number"
+            type="money"
             placeholder="money format"
             onFocus={() => {
               this.setState({
-                h5focused: false,
+                moneyfocused: false,
               });
             }}
-            focused={this.state.h5focused}
+            focused={this.state.moneyfocused}
           >数字键盘</InputItem>
           <List.Item>
             <div
               style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
               onClick={() => {
                 this.setState({
-                  h5focused: true,
+                  moneyfocused: true,
                 });
               }}
             >

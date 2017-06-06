@@ -30,7 +30,7 @@ export class KeyboardItem extends React.Component<any, any> {
   }
 }
 
-class H5NumberKeyBoard extends React.Component<any, any> {
+class CustomKeyboard extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'am-number-keyboard',
     onClick: () => {},
@@ -45,6 +45,10 @@ class H5NumberKeyBoard extends React.Component<any, any> {
       this.props.onClick(value);
     }
   }
+
+  renderKetboardItem = (item, index) => {
+    return (<KeyboardItem onClick={this.onKeyBoardClick} key={`item-${item}-${index}`}>{item}</KeyboardItem>);
+  }
   render() {
     const { prefixCls, confirmDisabled, hide } = this.props;
     const wrapperCls = classNames({
@@ -55,20 +59,14 @@ class H5NumberKeyBoard extends React.Component<any, any> {
       <table>
         <tbody>
           <tr>
-            <KeyboardItem onClick={this.onKeyBoardClick}>1</KeyboardItem>
-            <KeyboardItem onClick={this.onKeyBoardClick}>2</KeyboardItem>
-            <KeyboardItem onClick={this.onKeyBoardClick}>3</KeyboardItem>
+            {['1', '2', '3'].map((item, index) => { return this.renderKetboardItem(item, index); })}
             <KeyboardItem className="keyboard-delete" rowSpan={2} onClick={this.onKeyBoardClick} />
           </tr>
           <tr>
-            <KeyboardItem onClick={this.onKeyBoardClick}>4</KeyboardItem>
-            <KeyboardItem onClick={this.onKeyBoardClick}>5</KeyboardItem>
-            <KeyboardItem onClick={this.onKeyBoardClick}>6</KeyboardItem>
+            {['4', '5', '6'].map((item, index) => { return this.renderKetboardItem(item, index); })}
           </tr>
           <tr>
-            <KeyboardItem onClick={this.onKeyBoardClick}>7</KeyboardItem>
-            <KeyboardItem onClick={this.onKeyBoardClick}>8</KeyboardItem>
-            <KeyboardItem onClick={this.onKeyBoardClick}>9</KeyboardItem>
+            {['7', '8', '9'].map((item, index) => { return this.renderKetboardItem(item, index); })}
             <KeyboardItem
               className="keyboard-confirm"
               disabled={confirmDisabled}
@@ -79,8 +77,7 @@ class H5NumberKeyBoard extends React.Component<any, any> {
             </KeyboardItem>
           </tr>
           <tr>
-            <KeyboardItem onClick={this.onKeyBoardClick}>.</KeyboardItem>
-            <KeyboardItem onClick={this.onKeyBoardClick}>0</KeyboardItem>
+            {['.', '0'].map((item, index) => { return this.renderKetboardItem(item, index); })}
             <KeyboardItem className="keyboard-hide" onClick={this.onKeyBoardClick} />
           </tr>
         </tbody>
@@ -89,4 +86,4 @@ class H5NumberKeyBoard extends React.Component<any, any> {
   }
 }
 
-export default H5NumberKeyBoard;
+export default CustomKeyboard;
