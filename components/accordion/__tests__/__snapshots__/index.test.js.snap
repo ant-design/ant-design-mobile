@@ -42,14 +42,17 @@ exports[`Accordion renders correctly 1`] = `
       >
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "paddingLeft": 15,
-              "paddingRight": 30,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "paddingLeft": 15,
+                "paddingRight": 30,
+              },
+              Object {},
+            ]
           }
         >
           <View
@@ -171,14 +174,17 @@ exports[`Accordion renders correctly 1`] = `
       >
         <View
           style={
-            Object {
-              "alignItems": "center",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "flexDirection": "row",
-              "paddingLeft": 15,
-              "paddingRight": 30,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flexDirection": "row",
+                "paddingLeft": 15,
+                "paddingRight": 30,
+              },
+              Object {},
+            ]
           }
         >
           <View
