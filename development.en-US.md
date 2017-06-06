@@ -152,6 +152,8 @@ $ npm run rn-start
 $ npm run ios / android
 ```
 
+The code of demo app: https://github.com/ant-design/ant-design-mobile/rn-kitchen-sink
+
 If you need to add a new component, then modify `rn-kitchen-sink/demoList.js` and `./index.js`.
 
 ### Tips about Pull Request
