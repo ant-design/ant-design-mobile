@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import InputItemProps from './PropsType';
 import Input from './Input.web';
+import H5NumberInput from './H5NumberInput.web';
 
 function noop() { }
 
@@ -227,21 +228,36 @@ class InputItem extends React.Component<InputItemProps, any> {
       <div className={wrapCls} style={style}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={controlCls}>
-          <Input
-            {...patternProps}
-            {...otherProps}
-            {...valueProps}
-            {...classNameProps}
-            type={inputType}
-            maxLength={maxLength}
-            name={name}
-            placeholder={placeholder}
-            onChange={this.onInputChange}
-            onFocus={this.onInputFocus}
-            onBlur={this.onInputBlur}
-            readOnly={!editable}
-            disabled={disabled}
-          />
+          {type === 'h5number' ? (
+            <H5NumberInput
+              maxLength={maxLength}
+              placeholder={placeholder}
+              onChange={this.onInputChange}
+              onFocus={this.onInputFocus}
+              onBlur={this.onInputBlur}
+              disabled={disabled}
+              value={fixControlledValue(value)}
+              {...(this.props.focused !== undefined ? { focused: this.props.focused } : {})}
+              {...(this.props.autoFocus !== undefined ? { autoFocus: this.props.autoFocus } : {})}
+              prefixCls={prefixCls}
+            />
+          ) : (
+            <Input
+              {...patternProps}
+              {...otherProps}
+              {...valueProps}
+              {...classNameProps}
+              type={inputType}
+              maxLength={maxLength}
+              name={name}
+              placeholder={placeholder}
+              onChange={this.onInputChange}
+              onFocus={this.onInputFocus}
+              onBlur={this.onInputBlur}
+              readOnly={!editable}
+              disabled={disabled}
+            />
+          )}
         </div>
         {clear && editable && !disabled && (value && value.length > 0) ?
           <div
