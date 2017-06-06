@@ -45,8 +45,19 @@ $ yarn start
 
   - ### Web 项目
 
+    1. 生成自定义配置
 
-    1. 修改 `config/webpack.config.dev.js`
+      ```bash
+      npm run eject
+      ``` 
+
+    2. 安装开发依赖
+
+      ```bash
+      yarn add --dev babel-plugin-import svg-sprite-loader@0.3.1 less less-loader postcss-pxtorem
+      ```
+
+    3. 修改 `config/webpack.config.dev.js`
 
       ```js
       extensions: ['.web.js', '.js', '.json', '.jsx'],
@@ -110,7 +121,7 @@ $ yarn start
       ```
       > 注意，上述示例只修改了 webpack.config.dev.js，如果需要在生产环境生效，你需要同步修改 webpack.config.prod.js。
 
-    2. 入口页面必需的设置：
+    4. 入口页面必需的设置：
 
       - 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)。
       - 引入 [FastClick](https://github.com/ftlabs/fastclick), 关联 [#576](https://github.com/ant-design/ant-design-mobile/issues/576)
