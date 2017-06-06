@@ -27,7 +27,7 @@ class Accordion extends React.Component<AccordionProps, any> {
   _renderHeader = (section, _, isActive) => {
     const styles = this.props.styles;
     return (
-      <View style={styles.header}>
+      <View style={[styles.header, section.style]}>
         {
           React.isValidElement(section.title) ? section.title : (
             <View style={styles.headerWrap}>
@@ -79,6 +79,7 @@ class Accordion extends React.Component<AccordionProps, any> {
       return {
         title: child.props.header,
         content: child.props.children,
+        style: child.props.style || {},
       };
     });
 
