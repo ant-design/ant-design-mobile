@@ -31,18 +31,26 @@ class H5NumberInputExample extends React.Component {
               initialValue: '222',
             })}
             type="h5number"
-            placeholder="click to show number keyboard"
+            placeholder="h5number keyboard"
             clear
             maxLength={10}
             autoFocus
-          >数字键盘</InputItem>
-          <InputItem>普通键盘</InputItem>
+          />
+          <InputItem placeholder="22">普通键盘</InputItem>
           <InputItem
             {...getFieldProps('h5number2', {
-              initialValue: '222',
+              normalize: (v, prev) => {
+                if (v && !/^(([1-9]\d*)|0)(\.\d{0,2}?)?$/.test(v)) {
+                  if (v === '.') {
+                    return '0.';
+                  }
+                  return prev;
+                }
+                return v;
+              },
             })}
             type="h5number"
-            placeholder="click to show number keyboard"
+            placeholder="money format"
             onFocus={() => {
               this.setState({
                 h5focused: false,

@@ -10,34 +10,46 @@
     flex: 1;
     .ellipsis();
 
-    .fake-input {
+    .fake-input-container {
       height: 60px;
       line-height: 60px;
-      margin-right: 10px;
-      text-decoration: rtl;
-      text-align: right;
       position: relative;
-      color: #000;
-      font-size: 34px;
 
-      &.focus {
+      .fake-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin-right: 10px;
+        text-decoration: rtl;
+        text-align: right;
+        color: #000;
+        font-size: 34px;
 
-        transition: color .2s;
+        &.focus {
+          transition: color .2s;
 
-        &:after {
-
-          content: "";
-          position: absolute;
-          right: 0;
-          top: 10%;
-          height: 80%;
-          border-right: 3px solid @keyboard-confirm-color;
-          animation: keyboard-cursor infinite 1s step-start;
+          &:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 10%;
+            height: 80%;
+            border-right: 3px solid @keyboard-confirm-color;
+            animation: keyboard-cursor infinite 1s step-start;
+          }
         }
       }
 
-      .placeholder {
+      .fake-input-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         color: @color-text-placeholder;
+        text-align: right;
       }
     }
   }

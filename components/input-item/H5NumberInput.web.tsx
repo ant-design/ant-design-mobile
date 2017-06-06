@@ -107,13 +107,15 @@ class H5NumberInput extends React.Component<any, any> {
   render() {
     const { placeholder, value, keyboardPrefixCls } = this.props;
     const { focused } = this.state;
-    return (<div
-      className={focused ? 'fake-input focus' : 'fake-input'}
-      ref="input-container"
-      onClick={this.onFakeInputClick}
-    >
-      {value === '' && <div className="placeholder">{placeholder}</div>}
-      {value}
+    return (<div className="fake-input-container">
+      {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
+      <div
+        className={focused ? 'fake-input focus' : 'fake-input'}
+        ref="input-container"
+        onClick={this.onFakeInputClick}
+      >
+        {value}
+      </div>
       <H5NumberKeyBoard
         onClick={this.onKeyBoardClick}
         hide={!focused}
