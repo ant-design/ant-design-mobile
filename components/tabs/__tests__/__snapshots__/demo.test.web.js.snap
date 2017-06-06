@@ -99,108 +99,108 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项0
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项1
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项2
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项3
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项4
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项5
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项6
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项7
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="true"
-                class="am-tabs-tab-active am-tabs-tab"
+                class="am-tabs-tab am-tabs-tab-active"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项8
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项9
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项10
               </div>
               <div
                 aria-disabled="false"
                 aria-selected="false"
-                class=" am-tabs-tab"
+                class="am-tabs-tab"
                 role="tab"
-                style="display:flex;flex:0 0 20%;"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
                 选项11
               </div>

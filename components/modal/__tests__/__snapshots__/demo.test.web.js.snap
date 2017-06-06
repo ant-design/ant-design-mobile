@@ -136,7 +136,7 @@ exports[`renders ./components/modal/demo/operation.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/modal/demo/propmt.md correctly 1`] = `
+exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
 <div
   class="am-wingblank am-wingblank-lg"
 >

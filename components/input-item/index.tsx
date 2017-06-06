@@ -1,13 +1,13 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import assign from 'object-assign';
-import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { View, Image, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import Input from './Input';
 import variables from '../style/themes/default';
 import InputItemProps from './PropsType';
 import InputItemStyle from './style/index';
 
-const noop: any = () => {
-};
+const noop: any = () => {};
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -36,18 +36,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     styles: InputItemStyle,
     focused: false,
   };
-
-  componentDidMount() {
-    if (this.props.autoFocus || this.props.focused) {
-      (this.refs as any).input.focus();
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.props.focused) {
-      (this.refs as any).input.focus();
-    }
-  }
 
   onChange = (text) => {
     const { onChange, type } = this.props;
@@ -162,8 +150,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
             <View style={textStyle}>{children}</View>
           ) : null
         }
-        <TextInput
-          ref="input"
+        <Input
           clearButtonMode={clear ? 'while-editing' : 'never'}
           underlineColorAndroid="transparent"
           {...restProps}

@@ -89,9 +89,9 @@ export default class BasicModalExample extends React.Component<any, any> {
           <WhiteSpace />
           <Button onClick={this.onButtonClick2}>显示 Modal.opertation</Button>
           <WhiteSpace />
-          <Button onClick={this.onButtonClick3}>显示 Modal.propmt (login-password)</Button>
+          <Button onClick={this.onButtonClick3}>显示 Modal.prompt (login-password)</Button>
           <WhiteSpace />
-          <Button onClick={this.onButtonClick4}>显示 Modal.propmt (secure-text)</Button>
+          <Button onClick={this.onButtonClick4}>显示 Modal.prompt (secure-text)</Button>
         </WingBlank>
         <Modal
           transparent={false}

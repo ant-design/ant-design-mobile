@@ -1,11 +1,8 @@
-import React from 'react';
-import createReactClass from 'create-react-class';
+import React, { Component } from 'react';
 import NavBarProps from './PropsType';
 
-const NavBar = createReactClass<NavBarProps, any>({
-  render() {
+export default class NavBar extends Component<NavBarProps, any> {
+ render() {
     return <div>TODO for react-native</div>;
-  },
-});
-
-export default NavBar;
+  }
+}

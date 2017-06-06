@@ -426,7 +426,7 @@ exports[`renders ./components/modal/demo/basic.tsx correctly 1`] = `
             ]
           }
         >
-          显示 Modal.propmt (login-password)
+          显示 Modal.prompt (login-password)
         </Text>
       </View>
     </View>
@@ -510,7 +510,7 @@ exports[`renders ./components/modal/demo/basic.tsx correctly 1`] = `
             ]
           }
         >
-          显示 Modal.propmt (secure-text)
+          显示 Modal.prompt (secure-text)
         </Text>
       </View>
     </View>

@@ -13,7 +13,7 @@ export interface AlertContainerProps {
   content: any;
   actions: Array<AlertButtonType>;
   onAnimationEnd?: (visible: boolean) => void;
-};
+}
 
 export default class AlertContainer extends React.Component<AlertContainerProps, any> {
   constructor(props) {

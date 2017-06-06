@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface RadioProps {
   style?: any;
   defaultChecked?: boolean;

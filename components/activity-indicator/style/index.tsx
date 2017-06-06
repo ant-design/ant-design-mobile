@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import variables from '../../style/themes/default';
 
 export default StyleSheet.create({
   container: {
@@ -8,7 +9,7 @@ export default StyleSheet.create({
     bottom: 0,
     right: 0,
     backgroundColor: 'transparent',
-    zIndex: 99,
+    zIndex: variables.toast_zindex,
   },
   innerContainer: {
     flex: 1,
@@ -21,18 +22,18 @@ export default StyleSheet.create({
     justifyContent: 'center',
     width: 89,
     height: 89,
-    borderRadius: 6,
-    backgroundColor: 'rgba(58, 58, 58, 0.9)',
+    borderRadius: variables.radius_md,
+    backgroundColor: variables.toast_fill,
   },
   tip: {
-    color: '#999',
-    fontSize: 14,
-    marginLeft: 8,
+    color: variables.color_text_base,
+    fontSize: variables.font_size_base,
+    marginLeft: variables.h_spacing_md,
   },
   toast: {
-    color: '#fff',
-    fontSize: 14,
-    marginTop: 4,
+    color: variables.color_text_base_inverse,
+    fontSize: variables.font_size_base,
+    marginTop: variables.v_spacing_sm,
   },
   spinner: {
     flexDirection: 'row',

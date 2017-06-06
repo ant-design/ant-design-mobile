@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface PaginationPropTypes {
   prefixCls?: string;
   className?: string;

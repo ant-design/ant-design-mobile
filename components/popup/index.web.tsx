@@ -11,7 +11,11 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     prefixCls: 'am-popup',
     animationType: 'slide-down',
   }, config);
-  const { prefixCls, transitionName, maskTransitionName, maskClosable = true, animationType } = props;
+
+  const {
+    prefixCls, transitionName, animationType, maskTransitionName, maskClosable = true, onMaskClose,
+    className,
+  } = props;
 
   let div: any = document.createElement('div');
   document.body.appendChild(div);
@@ -42,8 +46,8 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     onClick: (e) => {
       e.preventDefault();
       if (maskClosable) {
-        if (props.onMaskClose && typeof props.onMaskClose === 'function') {
-          const res = props.onMaskClose();
+        if (onMaskClose && typeof onMaskClose === 'function') {
+          const res = onMaskClose();
           if (res && res.then) {
             res.then(() => {
               close();
@@ -58,17 +62,17 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
     },
   };
 
+  const cls = className ? `${prefixCls}-${animationType} ${className}` : `${prefixCls}-${animationType}`;
+
   ReactDOM.render(
     <Dialog
-      prefixCls={prefixCls}
+      {...props}
+      className={cls}
       visible
       title=""
       footer=""
-      className={`${prefixCls}-${animationType}`}
       transitionName={transitionName || transName}
       maskTransitionName={maskTransitionName || 'am-fade'}
-      maskClosable={maskClosable}
-      wrapProps={props.wrapProps || {}}
       maskProps={props.maskProps || maskProps}
     >
       {content}

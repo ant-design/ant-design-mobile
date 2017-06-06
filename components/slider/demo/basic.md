@@ -47,18 +47,18 @@ class App extends React.Component {
             max={30}
             maximumTrackStyle={{
               backgroundColor: 'red',
-              height: 10,
+              height: '0.1rem',
             }}
             minimumTrackStyle={{
               backgroundColor: 'blue',
-              height: 10,
+              height: '0.1rem',
             }}
             handleStyle={{
               borderColor: 'blue',
-              height: 28,
-              width: 28,
-              marginLeft: -14,
-              marginTop: -9,
+              height: '0.28rem',
+              width: '0.28rem',
+              marginLeft: '-0.14rem',
+              marginTop: '-0.09rem',
               backgroundColor: 'blue',
             }}
           />

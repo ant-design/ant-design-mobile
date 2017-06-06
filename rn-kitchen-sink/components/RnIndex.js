@@ -4,16 +4,13 @@ import {
   StyleSheet,
   View,
   ScrollView,
-  Platform,
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import { List, SearchBar } from 'antd-mobile';
 import { UIVIEWS, UICONTROLS, OTHERS, UIBARS } from '../demoList';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios' ? 64 : 54,
   },
 });
 
@@ -36,10 +33,11 @@ export default class RnIndex extends React.Component {
   }
 
   onPressRow(rowData) {
+    const { navigate } = this.props.navigation;
     if (rowData.title) {
-      Actions[rowData.title]();
+      navigate(rowData.title);
     } else {
-      console.log('demoList.js 中配置的组件必须要有 title');
+      console.error('demoList.js 中配置的组件必须要有 title');
     }
   }
 

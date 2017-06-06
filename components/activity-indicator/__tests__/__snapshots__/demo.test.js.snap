@@ -245,7 +245,7 @@ exports[`renders ./components/activity-indicator/demo/basic.tsx correctly 1`] = 
             style={
               Array [
                 Object {
-                  "color": "#999",
+                  "color": "#000",
                   "fontSize": 14,
                   "marginLeft": 8,
                 },

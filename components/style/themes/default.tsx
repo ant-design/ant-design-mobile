@@ -28,6 +28,7 @@ export default {
   fill_mask: 'rgba(0, 0, 0, .4)',              // 遮罩背景
   fill_overlay_inverse: 'rgba(0, 0, 0, .8)',   // 浮层背景 _ 反色，用于 toast
   color_icon_base: '#ccc',                     // 许多小图标的背景，比如一些小圆点，加减号
+  toast_fill: 'rgba(0, 0, 0, .8)',
 
   // 透明度
   opacity_disabled: '0.3',   // switch checkbox radio 等组件禁用的透明度

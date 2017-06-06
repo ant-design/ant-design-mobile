@@ -226,7 +226,7 @@ class Carousel extends React.Component<CarouselProps, any> {
           scrollEventThrottle={100}
           removeClippedSubviews={false}
           automaticallyAdjustContentInsets={false}
-          directionalLockEnabled={true}
+          directionalLockEnabled
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={this.props.style}

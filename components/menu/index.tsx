@@ -1,11 +1,8 @@
-import React from 'react';
-import createReactClass from 'create-react-class';
+import React, { Component } from 'react';
 import { MenuProps } from './PropsType';
 
-const Menu = createReactClass<MenuProps, any>({
+export default class Menu extends Component<MenuProps, any> {
   render() {
     return <div>TODO for react-native</div>;
-  },
-});
-
-export default Menu;
+  }
+}

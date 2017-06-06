@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface WhiteSpaceProps {
   size?: 'xs'|'sm'|'md'|'lg'|'xl';
   onClick?: () => void;

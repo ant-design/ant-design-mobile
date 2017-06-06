@@ -14,11 +14,13 @@ Support WEB, React-Native.
 
 `options`:
 
-- maskClosable (bool) - Whether it's allowed to close when you click the mask (default true)
 - animationType (string) - Animation type, choose one of `slide-down`(default) and `slide-up`
 - transitionName (string) (`web only`) - Customize the transform animation used to show and hide
 - maskTransitionName (string) (`web only`) - Customize the transform animation used to the mask
 - onMaskClose (function) - The callback when the mask is closed, support `Promise`
+- maskClosable (bool) - Whether it's allowed to close when you click the mask (default true)
+
+For `web` platform, you can set `prefixCls`/`className`/`wrapClassName`/`maskProps` and so on, ref [rc-dialog](https://github.com/react-component/dialog#rc-dialogweb).
 
 #### static hide(): close Popup
 
