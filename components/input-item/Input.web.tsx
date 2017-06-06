@@ -2,8 +2,6 @@ import React from 'react';
 import omit from 'omit.js';
 
 class Input extends React.Component<React.ChangeTargetHTMLProps<HTMLInputElement>, any> {
-  scrollIntoViewTimeout: any;
-
   constructor(props) {
     super(props);
     this.state = {
@@ -22,13 +20,6 @@ class Input extends React.Component<React.ChangeTargetHTMLProps<HTMLInputElement
   componentDidMount() {
     if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
       (this.refs as any).input.focus();
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.scrollIntoViewTimeout) {
-      clearTimeout(this.scrollIntoViewTimeout);
-      this.scrollIntoViewTimeout = null;
     }
   }
 
@@ -60,13 +51,6 @@ class Input extends React.Component<React.ChangeTargetHTMLProps<HTMLInputElement
     const value = e.target.value;
     if (this.props.onFocus) {
       this.props.onFocus(value);
-    }
-    if (document.activeElement.tagName.toLowerCase() === 'input') {
-      this.scrollIntoViewTimeout = setTimeout(() => {
-        try {
-          (document.activeElement as any).scrollIntoViewIfNeeded();
-        } catch (e) { }
-      }, 100);
     }
   }
 
