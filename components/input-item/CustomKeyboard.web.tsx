@@ -36,7 +36,7 @@ class CustomKeyboard extends React.Component<any, any> {
     onClick: () => {},
     confirmDisabled: false,
   };
-  onKeyBoardClick = (e, value) => {
+  onKeyboardClick = (e, value) => {
     e.stopPropagation();
     const { confirmDisabled } = this.props;
     if (value === 'confirm' && confirmDisabled) {
@@ -47,7 +47,7 @@ class CustomKeyboard extends React.Component<any, any> {
   }
 
   renderKetboardItem = (item, index) => {
-    return (<KeyboardItem onClick={this.onKeyBoardClick} key={`item-${item}-${index}`}>{item}</KeyboardItem>);
+    return (<KeyboardItem onClick={this.onKeyboardClick} key={`item-${item}-${index}`}>{item}</KeyboardItem>);
   }
   render() {
     const { prefixCls, confirmDisabled, hide } = this.props;
@@ -60,7 +60,7 @@ class CustomKeyboard extends React.Component<any, any> {
         <tbody>
           <tr>
             {['1', '2', '3'].map((item, index) => { return this.renderKetboardItem(item, index); })}
-            <KeyboardItem className="keyboard-delete" rowSpan={2} onClick={this.onKeyBoardClick} />
+            <KeyboardItem className="keyboard-delete" rowSpan={2} onClick={this.onKeyboardClick} />
           </tr>
           <tr>
             {['4', '5', '6'].map((item, index) => { return this.renderKetboardItem(item, index); })}
@@ -71,14 +71,14 @@ class CustomKeyboard extends React.Component<any, any> {
               className="keyboard-confirm"
               disabled={confirmDisabled}
               rowSpan={2}
-              onClick={this.onKeyBoardClick}
+              onClick={this.onKeyboardClick}
             >
               确定
             </KeyboardItem>
           </tr>
           <tr>
             {['.', '0'].map((item, index) => { return this.renderKetboardItem(item, index); })}
-            <KeyboardItem className="keyboard-hide" onClick={this.onKeyBoardClick} />
+            <KeyboardItem className="keyboard-hide" onClick={this.onKeyboardClick} />
           </tr>
         </tbody>
       </table>
