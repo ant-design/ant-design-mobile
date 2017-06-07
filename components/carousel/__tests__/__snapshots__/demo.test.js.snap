@@ -37,6 +37,8 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
           }
         }
         directionalLockEnabled={true}
+        dotActiveStyle={Object {}}
+        dotStyle={Object {}}
         dots={true}
         horizontal={true}
         infinite={true}
@@ -70,6 +72,19 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
               "bottom": 0,
               "right": 10,
               "top": 0,
+            },
+            "pointActiveStyle": Object {
+              "backgroundColor": "#888",
+            },
+            "pointStyle": Object {
+              "backgroundColor": "#ccc",
+              "borderRadius": 8,
+              "height": 8,
+              "width": 8,
+            },
+            "spaceStyle": Object {
+              "marginHorizontal": 2.5,
+              "marginVertical": 3,
             },
           }
         }
@@ -301,32 +316,21 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "justifyContent": "center",
+              "position": "absolute",
             },
-            Array [
-              Object {
-                "alignItems": "center",
-                "position": "absolute",
-              },
-              Object {
-                "bottom": 10,
-                "left": 0,
-                "right": 0,
-              },
-            ],
+            Object {
+              "bottom": 10,
+              "left": 0,
+              "right": 0,
+            },
           ]
         }
       >
         <View
           style={
-            Array [
-              Object {
-                "flexDirection": "row",
-              },
-              Object {
-                "flexDirection": "row",
-              },
-            ]
+            Object {
+              "flexDirection": "row",
+            }
           }
         >
           <View
@@ -342,6 +346,8 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
                   "marginHorizontal": 2.5,
                   "marginVertical": 3,
                 },
+                Object {},
+                false,
                 false,
               ]
             }
@@ -359,6 +365,8 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
                   "marginHorizontal": 2.5,
                   "marginVertical": 3,
                 },
+                Object {},
+                false,
                 false,
               ]
             }
@@ -376,9 +384,11 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
                   "marginHorizontal": 2.5,
                   "marginVertical": 3,
                 },
+                Object {},
                 Object {
                   "backgroundColor": "#888",
                 },
+                Object {},
               ]
             }
           />
@@ -395,6 +405,8 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
                   "marginHorizontal": 2.5,
                   "marginVertical": 3,
                 },
+                Object {},
+                false,
                 false,
               ]
             }
@@ -412,6 +424,8 @@ exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
                   "marginHorizontal": 2.5,
                   "marginVertical": 3,
                 },
+                Object {},
+                false,
                 false,
               ]
             }

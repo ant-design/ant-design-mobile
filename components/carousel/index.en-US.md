@@ -17,6 +17,8 @@ Properties | Descrition | Type | Default
 | autoplayInterval |  interval for autoplay iteration |    Number  |  3000         |
 | infinite | whether is infinite loop | Boolean   | false |
 | afterChange  | callback to be called after a slide is changed     | (current: number): void  |
+| dotStyle  | style of dots    | Object  |
+| dotActiveStyle  | style of active dot     | Object  |
 | easing (`web only`) | animation timing function | String   | linear |
 | beforeChange  (`web only`)     | callback to be called before a slide is changed     | (from: number, to: number): void |
 | onScrollBeginDrag (`rn only`) | as same as react-native scrollView `onScrollBeginDrag` | (): void |  |

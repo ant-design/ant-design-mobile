@@ -1,5 +1,6 @@
+/* tslint:disable:jsx-no-multiline-js */
+
 import React from 'react';
-import Pagination from '../pagination';
 import {
   View,
   Text,
@@ -10,17 +11,28 @@ import CarouselStyle from './style';
 import CarouselProps from './PropsType';
 
 const defaultPagination = (props) => {
-  const { styles, current, vertical, count } = props;
+  const { styles, current, vertical, count, dotStyle, dotActiveStyle } = props;
   const positionStyle = vertical ? 'paginationY' : 'paginationX';
   const flexDirection = vertical ? 'column' : 'row';
+  const arr: any = [];
+  for (let i = 0; i < count; i++) {
+    arr.push(
+      <View
+        key={`dot-${i}`}
+        style={[
+          styles.pointStyle,
+          styles.spaceStyle,
+          dotStyle,
+          i === current && styles.pointActiveStyle,
+          i === current && dotActiveStyle,
+        ]}
+      />,
+    );
+  }
   return (
-    <Pagination
-      style={[styles.pagination, styles[positionStyle]]}
-      indicatorStyle={{ flexDirection }}
-      current={current}
-      mode="pointer"
-      total={count}
-    />
+    <View style={[styles.pagination, styles[positionStyle]]}>
+      <View style={{ flexDirection }}>{arr}</View>
+    </View>
   );
 };
 
@@ -36,6 +48,8 @@ class Carousel extends React.Component<CarouselProps, any> {
     vertical: false,
     styles: CarouselStyle,
     pagination: defaultPagination,
+    dotStyle: {},
+    dotActiveStyle: {},
   };
 
   private autoplayTimer;
@@ -239,13 +253,15 @@ class Carousel extends React.Component<CarouselProps, any> {
   }
 
   renderDots = (index) => {
-    const { children, vertical, styles, pagination } = this.props;
+    const { children, vertical, styles, pagination, dotStyle, dotActiveStyle } = this.props;
     const count = children ? children.length || 1 : 0;
     return pagination ? pagination({
       styles,
       vertical,
       current: index,
       count,
+      dotStyle,
+      dotActiveStyle,
     }) : null;
   }
 

@@ -10,6 +10,8 @@ interface Props {
   beforeChange?: (from: number, to: number) => void;
   afterChange?: (current: number) => void;
   style?: any;
+  dotStyle?: any;
+  dotActiveStyle?: any;
   /** below web only */
   className?: string;
   prefixCls?: string;

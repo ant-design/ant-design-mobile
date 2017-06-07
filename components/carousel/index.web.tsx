@@ -15,6 +15,8 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     edgeEasing: 'linear',
     cellAlign: 'center',
     selectedIndex: 0,
+    dotStyle: {},
+    dotActiveStyle: {},
   };
 
   constructor(props) {
@@ -35,7 +37,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
   }
 
   render() {
-    const { className, prefixCls } = this.props;
+    const { className, prefixCls, dotStyle, dotActiveStyle } = this.props;
     let props = assign({}, this.props);
     props = assign(props, {
       wrapAround: props.infinite,
@@ -59,9 +61,10 @@ export default class Carousel extends React.Component<CarouselProps, any> {
                 [`${prefixCls}-wrap-dot`]: true,
                 [`${prefixCls}-wrap-dot-active`]: index === current,
               });
+              const _dotStyle = index === current ? dotActiveStyle : dotStyle;
               return (
                 <div className={dotCls} key={index}>
-                  <span />
+                  <span style={_dotStyle} />
                 </div>
               );
             });
