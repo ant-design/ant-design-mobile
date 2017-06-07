@@ -1,7 +1,11 @@
 import React from 'react';
 import omit from 'omit.js';
 
-class Input extends React.Component<React.ChangeTargetHTMLProps<HTMLInputElement>, any> {
+export interface InputProps extends React.ChangeTargetHTMLProps<HTMLInputElement> {
+  focused?: boolean;
+}
+
+class Input extends React.Component<InputProps, any> {
   constructor(props) {
     super(props);
     this.state = {
