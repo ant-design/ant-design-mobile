@@ -58,7 +58,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
   }
 
   render() {
-    const { position, unfilled, style, styles } = this.props;
+    const { position, unfilled, style, styles, wrapStyle } = this.props;
 
     const percentStyle = {
       width: this.getWidth(),
@@ -75,6 +75,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
       styles.progressOuter,
       position === 'fixed' ? { position: 'absolute', top: 0 } : null,
       unfilled === 'hide' ? { backgroundColor: 'transparent' } : null,
+      wrapStyle,
     ];
 
     return (
