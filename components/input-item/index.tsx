@@ -51,6 +51,8 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       case 'phone':
         text = text.replace(/\D/g, '');
         if (maxLength > 0) {
+          text = text.substring(0, maxLength);
+        } else {
           text = text.substring(0, 11);
         }
         const valueLen = text.length;
@@ -61,6 +63,12 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         }
         break;
       case 'password':
+        break;
+      case 'number':
+        text = text.replace(/[^\.\d]/g, '').replace(/\..*/, c => '.' + c.replace(/\./g, () => ''));
+        if (text === '.') {
+          text = '';
+        }
         break;
       default:
         break;
