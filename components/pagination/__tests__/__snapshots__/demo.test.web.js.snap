@@ -63,7 +63,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     Button with text and icon
   </p>
   <div
-    class="am-pagination"
+    class="am-pagination custom-pagination-with-icon"
   >
     <div
       class="am-flexbox am-flexbox-align-middle"
@@ -76,7 +76,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
           class="am-button am-button-inline"
           role="button"
         >
-          <div
+          <span
             class="arrow-align"
           >
             <svg
@@ -87,7 +87,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
               />
             </svg>
             上一步
-          </div>
+          </span>
         </a>
       </div>
       <div
@@ -112,7 +112,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
           class="am-button am-button-inline"
           role="button"
         >
-          <div
+          <span
             class="arrow-align"
           >
             下一步
@@ -123,7 +123,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
                 xlink:href="#right"
               />
             </svg>
-          </div>
+          </span>
         </a>
       </div>
     </div>

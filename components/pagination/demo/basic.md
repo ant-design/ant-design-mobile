@@ -29,10 +29,11 @@ const App = () => (
 
     <p className="sub-title">Button with text and icon</p>
     <Pagination total={5}
+      className="custom-pagination-with-icon"
       current={1}
       locale={{
-        prevText: (<div className="arrow-align"><Icon type="left" />上一步</div>),
-        nextText: (<div className="arrow-align">下一步<Icon type="right" /></div>),
+        prevText: (<span className="arrow-align"><Icon type="left" />上一步</span>),
+        nextText: (<span className="arrow-align">下一步<Icon type="right" /></span>),
       }}
     />
 
@@ -50,11 +51,21 @@ const App = () => (
 
 ReactDOM.render(<App />, mountNode);
 ````
+
 ````css
 .pagination-container {
   margin: 0 0.3rem;
 }
-.pagination-container .arrow-align {
+
+.custom-pagination-with-icon .am-pagination-wrap-btn-prev .am-button-inline{
+  padding-left: 0;
+  padding-right: 0.2rem;
+}
+.custom-pagination-with-icon .am-pagination-wrap-btn-next .am-button-inline{
+  padding-left: 0.2rem;
+  padding-right: 0;
+}
+.arrow-align {
   display: flex;
   align-items: center;
 }
