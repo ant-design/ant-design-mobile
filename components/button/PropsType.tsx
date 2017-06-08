@@ -7,6 +7,8 @@ export interface ButtonProps {
   disabled?: boolean;
   onClick?: (x?: any) => void;
   loading?: boolean;
+  delayPressIn?: number;
+  delayPressOut?: number;
 }
 
 export interface ButtonWebProps extends WebProps, ButtonProps {

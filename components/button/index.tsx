@@ -65,7 +65,7 @@ export default class Button extends React.Component<ButtonNativeProps, any> {
     } = this.props;
     const buttonStyles = styles!;
 
-    ['activeOpacity', 'delayPressOut', 'underlayColor', 'onPress', 'onPressIn',
+    ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
      'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
        if (restProps.hasOwnProperty(prop)) {
          delete restProps[prop];
@@ -100,7 +100,6 @@ export default class Button extends React.Component<ButtonNativeProps, any> {
     return (
       <TouchableHighlight
         activeOpacity={1}
-        delayPressOut={1}
         underlayColor={underlayColor}
         style={wrapperStyle}
         onPress={(e?: any) => onClick && onClick(e)}
