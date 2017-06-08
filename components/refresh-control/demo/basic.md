@@ -49,8 +49,17 @@ class App extends React.Component {
       refreshing: false,
     };
   }
+  componentDidMount() {
+    this.manuallyRefresh = true;
+    setTimeout(() => this.setState({ refreshing: true }), 10);
+  }
   onRefresh = () => {
-    this.setState({ refreshing: true });
+    console.log('onRefresh');
+    if (!this.manuallyRefresh) {
+      this.setState({ refreshing: true });
+    } else {
+      this.manuallyRefresh = false;
+    }
     setTimeout(() => {
       this.initData = [`ref${pageIndex++}`, ...this.initData];
       this.setState({
