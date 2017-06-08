@@ -286,7 +286,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
         allowFontScaling={true}
         ellipsizeMode="tail"
       >
-        同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意
+        Agree agreement agreement agreement agreement agreement agreement agreement
       </Text>
     </View>
   </View>
@@ -380,7 +380,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
         allowFontScaling={true}
         ellipsizeMode="tail"
       >
-        同意 《信用支付服务合同
+        Agree agreement
       </Text>
     </View>
   </View>
@@ -472,7 +472,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
         allowFontScaling={true}
         ellipsizeMode="tail"
       >
-        未选中，不可编辑 《信用支付服务合同》
+        Not selected. Not editable
       </Text>
     </View>
   </View>
@@ -564,7 +564,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
         allowFontScaling={true}
         ellipsizeMode="tail"
       >
-        强制选中,不可编辑 《信用支付服务合同信用支付服务合同信用支付服务合同》
+        Force selected. Not editable
       </Text>
     </View>
   </View>
@@ -594,7 +594,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
           }
         }
       >
-        表单多选项，普通列表中多选项
+        Multiple options
       </Text>
       <View
         accessibilityComponentType={undefined}
@@ -723,7 +723,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                签约
+                Option 1
               </Text>
             </View>
           </View>
@@ -856,7 +856,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                物料铺设
+                Option 2
               </Text>
             </View>
           </View>
@@ -989,7 +989,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                机具维护（不能选）
+                Option 3
               </Text>
             </View>
           </View>
@@ -1122,7 +1122,7 @@ exports[`renders ./components/checkbox/demo/basic.tsx correctly 1`] = `
                   ]
                 }
               >
-                产品问题解决（必选）
+                Option 4
               </Text>
             </View>
           </View>

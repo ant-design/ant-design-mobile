@@ -8,7 +8,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      CheckboxItem 演示
+      CheckboxItem demo
     </div>
     <div
       class="am-list-body"
@@ -41,7 +41,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            博士
+            Ph.D.
           </div>
         </div>
         <div
@@ -77,7 +77,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            本科
+            Bachelor
           </div>
         </div>
         <div
@@ -113,7 +113,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            高中
+            college diploma
           </div>
         </div>
         <div
@@ -152,11 +152,11 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            初中
+            undergraduate
             <div
               class="am-list-brief"
             >
-              辅助文字内容
+              Auxiliary text
             </div>
           </div>
         </div>
@@ -192,9 +192,9 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
               class="am-checkbox-inner"
             />
           </span>
-          已阅读协议
+          Agree 
           <a>
-            《协议链接》
+            agreement
           </a>
         </label>
       </div>
