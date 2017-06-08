@@ -18,26 +18,26 @@ class Test extends React.Component {
   }
   render() {
     const data = [
-      { value: 0, label: '博士' },
-      { value: 1, label: '本科' },
-      { value: 2, label: '高中' },
+      { value: 0, label: 'Ph.D.' },
+      { value: 1, label: 'Bachelor' },
+      { value: 2, label: 'college diploma' },
     ];
     return (<div>
-      <List renderHeader={() => 'CheckboxItem 演示'}>
+      <List renderHeader={() => 'CheckboxItem demo'}>
         {data.map(i => (
           <CheckboxItem key={i.value} onChange={() => this.onChange(i.value)}>
             {i.label}
           </CheckboxItem>
         ))}
         <CheckboxItem key="disabled" data-seed="logId" disabled defaultChecked multipleLine>
-          初中<List.Item.Brief>辅助文字内容</List.Item.Brief>
+          undergraduate<List.Item.Brief>Auxiliary text</List.Item.Brief>
         </CheckboxItem>
       </List>
 
       <Flex>
         <Flex.Item>
           <AgreeItem data-seed="logId" onChange={e => console.log('checkbox', e)}>
-            已阅读协议<a onClick={(e) => { e.preventDefault(); alert('打开协议'); }}>《协议链接》</a>
+            Agree <a onClick={(e) => { e.preventDefault(); alert('agree it'); }}>agreement</a>
           </AgreeItem>
         </Flex.Item>
       </Flex>

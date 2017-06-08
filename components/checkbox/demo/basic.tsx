@@ -33,31 +33,31 @@ export default class BasicCheckboxExample extends React.Component<any, any> {
         </View>
 
         <WhiteSpace />
-        <AgreeItem>同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意</AgreeItem>
+        <AgreeItem>Agree agreement agreement agreement agreement agreement agreement agreement</AgreeItem>
         <WhiteSpace />
         <AgreeItem
           checked={this.state.agreeItem1}
           checkboxStyle={{ tintColor: '#f00' }}
           onChange={(event) => { this.setState({ agreeItem1: event.target.checked }); }}
         >
-          同意 《信用支付服务合同
+          Agree agreement
         </AgreeItem>
         <WhiteSpace />
-        <AgreeItem disabled>未选中，不可编辑 《信用支付服务合同》</AgreeItem>
+        <AgreeItem disabled>Not selected. Not editable</AgreeItem>
         <WhiteSpace />
-        <AgreeItem checked disabled>强制选中,不可编辑 《信用支付服务合同信用支付服务合同信用支付服务合同》</AgreeItem>
+        <AgreeItem checked disabled>Force selected. Not editable</AgreeItem>
 
         <List style={{ marginTop: 12 }}>
-          <Text style={{ marginTop: 12 }}>表单多选项，普通列表中多选项</Text>
+          <Text style={{ marginTop: 12 }}>Multiple options</Text>
           <CheckboxItem
             checked={this.state.checkboxItem1}
             onChange={(event) => { this.setState({ checkboxItem1: event.target.checked }); }}
           >
-            签约
+            Option 1
           </CheckboxItem>
-          <CheckboxItem>物料铺设</CheckboxItem>
-          <CheckboxItem disabled>机具维护（不能选）</CheckboxItem>
-          <CheckboxItem disabled checked>产品问题解决（必选）</CheckboxItem>
+          <CheckboxItem>Option 2</CheckboxItem>
+          <CheckboxItem disabled>Option 3</CheckboxItem>
+          <CheckboxItem disabled checked>Option 4</CheckboxItem>
         </List>
       </View>
     );

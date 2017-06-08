@@ -21,9 +21,10 @@ Properties | Descrition | Type | Default
 
 ### Checkbox.CheckboxItem
 
-基于`List.Item`对`Checkbox`进行封装,`List.Item`的`thumb`属性固定传入`Checkbox`,其他属性和`List.Item`一致。
-其他 API 和 Checkbox 相同。
+The encapsulation about `Checkbox` based on `List.Item`, the property `thumb` of `List.Item` will be passed to `Checkbox`, while other properties remain the same.
+
+Other APIs are identical with `Checkbox`.
 
 ### Checkbox.AgreeItem
 
-用于同意协议这种场景的复选框
+Almost the same as CheckboxItem and be used for special scenes. See demo for details.
