@@ -93,6 +93,88 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     class="am-whitespace am-whitespace-lg"
   />
   <div
+    class="am-list-header"
+  >
+    Without List component
+  </div>
+  <div
+    checked=""
+    class="am-radio-item am-list-item am-list-item-middle"
+  >
+    <div
+      class="am-list-line"
+    >
+      <div
+        class="am-list-content"
+      >
+        Doctor
+      </div>
+      <div
+        class="am-list-extra"
+      >
+        <label
+          class="am-radio-wrapper"
+        >
+          <span
+            class="am-radio am-radio-checked"
+          >
+            <input
+              checked=""
+              class="am-radio-input"
+              type="radio"
+            />
+            <span
+              class="am-radio-inner"
+            />
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="am-list-ripple"
+      style="display:none;"
+    />
+  </div>
+  <div
+    class="am-radio-item am-list-item am-list-item-middle"
+  >
+    <div
+      class="am-list-line"
+    >
+      <div
+        class="am-list-content"
+      >
+        Bachelor
+      </div>
+      <div
+        class="am-list-extra"
+      >
+        <label
+          class="am-radio-wrapper"
+        >
+          <span
+            class="am-radio"
+          >
+            <input
+              class="am-radio-input"
+              type="radio"
+            />
+            <span
+              class="am-radio-inner"
+            />
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="am-list-ripple"
+      style="display:none;"
+    />
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
     class="am-list"
   >
     <div
