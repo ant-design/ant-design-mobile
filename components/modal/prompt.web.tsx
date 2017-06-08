@@ -79,9 +79,15 @@ export default function a(...args) {
   let div: any = document.createElement('div');
   document.body.appendChild(div);
 
+  ['hashchange', 'popstate'].map((event) => {
+    window.addEventListener(event, close, false);
+  });
   function close() {
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);
+    ['hashchange', 'popstate'].map((event) => {
+      window.addEventListener(event, close, false);
+    });
   }
 
   function getArgs(func) {

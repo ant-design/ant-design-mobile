@@ -20,6 +20,9 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
   let div: any = document.createElement('div');
   document.body.appendChild(div);
 
+  ['hashchange', 'popstate'].map((event) => {
+    window.addEventListener(event, close, false);
+  });
   function close() {
     if (div) {
       ReactDOM.unmountComponentAtNode(div);
@@ -27,6 +30,9 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
       div = null;
     }
     afterClose(instanceId);
+    ['hashchange', 'popstate'].map((event) => {
+      window.addEventListener(event, close, false);
+    });
   }
 
   let transName = 'am-slide-down';

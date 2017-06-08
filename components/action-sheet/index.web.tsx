@@ -26,6 +26,9 @@ function createActionSheet(flag, config, callback) {
   document.body.appendChild(div);
 
   queue.push(close);
+  ['hashchange', 'popstate'].map((event) => {
+    window.addEventListener(event, close, false);
+  });
 
   function close() {
     if (div) {
@@ -37,6 +40,11 @@ function createActionSheet(flag, config, callback) {
         queue.splice(index, 1);
       }
     }
+
+    ['hashchange', 'popstate'].map((event) => {
+      window.removeEventListener(event, close, false);
+    });
+
   }
 
   function cb(index, rowIndex = 0) {
