@@ -11,15 +11,15 @@ title: 在 create-react(-native)-app 中使用
 
 ```bash
 $ npm install -g yarn
-$ npm install -g create-react-app (web 项目)
-$ npm install -g create-react-native-app (react-native 项目)
+$ npm install -g create-react-app  # web 项目
+$ npm install -g create-react-native-app  # react-native 项目
 ```
 
 然后新建一个项目。
 
 ```bash
-$ create-react-app antm-demo (web 项目)
-$ create-react-native-app antm-demo (react-native 项目)
+$ create-react-app antm-demo  # web 项目
+$ create-react-native-app antm-demo  # react-native 项目
 ```
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。
@@ -49,7 +49,7 @@ $ yarn start
 
       ```bash
       npm run eject
-      ``` 
+      ```
 
     2. 安装开发依赖
 
@@ -160,7 +160,7 @@ $ yarn start
           ...
         );
       }
-      ```  
+      ```
 
 ## 自定义主题
 
@@ -178,7 +178,7 @@ $ yarn start
       color_link: 'red',
       border_color_base: 'green',
     };
-    ```  
+    ```
   2. 项目根目录下创建 `scripts/custom-rn-theme.js` 文件，文件内容 copy [rn-custom-ui/scripts/custom-rn-theme.js](https://github.com/ant-design/antd-mobile-samples/blob/master/rn-custom-ui/scripts/custom-rn-theme.js) 该文件内容即可；
 
   3. 改写 `package.json` 中 `start` 命令如下：

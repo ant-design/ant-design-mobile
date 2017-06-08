@@ -11,15 +11,15 @@ We need to install the appropriate tools first, you may need install [yarn](http
 
 ```bash
 $ npm install -g yarn
-$ npm install -g create-react-app (web project)
-$ npm install -g create-react-native-app (react-native project)
+$ npm install -g create-react-app  # web project
+$ npm install -g create-react-native-app  # react-native project
 ```
 
 Then we create a new project named antm-demo.
 
 ```bash
-$ create-react-app antm-demo (web project)
-$ create-react-native-app antm-demo (react-native project)
+$ create-react-app antm-demo  # web project
+$ create-react-native-app antm-demo  # react-native project
 ```
 
 The tool will create and initialize environment and dependencies automaticly, please try config your proxy setting or use other npm registry if any network errors happen during it.
@@ -139,7 +139,7 @@ First we install antd-mobile and [babel-plugin-import](https://github.com/ant-de
 
 - ### React Native project
 
-  1. Modify the `.babelrc` config, then restart the service.  
+  1. Modify the `.babelrc` config, then restart the service.
 
     ```json
     {
@@ -172,7 +172,7 @@ First we install antd-mobile and [babel-plugin-import](https://github.com/ant-de
 
   Please see: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
-- ### React Native project  
+- ### React Native project
 
   1. Create `theme.js` file in the project root, overwrite the theme variables that you want to change, eg:
 
@@ -196,4 +196,4 @@ First we install antd-mobile and [babel-plugin-import](https://github.com/ant-de
 
     Then restart the service.
 
-  > Note: if you want to overwrite some styles for a single component, please see [ant-design-mobile/issues/1174](https://github.com/ant-design/ant-design-mobile/issues/1174#issuecomment-295256831) (currently support 1.x verion)    
+  > Note: if you want to overwrite some styles for a single component, please see [ant-design-mobile/issues/1174](https://github.com/ant-design/ant-design-mobile/issues/1174#issuecomment-295256831) (currently support 1.x verion)
