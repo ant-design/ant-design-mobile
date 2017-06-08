@@ -21,7 +21,7 @@ subtitle: 弹出层
 - onMaskClose (function) 遮罩层关闭时的回调，支持返回 Promise
 - maskClosable (bool) - 点击蒙层是否允许关闭，默认允许
 
-对于 web 平台，你还可以设置 `prefixCls`/`className`/`wrapClassName`/`maskProps`，参考 [rc-dialog](https://github.com/react-component/dialog#rc-dialogweb)
+对于 web 平台，你还可以设置 `prefixCls`/`className`/`wrapClassName`/`maskStyle`，参考 [rc-dialog](https://github.com/react-component/dialog#rc-dialogweb)
 
 #### static hide(): 关闭 Popup
 

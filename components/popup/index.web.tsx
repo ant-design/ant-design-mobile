@@ -73,7 +73,7 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
       footer=""
       transitionName={transitionName || transName}
       maskTransitionName={maskTransitionName || 'am-fade'}
-      maskProps={props.maskProps || maskProps}
+      maskProps={assign({}, props.maskProps, maskProps)}
     >
       {content}
     </Dialog>,
