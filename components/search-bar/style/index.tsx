@@ -35,7 +35,7 @@ export default StyleSheet.create({
   } as ViewStyle,
   cancelText: {
     fontSize: variables.link_button_font_size,
-    color: variables.color_link,
+    color: variables.search_bar_cancelText_color,
     paddingLeft: variables.h_spacing_lg,
   } as ViewStyle,
   search: {

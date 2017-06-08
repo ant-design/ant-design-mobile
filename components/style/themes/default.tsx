@@ -161,6 +161,7 @@ export default {
   search_bar_input_height: 28,
   searchbar_font_size: 15,
   search_color_icon: '#bbbbbb', // input search icon 的背景色
+  search_bar_cancelText_color: brandPrimary,
 
   // notice_bar
   notice_bar_fill: '#fffada',
