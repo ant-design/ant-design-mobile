@@ -27,7 +27,7 @@ export default class SubMenu extends React.Component<any, any> {
     }
   }
   render() {
-    const { subMenuPrefixCls, radioPrefixCls, subMenuData } = this.props;
+    const { subMenuPrefixCls, radioPrefixCls, subMenuData, platform } = this.props;
     const { selItem } = this.state;
 
     const selected = dataItem => selItem.length > 0 && selItem[0].value === dataItem.value;
@@ -41,6 +41,7 @@ export default class SubMenu extends React.Component<any, any> {
               [`${subMenuPrefixCls}-item-selected`]: selected(dataItem),
               [`${subMenuPrefixCls}-item-disabled`]: dataItem.disabled,
             })}
+            platform={platform}
             key={idx}
             extra={<Radio
               checked={selected(dataItem)}

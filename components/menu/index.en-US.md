@@ -22,3 +22,4 @@ Properties | Descrition | Type | Default
 | value    |  Selected value of `Menu`, it's a array which includes first and second level's `value`. | Array | [] |
 | onChange    | Callback called when menu item is selected.  | (item: Object): void  |  |
 | height    |   Height of `Menu`.  | number  | `document.documentElement.clientHeight / 2` |
+| platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios`， default to be `cross`， which means we will detect UA and change the component style | String | `'cross'`|
