@@ -8,7 +8,7 @@ interface InputItemProps {
   prefixListCls?: string;
   /** web only */
   className?: string;
-  type?: 'text'|'bankCard'|'phone'|'password'|'number'|'idcard'|'digit';
+  type?: 'text'|'bankCard'|'phone'|'password'|'number'|'idcard'|'digit'|'money';
   editable?: boolean;
   disabled?: boolean;
   name?: string;

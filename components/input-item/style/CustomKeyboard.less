@@ -1,0 +1,148 @@
+@import '../../style/mixins';
+@import '../../style/themes/default';
+
+@listPrefixCls: am-list;
+@inputPrefixCls: am-input;
+@keyboardPrefixCls: am-number-keyboard;
+
+.@{listPrefixCls}-item {
+  .@{inputPrefixCls}-control {
+    flex: 1;
+    .ellipsis();
+
+    .fake-input-container {
+      height: 60px;
+      line-height: 60px;
+      position: relative;
+
+      .fake-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin-right: 10px;
+        text-decoration: rtl;
+        text-align: right;
+        color: #000;
+        font-size: 34px;
+
+        &.focus {
+          transition: color .2s;
+
+          &:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 10%;
+            height: 80%;
+            border-right: 3px solid @keyboard-confirm-color;
+            animation: keyboard-cursor infinite 1s step-start;
+          }
+        }
+      }
+
+      .fake-input-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: @color-text-placeholder;
+        text-align: right;
+      }
+    }
+  }
+}
+
+.@{keyboardPrefixCls}-wrapper {
+  &.@{keyboardPrefixCls}-wrapper-hide {
+    bottom: -400px;
+  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 400px;
+  z-index: 10000;
+  font-family: 'PingFang SC';
+  background-color: #f6f6f7;
+  transition-duration: 0.2s;
+  transition-property: transform display;
+  transform: translateZ(0);
+
+  table {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    border-top: 1Px solid #ccc;
+
+    tr {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+
+      .@{keyboardPrefixCls}-item {
+        width: 25%;
+        padding: 0;
+        margin: 0;
+        height: 100px;
+        text-align: center;
+        border-left: 1Px solid #ccc;
+        border-bottom: 1Px solid #ccc;
+        font-size: 51px;
+        color: #2a2b2c;
+        position: relative;
+
+        &.@{keyboardPrefixCls}-item-active {
+          background-color: @fill-tap;
+        }
+
+        &.keyboard-confirm {
+          color: #fff;
+          font-size: 42px;
+          background-color: @keyboard-confirm-color;
+
+          &.@{keyboardPrefixCls}-item-active {
+            background-color: @keyboard-confirm-tap-color;
+          }
+
+          &.@{keyboardPrefixCls}-item-disabled {
+            background-color: @keyboard-confirm-tap-color;
+            color: rgba(255, 255, 255, 0.45);
+          }
+        }
+
+        &.keyboard-delete {
+          background-image: url("./assets/Backspace.png");
+          background-size: 51px 37px;
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+        }
+
+        &.keyboard-hide {
+          background-image: url("./assets/Hide.png");
+          background-size: 65px 47px;
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}
+
+@keyframes keyboard-cursor {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

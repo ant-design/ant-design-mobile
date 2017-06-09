@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 错误验证
   en-US: Error verification
