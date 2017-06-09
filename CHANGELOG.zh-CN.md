@@ -14,6 +14,23 @@ timeline: true
 
 ---
 
+## 1.3.0
+
+`2017-06-09`
+
+- **Feature**
+  - `InputItem` 支持虚拟的金额输入键盘 (`type="money"`)。([#1419](https://github.com/ant-design/ant-design-mobile/pull/1419))
+  - `Slider` & `Range` 新增 `handleStyle`, `trackStyle`, `railStyle` 以支持自定义样式。([a83d0fe](https://github.com/ant-design/ant-design-mobile/commit/a83d0fefffbdd05ce9f89a78508a544cd95e4fb5))
+  - React-Native `Progress` 新增 `wrapStyle` 已自定义容器样式。([3ad012a](https://github.com/ant-design/ant-design-mobile/blob/3ad012ae265182cebc677efb309c92238eb8377a/components/progress/index.web.tsx))
+  - React-Native `Carousel` 新增 `dotStyle`, `dotActiveStyle` 以自定义指示器样式。([#1425](https://github.com/ant-design/ant-design-mobile/pull/1425))
+  - React-Native `Button` 新增 `delayPressin`, `delayPressout` 以自定义点击延时。([b6ec8e2](https://github.com/ant-design/ant-design-mobile/commit/b6ec8e217bc3ed56702c819885948839c14bf8e3))
+
+- **Bug Fix**
+  - 修复 React-Native `Accordion` 不能设置 style。([#1407](https://github.com/ant-design/ant-design-mobile/issues/1407))
+  - 修复 `Popup` 自定义蒙层样式的问题。([#1420](https://github.com/ant-design/ant-design-mobile/issues/1420))
+  - 修复 `Pagination` 自定义翻页文案与图标样式的问题。([#1429](https://github.com/ant-design/ant-design-mobile/issues/1429))
+  - 修复 `Modal` 在 android 上关闭之前样式变换的问题。([#1433](https://github.com/ant-design/ant-design-mobile/issues/1433))
+
 ## 1.2.0
 
 `2017-06-03`
