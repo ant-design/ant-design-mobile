@@ -37,7 +37,7 @@ class CustomKeyboard extends React.Component<any, any> {
     confirmDisabled: false,
   };
   onKeyboardClick = (e, value) => {
-    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
     const { confirmDisabled } = this.props;
     if (value === 'confirm' && confirmDisabled) {
       return null;

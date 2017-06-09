@@ -1,20 +1,6 @@
 import React from 'react';
 import CustomKeyboard from './CustomKeyboard.web';
 
-if ((window as any).Element && !Element.prototype.closest) {
-  Element.prototype.closest =
-  function(s) {
-    let matches = (this.document || this.ownerDocument).querySelectorAll(s);
-    let i;
-    let el = this;
-    do {
-      i = matches.length;
-      while (--i >= 0 && matches.item(i) !== el) {}
-    } while ((i < 0) && (el = el.parentElement)); // tslint:disable-line
-    return el;
-  };
-}
-
 class NumberInput extends React.Component<any, any> {
   static defaultProps = {
     onChange: () => {},
@@ -26,6 +12,8 @@ class NumberInput extends React.Component<any, any> {
     keyboardPrefixCls: 'am-number-keyboard',
   };
 
+  debounceFocusTimeout: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +23,7 @@ class NumberInput extends React.Component<any, any> {
 
   componentWillReceiveProps(nextProps) {
     if ('focused' in nextProps && nextProps.focused !== this.state.focused) {
-      setTimeout(() => {
+      this.debounceFocusTimeout = setTimeout(() => {
         if (nextProps.focused) {
           this.onInputFocus(this.props.value);
         }
@@ -44,24 +32,36 @@ class NumberInput extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    const { autoFocus, focused, value, prefixCls, keyboardPrefixCls } = this.props;
+    const { autoFocus, focused, value } = this.props;
     if (autoFocus || focused) {
       this.onInputFocus(value);
     }
-    document.addEventListener('click', (ev) => {
-      if (this.refs['input-container'] !== ev.target &&
-        this.refs['input-container'] !== (ev.target as any).closest(`.${prefixCls}-control`) &&
-        (ev.target as any).closest(`.${keyboardPrefixCls}-wrapper`) === null) {
-        this.onInputBlur(value);
-      }
-    });
+    document.addEventListener('click', this._blurEventListener, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this._blurEventListener, false);
+    if (this.debounceFocusTimeout) {
+      clearTimeout(this.debounceFocusTimeout);
+      this.debounceFocusTimeout = null;
+    }
+  }
+
+  _blurEventListener = (ev) => {
+    const { value } = this.props;
+    if (ev.target !== this.refs['input-container']) {
+      this.onInputBlur(value);
+    }
   }
 
   onInputBlur = (value) => {
-    this.setState({
-      focused: false,
-    });
-    this.props.onBlur(value);
+    const { focused } = this.state;
+    if (focused) {
+      this.setState({
+        focused: false,
+      });
+      this.props.onBlur(value);
+    }
   }
 
   onInputFocus = (value) => {
