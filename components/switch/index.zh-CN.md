@@ -11,7 +11,6 @@ subtitle: 滑动开关
 ### 规则
 - 只在 List 中使用。
 - 避免增加额外的文案来描述当前 Switch 的值。
-- 可调整 Switch 的主体来满足 APP 的视觉风格。
 
 
 ## API

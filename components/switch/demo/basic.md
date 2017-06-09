@@ -5,7 +5,7 @@ title:
   en-US: Basic
 ---
 
-滑动开关. ([rc-form 文档](https://github.com/react-component/form))
+Switch. ([rc-form document](https://github.com/react-component/form))
 
 ````jsx
 import { List, Switch } from 'antd-mobile';
@@ -15,7 +15,7 @@ let SwitchExample = (props) => {
   const { getFieldProps } = props.form;
   return (
     <List
-      renderHeader={() => '表单开关项'}
+      renderHeader={() => 'Form switch'}
     >
       <List.Item
         extra={<Switch
@@ -25,7 +25,7 @@ let SwitchExample = (props) => {
           })}
           onClick={(checked) => { console.log(checked); }}
         />}
-      >默认开</List.Item>
+      >On</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch2', {
@@ -34,7 +34,7 @@ let SwitchExample = (props) => {
           })}
           onClick={(checked) => { console.log(checked); }}
         />}
-      >默认关</List.Item>
+      >Off</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch3', {
@@ -44,7 +44,7 @@ let SwitchExample = (props) => {
           onClick={(checked) => { console.log(checked); }}
           disabled
         />}
-      >默认关不可修改</List.Item>
+      >Disabled off</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch4', {
@@ -54,7 +54,7 @@ let SwitchExample = (props) => {
           onClick={(checked) => { console.log(checked); }}
           disabled
         />}
-      >默认开不可修改</List.Item>
+      >Disabled on</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch5', {
@@ -63,7 +63,7 @@ let SwitchExample = (props) => {
           })}
           platform="android"
         />}
-      >Android平台样式</List.Item>
+      >Style for Android</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch6', {
@@ -72,7 +72,7 @@ let SwitchExample = (props) => {
           })}
           platform="ios"
         />}
-      >iOS平台样式</List.Item>
+      >Style for iOS</List.Item>
     </List>
   );
 };
