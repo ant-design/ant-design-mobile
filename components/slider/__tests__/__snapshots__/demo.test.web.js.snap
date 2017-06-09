@@ -32,7 +32,12 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
           class="am-slider-step"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="30"
+          aria-valuemin="0"
+          aria-valuenow="26"
           class="am-slider-handle"
+          role="slider"
           style="left:86.66666666666667%;"
         />
         <div
@@ -69,7 +74,12 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
           class="am-slider-step"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="30"
+          aria-valuemin="0"
+          aria-valuenow="26"
           class="am-slider-handle"
+          role="slider"
           style="left:86.66666666666667%;"
         />
         <div
@@ -106,8 +116,12 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
           class="am-slider-step"
         />
         <div
+          aria-disabled="true"
+          aria-valuemax="30"
+          aria-valuemin="0"
+          aria-valuenow="26"
           class="am-slider-handle"
-          disabled=""
+          role="slider"
           style="left:86.66666666666667%;"
         />
         <div
@@ -132,18 +146,23 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-slider-rail"
-          style="background-color:red;height:0.1rem;"
+          style="background-color:blue;height:0.1rem;"
         />
         <div
           class="am-slider-track"
-          style="visibility:visible;left:0%;width:86.66666666666667%;background-color:blue;height:0.1rem;"
+          style="visibility:visible;background-color:red;height:0.1rem;left:0%;width:86.66666666666667%;"
         />
         <div
           class="am-slider-step"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="30"
+          aria-valuemin="0"
+          aria-valuenow="26"
           class="am-slider-handle"
-          style="left:86.66666666666667%;border-color:blue;height:0.28rem;width:0.28rem;margin-left:-0.14rem;margin-top:-0.09rem;background-color:blue;"
+          role="slider"
+          style="border-color:blue;height:0.28rem;width:0.28rem;margin-left:-0.14rem;margin-top:-0.09rem;background-color:blue;left:86.66666666666667%;"
         />
         <div
           class="am-slider-mark"
@@ -188,6 +207,8 @@ exports[`renders ./components/slider/demo/custom-tooltip.md correctly 1`] = `
         <div>
           <div
             class="am-slider-handle"
+            max="30"
+            min="0"
             style="left:86.66666666666667%;"
           />
           <div
@@ -241,7 +262,12 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
             class="am-slider-step"
           />
           <div
+            aria-disabled="false"
+            aria-valuemax="20"
+            aria-valuemin="0"
+            aria-valuenow="0"
             class="am-slider-handle"
+            role="slider"
             style="left:0%;"
           />
           <div

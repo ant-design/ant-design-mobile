@@ -32,9 +32,12 @@ Properties | Descrition | Type | Default
 | marks (`web only`)     |  Object{Number:String}     | { }    | 刻度标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内 |
 | dots (`web only`)     |  Boolean     | false    | 是否只能拖拽到刻度上 |
 | included (`web only`)    |  Boolean     | true    | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 |
-| maximumTrackStyle(`web`)    |  Object     |    | The style used for the track to the right of the button.  |
-| minimumTrackStyle(`web`)    |  Object     |   | The style used for the track to the left of the button. |
+| minimumTrackStyle(`web`)    |  Object     |   | The style used for the track to the left of the button.(`will be deprecate, please use trackStyle instead`)|
+| maximumTrackStyle(`web`)    |  Object     |    | The style used for the track to the right of the button.（`will be deprecate, please use railStyle instead`）  |
 | handleStyle(`web`)    |  Object     |    | The style used for handle.  |
+| handleStyle(`web`)    |  Object    |    | 滑块的样式  |
+| trackStyle(`web`)    | Object     |    | The style used for the track to the left of the button. |
+| railStyle(`web`)    |  Object     |   | The style used for the track to the right of the button. |
 
 ## ToolTip(Web Only)
 

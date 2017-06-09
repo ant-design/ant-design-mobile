@@ -33,9 +33,11 @@ subtitle: 滑动输入条
 | marks (`web only`)     |  Object{Number:String}     | { }    | 刻度标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内 |
 | dots (`web only`)     |  Boolean     | false    | 是否只能拖拽到刻度上 |
 | included (`web only`)    |  Boolean     | true    | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 |
-| maximumTrackStyle(`web`)    |  Object     |    | 未选中 track 的样式 |
-| minimumTrackStyle(`web`)    |  Object     |   | 选中部分的 track 样式 |
-| handleStyle(`web`)    |  Object     |    | 滑块的样式  |
+| maximumTrackStyle(`web`)    |  Object     |    | 未选中 track 的样式(`将被废弃，请使用 railStyle 代替`) |
+| minimumTrackStyle(`web`)    |  Object     |   | 选中部分的 track 样式 (`将被废弃，请使用 trackStyle 代替`) |
+| handleStyle(`web`)    |  Object    |    | 滑块的样式  |
+| trackStyle(`web`)    | Object     |    | 选中部分滑动条的样式 |
+| railStyle(`web`)    |  Object     |   | 未选中部分 |
 
 ## ToolTip(Web Only)
 

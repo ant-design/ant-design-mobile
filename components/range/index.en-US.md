@@ -33,6 +33,9 @@ Properties | Descrition | Type | Default
 | count | number | `1` | Determine how many ranges to render, and multiple handles will be rendered (number + 1). |
 | allowCross | boolean | `true` | `allowCross` could be set as `true` to allow those handles to cross. |
 | pushable | boolean or number | `true` | `pushable` could be set as `true` to allow pushing of surrounding handles when moving an handle. When set to a number, the number will be the minimum ensured distance between handles. Example: ![](http://i.giphy.com/l46Cs36c9HrHMExoc.gif) |
+| handleStyle(`web`)    |  Array[Object]    |    | style of handle，will be applied to mutli handle follow the array elemetns order |
+| trackStyle(`web`)    | Array[Object]     |    | style of track，will be applied to mutli track follow the array elemetns order |
+| railStyle(`web`)    |  Object     |   | style of slider base style, which means the area that not been selected |
 
 ## ToolTip(Web Only)
 

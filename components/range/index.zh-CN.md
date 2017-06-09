@@ -34,6 +34,9 @@ subtitle: 区域选择
 | count | number | `1` | Determine how many ranges to render, and multiple handles will be rendered (number + 1). |
 | allowCross | boolean | `true` | `allowCross` could be set as `true` to allow those handles to cross. |
 | pushable | boolean or number | `true` | `pushable` could be set as `true` to allow pushing of surrounding handles when moving an handle. When set to a number, the number will be the minimum ensured distance between handles. Example: ![](http://i.giphy.com/l46Cs36c9HrHMExoc.gif) |
+| handleStyle(`web`)    |  Array[Object]    |    | 滑块的样式，按数组顺序应用到多滑块  |
+| trackStyle(`web`)    | Array[Object]     |    | 选中部分滑动条的样式，按数组顺序应用到滑动条的多区间 |
+| railStyle(`web`)    |  Object     |   | 未选中部分 |
 
 ## ToolTip(Web Only)
 

@@ -45,11 +45,11 @@ class App extends React.Component {
             defaultValue={26}
             min={0}
             max={30}
-            maximumTrackStyle={{
+            trackStyle={{
               backgroundColor: 'red',
               height: '0.1rem',
             }}
-            minimumTrackStyle={{
+            railStyle={{
               backgroundColor: 'blue',
               height: '0.1rem',
             }}

@@ -32,11 +32,21 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-step"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="20"
+          aria-valuemin="0"
+          aria-valuenow="3"
           class="am-slider-handle am-slider-handle-1"
+          role="slider"
           style="left:15%;"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="20"
+          aria-valuemin="0"
+          aria-valuenow="10"
           class="am-slider-handle am-slider-handle-2"
+          role="slider"
           style="left:50%;"
         />
         <div
@@ -73,11 +83,21 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-step"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="20"
+          aria-valuemin="0"
+          aria-valuenow="3"
           class="am-slider-handle am-slider-handle-1"
+          role="slider"
           style="left:15%;"
         />
         <div
+          aria-disabled="false"
+          aria-valuemax="20"
+          aria-valuemin="0"
+          aria-valuenow="10"
           class="am-slider-handle am-slider-handle-2"
+          role="slider"
           style="left:50%;"
         />
         <div
@@ -114,14 +134,71 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-step"
         />
         <div
+          aria-disabled="true"
+          aria-valuemax="20"
+          aria-valuemin="0"
+          aria-valuenow="3"
           class="am-slider-handle am-slider-handle-1"
-          disabled=""
+          role="slider"
           style="left:15%;"
         />
         <div
+          aria-disabled="true"
+          aria-valuemax="20"
+          aria-valuemin="0"
+          aria-valuenow="10"
           class="am-slider-handle am-slider-handle-2"
-          disabled=""
+          role="slider"
           style="left:50%;"
+        />
+        <div
+          class="am-slider-mark"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-wingblank am-wingblank-lg"
+  >
+    <p
+      class="title"
+    >
+      Range, 自定义样式
+    </p>
+    <div
+      class="am-slider-wrapper"
+    >
+      <div
+        class="am-slider"
+      >
+        <div
+          class="am-slider-rail"
+          style="background-color:black;"
+        />
+        <div
+          class="am-slider-track am-slider-track-1"
+          style="visibility:visible;background-color:red;left:15%;width:35%;"
+        />
+        <div
+          class="am-slider-step"
+        />
+        <div
+          aria-disabled="false"
+          aria-valuemax="20"
+          aria-valuemin="0"
+          aria-valuenow="3"
+          class="am-slider-handle am-slider-handle-1"
+          role="slider"
+          style="background-color:yellow;left:15%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-valuemax="20"
+          aria-valuemin="0"
+          aria-valuenow="10"
+          class="am-slider-handle am-slider-handle-2"
+          role="slider"
+          style="background-color:gray;left:50%;"
         />
         <div
           class="am-slider-mark"
