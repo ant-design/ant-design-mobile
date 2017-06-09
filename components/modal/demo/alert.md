@@ -25,8 +25,9 @@ const showAlert = () => {
   ]);
   setTimeout(() => {
     // 可以调用close方法以在外部close
+    console.log('auto close');
     alertInstance.close();
-  }, 1000);
+  }, 2000);
 };
 
 const App = () => (

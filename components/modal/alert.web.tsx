@@ -22,7 +22,9 @@ export default function a(...args) {
 
   function close() {
     ReactDOM.unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
+    if (div && div.parentNode) {
+      div.parentNode.removeChild(div);
+    }
   }
 
   const footer = actions.map((button) => {

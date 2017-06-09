@@ -5,6 +5,11 @@ import assign from 'object-assign';
 import Touchable from 'rc-touchable';
 import ModalProps from './PropsType';
 
+function checkIfAndroid(platform) {
+  return platform === 'android' ||
+      (platform === 'cross' && typeof window !== 'undefined' && !!navigator.userAgent.match(/Android/i));
+}
+
 export default class Modal extends React.Component<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
@@ -18,12 +23,18 @@ export default class Modal extends React.Component<ModalProps, any> {
     operation: false,
     platform: 'cross',
   };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      // in ssr, just set isAndroid false
+      // since modal normally won't show at first render, componentDidMount will do double check
+      isAndroid: checkIfAndroid(props.platform),
+    };
+  }
   isInModal(e) {
     if (!/\biPhone\b|\biPod\b/i.test(navigator.userAgent)) {
       return;
     }
-
     // fix touch to scroll background page on iOS
     const prefixCls = this.props.prefixCls;
     const pNode = (node => {
@@ -69,7 +80,14 @@ export default class Modal extends React.Component<ModalProps, any> {
       </Touchable>
     );
   }
-
+  componentDidMount() {
+    const isAndroid = checkIfAndroid(this.props.platform);
+    if (isAndroid !== this.state.isAndroid) {
+      this.setState({
+        isAndroid,
+      });
+    }
+  }
   render() {
     const {
       prefixCls,
@@ -82,11 +100,10 @@ export default class Modal extends React.Component<ModalProps, any> {
       footer = [],
       closable,
       operation,
-      platform,
     } = this.props;
 
-    const isAndroid = platform === 'android' ||
-      (platform === 'cross' && this.props.visible && !!navigator.userAgent.match(/Android/i));
+    const { isAndroid } = this.state;
+
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
