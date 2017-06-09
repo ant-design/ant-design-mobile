@@ -5,12 +5,12 @@ title: Toast
 ---
 
 
-一种轻量级反馈/提示，可以用来显示不会打断用户操作的内容，适合用于页面转场、数据交互的等场景中。
+A lightweight feedback or tips, used to display content that does not interrupt user operations. Suitable for page transitions, data interaction and other scenes.
 
 
-### 规则
-- 一次只显示一个 toast。
-- 有 Icon 的 Toast，字数为 4-6 个；没有 Icon 的 Toast，字数不宜超过 14 个。
+### Rules
+- Only one Toast is allowed at a time.
+- Toast with Icon, 4-6 words is recommended.; Toast without Icon, the number of words should not exceed 14.
 
 
 ## API
@@ -23,17 +23,17 @@ Support WEB, React-Native.
 - `Toast.loading(content, duration, onClose, mask)`
 - `Toast.offline(content, duration, onClose, mask)`
 
-组件提供了五个静态方法，参数如下：
+The component provide several static methods：
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| content    | 提示内容       | React.Element or String    | 无           |
-| duration   | 自动关闭的延时，单位秒 | number                 | 3          |
-| onClose    | 关闭后回调 |  Function                 | 无          |
-| mask    | 是否显示透明蒙层，防止触摸穿透 |  Boolean  | true          |
+| content    | Toast content       | React.Element or String    | -           |
+| duration   | Delay time to close, which units is second | number                 | 3          |
+| onClose    | A callback function Triggered when the Toast is closed |  Function                 | -          |
+| mask    | Whether to show a transparent mask, which will prevent touch event of the whole page |  Boolean  | true          |
 
-> **注：**  duration = 0 时，onClose 无效，toast 不会消失；隐藏 toast 需要手动调用 hide
+> **Notice：** OnClose is invalid and Toast does not hide, If set duration = 0, toast will not auto hide, you have to manually do it.
 
-还提供了全局配置和全局销毁方法：
+Provides global configuration and global destroy methods:
 
 - `Toast.hide()`
