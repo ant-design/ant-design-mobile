@@ -20,36 +20,36 @@ const data = [
     children: [
       {
         label: 'All Foods',
-        value: '22',
+        value: '1',
         disabled: false,
       },
       {
         label: 'Chinese Food',
-        value: '21',
+        value: '2',
       }, {
         label: 'Hot Pot',
-        value: '23',
+        value: '3',
       }, {
         label: 'Buffet',
-        value: '24',
+        value: '4',
       }, {
         label: 'Fast Food',
-        value: '25',
+        value: '5',
       }, {
         label: 'Snack',
-        value: '26',
+        value: '6',
       }, {
         label: 'Bread',
-        value: '27',
+        value: '7',
       }, {
         label: 'Fruit',
-        value: '28',
+        value: '8',
       }, {
         label: 'Noodle',
-        value: '29',
+        value: '9',
       }, {
         label: 'Leisure Food',
-        value: '210',
+        value: '10',
       }],
   }, {
     value: '3',
@@ -57,17 +57,17 @@ const data = [
     children: [
       {
         label: 'All Supermarkets',
-        value: '31',
+        value: '1',
       }, {
         label: 'Supermarket',
-        value: '32',
+        value: '2',
         disabled: true,
       }, {
         label: 'C-Store',
-        value: '33',
+        value: '3',
       }, {
         label: 'Personal Care',
-        value: '34',
+        value: '4',
       }],
   },
 ];
@@ -117,7 +117,7 @@ class MenuExample extends React.Component {
       <Menu
         className="foo-menu"
         data={initData}
-        value={['2', '22']}
+        value={['2', '3']}
         onChange={this.onChange}
         height={document.documentElement.clientHeight * 0.6}
       />

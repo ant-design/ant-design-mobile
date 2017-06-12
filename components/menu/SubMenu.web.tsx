@@ -5,32 +5,14 @@ import List from '../list/index.web';
 import Radio from '../radio/Radio.web';
 
 export default class SubMenu extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selItem: props.selItem,
-    };
-  }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.subMenuData !== this.props.subMenuData) {
-      this.setState({
-        selItem: nextProps.selItem,
-      });
-    }
-  }
   onClick = (dataItem) => {
-    this.setState({
-      selItem: [dataItem],
-    });
     if (this.props.onSel) {
       this.props.onSel(dataItem);
     }
   }
   render() {
-    const { subMenuPrefixCls, radioPrefixCls, subMenuData } = this.props;
-    const { selItem } = this.state;
-
-    const selected = dataItem => selItem.length > 0 && selItem[0].value === dataItem.value;
+    const { subMenuPrefixCls, radioPrefixCls, subMenuData, showSelect, selItem } = this.props;
+    const selected = dataItem => (showSelect && (selItem.length > 0 && selItem[0].value === dataItem.value));
 
     return (
       <List style={{ paddingTop: 0 }} className={subMenuPrefixCls}>

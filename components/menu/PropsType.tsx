@@ -7,6 +7,7 @@ export interface DataItem {
   isLeaf?: boolean;
   disabled?: boolean;
   [key: string]: any;
+  showSelect: boolean;
 }
 
 export interface MenuProps {

@@ -21,12 +21,14 @@ export default class Menu extends React.Component<MenuProps, any> {
     super(props);
     this.state = {
       firstLevelSelectValue: this.getNewFsv(props),
+      value: props.value,
     };
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       this.setState({
         firstLevelSelectValue: this.getNewFsv(nextProps),
+        value: nextProps.value,
       });
     }
   }
@@ -37,35 +39,40 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
 
   onClickFirstLevelItem = (dataItem) => {
+    const { onChange } = this.props;
     this.setState({
       firstLevelSelectValue: dataItem.value,
     });
-    if (dataItem.isLeaf && this.props.onChange) {
-      this.props.onChange([dataItem.value]);
+    if (dataItem.isLeaf && onChange) {
+      onChange([dataItem.value]);
     }
   }
 
   onClickSubMenuItem = (dataItem) => {
     const { level, onChange } = this.props;
+    const value = (level === 2) ? [this.state.firstLevelSelectValue, dataItem.value] : [dataItem.value];
+    this.setState({ value });
     setTimeout(() => {
       if (onChange) {
-        onChange(level === 2 ? [this.state.firstLevelSelectValue, dataItem.value] : [dataItem.value]);
+        onChange(value);
       }
     }, 300);
   }
 
   render() {
-    const { className, style, height, data = [], prefixCls, value, level } = this.props;
-    const { firstLevelSelectValue } = this.state;
+    const { className, style, height, data = [], prefixCls, level } = this.props;
+    const { firstLevelSelectValue, value } = this.state;
+    let subMenuData = (data[0] && data[0].children) ? data[0].children : [];
 
-    let subMenuData = data[0].children || [];
     if (level !== 2) {
       subMenuData = data;
     } else if (firstLevelSelectValue) {
-      subMenuData = data.filter(dataItem => dataItem.value === firstLevelSelectValue)[0].children || [];
+      const parent = data.filter(dataItem => dataItem.value === firstLevelSelectValue);
+      subMenuData = (parent[0] && parent[0].children) ? parent[0].children : [];
     }
 
-    const subValue = value && value.length && value[value.length - 1];
+    const subValue = value && (value.length > 0) && value[value.length - 1];
+    const parentValue = (value && (value.length > 1)) ? value[0] : null;
     const subSelInitItem = subMenuData.filter(dataItem => dataItem.value === subValue);
 
     const heightStyle = {
@@ -106,6 +113,7 @@ export default class Menu extends React.Component<MenuProps, any> {
               subMenuData={subMenuData}
               selItem={subSelInitItem}
               onSel={this.onClickSubMenuItem}
+              showSelect={parentValue === firstLevelSelectValue}
             />
           </Flex.Item>
         </Flex>
