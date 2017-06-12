@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface SliderProps {
   onChange?: (value?: number) => void;
   onAfterChange?: (value?: number) => void;
@@ -14,9 +16,11 @@ export interface SliderProps {
   /* web only */
   prefixCls?: string;
   handle?: any;
-  maximumTrackStyle?: string;
-  minimumTrackStyle?: number;
-  handleStyle?: number;
+  maximumTrackStyle?: React.CSSProperties;
+  minimumTrackStyle?: React.CSSProperties;
+  handleStyle?: React.CSSProperties;
+  trackStyle?: React.CSSProperties;
+  railStyle?: React.CSSProperties;
 }
 
 export default SliderProps;
