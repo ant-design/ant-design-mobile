@@ -18,8 +18,8 @@ export interface SliderProps {
   handle?: any;
   maximumTrackStyle?: React.CSSProperties;
   minimumTrackStyle?: React.CSSProperties;
-  handleStyle?: React.CSSProperties | React.CSSProperties[];
-  trackStyle?: React.CSSProperties | React.CSSProperties[];
+  handleStyle?: React.CSSProperties;
+  trackStyle?: React.CSSProperties;
   railStyle?: React.CSSProperties;
 }
 
