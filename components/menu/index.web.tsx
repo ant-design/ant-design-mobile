@@ -75,6 +75,11 @@ export default class Menu extends React.Component<MenuProps, any> {
     const parentValue = (value && (value.length > 1)) ? value[0] : null;
     const subSelInitItem = subMenuData.filter(dataItem => dataItem.value === subValue);
 
+    let showSelect = true;
+    if (level === 2 && parentValue !== firstLevelSelectValue) {
+      showSelect = false;
+    }
+
     const heightStyle = {
       height: `${Math.round(height || document.documentElement.clientHeight / 2)}px`,
       overflowY: 'scroll',
@@ -113,7 +118,7 @@ export default class Menu extends React.Component<MenuProps, any> {
               subMenuData={subMenuData}
               selItem={subSelInitItem}
               onSel={this.onClickSubMenuItem}
-              showSelect={parentValue === firstLevelSelectValue}
+              showSelect={showSelect}
             />
           </Flex.Item>
         </Flex>
