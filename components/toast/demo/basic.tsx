@@ -4,28 +4,28 @@ import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 import { DeviceEventEmitter } from 'react-native';
 
 function showToast() {
-  Toast.info('这是一个 toast 提示!!!');
+  Toast.info('This is a toast tips !!!');
 }
 
 function successToast() {
-  Toast.success('加载成功!!!', 1);
+  Toast.success('Load success !!!', 1);
 }
 
 function showToastNoMask() {
-  Toast.info('无 mask 的 toast !!!', 1, null, false);
+  Toast.info('Toast without mask !!!', 1, null, false);
 }
 
 function failToast() {
-  Toast.fail('加载失败!!!');
+  Toast.fail('Load failed !!!');
 }
 
 function offline() {
-  Toast.offline('网络连接失败!!!');
+  Toast.offline('Network connection failed !!!');
 }
 
 function loadingToast() {
-  Toast.loading('加载中...', 1, () => {
-    console.log('加载完成!!!');
+  Toast.loading('Loading...', 1, () => {
+    console.log('Load complete !!!');
   });
 }
 
@@ -46,7 +46,7 @@ export default class ToastExample extends React.Component<any, any> {
   }
 
   alwaysShowToast = () => {
-    Toast.info('这是一个 duration 为 0 的 toast!!!', 0);
+    Toast.info('A toast width duration = 0 !!!', 0);
     this.timer = setTimeout(() => {
       Toast.hide();
     }, 5000);
@@ -56,19 +56,19 @@ export default class ToastExample extends React.Component<any, any> {
     return (
       <WingBlank style={{ marginTop: 80 }}>
         <WhiteSpace />
-        <Button onClick={showToastNoMask}>无 mask</Button>
+        <Button onClick={showToastNoMask}>Without mask</Button>
         <WhiteSpace />
-        <Button onClick={showToast}>纯文字 toast</Button>
+        <Button onClick={showToast}>Text toast</Button>
         <WhiteSpace />
-        <Button onClick={successToast}>成功 toast</Button>
+        <Button onClick={successToast}>Success toast</Button>
         <WhiteSpace />
-        <Button onClick={failToast}>失败 toast</Button>
+        <Button onClick={failToast}>Failed toast</Button>
         <WhiteSpace />
-        <Button onClick={offline}>网络 toast</Button>
+        <Button onClick={offline}>Network failure toast</Button>
         <WhiteSpace />
-        <Button onClick={loadingToast}>加载中 toast</Button>
+        <Button onClick={loadingToast}>Loading toast</Button>
         <WhiteSpace />
-        <Button onClick={this.alwaysShowToast}>duration 为 0 的 toast</Button>
+        <Button onClick={this.alwaysShowToast}>Toast width duration = 0</Button>
         <WhiteSpace />
       </WingBlank>
     );

@@ -5,51 +5,51 @@ title:
   en-US: Basic
 ---
 
-纯文字、纯图标、成功、失败、离线、loading
+text、icon、success、failure、offline、loading
 
 ````jsx
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 function showToast() {
-  Toast.info('这是一个 toast 提示!!!', 1);
+  Toast.info('This is a toast tips !!!', 1);
 }
 
 function showToastNoMask() {
-  Toast.info('无 mask 的 toast !!!', 2, null, false);
+  Toast.info('Toast without mask !!!', 2, null, false);
 }
 
 function successToast() {
-  Toast.success('加载成功!!!', 1);
+  Toast.success('Load success !!!', 1);
 }
 
 function failToast() {
-  Toast.fail('加载失败!!!', 1);
+  Toast.fail('Load failed !!!', 1);
 }
 
 function offline() {
-  Toast.offline('网络连接失败!!!', 1);
+  Toast.offline('Network connection failed !!!', 1);
 }
 
 function loadingToast() {
-  Toast.loading('加载中...', 1, () => {
-    console.log('加载完成!!!');
+  Toast.loading('Loading...', 1, () => {
+    console.log('Load complete !!!');
   });
 }
 
 const ToastExample = () => (
   <WingBlank>
     <WhiteSpace />
-    <Button onClick={showToast}>纯文字 toast</Button>
+    <Button onClick={showToast}>Text toast</Button>
     <WhiteSpace />
-    <Button onClick={showToastNoMask}>无 mask</Button>
+    <Button onClick={showToastNoMask}>Without mask</Button>
     <WhiteSpace />
-    <Button onClick={successToast}>成功 toast</Button>
+    <Button onClick={successToast}>Success toast</Button>
     <WhiteSpace />
-    <Button onClick={failToast}>失败 toast</Button>
+    <Button onClick={failToast}>Failed toast</Button>
     <WhiteSpace />
-    <Button onClick={offline}>网络 toast</Button>
+    <Button onClick={offline}>Network failure toast</Button>
     <WhiteSpace />
-    <Button onClick={loadingToast}>加载中 toast</Button>
+    <Button onClick={loadingToast}>Loading toast</Button>
     <WhiteSpace />
   </WingBlank>
 );
