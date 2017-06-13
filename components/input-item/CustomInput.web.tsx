@@ -1,5 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
+import classNames from 'classnames';
 import CustomKeyboard from './CustomKeyboard.web';
 
 class NumberInput extends React.Component<any, any> {
@@ -9,6 +10,7 @@ class NumberInput extends React.Component<any, any> {
     onBlur: () => {},
     placeholder: '',
     value: '',
+    disabled: false,
     prefixCls: 'am-input',
     keyboardPrefixCls: 'am-number-keyboard',
   };
@@ -94,9 +96,9 @@ class NumberInput extends React.Component<any, any> {
   }
 
   onFakeInputClick = () => {
-    const { value } = this.props;
+    const { value, disabled } = this.props;
     const { focused } = this.state;
-    if (!focused) {
+    if (!disabled && !focused) {
       this.onInputFocus(value);
     }
   }
@@ -105,10 +107,15 @@ class NumberInput extends React.Component<any, any> {
     const { placeholder, value, keyboardPrefixCls, disabled, editable } = this.props;
     const { focused } = this.state;
     const preventKeyboard = disabled || !editable;
+    const fakeInputCls = classNames({
+      [`fake-input`]: true,
+      [`focus`]: focused,
+      [`fake-input-disabled`]: preventKeyboard,
+    });
     return (<div className="fake-input-container">
       {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
       <div
-        className={focused ? 'fake-input focus' : 'fake-input'}
+        className={fakeInputCls}
         ref="input-container"
         onClick={preventKeyboard ? () => {} : this.onFakeInputClick}
       >
