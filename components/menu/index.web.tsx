@@ -35,7 +35,14 @@ export default class Menu extends React.Component<MenuProps, any> {
 
   getNewFsv(props) {
     const { value, data } = props;
-    return value && value.length ? value[0] : !data[0].isLeaf ? data[0].value : '';
+    let firstValue = '';
+    if (value && value.length) {  // if has init path, chose init first value
+      firstValue = value[0];
+    } else if (!data[0].isLeaf) {  // chose the first menu item if it's not leaf.
+      firstValue = data[0].value;
+    }
+
+    return firstValue;
   }
 
   onClickFirstLevelItem = (dataItem) => {
@@ -62,13 +69,19 @@ export default class Menu extends React.Component<MenuProps, any> {
   render() {
     const { className, style, height, data = [], prefixCls, level } = this.props;
     const { firstLevelSelectValue, value } = this.state;
-    let subMenuData = (data[0] && data[0].children) ? data[0].children : [];
+    let subMenuData = data; // menu only has one level as init
 
-    if (level !== 2) {
-      subMenuData = data;
-    } else if (firstLevelSelectValue) {
-      const parent = data.filter(dataItem => dataItem.value === firstLevelSelectValue);
-      subMenuData = (parent[0] && parent[0].children) ? parent[0].children : [];
+    if (level === 2) {
+      let parent = data;
+      if (firstLevelSelectValue && firstLevelSelectValue !== '') {
+        parent = data.filter(dataItem => dataItem.value === firstLevelSelectValue);
+      }
+
+      if (parent[0] && parent[0].children && parent[0].isLeaf !== true ) {
+        subMenuData = parent[0].children;
+      } else {
+        subMenuData = [];
+      }
     }
 
     const subValue = value && (value.length > 0) && value[value.length - 1];
