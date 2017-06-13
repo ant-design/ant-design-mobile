@@ -69,7 +69,7 @@ exports[`NoticeBar renders correctly 1`] = `
       ]
     }
   >
-    Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
+    foo
   </Text>
 </View>
 `;
