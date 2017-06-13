@@ -23,6 +23,7 @@ export interface IPickerView {
   data?: any;
   styles?: any;
   onChange?: (value?) => void;
+  indicatorStyle?: any;
 }
 
 export default class Picker extends React.Component<IPickerView, any> {
@@ -40,6 +41,7 @@ export default class Picker extends React.Component<IPickerView, any> {
           value={props.value}
           onChange={props.onChange}
           cols={props.cols}
+          indicatorStyle={props.indicatorStyle}
         />
       );
     } else {
@@ -49,6 +51,7 @@ export default class Picker extends React.Component<IPickerView, any> {
           selectedValue={props.value}
           onValueChange={props.onChange}
           pickerPrefixCls={props.pickerPrefixCls}
+          indicatorStyle={props.indicatorStyle}
         >
           {props.data.map(children => { return { props: { children } }; })}
         </MultiPicker>
