@@ -6,11 +6,11 @@ title: Switch
 
 
 
-Select between two mutexes, e.g. Select On or Off.
+Select between two status, e.g. Select On or Off.
 
 ### Rules
 - Used in `List` only.
-- Avoid adding extra text to describe the value of the current `Switch` .
+- There is no need to add extra text to describe the value of  `Switch` .
 
 
 ## API

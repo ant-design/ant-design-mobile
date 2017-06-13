@@ -64,7 +64,7 @@ export default class ToastExample extends React.Component<any, any> {
         <WhiteSpace />
         <Button onClick={failToast}>Failed toast</Button>
         <WhiteSpace />
-        <Button onClick={offline}>Network toast</Button>
+        <Button onClick={offline}>Network failure toast</Button>
         <WhiteSpace />
         <Button onClick={loadingToast}>Loading toast</Button>
         <WhiteSpace />
