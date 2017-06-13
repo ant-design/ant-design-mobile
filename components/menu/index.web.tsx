@@ -82,7 +82,6 @@ export default class Menu extends React.Component<MenuProps, any> {
 
     const heightStyle = {
       height: `${Math.round(height || document.documentElement.clientHeight / 2)}px`,
-      overflowY: 'scroll',
     };
 
     return (
