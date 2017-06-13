@@ -94,7 +94,7 @@ exports[`renders ./components/toast/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        无 mask
+        Without mask
       </Text>
     </View>
   </View>
@@ -178,7 +178,7 @@ exports[`renders ./components/toast/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        纯文字 toast
+        Text toast
       </Text>
     </View>
   </View>
@@ -262,7 +262,7 @@ exports[`renders ./components/toast/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        成功 toast
+        Success toast
       </Text>
     </View>
   </View>
@@ -346,7 +346,7 @@ exports[`renders ./components/toast/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        失败 toast
+        Failed toast
       </Text>
     </View>
   </View>
@@ -430,7 +430,7 @@ exports[`renders ./components/toast/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        网络 toast
+        Network failure toast
       </Text>
     </View>
   </View>
@@ -514,7 +514,7 @@ exports[`renders ./components/toast/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        加载中 toast
+        Loading toast
       </Text>
     </View>
   </View>
@@ -598,7 +598,7 @@ exports[`renders ./components/toast/demo/basic.tsx correctly 1`] = `
           ]
         }
       >
-        duration 为 0 的 toast
+        Toast width duration = 0
       </Text>
     </View>
   </View>
