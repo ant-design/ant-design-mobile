@@ -20,6 +20,6 @@ export interface MenuProps {
   defaultValue?: Array<string>;
   value?: Array<string>;
   onChange?: Function;
-  level?: number;
+  level?: 1 | 2;
   height?: number;
 }
