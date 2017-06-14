@@ -8,7 +8,7 @@ title:
 text、icon、success、failure、offline、loading
 
 ````jsx
-import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
+import { Toast, WhiteSpace, WingBlank, Button, Icon } from 'antd-mobile';
 
 function showToast() {
   Toast.info('This is a toast tips !!!', 1);
@@ -35,13 +35,17 @@ function loadingToast() {
     console.log('Load complete !!!');
   });
 }
-
+/* eslint global-require: 0 */
 const ToastExample = () => (
   <WingBlank>
     <WhiteSpace />
     <Button onClick={showToast}>Text toast</Button>
     <WhiteSpace />
     <Button onClick={showToastNoMask}>Without mask</Button>
+    <WhiteSpace />
+    <Button onClick={() => Toast.info(<Icon type={require('./reload.svg')} />, 1)}>
+      Cumstom Icon
+    </Button>
     <WhiteSpace />
     <Button onClick={successToast}>Success toast</Button>
     <WhiteSpace />

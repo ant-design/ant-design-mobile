@@ -15,6 +15,7 @@ module.exports = (config, includeDemo) => {
       path.resolve(__dirname, 'components/action-sheet/demo/'),
       path.resolve(__dirname, 'components/result/demo/'),
       path.resolve(__dirname, 'components/menu/demo/'),
+      path.resolve(__dirname, 'components/toast/demo/'),
     ]);
   }
   // Can not process SVG files twice

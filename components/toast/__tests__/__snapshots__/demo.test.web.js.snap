@@ -37,6 +37,18 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
+      Cumstom Icon
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
+  >
+    <span>
       Success toast
     </span>
   </a>
