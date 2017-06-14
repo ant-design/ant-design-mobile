@@ -24,9 +24,9 @@ export interface ListItemProps {
   align?: 'top'|'middle'|'bottom';
   disabled?: boolean;
   multipleLine?: boolean;
-  children?: JSX.Element;
+  children?: ReactNode;
   thumb?: ReactNode | null;
-  extra?: React.ReactNode;
+  extra?: ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
   wrap?: boolean;
 }
@@ -58,7 +58,7 @@ export interface ListItemNativeProps extends NativeProps, ListItemProps {
 }
 
 export interface BriefProps {
-  children?: JSX.Element;
+  children?: ReactNode;
   wrap?: boolean;
 }
 

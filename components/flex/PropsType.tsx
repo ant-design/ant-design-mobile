@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { NativeProps, WebProps } from '../baseType';
 
 export interface FlexProps {
@@ -23,7 +24,7 @@ export interface FlexNativeProps extends NativeProps, FlexProps {
 
 export interface FlexItemProps {
   disabled?: boolean;
-  children?: JSX.Element;
+  children?: ReactNode;
 }
 
 export interface FlexItemWebProps extends WebProps, FlexItemProps {
