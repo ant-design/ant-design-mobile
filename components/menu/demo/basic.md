@@ -12,10 +12,6 @@ import { Menu, ActivityIndicator, NavBar } from 'antd-mobile';
 const data = [
   {
     value: '1',
-    label: 'All Categories',
-    isLeaf: true,
-  }, {
-    value: '2',
     label: 'Food',
     children: [
       {
@@ -52,7 +48,7 @@ const data = [
         value: '10',
       }],
   }, {
-    value: '3',
+    value: '2',
     label: 'Supermarket',
     children: [
       {
@@ -69,6 +65,17 @@ const data = [
         label: 'Personal Care',
         value: '4',
       }],
+  },
+  {
+    value: '3',
+    label: 'Extra',
+    isLeaf: true,
+    children: [
+      {
+        label: 'you can not see',
+        value: '1',
+      },
+    ],
   },
 ];
 
@@ -117,7 +124,7 @@ class MenuExample extends React.Component {
       <Menu
         className="foo-menu"
         data={initData}
-        value={['2', '3']}
+        value={['1', '3']}
         onChange={this.onChange}
         height={document.documentElement.clientHeight * 0.6}
       />
