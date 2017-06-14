@@ -14,7 +14,7 @@ exports[`renders ./components/segmented-control/demo/basic.tsx correctly 1`] = `
     allowFontScaling={true}
     ellipsizeMode="tail"
   >
-    禁用/disabled
+    Disabled
   </Text>
   <RCTSegmentedControl
     enabled={false}
@@ -51,7 +51,7 @@ exports[`renders ./components/segmented-control/demo/basic.tsx correctly 1`] = `
     allowFontScaling={true}
     ellipsizeMode="tail"
   >
-    设置 tintColor, style
+    TintColor and Style
   </Text>
   <RCTSegmentedControl
     enabled={true}
@@ -92,7 +92,7 @@ exports[`renders ./components/segmented-control/demo/basic.tsx correctly 1`] = `
     allowFontScaling={true}
     ellipsizeMode="tail"
   >
-    设置默认选中 selectedIndex
+    SelectedIndex
   </Text>
   <RCTSegmentedControl
     enabled={true}
@@ -130,7 +130,7 @@ exports[`renders ./components/segmented-control/demo/basic.tsx correctly 1`] = `
     allowFontScaling={true}
     ellipsizeMode="tail"
   >
-    事件 onChange/onValueChange
+    onChange/onValueChange
   </Text>
   <RCTSegmentedControl
     enabled={true}
