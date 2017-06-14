@@ -4,7 +4,7 @@ import { NativeProps, WebProps } from '../baseType';
 export interface ListProps {
   renderHeader?: Function | JSX.Element;
   renderFooter?: Function | JSX.Element;
-  children?: JSX.Element;
+  children?: JSX.Element | JSX.Element[];
 }
 
 export interface ListWebProps extends WebProps, ListProps {
