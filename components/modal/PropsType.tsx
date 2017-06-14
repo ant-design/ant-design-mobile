@@ -28,12 +28,12 @@ export interface ModalProps {
   platform?: string;
 }
 
-type Action = {
+export type Action = {
   text: string,
   onPress?: Function,
   style?: {},
 };
-type Callback = (valueOrLogin: string, password?: string) => void;
+export type Callback = (valueOrLogin: string, password?: string) => void;
 export abstract class ModalComponent<P, S> extends React.Component<P, S> {
   static alert: (
     title: string | JSX.Element,
