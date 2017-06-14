@@ -7,7 +7,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import modalStyle from './style/index';
-import ModalPropsType from './PropsType';
+import { ModalProps } from './PropsType';
 import RCModal from 'rc-dialog/lib/Modal';
 
 const maxHeight = StyleSheet.create({
@@ -16,7 +16,7 @@ const maxHeight = StyleSheet.create({
   },
 }).maxHeight;
 
-class AntmModal extends React.Component<ModalPropsType, any> {
+class AntmModal extends React.Component<ModalProps, any> {
   static defaultProps = {
     visible: false,
     closable: false,

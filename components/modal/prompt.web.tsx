@@ -8,7 +8,9 @@ import Modal from './Modal';
 export default function a(...args) {
   if (!args || !args[2]) {
     // console.log('Must specify callbackOrActions');
-    return;
+    return {
+      close: () => {},
+    };
   }
 
   const prefixCls = 'am-modal';
