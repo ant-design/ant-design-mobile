@@ -158,9 +158,12 @@ ReactDOM.render(<MenuExample />, mountNode);
 
 ```css
 .foo-menu {
+  position: relative;
   z-index: 1000 !important;
 }
 .top-nav-bar {
+  position: relative;
+  z-index: 1000 !important;
   background-color: #008AE6;
   color: #FFF;
 }
@@ -170,10 +173,10 @@ ReactDOM.render(<MenuExample />, mountNode);
 .menu-active:after {
   content: ' ';
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: #000;
   opacity: 0.4;
-  z-index: 1;
 }
 ```
