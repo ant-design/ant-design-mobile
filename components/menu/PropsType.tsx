@@ -21,5 +21,5 @@ export interface MenuProps {
   value?: Array<string>;
   onChange?: Function;
   level?: number;
-  height?: number;
+  height?: number | string;
 }
