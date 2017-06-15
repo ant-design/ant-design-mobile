@@ -87,7 +87,8 @@ class Demo extends React.Component {
 
   componentDidMount() {
     // you can scroll to the specified position
-    // this.refs.lv.refs.listview.scrollTo(0, 200);
+    // setTimeout(() => this.refs.lv.refs.listview.scrollTo(0, 120), 800); // also work
+    // setTimeout(() => this.refs.lv.scrollTo(0, 120), 800); // recommend usage
 
     // simulate initial Ajax
     setTimeout(() => {

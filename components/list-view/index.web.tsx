@@ -11,6 +11,9 @@ export default class ListView extends React.Component<tsPropsType, any> {
   };
   static DataSource = MListView.DataSource;
   static IndexedList = IndexedList;
+
+  scrollTo = (...args) => (this.refs.listview as any).scrollTo(...args);
+
   render() {
     const { restProps, extraProps } = handleProps(this.props, false);
     let { useZscroller, refreshControl } = this.props;
