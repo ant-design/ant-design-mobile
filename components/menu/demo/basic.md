@@ -12,63 +12,70 @@ import { Menu, ActivityIndicator, NavBar } from 'antd-mobile';
 const data = [
   {
     value: '1',
-    label: 'All Categories',
-    isLeaf: true,
-  }, {
-    value: '2',
     label: 'Food',
     children: [
       {
         label: 'All Foods',
-        value: '22',
+        value: '1',
         disabled: false,
       },
       {
         label: 'Chinese Food',
-        value: '21',
+        value: '2',
       }, {
         label: 'Hot Pot',
-        value: '23',
+        value: '3',
       }, {
         label: 'Buffet',
-        value: '24',
+        value: '4',
       }, {
         label: 'Fast Food',
-        value: '25',
+        value: '5',
       }, {
         label: 'Snack',
-        value: '26',
+        value: '6',
       }, {
         label: 'Bread',
-        value: '27',
+        value: '7',
       }, {
         label: 'Fruit',
-        value: '28',
+        value: '8',
       }, {
         label: 'Noodle',
-        value: '29',
+        value: '9',
       }, {
         label: 'Leisure Food',
-        value: '210',
+        value: '10',
       }],
   }, {
-    value: '3',
+    value: '2',
     label: 'Supermarket',
     children: [
       {
         label: 'All Supermarkets',
-        value: '31',
+        value: '1',
       }, {
         label: 'Supermarket',
-        value: '32',
+        value: '2',
         disabled: true,
       }, {
         label: 'C-Store',
-        value: '33',
+        value: '3',
       }, {
         label: 'Personal Care',
-        value: '34',
+        value: '4',
       }],
+  },
+  {
+    value: '3',
+    label: 'Extra',
+    isLeaf: true,
+    children: [
+      {
+        label: 'you can not see',
+        value: '1',
+      },
+    ],
   },
 ];
 
@@ -117,7 +124,7 @@ class MenuExample extends React.Component {
       <Menu
         className="foo-menu"
         data={initData}
-        value={['2', '22']}
+        value={['1', '3']}
         onChange={this.onChange}
         height={document.documentElement.clientHeight * 0.6}
       />
@@ -151,9 +158,12 @@ ReactDOM.render(<MenuExample />, mountNode);
 
 ```css
 .foo-menu {
+  position: relative;
   z-index: 1000 !important;
 }
 .top-nav-bar {
+  position: relative;
+  z-index: 1000 !important;
   background-color: #008AE6;
   color: #FFF;
 }
@@ -163,10 +173,10 @@ ReactDOM.render(<MenuExample />, mountNode);
 .menu-active:after {
   content: ' ';
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: #000;
   opacity: 0.4;
-  z-index: 1;
 }
 ```

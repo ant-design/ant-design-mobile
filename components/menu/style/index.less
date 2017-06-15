@@ -14,6 +14,7 @@
     .@{flexPrefixCls}-item {
       margin-left: 0;
       -webkit-overflow-scrolling: touch;
+      overflow-y: scroll;
 
       .@{listPrefixCls} {
         padding: 0;
@@ -97,6 +98,10 @@
       &:only-child {
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
+            .@{listPrefixCls}-line {
+              .hairline-bottom(@border-color-base);
+            }
+
             &:last-child {
               .hairline-bottom(@border-color-base);
 
