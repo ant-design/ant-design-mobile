@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import CustomKeyboard from './CustomKeyboard.web';
 
@@ -101,23 +102,26 @@ class NumberInput extends React.Component<any, any> {
   }
 
   render() {
-    const { placeholder, value, keyboardPrefixCls } = this.props;
+    const { placeholder, value, keyboardPrefixCls, disabled, editable } = this.props;
     const { focused } = this.state;
+    const preventKeyboard = disabled || !editable;
     return (<div className="fake-input-container">
       {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
       <div
         className={focused ? 'fake-input focus' : 'fake-input'}
         ref="input-container"
-        onClick={this.onFakeInputClick}
+        onClick={preventKeyboard ? () => {} : this.onFakeInputClick}
       >
         {value}
       </div>
-      <CustomKeyboard
-        onClick={this.onKeyboardClick}
-        hide={!focused}
-        confirmDisabled={value === ''}
-        preixCls={keyboardPrefixCls}
-      />
+      {!preventKeyboard &&
+        <CustomKeyboard
+          onClick={this.onKeyboardClick}
+          hide={!focused}
+          confirmDisabled={value === ''}
+          preixCls={keyboardPrefixCls}
+        />
+      }
     </div>);
   }
 }

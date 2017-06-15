@@ -237,6 +237,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               onFocus={this.onInputFocus}
               onBlur={this.onInputBlur}
               disabled={disabled}
+              editable={editable}
               value={fixControlledValue(value)}
               {...(this.props.focused !== undefined ? { focused: this.props.focused } : {})}
               {...(this.props.autoFocus !== undefined ? { autoFocus: this.props.autoFocus } : {})}
