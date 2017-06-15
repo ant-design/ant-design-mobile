@@ -1,8 +1,7 @@
 import React from 'react';
-import { ViewStyle } from 'react-native';
 
 export interface NativeProps {
-  style?: ViewStyle;
+  style?: {} | Array<{}>;
 }
 
 export interface WebProps {
