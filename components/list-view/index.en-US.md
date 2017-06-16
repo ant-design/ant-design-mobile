@@ -5,7 +5,7 @@ title: ListView
 ---
 
 It is suitable for displaying the long list data type of the same kind, and has certain optimization effect on the rendering performance.
-
+`ListView` is often used with [RefreshControl] (https://mobile.ant.design/components/refresh-control/).
 
 ## API
 

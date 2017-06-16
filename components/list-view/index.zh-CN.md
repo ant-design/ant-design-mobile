@@ -5,8 +5,8 @@ title: ListView
 subtitle: 长列表
 ---
 
-适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果
-
+适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果。
+`ListView`经常和 [RefreshControl](https://mobile.ant.design/components/refresh-control-cn/) 搭配使用。
 
 ## API
 
