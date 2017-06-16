@@ -4,14 +4,13 @@ type: Navigation
 title: SegmentedControl
 ---
 
+`SegmentedControl` includes at least two segments, it is used to display diffrent views and recommended by `iOS`.
 
-由至少 2 个分段控件组成，用作显示不同视图的显示；是 iOS 的推荐组件。
-
-### 规则
-- 和 Tabs 功能相似，尽可能避免一个页面中同时出现这两个组件。
-- 可以搭配 NavBar 一起使用，用于显示多个视图，分段数一般为 2 个。
-- 单独放置一行时，分段数最多为 5 个；文案需要精简，一般 2-4 个字。
-- 尽可能保持文案长度一致。
+### Rule
+- It is similar to the functionality used for `Tabs`, so avoid to use them at same page as much as possible.
+- You can use `SegmentedControl` with `NavBar` to display mutiple views.
+- Generally there should be no more than 5 segments in one line, each segment has 2-4 words and needs simplified texts.
+- Keep the length of the text consistent as much as possible.
 
 
 ## API
@@ -20,12 +19,12 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| prefixCls(`web only`)  | 样式前缀        | String |  `am-segment`  |
-| className(`web only`) | 样式类        | String |    |
-| style | 自定义样式        | Object | `{}`   |
-| tintColor  | 组件主色调        | String |  `#2DB7F5`  |
-| disabled  | 是否启用        | Boolean |  false  |
-| selectedIndex  | 选中项在数组中的索引        | Number |  0  |
-| values  | 选项数组,值是字符串        | array |  []  |
-| onChange    |    回调函数     | (e): void |  function(){}  |
-| onValueChange    |    回调函数   | (val): void |  function(){}  |
+| prefixCls(`web only`)  | prefix class        | String |  `am-segment`  |
+| className(`web only`) | class name of component        | String |    |
+| style | style of component        | Object | `{}`   |
+| tintColor  | accent color of the control       | String |  `#2DB7F5`  |
+| disabled  | whether the user is able to interact with the control  | Boolean |  false  |
+| selectedIndex  | the index in `props.values` of the segment to be (pre)selected | Number |  0  |
+| values  | The labels for the control's segment buttons, in order  | array |  []  |
+| onChange    |  callback that is called when the user taps a segment; passes the event object as an argument | (e): void |  function(){}  |
+| onValueChange    |  callback that is called when the user taps a segment; passes the segment's value as an argument | (val): void |  function(){}  |
