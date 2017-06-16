@@ -28,7 +28,6 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         >
           <label
             class="am-switch"
-            role="switch"
           >
             <input
               checked=""
@@ -63,7 +62,6 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         >
           <label
             class="am-switch"
-            role="switch"
           >
             <input
               class="am-switch-checkbox"
@@ -97,7 +95,6 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         >
           <label
             class="am-switch"
-            role="switch"
           >
             <input
               class="am-switch-checkbox"
@@ -132,7 +129,6 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         >
           <label
             class="am-switch"
-            role="switch"
           >
             <input
               checked=""
@@ -168,7 +164,6 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         >
           <label
             class="am-switch am-switch-android"
-            role="switch"
           >
             <input
               class="am-switch-checkbox"
@@ -202,7 +197,6 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         >
           <label
             class="am-switch"
-            role="switch"
           >
             <input
               checked=""

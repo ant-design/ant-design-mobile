@@ -587,7 +587,6 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
           >
             <label
               class="am-switch"
-              role="switch"
             >
               <input
                 checked=""

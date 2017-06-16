@@ -33,7 +33,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
   }
 
   render() {
-    let { prefixCls, style, name, checked, disabled, className, platform } = this.props;
+    let { prefixCls, style, name, checked, disabled, className, platform, ...restProps } = this.props;
     const isAndroid = platform === 'android' ||
       (platform === 'cross' && typeof navigator !== 'undefined' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
@@ -47,7 +47,14 @@ export default class Switch extends React.Component<SwitchProps, any> {
       [`checkbox-disabled`]: disabled,
     });
 
-    return (<label className={wrapCls} style={style} role="switch">
+    const globalProps = Object.keys(restProps).reduce((prev, key) => {
+      if (key.substr(0, 5) === 'aria-' || key.substr(0, 5) === 'data-' || key === 'role') {
+        prev[key] = restProps[key];
+      }
+      return prev;
+    }, {});
+
+    return (<label className={wrapCls} style={style}>
         <input
           type="checkbox"
           name={name}
@@ -56,6 +63,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
           checked={checked}
           onChange={this.onChange}
           {...(!disabled ? { onClick: this.onClick } : {})}
+          {...globalProps}
         />
         <div
           className={fackInputCls}
