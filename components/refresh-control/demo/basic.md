@@ -49,6 +49,14 @@ class App extends React.Component {
       refreshing: false,
     };
   }
+  // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.dataSource !== this.props.dataSource) {
+  //     this.setState({
+  //       dataSource: this.state.dataSource.cloneWithRows(nextProps.dataSource),
+  //     });
+  //   }
+  // }
   componentDidMount() {
     this.manuallyRefresh = true;
     setTimeout(() => this.setState({ refreshing: true }), 10);
