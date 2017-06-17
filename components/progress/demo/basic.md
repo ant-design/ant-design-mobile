@@ -5,8 +5,13 @@ title:
   en-US: Basic
 ---
 
-基本功能展示
+## zh-CN
 
+进度条示例。
+
+## en-US
+
+Basic demo of Progress.
 
 ````jsx
 import { Progress, Button } from 'antd-mobile';
@@ -41,6 +46,7 @@ class MyProgress extends React.Component {
 
 ReactDOM.render(<MyProgress />, mountNode);
 ````
+
 ````css
 .show-info {
   margin-top: 0.36rem;
