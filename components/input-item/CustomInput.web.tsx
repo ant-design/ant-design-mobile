@@ -110,7 +110,7 @@ class NumberInput extends React.Component<any, any> {
     const fakeInputCls = classNames({
       [`fake-input`]: true,
       [`focus`]: focused,
-      [`fake-input-disabled`]: preventKeyboard,
+      [`fake-input-disabled`]: disabled,
     });
     return (<div className="fake-input-container">
       {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
