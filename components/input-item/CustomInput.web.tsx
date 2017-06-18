@@ -11,6 +11,7 @@ class NumberInput extends React.Component<any, any> {
     placeholder: '',
     value: '',
     disabled: false,
+    editable: true,
     prefixCls: 'am-input',
     keyboardPrefixCls: 'am-number-keyboard',
   };
@@ -27,7 +28,8 @@ class NumberInput extends React.Component<any, any> {
   componentWillReceiveProps(nextProps) {
     if ('focused' in nextProps && nextProps.focused !== this.state.focused) {
       this.debounceFocusTimeout = setTimeout(() => {
-        if (nextProps.focused) {
+        const { disabled, editable } = this.props;
+        if (nextProps.focused && !disabled && editable) {
           this.onInputFocus(this.props.value);
         }
       }, 10);
@@ -35,8 +37,8 @@ class NumberInput extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    const { autoFocus, focused, value } = this.props;
-    if (autoFocus || focused) {
+    const { autoFocus, focused, value, disabled, editable } = this.props;
+    if ((autoFocus || focused) && !disabled && editable ) {
       this.onInputFocus(value);
     }
     document.addEventListener('click', this._blurEventListener, false);
@@ -96,9 +98,9 @@ class NumberInput extends React.Component<any, any> {
   }
 
   onFakeInputClick = () => {
-    const { value, disabled } = this.props;
+    const { value } = this.props;
     const { focused } = this.state;
-    if (!disabled && !focused) {
+    if (!focused) {
       this.onInputFocus(value);
     }
   }
