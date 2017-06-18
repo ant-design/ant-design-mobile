@@ -14,6 +14,20 @@ timeline: true
 
 ---
 
+## 1.3.1
+
+`2017-06-19`
+
+- **Feature**
+  - `PickerView` 支持`indicatorStyle`。([3184179d2](https://github.com/ant-design/ant-design-mobile/commit/3184179d2ba4b5bccde83d8590d3e538fab0ad22))
+
+- **Bug Fix**
+  - `InputItem` 修复当`type=money`时`disabled`和`editable`不生效的问题。([#1437](https://github.com/ant-design/ant-design-mobile/issues/1437))
+  - `Menu` 修复当数据源二级数据不唯一时导致的问题。([#1427](https://github.com/ant-design/ant-design-mobile/issues/1427))
+  - `Slider` [#1439](https://github.com/ant-design/ant-design-mobile/pull/1439)，更新TS definition
+  - `ListView` 修复scrollTo的问题 ([97ed6795](https://github.com/ant-design/ant-design-mobile/commit/97ed67955243643fcc1de3debd0d507b87d6380b))
+  - React-Native `Flex` `Flex.Item`支持`children`数组。([#1442](https://github.com/ant-design/ant-design-mobile/pull/1442))
+
 ## 1.3.0
 
 `2017-06-09`
