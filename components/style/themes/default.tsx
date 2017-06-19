@@ -133,7 +133,7 @@ export default {
   // list
   list_title_height: 30,
   list_item_height_sm: 35,
-  list_item_height: 45,
+  list_item_height: 44,
 
   // input
   input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
