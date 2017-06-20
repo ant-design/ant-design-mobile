@@ -19,7 +19,6 @@ function getDefaultProps() {
     format: defaultFormat,
     cols: 3,
     cascade: true,
-    value: [],
     extra: '请选择',
     okText: '确定',
     dismissText: '取消',
@@ -50,7 +49,7 @@ export default class Picker extends React.Component<tsPropsType, any> {
 
   render() {
     const { props } = this;
-    const { children, value, extra, okText, itemStyle, dismissText, popupPrefixCls, cascade } = props;
+    const { children, value = [], extra, okText, itemStyle, dismissText, popupPrefixCls, cascade } = props;
     let cascader;
     let popupMoreProps = {};
     if (cascade) {
