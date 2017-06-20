@@ -69,7 +69,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   "alignItems": "center",
                   "flex": 1,
                   "flexDirection": "row",
-                  "height": 45,
+                  "height": 44,
                 }
               }
             >
@@ -187,7 +187,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                             "borderBottomWidth": 0.5,
                             "flex": 1,
                             "flexDirection": "row",
-                            "minHeight": 45,
+                            "minHeight": 44,
                             "paddingBottom": 6,
                             "paddingRight": 15,
                             "paddingTop": 6,
@@ -278,7 +278,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                             "borderBottomWidth": 0.5,
                             "flex": 1,
                             "flexDirection": "row",
-                            "minHeight": 45,
+                            "minHeight": 44,
                             "paddingBottom": 6,
                             "paddingRight": 15,
                             "paddingTop": 6,
@@ -369,7 +369,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                             "borderBottomWidth": 0.5,
                             "flex": 1,
                             "flexDirection": "row",
-                            "minHeight": 45,
+                            "minHeight": 44,
                             "paddingBottom": 6,
                             "paddingRight": 15,
                             "paddingTop": 6,
@@ -480,7 +480,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   "alignItems": "center",
                   "flex": 1,
                   "flexDirection": "row",
-                  "height": 45,
+                  "height": 44,
                 }
               }
             >
@@ -612,7 +612,7 @@ exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
                   "alignItems": "center",
                   "flex": 1,
                   "flexDirection": "row",
-                  "height": 45,
+                  "height": 44,
                 }
               }
             >

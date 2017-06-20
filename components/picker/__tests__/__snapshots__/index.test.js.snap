@@ -65,7 +65,7 @@ exports[`Picker renders correctly 1`] = `
                   "borderBottomWidth": 0.5,
                   "flex": 1,
                   "flexDirection": "row",
-                  "minHeight": 45,
+                  "minHeight": 44,
                   "paddingBottom": 6,
                   "paddingRight": 15,
                   "paddingTop": 6,
