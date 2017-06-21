@@ -15,6 +15,7 @@ export interface ButtonWebProps extends WebProps, ButtonProps {
   inline?: boolean;
   across?: boolean;
   icon?: string;
+  activeClassName?: string;
 }
 
 export interface ButtonNativeProps extends NativeProps, ButtonProps {

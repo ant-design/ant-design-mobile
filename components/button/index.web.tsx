@@ -39,8 +39,8 @@ class Button extends React.Component<ButtonWebProps, any> {
   render() {
     const {
       children, className, prefixCls, type, size, inline, across,
-      disabled, icon, loading, activeStyle, onClick, delayPressIn,
-      delayPressOut, ...restProps,
+      disabled, icon, loading, activeStyle, activeClassName, onClick,
+      delayPressIn, delayPressOut, ...restProps,
     } = this.props;
 
     const wrapCls = {
@@ -73,7 +73,7 @@ class Button extends React.Component<ButtonWebProps, any> {
     // use div, button native is buggy @yiminghe
     return (
       <Touchable
-        activeClassName={activeStyle ? `${prefixCls}-active` : undefined}
+        activeClassName={activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
         disabled={disabled}
         activeStyle={activeStyle}
         {...delayProps}
