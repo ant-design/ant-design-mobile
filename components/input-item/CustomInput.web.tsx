@@ -106,7 +106,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   render() {
-    const { placeholder, value, keyboardPrefixCls, disabled, editable } = this.props;
+    const { placeholder, value, keyboardPrefixCls, disabled, editable, confirmLabel } = this.props;
     const { focused } = this.state;
     const preventKeyboard = disabled || !editable;
     const fakeInputCls = classNames({
@@ -129,6 +129,7 @@ class NumberInput extends React.Component<any, any> {
           hide={!focused}
           confirmDisabled={value === ''}
           preixCls={keyboardPrefixCls}
+          confirmLabel={confirmLabel}
         />
       }
     </div>);

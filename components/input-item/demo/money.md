@@ -56,6 +56,7 @@ class H5NumberInputExample extends React.Component {
               });
             }}
             focused={this.state.moneyfocused}
+            confirmLabel="计算"
           >数字键盘</InputItem>
           <List.Item>
             <div

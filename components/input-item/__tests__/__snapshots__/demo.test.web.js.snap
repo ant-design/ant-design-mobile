@@ -710,7 +710,7 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
                       class="keyboard-confirm am-number-keyboard-item am-number-keyboard-item-disabled"
                       rowspan="2"
                     >
-                      确定
+                      计算
                     </td>
                   </tr>
                   <tr>

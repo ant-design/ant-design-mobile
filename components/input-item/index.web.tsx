@@ -33,6 +33,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     onErrorClick: noop,
     labelNumber: 5,
     updatePlaceholder: false,
+    confirmLabel: '确定',
   };
 
   debounceTimeout: any;
@@ -154,13 +155,13 @@ class InputItem extends React.Component<InputItemProps, any> {
     const {
       prefixCls, prefixListCls, type, value, defaultValue,
       name, editable, disabled, style, clear, children,
-      error, className, extra, labelNumber, maxLength,
+      error, className, extra, labelNumber, maxLength, confirmLabel,
     } = this.props;
 
     // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
       'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
-      'updatePlaceholder', 'placeholderTextColor', 'type',
+      'updatePlaceholder', 'placeholderTextColor', 'type', 'confirmLabel',
     ]);
 
     const { placeholder, focus } = this.state;
@@ -242,6 +243,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               {...(this.props.focused !== undefined ? { focused: this.props.focused } : {})}
               {...(this.props.autoFocus !== undefined ? { autoFocus: this.props.autoFocus } : {})}
               prefixCls={prefixCls}
+              confirmLabel={confirmLabel}
             />
           ) : (
             <Input

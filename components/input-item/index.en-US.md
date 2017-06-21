@@ -39,5 +39,6 @@ Properties | Descrition | Type | Default
 | updatePlaceholder (`web only`) | whether to replace the placeholder with cleared content | bool | false|
 | prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |
 | name (`web only`)   | the name of input       | String |   |
+| confirmLabel (`web only`)   | when`type`is`money`，can cunstom the keyboard confirm item's label       | String |  '确认'  |
 
 > More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
