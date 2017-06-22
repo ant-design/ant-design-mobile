@@ -177,9 +177,9 @@ class Demo extends React.Component {
           margin: '0.1rem 0',
         }}
         pageSize={4}
-        scrollRenderAheadDistance={500}
-        scrollEventThrottle={20}
         onScroll={() => { console.log('scroll'); }}
+        scrollRenderAheadDistance={500}
+        scrollEventThrottle={200}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
       />

@@ -160,8 +160,8 @@ class Demo extends React.Component {
         renderSeparator={separator}
         className="am-list"
         pageSize={4}
-        scrollEventThrottle={20}
         onScroll={() => { console.log('scroll'); }}
+        scrollEventThrottle={200}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
         stickyHeader

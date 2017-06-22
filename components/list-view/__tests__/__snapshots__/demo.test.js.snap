@@ -3243,7 +3243,7 @@ exports[`renders ./components/list-view/demo/basic-row.tsx correctly 1`] = `
   renderRow={[Function]}
   renderScrollComponent={[Function]}
   renderSeparator={[Function]}
-  scrollEventThrottle={20}
+  scrollEventThrottle={200}
   scrollRenderAheadDistance={500}
 >
   <View>

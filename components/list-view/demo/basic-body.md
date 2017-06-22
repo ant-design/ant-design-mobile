@@ -136,10 +136,10 @@ class Demo extends React.Component {
         renderSeparator={separator}
         className="am-list"
         pageSize={4}
-        scrollRenderAheadDistance={500}
-        scrollEventThrottle={20}
-        onScroll={() => { console.log('scroll'); }}
         useBodyScroll
+        onScroll={() => { console.log('scroll'); }}
+        scrollRenderAheadDistance={500}
+        scrollEventThrottle={200}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
       />

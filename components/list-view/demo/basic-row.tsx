@@ -118,7 +118,7 @@ export default class BasicRowDemo extends React.Component<any, any> {
         renderSeparator={separator}
         pageSize={4}
         scrollRenderAheadDistance={500}
-        scrollEventThrottle={20}
+        scrollEventThrottle={200}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
       />
