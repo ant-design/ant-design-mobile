@@ -5,9 +5,8 @@ title:
   en-US: Basic
 ---
 
-
-基本滑动条。当 `disabled` 为 `true` 时，滑块处于不可用状态。可以使用`createTooltip`来进行封装以产生 ToolTip 功能。
-
+Basic slider. When `disabled` is `true`, the slider will not be interactable, you can use `createTooltip` to encapsulate
+to simulate tooltip.
 
 ````jsx
 /* eslint arrow-body-style: 0*/
@@ -31,16 +30,16 @@ class App extends React.Component {
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider 带 ToolTip</p>
+          <p className="title">Slider with ToolTip</p>
           <SliderWithTooltip defaultValue={26} min={0} max={30} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider 禁用</p>
+          <p className="title">Disabled Slider</p>
           <Slider defaultValue={26} min={0} max={30} disabled onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
         <WingBlank size="lg">
-          <p className="title">Slider 自定义颜色</p>
+          <p className="title">Slider With Customized Color</p>
           <Slider
             defaultValue={26}
             min={0}
