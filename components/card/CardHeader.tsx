@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { CardHeaderProps } from './PropsType';
@@ -26,7 +27,11 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
     return (
       <View style={[styles.headerWrap, style]} {...restProps}>
         <View style={[styles.headerTitle]}>
-          {thumb ? <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} /> : null}
+          {
+            typeof thumb === 'string' ? (
+              <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} />
+            ) : thumb
+          }
           {titleDom}
         </View>
         {extra ? extraDom : null}

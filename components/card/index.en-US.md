@@ -25,7 +25,7 @@ Properties | Descrition | Type | Default
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 |title| title for `Card.Header` | React.Element、String | |
-|thumb| thumb to render in the left of  `Card.Header`  | String |  |
+|thumb| thumb to render in the left of  `Card.Header`  | String、React.Element |  |
 |thumbStyle| style of thumb | Object | {} |
 |extra| extra content to render in the right of `Card.Header` | React.Element、String |  |
 
