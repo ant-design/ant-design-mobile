@@ -14,7 +14,7 @@ const ResultExample = () => (<div className="result-example">
   <Result
     img={<Icon type={require('./alipay.svg')} className="icon" />}
     title="支付成功"
-    message={<div><div style={{ fontSize: '0.72rem', color: '#000', lineHeight: 1 }}>998.00</div><del>1098元</del></div>}
+    message={<div>998.00元 <del>1098元</del></div>}
   />
   <WhiteSpace />
   <div className="sub-title">验证成功</div>

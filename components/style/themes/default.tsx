@@ -113,7 +113,7 @@ export default {
   // ---
 
   // button
-  button_height: 42,
+  button_height: 47,
   button_font_size: 18,
 
   button_height_sm: 23,
