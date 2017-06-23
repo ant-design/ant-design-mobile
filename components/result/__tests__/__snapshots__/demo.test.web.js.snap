@@ -33,11 +33,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-message"
     >
       <div>
-        <div
-          style="font-size:0.72rem;color:#000;line-height:1;"
-        >
-          998.00
-        </div>
+        998.00元 
         <del>
           1098元
         </del>

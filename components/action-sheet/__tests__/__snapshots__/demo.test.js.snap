@@ -45,7 +45,7 @@ exports[`renders ./components/action-sheet/demo/basic.tsx correctly 1`] = `
               "justifyContent": "center",
             },
             Object {
-              "height": 42,
+              "height": 47,
               "paddingLeft": 15,
               "paddingRight": 15,
             },
@@ -144,7 +144,7 @@ exports[`renders ./components/action-sheet/demo/basic.tsx correctly 1`] = `
               "justifyContent": "center",
             },
             Object {
-              "height": 42,
+              "height": 47,
               "paddingLeft": 15,
               "paddingRight": 15,
             },
