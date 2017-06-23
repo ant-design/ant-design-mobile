@@ -37,7 +37,7 @@ interface InputItemProps {
   styles?: any;
   autoFocus?: boolean;
   focused?: boolean;
-  confirmLabel?: string;
+  locale?: object;
 }
 
 export default InputItemProps;

@@ -5,6 +5,7 @@ export interface LocaleProviderProps {
   locale: {
     Pagination?: Object,
     DatePicker?: Object,
+    InputItem?: Object,
   };
   children?: React.ReactElement<any>;
 }
