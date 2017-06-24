@@ -34,6 +34,7 @@ class H5NumberInputExample extends React.Component {
             placeholder="money keyboard"
             clear
             maxLength={10}
+            locale={{ confirmLabel: '计算' }}
           />
           <InputItem placeholder="22">普通键盘</InputItem>
           <InputItem

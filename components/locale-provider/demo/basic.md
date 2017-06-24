@@ -8,7 +8,7 @@ title:
 Wrap your app with `LocaleProvider`, and apply the corresponding language package.
 
 ````jsx
-import { Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button } from 'antd-mobile';
+import { Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button, InputItem } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
 import moment from 'moment';
 
@@ -33,6 +33,8 @@ const Page = () => (
         <List.Item arrow="horizontal">date</List.Item>
       </DatePicker>
     </List>
+    <WhiteSpace />
+    <InputItem type="money" placeholder="money input" />
   </div>
 );
 

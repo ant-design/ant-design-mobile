@@ -50,7 +50,7 @@ class CustomKeyboard extends React.Component<any, any> {
     return (<KeyboardItem onClick={this.onKeyboardClick} key={`item-${item}-${index}`}>{item}</KeyboardItem>);
   }
   render() {
-    const { prefixCls, confirmDisabled, hide } = this.props;
+    const { prefixCls, confirmDisabled, hide, confirmLabel } = this.props;
     const wrapperCls = classNames({
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-hide`]: hide,
@@ -73,7 +73,7 @@ class CustomKeyboard extends React.Component<any, any> {
               rowSpan={2}
               onClick={this.onKeyboardClick}
             >
-              确定
+              {confirmLabel}
             </KeyboardItem>
           </tr>
           <tr>

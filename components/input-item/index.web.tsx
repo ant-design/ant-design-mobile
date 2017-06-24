@@ -1,10 +1,12 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import InputItemProps from './PropsType';
 import Input from './Input.web';
 import CustomInput from './CustomInput.web';
+import { getComponentLocale } from '../_util/getLocale';
 
 function noop() { }
 
@@ -33,6 +35,10 @@ class InputItem extends React.Component<InputItemProps, any> {
     onErrorClick: noop,
     labelNumber: 5,
     updatePlaceholder: false,
+  };
+
+  static contextTypes = {
+    antLocale: PropTypes.object,
   };
 
   debounceTimeout: any;
@@ -160,8 +166,11 @@ class InputItem extends React.Component<InputItemProps, any> {
     // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
       'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
-      'updatePlaceholder', 'placeholderTextColor', 'type',
+      'updatePlaceholder', 'placeholderTextColor', 'type', 'locale',
     ]);
+    const locale = getComponentLocale(this.props, this.context, 'InputItem', () => require('./locale/zh_CN'));
+
+    const { confirmLabel } = locale;
 
     const { placeholder, focus } = this.state;
     const wrapCls = classNames({
@@ -242,6 +251,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               {...(this.props.focused !== undefined ? { focused: this.props.focused } : {})}
               {...(this.props.autoFocus !== undefined ? { autoFocus: this.props.autoFocus } : {})}
               prefixCls={prefixCls}
+              confirmLabel={confirmLabel}
             />
           ) : (
             <Input
