@@ -55,7 +55,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     <p
       class="title"
     >
-      Slider 带 ToolTip
+      Slider with ToolTip
     </p>
     <div
       class="am-slider-wrapper"
@@ -97,7 +97,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     <p
       class="title"
     >
-      Slider 禁用
+      Disabled Slider
     </p>
     <div
       class="am-slider-wrapper"
@@ -136,7 +136,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     <p
       class="title"
     >
-      Slider 自定义颜色
+      Slider With Customized Color
     </p>
     <div
       class="am-slider-wrapper"

@@ -16,7 +16,7 @@ subtitle: 滑动输入条
 
 ## Common API
 
-适用平台：WEB、React-Native
+适用平台：Web、React-Native
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
