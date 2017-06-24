@@ -3,14 +3,14 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Touchable from 'rc-touchable';
-import ModalProps from './PropsType';
+import { ModalProps, ModalComponent } from './PropsType';
 
 function checkIfAndroid(platform) {
   return platform === 'android' ||
       (platform === 'cross' && typeof window !== 'undefined' && !!navigator.userAgent.match(/Android/i));
 }
 
-export default class Modal extends React.Component<ModalProps, any> {
+export default class Modal extends ModalComponent<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
     // transparent change to transparent by yiminghe
