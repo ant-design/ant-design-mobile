@@ -106,7 +106,7 @@ export default class Menu extends React.Component<MenuProps, any> {
         style={assign({}, style, heightStyle)}
       >
         <Flex align="top">
-          {level === 2 ? (
+          {level === 2 &&
             <Flex.Item style={heightStyle}>
               <List role="tablist">
                 {data.map((dataItem, index) => (
@@ -122,7 +122,7 @@ export default class Menu extends React.Component<MenuProps, any> {
                 ))}
               </List>
             </Flex.Item>
-          ) : null}
+          }
           <Flex.Item style={heightStyle} role="tabpanel" aria-hidden="false">
             <SubMenu
               subMenuPrefixCls={this.props.subMenuPrefixCls}

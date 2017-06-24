@@ -6,7 +6,7 @@ export interface FlexProps {
   wrap?: 'nowrap'|'wrap'|'wrap-reverse';
   justify?: 'start'|'end'|'center'|'between'|'around';
   align?: 'top'|'start'|'middle'|'center'|'bottom'|'end'|'baseline'|'stretch';
-  children?: JSX.Element | JSX.Element[];
+  children?: ReactNode;
   disabled?: boolean;
 }
 
