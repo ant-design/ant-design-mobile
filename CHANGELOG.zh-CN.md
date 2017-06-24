@@ -14,6 +14,26 @@ timeline: true
 
 ---
 
+## 1.4.0
+
+`2017-06-24`
+
+- **Feature**
+  - `Button` 新增 `activeClassName` 以自定义点击时类名。([3331f00](https://github.com/ant-design/ant-design-mobile/commit/3331f00b1a89d7fb76dcffa554f1cf9b165819d9))
+  - `Card.Header` 的 thumb 支持 React.Element。([#1484](https://github.com/ant-design/ant-design-mobile/issues/1484))
+  - `InputItem` 支持通过 locale 来自定义内置文案。([#1475](https://github.com/ant-design/ant-design-mobile/issues/1475))
+
+- **Bug Fix**
+  - 修复 ListView sticky header 被遮挡的问题。([#1456](https://github.com/ant-design/ant-design-mobile/issues/1456))
+  - `InputItem` 修复当`type=money` 虚拟键盘无法隐藏的问题。([#1468](https://github.com/ant-design/ant-design-mobile/issues/1468))
+
+
+- **Improve && Enhancement**
+  - `InputItem` 背景图片替换为 svg。([#1470](https://github.com/ant-design/ant-design-mobile/issues/1470))
+  - `Button` 高度增大为 `94px`。
+  - `ListItem` 高度减小为 `88px`。
+  - `Result` 间距，字体，颜色调整。
+
 ## 1.3.1
 
 `2017-06-19`
