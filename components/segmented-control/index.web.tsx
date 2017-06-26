@@ -12,6 +12,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     onChange() {},
     onValueChange() {},
     style: {},
+    tintColor: '',
   };
 
   constructor(props) {
@@ -56,21 +57,12 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       [`${prefixCls}-item-selected`]: selected,
     });
 
-    let itemStyle = {};
-    if (selected) {
-      (itemStyle as any).color = '#fff';
-    } else {
-      (itemStyle as any).backgroundColor = '#fff';
-    }
+    const itemStyle = {
+      color: selected ? '#fff' : tintColor,
+      backgroundColor: selected ? tintColor : '#fff',
+      borderColor: tintColor,
+    };
 
-    if (tintColor !== undefined) {
-      if (selected) {
-        (itemStyle as any).backgroundColor = tintColor;
-      } else {
-        (itemStyle as any).color = tintColor;
-      }
-      (itemStyle as any).borderColor = tintColor;
-    }
     return (
       <Touchable
         key={idx}
