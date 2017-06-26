@@ -18,7 +18,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="true"
       class="am-segment-item am-segment-item-selected"
       role="tab"
-      style="color:#fff;"
+      style="color:#fff;background-color:;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -30,7 +30,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="false"
       class="am-segment-item"
       role="tab"
-      style="background-color:#fff;"
+      style="color:;background-color:#fff;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -52,7 +52,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="false"
       class="am-segment-item am-segment-item-selected"
       role="tab"
-      style="color:#fff;"
+      style="color:#fff;background-color:;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -64,7 +64,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="false"
       class="am-segment-item"
       role="tab"
-      style="background-color:#fff;"
+      style="color:;background-color:#fff;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -86,7 +86,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="false"
       class="am-segment-item"
       role="tab"
-      style="background-color:#fff;"
+      style="color:;background-color:#fff;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -98,7 +98,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="true"
       class="am-segment-item am-segment-item-selected"
       role="tab"
-      style="color:#fff;"
+      style="color:#fff;background-color:;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -110,7 +110,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="false"
       class="am-segment-item"
       role="tab"
-      style="background-color:#fff;"
+      style="color:;background-color:#fff;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -179,7 +179,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="true"
       class="am-segment-item am-segment-item-selected"
       role="tab"
-      style="color:#fff;"
+      style="color:#fff;background-color:;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -191,7 +191,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="false"
       class="am-segment-item"
       role="tab"
-      style="background-color:#fff;"
+      style="color:;background-color:#fff;border-color:;"
     >
       <div
         class="am-segment-item-inner"
@@ -203,7 +203,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       aria-selected="false"
       class="am-segment-item"
       role="tab"
-      style="background-color:#fff;"
+      style="color:;background-color:#fff;border-color:;"
     >
       <div
         class="am-segment-item-inner"
