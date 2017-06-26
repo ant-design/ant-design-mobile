@@ -12,6 +12,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     onChange() {},
     onValueChange() {},
     style: {},
+    tintColor: '',
   };
 
   constructor(props) {
@@ -61,6 +62,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       backgroundColor: selected ? tintColor : '#fff',
       borderColor: tintColor,
     };
+
     return (
       <Touchable
         key={idx}
