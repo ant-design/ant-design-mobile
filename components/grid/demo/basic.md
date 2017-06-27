@@ -9,36 +9,38 @@ title:
 import { Grid } from 'antd-mobile';
 
 const data = Array.from(new Array(9)).map((_val, i) => ({
-  icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
+  icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
   text: `name${i}`,
 }));
 
-const data1 = Array.from(new Array(5)).map((_val, i) => ({
-  img: 'https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png',
-  text: `name${i}`,
+const data1 = Array.from(new Array(9)).map(() => ({
+  icon: 'https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png',
 }));
+
 
 const GridExample = () => (
   <div>
-    <div className="sub-title">basic usage</div>
+    <div className="sub-title">basic usage， columnNum=3 </div>
+    <Grid data={data} columnNum={3} />
+
+    <div className="sub-title">basic usage， columnNum=3 </div>
     <Grid data={data} />
 
     <div className="sub-title">no border</div>
-    <Grid data={data} columnNum={3} hasLine={false} />
+    <Grid data={data} hasLine={false} />
 
     <div className="sub-title">carousel</div>
-    <Grid data={data} columnNum={3} isCarousel onClick={(_el, index) => alert(index)} />
+    <Grid data={data} isCarousel onClick={_el => console.log(_el)} />
 
     <div className="sub-title">custom content</div>
     <Grid data={data1}
       columnNum={3}
-      hasLine={false}
-      renderItem={(dataItem, index) => (
-        <div style={{ margin: '0.16rem', background: '#f7f7f7', textAlign: 'center' }}>
-          <div style={{ background: 'rgba(0, 0, 0, 0.1)', padding: '0.08rem' }}>
-            <span>{index + 1}.{dataItem.text}</span>
+      renderItem={dataItem => (
+        <div style={{ padding: '0.25rem' }}>
+          <img src={dataItem.icon} style={{ width: '1.5rem', height: '1.5rem' }} alt="icon" />
+          <div style={{ color: '#888', fontSize: '0.28rem', marginTop: '0.24rem' }}>
+            <span>我是标题..</span>
           </div>
-          <img src={dataItem.img} style={{ width: '80%', margin: '0.12rem' }} alt="icon" />
         </div>
       )}
     />
@@ -55,6 +57,6 @@ ReactDOM.render(<GridExample />, mountNode);
 .sub-title {
   color: #888;
   font-size: .28rem;
-  padding: 30px 0 18px 0;
+  padding: 0.3rem 0 0.18rem 0.3rem;
 }
 ````

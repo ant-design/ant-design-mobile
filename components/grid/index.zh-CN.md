@@ -2,7 +2,7 @@
 category: Components
 type: Data Display
 title: Grid
-subtitle: 九宫格
+subtitle: 宫格
 ---
 
 在水平和垂直方向，将布局切分成若干等大的区块。
