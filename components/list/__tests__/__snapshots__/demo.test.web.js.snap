@@ -717,8 +717,8 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                 </span>
               </div>
               <div
-                aria-valuemax="Infinity"
-                aria-valuemin="-Infinity"
+                aria-valuemax="9007199254740991"
+                aria-valuemin="-9007199254740991"
                 aria-valuenow="20"
                 class="am-stepper-input-wrap"
                 role="spinbutton"
@@ -726,8 +726,8 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                 <input
                   autocomplete="off"
                   class="am-stepper-input"
-                  max="Infinity"
-                  min="-Infinity"
+                  max="9007199254740991"
+                  min="-9007199254740991"
                   value="20"
                 />
               </div>
