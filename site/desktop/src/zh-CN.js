@@ -23,5 +23,7 @@ module.exports = {
     'app.ComponentDoc.codeQrcode': '扫二维码查看演示效果',
     'app.ComponentDoc.codeExpand': '展开全部代码',
     'app.ComponentDoc.Modal.return': '返 回',
+    'app.demo.copy': '复制代码',
+    'app.demo.copied': '复制成功',
   },
 };

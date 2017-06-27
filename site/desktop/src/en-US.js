@@ -23,5 +23,7 @@ module.exports = {
     'app.ComponentDoc.codeQrcode': 'Scan QR code to view the Demo',
     'app.ComponentDoc.codeExpand': 'show all code',
     'app.ComponentDoc.Modal.return': 'Close',
+    'app.demo.copy': 'Copy',
+    'app.demo.copied': 'Copied!',
   },
 };
