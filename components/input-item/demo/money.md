@@ -71,7 +71,7 @@ class H5NumberInputExample extends React.Component {
             </div>
           </List.Item>
           <InputItem
-            {...getFieldProps('moneyint', {
+            {...getFieldProps('moneynatural', {
               normalize: (v) => {
                 if (v && (v.charAt(0) === '0' || v.indexOf('.') >= 0)) {
                   return v.replace(/^0*(\d*).*$/, '$1');
@@ -80,8 +80,8 @@ class H5NumberInputExample extends React.Component {
               },
             })}
             type="money"
-            placeholder="money format int"
-          >仅限整数</InputItem>
+            placeholder="money format natural"
+          >正整数</InputItem>
         </List>
       </div>
     );
