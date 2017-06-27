@@ -73,8 +73,10 @@ export default function a(...args) {
 
   let content = (
     <div>
-      {args[1]}
-      {inputDom}
+      <label>
+        {args[1]}
+        {inputDom}
+      </label>
     </div>
   );
 
