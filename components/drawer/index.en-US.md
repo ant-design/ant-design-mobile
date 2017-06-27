@@ -27,6 +27,7 @@ Properties | Descrition | Type | Default
 | touch(`web only`) | If touch gestures should be enabled | Boolean | true |
 | transitions(`web only`) | If transitions should be enabled. | Boolean | true |
 | docked(`web only`) | If the sidebar should be docked in document. | Boolean | false |
+| enableDragHandle(`web only`) | If dragHandle should be enabled | Boolean | false |
 | dragToggleDistance(`web only`) | Distance the sidebar has to be dragged before it will open/close after it is released. | Number | 30 |
 | drawerWidth (`rn only`) | Width of `Drawer` | Number | 300 |
 | drawerBackgroundColor (`rn only`) | Background color of `Drawer` | String | - |

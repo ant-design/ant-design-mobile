@@ -19,8 +19,7 @@ import { Drawer, List, NavBar } from 'antd-mobile';
 
 class App1 extends React.Component {
   state = {
-    open: false,
-    position: 'left',
+    open: true,
   }
   onOpenChange = (...args) => {
     console.log(args);
@@ -41,20 +40,16 @@ class App1 extends React.Component {
       })}
     </List>);
 
-    const drawerProps = {
-      open: this.state.open,
-      position: this.state.position,
-      onOpenChange: this.onOpenChange,
-    };
     return (<div>
       <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>Basic</NavBar>
       <Drawer
         className="my-drawer"
         style={{ minHeight: document.documentElement.clientHeight - 200 }}
-        dragHandleStyle={{ display: 'none' }}
+        enableDragHandle
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
         sidebar={sidebar}
-        {...drawerProps}
+        open={this.state.open}
+        onOpenChange={this.onOpenChange}
       >
         Click upper-left corner icon
       </Drawer>
@@ -68,10 +63,12 @@ ReactDOM.render(<App1 />, mountNode);
 .my-drawer {
   position: relative;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .my-drawer .am-drawer-sidebar {
   background-color: #fff;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .my-drawer .am-drawer-sidebar .am-list {
   width: 6rem;

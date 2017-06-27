@@ -35,11 +35,12 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
     />
   </div>
   <div
-    class="my-drawer am-drawer am-drawer-left"
+    class="my-drawer am-drawer am-drawer-left am-drawer-open"
     style="min-height:-200px;"
   >
     <div
       class="am-drawer-sidebar"
+      style="transform:translateX(0%);-webkit-transform:translateX(0%);"
     >
       <div
         class="am-list"
@@ -533,6 +534,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
     <div
       class="am-drawer-overlay"
       role="presentation"
+      style="opacity:1;visibility:visible;"
     />
     <div
       class="am-drawer-content"

@@ -2,7 +2,7 @@
 
 exports[`renders ./components/popup/demo/basic.md correctly 1`] = `
 <div
-  style="padding:0.15rem;"
+  style="padding:0.3rem;"
 >
   <a
     aria-disabled="false"
@@ -18,7 +18,7 @@ exports[`renders ./components/popup/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/popup/demo/basic-up.md correctly 1`] = `
 <div
-  style="padding:0.15rem;"
+  style="padding:0.3rem;"
 >
   <a
     aria-disabled="false"

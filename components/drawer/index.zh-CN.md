@@ -29,6 +29,7 @@ subtitle: 抽屉
 | touch(`web only`) | 是否开启触摸手势 | Boolean | true |
 | transitions(`web only`) | 是否开启动画 | Boolean | true |
 | docked(`web only`) | 是否嵌入到正常文档流里 | Boolean | false |
+| enableDragHandle(`web only`) | 是否禁止 dragHandle | Boolean | false |
 | dragToggleDistance(`web only`) | 打开关闭抽屉时距 sidebar 的拖动距离 | Number | 30 |
 | drawerWidth (`rn only`) | 抽屉宽度 | Number | 300 |
 | drawerBackgroundColor (`rn only`) | 指定抽屉背景色 | String | - |

@@ -59,7 +59,7 @@ class Test extends React.Component {
     Popup.hide();
   };
   render() {
-    return (<div style={{ padding: '0.15rem' }}>
+    return (<div style={{ padding: '0.3rem' }}>
       <Button onClick={this.onClick}>显示</Button>
     </div>);
   }

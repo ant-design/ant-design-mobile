@@ -53,7 +53,7 @@ const Test = () => {
   //  ins.show(<Button onClick={() => ins.hide()}>关闭</Button>);
   // },
   return (
-    <div style={{ padding: '0.15rem' }}>
+    <div style={{ padding: '0.3rem' }}>
       <Button onClick={onClick}>显示</Button>
     </div>
   );
