@@ -1,6 +1,9 @@
+/* eslint-disable no-underscore-dangle */
 const path = require('path');
 
-const indexDemos = ['drawer', 'list-view'];
+const _indexDemos = ['drawer'];
+const _subListDemos = ['list-view'];
+
 const pluginAntdConfig = {
   babelConfig: {
     plugins: [
@@ -37,7 +40,17 @@ module.exports = {
     indexDemos(markdownData) {
       const paths = markdownData.meta.filename.split('/');
       // add demos to index page, e.g. "components/drawer/demo/basic.md"
-      if (paths[1] && indexDemos.indexOf(paths[1]) > -1 && paths[2] && paths[2] === 'demo') {
+      if (paths[1] && _indexDemos.indexOf(paths[1]) > -1 && paths[2] && paths[2] === 'demo') {
+        return {
+          component: paths[1],
+          meta: markdownData.meta,
+        };
+      }
+    },
+    subListDemos(markdownData) {
+      const paths = markdownData.meta.filename.split('/');
+      // add demos to index page, e.g. "components/drawer/demo/basic.md"
+      if (paths[1] && _subListDemos.indexOf(paths[1]) > -1 && paths[2] && paths[2] === 'demo') {
         return {
           component: paths[1],
           meta: markdownData.meta,
