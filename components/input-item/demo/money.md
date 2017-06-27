@@ -67,9 +67,27 @@ class H5NumberInputExample extends React.Component {
                 });
               }}
             >
-          click to focus
-        </div>
+              click to focus
+            </div>
           </List.Item>
+          <InputItem
+            {...getFieldProps('moneyint', {
+              normalize: (v) => {
+                if (v && (v.charAt(0) === '0' || v.indexOf('.') >= 0)) {
+                  return v.replace(/^0*(\d*).*$/, '$1');
+                }
+                return v;
+              },
+            })}
+            type="money"
+            placeholder="money format int"
+            onFocus={() => {
+              this.setState({
+                moneyfocused: false,
+              });
+            }}
+            focused={this.state.moneyfocused}
+          >仅限整数</InputItem>
         </List>
       </div>
     );
