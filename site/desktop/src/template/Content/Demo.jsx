@@ -2,8 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import { FormattedMessage } from 'react-intl';
-import { Button, Modal, Radio } from 'antd';
+import { Button, Modal, Radio, Tooltip, Icon } from 'antd';
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -13,7 +14,27 @@ export default class Demo extends React.Component {
   state = {
     fullscreen: false,
     lang: 'es6',
+    copied: false,
+    sourceCode: '',
   };
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (this.state.codeExpand || this.props.expand) !== (nextState.codeExpand || nextProps.expand)
+     || this.state.copied !== nextState.copied
+     || this.state.copyTooltipVisible !== nextState.copyTooltipVisible;
+  }
+
+  saveAnchor = (anchor) => {
+    this.anchor = anchor;
+  }
+
+  componentDidMount() {
+    const { meta } = this.props;
+    if (meta.id === location.hash.slice(1)) {
+      this.anchor.click();
+    }
+    this.componentWillReceiveProps(this.props);
+  }
 
   handleCodeExapnd = () => {
     const { handleCodeExpandList, index, codeExpand } = this.props;
@@ -43,6 +64,23 @@ export default class Demo extends React.Component {
     });
   }
 
+  handleCodeCopied = () => {
+    this.setState({ copied: true });
+  }
+
+  onCopyTooltipVisibleChange = (visible) => {
+    if (visible) {
+      this.setState({
+        copyTooltipVisible: visible,
+        copied: false,
+      });
+      return;
+    }
+    this.setState({
+      copyTooltipVisible: visible,
+    });
+  }
+
   handleProgrammingLangChange = (e) => {
     this.setState({ lang: e.target.value });
   }
@@ -52,6 +90,24 @@ export default class Demo extends React.Component {
     const lang = this.state.lang;
     return Array.isArray(highlightedCode) ? (
       <div className="highlight">
+          <CopyToClipboard
+            text={this.state.sourceCode}
+            onCopy={this.handleCodeCopied}
+          >
+            <Tooltip
+              title={<FormattedMessage id={`app.demo.${this.state.copied ? 'copied' : 'copy'}`} />}
+              visible={this.state.copyTooltipVisible}
+              onVisibleChange={this.onCopyTooltipVisibleChange}
+            >
+              <Button
+                shape="circle"
+                size="small"
+                className="code-box-code-copy"
+              >
+                <Icon type={(this.state.copied && this.state.copyTooltipVisible) ? 'check' : 'copy'} />
+              </Button>
+            </Tooltip>
+          </CopyToClipboard>
         {props.utils.toReactComponent(highlightedCode)}
       </div>
     ) : (
@@ -71,7 +127,13 @@ export default class Demo extends React.Component {
       </div>
     );
   }
-  /* eslint-enable react/jsx-indent */
+  componentWillReceiveProps(nextProps) {
+    const { highlightedCode } = nextProps;
+    const div = document.createElement('div');
+    div.innerHTML = highlightedCode[1].highlighted;
+    this.setState({ sourceCode: div.textContent });
+  }
+   /* eslint-enable react/jsx-indent */
   render() {
     const { props, state } = this;
     const {
@@ -125,7 +187,7 @@ export default class Demo extends React.Component {
 
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <a href={`#${meta.id}`}>
+            <a href={`#${meta.id}`} ref={this.saveAnchor}>
               {localizedTitle}
             </a>
           </div>

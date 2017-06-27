@@ -1,3 +1,7 @@
+@blue-6: #108ee9;
+@green-6: #00a854;
+@primary-color: @blue-6;
+
 .toc-affix label.ant-radio-button-checked {
   background-color: #2db7f5;
   color: #fff;
@@ -10,6 +14,7 @@
   top: -1Px;
   position: relative;
   transition: color .3s;
+
   &:hover {
     color: #2db7f5;
   }
@@ -18,7 +23,7 @@
 .code-box-expand-trigger {
   cursor: pointer;
   font-size: 14Px;
-  color: #9199AC;
+  color: #9199ac;
   margin-left: 5Px;
   opacity: .8;
   transition: all .3s ease;
@@ -26,26 +31,60 @@
   position: relative;
 
   &-active {
-    color: #3B4357;
+    color: #3b4357;
   }
 }
 
 .code-box {
-  border: 1Px solid #E9E9E9;
+  border: 1Px solid #e9e9e9;
   border-radius: 6Px;
   display: inline-block;
   width: 100%;
   position: relative;
   margin: 0Px 0 16Px 0Px;
   transition: all 0.5s ease;
+
   &-preview {
     border: none;
+  }
+
+  &-code-copy {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    margin: 0 !important;
+    font-size: 14px;
+    cursor: pointer;
+    color: #888;
+    transition: all .24s;
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 20px;
+    opacity: 0;
+
+    &:hover {
+      color: @primary-color;
+      transform: scale(1.2);
+    }
+
+    &.anticon-check {
+      color: @green-6!important;
+      font-weight: bold;
+    }
+  }
+
+  .highlight-wrapper:hover &-code-copy {
+    opacity: 1;
   }
 }
 
 .code-box.code-box-target {
   border: 1Px solid rgba(16,142,233,.7);
   box-shadow: 0 0 4Px rgba(16,142,233,.5);
+
   &:hover {
     box-shadow: 0 0 4Px rgba(16,142,233,.5);
   }
@@ -81,7 +120,7 @@
 }
 
 .code-box-title a {
- color: #222;
+  color: #222;
 }
 
 .code-box-meta > p {
@@ -143,12 +182,13 @@
   transition: all 0.4s ease;
   border-radius: 6px;
 }
+
 .code-box .highlight-wrapper-expand {
   max-height: 150px;
 }
 
 .code-box .highlight {
-  position: static;
+  position: relative;
   margin: 0;
   overflow: auto;
   padding: 5px;
@@ -164,7 +204,7 @@
   right: 56px;
 }
 
-// code in modal
+// code in modal 
 .highlight {
   position: relative;
   margin: -22px -16px;
@@ -195,46 +235,61 @@
   background: #fff;
 }
 
+.code-box .code-box-code-copy {
+  position: absolute;
+  top: 10px;
+  right: 13.5px;
+  margin: 0 !important;
+}
+
 .demo-preview-wrapper {
   margin:0 auto;
+
   .demo-preview-header {
     border-radius: 4Px 4Px 0 0;
     background: linear-gradient(rgba(55, 55, 55, 0.98), #545456);
     text-align: center;
+
     .demo-preview-statbar {
       height: 20Px;
       margin-bottom: 4Px;
     }
+
     .url-box {
       width: 350Px;
       height: 28Px;
       line-height: 28Px;
       color: #fff;
-      background-color: #A2A2A2;
+      background-color: #a2a2a2;
       margin: 0 auto;
       border-radius: 4Px;
       white-space: nowrap;
       overflow-x: scroll;
+
       &::-webkit-scrollbar {
         display: none;
       }
     }
   }
+
   .demo-preview-scroller {
-    background-color: #F7F7F7;
+    background-color: #f7f7f7;
     max-height: 548Px;
     border-bottom-left-radius: 6Px;
     border-bottom-right-radius: 6Px;
     padding: 0;
     overflow: hidden;
+
     * {
       box-sizing: content-box;
     }
+
     .am-modal .am-wingblank *,
     .button-container * {
       box-sizing: border-box;
     }
   }
+
   iframe {
     border: none;
   }
@@ -248,15 +303,18 @@
   position: fixed;
   top: 0;
 }
+
 .demo-title-wrapper {
   background-color: #fff;
 }
+
 .demo-title-wrapper.fixed {
   position: fixed;
   top: 0;
   z-index: 999;
   background-color: #fff;
   border-right: 2Px solid #eee;
+
   h2 {
     margin-top: 0;
   }
@@ -271,6 +329,7 @@
   margin-right: 8Px;
   margin-bottom: 8Px;
 }
+
 .link-buttons .link-current span {
   color: #108ee9;
 }
@@ -278,6 +337,7 @@
 ul.anticons-list li.copied:hover {
   color: rgba(255,255,255,0.2);
 }
+
 ul.anticons-list li:after {
   position: absolute;
   top: 10Px;
@@ -291,7 +351,10 @@ ul.anticons-list li:after {
   transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
   opacity: 0;
 }
+
 ul.anticons-list li.copied:after {
   opacity: 1;
   top: 0;
 }
+
+
