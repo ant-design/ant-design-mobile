@@ -36,12 +36,13 @@
     color: @color-text-base;
 
     &-item {
-      font-size: @font-size-heading;
+      font-size: @actionsheet-item-font-size;
       padding: 0;
       margin: 0;
       position: relative;
-      height: @option-height;
-      line-height: @option-height;
+      height: @actionsheet-item-height;
+      line-height: @actionsheet-item-height;
+      box-sizing: border-box;
       .hairline-top(@border-color-base);
       // border-top: @border-width-sm solid @border-color-base;
       // &:active {
@@ -51,16 +52,16 @@
     }
 
     .@{ActionSheetPrefixCls}-cancel-button {
-      margin-top: @v-spacing-md;
+      margin-top: @v-spacing-sm;
       position: relative;
 
       &-mask {
         position: absolute;
-        top: -@v-spacing-md;
+        top: -@v-spacing-sm;
         left: 0;
         width: 100%;
-        height: @v-spacing-md;
-        background-color: #f7f7f7;
+        height: @v-spacing-sm;
+        background-color: #e7e7ed;
         .hairline-top(@border-color-base);
         .hairline-bottom(@border-color-base);
       }
@@ -109,14 +110,16 @@
     }
 
     &-cancel-button {
-      height: @option-height;
-      line-height: @option-height;
+      height: @actionsheet-item-height;
+      line-height: @actionsheet-item-height;
       text-align: center;
       background-color: @fill-base;
       color: @color-text-base;
       font-size: @button-font-size;
       position: relative;
       .hairline-top(@border-color-base);
+      box-sizing: border-box;
+
       // &:active {
       &&-active {
         background-color: @fill-tap;

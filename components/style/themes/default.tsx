@@ -112,6 +112,9 @@ export default {
   // 组件变量
   // ---
 
+  actionsheet_item_height: 50,
+  actionsheet_item_font_size: 18,
+
   // button
   button_height: 47,
   button_font_size: 18,
