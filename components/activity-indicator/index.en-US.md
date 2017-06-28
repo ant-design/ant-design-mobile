@@ -4,14 +4,12 @@ type: Feedback
 title: ActivityIndicator
 ---
 
-活动指示器。
-表明某个任务正在进行中。
+`ActivityIndicator` indicates that a task is currently in progress.
 
-### 规则
-- 不要让活动指示器静止，用户会以为该任务停滞了。
-- 在某些特定场景下，提供有意义的文案，帮助用户明白哪个任务正在进行中，eg：正在上传照片。
-- 如果能知道用户的等待时间，可以使用组件 Progress 来替代。
-- 可通过控制 ActivityIndicator 运动的快慢，来表明进程处理的速度。
+### Rules
+- Don't stop activity indicator if the task is not completed.
+- By providing meaningful texts under certain circumstances can help user understand which task is in progress. eg: uploading photos.
+- If you know the user's waiting time, you can use `Progress` instead.
 
 
 ## API
@@ -22,17 +20,17 @@ Support WEB, React-Native.
 <ActivityIndicator />
 <ActivityIndicator color="white" />
 <ActivityIndicator size="large" />
-<ActivityIndicator text="正在加载" />
+<ActivityIndicator text="loading" />
 <ActivityIndicator toast />
-<ActivityIndicator toast text="正在加载" />
+<ActivityIndicator toast text="loading" />
 ```
 
 ### ActivityIndicator
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-|  animating  | 显隐状态 | boolean  | true  |
-|  size  | spinner大小，可选`small`/`large` | string  | small  |
-|  toast  | loading样式类型 | boolean  | false  |
-|  text  | loading文本 | string |  -   |
-|  color (`RN only`)  | spinner颜色 | string  | gray  |
+|  animating  | Whether to show the indicator (true, the default) or hide it (false). | boolean  | true  |
+|  size  | Size of the indicator (`small`/`large`) | string  | small  |
+|  toast  | Whether to use toast style | boolean  | false  |
+|  text  | loading text behind the indicator | string |  -   |
+|  color (`RN only`)  | The foreground color of the spinner (default is gray). | string  | gray  |

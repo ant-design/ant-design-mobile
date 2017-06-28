@@ -5,7 +5,7 @@ title:
   en-US: Basic
 ---
 
-基本的活动指示器。
+Basic usage
 
 ````jsx
 import { ActivityIndicator, WingBlank, WhiteSpace, Button } from 'antd-mobile';
@@ -31,33 +31,33 @@ class App extends React.Component {
       <div>
         <WingBlank>
           <div className="loading-container">
-            <p className="sub-title">icon无文案</p>
+            <p className="sub-title">icon without text</p>
             <div className="loading-example">
               <ActivityIndicator animating />
             </div>
             <WhiteSpace size="xl" />
-            <p className="sub-title">icon带文案</p>
+            <p className="sub-title">icon with text</p>
             <div className="loading-example">
               <ActivityIndicator
-                text="加载中..."
+                text="Loading..."
               />
             </div>
             <WhiteSpace size="xl" />
-            <p className="sub-title">大号icon，自定义文案样式</p>
+            <p className="sub-title">icon with large size and customized text style</p>
             <div className="loading-example">
               <div className="align">
                 <ActivityIndicator size="large" />
-                <span style={{ marginTop: 8 }}>加载中...</span>
+                <span style={{ marginTop: 8 }}>Loading...</span>
               </div>
             </div>
           </div>
           <div className="toast-container">
             <WhiteSpace size="xl" />
-            <Button onClick={this.showToast}>点击显示 Toast</Button>
+            <Button onClick={this.showToast}>Click to show Toast</Button>
             <div className="toast-example">
               <ActivityIndicator
                 toast
-                text="正在加载"
+                text="Loading..."
                 animating={this.state.animating}
               />
             </div>
