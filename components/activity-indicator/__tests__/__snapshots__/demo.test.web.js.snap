@@ -11,7 +11,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
       <p
         class="sub-title"
       >
-        icon无文案
+        icon without text
       </p>
       <div
         class="loading-example"
@@ -31,7 +31,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
       <p
         class="sub-title"
       >
-        icon带文案
+        icon with text
       </p>
       <div
         class="loading-example"
@@ -46,7 +46,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
           <span
             class="am-activity-indicator-tip"
           >
-            加载中...
+            Loading...
           </span>
         </div>
       </div>
@@ -56,7 +56,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
       <p
         class="sub-title"
       >
-        大号icon，自定义文案样式
+        icon with large size and customized text style
       </p>
       <div
         class="loading-example"
@@ -75,7 +75,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
           <span
             style="margin-top:8px;"
           >
-            加载中...
+            Loading...
           </span>
         </div>
       </div>
@@ -92,7 +92,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
         role="button"
       >
         <span>
-          点击显示 Toast
+          Click to show Toast
         </span>
       </a>
       <div

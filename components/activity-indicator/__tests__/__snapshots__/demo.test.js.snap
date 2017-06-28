@@ -75,7 +75,7 @@ exports[`renders ./components/activity-indicator/demo/basic.tsx correctly 1`] = 
           allowFontScaling={true}
           ellipsizeMode="tail"
         >
-          Icon无文案
+          Icon without text
         </Text>
       </View>
       <View
@@ -197,7 +197,7 @@ exports[`renders ./components/activity-indicator/demo/basic.tsx correctly 1`] = 
           allowFontScaling={true}
           ellipsizeMode="tail"
         >
-          Icon带文案
+          Icon with text
         </Text>
       </View>
       <View
@@ -252,7 +252,7 @@ exports[`renders ./components/activity-indicator/demo/basic.tsx correctly 1`] = 
               ]
             }
           >
-            正在加载...
+            Loading...
           </Text>
         </View>
       </View>
@@ -335,7 +335,7 @@ exports[`renders ./components/activity-indicator/demo/basic.tsx correctly 1`] = 
           allowFontScaling={true}
           ellipsizeMode="tail"
         >
-          深色背景
+          Dark Background
         </Text>
       </View>
       <View
@@ -471,7 +471,7 @@ exports[`renders ./components/activity-indicator/demo/basic.tsx correctly 1`] = 
           allowFontScaling={true}
           ellipsizeMode="tail"
         >
-          大号icon
+          Large Size
         </Text>
       </View>
       <View
@@ -609,7 +609,7 @@ exports[`renders ./components/activity-indicator/demo/basic.tsx correctly 1`] = 
             ]
           }
         >
-          点击显示 Toast
+          Click to show Toast
         </Text>
       </View>
     </View>
