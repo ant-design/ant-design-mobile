@@ -29,7 +29,7 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Text>Icon无文案</Text>
+              <Text>Icon without text</Text>
             </Flex.Item>
             <Flex.Item>
               <ActivityIndicator />
@@ -40,10 +40,10 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Text>Icon带文案</Text>
+              <Text>Icon with text</Text>
             </Flex.Item>
             <Flex.Item>
-              <ActivityIndicator text="正在加载..." />
+              <ActivityIndicator text="Loading..." />
             </Flex.Item>
           </Flex>
         </WingBlank>
@@ -51,7 +51,7 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Text>深色背景</Text>
+              <Text>Dark Background</Text>
             </Flex.Item>
             <Flex.Item>
               <View style={[styles.darkBg]}>
@@ -64,7 +64,7 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
         <WingBlank>
           <Flex>
             <Flex.Item>
-              <Text>大号icon</Text>
+              <Text>Large Size</Text>
             </Flex.Item>
             <Flex.Item>
               <ActivityIndicator size="large" />
@@ -73,13 +73,13 @@ export default class ActivityIndicatorExample extends React.Component<any, any> 
         </WingBlank>
         <WhiteSpace size="xl" style={{ backgroundColor: '#fff' }} />
         <WingBlank>
-          <Button onClick={this.loadingToast}>点击显示 Toast</Button>
+          <Button onClick={this.loadingToast}>Click to show Toast</Button>
         </WingBlank>
         <ActivityIndicator
           animating={this.state.animating}
           toast
           size="large"
-          text="正在加载"
+          text="Loading..."
         />
       </View>
     );
