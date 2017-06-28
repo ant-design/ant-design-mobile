@@ -19,6 +19,8 @@
     selector-list-comma-newline-after: null,
     selector-pseudo-element-colon-notation: null,
     unit-no-unknown: null,
-    value-list-max-empty-lines: null
+    value-list-max-empty-lines: null,
+    unit-case: null,
+    color-hex-case: null,
   }
 }
