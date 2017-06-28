@@ -27,7 +27,15 @@ import { getQuery } from '../../../../utils';
 export default class Demo extends React.Component {
   goToPage = (name, index) => () => {
     location.hash = `${name}-demo-${index}`;
+  }
+  update = () => {
     this.forceUpdate();
+  }
+  componentDidMount() {
+    window.addEventListener('hashchange', this.update, false);
+  }
+  componentWillUnMount() {
+    window.removeEventListener('hashChange', this.update, false);
   }
   render() {
     const { demos, location, picked, themeConfig: config, locale } = this.props;
