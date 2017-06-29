@@ -106,7 +106,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
 
   onFileChange = () => {
     const fileSelectorEl = this.fileSelectorInput;
-    if (!!fileSelectorEl && fileSelectorEl.files && fileSelectorEl.files.length) {
+    if (fileSelectorEl && fileSelectorEl.files && fileSelectorEl.files.length) {
       const file = fileSelectorEl.files[0];
       const reader = new FileReader();
       reader.onload = (e) => {
