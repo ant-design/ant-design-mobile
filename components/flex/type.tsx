@@ -4,5 +4,5 @@ import { FlexWebProps, FlexNativeProps, FlexItemWebProps, FlexItemNativeProps } 
 export class FlexItem extends React.Component<FlexItemWebProps | FlexItemNativeProps, any> {}
 
 export default class Flex extends React.Component<FlexWebProps | FlexNativeProps, any> {
-  static Item: FlexItem;
+  static Item: typeof FlexItem;
 }
