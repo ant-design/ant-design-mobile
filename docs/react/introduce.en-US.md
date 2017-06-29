@@ -137,7 +137,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ## Version
 
 - Stable: [![npm package](http://img.shields.io/npm/v/antd-mobile.svg?style=flat-square)](http://npmjs.com/package/antd-mobile)
-- Beta: [![npm package](https://cnpmjs.org/badge/v/antd-mobile.svg?tag=beta&style=flat-square)](http://npmjs.com/package/antd-mobile)
+- Beta: [![npm package](https://cnpmjs.org/badge/v/antd-mobile.svg?&tag=beta&subject=npm)](http://npmjs.com/package/antd-mobile)
 
 ## Environment Support
 

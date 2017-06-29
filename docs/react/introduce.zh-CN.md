@@ -141,7 +141,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ## 版本
 
 - 稳定版：[![npm package](http://img.shields.io/npm/v/antd-mobile.svg?style=flat-square)](http://npmjs.com/package/antd-mobile)
-- 开发版：[![npm package](https://cnpmjs.org/badge/v/antd-mobile.svg?tag=beta&style=flat-square)](http://npmjs.com/package/antd-mobile)
+- 开发版：[![npm package](https://cnpmjs.org/badge/v/antd-mobile.svg?&tag=beta&subject=npm)](http://npmjs.com/package/antd-mobile)
 
 ## 体积
 
