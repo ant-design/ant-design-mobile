@@ -50,13 +50,19 @@ $ npm install babel-plugin-import --save-dev
 
 > 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56) 及 [官方示例集](https://github.com/ant-design/antd-mobile-samples)
 
-> How antd mobile deal with web and react native code? see [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)
+> Antd-Mobile 如何区分 web 组件和 react-native 组件？请查看 [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)
 
 #### Web 使用方式
 
-> 以下使用 webpack@1.x 版本，如果是 webpack@2.x 请自己修改相应配置语法
+> 以下文档都基于 `webpack@1.x` 版本，如果你使用 webpack@2.x 请查看 [#516](https://github.com/ant-design/ant-design-mobile/issues/516#issuecomment-293632772)
 
-- 设置 webpack 的 resolve
+- 0. 安装 webpack 相关 loader 依赖 (`必选`)
+
+  ```bash
+  npm i style-loader css-loader less less-loader svg-sprite-loader@0.3.1 --save-dev
+  ```
+
+- 1. 设置 webpack 的 resolve 来自动区分 web & native 组件加载。（`必选`）
 
   ```
   resolve: {
@@ -65,7 +71,8 @@ $ npm install babel-plugin-import --save-dev
   },
   ```
 
-- 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 插件支持组件按需加载，设置如下：
+
+- 2. 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 支持按需加载：（`必选`）
 
   ```js
   // .babelrc
@@ -74,9 +81,11 @@ $ npm install babel-plugin-import --save-dev
   webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
   ```
 
-- 一般都需要用到 `Icon` 组件，需要配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), 配置方案见 [Icon 文档](https://mobile.ant.design/components/icon)
+> 如果你想了解为什么需要配置 babel-plugin-import ,请看 [按需加载](https://ant.design/docs/react/getting-started-cn#按需加载)
 
-- 入口页面必需的设置：
+- 3. Antd-Mobile 所有图标都是用 `svg`，需要配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), 配置方案见 [Icon 文档](https://mobile.ant.design/components/icon) （`必选`）
+
+- 4. 入口页面（ html 或 模板）必需高清方案 & polyfill 相关设置：（`必选`）
     - 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
     - 引入 [FastClick](https://github.com/ftlabs/fastclick) (关联 [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
     - 引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)，示例代码如：
@@ -94,13 +103,12 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
-> 服务端渲染问题：请参考[此处](https://github.com/ant-design/ant-design-mobile/pull/758)讨论的方式做服务端渲染，另外不保证所有组件都支持服务端渲染。
+> 服务端渲染问题：请参考[此处](https://github.com/ant-design/ant-design-mobile/pull/758)
 >
 > 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.zh-CN.md)，
 > 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 >
-> 注意：在 webpack 环境里、除了要安装以上必选的依赖外，一定不要忘记用
-> `npm i style-loader css-loader less less-loader --save-dev`安装通用的基础的依赖项，避免出现低级错误！
+
 
 #### React-Native 使用方式
 
