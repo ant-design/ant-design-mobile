@@ -17,8 +17,8 @@ Support WEB, React-Native.
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 |  mode  | the mode of `Pagination` which can be one of `button`,`number`,`pointer` | string | `button`  |
-|  current  | current page index | number  |    |
-|  total  | total number of data | number  |  1  |
+|  current  | current page index | number  |  1 |
+|  total  | total number of data | number  |  0  |
 |  simple  | whether to hide number | boolean | false  |
 |  disabled  | whether is disabled | boolean | false  |
 | locale |  [i18n](/components/locale-provider/) setting, you can override the configuration of the global `LocaleProvider | Object：{prevText, nextText} |  |
