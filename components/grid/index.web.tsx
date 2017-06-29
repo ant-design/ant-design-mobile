@@ -101,7 +101,7 @@ export default class Grid extends React.Component<GridProps, any> {
           itemEl = (
             <Flex.Item
               key={`griditem-${dataIndex}`}
-              className={`${prefixCls}-item`}
+              className={`${prefixCls}-item ${prefixCls}-null-item`}
               style={colStyle}
             >
               <div className={`${prefixCls}-item-content`}>

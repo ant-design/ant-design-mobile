@@ -439,7 +439,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
@@ -451,7 +451,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
@@ -463,7 +463,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
@@ -694,7 +694,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
@@ -706,7 +706,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
@@ -718,7 +718,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
@@ -949,7 +949,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
@@ -961,7 +961,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
@@ -973,7 +973,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
+        class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
       >
         <div
