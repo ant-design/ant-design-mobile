@@ -67,6 +67,7 @@ $ yarn start
           exclude: [
             ...
             /\.less$/,
+            /\.svg$/,
             ...
           ]
         },
