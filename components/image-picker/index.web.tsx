@@ -20,6 +20,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     selectable: true,
   };
 
+  fileSelectorInput: any;
+
   // http://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
   getOrientation = (file, callback) => {
     const reader = new FileReader();
@@ -103,8 +105,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
 
   onFileChange = () => {
-    const fileSelectorEl = (this.refs as any).fileSelectorInput;
-    if (fileSelectorEl.files && fileSelectorEl.files.length) {
+    const fileSelectorEl = this.fileSelectorInput;
+    if (fileSelectorEl && fileSelectorEl.files && fileSelectorEl.files.length) {
       const file = fileSelectorEl.files[0];
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -179,7 +181,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             aria-label="Choose and add image"
           >
             <input
-              ref="fileSelectorInput"
+              ref={(input) => { this.fileSelectorInput = input; }}
               type="file"
               accept="image/jpg,image/jpeg,image/png,image/gif"
               onChange={() => { this.onFileChange(); }}
