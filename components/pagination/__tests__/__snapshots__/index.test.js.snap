@@ -182,7 +182,7 @@ exports[`Pagination renders correctly 1`] = `
             ]
           }
         >
-          4
+          3
         </Text>
         <Text
           accessible={true}

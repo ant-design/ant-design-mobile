@@ -12,6 +12,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
     mode: 'button',
     current: 1,
+    total: 0,
     simple: false,
     onChange: () => {},
     indicatorStyle: null,
