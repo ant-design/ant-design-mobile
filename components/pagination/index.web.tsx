@@ -12,6 +12,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     prefixCls: 'am-pagination',
     mode: 'button',
     current: 1,
+    total: 0,
     simple: false,
     onChange: () => { },
   };
@@ -58,8 +59,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
         {this.props.children ? (<Flex.Item>{this.props.children}</Flex.Item>) : (!simple &&
           <Flex.Item className={`${prefixCls}-wrap`} aria-live="assertive">
             <span className="active">{current}</span>/<span>{total}</span>
-          </Flex.Item>)
-        }
+          </Flex.Item>)}
         <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}>
           <Button
             inline
