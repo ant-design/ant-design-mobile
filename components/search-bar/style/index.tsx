@@ -1,7 +1,16 @@
 import variables from '../../style/themes/default';
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface SearchBarStyle {
+  input: TextStyle;
+  inputWrapper: ViewStyle;
+  wrapper: ViewStyle;
+  cancelTextContainer: ViewStyle;
+  cancelText: TextStyle;
+  search: ImageStyle;
+}
+
+export default StyleSheet.create<SearchBarStyle>({
   inputWrapper: {
     flex: 1,
     flexDirection: 'row',
@@ -19,7 +28,7 @@ export default StyleSheet.create({
     flex: 1,
     paddingTop: 0,
     paddingBottom: 0,
-  } as ViewStyle,
+  },
   wrapper: {
     backgroundColor: variables.search_bar_fill,
     height: variables.search_bar_height,
@@ -27,17 +36,17 @@ export default StyleSheet.create({
     paddingRight: variables.h_spacing_md,
     flexDirection: 'row',
     alignItems: 'center',
-  } as ViewStyle,
+  },
   cancelTextContainer: {
     height: variables.search_bar_input_height,
     justifyContent: 'center',
     alignItems: 'center',
-  } as ViewStyle,
+  },
   cancelText: {
     fontSize: variables.link_button_font_size,
     color: variables.color_link,
     paddingLeft: variables.h_spacing_lg,
-  } as ViewStyle,
+  },
   search: {
     tintColor: variables.input_color_icon,
     position: 'absolute',
@@ -45,5 +54,5 @@ export default StyleSheet.create({
     top: (variables.search_bar_height - variables.icon_size_xxs) / 2,
     width: variables.icon_size_xxs,
     height: variables.icon_size_xxs,
-  } as ViewStyle,
+  },
 });

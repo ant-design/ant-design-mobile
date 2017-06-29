@@ -1,12 +1,19 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import assign from 'object-assign';
 import { View, TextInput, Text, Image } from 'react-native';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
-import styles from './style/index';
+import styles, { SearchBarStyle } from './style';
+import omit from 'omit.js';
 
-export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
-  static defaultProps = assign(defaultProps, { styles });
+export interface SearchBarNativeProps extends SearchBarProps {
+  styles: SearchBarStyle;
+}
+
+export default class SearchBar extends React.Component<SearchBarNativeProps, SearchBarState> {
+  static defaultProps = {
+    ...defaultProps,
+    styles,
+  };
 
   constructor(props) {
     super(props);
@@ -73,14 +80,9 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
   render() {
     const { showCancelButton, cancelText, disabled, styles } = this.props;
-    const restProps = assign({}, this.props);
-    [
+    const restProps = omit(this.props, [
       'showCancelButton', 'cancelText', 'styles', 'value', 'onChangeText', 'onChange', 'onSubmitEditing', 'disabled',
-    ].forEach(prop => {
-      if (restProps.hasOwnProperty(prop)) {
-        delete restProps[prop];
-      }
-    });
+    ]);
     const { value, focus } = this.state;
     const _showCancelButton = showCancelButton || focus;
     return (

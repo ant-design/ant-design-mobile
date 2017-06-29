@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import ProgressProps from './PropsType';
 
 export default class Progress extends React.Component<ProgressProps, any> {
@@ -46,7 +45,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
         aria-valuemin="0"
         aria-valuemax="100"
       >
-        <div ref="bar" className={`${prefixCls}-bar`} style={assign({}, style, percentStyle)} />
+        <div ref="bar" className={`${prefixCls}-bar`} style={{ ...style, ...percentStyle }} />
       </div>
     );
   }

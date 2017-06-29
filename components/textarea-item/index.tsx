@@ -1,10 +1,10 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import assign from 'object-assign';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/themes/default';
 import TextAreaItemProps from './PropsType';
 import TextAreaItemStyle from './style/index';
+import omit from 'omit.js';
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -94,15 +94,9 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
     };
 
     const maxLength = count > 0 ? count : undefined;
-    const restProps = assign({}, this.props);
-    [
+    const restProps = omit(this.props, [
       'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'styles', 'style',
-    ].forEach(prop => {
-      if (restProps.hasOwnProperty(prop)) {
-        delete restProps[prop];
-      }
-    });
-
+    ]);
     return (
       <View style={[styles.container, containerStyle, style, { position: 'relative' }]}>
         <TextInput

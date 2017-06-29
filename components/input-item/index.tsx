@@ -1,11 +1,11 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import assign from 'object-assign';
 import { View, Image, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import Input from './Input';
 import variables from '../style/themes/default';
 import InputItemProps from './PropsType';
 import InputItemStyle from './style/index';
+import omit from 'omit.js';
 
 const noop: any = () => {};
 
@@ -116,16 +116,10 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       (extra as string).length * variables.font_size_heading : 0,
     };
 
-    const restProps = assign({}, this.props);
-    [
+    const restProps = omit(this.props, [
       'type', 'clear', 'children', 'error', 'extra', 'labelNumber', 'last',
       'onExtraClick', 'onErrorClick', 'styles',
-    ].forEach(prop => {
-      if (restProps.hasOwnProperty(prop)) {
-        delete restProps[prop];
-      }
-    });
-
+    ]);
     const keyboardTypeArray = ['default', 'email-address',
       'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation',
       'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search'];

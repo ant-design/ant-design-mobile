@@ -1,14 +1,20 @@
-import assign from 'object-assign';
-
 export function getComponentLocale(props, context, componentName, getDefaultLocale) {
   const locale = context && context.antLocale && context.antLocale[componentName] ?
     context.antLocale[componentName] : getDefaultLocale();
 
-  let result = assign({}, locale);
+  let result = {
+    ...locale,
+  };
   if (props.locale) {
-    result = assign(result, props.locale);
+    result = {
+      ...result,
+      ...props.locale,
+    };
     if (props.locale.lang) {
-      result.lang = assign({}, locale.lang, props.locale.lang);
+      result.lang = {
+        ...locale.lang,
+        ...props.locale.lang,
+      };
     }
   }
   return result;

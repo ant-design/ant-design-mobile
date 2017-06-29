@@ -91,7 +91,10 @@ export default class Pagination extends React.Component<PaginationProps, any> {
       }
       markup = <div className={`${prefixCls}-wrap`}>{arr}</div>;
     }
-    const cls = classNames(prefixCls, className);
+    const cls = classNames({
+      [prefixCls as string]: true,
+      [className as string]: !!className,
+    });
     return (
       <div
         className={cls}

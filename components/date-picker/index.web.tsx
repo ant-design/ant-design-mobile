@@ -1,20 +1,19 @@
-/* eslint no-console:0 */
 import React from 'react';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import { formatFn, getProps, getDefaultDate } from './utils';
-import assign from 'object-assign';
 import tsPropsType from './PropsType';
 import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
 
 function getDefaultProps() {
-  return assign({
+  return {
     prefixCls: 'am-picker',
     pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
     minuteStep: 1,
-  }, getProps());
+    ...getProps(),
+  };
 }
 
 export default class DatePicker extends React.Component<tsPropsType, any> {

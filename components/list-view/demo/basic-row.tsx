@@ -2,7 +2,6 @@
 import React from 'react';
 import { View, Text, TouchableHighlight, Image } from 'react-native';
 import { ListView } from 'antd-mobile';
-import assign from 'object-assign';
 
 const data = [
   {
@@ -54,7 +53,10 @@ export default class BasicRowDemo extends React.Component<any, any> {
     // console.log('reach end', event);
     this.setState({ isLoading: true });
     setTimeout(() => {
-      this.rData = assign({}, this.rData, this.genData(++pageIndex));
+      this.rData = {
+        ...this.rData,
+        ...this.genData(++pageIndex),
+      };
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,

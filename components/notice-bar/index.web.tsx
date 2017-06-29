@@ -1,5 +1,4 @@
 import React from 'react';
-import assign from 'object-assign';
 import classNames from 'classnames';
 import Icon from '../icon';
 import NoticeBarProps from './PropsType';
@@ -59,13 +58,14 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
       [className as string]: !!className,
     });
 
-    let marquee = assign({}, {
+    let marquee = {
       loop: false,
       leading: 500,
       trailing: 800,
       fps: 40,
       style: {},
-    }, marqueeProps);
+      ...marqueeProps,
+    };
 
     return this.state.show ? (
       <div className={wrapCls} {...restProps} {...extraProps} role="alert">

@@ -1,12 +1,9 @@
-/* tslint:disable:no-unused-variable */
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-/* tslint:enable:no-unused-variable */
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import Icon from '../icon/index.web';
-import assign from 'object-assign';
 import getDataAttr from '../_util/getDataAttr';
 import Touchable from 'rc-touchable';
 
@@ -16,10 +13,11 @@ function noop() { }
 const queue: any[] = [];
 
 function createActionSheet(flag, config, callback) {
-  const props = assign({}, {
+  const props = {
     prefixCls: 'am-action-sheet',
     cancelButtonText: '取消',
-  }, config);
+    ...config,
+  };
   const { prefixCls, className, transitionName, maskTransitionName, maskClosable = true } = props;
 
   let div: any = document.createElement('div');

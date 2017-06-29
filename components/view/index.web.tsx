@@ -1,16 +1,20 @@
 import React from 'react';
-import assign from 'object-assign';
 
 export default class View extends React.Component<any, any> {
   static defaultProps = {
     Component: 'div',
   };
   render() {
-    const props = assign({}, this.props);
+    const props = {
+      ...this.props,
+    };
     if (Array.isArray(props.style)) {
-      const style = {};
+      let style = {};
       props.style.forEach(s => {
-        assign(style, s);
+        style = {
+          ...style,
+          ...s,
+        };
       });
       props.style = style;
     }
