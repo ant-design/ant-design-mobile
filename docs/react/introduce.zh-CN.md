@@ -56,13 +56,13 @@ $ npm install babel-plugin-import --save-dev
 
 > 以下文档都基于 `webpack@1.x` 版本，如果你使用 webpack@2.x 请查看 [#516](https://github.com/ant-design/ant-design-mobile/issues/516#issuecomment-293632772)
 
-- 0. 安装 webpack 相关 loader 依赖 (`必选`)
+- 安装 webpack 相关 loader 依赖 (`必选`)
 
   ```bash
   npm i style-loader css-loader less less-loader svg-sprite-loader@0.3.1 --save-dev
   ```
 
-- 1. 设置 webpack 的 resolve 来自动区分 web & native 组件加载。（`必选`）
+- 设置 webpack 的 resolve 来自动区分 web & native 组件加载。（`必选`）
 
   ```
   resolve: {
@@ -72,7 +72,7 @@ $ npm install babel-plugin-import --save-dev
   ```
 
 
-- 2. 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 支持按需加载：（`必选`）
+- 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 支持按需加载：（`必选`）
 
   ```js
   // .babelrc
@@ -83,9 +83,9 @@ $ npm install babel-plugin-import --save-dev
 
 > 如果你想了解为什么需要配置 babel-plugin-import ,请看 [按需加载](https://ant.design/docs/react/getting-started-cn#按需加载)
 
-- 3. Antd-Mobile 所有图标都是用 `svg`，需要配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), 配置方案见 [Icon 文档](https://mobile.ant.design/components/icon) （`必选`）
+- Antd-Mobile 所有图标都是用 `svg`，需要配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), 配置方案见 [Icon 文档](https://mobile.ant.design/components/icon) （`必选`）
 
-- 4. 入口页面（ html 或 模板）必需高清方案 & polyfill 相关设置：（`必选`）
+- 入口页面（ html 或 模板）必需高清方案 & polyfill 相关设置：（`必选`）
     - 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
     - 引入 [FastClick](https://github.com/ftlabs/fastclick) (关联 [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
     - 引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)，示例代码如：
