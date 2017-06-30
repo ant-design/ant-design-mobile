@@ -593,6 +593,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                 class="am-switch-checkbox"
                 name=""
                 type="checkbox"
+                value="on"
               />
               <div
                 class="checkbox"
