@@ -2,9 +2,9 @@
 import React from 'react';
 import { TouchableHighlight, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import buttonStyles from './style/index';
-import { ButtonNativeProps } from './PropsType';
+import { ButtonProps } from './PropsType';
 
-export default class Button extends React.Component<ButtonNativeProps, any> {
+export default class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
     pressIn: false,
     disabled: false,

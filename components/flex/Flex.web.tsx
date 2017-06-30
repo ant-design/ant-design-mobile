@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import { FlexWebProps } from './PropsType';
+import { FlexProps } from './PropsType';
 
-export default class Flex extends React.Component<FlexWebProps, any> {
+export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;
 
   static defaultProps = {

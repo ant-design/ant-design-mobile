@@ -1,11 +1,11 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { Image, View, TouchableHighlight, Text } from 'react-native';
-import { ListItemNativeProps, BriefNativeProps } from './PropsType';
+import { ListItemProps, BriefProps } from './PropsType';
 import listItemStyles from './style/index';
 import listStyles from './style/index';
 
-export class Brief extends React.Component<BriefNativeProps, any> {
+export class Brief extends React.Component<BriefProps, any> {
   render() {
     const { children, style, styles = listStyles, wrap } = this.props;
 
@@ -24,8 +24,8 @@ export class Brief extends React.Component<BriefNativeProps, any> {
   }
 }
 
-export default class Item extends React.Component<ListItemNativeProps, any> {
-  static defaultProps: Partial<ListItemNativeProps> = {
+export default class Item extends React.Component<ListItemProps, any> {
+  static defaultProps: Partial<ListItemProps> = {
     multipleLine: false,
     wrap: false,
     styles: listItemStyles,
