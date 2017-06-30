@@ -12,6 +12,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <form
+    action="#"
     class="am-search"
   >
     <div
@@ -63,6 +64,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <form
+    action="#"
     class="am-search"
   >
     <div
@@ -114,6 +116,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <form
+    action="#"
     class="am-search"
   >
     <div
@@ -181,6 +184,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <form
+    action="#"
     class="am-search am-search-start"
   >
     <div
