@@ -1,14 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
-=======
->>>>>>> remove canUseDom
-import assign from 'object-assign';
->>>>>>> replace typeof with rc-util#canUseDom
 import List from '../list/index.web';
 import Flex from '../flex/index.web';
 import SubMenu from './SubMenu.web';
