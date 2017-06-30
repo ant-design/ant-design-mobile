@@ -1,22 +1,22 @@
 // for TypeScript's `.d.ts`
-
+// for build dist/antd-mobile.js
 export { default as Accordion } from './accordion/index.web';
 export { default as ActionSheet } from './action-sheet/index.web';
 export { default as ActivityIndicator } from './activity-indicator/index.web';
 export { default as Badge } from './badge/index.web';
-export { default as Button } from './button/type';
+export { default as Button } from './button/index.web';
 export { default as Card } from './card/index.web';
 export { default as Carousel } from './carousel/index.web';
 export { default as Checkbox } from './checkbox/index.web';
 export { default as DatePicker } from './date-picker/index.web';
 export { default as Drawer } from './drawer/index.web';
-export { default as Flex } from './flex/type';
+export { default as Flex } from './flex/index.web';
 export { default as Grid } from './grid/index.web';
 export { default as Icon } from './icon/index.web';
 export { default as ImagePicker } from './image-picker/index.web';
 export { default as InputItem } from './input-item/index.web';
 
-export { default as List } from './list/type';
+export { default as List } from './list/index.web';
 export { default as ListView } from './list-view/index.web';
 export { default as Menu } from './menu/index.web';
 export { default as Modal } from './modal/index.web';

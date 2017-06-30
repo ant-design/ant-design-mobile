@@ -1,4 +1,4 @@
-import { NativeProps, WebProps } from '../baseType';
+import React from 'react';
 
 export interface ButtonProps {
   type?: 'primary' | 'warning' | 'ghost';
@@ -9,16 +9,16 @@ export interface ButtonProps {
   loading?: boolean;
   delayPressIn?: number;
   delayPressOut?: number;
-}
-
-export interface ButtonWebProps extends WebProps, ButtonProps {
+  style?: React.CSSProperties;
+  /* for web */
+  prefixCls?: string;
+  className?: string;
+  role?: string;
   inline?: boolean;
   across?: boolean;
   icon?: string;
   activeClassName?: string;
-}
-
-export interface ButtonNativeProps extends NativeProps, ButtonProps {
+  /* for native */
   onPressIn?: (x?: any) => void;
   onPressOut?: (x?: any) => void;
   onShowUnderlay?: (x?: any) => void;

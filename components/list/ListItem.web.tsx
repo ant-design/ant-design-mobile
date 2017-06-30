@@ -2,10 +2,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import Touchable from 'rc-touchable';
-import { ListItemWebProps, BriefWebProps } from './PropsType';
+import { ListItemProps, BriefProps } from './PropsType';
 import omit from 'omit.js';
 
-export class Brief extends React.Component<BriefWebProps, any> {
+export class Brief extends React.Component<BriefProps, any> {
   render() {
     return (
       <div className="am-list-brief" style={this.props.style}>{this.props.children}</div>
@@ -13,8 +13,8 @@ export class Brief extends React.Component<BriefWebProps, any> {
   }
 }
 
-class ListItem extends React.Component<ListItemWebProps, any> {
-  static defaultProps: Partial<ListItemWebProps> = {
+class ListItem extends React.Component<ListItemProps, any> {
+  static defaultProps: Partial<ListItemProps> = {
     prefixCls: 'am-list',
     align: 'middle',
     error: false,

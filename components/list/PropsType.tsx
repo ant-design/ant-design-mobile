@@ -1,17 +1,15 @@
 import React, { ReactNode } from 'react';
-import { NativeProps, WebProps } from '../baseType';
 
 export interface ListProps {
   renderHeader?: Function | JSX.Element;
   renderFooter?: Function | JSX.Element;
   children?: JSX.Element | JSX.Element[];
-}
-
-export interface ListWebProps extends WebProps, ListProps {
-
-}
-
-export interface ListNativeProps extends NativeProps, ListProps {
+  style?: React.CSSProperties | {} | Array<{}>;
+  /* for web */
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+  /* for native */
   styles?: {
     Header?: {};
     Footer?: {};
@@ -29,16 +27,18 @@ export interface ListItemProps {
   extra?: ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
   wrap?: boolean;
-}
+  onClick?: (e?: any) => void;
+  style?: React.CSSProperties | {} | Array<{}>;
+  /* for web */
+  prefixCls?: string;
+  className?: string;
 
-export interface ListItemWebProps extends WebProps, ListItemProps {
+  role?: string;
   activeStyle?: React.CSSProperties;
   error?: boolean;
   platform?: 'android' | 'ios' | 'cross';
-  onClick?: Function;
-}
 
-export interface ListItemNativeProps extends NativeProps, ListItemProps {
+  /* for native */
   styles?: {
     underlayColor: {},
     Content: {},
@@ -54,19 +54,19 @@ export interface ListItemNativeProps extends NativeProps, ListItemProps {
   };
   onPressIn?: () => void;
   onPressOut?: () => void;
-  onClick?: () => void;
 }
 
 export interface BriefProps {
   children?: ReactNode;
   wrap?: boolean;
-}
+  style?: React.CSSProperties | {} | Array<{}>;
 
-export interface BriefWebProps extends WebProps, BriefProps {
+  /* for web */
+  prefixCls?: string;
+  className?: string;
 
-}
-
-export interface BriefNativeProps extends NativeProps, BriefProps {
+  role?: string;
+  /* for native */
   styles: {
     Brief: {},
     BriefText: {},

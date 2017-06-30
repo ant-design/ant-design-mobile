@@ -2,12 +2,12 @@
 import React from 'react';
 import Item from './ListItem.web';
 import classNames from 'classnames';
-import { ListWebProps } from './PropsType';
+import { ListProps } from './PropsType';
 
-export default class List extends React.Component<ListWebProps, any> {
+export default class List extends React.Component<ListProps, any> {
   static Item = Item;
 
-  static defaultProps: Partial<ListWebProps> = {
+  static defaultProps: Partial<ListProps> = {
     prefixCls: 'am-list',
   };
 
