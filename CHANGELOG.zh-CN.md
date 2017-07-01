@@ -14,6 +14,26 @@ timeline: true
 
 ---
 
+## 1.4.1
+
+`2017-07-01`
+
+- **Bug Fix**
+  - 修复 `Grid` 样式问题。（[635a9d3](https://github.com/ant-design/ant-design-mobile/commit/635a9d3d4b93e5a7304d5620ad6550827c303b1d) [#1455](https://github.com/ant-design/ant-design-mobile/issues/1455)）
+  - 修复 create-react-app 文档错误。（[#1501](https://github.com/ant-design/ant-design-mobile/issues/1501)）
+  - 修复 `Modal` android 平台下样式错误。（[#1499](https://github.com/ant-design/ant-design-mobile/issues/1499)）
+  - 修复 `SearchBar` iOS键盘类型不是搜索问题。 ([#1510](https://github.com/ant-design/ant-design-mobile/issues/1510))
+  - 暂时回滚 typescript interface 写法，解决 dist 文件错误问题。 ([#1517](https://github.com/ant-design/ant-design-mobile/pull/1517))
+
+- **Improve && Enhancement**
+  - `SegmentedControl` 兼容 preact ([#1374](https://github.com/ant-design/ant-design-mobile/pull/1374))
+  - `ActionSheet`/`SearchBar`/`ImagePicker`/`Picker` 细节样式优化
+  - `Modal.prompt` 扩大点击区域 ([#1489](https://github.com/ant-design/ant-design-mobile/issues/1489))
+  - `InputItem` 的 money 类型添加 demo 演示只能输入自然数([#1493](https://github.com/ant-design/ant-design-mobile/pull/1493))
+  - 更新主要的介绍文档 ([#1503](https://github.com/ant-design/ant-design-mobile/pull/1503))
+  - 去除 object-assign 依赖，改为使用 es6 展开操作符 ([67e0ee6](https://github.com/ant-design/ant-design-mobile/commit/67e0ee6a985d1e143f3dbbf63988d01a05d67b59))
+  - 网站信息结构优化，并增加拷贝代码按钮 ([#1481](https://github.com/ant-design/ant-design-mobile/issues/1481))
+
 ## 1.4.0
 
 `2017-06-24`
