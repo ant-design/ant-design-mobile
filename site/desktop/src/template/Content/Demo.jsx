@@ -18,12 +18,6 @@ export default class Demo extends React.Component {
     sourceCode: '',
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return (this.state.codeExpand || this.props.expand) !== (nextState.codeExpand || nextProps.expand)
-     || this.state.copied !== nextState.copied
-     || this.state.copyTooltipVisible !== nextState.copyTooltipVisible;
-  }
-
   saveAnchor = (anchor) => {
     this.anchor = anchor;
   }
@@ -99,13 +93,11 @@ export default class Demo extends React.Component {
               visible={this.state.copyTooltipVisible}
               onVisibleChange={this.onCopyTooltipVisibleChange}
             >
-              <Button
-                shape="circle"
-                size="small"
+              <span
                 className="code-box-code-copy"
               >
                 <Icon type={(this.state.copied && this.state.copyTooltipVisible) ? 'check' : 'copy'} />
-              </Button>
+              </span>
             </Tooltip>
           </CopyToClipboard>
         {props.utils.toReactComponent(highlightedCode)}
