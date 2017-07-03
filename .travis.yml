@@ -23,7 +23,9 @@ script:
     elif [ "$TEST_TYPE" = compile ]; then
       npm run compile && \
       LIB_DIR=lib npm run test:web -- -w 2 && \
+      LIB_DIR=lib npm run test:rn -- -w 2 && \
       LIB_DIR=es npm run test:web -- -w 2
+      LIB_DIR=es npm run test:rn -- -w 2
     elif [ "$TEST_TYPE" = test:web ]; then
       npm run test:web -- -w 2 --coverage && \
       bash <(curl -s https://codecov.io/bash) -cF web
