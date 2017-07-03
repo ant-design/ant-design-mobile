@@ -2,10 +2,6 @@ const libDir = process.env.LIB_DIR;
 
 const transformIgnorePatterns = [];
 
-// if (libDir !== 'es') {
-//   transformIgnorePatterns.push('/node_modules/');
-// }
-
 module.exports = {
   preset: 'react-native',
   setupFiles: [
