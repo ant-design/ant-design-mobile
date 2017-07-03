@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel.RN renders correctly 1`] = `
+<View
+  onLayout={[Function]}
+>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    autoplay={false}
+    autoplayInterval={3000}
+    bounces={true}
+    contentContainerStyle={undefined}
+    contentOffset={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    directionalLockEnabled={true}
+    dotActiveStyle={Object {}}
+    dotStyle={Object {}}
+    dots={true}
+    horizontal={true}
+    infinite={false}
+    onMomentumScrollEnd={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    pagination={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={false}
+    scrollEventThrottle={100}
+    selectedIndex={0}
+    showsHorizontalScrollIndicator={false}
+    showsVerticalScrollIndicator={false}
+    styles={
+      Object {
+        "pagination": Object {
+          "alignItems": "center",
+          "position": "absolute",
+        },
+        "paginationX": Object {
+          "bottom": 10,
+          "left": 0,
+          "right": 0,
+        },
+        "paginationY": Object {
+          "bottom": 0,
+          "right": 10,
+          "top": 0,
+        },
+        "pointActiveStyle": Object {
+          "backgroundColor": "#888",
+        },
+        "pointStyle": Object {
+          "backgroundColor": "#ccc",
+          "borderRadius": 8,
+          "height": 8,
+          "width": 8,
+        },
+        "spaceStyle": Object {
+          "marginHorizontal": 2.5,
+          "marginVertical": 3,
+        },
+      }
+    }
+    vertical={false}
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "width": 0,
+          }
+        }
+      >
+        <View>
+          abc
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "position": "absolute",
+        },
+        Object {
+          "bottom": 10,
+          "left": 0,
+          "right": 0,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ccc",
+              "borderRadius": 8,
+              "height": 8,
+              "width": 8,
+            },
+            Object {
+              "marginHorizontal": 2.5,
+              "marginVertical": 3,
+            },
+            Object {},
+            Object {
+              "backgroundColor": "#888",
+            },
+            Object {},
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
