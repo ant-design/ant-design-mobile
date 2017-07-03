@@ -27,11 +27,11 @@ exports[`renders ./components/progress/demo/basic.tsx correctly 1`] = `
             "borderColor": "#108ee9",
             "borderStyle": "solid",
           },
-          undefined,
           Object {
             "height": 0,
             "width": 675,
           },
+          undefined,
         ]
       }
     />
@@ -79,11 +79,11 @@ exports[`renders ./components/progress/demo/basic.tsx correctly 1`] = `
                 "borderColor": "#108ee9",
                 "borderStyle": "solid",
               },
-              undefined,
               Object {
                 "height": 0,
                 "width": 300,
               },
+              undefined,
             ]
           }
         />
@@ -207,11 +207,11 @@ exports[`renders ./components/progress/demo/basic.tsx correctly 1`] = `
             "borderColor": "#108ee9",
             "borderStyle": "solid",
           },
-          undefined,
           Object {
             "height": 0,
             "width": 37.5,
           },
+          undefined,
         ]
       }
     />

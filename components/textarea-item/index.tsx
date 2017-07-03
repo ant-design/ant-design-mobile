@@ -101,11 +101,11 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
       'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'styles', 'style',
     ]);
     return (
-      <View style={[styles.container, containerStyle, style, { position: 'relative' }]}>
+      <View style={[styles.container, containerStyle, { position: 'relative' }]}>
         <TextInput
           clearButtonMode={clear ? 'while-editing' : 'never'}
           underlineColorAndroid="transparent"
-          style={[styles.input, textareaStyle, { height: Math.max(45, this.state.height) }]}
+          style={[styles.input, textareaStyle, { height: Math.max(45, this.state.height) }, style]}
           {...restProps}
           {...valueProps}
           onChange={(event) => this.onChange(event)}

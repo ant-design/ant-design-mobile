@@ -54,7 +54,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
       return prev;
     }, {});
 
-    return (<label className={wrapCls} style={style}>
+    return (<label className={wrapCls}>
         <input
           type="checkbox"
           name={name}
@@ -68,6 +68,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
         />
         <div
           className={fackInputCls}
+          style={style}
           {...(disabled ? { onClick: this.onClick } : {})}
         />
       </label>);

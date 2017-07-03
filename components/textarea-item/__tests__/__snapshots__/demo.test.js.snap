@@ -55,7 +55,6 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
               Object {
                 "borderBottomWidth": 0.5,
               },
-              undefined,
               Object {
                 "position": "relative",
               },
@@ -90,6 +89,7 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
                 Object {
                   "height": 96,
                 },
+                undefined,
               ]
             }
             underlineColorAndroid="transparent"
@@ -106,7 +106,6 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
               Object {
                 "borderBottomWidth": 0.5,
               },
-              undefined,
               Object {
                 "position": "relative",
               },
@@ -141,6 +140,7 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
                 Object {
                   "height": 96,
                 },
+                undefined,
               ]
             }
             underlineColorAndroid="transparent"
@@ -178,7 +178,6 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
               Object {
                 "borderBottomWidth": 0.5,
               },
-              undefined,
               Object {
                 "position": "relative",
               },
@@ -213,6 +212,7 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
                 Object {
                   "height": 96,
                 },
+                undefined,
               ]
             }
             underlineColorAndroid="transparent"
@@ -229,7 +229,6 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
               Object {
                 "borderBottomWidth": 0.5,
               },
-              undefined,
               Object {
                 "position": "relative",
               },
@@ -262,6 +261,7 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
                 Object {
                   "height": 45,
                 },
+                undefined,
               ]
             }
             underlineColorAndroid="transparent"
@@ -279,7 +279,6 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
               Object {
                 "borderBottomWidth": 0.5,
               },
-              undefined,
               Object {
                 "position": "relative",
               },
@@ -312,6 +311,7 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
                 Object {
                   "height": 45,
                 },
+                undefined,
               ]
             }
             underlineColorAndroid="transparent"
@@ -329,7 +329,6 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
               Object {
                 "borderBottomWidth": 0.5,
               },
-              undefined,
               Object {
                 "position": "relative",
               },
@@ -364,6 +363,7 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
                 Object {
                   "height": 45,
                 },
+                undefined,
               ]
             }
             underlineColorAndroid="transparent"
@@ -380,7 +380,6 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
               Object {
                 "borderBottomWidth": 0.5,
               },
-              undefined,
               Object {
                 "position": "relative",
               },
@@ -414,6 +413,7 @@ exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
                 Object {
                   "height": 45,
                 },
+                undefined,
               ]
             }
             underlineColorAndroid="transparent"

@@ -23,7 +23,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
     }
   }
   render() {
-    const { className, prefixCls, position, unfilled, style = {}, wrapStyle = {} } = this.props;
+    const { className, prefixCls, position, unfilled, style = {}, barStyle = {} } = this.props;
     const percentStyle = {
       width: this.noAppearTransition || !this.props.appearTransition ? `${this.props.percent}%` : 0,
       height: 0,
@@ -38,14 +38,14 @@ export default class Progress extends React.Component<ProgressProps, any> {
     // TODO 2.0 整理 style， api 变更 style, barStyle, remove wrapStyle(不添入文档， for tiny)
     return (
       <div
-        style={wrapStyle}
+        style={style}
         className={wrapCls}
         role="progressbar"
         aria-valuenow={this.props.percent}
         aria-valuemin="0"
         aria-valuemax="100"
       >
-        <div ref="bar" className={`${prefixCls}-bar`} style={{ ...style, ...percentStyle }} />
+        <div ref="bar" className={`${prefixCls}-bar`} style={{ ...barStyle, ...percentStyle }} />
       </div>
     );
   }
