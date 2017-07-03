@@ -191,7 +191,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     });
 
     return (
-      <form onSubmit={this.onSubmit} className={wrapCls} style={style} ref="searchInputContainer" action="#">
+      <form onSubmit={this.onSubmit} className={wrapCls} ref="searchInputContainer" action="#">
         <div className={`${prefixCls}-input`}>
           <div className={`${prefixCls}-synthetic-ph`} ref="syntheticPh">
             <span className={`${prefixCls}-synthetic-ph-container`} ref="syntheticPhContainer">
@@ -214,6 +214,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             ref="searchInput"
+            style={style}
           />
           <a onClick={this.onClear} className={clearCls} />
         </div>
