@@ -123,7 +123,7 @@ class App extends React.Component {
         scrollRenderAheadDistance={200}
         scrollEventThrottle={20}
         style={{
-          height: document.documentElement.clientHeight,
+          height: typeof document !== 'undefined' ? document.documentElement.clientHeight : 0,
           border: '1px solid #ddd',
           margin: '0.1rem 0',
         }}

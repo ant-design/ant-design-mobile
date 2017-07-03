@@ -13,14 +13,9 @@ import { Popup, List, Button, Icon } from 'antd-mobile';
 // fix touch to scroll background page on iOS
 // https://github.com/ant-design/ant-design-mobile/issues/307
 // https://github.com/ant-design/ant-design-mobile/issues/163
-const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
-let maskProps;
-if (isIPhone) {
-  // Note: the popup content will not scroll.
-  maskProps = {
-    onTouchStart: e => e.preventDefault(),
-  };
-}
+const maskProps = {
+  onTouchStart: e => /\b(iPhone|iPod)\b/i.test(navigator.userAgent) && e.preventDefault(),
+};
 
 class Test extends React.Component {
   state = {
