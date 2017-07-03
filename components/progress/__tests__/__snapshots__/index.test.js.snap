@@ -26,11 +26,11 @@ exports[`Progress renders correctly 1`] = `
           "borderColor": "#108ee9",
           "borderStyle": "solid",
         },
-        undefined,
         Object {
           "height": 0,
           "width": 225,
         },
+        undefined,
       ]
     }
   />
