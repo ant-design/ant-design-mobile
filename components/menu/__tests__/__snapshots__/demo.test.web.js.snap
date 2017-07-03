@@ -17,10 +17,10 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
           class="am-navbar-left-icon"
         >
           <svg
-            class="am-icon am-icon-[object Object] am-icon-md"
+            class="am-icon am-icon-menu am-icon-md"
           >
             <use
-              xlink:href="#[object Object]"
+              xlink:href="#menu"
             />
           </svg>
         </span>

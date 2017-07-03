@@ -694,10 +694,10 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   unselectable="unselectable"
                 >
                   <svg
-                    class="am-icon am-icon-[object Object] am-icon-xxs"
+                    class="am-icon am-icon-plus am-icon-xxs"
                   >
                     <use
-                      xlink:href="#[object Object]"
+                      xlink:href="#plus"
                     />
                   </svg>
                 </span>
@@ -709,10 +709,10 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   unselectable="unselectable"
                 >
                   <svg
-                    class="am-icon am-icon-[object Object] am-icon-xxs"
+                    class="am-icon am-icon-minus am-icon-xxs"
                   >
                     <use
-                      xlink:href="#[object Object]"
+                      xlink:href="#minus"
                     />
                   </svg>
                 </span>

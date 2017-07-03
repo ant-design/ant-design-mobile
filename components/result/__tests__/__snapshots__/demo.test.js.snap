@@ -136,11 +136,7 @@ exports[`renders ./components/result/demo/basic.tsx correctly 1`] = `
         }
       >
         <Image
-          source={
-            Object {
-              "default": true,
-            }
-          }
+          source={Object {}}
           style={
             Object {
               "height": 60,
@@ -228,11 +224,7 @@ exports[`renders ./components/result/demo/basic.tsx correctly 1`] = `
         }
       >
         <Image
-          source={
-            Object {
-              "default": true,
-            }
-          }
+          source={Object {}}
           style={
             Object {
               "height": 60,
@@ -314,11 +306,7 @@ exports[`renders ./components/result/demo/basic.tsx correctly 1`] = `
         }
       >
         <Image
-          source={
-            Object {
-              "default": true,
-            }
-          }
+          source={Object {}}
           style={
             Object {
               "height": 60,

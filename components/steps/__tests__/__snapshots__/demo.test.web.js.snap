@@ -463,10 +463,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -505,10 +505,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -547,10 +547,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -601,10 +601,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -648,10 +648,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -695,10 +695,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -754,10 +754,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -796,10 +796,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -838,10 +838,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -880,10 +880,10 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -1240,10 +1240,10 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -1283,10 +1283,10 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
@@ -1325,10 +1325,10 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
               class="am-steps-icon"
             >
               <svg
-                class="am-icon am-icon-[object Object] am-icon-md"
+                class="am-icon am-icon-pay-circle am-icon-md"
               >
                 <use
-                  xlink:href="#[object Object]"
+                  xlink:href="#pay-circle"
                 />
               </svg>
             </span>
