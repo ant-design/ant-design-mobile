@@ -79,7 +79,7 @@ export default class SearchBar extends React.Component<SearchBarNativeProps, Sea
     }
   }
   render() {
-    const { showCancelButton, cancelText, disabled, styles } = this.props;
+    const { showCancelButton, cancelText, disabled, styles, style } = this.props;
     const restProps = omit(this.props, [
       'showCancelButton', 'cancelText', 'styles', 'value', 'onChangeText', 'onChange', 'onSubmitEditing', 'disabled',
     ]);
@@ -91,7 +91,7 @@ export default class SearchBar extends React.Component<SearchBarNativeProps, Sea
           <TextInput
             value={value}
             onChangeText={this.onChangeText}
-            style={styles.input}
+            style={[styles.input, style]}
             editable={!disabled}
             ref="searchInput"
             onSubmitEditing={this.onSubmit}

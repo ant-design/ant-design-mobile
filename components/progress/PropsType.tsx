@@ -3,7 +3,7 @@ interface ProgressProps {
   position?: 'fixed' | 'normal';
   unfilled?: 'show' | 'hide';
   style?: any;
-  wrapStyle?: any;
+  barStyle?: any;
   /** rn only */
   wrapWidth?: number;
   styles?: any;

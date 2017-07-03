@@ -234,7 +234,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
 
     return (
-      <div className={wrapCls} style={style}>
+      <div className={wrapCls}>
         {children ? (<div className={labelCls}>{children}</div>) : null}
         <div className={controlCls}>
           {type === 'money' ? (
@@ -251,6 +251,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               {...(this.props.focused !== undefined ? { focused: this.props.focused } : {})}
               {...(this.props.autoFocus !== undefined ? { autoFocus: this.props.autoFocus } : {})}
               prefixCls={prefixCls}
+              style={style}
               confirmLabel={confirmLabel}
             />
           ) : (
@@ -259,6 +260,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               {...otherProps}
               {...valueProps}
               {...classNameProps}
+              style={style}
               type={inputType}
               maxLength={maxLength}
               name={name}

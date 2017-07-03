@@ -204,7 +204,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     });
     const characterLength = countSymbols(value);
     return (
-      <div className={wrapCls} style={style}>
+      <div className={wrapCls}>
         {title && <div className={labelCls}>{title}</div>}
         <div className={`${prefixCls}-control`}>
           <textarea
@@ -216,6 +216,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
             onBlur={this.onBlur}
             onFocus={this.onFocus}
             readOnly={!editable}
+            style={style}
           />
         </div>
         {clear && editable && value && characterLength > 0 &&
