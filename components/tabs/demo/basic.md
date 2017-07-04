@@ -1,11 +1,11 @@
 ---
 order: 0
 title:
-  zh-CN: 选项卡
-  en-US: Tabs
+  zh-CN: 基本用法
+  en-US: Basic Usage
 ---
 
-多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。
+Basic Usage.
 
 
 ````jsx
@@ -22,19 +22,19 @@ function handleTabClick(key) {
 const TabExample = () => (
   <div>
     <Tabs defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
-      <TabPane tab="选项卡一" key="1">
+      <TabPane tab="First Tab" key="1">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
-          选项卡一内容
+          Content of First Tab
         </div>
       </TabPane>
-      <TabPane tab="选项卡二" key="2">
+      <TabPane tab="Second Tab" key="2">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
-          选项卡二内容
+          Content of Second Tab
         </div>
       </TabPane>
-      <TabPane tab="选项卡三" key="3">
+      <TabPane tab="Third Tab" key="3">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
-          选项卡三内容
+          Content of Third Tab
         </div>
       </TabPane>
     </Tabs>
