@@ -6,8 +6,8 @@ title:
 ---
 
 
-区域选择滑动条。当 `disabled` 为 `true` 时，滑块处于不可用状态。可以使用`createTooltip`来进行封装以产生 ToolTip 功能。
-
+Silder with range. When `disabled` is `true`, the slider will not be interactable, you can use `createTooltip` to encapsulate
+to simulate tooltip.
 
 
 ````jsx
@@ -25,7 +25,7 @@ const App = () => {
     <div className="am-slider-example">
       <WhiteSpace size="lg" />
       <WingBlank size="lg">
-        <p className="title">Range, 基础使用</p>
+        <p className="title">Basic Range</p>
         <Range
           min={0}
           max={20}
@@ -36,7 +36,7 @@ const App = () => {
       </WingBlank>
       <WhiteSpace size="lg" />
       <WingBlank size="lg">
-        <p className="title">Range, 带 Tooltip</p>
+        <p className="title">Range with Tooltip</p>
         <RangeWithTooltip
           min={0}
           max={20}
@@ -47,7 +47,7 @@ const App = () => {
       </WingBlank>
       <WhiteSpace size="lg" />
       <WingBlank size="lg">
-        <p className="title">Range, 禁用</p>
+        <p className="title">Disabled Range</p>
         <Range
           min={0}
           max={20}
@@ -58,7 +58,7 @@ const App = () => {
         />
       </WingBlank>
       <WingBlank size="lg">
-        <p className="title">Range, 自定义样式</p>
+        <p className="title">Range with Customized Style</p>
         <Range
           min={0}
           max={20}

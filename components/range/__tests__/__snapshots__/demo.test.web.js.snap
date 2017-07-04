@@ -13,7 +13,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     <p
       class="title"
     >
-      Range, 基础使用
+      Basic Range
     </p>
     <div
       class="am-slider-wrapper"
@@ -64,7 +64,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     <p
       class="title"
     >
-      Range, 带 Tooltip
+      Range with Tooltip
     </p>
     <div
       class="am-slider-wrapper"
@@ -115,7 +115,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     <p
       class="title"
     >
-      Range, 禁用
+      Disabled Range
     </p>
     <div
       class="am-slider-wrapper"
@@ -163,7 +163,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     <p
       class="title"
     >
-      Range, 自定义样式
+      Range with Customized Style
     </p>
     <div
       class="am-slider-wrapper"
