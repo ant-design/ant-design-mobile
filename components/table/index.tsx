@@ -1,10 +1,10 @@
 import React from 'react';
-import createReactClass from 'create-react-class';
 
-const Table = createReactClass<any, any>({
+export default class Table extends React.Component<any, any> {
+  componentDidMount() {
+    console.warn('Table does not support react-native and will be removed in version 2.0');
+  }
   render() {
-    return <div>TODO for react-native</div>;
-  },
-});
-
-export default Table;
+    return null;
+  }
+}

@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import RangeProps from './PropsType';
 
-export default class Range extends Component<RangeProps, any> {
- render() {
-    return <div>TODO for react-native</div>;
+export default class Range extends React.Component<RangeProps, any> {
+  componentDidMount() {
+    console.warn('TODO for react-native');
+  }
+
+  render() {
+    return null;
   }
 }
