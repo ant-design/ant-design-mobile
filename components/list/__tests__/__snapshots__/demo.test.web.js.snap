@@ -8,7 +8,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      基本样式
+      Basic Style
     </div>
     <div
       class="am-list-body"
@@ -22,12 +22,12 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            标题文字
+            Title
           </div>
           <div
             class="am-list-extra"
           >
-            内容内容
+            extra content
           </div>
         </div>
         <div
@@ -43,7 +43,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      带副标题
+      Subtitle
     </div>
     <div
       class="am-list-body"
@@ -57,11 +57,11 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            标题文字 
+            Title 
             <div
               class="am-list-brief"
             >
-              副标题
+              subtitle
             </div>
           </div>
           <div
@@ -87,7 +87,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
             <div
               class="am-list-brief"
             >
-              设置了Click事件会有material水波纹点击效果
+              There may have water ripple effect of 
+              <br />
+               material if you set the click event.
             </div>
           </div>
           <div
@@ -116,11 +118,11 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            标题文字 
+            Title 
             <div
               class="am-list-brief"
             >
-              副标题
+              subtitle
             </div>
           </div>
           <div
@@ -141,7 +143,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      右侧自定义（无内容 / 文字 / 图片）
+      Customized Right Side（Empty Content / Text / Image）
     </div>
     <div
       class="am-list-body"
@@ -155,7 +157,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            标题文字
+            Title
           </div>
         </div>
         <div
@@ -172,7 +174,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            标题文字
+            Title
           </div>
           <div
             aria-hidden="true"
@@ -193,12 +195,12 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            标题文字
+            Title
           </div>
           <div
             class="am-list-extra"
           >
-            内容内容
+            extra content
           </div>
           <div
             aria-hidden="true"
@@ -226,11 +228,11 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            标题文字 
+            Title 
             <div
               class="am-list-brief"
             >
-              副标题
+              subtitle
             </div>
           </div>
           <div
@@ -252,7 +254,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      垂直居中对齐
+      Align Vertical Center
     </div>
     <div
       class="am-list-body"
@@ -266,17 +268,17 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            标题文字 
+            Title 
             <div
               class="am-list-brief"
             >
-              副标题
+              subtitle
             </div>
           </div>
           <div
             class="am-list-extra"
           >
-            内容内容
+            extra content
           </div>
         </div>
         <div
@@ -292,7 +294,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      左侧带图标
+      Icon in the left
     </div>
     <div
       class="am-list-body"
@@ -313,7 +315,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            我的钱包
+            My wallet
           </div>
           <div
             aria-hidden="true"
@@ -341,7 +343,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            我的花销占比
+            My Cost Ratio
           </div>
           <div
             aria-hidden="true"
@@ -361,7 +363,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      文字换行
+      Text Wrapping
     </div>
     <div
       class="am-list-body"
@@ -376,7 +378,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            单行模式，文字超长则隐藏；文本内容文本内容文本内容文本内容
+            Single line，long text will be hidden with ellipsis；
           </div>
         </div>
         <div
@@ -393,7 +395,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            多行模式，文字超长则换行；文本内容文本内容文本内容文本内容文本内容文本内容
+            Multiple line，long text will wrap；Long Text Long Text Long Text Long Text Long Text Long Text
           </div>
         </div>
         <div
@@ -410,12 +412,12 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            多行标题文字超长直接折行，文字可能比较长、文字可能比较长、
+            Multiple line and long text will wrap. Long Text Long Text Long Text
           </div>
           <div
             class="am-list-extra"
           >
-            内容内容
+            extra content
           </div>
         </div>
         <div
@@ -432,12 +434,12 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            极个别情况下，单行标题文字可能比较长，文字可能比较长、文字可能比较长、靠近右边会折行
+            In rare cases, the text of right side will wrap in the single line with long text. long text long text long text
           </div>
           <div
             class="am-list-extra"
           >
-            没有箭头
+            no arrow
           </div>
           <div
             aria-hidden="true"
@@ -457,7 +459,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      其他
+      Other
     </div>
     <div
       class="am-list-body"
@@ -471,7 +473,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            点击禁用
+            Click to disable
           </div>
           <div
             class="am-list-extra"
@@ -496,18 +498,18 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 selected=""
                 value="1"
               >
-                这是原生 html select
+                html select element
               </option>
               <option
                 disabled=""
                 value="2"
               >
-                不可选
+                Unable to select
               </option>
               <option
                 value="3"
               >
-                选项3
+                option 3
               </option>
             </select>
           </div>
@@ -530,7 +532,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      验证表单
+      Form Validation
     </div>
     <div
       class="am-list-body"
@@ -541,13 +543,13 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
         <div
           class="am-input-label am-input-label-5"
         >
-          帐号
+          Account
         </div>
         <div
           class="am-input-control"
         >
           <input
-            placeholder="请输入账号"
+            placeholder="Please input account"
             type="text"
             value=""
           />
@@ -559,13 +561,13 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
         <div
           class="am-input-label am-input-label-5"
         >
-          密码
+          Password
         </div>
         <div
           class="am-input-control"
         >
           <input
-            placeholder="请输入密码"
+            placeholder="Please input password"
             type="password"
             value=""
           />
@@ -580,7 +582,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            确认信息
+            Confirm Infomation
           </div>
           <div
             class="am-list-extra"
@@ -674,7 +676,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            预定人数
+            Number of Subscribers
           </div>
           <div
             class="am-list-extra"
@@ -755,7 +757,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
               role="button"
             >
               <span>
-                提交验证
+                Submit
               </span>
             </a>
             <a
@@ -765,7 +767,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
               style="margin-left:5px;"
             >
               <span>
-                重 置
+                Reset
               </span>
             </a>
           </div>
