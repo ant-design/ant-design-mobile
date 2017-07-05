@@ -35,7 +35,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
       [`${prefixCls}-fixed-outer`]: position === 'fixed',
       [`${prefixCls}-hide-outer`]: unfilled === 'hide',
     });
-    // TODO 2.0 整理 style， api 变更 style, barStyle, remove wrapStyle(不添入文档， for tiny)
+
     return (
       <div
         style={style}

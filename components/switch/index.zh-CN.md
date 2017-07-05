@@ -22,6 +22,7 @@ subtitle: 滑动开关
 | checked    | 是否默认选中    | Boolean       |   false  |
 | disabled   | 是否不可修改    | Boolean       |   false  |
 | onChange   | change 事件触发的回调函数 | (checked: bool): void |  无  |
+| color | 开关打开后的颜色 | String | #4dd865 |
 | name(`web only`)  | switch 的 name    | String   |      |
 | platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `cross`， 即组件会自动检测设备 UA 应用不同平台的样式    | String | `'cross'`|
 | onClick   | click事件触发的回调函数，当switch为disabled时，入参的值始终是默认传入的checked值。 | (checked: bool): void |  无  |
