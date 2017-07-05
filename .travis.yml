@@ -1,5 +1,11 @@
 sudo: false
 
+git:
+  submodules: false
+
+before_install:
+  - git submodule update --init
+
 language: node_js
 
 node_js:
