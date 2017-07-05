@@ -3,6 +3,7 @@ interface SwitchProps {
   checked?: boolean;
   disabled?: boolean;
   onChange?: (checked: boolean) => void;
+  color?: string;
   /* web only */
   prefixCls?: string;
   className?: string;

@@ -170,13 +170,50 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
             class="am-switch am-switch-android"
           >
             <input
+              checked=""
               class="am-switch-checkbox"
               name=""
               type="checkbox"
-              value="off"
+              value="on"
             />
             <div
               class="checkbox"
+            />
+          </label>
+        </div>
+      </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          Color for Android
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <label
+            class="am-switch am-switch-android"
+          >
+            <input
+              checked=""
+              class="am-switch-checkbox"
+              name=""
+              type="checkbox"
+              value="on"
+            />
+            <div
+              class="checkbox"
+              style="background-color:red;"
             />
           </label>
         </div>
@@ -212,6 +249,42 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
             />
             <div
               class="checkbox"
+            />
+          </label>
+        </div>
+      </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          Color for iOS
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <label
+            class="am-switch"
+          >
+            <input
+              checked=""
+              class="am-switch-checkbox"
+              name=""
+              type="checkbox"
+              value="on"
+            />
+            <div
+              class="checkbox"
+              style="background-color:red;"
             />
           </label>
         </div>
