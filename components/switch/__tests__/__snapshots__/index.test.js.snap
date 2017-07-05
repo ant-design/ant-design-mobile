@@ -6,6 +6,7 @@ exports[`Switch renders correctly 1`] = `
   onChange={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
+  onTintColor="#4dd865"
   onValueChange={[Function]}
   style={
     Array [

@@ -8,6 +8,7 @@ export default class AntmSwitch extends React.Component<SwitchProps, any> {
     checked: false,
     disabled: false,
     onChange() {},
+    color: '#4dd865',
   };
 
   onChange(value) {
@@ -17,7 +18,7 @@ export default class AntmSwitch extends React.Component<SwitchProps, any> {
   }
 
   render() {
-    let { style, disabled, checked } = this.props;
+    let { style, disabled, color, checked } = this.props;
 
     return (
       <Switch
@@ -25,6 +26,7 @@ export default class AntmSwitch extends React.Component<SwitchProps, any> {
         onValueChange={(value) => {this.onChange(value); }}
         value={checked}
         disabled={disabled}
+        onTintColor={color}
       />
     );
   }

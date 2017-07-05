@@ -33,7 +33,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
   }
 
   render() {
-    let { prefixCls, style, name, checked, disabled, className, platform, ...restProps } = this.props;
+    let { prefixCls, name, checked, disabled, className, platform, color, ...restProps } = this.props;
     const isAndroid = platform === 'android' ||
       (platform === 'cross' && typeof navigator !== 'undefined' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
@@ -53,6 +53,11 @@ export default class Switch extends React.Component<SwitchProps, any> {
       }
       return prev;
     }, {});
+
+    const style: any = this.props.style || {};
+    if (color && checked) {
+      style.backgroundColor = color;
+    }
 
     return (<label className={wrapCls}>
         <input

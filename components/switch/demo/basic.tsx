@@ -23,6 +23,7 @@ export default class SwitchExample extends React.Component<any, any> {
           onChange event, switch status: {this.state.checked ? 'open' : 'close'}
         </List.Item>
         <List.Item extra={<Switch disabled />}>disabled</List.Item>
+        <List.Item extra={<Switch color="red" checked />}>color</List.Item>
       </List>
     );
   }

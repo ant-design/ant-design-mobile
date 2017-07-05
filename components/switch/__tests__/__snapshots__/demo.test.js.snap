@@ -110,6 +110,7 @@ exports[`renders ./components/switch/demo/basic.tsx correctly 1`] = `
             onChange={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
+            onTintColor="#4dd865"
             onValueChange={[Function]}
             style={
               Array [
@@ -218,6 +219,7 @@ exports[`renders ./components/switch/demo/basic.tsx correctly 1`] = `
             onChange={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
+            onTintColor="#4dd865"
             onValueChange={[Function]}
             style={
               Array [
@@ -344,6 +346,7 @@ exports[`renders ./components/switch/demo/basic.tsx correctly 1`] = `
             onChange={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
+            onTintColor="#4dd865"
             onValueChange={[Function]}
             style={
               Array [
@@ -452,6 +455,7 @@ exports[`renders ./components/switch/demo/basic.tsx correctly 1`] = `
             onChange={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
+            onTintColor="#4dd865"
             onValueChange={[Function]}
             style={
               Array [
@@ -463,6 +467,115 @@ exports[`renders ./components/switch/demo/basic.tsx correctly 1`] = `
               ]
             }
             value={false}
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#fff",
+              "flexDirection": "row",
+              "flexGrow": 1,
+              "paddingLeft": 15,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#ddd",
+                "borderBottomWidth": 0.5,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 44,
+                "paddingBottom": 6,
+                "paddingRight": 15,
+                "paddingTop": 6,
+              },
+              false,
+              false,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontSize": 17,
+                    "lineHeight": 19,
+                    "textAlignVertical": "center",
+                  },
+                ]
+              }
+            >
+              color
+            </Text>
+          </View>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onTintColor="red"
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={true}
           />
         </View>
       </View>
