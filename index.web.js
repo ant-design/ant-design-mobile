@@ -1,12 +1,13 @@
 /* eslint no-console:0 */
-// export components to browser's window for `dist/antd-mobile.js`
 
 const req = require.context('./components', true, /^\.\/[^_][\w-]+\/style\/index\.web\.tsx?$/);
 
+// build for `dist/antd-mobile.css`
 req.keys().forEach((mod) => {
   req(mod);
 });
 
+// export components to browser's window for `dist/antd-mobile.js`
 module.exports = require('./components');
 
 if (typeof console !== 'undefined' && console.warn) {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
-import { FlexNativeProps } from './PropsType';
+import { FlexProps } from './PropsType';
 
-export default class Flex extends React.Component<FlexNativeProps, any> {
+export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;
 
   static defaultProps = {

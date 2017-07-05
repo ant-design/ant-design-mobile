@@ -1,16 +1,14 @@
-/* eslint no-console:0 */
-/* tslint:disable:no-unused-variable */
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-/* tslint:enable:no-unused-variable */
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
-import assign from 'object-assign';
 
 function create(instanceId, config, content, afterClose = (_x: any) => { }) {
-  const props = assign({}, {
+  const props = {
     prefixCls: 'am-popup',
     animationType: 'slide-down',
-  }, config);
+    ...config,
+  };
 
   const {
     prefixCls, transitionName, animationType, maskTransitionName, maskClosable = true, onMaskClose,
@@ -73,7 +71,10 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
       footer=""
       transitionName={transitionName || transName}
       maskTransitionName={maskTransitionName || 'am-fade'}
-      maskProps={assign({}, props.maskProps, maskProps)}
+      maskProps={{
+        ...props.maskProps,
+        ... maskProps,
+      }}
     >
       {content}
     </Dialog>,

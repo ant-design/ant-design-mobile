@@ -15,10 +15,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
     >
        
       <svg
-        class="am-icon am-icon-[object Object] am-icon-xxs"
+        class="am-icon am-icon-trips am-icon-xxs"
       >
         <use
-          xlink:href="#[object Object]"
+          xlink:href="#trips"
         />
       </svg>
        
@@ -53,10 +53,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
     >
        
       <svg
-        class="am-icon am-icon-[object Object] am-icon-xxs"
+        class="am-icon am-icon-trips am-icon-xxs"
       >
         <use
-          xlink:href="#[object Object]"
+          xlink:href="#trips"
         />
       </svg>
        

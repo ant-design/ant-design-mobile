@@ -1,9 +1,9 @@
 import React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import Touchable from 'rc-touchable';
 import { ModalProps, ModalComponent } from './PropsType';
+import omit from 'omit.js';
 
 function checkIfAndroid(platform) {
   return platform === 'android' ||
@@ -119,23 +119,22 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     </div> : null;
 
     // transparent 模式下, 内容默认居中
-    const rootStyle = transparent ? assign({
-      width: '5.4rem',
-      height: 'auto',
-    }, style) : assign({
-      width: '100%',
-      height: '100%',
-    }, style);
+    const rootStyle = transparent ?
+      {
+        width: '5.4rem',
+        height: 'auto',
+        ...style,
+      } :
+      {
+        width: '100%',
+        height: '100%',
+        ...style,
+      };
 
-    const restProps = assign({}, this.props);
-    ['prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
+    const restProps = omit(this.props, [
+      'prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
       'style', 'footer', 'touchFeedback', 'wrapProps',
-    ].forEach(prop => {
-      if (restProps.hasOwnProperty(prop)) {
-        delete restProps[prop];
-      }
-    });
-
+    ]);
     const wrapProps = { onTouchStart: e => this.isInModal(e) };
 
     return (

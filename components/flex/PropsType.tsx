@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { NativeProps, WebProps } from '../baseType';
 
 export interface FlexProps {
   direction?: 'row'|'row-reverse'|'column'|'column-reverse';
@@ -8,14 +7,14 @@ export interface FlexProps {
   align?: 'top'|'start'|'middle'|'center'|'bottom'|'end'|'baseline'|'stretch';
   children?: ReactNode;
   disabled?: boolean;
-}
-
-export interface FlexWebProps extends WebProps, FlexProps {
+  style?: React.CSSProperties | {} | Array<{}>;
+  /* for web */
   alignContent?: 'start'|'end'|'center'|'between'|'around'|'stretch';
   onClick?: () => void;
-}
-
-export interface FlexNativeProps extends NativeProps, FlexProps {
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+  /* for native */
   onPress?: (e?: any) => void;
   onLongPress?: any;
   onPressIn?: any;
@@ -25,13 +24,11 @@ export interface FlexNativeProps extends NativeProps, FlexProps {
 export interface FlexItemProps {
   disabled?: boolean;
   children?: ReactNode;
-}
-
-export interface FlexItemWebProps extends WebProps, FlexItemProps {
-
-}
-
-export interface FlexItemNativeProps extends NativeProps, FlexItemProps {
+  style?: React.CSSProperties | {} | Array<{}>;
+  /* for web */
+  prefixCls?: string;
+  className?: string;
+  /* for native */
   flex?: number;
   onPress?: (e?: any) => void;
   onLongPress?: any;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabBarIOS } from 'react-native';
-import assign from 'object-assign';
 import { TabBarProps } from './PropsType';
+import omit from 'omit.js';
 
 class TabBar extends React.Component<TabBarProps, any> {
   static defaultProps = {
@@ -14,16 +14,13 @@ class TabBar extends React.Component<TabBarProps, any> {
 
   render() {
     const { barTintColor, tintColor, unselectedTintColor } = this.props;
-    const resetProps = assign({}, this.props);
-    ['barTintColor', 'tintColor', 'unselectedTintColor'].forEach(item => {
-      delete resetProps[item];
-    });
+    const restProps = omit(this.props, ['barTintColor', 'tintColor', 'unselectedTintColor']);
     return (
       <TabBarIOS
         barTintColor={barTintColor}
         tintColor={tintColor}
         unselectedTintColor={unselectedTintColor}
-        {...resetProps}
+        {...restProps}
       />
     );
   }

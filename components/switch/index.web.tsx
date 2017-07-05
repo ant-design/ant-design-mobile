@@ -62,6 +62,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
           disabled={disabled}
           checked={checked}
           onChange={this.onChange}
+          value={checked ? 'on' : 'off'}
           {...(!disabled ? { onClick: this.onClick } : {})}
           {...globalProps}
         />

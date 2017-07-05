@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Item from './ListItem';
-import { ListNativeProps } from './PropsType';
+import { ListProps } from './PropsType';
 import listStyles from './style/index';
 
-export default class List extends React.Component<ListNativeProps, any> {
+export default class List extends React.Component<ListProps, any> {
   static Item = Item;
 
   render() {
@@ -30,7 +30,7 @@ export default class List extends React.Component<ListNativeProps, any> {
       footerDom = <View>{content}</View>;
     }
 
-    return (<View {...restProps} style={style}>
+    return (<View {...restProps as any} style={style}>
       {headerDom}
       <View style={styles.Body}>
         {children}

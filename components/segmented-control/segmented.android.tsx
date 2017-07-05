@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
-import assign from 'object-assign';
 import SegmentedControlProps from './PropsType';
 import AndroidStyle from './style/';
 
@@ -76,10 +75,11 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     });
 
     const enabledOpacity = !disabled ? 1 : 0.5;
-    const segmentedStyle = assign({}, style, {
+    const segmentedStyle = {
+      ...style,
       opacity: enabledOpacity,
       borderColor: tintColor,
-    });
+    };
 
     return (
       <View style={[styles.segment, segmentedStyle, style]}>

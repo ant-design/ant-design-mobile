@@ -709,7 +709,9 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
                     <td
                       class="keyboard-confirm am-number-keyboard-item am-number-keyboard-item-disabled"
                       rowspan="2"
-                    />
+                    >
+                      确定
+                    </td>
                   </tr>
                   <tr>
                     <td
@@ -837,7 +839,9 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
                     <td
                       class="keyboard-confirm am-number-keyboard-item am-number-keyboard-item-disabled"
                       rowspan="2"
-                    />
+                    >
+                      确定
+                    </td>
                   </tr>
                   <tr>
                     <td

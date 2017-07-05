@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { MenuProps } from './PropsType';
 
-export default class Menu extends Component<MenuProps, any> {
+export default class Menu extends React.Component<MenuProps, any> {
+  componentDidMount() {
+    console.warn('TODO for react-native');
+  }
+
   render() {
-    return <div>TODO for react-native</div>;
+    return null;
   }
 }

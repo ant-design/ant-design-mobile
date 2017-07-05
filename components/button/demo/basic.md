@@ -21,7 +21,7 @@ const ButtonExample = () => (
         </Button>
         <Button className="btn" loading>loading button</Button>
         <Button className="btn" icon="check-circle-o">with icon</Button>
-        <Button className="btn" icon={require('!svg-sprite!./reload.svg')}>
+        <Button className="btn" icon={require('./reload.svg')}>
           with local icon
         </Button>
 

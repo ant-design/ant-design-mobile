@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "borderRadius": 3,
+        "flexDirection": "row",
+        "overflow": "visible",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 3,
+          "borderStyle": "solid",
+          "borderWidth": 0.5,
+          "overflow": "hidden",
+          "paddingHorizontal": 15,
+          "paddingVertical": 6,
+        },
+        Object {},
+        Object {
+          "backgroundColor": "#fff",
+          "borderColor": "#ddd",
+        },
+      ]
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "fontSize": 12,
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "#888",
+          },
+        ]
+      }
+    >
+      Basic
+       
+    </Text>
+  </View>
+</View>
+`;

@@ -22,7 +22,11 @@ exports[`Result renders correctly 1`] = `
     }
   >
     <Image
-      source="https://zos.alipayobjects.com/rmsportal/qlMpMyJTcSjMpKAgtcEt.png"
+      source={
+        Object {
+          "uri": "https://zos.alipayobjects.com/rmsportal/qlMpMyJTcSjMpKAgtcEt.png",
+        }
+      }
       style={
         Object {
           "height": 60,

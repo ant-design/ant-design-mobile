@@ -17,10 +17,10 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-pic"
     >
       <svg
-        class="am-icon am-icon-[object Object] am-icon-md icon"
+        class="am-icon am-icon-alipay am-icon-md icon"
       >
         <use
-          xlink:href="#[object Object]"
+          xlink:href="#alipay"
         />
       </svg>
     </div>
@@ -126,10 +126,10 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-pic"
     >
       <svg
-        class="am-icon am-icon-[object Object] am-icon-md icon"
+        class="am-icon am-icon-waiting am-icon-md icon"
       >
         <use
-          xlink:href="#[object Object]"
+          xlink:href="#waiting"
         />
       </svg>
     </div>
@@ -160,10 +160,10 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-pic"
     >
       <svg
-        class="am-icon am-icon-[object Object] am-icon-md icon"
+        class="am-icon am-icon-notice am-icon-md icon"
       >
         <use
-          xlink:href="#[object Object]"
+          xlink:href="#notice"
         />
       </svg>
     </div>

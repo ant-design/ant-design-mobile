@@ -14,7 +14,11 @@ exports[`Pagination renders correctly 1`] = `
         aria-disabled="false"
         class="am-button am-button-inline"
         role="button"
-      />
+      >
+        <span>
+          上一页
+        </span>
+      </a>
     </div>
     <div
       aria-live="assertive"
@@ -37,7 +41,11 @@ exports[`Pagination renders correctly 1`] = `
         aria-disabled="false"
         class="am-button am-button-inline"
         role="button"
-      />
+      >
+        <span>
+          下一页
+        </span>
+      </a>
     </div>
   </div>
 </div>

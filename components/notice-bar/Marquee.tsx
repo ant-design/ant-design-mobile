@@ -7,7 +7,6 @@
 import React from 'react';
 import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
-import assign from 'object-assign';
 
 export interface MarqueeProp {
   prefixCls?: string;
@@ -56,12 +55,13 @@ const Marquee = createReactClass<MarqueeProp, any>({
 
   render() {
     const { prefixCls, className, text } = this.props;
-    const style = assign({
+    const style = {
       position: 'relative',
       right: this.state.animatedWidth,
       whiteSpace: 'nowrap',
       display: 'inline-block',
-    }, this.props.style);
+      ...this.props.style,
+    };
     return (
       <div className={`${prefixCls}-marquee-wrap ${className}`} style={{ overflow: 'hidden' }} role="marquee">
         <div ref="text" className={`${prefixCls}-marquee`} style={style}>{text} </div>

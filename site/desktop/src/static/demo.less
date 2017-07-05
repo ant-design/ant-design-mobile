@@ -50,21 +50,20 @@
 
   &-code-copy {
     position: absolute;
-    top: 10Px;
-    right: 12Px;
-    margin: 0 !important;
-    font-size: 14Px;
-    cursor: pointer;
-    color: #888;
-    transition: all .24s;
-    background: #fff;
-    width: 20Px;
-    height: 20Px;
-    line-height: 20Px;
-    text-align: center;
-    border-radius: 20Px;
     opacity: 0;
-
+    top: 52Px;
+    right: 16Px;
+    transition: all .24s;
+    z-index: 1000;
+    cursor: pointer;
+    .anticon {
+      font-size: 14Px;
+      font-weight: bold;
+      border: 1Px solid #ededed;
+      padding: 8Px;
+      border-radius: 16Px;
+      background-color: rgba(256, 256, 256, 0.6);
+    }
     &:hover {
       color: @primary-color;
       transform: scale(1.2);
@@ -174,6 +173,7 @@
   padding: 8Px;
   border-radius: 16Px;
   background-color: rgba(256, 256, 256, 0.6);
+  z-index: 1000;
 }
 
 .code-box .highlight-wrapper {
@@ -233,13 +233,6 @@
   position: relative;
   z-index: 10;
   background: #fff;
-}
-
-.code-box .code-box-code-copy {
-  position: absolute;
-  top: 10Px;
-  right: 13.5Px;
-  margin: 0 !important;
 }
 
 .demo-preview-wrapper {

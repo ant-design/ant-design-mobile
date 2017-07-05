@@ -34,6 +34,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               class="am-switch-checkbox"
               name=""
               type="checkbox"
+              value="on"
             />
             <div
               class="checkbox"
@@ -67,6 +68,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               class="am-switch-checkbox"
               name=""
               type="checkbox"
+              value="off"
             />
             <div
               class="checkbox"
@@ -101,6 +103,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               disabled=""
               name=""
               type="checkbox"
+              value="off"
             />
             <div
               class="checkbox checkbox-disabled"
@@ -136,6 +139,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               disabled=""
               name=""
               type="checkbox"
+              value="on"
             />
             <div
               class="checkbox checkbox-disabled"
@@ -169,6 +173,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               class="am-switch-checkbox"
               name=""
               type="checkbox"
+              value="off"
             />
             <div
               class="checkbox"
@@ -203,6 +208,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               class="am-switch-checkbox"
               name=""
               type="checkbox"
+              value="on"
             />
             <div
               class="checkbox"

@@ -1,7 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import List from '../list/index.web';
 import Flex from '../flex/index.web';
 import SubMenu from './SubMenu.web';
@@ -103,7 +102,10 @@ export default class Menu extends React.Component<MenuProps, any> {
           [prefixCls as string]: true,
           [className as string]: !!className,
         })}
-        style={assign({}, style, heightStyle)}
+        style={{
+          ...style,
+          ...heightStyle,
+        }}
       >
         <Flex align="top">
           {level === 2 &&

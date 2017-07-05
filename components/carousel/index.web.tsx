@@ -2,8 +2,8 @@ import React from 'react';
 import createReactClass from 'create-react-class';
 import classNames from 'classnames';
 import ReactCarousel from 'rmc-nuka-carousel';
-import assign from 'object-assign';
 import CarouselProps from './PropsType';
+import omit from 'omit.js';
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
@@ -37,17 +37,21 @@ export default class Carousel extends React.Component<CarouselProps, any> {
   }
 
   render() {
-    const { className, prefixCls, dotStyle, dotActiveStyle } = this.props;
-    let props = assign({}, this.props);
-    props = assign(props, {
-      wrapAround: props.infinite,
-      slideIndex: props.selectedIndex,
-      beforeSlide: props.beforeChange,
-    });
+    const {
+      className, prefixCls, dotStyle, dotActiveStyle, infinite,
+      selectedIndex, beforeChange, dots, vertical,
+    } = this.props;
+    const restProps = omit(this.props, ['infinite', 'selectedIndex', 'beforeChange', 'afterChange', 'dots']);
+    const newProps = {
+      ...restProps,
+      wrapAround: infinite,
+      slideIndex: selectedIndex,
+      beforeSlide: beforeChange,
+    };
 
     let Decorators: any[] = [];
     const current = this.state.selectedIndex;
-    if (props.dots) {
+    if (dots) {
       Decorators = [{
         component: createReactClass({
           render() {
@@ -79,21 +83,15 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       }];
     }
 
-    ['infinite', 'selectedIndex', 'beforeChange', 'afterChange', 'dots'].forEach(prop => {
-      if (props.hasOwnProperty(prop)) {
-        delete props[prop];
-      }
-    });
-
     const wrapCls = classNames({
       [className as string]: className,
       [prefixCls as string]: true,
-      [`${prefixCls}-vertical`]: props.vertical,
+      [`${prefixCls}-vertical`]: vertical,
     });
 
     return (
       <ReactCarousel
-        {...props}
+        {...newProps}
         className={wrapCls}
         decorators={Decorators}
         afterSlide={this.onChange}

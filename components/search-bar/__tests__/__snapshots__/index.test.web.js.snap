@@ -2,6 +2,7 @@
 
 exports[`SearchBar renders correctly 1`] = `
 <form
+  action="#"
   class="am-search"
 >
   <div
