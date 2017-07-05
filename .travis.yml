@@ -8,7 +8,7 @@ node_js:
 env:
   matrix:
     - TEST_TYPE=lint
-    - TEST_TYPE=build
+    - TEST_TYPE=dist
     - TEST_TYPE=compile
     - TEST_TYPE=test:web
     - TEST_TYPE=test:rn
@@ -17,7 +17,7 @@ script:
   - |
     if [ "$TEST_TYPE" = lint ]; then
       npm run lint
-    elif [ "$TEST_TYPE" = build ]; then
+    elif [ "$TEST_TYPE" = dist ]; then
       npm run dist && \
       LIB_DIR=dist npm run test:web -- -w 2
     elif [ "$TEST_TYPE" = compile ]; then

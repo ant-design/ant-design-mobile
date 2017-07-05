@@ -145,8 +145,8 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 ## 体积
 
-- 构建后总体积：`~110KB`
 - 按需加载：只需引入业务中需要的组件即可，未 import 进来的组件不会打包进来。
+- <p>`./dist/antd-mobile.min.js`的文件<a href="https://ant-design.github.io/ant-design-analysis/" target="_blank">大小及依赖分析</a></p>
 
 ## 浏览器支持
 

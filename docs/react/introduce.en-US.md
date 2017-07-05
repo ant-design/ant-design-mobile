@@ -139,6 +139,11 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 - Stable: [![npm package](http://img.shields.io/npm/v/antd-mobile.svg?style=flat-square)](http://npmjs.com/package/antd-mobile)
 - Beta: [![npm package](https://cnpmjs.org/badge/v/antd-mobile.svg?&tag=beta&subject=npm)](http://npmjs.com/package/antd-mobile)
 
+## Size
+
+- Components are loaded on demand, in other words, components that are not imported are not packed.
+- <p><a href="https://ant-design.github.io/ant-design-analysis/" target="_blank">The size and dependency analysis</a> of `./dist/antd-mobile.min.js`</p>
+
 ## Environment Support
 
 - `iOS`
