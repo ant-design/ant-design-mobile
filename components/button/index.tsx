@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { TouchableHighlight, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
-import buttonStyles from './style/index';
+import buttonDefaultStyles from './style/index';
 import { ButtonProps } from './PropsType';
 
 export default class Button extends React.Component<ButtonProps, any> {
@@ -20,7 +20,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     },
     onHideUnderlay: (_x?: any) => {
     },
-    styles: buttonStyles,
+    styles: buttonDefaultStyles,
   };
 
   constructor(props) {

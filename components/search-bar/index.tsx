@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, TextInput, Text, Image } from 'react-native';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
-import styles, { SearchBarStyle } from './style';
+import defaultStyles, { SearchBarStyle } from './style';
 import omit from 'omit.js';
 
 export interface SearchBarNativeProps extends SearchBarProps {
@@ -12,7 +12,7 @@ export interface SearchBarNativeProps extends SearchBarProps {
 export default class SearchBar extends React.Component<SearchBarNativeProps, SearchBarState> {
   static defaultProps = {
     ...defaultProps,
-    styles,
+    styles: defaultStyles,
   };
 
   constructor(props) {

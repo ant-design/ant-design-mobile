@@ -1,6 +1,6 @@
 import React from 'react';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import styles from './style/';
+import defaultStyles from './style/';
 import TabsProps from './PropsType';
 
 class Tabs extends React.Component<TabsProps, any> {
@@ -14,7 +14,7 @@ class Tabs extends React.Component<TabsProps, any> {
     activeUnderlineColor: '#108ee9',
     textColor: '#000',
     activeTextColor: '#108ee9',
-    styles: styles,
+    styles: defaultStyles,
     barStyle: null,
   };
 

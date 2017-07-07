@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 
-function create(instanceId, config, content, afterClose = (_x: any) => { }) {
+function create(_instanceId, config, content, afterClose = (_x: any) => { }) {
   const props = {
     prefixCls: 'am-popup',
     animationType: 'slide-down',
@@ -24,7 +24,7 @@ function create(instanceId, config, content, afterClose = (_x: any) => { }) {
       div.parentNode.removeChild(div);
       div = null;
     }
-    afterClose(instanceId);
+    afterClose(_instanceId);
   }
 
   let transName = 'am-slide-down';
