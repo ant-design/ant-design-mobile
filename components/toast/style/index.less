@@ -10,6 +10,10 @@
   font-size: @font-size-base;
   text-align: center;
 
+  > span {
+    max-width: 50%;
+  }
+
   &&-mask {
     height: 100%;
     display: flex;
@@ -17,10 +21,6 @@
     align-items: center;
     left: 0;
     top: 0;
-
-    .@{toastPrefixCls}-notice {
-      max-width: 50%;
-    }
   }
 
   &&-nomask {
