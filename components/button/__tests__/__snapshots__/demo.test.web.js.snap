@@ -86,7 +86,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
         inline / small
       </p>
       <div
-        class="am-flexbox am-flexbox-align-middle"
+        class="am-flexbox am-flexbox-align-center"
         style="margin-bottom:0.16rem;"
       >
         <a

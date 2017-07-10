@@ -168,7 +168,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="am-flexbox am-flexbox-align-middle"
+    class="am-flexbox am-flexbox-align-center"
   >
     <div
       class="am-flexbox-item"

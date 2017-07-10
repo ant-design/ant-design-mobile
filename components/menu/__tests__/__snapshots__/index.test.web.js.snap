@@ -6,7 +6,7 @@ exports[`Menu level 1 renders correctly 1`] = `
   style="height:0px;"
 >
   <div
-    class="am-flexbox am-flexbox-align-top"
+    class="am-flexbox am-flexbox-align-start"
   >
     <div
       aria-hidden="false"
@@ -106,7 +106,7 @@ exports[`Menu renders correctly 1`] = `
   style="height:0px;"
 >
   <div
-    class="am-flexbox am-flexbox-align-top"
+    class="am-flexbox am-flexbox-align-start"
   >
     <div
       class="am-flexbox-item"
