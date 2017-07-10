@@ -107,7 +107,7 @@ export default class Menu extends React.Component<MenuProps, any> {
           ...heightStyle,
         }}
       >
-        <Flex align="top">
+        <Flex align="start">
           {level === 2 &&
             <Flex.Item style={heightStyle}>
               <List role="tablist">

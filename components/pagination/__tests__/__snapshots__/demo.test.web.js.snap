@@ -13,7 +13,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     class="am-pagination"
   >
     <div
-      class="am-flexbox am-flexbox-align-middle"
+      class="am-flexbox am-flexbox-align-center"
     >
       <div
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
@@ -66,7 +66,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     class="am-pagination custom-pagination-with-icon"
   >
     <div
-      class="am-flexbox am-flexbox-align-middle"
+      class="am-flexbox am-flexbox-align-center"
     >
       <div
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
@@ -137,7 +137,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     class="am-pagination"
   >
     <div
-      class="am-flexbox am-flexbox-align-middle"
+      class="am-flexbox am-flexbox-align-center"
     >
       <div
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"

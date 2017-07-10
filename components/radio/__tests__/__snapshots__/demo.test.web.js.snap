@@ -371,7 +371,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="am-flexbox am-flexbox-align-middle"
+    class="am-flexbox am-flexbox-align-center"
     style="padding:0.3rem;"
   >
     <div
