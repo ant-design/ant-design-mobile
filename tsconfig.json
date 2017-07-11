@@ -11,7 +11,8 @@
   "exclude": [
     "node_modules",
     "lib",
-    "es"
+    "es",
+    "tests"
   ],
   "compileOnSave": false
 }

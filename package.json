@@ -121,7 +121,7 @@
     "stylelint": "^7.12.0",
     "stylelint-config-standard": "^16.0.0",
     "svg-sprite-loader": "^0.3.1",
-    "typescript": "~2.3.0",
+    "typescript": "~2.4.0",
     "typescript-babel-jest": "^1.0.1",
     "webpack-visualizer-plugin": "^0.1.11"
   },
@@ -130,6 +130,7 @@
     "srclint": "eslint site scripts --ext '.js,.jsx'",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
     "tslint-fix": "antd-tools run ts-lint-fix && npm run compile && rm -rf lib",
+    "tslint-check": "tslint --type-check -p tests/types/native && tslint --type-check -p tests/types/web",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "stylelint": "stylelint \"{site,components}/**/*.less\" --syntax less",
     "stylelint-fix": "stylelint \"{site,components}/**/*.less\" --syntax less --fix",
