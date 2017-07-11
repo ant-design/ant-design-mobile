@@ -30,6 +30,7 @@ timeline: true
   to `input`(for web) or `TextInput`(for react native) element;
 - Progress: `wrapStyle` has been replaced by `style` and  `style` has been replaced by `barStyle` property.
 - The `style` property now can custom style, eg: tintColor for switch
+- `Flex` 清理冗余API. [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
 
 
 ## 1.4.1
