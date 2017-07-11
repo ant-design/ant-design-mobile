@@ -37,6 +37,7 @@ timeline: true
 
 `2017-07-12`
 
+- `Flex` remove redundancy api of Flex。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
 
 - **Bug Fix**
   - 修复 Toast 未以自身中心点纵向居中。 ([#1389](https://github.com/ant-design/ant-design-mobile/issues/1389))
@@ -240,8 +241,6 @@ timeline: true
 
 
 ## 1.0.8
-
-## Improve & Bugfix
 
 `2017-04-07`
 
