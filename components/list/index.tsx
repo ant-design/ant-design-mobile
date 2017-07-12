@@ -34,7 +34,7 @@ export default class List extends React.Component<ListNativeProps, any> {
       {headerDom}
       <View style={styles.Body}>
         {children}
-        <View style={styles.BodyBottomLine}/>
+        <View style={[styles.BodyBottomLine]}/>
       </View>
       {footerDom}
     </View>);

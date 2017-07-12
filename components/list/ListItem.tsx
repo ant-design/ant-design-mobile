@@ -17,8 +17,8 @@ export class Brief extends React.Component<BriefNativeProps, any> {
       };
     }
     return (
-      <View style={styles.Brief}>
-        <Text style={{...styles.BriefText, ...style}} {...numberOfLines}>{children}</Text>
+      <View style={[styles.Brief]}>
+        <Text style={[styles.BriefText, style]} {...numberOfLines}>{children}</Text>
       </View>
     );
   }
@@ -39,7 +39,7 @@ export default class Item extends React.Component<ListItemNativeProps, any> {
     const itemStyles = styles!; // assert none-null none-undefined
 
     let numberOfLines = {};
-    if (wrap === false) {
+    if (!wrap) {
       numberOfLines = {
         numberOfLines: 1,
       };
@@ -78,18 +78,18 @@ export default class Item extends React.Component<ListItemNativeProps, any> {
           tempContentDom.push(el);
         } else {
           tempContentDom.push(
-            <Text style={itemStyles.Content} {...numberOfLines} key={`${index}-children`}>{el}</Text>,
+            <Text style={[itemStyles.Content]} {...numberOfLines} key={`${index}-children`}>{el}</Text>,
           );
         }
       });
-      contentDom = <View style={itemStyles.column}>{tempContentDom}</View>;
+      contentDom = <View style={[itemStyles.column]}>{tempContentDom}</View>;
     } else {
       if (React.isValidElement(children as Object)) {
-        contentDom = <View style={itemStyles.column}>{children}</View>;
+        contentDom = <View style={[itemStyles.column]}>{children}</View>;
       } else {
         contentDom = (
-          <View style={itemStyles.column}>
-            <Text style={itemStyles.Content} {...numberOfLines}>{children}</Text>
+          <View style={[itemStyles.column]}>
+            <Text style={[itemStyles.Content]} {...numberOfLines}>{children}</Text>
           </View>
         );
       }
@@ -98,8 +98,8 @@ export default class Item extends React.Component<ListItemNativeProps, any> {
     let extraDom;
     if (extra) {
       extraDom = (
-        <View style={itemStyles.column}>
-          <Text style={itemStyles.Extra} {...numberOfLines}>{extra}</Text>
+        <View style={[itemStyles.column]}>
+          <Text style={[itemStyles.Extra]} {...numberOfLines}>{extra}</Text>
         </View>
       );
       if (React.isValidElement(extra)) {
@@ -111,7 +111,7 @@ export default class Item extends React.Component<ListItemNativeProps, any> {
               tempExtraDom.push(
                 <Text
                   {...numberOfLines}
-                  style={itemStyles.Extra}
+                  style={[itemStyles.Extra]}
                   key={`${index}-children`}
                 >
                   {el}
@@ -122,7 +122,7 @@ export default class Item extends React.Component<ListItemNativeProps, any> {
             }
           });
           extraDom = (
-            <View style={itemStyles.column}>
+            <View style={[itemStyles.column]}>
               {tempExtraDom}
             </View>
           );
@@ -139,14 +139,14 @@ export default class Item extends React.Component<ListItemNativeProps, any> {
     };
 
     const itemView = (
-      <View {...restProps} style={{...itemStyles.Item, ...style}}>
+      <View {...restProps} style={[itemStyles.Item, style]}>
         {typeof thumb === 'string' ? (
           <Image
             source={{ uri: thumb }}
-            style={{...itemStyles.Thumb, ...(multipleLine ? itemStyles.multipleThumb : {})}}
+            style={[itemStyles.Thumb, multipleLine && itemStyles.multipleThumb]}
           />
         ) : thumb}
-        <View style={{...itemStyles.Line, ...(multipleLine ? {...itemStyles.multipleLine, ...alignStyle} : {})}}>
+        <View style={[itemStyles.Line, multipleLine && itemStyles.multipleLine, multipleLine && alignStyle]}>
           {contentDom}
           {extraDom}
           {arrow ? (arrEnum[arrow] || <View style={itemStyles.Arrow} />) : null}

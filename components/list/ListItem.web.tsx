@@ -19,7 +19,7 @@ class ListItem extends React.Component<ListItemWebProps, any> {
     align: 'middle',
     error: false,
     multipleLine: false,
-    wrap: false,
+    // wrap: false,
     platform: 'cross',
   };
 
