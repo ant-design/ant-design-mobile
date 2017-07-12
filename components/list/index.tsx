@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Item from './ListItem';
-import { ListProps } from './PropsType';
+import { ListNativeProps } from './PropsType';
 import listStyles from './style/index';
 
-export default class List extends React.Component<ListProps, any> {
+export default class List extends React.Component<ListNativeProps, any> {
   static Item = Item;
 
   render() {

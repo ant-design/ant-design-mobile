@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tsconfig",
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "pretty": true,
+    "baseUrl": "../../../",
+    "paths": {
+      "antd-mobile": ["./components/native"],
+      "antd-mobile/lib/*": ["./components/*"]
+    }
+  },
+  "files": [
+    "./native.tsx"
+  ]
+}

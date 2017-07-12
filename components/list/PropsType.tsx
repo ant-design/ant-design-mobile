@@ -1,20 +1,22 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import ReactNative from 'react-native';
 
 export interface ListProps {
   renderHeader?: Function | JSX.Element;
   renderFooter?: Function | JSX.Element;
-  children?: JSX.Element | JSX.Element[];
-  style?: React.CSSProperties | {} | Array<{}>;
-  /* for web */
+}
+
+export interface ListWebProps extends ListProps, React.HTMLProps<HTMLDivElement> {
   prefixCls?: string;
-  className?: string;
-  role?: string;
-  /* for native */
+}
+
+export interface ListNativeProps extends ListProps, ReactNative.ViewProperties {
+  ref?: any
   styles?: {
-    Header?: {};
-    Footer?: {};
-    Body?: {};
-    BodyBottomLine?: {};
+    Header?: ReactNative.TextStyle;
+    Footer?: ReactNative.TextStyle;
+    Body?: ReactNative.ViewStyle;
+    BodyBottomLine?: ReactNative.ViewStyle;
   };
 }
 
@@ -22,53 +24,54 @@ export interface ListItemProps {
   align?: 'top'|'middle'|'bottom';
   disabled?: boolean;
   multipleLine?: boolean;
-  children?: ReactNode;
-  thumb?: ReactNode | null;
-  extra?: ReactNode;
+  thumb?: React.ReactNode;
+  extra?: React.ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
-  wrap?: boolean;
-  onClick?: (e?: any) => void;
-  style?: React.CSSProperties | {} | Array<{}>;
-  /* for web */
-  prefixCls?: string;
-  className?: string;
+}
 
-  role?: string;
+export interface ListItemWebProps extends ListItemProps, React.HTMLProps<HTMLDivElement> {
+  prefixCls?: string;
   activeStyle?: React.CSSProperties;
   error?: boolean;
   platform?: 'android' | 'ios' | 'cross';
+  // wrap?: boolean; // overwrite React.HTMLAttributes.wrap: string
+}
 
-  /* for native */
+export interface ListItemNativeProps extends ListItemProps,
+  ReactNative.ViewProperties,
+  Pick<ReactNative.TouchableHighlightProperties, 'onPressIn' | 'onPressOut'> {
+  ref?: any
+  wrap?: boolean;
   styles?: {
-    underlayColor: {},
-    Content: {},
-    column: {},
-    Extra: {},
-    Arrow: {},
-    ArrowV: {},
-    Item: {},
-    Thumb: {},
-    multipleThumb: {},
-    Line: {},
-    multipleLine: {},
+    underlayColor: string,
+    Content: ReactNative.TextStyle,
+    column: ReactNative.ViewStyle,
+    Extra: ReactNative.TextStyle,
+    Arrow: ReactNative.ImageStyle,
+    ArrowV: ReactNative.ImageStyle,
+    Item: ReactNative.ViewStyle,
+    Thumb: ReactNative.ImageStyle,
+    multipleThumb: ReactNative.ImageStyle,
+    Line: ReactNative.ViewStyle,
+    multipleLine: ReactNative.ViewStyle,
   };
-  onPressIn?: () => void;
-  onPressOut?: () => void;
+  onClick?: ReactNative.TouchableHighlightProperties['onPress'];
 }
 
 export interface BriefProps {
-  children?: ReactNode;
+
+}
+
+export interface BriefWebProps extends BriefProps,
+  Pick<React.HTMLProps<HTMLDivElement>, 'style'> {
+
+}
+
+export interface BriefNativeProps extends BriefProps,
+  Pick<ReactNative.TextProperties, 'style'> {
   wrap?: boolean;
-  style?: React.CSSProperties | {} | Array<{}>;
-
-  /* for web */
-  prefixCls?: string;
-  className?: string;
-
-  role?: string;
-  /* for native */
-  styles: {
-    Brief: {},
-    BriefText: {},
+  styles?: {
+    Brief: ReactNative.ViewStyle,
+    BriefText: ReactNative.TextStyle,
   };
 }
