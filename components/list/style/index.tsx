@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import ReactNative, { StyleSheet } from 'react-native';
 import variables from '../../style/themes/default';
 
 export default {
@@ -27,7 +27,7 @@ export default {
     borderTopColor: variables.border_color_base,
   },
   BodyBottomLine: {
-    position: 'absolute',
+    position: 'absolute' as ReactNative.ViewStyle['position'],
     bottom: 0,
     left: 0,
     right: 0,
@@ -38,8 +38,8 @@ export default {
   },
   Item: {
     flexGrow: 1,
-    alignItems: 'center',
-    flexDirection: 'row',
+    alignItems: 'center' as ReactNative.ViewStyle['alignItems'],
+    flexDirection: 'row' as ReactNative.ViewStyle['flexDirection'],
     paddingLeft: variables.h_spacing_lg,
     backgroundColor: variables.fill_base,
   },
@@ -79,7 +79,7 @@ export default {
     color: variables.color_text_caption,
     fontSize: variables.font_size_subhead,
     paddingTop: variables.v_spacing_xs,
-    textAlignVertical: 'center',
+    textAlignVertical: 'center' as ReactNative.TextStyle['textAlignVertical'],
   },
   Arrow: {
     width: 8,
