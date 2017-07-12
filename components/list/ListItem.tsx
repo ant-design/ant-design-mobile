@@ -39,7 +39,7 @@ export default class Item extends React.Component<ListItemNativeProps, any> {
     const itemStyles = styles!; // assert none-null none-undefined
 
     let numberOfLines = {};
-    if (!wrap) {
+    if (wrap === false) {
       numberOfLines = {
         numberOfLines: 1,
       };

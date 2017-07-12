@@ -8,6 +8,7 @@ const list = () => (
     onClick={noop}
   >
     <List.Item
+      wrap='soft'
       onDrag={noop}
     >
       <List.Item.Brief

@@ -9,6 +9,7 @@ const list = () => (
     onTouchEnd={noop}
   >
     <List.Item
+      wrap
       style={{ backfaceVisibility: 'hidden' }}
       onClick={noop}
       onPressIn={noop}

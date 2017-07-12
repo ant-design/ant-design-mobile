@@ -27,7 +27,6 @@ export interface ListItemProps {
   thumb?: React.ReactNode;
   extra?: React.ReactNode;
   arrow?: 'horizontal'|'down'|'up'|'empty'|'';
-  wrap?: string; // overwrite React.HTMLAttributes.wrap: string
 }
 
 export interface ListItemWebProps extends ListItemProps, React.HTMLProps<HTMLDivElement> {
@@ -35,12 +34,14 @@ export interface ListItemWebProps extends ListItemProps, React.HTMLProps<HTMLDiv
   activeStyle?: React.CSSProperties;
   error?: boolean;
   platform?: 'android' | 'ios' | 'cross';
+  // wrap?: boolean; // overwrite React.HTMLAttributes.wrap: string
 }
 
 export interface ListItemNativeProps extends ListItemProps,
   ReactNative.ViewProperties,
   Pick<ReactNative.TouchableHighlightProperties, 'onPressIn' | 'onPressOut'> {
   ref?: any
+  wrap?: boolean;
   styles?: {
     underlayColor: string,
     Content: ReactNative.TextStyle,
@@ -62,7 +63,7 @@ export interface BriefProps {
 }
 
 export interface BriefWebProps extends BriefProps,
-  Pick<React.HTMLAttributes<HTMLDivElement>, 'style'> {
+  Pick<React.HTMLProps<HTMLDivElement>, 'style'> {
 
 }
 
