@@ -1,7 +1,7 @@
 /* tslint:disable:no-bitwise */
 import React from 'react';
 import classNames from 'classnames';
-import WingBlank from '../wing-blank';
+import WingBlank from '../wing-blank/index.web';
 import Flex from '../flex/index.web';
 import Toast from '../toast/index.web';
 import { ImagePickerPropTypes } from './PropsType';
