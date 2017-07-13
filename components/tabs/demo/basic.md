@@ -22,17 +22,17 @@ function handleTabClick(key) {
 const TabExample = () => (
   <div>
     <Tabs defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
-      <TabPane tab="选项卡一" key="1">
+      <TabPane tab="选项卡一" key="1" badge={3}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           选项卡一内容
         </div>
       </TabPane>
-      <TabPane tab="选项卡二" key="2">
+      <TabPane tab="选项卡二" key="2" dot>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           选项卡二内容
         </div>
       </TabPane>
-      <TabPane tab="选项卡三" key="3">
+      <TabPane tab="选项卡三" key="3" badge="今日(20)">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           选项卡三内容
         </div>

@@ -47,3 +47,5 @@ subtitle: 标签页
 ----|-----|------|------
 | key  | 对应 activeKey   | String                  | 无     |
 | tab  | 选项卡头显示文字 | React.Element or String | 无     |
+| badge | 选项卡头显示badge | Number or String | 无     |
+| dot | 选项卡头显示小红点 | boolean | 无     |
