@@ -125,6 +125,29 @@
     }
   }
 
+  &-tabpane {
+
+    &-icon {
+      .tabpane-badge {
+        :last-child {
+          margin-top: -20px;
+          left: 100%;
+          right: auto;
+          transform: translateX(-10px);
+          transform-origin: center;
+        }
+      }
+
+      .tabpane-dot {
+        :last-child {
+          margin-top: -4px;
+          left: auto;
+          right: -@icon-size-md + 20px;
+        }
+      }
+    }
+  }
+
   .@{tabs-prefix-cls}-tabpane-inactive {
     height: 0;
     overflow: visible;
