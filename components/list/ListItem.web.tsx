@@ -82,7 +82,7 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     const {
       prefixCls, className, activeStyle, error, align, wrap, disabled,
-      children, multipleLine, thumb, extra, arrow, onClick, ...restProps} = this.props;
+      children, multipleLine, thumb, extra, arrow, onClick, onLongPress, ...restProps} = this.props;
 
     const { coverRippleStyle, RippleClicked } = this.state;
     const wrapCls = {
@@ -132,9 +132,10 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     return (
       <Touchable
-        disabled={disabled || !onClick}
+        disabled={disabled || (!onClick && !onLongPress)}
         activeStyle={activeStyle}
         activeClassName={`${prefixCls}-item-active`}
+        onLongPress={onLongPress}
       >
         {content}
       </Touchable>
