@@ -54,6 +54,7 @@ export interface ListItemProps {
   };
   onPressIn?: () => void;
   onPressOut?: () => void;
+  onLongPress?: () => void;
 }
 
 export interface BriefProps {
