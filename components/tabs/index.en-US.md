@@ -44,7 +44,7 @@ Properties | Descrition | Type | Default
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| key  | 对应 activeKey   | String                  | 无     |
-| tab  | 选项卡头显示文字 | React.Element or String | 无     |
-| badge | 选项卡头显示badge | Number or String | 无     |
-| dot | 选项卡头显示小红点 | boolean | 无     |
+| key  | activeKey equals this key when being selected | String                  | -     |
+| tab  | tabpane name | React.Element or String | -     |
+| badge | badge showed in tabpane | Number or String | -     |
+| dot | dot showed in tabpane | boolean | -     |
