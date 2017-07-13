@@ -13,7 +13,7 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
         class="am-wingblank am-wingblank-md"
       >
         <div
-          class="am-flexbox am-flexbox-align-middle"
+          class="am-flexbox am-flexbox-align-center"
         >
           <div
             class="am-flexbox-item"
@@ -90,7 +90,7 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
         class="am-wingblank am-wingblank-md"
       >
         <div
-          class="am-flexbox am-flexbox-align-middle"
+          class="am-flexbox am-flexbox-align-center"
         >
           <div
             class="am-flexbox-item"

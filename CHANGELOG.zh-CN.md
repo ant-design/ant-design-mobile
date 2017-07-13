@@ -14,6 +14,8 @@ timeline: true
 
 ---
 
+
+
 ### 2.0.0
 
 `2017-xx-xx`
@@ -29,11 +31,13 @@ timeline: true
 - TextareaItem、SearchBar、InputItem 将 `style` 属性传至 input(web) / TextInput(rn) 元素，方便自定义样式;
 - Progress: `wrapStyle` 改为 `style`, 原来的 `style` 将改成 `barStyle`;
 - Switch 对 `style` 属性直接针对 switch 样式自身，方便定义样式；
-
+- `Flex` 清理冗余API, 只保留 `align: enum{start, center, end}`。 [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
 
 ## 1.4.2
 
 `2017-07-12`
+
+- `Flex` remove redundancy api of Flex。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
 
 - **Bug Fix**
   - 修复 Toast 未以自身中心点纵向居中。 ([#1389](https://github.com/ant-design/ant-design-mobile/issues/1389))

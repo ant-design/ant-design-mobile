@@ -15,6 +15,7 @@ timeline: true
 ---
 
 
+
 ### 2.0.0
 
 `2017-xx-xx`
@@ -31,10 +32,12 @@ timeline: true
   to `input`(for web) or `TextInput`(for react native) element;
 - Progress: `wrapStyle` has been replaced by `style` and  `style` has been replaced by `barStyle` property.
 - The `style` property now can custom style, eg: tintColor for switch
+- `Flex` remove redundancy api of Flex, just keep `align: enum{start, center, end}`。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
 
 ## 1.4.2
 
 `2017-07-12`
+- `Flex` 清理冗余API. [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
 
 - **Bug Fix**
   - 修复 Toast 未以自身中心点纵向居中。 ([#1389](https://github.com/ant-design/ant-design-mobile/issues/1389))
@@ -240,7 +243,6 @@ timeline: true
 
 ## 1.0.8
 
-
 `2017-04-07`
 
 - **Feature**
@@ -280,11 +282,8 @@ timeline: true
   - DatePicker 确保默认日期在 `minDate`, `maxDate` 范围内 （[#1033](https://github.com/ant-design/ant-design-mobile/issues/1033)）
 
 
-<<<<<<< HEAD
 ## 1.0.6
 
-=======
->>>>>>> feat: pagination current start from 1. close #1009
 `2017-03-17`
 
 - **Feature**
