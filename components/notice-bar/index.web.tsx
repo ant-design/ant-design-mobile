@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../icon';
+import Icon from '../icon/index.web';
 import NoticeBarProps from './PropsType';
 import Marquee from './Marquee';
 

@@ -2,8 +2,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import WingBlank from '../wing-blank';
-import Flex from '../flex';
-import Toast from '../toast';
+import Flex from '../flex/index.web';
+import Toast from '../toast/index.web';
 import { ImagePickerPropTypes } from './PropsType';
 import Touchable from 'rc-touchable';
 
