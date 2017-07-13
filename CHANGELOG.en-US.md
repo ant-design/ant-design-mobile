@@ -37,7 +37,6 @@ timeline: true
 ## 1.4.2
 
 `2017-07-12`
-- `Flex` 清理冗余API. [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
 
 - **Bug Fix**
   - 修复 Toast 未以自身中心点纵向居中。 ([#1389](https://github.com/ant-design/ant-design-mobile/issues/1389))

@@ -37,8 +37,6 @@ timeline: true
 
 `2017-07-12`
 
-- `Flex` remove redundancy api of Flex。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
-
 - **Bug Fix**
   - 修复 Toast 未以自身中心点纵向居中。 ([#1389](https://github.com/ant-design/ant-design-mobile/issues/1389))
   - 修复目前未实现的 NavBar、Menu、Range、Table 引入 react-native 版本组件报错的问题。([#1526](https://github.com/ant-design/ant-design-mobile/issues/1526))
