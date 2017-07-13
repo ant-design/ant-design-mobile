@@ -32,9 +32,9 @@ export default class Flex extends React.Component<FlexProps, any> {
       [`${prefixCls}-justify-between`]: justify === 'between',
       [`${prefixCls}-justify-around`]: justify === 'around',
 
-      [`${prefixCls}-align-top`]: align === 'top' || align === 'start',
-      [`${prefixCls}-align-middle`]: align === 'middle' || align === 'center',
-      [`${prefixCls}-align-bottom`]: align === 'bottom' || align === 'end',
+      [`${prefixCls}-align-start`]: align === 'start',
+      [`${prefixCls}-align-center`]: align === 'center',
+      [`${prefixCls}-align-end`]: align === 'end',
       [`${prefixCls}-align-baseline`]: align === 'baseline',
       [`${prefixCls}-align-stretch`]: align === 'stretch',
 
