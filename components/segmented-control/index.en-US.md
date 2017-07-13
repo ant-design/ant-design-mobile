@@ -26,5 +26,5 @@ Properties | Descrition | Type | Default
 | disabled  | whether the user is able to interact with the control  | Boolean |  false  |
 | selectedIndex  | the index in `props.values` of the segment to be (pre)selected | Number |  0  |
 | values  | The labels for the control's segment buttons, in order  | array |  []  |
-| onChange    |  callback that is called when the user taps a segment; passes the event object as an argument | (e): void |  function(){}  |
+| onChange    |  callback that is called when the user taps a segment; passes the event object as an argument. `e.nativeEvent.selectedSegmentIndex` is selected index. `e.nativeEvent.value` is selected value. | (e): void |  function(){}  |
 | onValueChange    |  callback that is called when the user taps a segment; passes the segment's value as an argument | (val): void |  function(){}  |
