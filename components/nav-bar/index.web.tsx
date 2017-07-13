@@ -31,7 +31,7 @@ export default class NavBar extends React.Component<NavBarProps, any> {
           {
             iconName && (
               <span className={`${prefixCls}-left-icon`} aria-hidden="true">
-                <Icon type={iconName}/>
+                <Icon type={iconName as string}/>
               </span>
             )
           }
