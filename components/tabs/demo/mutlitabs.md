@@ -5,7 +5,7 @@ title:
   en-US: 'overflow, more than 5 tabs'
 ---
 
-可视区最多显示5个标签，点击两侧的标签后，滑动tabs
+There are at most 5 tab panes in the visible area, click on the both sides of `Tabs` to scroll.
 
 
 ````jsx
@@ -20,9 +20,9 @@ function handleTabClick(key) {
   console.log('onTabClick', key);
 }
 const makeTabPane = key => (
-  <TabPane tab={`选项${key}`} key={key}>
+  <TabPane tab={`Option${key}`} key={key}>
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
-      {`选项${key}内容`}
+      {`content of option${key}`}
     </div>
   </TabPane>
 );

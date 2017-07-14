@@ -19,7 +19,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         class=" am-tabs-tab"
         role="tab"
       >
-        选项卡一
+        First Tab
       </div>
       <div
         aria-disabled="false"
@@ -27,7 +27,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         class="am-tabs-tab-active am-tabs-tab"
         role="tab"
       >
-        选项卡二
+        Second Tab
       </div>
       <div
         aria-disabled="false"
@@ -35,7 +35,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         class=" am-tabs-tab"
         role="tab"
       >
-        选项卡三
+        Third Tab
       </div>
     </div>
     <div
@@ -55,7 +55,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
         >
-          选项卡二内容
+          Content of Second Tab
         </div>
       </div>
       <div
@@ -103,7 +103,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项0
+                Option0
               </div>
               <div
                 aria-disabled="false"
@@ -112,7 +112,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项1
+                Option1
               </div>
               <div
                 aria-disabled="false"
@@ -121,7 +121,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项2
+                Option2
               </div>
               <div
                 aria-disabled="false"
@@ -130,7 +130,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项3
+                Option3
               </div>
               <div
                 aria-disabled="false"
@@ -139,7 +139,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项4
+                Option4
               </div>
               <div
                 aria-disabled="false"
@@ -148,7 +148,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项5
+                Option5
               </div>
               <div
                 aria-disabled="false"
@@ -157,7 +157,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项6
+                Option6
               </div>
               <div
                 aria-disabled="false"
@@ -166,7 +166,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项7
+                Option7
               </div>
               <div
                 aria-disabled="false"
@@ -175,7 +175,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项8
+                Option8
               </div>
               <div
                 aria-disabled="false"
@@ -184,7 +184,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项9
+                Option9
               </div>
               <div
                 aria-disabled="false"
@@ -193,7 +193,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项10
+                Option10
               </div>
               <div
                 aria-disabled="false"
@@ -202,7 +202,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
                 role="tab"
                 style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项11
+                Option11
               </div>
             </div>
           </div>
@@ -261,7 +261,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
         >
-          选项8内容
+          content of option8
         </div>
       </div>
       <div
@@ -309,7 +309,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
         class=" am-tabs-tab"
         role="tab"
       >
-        选项卡一
+        First tab
       </div>
       <div
         aria-disabled="false"
@@ -317,7 +317,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
         class=" am-tabs-tab"
         role="tab"
       >
-        选项卡二
+        Second Tab
       </div>
       <div
         aria-disabled="false"
@@ -325,7 +325,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
         class="am-tabs-tab-active am-tabs-tab"
         role="tab"
       >
-        选项卡三
+        Third Tab
       </div>
     </div>
     <div
@@ -349,7 +349,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
         >
-          选项卡三内容
+          Content of Third Tab
         </div>
       </div>
     </div>
