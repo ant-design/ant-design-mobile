@@ -4,12 +4,11 @@ type: Data Display
 title: List
 ---
 
+A single and continuous block content is vertically arranged to display current contents, status and available operations. eg：Contact List.
 
-单个连续模块垂直排列，显示当前的内容、状态和可进行的操作。eg：联系人列表。
-
-### 规则
-- 一般由主要信息、主要操作、次要信息、次要操作组成。
-- 主要信息和主要操作放在列表的左边，次要信息和次要操作放在列表的右边。
+### Rule
+- Generally `List` consists of main infomation, main operations, secondary infomation and secondary operations.
+- The main infomation and main operations are placed on the left side of list, and secondary infomation and secondary operations are placed on the right side.
 
 
 ## API
@@ -20,25 +19,25 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| renderHeader       | list heder  | (): void |  无  |
-| renderFooter       | list footer  | (): void |  无  |
+| renderHeader       | list heder  | (): void |    |
+| renderFooter       | list footer  | (): void |    |
 
 ### List.Item
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| thumb       | 缩略图(当为 string 类型时作为 img src)  | String/React.Element |  无  |
-| extra      | 右边内容        | String/React.Element |  无  |
-| arrow      | 箭头方向(右,上,下), 可选`horizontal`,`up`,`down`,`empty`，如果是`empty`则存在对应的dom,但是不显示   | String |   无  |
-| align    |    Flex 子元素垂直对齐，可选`top`,`middle`,`bottom`  | String   | `middle` |
-| onClick    | 点击事件的回调函数 | (): void |  无  |
-| onLongPress  | 长按事件的回调函数 | (): void |  无  |
-| error(`web only`)    | 报错样式,右侧文字颜色变成橙色 | Boolean  | `false`  |
-| multipleLine    | 多行 | Boolean  | `false`  |
-| wrap    | 是否换行，默认情况下，文字超长会被隐藏， | Boolean  | `false`  |
-| activeStyle(`web only`)    | 自定义active的样式 | Object  |   |
+| thumb       | thumbnail on the left side of `List`(string type will be used to set img src)  | String/React.Element |   |
+| extra      | extra content on the right side of `List`        | String/React.Element |    |
+| arrow      | arrow direction, options: `horizontal`,`up`,`down`, `empty`; `empty` option may hide the dom  | String |     |
+| align    |    vertical alignment of `Flex` child elements，options: `top`,`middle`,`bottom`  | String   | `middle` |
+| onClick    | callback is called when  list is clicked | (): void |    |
+| onLongPress  | callback is called when  list is long pressed | (): void |    |
+| error(`web only`)    | Whether to display error style(the color of text on the right side may change to orange) | Boolean  | `false`  |
+| multipleLine    | multiple line | Boolean  | `false`  |
+| wrap    | Whether to wrap long texts, otherwise it will be hidden by default. | Boolean  | `false`  |
+| activeStyle(`web only`)    | customized active style | Object  |   |
 | platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios`， default to be `cross`， which means we will detect UA and change the component style | String | `'cross'`|
 
 ### List.Item.Brief
 
-辅助说明
+Brief infomation
