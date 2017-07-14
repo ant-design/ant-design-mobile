@@ -24,7 +24,7 @@ export { default as NavBar } from './nav-bar/index.web';
 export { default as NoticeBar } from './notice-bar/index.web';
 
 export { default as Pagination } from './pagination/index.web';
-export { default as Picker } from './picker/index';
+export { default as Picker } from './picker/index.web';
 export { default as PickerView } from './picker-view/index.web';
 export { default as Popover } from './popover/index.web';
 export { default as Popup } from './popup/index.web';
