@@ -9,9 +9,8 @@ A `Tabs` is used to allow users to switch between different views.
 
 ### Rule
 
-- Generally the number of tab panes is 2-4, each tab pane has 2-4 words and needs simplified texts.
-- In the secondary page of iOS, it is not recommended to use left and right swipe to switch tab, which conflicts to back
-  swipe gestrue in iOS. eg:  tabs in details page.
+- Generally a `Tabs` should have 2-4 tab pane, the title of each tab pane should be concise，normally has 2-4 words..
+- In the secondary page of iOS, it is not recommended to use left and right swipe to switch tab, which conflicts with back swipe gestrue in iOS. eg:  tabs in details page.
 
 
 ## API
@@ -23,7 +22,7 @@ Support WEB, React-Native.
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | activeKey        | Current TabPane's key                      | String   | 无            |
-| defaultActiveKey | Default actived tabPanel's key, if activeKey is not setted. | String   | first pane    |
+| defaultActiveKey | Default actived tabPanel's key, if activeKey is not set. | String   | first pane    |
 | onChange         | Callback when tab is switched                        | (key: string): void | 无            |
 | onTabClick       | Callback when tab is clicked                      | (key: string): void | 无            |
 | animated |  Whether to change tabs with animation,    |  boolean   |    `true`    |

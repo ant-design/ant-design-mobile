@@ -5,7 +5,7 @@ title:
   en-US: 'No animation'
 ---
 
-Switch tabs with no animation
+Switch tabs without animation
 
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
