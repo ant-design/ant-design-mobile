@@ -34,7 +34,7 @@ Properties | Descrition | Type | Default
 | onLongPress  | callback is called when  list is long pressed | (): void |    |
 | error(`web only`)    | Whether to display error style(the color of text on the right side may change to orange) | Boolean  | `false`  |
 | multipleLine    | multiple line | Boolean  | `false`  |
-| wrap    | Whether to wrap long texts which may be hidden by default. | Boolean  | `false`  |
+| wrap    | Whether to wrap long texts, otherwise it will be hidden by default. | Boolean  | `false`  |
 | activeStyle(`web only`)    | customized active style | Object  |   |
 | platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios`， default to be `cross`， which means we will detect UA and change the component style | String | `'cross'`|
 
