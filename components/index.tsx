@@ -24,8 +24,8 @@ export { default as NavBar } from './nav-bar/index.web';
 export { default as NoticeBar } from './notice-bar/index.web';
 
 export { default as Pagination } from './pagination/index.web';
-export { default as Picker } from './picker/index';
-export { default as PickerView } from './picker-view/index';
+export { default as Picker } from './picker/index.web';
+export { default as PickerView } from './picker-view/index.web';
 export { default as Popover } from './popover/index.web';
 export { default as Popup } from './popup/index.web';
 export { default as Progress } from './progress/index.web';
@@ -53,4 +53,4 @@ export { default as View } from './view/index.web';
 export { default as WhiteSpace } from './white-space/index.web';
 export { default as WingBlank } from './wing-blank/index.web';
 
-export { default as LocaleProvider } from './locale-provider/index';
+export { default as LocaleProvider } from './locale-provider/index.web';
