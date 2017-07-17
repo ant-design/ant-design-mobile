@@ -1,8 +1,8 @@
 import AbstractPicker, { getDefaultProps } from './AbstractPicker';
-import styles from './styles';
+import popupProps from './popupProps.web';
 
 export default class Picker extends AbstractPicker {
-  static defaultProps = { ...getDefaultProps(), styles };
+  static defaultProps = getDefaultProps();
 
-  protected popupProps = {};
+  protected popupProps = popupProps;
 }

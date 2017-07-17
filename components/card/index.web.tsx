@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import CardHeader from './CardHeader';
-import CardBody from './CardBody';
-import CardFooter from './CardFooter';
+import CardHeader from './CardHeader.web';
+import CardBody from './CardBody.web';
+import CardFooter from './CardFooter.web';
 import { CardProps } from './PropsType';
 
 export default class Card extends React.Component <CardProps, any> {

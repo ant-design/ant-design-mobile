@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../icon';
+import Icon from '../icon/index.web';
 import NavBarProps from './PropsType';
 
 export default class NavBar extends React.Component<NavBarProps, any> {
@@ -31,7 +31,7 @@ export default class NavBar extends React.Component<NavBarProps, any> {
           {
             iconName && (
               <span className={`${prefixCls}-left-icon`} aria-hidden="true">
-                <Icon type={iconName}/>
+                <Icon type={iconName as string}/>
               </span>
             )
           }
