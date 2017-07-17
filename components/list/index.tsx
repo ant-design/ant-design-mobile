@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ViewStyle } from 'react-native';
 import Item from './ListItem';
 import { ListProps } from './PropsType';
 import listStyles from './style/index';
@@ -34,7 +34,7 @@ export default class List extends React.Component<ListProps, any> {
       {headerDom}
       <View style={styles.Body}>
         {children}
-        <View style={[styles.BodyBottomLine]}/>
+        <View style={[styles.BodyBottomLine as ViewStyle]}/>
       </View>
       {footerDom}
     </View>);

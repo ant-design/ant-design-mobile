@@ -46,13 +46,13 @@ class ActionSheetAndroid extends React.Component<Props, any> {
       excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)
     ) : (
       options as Array<string>).map((item, index) => (
-        <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
+        <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : undefined]}>
           <TouchableHighlight
             style={[ styles.btn ]}
             underlayColor={variables.fill_tap}
             onPress={() => this.confirm(index)}
           >
-            <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : null ]}>
+            <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : undefined ]}>
               {item}
             </Text>
           </TouchableHighlight>
