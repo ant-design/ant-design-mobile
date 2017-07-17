@@ -2,12 +2,15 @@ import React from 'react';
 import Checkbox from './Checkbox';
 import List from '../list/index';
 import { CheckboxItemProps } from './PropsType';
-import CheckboxItemStyle from './style/index';
+import CheckboxItemStyle, { ICheckboxStyle } from './style/index';
 
 const ListItem = List.Item;
 const refCheckbox = 'checkbox';
 
-export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
+export interface ICheckboxItemNativeProps extends CheckboxItemProps {
+  styles: ICheckboxStyle;
+}
+export default class CheckboxItem extends React.Component<ICheckboxItemNativeProps, any> {
   static defaultProps = {
     styles: CheckboxItemStyle,
   };

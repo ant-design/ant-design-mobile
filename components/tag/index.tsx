@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, Platform } from 'react-native';
-import TagStyle from './style/index';
+import TagStyle, { ITagStyle } from './style/index';
 import TagProps from './PropsType';
 
-export default class Tag extends React.Component<TagProps, any> {
+export interface ITagNativeProps extends TagProps {
+  styles?: ITagStyle;
+}
+export default class Tag extends React.Component<ITagNativeProps, any> {
   static defaultProps = {
     disabled: false,
     small: false,
@@ -59,7 +62,7 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   onPressIn = () => {
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     this.closeDom.setNativeProps({
       style: [styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid, {
         backgroundColor: '#888',
@@ -68,14 +71,15 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   onPressOut = () => {
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     this.closeDom.setNativeProps({
       style: [styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid],
     });
   }
 
   render() {
-    const { children, disabled, small, closable, styles, style } = this.props;
+    const { children, disabled, small, closable, style } = this.props;
+    const styles = this.props.styles!;
     const selected = this.state.selected;
 
     let wrapStyle;

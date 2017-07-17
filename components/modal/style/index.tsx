@@ -1,7 +1,27 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface IModalStyle {
+  container: ViewStyle;
+  wrap: ViewStyle;
+  innerContainer: ViewStyle;
+  footer: ViewStyle;
+  header: TextStyle;
+  body: ViewStyle;
+  maskClosable: ViewStyle;
+  closeWrap: ViewStyle;
+  close: TextStyle;
+  buttonGroupH: ViewStyle;
+  buttonGroupV: ViewStyle;
+  buttonWrapH: ViewStyle;
+  buttonWrapV: ViewStyle;
+  buttonText: TextStyle;
+  operationContainer: ViewStyle;
+  operationBody: ViewStyle;
+  buttonTextOperation: TextStyle;
+}
+
+export default StyleSheet.create<IModalStyle>({
   container: {
     zIndex: variables.modal_zindex,
   },

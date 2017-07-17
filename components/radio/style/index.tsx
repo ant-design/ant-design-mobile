@@ -1,7 +1,15 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface IRadioStyle {
+  wrapper: ViewStyle;
+  icon: ViewStyle;
+  radioItem: ViewStyle;
+  radioItemRadio: ViewStyle;
+  radioItemContent: TextStyle;
+  radioItemContentDisable: TextStyle;
+}
+export default StyleSheet.create<IRadioStyle>({
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',

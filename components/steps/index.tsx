@@ -2,7 +2,7 @@
 import React from 'react';
 import RNStepsItem from './StepsItem';
 import { View } from 'react-native';
-import StepStyle from './style';
+import StepStyle, { IStepsStyle } from './style';
 
 export interface StepsProps {
   direction?: 'vertical' | 'horizon';
@@ -13,7 +13,10 @@ export interface StepsProps {
   styles?: any;
 }
 
-export default class Steps extends React.Component<StepsProps, any> {
+export interface IStepsNativeProps extends StepsProps {
+  styles?: IStepsStyle;
+}
+export default class Steps extends React.Component<IStepsNativeProps, any> {
   static Step: any;
 
   static defaultProps = {
@@ -37,7 +40,7 @@ export default class Steps extends React.Component<StepsProps, any> {
   render() {
     const children = this.props.children as any;
     const wrapView = this.props.direction === 'vertical' ? '' : 'warp_row';
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     return (
       <View style={styles[wrapView]} onLayout={(e) => {this.onLayout(e); }}>
       {

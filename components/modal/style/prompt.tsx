@@ -1,7 +1,16 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface IPromptStyle {
+  message: TextStyle;
+  inputGroup: ViewStyle;
+  inputWrapper: ViewStyle;
+  input: TextStyle;
+  inputFirst: ViewStyle;
+  inputLast: ViewStyle;
+}
+
+export default StyleSheet.create<IPromptStyle>({
   message: {
     marginTop: variables.v_spacing_lg,
     color: variables.color_text_caption,

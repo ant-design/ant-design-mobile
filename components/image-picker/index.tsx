@@ -10,10 +10,14 @@ import {
   // ActionSheetIOS,
 } from 'react-native';
 import { ImagePickerPropTypes } from './PropsType';
-import imagePickerStyles from './style/';
+import imagePickerStyles, { IImagePickerStyle } from './style/';
 import ImageRoll from './ImageRoll';
 
-export default class ImagePicker extends React.Component<ImagePickerPropTypes, any> {
+export interface ImagePickerNativeProps extends ImagePickerPropTypes {
+  styles?: IImagePickerStyle;
+}
+
+export default class ImagePicker extends React.Component<ImagePickerNativeProps, any> {
   static defaultProps = {
     styles: imagePickerStyles,
     onChange() {},
@@ -31,14 +35,14 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
 
   onPressIn = () => {
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapHighlight],
     });
   }
 
   onPressOut = () => {
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapNormal],
     });
@@ -118,7 +122,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
 
   render() {
-    const { styles, files = [] } = this.props;
+    const { files = [] } = this.props;
+    const styles = this.props.styles!;
     const filesView = files.map((item: any, index) => (
       <View key={index} style={[styles.item, styles.size]}>
         <Image
@@ -151,7 +156,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             ref={conponent => this.plusWrap = conponent}
             style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
           >
-            <Text style={[styles.plusNormal, styles.plusText]}>+</Text>
+            <Text style={[styles.plusText]}>+</Text>
           </View>
         </TouchableWithoutFeedback>
         {this.state.visible ? imageRollEl : null}
