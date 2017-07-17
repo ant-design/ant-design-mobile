@@ -1,7 +1,17 @@
 import variables from '../../style/themes/default';
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, ViewStyle, ImageStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface IToastStyle {
+  container: ViewStyle;
+  innerContainer: ViewStyle;
+  innerWrap: ViewStyle;
+  iconToast: ViewStyle;
+  textToast: ViewStyle;
+  content: TextStyle;
+  image: ImageStyle;
+  centering: ViewStyle;
+}
+export default StyleSheet.create<IToastStyle>({
   container: {
     position: 'absolute',
     top: Platform.OS === 'ios' ? 64 : 54,

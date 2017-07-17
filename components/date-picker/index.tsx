@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
-import PopupStyles from '../picker/styles';
+import '../picker/styles';
 import { formatFn, getProps as getDefaultProps, getDefaultDate } from './utils';
 import tsPropsType from './PropsType';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
@@ -11,7 +11,6 @@ import zh_CN from './locale/zh_CN';
 export default class DatePicker extends React.Component<tsPropsType, any> {
   static defaultProps = {
     triggerType: 'onClick',
-    styles: PopupStyles,
     minuteStep: 1,
     ...getDefaultProps(),
   };

@@ -1,7 +1,26 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface ITagStyle {
+  tag: ViewStyle;
+  wrap: ViewStyle;
+  wrapSmall: ViewStyle;
+  text: TextStyle;
+  textSmall: TextStyle;
+  normalWrap: ViewStyle;
+  normalText: TextStyle;
+  activeWrap: ViewStyle;
+  activeText: TextStyle;
+  disabledWrap: ViewStyle;
+  disabledText: TextStyle;
+  close: ViewStyle;
+  closeIOS: ViewStyle;
+  closeAndroid: ViewStyle;
+  closeText: TextStyle;
+  closeTransform: ViewStyle;
+}
+
+export default StyleSheet.create<ITagStyle>({
   tag: {
     borderRadius: variables.radius_sm,
     backgroundColor: 'transparent',

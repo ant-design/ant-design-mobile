@@ -15,7 +15,6 @@ export interface AccordionNativeProps extends AccordionProps {
   styles: TAccordionStyle;
 }
 
-
 class AccordionPanel extends React.Component<AccordionPanelProps, any> {
   render() {
     return null;

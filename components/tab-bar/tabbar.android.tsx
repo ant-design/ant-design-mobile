@@ -2,9 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 import { TabBarProps } from './PropsType';
 import TabBarItem from './TabBarItem';
-import TabBarStyle from './style/';
+import TabBarStyle, { ITabBarStyle } from './style/';
 
-class TabBar extends React.Component <TabBarProps, any> {
+export interface ITabBarNativeProps extends TabBarProps {
+  styles?: ITabBarStyle;
+}
+class TabBar extends React.Component <ITabBarNativeProps, any> {
   static defaultProps = {
     barTintColor: 'white',
     tintColor: '#108ee9',
@@ -15,7 +18,8 @@ class TabBar extends React.Component <TabBarProps, any> {
   static Item: any;
 
   getPanes(content) {
-    const { tintColor, unselectedTintColor, children, styles } = this.props;
+    const { tintColor, unselectedTintColor, children } = this.props;
+    const styles = this.props.styles!;
     // ios 规则： selected 为多个则只选中最后一个， selected 为 0 个则选中第一个;
     let selectedIndex = 0;
     children.forEach((child, idx) => {
@@ -29,7 +33,7 @@ class TabBar extends React.Component <TabBarProps, any> {
         newChildren.push(
           <View
             key={idx}
-            style={[ styles.contentItem, idx === selectedIndex ? styles.contentItemSelected : null ]}
+            style={[ styles.contentItem, idx === selectedIndex ? styles.contentItemSelected : undefined ]}
           >
             {child.props.children}
           </View>,
@@ -48,7 +52,7 @@ class TabBar extends React.Component <TabBarProps, any> {
   }
 
   render() {
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     return (
       <View style={styles.tabbar}>
         <View style={styles.content}>

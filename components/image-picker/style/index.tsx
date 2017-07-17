@@ -1,7 +1,19 @@
 import varibles from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, ImageStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface IImagePickerStyle {
+  container: ViewStyle;
+  size: ViewStyle;
+  item: ViewStyle;
+  image: ImageStyle;
+  closeWrap: ViewStyle;
+  closeText: TextStyle;
+  plusWrap: ViewStyle;
+  plusWrapNormal: ViewStyle;
+  plusWrapHighlight: ViewStyle;
+  plusText: TextStyle;
+}
+export default StyleSheet.create<IImagePickerStyle>({
   container: {
     flexWrap: 'wrap',
     flexDirection: 'row',

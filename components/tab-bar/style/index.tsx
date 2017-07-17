@@ -1,7 +1,20 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create({
+export interface ITabBarStyle {
+  tabbar: ViewStyle;
+  content: ViewStyle;
+  tabs: ViewStyle;
+  barItem: ViewStyle;
+  barIcon: ViewStyle;
+  barItemSelected: ViewStyle;
+  barItemTitle: TextStyle;
+  contentItem: ViewStyle;
+  contentItemSelected: ViewStyle;
+  badge: ViewStyle;
+  badgeText: TextStyle;
+}
+export default StyleSheet.create<ITabBarStyle>({
   tabbar: {
     flex: 1,
   },

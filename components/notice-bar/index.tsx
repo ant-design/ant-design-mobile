@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, Image } from 'react-native';
-import NoticeStyle from './style';
+import NoticeStyle, { INoticeBarStyle } from './style';
 import NoticeBarProps from './PropsType';
 
-export default class NoticeBar extends React.Component<NoticeBarProps, any> {
+export interface INoticeNativeProps extends NoticeBarProps {
+  styles?: INoticeBarStyle;
+}
+export default class NoticeBar extends React.Component<INoticeNativeProps, any> {
   static defaultProps = {
     mode: '',
     onClick() {},
@@ -36,7 +39,8 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   }
 
   render() {
-    const { children, mode, icon, style, styles } = this.props;
+    const { children, mode, icon, style } = this.props;
+    const styles = this.props.styles!;
 
     let operationDom: any = null;
     if (mode === 'closable') {

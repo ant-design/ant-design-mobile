@@ -1,7 +1,16 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface INoticeBarStyle {
+  notice: ViewStyle;
+  content: TextStyle;
+  left6: ViewStyle;
+  left15: ViewStyle;
+  close: TextStyle;
+  link: TextStyle;
+}
+
+export default StyleSheet.create<INoticeBarStyle>({
   notice: {
     backgroundColor: variables.notice_bar_fill,
     height: variables.notice_bar_height,

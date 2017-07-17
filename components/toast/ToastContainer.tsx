@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   Animated,
 } from 'react-native';
-import ToastContainerStyle from './style/';
+import ToastContainerStyle, { IToastStyle } from './style/';
 
 export interface ToastProps {
   content: string;
@@ -15,7 +15,7 @@ export interface ToastProps {
   mask?: boolean;
   type?: string;
   onAnimationEnd?: () => void;
-  styles?: any;
+  styles?: IToastStyle;
 }
 
 export default class ToastContainer extends React.Component<ToastProps, any> {
@@ -80,7 +80,8 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
   }
 
   render() {
-    const { type = '', content, styles, mask } = this.props;
+    const { type = '', content, mask } = this.props;
+    const styles = this.props.styles!;
     const iconType = {
       success: require('./images/success.png'),
       fail: require('./images/fail.png'),

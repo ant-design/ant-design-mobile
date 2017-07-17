@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
 import variables from '../style/themes/default';
 import TextAreaItemProps from './PropsType';
-import TextAreaItemStyle from './style/index';
+import TextAreaItemStyle, { ITextareaItemStyle } from './style/index';
 import omit from 'omit.js';
 
 function fixControlledValue(value) {
@@ -13,7 +13,10 @@ function fixControlledValue(value) {
   return value;
 }
 
-export default class TextAreaItem extends React.Component<TextAreaItemProps, any> {
+export interface ITextareaItemNativeProps extends TextAreaItemProps {
+  styles?: ITextareaItemStyle;
+}
+export default class TextAreaItem extends React.Component<ITextareaItemNativeProps, any> {
   static defaultProps = {
     onChange() {
     },
@@ -67,9 +70,9 @@ export default class TextAreaItem extends React.Component<TextAreaItemProps, any
   render() {
     const { inputCount } = this.state;
     const {
-      value, defaultValue, error, clear, autoHeight, last, onErrorClick,
-      styles, style,
+      value, defaultValue, error, clear, autoHeight, last, onErrorClick, style,
     } = this.props;
+    const styles = this.props.styles!;
     const rows = this.props.rows as number;
     const count = this.props.count as number;
 

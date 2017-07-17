@@ -1,7 +1,18 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface IPaginationStyle {
+  container: ViewStyle;
+  numberStyle: ViewStyle;
+  totalStyle: TextStyle;
+  activeTextStyle: TextStyle;
+  indicatorStyle: ViewStyle;
+  pointStyle: ViewStyle;
+  pointActiveStyle: ViewStyle;
+  spaceStyle: ViewStyle;
+}
+
+export default StyleSheet.create<IPaginationStyle>({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
