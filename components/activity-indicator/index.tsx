@@ -4,10 +4,14 @@ import {
   Text,
   ActivityIndicator,
 } from 'react-native';
-import style from './style';
+import style, { TActivityIndicatorStyle } from './style';
 import PropTypes from './PropsType';
 
-export default class RNActivityIndicator extends React.Component<PropTypes, any> {
+export interface ActivityIndicatorNativeProps extends PropTypes {
+  styles: TActivityIndicatorStyle;
+}
+
+export default class RNActivityIndicator extends React.Component<ActivityIndicatorNativeProps, any> {
   static defaultProps = {
     animating: true,
     color: 'gray',
@@ -34,13 +38,15 @@ export default class RNActivityIndicator extends React.Component<PropTypes, any>
   }
 
   _renderSpinner() {
+    const { styles, color, size, text } = this.props;
+    const { spinner, tip } = styles;
     return (
-      <View style={this.props.styles.spinner} >
+      <View style={spinner} >
         <ActivityIndicator
-          color={this.props.color}
-          size={this.props.size}
+          color={color}
+          size={size}
         />
-        {this.props.text && (<Text style={[this.props.styles.tip]}>{this.props.text}</Text>)}
+        {text && (<Text style={[tip]}>{text}</Text>)}
       </View>
     );
   }

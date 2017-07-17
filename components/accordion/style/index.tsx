@@ -1,7 +1,17 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface TAccordionStyle {
+  container: ViewStyle;
+  header: ViewStyle;
+  arrow: ViewStyle;
+  headerWrap: ViewStyle;
+  headerText: TextStyle;
+  content: ViewStyle;
+  contentText: TextStyle;
+}
+
+export default StyleSheet.create<TAccordionStyle>({
   container: {
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: variables.border_color_base,

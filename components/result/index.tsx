@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ImageURISource } from 'react-native';
 import ResultStyle from './style';
 import Button from '../button';
 import ResultProps from './PropsType';
@@ -19,7 +19,7 @@ export default class Result extends React.Component<ResultProps, any> {
     if (img) {
       imgContent = <View style={styles.imgWrap}>{img}</View>;
     } else if (imgUrl) {
-      imgContent = <View style={styles.imgWrap}><Image source={imgUrl} style={styles.img} /></View>;
+      imgContent = <View style={styles.imgWrap}><Image source={imgUrl as ImageURISource | ImageURISource[]} style={styles.img} /></View>;
     }
 
     return (
