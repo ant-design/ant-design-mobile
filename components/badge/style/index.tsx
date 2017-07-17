@@ -1,8 +1,18 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
 const grid = 4;
-export default StyleSheet.create({
+export interface TBadgeStyle {
+  wrap: ViewStyle;
+  textCornerWrap: ViewStyle;
+  dot: ViewStyle;
+  dotSizelarge: ViewStyle;
+  textDom: ViewStyle;
+  textCorner: ViewStyle;
+  textCornerlarge: ViewStyle;
+  text: TextStyle;
+}
+export default StyleSheet.create<TBadgeStyle>({
   wrap: {
     flexDirection: 'row',
   },
