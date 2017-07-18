@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import SegmentedControlProps from './PropsType';
-import AndroidStyle from './style/';
+import AndroidStyle, { ISegmentControlStyle } from './style/';
 
-export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
+export interface ISegmentControlNativeProps extends SegmentedControlProps {
+  styles?: ISegmentControlStyle;
+}
+export default class SegmentedControl extends React.Component<ISegmentControlNativeProps, any> {
   static defaultProps = {
     selectedIndex: 0,
     disabled: false,
@@ -48,7 +51,9 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   }
 
   render() {
-    const { style, disabled, values = [], tintColor, styles } = this.props;
+    const { style, disabled, values = [], tintColor } = this.props;
+    const styles = this.props.styles!;
+
     const selectedIndex = this.state.selectedIndex;
     const items = values.map((value, idx) => {
       let itemRadius: any = null;

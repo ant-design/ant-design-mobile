@@ -1,11 +1,14 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, Image } from 'react-native';
-import ResultStyle from './style';
+import { View, Text, Image, ImageURISource } from 'react-native';
+import ResultStyle, { IResultStyle } from './style';
 import Button from '../button';
 import ResultProps from './PropsType';
 
-export default class Result extends React.Component<ResultProps, any> {
+export interface IResultNativeProps extends ResultProps {
+  styles?: IResultStyle;
+}
+export default class Result extends React.Component<IResultNativeProps, any> {
   static defaultProps = {
     styles: ResultStyle,
     buttonType: '',
@@ -13,13 +16,18 @@ export default class Result extends React.Component<ResultProps, any> {
   };
 
   render() {
-    const { styles, style, img, imgUrl, title, message, buttonText, buttonClick, buttonType } = this.props;
+    const { style, img, imgUrl, title, message, buttonText, buttonClick, buttonType } = this.props;
+    const styles = this.props.styles!;
 
     let imgContent: any = null;
     if (img) {
       imgContent = <View style={styles.imgWrap}>{img}</View>;
     } else if (imgUrl) {
-      imgContent = <View style={styles.imgWrap}><Image source={imgUrl} style={styles.img} /></View>;
+      imgContent = (
+        <View style={styles.imgWrap}>
+          <Image source={imgUrl as ImageURISource | ImageURISource[]} style={styles.img} />
+        </View>
+      );
     }
 
     return (

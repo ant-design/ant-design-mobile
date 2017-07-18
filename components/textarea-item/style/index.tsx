@@ -1,7 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create({
+export interface ITextareaItemStyle {
+  container: ViewStyle;
+  input: TextStyle;
+  icon: ViewStyle;
+  errorIcon: ViewStyle;
+  count: ViewStyle;
+}
+export default StyleSheet.create<ITextareaItemStyle>({
   container: {
     marginLeft: variables.h_spacing_lg,
     borderBottomWidth: variables.border_width_sm,

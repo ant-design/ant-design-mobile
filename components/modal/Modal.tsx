@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
 } from 'react-native';
-import modalStyle from './style/index';
+import modalStyle, { IModalStyle } from './style/index';
 import { ModalProps } from './PropsType';
 import RCModal from 'rc-dialog/lib/Modal';
 
@@ -16,7 +16,11 @@ const maxHeight = StyleSheet.create({
   },
 }).maxHeight;
 
-class AntmModal extends React.Component<ModalProps, any> {
+export interface IModalNativeProps extends ModalProps {
+  styles?: IModalStyle;
+}
+
+class AntmModal extends React.Component<IModalNativeProps, any> {
   static defaultProps = {
     visible: false,
     closable: false,
@@ -50,8 +54,10 @@ class AntmModal extends React.Component<ModalProps, any> {
   render() {
     const {
       title, closable, footer, children, style, animateAppear, maskClosable,
-      transparent, visible, onClose, bodyStyle, onAnimationEnd, styles, operation,
+      transparent, visible, onClose, bodyStyle, onAnimationEnd, operation,
     } = this.props;
+
+    const styles = this.props.styles!;
 
     let btnGroupStyle = styles.buttonGroupV;
     let horizontalFlex = {};
