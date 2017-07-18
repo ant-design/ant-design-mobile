@@ -1,7 +1,7 @@
 import React from 'react';
 import omit from 'omit.js';
 
-export interface InputProps extends React.ChangeTargetHTMLProps<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   focused?: boolean;
 }
 

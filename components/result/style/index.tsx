@@ -1,7 +1,18 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface IResultStyle {
+  result: ViewStyle;
+  imgWrap: ViewStyle;
+  img: ImageStyle;
+  title: ViewStyle;
+  titleText: TextStyle;
+  message: ViewStyle;
+  messageText: TextStyle;
+  buttonWrap: ViewStyle;
+  button: ViewStyle;
+}
+export default StyleSheet.create<IResultStyle>({
   result: {
     alignItems: 'center',
     paddingVertical: variables.v_spacing_xl,

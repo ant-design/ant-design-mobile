@@ -2,10 +2,14 @@ import React from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import Checkbox from './Checkbox';
 import { AgreeItemPropsType } from './PropsType';
-import AgreeItemstyle from './style/index';
+import AgreeItemstyle, { ICheckboxStyle } from './style/index';
 
 const refCheckbox = 'checkbox';
-export default class AgreeItem extends React.Component<AgreeItemPropsType, any> {
+
+export interface IAgreeItemNativeProps extends AgreeItemPropsType {
+  styles?: ICheckboxStyle;
+}
+export default class AgreeItem extends React.Component<IAgreeItemNativeProps, any> {
   static defaultProps = {
     styles: AgreeItemstyle,
   };
@@ -17,6 +21,7 @@ export default class AgreeItem extends React.Component<AgreeItemPropsType, any> 
 
   render(): JSX.Element {
     let { style, checkboxStyle, children, disabled, checked, defaultChecked, onChange, styles } = this.props;
+    styles = styles!;
 
     let contentDom;
     if (React.isValidElement(children)) {

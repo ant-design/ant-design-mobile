@@ -1,7 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create({
+export interface ISegmentControlStyle {
+  segment: ViewStyle;
+  item: ViewStyle;
+  itemLeftRadius: ViewStyle;
+  itemRightRadius: ViewStyle;
+  itemText: TextStyle;
+}
+export default StyleSheet.create<ISegmentControlStyle>({
   segment: {
     flexDirection: 'row',
     overflow: 'hidden',

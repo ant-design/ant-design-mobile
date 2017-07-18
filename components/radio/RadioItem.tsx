@@ -3,12 +3,16 @@ import { View, Text } from 'react-native';
 import Radio from './Radio';
 import List from '../list';
 import { RadioItemProps } from './PropsType';
-import RadioItemStyle from './style/index';
+import RadioItemStyle, { IRadioStyle } from './style/index';
 
 const ListItem = List.Item;
 const refRadio = 'radio';
 
-export default class RadioItem extends React.Component<RadioItemProps, any> {
+export interface IRadioItemNativeProps extends RadioItemProps {
+  styles?: IRadioStyle;
+}
+
+export default class RadioItem extends React.Component<IRadioItemNativeProps, any> {
   static defaultProps = {
     styles: RadioItemStyle,
   };
@@ -19,7 +23,8 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   }
 
   render() {
-    let { style, radioStyle, defaultChecked, checked, disabled, children, onChange, styles } = this.props;
+    const { style, radioStyle, defaultChecked, checked, disabled, children, onChange } = this.props;
+    const styles = this.props.styles!;
 
     let contentDom: React.ReactElement<any> | null = null;
     if (children && React.isValidElement(children)) {

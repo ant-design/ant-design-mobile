@@ -1,7 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create({
+export interface TActivityIndicatorStyle {
+  container: ViewStyle;
+  innerContainer: ViewStyle;
+  wrapper: ViewStyle;
+  tip: TextStyle;
+  toast: TextStyle;
+  spinner: ViewStyle;
+}
+export default StyleSheet.create<TActivityIndicatorStyle>({
   container: {
     position: 'absolute',
     top: 0,

@@ -3,12 +3,16 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import RNAccordion from 'react-native-collapsible/Accordion';
 import AccordionProps from './PropsType';
-import AccordionStyle from './style/index';
+import AccordionStyle, { TAccordionStyle } from './style/index';
 import Icon from '../icon';
 
 export interface AccordionPanelProps {
   key?: string;
   header: any;
+}
+
+export interface AccordionNativeProps extends AccordionProps {
+  styles?: TAccordionStyle;
 }
 
 class AccordionPanel extends React.Component<AccordionPanelProps, any> {
@@ -17,7 +21,7 @@ class AccordionPanel extends React.Component<AccordionPanelProps, any> {
   }
 }
 
-class Accordion extends React.Component<AccordionProps, any> {
+class Accordion extends React.Component<AccordionNativeProps, any> {
   static defaultProps = {
     styles: AccordionStyle,
   };
@@ -25,7 +29,7 @@ class Accordion extends React.Component<AccordionProps, any> {
   static Panel: any;
 
   _renderHeader = (section, _, isActive) => {
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     return (
       <View style={[styles.header, section.style]}>
         {
@@ -43,7 +47,7 @@ class Accordion extends React.Component<AccordionProps, any> {
   }
 
   _renderContent = (section) => {
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     return React.isValidElement(section.content) ? section.content : (
       <View style={styles.content}>
         <Text style={styles.contentText}>{section.content}</Text>
@@ -65,7 +69,9 @@ class Accordion extends React.Component<AccordionProps, any> {
   }
 
   render() {
-    const { children, style, styles, defaultActiveKey, activeKey } = this.props;
+    const { children, style, defaultActiveKey, activeKey } = this.props;
+    const styles = this.props.styles!;
+
     let defaultActiveSection;
     let activeSection;
     const headers = React.Children.map(children, (child: any, index) => {

@@ -1,6 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-const styles = StyleSheet.create({
+export interface IPickerStyle {
+  modal: ViewStyle;
+  header: ViewStyle;
+  headerItem: ViewStyle;
+  actionText: TextStyle;
+  title: TextStyle;
+}
+
+const styles = StyleSheet.create<IPickerStyle>({
   modal: {
     flex: 1,
     flexDirection: 'column',
