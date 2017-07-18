@@ -16,6 +16,7 @@ interface Props extends IPopupPickerProps {
   popupPrefixCls?: string;
   onPickerChange?: (value: CascaderValue) => void;
   /**rn only**/
+  styles?: any;
 }
 
 export default Props;
