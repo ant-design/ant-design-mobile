@@ -8,7 +8,7 @@ import style, { TActivityIndicatorStyle } from './style';
 import PropTypes from './PropsType';
 
 export interface ActivityIndicatorNativeProps extends PropTypes {
-  styles: TActivityIndicatorStyle;
+  styles?: TActivityIndicatorStyle;
 }
 
 export default class RNActivityIndicator extends React.Component<ActivityIndicatorNativeProps, any> {
@@ -21,7 +21,7 @@ export default class RNActivityIndicator extends React.Component<ActivityIndicat
   };
 
   _renderToast() {
-    const styles = this.props.styles;
+    const styles = this.props.styles!;
     return (
       <View style={[styles.container]}>
         <View style={[styles.innerContainer, { height: 89 }]}>
@@ -39,7 +39,7 @@ export default class RNActivityIndicator extends React.Component<ActivityIndicat
 
   _renderSpinner() {
     const { styles, color, size, text } = this.props;
-    const { spinner, tip } = styles;
+    const { spinner, tip } = styles!;
     return (
       <View style={spinner} >
         <ActivityIndicator

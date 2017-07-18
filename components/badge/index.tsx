@@ -4,7 +4,7 @@ import BadgeStyle, { TBadgeStyle } from './style/index';
 import BadgeProps from './PropsType';
 
 export interface BadgeNativeProps extends BadgeProps {
-  styles: TBadgeStyle;
+  styles?: TBadgeStyle;
 }
 export default class Badge extends React.Component<BadgeNativeProps, any> {
   static defaultProps = {
@@ -20,7 +20,7 @@ export default class Badge extends React.Component<BadgeNativeProps, any> {
       styles, style,
       children, text, size, overflowCount, dot, corner, ...restProps, // todo: hot
     } = this.props;
-
+    styles = styles!;
     text = typeof text === 'number' && text > (overflowCount as number) ? `${overflowCount}+` : text;
 
     // dot mode don't need text

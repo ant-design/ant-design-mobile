@@ -7,7 +7,7 @@ import AgreeItemstyle, { ICheckboxStyle } from './style/index';
 const refCheckbox = 'checkbox';
 
 export interface IAgreeItemNativeProps extends AgreeItemPropsType {
-  styles: ICheckboxStyle;
+  styles?: ICheckboxStyle;
 }
 export default class AgreeItem extends React.Component<IAgreeItemNativeProps, any> {
   static defaultProps = {
@@ -21,6 +21,7 @@ export default class AgreeItem extends React.Component<IAgreeItemNativeProps, an
 
   render(): JSX.Element {
     let { style, checkboxStyle, children, disabled, checked, defaultChecked, onChange, styles } = this.props;
+    styles = styles!;
 
     let contentDom;
     if (React.isValidElement(children)) {

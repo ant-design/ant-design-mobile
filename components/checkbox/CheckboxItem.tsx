@@ -8,7 +8,7 @@ const ListItem = List.Item;
 const refCheckbox = 'checkbox';
 
 export interface ICheckboxItemNativeProps extends CheckboxItemProps {
-  styles: ICheckboxStyle;
+  styles?: ICheckboxStyle;
 }
 export default class CheckboxItem extends React.Component<ICheckboxItemNativeProps, any> {
   static defaultProps = {
@@ -26,6 +26,8 @@ export default class CheckboxItem extends React.Component<ICheckboxItemNativePro
     let {
       style, checkboxStyle, defaultChecked, checked, disabled, children, extra, onChange, styles,
     } = this.props;
+    styles = styles!;
+
     const thumbEl = (
       <Checkbox
         ref={refCheckbox}
