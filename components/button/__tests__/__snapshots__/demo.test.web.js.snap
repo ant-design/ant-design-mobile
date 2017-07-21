@@ -81,7 +81,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
         style="height:0.16rem;"
       />
       <p
-        style="margin:30px 0 18px 0;color:#999;"
+        style="margin:10px 0 18px 0;color:#999;"
       >
         inline / small
       </p>
@@ -119,6 +119,15 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
           </span>
         </a>
       </div>
+      <a
+        aria-disabled="false"
+        class="am-button am-button-bottom"
+        role="button"
+      >
+        <span>
+          bottom
+        </span>
+      </a>
     </div>
   </div>
 </div>
@@ -127,7 +136,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
 exports[`renders ./components/button/demo/complex.md correctly 1`] = `
 <div
   class="am-list"
-  style="margin:0.1rem 0;background-color:white;"
+  style="margin:0.1rem 0 1rem;background-color:white;"
 >
   <div
     class="am-list-body"
