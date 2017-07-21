@@ -49,6 +49,7 @@ class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
+      [`${prefixCls}-bottom`]: type === 'bottom',      
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-across`]: across,

@@ -89,9 +89,9 @@ export default class Button extends React.Component<ButtonProps, any> {
       style,
     ];
 
-    const underlayColor = (StyleSheet.flatten(
+    const underlayColor = StyleSheet.flatten(
       buttonStyles[activeStyle ? `${type}Highlight` : `${type}Raw`],
-    ) as any).backgroundColor;
+    ).backgroundColor;
 
     const indicatorColor = (StyleSheet.flatten(
       this.state.pressIn ? buttonStyles[`${type}HighlightText`] : buttonStyles[`${type}RawText`],

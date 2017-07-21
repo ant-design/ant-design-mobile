@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface ButtonProps {
-  type?: 'primary' | 'warning' | 'ghost';
+  type?: 'primary' | 'warning' | 'ghost' | 'bottom';
   size?: 'large' | 'small';
   activeStyle?: boolean|Object;
   disabled?: boolean;
