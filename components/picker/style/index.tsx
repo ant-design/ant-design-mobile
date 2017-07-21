@@ -8,7 +8,7 @@ export interface IPickerStyle {
   title: TextStyle;
 }
 
-const styles = StyleSheet.create<IPickerStyle>({
+const styles = StyleSheet.create<any>({
   modal: {
     flex: 1,
     flexDirection: 'column',

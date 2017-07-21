@@ -2,7 +2,8 @@ import { StyleSheet, Platform, ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
 const grid = 4;
-export interface TBadgeStyle {
+
+export interface IBadgeStyle {
   wrap: ViewStyle;
   textCornerWrap: ViewStyle;
   dot: ViewStyle;
@@ -12,7 +13,8 @@ export interface TBadgeStyle {
   textCornerlarge: ViewStyle;
   text: TextStyle;
 }
-export default StyleSheet.create<TBadgeStyle>({
+
+export default StyleSheet.create<any>({
   wrap: {
     flexDirection: 'row',
   },

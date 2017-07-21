@@ -4,14 +4,14 @@ import {
   Text,
   ActivityIndicator,
 } from 'react-native';
-import style, { TActivityIndicatorStyle } from './style';
+import style, { IActivityIndicatorStyle } from './style';
 import PropTypes from './PropsType';
 
-export interface ActivityIndicatorNativeProps extends PropTypes {
-  styles?: TActivityIndicatorStyle;
+export interface IActivityIndicatorNativeProps extends PropTypes {
+  styles?: IActivityIndicatorStyle;
 }
 
-export default class RNActivityIndicator extends React.Component<ActivityIndicatorNativeProps, any> {
+export default class RNActivityIndicator extends React.Component<IActivityIndicatorNativeProps, any> {
   static defaultProps = {
     animating: true,
     color: 'gray',

@@ -12,7 +12,7 @@ export interface IPaginationStyle {
   spaceStyle: ViewStyle;
 }
 
-export default StyleSheet.create<IPaginationStyle>({
+export default StyleSheet.create<any>({
   container: {
     alignItems: 'center',
     justifyContent: 'center',

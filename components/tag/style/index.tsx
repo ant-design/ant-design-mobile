@@ -20,7 +20,7 @@ export interface ITagStyle {
   closeTransform: ViewStyle;
 }
 
-export default StyleSheet.create<ITagStyle>({
+export default StyleSheet.create<any>({
   tag: {
     borderRadius: variables.radius_sm,
     backgroundColor: 'transparent',

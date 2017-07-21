@@ -29,7 +29,7 @@ export interface IStepsStyle {
   title_l: TextStyle;
   description_l: TextStyle;
 }
-export default StyleSheet.create<IStepsStyle>({
+export default StyleSheet.create<any>({
 
   head_default_s: {
     width: 18,
