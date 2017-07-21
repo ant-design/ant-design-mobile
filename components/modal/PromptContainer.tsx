@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, KeyboardAvoidingView } from 'react-native';
 import Modal from './Modal';
 import promptStyles, { IPromptStyle } from './style/prompt';
 
@@ -118,7 +118,7 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
         footer={footer}
         onAnimationEnd={onAnimationEnd}
       >
-        <View>
+        <KeyboardAvoidingView behavior="padding">
           {message && message.length && <Text style={styles.message}>{message}</Text>}
           <View style={styles.inputGroup}>
             { type !== 'secure-text' && (
@@ -148,7 +148,8 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
               )
             }
           </View>
-        </View>
+          <View style={{ height: 60 }} />
+        </KeyboardAvoidingView>
       </Modal>
     );
   }
