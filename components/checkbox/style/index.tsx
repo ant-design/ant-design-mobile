@@ -9,7 +9,7 @@ export interface ICheckboxStyle {
   agreeItemCheckbox: ViewStyle;
   checkboxItemCheckbox: ViewStyle;
 }
-export default StyleSheet.create<ICheckboxStyle>({
+export default StyleSheet.create<any>({
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',

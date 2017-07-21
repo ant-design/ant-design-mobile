@@ -8,7 +8,7 @@ export interface ITextareaItemStyle {
   errorIcon: ViewStyle;
   count: ViewStyle;
 }
-export default StyleSheet.create<ITextareaItemStyle>({
+export default StyleSheet.create<any>({
   container: {
     marginLeft: variables.h_spacing_lg,
     borderBottomWidth: variables.border_width_sm,

@@ -14,7 +14,7 @@ export interface ICardStyle {
   footerContent: TextStyle;
   footerExtra: TextStyle;
 }
-export default StyleSheet.create<ICardStyle>({
+export default StyleSheet.create<any>({
   card: {
     borderWidth: variables.border_width_md,
     borderColor: variables.border_color_base,

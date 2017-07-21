@@ -69,9 +69,10 @@ export default createReactClass({
         progressBackgroundColor="#ffff00"
       />
     );
+    // Todo https://github.com/DefinitelyTyped/DefinitelyTyped
     return (
       <ScrollView
-        style={styles.scrollview}
+        style={styles.scrollview as any}
         refreshControl={rcEl}
       >
         {rows}

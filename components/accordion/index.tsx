@@ -2,8 +2,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import RNAccordion from 'react-native-collapsible/Accordion';
+import AccordionStyle, { IAccordionStyle } from './style/index';
 import AccordionProps from './PropsType';
-import AccordionStyle, { TAccordionStyle } from './style/index';
 import Icon from '../icon';
 
 export interface AccordionPanelProps {
@@ -11,8 +11,8 @@ export interface AccordionPanelProps {
   header: any;
 }
 
-export interface AccordionNativeProps extends AccordionProps {
-  styles?: TAccordionStyle;
+export interface IAccordionNativeProps extends AccordionProps {
+  styles?: IAccordionStyle;
 }
 
 class AccordionPanel extends React.Component<AccordionPanelProps, any> {
@@ -21,9 +21,9 @@ class AccordionPanel extends React.Component<AccordionPanelProps, any> {
   }
 }
 
-class Accordion extends React.Component<AccordionNativeProps, any> {
+class Accordion extends React.Component<IAccordionNativeProps, any> {
   static defaultProps = {
-    styles: AccordionStyle,
+    styles: AccordionStyle as any,
   };
 
   static Panel: any;

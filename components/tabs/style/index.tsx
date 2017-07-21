@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create({
+export default StyleSheet.create<any>({
   text: {
     fontSize: variables.tabs_font_size_heading,
   },

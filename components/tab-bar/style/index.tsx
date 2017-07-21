@@ -14,7 +14,7 @@ export interface ITabBarStyle {
   badge: ViewStyle;
   badgeText: TextStyle;
 }
-export default StyleSheet.create<ITabBarStyle>({
+export default StyleSheet.create<any>({
   tabbar: {
     flex: 1,
   },

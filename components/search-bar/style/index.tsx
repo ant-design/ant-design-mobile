@@ -1,7 +1,7 @@
 import variables from '../../style/themes/default';
 import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
-export interface SearchBarStyle {
+export interface ISearchBarStyle {
   input: TextStyle;
   inputWrapper: ViewStyle;
   wrapper: ViewStyle;
@@ -10,7 +10,7 @@ export interface SearchBarStyle {
   search: ImageStyle;
 }
 
-export default StyleSheet.create<SearchBarStyle>({
+export default StyleSheet.create<any>({
   inputWrapper: {
     flex: 1,
     flexDirection: 'row',

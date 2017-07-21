@@ -13,7 +13,7 @@ export interface IImagePickerStyle {
   plusWrapHighlight: ViewStyle;
   plusText: TextStyle;
 }
-export default StyleSheet.create<IImagePickerStyle>({
+export default StyleSheet.create<any>({
   container: {
     flexWrap: 'wrap',
     flexDirection: 'row',

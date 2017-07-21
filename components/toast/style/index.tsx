@@ -11,7 +11,7 @@ export interface IToastStyle {
   image: ImageStyle;
   centering: ViewStyle;
 }
-export default StyleSheet.create<IToastStyle>({
+export default StyleSheet.create<any>({
   container: {
     position: 'absolute',
     top: Platform.OS === 'ios' ? 64 : 54,

@@ -9,7 +9,7 @@ export interface IRadioStyle {
   radioItemContent: TextStyle;
   radioItemContentDisable: TextStyle;
 }
-export default StyleSheet.create<IRadioStyle>({
+export default StyleSheet.create<any>({
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -21,7 +21,7 @@ export interface IModalStyle {
   buttonTextOperation: TextStyle;
 }
 
-export default StyleSheet.create<IModalStyle>({
+export default StyleSheet.create<any>({
   container: {
     zIndex: variables.modal_zindex,
   },

@@ -12,7 +12,7 @@ export interface IResultStyle {
   buttonWrap: ViewStyle;
   button: ViewStyle;
 }
-export default StyleSheet.create<IResultStyle>({
+export default StyleSheet.create<any>({
   result: {
     alignItems: 'center',
     paddingVertical: variables.v_spacing_xl,
