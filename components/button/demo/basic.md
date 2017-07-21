@@ -29,12 +29,13 @@ const ButtonExample = () => (
         {/* <Button className="btn" activeStyle={false}>无点击反馈</Button> */}
         {/* <Button className="btn" activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button> */}
 
-        <p style={{ margin: '30px 0 18px 0', color: '#999' }}>inline / small</p>
+        <p style={{ margin: '10px 0 18px 0', color: '#999' }}>inline / small</p>
         <Flex style={{ marginBottom: '0.16rem' }}>
           <Button type="primary" inline style={{ marginRight: '0.08rem' }}>inline</Button>
           <Button type="ghost" inline size="small" style={{ marginRight: '0.08rem' }}>inline small</Button>
           <Button type="primary" inline size="small">inline small</Button>
         </Flex>
+        <Button type="bottom">bottom</Button>
       </div>
     </div>
   </WingBlank>

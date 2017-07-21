@@ -13,7 +13,7 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| type     | can be set to `primary`/`ghost`/`warning` or omitted  |   string   |   -  |
+| type     | can be set to `primary`/`ghost`/`warning`/`bottom(only web)` or omitted  |   string   |   -  |
 | size     | can be set to `large`、`small` or omitted | string | `large`|
 | activeStyle | the feedback's custom style (set to false to disable click feedback) | {}/false | {} |
 | activeClassName  | the feedback's custom class name | string |  |
