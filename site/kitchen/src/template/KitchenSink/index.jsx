@@ -84,55 +84,55 @@ export default class App extends React.Component {
           <div className="am-demo-bd">
             {
               Object.keys(lists)
-              .sort((a, b) => sort(config.categoryOrder[a], config.categoryOrder[b]))
-              .map((cate, index) => (lists[cate].length ? (
-                <List
-                  key={`${cate}-${index}`}
-                  renderHeader={() => (
-                    <div
-                      onClick={() => {
-                        const { cateOpend } = this.state;
-                        cateOpend[index] = !cateOpend[index];
-                        this.setState({ cateOpend });
-                      }}
-                      className="am-demo-category"
-                    >
-                      <div className="am-demo-category-name">{appLocale.locale === 'en-US' ? cate : `${config.cateChinese[cate]} ${cate}`}</div>
-                      <div className="am-demo-category-arrow"><span><Icon type="down" /></span></div>
-                    </div>
-                  )}
-                  className={this.state.cateOpend[index] ? 'category-open' : 'category-closed'}
-                >
-                  {
-                    lists[cate].sort((a, b) => sort(a.title.toLowerCase(), b.title.toLowerCase())).map((item) => {
-                      const paths = item.filename.split('/');
-                      if (config.indexDemos.indexOf(paths[1]) > -1) {
-                        return item.demos.sort((a, b) => a.order > b.order).map(j => (
+                .sort((a, b) => sort(config.categoryOrder[a], config.categoryOrder[b]))
+                .map((cate, index) => (lists[cate].length ? (
+                  <List
+                    key={`${cate}-${index}`}
+                    renderHeader={() => (
+                      <div
+                        onClick={() => {
+                          const { cateOpend } = this.state;
+                          cateOpend[index] = !cateOpend[index];
+                          this.setState({ cateOpend });
+                        }}
+                        className="am-demo-category"
+                      >
+                        <div className="am-demo-category-name">{appLocale.locale === 'en-US' ? cate : `${config.cateChinese[cate]} ${cate}`}</div>
+                        <div className="am-demo-category-arrow"><span><Icon type="down" /></span></div>
+                      </div>
+                    )}
+                    className={this.state.cateOpend[index] ? 'category-open' : 'category-closed'}
+                  >
+                    {
+                      lists[cate].sort((a, b) => sort(a.title.toLowerCase(), b.title.toLowerCase())).map((item) => {
+                        const paths = item.filename.split('/');
+                        if (config.indexDemos.indexOf(paths[1]) > -1) {
+                          return item.demos.sort((a, b) => a.order > b.order).map(j => (
+                            <List.Item
+                              arrow="horizontal"
+                              key={`${j.filename}-${cate}`}
+                              onClick={() => location.href = `${rootPath}/${paths[1]}${this.addSearch()}#${
+                                paths[1] + config.hashSpliter + j.order
+                              }`}
+                            >
+                              {`${item.title} ${appLocale.locale === 'zh-CN' ? item.subtitle : ''}-${j.title[appLocale.locale]}`}
+                            </List.Item>
+                          ));
+                        }
+                        return (
                           <List.Item
                             arrow="horizontal"
-                            key={`${j.filename}-${cate}`}
-                            onClick={() => location.href = `${rootPath}/${paths[1]}${this.addSearch()}#${
-                              paths[1] + config.hashSpliter + j.order
-                            }`}
+                            key={`${item.filename}-${cate}`}
+                            onClick={() => { location.href = `${rootPath}/${paths[1]}${this.addSearch()}`; }}
                           >
-                            {`${item.title} ${appLocale.locale === 'zh-CN' ? item.subtitle : ''}-${j.title[appLocale.locale]}`}
+                            {`${item.title} `}
+                            {!item.subtitle || appLocale.locale === 'en-US' ? null : item.subtitle}
                           </List.Item>
-                        ));
-                      }
-                      return (
-                        <List.Item
-                          arrow="horizontal"
-                          key={`${item.filename}-${cate}`}
-                          onClick={() => { location.href = `${rootPath}/${paths[1]}${this.addSearch()}`; }}
-                        >
-                          {`${item.title} `}
-                          {!item.subtitle || appLocale.locale === 'en-US' ? null : item.subtitle}
-                        </List.Item>
-                      );
-                    })
-                  }
-                </List>
-              ) : null))
+                        );
+                      })
+                    }
+                  </List>
+                ) : null))
             }
           </div>
         </div>

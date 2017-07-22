@@ -53,7 +53,7 @@ class IconSlider extends React.Component {
 
 ReactDOM.render(
   <IconSlider min={0} max={20} value={0} icon={['check-circle', 'cross-circle']} />
-, mountNode);
+  , mountNode);
 ````
 
 ````css

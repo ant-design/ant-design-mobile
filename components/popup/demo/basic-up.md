@@ -26,20 +26,22 @@ class Test extends React.Component {
   state = {
     sel: '',
   };
+  renderHeader = () => (
+    <div style={{ position: 'relative' }}>
+      委托买入
+      <span
+        style={{
+          position: 'absolute', right: 3, top: -5,
+        }}
+        onClick={() => this.onClose('cancel')}
+      >
+        <Icon type="cross" />
+      </span>
+    </div>
+  );
   onClick = () => {
     Popup.show(<div>
-      <List renderHeader={() => (
-        <div style={{ position: 'relative' }}>
-          委托买入
-          <span
-            style={{
-              position: 'absolute', right: 3, top: -5,
-            }}
-            onClick={() => this.onClose('cancel')}
-          >
-            <Icon type="cross" />
-          </span>
-        </div>)}
+      <List renderHeader={this.renderHeader}
         className="popup-list"
       >
         {['股票名称', '股票代码', '买入价格', '买入数量', '更多', '更多'].map((i, index) => (

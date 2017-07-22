@@ -18,12 +18,12 @@ timeline: true
 
 `2017-07-22`
 
-- **Feature*
+- **Feature**
   - `ListItem` 支持 `onLongPress`. ([#1533](https://github.com/ant-design/ant-design-mobile/pull/1533))
 
 - **Bug Fix**
   - 修复 `Tabs` 滑动浮层覆盖 `Popup` 蒙版的问题。([#1512](https://github.com/ant-design/ant-design-mobile/pull/1512))
-  - 修复 `Switch` 在 android 上 0.5px 导致显示不正常的问题。((86dabf)[https://github.com/ant-design/ant-design-mobile/commit/86dabfea9841695fbca5319b422f11a0ddb17184])
+  - 修复 `Switch` 在 android 上 0.5px 导致显示不正常的问题。([86dabf](https://github.com/ant-design/ant-design-mobile/commit/86dabfea9841695fbca5319b422f11a0ddb17184))
   - 修复 React Native `Modal.prompt` 键盘遮挡的问题。([#1489](https://github.com/ant-design/ant-design-mobile/issues/1489))
 
 - **Improve && Enhancement**

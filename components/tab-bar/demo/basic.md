@@ -10,10 +10,7 @@ title:
 ````jsx
 import { TabBar, Icon } from 'antd-mobile';
 
-/* eslint global-require: 0 */
-
 class TabBarExample extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {

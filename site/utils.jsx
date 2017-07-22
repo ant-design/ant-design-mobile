@@ -66,7 +66,7 @@ export function isLocalStorageNameSupported() {
 export function collectDocs(docs) {
   // locale copy from layout
   const locale = (window.localStorage && localStorage.getItem('locale') !== 'en-US') ?
-        'zh-CN' : 'en-US';
+    'zh-CN' : 'en-US';
   const docsList = Object.keys(docs)
     .map(key => docs[key])
     .map((value) => {

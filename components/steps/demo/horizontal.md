@@ -45,7 +45,7 @@ ReactDOM.render(
       <Step title="Nov. 4th" description="Profit arrival" icon={<span className="fake-icon" />} />
     </Steps>
   </WingBlank>
-, mountNode);
+  , mountNode);
 ````
 
 ````css

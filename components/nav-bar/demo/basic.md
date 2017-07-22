@@ -27,5 +27,5 @@ ReactDOM.render(
       ]}
     >NavBar</NavBar>
   </div>
-, mountNode);
+  , mountNode);
 ````
