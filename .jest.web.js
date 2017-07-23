@@ -2,11 +2,8 @@ const libDir = process.env.LIB_DIR;
 
 const transformIgnorePatterns = [
   '/dist/',
+  'node_modules\/[^/]+?\/(?!es\/)', // Ignore modules without es dir
 ];
-
-if (libDir !== 'es') {
-  transformIgnorePatterns.push('/node_modules/');
-}
 
 module.exports = {
   moduleFileExtensions: [
@@ -25,9 +22,9 @@ module.exports = {
     'site'
   ],
   transform: {
-    '\\.tsx?$': './node_modules/typescript-babel-jest',
-    '\\.js$': './node_modules/babel-jest',
-    '\\.md$': './node_modules/antd-demo-jest',
+    '\\.tsx?$': './node_modules/antd-tools/lib/jest/codePreprocessor',
+    '\\.js$': './node_modules/antd-tools/lib/jest/codePreprocessor',
+    '\\.md$': './node_modules/antd-tools/lib/jest/demoPreprocessor',
     '\\.svg$': '<rootDir>/tests/imageStub.js',
   },
   testRegex: libDir === 'dist' ? 'demo\\.test\\.web\\.js$' : '.*\\.test\\.web\\.js$',

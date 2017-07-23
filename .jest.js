@@ -1,6 +1,13 @@
 const libDir = process.env.LIB_DIR;
 
-const transformIgnorePatterns = [];
+const transformPackages = [
+  'react-native',
+  'react-native-menu',
+  'react-native-scrollable-tab-view',
+  'react-native-collapsible',
+  'react-native-swipeout',
+  'react-native-camera-roll-picker',
+]
 
 module.exports = {
   preset: 'react-native',
@@ -20,8 +27,8 @@ module.exports = {
     'site',
   ],
   transform: {
-    '\\.tsx?$': './node_modules/antd-demo-jest/ts',
-    '\\.js$': './node_modules/babel-jest',
+    '\\.tsx?$': './node_modules/antd-tools/lib/jest/codePreprocessor',
+    '\\.js$': './node_modules/antd-tools/lib/jest/codePreprocessor',
     '\\.png': '<rootDir>/tests/imageStub.js',
   },
   testRegex: libDir === 'dist' ? 'demo\\.test\\.js$' : '.*\\.test\\.js$',
@@ -31,5 +38,7 @@ module.exports = {
     '!components/**/*.web.{ts,tsx}',
     '!components/*/style/index.tsx',
   ],
-  transformIgnorePatterns,
+  transformIgnorePatterns: [
+    `node_modules/(?!(${transformPackages.join('|')})/)`,
+  ],
 };
