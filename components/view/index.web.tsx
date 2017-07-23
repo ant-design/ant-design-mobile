@@ -19,6 +19,7 @@ export default class View extends React.Component<any, any> {
       props.style = style;
     }
     const { Component } = props;
+    delete props.Component;
     return <Component {...props}/>;
   }
 }
