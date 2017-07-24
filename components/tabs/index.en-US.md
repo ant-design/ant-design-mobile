@@ -45,5 +45,7 @@ Properties | Descrition | Type | Default
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| key  | TabPane's key   | String                  |      |
-| tab  | Show text in TabPane's head | React.Element or String |      |
+| key  | activeKey equals this key when being selected | String                  | -     |
+| tab  | tabpane name | React.Element or String | -     |
+| badge | badge showed in tabpane | Number or String | -     |
+| dot | dot showed in tabpane | boolean | -     |

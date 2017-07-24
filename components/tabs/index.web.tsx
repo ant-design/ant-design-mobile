@@ -5,6 +5,7 @@ import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
 import TabContent from 'rc-tabs/lib/TabContent';
 import InkTabBar from 'rc-tabs/lib/InkTabBar';
 import SwipeableInkTabBar from 'rc-tabs/lib/SwipeableInkTabBar';
+import Tab from './Tab.web';
 
 export default class Tabs extends React.Component<TabsProps, any> {
   static TabPane = TabPane;
@@ -47,12 +48,34 @@ export default class Tabs extends React.Component<TabsProps, any> {
   }
 
   render() {
+    const children: any[] = [];
+    React.Children.forEach(this.props.children, (c: any) => {
+      children.push(c);
+    });
+    const panels = children.map((c: any) => {
+      const cProps = c.props;
+      const tab = (<Tab
+        tab={cProps.tab}
+        prefixCls={`${this.props.prefixCls}-tabpane`}
+        badge={cProps.badge}
+        dot={cProps.dot}
+      />);
+      return (
+        <TabPane
+          tab={tab}
+          key={c.key}
+        >
+          {cProps.children}
+        </TabPane>);
+    });
     return (
       <RcTabs
         renderTabBar={this.renderTabBar}
         renderTabContent={this.renderTabContent}
         {...this.props}
-      />
+      >
+      {panels}
+      </RcTabs>
     );
   }
 }
