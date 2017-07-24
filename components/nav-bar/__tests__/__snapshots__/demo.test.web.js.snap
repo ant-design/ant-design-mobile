@@ -52,5 +52,55 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
       </svg>
     </div>
   </div>
+  <div
+    class="am-navbar am-navbar-dark"
+  >
+    <div
+      class="am-navbar-left"
+      role="button"
+    >
+      <span
+        aria-hidden="true"
+        class="am-navbar-left-icon"
+      >
+        <svg
+          class="am-icon am-icon-left am-icon-md"
+        >
+          <use
+            xlink:href="#left"
+          />
+        </svg>
+      </span>
+      <span
+        class="am-navbar-left-content"
+      >
+        back
+      </span>
+    </div>
+    <div
+      class="am-navbar-title"
+    >
+      NavBar
+    </div>
+    <div
+      class="am-navbar-right"
+    >
+      <svg
+        class="am-icon am-icon-search am-icon-md"
+        style="margin-right:0.32rem;"
+      >
+        <use
+          xlink:href="#search"
+        />
+      </svg>
+      <svg
+        class="am-icon am-icon-ellipsis am-icon-md"
+      >
+        <use
+          xlink:href="#ellipsis"
+        />
+      </svg>
+    </div>
+  </div>
 </div>
 `;

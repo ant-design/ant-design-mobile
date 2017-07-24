@@ -29,6 +29,7 @@ export interface ListItemProps {
   wrap?: boolean;
   onClick?: (e?: any) => void;
   style?: React.CSSProperties | {} | Array<{}>;
+  onLongPress?: () => void;
   /* for web */
   prefixCls?: string;
   className?: string;

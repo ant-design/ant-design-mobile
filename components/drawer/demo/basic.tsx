@@ -41,8 +41,9 @@ export default class DrawerExample extends React.Component<any, any> {
       );
     });
 
+    // Todo: https://github.com/DefinitelyTyped/DefinitelyTyped
     const sidebar = (
-      <ScrollView style={[styles.container]}>
+      <ScrollView style={[styles.container as any]}>
         <List>{itemArr}</List>
       </ScrollView>
     );

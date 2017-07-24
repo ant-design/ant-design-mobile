@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Button from '../button/index.web';
-import Flex from '../flex';
+import Flex from '../flex/index.web';
 import PaginationProps from './PropsType';
 import { getComponentLocale } from '../_util/getLocale';
 

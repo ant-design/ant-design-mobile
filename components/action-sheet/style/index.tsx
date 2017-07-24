@@ -1,9 +1,23 @@
 import variables from '../../style/themes/default';
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
 export const vars = variables;
 
-export default StyleSheet.create({
+export interface IActionSheetStyle {
+  container: ViewStyle;
+  wrap: ViewStyle;
+  content: ViewStyle;
+  mask: ViewStyle;
+  title: ViewStyle;
+  titleText: TextStyle;
+  message: ViewStyle;
+  btn: ViewStyle;
+  cancelBtn: ViewStyle;
+  cancelBtnMask: ViewStyle;
+  destructiveBtn: TextStyle;
+}
+
+export default StyleSheet.create<any>({
   container: {
     zIndex: vars.action_sheet_zindex,
   },
@@ -12,14 +26,14 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-  } as ViewStyle,
+  },
   content: {
     position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0,
     backgroundColor: variables.fill_base,
-  } as ViewStyle,
+  },
   mask: {
     position: 'absolute',
     top: 0,
@@ -27,23 +41,23 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: variables.fill_mask,
-  } as ViewStyle,
+  },
   title: {
     flex: 1,
     alignItems: 'center',
     // justifyContent: 'center',
     marginTop: variables.h_spacing_lg,
     marginBottom: variables.h_spacing_lg,
-  } as ViewStyle,
+  },
   titleText: {
     fontWeight: '500',
-  } as ViewStyle,
+  },
   message: {
     flex: 1,
     alignItems: 'center',
     // justifyContent: 'center',
     marginBottom: variables.h_spacing_lg,
-  } as ViewStyle,
+  },
   btn: {
     flex: 1,
     alignItems: 'center',
@@ -53,11 +67,11 @@ export default StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: variables.border_color_base,
     backgroundColor: 'white',
-  } as ViewStyle,
+  },
   cancelBtn: {
     marginTop: variables.v_spacing_md,
     position: 'relative',
-  } as ViewStyle,
+  },
   cancelBtnMask: {
     position: 'absolute',
     top: -variables.v_spacing_md,
@@ -68,9 +82,9 @@ export default StyleSheet.create({
     borderStyle: 'solid',
     borderTopWidth: 1,
     borderTopColor: variables.border_color_base,
-  } as ViewStyle,
+  },
   destructiveBtn: {
     color: variables.brand_error,
     fontSize: variables.font_size_heading,
-  } as ViewStyle,
+  },
 });

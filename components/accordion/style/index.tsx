@@ -1,7 +1,19 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface IAccordionStyle {
+  container: ViewStyle;
+  header: ViewStyle;
+  arrow: ViewStyle;
+  headerWrap: ViewStyle;
+  headerText: TextStyle;
+  content: ViewStyle;
+  contentText: TextStyle;
+}
+
+// wait for https://github.com/DefinitelyTyped/DefinitelyTyped/pull/18278
+// them below any and change to IAccordionStyle
+export default StyleSheet.create<any>({
   container: {
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: variables.border_color_base,

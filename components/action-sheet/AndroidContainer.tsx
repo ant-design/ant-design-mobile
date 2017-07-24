@@ -1,17 +1,18 @@
 import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
-import styles, { vars as variables } from './style/index';
+import styles, { vars as variables, IActionSheetStyle } from './style';
 import Modal from 'rc-dialog/lib/Modal';
 
-export interface Props {
+export interface IActionSheetNativeProps {
   onAnimationEnd?: (visible: boolean) => void;
   visible?: boolean;
   share?: boolean;
   config?: any;
   callback?: (index: number) => void;
+  styles?: IActionSheetStyle;
 }
 
-class ActionSheetAndroid extends React.Component<Props, any> {
+class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
   static defaultProps = {
     share: false,
   };
@@ -46,13 +47,13 @@ class ActionSheetAndroid extends React.Component<Props, any> {
       excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)
     ) : (
       options as Array<string>).map((item, index) => (
-        <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : null]}>
+        <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : undefined]}>
           <TouchableHighlight
             style={[ styles.btn ]}
             underlayColor={variables.fill_tap}
             onPress={() => this.confirm(index)}
           >
-            <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : null ]}>
+            <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : undefined ]}>
               {item}
             </Text>
           </TouchableHighlight>

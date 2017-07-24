@@ -4,11 +4,15 @@ import { View, Text } from 'react-native';
 import Button from '../button';
 import Flex from '../flex';
 import PaginationProps from './PropsType';
-import PaginationStyle from './style/index';
+import PaginationStyle, { IPaginationStyle } from './style/index';
 import { getComponentLocale } from '../_util/getLocale';
 import zh_CN from './locale/zh_CN';
 
-export default class Pagination extends React.Component<PaginationProps, any> {
+export interface IPaginationNativeProps extends PaginationProps {
+  styles?: IPaginationStyle;
+}
+
+export default class Pagination extends React.Component<IPaginationNativeProps, any> {
   static defaultProps = {
     mode: 'button',
     current: 0,
@@ -45,7 +49,9 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   render() {
-    const { styles, style, mode, total, simple } = this.props;
+    const { style, mode, total, simple } = this.props;
+    const styles = this.props.styles!;
+
     const locale = getComponentLocale(this.props, this.context, 'Pagination', () => zh_CN);
     const { prevText, nextText } = locale;
 
@@ -92,7 +98,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
         arr.push(
           <View
             key={`dot-${i}`}
-            style={[ styles.pointStyle, styles.spaceStyle, i === current && styles.pointActiveStyle ]}
+            style={[ styles.pointStyle, styles.spaceStyle, i === current ? styles.pointActiveStyle : undefined ]}
           />,
         );
       }

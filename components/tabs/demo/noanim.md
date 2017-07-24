@@ -5,7 +5,7 @@ title:
   en-US: 'No animation'
 ---
 
-禁用切换动画效果
+Switch tabs without animation
 
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
@@ -23,19 +23,19 @@ const TabExample = () => (
   <div>
     <WhiteSpace />
     <Tabs defaultActiveKey="3" animated={false} onChange={callback} onTabClick={handleTabClick}>
-      <TabPane tab="选项卡一" key="1">
+      <TabPane tab="First tab" key="1">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
-           选项卡一内容
+           Content of First Tab
         </div>
       </TabPane>
-      <TabPane tab="选项卡二" key="2">
+      <TabPane tab="Second Tab" key="2">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
-           选项卡二内容
+           Content of Second Tab
         </div>
       </TabPane>
-      <TabPane tab="选项卡三" key="3">
+      <TabPane tab="Third Tab" key="3">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
-           选项卡三内容
+           Content of Third Tab
         </div>
       </TabPane>
     </Tabs>

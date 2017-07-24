@@ -1,7 +1,15 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 
-export default StyleSheet.create({
+export interface ICheckboxStyle {
+  wrapper: ViewStyle;
+  icon: ViewStyle;
+  iconRight: ViewStyle;
+  agreeItem: ViewStyle;
+  agreeItemCheckbox: ViewStyle;
+  checkboxItemCheckbox: ViewStyle;
+}
+export default StyleSheet.create<any>({
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',

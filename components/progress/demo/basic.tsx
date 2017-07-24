@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ViewStyle } from 'react-native';
 import { WhiteSpace, Button, Progress } from 'antd-mobile';
 
 export default class BasicProgressExample extends React.Component<any, any> {
@@ -19,7 +19,7 @@ export default class BasicProgressExample extends React.Component<any, any> {
   }
 
   render() {
-    const viewStyle = {
+    const style = {
       marginTop: 80,
       flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
     };
@@ -27,7 +27,7 @@ export default class BasicProgressExample extends React.Component<any, any> {
       <View>
         <Progress percent={90} position="fixed" />
 
-        <View style={[viewStyle]}>
+        <View style={[style as ViewStyle]}>
           <View style={{ marginRight: 10, height: 4, flex: 1 }}><Progress percent={this.state.percent} /></View>
           <Text>{this.state.percent}%</Text>
         </View>

@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import BadgeStyle from './style/index';
+import BadgeStyle, { IBadgeStyle } from './style/index';
 import BadgeProps from './PropsType';
 
-export default class Badge extends React.Component<BadgeProps, any> {
+export interface IBadgeNativeProps extends BadgeProps {
+  styles?: IBadgeStyle;
+}
+export default class Badge extends React.Component<IBadgeNativeProps, any> {
   static defaultProps = {
     size: 'small',
     overflowCount: 99,
@@ -17,7 +20,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       styles, style,
       children, text, size, overflowCount, dot, corner, ...restProps, // todo: hot
     } = this.props;
-
+    styles = styles!;
     text = typeof text === 'number' && text > (overflowCount as number) ? `${overflowCount}+` : text;
 
     // dot mode don't need text
