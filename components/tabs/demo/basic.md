@@ -22,17 +22,17 @@ function handleTabClick(key) {
 const TabExample = () => (
   <div>
     <Tabs defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
-      <TabPane tab="First Tab" key="1">
+      <TabPane tab="First Tab" key="1" badge={3}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           Content of First Tab
         </div>
       </TabPane>
-      <TabPane tab="Second Tab" key="2">
+      <TabPane tab="Second Tab" key="2" dot>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           Content of Second Tab
         </div>
       </TabPane>
-      <TabPane tab="Third Tab" key="3">
+      <TabPane tab="Third Tab" key="3" badge="今日(20)">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           Content of Third Tab
         </div>
