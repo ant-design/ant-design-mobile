@@ -1,5 +1,5 @@
 import React from 'react';
-import Badge from '../badge/';
+import Badge from './Badge.web';
 
 class Tab extends React.Component<any, any> {
   renderIcon = () => {
