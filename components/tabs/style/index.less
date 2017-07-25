@@ -69,9 +69,27 @@
       color: @color-text-base;
       background-color: @fill-base;
       box-sizing: border-box;
+      align-items: center;
 
       &-active {
         color: @tabs-color;
+      }
+
+      .am-badge {
+        .am-badge-text {
+          top: -0.26rem;
+          left: 100%;
+          right: auto;
+          transform: translateX(-0.1rem);
+          transform-origin: center;
+        }
+        .am-badge-dot {
+          top: -0.12rem;
+          left: 100%;
+          right: auto;
+          transform: translateX(0);
+          transform-origin: center;
+        }
       }
     }
   }
@@ -130,3 +148,4 @@
     overflow: visible;
   }
 }
+
