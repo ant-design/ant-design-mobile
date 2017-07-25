@@ -9,7 +9,7 @@ Basic slider. When `disabled` is `true`, the slider will not be interactable, yo
 to simulate tooltip.
 
 ````jsx
-/* eslint arrow-body-style: 0*/
+/* eslint arrow-body-style: 0 */
 import { Slider, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
 
 const SliderWithTooltip = createTooltip(Slider);

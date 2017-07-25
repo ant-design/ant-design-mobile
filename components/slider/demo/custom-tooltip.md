@@ -10,7 +10,7 @@ title:
 
 
 ````jsx
-/* eslint arrow-body-style: 0*/
+/* eslint arrow-body-style: 0 */
 import { Slider, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const createCustomTooltip = (Component) => {
