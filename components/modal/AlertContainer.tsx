@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
 import Modal from './Modal';
+import modalStyle, { IModalStyle } from './style/index';
 
 export type AlertButtonType = {
   text: string;
@@ -13,6 +14,7 @@ export interface AlertContainerProps {
   content: any;
   actions: Array<AlertButtonType>;
   onAnimationEnd?: (visible: boolean) => void;
+  styles?: IModalStyle;
 }
 
 export default class AlertContainer extends React.Component<AlertContainerProps, any> {
@@ -23,6 +25,10 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
     };
   }
 
+  static defaultProps = {
+    styles: modalStyle,
+  };
+
   onClose = () => {
     this.setState({
       visible: false,
@@ -30,7 +36,7 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
   }
 
   render() {
-    const { title, actions, content, onAnimationEnd } = this.props;
+    const { title, actions, content, onAnimationEnd, styles } = this.props;
     const footer = actions.map((button) => {
       const orginPress = button.onPress || function () {};
       button.onPress = () => {
@@ -46,6 +52,7 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
       return button;
     });
 
+    console.log('container', styles.content, content)
     return (
       <Modal
         transparent
@@ -56,7 +63,7 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
         onAnimationEnd={onAnimationEnd}
       >
         <ScrollView>
-          <Text>{content}</Text>
+          <Text style={styles.content}>{content}</Text>
         </ScrollView>
       </Modal>
     );

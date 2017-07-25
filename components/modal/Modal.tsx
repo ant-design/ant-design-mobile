@@ -77,7 +77,7 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
           buttonStyle = button.style;
           if (typeof buttonStyle === 'string') {
             const styleMap = {
-              'cancel': { fontWeight: 'bold' },
+              'cancel': {},
               'default': {},
               'destructive': { color: 'red' },
             };
