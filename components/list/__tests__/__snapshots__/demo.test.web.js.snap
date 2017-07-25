@@ -731,7 +731,6 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   class="am-stepper-input"
                   max="9007199254740991"
                   min="-9007199254740991"
-                  tabindex="0"
                   value="20"
                 />
               </div>
