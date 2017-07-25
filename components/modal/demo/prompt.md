@@ -34,7 +34,7 @@ const App = () => (
             }, 1000);
           }),
         },
-      ])}
+      ], 'default', null, ['请输入你的名字'])}
     >按钮 Promise</Button>
 
     <WhiteSpace size="lg" />

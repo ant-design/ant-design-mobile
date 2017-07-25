@@ -53,8 +53,10 @@ subtitle: 对话框
 | callbackOrActions  | 按钮组 [{text, onPress}] 或回调函数      | Array or Function | 无            |
 | type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue       | 默认值(input 为 password 类型不支持)   | String |   -  |
+| placeholders       | ['', '']  | String[] |   -  |
 
-Modal.prompt(title, message, callbackOrActions, type?, defaultValue?).close()` 可以在外部关闭 prompt
+
+Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?).close()` 可以在外部关闭 prompt
 
 ### Modal.operation(actions?)
 
