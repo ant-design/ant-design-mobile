@@ -135,8 +135,8 @@ export default {
 
   // modal
   modal_font_size_heading: 18,
-  modal_button_font_size: 18, //按钮字号
-  modal_button_height: 50, //按钮高度
+  modal_button_font_size: 18, // 按钮字号
+  modal_button_height: 50, // 按钮高度
 
   // list
   list_title_height: 30,
