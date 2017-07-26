@@ -20,19 +20,21 @@ timeline: true
 
 `2017-xx-xx`
 
-## New Feature
+- **Feature**
 
 
-## Break Change
+- **Break Change**
 
-- `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
--  `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
-- `ImagePicker` ref 由 string 改成 function. ([#1487](https://github.com/ant-design/ant-design-mobile/pull/1487)
-- In order to custom style conveniently， the `style` property of `TextareaItem`、`SearchBar` and `InputItem` is passed
-  to `input`(for web) or `TextInput`(for react native) element;
-- Progress: `wrapStyle` has been replaced by `style` and  `style` has been replaced by `barStyle` property.
-- The `style` property now can custom style, eg: tintColor for switch
-- `Flex` remove redundancy api of Flex, just keep `align: enum{start, center, end}`。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
+  - `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+  -  `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
+  - `ImagePicker` ref 由 string 改成 function. ([#1487](https://github.com/ant-design/ant-design-mobile/pull/1487)
+  - In order to custom style conveniently， the `style` property of `TextareaItem`、`SearchBar` and `InputItem` is passed
+    to `input`(for web) or `TextInput`(for react native) element;
+  - Progress: `wrapStyle` has been replaced by `style` and  `style` has been replaced by `barStyle` property.
+  - The `style` property now can custom style, eg: tintColor for switch
+  - `Flex` remove redundancy api of Flex, just keep `align: enum{start, center, end}`。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
+  - `Theme` 更改，删除 `@fill-overlay-inverse`, `@brand-hot`, `@font-size-display-xl`, `@font-size-display-lg`, `@font-family-code`, `@font-family-base`； 将`@searchbar-font-size`重命名为 `@search-bar-font-size`。
+
 ## 1.5.0
 
 `2017-07-22`

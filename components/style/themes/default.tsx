@@ -26,7 +26,6 @@ export default {
   fill_tap: '#ddd',                            // 组件默认背景 _ 按下
   fill_disabled: '#ddd',                       // 通用失效背景
   fill_mask: 'rgba(0, 0, 0, .4)',              // 遮罩背景
-  fill_overlay_inverse: 'rgba(0, 0, 0, .8)',   // 浮层背景 _ 反色，用于 toast
   color_icon_base: '#ccc',                     // 许多小图标的背景，比如一些小圆点，加减号
   toast_fill: 'rgba(0, 0, 0, .8)',
   fill_grey: '#f7f7f7',
@@ -40,7 +39,6 @@ export default {
   brand_success: '#6abf47',
   brand_warning: '#f4333c',
   brand_error: '#f4333c',
-  brand_hot: '#f96268',        // 用于推荐/促销/折扣
   brand_important: '#ff5b05',  // 用于小红点
 
   // 边框色
@@ -56,14 +54,6 @@ export default {
   font_size_heading: 17,
   font_size_display_sm: 18,
   font_size_display_md: 21,
-  font_size_display_lg: 24,
-  font_size_display_xl: 30,
-
-  // 字体家族
-  // ---
-  // tslint:disable-next-line
-  font_family_base: '_apple_system,"SF UI Text",Roboto,Noto,"Helvetica Neue",`elvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans_serif',
-  font_family_code: 'Consolas,Menlo,Courier,monospace',
 
   // 圆角
   // ---
@@ -168,7 +158,7 @@ export default {
   search_bar_fill: '#efeff4',
   search_bar_height: 44,
   search_bar_input_height: 28,
-  searchbar_font_size: 15,
+  search_bar_font_size: 15,
   search_color_icon: '#bbbbbb', // input search icon 的背景色
 
   // notice_bar
