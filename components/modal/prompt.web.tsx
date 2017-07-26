@@ -1,12 +1,12 @@
 /* tslint:disable:no-switch-case-fall-through */
-/* tslint:disable:no-unused-variable */
 import React from 'react';
-/* tslint:enable:no-unused-variable */
 import ReactDOM from 'react-dom';
 import Modal from './Modal.web';
 
-export default function a(...args) {
-  if (!args || !args[2]) {
+export default function prompt(
+  title, message, callbackOrActions, type = 'default', defaultValue = '', placeholders = ['', ''],
+) {
+  if (!callbackOrActions) {
     // console.log('Must specify callbackOrActions');
     return {
       close: () => {},
@@ -14,9 +14,6 @@ export default function a(...args) {
   }
 
   const prefixCls = 'am-modal';
-  const title = args[0];
-  const type = args[3] || 'default';
-  const defaultValue = args[4] || '';
 
   let data: any = {};
 
@@ -41,10 +38,21 @@ export default function a(...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" defaultValue={defaultValue} ref={input => focusFn(input)} onChange={onChange} />
+            <input
+              type="text"
+              defaultValue={defaultValue}
+              ref={input => focusFn(input)}
+              onChange={onChange}
+              placeholder={placeholders[0]}
+            />
           </div>
           <div className={`${prefixCls}-input`}>
-            <input type="password" defaultValue="" onChange={onChange} />
+            <input
+              type="password"
+              defaultValue=""
+              onChange={onChange}
+              placeholder={placeholders[1]}
+            />
           </div>
         </div>
       );
@@ -53,7 +61,13 @@ export default function a(...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="password" defaultValue="" ref={input => focusFn(input)} onChange={onChange} />
+            <input
+              type="password"
+              defaultValue=""
+              ref={input => focusFn(input)}
+              onChange={onChange}
+              placeholder={placeholders[0]}
+            />
           </div>
         </div>
       );
@@ -64,7 +78,13 @@ export default function a(...args) {
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input type="text" defaultValue={defaultValue} ref={input => focusFn(input)} onChange={onChange} />
+            <input
+              type="text"
+              defaultValue={defaultValue}
+              ref={input => focusFn(input)}
+              onChange={onChange}
+              placeholder={placeholders[0]}
+            />
           </div>
         </div>
       );
@@ -74,7 +94,7 @@ export default function a(...args) {
   let content = (
     <div>
       <label>
-        {args[1]}
+        {message}
         {inputDom}
       </label>
     </div>
@@ -102,13 +122,13 @@ export default function a(...args) {
   }
 
   let actions;
-  if (typeof args[2] === 'function') {
+  if (typeof callbackOrActions === 'function') {
     actions = [
       { text: '取消' },
-      { text: '确定', onPress: () => { getArgs(args[2]); } },
+      { text: '确定', onPress: () => { getArgs(callbackOrActions); } },
     ];
   } else {
-    actions = args[2].map(item => {
+    actions = callbackOrActions.map(item => {
       return {
         text: item.text,
         onPress: () => {

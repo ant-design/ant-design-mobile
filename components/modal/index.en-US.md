@@ -51,8 +51,9 @@ Properties | Descrition | Type | Default
 | callbackOrActions  | button group [{text, onPress}] or callback      | Array or Function | -            |
 | type       | prompt style   | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue       | Default(input whick type is password is not supported)   | String |   -  |
+| placeholders       | ['', '']  | String[] |   -  |
 
-call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?).close()` can close prompt Modal outside anywhere as you wish.
+call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?).close()` can close prompt Modal outside anywhere as you wish.
 
 ### Modal.operation(actions?) ( Support Platform：WEB、React-Native )
 

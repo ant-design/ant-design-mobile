@@ -18,6 +18,7 @@ export interface PropmptContainerProps {
   actions: Array<ButtonType>;
   onAnimationEnd?: (visible: boolean) => void;
   styles?: IPromptStyle;
+  placeholders?: string[];
 }
 
 export default class PropmptContainer extends React.Component<PropmptContainerProps, any> {
@@ -49,7 +50,7 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
   }
 
   render() {
-    const { title, onAnimationEnd, message, type, actions } = this.props;
+    const { title, onAnimationEnd, message, type, actions, placeholders } = this.props;
     const styles = this.props.styles!;
     const { text, password } = this.state;
     const getArgs = function(func) {
@@ -129,6 +130,7 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
                     value={this.state.text}
                     style={styles.input}
                     underlineColorAndroid="transparent"
+                    placeholder={placeholders![0]}
                   />
                 </View>
               )
@@ -143,12 +145,12 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
                     value={this.state.password}
                     style={styles.input}
                     underlineColorAndroid="transparent"
+                    placeholder={placeholders![1]}
                   />
                 </View>
               )
             }
           </View>
-          <View style={{ height: 60 }} />
         </KeyboardAvoidingView>
       </Modal>
     );

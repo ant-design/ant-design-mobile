@@ -2,15 +2,13 @@ import React from 'react';
 import topView from 'rn-topview';
 import PromptContainer from './PromptContainer';
 
-export default function a(...args) {
-  if (!args || !args[2]) {
+export default function prompt(
+  title, message, callbackOrActions, type = 'default', defaultValue = '', placeholders = ['', ''],
+) {
+  if (!callbackOrActions) {
     console.error('Must specify callbackOrActions');
     return;
   }
-  const title = args[0];
-  const message = args[1] || '';
-  const type = args[3] || 'default';
-  const defaultValue = args[4] || '';
 
   const onAnimationEnd = (visible) => {
     if (!visible) {
@@ -22,10 +20,11 @@ export default function a(...args) {
     <PromptContainer
       title={title}
       message={message}
-      actions={args[2]}
-      type={type}
+      actions={callbackOrActions}
+      type={type as any}
       defaultValue={defaultValue}
       onAnimationEnd={onAnimationEnd}
+      placeholders={placeholders}
     />,
   );
 }

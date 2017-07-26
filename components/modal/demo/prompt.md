@@ -34,7 +34,7 @@ const App = () => (
             }, 1000);
           }),
         },
-      ])}
+      ], 'default', null, ['请输入你的名字'])}
     >按钮 Promise</Button>
 
     <WhiteSpace size="lg" />
@@ -71,6 +71,8 @@ const App = () => (
       '输入用户名和密码',
       (login, password) => console.log(`login: ${login}, password: ${password}`),
       'login-password',
+      null,
+      ['请输入用户名', '请输入密码'],
     )}
     >输入框登录形式 </Button>
 
