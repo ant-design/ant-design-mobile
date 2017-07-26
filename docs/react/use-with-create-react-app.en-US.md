@@ -215,26 +215,26 @@ First we install antd-mobile and [babel-plugin-import](https://github.com/ant-de
 
 ### React Native project
 
-  1. Create `theme.js` file in the project root, overwrite the theme variables that you want to change, eg:
+1. Create `theme.js` file in the project root, overwrite the theme variables that you want to change, eg:
 
-    ```js
-    module.exports = {
-      brand_primary: 'red',
-      color_link: 'red',
-      border_color_base: 'green',
-    };
-    ```
-  2. Create `scripts/custom-rn-theme.js` file in the project root, copy the contents of [rn-custom-ui/scripts/custom-rn-theme.js](https://github.com/ant-design/antd-mobile-samples/blob/master/rn-custom-ui/scripts/custom-rn-theme.js) to `scripts/custom-rn-theme.js`.
+  ```js
+  module.exports = {
+    brand_primary: 'red',
+    color_link: 'red',
+    border_color_base: 'green',
+  };
+  ```
+2. Create `scripts/custom-rn-theme.js` file in the project root, copy the contents of [rn-custom-ui/scripts/custom-rn-theme.js](https://github.com/ant-design/antd-mobile-samples/blob/master/rn-custom-ui/scripts/custom-rn-theme.js) to `scripts/custom-rn-theme.js`.
 
-  3. Modify the `start` script in `package.json` like this:
+3. Modify the `start` script in `package.json` like this:
 
-    ```json
-    "scripts": {
-      ...
-      "start": "node scripts/custom-rn-theme && react-native-scripts start",
-      ...
-    }
+  ```json
+  "scripts": {
+    ...
+    "start": "node scripts/custom-rn-theme && react-native-scripts start",
+    ...
+  }
 
-    Then restart the service.
+  Then restart the service.
 
   > Note: if you want to overwrite some styles for a single component, please see [ant-design-mobile/issues/1174](https://github.com/ant-design/ant-design-mobile/issues/1174#issuecomment-295256831) (currently support 1.x verion)

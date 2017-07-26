@@ -220,26 +220,27 @@ $ yarn start
 
   项目源码请查看: [antd-mobile-samples/rn-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
 
-  1. 在项目根目录创建 `theme.js` 文件，并覆盖你要改写的变量值，eg：
+1. 在项目根目录创建 `theme.js` 文件，并覆盖你要改写的变量值，eg：
 
-    ```js
-    module.exports = {
-      brand_primary: 'red',
-      color_link: 'red',
-      border_color_base: 'green',
-    };
-    ```
-  2. 项目根目录下创建 `scripts/custom-rn-theme.js` 文件，文件内容 copy [rn-custom-ui/scripts/custom-rn-theme.js](https://github.com/ant-design/antd-mobile-samples/blob/master/rn-custom-ui/scripts/custom-rn-theme.js) 该文件内容即可；
+  ```js
+  module.exports = {
+    brand_primary: 'red',
+    color_link: 'red',
+    border_color_base: 'green',
+  };
+  ```
 
-  3. 改写 `package.json` 中 `start` 命令如下：
+2. 项目根目录下创建 `scripts/custom-rn-theme.js` 文件，文件内容 copy [rn-custom-ui/scripts/custom-rn-theme.js](https://github.com/ant-design/antd-mobile-samples/blob/master/rn-custom-ui/scripts/custom-rn-theme.js) 该文件内容即可；
 
-    ```json
-    "scripts": {
-      ...
-      "start": "node scripts/custom-rn-theme && react-native-scripts start",
-      ...
-    }
-    ```
+3. 改写 `package.json` 中 `start` 命令如下：
+
+  ```json
+  "scripts": {
+    ...
+    "start": "node scripts/custom-rn-theme && react-native-scripts start",
+    ...
+  }
+  ```
 
     重新执行 `npm start`。
 
