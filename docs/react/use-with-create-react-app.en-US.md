@@ -36,96 +36,125 @@ $ yarn start
 
 ## Import antd-mobile
 
-First we install antd-mobile and [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)(A babel plugin for importing components on demand [principle](https://github.com/ant-design/ant-design/blob/master/docs/react/getting-started#Import-on-Demand)) from yarn or npm.
+First we install antd-mobile and [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) from yarn or npm.
 
   ```bash
   $ yarn add antd-mobile
   $ yarn add babel-plugin-import --dev
   ```
 
-- ### Web project
+### Web project
 
-  1. generate the customized configration boilerplate
+> The source code of this sample can be found at [antd-mobile-sample/create-react-app](https://github.com/ant-design/antd-mobile-samples/tree/master/create-react-app)
 
-    ```bash
-    npm run eject
-    ```
+1. generate the customized configration boilerplate
 
-  2. install devDependencies
+  ```bash
+  yarn run eject
+  ```
 
-    ```bash
-    yarn add --dev babel-plugin-import svg-sprite-loader@0.3.1 less less-loader postcss-pxtorem
-    ```
+2. install devDependencies
 
-  3. Modify `config/webpack.config.dev.js`
+  ```bash
+  yarn add --dev babel-plugin-import svg-sprite-loader@0.3.1 less less-loader postcss-pxtorem@^3.3.1
+  ```
 
-    ```js
-    ...
-    const pxtorem = require('postcss-pxtorem');
-    ...
-    extensions: ['.web.js', '.js', '.json', '.jsx'],
-    ...
-    rules: [
-      {
-        exclude: [
-          ...
-          /\.less$/,
-          /\.svg$/,
-          ...
-        ]
-      },
-      ...
-      // Process JS with Babel.
-      {
-        test: /\.(js|jsx)$/,
-        ...
-        options: {
-          plugins: [
-            ['import', { libraryName: 'antd-mobile', style: true }],
-          ],
-          cacheDirectory: true,
-        }
-      },
-      ...
-      // It is generally necessary to use the Icon component, need to configure svg-sprite-loader
-      {
-        test: /\.(svg)$/i,
-        loader: 'svg-sprite-loader',
-        include: [
-          require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. svg files of antd-mobile
-          // path.resolve(__dirname, 'src/my-project-svg-foler'),  // folder of svg files in your project
-        ]
-      },
-      {
-        test: /\.less$/,
-        use: [
-          require.resolve('style-loader'),
-          require.resolve('css-loader'),
-          {
-            loader: require.resolve('postcss-loader'),
-            options: {
-              ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-              plugins: () => [
-                autoprefixer({
-                  browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
-                }),
-                pxtorem({ rootValue: 100, propWhiteList: [] })
-              ],
-            },
-          },
-          {
-            loader: require.resolve('less-loader'),
-            options: {
-              modifyVars: { "@primary-color": "#1DA57A" },
-            },
-          },
-        ],
-      }
-    ]
-    ```
-    > Note, we only modified webpack.config.dev.js now, if you wish this config working on production environment, you need to update webpack.config.prod.js as well.
+3. Modify `config/webpack.config.dev.js`
 
-  4. Entry html page Required settings:
+```diff
+--- a/config/webpack.config.dev.js
++++ b/config/webpack.config.dev.js
+@@ -1,6 +1,7 @@
+ 'use strict';
+
+ const autoprefixer = require('autoprefixer');
++const pxtorem = require('postcss-pxtorem');
+ const path = require('path');
+ const webpack = require('webpack');
+ const HtmlWebpackPlugin = require('html-webpack-plugin');
+@@ -88,7 +89,7 @@ module.exports = {
+     // for React Native Web.
+     extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
+     alias: {
+-
++
+       // Support React Native Web
+       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+       'react-native': 'react-native-web',
+@@ -118,7 +119,7 @@ module.exports = {
+           {
+             options: {
+               formatter: eslintFormatter,
+-
++
+             },
+             loader: require.resolve('eslint-loader'),
+           },
+@@ -144,6 +145,8 @@ module.exports = {
+           /\.gif$/,
+           /\.jpe?g$/,
+           /\.png$/,
++          /\.less$/,
++          /\.svg$/,
+         ],
+         loader: require.resolve('file-loader'),
+         options: {
+@@ -167,13 +170,48 @@ module.exports = {
+         include: paths.appSrc,
+         loader: require.resolve('babel-loader'),
+         options: {
+-
++          plugins: [
++            ['import', { libraryName: 'antd-mobile', style: true }],
++          ],
+           // This is a feature of `babel-loader` for webpack (not Babel itself).
+           // It enables caching results in ./node_modules/.cache/babel-loader/
+           // directory for faster rebuilds.
+           cacheDirectory: true,
+         },
+       },
++      {
++        test: /\.(svg)$/i,
++        loader: 'svg-sprite-loader',
++        include: [
++          require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. svg files of antd-mobile
++          // path.resolve(__dirname, 'src/my-project-svg-foler'),  // folder of svg files in your project
++        ]
++      },
++      {
++        test: /\.less$/,
++        use: [
++          require.resolve('style-loader'),
++          require.resolve('css-loader'),
++          {
++            loader: require.resolve('postcss-loader'),
++            options: {
++              ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
++              plugins: () => [
++                autoprefixer({
++                  browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
++                }),
++                pxtorem({ rootValue: 100, propWhiteList: [] })
++              ],
++            },
++          },
++          {
++            loader: require.resolve('less-loader'),
++            options: {
++              modifyVars: { "@primary-color": "#1DA57A" },
++            },
++          },
++        ],
++      },
+       // "postcss" loader applies autoprefixer to our CSS.
+       // "css" loader resolves paths in CSS and adds assets as dependencies.
+       // "style" loader turns CSS into JS modules that inject <style> tags.
+
+```
+
+> Notice:  we only modified webpack.config.dev.js now, if you wish this config working on production environment, you need to update webpack.config.prod.js as well.
+
+4. Entry html page Required settings:
 
     - Use HD program settings, see [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE) for details.
     - Use [FastClick](https://github.com/ftlabs/fastclick), ref [#576](https://github.com/ant-design/ant-design-mobile/issues/576)
@@ -137,42 +166,54 @@ First we install antd-mobile and [babel-plugin-import](https://github.com/ant-de
       }
       ```
 
-- ### React Native project
+### React Native project
 
-  1. Modify the `.babelrc` config, then restart the service.
+> The source code of this sample can be found at [antd-mobile-sample/create-react-native-app](https://github.com/ant-design/antd-mobile-samples/tree/master/create-react-native-app)
 
-    ```json
-    {
-      "presets": ["babel-preset-expo"],
-      "plugins": [["import", { "libraryName": "antd-mobile" }]],
-      "env": {
-        ...
-      }
-    }
-    ```
-  2. Modify the `App.js` file, import `Button` component from antd-mobile.
+1. Modify the `.babelrc` config, then restart the service.
 
-    ```js
-    ...
-    import { Button } from 'antd-mobile';
+```diff
+--- a/.babelrc
++++ b/.babelrc
+@@ -1,5 +1,6 @@
+ {
+   "presets": ["babel-preset-expo"],
++  "plugins": [["import", { "libraryName": "antd-mobile" }]],
+   "env": {
+     "development": {
+       "plugins": ["transform-react-jsx-source"]
+```
 
-    ...
-    render() {
-      return (
-        ...
-        <Button>antd-mobile button</Button>
-        ...
-      );
-    }
-    ```
+2. Modify the `App.js` file, import `Button` component from antd-mobile.
+
+```diff
+--- a/App.js
++++ b/App.js
+@@ -1,5 +1,7 @@
+ import React from 'react';
+ import { StyleSheet, Text, View } from 'react-native';
++import { Button } from 'antd-mobile';
++
+
+ export default class App extends React.Component {
+   render() {
+@@ -8,6 +10,7 @@ export default class App extends React.Component {
+         <Text>Open up App.js to start working on your app!</Text>
+         <Text>Changes you make will automatically reload.</Text>
+         <Text>Shake your phone to open the developer menu.</Text>
++        <Button>antd-mobile button</Button>
+       </View>
+     );
+   }
+```
 
 ## Customize Theme
 
-- ### Web project
+### Web project
 
-  Please see: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
+  Please see: [antd-mobile-sample/web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [antd-mobile-sample/web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
-- ### React Native project
+### React Native project
 
   1. Create `theme.js` file in the project root, overwrite the theme variables that you want to change, eg:
 
