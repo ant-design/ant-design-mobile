@@ -709,7 +709,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
               "marginHorizontal": 2.5,
               "marginVertical": 3,
             },
-            undefined,
+            false,
           ]
         }
       />
@@ -762,7 +762,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
               "marginHorizontal": 2.5,
               "marginVertical": 3,
             },
-            undefined,
+            false,
           ]
         }
       />
@@ -779,7 +779,7 @@ exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
               "marginHorizontal": 2.5,
               "marginVertical": 3,
             },
-            undefined,
+            false,
           ]
         }
       />
