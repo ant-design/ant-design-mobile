@@ -5,6 +5,7 @@ import Modal from './Modal';
 export type AlertButtonType = {
   text: string;
   onPress?: () => void;
+  style?: any;
 };
 
 export interface AlertContainerProps {
