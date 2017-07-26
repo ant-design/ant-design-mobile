@@ -36,6 +36,9 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
     styles: modalStyle,
     operation: false,
   };
+  static alert: any;
+  static operation: any;
+  static prompt: any;
 
   root: any;
 

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Modal from './Modal.web';
 
 export default function prompt(
-  title, message, callbackOrActions, type = 'default', defaultValue = '', placeholder = ['', ''],
+  title, message, callbackOrActions, type = 'default', defaultValue = '', placeholders = ['', ''],
 ) {
   if (!callbackOrActions) {
     // console.log('Must specify callbackOrActions');
@@ -43,7 +43,7 @@ export default function prompt(
               defaultValue={defaultValue}
               ref={input => focusFn(input)}
               onChange={onChange}
-              placeholder={placeholder[0]}
+              placeholder={placeholders[0]}
             />
           </div>
           <div className={`${prefixCls}-input`}>
@@ -51,7 +51,7 @@ export default function prompt(
               type="password"
               defaultValue=""
               onChange={onChange}
-              placeholder={placeholder[1]}
+              placeholder={placeholders[1]}
             />
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function prompt(
               defaultValue=""
               ref={input => focusFn(input)}
               onChange={onChange}
-              placeholder={placeholder[0]}
+              placeholder={placeholders[0]}
             />
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function prompt(
               defaultValue={defaultValue}
               ref={input => focusFn(input)}
               onChange={onChange}
-              placeholder={placeholder[0]}
+              placeholder={placeholders[0]}
             />
           </div>
         </div>

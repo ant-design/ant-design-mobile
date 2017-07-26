@@ -19,7 +19,6 @@ export interface IModalStyle {
   operationContainer: ViewStyle;
   operationBody: ViewStyle;
   buttonTextOperation: TextStyle;
-  content: TextStyle;
 }
 
 export default StyleSheet.create<any>({
@@ -114,10 +113,5 @@ export default StyleSheet.create<any>({
     color: variables.color_text_base,
     textAlign: 'left',
     paddingHorizontal: 15,
-  },
-  content: {
-    color: variables.color_text_base,
-    lineHeight: variables.line_height_paragraph,
-    fontSize: variables.font_size_subhead,
   },
 });
