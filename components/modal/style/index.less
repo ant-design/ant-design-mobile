@@ -12,9 +12,9 @@
     text-decoration: none;
     outline: none;
     color: @color-link;
-    font-size: @link-button-font-size;
-    height: @across-button-height;
-    line-height: @across-button-height;
+    font-size: @modal-button-font-size;
+    height: @modal-button-height;
+    line-height: @modal-button-height;
     display: block;
     .ellipsis();
   }
@@ -49,6 +49,8 @@
   }
 
   &-input {
+    height: 72px;
+    line-height: @line-height-base;
     border-left: @border-width-sm solid @border-color-base;
     border-right: @border-width-sm solid @border-color-base;
     border-bottom: @border-width-sm solid @border-color-base;
@@ -68,10 +70,16 @@
     input {
       border: 0;
       width: 98%;
+      height: 100%;
       box-sizing: border-box;  // maybe not need it ?
 
       margin: 0;
       padding: @v-spacing-xs 0;
+      &::placeholder {
+        font-size: @font-size-base;
+        color: #ccc;
+        padding-left: @h-spacing-md;
+      }
     }
   }
 
@@ -90,11 +98,9 @@
       }
 
       .@{modalPrefixClass}-body {
-        font-size: @font-size-caption;
         color: @color-text-base;
         text-align: left;
         padding: 0 48px @v-spacing-lg;
-        line-height: @line-height-paragraph;
 
         .@{modalPrefixClass}-input {
           border-left: 0;

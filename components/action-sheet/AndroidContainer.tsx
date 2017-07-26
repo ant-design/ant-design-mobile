@@ -1,17 +1,18 @@
 import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
-import styles, { vars as variables } from './style/index';
+import styles, { vars as variables, IActionSheetStyle } from './style';
 import Modal from 'rc-dialog/lib/Modal';
 
-export interface Props {
+export interface IActionSheetNativeProps {
   onAnimationEnd?: (visible: boolean) => void;
   visible?: boolean;
   share?: boolean;
   config?: any;
   callback?: (index: number) => void;
+  styles?: IActionSheetStyle;
 }
 
-class ActionSheetAndroid extends React.Component<Props, any> {
+class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
   static defaultProps = {
     share: false,
   };

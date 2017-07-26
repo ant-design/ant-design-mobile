@@ -1,7 +1,7 @@
 import { StyleSheet, ViewStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create({
+export default StyleSheet.create<any>({
   container: {
     zIndex: variables.popup_zindex,
   },

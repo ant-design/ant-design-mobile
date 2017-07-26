@@ -11,7 +11,7 @@ to simulate tooltip.
 
 
 ````jsx
-/* eslint arrow-body-style: 0*/
+/* eslint arrow-body-style: 0 */
 import { Range, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
 
 const RangeWithTooltip = createTooltip(Range);

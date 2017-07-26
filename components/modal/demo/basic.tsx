@@ -39,7 +39,7 @@ export default class BasicModalExample extends React.Component<any, any> {
   onButtonClick = () => {
     Modal.alert(
       '标题',
-     ('alert 内容内容'),
+     'alert 内容内容',
       [
         { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
         { text: 'OK', onPress: () => console.log('ok') },
@@ -60,6 +60,8 @@ export default class BasicModalExample extends React.Component<any, any> {
       '输入用户名和密码',
       (login, password) => console.log(`login: ${login}, password: ${password}`),
       'login-password',
+      null,
+      ['请输入用户名', '请输入密码'],
     );
   }
 
@@ -73,6 +75,16 @@ export default class BasicModalExample extends React.Component<any, any> {
     );
   }
 
+  onButtonClick5 = () => {
+    Modal.prompt(
+      '输入姓名',
+      '这是姓名message,可以不要',
+      password => console.log(`password: ${password}`),
+      'default',
+      null,
+      ['请输入姓名'],
+    );
+  }
   render() {
     const footerButtons = [
       { text: 'Cancel', onPress: () => console.log('cancel') },
@@ -88,6 +100,8 @@ export default class BasicModalExample extends React.Component<any, any> {
           <Button onClick={this.onButtonClick}>显示 Modal.alert</Button>
           <WhiteSpace />
           <Button onClick={this.onButtonClick2}>显示 Modal.opertation</Button>
+          <WhiteSpace />
+          <Button onClick={this.onButtonClick5}>显示 Modal.prompt (default)</Button>
           <WhiteSpace />
           <Button onClick={this.onButtonClick3}>显示 Modal.prompt (login-password)</Button>
           <WhiteSpace />

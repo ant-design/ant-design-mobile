@@ -32,5 +32,5 @@ ReactDOM.render(
     </Card>
     <WhiteSpace size="lg" />
   </WingBlank>
-, mountNode);
+  , mountNode);
 ````

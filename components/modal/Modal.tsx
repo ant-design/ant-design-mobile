@@ -36,6 +36,9 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
     styles: modalStyle,
     operation: false,
   };
+  static alert: any;
+  static operation: any;
+  static prompt: any;
 
   root: any;
 
@@ -77,7 +80,7 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
           buttonStyle = button.style;
           if (typeof buttonStyle === 'string') {
             const styleMap = {
-              'cancel': { fontWeight: 'bold' },
+              'cancel': {},
               'default': {},
               'destructive': { color: 'red' },
             };

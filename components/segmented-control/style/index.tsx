@@ -8,7 +8,7 @@ export interface ISegmentControlStyle {
   itemRightRadius: ViewStyle;
   itemText: TextStyle;
 }
-export default StyleSheet.create<ISegmentControlStyle>({
+export default StyleSheet.create<any>({
   segment: {
     flexDirection: 'row',
     overflow: 'hidden',

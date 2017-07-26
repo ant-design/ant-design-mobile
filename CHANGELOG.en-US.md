@@ -33,6 +33,20 @@ timeline: true
 - Progress: `wrapStyle` has been replaced by `style` and  `style` has been replaced by `barStyle` property.
 - The `style` property now can custom style, eg: tintColor for switch
 - `Flex` remove redundancy api of Flex, just keep `align: enum{start, center, end}`。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
+## 1.5.0
+
+`2017-07-22`
+
+- **Feature**
+  - `ListItem` 支持 `onLongPress`. ([#1533](https://github.com/ant-design/ant-design-mobile/pull/1533))
+
+- **Bug Fix**
+  - 修复 `Tabs` 滑动浮层覆盖 `Popup` 蒙版的问题。([#1512](https://github.com/ant-design/ant-design-mobile/pull/1512))
+  - 修复 `Switch` 在 android 上 0.5px 导致显示不正常的问题。([86dabf](https://github.com/ant-design/ant-design-mobile/commit/86dabfea9841695fbca5319b422f11a0ddb17184))
+  - 修复 React Native `Modal.prompt` 键盘遮挡的问题。([#1489](https://github.com/ant-design/ant-design-mobile/issues/1489))
+
+- **Improve && Enhancement**
+  - 增加对 `Icon` svg-sprite-loader 可能未正确配置的检测和 warning。([#1574](https://github.com/ant-design/ant-design-mobile/issues/1574))
 
 ## 1.4.2
 
@@ -46,6 +60,7 @@ timeline: true
 - **Improve && Enhancement**
   - 升级 Slider 依赖的 rc-slider 版本。
   - 部分组件文档国际化完善，增加部分组件测试用例。
+
 
 ## 1.4.1
 

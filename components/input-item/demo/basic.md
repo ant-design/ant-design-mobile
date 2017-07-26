@@ -53,8 +53,8 @@ class BasicInputExample extends React.Component {
                 });
               }}
             >
-          click to focus
-        </div>
+              click to focus
+            </div>
           </List.Item>
         </List>
         <List renderHeader={() => 'Whether is controlled'}>

@@ -2,14 +2,14 @@
 import React from 'react';
 import { View, TextInput, Text, Image } from 'react-native';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
-import defaultStyles, { SearchBarStyle } from './style';
+import defaultStyles, { ISearchBarStyle } from './style';
 import omit from 'omit.js';
 
-export interface SearchBarNativeProps extends SearchBarProps {
-  styles: SearchBarStyle;
+export interface ISearchBarNativeProps extends SearchBarProps {
+  styles: ISearchBarStyle;
 }
 
-export default class SearchBar extends React.Component<SearchBarNativeProps, SearchBarState> {
+export default class SearchBar extends React.Component<ISearchBarNativeProps, SearchBarState> {
   static defaultProps = {
     ...defaultProps,
     styles: defaultStyles,

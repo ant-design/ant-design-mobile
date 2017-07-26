@@ -21,7 +21,7 @@ export interface IModalStyle {
   buttonTextOperation: TextStyle;
 }
 
-export default StyleSheet.create<IModalStyle>({
+export default StyleSheet.create<any>({
   container: {
     zIndex: variables.modal_zindex,
   },
@@ -45,7 +45,7 @@ export default StyleSheet.create<IModalStyle>({
     borderBottomRightRadius: variables.radius_md,
   },
   header: {
-    fontSize: variables.font_size_heading,
+    fontSize: variables.modal_font_size_heading,
     color: variables.color_text_base,
     textAlign: 'center',
     paddingHorizontal: variables.h_spacing_lg,
@@ -83,6 +83,7 @@ export default StyleSheet.create<IModalStyle>({
     flexDirection: 'column',
   },
   buttonWrapH: {
+    height: variables.modal_button_height,
     flexGrow: 1,
     borderColor: variables.border_color_base,
     borderTopWidth: StyleSheet.hairlineWidth,
@@ -98,7 +99,7 @@ export default StyleSheet.create<IModalStyle>({
   buttonText: {
     textAlign: 'center',
     color: variables.color_link,
-    fontSize: variables.link_button_font_size,
+    fontSize: variables.modal_button_font_size,
     backgroundColor: 'transparent',
   },
   operationContainer: {

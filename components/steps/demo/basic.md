@@ -61,7 +61,7 @@ ReactDOM.render(
       <Step title="Step 4" icon={<Icon type={require('./pay-circle.svg')} />} />
     </Steps>
   </WingBlank>
-, mountNode);
+  , mountNode);
 ````
 
 ````css

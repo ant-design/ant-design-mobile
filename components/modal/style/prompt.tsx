@@ -10,7 +10,7 @@ export interface IPromptStyle {
   inputLast: ViewStyle;
 }
 
-export default StyleSheet.create<IPromptStyle>({
+export default StyleSheet.create<any>({
   message: {
     marginTop: variables.v_spacing_lg,
     color: variables.color_text_caption,
@@ -27,7 +27,7 @@ export default StyleSheet.create<IPromptStyle>({
     borderColor: variables.border_color_base,
   },
   input: {
-    height: 22,
+    height: 36,
     fontSize: variables.font_size_base,
     paddingHorizontal: variables.h_spacing_sm,
     paddingVertical: 0,

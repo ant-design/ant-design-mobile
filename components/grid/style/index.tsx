@@ -1,7 +1,7 @@
 import variables from '../../style/themes/default';
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+export default StyleSheet.create<any>({
   grayBorderBox: {
     borderColor: variables.border_color_base,
   },

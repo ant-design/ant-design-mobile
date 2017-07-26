@@ -84,22 +84,22 @@ export default class Demo extends React.Component {
     const lang = this.state.lang;
     return Array.isArray(highlightedCode) ? (
       <div className="highlight">
-          <CopyToClipboard
-            text={this.state.sourceCode}
-            onCopy={this.handleCodeCopied}
+        <CopyToClipboard
+          text={this.state.sourceCode}
+          onCopy={this.handleCodeCopied}
+        >
+          <Tooltip
+            title={<FormattedMessage id={`app.demo.${this.state.copied ? 'copied' : 'copy'}`} />}
+            visible={this.state.copyTooltipVisible}
+            onVisibleChange={this.onCopyTooltipVisibleChange}
           >
-            <Tooltip
-              title={<FormattedMessage id={`app.demo.${this.state.copied ? 'copied' : 'copy'}`} />}
-              visible={this.state.copyTooltipVisible}
-              onVisibleChange={this.onCopyTooltipVisibleChange}
+            <span
+              className="code-box-code-copy"
             >
-              <span
-                className="code-box-code-copy"
-              >
-                <Icon type={(this.state.copied && this.state.copyTooltipVisible) ? 'check' : 'copy'} />
-              </span>
-            </Tooltip>
-          </CopyToClipboard>
+              <Icon type={(this.state.copied && this.state.copyTooltipVisible) ? 'check' : 'copy'} />
+            </span>
+          </Tooltip>
+        </CopyToClipboard>
         {props.utils.toReactComponent(highlightedCode)}
       </div>
     ) : (
@@ -125,7 +125,7 @@ export default class Demo extends React.Component {
     div.innerHTML = highlightedCode[1].highlighted;
     this.setState({ sourceCode: div.textContent });
   }
-   /* eslint-enable react/jsx-indent */
+
   render() {
     const { props, state } = this;
     const {

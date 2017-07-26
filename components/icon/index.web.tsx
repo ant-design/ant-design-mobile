@@ -13,15 +13,17 @@ export interface IconPropType {
   onClick?: (e?: any) => void;
 }
 
+const warnMsg = 'Icon props.type is invalid, have you set svg-sprite-loader correctly? see https://goo.gl/kN8oiw';
 export default class Icon extends React.Component<IconPropType, any> {
   static defaultProps = {
     size: 'md',
   };
 
   renderSvg = () => {
+    const { type } = this.props;
     let svg;
     try {
-      svg = require(`./style/assets/${this.props.type}.svg`);
+      svg = require(`./style/assets/${type}.svg`);
     } catch (e) {
 
     } finally {
@@ -30,12 +32,22 @@ export default class Icon extends React.Component<IconPropType, any> {
   }
   render() {
     const { type, className, style, size, ...restProps } = this.props;
+    if (!type || typeof type !== 'string') {
+      console.error(warnMsg);
+      return null;
+    }
     let xlinkHref = this.renderSvg();
     let outerIcon;
     if (!xlinkHref) {
       outerIcon = true;
       xlinkHref = type;
+      if (!/^#/.test(type)) {
+        console.error(warnMsg);
+      }
     } else {
+      if (!/^#/.test(xlinkHref)) {
+        console.error(warnMsg);
+      }
       xlinkHref = `#${type}`;
     }
     const iconClassName = classNames({

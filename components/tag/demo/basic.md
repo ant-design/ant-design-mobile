@@ -38,8 +38,9 @@ ReactDOM.render(
     </Tag>
     <Tag small>Small and Readonly</Tag>
   </div>
-, mountNode);
+  , mountNode);
 ````
+
 ````css
 .tag-container{
   display: flex;

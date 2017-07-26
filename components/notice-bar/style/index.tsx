@@ -10,7 +10,7 @@ export interface INoticeBarStyle {
   link: TextStyle;
 }
 
-export default StyleSheet.create<INoticeBarStyle>({
+export default StyleSheet.create<any>({
   notice: {
     backgroundColor: variables.notice_bar_fill,
     height: variables.notice_bar_height,

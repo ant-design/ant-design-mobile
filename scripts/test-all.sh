@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x
+
 npm run lint && \
 npm run dist && \
 LIB_DIR=dist npm run test:web -- --no-cache && \

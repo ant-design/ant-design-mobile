@@ -29,6 +29,7 @@ export default {
   fill_overlay_inverse: 'rgba(0, 0, 0, .8)',   // 浮层背景 _ 反色，用于 toast
   color_icon_base: '#ccc',                     // 许多小图标的背景，比如一些小圆点，加减号
   toast_fill: 'rgba(0, 0, 0, .8)',
+  fill_grey: '#f7f7f7',
 
   // 透明度
   opacity_disabled: '0.3',   // switch checkbox radio 等组件禁用的透明度
@@ -132,6 +133,11 @@ export default {
 
   link_button_fill_tap: '#ddd',
   link_button_font_size: 16,
+
+  // modal
+  modal_font_size_heading: 18,
+  modal_button_font_size: 18, // 按钮字号
+  modal_button_height: 50, // 按钮高度
 
   // list
   list_title_height: 30,

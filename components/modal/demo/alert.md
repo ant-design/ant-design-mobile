@@ -21,7 +21,7 @@ const alert = Modal.alert;
 const showAlert = () => {
   const alertInstance = alert('删除', '确定删除么???', [
     { text: 'Cancel', onPress: () => console.log('cancel'), style: 'default' },
-    { text: 'OK', onPress: () => console.log('ok'), style: { fontWeight: 'bold' } },
+    { text: 'OK', onPress: () => console.log('ok') },
   ]);
   setTimeout(() => {
     // 可以调用close方法以在外部close
@@ -38,7 +38,7 @@ const App = () => (
     <WhiteSpace size="lg" />
     <Button onClick={() => alert('删除', '确定删除么???', [
       { text: '取消', onPress: () => console.log('cancel') },
-      { text: '确定', onPress: () => console.log('ok'), style: { fontWeight: 'bold' } },
+      { text: '确定', onPress: () => console.log('ok') },
     ])}
     >确认对话框</Button>
 
@@ -60,7 +60,6 @@ const App = () => (
           Toast.info('onPress Promise', 1);
           setTimeout(resolve, 1000);
         }),
-        style: { fontWeight: 'bold' },
       },
     ])}
     >按钮 Promise</Button>
