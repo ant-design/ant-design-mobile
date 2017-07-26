@@ -78,7 +78,7 @@ export default StyleSheet.create<any>({
     left: 0,
     right: 0,
     height: variables.v_spacing_md,
-    backgroundColor: '#F7F7F7',
+    backgroundColor: variables.fill_grey,
     borderStyle: 'solid',
     borderTopWidth: 1,
     borderTopColor: variables.border_color_base,
