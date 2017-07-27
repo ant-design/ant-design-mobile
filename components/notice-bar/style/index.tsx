@@ -32,7 +32,7 @@ export default StyleSheet.create<any>({
   },
   close: {
     color: variables.brand_warning,
-    fontSize: variables.font_size_display_sm,
+    fontSize: 18,
     marginRight: variables.h_spacing_lg,
     fontWeight: '200',
   },

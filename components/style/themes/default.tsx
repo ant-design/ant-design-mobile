@@ -52,8 +52,6 @@ export default {
   font_size_subhead: 15,
   font_size_caption: 16,
   font_size_heading: 17,
-  font_size_display_sm: 18,
-  font_size_display_md: 21,
 
   // 圆角
   // ---
