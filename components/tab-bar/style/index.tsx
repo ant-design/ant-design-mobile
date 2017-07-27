@@ -45,16 +45,16 @@ export default StyleSheet.create<any>({
     marginTop: 2,
   },
   contentItem: {
-    zIndex: 1,
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
     backgroundColor: 'white',
+    height: 0,
   },
   contentItemSelected: {
-    zIndex: 3,
+    height: null,
   },
   badge: {
     minWidth: 20,
