@@ -77,7 +77,11 @@ export default class Header extends React.Component {
     });
   }
 
-  handleSearch = value => this.context.router.push({ pathname: value });
+  handleSearch = (value) => {
+    this.context.router.push({
+      pathname: this.context.intl.locale === 'zh-CN' ? `${value}-cn` : value,
+    });
+  }
 
   handleSelectFilter = (value, option) => (
     option.props['data-label'].indexOf(value.toLowerCase()) > -1
