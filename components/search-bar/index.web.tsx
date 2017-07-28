@@ -153,15 +153,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     // 加上setTimeout 为了解决Android的兼容性问题。
     // https://github.com/ant-design/ant-design-mobile/issues/1341
     // 只有支付宝系客户端才完美支持
-    const userAgent = navigator.userAgent;
-    if (userAgent.indexOf('AlipayClient') > 0) {
+    const ua = navigator.userAgent;
+    if (ua.indexOf('AlipayClient') > 0 && (ua.match(/Android/i) || ua.indexOf('AliApp(AM') < 0)) {
       // 口碑掌柜iOS 只有5.2以上版本才支持
-      if (!(!userAgent.match(/Android/i) && userAgent.indexOf('AliApp(AM') > 0)) {
-        setTimeout(() => {
-          (this.refs as any).searchInput.focus();
-          this.componentDidUpdate();
-        }, 300);
-      }
+      setTimeout(() => {
+        (this.refs as any).searchInput.focus();
+        this.componentDidUpdate();
+      }, 300);
     }
   }
 
