@@ -27,12 +27,12 @@ const TabExample = () => (
           Content of First Tab
         </div>
       </TabPane>
-      <TabPane tab={<Badge dot>Second Tab</Badge>} key="2">
+      <TabPane tab={<Badge text={'今日(20)'}>Second Tab</Badge>} key="2">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           Content of Second Tab
         </div>
       </TabPane>
-      <TabPane tab={<Badge text={'今日(20)'}>Third Tab</Badge>} key="3">
+      <TabPane tab={<Badge dot>Third Tab</Badge>} key="3">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
           Content of Third Tab
         </div>

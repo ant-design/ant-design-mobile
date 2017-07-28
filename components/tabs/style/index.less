@@ -2,6 +2,7 @@
 @import '../../style/mixins';
 
 @tabs-prefix-cls: am-tabs;
+@badge-prefix-cls: am-badge;
 @page-hide-color: rgba(255, 255, 255, 0);
 @page-show-color: rgba(255, 255, 255, 1);
 
@@ -75,20 +76,14 @@
         color: @tabs-color;
       }
 
-      .am-badge {
-        .am-badge-text {
-          top: -0.26rem;
-          left: 100%;
-          right: auto;
-          transform: translateX(-0.1rem);
-          transform-origin: center;
+      .@{badge-prefix-cls} {
+        .@{badge-prefix-cls}-text {
+          top: -26px;
+          transform: translateX(-10px);
         }
-        .am-badge-dot {
-          top: -0.12rem;
-          left: 100%;
-          right: auto;
+        .@{badge-prefix-cls}-dot {
+          top: -12px;
           transform: translateX(0);
-          transform-origin: center;
         }
       }
     }
