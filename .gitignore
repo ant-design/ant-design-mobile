@@ -46,3 +46,4 @@ npm-debug.log*
 !components/**/__tests__/*.js
 coverage
 /es/
+package-lock.json

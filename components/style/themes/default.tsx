@@ -40,6 +40,7 @@ export default {
   brand_warning: '#f4333c',
   brand_error: '#f4333c',
   brand_important: '#ff5b05',  // 用于小红点
+  brand_wait: '#108ee9',
 
   // 边框色
   border_color_base: '#ddd',
