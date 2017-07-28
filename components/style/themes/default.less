@@ -24,7 +24,6 @@
 @fill-mask: rgba(0, 0, 0, 0.4);              // 遮罩背景
 @fill-overlay-inverse: rgba(58, 58, 58, 0.9);// 浮层背景 - 反色，用于 toast // deprecated
 @color-icon-base: #ccc;                      // 许多小图标的背景，比如一些小圆点，加减号
-@toast-fill: @fill-overlay-inverse;
 @fill-grey: #f7f7f7;
 
 // 透明度
@@ -91,7 +90,6 @@
 
 // 高度
 // ---
-@option-height: 84px;           // action-sheet、popover 等组件的选项高度
 @line-height-base: 1;           // 单行行高
 @line-height-paragraph: 1.5;    // 多行行高
 
@@ -162,6 +160,9 @@
 @tab-bar-fill: #ebeeef;
 @tab-bar-height: 100px;
 
+// toast
+@toast-fill: @fill-overlay-inverse; // toast, activity-indicator 的背景颜色
+
 // search-bar
 @search-bar-fill: #efeff4;
 @search-bar-height: 88px;
@@ -189,6 +190,9 @@
 
 // table
 @table-title-height: 60px;
+
+// picker
+@option-height: 84px;           // picker 标题的高度
 
 // z-index
 @progress-zindex: 2000;

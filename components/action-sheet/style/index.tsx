@@ -62,7 +62,7 @@ export default StyleSheet.create<any>({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    height: variables.option_height,
+    height: variables.actionsheet_item_height,
     borderStyle: 'solid',
     borderTopWidth: 1,
     borderTopColor: variables.border_color_base,
@@ -85,6 +85,6 @@ export default StyleSheet.create<any>({
   },
   destructiveBtn: {
     color: variables.brand_error,
-    fontSize: variables.font_size_heading,
+    fontSize: variables.actionsheet_item_font_size,
   },
 });
