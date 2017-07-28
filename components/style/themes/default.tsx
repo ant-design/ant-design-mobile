@@ -17,9 +17,6 @@ export default {
   color_text_paragraph: '#333',             // 段落
   color_link: brandPrimary,                 // 链接
 
-  // 阴影色
-  color_shadow: 'rgba(0, 0, 0, .21)',  // 阴影色
-
   // 背景色
   fill_base: '#fff',                           // 组件默认背景
   fill_body: '#f5f5f9',                        // 页面背景
