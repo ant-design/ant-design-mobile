@@ -42,6 +42,7 @@ export default {
   brand_error: '#f4333c',
   brand_hot: '#f96268',        // 用于推荐/促销/折扣
   brand_important: '#ff5b05',  // 用于小红点
+  brand_wait: '#108ee9',
 
   // 边框色
   border_color_base: '#ddd',
