@@ -2,6 +2,7 @@
 @import '../../style/mixins';
 
 @tabs-prefix-cls: am-tabs;
+@badge-prefix-cls: am-badge;
 @page-hide-color: rgba(255, 255, 255, 0);
 @page-show-color: rgba(255, 255, 255, 1);
 
@@ -69,9 +70,21 @@
       color: @color-text-base;
       background-color: @fill-base;
       box-sizing: border-box;
+      align-items: center;
 
       &-active {
         color: @tabs-color;
+      }
+
+      .@{badge-prefix-cls} {
+        .@{badge-prefix-cls}-text {
+          top: -26px;
+          transform: translateX(-10px);
+        }
+        .@{badge-prefix-cls}-dot {
+          top: -12px;
+          transform: translateX(0);
+        }
       }
     }
   }
@@ -130,3 +143,4 @@
     overflow: visible;
   }
 }
+

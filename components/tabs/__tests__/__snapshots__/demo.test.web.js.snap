@@ -19,7 +19,16 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         class=" am-tabs-tab"
         role="tab"
       >
-        First Tab
+        <span
+          class="am-badge"
+        >
+          First Tab
+          <sup
+            class="am-badge-text"
+          >
+            3
+          </sup>
+        </span>
       </div>
       <div
         aria-disabled="false"
@@ -27,7 +36,16 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         class="am-tabs-tab-active am-tabs-tab"
         role="tab"
       >
-        Second Tab
+        <span
+          class="am-badge"
+        >
+          Second Tab
+          <sup
+            class="am-badge-text"
+          >
+            今日(20)
+          </sup>
+        </span>
       </div>
       <div
         aria-disabled="false"
@@ -35,7 +53,14 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         class=" am-tabs-tab"
         role="tab"
       >
-        Third Tab
+        <span
+          class="am-badge"
+        >
+          Third Tab
+          <sup
+            class="am-badge-dot"
+          />
+        </span>
       </div>
     </div>
     <div
