@@ -25,7 +25,6 @@ timeline: true
 - **Bug Fix**
   - 修复`SearchBar` `onClear`时存在的样式渲染问题 ([#1621](https://github.com/ant-design/ant-design-mobile/pull/1621))
   - 修复`SearchBar` 支持data-* 属性. ([bbb358](https://github.com/ant-design/ant-design-mobile/commit/bbb35826872841f50ae31d795f67a97fd3231ca4))
-  - 修复 React Native `Modal.prompt` 键盘遮挡的问题。([#1489](https://github.com/ant-design/ant-design-mobile/issues/1489))
 
 - **Improve && Enhancement**
   - 网站优化 ([#1622](https://github.com/ant-design/ant-design-mobile/pull/1622))
