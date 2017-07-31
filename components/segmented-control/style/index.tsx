@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
 export interface ISegmentControlStyle {
@@ -8,7 +8,7 @@ export interface ISegmentControlStyle {
   itemRightRadius: ViewStyle;
   itemText: TextStyle;
 }
-export default StyleSheet.create<any>({
+export default {
   segment: {
     flexDirection: 'row',
     overflow: 'hidden',
@@ -37,4 +37,4 @@ export default StyleSheet.create<any>({
     textAlign: 'center',
     fontSize: variables.font_size_caption_sm,
   },
-});
+};

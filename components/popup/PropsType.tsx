@@ -5,6 +5,7 @@ export interface PopupProps {
   onMaskClose?: () => any;
   visible?: boolean;
   onAnimationEnd?: (visible: boolean) => void;
+  styles?: any;
 }
 
 export default PopupProps;

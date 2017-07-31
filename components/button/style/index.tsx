@@ -1,7 +1,6 @@
 import variables from '../../style/themes/default';
-import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create<any>({
+export default {
   container: {
     flexDirection: 'row',
   },
@@ -93,4 +92,4 @@ export default StyleSheet.create<any>({
   indicator: {
     marginRight: variables.h_spacing_md,
   },
-});
+};

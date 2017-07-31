@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create<any>({
+export default {
   pagination: {
     position: 'absolute',
     alignItems: 'center',
@@ -29,4 +28,4 @@ export default StyleSheet.create<any>({
     marginHorizontal: variables.h_spacing_sm / 2,
     marginVertical: variables.v_spacing_sm / 2,
   },
-});
+};

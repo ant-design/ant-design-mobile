@@ -1,12 +1,22 @@
 import React from 'react';
-import { View } from 'react-native';
-import styles from './style/index';
+import { View, StyleSheet } from 'react-native';
+import popupStyle, { IPopupStyle } from './style/index';
 import Modal from 'rc-dialog/lib/Modal';
 import PopupProps from './PropsType';
 
 type animationType = 'none' | 'slide-up' | 'slide-down' | 'fade';
 
+export interface IPopupNativeProps extends PopupProps {
+  styles?: IPopupStyle;
+}
+
+const popupStyles = StyleSheet.create<any>(popupStyle);
+
 export default class PopupContainer extends React.Component<PopupProps, any> {
+  static defaultProps = {
+    styles: popupStyles,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -35,6 +45,7 @@ export default class PopupContainer extends React.Component<PopupProps, any> {
   }
 
   render() {
+    const styles = this.props.styles!;
     return (
       <View style={styles.container}>
         <Modal

@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback, Platform } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Platform, StyleSheet } from 'react-native';
 import TagStyle, { ITagStyle } from './style/index';
 import TagProps from './PropsType';
 
 export interface ITagNativeProps extends TagProps {
   styles?: ITagStyle;
 }
+
+const TagStyles = StyleSheet.create<any>(TagStyle);
+
 export default class Tag extends React.Component<ITagNativeProps, any> {
   static defaultProps = {
     disabled: false,
@@ -15,7 +18,7 @@ export default class Tag extends React.Component<ITagNativeProps, any> {
     onClose() {},
     afterClose() {},
     onChange() {},
-    styles: TagStyle,
+    styles: TagStyles,
   };
 
   closeDom: any;

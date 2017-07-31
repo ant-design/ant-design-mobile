@@ -1,5 +1,5 @@
 import variables from '../../style/themes/default';
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 export interface ITagStyle {
   tag: ViewStyle;
@@ -20,7 +20,7 @@ export interface ITagStyle {
   closeTransform: ViewStyle;
 }
 
-export default StyleSheet.create<any>({
+export default {
   tag: {
     borderRadius: variables.radius_sm,
     backgroundColor: 'transparent',
@@ -99,4 +99,4 @@ export default StyleSheet.create<any>({
       rotate: '-45deg',
     }],
   },
-});
+};

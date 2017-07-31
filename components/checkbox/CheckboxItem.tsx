@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import Checkbox from './Checkbox';
 import List from '../list/index';
 import { CheckboxItemProps } from './PropsType';
@@ -10,10 +11,14 @@ const refCheckbox = 'checkbox';
 export interface ICheckboxItemNativeProps extends CheckboxItemProps {
   styles?: ICheckboxStyle;
 }
+
+const CheckboxItemStyles = StyleSheet.create<any>(CheckboxItemStyle);
+
 export default class CheckboxItem extends React.Component<ICheckboxItemNativeProps, any> {
   static defaultProps = {
-    styles: CheckboxItemStyle,
+    styles: CheckboxItemStyles,
   };
+
   handleClick = () => {
     let checkBox: Checkbox = this.refs[refCheckbox] as Checkbox;
     checkBox.handleClick();
@@ -23,10 +28,8 @@ export default class CheckboxItem extends React.Component<ICheckboxItemNativePro
   }
 
   render() {
-    let {
-      style, checkboxStyle, defaultChecked, checked, disabled, children, extra, onChange, styles,
-    } = this.props;
-    styles = styles!;
+    const { style, checkboxStyle, defaultChecked, checked, disabled, children, extra, onChange } = this.props;
+    const styles = this.props.styles!;
 
     const thumbEl = (
       <Checkbox

@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, Image, ImageURISource } from 'react-native';
+import { View, Text, Image, ImageURISource, StyleSheet } from 'react-native';
 import ResultStyle, { IResultStyle } from './style';
 import Button from '../button';
 import ResultProps from './PropsType';
@@ -8,9 +8,12 @@ import ResultProps from './PropsType';
 export interface IResultNativeProps extends ResultProps {
   styles?: IResultStyle;
 }
+
+const ResultStyles = StyleSheet.create<any>(ResultStyle);
+
 export default class Result extends React.Component<IResultNativeProps, any> {
   static defaultProps = {
-    styles: ResultStyle,
+    styles: ResultStyles,
     buttonType: '',
     buttonClick: () => {},
   };

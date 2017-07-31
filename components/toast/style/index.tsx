@@ -1,5 +1,5 @@
 import variables from '../../style/themes/default';
-import { StyleSheet, Platform, ViewStyle, ImageStyle, TextStyle } from 'react-native';
+import { Platform, ViewStyle, ImageStyle, TextStyle } from 'react-native';
 
 export interface IToastStyle {
   container: ViewStyle;
@@ -11,7 +11,8 @@ export interface IToastStyle {
   image: ImageStyle;
   centering: ViewStyle;
 }
-export default StyleSheet.create<any>({
+
+export default {
   container: {
     position: 'absolute',
     top: Platform.OS === 'ios' ? 64 : 54,
@@ -54,4 +55,4 @@ export default StyleSheet.create<any>({
     justifyContent: 'center',
     padding: variables.v_spacing_md,
   },
-});
+};

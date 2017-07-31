@@ -1,15 +1,18 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Image, Text, View } from 'react-native';
+import { TouchableWithoutFeedback, Image, Text, View, StyleSheet } from 'react-native';
 import { RadioProps } from './PropsType';
 import RadioStyle, { IRadioStyle } from './style/index';
 
 export interface IRadioNativeProps extends RadioProps {
   styles?: IRadioStyle;
 }
+
+const RadioStyles = StyleSheet.create<any>(RadioStyle);
+
 export default class Radio extends React.Component<IRadioNativeProps, any> {
   static RadioItem: any;
   static defaultProps = {
-    styles: RadioStyle,
+    styles: RadioStyles,
   };
 
   constructor(props: RadioProps, context: any) {

@@ -6,9 +6,12 @@ import {
   Text,
   ScrollView,
   Platform,
+  StyleSheet,
 } from 'react-native';
 import CarouselStyle from './style';
 import CarouselProps from './PropsType';
+
+const CarouselStyles = StyleSheet.create<any>(CarouselStyle);
 
 const defaultPagination = (props) => {
   const { styles, current, vertical, count, dotStyle, dotActiveStyle } = props;
@@ -46,7 +49,7 @@ class Carousel extends React.Component<CarouselProps, any> {
     selectedIndex: 0,
     // vertical 目前只实现 pagination，内容 vertical 由于自动高度拿不到，暂时无法实现
     vertical: false,
-    styles: CarouselStyle,
+    styles: CarouselStyles,
     pagination: defaultPagination,
     dotStyle: {},
     dotActiveStyle: {},

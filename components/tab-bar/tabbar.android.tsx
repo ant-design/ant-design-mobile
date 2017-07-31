@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { TabBarProps } from './PropsType';
 import TabBarItem from './TabBarItem';
 import TabBarStyle, { ITabBarStyle } from './style/';
@@ -7,12 +7,15 @@ import TabBarStyle, { ITabBarStyle } from './style/';
 export interface ITabBarNativeProps extends TabBarProps {
   styles?: ITabBarStyle;
 }
+
+const TabBarStyles = StyleSheet.create<any>(TabBarStyle);
+
 class TabBar extends React.Component <ITabBarNativeProps, any> {
   static defaultProps = {
     barTintColor: 'white',
     tintColor: '#108ee9',
     unselectedTintColor: '#888',
-    styles: TabBarStyle,
+    styles: TabBarStyles,
   };
 
   static Item: any;

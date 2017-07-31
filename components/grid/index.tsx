@@ -1,10 +1,12 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { Image, Text, Dimensions, View } from 'react-native';
+import { Image, Text, Dimensions, View, StyleSheet } from 'react-native';
 import Flex from '../flex';
 import Carousel from '../carousel';
 import GridStyle from './style';
 import { DataItem, GridProps } from './PropsType';
+
+const GridStyles = StyleSheet.create<any>(GridStyle);
 
 export default class Grid extends React.Component<GridProps, any> {
   static defaultProps = {
@@ -13,7 +15,7 @@ export default class Grid extends React.Component<GridProps, any> {
     isCarousel: false,
     columnNum: 4,
     carouselMaxRow: 2,
-    styles: GridStyle,
+    styles: GridStyles,
   };
 
   getFlexItemStyle() {

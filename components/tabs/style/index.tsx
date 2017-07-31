@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create<any>({
+export default {
   text: {
     fontSize: variables.tabs_font_size_heading,
   },
@@ -21,4 +20,4 @@ export default StyleSheet.create<any>({
   underline: {
     height: 2,
   },
-});
+};

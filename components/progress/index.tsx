@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Animated, Dimensions } from 'react-native';
+import { View, Animated, Dimensions, StyleSheet } from 'react-native';
 import ProgressStyle from './style/index';
 import ProgressProps from './PropsType';
+
+const ProgressStyles = StyleSheet.create<any>(ProgressStyle);
 
 export default class Progress extends React.Component<ProgressProps, any> {
   static defaultProps = {
@@ -9,7 +11,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
     position: 'normal',
     unfilled: 'show',
     appearTransition: false,
-    styles: ProgressStyle,
+    styles: ProgressStyles,
   };
 
   constructor(props) {

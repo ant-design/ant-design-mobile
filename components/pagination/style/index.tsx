@@ -1,5 +1,5 @@
+import { ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
 export interface IPaginationStyle {
   container: ViewStyle;
@@ -12,7 +12,7 @@ export interface IPaginationStyle {
   spaceStyle: ViewStyle;
 }
 
-export default StyleSheet.create<any>({
+export default {
   container: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -45,4 +45,4 @@ export default StyleSheet.create<any>({
     marginHorizontal: variables.h_spacing_sm / 2,
     marginVertical: variables.v_spacing_sm / 2,
   },
-});
+};

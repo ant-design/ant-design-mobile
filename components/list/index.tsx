@@ -1,16 +1,24 @@
 import React from 'react';
-import { View, Text, ViewStyle } from 'react-native';
+import { View, Text, ViewStyle, StyleSheet } from 'react-native';
 import Item from './ListItem';
 import { ListProps } from './PropsType';
-import listStyles from './style/index';
+import listStyle from './style/index';
+
+const listStyles = StyleSheet.create<any>(listStyle);
 
 export default class List extends React.Component<ListProps, any> {
   static Item = Item;
 
+  static defaultProps = {
+    styles: listStyles,
+  };
+
   render() {
     let {
-      children, style, renderHeader, renderFooter, styles = listStyles, ...restProps,
+      children, style, renderHeader, renderFooter, ...restProps,
     } = this.props;
+
+    const styles = this.props.styles!;
 
     let headerDom: React.ReactElement<any> | null = null;
     let footerDom: React.ReactElement<any> | null = null;

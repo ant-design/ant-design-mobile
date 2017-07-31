@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Radio from './Radio';
 import List from '../list';
 import { RadioItemProps } from './PropsType';
@@ -12,9 +12,11 @@ export interface IRadioItemNativeProps extends RadioItemProps {
   styles?: IRadioStyle;
 }
 
+const RadioItemStyles = StyleSheet.create<any>(RadioItemStyle);
+
 export default class RadioItem extends React.Component<IRadioItemNativeProps, any> {
   static defaultProps = {
-    styles: RadioItemStyle,
+    styles: RadioItemStyles,
   };
 
   handleClick = () => {

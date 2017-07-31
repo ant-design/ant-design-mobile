@@ -5,6 +5,7 @@ import {
   Image,
   ActivityIndicator,
   Animated,
+  StyleSheet,
 } from 'react-native';
 import ToastContainerStyle, { IToastStyle } from './style/';
 
@@ -18,13 +19,15 @@ export interface ToastProps {
   styles?: IToastStyle;
 }
 
+const ToastContainerStyles = StyleSheet.create<any>(ToastContainerStyle);
+
 export default class ToastContainer extends React.Component<ToastProps, any> {
   static defaultProps = {
     duration: 3,
     mask: true,
     onClose() {
     },
-    styles: ToastContainerStyle,
+    styles: ToastContainerStyles,
   };
 
   anim: any;

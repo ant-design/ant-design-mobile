@@ -20,6 +20,8 @@ export interface IModalNativeProps extends ModalProps {
   styles?: IModalStyle;
 }
 
+const modalStyles = StyleSheet.create<any>(modalStyle);
+
 class AntmModal extends React.Component<IModalNativeProps, any> {
   static defaultProps = {
     visible: false,
@@ -33,7 +35,7 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
     footer: [],
     transparent: false,
     animateAppear: true,
-    styles: modalStyle,
+    styles: modalStyles,
     operation: false,
   };
   static alert: any;

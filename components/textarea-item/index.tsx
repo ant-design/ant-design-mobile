@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Image, Text, TextInput, TouchableWithoutFeedback } from 'react-native';
+import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import variables from '../style/themes/default';
 import TextAreaItemProps from './PropsType';
 import TextAreaItemStyle, { ITextareaItemStyle } from './style/index';
@@ -16,6 +16,9 @@ function fixControlledValue(value) {
 export interface ITextareaItemNativeProps extends TextAreaItemProps {
   styles?: ITextareaItemStyle;
 }
+
+const TextAreaItemStyles = StyleSheet.create<any>(TextAreaItemStyle);
+
 export default class TextAreaItem extends React.Component<ITextareaItemNativeProps, any> {
   static defaultProps = {
     onChange() {
@@ -34,7 +37,7 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
     keyboardType: 'default',
     autoHeight: false,
     last: false,
-    styles: TextAreaItemStyle,
+    styles: TextAreaItemStyles,
   };
 
   constructor(props) {

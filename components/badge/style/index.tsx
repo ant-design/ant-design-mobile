@@ -1,7 +1,5 @@
-import { StyleSheet, Platform, ViewStyle, TextStyle } from 'react-native';
+import { Platform, ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
-
-const grid = 4;
 
 export interface IBadgeStyle {
   wrap: ViewStyle;
@@ -14,7 +12,9 @@ export interface IBadgeStyle {
   text: TextStyle;
 }
 
-export default StyleSheet.create<any>({
+const grid = 4;
+
+export default {
   wrap: {
     flexDirection: 'row',
   },
@@ -62,4 +62,4 @@ export default StyleSheet.create<any>({
     color: variables.color_text_base_inverse,
     textAlign: 'center',
   },
-});
+};
