@@ -56,7 +56,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     if (!disabled && onClick) {
       underlayColor = {
-        underlayColor: itemStyles.underlayColor,
+        underlayColor: StyleSheet.flatten(itemStyles.underlayColor).backgroundColor,
         activeOpacity: 0.5,
       };
     } else {

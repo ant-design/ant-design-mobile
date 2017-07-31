@@ -2,7 +2,9 @@ import { StyleSheet } from 'react-native';
 import variables from '../../style/themes/default';
 
 export default {
-  underlayColor: variables.fill_tap,
+  underlayColor: {
+    backgroundColor: variables.fill_tap,
+  },
   Header: {
     fontSize: variables.font_size_base,
     color: variables.color_text_caption,
