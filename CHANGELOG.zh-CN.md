@@ -14,6 +14,25 @@ timeline: true
 
 ---
 
+
+### 2.0.0
+
+`2017-xx-xx`
+
+- **Feature**
+
+
+- **Break Change**
+
+  - `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+  -  `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
+  - `ImagePicker` ref 由 string 改成 function. ([#1487](https://github.com/ant-design/ant-design-mobile/pull/1487)
+  - TextareaItem、SearchBar、InputItem 将 `style` 属性传至 input(web) / TextInput(rn) 元素，方便自定义样式;
+  - Progress: `wrapStyle` 改为 `style`, 原来的 `style` 将改成 `barStyle`;
+  - Switch 对 `style` 属性直接针对 switch 样式自身，方便定义样式；
+  - `Flex` 清理冗余API, 只保留 `align: enum{start, center, end}`。 [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
+  - `Theme` 更改，删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`； 将`@searchbar-font-size`重命名为 `@search-bar-font-size`。
+
 ## 1.6.0
 
 `2017-07-30`
@@ -28,6 +47,7 @@ timeline: true
 
 - **Improve && Enhancement**
   - 网站优化 ([#1622](https://github.com/ant-design/ant-design-mobile/pull/1622))
+
 
 ## 1.5.0
 
@@ -292,6 +312,7 @@ timeline: true
 
 
 ## 1.0.6
+
 
 `2017-03-17`
 

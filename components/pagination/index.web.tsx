@@ -11,7 +11,8 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
     prefixCls: 'am-pagination',
     mode: 'button',
-    current: 0,
+    current: 1,
+    total: 0,
     simple: false,
     onChange: () => { },
   };
@@ -28,9 +29,11 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      current: nextProps.current,
-    });
+    if (nextProps.current !== this.state.current) {
+      this.setState({
+        current: nextProps.current,
+      });
+    }
   }
 
   onChange(p) {
@@ -44,23 +47,23 @@ export default class Pagination extends React.Component<PaginationProps, any> {
 
   render() {
     const { prefixCls, className, style, mode, total, simple } = this.props;
-    const current = this.state.current;
+    const { current } = this.state;
     const locale = getComponentLocale(this.props, this.context, 'Pagination', () => require('./locale/zh_CN'));
     const { prevText, nextText } = locale;
 
     let markup = (
       <Flex>
         <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-prev`}>
-          <Button inline disabled={current <= 0} onClick={() => this.onChange(current - 1)}>{prevText}</Button>
+          <Button inline disabled={current <= 1} onClick={() => this.onChange(current - 1)}>{prevText}</Button>
         </Flex.Item>
         {this.props.children ? (<Flex.Item>{this.props.children}</Flex.Item>) : (!simple &&
           <Flex.Item className={`${prefixCls}-wrap`} aria-live="assertive">
-            <span className="active">{current + 1}</span>/<span>{total}</span>
+            <span className="active">{current}</span>/<span>{total}</span>
           </Flex.Item>)}
         <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}>
           <Button
             inline
-            disabled={current >= total - 1}
+            disabled={current >= total}
             onClick={() => this.onChange(this.state.current + 1)}
           >
             {nextText}
@@ -71,7 +74,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     if (mode === 'number') {
       markup = (
         <div className={`${prefixCls}-wrap`}>
-          <span className="active">{current + 1}</span>/<span>{total}</span>
+          <span className="active">{current}</span>/<span>{total}</span>
         </div>
       );
     } else if (mode === 'pointer') {
@@ -82,7 +85,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
             key={`dot-${i}`}
             className={classNames({
               [`${prefixCls}-wrap-dot`]: true,
-              [`${prefixCls}-wrap-dot-active`]: i === current,
+              [`${prefixCls}-wrap-dot-active`]: (i + 1) === current,
             })}
           >
             <span />

@@ -22,11 +22,11 @@ export default StyleSheet.create<any>({
     justifyContent: 'center',
   },
   totalStyle: {
-    fontSize: variables.font_size_display_sm,
+    fontSize: 18,
     color: variables.color_text_base,
   },
   activeTextStyle: {
-    fontSize: variables.font_size_display_sm,
+    fontSize: 18,
     color: variables.color_link,
   },
   indicatorStyle: {

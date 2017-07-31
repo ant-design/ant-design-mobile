@@ -22,7 +22,7 @@ exports[`SegmentedControl renders correctly 1`] = `
     aria-selected="false"
     class="am-segment-item"
     role="tab"
-    style="color:;background-color:#fff;border-color:;"
+    style="color:;background-color:transparent;border-color:;"
   >
     <div
       class="am-segment-item-inner"

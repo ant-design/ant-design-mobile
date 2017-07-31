@@ -106,7 +106,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   render() {
-    const { placeholder, value, keyboardPrefixCls, disabled, editable, confirmLabel } = this.props;
+    const { placeholder, value, keyboardPrefixCls, disabled, editable, confirmLabel, style } = this.props;
     const { focused } = this.state;
     const preventKeyboard = disabled || !editable;
     const fakeInputCls = classNames({
@@ -119,6 +119,7 @@ class NumberInput extends React.Component<any, any> {
       <div
         className={fakeInputCls}
         ref="input-container"
+        style={style}
         onClick={preventKeyboard ? () => {} : this.onFakeInputClick}
       >
         {value}

@@ -31,7 +31,7 @@ export default StyleSheet.create<any>({
     paddingHorizontal: variables.h_spacing_lg,
   },
   titleText: {
-    fontSize: variables.font_size_display_md,
+    fontSize: 21,
     color: variables.color_text_base,
   },
   message: {

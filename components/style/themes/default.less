@@ -13,16 +13,12 @@
 @color-text-paragraph: #333;             // 段落
 @color-link: @brand-primary;             // 链接
 
-// 阴影色
-@color-shadow: rgba(0, 0, 0, 0.21);  // 阴影色
-
 // 背景色
 @fill-base: #fff;                           // 组件默认背景
 @fill-body: #f5f5f9;                        // 页面背景
 @fill-tap: #ddd;                            // 组件默认背景 - 按下
 @fill-disabled: #ddd;                       // 通用失效背景
 @fill-mask: rgba(0, 0, 0, 0.4);              // 遮罩背景
-@fill-overlay-inverse: rgba(58, 58, 58, 0.9);// 浮层背景 - 反色，用于 toast // deprecated
 @color-icon-base: #ccc;                      // 许多小图标的背景，比如一些小圆点，加减号
 @fill-grey: #f7f7f7;
 
@@ -35,7 +31,6 @@
 @brand-success: #6abf47;
 @brand-warning: #ffc600;
 @brand-error: #f4333c;
-@brand-hot: #f96268;        // 用于推荐/促销/折扣
 @brand-important: #ff5b05;  // 用于小红点
 @brand-wait: #108ee9;
 
@@ -50,15 +45,6 @@
 @font-size-subhead: 30px;
 @font-size-caption: 32px;
 @font-size-heading: 34px;
-@font-size-display-sm: 36px;
-@font-size-display-md: 42px;
-@font-size-display-lg: 48px;
-@font-size-display-xl: 60px;
-
-// 字体家族
-// ---
-@font-family-base: -apple-system,"SF UI Text",Roboto,Noto,"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-@font-family-code: Consolas,Menlo,Courier,monospace;
 
 // 圆角
 // ---
@@ -161,13 +147,13 @@
 @tab-bar-height: 100px;
 
 // toast
-@toast-fill: @fill-overlay-inverse; // toast, activity-indicator 的背景颜色
+@toast-fill: rgba(58, 58, 58, 0.9); // toast, activity-indicator 的背景颜色
 
 // search-bar
 @search-bar-fill: #efeff4;
 @search-bar-height: 88px;
 @search-bar-input-height: 56px;
-@searchbar-font-size: 30px;
+@search-bar-font-size: 30px;
 @search-color-icon: #bbb; // input search icon 的背景色
 
 // notice-bar

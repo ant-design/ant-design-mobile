@@ -15,7 +15,8 @@ export interface IPaginationNativeProps extends PaginationProps {
 export default class Pagination extends React.Component<IPaginationNativeProps, any> {
   static defaultProps = {
     mode: 'button',
-    current: 0,
+    current: 1,
+    total: 0,
     simple: false,
     onChange: () => {},
     indicatorStyle: null,
@@ -34,9 +35,11 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      current: nextProps.current,
-    });
+    if (nextProps.current !== this.state.current) {
+      this.setState({
+        current: nextProps.current,
+      });
+    }
   }
 
   onChange(p) {
@@ -55,11 +58,11 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
     const locale = getComponentLocale(this.props, this.context, 'Pagination', () => zh_CN);
     const { prevText, nextText } = locale;
 
-    const current = this.state.current;
+    const { current } = this.state;
     const simpleItem = !simple ? (
       <Flex.Item>
         <View style={[styles.numberStyle]}>
-          <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
+          <Text style={[styles.activeTextStyle]}>{current}</Text>
           <Text style={[styles.totalStyle]}>/{total}</Text>
         </View>
       </Flex.Item>
@@ -68,7 +71,7 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
       <Flex>
         <Flex.Item>
           <Button
-            disabled={current <= 0}
+            disabled={current <= 1}
             onClick={() => this.onChange(current - 1)}
           >
             {prevText}
@@ -77,8 +80,8 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
         {simpleItem}
         <Flex.Item>
           <Button
-            disabled={current >= total - 1}
-            onClick={() => this.onChange(this.state.current + 1)}
+            disabled={current >= total}
+            onClick={() => this.onChange(current + 1)}
           >
             {nextText}
           </Button>
@@ -88,7 +91,7 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
     if (mode === 'number') {
       markup = (
         <View style={[styles.numberStyle]}>
-          <Text style={[styles.activeTextStyle]}>{current + 1}</Text>
+          <Text style={[styles.activeTextStyle]}>{current}</Text>
           <Text style={[styles.totalStyle]}>/{total}</Text>
         </View>
       );
@@ -98,7 +101,7 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
         arr.push(
           <View
             key={`dot-${i}`}
-            style={[ styles.pointStyle, styles.spaceStyle, i === current ? styles.pointActiveStyle : undefined ]}
+            style={[ styles.pointStyle, styles.spaceStyle, (i + 1) === current && styles.pointActiveStyle ]}
           />,
         );
       }

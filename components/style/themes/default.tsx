@@ -17,16 +17,12 @@ export default {
   color_text_paragraph: '#333',             // 段落
   color_link: brandPrimary,                 // 链接
 
-  // 阴影色
-  color_shadow: 'rgba(0, 0, 0, .21)',  // 阴影色
-
   // 背景色
   fill_base: '#fff',                           // 组件默认背景
   fill_body: '#f5f5f9',                        // 页面背景
   fill_tap: '#ddd',                            // 组件默认背景 _ 按下
   fill_disabled: '#ddd',                       // 通用失效背景
   fill_mask: 'rgba(0, 0, 0, .4)',              // 遮罩背景
-  fill_overlay_inverse: 'rgba(0, 0, 0, .8)',   // 浮层背景 _ 反色，用于 toast
   color_icon_base: '#ccc',                     // 许多小图标的背景，比如一些小圆点，加减号
   fill_grey: '#f7f7f7',
 
@@ -39,7 +35,6 @@ export default {
   brand_success: '#6abf47',
   brand_warning: '#f4333c',
   brand_error: '#f4333c',
-  brand_hot: '#f96268',        // 用于推荐/促销/折扣
   brand_important: '#ff5b05',  // 用于小红点
   brand_wait: '#108ee9',
 
@@ -54,16 +49,6 @@ export default {
   font_size_subhead: 15,
   font_size_caption: 16,
   font_size_heading: 17,
-  font_size_display_sm: 18,
-  font_size_display_md: 21,
-  font_size_display_lg: 24,
-  font_size_display_xl: 30,
-
-  // 字体家族
-  // ---
-  // tslint:disable-next-line
-  font_family_base: '_apple_system,"SF UI Text",Roboto,Noto,"Helvetica Neue",`elvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans_serif',
-  font_family_code: 'Consolas,Menlo,Courier,monospace',
 
   // 圆角
   // ---
@@ -170,7 +155,7 @@ export default {
   search_bar_fill: '#efeff4',
   search_bar_height: 44,
   search_bar_input_height: 28,
-  searchbar_font_size: 15,
+  search_bar_font_size: 15,
   search_color_icon: '#bbbbbb', // input search icon 的背景色
 
   // notice_bar

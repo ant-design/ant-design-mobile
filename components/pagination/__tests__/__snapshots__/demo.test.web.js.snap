@@ -13,14 +13,14 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     class="am-pagination"
   >
     <div
-      class="am-flexbox am-flexbox-align-middle"
+      class="am-flexbox am-flexbox-align-center"
     >
       <div
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
       >
         <a
-          aria-disabled="false"
-          class="am-button am-button-inline"
+          aria-disabled="true"
+          class="am-button am-button-inline am-button-disabled"
           role="button"
         >
           <span>
@@ -35,7 +35,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <span
           class="active"
         >
-          2
+          1
         </span>
         /
         <span>
@@ -66,14 +66,14 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     class="am-pagination custom-pagination-with-icon"
   >
     <div
-      class="am-flexbox am-flexbox-align-middle"
+      class="am-flexbox am-flexbox-align-center"
     >
       <div
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
       >
         <a
-          aria-disabled="false"
-          class="am-button am-button-inline"
+          aria-disabled="true"
+          class="am-button am-button-inline am-button-disabled"
           role="button"
         >
           <span
@@ -97,7 +97,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <span
           class="active"
         >
-          2
+          1
         </span>
         /
         <span>
@@ -137,14 +137,14 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
     class="am-pagination"
   >
     <div
-      class="am-flexbox am-flexbox-align-middle"
+      class="am-flexbox am-flexbox-align-center"
     >
       <div
         class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
       >
         <a
-          aria-disabled="false"
-          class="am-button am-button-inline"
+          aria-disabled="true"
+          class="am-button am-button-inline am-button-disabled"
           role="button"
         >
           <span>
@@ -181,7 +181,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
       <span
         class="active"
       >
-        4
+        3
       </span>
       /
       <span>
@@ -207,12 +207,12 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
         <span />
       </div>
       <div
-        class="am-pagination-wrap-dot"
+        class="am-pagination-wrap-dot am-pagination-wrap-dot-active"
       >
         <span />
       </div>
       <div
-        class="am-pagination-wrap-dot am-pagination-wrap-dot-active"
+        class="am-pagination-wrap-dot"
       >
         <span />
       </div>

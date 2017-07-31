@@ -99,20 +99,23 @@ exports[`renders ./components/tab-bar/demo/basic.tsx correctly 1`] = `
             placeholder="搜索"
             prefixCls="am-search"
             style={
-              Object {
-                "backgroundColor": "#fff",
-                "borderColor": "#ddd",
-                "borderRadius": 5,
-                "borderWidth": 0.5,
-                "color": "#000",
-                "flex": 1,
-                "fontSize": 14,
-                "height": 28,
-                "paddingBottom": 0,
-                "paddingLeft": 35,
-                "paddingRight": 35,
-                "paddingTop": 0,
-              }
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderColor": "#ddd",
+                  "borderRadius": 5,
+                  "borderWidth": 0.5,
+                  "color": "#000",
+                  "flex": 1,
+                  "fontSize": 14,
+                  "height": 28,
+                  "paddingBottom": 0,
+                  "paddingLeft": 35,
+                  "paddingRight": 35,
+                  "paddingTop": 0,
+                },
+                undefined,
+              ]
             }
             underlineColorAndroid="transparent"
             value=""
