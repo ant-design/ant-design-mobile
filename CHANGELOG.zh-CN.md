@@ -21,6 +21,7 @@ timeline: true
 
 - **Feature**
 
+  - `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
 
 - **Break Change**
 
@@ -32,6 +33,7 @@ timeline: true
   - Switch 对 `style` 属性直接针对 switch 样式自身，方便定义样式；
   - `Flex` 清理冗余API, 只保留 `align: enum{start, center, end}`。 [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
   - `Theme` 更改，删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`； 将`@searchbar-font-size`重命名为 `@search-bar-font-size`。
+  - `DatePicker`组件去除 moment.js 依赖，相应地`value`,`minDate`,`maxDate`,`format`,`onChange`数据类型变为`Date`对象。[#1217](https://github.com/ant-design/ant-design-mobile/issues/1217)
 
 ## 1.6.0
 

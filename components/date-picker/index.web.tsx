@@ -12,6 +12,7 @@ function getDefaultProps() {
     pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
     minuteStep: 1,
+    use12Hours: false,
     ...getProps(),
   };
 }
@@ -50,6 +51,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         pickerPrefixCls={props.pickerPrefixCls}
         prefixCls={props.prefixCls}
         defaultDate={value || getDefaultDate(this.props)}
+        use12Hours={props.use12Hours}
       />
     );
 

@@ -22,8 +22,9 @@ interface DatePickerProps {
   className?: string;
   pickerPrefixCls?: string;
   popupPrefixCls?: string;
-  dismissText?: string|React.ReactElement<any>; // React.ReactElement only for web
-  okText?: string|React.ReactElement<any>; // React.ReactElement only for web
+  dismissText?: string | React.ReactElement<any>; // React.ReactElement only for web
+  okText?: string | React.ReactElement<any>; // React.ReactElement only for web
+  use12Hours?: boolean;
 }
 
 export default DatePickerProps;

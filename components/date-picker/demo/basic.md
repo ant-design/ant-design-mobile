@@ -11,18 +11,13 @@ title:
 
 import { DatePicker, List } from 'antd-mobile';
 import { createForm } from 'rc-form';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
 import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
-const zhNow = moment().locale('zh-cn').utcOffset(8);
-const maxDate = moment('2016-12-03 +0800', 'YYYY-MM-DD Z').utcOffset(8);
-const minDate = moment('2015-08-06 +0800', 'YYYY-MM-DD Z').utcOffset(8);
+const now = new Date();
+const maxDate = new Date(2016, 11, 3, 22, 0);
+const minDate = new Date(2015, 7, 6, 8, 30);
 
-const maxTime = moment('22:00 +0800', 'HH:mm Z').utcOffset(8);
-const minTime = moment('08:30 +0800', 'HH:mm Z').utcOffset(8);
-
-const gmtNow = moment().utcOffset(0);
+const gmtNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
 
 // 如果不是使用 List.Item 作为 children
 const CustomChildren = props => (
@@ -37,7 +32,7 @@ const CustomChildren = props => (
 
 class Test extends React.Component {
   state = {
-    date: zhNow,
+    date: now,
     dpValue: null,
     visible: false,
   }
@@ -72,10 +67,10 @@ class Test extends React.Component {
         <DatePicker
           mode="time"
           {...getFieldProps('time', {
-            initialValue: zhNow,
+            initialValue: now,
           })}
-          minDate={minTime}
-          maxDate={maxTime}
+          minDate={minDate}
+          maxDate={maxDate}
         >
           <List.Item arrow="horizontal">时间(CST)，限定上下限</List.Item>
         </DatePicker>
@@ -88,7 +83,7 @@ class Test extends React.Component {
         </DatePicker>
         <DatePicker
           mode="time"
-          format={val => val.format('HH:mm Z')}
+          format={val => val.toLocaleString()}
           okText="OK"
           dismissText="Cancel"
           locale={enUs}
@@ -96,24 +91,24 @@ class Test extends React.Component {
             initialValue: gmtNow,
           })}
         >
-          <List.Item arrow="horizontal">time(utc, UK time)</List.Item>
+          <List.Item arrow="horizontal">UK time</List.Item>
         </DatePicker>
-        <List.Item extra={this.state.dpValue && this.state.dpValue.format('HH:mm Z')}>
+        <List.Item extra={this.state.dpValue && this.state.dpValue.toDateString()}>
           <div onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</div>
         </List.Item>
         <DatePicker
           visible={this.state.visible}
-          mode="date"
           title={<span onClick={() => this.setState({ visible: false })}>点击可以关闭</span>}
           extra="请选择(可选)"
-          onOk={() => console.log('onOk')}
+          onOk={() => console.log('onOk', this.state.dpValue)}
           onDismiss={() => console.log('onDismiss')}
           value={this.state.dpValue}
           onChange={v => this.setState({ dpValue: v, visible: false })}
         />
         <DatePicker
-          mode="date"
-          title="选择日期"
+          use12Hours
+          format="HH:mm"
+          title="选择时间"
           extra="请选择(可选)"
           value={this.state.dpValue}
           onChange={v => this.setState({ dpValue: v })}

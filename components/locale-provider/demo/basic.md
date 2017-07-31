@@ -10,10 +10,9 @@ Wrap your app with `LocaleProvider`, and apply the corresponding language packag
 ````jsx
 import { Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button, InputItem } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
-import moment from 'moment';
 
-const maxDate = moment('2018-12-03 +0800', 'YYYY-MM-DD Z').utcOffset(8);
-const minDate = moment('2015-08-06 +0800', 'YYYY-MM-DD Z').utcOffset(8);
+const maxDate = new Date(2018, 11, 3, 22, 0);
+const minDate = new Date(2015, 7, 6, 8, 30);
 
 const Page = () => (
   <div>

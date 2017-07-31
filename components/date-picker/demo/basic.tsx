@@ -2,10 +2,8 @@
 import { View } from 'react-native';
 import { DatePicker, List } from 'antd-mobile';
 import React from 'react';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
 
-const defaultDate = moment().locale('zh-cn').utcOffset(8);
+const now = new Date();
 
 export default class PopupExample extends React.Component<any, any> {
   date1MinDate: any;
@@ -26,11 +24,11 @@ export default class PopupExample extends React.Component<any, any> {
     return (<View>
       <List>
         <DatePicker
-          defaultDate={defaultDate}
+          defaultDate={now}
           value={this.state.value}
           mode="date"
-          minDate={this.date1MinDate || (this.date1MinDate = moment('2015-08-06', 'YYYY-MM-DD'))}
-          maxDate={this.date1MaxDate || (this.date1MaxDate = moment('2016-12-06', 'YYYY-MM-DD'))}
+          minDate={this.date1MinDate || (this.date1MinDate = new Date(2015, 7, 6))}
+          maxDate={this.date1MaxDate || (this.date1MaxDate = new Date(2016, 11, 3))}
           onChange={this.onChange}
           format={val => val.fromNow()}
         >

@@ -11,7 +11,6 @@ module.exports = {
       history: 'History',
       'babel-polyfill': 'this', // hack babel-polyfill has no exports
     };
-    config.module.noParse = [/moment.js/];
 
     config.resolve.alias = {
       'antd-mobile/lib': path.join(process.cwd(), 'components'),

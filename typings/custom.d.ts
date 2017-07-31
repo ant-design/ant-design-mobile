@@ -50,8 +50,6 @@ declare module 'rc-drawer';
 
 declare module 'rc-dialog';
 
-declare module 'moment';
-
 declare module 'react-native-menu';
 
 declare module 'rmc-pull-to-refresh';
