@@ -62,6 +62,8 @@ $ npm install babel-plugin-import --save-dev
   npm i style-loader css-loader less less-loader svg-sprite-loader@0.3.1 --save-dev
   ```
 
+> `antd-mobile@1.x` 必须使用 `svg-sprite-loader@^0.3.1` , 请看 [相关信息](https://mobile.ant.design/changelog-cn#1.2.0)
+
 - 设置 webpack 的 resolve 来自动区分 web & native 组件加载。（`必选`）
 
   ```
