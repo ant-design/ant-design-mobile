@@ -5,6 +5,10 @@ git:
 
 language: node_js
 
+notifications:
+  email:
+  - hust2012jiangkai@gmail.com
+
 node_js:
   - "6"
 
