@@ -62,6 +62,8 @@ $ npm install babel-plugin-import --save-dev
   npm i style-loader css-loader less less-loader svg-sprite-loader@0.3.1 --save-dev
   ```
 
+> `antd-mobile@1.x` require `svg-sprite-loader@^0.3.1` , see [detail info](https://mobile.ant.design/changelog#1.2.0)
+
 - Set the `resolve` field on webpack configuration file to load web&native components automaticlly.
 
   ```
