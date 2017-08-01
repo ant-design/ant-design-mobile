@@ -1,8 +1,8 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import Flex from '../flex/index.web';
-import Carousel from '../carousel/index.web';
+import Flex from '../flex';
+import Carousel from '../carousel';
 import { DataItem, GridProps } from './PropsType';
 
 export default class Grid extends React.Component<GridProps, any> {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Tabs, { TabPane } from 'rc-tabs';
 import warning from 'warning';
-import Tab from './Tab.web';
+import Tab from './Tab';
 import TabContent from 'rc-tabs/lib/TabContent';
 import TabBar from 'rc-tabs/lib/TabBar';
 import getDataAttr from '../_util/getDataAttr';

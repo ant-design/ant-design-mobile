@@ -1,3 +1,3 @@
-import LocaleProvider from './index.web';
+import LocaleProvider from '.';
 
 export default LocaleProvider;

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import InputItemProps from './PropsType';
-import Input from './Input.web';
-import CustomInput from './CustomInput.web';
+import Input from './Input';
+import CustomInput from './CustomInput';
 import { getComponentLocale } from '../_util/getLocale';
 
 function noop() { }

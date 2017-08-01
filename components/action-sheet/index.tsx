@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import Icon from '../icon/index.web';
+import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
 import Touchable from 'rc-touchable';
 

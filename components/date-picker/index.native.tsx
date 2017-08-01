@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
-import PickerStyle, { IPickerStyle } from '../picker/style';
+import PickerStyle, { IPickerStyle } from '../picker/style/index.native';
 import { formatFn, getProps as getDefaultProps, getDefaultDate } from './utils';
 import tsPropsType from './PropsType';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';

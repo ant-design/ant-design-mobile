@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import List from '../list/index.web';
-import Checkbox from './Checkbox.web';
+import List from '../list';
+import Checkbox from './Checkbox';
 import { CheckboxItemProps } from './PropsType';
 import omit from 'omit.js';
 

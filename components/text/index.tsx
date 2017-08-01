@@ -1,5 +1,5 @@
 import React from 'react';
-import View from '../view/index.web';
+import View from '../view';
 
 export default class Text extends React.Component<any, any> {
   static defaultProps = {

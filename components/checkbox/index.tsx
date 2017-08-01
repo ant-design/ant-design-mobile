@@ -1,6 +1,6 @@
-import Checkbox from './Checkbox.web';
-import CheckboxItem from './CheckboxItem.web';
-import AgreeItem from './AgreeItem.web';
+import Checkbox from './Checkbox';
+import CheckboxItem from './CheckboxItem';
+import AgreeItem from './AgreeItem';
 
 Checkbox.CheckboxItem = CheckboxItem;
 Checkbox.AgreeItem = AgreeItem;

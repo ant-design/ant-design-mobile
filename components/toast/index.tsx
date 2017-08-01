@@ -1,6 +1,6 @@
 import React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../icon/index.web';
+import Icon from '../icon';
 import classnames from 'classnames';
 
 let messageInstance;

@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import React from 'react';
 /* tslint:enable:no-unused-variable */
-import List from '../list/index.web';
+import List from '../list';
 const { Item } = List;
 
 export default function handleProps(props, isIndexed) {

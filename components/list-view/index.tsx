@@ -2,7 +2,7 @@ import React from 'react';
 import MListView from 'rmc-list-view';
 import tsPropsType from './PropsType';
 import handleProps from './handleProps';
-import IndexedList from './Indexed.web';
+import IndexedList from './Indexed';
 
 export default class ListView extends React.Component<tsPropsType, any> {
   static defaultProps = {

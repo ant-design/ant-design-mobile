@@ -1,6 +1,6 @@
 import React from 'react';
 import RcSteps from 'rc-steps';
-import Icon from '../icon/index.web';
+import Icon from '../icon';
 
 export interface StepsProps {
   prefixCls?: string;

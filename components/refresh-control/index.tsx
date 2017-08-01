@@ -1,6 +1,6 @@
 import React from 'react';
 import ListView from 'rmc-list-view';
-import Icon from '../icon/index.web';
+import Icon from '../icon';
 
 const dpr = typeof window !== 'undefined' && (window as any).devicePixelRatio || 2;
 

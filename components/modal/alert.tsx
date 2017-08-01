@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from './Modal.web';
+import Modal from './Modal';
 
 export default function a(...args) {
   const title = args[0];

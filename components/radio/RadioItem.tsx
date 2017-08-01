@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import List from '../list/index.web';
-import Radio from './Radio.web';
+import List from '../list';
+import Radio from './Radio';
 import { RadioItemProps } from './PropsType';
 import omit from 'omit.js';
 

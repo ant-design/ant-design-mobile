@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../icon/index.web';
+import Icon from '../icon';
 import NavBarProps from './PropsType';
 
 export default class NavBar extends React.Component<NavBarProps, any> {

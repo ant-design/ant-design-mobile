@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import CustomKeyboard from './CustomKeyboard.web';
+import CustomKeyboard from './CustomKeyboard';
 
 class NumberInput extends React.Component<any, any> {
   static defaultProps = {

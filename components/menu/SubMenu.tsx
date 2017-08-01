@@ -1,8 +1,8 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import List from '../list/index.web';
-import Radio from '../radio/Radio.web';
+import List from '../list';
+import Radio from '../radio/Radio';
 
 export default function SubMenu(props) {
   const onClick = (dataItem) => {

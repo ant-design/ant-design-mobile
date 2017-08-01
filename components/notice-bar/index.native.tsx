@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
-import NoticeStyle, { INoticeBarStyle } from './style';
+import NoticeStyle, { INoticeBarStyle } from './style/index.native';
 import NoticeBarProps from './PropsType';
 
 export interface INoticeNativeProps extends NoticeBarProps {

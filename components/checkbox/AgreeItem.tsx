@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Checkbox from './Checkbox.web';
+import Checkbox from './Checkbox';
 import { AgreeItemPropsType } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
 import omit from 'omit.js';

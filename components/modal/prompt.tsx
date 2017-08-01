@@ -1,7 +1,7 @@
 /* tslint:disable:no-switch-case-fall-through */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from './Modal.web';
+import Modal from './Modal';
 
 export default function prompt(
   title, message, callbackOrActions, type = 'default', defaultValue = '', placeholders = ['', ''],

@@ -1,6 +1,6 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
-import Item from './Item.web';
+import Item from './Item';
 import tsPropsType from './PropsType';
 
 function recursiveCloneChildren(children, cb = (ch: any, _i: number) => ch) {

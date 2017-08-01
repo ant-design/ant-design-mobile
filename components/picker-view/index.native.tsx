@@ -1,3 +1,3 @@
-import PickerView from './index.web';
+import PickerView from '.';
 
 export default PickerView;
