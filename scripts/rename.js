@@ -12,7 +12,7 @@ function changeFileName(filepath){
         }
         if(stats.isFile()) {
             console.log(filepath);
-            if (/\.jsx?$/.test(filepath)) {
+            if (filepath.includes('change .web.tsx to .tsx')) {
               fs.unlinkSync(filepath);
             }
         } else if(stats.isDirectory()) {
