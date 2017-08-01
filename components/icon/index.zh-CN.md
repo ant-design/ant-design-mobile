@@ -24,6 +24,9 @@ npm install svg-sprite-loader@0.3.1 -D
 ```
 
 > Tip: 我们使用 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 方案来实现图标 sprite 效果，
+
+> `antd-mobile@1.x` 必须使用 `svg-sprite-loader@^0.3.1` , 请看 [相关信息](https://mobile.ant.design/changelog-cn#1.2.0)
+
 这能避免一个页面多次引用同一个 svg 图标产生重复代码。
 
 二. 在`webpack.config.js`文件里进行如下配置：
