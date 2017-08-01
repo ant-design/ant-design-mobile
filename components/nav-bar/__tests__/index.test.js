@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import NavBar from '../index.web';
+import NavBar from '../index';
 
 describe('NavBar', () => {
   it('renders correctly', () => {

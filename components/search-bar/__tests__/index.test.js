@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import SearchBar from '../index.web';
+import SearchBar from '../index';
 
 describe('SearchBar', () => {
   it('renders correctly', () => {

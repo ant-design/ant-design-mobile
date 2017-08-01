@@ -1,7 +1,7 @@
 import React from 'react';
 // import { render } from 'enzyme';
 // import { renderToJson } from 'enzyme-to-json';
-import Popup from '../index.web';
+import Popup from '../index';
 
 describe('Popup', () => {
   it('renders correctly', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Badge from '../index.web';
+import Badge from '../index';
 
 describe('Badge', () => {
   it('renders dot prop correctly', () => {

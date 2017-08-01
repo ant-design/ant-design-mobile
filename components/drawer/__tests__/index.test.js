@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Drawer from '../index.web';
+import Drawer from '../index';
 
 describe('Drawer', () => {
   it('renders correctly', () => {

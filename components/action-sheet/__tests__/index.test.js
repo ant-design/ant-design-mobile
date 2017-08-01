@@ -1,7 +1,7 @@
 import React from 'react';
 // import { render, mount } from 'enzyme';
 // import { renderToJson } from 'enzyme-to-json';
-import ActionSheet from '../index.web';
+import ActionSheet from '../index';
 
 describe('ActionSheet', () => {
   it('showActionSheetWithOptions correctly', () => {
@@ -23,11 +23,11 @@ describe('ActionSheet', () => {
 
   it('showShareActionSheetWithOptions correctly', () => {
     const iconList = [
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" />, title: '发送给朋友' },
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" />, title: '新浪微博' },
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" />, title: '生活圈' },
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" />, title: '微信好友' },
-      { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" />, title: 'QQ' },
+      { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" alt="friend" />, title: '发送给朋友' },
+      { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" alt="sina" />, title: '新浪微博' },
+      { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" alt="lift" />, title: '生活圈' },
+      { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" alt="wechat" />, title: '微信好友' },
+      { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" alt="qq" />, title: 'QQ' },
     ];
     const icons = [[...iconList], [iconList[2], iconList[3], iconList[4]]];
     ActionSheet.showShareActionSheetWithOptions({

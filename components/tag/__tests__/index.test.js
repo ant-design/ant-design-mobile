@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, shallow } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Tag from '../index.web';
+import Tag from '../index';
 
 describe('SegmentedControl', () => {
   it('renders correctly', () => {

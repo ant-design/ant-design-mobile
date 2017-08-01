@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Menu from '../index.web';
+import Menu from '../index';
 
 describe('Menu', () => {
   const data = [

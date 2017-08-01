@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, shallow } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import NoticeBar from '../index.web';
+import NoticeBar from '../index';
 
 describe('NoticeBar', () => {
   it('renders correctly', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Accordion from '../index.web';
+import Accordion from '../index';
 
 describe('Accordion', () => {
   it('renders correctly', () => {

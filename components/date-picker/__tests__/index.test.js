@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 // import { renderToJson } from 'enzyme-to-json';
-import DatePicker from '../index.web';
-import List from '../../list/index.web';
+import DatePicker from '../index';
+import List from '../../list/index';
 
 describe('DatePicker', () => {
   it('renders correctly', () => {

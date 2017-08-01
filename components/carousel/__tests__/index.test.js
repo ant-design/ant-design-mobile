@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Carousel from '../index.web';
+import Carousel from '../index';
 
 describe('Carousel.web', () => {
   it('renders correctly', () => {

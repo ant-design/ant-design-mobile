@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import ListView from '../index.web';
+import ListView from '../index';
 
 describe('ListView', () => {
   it('renders correctly', () => {

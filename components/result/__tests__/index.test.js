@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Result from '../index.web';
+import Result from '../index';
 
 describe('Result', () => {
   it('renders correctly', () => {

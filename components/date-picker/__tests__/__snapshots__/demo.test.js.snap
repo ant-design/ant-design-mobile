@@ -136,7 +136,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-extra"
             >
-              2016-11-22 00:00:00
+              11/22/2016, 12:00:00 AM
             </div>
             <div
               aria-hidden="true"

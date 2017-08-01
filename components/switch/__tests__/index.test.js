@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, shallow } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Switch from '../index.web';
+import Switch from '../index';
 
 describe('SegmentedControl', () => {
   it('renders correctly', () => {

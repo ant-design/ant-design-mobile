@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 
 import { district } from 'antd-mobile-demo-data';
 import Picker from '../index';
-import List from '../../list/index.web';
+import List from '../../list/index';
 
 describe('Picker', () => {
   it('renders correctly', () => {

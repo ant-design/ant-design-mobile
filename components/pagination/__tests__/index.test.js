@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Pagination from '../index.web';
+import Pagination from '../index';
 
 describe('Pagination', () => {
   it('renders correctly', () => {

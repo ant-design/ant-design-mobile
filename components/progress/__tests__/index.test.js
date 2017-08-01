@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Progress from '../index.web';
+import Progress from '../index';
 
 describe('Progress', () => {
   it('renders correctly', () => {
