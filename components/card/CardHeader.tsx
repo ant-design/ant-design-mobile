@@ -1,41 +1,28 @@
-/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import classNames from 'classnames';
 import { CardHeaderProps } from './PropsType';
 
-export default class CardHeader extends React.Component<CardHeaderProps, any> {
+export default class CardHeader extends React.Component <CardHeaderProps, any> {
   static defaultProps = {
+    prefixCls: 'am-card',
     thumbStyle: {},
-    style: {},
   };
 
   render() {
-    const { title, thumb, thumbStyle, extra, style, styles, ...restProps } = this.props;
-
-    const titleDom = React.isValidElement(title) ? (
-      <View style={{ flex: 1 }}>{title}</View>
-    ) : (
-      <Text style={styles.headerContent}>{title}</Text>
-    );
-
-    const extraDom = React.isValidElement(extra) ? (
-      <View style={{ flex: 1 }}>{extra}</View>
-    ) : (
-      <Text style={[styles.headerExtra]}>{extra}</Text>
-    );
+    const { prefixCls, className, title, thumb, thumbStyle, extra, ...restProps } = this.props;
+    const wrapCls = classNames({
+      [`${prefixCls}-header`]: true,
+      [className as string]: className,
+    });
 
     return (
-      <View style={[styles.headerWrap, style]} {...restProps}>
-        <View style={[styles.headerTitle]}>
-          {
-            typeof thumb === 'string' ? (
-              <Image source={{ uri: thumb }} style={[styles.headerImage, thumbStyle]} />
-            ) : thumb
-          }
-          {titleDom}
-        </View>
-        {extra ? extraDom : null}
-      </View>
+      <div className={wrapCls} {...restProps}>
+        <div className={`${prefixCls}-header-content`}>
+          {typeof thumb === 'string' ? <img style={thumbStyle} src={thumb} /> : thumb}
+          {title}
+        </div>
+        {extra ? <div className={`${prefixCls}-header-extra`}>{extra}</div> : null}
+      </div>
     );
   }
 }

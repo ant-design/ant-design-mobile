@@ -1,20 +1,62 @@
 import React from 'react';
-import topView from 'rn-topview';
-import AlertContainer from './AlertContainer';
+import ReactDOM from 'react-dom';
+import Modal from './Modal';
 
-export default function a(title, content, actions = [{ text: '确定' }]) {
-  const onAnimationEnd = (visible) => {
-    if (!visible) {
-      topView.remove();
+export default function a(...args) {
+  const title = args[0];
+  const content = args[1];
+  const actions = args[2] || [{ text: '确定' }];
+
+  if (!title && !content) {
+    // console.log('Must specify either an alert title, or message, or both');
+    return {
+      close: () => {},
+    };
+  }
+
+  const prefixCls = 'am-modal';
+  let div: any = document.createElement('div');
+  document.body.appendChild(div);
+
+  function close() {
+    ReactDOM.unmountComponentAtNode(div);
+    if (div && div.parentNode) {
+      div.parentNode.removeChild(div);
     }
-  };
+  }
 
-  topView.set(
-    <AlertContainer
+  const footer = actions.map((button) => {
+    const orginPress = button.onPress || function() {};
+    button.onPress = () => {
+      const res = orginPress();
+      if (res && res.then) {
+        res.then(() => {
+          close();
+        });
+      } else {
+        close();
+      }
+    };
+    return button;
+  });
+
+  ReactDOM.render(
+    <Modal
+      visible
+      transparent
+      prefixCls={prefixCls}
       title={title}
-      content={content}
-      actions={actions}
-      onAnimationEnd={onAnimationEnd}
-    />,
+      transitionName="am-zoom"
+      closable={false}
+      maskClosable={false}
+      footer={footer}
+      maskTransitionName="am-fade"
+    >
+      <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
+    </Modal>, div,
   );
+
+  return {
+    close,
+  };
 }

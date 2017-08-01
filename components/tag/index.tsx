@@ -1,31 +1,23 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback, Platform, StyleSheet } from 'react-native';
-import TagStyle, { ITagStyle } from './style/index';
+import classNames from 'classnames';
 import TagProps from './PropsType';
+import Icon from '../icon';
+import getDataAttr from '../_util/getDataAttr';
 
-export interface ITagNativeProps extends TagProps {
-  styles?: ITagStyle;
-}
-
-const TagStyles = StyleSheet.create<any>(TagStyle);
-
-export default class Tag extends React.Component<ITagNativeProps, any> {
+export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
+    prefixCls: 'am-tag',
     disabled: false,
-    small: false,
     selected: false,
     closable: false,
+    small: false,
+    onChange() {},
     onClose() {},
     afterClose() {},
-    onChange() {},
-    styles: TagStyles,
   };
-
-  closeDom: any;
 
   constructor(props) {
     super(props);
-
     this.state = {
       selected: props.selected,
       closed: false,
@@ -45,7 +37,7 @@ export default class Tag extends React.Component<ITagNativeProps, any> {
     if (disabled) {
       return;
     }
-    const isSelect: boolean = this.state.selected;
+    const isSelect = this.state.selected;
     this.setState({
       selected: !isSelect,
     }, () => {
@@ -64,69 +56,29 @@ export default class Tag extends React.Component<ITagNativeProps, any> {
     }, this.props.afterClose);
   }
 
-  onPressIn = () => {
-    const styles = this.props.styles!;
-    this.closeDom.setNativeProps({
-      style: [styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid, {
-        backgroundColor: '#888',
-      }],
-    });
-  }
-
-  onPressOut = () => {
-    const styles = this.props.styles!;
-    this.closeDom.setNativeProps({
-      style: [styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid],
-    });
-  }
-
   render() {
-    const { children, disabled, small, closable, style } = this.props;
-    const styles = this.props.styles!;
-    const selected = this.state.selected;
+    const { children, className, prefixCls, disabled, closable, small, style } = this.props;
+    const wrapCls = classNames({
+      [className as string]: !!className,
+      [`${prefixCls}`]: true,
+      [`${prefixCls}-normal`]: !disabled && ( !this.state.selected || small || closable ),
+      [`${prefixCls}-small`]: small,
+      [`${prefixCls}-active`]: this.state.selected && !disabled && !small && !closable,
+      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-closable`]: closable,
+    });
 
-    let wrapStyle;
-    let textStyle;
-    if (!selected && !disabled) {
-      wrapStyle = styles.normalWrap;
-      textStyle = styles.normalText;
-    }
-    if (selected && !disabled) {
-      wrapStyle = styles.activeWrap;
-      textStyle = styles.activeText;
-    }
-    if (disabled) {
-      wrapStyle = styles.disabledWrap;
-      textStyle = styles.disabledText;
-    }
-
-    const sizeWrapStyle = small ? styles.wrapSmall : {};
-    const sizeTextStyle = small ? styles.textSmall : {};
-
-    const closableDom = closable && !small && !disabled ? (
-      <TouchableWithoutFeedback
-        onPressIn={this.onPressIn}
-        onPressOut={this.onPressOut}
-        onPress={this.onTagClose}
-      >
-        <View
-          ref={component => this.closeDom = component}
-          style={[styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid]}
-        >
-          <Text style={[styles.closeText, Platform.OS === 'android' ? styles.closeTransform : {}]}>×</Text>
-        </View>
-      </TouchableWithoutFeedback>
+    const closableDom = closable && !disabled && !small ? (
+      <div className={`${prefixCls}-close`} role="button" onClick={this.onTagClose} aria-label="remove tag">
+        <Icon type="cross-circle" size="xs" aria-hidden="true" />
+      </div>
     ) : null;
 
     return !this.state.closed ? (
-      <View style={[ styles.tag, style ]}>
-        <TouchableWithoutFeedback onPress={this.onClick}>
-          <View style={[styles.wrap, sizeWrapStyle, wrapStyle]}>
-            <Text style={[styles.text, sizeTextStyle, textStyle]}>{children} </Text>
-          </View>
-        </TouchableWithoutFeedback>
+      <div {...getDataAttr(this.props)} className={wrapCls} onClick={this.onClick} style={style}>
+        <div className={`${prefixCls}-text`}>{children}</div>
         {closableDom}
-      </View>
+      </div>
     ) : null;
   }
 }

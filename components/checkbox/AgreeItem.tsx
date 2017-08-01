@@ -1,52 +1,24 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback, Text, StyleSheet } from 'react-native';
+import classNames from 'classnames';
 import Checkbox from './Checkbox';
 import { AgreeItemPropsType } from './PropsType';
-import AgreeItemstyle, { ICheckboxStyle } from './style/index';
+import getDataAttr from '../_util/getDataAttr';
+import omit from 'omit.js';
 
-const refCheckbox = 'checkbox';
-
-export interface IAgreeItemNativeProps extends AgreeItemPropsType {
-  styles?: ICheckboxStyle;
-}
-
-const AgreeItemstyles = StyleSheet.create<any>(AgreeItemstyle);
-
-export default class AgreeItem extends React.Component<IAgreeItemNativeProps, any> {
+export default class AgreeItem extends React.Component<AgreeItemPropsType, any> {
   static defaultProps = {
-    styles: AgreeItemstyles,
+    prefixCls: 'am-checkbox',
   };
 
-  handleClick = () => {
-    let checkBox: Checkbox = this.refs[refCheckbox] as Checkbox;
-    checkBox.handleClick();
-  }
+  render() {
+    const { prefixCls, style, className } = this.props;
+    const wrapCls = classNames({
+      [`${prefixCls}-agree`]: true,
+      [className as string]: className,
+    });
 
-  render(): JSX.Element {
-    let { style, checkboxStyle, children, disabled, checked, defaultChecked, onChange, styles } = this.props;
-    styles = styles!;
-
-    let contentDom;
-    if (React.isValidElement(children)) {
-      contentDom = children;
-    } else {
-      contentDom = <Text>{children}</Text>;
-    }
-
-    return (<TouchableWithoutFeedback onPress={this.handleClick}>
-      <View style={[styles.agreeItem, style]}>
-        <Checkbox
-          ref={refCheckbox}
-          style={[styles.agreeItemCheckbox, checkboxStyle]}
-          disabled={disabled}
-          checked={checked}
-          defaultChecked={defaultChecked}
-          onChange={onChange}
-        />
-        <View style={{ flex: 1 }}>
-          {contentDom}
-        </View>
-      </View>
-    </TouchableWithoutFeedback>);
+    return (<div {...getDataAttr(this.props)} className={wrapCls} style={style}>
+      <Checkbox {...omit(this.props, ['style'])} className={`${prefixCls}-agree-label`} />
+    </div>);
   }
 }

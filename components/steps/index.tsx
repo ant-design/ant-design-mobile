@@ -1,76 +1,73 @@
-/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import RNStepsItem from './StepsItem';
-import { View, StyleSheet } from 'react-native';
-import StepStyle, { IStepsStyle } from './style';
+import RcSteps from 'rc-steps';
+import Icon from '../icon';
 
 export interface StepsProps {
-  direction?: 'vertical' | 'horizon';
-  current?: number;
-  width?: number;
+  prefixCls?: string;
+  iconPrefix?: string;
+  direction?: string;
+  labelPlacement?: string;
+  children: any;
+  status?: string;
   size?: string;
-  finishIcon?: string;
-  styles?: any;
+  current?: number;
 }
 
-export interface IStepsNativeProps extends StepsProps {
-  styles?: IStepsStyle;
-}
-
-const StepStyles = StyleSheet.create<any>(StepStyle);
-
-export default class Steps extends React.Component<IStepsNativeProps, any> {
-  static Step: any;
+export default class Steps extends React.Component<StepsProps, any> {
+  static Step = (RcSteps as any).Step;
 
   static defaultProps = {
-    direction: '',
-    styles: StepStyles,
+    prefixCls: 'am-steps',
+    iconPrefix: 'ant',
+    labelPlacement: 'vertical',
+    direction: 'vertical',
+    current: 0,
   };
+  stepRefs: any;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      wrapWidth: 0,
-    };
+  componentDidMount() {
+    this.componentDidUpdate();
   }
-
-  onLayout = (e) => {
-    this.setState({
-      wrapWidth: e.nativeEvent.layout.width,
+  componentDidUpdate() {
+    if (this.props.direction !== 'horizontal') {
+      return;
+    }
+    // set tail's left position based on main's width for each step dynamically.
+    this.stepRefs.forEach(s => {
+      if (s.refs.tail) {
+        s.refs.tail.style.left = `${s.refs.main.offsetWidth / 2}px`;
+      }
     });
   }
-
   render() {
-    const children = this.props.children as any;
-    const wrapView = this.props.direction === 'vertical' ? '' : 'warp_row';
-    const styles = this.props.styles!;
-    return (
-      <View style={styles[wrapView]} onLayout={(e) => {this.onLayout(e); }}>
-      {
-        React.Children.map(children, (ele: any, idx) => {
-          let errorTail = -1;
-          if (idx < (children as Array<any>).length - 1) {
-            const status = children[idx + 1].props.status;
-            if (status === 'error') {
-              errorTail = idx;
-            }
-          }
-          return React.cloneElement(ele, {
-            index: idx,
-            last: idx === (children as Array<any>).length - 1,
-            direction: this.props.direction,
-            current: this.props.current,
-            width: 1 / ((children as Array<any>).length - 1) * this.state.wrapWidth,
-            size: this.props.size,
-            finishIcon: this.props.finishIcon,
-            errorTail,
-            styles,
-          });
-        })
+    this.stepRefs = [];
+    const { children, status } = this.props;
+    const current = this.props.current as number;
+    // flattern the array at first https://github.com/ant-design/ant-design-mobile/issues/934
+    let newChildren: Array<any> = React.Children.map(children, item => item);
+    newChildren = React.Children.map(newChildren, (item: any, index) => {
+      let className = item.props.className;
+      if (index < newChildren.length - 1 && newChildren[index + 1].props.status === 'error') {
+        className = className ? `${className} error-tail` : 'error-tail';
       }
-      </View>
-    );
+
+      let icon = item.props.icon;
+      if (!icon) {
+        if (index < current) {
+          // 对应 state: finish
+          icon = 'check-circle-o';
+        } else if (index > current) {
+          // 对应 state: wait
+          icon = 'ellipsis';
+          className = className ? `${className} ellipsis-item` : 'ellipsis-item';
+        }
+        if (status === 'error' && index === current || item.props.status === 'error') {
+          icon = 'cross-circle-o';
+        }
+      }
+      icon = typeof icon === 'string' ? <Icon type={icon} /> : icon;
+      return React.cloneElement(item, { icon, className, ref: c => this.stepRefs[index] = c });
+    });
+    return <RcSteps ref="rcSteps" {...this.props}>{newChildren}</RcSteps>;
   }
 }
-
-Steps.Step = RNStepsItem;

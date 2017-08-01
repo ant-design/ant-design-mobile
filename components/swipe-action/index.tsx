@@ -1,9 +1,12 @@
 import React from 'react';
-import Swipeout from 'rc-swipeout/lib/Swipeout';
+import Swipeout from 'rc-swipeout';
+import classNames from 'classnames';
 import SwipeActionProps from './PropsType';
 
 class SwipeAction extends React.Component<SwipeActionProps, any> {
   static defaultProps = {
+    prefixCls: 'am-swipe',
+    title: '请确认操作',
     autoClose: false,
     disabled: false,
     left: [],
@@ -13,8 +16,30 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
   };
 
   render() {
-    return (
-      <Swipeout {...this.props} />
+    const {
+      className, style, prefixCls, left = [], right = [], autoClose, disabled, onOpen, onClose, children,
+    } = this.props;
+    const wrapClass = classNames({
+      [`${prefixCls}`]: 1,
+      [className as string]: !!className,
+    });
+
+    return (left.length || right.length) ? (
+      <div style={style} className={className}>
+        <Swipeout
+          prefixCls={prefixCls}
+          left={left}
+          right={right}
+          autoClose={autoClose}
+          disabled={disabled}
+          onOpen={onOpen}
+          onClose={onClose}
+        >
+          {children}
+        </Swipeout>
+      </div>
+    ) : (
+      <div style={style} className={wrapClass}>{children}</div>
     );
   }
 }

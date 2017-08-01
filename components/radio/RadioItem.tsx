@@ -1,61 +1,53 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Radio from './Radio';
+import classNames from 'classnames';
 import List from '../list';
+import Radio from './Radio';
 import { RadioItemProps } from './PropsType';
-import RadioItemStyle, { IRadioStyle } from './style/index';
+import omit from 'omit.js';
 
 const ListItem = List.Item;
-const refRadio = 'radio';
+function noop() { }
 
-export interface IRadioItemNativeProps extends RadioItemProps {
-  styles?: IRadioStyle;
-}
-
-const RadioItemStyles = StyleSheet.create<any>(RadioItemStyle);
-
-export default class RadioItem extends React.Component<IRadioItemNativeProps, any> {
+export default class RadioItem extends React.Component<RadioItemProps, any> {
   static defaultProps = {
-    styles: RadioItemStyles,
+    prefixCls: 'am-radio',
+    listPrefixCls: 'am-list',
   };
 
-  handleClick = () => {
-    let radio: Radio = this.refs[refRadio] as Radio;
-    radio.handleClick();
-  }
-
   render() {
-    const { style, radioStyle, defaultChecked, checked, disabled, children, onChange } = this.props;
-    const styles = this.props.styles!;
+    const {
+      prefixCls, listPrefixCls, className, children, disabled, radioProps = {},
+    } = this.props;
 
-    let contentDom: React.ReactElement<any> | null = null;
-    if (children && React.isValidElement(children)) {
-      contentDom = <View style={{ flex: 1 }}>{children}</View>;
+    const wrapCls = classNames({
+      [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-disabled`]: disabled === true,
+      [className as string]: className,
+    });
+
+    // Note: if not omit `onChange`, it will trigger twice on check listitem
+    const otherProps = omit(this.props, ['listPrefixCls', 'onChange', 'disabled', 'radioProps']);
+    if (disabled) {
+      delete otherProps.onClick;
     } else {
-      let contentStyle = [styles.radioItemContent, disabled ? styles.radioItemContentDisable : {}];
-      contentDom = (<Text style={contentStyle} numberOfLines={1}>
-        {this.props.children}
-      </Text>);
+      otherProps.onClick = otherProps.onClick || noop;
     }
 
-    const radioEl = (
-      <Radio
-        ref={refRadio}
-        style={radioStyle}
-        defaultChecked={defaultChecked}
-        checked={checked}
-        onChange={onChange}
-        disabled={disabled}
-      />
-    );
+    const extraProps: any = {};
+    ['name', 'defaultChecked', 'checked', 'onChange', 'disabled'].forEach(i => {
+      if (i in this.props) {
+        extraProps[i] = this.props[i];
+      }
+    });
 
     return (
       <ListItem
-        style={style}
-        onClick={disabled ? undefined : this.handleClick}
-        extra={radioEl}
+        {...otherProps}
+        prefixCls={listPrefixCls}
+        className={wrapCls}
+        extra={<Radio {...radioProps} {...extraProps} />}
       >
-        {contentDom}
+        {children}
       </ListItem>
     );
   }

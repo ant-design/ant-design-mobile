@@ -1,12 +1,11 @@
 import React from 'react';
-import { TextInput, TextInputProperties } from 'react-native';
+import omit from 'omit.js';
 
-export interface TextInputProps extends TextInputProperties {
-  ref?: any; // overwrite for no error
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   focused?: boolean;
 }
 
-class Input extends React.Component<TextInputProps, any> {
+class Input extends React.Component<InputProps, any> {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +14,7 @@ class Input extends React.Component<TextInputProps, any> {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.focused !== this.state.focused) {
+    if ('focused' in nextProps) {
       this.setState({
         focused: nextProps.focused,
       });
@@ -23,24 +22,46 @@ class Input extends React.Component<TextInputProps, any> {
   }
 
   componentDidMount() {
-    if (this.props.autoFocus || this.props.focused) {
+    if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
       (this.refs as any).input.focus();
     }
   }
 
   componentDidUpdate() {
-    if (this.props.focused) {
+    if (this.state.focused) {
       (this.refs as any).input.focus();
     }
   }
 
+  onInputBlur = (e) => {
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: false,
+      });
+    }
+    const value = e.target.value;
+    if (this.props.onBlur) {
+      this.props.onBlur(value);
+    }
+  }
+
+  onInputFocus = (e) => {
+    if (!('focused' in this.props)) {
+      this.setState({
+        focused: true,
+      });
+    }
+
+    const value = e.target.value;
+    if (this.props.onFocus) {
+      this.props.onFocus(value);
+    }
+  }
+
   render() {
+    const otherProps = omit(this.props, ['onBlur', 'onFocus', 'focused', 'autoFocus']);
     return (
-      <TextInput
-        ref="input"
-        underlineColorAndroid="transparent"
-        {...this.props}
-      />
+      <input ref="input" onBlur={this.onInputBlur} onFocus={this.onInputFocus} {...otherProps} />
     );
   }
 }

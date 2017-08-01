@@ -1,31 +1,23 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, StyleSheet } from 'react-native';
+import classNames from 'classnames';
 import Button from '../button';
 import Flex from '../flex';
 import PaginationProps from './PropsType';
-import PaginationStyle, { IPaginationStyle }  from './style/index';
 import { getComponentLocale } from '../_util/getLocale';
-import zh_CN from './locale/zh_CN';
 
-export interface IPaginationNativeProps extends PaginationProps {
-  styles?: IPaginationStyle;
-}
-
-const PaginationStyles = StyleSheet.create<any>(PaginationStyle);
-
-export default class Pagination extends React.Component<IPaginationNativeProps, any> {
+export default class Pagination extends React.Component<PaginationProps, any> {
   static defaultProps = {
+    prefixCls: 'am-pagination',
     mode: 'button',
     current: 1,
     total: 0,
     simple: false,
-    onChange: () => {},
-    indicatorStyle: null,
-    styles: PaginationStyles,
+    onChange: () => { },
   };
 
- static contextTypes = {
+  static contextTypes = {
     antLocale: PropTypes.object,
   };
 
@@ -54,36 +46,25 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
   }
 
   render() {
-    const { style, mode, total, simple } = this.props;
-    const styles = this.props.styles!;
-
-    const locale = getComponentLocale(this.props, this.context, 'Pagination', () => zh_CN);
+    const { prefixCls, className, style, mode, total, simple } = this.props;
+    const { current } = this.state;
+    const locale = getComponentLocale(this.props, this.context, 'Pagination', () => require('./locale/zh_CN'));
     const { prevText, nextText } = locale;
 
-    const { current } = this.state;
-    const simpleItem = !simple ? (
-      <Flex.Item>
-        <View style={[styles.numberStyle]}>
-          <Text style={[styles.activeTextStyle]}>{current}</Text>
-          <Text style={[styles.totalStyle]}>/{total}</Text>
-        </View>
-      </Flex.Item>
-    ) : <Flex.Item />;
     let markup = (
       <Flex>
-        <Flex.Item>
-          <Button
-            disabled={current <= 1}
-            onClick={() => this.onChange(current - 1)}
-          >
-            {prevText}
-          </Button>
+        <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-prev`}>
+          <Button inline disabled={current <= 1} onClick={() => this.onChange(current - 1)}>{prevText}</Button>
         </Flex.Item>
-        {simpleItem}
-        <Flex.Item>
+        {this.props.children ? (<Flex.Item>{this.props.children}</Flex.Item>) : (!simple &&
+          <Flex.Item className={`${prefixCls}-wrap`} aria-live="assertive">
+            <span className="active">{current}</span>/<span>{total}</span>
+          </Flex.Item>)}
+        <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}>
           <Button
+            inline
             disabled={current >= total}
-            onClick={() => this.onChange(current + 1)}
+            onClick={() => this.onChange(this.state.current + 1)}
           >
             {nextText}
           </Button>
@@ -92,27 +73,38 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
     );
     if (mode === 'number') {
       markup = (
-        <View style={[styles.numberStyle]}>
-          <Text style={[styles.activeTextStyle]}>{current}</Text>
-          <Text style={[styles.totalStyle]}>/{total}</Text>
-        </View>
+        <div className={`${prefixCls}-wrap`}>
+          <span className="active">{current}</span>/<span>{total}</span>
+        </div>
       );
     } else if (mode === 'pointer') {
       const arr: any = [];
       for (let i = 0; i < total; i++) {
         arr.push(
-          <View
+          <div
             key={`dot-${i}`}
-            style={[ styles.pointStyle, styles.spaceStyle, (i + 1) === current && styles.pointActiveStyle ]}
-          />,
+            className={classNames({
+              [`${prefixCls}-wrap-dot`]: true,
+              [`${prefixCls}-wrap-dot-active`]: (i + 1) === current,
+            })}
+          >
+            <span />
+          </div>,
         );
       }
-      markup = <View style={[styles.indicatorStyle, this.props.indicatorStyle]}>{arr}</View>;
+      markup = <div className={`${prefixCls}-wrap`}>{arr}</div>;
     }
+    const cls = classNames({
+      [prefixCls as string]: true,
+      [className as string]: !!className,
+    });
     return (
-      <View style={[styles.container, style]}>
+      <div
+        className={cls}
+        style={style}
+      >
         {markup}
-      </View>
+      </div>
     );
   }
 }

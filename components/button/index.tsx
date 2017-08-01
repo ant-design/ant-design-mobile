@@ -1,131 +1,96 @@
-/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { TouchableHighlight, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
-import buttonStyle from './style/index';
+import classNames from 'classnames';
+import Icon from '../icon';
 import { ButtonProps } from './PropsType';
+import Touchable from 'rc-touchable';
 
-const buttonStyles = StyleSheet.create<any>(buttonStyle);
+const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
+const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
+function isString(str) {
+  return typeof str === 'string';
+}
 
-export default class Button extends React.Component<ButtonProps, any> {
+// Insert one space between two chinese characters automatically.
+function insertSpace(child) {
+  if (isString(child.type) && isTwoCNChar(child.props.children)) {
+    return React.cloneElement(child, {},
+      child.props.children.split('').join(' '));
+  }
+  if (isString(child)) {
+    if (isTwoCNChar(child)) {
+      child = child.split('').join(' ');
+    }
+    return <span>{child}</span>;
+  }
+  return child;
+}
+
+class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
-    pressIn: false,
+    prefixCls: 'am-button',
+    size: 'large',
+    inline: false,
+    across: false,
     disabled: false,
-    activeStyle: {},
     loading: false,
-    onClick: (_x?: any) => {
-    },
-    onPressIn: (_x?: any) => {
-    },
-    onPressOut: (_x?: any) => {
-    },
-    onShowUnderlay: (_x?: any) => {
-    },
-    onHideUnderlay: (_x?: any) => {
-    },
-    styles: buttonStyles,
+    activeStyle: {},
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      pressIn: false,
-      touchIt: false,
-    };
-  }
-
-  onPressIn = (...arg) => {
-    this.setState({ pressIn: true });
-    if (this.props.onPressIn) {
-      (this.props.onPressIn as any)(...arg);
-    }
-  }
-  onPressOut = (...arg) => {
-    this.setState({ pressIn: false });
-    if (this.props.onPressOut) {
-      (this.props.onPressOut as any)(...arg);
-    }
-  }
-  onShowUnderlay = (...arg) => {
-    this.setState({ touchIt: true });
-    if (this.props.onShowUnderlay) {
-      (this.props.onShowUnderlay as any)(...arg);
-    }
-  }
-  onHideUnderlay = (...arg) => {
-    this.setState({ touchIt: false });
-    if (this.props.onHideUnderlay) {
-      (this.props.onHideUnderlay as any)(...arg);
-    }
-  }
-
   render() {
-    // TODO: replace `TouchableHighlight` with `TouchableWithoutFeedback` in version 1.1.0
-    // for using setNativeProps to improve performance
     const {
-      size = 'large', type = 'default', disabled, activeStyle, onClick, style,
-      styles, loading, ...restProps,
+      children, className, prefixCls, type, size, inline, across,
+      disabled, icon, loading, activeStyle, activeClassName, onClick,
+      delayPressIn, delayPressOut, ...restProps,
     } = this.props;
-    const _styles = styles!;
 
-    ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
-     'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
-       if (restProps.hasOwnProperty(prop)) {
-         delete restProps[prop];
-       }
-     });
+    const wrapCls = {
+      [className as string]: className,
+      [prefixCls as string]: true,
+      [`${prefixCls}-primary`]: type === 'primary',
+      [`${prefixCls}-ghost`]: type === 'ghost',
+      [`${prefixCls}-warning`]: type === 'warning',
+      [`${prefixCls}-small`]: size === 'small',
+      [`${prefixCls}-inline`]: inline,
+      [`${prefixCls}-across`]: across,
+      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-loading`]: loading,
+    };
 
-    const textStyle = [
-      _styles[`${size}RawText`],
-      _styles[`${type}RawText`],
-      disabled && _styles.disabledRawText,
-      this.state.pressIn && _styles[`${type}HighlightText`],
-    ];
+    const iconType = loading ? 'loading' : icon;
+    const kids = React.Children.map(children, insertSpace);
 
-    const wrapperStyle = [
-      _styles.wrapperStyle,
-      _styles[`${size}Raw`],
-      _styles[`${type}Raw`],
-      disabled && _styles.disabledRaw,
-      this.state.pressIn && activeStyle && _styles[`${type}Highlight`],
-      activeStyle && this.state.touchIt && activeStyle,
-      style,
-    ];
+    if (iconType) {
+      wrapCls[`${prefixCls}-icon`] = true;
+    }
 
-    const underlayColor = (StyleSheet.flatten(
-      _styles[activeStyle ? `${type}Highlight` : `${type}Raw`],
-    ) as any).backgroundColor;
-
-    const indicatorColor = (StyleSheet.flatten(
-      this.state.pressIn ? _styles[`${type}HighlightText`] : _styles[`${type}RawText`],
-    ) as any).color;
-
+    const delayProps: any = {};
+    if (delayPressIn) {
+      delayProps.delayPressIn = delayPressIn;
+    }
+    if (delayPressOut) {
+      delayProps.delayPressOut = delayPressOut;
+    }
+    // use div, button native is buggy @yiminghe
     return (
-      <TouchableHighlight
-        activeOpacity={1}
-        underlayColor={underlayColor}
-        style={wrapperStyle}
-        onPress={(e?: any) => onClick && onClick(e)}
-        onPressIn={this.onPressIn}
-        onPressOut={this.onPressOut}
-        onShowUnderlay={this.onShowUnderlay}
-        onHideUnderlay={this.onHideUnderlay}
+      <Touchable
+        activeClassName={activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
         disabled={disabled}
-        {...restProps}
+        activeStyle={activeStyle}
+        {...delayProps}
       >
-        <View style={_styles.container}>
-          {
-            loading ? (
-              <ActivityIndicator
-                style={_styles.indicator}
-                animating
-                color={indicatorColor}
-                size="small"
-              />
-            ) : null
-          }
-          <Text style={textStyle}>{this.props.children}</Text>
-        </View>
-      </TouchableHighlight>
+        <a
+          role="button"
+          className={classNames(wrapCls)}
+          {...restProps}
+          onClick={disabled ? undefined : onClick}
+          aria-disabled={disabled}
+        >
+          {iconType ? <Icon aria-hidden="true" type={iconType} size={size === 'small' ? 'xxs' : 'md'}/> : null}
+          {kids}
+        </a>
+      </Touchable>
     );
   }
 }
+
+export default Button;

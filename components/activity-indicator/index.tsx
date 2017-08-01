@@ -1,65 +1,62 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import {
-  View,
-  Text,
-  ActivityIndicator,
-  StyleSheet,
-} from 'react-native';
-import indicatorStyle, { IActivityIndicatorStyle } from './style';
-import PropTypes from './PropsType';
+import classNames from 'classnames';
+import ActivityIndicatorProps from './PropsType';
 
-export interface IActivityIndicatorNativeProps extends PropTypes {
-  styles?: IActivityIndicatorStyle;
-}
-
-const indicatorStyles = StyleSheet.create<any>(indicatorStyle);
-
-export default class RNActivityIndicator extends React.Component<IActivityIndicatorNativeProps, any> {
+export default class ActivityIndicator extends React.Component<ActivityIndicatorProps, any> {
   static defaultProps = {
+    prefixCls: 'am-activity-indicator',
     animating: true,
-    color: 'gray',
     size: 'small',
+    panelColor: 'rgba(34,34,34,0.6)',
     toast: false,
-    styles: indicatorStyles,
   };
 
-  _renderToast() {
-    const styles = this.props.styles!;
-    return (
-      <View style={[styles.container]}>
-        <View style={[styles.innerContainer, { height: 89 }]}>
-          <View style={[styles.wrapper]}>
-            <ActivityIndicator
-              color="white"
-              size="large"
-            />
-            {this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>)}
-          </View>
-        </View>
-      </View>
-    );
-  }
-
-  _renderSpinner() {
-    const { styles, color, size, text } = this.props;
-    const { spinner, tip } = styles!;
-    return (
-      <View style={spinner} >
-        <ActivityIndicator
-          color={color}
-          size={size}
-        />
-        {text && (<Text style={[tip]}>{text}</Text>)}
-      </View>
-    );
-  }
-
   render() {
-    if (this.props.animating) {
-      return (
-        this.props.toast ? this._renderToast() : this._renderSpinner()
-      );
+    const { prefixCls, className, animating, toast, size, text } = this.props;
+    const wrapClass = classNames({
+      [`${prefixCls}`]: true,
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-sm`]: size === 'small',
+      [className as string]: !!className,
+      [`${prefixCls}-toast`]: !!toast,
+    });
+    const spinnerClass = classNames({
+      [`${prefixCls}-spinner`]: true,
+      [`${prefixCls}-spinner-lg`]: !!toast || size === 'large',
+    });
+    if (animating) {
+      if (toast) {
+        return (
+          <div className={wrapClass}>
+          {
+            text ? (
+              <div className={`${prefixCls}-content`}>
+                <span className={spinnerClass} aria-hidden="true" />
+                <span className={`${prefixCls}-toast`}>{text}</span>
+              </div>
+            ) : (
+              <div className={`${prefixCls}-content`}>
+                <span className={spinnerClass} aria-label="Loading" />
+              </div>
+            )
+          }
+          </div>
+        );
+      } else {
+        return text ? (
+          <div className={wrapClass}>
+            <span className={spinnerClass} aria-hidden="true" />
+            <span className={`${prefixCls}-tip`}>{text}</span>
+          </div>
+        ) : (
+          <div className={wrapClass}>
+            <span className={spinnerClass} aria-label="loading" />
+          </div>
+        );
+      }
+    } else {
+      return null;
     }
-    return null;
   }
 }

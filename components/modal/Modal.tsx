@@ -1,171 +1,154 @@
 import React from 'react';
-import {
-  View, Text, Modal,
-  TouchableHighlight,
-  Dimensions,
-  StyleSheet,
-  TouchableWithoutFeedback,
-} from 'react-native';
-import modalStyle, { IModalStyle } from './style/index';
-import { ModalProps } from './PropsType';
-import RCModal from 'rc-dialog/lib/Modal';
+import Dialog from 'rc-dialog';
+import classNames from 'classnames';
+import Touchable from 'rc-touchable';
+import { ModalProps, ModalComponent } from './PropsType';
+import omit from 'omit.js';
 
-const maxHeight = StyleSheet.create({
-  'maxHeight': {
-    maxHeight: Dimensions.get('window').height,
-  },
-}).maxHeight;
-
-export interface IModalNativeProps extends ModalProps {
-  styles?: IModalStyle;
+function checkIfAndroid(platform) {
+  return platform === 'android' ||
+      (platform === 'cross' && typeof window !== 'undefined' && !!navigator.userAgent.match(/Android/i));
 }
 
-const modalStyles = StyleSheet.create<any>(modalStyle);
-
-class AntmModal extends React.Component<IModalNativeProps, any> {
+export default class Modal extends ModalComponent<ModalProps, any> {
   static defaultProps = {
-    visible: false,
-    closable: false,
-    maskClosable: false,
-    style: {},
-    bodyStyle: {},
-    animationType: 'fade',
-    onClose() {
-    },
-    footer: [],
+    prefixCls: 'am-modal',
+    // transparent change to transparent by yiminghe
     transparent: false,
-    animateAppear: true,
-    styles: modalStyles,
+    animated: true,
+    style: {},
+    onShow() {},
+    footer: [],
+    closable: false,
     operation: false,
+    platform: 'cross',
   };
-  static alert: any;
-  static operation: any;
-  static prompt: any;
+  constructor(props) {
+    super(props);
+    this.state = {
+      // in ssr, just set isAndroid false
+      // since modal normally won't show at first render, componentDidMount will do double check
+      isAndroid: checkIfAndroid(props.platform),
+    };
+  }
+  isInModal(e) {
+    if (!/\biPhone\b|\biPod\b/i.test(navigator.userAgent)) {
+      return;
+    }
+    // fix touch to scroll background page on iOS
+    const prefixCls = this.props.prefixCls;
+    const pNode = (node => {
+      while ( node.parentNode && node.parentNode !== document.body ) {
+        if ( node.classList.contains(prefixCls)) {
+          return node;
+        }
+        node = node.parentNode;
+      }
+    })(e.target);
+    if (!pNode) {
+      e.preventDefault();
+    }
+    return true;
+  }
 
-  root: any;
+  renderFooterButton(button, prefixCls, i) {
+    let buttonStyle = {};
+    if (button.style) {
+      buttonStyle = button.style;
+      if (typeof buttonStyle === 'string') {
+        const styleMap = {
+          cancel: {},
+          default: {},
+          destructive: { color: 'red' },
+        };
+        buttonStyle = styleMap[buttonStyle] || {};
+      }
+    }
 
-  onFooterLayout = (e) => {
-    if (this.root) {
-      this.root.setNativeProps({
-        style: [{ paddingBottom: e.nativeEvent.layout.height }, maxHeight],
+    const onClickFn = function(e) {
+      e.preventDefault();
+      if (button.onPress) {
+        button.onPress();
+      }
+    };
+
+    return (
+      <Touchable activeClassName={`${prefixCls}-button-active`} key={i}>
+        <a className={`${prefixCls}-button`} role="button" style={buttonStyle} href="#" onClick={onClickFn}>
+          {button.text || `Button`}
+        </a>
+      </Touchable>
+    );
+  }
+  componentDidMount() {
+    const isAndroid = checkIfAndroid(this.props.platform);
+    if (isAndroid !== this.state.isAndroid) {
+      this.setState({
+        isAndroid,
       });
     }
   }
-
-  saveRoot = (root) => {
-    this.root = root;
-  }
-
   render() {
     const {
-      title, closable, footer, children, style, animateAppear, maskClosable,
-      transparent, visible, onClose, bodyStyle, onAnimationEnd, operation,
+      prefixCls,
+      className,
+      transparent,
+      animated,
+      transitionName,
+      maskTransitionName,
+      style,
+      footer = [],
+      closable,
+      operation,
     } = this.props;
 
-    const styles = this.props.styles!;
+    const { isAndroid } = this.state;
 
-    let btnGroupStyle = styles.buttonGroupV;
-    let horizontalFlex = {};
-    if (footer && footer.length === 2 && !operation) {
-      btnGroupStyle = styles.buttonGroupH;
-      horizontalFlex = { flex: 1 };
-    }
-    const buttonWrapStyle = footer && footer.length === 2 ? styles.buttonWrapH : styles.buttonWrapV;
-    let footerDom;
-    if (footer && footer.length) {
-      const footerButtons = footer.map((button: any, i) => {
-        let buttonStyle = {};
-        if (operation) {
-          buttonStyle = styles.buttonTextOperation;
-        }
-        if (button.style) {
-          buttonStyle = button.style;
-          if (typeof buttonStyle === 'string') {
-            const styleMap = {
-              'cancel': {},
-              'default': {},
-              'destructive': { color: 'red' },
-            };
-            buttonStyle = styleMap[buttonStyle] || {};
-          }
-        }
-        const noneBorder = footer && footer.length === 2 && i === 1 ? { borderRightWidth: 0 } : {};
-        const onPressFn = function() {
-          if (button.onPress) {
-            button.onPress();
-          }
-          if (onClose) {
-            onClose();
-          }
-        };
-        return (
-          <TouchableHighlight key={i} style={horizontalFlex} underlayColor="#ddd" onPress={onPressFn}>
-            <View style={[buttonWrapStyle, noneBorder]}>
-              <Text style={[styles.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
-            </View>
-          </TouchableHighlight>
-        );
-      });
-      footerDom = (
-        <View style={[btnGroupStyle, styles.footer]} onLayout={this.onFooterLayout}>
-          {footerButtons}
-        </View>
-      );
-    }
+    const wrapCls = classNames({
+      [className as string]: !!className,
+      [`${prefixCls}-transparent`]: transparent,
+      [`${prefixCls}-android`]: isAndroid,
+    });
 
-    let animType = this.props.animationType;
-    if (transparent) {
-      if (animType === 'slide') {
-        animType = 'slide-up';
-      }
-      const closableDom = closable ? (
-        <View style={[styles.closeWrap]}>
-          <TouchableWithoutFeedback onPress={onClose}>
-            <View>
-              <Text style={[styles.close]}>×</Text>
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-      ) : null;
-      return (
-        <View style={styles.container}>
-          <RCModal
-            onClose={onClose}
-            animationType={animType}
-            wrapStyle={transparent ? styles.wrap : undefined}
-            style={[styles.innerContainer, style]}
-            visible={visible}
-            onAnimationEnd={onAnimationEnd}
-            animateAppear={animateAppear}
-            maskClosable={maskClosable}
-          >
-            <View style={maxHeight} ref={this.saveRoot}>
-              {title ? <Text style={[styles.header]}>{title}</Text> : null}
-              <View style={[styles.body, bodyStyle]}>{children}</View>
-              {footerDom}
-              {closableDom}
-            </View>
-          </RCModal>
-        </View>
-      );
-    }
-    if (animType === 'slide-up' || animType === 'slide-down' || animType === 'slide') {
-      animType = 'slide';
-    }
+    let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
+    let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
+
+    const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`;
+    const footerDom = footer.length ? <div className={btnGroupClass} role="group">
+      {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
+    </div> : null;
+
+    // transparent 模式下, 内容默认居中
+    const rootStyle = transparent ?
+      {
+        width: '5.4rem',
+        height: 'auto',
+        ...style,
+      } :
+      {
+        width: '100%',
+        height: '100%',
+        ...style,
+      };
+
+    const restProps = omit(this.props, [
+      'prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
+      'style', 'footer', 'touchFeedback', 'wrapProps',
+    ]);
+    const wrapProps = { onTouchStart: e => this.isInModal(e) };
+
     return (
-      <View style={styles.container}>
-        <Modal
-          visible={visible}
-          animationType={animType}
-          onRequestClose={onClose}
-        >
-          <View style={style}>
-            {children}
-          </View>
-        </Modal>
-      </View>
+      <Dialog
+        prefixCls={prefixCls}
+        className={wrapCls}
+        transitionName={anim}
+        maskTransitionName={maskAnim}
+        style={rootStyle}
+        footer={footerDom}
+        wrapProps={wrapProps}
+        closable={closable}
+        {...restProps}
+      />
     );
   }
 }
-
-export default AntmModal;

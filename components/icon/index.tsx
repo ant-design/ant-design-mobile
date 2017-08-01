@@ -1,43 +1,63 @@
 import React from 'react';
-import { Text }  from 'react-native';
+import classNames from 'classnames';
 
+// http://stackoverflow.com/questions/29891458/webpack-require-every-file-in-directory
+// const svgRequire = (require as any).context('./style/assets', false, /\.svg$/);
+// svgRequire.keys().forEach(key => svgRequire(key));
+declare const require: Function;
 export interface IconPropType {
   type: string;
-  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | number;
-  color?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
+  onClick?: (e?: any) => void;
 }
 
-const iconMap = {
-  'check-circle': '\ue630',
-  'check': '\ue632',
-  'check-circle-o': '\ue631',
-  'cross-circle': '\ue62e',
-  'cross': '\ue633',
-  'cross-circle-o': '\ue62f',
-  'up': '\ue61e',
-  'down': '\ue61d',
-  'left': '\ue620',
-  'right': '\ue61f',
-  'ellipsis': '\ue647',
-  'loading': '\ue64d',
-};
-
-export default class Icon extends React.Component<any, any> {
+const warnMsg = 'Icon props.type is invalid, have you set svg-sprite-loader correctly? see https://goo.gl/kN8oiw';
+export default class Icon extends React.Component<IconPropType, any> {
   static defaultProps = {
     size: 'md',
-    color: '#000',
   };
 
+  renderSvg = () => {
+    const { type } = this.props;
+    let svg;
+    try {
+      svg = require(`./style/assets/${type}.svg`);
+    } catch (e) {
+
+    } finally {
+      return svg;
+    }
+  }
   render() {
-    const { size, type, color } = this.props;
-    const sizeMap = { 'xxs': 15, 'xs': 18, 'sm': 21, 'md': 22, 'lg': 36 };
-    const fontSize = typeof size === 'string' ? sizeMap[size] : size;
-    const TextIconStyle = {
-      fontSize,
-      color: color,
-      fontFamily: 'anticon',
-      flexDirection: 'row',
-    };
-    return <Text style={TextIconStyle as any}>{iconMap[type] || type}</Text>;
+    const { type, className, style, size, ...restProps } = this.props;
+    if (!type || typeof type !== 'string') {
+      console.error(warnMsg);
+      return null;
+    }
+    let xlinkHref = this.renderSvg();
+    let outerIcon;
+    if (!xlinkHref) {
+      outerIcon = true;
+      xlinkHref = type;
+      if (!/^#/.test(type)) {
+        console.error(warnMsg);
+      }
+    } else {
+      if (!/^#/.test(xlinkHref)) {
+        console.error(warnMsg);
+      }
+      xlinkHref = `#${type}`;
+    }
+    const iconClassName = classNames({
+      'am-icon': true,
+      [`am-icon-${outerIcon ? type.substr(1) : type}`]: true,
+      [`am-icon-${size}`]: true,
+      [className as string]: !!className,
+    });
+    return <svg className={iconClassName} style={style} {...restProps}>
+      <use xlinkHref={xlinkHref} />
+    </svg>;
   }
 }

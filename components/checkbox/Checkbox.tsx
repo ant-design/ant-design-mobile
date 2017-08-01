@@ -1,78 +1,32 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Image, View, Text, StyleSheet } from 'react-native';
+import RcCheckbox from 'rc-checkbox';
 import { CheckboxProps } from './PropsType';
-import CheckboxStyle, { ICheckboxStyle } from './style/index';
+import omit from 'omit.js';
+import classNames from 'classnames';
 
-export interface ICheckboxNativeProps extends CheckboxProps {
-  styles?: ICheckboxStyle;
-}
-
-const CheckboxStyles = StyleSheet.create<any>(CheckboxStyle);
-
-export default class Checkbox extends React.Component<ICheckboxNativeProps, any> {
+export default class Checkbox extends React.Component<CheckboxProps, any> {
   static CheckboxItem: any;
   static AgreeItem: any;
-
   static defaultProps = {
-    styles: CheckboxStyles,
+    prefixCls: 'am-checkbox',
+    wrapLabel: true,
   };
 
-  constructor(props: CheckboxProps, context: any) {
-    super(props, context);
-
-    this.state = {
-      checked: props.checked || props.defaultChecked || false,
-    };
-  }
-
-  componentWillReceiveProps(nextProps: CheckboxProps): void {
-    if (typeof nextProps.checked === 'boolean') {
-      this.setState({
-        checked: !!nextProps.checked,
-      });
-    }
-  }
-
-  handleClick = () => {
-    if (this.props.disabled) {
-      return;
-    }
-    const checked = !this.state.checked;
-    if (!(typeof this.props.checked === 'boolean')) {
-      this.setState({
-        checked,
-      });
-    }
-    if (this.props.onChange) {
-      this.props.onChange({ target: { checked } });
-    }
-  }
-
-  render(): JSX.Element {
-    let { style, disabled, children, styles } = this.props;
-    let checked = this.state.checked;
-    let imgSrc;
-    if (checked) {
-      if (disabled) {
-        imgSrc = require('./image/checked_disable.png');
-      } else {
-        imgSrc = require('./image/checked.png');
-      }
-    } else {
-      if (disabled) {
-        imgSrc = require('./image/normal_disable.png');
-      } else {
-        imgSrc = require('./image/normal.png');
-      }
-    }
-
-    return (
-      <TouchableWithoutFeedback onPress={this.handleClick}>
-        <View style={[styles!.wrapper]}>
-          <Image source={imgSrc} style={[styles!.icon, style]} />
-          {typeof children === 'string' ? ( <Text style={styles!.iconRight}>{this.props.children}</Text>) : children}
-        </View>
-      </TouchableWithoutFeedback>
+  render() {
+    const { prefixCls, className, style, children } = this.props;
+    const wrapCls = classNames({
+      [className as string]: !!className,
+      [`${prefixCls}-wrapper`]: true,
+    });
+    const mark = (
+      <label className={wrapCls} style={style}>
+        <RcCheckbox {...omit(this.props, ['className', 'style'])} />
+        {children}
+      </label>
     );
+    if (this.props.wrapLabel) {
+      return mark;
+    }
+    return <RcCheckbox {...this.props} />;
   }
 }

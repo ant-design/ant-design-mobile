@@ -1,49 +1,50 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, Image, ImageURISource, StyleSheet } from 'react-native';
-import ResultStyle, { IResultStyle } from './style';
 import Button from '../button';
+import classNames from 'classnames';
 import ResultProps from './PropsType';
 
-export interface IResultNativeProps extends ResultProps {
-  styles?: IResultStyle;
-}
-
-const ResultStyles = StyleSheet.create<any>(ResultStyle);
-
-export default class Result extends React.Component<IResultNativeProps, any> {
+export default class Result extends React.Component<ResultProps, any> {
   static defaultProps = {
-    styles: ResultStyles,
+    prefixCls: 'am-result',
     buttonType: '',
     buttonClick: () => {},
   };
 
   render() {
-    const { style, img, imgUrl, title, message, buttonText, buttonClick, buttonType } = this.props;
-    const styles = this.props.styles!;
+    const {
+      prefixCls,
+      className,
+      img,
+      imgUrl,
+      title,
+      message,
+      buttonText,
+      buttonClick,
+      buttonType,
+      style,
+    } = this.props;
+    const wrapCls = classNames({
+      [`${prefixCls}`]: true,
+      [className as string]: className,
+    });
 
     let imgContent: any = null;
     if (img) {
-      imgContent = <View style={styles.imgWrap}>{img}</View>;
+      imgContent = <div className={`${prefixCls}-pic`}>{img}</div>;
     } else if (imgUrl) {
-      imgContent = (
-        <View style={styles.imgWrap}>
-          <Image source={imgUrl as ImageURISource | ImageURISource[]} style={styles.img} />
-        </View>
-      );
+      imgContent = <div className={`${prefixCls}-pic`} style={{ backgroundImage: `url(${imgUrl})` }} />;
     }
 
     return (
-      <View style={[styles.result, style]}>
+      <div className={wrapCls} style={style} role="alert">
         {imgContent}
-        {title ? <View style={styles.title}>{typeof title === 'string' ?
-          <Text style={styles.titleText}>{title}</Text> : title}</View> : null}
-        {message ? <View style={styles.message}>{typeof message === 'string' ?
-          <Text style={styles.messageText}>{message}</Text> : message}</View> : null}
-        {buttonText ? <View style={styles.buttonWrap}>
-          <Button style={styles.button} type={buttonType} onClick={buttonClick}>{buttonText}</Button>
-        </View> : null}
-      </View>
+        {title ? <div className={`${prefixCls}-title`}>{title}</div> : null}
+        {message ? <div className={`${prefixCls}-message`}>{message}</div> : null}
+        {buttonText ? <div className={`${prefixCls}-button`}>
+          <Button type={buttonType} onClick={buttonClick}>{buttonText}</Button>
+        </div> : null}
+      </div>
     );
   }
 }

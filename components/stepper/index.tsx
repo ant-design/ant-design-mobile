@@ -1,32 +1,34 @@
 import React from 'react';
-import RcInputNumber from 'rc-input-number/lib';
+import classNames from 'classnames';
+import RcInputNumber from 'rc-input-number';
 import StepProps from './PropsType';
-import styles from 'rc-input-number/lib/styles';
-import { Platform } from 'react-native';
-import omit from 'omit.js';
+import Icon from '../icon';
 
 export default class Stepper extends React.Component<StepProps, any> {
   static defaultProps = {
+    prefixCls: 'am-stepper',
     step: 1,
     readOnly: false,
-    disabled: false,
-    styles,
-    inputStyle: {},
+    showNumber: false,
+    focusOnUpDown: false,
+    useTouch: true,
   };
 
   render() {
-    const inputAndroidStyle = Platform.OS === 'android' ? {
-      top: 6,
-      paddingTop: 0,
-      height: 26,
-    } : {};
-    const inputStyle = {
-      ...inputAndroidStyle,
-      ...this.props.inputStyle,
-    };
-    const restProps = omit(this.props, ['inputStyle']);
+    const { className, showNumber, ...restProps } = this.props;
+    const stepperClass = classNames({
+      [className as string]: !!className,
+      ['showNumber']: !!showNumber,
+    });
+
     return (
-      <RcInputNumber {...restProps} inputStyle={inputStyle} />
+      <RcInputNumber
+        upHandler={<Icon type={require('./style/assets/plus.svg')} size="xxs" />}
+        downHandler={<Icon type={require('./style/assets/minus.svg')} size="xxs" />}
+        {...restProps}
+        ref="inputNumber"
+        className={stepperClass}
+      />
     );
   }
 }

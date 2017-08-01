@@ -1,69 +1,32 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Image, Text, View, StyleSheet } from 'react-native';
+import RcCheckbox from 'rc-checkbox';
 import { RadioProps } from './PropsType';
-import RadioStyle, { IRadioStyle } from './style/index';
+import omit from 'omit.js';
+import classNames from 'classnames';
 
-export interface IRadioNativeProps extends RadioProps {
-  styles?: IRadioStyle;
-}
-
-const RadioStyles = StyleSheet.create<any>(RadioStyle);
-
-export default class Radio extends React.Component<IRadioNativeProps, any> {
+export default class Radio extends React.Component<RadioProps, any> {
   static RadioItem: any;
+
   static defaultProps = {
-    styles: RadioStyles,
+    prefixCls: 'am-radio',
+    wrapLabel: true,
   };
 
-  constructor(props: RadioProps, context: any) {
-    super(props, context);
-
-    this.state = {
-      checked: props.checked || props.defaultChecked || false,
-    };
-  }
-
-  componentWillReceiveProps(nextProps: RadioProps): void {
-    if ('checked' in nextProps) {
-      this.setState({
-        checked: !!nextProps.checked,
-      });
-    }
-  }
-
-  handleClick = () => {
-    if (this.props.disabled) {
-      return;
-    }
-    if (!('checked' in this.props)) {
-      this.setState({
-        checked: true,
-      });
-    }
-    if (this.props.onChange) {
-      this.props.onChange({ target: { checked: true } });
-    }
-  }
-
-  render(): JSX.Element {
-    const { style, disabled, children } = this.props;
-    const styles = this.props.styles!;
-
-    let checked = this.state.checked;
-    let imgSrc = undefined as any;
-    if (checked) {
-      if (disabled) {
-        imgSrc = require('./image/checked_disable.png');
-      } else {
-        imgSrc = require('./image/checked.png');
-      }
-    }
-    return (<TouchableWithoutFeedback onPress={this.handleClick}>
-        <View style={[styles.wrapper]}>
-          <Image source={imgSrc} style={[styles.icon, style]} />
-          {typeof children === 'string' ? <Text>{this.props.children}</Text> : children}
-        </View>
-      </TouchableWithoutFeedback>
+  render() {
+    const { prefixCls, className, style, children } = this.props;
+    const wrapCls = classNames({
+      [className as string]: !!className,
+      [`${prefixCls}-wrapper`]: true,
+    });
+    const mark = (
+      <label className={wrapCls} style={style}>
+        <RcCheckbox {...omit(this.props, ['className', 'style'])} type="radio" />
+        {children}
+      </label>
     );
+    if (this.props.wrapLabel) {
+      return mark;
+    }
+    return <RcCheckbox {...this.props} type="radio" />;
   }
 }

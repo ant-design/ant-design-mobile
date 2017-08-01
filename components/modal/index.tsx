@@ -4,7 +4,7 @@ import prompt from './prompt';
 import operation from './operation';
 
 Modal.alert = alert;
-Modal.operation = operation;
 Modal.prompt = prompt;
+Modal.operation = operation;
 
 export default Modal;

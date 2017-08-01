@@ -1,13 +1,14 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Image, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
-import Input from './Input';
-import variables from '../style/themes/default';
-import InputItemProps from './PropsType';
-import InputItemStyle from './style/index';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import omit from 'omit.js';
+import InputItemProps from './PropsType';
+import Input from './Input';
+import CustomInput from './CustomInput';
+import { getComponentLocale } from '../_util/getLocale';
 
-const noop: any = () => {};
+function noop() { }
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -16,12 +17,14 @@ function fixControlledValue(value) {
   return value;
 }
 
-const InputItemStyles = StyleSheet.create<any>(InputItemStyle);
-
-export default class InputItem extends React.Component<InputItemProps, any> {
+class InputItem extends React.Component<InputItemProps, any> {
   static defaultProps = {
+    prefixCls: 'am-input',
+    prefixListCls: 'am-list',
     type: 'text',
     editable: true,
+    disabled: false,
+    placeholder: '',
     clear: false,
     onChange: noop,
     onBlur: noop,
@@ -30,37 +33,64 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     onExtraClick: noop,
     error: false,
     onErrorClick: noop,
-    size: 'large',
-    labelNumber: 4,
-    labelPosition: 'left',
-    textAlign: 'left',
-    last: false,
-    styles: InputItemStyles,
-    focused: false,
+    labelNumber: 5,
+    updatePlaceholder: false,
   };
 
-  onChange = (text) => {
+  static contextTypes = {
+    antLocale: PropTypes.object,
+  };
+
+  debounceTimeout: any;
+  scrollIntoViewTimeout: any;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      placeholder: props.placeholder,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ('placeholder' in nextProps && !nextProps.updatePlaceholder) {
+      this.setState({
+        placeholder: nextProps.placeholder,
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
+    }
+    if (this.scrollIntoViewTimeout) {
+      clearTimeout(this.scrollIntoViewTimeout);
+      this.scrollIntoViewTimeout = null;
+    }
+  }
+
+  onInputChange = (e) => {
+    let value = e.target.value;
     const { onChange, type } = this.props;
-    const maxLength = this.props.maxLength as number;
+
     switch (type) {
+      case 'text':
+        break;
       case 'bankCard':
-        text = text.replace(/\D/g, '');
-        if (maxLength > 0) {
-          text = text.substring(0, maxLength);
-        }
-        text = text.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
+        value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
-        text = text.replace(/\D/g, '');
-        if (maxLength > 0) {
-          text = text.substring(0, 11);
-        }
-        const valueLen = text.length;
+        value = value.replace(/\D/g, '').substring(0, 11);
+        const valueLen = value.length;
         if (valueLen > 3 && valueLen < 8) {
-          text = `${text.substr(0, 3)} ${text.substr(3)}`;
+          value = `${value.substr(0, 3)} ${value.substr(3)}`;
         } else if (valueLen >= 8) {
-          text = `${text.substr(0, 3)} ${text.substr(3, 4)} ${text.substr(7)}`;
+          value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(7)}`;
         }
+        break;
+      case 'number':
+        value = value.replace(/\D/g, '');
         break;
       case 'password':
         break;
@@ -68,28 +98,116 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         break;
     }
     if (onChange) {
-      onChange(text);
+      onChange(value);
     }
   }
 
-  onInputBlur = () => {
-    if (this.props.onBlur) {
-      this.props.onBlur(this.props.value);
+  onInputFocus = (value) => {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
     }
-  }
-
-  onInputFocus = () => {
+    this.setState({
+      focus: true,
+    });
+    if (document.activeElement.tagName.toLowerCase() === 'input') {
+      this.scrollIntoViewTimeout = setTimeout(() => {
+        try {
+          (document.activeElement as any).scrollIntoViewIfNeeded();
+        } catch (e) { }
+      }, 100);
+    }
     if (this.props.onFocus) {
-      this.props.onFocus(this.props.value);
+      this.props.onFocus(value);
+    }
+  }
+
+  onInputBlur = (value) => {
+    this.debounceTimeout = setTimeout(() => {
+      this.setState({
+        focus: false,
+      });
+    }, 200);
+    if (this.props.onBlur) {
+      this.props.onBlur(value);
+    }
+  }
+
+  onExtraClick = (e) => {
+    if (this.props.onExtraClick) {
+      this.props.onExtraClick(e);
+    }
+  }
+
+  onErrorClick = (e) => {
+    if (this.props.onErrorClick) {
+      this.props.onErrorClick(e);
+    }
+  }
+
+  clearInput = () => {
+    if (this.props.type !== 'password' && this.props.updatePlaceholder) {
+      this.setState({
+        placeholder: this.props.value,
+      });
+    }
+    if (this.props.onChange) {
+      this.props.onChange('');
     }
   }
 
   render() {
     const {
-      value, defaultValue, type, style, clear, children, error, extra,
-      last, onExtraClick = noop, onErrorClick = noop, styles,
+      prefixCls, prefixListCls, type, value, defaultValue,
+      name, editable, disabled, style, clear, children,
+      error, className, extra, labelNumber, maxLength,
     } = this.props;
-    const labelNumber = this.props.labelNumber as number;
+
+    // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
+    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
+      'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
+      'updatePlaceholder', 'placeholderTextColor', 'type', 'locale',
+    ]);
+    const locale = getComponentLocale(this.props, this.context, 'InputItem', () => require('./locale/zh_CN'));
+
+    const { confirmLabel } = locale;
+
+    const { placeholder, focus } = this.state;
+    const wrapCls = classNames({
+      [`${prefixListCls}-item`]: true,
+      [`${prefixCls}-item`]: true,
+      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-error`]: error,
+      [`${prefixCls}-focus`]: focus,
+      [`${prefixCls}-android`]: focus,
+      [className as string]: className,
+    });
+
+    const labelCls = classNames({
+      [`${prefixCls}-label`]: true,
+      [`${prefixCls}-label-2`]: labelNumber === 2,
+      [`${prefixCls}-label-3`]: labelNumber === 3,
+      [`${prefixCls}-label-4`]: labelNumber === 4,
+      [`${prefixCls}-label-5`]: labelNumber === 5,
+      [`${prefixCls}-label-6`]: labelNumber === 6,
+      [`${prefixCls}-label-7`]: labelNumber === 7,
+    });
+
+    const controlCls = classNames({
+      [`${prefixCls}-control`]: true,
+    });
+
+    let inputType: any = 'text';
+    if (type === 'bankCard' || type === 'phone') {
+      inputType = 'tel';
+    } else if (type === 'password') {
+      inputType = 'password';
+    } else if (type === 'digit') {
+      inputType = 'number';
+    } else if (type !== 'text' && type !== 'number') {
+      inputType = type;
+    }
+
     let valueProps;
     if ('value' in this.props) {
       valueProps = {
@@ -101,80 +219,71 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       };
     }
 
-    const containerStyle = {
-      borderBottomWidth: last ? 0 : StyleSheet.hairlineWidth,
-    };
-
-    const textStyle = {
-      width: variables.font_size_heading * labelNumber * 1.05,
-    };
-
-    const inputStyle = {
-      color: error ? '#f50' : variables.color_text_base,
-    };
-
-    const extraStyle = {
-      width: typeof extra === 'string' && (extra as string).length > 0 ?
-      (extra as string).length * variables.font_size_heading : 0,
-    };
-
-    const restProps = omit(this.props, [
-      'type', 'clear', 'children', 'error', 'extra', 'labelNumber', 'last',
-      'onExtraClick', 'onErrorClick', 'styles',
-    ]);
-    const keyboardTypeArray = ['default', 'email-address',
-      'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation',
-      'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search'];
-
-    let keyboardType: any = 'default';
-
+    let patternProps;
     if (type === 'number') {
-      keyboardType = 'numeric';
-    } else if (type === 'bankCard') {
-      keyboardType = 'number-pad'; // 不带小数点
-    } else if (type === 'phone') {
-      keyboardType = 'phone-pad';
-    } else if (type && keyboardTypeArray.indexOf(type) > -1) {
-      keyboardType = type;
+      patternProps = {
+        pattern: '[0-9]*',
+      };
+    }
+
+    let classNameProps;
+    if (type === 'digit') {
+      classNameProps = {
+        className: 'h5numInput',
+      };
     }
 
     return (
-      <View style={[styles.container, containerStyle, style]}>
-        {
-          children ? (
-            typeof children === 'string' ? <Text style={[styles.text, textStyle]}>{children}</Text> :
-            <View style={textStyle}>{children}</View>
-          ) : null
-        }
-        <Input
-          clearButtonMode={clear ? 'while-editing' : 'never'}
-          underlineColorAndroid="transparent"
-          {...restProps}
-          {...valueProps}
-          style={[styles.input, inputStyle]}
-          keyboardType={keyboardType}
-          onChange={(event) => this.onChange(event.nativeEvent.text)}
-          secureTextEntry={type === 'password'}
-          onBlur={this.onInputBlur}
-          onFocus={this.onInputFocus}
-        />
-        {extra ? <TouchableWithoutFeedback onPress={onExtraClick}>
-          <View>
-            {typeof extra === 'string' ? <Text style={[styles.extra, extraStyle]}>{extra}</Text> : extra}
-          </View>
-        </TouchableWithoutFeedback> : null}
-        {
-          error &&
-          <TouchableWithoutFeedback onPress={onErrorClick}>
-            <View style={[styles.errorIcon]}>
-              <Image
-                source={require('../style/images/error.png')}
-                style={{ width: variables.icon_size_xs, height: variables.icon_size_xs }}
-              />
-            </View>
-          </TouchableWithoutFeedback>
-        }
-      </View>
+      <div className={wrapCls}>
+        {children ? (<div className={labelCls}>{children}</div>) : null}
+        <div className={controlCls}>
+          {type === 'money' ? (
+            <CustomInput
+              type={type}
+              maxLength={maxLength}
+              placeholder={placeholder}
+              onChange={this.onInputChange}
+              onFocus={this.onInputFocus}
+              onBlur={this.onInputBlur}
+              disabled={disabled}
+              editable={editable}
+              value={fixControlledValue(value)}
+              {...(this.props.focused !== undefined ? { focused: this.props.focused } : {})}
+              {...(this.props.autoFocus !== undefined ? { autoFocus: this.props.autoFocus } : {})}
+              prefixCls={prefixCls}
+              style={style}
+              confirmLabel={confirmLabel}
+            />
+          ) : (
+            <Input
+              {...patternProps}
+              {...otherProps}
+              {...valueProps}
+              {...classNameProps}
+              style={style}
+              type={inputType}
+              maxLength={maxLength}
+              name={name}
+              placeholder={placeholder}
+              onChange={this.onInputChange}
+              onFocus={this.onInputFocus}
+              onBlur={this.onInputBlur}
+              readOnly={!editable}
+              disabled={disabled}
+            />
+          )}
+        </div>
+        {clear && editable && !disabled && (value && value.length > 0) ?
+          <div
+            className={`${prefixCls}-clear`}
+            onClick={this.clearInput}
+          />
+          : null}
+        {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
+        {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
+      </div>
     );
   }
 }
+
+export default InputItem;

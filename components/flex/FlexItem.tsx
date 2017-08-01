@@ -1,24 +1,19 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback } from 'react-native';
+import classNames from 'classnames';
 import { FlexItemProps } from './PropsType';
 
 export default class FlexItem extends React.Component<FlexItemProps, any> {
   static defaultProps = {
-    flex: 1,
+    prefixCls: 'am-flexbox',
   };
   render() {
-    let { style, children, flex, ...restProps } = this.props;
-    const flexItemStyle = {
-      flex: flex || 1,
-    };
-    // support other touchablewithoutfeedback props
-    // TODO  support TouchableHighlight
+    let{ children, className, prefixCls, style, ...restProps } = this.props;
+    const wrapCls = classNames({
+      [`${prefixCls}-item`]: true,
+      [className as string]: className,
+    });
     return (
-      <TouchableWithoutFeedback {...restProps}>
-        <View style={[flexItemStyle, style]}>
-          {children}
-        </View>
-      </TouchableWithoutFeedback>
+      <div className={wrapCls} style={style} {...restProps}>{children}</div>
     );
   }
 }
