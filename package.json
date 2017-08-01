@@ -64,7 +64,6 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.17",
     "@types/react": "^15.6.0",
     "@types/react-dom": "^15.5.1",
     "@types/react-native": "^0.46.9",

@@ -1,4 +1,6 @@
 // this file is not used if use https://github.com/ant-design/babel-plugin-import
+declare var process: any;
+
 const ENV = process.env.NODE_ENV;
 if (ENV !== 'production' &&
     ENV !== 'test' &&
