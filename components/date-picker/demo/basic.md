@@ -13,12 +13,14 @@ import { DatePicker, List } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
-const now = new Date(2017, 7, 1, 15, 3);
-const maxDate = new Date(2016, 11, 3, 22, 0);
-const minDate = new Date(2015, 7, 6, 8, 30);
+const nowTimeStamp = Date.now();
+const now = new Date(nowTimeStamp);
+const maxDate = new Date(nowTimeStamp + 10000);
+const minDate = new Date(nowTimeStamp - 10000);
 
 const gmtNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
 
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC', timeZoneName: 'short' };
 // 如果不是使用 List.Item 作为 children
 const CustomChildren = props => (
   <div
@@ -83,7 +85,7 @@ class Test extends React.Component {
         </DatePicker>
         <DatePicker
           mode="time"
-          format={val => val.toLocaleString()}
+          format={val => val.toLocaleString('en-US', options)}
           okText="OK"
           dismissText="Cancel"
           locale={enUs}

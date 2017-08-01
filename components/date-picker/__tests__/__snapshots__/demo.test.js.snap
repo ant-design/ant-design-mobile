@@ -80,7 +80,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-extra"
             >
-              15:03
+              00:00
             </div>
             <div
               aria-hidden="true"
@@ -108,7 +108,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-extra"
             >
-              2017-08-01 15:03
+              2016-11-22 00:00
             </div>
             <div
               aria-hidden="true"
@@ -136,7 +136,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-extra"
             >
-              8/1/2017, 7:03:00 AM
+              Monday, November 21, 2016, GMT
             </div>
             <div
               aria-hidden="true"
