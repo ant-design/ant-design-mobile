@@ -13,7 +13,7 @@ import { DatePicker, List } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
-const now = new Date();
+const now = new Date(2017, 7, 1, 15, 3);
 const maxDate = new Date(2016, 11, 3, 22, 0);
 const minDate = new Date(2015, 7, 6, 8, 30);
 
