@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import RNAccordion from 'react-native-collapsible/Accordion';
-import AccordionStyle, { IAccordionStyle } from './style/index';
+import AccordionStyle, { IAccordionStyle } from './style/index.native';
 import AccordionProps from './PropsType';
 import Icon from '../icon';
 

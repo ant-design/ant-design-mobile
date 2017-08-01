@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableWithoutFeedback, Image, Text, View, StyleSheet } from 'react-native';
 import { RadioProps } from './PropsType';
-import RadioStyle, { IRadioStyle } from './style/index';
+import RadioStyle, { IRadioStyle } from './style/index.native';
 
 export interface IRadioNativeProps extends RadioProps {
   styles?: IRadioStyle;

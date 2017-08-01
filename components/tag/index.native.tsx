@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, Platform, StyleSheet } from 'react-native';
-import TagStyle, { ITagStyle } from './style/index';
+import TagStyle, { ITagStyle } from './style/index.native';
 import TagProps from './PropsType';
 
 export interface ITagNativeProps extends TagProps {

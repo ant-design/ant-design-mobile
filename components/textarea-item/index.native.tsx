@@ -1,9 +1,9 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native';
-import variables from '../style/themes/default';
+import variables from '../style/themes/default.native';
 import TextAreaItemProps from './PropsType';
-import TextAreaItemStyle, { ITextareaItemStyle } from './style/index';
+import TextAreaItemStyle, { ITextareaItemStyle } from './style/index.native';
 import omit from 'omit.js';
 
 function fixControlledValue(value) {

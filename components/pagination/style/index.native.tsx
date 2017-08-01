@@ -1,5 +1,5 @@
 import { ViewStyle, TextStyle } from 'react-native';
-import variables from '../../style/themes/default';
+import variables from '../../style/themes/default.native';
 
 export interface IPaginationStyle {
   container: ViewStyle;

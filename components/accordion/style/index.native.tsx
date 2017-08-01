@@ -1,4 +1,4 @@
-import variables from '../../style/themes/default';
+import variables from '../../style/themes/default.native';
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
 export interface IAccordionStyle {

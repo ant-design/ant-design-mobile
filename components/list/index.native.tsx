@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ViewStyle, StyleSheet } from 'react-native';
 import Item from './ListItem';
 import { ListProps } from './PropsType';
-import listStyle from './style/index';
+import listStyle from './style/index.native';
 
 const listStyles = StyleSheet.create<any>(listStyle);
 

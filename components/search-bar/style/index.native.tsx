@@ -1,4 +1,4 @@
-import variables from '../../style/themes/default';
+import variables from '../../style/themes/default.native';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
 export interface ISearchBarStyle {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Animated, Dimensions, StyleSheet } from 'react-native';
-import ProgressStyle from './style/index';
+import ProgressStyle from './style/index.native';
 import ProgressProps from './PropsType';
 
 const ProgressStyles = StyleSheet.create<any>(ProgressStyle);

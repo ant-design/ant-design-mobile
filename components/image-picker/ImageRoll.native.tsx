@@ -7,7 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import varibles from '../style/themes/default';
+import varibles from '../style/themes/default.native';
 import CameraRollPicker from 'react-native-camera-roll-picker';
 import { ImageRollProps } from './PropsType';
 

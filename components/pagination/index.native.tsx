@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import Button from '../button';
 import Flex from '../flex';
 import PaginationProps from './PropsType';
-import PaginationStyle, { IPaginationStyle }  from './style/index';
+import PaginationStyle, { IPaginationStyle }  from './style/index.native';
 import { getComponentLocale } from '../_util/getLocale';
 import zh_CN from './locale/zh_CN';
 

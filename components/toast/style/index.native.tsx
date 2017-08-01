@@ -1,4 +1,4 @@
-import variables from '../../style/themes/default';
+import variables from '../../style/themes/default.native';
 import { Platform, ViewStyle, ImageStyle, TextStyle } from 'react-native';
 
 export interface IToastStyle {

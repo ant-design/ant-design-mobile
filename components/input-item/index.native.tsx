@@ -2,9 +2,9 @@
 import React from 'react';
 import { View, Image, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import Input from './Input';
-import variables from '../style/themes/default';
+import variables from '../style/themes/default.native';
 import InputItemProps from './PropsType';
-import InputItemStyle from './style/index';
+import InputItemStyle from './style/index.native';
 import omit from 'omit.js';
 
 const noop: any = () => {};

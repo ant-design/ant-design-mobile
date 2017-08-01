@@ -1,4 +1,4 @@
-import variables from '../../style/themes/default';
+import variables from '../../style/themes/default.native';
 import { TextStyle, ViewStyle } from 'react-native';
 
 export interface ITagStyle {

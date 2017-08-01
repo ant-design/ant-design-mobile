@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import popupStyle, { IPopupStyle } from './style/index';
+import popupStyle, { IPopupStyle } from './style/index.native';
 import Modal from 'rc-dialog/lib/Modal';
 import PopupProps from './PropsType';
 

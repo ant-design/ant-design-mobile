@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import varibles from '../style/themes/default';
+import varibles from '../style/themes/default.native';
 
 import WingBlankProps from './PropsType';
 

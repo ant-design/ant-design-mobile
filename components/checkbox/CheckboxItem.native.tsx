@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import Checkbox from './Checkbox';
 import List from '../list/index';
 import { CheckboxItemProps } from './PropsType';
-import CheckboxItemStyle, { ICheckboxStyle } from './style/index';
+import CheckboxItemStyle, { ICheckboxStyle } from './style/index.native';
 
 const ListItem = List.Item;
 const refCheckbox = 'checkbox';

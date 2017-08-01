@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import CardBody from './CardBody';
 import CardHeader from './CardHeader';
 import CardFooter from './CardFooter';
-import CardStyle, { ICardStyle } from './style/index';
+import CardStyle, { ICardStyle } from './style/index.native';
 import { CardProps } from './PropsType';
 
 export interface ICardNativeProps extends CardProps {

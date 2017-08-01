@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
-import modalStyle from './style/index';
+import modalStyle from './style/index.native';
 
 export type OperationButtonType = {
   text: string;

@@ -2,8 +2,8 @@
 import React from 'react';
 import { Image, View, TouchableHighlight, Text, StyleSheet } from 'react-native';
 import { ListItemProps, BriefProps } from './PropsType';
-import listItemStyle from './style/index';
-import listStyle from './style/index';
+import listItemStyle from './style/index.native';
+import listStyle from './style/index.native';
 
 const listStyles = StyleSheet.create<any>(listStyle);
 const listItemStyles = StyleSheet.create<any>(listItemStyle);

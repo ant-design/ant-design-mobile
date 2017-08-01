@@ -1,5 +1,5 @@
 import { ViewStyle, ImageStyle, TextStyle } from 'react-native';
-import variables from '../../style/themes/default';
+import variables from '../../style/themes/default.native';
 
 export interface ICardStyle {
   card: ViewStyle;

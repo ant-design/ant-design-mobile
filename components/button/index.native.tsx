@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { TouchableHighlight, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
-import buttonStyle from './style/index';
+import buttonStyle from './style/index.native';
 import { ButtonProps } from './PropsType';
 
 const buttonStyles = StyleSheet.create<any>(buttonStyle);

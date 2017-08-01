@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import Radio from './Radio';
 import List from '../list';
 import { RadioItemProps } from './PropsType';
-import RadioItemStyle, { IRadioStyle } from './style/index';
+import RadioItemStyle, { IRadioStyle } from './style/index.native';
 
 const ListItem = List.Item;
 const refRadio = 'radio';
