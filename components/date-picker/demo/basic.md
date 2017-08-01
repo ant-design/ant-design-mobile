@@ -95,7 +95,7 @@ class Test extends React.Component {
         >
           <List.Item arrow="horizontal">UK time</List.Item>
         </DatePicker>
-        <List.Item extra={this.state.dpValue && this.state.dpValue.toDateString()}>
+        <List.Item extra={this.state.dpValue && this.state.dpValue.toLocaleString('en-US', options)}>
           <div onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</div>
         </List.Item>
         <DatePicker
