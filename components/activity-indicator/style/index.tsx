@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
 export interface IActivityIndicatorStyle {
@@ -9,7 +9,8 @@ export interface IActivityIndicatorStyle {
   toast: TextStyle;
   spinner: ViewStyle;
 }
-export default StyleSheet.create<any>({
+
+export default {
   container: {
     position: 'absolute',
     top: 0,
@@ -48,4 +49,4 @@ export default StyleSheet.create<any>({
     justifyContent: 'center',
     alignItems: 'center',
   },
-});
+};

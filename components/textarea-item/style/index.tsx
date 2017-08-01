@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
 export interface ITextareaItemStyle {
@@ -8,7 +8,8 @@ export interface ITextareaItemStyle {
   errorIcon: ViewStyle;
   count: ViewStyle;
 }
-export default StyleSheet.create<any>({
+
+export default {
   container: {
     marginLeft: variables.h_spacing_lg,
     borderBottomWidth: variables.border_width_sm,
@@ -37,4 +38,4 @@ export default StyleSheet.create<any>({
     right: variables.h_spacing_md,
     bottom: variables.h_spacing_md,
   },
-});
+};

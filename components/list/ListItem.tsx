@@ -1,13 +1,20 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { Image, View, TouchableHighlight, Text } from 'react-native';
+import { Image, View, TouchableHighlight, Text, StyleSheet } from 'react-native';
 import { ListItemProps, BriefProps } from './PropsType';
-import listItemStyles from './style/index';
-import listStyles from './style/index';
+import listItemStyle from './style/index';
+import listStyle from './style/index';
+
+const listStyles = StyleSheet.create<any>(listStyle);
+const listItemStyles = StyleSheet.create<any>(listItemStyle);
 
 export class Brief extends React.Component<BriefProps, any> {
+  static defaultProps = {
+    styles: listStyles,
+  };
+
   render() {
-    const { children, style, styles = listStyles, wrap } = this.props;
+    const { children, style, styles, wrap } = this.props;
 
     let numberOfLines = {};
 
@@ -49,7 +56,7 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     if (!disabled && onClick) {
       underlayColor = {
-        underlayColor: itemStyles.underlayColor,
+        underlayColor: StyleSheet.flatten(itemStyles.underlayColor).backgroundColor,
         activeOpacity: 0.5,
       };
     } else {

@@ -1,5 +1,5 @@
+import { ViewStyle, ImageStyle, TextStyle } from 'react-native';
 import varibles from '../../style/themes/default';
-import { StyleSheet, ViewStyle, ImageStyle, TextStyle } from 'react-native';
 
 export interface IImagePickerStyle {
   container: ViewStyle;
@@ -13,7 +13,8 @@ export interface IImagePickerStyle {
   plusWrapHighlight: ViewStyle;
   plusText: TextStyle;
 }
-export default StyleSheet.create<any>({
+
+export default {
   container: {
     flexWrap: 'wrap',
     flexDirection: 'row',
@@ -71,4 +72,4 @@ export default StyleSheet.create<any>({
     fontWeight: '100',
     color: varibles.color_text_caption,
   },
-});
+};

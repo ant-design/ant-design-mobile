@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Button from '../button';
 import Flex from '../flex';
 import PaginationProps from './PropsType';
-import PaginationStyle, { IPaginationStyle } from './style/index';
+import PaginationStyle, { IPaginationStyle }  from './style/index';
 import { getComponentLocale } from '../_util/getLocale';
 import zh_CN from './locale/zh_CN';
 
 export interface IPaginationNativeProps extends PaginationProps {
   styles?: IPaginationStyle;
 }
+
+const PaginationStyles = StyleSheet.create<any>(PaginationStyle);
 
 export default class Pagination extends React.Component<IPaginationNativeProps, any> {
   static defaultProps = {
@@ -20,7 +22,7 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
     simple: false,
     onChange: () => {},
     indicatorStyle: null,
-    styles: PaginationStyle,
+    styles: PaginationStyles,
   };
 
  static contextTypes = {

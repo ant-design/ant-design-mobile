@@ -1,7 +1,7 @@
 import { StyleSheet } from  'react-native';
 import variables from '../../style/themes/default';
 
-export default StyleSheet.create<any>({
+export default {
   container: {
     height: variables.list_item_height + variables.border_width_sm,
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -35,4 +35,4 @@ export default StyleSheet.create<any>({
     width: variables.icon_size_sm,
     height: variables.icon_size_sm,
   },
-});
+};

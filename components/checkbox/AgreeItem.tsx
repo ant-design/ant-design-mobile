@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback, Text } from 'react-native';
+import { View, TouchableWithoutFeedback, Text, StyleSheet } from 'react-native';
 import Checkbox from './Checkbox';
 import { AgreeItemPropsType } from './PropsType';
 import AgreeItemstyle, { ICheckboxStyle } from './style/index';
@@ -9,9 +9,12 @@ const refCheckbox = 'checkbox';
 export interface IAgreeItemNativeProps extends AgreeItemPropsType {
   styles?: ICheckboxStyle;
 }
+
+const AgreeItemstyles = StyleSheet.create<any>(AgreeItemstyle);
+
 export default class AgreeItem extends React.Component<IAgreeItemNativeProps, any> {
   static defaultProps = {
-    styles: AgreeItemstyle,
+    styles: AgreeItemstyles,
   };
 
   handleClick = () => {

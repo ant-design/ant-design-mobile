@@ -16,6 +16,8 @@ function fixControlledValue(value) {
   return value;
 }
 
+const InputItemStyles = StyleSheet.create<any>(InputItemStyle);
+
 export default class InputItem extends React.Component<InputItemProps, any> {
   static defaultProps = {
     type: 'text',
@@ -33,7 +35,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     labelPosition: 'left',
     textAlign: 'left',
     last: false,
-    styles: InputItemStyle,
+    styles: InputItemStyles,
     focused: false,
   };
 

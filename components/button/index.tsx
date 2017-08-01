@@ -1,8 +1,10 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { TouchableHighlight, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
-import buttonDefaultStyles from './style/index';
+import buttonStyle from './style/index';
 import { ButtonProps } from './PropsType';
+
+const buttonStyles = StyleSheet.create<any>(buttonStyle);
 
 export default class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
@@ -20,7 +22,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     },
     onHideUnderlay: (_x?: any) => {
     },
-    styles: buttonDefaultStyles,
+    styles: buttonStyles,
   };
 
   constructor(props) {
@@ -63,7 +65,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       size = 'large', type = 'default', disabled, activeStyle, onClick, style,
       styles, loading, ...restProps,
     } = this.props;
-    const buttonStyles = styles!;
+    const _styles = styles!;
 
     ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
      'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
@@ -73,28 +75,28 @@ export default class Button extends React.Component<ButtonProps, any> {
      });
 
     const textStyle = [
-      buttonStyles[`${size}RawText`],
-      buttonStyles[`${type}RawText`],
-      disabled && buttonStyles.disabledRawText,
-      this.state.pressIn && buttonStyles[`${type}HighlightText`],
+      _styles[`${size}RawText`],
+      _styles[`${type}RawText`],
+      disabled && _styles.disabledRawText,
+      this.state.pressIn && _styles[`${type}HighlightText`],
     ];
 
     const wrapperStyle = [
-      buttonStyles.wrapperStyle,
-      buttonStyles[`${size}Raw`],
-      buttonStyles[`${type}Raw`],
-      disabled && buttonStyles.disabledRaw,
-      this.state.pressIn && activeStyle && buttonStyles[`${type}Highlight`],
+      _styles.wrapperStyle,
+      _styles[`${size}Raw`],
+      _styles[`${type}Raw`],
+      disabled && _styles.disabledRaw,
+      this.state.pressIn && activeStyle && _styles[`${type}Highlight`],
       activeStyle && this.state.touchIt && activeStyle,
       style,
     ];
 
     const underlayColor = (StyleSheet.flatten(
-      buttonStyles[activeStyle ? `${type}Highlight` : `${type}Raw`],
+      _styles[activeStyle ? `${type}Highlight` : `${type}Raw`],
     ) as any).backgroundColor;
 
     const indicatorColor = (StyleSheet.flatten(
-      this.state.pressIn ? buttonStyles[`${type}HighlightText`] : buttonStyles[`${type}RawText`],
+      this.state.pressIn ? _styles[`${type}HighlightText`] : _styles[`${type}RawText`],
     ) as any).color;
 
     return (
@@ -110,11 +112,11 @@ export default class Button extends React.Component<ButtonProps, any> {
         disabled={disabled}
         {...restProps}
       >
-        <View style={buttonStyles.container}>
+        <View style={_styles.container}>
           {
             loading ? (
               <ActivityIndicator
-                style={buttonStyles.indicator}
+                style={_styles.indicator}
                 animating
                 color={indicatorColor}
                 size="small"

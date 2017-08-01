@@ -1,5 +1,5 @@
 import variables from '../../style/themes/default';
-import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
 export interface IResultStyle {
   result: ViewStyle;
@@ -12,7 +12,8 @@ export interface IResultStyle {
   buttonWrap: ViewStyle;
   button: ViewStyle;
 }
-export default StyleSheet.create<any>({
+
+export default {
   result: {
     alignItems: 'center',
     paddingVertical: variables.v_spacing_xl,
@@ -50,4 +51,4 @@ export default StyleSheet.create<any>({
   button: {
     flex: 1,
   },
-});
+};

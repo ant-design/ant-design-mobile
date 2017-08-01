@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback, Image } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
 import NoticeStyle, { INoticeBarStyle } from './style';
 import NoticeBarProps from './PropsType';
 
 export interface INoticeNativeProps extends NoticeBarProps {
   styles?: INoticeBarStyle;
 }
+
+const NoticeStyles = StyleSheet.create<any>(NoticeStyle);
+
 export default class NoticeBar extends React.Component<INoticeNativeProps, any> {
   static defaultProps = {
     mode: '',
@@ -16,7 +19,7 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
         style={{ width: 14, height: 12 }}
       />
     ),
-    styles: NoticeStyle,
+    styles: NoticeStyles,
   };
 
   constructor(props) {

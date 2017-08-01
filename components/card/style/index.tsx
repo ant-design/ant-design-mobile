@@ -1,5 +1,5 @@
+import { ViewStyle, ImageStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
-import { StyleSheet, ViewStyle, ImageStyle, TextStyle } from 'react-native';
 
 export interface ICardStyle {
   card: ViewStyle;
@@ -14,7 +14,8 @@ export interface ICardStyle {
   footerContent: TextStyle;
   footerExtra: TextStyle;
 }
-export default StyleSheet.create<any>({
+
+export default {
   card: {
     borderWidth: variables.border_width_md,
     borderColor: variables.border_color_base,
@@ -75,4 +76,4 @@ export default StyleSheet.create<any>({
     fontSize: variables.font_size_base,
     color: variables.color_text_caption,
   },
-});
+};

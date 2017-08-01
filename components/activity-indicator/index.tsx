@@ -3,13 +3,16 @@ import {
   View,
   Text,
   ActivityIndicator,
+  StyleSheet,
 } from 'react-native';
-import style, { IActivityIndicatorStyle } from './style';
+import indicatorStyle, { IActivityIndicatorStyle } from './style';
 import PropTypes from './PropsType';
 
 export interface IActivityIndicatorNativeProps extends PropTypes {
   styles?: IActivityIndicatorStyle;
 }
+
+const indicatorStyles = StyleSheet.create<any>(indicatorStyle);
 
 export default class RNActivityIndicator extends React.Component<IActivityIndicatorNativeProps, any> {
   static defaultProps = {
@@ -17,7 +20,7 @@ export default class RNActivityIndicator extends React.Component<IActivityIndica
     color: 'gray',
     size: 'small',
     toast: false,
-    styles: style,
+    styles: indicatorStyles,
   };
 
   _renderToast() {

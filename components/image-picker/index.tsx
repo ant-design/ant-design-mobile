@@ -8,14 +8,17 @@ import {
   // Platform,
   // ImagePickerIOS,
   // ActionSheetIOS,
+  StyleSheet,
 } from 'react-native';
 import { ImagePickerPropTypes } from './PropsType';
-import imagePickerStyles, { IImagePickerStyle } from './style/';
+import imagePickerStyle, { IImagePickerStyle } from './style/';
 import ImageRoll from './ImageRoll';
 
 export interface ImagePickerNativeProps extends ImagePickerPropTypes {
   styles?: IImagePickerStyle;
 }
+
+const imagePickerStyles = StyleSheet.create<any>(imagePickerStyle);
 
 export default class ImagePicker extends React.Component<ImagePickerNativeProps, any> {
   static defaultProps = {

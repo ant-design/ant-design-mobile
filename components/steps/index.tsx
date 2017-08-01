@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import RNStepsItem from './StepsItem';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import StepStyle, { IStepsStyle } from './style';
 
 export interface StepsProps {
@@ -16,12 +16,15 @@ export interface StepsProps {
 export interface IStepsNativeProps extends StepsProps {
   styles?: IStepsStyle;
 }
+
+const StepStyles = StyleSheet.create<any>(StepStyle);
+
 export default class Steps extends React.Component<IStepsNativeProps, any> {
   static Step: any;
 
   static defaultProps = {
     direction: '',
-    styles: StepStyle,
+    styles: StepStyles,
   };
 
   constructor(props) {

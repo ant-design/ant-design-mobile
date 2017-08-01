@@ -1,5 +1,5 @@
 import variables from '../../style/themes/default';
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
 
 const grid = 4;
 
@@ -29,8 +29,7 @@ export interface IStepsStyle {
   title_l: TextStyle;
   description_l: TextStyle;
 }
-export default StyleSheet.create<any>({
-
+export default {
   head_default_s: {
     width: 18,
     height: 18,
@@ -129,5 +128,4 @@ export default StyleSheet.create<any>({
     fontSize: variables.font_size_subhead,
     color: variables.color_text_base,
   },
-
-});
+};

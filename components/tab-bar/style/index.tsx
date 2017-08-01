@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
 import variables from '../../style/themes/default';
 
 export interface ITabBarStyle {
@@ -14,7 +14,8 @@ export interface ITabBarStyle {
   badge: ViewStyle;
   badgeText: TextStyle;
 }
-export default StyleSheet.create<any>({
+
+export default {
   tabbar: {
     flex: 1,
   },
@@ -70,4 +71,4 @@ export default StyleSheet.create<any>({
     textAlign: 'center',
     color: 'white',
   },
-});
+};

@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import SegmentedControlProps from './PropsType';
 import AndroidStyle, { ISegmentControlStyle } from './style/';
 
 export interface ISegmentControlNativeProps extends SegmentedControlProps {
   styles?: ISegmentControlStyle;
 }
+
+const AndroidStyles = StyleSheet.create<any>(AndroidStyle);
+
 export default class SegmentedControl extends React.Component<ISegmentControlNativeProps, any> {
   static defaultProps = {
     selectedIndex: 0,
@@ -15,7 +18,7 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
     onValueChange() {},
     tintColor: '#108ee9',
     style: {},
-    styles: AndroidStyle,
+    styles: AndroidStyles,
   };
 
   constructor(props) {

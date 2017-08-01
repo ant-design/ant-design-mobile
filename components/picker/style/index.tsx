@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
 
 export interface IPickerStyle {
   modal: ViewStyle;
@@ -8,7 +8,7 @@ export interface IPickerStyle {
   title: TextStyle;
 }
 
-const styles = StyleSheet.create<any>({
+export default {
   modal: {
     flex: 1,
     flexDirection: 'column',
@@ -39,6 +39,4 @@ const styles = StyleSheet.create<any>({
     fontSize: 18,
     textAlign: 'center',
   },
-});
-
-export default styles;
+};

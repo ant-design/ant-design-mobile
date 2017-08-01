@@ -21,7 +21,7 @@ export interface IModalStyle {
   buttonTextOperation: TextStyle;
 }
 
-export default StyleSheet.create<any>({
+export default {
   container: {
     zIndex: variables.modal_zindex,
   },
@@ -114,4 +114,4 @@ export default StyleSheet.create<any>({
     textAlign: 'left',
     paddingHorizontal: 15,
   },
-});
+};

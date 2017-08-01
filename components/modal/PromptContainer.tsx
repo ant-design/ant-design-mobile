@@ -1,8 +1,8 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, TextInput, KeyboardAvoidingView } from 'react-native';
+import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import Modal from './Modal';
-import promptStyles, { IPromptStyle } from './style/prompt';
+import promptStyle, { IPromptStyle } from './style/prompt';
 
 export type ButtonType = {
   text: string;
@@ -20,6 +20,8 @@ export interface PropmptContainerProps {
   styles?: IPromptStyle;
   placeholders?: string[];
 }
+
+const promptStyles = StyleSheet.create<any>(promptStyle);
 
 export default class PropmptContainer extends React.Component<PropmptContainerProps, any> {
   static defaultProps = {

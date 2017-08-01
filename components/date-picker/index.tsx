@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
-import PickerStyles, { IPickerStyle } from '../picker/style';
+import PickerStyle, { IPickerStyle } from '../picker/style';
 import { formatFn, getProps as getDefaultProps, getDefaultDate } from './utils';
 import tsPropsType from './PropsType';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
@@ -11,6 +12,9 @@ import zh_CN from './locale/zh_CN';
 export interface IDatePickerNativeProps extends tsPropsType {
   styles?: IPickerStyle;
 }
+
+const PickerStyles = StyleSheet.create<any>(PickerStyle);
+
 export default class DatePicker extends React.Component<IDatePickerNativeProps, any> {
   static defaultProps = {
     triggerType: 'onClick',

@@ -1,17 +1,20 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Image, View, Text } from 'react-native';
+import { TouchableWithoutFeedback, Image, View, Text, StyleSheet } from 'react-native';
 import { CheckboxProps } from './PropsType';
 import CheckboxStyle, { ICheckboxStyle } from './style/index';
 
 export interface ICheckboxNativeProps extends CheckboxProps {
   styles?: ICheckboxStyle;
 }
+
+const CheckboxStyles = StyleSheet.create<any>(CheckboxStyle);
+
 export default class Checkbox extends React.Component<ICheckboxNativeProps, any> {
   static CheckboxItem: any;
   static AgreeItem: any;
 
   static defaultProps = {
-    styles: CheckboxStyle,
+    styles: CheckboxStyles,
   };
 
   constructor(props: CheckboxProps, context: any) {

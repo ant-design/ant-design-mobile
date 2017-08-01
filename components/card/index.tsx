@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import CardBody from './CardBody';
 import CardHeader from './CardHeader';
 import CardFooter from './CardFooter';
@@ -9,11 +9,14 @@ import { CardProps } from './PropsType';
 export interface ICardNativeProps extends CardProps {
   styles?: ICardStyle;
 }
+
+const CardStyles = StyleSheet.create<any>(CardStyle);
+
 export default class Card extends React.Component<ICardNativeProps, any> {
   static defaultProps = {
     style: {},
     full: false,
-    styles: CardStyle,
+    styles: CardStyles,
   };
 
   static Header = CardHeader;

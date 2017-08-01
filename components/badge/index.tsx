@@ -1,18 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import BadgeStyle, { IBadgeStyle } from './style/index';
 import BadgeProps from './PropsType';
 
 export interface IBadgeNativeProps extends BadgeProps {
   styles?: IBadgeStyle;
 }
+
+const BadgeStyles = StyleSheet.create<any>(BadgeStyle);
+
 export default class Badge extends React.Component<IBadgeNativeProps, any> {
   static defaultProps = {
     size: 'small',
     overflowCount: 99,
     dot: false,
     corner: false,
-    styles: BadgeStyle,
+    styles: BadgeStyles,
   };
 
   render() {
