@@ -16,8 +16,6 @@ module.exports = {
       'antd-mobile/lib': path.join(process.cwd(), 'components'),
       'antd-mobile': process.cwd(),
       site: path.join(process.cwd(), 'site'),
-      // in case you want to develop with local rc-component
-      // 'rc-tabs': '/Users/jiangkai/github/tabs',
     };
 
     config.babel.plugins.push([
