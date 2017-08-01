@@ -57,3 +57,9 @@ declare module 'rmc-pull-to-refresh';
 declare module 'react-native-scrollable-tab-view';
 
 declare module 'react-native-collapsible/Accordion';
+
+declare var process: {
+  env: {
+    NODE_ENV: string
+  }
+};
