@@ -15,10 +15,10 @@ module.exports = {
     './tests/setup.js'
   ],
   moduleFileExtensions: [
-    '.native.ts',
-    '.native.tsx',
-    '.native.js',
-    '.native.jsx',
+    'native.ts',
+    'native.tsx',
+    'native.js',
+    'native.jsx',
     'ts',
     'tsx',
     'js',

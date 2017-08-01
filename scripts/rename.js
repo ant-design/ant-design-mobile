@@ -11,8 +11,8 @@ function changeFileName(filepath){
           return;
         }
         if(stats.isFile()) {
-            if (filepath.includes('PropsType.native.tsx')) {
-              fs.rename(filepath, filepath.replace('.native.tsx', '.tsx'));
+            if (filepath.includes('.jsx')) {
+              fs.unlinkSync(filepath);
             }
         } else if(stats.isDirectory()) {
             renameFilesInDir(filepath);

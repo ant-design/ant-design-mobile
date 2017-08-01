@@ -1,1348 +1,870 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
-<RCTScrollView
-  automaticallyAdjustContentInsets={false}
-  showsHorizontalScrollIndicator={false}
-  showsVerticalScrollIndicator={false}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View>
-    <View
-      style={undefined}
+exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
     >
-      <View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "backgroundColor": "#f5f5f9",
-              "color": "#888",
-              "fontSize": 14,
-              "paddingBottom": 9,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-              "paddingTop": 15,
-            }
-          }
-        >
-          基本
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderTopColor": "#ddd",
-            "borderTopWidth": 0.5,
-          }
-        }
+      Customize to focus
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
       >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
+        <div
+          class="am-input-label am-input-label-5"
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
-          >
-            输入框
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onErrorPress={[Function]}
-            onFocus={[Function]}
-            placeholder="有标签"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#f50",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
+          标题
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="auto focus in Alipay client"
+            type="text"
             value=""
           />
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={undefined}
-            testID={undefined}
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "color": "#888",
-                    "fontSize": 15,
-                    "marginLeft": 5,
-                  },
-                  Object {
-                    "width": 17,
-                  },
-                ]
-              }
-            >
-              元
-            </Text>
-          </View>
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "height": 21,
-                  "marginLeft": 5,
-                  "width": 21,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "height": 18,
-                  "width": 18,
-                }
-              }
-            />
-          </View>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
-          >
-            输入框
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={false}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onErrorPress={[Function]}
-            onFocus={[Function]}
-            placeholder="不可编辑"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value="不可编辑"
-          />
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={undefined}
-            testID={undefined}
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-            >
-              元
-            </Text>
-          </View>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
+          标题
+        </div>
+        <div
+          class="am-input-control"
         >
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="无标签"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
+          <input
+            placeholder="click the button below to focus"
+            type="text"
             value=""
           />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
+          <div
+            class="am-list-content"
           >
-            标题
-          </Text>
-          <TextInput
-            autoFocus={true}
-            clearButtonMode="while-editing"
-            defaultValue="xx"
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="自动获取光标"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
-          >
-            标题
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            defaultValue={undefined}
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="点击下方按钮该输入框会获取光标"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-          />
-        </View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#fff",
-                  "flexDirection": "row",
-                  "flexGrow": 1,
-                  "paddingLeft": 15,
-                },
-                undefined,
-              ]
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "#ddd",
-                    "borderBottomWidth": 0.5,
-                    "flex": 1,
-                    "flexDirection": "row",
-                    "minHeight": 44,
-                    "paddingBottom": 6,
-                    "paddingRight": 15,
-                    "paddingTop": 6,
-                  },
-                  false,
-                  false,
-                ]
-              }
+            <div
+              style="width:100%;color:#108ee9;text-align:center;"
             >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flex": 1,
-                      "flexDirection": "column",
-                    },
-                  ]
-                }
-              >
-                <View
-                  accessibilityComponentType={undefined}
-                  accessibilityLabel={undefined}
-                  accessibilityTraits={undefined}
-                  accessible={true}
-                  hasTVPreferredFocus={undefined}
-                  hitSlop={undefined}
-                  isTVSelectable={true}
-                  onLayout={undefined}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                      },
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "borderRadius": 5,
-                          "borderWidth": 1,
-                          "justifyContent": "center",
-                        },
-                        Object {
-                          "height": 47,
-                          "paddingLeft": 15,
-                          "paddingRight": 15,
-                        },
-                        Object {
-                          "backgroundColor": "#108ee9",
-                          "borderColor": "#108ee9",
-                        },
-                        false,
-                        false,
-                        false,
-                        undefined,
-                      ],
-                    ]
-                  }
-                  testID={undefined}
-                  tvParallaxProperties={undefined}
-                >
-                  <View
-                    style={
-                      Object {
-                        "flexDirection": "row",
-                      }
-                    }
-                  >
-                    <Text
-                      accessible={true}
-                      allowFontScaling={true}
-                      ellipsizeMode="tail"
-                      style={
-                        Array [
-                          Object {
-                            "fontSize": 18,
-                          },
-                          Object {
-                            "color": "#fff",
-                          },
-                          false,
-                          false,
-                        ]
-                      }
+              click to focus
+            </div>
+          </div>
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Whether is controlled
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          受控组件
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="Hello World"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          非受控组件
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            data-seed="logId"
+            placeholder="please input content"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      click label to focus input
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          <div>
+            标题
+          </div>
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="click label to focus input"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Show clear icon
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          标题
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="displayed clear icon while typing"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Number of words for title
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          标题过长超过默认的5个字
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="limited title length"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Custom title（text / image / empty)
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="no label"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          <div
+            style="background-image:url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png);background-size:cover;height:0.44rem;width:0.44rem;"
+          />
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="title can be icon，image or text"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Customize the extra content in the right
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          价格
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="0.00"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="am-input-extra"
+        >
+          ¥
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Format
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          银行卡
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder=""
+            type="tel"
+            value="8888 8888 8888 8888"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          手机号码
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="186 1234 1234"
+            type="tel"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          密码
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="****"
+            type="password"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          数字键盘
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            pattern="[0-9]*"
+            placeholder="click to show number keyboard"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Not editable / Disabled
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          姓名
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder=""
+            readonly=""
+            type="text"
+            value="Not editable"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item am-input-disabled"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          姓名
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            disabled=""
+            placeholder=""
+            type="text"
+            value="style of disabled \`InputItem\`"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/input-item/demo/error.md correctly 1`] = `
+<div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Confirm when typing
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          手机号码
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="input your phone"
+            type="tel"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
+<div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Format
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-control"
+        >
+          <div
+            class="fake-input-container"
+          >
+            <div
+              class="fake-input"
+            >
+              222
+            </div>
+            <div
+              class="am-number-keyboard-wrapper am-number-keyboard-wrapper-hide"
+            >
+              <table>
+                <tbody>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
                     >
-                      点击获取光标
-                    </Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "bottom": 0,
-                "height": 1,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-              },
-            ]
-          }
+                      1
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      3
+                    </td>
+                    <td
+                      class="keyboard-delete am-number-keyboard-item"
+                      rowspan="2"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      4
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      5
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      6
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      7
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      8
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      9
+                    </td>
+                    <td
+                      class="keyboard-confirm am-number-keyboard-item"
+                      rowspan="2"
+                    >
+                      计算
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      .
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      0
+                    </td>
+                    <td
+                      class="keyboard-hide am-number-keyboard-item"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div
+          class="am-input-clear"
         />
-      </View>
-    </View>
-    <View
-      style={undefined}
-    >
-      <View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "backgroundColor": "#f5f5f9",
-              "color": "#888",
-              "fontSize": 14,
-              "paddingBottom": 9,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-              "paddingTop": 15,
-            }
-          }
-        >
-          固定标签字数
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderTopColor": "#ddd",
-            "borderTopWidth": 0.5,
-          }
-        }
+      </div>
+      <div
+        class="am-list-item am-input-item"
       >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
+        <div
+          class="am-input-label am-input-label-5"
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 35.7,
-                },
-              ]
-            }
-          >
-            姓名
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="两个字标签"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value=""
+          普通键盘
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="22"
+            type="text"
           />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 53.550000000000004,
-                },
-              ]
-            }
-          >
-            校验码
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="三个字标签"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value=""
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
-          >
-            四字标签
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="四个字标签（默认）"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value=""
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "bottom": 0,
-                "height": 1,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-              },
-            ]
-          }
-        />
-      </View>
-    </View>
-    <View
-      style={undefined}
-    >
-      <View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "backgroundColor": "#f5f5f9",
-              "color": "#888",
-              "fontSize": 14,
-              "paddingBottom": 9,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-              "paddingTop": 15,
-            }
-          }
-        >
-          格式
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderTopColor": "#ddd",
-            "borderTopWidth": 0.5,
-          }
-        }
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item"
       >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
+        <div
+          class="am-input-label am-input-label-5"
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
+          数字键盘
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <div
+            class="fake-input-container"
           >
-            文本输入
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="text"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#f50",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value=""
-          />
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "height": 21,
-                  "marginLeft": 5,
-                  "width": 21,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "height": 18,
-                  "width": 18,
-                }
-              }
+            <div
+              class="fake-input-placeholder"
+            >
+              money format
+            </div>
+            <div
+              class="fake-input"
             />
-          </View>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
+            <div
+              class="am-number-keyboard-wrapper am-number-keyboard-wrapper-hide"
+            >
+              <table>
+                <tbody>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      1
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      3
+                    </td>
+                    <td
+                      class="keyboard-delete am-number-keyboard-item"
+                      rowspan="2"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      4
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      5
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      6
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      7
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      8
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      9
+                    </td>
+                    <td
+                      class="keyboard-confirm am-number-keyboard-item am-number-keyboard-item-disabled"
+                      rowspan="2"
+                    >
+                      确定
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      .
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      0
+                    </td>
+                    <td
+                      class="keyboard-hide am-number-keyboard-item"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
+          <div
+            class="am-list-content"
           >
-            银行卡
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="number-pad"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="bankCard"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value=""
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
-          >
-            手机号
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="phone-pad"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="phone"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value=""
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
-          >
-            密码
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="default"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="password"
-            secureTextEntry={true}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value=""
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "height": 44.5,
-                "marginBottom": 0,
-                "marginLeft": 15,
-                "marginTop": 0,
-                "paddingRight": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              undefined,
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                  "marginRight": 5,
-                  "textAlignVertical": "center",
-                },
-                Object {
-                  "width": 71.4,
-                },
-              ]
-            }
-          >
-            数字
-          </Text>
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            focused={false}
-            keyboardType="numeric"
-            labelPosition="left"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="number"
-            secureTextEntry={false}
-            size="large"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "flex": 1,
-                  "fontSize": 17,
-                  "height": 44,
-                },
-                Object {
-                  "color": "#000",
-                },
-              ]
-            }
-            textAlign="left"
-            underlineColorAndroid="transparent"
-            value=""
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "bottom": 0,
-                "height": 1,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-              },
-            ]
-          }
+            <div
+              style="width:100%;color:#108ee9;text-align:center;"
+            >
+              click to focus
+            </div>
+          </div>
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
         />
-      </View>
-    </View>
-  </View>
-</RCTScrollView>
+      </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          正整数
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <div
+            class="fake-input-container"
+          >
+            <div
+              class="fake-input-placeholder"
+            >
+              money format natural
+            </div>
+            <div
+              class="fake-input"
+            />
+            <div
+              class="am-number-keyboard-wrapper am-number-keyboard-wrapper-hide"
+            >
+              <table>
+                <tbody>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      1
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      3
+                    </td>
+                    <td
+                      class="keyboard-delete am-number-keyboard-item"
+                      rowspan="2"
+                    />
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      4
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      5
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      6
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      7
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      8
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      9
+                    </td>
+                    <td
+                      class="keyboard-confirm am-number-keyboard-item am-number-keyboard-item-disabled"
+                      rowspan="2"
+                    >
+                      确定
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      .
+                    </td>
+                    <td
+                      class="am-number-keyboard-item"
+                    >
+                      0
+                    </td>
+                    <td
+                      class="keyboard-hide am-number-keyboard-item"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

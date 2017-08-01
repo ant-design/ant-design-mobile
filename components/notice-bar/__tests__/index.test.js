@@ -1,13 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-
-import NoticeBar from '../index';
+import { render, shallow } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
+import NoticeBar from '../index.web';
 
 describe('NoticeBar', () => {
   it('renders correctly', () => {
-    const wrapper = renderer.create(<NoticeBar>foo</NoticeBar>);
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    const wrapper = render(<NoticeBar>foo</NoticeBar>);
+    expect(renderToJson(wrapper)).toMatchSnapshot();
   });
 
   describe('onClick', () => {
@@ -21,7 +20,7 @@ describe('NoticeBar', () => {
           Notice: The arrival time of incomes and
         </NoticeBar>,
       );
-      wrapper.find('TouchableWithoutFeedback').simulate('press');
+      wrapper.find('.am-notice-bar-operation').simulate('click');
     });
 
     it('fires onClick event', () => {

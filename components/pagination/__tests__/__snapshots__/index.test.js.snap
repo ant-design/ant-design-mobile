@@ -1,305 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination renders correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-      undefined,
-    ]
-  }
+<div
+  class="am-pagination"
 >
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "flexWrap": "nowrap",
-          "justifyContent": "flex-start",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}
+  <div
+    class="am-flexbox am-flexbox-align-center"
   >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "flex": 1,
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
+    <div
+      class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-prev"
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 5,
-                "borderWidth": 1,
-                "justifyContent": "center",
-              },
-              Object {
-                "height": 47,
-                "paddingLeft": 15,
-                "paddingRight": 15,
-              },
-              Object {
-                "backgroundColor": "#fff",
-                "borderColor": "#ddd",
-              },
-              false,
-              false,
-              false,
-              undefined,
-            ],
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
+      <a
+        aria-disabled="false"
+        class="am-button am-button-inline"
+        role="button"
       >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-            }
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "fontSize": 18,
-                },
-                Object {
-                  "color": "#000",
-                },
-                false,
-                false,
-              ]
-            }
-          >
-            上一页
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "flex": 1,
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
+        <span>
+          上一页
+        </span>
+      </a>
+    </div>
+    <div
+      aria-live="assertive"
+      class="am-flexbox-item am-pagination-wrap"
     >
-      <View
-        style={
-          Array [
-            Object {
-              "flexDirection": "row",
-              "justifyContent": "center",
-            },
-          ]
-        }
+      <span
+        class="active"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#108ee9",
-                "fontSize": 18,
-              },
-            ]
-          }
-        >
-          3
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontSize": 18,
-              },
-            ]
-          }
-        >
-          /
-          5
-        </Text>
-      </View>
-    </View>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "flex": 1,
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
+        3
+      </span>
+      /
+      <span>
+        5
+      </span>
+    </div>
+    <div
+      class="am-flexbox-item am-pagination-wrap-btn am-pagination-wrap-btn-next"
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 5,
-                "borderWidth": 1,
-                "justifyContent": "center",
-              },
-              Object {
-                "height": 47,
-                "paddingLeft": 15,
-                "paddingRight": 15,
-              },
-              Object {
-                "backgroundColor": "#fff",
-                "borderColor": "#ddd",
-              },
-              false,
-              false,
-              false,
-              undefined,
-            ],
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
+      <a
+        aria-disabled="false"
+        class="am-button am-button-inline"
+        role="button"
       >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-            }
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "fontSize": 18,
-                },
-                Object {
-                  "color": "#000",
-                },
-                false,
-                false,
-              ]
-            }
-          >
-            下一页
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
+        <span>
+          下一页
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
 `;

@@ -1,209 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/action-sheet/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Object {
-      "marginTop": 30,
-    }
-  }
+exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
+<div
+  class="actionSheetContainer"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "padding": 8,
-        },
-      ]
-    }
+  <div
+    style="margin:0.15rem 0;"
   >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+    <a
+      aria-disabled="false"
+      class="am-button"
+      role="button"
     >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#000",
-              },
-              false,
-              false,
-            ]
-          }
-        >
-          默认状态操作列表
-        </Text>
-      </View>
-    </View>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Array [
-        Object {
-          "padding": 8,
-        },
-      ]
-    }
+      <span>
+        默认状态
+      </span>
+    </a>
+  </div>
+  <div
+    style="margin:0.15rem 0;"
   >
-    点击过的按钮: 
-    none
-  </Text>
-  <View
-    style={
-      Array [
-        Object {
-          "padding": 8,
-        },
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
+    <a
+      aria-disabled="false"
+      class="am-button"
+      role="button"
     >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#000",
-              },
-              false,
-              false,
-            ]
-          }
-        >
-          带分享功能的操作列表
-        </Text>
-      </View>
-    </View>
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Array [
-        Object {
-          "padding": 8,
-        },
-      ]
-    }
+      <span>
+        分享功能
+      </span>
+    </a>
+  </div>
+  <div
+    style="margin:0.15rem 0;"
   >
-    
-  </Text>
-</View>
+    <a
+      aria-disabled="false"
+      class="am-button"
+      role="button"
+    >
+      <span>
+        带多行按钮的分享功能
+      </span>
+    </a>
+  </div>
+</div>
 `;

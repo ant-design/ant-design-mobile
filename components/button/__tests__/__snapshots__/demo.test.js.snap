@@ -1,726 +1,207 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/button/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Object {
-      "marginTop": 80,
-    }
-  }
+exports[`renders ./components/button/demo/basic.md correctly 1`] = `
+<div
+  class="am-wingblank am-wingblank-lg"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "height": 9,
-        },
-        undefined,
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-      ]
-    }
+  <div
+    class="btn-container"
   >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
+    <div>
+      <a
+        aria-disabled="false"
+        class="btn am-button am-button-primary"
+        role="button"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#000",
-              },
-              false,
-              false,
-            ]
-          }
-        >
-          default button
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "height": 9,
-          },
-          undefined,
-        ]
-      }
-    />
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#108ee9",
-              "borderColor": "#108ee9",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#fff",
-              },
-              false,
-              false,
-            ]
-          }
-        >
+        <span>
           primary button
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "height": 9,
-          },
-          undefined,
-        ]
-      }
-    />
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#f4333c",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
+        </span>
+      </a>
+      <a
+        aria-disabled="true"
+        class="btn am-button am-button-disabled"
+        role="button"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#f4333c",
-              },
-              false,
-              false,
-            ]
-          }
-        >
-          warning button
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "height": 9,
-          },
-          undefined,
-        ]
-      }
-    />
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-            },
-            Object {
-              "backgroundColor": "#ddd",
-              "borderColor": "#ddd",
-            },
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
+        <span>
+          disabled button
+        </span>
+      </a>
+      <a
+        aria-disabled="false"
+        class="btn am-button am-button-loading am-button-icon"
+        role="button"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#000",
-              },
-              Object {
-                "color": "#bbb",
-              },
-              false,
-            ]
-          }
+        <svg
+          aria-hidden="true"
+          class="am-icon am-icon-loading am-icon-md"
         >
-          disable button
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "height": 9,
-          },
-          undefined,
-        ]
-      }
-    />
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#000",
-              },
-              false,
-              false,
-            ]
-          }
-        >
-          no feedback
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "height": 9,
-          },
-          undefined,
-        ]
-      }
-    />
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#000",
-              },
-              false,
-              false,
-            ]
-          }
-        >
-          custom feedback style
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "height": 9,
-          },
-          undefined,
-        ]
-      }
-    />
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
-        <ActivityIndicator
-          animating={true}
-          color="#000"
-          hidesWhenStopped={true}
-          size="small"
-          style={
-            Object {
-              "marginRight": 8,
-            }
-          }
-        />
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#000",
-              },
-              false,
-              false,
-            ]
-          }
-        >
+          <use
+            xlink:href="#loading"
+          />
+        </svg>
+        <span>
           loading button
-        </Text>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "marginTop": 20,
-        },
-      ]
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      small
-    </Text>
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 23,
-              "paddingLeft": 5,
-              "paddingRight": 5,
-            },
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#108ee9",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
+        </span>
+      </a>
+      <a
+        aria-disabled="false"
+        class="btn am-button am-button-icon"
+        role="button"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 12,
-              },
-              Object {
-                "color": "#108ee9",
-              },
-              false,
-              false,
-            ]
-          }
+        <svg
+          aria-hidden="true"
+          class="am-icon am-icon-check-circle-o am-icon-md"
         >
-          ghost small button
-        </Text>
-      </View>
-    </View>
-  </View>
-</View>
+          <use
+            xlink:href="#check-circle-o"
+          />
+        </svg>
+        <span>
+          with icon
+        </span>
+      </a>
+      <a
+        aria-disabled="false"
+        class="btn am-button am-button-icon"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="am-icon am-icon-reload am-icon-md"
+        >
+          <use
+            xlink:href="#reload"
+          />
+        </svg>
+        <span>
+          with local icon
+        </span>
+      </a>
+      <div
+        style="height:0.16rem;"
+      />
+      <p
+        style="margin:30px 0 18px 0;color:#999;"
+      >
+        inline / small
+      </p>
+      <div
+        class="am-flexbox am-flexbox-align-center"
+        style="margin-bottom:0.16rem;"
+      >
+        <a
+          aria-disabled="false"
+          class="am-button am-button-primary am-button-inline"
+          role="button"
+          style="margin-right:0.08rem;"
+        >
+          <span>
+            inline
+          </span>
+        </a>
+        <a
+          aria-disabled="false"
+          class="am-button am-button-ghost am-button-small am-button-inline"
+          role="button"
+          style="margin-right:0.08rem;"
+        >
+          <span>
+            inline small
+          </span>
+        </a>
+        <a
+          aria-disabled="false"
+          class="am-button am-button-primary am-button-small am-button-inline"
+          role="button"
+        >
+          <span>
+            inline small
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/button/demo/complex.md correctly 1`] = `
+<div
+  class="am-list"
+  style="margin:0.1rem 0;background-color:white;"
+>
+  <div
+    class="am-list-body"
+  >
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line am-list-line-multiple"
+      >
+        <div
+          class="am-list-content"
+        >
+          regional manager
+          <div
+            class="am-list-brief"
+          >
+            Can be collected, refund, discount management, view data and other operations
+          </div>
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <a
+            aria-disabled="false"
+            class="am-button am-button-ghost am-button-small am-button-inline"
+            role="button"
+          >
+            <span>
+              small
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line am-list-line-multiple"
+      >
+        <div
+          class="am-list-content"
+        >
+          regional manager
+          <div
+            class="am-list-brief"
+          >
+            Can be collected, refund, discount management, view data and other operations
+          </div>
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <a
+            aria-disabled="false"
+            class="am-button am-button-primary am-button-small am-button-inline"
+            role="button"
+          >
+            <span>
+              small
+            </span>
+          </a>
+        </div>
+      </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
+    </div>
+  </div>
+</div>
 `;

@@ -1,73 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchBar renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#efeff4",
-      "flexDirection": "row",
-      "height": 44,
-      "paddingLeft": 8,
-      "paddingRight": 8,
-    }
-  }
+<form
+  action="#"
+  class="am-search"
 >
-  <View
-    style={
-      Object {
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
+  <div
+    class="am-search-input"
   >
-    <TextInput
-      clearButtonMode="always"
-      editable={true}
-      onBlur={[Function]}
-      onChangeText={[Function]}
-      onClear={[Function]}
-      onFocus={[Function]}
-      onSubmit={[Function]}
-      onSubmitEditing={[Function]}
+    <div
+      class="am-search-synthetic-ph"
+    >
+      <span
+        class="am-search-synthetic-ph-container"
+      >
+        <i
+          class="am-search-synthetic-ph-icon"
+        />
+        <span
+          class="am-search-synthetic-ph-placeholder"
+          style="visibility:visible;"
+        >
+          搜索
+        </span>
+      </span>
+    </div>
+    <input
+      class="am-search-value"
       placeholder="搜索"
-      prefixCls="am-search"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#fff",
-            "borderColor": "#ddd",
-            "borderRadius": 5,
-            "borderWidth": 0.5,
-            "color": "#000",
-            "flex": 1,
-            "fontSize": 14,
-            "height": 28,
-            "paddingBottom": 0,
-            "paddingLeft": 35,
-            "paddingRight": 35,
-            "paddingTop": 0,
-          },
-          undefined,
-        ]
-      }
-      underlineColorAndroid="transparent"
+      type="search"
       value=""
     />
-  </View>
-  <Image
-    resizeMode="stretch"
-    source={1}
-    style={
-      Object {
-        "height": 15,
-        "left": 16,
-        "position": "absolute",
-        "tintColor": "#ccc",
-        "top": 14.5,
-        "width": 15,
-      }
-    }
-  />
-</View>
+    <a
+      class="am-search-clear"
+    />
+  </div>
+  <div
+    class="am-search-cancel"
+  >
+    取消
+  </div>
+</form>
 `;

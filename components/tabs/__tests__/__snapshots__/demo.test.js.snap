@@ -1,326 +1,386 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-      "paddingTop": 20,
-    }
-  }
->
-  <View
-    onLayout={[Function]}
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-      ]
-    }
+exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-tabs am-tabs-top"
   >
-    <View
-      style={
-        Array [
-          Object {
-            "borderColor": "#ccc",
-            "borderLeftWidth": 0,
-            "borderRightWidth": 0,
-            "borderTopWidth": 0,
-            "borderWidth": 1,
-            "flexDirection": "row",
-            "height": 50,
-            "justifyContent": "space-around",
-          },
-          Object {
-            "backgroundColor": null,
-          },
-          Array [
-            Object {
-              "borderBottomWidth": 1,
-              "borderTopWidth": 0,
-              "height": 42,
-            },
-            Object {
-              "borderColor": "#ddd",
-            },
-            null,
-          ],
-        ]
-      }
+    <div
+      class="am-tabs-bar"
+      role="tablist"
+      tabindex="0"
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel="选项卡一"
-        accessibilityTraits="button"
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "flex": 1,
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-                "paddingBottom": 10,
-              },
-              Array [
-                Object {
-                  "paddingBottom": 0,
-                },
-              ],
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#108ee9",
-                  "fontWeight": "bold",
-                },
-                Array [
-                  Object {
-                    "fontSize": 15,
-                  },
-                ],
-              ]
-            }
-          >
-            选项卡一
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel="选项卡二"
-        accessibilityTraits="button"
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "flex": 1,
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-                "paddingBottom": 10,
-              },
-              Array [
-                Object {
-                  "paddingBottom": 0,
-                },
-              ],
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontWeight": "normal",
-                },
-                Array [
-                  Object {
-                    "fontSize": 15,
-                  },
-                ],
-              ]
-            }
-          >
-            选项卡二
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel="选项卡三"
-        accessibilityTraits="button"
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "flex": 1,
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-                "paddingBottom": 10,
-              },
-              Array [
-                Object {
-                  "paddingBottom": 0,
-                },
-              ],
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontWeight": "normal",
-                },
-                Array [
-                  Object {
-                    "fontSize": 15,
-                  },
-                ],
-              ]
-            }
-          >
-            选项卡三
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "backgroundColor": "#108ee9",
-            "bottom": -1,
-            "height": 2,
-            "left": 0,
-            "position": "absolute",
-            "width": 250,
-          }
-        }
+      <div
+        class="am-tabs-ink-bar am-tabs-ink-bar-animated"
       />
-    </View>
-    <RCTScrollView
-      alwaysBounceVertical={false}
-      automaticallyAdjustContentInsets={false}
-      contentOffset={
-        Object {
-          "x": 0,
-        }
-      }
-      directionalLockEnabled={true}
-      horizontal={true}
-      keyboardDismissMode="on-drag"
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      pagingEnabled={true}
-      scrollEnabled={true}
-      scrollEventThrottle={16}
-      scrollsToTop={false}
-      showsHorizontalScrollIndicator={false}
+      <div
+        aria-disabled="false"
+        aria-selected="false"
+        class=" am-tabs-tab"
+        role="tab"
+      >
+        <span
+          class="am-badge"
+        >
+          First Tab
+          <sup
+            class="am-badge-text"
+          >
+            3
+          </sup>
+        </span>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-selected="true"
+        class="am-tabs-tab-active am-tabs-tab"
+        role="tab"
+      >
+        <span
+          class="am-badge"
+        >
+          Second Tab
+          <sup
+            class="am-badge-text"
+          >
+            今日(20)
+          </sup>
+        </span>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-selected="false"
+        class=" am-tabs-tab"
+        role="tab"
+      >
+        <span
+          class="am-badge"
+        >
+          Third Tab
+          <sup
+            class="am-badge-dot"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="am-tabs-content am-tabs-content-animated"
+      style="transform:translateX(-100%) translateZ(0);-webkit-transform:translateX(-100%) translateZ(0);-moz-transform:translateX(-100%) translateZ(0);"
     >
-      <View>
-        <View
-          style={
-            Object {
-              "width": 750,
-            }
-          }
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="false"
+        class="am-tabs-tabpane am-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
         >
-          <View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "height": 100,
-                  "justifyContent": "center",
-                }
-              }
+          Content of Second Tab
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
+<div>
+  <div
+    class="am-tabs am-tabs-top"
+  >
+    <div
+      class="am-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="am-tabs-nav-container am-tabs-nav-swipe-container am-tabs-prevpage am-tabs-nextpage"
+      >
+        <div
+          class="am-tabs-nav-wrap"
+        >
+          <div
+            class="am-tabs-nav-swipe"
+          >
+            <div
+              class="am-tabs-nav"
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
+              <div
+                class="am-tabs-ink-bar am-tabs-ink-bar-animated"
+              />
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
               >
-                选项卡一内容
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "width": 750,
-            }
-          }
+                Option0
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option1
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option2
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option3
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option4
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option5
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option6
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option7
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="true"
+                class="am-tabs-tab am-tabs-tab-active"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option8
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option9
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option10
+              </div>
+              <div
+                aria-disabled="false"
+                aria-selected="false"
+                class="am-tabs-tab"
+                role="tab"
+                style="-webkit-flex-basis:20%;flex-basis:20%;"
+              >
+                Option11
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-tabs-content am-tabs-content-animated"
+      style="transform:translateX(-800%) translateZ(0);-webkit-transform:translateX(-800%) translateZ(0);-moz-transform:translateX(-800%) translateZ(0);"
+    >
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="false"
+        class="am-tabs-tabpane am-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
         >
-          <View
-            tabLabel="选项卡二"
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "width": 750,
-            }
-          }
+          content of option8
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-tabs am-tabs-top"
+  >
+    <div
+      class="am-tabs-bar"
+      role="tablist"
+      tabindex="0"
+    >
+      <div
+        class="am-tabs-ink-bar am-tabs-ink-bar-no-animated"
+      />
+      <div
+        aria-disabled="false"
+        aria-selected="false"
+        class=" am-tabs-tab"
+        role="tab"
+      >
+        First tab
+      </div>
+      <div
+        aria-disabled="false"
+        aria-selected="false"
+        class=" am-tabs-tab"
+        role="tab"
+      >
+        Second Tab
+      </div>
+      <div
+        aria-disabled="false"
+        aria-selected="true"
+        class="am-tabs-tab-active am-tabs-tab"
+        role="tab"
+      >
+        Third Tab
+      </div>
+    </div>
+    <div
+      class="am-tabs-content am-tabs-content-no-animated"
+    >
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="am-tabs-tabpane am-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="false"
+        class="am-tabs-tabpane am-tabs-tabpane-active"
+        role="tabpanel"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
         >
-          <View
-            tabLabel="选项卡三"
-          />
-        </View>
-      </View>
-    </RCTScrollView>
-  </View>
-</View>
+          Content of Third Tab
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
 `;

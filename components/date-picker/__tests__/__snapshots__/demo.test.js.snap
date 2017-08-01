@@ -1,172 +1,189 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/date-picker/demo/basic.tsx correctly 1`] = `
-<View>
-  <View
-    style={undefined}
+exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-list date-picker-list"
+    style="background-color:white;"
   >
-    <View
-      style={
-        Object {
-          "backgroundColor": "#fff",
-          "borderTopColor": "#ddd",
-          "borderTopWidth": 0.5,
-        }
-      }
+    <div
+      class="am-list-body"
     >
-      <View
-        style={undefined}
-      >
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#fff",
-                  "flexDirection": "row",
-                  "flexGrow": 1,
-                  "paddingLeft": 15,
-                },
-                undefined,
-              ]
-            }
+          <div
+            class="am-list-line"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderBottomColor": "#ddd",
-                    "borderBottomWidth": 0.5,
-                    "flex": 1,
-                    "flexDirection": "row",
-                    "minHeight": 44,
-                    "paddingBottom": 6,
-                    "paddingRight": 15,
-                    "paddingTop": 6,
-                  },
-                  false,
-                  false,
-                ]
-              }
+            <div
+              class="am-list-content"
             >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flex": 1,
-                      "flexDirection": "column",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#000",
-                        "fontSize": 17,
-                        "lineHeight": 19,
-                        "textAlignVertical": "center",
-                      },
-                    ]
-                  }
-                >
-                  选择时间
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "flex": 1,
-                      "flexDirection": "column",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#888",
-                        "fontSize": 17,
-                        "lineHeight": 19,
-                        "textAlign": "right",
-                        "textAlignVertical": "center",
-                      },
-                    ]
-                  }
-                >
-                  请选择
-                </Text>
-              </View>
-              <Image
-                source={1}
-                style={
-                  Object {
-                    "height": 13,
-                    "marginLeft": 8,
-                    "marginTop": 3,
-                    "width": 8,
-                  }
-                }
-              />
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "bottom": 0,
-              "height": 1,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-            },
-          ]
-        }
-      />
-    </View>
-  </View>
-</View>
+              日期(CST)
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              可选,小于结束日期
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              时间(local time)
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              请选择
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              时间(CST)，限定上下限
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              08:00
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              日期+时间
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              2016-11-22 08:00
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              UK time
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              2016-11-22 00:00:00
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            <div>
+              自定义控制显示/隐藏的元素
+            </div>
+          </div>
+          <div
+            class="am-list-extra"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div>
+        <div
+          style="background-color:#fff;height:0.9rem;line-height:0.9rem;padding:0 0.3rem;"
+        >
+          时间选择(自定义 children)
+          <span
+            style="float:right;color:#888;"
+          >
+            请选择(可选)
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

@@ -1,14 +1,22 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-// import { shallow } from 'enzyme';
-
-import Pagination from '../index';
+import { render, mount } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
+import Pagination from '../index.web';
 
 describe('Pagination', () => {
   it('renders correctly', () => {
-    const wrapper = renderer.create(
+    const wrapper = render(
       <Pagination total={5} current={3} />,
     );
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.find('.am-pagination')).toHaveLength(1);
+  });
+
+  it('renders mode="number" correctly', () => {
+    const wrapper = mount(
+      <Pagination mode="number" total={5} current={3} />,
+    );
+
+    expect(wrapper.find('.am-flexbox-item')).toHaveLength(0);
   });
 });

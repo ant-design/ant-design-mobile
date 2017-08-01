@@ -1,476 +1,362 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/textarea-item/demo/basic.tsx correctly 1`] = `
-<RCTScrollView
-  automaticallyAdjustContentInsets={false}
-  showsHorizontalScrollIndicator={false}
-  showsVerticalScrollIndicator={false}
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
->
-  <View>
-    <View
-      style={undefined}
+exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
     >
-      <View>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Object {
-              "backgroundColor": "#f5f5f9",
-              "color": "#888",
-              "fontSize": 14,
-              "paddingBottom": 9,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-              "paddingTop": 15,
-            }
-          }
-        >
-          基本
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderTopColor": "#ddd",
-            "borderTopWidth": 0.5,
-          }
-        }
+      Customize to focus
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-textarea-item"
       >
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "marginLeft": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              Object {
-                "position": "relative",
-              },
-            ]
-          }
+        <div
+          class="am-textarea-label am-textarea-label-5"
         >
-          <TextInput
-            clearButtonMode="while-editing"
-            defaultValue={undefined}
-            editable={true}
-            keyboardType="default"
-            maxLength={undefined}
-            multiline={true}
-            numberOfLines={4}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="固定行数"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "fontSize": 17,
-                  "lineHeight": 22,
-                  "paddingHorizontal": 8,
-                  "textAlignVertical": "top",
-                },
-                Object {
-                  "color": "#000",
-                  "paddingRight": 0,
-                },
-                Object {
-                  "height": 96,
-                },
-                undefined,
-              ]
-            }
-            underlineColorAndroid="transparent"
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "marginLeft": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              Object {
-                "position": "relative",
-              },
-            ]
-          }
+          标题
+        </div>
+        <div
+          class="am-textarea-control"
         >
-          <TextInput
-            clearButtonMode="while-editing"
-            defaultValue={undefined}
-            editable={true}
-            keyboardType="default"
-            maxLength={100}
-            multiline={true}
-            numberOfLines={4}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="多行带计数"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "fontSize": 17,
-                  "lineHeight": 22,
-                  "paddingHorizontal": 8,
-                  "textAlignVertical": "top",
-                },
-                Object {
-                  "color": "#000",
-                  "paddingRight": 0,
-                },
-                Object {
-                  "height": 96,
-                },
-                undefined,
-              ]
-            }
-            underlineColorAndroid="transparent"
+          <textarea
+            data-seed="logId"
+            placeholder="auto focus in Alipay client"
+            rows="1"
           />
-          <View
-            style={
-              Array [
-                Object {
-                  "bottom": 8,
-                  "position": "absolute",
-                  "right": 8,
-                },
-              ]
-            }
+        </div>
+      </div>
+      <div
+        class="am-list-item am-textarea-item"
+      >
+        <div
+          class="am-textarea-label am-textarea-label-5"
+        >
+          标题
+        </div>
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            data-seed="logId"
+            placeholder="click the button below to focus"
+            rows="1"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <div
+              style="width:100%;color:#108ee9;text-align:center;"
             >
-              0
-               / 
-              100
-            </Text>
-          </View>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "marginLeft": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              Object {
-                "position": "relative",
-              },
-            ]
-          }
-        >
-          <TextInput
-            clearButtonMode="while-editing"
-            defaultValue={undefined}
-            editable={true}
-            keyboardType="default"
-            maxLength={undefined}
-            multiline={true}
-            numberOfLines={4}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="高度自适应"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "fontSize": 17,
-                  "lineHeight": 22,
-                  "paddingHorizontal": 8,
-                  "textAlignVertical": "top",
-                },
-                Object {
-                  "color": "#000",
-                  "paddingRight": 0,
-                },
-                Object {
-                  "height": 96,
-                },
-                undefined,
-              ]
-            }
-            underlineColorAndroid="transparent"
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "marginLeft": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              Object {
-                "position": "relative",
-              },
-            ]
-          }
-        >
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={true}
-            keyboardType="default"
-            maxLength={undefined}
-            multiline={false}
-            numberOfLines={1}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "fontSize": 17,
-                  "lineHeight": 22,
-                  "paddingHorizontal": 8,
-                  "textAlignVertical": "top",
-                },
-                Object {
-                  "color": "#000",
-                  "paddingRight": 0,
-                },
-                Object {
-                  "height": 45,
-                },
-                undefined,
-              ]
-            }
-            underlineColorAndroid="transparent"
-            value="默认带value"
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "marginLeft": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              Object {
-                "position": "relative",
-              },
-            ]
-          }
-        >
-          <TextInput
-            clearButtonMode="while-editing"
-            editable={false}
-            keyboardType="default"
-            maxLength={undefined}
-            multiline={false}
-            numberOfLines={1}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "fontSize": 17,
-                  "lineHeight": 22,
-                  "paddingHorizontal": 8,
-                  "textAlignVertical": "top",
-                },
-                Object {
-                  "color": "#000",
-                  "paddingRight": 0,
-                },
-                Object {
-                  "height": 45,
-                },
-                undefined,
-              ]
-            }
-            underlineColorAndroid="transparent"
-            value="不可编辑 editable = {false}"
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "marginLeft": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              Object {
-                "position": "relative",
-              },
-            ]
-          }
-        >
-          <TextInput
-            clearButtonMode="never"
-            defaultValue={undefined}
-            editable={true}
-            keyboardType="default"
-            maxLength={undefined}
-            multiline={false}
-            numberOfLines={1}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="不显示清除按钮"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "fontSize": 17,
-                  "lineHeight": 22,
-                  "paddingHorizontal": 8,
-                  "textAlignVertical": "top",
-                },
-                Object {
-                  "color": "#000",
-                  "paddingRight": 0,
-                },
-                Object {
-                  "height": 45,
-                },
-                undefined,
-              ]
-            }
-            underlineColorAndroid="transparent"
-          />
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "marginLeft": 15,
-              },
-              Object {
-                "borderBottomWidth": 0.5,
-              },
-              Object {
-                "position": "relative",
-              },
-            ]
-          }
-        >
-          <TextInput
-            clearButtonMode="while-editing"
-            defaultValue="报错样式 error={true}"
-            editable={true}
-            keyboardType="default"
-            maxLength={undefined}
-            multiline={false}
-            numberOfLines={1}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "fontSize": 17,
-                  "lineHeight": 22,
-                  "paddingHorizontal": 8,
-                  "textAlignVertical": "top",
-                },
-                Object {
-                  "color": "#f50",
-                  "paddingRight": 30,
-                },
-                Object {
-                  "height": 45,
-                },
-                undefined,
-              ]
-            }
-            underlineColorAndroid="transparent"
-          />
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            hitSlop={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "position": "absolute",
-                  "right": 18,
-                  "top": 12,
-                },
-              ]
-            }
-            testID={undefined}
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "height": 18,
-                  "width": 18,
-                }
-              }
-            />
-          </View>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#fff",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "bottom": 0,
-                "height": 1,
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-              },
-            ]
-          }
+              click to focus
+            </div>
+          </div>
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
         />
-      </View>
-    </View>
-  </View>
-</RCTScrollView>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Whether is controlled
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-textarea-item am-textarea-item-single-line"
+      >
+        <div
+          class="am-textarea-label am-textarea-label-5"
+        >
+          受控组件
+        </div>
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            placeholder="Hello World"
+            rows="1"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-textarea-item am-textarea-item-single-line"
+      >
+        <div
+          class="am-textarea-label am-textarea-label-5"
+        >
+          非受控组件
+        </div>
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            placeholder="please input content"
+            rows="1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Auto / Fixed height
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-textarea-item"
+      >
+        <div
+          class="am-textarea-label am-textarea-label-5"
+        >
+          高度自适应
+        </div>
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            placeholder=""
+            rows="1"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-textarea-item"
+      >
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            placeholder="fixed number of lines"
+            rows="3"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Show clear icon
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-textarea-item am-textarea-item-single-line"
+      >
+        <div
+          class="am-textarea-label am-textarea-label-5"
+        >
+          标题
+        </div>
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            placeholder="displayed clear icon while typing"
+            rows="1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Custom title（text / image / empty）
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-textarea-item am-textarea-item-single-line"
+      >
+        <div
+          class="am-textarea-label am-textarea-label-5"
+        >
+          <img
+            alt="icon"
+            src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
+            style="width:0.56rem;height:0.56rem;"
+          />
+        </div>
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            placeholder="title can be customized"
+            rows="1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Limited value length
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-textarea-item am-textarea-item-single-line"
+      >
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            maxlength="10"
+            placeholder="can enter up to 10 characters"
+            rows="1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Count
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-textarea-item"
+      >
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            maxlength="100"
+            placeholder=""
+            rows="5"
+          >
+            计数功能,我的意见是...
+          </textarea>
+        </div>
+        <span
+          class="am-textarea-count"
+        >
+          <span>
+            13
+          </span>
+          /100
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-list"
+  >
+    <div
+      class="am-list-header"
+    >
+      Not editable / Disabled
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-textarea-item am-textarea-item-single-line"
+      >
+        <div
+          class="am-textarea-label am-textarea-label-5"
+        >
+          姓名
+        </div>
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            placeholder=""
+            readonly=""
+            rows="1"
+          >
+            not editable
+          </textarea>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-textarea-item am-textarea-disabled am-textarea-item-single-line"
+      >
+        <div
+          class="am-textarea-label am-textarea-label-5"
+        >
+          姓名
+        </div>
+        <div
+          class="am-textarea-control"
+        >
+          <textarea
+            disabled=""
+            placeholder=""
+            rows="1"
+          >
+            disabled style
+          </textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

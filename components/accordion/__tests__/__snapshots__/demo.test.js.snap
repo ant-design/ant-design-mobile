@@ -1,697 +1,175 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/accordion/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Object {
-      "marginBottom": 10,
-      "marginTop": 80,
-    }
-  }
+exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
+<div
+  style="margin-top:10px;margin-bottom:10px;"
 >
-  <View
-    style={
-      Array [
-        undefined,
-        Object {
-          "borderTopColor": "#ddd",
-          "borderTopWidth": 0.5,
-        },
-      ]
-    }
+  <div
+    class="am-accordion my-accordion"
   >
-    <View>
-      <View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
+    <div
+      class="am-accordion-item"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        Title 1
+      </div>
+    </div>
+    <div
+      class="am-accordion-item pad"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        Title 2
+      </div>
+    </div>
+    <div
+      class="am-accordion-item pad"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        Title 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
+<div
+  style="margin-top:10px;margin-bottom:10px;"
+>
+  <div
+    class="am-accordion my-accordion"
+  >
+    <div
+      class="am-accordion-item am-accordion-item-active"
+    >
+      <div
+        aria-expanded="true"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        Title 1
+      </div>
+      <div
+        class="am-accordion-content am-accordion-content-active"
+        role="tabpanel"
+      >
+        <div
+          class="am-accordion-content-box"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "flexDirection": "row",
-                  "paddingLeft": 15,
-                  "paddingRight": 30,
-                },
-                Object {},
-              ]
-            }
+          <div
+            class="am-list my-list"
           >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flex": 1,
-                  "flexDirection": "row",
-                  "height": 44,
-                }
-              }
+            <div
+              class="am-list-body"
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#000",
-                    "fontSize": 17,
-                  }
-                }
+              <div
+                class="am-list-item am-list-item-middle"
               >
-                Title 1
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 15,
-                  "width": 15,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#000",
-                    "flexDirection": "row",
-                    "fontFamily": "anticon",
-                    "fontSize": 15,
-                  }
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          pointerEvents="none"
-          style={
-            Object {
-              "height": 0,
-              "overflow": "hidden",
-            }
-          }
-        >
-          <View
-            onLayout={[Function]}
-            style={Object {}}
-          >
-            <View
-              style={undefined}
-            >
-              <View
-                style={
-                  Object {
-                    "backgroundColor": "#fff",
-                    "borderTopColor": "#ddd",
-                    "borderTopWidth": 0.5,
-                  }
-                }
-              >
-                <View
-                  accessibilityComponentType={undefined}
-                  accessibilityLabel={undefined}
-                  accessibilityTraits={undefined}
-                  accessible={true}
-                  hasTVPreferredFocus={undefined}
-                  hitSlop={undefined}
-                  isTVSelectable={true}
-                  onLayout={undefined}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                      },
-                      undefined,
-                    ]
-                  }
-                  testID={undefined}
-                  tvParallaxProperties={undefined}
+                <div
+                  class="am-list-line"
                 >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "backgroundColor": "#fff",
-                          "flexDirection": "row",
-                          "flexGrow": 1,
-                          "paddingLeft": 15,
-                        },
-                        undefined,
-                      ]
-                    }
+                  <div
+                    class="am-list-content"
                   >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "borderBottomColor": "#ddd",
-                            "borderBottomWidth": 0.5,
-                            "flex": 1,
-                            "flexDirection": "row",
-                            "minHeight": 44,
-                            "paddingBottom": 6,
-                            "paddingRight": 15,
-                            "paddingTop": 6,
-                          },
-                          false,
-                          false,
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Array [
-                            Object {
-                              "flex": 1,
-                              "flexDirection": "column",
-                            },
-                          ]
-                        }
-                      >
-                        <Text
-                          accessible={true}
-                          allowFontScaling={true}
-                          ellipsizeMode="tail"
-                          numberOfLines={1}
-                          style={
-                            Array [
-                              Object {
-                                "color": "#000",
-                                "fontSize": 17,
-                                "lineHeight": 19,
-                                "textAlignVertical": "center",
-                              },
-                            ]
-                          }
-                        >
-                          Content 1
-                        </Text>
-                      </View>
-                    </View>
-                  </View>
-                </View>
-                <View
-                  accessibilityComponentType={undefined}
-                  accessibilityLabel={undefined}
-                  accessibilityTraits={undefined}
-                  accessible={true}
-                  hasTVPreferredFocus={undefined}
-                  hitSlop={undefined}
-                  isTVSelectable={true}
-                  onLayout={undefined}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                      },
-                      undefined,
-                    ]
-                  }
-                  testID={undefined}
-                  tvParallaxProperties={undefined}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "backgroundColor": "#fff",
-                          "flexDirection": "row",
-                          "flexGrow": 1,
-                          "paddingLeft": 15,
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "borderBottomColor": "#ddd",
-                            "borderBottomWidth": 0.5,
-                            "flex": 1,
-                            "flexDirection": "row",
-                            "minHeight": 44,
-                            "paddingBottom": 6,
-                            "paddingRight": 15,
-                            "paddingTop": 6,
-                          },
-                          false,
-                          false,
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Array [
-                            Object {
-                              "flex": 1,
-                              "flexDirection": "column",
-                            },
-                          ]
-                        }
-                      >
-                        <Text
-                          accessible={true}
-                          allowFontScaling={true}
-                          ellipsizeMode="tail"
-                          numberOfLines={1}
-                          style={
-                            Array [
-                              Object {
-                                "color": "#000",
-                                "fontSize": 17,
-                                "lineHeight": 19,
-                                "textAlignVertical": "center",
-                              },
-                            ]
-                          }
-                        >
-                          Content 2
-                        </Text>
-                      </View>
-                    </View>
-                  </View>
-                </View>
-                <View
-                  accessibilityComponentType={undefined}
-                  accessibilityLabel={undefined}
-                  accessibilityTraits={undefined}
-                  accessible={true}
-                  hasTVPreferredFocus={undefined}
-                  hitSlop={undefined}
-                  isTVSelectable={true}
-                  onLayout={undefined}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                      },
-                      undefined,
-                    ]
-                  }
-                  testID={undefined}
-                  tvParallaxProperties={undefined}
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "backgroundColor": "#fff",
-                          "flexDirection": "row",
-                          "flexGrow": 1,
-                          "paddingLeft": 15,
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "borderBottomColor": "#ddd",
-                            "borderBottomWidth": 0.5,
-                            "flex": 1,
-                            "flexDirection": "row",
-                            "minHeight": 44,
-                            "paddingBottom": 6,
-                            "paddingRight": 15,
-                            "paddingTop": 6,
-                          },
-                          false,
-                          false,
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Array [
-                            Object {
-                              "flex": 1,
-                              "flexDirection": "column",
-                            },
-                          ]
-                        }
-                      >
-                        <Text
-                          accessible={true}
-                          allowFontScaling={true}
-                          ellipsizeMode="tail"
-                          numberOfLines={1}
-                          style={
-                            Array [
-                              Object {
-                                "color": "#000",
-                                "fontSize": 17,
-                                "lineHeight": 19,
-                                "textAlignVertical": "center",
-                              },
-                            ]
-                          }
-                        >
-                          Content 3
-                        </Text>
-                      </View>
-                    </View>
-                  </View>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "#fff",
-                        "borderBottomColor": "#ddd",
-                        "borderBottomWidth": 0.5,
-                        "bottom": 0,
-                        "height": 1,
-                        "left": 0,
-                        "position": "absolute",
-                        "right": 0,
-                      },
-                    ]
-                  }
+                    Content 1
+                  </div>
+                </div>
+                <div
+                  class="am-list-ripple"
+                  style="display:none;"
                 />
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "flexDirection": "row",
-                  "paddingLeft": 15,
-                  "paddingRight": 30,
-                },
-                Object {},
-              ]
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flex": 1,
-                  "flexDirection": "row",
-                  "height": 44,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#000",
-                    "fontSize": 17,
-                  }
-                }
+              </div>
+              <div
+                class="am-list-item am-list-item-middle"
               >
-                Title 2
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 15,
-                  "width": 15,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#000",
-                    "flexDirection": "row",
-                    "fontFamily": "anticon",
-                    "fontSize": 15,
-                  }
-                }
+                <div
+                  class="am-list-line"
+                >
+                  <div
+                    class="am-list-content"
+                  >
+                    Content 2
+                  </div>
+                </div>
+                <div
+                  class="am-list-ripple"
+                  style="display:none;"
+                />
+              </div>
+              <div
+                class="am-list-item am-list-item-middle"
               >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          pointerEvents="none"
-          style={
-            Object {
-              "height": 0,
-              "overflow": "hidden",
-            }
-          }
-        >
-          <View
-            onLayout={[Function]}
-            style={Object {}}
-          >
-            <View
-              style={
-                Object {
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "paddingHorizontal": 8,
-                  "paddingVertical": 9,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#333",
-                    "fontSize": 15,
-                  }
-                }
-              >
-                this is panel content2 or other
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View>
-        <View
-          accessibilityComponentType={undefined}
-          accessibilityLabel={undefined}
-          accessibilityTraits={undefined}
-          accessible={true}
-          hasTVPreferredFocus={undefined}
-          hitSlop={undefined}
-          isTVSelectable={true}
-          onLayout={undefined}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              undefined,
-            ]
-          }
-          testID={undefined}
-          tvParallaxProperties={undefined}
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "flexDirection": "row",
-                  "paddingLeft": 15,
-                  "paddingRight": 30,
-                },
-                Object {},
-              ]
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flex": 1,
-                  "flexDirection": "row",
-                  "height": 44,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#000",
-                    "fontSize": 17,
-                  }
-                }
-              >
-                Title 3
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "height": 15,
-                  "width": 15,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#000",
-                    "flexDirection": "row",
-                    "fontFamily": "anticon",
-                    "fontSize": 15,
-                  }
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          pointerEvents="auto"
-          style={false}
-        >
-          <View
-            onLayout={[Function]}
-            style={Object {}}
-          >
-            <View
-              style={
-                Object {
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "paddingHorizontal": 8,
-                  "paddingVertical": 9,
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "#333",
-                    "fontSize": 15,
-                  }
-                }
-              >
-                Text text text text text text text text text text text text text text text
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
+                <div
+                  class="am-list-line"
+                >
+                  <div
+                    class="am-list-content"
+                  >
+                    Content 3
+                  </div>
+                </div>
+                <div
+                  class="am-list-ripple"
+                  style="display:none;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-accordion-item pad"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        Title 2
+      </div>
+    </div>
+    <div
+      class="am-accordion-item pad"
+    >
+      <div
+        aria-expanded="false"
+        class="am-accordion-header"
+        role="tab"
+      >
+        <i
+          class="arrow"
+        />
+        Title 3
+      </div>
+    </div>
+  </div>
+</div>
 `;

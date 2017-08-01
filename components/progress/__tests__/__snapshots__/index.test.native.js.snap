@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress renders correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ddd",
+        "flex": 1,
+      },
+      Object {
+        "position": "absolute",
+        "top": 0,
+      },
+      null,
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomWidth": 4,
+          "borderColor": "#108ee9",
+          "borderStyle": "solid",
+        },
+        Object {
+          "height": 0,
+          "width": 225,
+        },
+        undefined,
+      ]
+    }
+  />
+</View>
+`;

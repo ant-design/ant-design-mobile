@@ -1,282 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Accordion renders correctly 1`] = `
-<View
-  style={
-    Array [
-      undefined,
-      Object {
-        "borderTopColor": "#ddd",
-        "borderTopWidth": 0.5,
-      },
-    ]
-  }
+<div
+  class="am-accordion"
 >
-  <View>
-    <View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "paddingLeft": 15,
-                "paddingRight": 30,
-              },
-              Object {},
-            ]
-          }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "height": 44,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                }
-              }
-            >
-              标题一
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "height": 15,
-                "width": 15,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "flexDirection": "row",
-                  "fontFamily": "anticon",
-                  "fontSize": 15,
-                }
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        pointerEvents="none"
-        style={
-          Object {
-            "height": 0,
-            "overflow": "hidden",
-          }
-        }
-      >
-        <View
-          onLayout={[Function]}
-          style={Object {}}
-        >
-          <View
-            style={
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "paddingHorizontal": 8,
-                "paddingVertical": 9,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#333",
-                  "fontSize": 15,
-                }
-              }
-            >
-              内容一
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "flexDirection": "row",
-                "paddingLeft": 15,
-                "paddingRight": 30,
-              },
-              Object {},
-            ]
-          }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "height": 44,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "fontSize": 17,
-                }
-              }
-            >
-              标题二
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-                "height": 15,
-                "width": 15,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#000",
-                  "flexDirection": "row",
-                  "fontFamily": "anticon",
-                  "fontSize": 15,
-                }
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        pointerEvents="none"
-        style={
-          Object {
-            "height": 0,
-            "overflow": "hidden",
-          }
-        }
-      >
-        <View
-          onLayout={[Function]}
-          style={Object {}}
-        >
-          <View
-            style={
-              Object {
-                "borderBottomColor": "#ddd",
-                "borderBottomWidth": 0.5,
-                "paddingHorizontal": 8,
-                "paddingVertical": 9,
-              }
-            }
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Object {
-                  "color": "#333",
-                  "fontSize": 15,
-                }
-              }
-            >
-              内容二
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
+  <div
+    class="am-accordion-item"
+  >
+    <div
+      aria-expanded="false"
+      class="am-accordion-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      标题一
+    </div>
+  </div>
+  <div
+    class="am-accordion-item"
+  >
+    <div
+      aria-expanded="false"
+      class="am-accordion-header"
+      role="tab"
+    >
+      <i
+        class="arrow"
+      />
+      标题二
+    </div>
+  </div>
+</div>
 `;

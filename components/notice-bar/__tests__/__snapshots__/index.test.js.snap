@@ -1,75 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NoticeBar renders correctly 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
-  accessible={true}
-  hitSlop={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#fffada",
-        "flexDirection": "row",
-        "height": 36,
-        "overflow": "hidden",
-      },
-      undefined,
-    ]
-  }
-  testID={undefined}
+<div
+  class="am-notice-bar"
+  role="alert"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "marginLeft": 15,
-        },
-      ]
-    }
+  <div
+    aria-hidden="true"
+    class="am-notice-bar-icon"
   >
-    <Image
-      source={
-        Object {
-          "uri": "https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png",
-        }
-      }
-      style={
-        Object {
-          "height": 12,
-          "width": 14,
-        }
-      }
-    />
-  </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Array [
-        Object {
-          "color": "#f4333c",
-          "flex": 1,
-          "fontSize": 15,
-          "marginRight": 15,
-        },
-        Object {
-          "marginLeft": 5,
-        },
-      ]
-    }
+     
+    <svg
+      class="am-icon am-icon-trips am-icon-xxs"
+    >
+      <use
+        xlink:href="#trips"
+      />
+    </svg>
+     
+  </div>
+  <div
+    class="am-notice-bar-content"
   >
-    foo
-  </Text>
-</View>
+    <div
+      class="am-notice-bar-marquee-wrap "
+      role="marquee"
+      style="overflow:hidden;"
+    >
+      <div
+        class="am-notice-bar-marquee"
+        style="position:relative;right:0;white-space:nowrap;display:inline-block;"
+      >
+        foo 
+      </div>
+    </div>
+  </div>
+</div>
 `;

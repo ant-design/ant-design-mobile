@@ -1,12 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-import SearchBar from '../index';
+import { render, mount } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
+import SearchBar from '../index.web';
 
 describe('SearchBar', () => {
   it('renders correctly', () => {
-    const wrapper = renderer.create(<SearchBar placeholder="搜索" />);
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    const wrapper = render(<SearchBar placeholder="搜索" />);
+    expect(renderToJson(wrapper)).toMatchSnapshot();
   });
 
   describe('test some events', () => {
@@ -18,27 +18,33 @@ describe('SearchBar', () => {
     });
 
     it('fires onChange event', () => {
-      wrapper = shallow(<SearchBar onChange={handler} />);
-      wrapper.find('TextInput').simulate('changeText', 'foo');
+      wrapper = mount(<SearchBar onChange={handler} />);
+      wrapper.find('input').simulate('change', { target: { value: 'foo' } });
       expect(handler).toBeCalledWith('foo');
     });
 
     it('fires onFocus event', () => {
-      wrapper = shallow(<SearchBar onFocus={handler} />);
-      wrapper.find('TextInput').simulate('focus');
+      wrapper = mount(<SearchBar onFocus={handler} />);
+      wrapper.find('input').simulate('focus');
       expect(handler).toBeCalledWith();
     });
 
     it('fires onBlur event', () => {
-      wrapper = shallow(<SearchBar onBlur={handler} />);
-      wrapper.find('TextInput').simulate('blur');
+      wrapper = mount(<SearchBar onBlur={handler} />);
+      wrapper.find('input').simulate('blur');
       expect(handler).toBeCalledWith();
     });
 
     it('fires onCancel event', () => {
-      wrapper = shallow(<SearchBar value="test" showCancelButton onCancel={handler} />);
-      wrapper.find('Text').simulate('press');
+      wrapper = mount(<SearchBar value="test" onCancel={handler} />);
+      wrapper.find('.am-search-cancel').simulate('click');
       expect(handler).toBeCalledWith('test');
+    });
+
+    it('fires onClear event', () => {
+      wrapper = mount(<SearchBar onClear={handler} />);
+      wrapper.find('a').simulate('click');
+      expect(handler).toBeCalledWith('');
     });
   });
 });

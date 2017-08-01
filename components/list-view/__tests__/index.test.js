@@ -1,9 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-// import { shallow } from 'enzyme';
-
-import { Text } from 'react-native';
-import ListView from '../index';
+import { render } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
+import ListView from '../index.web';
 
 describe('ListView', () => {
   it('renders correctly', () => {
@@ -19,12 +17,12 @@ describe('ListView', () => {
         return (
           <ListView
             dataSource={this.state.dataSource}
-            renderRow={rowData => <Text>{rowData}</Text>}
+            renderRow={rowData => <span>{rowData}</span>}
           />
         );
       }
     }
-    const wrapper = renderer.create(<Minimal />);
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    const wrapper = render(<Minimal />);
+    expect(renderToJson(wrapper)).toMatchSnapshot();
   });
 });

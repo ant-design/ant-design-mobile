@@ -1,158 +1,215 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/segmented-control/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Object {
-      "paddingHorizontal": 20,
-      "paddingTop": 60,
-    }
-  }
+exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
+<div
+  class="am-wingblank am-wingblank-lg sc-example"
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+  <p
+    class="sub-title"
+  >
+    Simplest
+  </p>
+  <div
+    class="am-segment"
+    role="tablist"
+  >
+    <div
+      aria-disabled="false"
+      aria-selected="true"
+      class="am-segment-item am-segment-item-selected"
+      role="tab"
+      style="color:#fff;background-color:;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换一
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class="am-segment-item"
+      role="tab"
+      style="color:;background-color:transparent;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换二
+    </div>
+  </div>
+  <p
+    class="sub-title"
   >
     Disabled
-  </Text>
-  <RCTSegmentedControl
-    enabled={false}
-    onChange={[Function]}
-    selectedIndex={0}
-    style={
-      Array [
-        Object {
-          "height": 28,
-        },
-        undefined,
-      ]
-    }
-    tintColor="#108ee9"
-    values={
-      Array [
-        "切换一",
-        "切换二",
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {
-          "height": 15,
-        },
-        undefined,
-      ]
-    }
-  />
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+  </p>
+  <div
+    class="am-segment am-segment-disabled"
+    role="tablist"
   >
-    TintColor and Style
-  </Text>
-  <RCTSegmentedControl
-    enabled={true}
-    onChange={[Function]}
-    selectedIndex={0}
-    style={
-      Array [
-        Object {
-          "height": 28,
-        },
-        Object {
-          "height": 40,
-          "width": 280,
-        },
-      ]
-    }
-    tintColor="#ff0000"
-    values={
-      Array [
-        "切换一",
-        "切换二",
-        "切换三",
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {
-          "height": 15,
-        },
-        undefined,
-      ]
-    }
-  />
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+    <div
+      aria-disabled="true"
+      aria-selected="false"
+      class="am-segment-item am-segment-item-selected"
+      role="tab"
+      style="color:#fff;background-color:;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换一
+    </div>
+    <div
+      aria-disabled="true"
+      aria-selected="false"
+      class="am-segment-item"
+      role="tab"
+      style="color:;background-color:transparent;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换二
+    </div>
+  </div>
+  <p
+    class="sub-title"
   >
     SelectedIndex
-  </Text>
-  <RCTSegmentedControl
-    enabled={true}
-    onChange={[Function]}
-    selectedIndex={1}
-    style={
-      Array [
-        Object {
-          "height": 28,
-        },
-        undefined,
-      ]
-    }
-    tintColor="#108ee9"
-    values={
-      Array [
-        "切换一",
-        "切换二",
-        "切换三",
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {
-          "height": 15,
-        },
-        undefined,
-      ]
-    }
-  />
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+  </p>
+  <div
+    class="am-segment"
+    role="tablist"
+  >
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class="am-segment-item"
+      role="tab"
+      style="color:;background-color:transparent;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换一
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="true"
+      class="am-segment-item am-segment-item-selected"
+      role="tab"
+      style="color:#fff;background-color:;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换二
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class="am-segment-item"
+      role="tab"
+      style="color:;background-color:transparent;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换三
+    </div>
+  </div>
+  <p
+    class="sub-title"
+  >
+    TintColor
+  </p>
+  <div
+    class="am-segment"
+    role="tablist"
+    style="height:0.8rem;width:5rem;"
+  >
+    <div
+      aria-disabled="false"
+      aria-selected="true"
+      class="am-segment-item am-segment-item-selected"
+      role="tab"
+      style="color:#fff;background-color:#ff0000;border-color:#ff0000;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换一
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class="am-segment-item"
+      role="tab"
+      style="color:#ff0000;background-color:transparent;border-color:#ff0000;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换二
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class="am-segment-item"
+      role="tab"
+      style="color:#ff0000;background-color:transparent;border-color:#ff0000;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换三
+    </div>
+  </div>
+  <p
+    class="sub-title"
   >
     onChange/onValueChange
-  </Text>
-  <RCTSegmentedControl
-    enabled={true}
-    onChange={[Function]}
-    onValueChange={[Function]}
-    selectedIndex={0}
-    style={
-      Array [
-        Object {
-          "height": 28,
-        },
-        undefined,
-      ]
-    }
-    tintColor="#108ee9"
-    values={
-      Array [
-        "切换一",
-        "切换二",
-        "切换三",
-      ]
-    }
-  />
-</View>
+  </p>
+  <div
+    class="am-segment"
+    role="tablist"
+  >
+    <div
+      aria-disabled="false"
+      aria-selected="true"
+      class="am-segment-item am-segment-item-selected"
+      role="tab"
+      style="color:#fff;background-color:;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换一
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class="am-segment-item"
+      role="tab"
+      style="color:;background-color:transparent;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换二
+    </div>
+    <div
+      aria-disabled="false"
+      aria-selected="false"
+      class="am-segment-item"
+      role="tab"
+      style="color:;background-color:transparent;border-color:;"
+    >
+      <div
+        class="am-segment-item-inner"
+      />
+      切换三
+    </div>
+  </div>
+</div>
 `;

@@ -1,14 +1,21 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-// import { shallow } from 'enzyme';
-
-import Progress from '../index';
+import { render, mount } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
+import Progress from '../index.web';
 
 describe('Progress', () => {
   it('renders correctly', () => {
-    const wrapper = renderer.create(
+    const wrapper = render(
       <Progress percent={30} position="fixed" />,
     );
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    expect(renderToJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.find('.am-progress-fixed-outer')).toHaveLength(1);
+  });
+
+  it('renders unfilled correctly', () => {
+    const wrapper = mount(
+      <Progress percent={40} position="normal" unfilled="hide" appearTransition />,
+    );
+    expect(wrapper.find('.am-progress-hide-outer')).toHaveLength(1);
   });
 });

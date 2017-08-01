@@ -1,97 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Drawer renders correctly 1`] = `
-<View
-  onMoveShouldSetResponder={[Function]}
-  onMoveShouldSetResponderCapture={[Function]}
-  onResponderEnd={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderReject={[Function]}
-  onResponderRelease={[Function]}
-  onResponderStart={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  onStartShouldSetResponderCapture={[Function]}
-  style={
-    Object {
-      "backgroundColor": "transparent",
-      "flex": 1,
-    }
-  }
+<div
+  class="my-drawer am-drawer am-drawer-left"
+  style="min-height:-200px;"
 >
-  <View
-    style={
-      Object {
-        "flex": 1,
-        "zIndex": 0,
-      }
-    }
+  <div
+    class="am-drawer-sidebar"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Main
-    </Text>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    pointerEvents="none"
-    style={
-      Object {
-        "backgroundColor": "#000",
-        "bottom": 0,
-        "left": 0,
-        "opacity": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-        "zIndex": 1000,
-      }
-    }
-    testID={undefined}
+    <span>
+      sidebar content
+    </span>
+  </div>
+  <div
+    class="am-drawer-overlay"
+    role="presentation"
   />
-  <View
-    accessibilityViewIsModal={false}
-    style={
-      Object {
-        "backgroundColor": undefined,
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": null,
-        "top": 0,
-        "transform": Array [
-          Object {
-            "translateX": -300,
-          },
-        ],
-        "width": 300,
-        "zIndex": 1001,
-      }
-    }
+  <div
+    class="am-drawer-content"
+    style="color:#A6A6A6;text-align:center;padding-top:42px;"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Text
-    </Text>
-  </View>
-</View>
+    Click upper-left corner icon
+  </div>
+</div>
 `;

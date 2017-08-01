@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch renders correctly 1`] = `
+<RCTSwitch
+  disabled={false}
+  onChange={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  onTintColor="#4dd865"
+  onValueChange={[Function]}
+  style={
+    Array [
+      Object {
+        "height": 31,
+        "width": 51,
+      },
+      undefined,
+    ]
+  }
+  value={true}
+/>
+`;

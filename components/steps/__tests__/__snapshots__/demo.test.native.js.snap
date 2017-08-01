@@ -1,0 +1,2031 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/steps/demo/basic.native.tsx correctly 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  showsHorizontalScrollIndicator={false}
+  showsVerticalScrollIndicator={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "marginTop": 60,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={undefined}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    title:
+                    Finished
+                  </Text>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    desc:
+                    This is description
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    title:
+                    In Progress
+                  </Text>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    desc:
+                    This is description
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    title:
+                    Waiting
+                  </Text>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    desc:
+                    This is description
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={undefined}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Finished
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#f4333c",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                In Progress
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#f4333c",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={undefined}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Finished
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                In Progress
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={undefined}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Finished
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#f4333c",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                In Progress
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#f4333c",
+                      "borderColor": "#f4333c",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          onLayout={[Function]}
+          style={undefined}
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Finished
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Progress
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": "white",
+                      "flexDirection": "row",
+                      "fontFamily": "anticon",
+                      "fontSize": 20,
+                    }
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 30,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Wait
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

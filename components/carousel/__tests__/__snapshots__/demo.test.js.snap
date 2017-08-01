@@ -1,445 +1,260 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/carousel/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Object {
-      "marginTop": 30,
-    }
-  }
+exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
+<div
+  class="am-wingblank am-wingblank-lg"
 >
-  <View
-    style={
-      Object {
-        "paddingHorizontal": 15,
-      }
-    }
+  <div
+    class="sub-title"
   >
-    <View
-      onLayout={[Function]}
+    normal
+  </div>
+  <div
+    class="slider my-carousel am-carousel"
+    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
+  >
+    <div
+      class="slider-frame"
+      style="position:relative;display:block;overflow:hidden;height:auto;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box;"
     >
-      <RCTScrollView
-        afterChange={[Function]}
-        automaticallyAdjustContentInsets={false}
-        autoplay={true}
-        autoplayInterval={3000}
-        autoplayTimeout={2}
-        bounces={true}
-        contentContainerStyle={
-          Object {
-            "backgroundColor": "#fff",
-          }
-        }
-        contentOffset={
-          Object {
-            "x": 0,
-            "y": 0,
-          }
-        }
-        directionalLockEnabled={true}
-        dotActiveStyle={Object {}}
-        dotStyle={Object {}}
-        dots={true}
-        horizontal={true}
-        infinite={true}
-        onMomentumScrollEnd={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        pagination={[Function]}
-        pagingEnabled={true}
-        removeClippedSubviews={false}
-        scrollEventThrottle={100}
-        selectedIndex={2}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-          }
-        }
-        styles={
-          Object {
-            "pagination": Object {
-              "alignItems": "center",
-              "position": "absolute",
-            },
-            "paginationX": Object {
-              "bottom": 10,
-              "left": 0,
-              "right": 0,
-            },
-            "paginationY": Object {
-              "bottom": 0,
-              "right": 10,
-              "top": 0,
-            },
-            "pointActiveStyle": Object {
-              "backgroundColor": "#888",
-            },
-            "pointStyle": Object {
-              "backgroundColor": "#ccc",
-              "borderRadius": 8,
-              "height": 8,
-              "width": 8,
-            },
-            "spaceStyle": Object {
-              "marginHorizontal": 2.5,
-              "marginVertical": 3,
-            },
-          }
-        }
-        vertical={false}
+      <ul
+        class="slider-list"
+        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:0;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box;"
       >
-        <View>
-          <View
-            style={
-              Object {
-                "width": 0,
-              }
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexGrow": 1,
-                    "height": 150,
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "backgroundColor": "#ccc",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-              >
-                Carousel 5
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "width": 0,
-              }
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexGrow": 1,
-                    "height": 150,
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "backgroundColor": "red",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-              >
-                Carousel 1
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "width": 0,
-              }
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexGrow": 1,
-                    "height": 150,
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                  Object {
-                    "backgroundColor": "blue",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-              >
-                Carousel 2
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "width": 0,
-              }
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexGrow": 1,
-                    "height": 150,
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "backgroundColor": "yellow",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-              >
-                Carousel 3
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "width": 0,
-              }
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexGrow": 1,
-                    "height": 150,
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "backgroundColor": "black",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-              >
-                Carousel 4
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "width": 0,
-              }
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexGrow": 1,
-                    "height": 150,
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "backgroundColor": "#ccc",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-              >
-                Carousel 5
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "width": 0,
-              }
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexGrow": 1,
-                    "height": 150,
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "backgroundColor": "red",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-              >
-                Carousel 1
-              </Text>
-            </View>
-          </View>
-        </View>
-      </RCTScrollView>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "position": "absolute",
-            },
-            Object {
-              "bottom": 10,
-              "left": 0,
-              "right": 0,
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-            }
-          }
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#ccc",
-                  "borderRadius": 8,
-                  "height": 8,
-                  "width": 8,
-                },
-                Object {
-                  "marginHorizontal": 2.5,
-                  "marginVertical": 3,
-                },
-                Object {},
-                false,
-                false,
-              ]
-            }
-          />
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#ccc",
-                  "borderRadius": 8,
-                  "height": 8,
-                  "width": 8,
-                },
-                Object {
-                  "marginHorizontal": 2.5,
-                  "marginVertical": 3,
-                },
-                Object {},
-                false,
-                false,
-              ]
-            }
-          />
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#ccc",
-                  "borderRadius": 8,
-                  "height": 8,
-                  "width": 8,
-                },
-                Object {
-                  "marginHorizontal": 2.5,
-                  "marginVertical": 3,
-                },
-                Object {},
-                Object {
-                  "backgroundColor": "#888",
-                },
-                Object {},
-              ]
-            }
-          />
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#ccc",
-                  "borderRadius": 8,
-                  "height": 8,
-                  "width": 8,
-                },
-                Object {
-                  "marginHorizontal": 2.5,
-                  "marginVertical": 3,
-                },
-                Object {},
-                false,
-                false,
-              ]
-            }
-          />
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#ccc",
-                  "borderRadius": 8,
-                  "height": 8,
-                  "width": 8,
-                },
-                Object {
-                  "marginHorizontal": 2.5,
-                  "marginVertical": 3,
-                },
-                Object {},
-                false,
-                false,
-              ]
-            }
-          />
-        </View>
-      </View>
-    </View>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
+          <a
+            href="http://www.baidu.com"
+            style="height:200px;"
+          >
+            <img
+              alt="icon"
+              src="https://zos.alipayobjects.com/rmsportal/QcWDkUhvYIVEcvtosxMF.png"
+            />
+          </a>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
+        >
+          <a
+            href="http://www.baidu.com"
+            style="height:200px;"
+          >
+            <img
+              alt="icon"
+              src="https://zos.alipayobjects.com/rmsportal/QcWDkUhvYIVEcvtosxMF.png"
+            />
+          </a>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
+        >
+          <a
+            href="http://www.baidu.com"
+            style="height:200px;"
+          >
+            <img
+              alt="icon"
+              src="https://zos.alipayobjects.com/rmsportal/QcWDkUhvYIVEcvtosxMF.png"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="slider-decorator-0"
+      style="position:absolute;bottom:0;width:100%;text-align:center;"
     >
-      Carousel will adjust height based on content
-    </Text>
-  </View>
-</View>
+      <div
+        class="am-carousel-wrap"
+      >
+        <div
+          class="am-carousel-wrap-dot"
+        >
+          <span />
+        </div>
+        <div
+          class="am-carousel-wrap-dot am-carousel-wrap-dot-active"
+        >
+          <span />
+        </div>
+        <div
+          class="am-carousel-wrap-dot"
+        >
+          <span />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="sub-title"
+  >
+    vertical
+  </div>
+  <div
+    class="slider my-carousel am-carousel am-carousel-vertical"
+    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
+  >
+    <div
+      class="slider-frame"
+      style="position:relative;display:block;overflow:hidden;height:initial;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box;"
+    >
+      <ul
+        class="slider-list"
+        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:auto;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box;"
+      >
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            Carousel 1
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            Carousel 2
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            Carousel 3
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="sub-title"
+  >
+    lottery
+  </div>
+  <div
+    class="slider my-carousel am-carousel am-carousel-vertical"
+    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
+  >
+    <div
+      class="slider-frame"
+      style="position:relative;display:block;overflow:hidden;height:initial;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box;"
+    >
+      <ul
+        class="slider-list"
+        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:auto;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box;"
+      >
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            ring
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            ruby
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            iPhone
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            iPod
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            sorry
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            tourism
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            coke
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            ticket
+          </div>
+        </li>
+        <li
+          class="slider-slide"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+        >
+          <div
+            class="v-item"
+          >
+            note
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 `;

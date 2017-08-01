@@ -1,618 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/activity-indicator/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 20,
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-      ]
-    }
+exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-wingblank am-wingblank-lg"
   >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "flexWrap": "nowrap",
-            "justifyContent": "flex-start",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
+    <div
+      class="loading-container"
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
+      <p
+        class="sub-title"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Icon without text
-        </Text>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
+        icon without text
+      </p>
+      <div
+        class="loading-example"
       >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "center",
-            }
-          }
+        <div
+          class="am-activity-indicator am-activity-indicator-sm"
         >
-          <ActivityIndicator
-            animating={true}
-            color="gray"
-            hidesWhenStopped={true}
-            size="small"
+          <span
+            aria-label="loading"
+            class="am-activity-indicator-spinner"
           />
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 21,
-        },
-        Object {
-          "backgroundColor": "#fff",
-        },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "flexWrap": "nowrap",
-            "justifyContent": "flex-start",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-    >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
+        </div>
+      </div>
+      <div
+        class="am-whitespace am-whitespace-xl"
+      />
+      <p
+        class="sub-title"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Icon with text
-        </Text>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
+        icon with text
+      </p>
+      <div
+        class="loading-example"
       >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "center",
-            }
-          }
+        <div
+          class="am-activity-indicator am-activity-indicator-sm"
         >
-          <ActivityIndicator
-            animating={true}
-            color="gray"
-            hidesWhenStopped={true}
-            size="small"
+          <span
+            aria-hidden="true"
+            class="am-activity-indicator-spinner"
           />
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontSize": 14,
-                  "marginLeft": 8,
-                },
-              ]
-            }
+          <span
+            class="am-activity-indicator-tip"
           >
             Loading...
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 21,
-        },
-        Object {
-          "backgroundColor": "#fff",
-        },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "flexWrap": "nowrap",
-            "justifyContent": "flex-start",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
-    >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
+          </span>
+        </div>
+      </div>
+      <div
+        class="am-whitespace am-whitespace-xl"
+      />
+      <p
+        class="sub-title"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Dark Background
-        </Text>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
+        icon with large size and customized text style
+      </p>
+      <div
+        class="loading-example"
       >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#2B2F42",
-                "height": 89,
-                "justifyContent": "center",
-                "width": 89,
-              },
-            ]
-          }
+        <div
+          class="align"
         >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "center",
-              }
-            }
+          <div
+            class="am-activity-indicator am-activity-indicator-lg"
           >
-            <ActivityIndicator
-              animating={true}
-              color="#fff"
-              hidesWhenStopped={true}
-              size="small"
+            <span
+              aria-label="loading"
+              class="am-activity-indicator-spinner am-activity-indicator-spinner-lg"
             />
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 21,
-        },
-        Object {
-          "backgroundColor": "#fff",
-        },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "flexWrap": "nowrap",
-            "justifyContent": "flex-start",
-          },
-          undefined,
-        ]
-      }
-      testID={undefined}
+          </div>
+          <span
+            style="margin-top:8px;"
+          >
+            Loading...
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="toast-container"
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
+      <div
+        class="am-whitespace am-whitespace-xl"
+      />
+      <a
+        aria-disabled="false"
+        class="am-button"
+        role="button"
       >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-        >
-          Large Size
-        </Text>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "flex": 1,
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "center",
-            }
-          }
-        >
-          <ActivityIndicator
-            animating={true}
-            color="gray"
-            hidesWhenStopped={true}
-            size="large"
-          />
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 21,
-        },
-        Object {
-          "backgroundColor": "#fff",
-        },
-      ]
-    }
-  />
-  <View
-    style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-      ]
-    }
-  >
-    <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hasTVPreferredFocus={undefined}
-      hitSlop={undefined}
-      isTVSelectable={true}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-          },
-          Array [
-            Object {
-              "alignItems": "center",
-              "borderRadius": 5,
-              "borderWidth": 1,
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 47,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-            },
-            Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
-            },
-            false,
-            false,
-            false,
-            undefined,
-          ],
-        ]
-      }
-      testID={undefined}
-      tvParallaxProperties={undefined}
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          style={
-            Array [
-              Object {
-                "fontSize": 18,
-              },
-              Object {
-                "color": "#000",
-              },
-              false,
-              false,
-            ]
-          }
-        >
+        <span>
           Click to show Toast
-        </Text>
-      </View>
-    </View>
-  </View>
-</View>
+        </span>
+      </a>
+      <div
+        class="toast-example"
+      />
+    </div>
+  </div>
+</div>
 `;

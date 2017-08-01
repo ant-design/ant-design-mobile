@@ -1,171 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/white-space/demo/basic.tsx correctly 1`] = `
-<View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 3,
-        },
-        undefined,
-      ]
-    }
+exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-xs"
   />
-  <View
-    style={
-      Object {
-        "backgroundColor": "#ebebef",
-        "height": 30,
-      }
-    }
+  <div
+    style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#bbb",
-          "lineHeight": 30,
-          "textAlign": "center",
-        }
-      }
-    >
-      Block
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 6,
-        },
-        undefined,
-      ]
-    }
+    Block
+  </div>
+  <div
+    class="am-whitespace am-whitespace-sm"
   />
-  <View
-    style={
-      Object {
-        "backgroundColor": "#ebebef",
-        "height": 30,
-      }
-    }
+  <div
+    style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#bbb",
-          "lineHeight": 30,
-          "textAlign": "center",
-        }
-      }
-    >
-      Block
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 9,
-        },
-        undefined,
-      ]
-    }
+    Block
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
   />
-  <View
-    style={
-      Object {
-        "backgroundColor": "#ebebef",
-        "height": 30,
-      }
-    }
+  <div
+    style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#bbb",
-          "lineHeight": 30,
-          "textAlign": "center",
-        }
-      }
-    >
-      Block
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 15,
-        },
-        undefined,
-      ]
-    }
+    Block
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
   />
-  <View
-    style={
-      Object {
-        "backgroundColor": "#ebebef",
-        "height": 30,
-      }
-    }
+  <div
+    style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#bbb",
-          "lineHeight": 30,
-          "textAlign": "center",
-        }
-      }
-    >
-      Block
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "height": 21,
-        },
-        undefined,
-      ]
-    }
+    Block
+  </div>
+  <div
+    class="am-whitespace am-whitespace-xl"
   />
-  <View
-    style={
-      Object {
-        "backgroundColor": "#ebebef",
-        "height": 30,
-      }
-    }
+  <div
+    style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#bbb",
-          "lineHeight": 30,
-          "textAlign": "center",
-        }
-      }
-    >
-      Block
-    </Text>
-  </View>
-</View>
+    Block
+  </div>
+</div>
 `;

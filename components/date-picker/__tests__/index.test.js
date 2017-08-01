@@ -1,19 +1,23 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-// import { shallow } from 'enzyme';
-
-import DatePicker from '../index';
-import List from '../../list/index';
+import { mount } from 'enzyme';
+// import { renderToJson } from 'enzyme-to-json';
+import DatePicker from '../index.web';
+import List from '../../list/index.web';
 
 describe('DatePicker', () => {
   it('renders correctly', () => {
-    const wrapper = renderer.create(
+    const wrapper = mount(
       <List>
         <DatePicker>
           <List.Item arrow="horizontal">选择时间</List.Item>
         </DatePicker>
       </List>,
     );
-    expect(wrapper.toJSON()).toMatchSnapshot();
+    // expect(renderToJson(wrapper)).toMatchSnapshot();
+    wrapper.find('.am-list-item').simulate('click');
+    // console.log(wrapper.find('.am-list-item'))
+
+    // todo: should 1
+    expect(wrapper.find('.am-picker')).toHaveLength(0);
   });
 });

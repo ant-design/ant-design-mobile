@@ -1,83 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Result renders correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#fff",
-        "borderBottomColor": "#ddd",
-        "paddingVertical": 21,
-      },
-      undefined,
-    ]
-  }
+<div
+  class="am-result"
+  role="alert"
 >
-  <View
-    style={
-      Object {
-        "margin": 0,
-      }
-    }
+  <div
+    class="am-result-pic"
+    style="background-image:url(https://zos.alipayobjects.com/rmsportal/qlMpMyJTcSjMpKAgtcEt.png);"
+  />
+  <div
+    class="am-result-title"
   >
-    <Image
-      source={
-        Object {
-          "uri": "https://zos.alipayobjects.com/rmsportal/qlMpMyJTcSjMpKAgtcEt.png",
-        }
-      }
-      style={
-        Object {
-          "height": 60,
-          "width": 60,
-        }
-      }
-    />
-  </View>
-  <View
-    style={
-      Object {
-        "marginTop": 15,
-        "paddingHorizontal": 15,
-      }
-    }
+    验证成功
+  </div>
+  <div
+    class="am-result-message"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#000",
-          "fontSize": 21,
-        }
-      }
-    >
-      验证成功
-    </Text>
-  </View>
-  <View
-    style={
-      Object {
-        "marginTop": 15,
-        "paddingHorizontal": 15,
-      }
-    }
-  >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "color": "#888",
-          "fontSize": 16,
-        }
-      }
-    >
-      所提交内容已成功完成验证
-    </Text>
-  </View>
-</View>
+    所提交内容已成功完成验证
+  </div>
+</div>
 `;

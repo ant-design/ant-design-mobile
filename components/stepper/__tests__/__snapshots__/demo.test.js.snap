@@ -1,731 +1,243 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/stepper/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Object {
-      "marginTop": 20,
-    }
-  }
+exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
+<div
+  class="am-list"
 >
-  <View
-    style={undefined}
+  <div
+    class="am-list-header"
   >
-    <View
-      style={
-        Object {
-          "backgroundColor": "#fff",
-          "borderTopColor": "#ddd",
-          "borderTopWidth": 0.5,
-        }
-      }
+    Demos
+  </div>
+  <div
+    class="am-list-body"
+  >
+    <div
+      class="am-list-item am-list-item-middle"
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
+      <div
+        class="am-list-line am-list-line-wrap"
       >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "flexDirection": "row",
-                "flexGrow": 1,
-                "paddingLeft": 15,
-              },
-              undefined,
-            ]
-          }
+        <div
+          class="am-list-content"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "flex": 1,
-                  "flexDirection": "row",
-                  "minHeight": 44,
-                  "paddingBottom": 6,
-                  "paddingRight": 15,
-                  "paddingTop": 6,
-                },
-                false,
-                false,
-              ]
-            }
+          Show number value(Use TouchEvent for mobile by default)
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <div
+            class="am-stepper showNumber"
+            style="width:100%;min-width:2rem;"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                    "flexDirection": "column",
-                  },
-                ]
-              }
+            <div
+              class="am-stepper-handler-wrap"
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                numberOfLines={1}
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontSize": 17,
-                      "lineHeight": 19,
-                      "textAlignVertical": "center",
-                    },
-                  ]
-                }
+              <span
+                aria-disabled="false"
+                aria-label="Increase Value"
+                class="am-stepper-handler am-stepper-handler-up "
+                role="button"
+                unselectable="unselectable"
               >
-                readOnly: true
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              <View
-                accessibilityComponentType="button"
-                accessibilityLabel="Decrease Value"
-                accessibilityTraits="button"
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                      "borderColor": "#d9d9d9",
-                      "borderRadius": 6,
-                      "borderWidth": 1,
-                      "height": 28,
-                      "width": 28,
-                    },
-                    null,
-                    undefined,
-                  ]
-                }
-                testID={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#999",
-                        "fontSize": 20,
-                        "textAlign": "center",
-                      },
-                      null,
-                    ]
-                  }
+                <svg
+                  class="am-icon am-icon-plus am-icon-xxs"
                 >
-                  -
-                </Text>
-              </View>
-              <TextInput
-                autoFocus={undefined}
-                editable={true}
-                keyboardType={undefined}
-                onChange={[Function]}
-                onEndEditing={[Function]}
-                onFocus={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "color": "#222",
-                      "flex": 1,
-                      "fontSize": 16,
-                      "paddingHorizontal": 8,
-                      "textAlign": "center",
-                    },
-                    null,
-                    Object {},
-                  ]
-                }
-                underlineColorAndroid="transparent"
+                  <use
+                    xlink:href="#plus"
+                  />
+                </svg>
+              </span>
+              <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
+                class="am-stepper-handler am-stepper-handler-down "
+                role="button"
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-minus am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#minus"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
+              class="am-stepper-input-wrap"
+              role="spinbutton"
+            >
+              <input
+                autocomplete="off"
+                class="am-stepper-input"
+                max="10"
+                min="1"
                 value="3"
               />
-              <View
-                accessibilityComponentType="button"
-                accessibilityLabel="Increase Value"
-                accessibilityTraits="button"
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                      "borderColor": "#d9d9d9",
-                      "borderRadius": 6,
-                      "borderWidth": 1,
-                      "height": 28,
-                      "width": 28,
-                    },
-                    null,
-                    undefined,
-                  ]
-                }
-                testID={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#999",
-                        "fontSize": 20,
-                        "textAlign": "center",
-                      },
-                      null,
-                    ]
-                  }
-                >
-                  +
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "flexDirection": "row",
-                "flexGrow": 1,
-                "paddingLeft": 15,
-              },
-              undefined,
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "flex": 1,
-                  "flexDirection": "row",
-                  "minHeight": 44,
-                  "paddingBottom": 6,
-                  "paddingRight": 15,
-                  "paddingTop": 6,
-                },
-                false,
-                false,
-              ]
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                    "flexDirection": "column",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                numberOfLines={1}
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontSize": 17,
-                      "lineHeight": 19,
-                      "textAlignVertical": "center",
-                    },
-                  ]
-                }
-              >
-                readOnly: false
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              <View
-                accessibilityComponentType="button"
-                accessibilityLabel="Decrease Value"
-                accessibilityTraits="disabled"
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                      "borderColor": "#d9d9d9",
-                      "borderRadius": 6,
-                      "borderWidth": 1,
-                      "height": 28,
-                      "width": 28,
-                    },
-                    Object {
-                      "backgroundColor": "rgba(239, 239, 239, 0.72)",
-                      "borderColor": "#d9d9d9",
-                    },
-                    undefined,
-                  ]
-                }
-                testID={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#999",
-                        "fontSize": 20,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#ccc",
-                      },
-                    ]
-                  }
-                >
-                  -
-                </Text>
-              </View>
-              <TextInput
-                autoFocus={undefined}
-                editable={true}
-                keyboardType={undefined}
-                onChange={[Function]}
-                onEndEditing={[Function]}
-                onFocus={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "color": "#222",
-                      "flex": 1,
-                      "fontSize": 16,
-                      "paddingHorizontal": 8,
-                      "textAlign": "center",
-                    },
-                    null,
-                    Object {},
-                  ]
-                }
-                underlineColorAndroid="transparent"
-                value="1"
-              />
-              <View
-                accessibilityComponentType="button"
-                accessibilityLabel="Increase Value"
-                accessibilityTraits="button"
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                      "borderColor": "#d9d9d9",
-                      "borderRadius": 6,
-                      "borderWidth": 1,
-                      "height": 28,
-                      "width": 28,
-                    },
-                    null,
-                    undefined,
-                  ]
-                }
-                testID={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#999",
-                        "fontSize": 20,
-                        "textAlign": "center",
-                      },
-                      null,
-                    ]
-                  }
-                >
-                  +
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hasTVPreferredFocus={undefined}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            undefined,
-          ]
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "flexDirection": "row",
-                "flexGrow": 1,
-                "paddingLeft": 15,
-              },
-              undefined,
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderBottomColor": "#ddd",
-                  "borderBottomWidth": 0.5,
-                  "flex": 1,
-                  "flexDirection": "row",
-                  "minHeight": 44,
-                  "paddingBottom": 6,
-                  "paddingRight": 15,
-                  "paddingTop": 6,
-                },
-                false,
-                false,
-              ]
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "flex": 1,
-                    "flexDirection": "column",
-                  },
-                ]
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                numberOfLines={1}
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontSize": 17,
-                      "lineHeight": 19,
-                      "textAlignVertical": "center",
-                    },
-                  ]
-                }
-              >
-                Disabled
-              </Text>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flex": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              <View
-                accessibilityComponentType="button"
-                accessibilityLabel="Decrease Value"
-                accessibilityTraits="disabled"
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                      "borderColor": "#d9d9d9",
-                      "borderRadius": 6,
-                      "borderWidth": 1,
-                      "height": 28,
-                      "width": 28,
-                    },
-                    Object {
-                      "backgroundColor": "rgba(239, 239, 239, 0.72)",
-                      "borderColor": "#d9d9d9",
-                    },
-                    undefined,
-                  ]
-                }
-                testID={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#999",
-                        "fontSize": 20,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#ccc",
-                      },
-                    ]
-                  }
-                >
-                  -
-                </Text>
-              </View>
-              <TextInput
-                autoFocus={undefined}
-                editable={false}
-                keyboardType={undefined}
-                onChange={[Function]}
-                onEndEditing={[Function]}
-                onFocus={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "color": "#222",
-                      "flex": 1,
-                      "fontSize": 16,
-                      "paddingHorizontal": 8,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ccc",
-                    },
-                    Object {},
-                  ]
-                }
-                underlineColorAndroid="transparent"
-                value="3"
-              />
-              <View
-                accessibilityComponentType="button"
-                accessibilityLabel="Increase Value"
-                accessibilityTraits="disabled"
-                accessible={true}
-                hitSlop={undefined}
-                onLayout={undefined}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                      "borderColor": "#d9d9d9",
-                      "borderRadius": 6,
-                      "borderWidth": 1,
-                      "height": 28,
-                      "width": 28,
-                    },
-                    Object {
-                      "backgroundColor": "rgba(239, 239, 239, 0.72)",
-                      "borderColor": "#d9d9d9",
-                    },
-                    undefined,
-                  ]
-                }
-                testID={undefined}
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#999",
-                        "fontSize": 20,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#ccc",
-                      },
-                    ]
-                  }
-                >
-                  +
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#ddd",
-              "borderBottomWidth": 0.5,
-              "bottom": 0,
-              "height": 1,
-              "left": 0,
-              "position": "absolute",
-              "right": 0,
-            },
-          ]
-        }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
       />
-    </View>
-  </View>
-</View>
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line am-list-line-wrap"
+      >
+        <div
+          class="am-list-content"
+        >
+          Show number value(Use MouseEvent for PC)
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <div
+            class="am-stepper showNumber"
+            style="width:100%;min-width:2rem;"
+          >
+            <div
+              class="am-stepper-handler-wrap"
+            >
+              <span
+                aria-disabled="false"
+                aria-label="Increase Value"
+                class="am-stepper-handler am-stepper-handler-up "
+                role="button"
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-plus am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#plus"
+                  />
+                </svg>
+              </span>
+              <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
+                class="am-stepper-handler am-stepper-handler-down "
+                role="button"
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-minus am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#minus"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="2"
+              class="am-stepper-input-wrap"
+              role="spinbutton"
+            >
+              <input
+                autocomplete="off"
+                class="am-stepper-input"
+                max="10"
+                min="1"
+                value="2"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
+    </div>
+    <div
+      class="am-list-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          Disabled
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          <div
+            class="am-stepper showNumber am-stepper-disabled"
+            style="width:100%;min-width:2rem;"
+          >
+            <div
+              class="am-stepper-handler-wrap"
+            >
+              <span
+                aria-disabled="true"
+                aria-label="Increase Value"
+                class="am-stepper-handler am-stepper-handler-up "
+                role="button"
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-plus am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#plus"
+                  />
+                </svg>
+              </span>
+              <span
+                aria-disabled="true"
+                aria-label="Decrease Value"
+                class="am-stepper-handler am-stepper-handler-down "
+                role="button"
+                unselectable="unselectable"
+              >
+                <svg
+                  class="am-icon am-icon-minus am-icon-xxs"
+                >
+                  <use
+                    xlink:href="#minus"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
+              class="am-stepper-input-wrap"
+              role="spinbutton"
+            >
+              <input
+                autocomplete="off"
+                class="am-stepper-input"
+                disabled=""
+                max="10"
+                min="1"
+                value="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-ripple"
+        style="display:none;"
+      />
+    </div>
+  </div>
+</div>
 `;

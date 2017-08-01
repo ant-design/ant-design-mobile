@@ -1,10 +1,18 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import Switch from '../index';
+import { render, shallow } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
+import Switch from '../index.web';
 
-describe('Switch', () => {
+describe('SegmentedControl', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Switch checked />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const wrapper = render(<Switch checked />);
+    expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('check api', () => {
+    const onChange = jest.fn();
+    const wrapper = shallow(<Switch checked onChange={onChange} />);
+    wrapper.find('input').simulate('change', { target: { checked: false } });
+    expect(onChange).toHaveBeenCalledWith(false);
   });
 });

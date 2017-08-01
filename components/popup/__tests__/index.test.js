@@ -1,10 +1,11 @@
 import React from 'react';
-// import renderer from 'react-test-renderer';
-// import { shallow } from 'enzyme';
-import Popup from '../index';
+// import { render } from 'enzyme';
+// import { renderToJson } from 'enzyme-to-json';
+import Popup from '../index.web';
 
 describe('Popup', () => {
   it('renders correctly', () => {
-    Popup.show(<div>Popup Content</div>);
+    Popup.show(<div className="pop">Popup Content</div>);
+    expect([document.querySelector('.pop')]).toHaveLength(1);
   });
 });
