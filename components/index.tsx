@@ -20,6 +20,7 @@ export { default as Card } from './card/index';
 export { default as Carousel } from './carousel/index';
 export { default as Checkbox } from './checkbox/index';
 export { default as DatePicker } from './date-picker/index';
+export { default as DatePickerView } from './date-picker-view/index';
 export { default as Drawer } from './drawer/index';
 export { default as Flex } from './flex/index';
 export { default as Grid } from './grid/index';

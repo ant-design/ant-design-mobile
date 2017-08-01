@@ -6,6 +6,7 @@ export { default as Card } from './card/index.native';
 export { default as Carousel } from './carousel/index.native';
 export { default as Checkbox } from './checkbox/index.native';
 export { default as DatePicker } from './date-picker/index.native';
+export { default as DatePickerView } from './date-picker-view/index.native';
 export { default as Drawer } from './drawer/index.native';
 export { default as Flex } from './flex/index.native';
 export { default as Grid } from './grid';

@@ -41,19 +41,18 @@ export default class DatePicker extends React.Component<IDatePickerNativeProps, 
         minDate={props.minDate}
         maxDate={props.maxDate}
         defaultDate={value || getDefaultDate(this.props)}
+        onValueChange={props.onValueChange}
       />
     );
-    const newProps = {
-      ...props,
-      okText,
-      dismissText,
-    };
+
     return (
       <PopupDatePicker
         datePicker={dataPicker}
         styles={styles}
-        {...newProps}
+        {...props}
         date={value || getDefaultDate(this.props)}
+        dismissText={dismissText}
+        okText={okText}
       >
         {children && React.cloneElement(children, { extra: value ? formatFn(this, value) : extra })}
       </PopupDatePicker>

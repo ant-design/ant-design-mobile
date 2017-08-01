@@ -1,15 +1,11 @@
 ---
 category: Components
 type: Data Entry
-title: DatePicker
-subtitle: 日期选择
+title: DatePickerView
+subtitle: 选择器
 ---
 
-用于选择日期或者时间。
-
-### 规则
-- 最多展示 5 个独立滚轮，每个滚轮表示一个不同的值。
-
+DatePickerView 的功能类似于 DatePicker ，但它是直接渲染在区域中，而不是弹出窗口。
 
 ## API
 
@@ -27,8 +23,3 @@ subtitle: 日期选择
 | disabled   | 是否不可用      | Boolean |    false  |
 | onChange   | 时间发生变化的回调函数  | (date: Object): void | - |
 | onValueChange | 每列 picker 改变时的回调 | (vals: any, index: number) => void | - |
-| format  | 格式化选中的值 | `(value: Date) => date string` / `format string`(对应 mode 下格式分别为:`YYYY-MM-DD`,`HH:mm`,`YYYY-MM-DD HH:mm`) | - |
-| title  | 弹框的标题 | string/React.ReactElement |  无  |
-| extra   | DatePicker children 建议是 List.Item, 如果不是，需要是自定义组件(组件内需处理`onClick`/`extra`属性) | String  |  `请选择`  |
-| prefixCls (`WEB only`) |  class前缀 | string | `am-picker` |
-| className (`WEB only`) |  样式类名 | string | - |

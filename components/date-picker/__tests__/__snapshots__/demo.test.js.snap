@@ -136,7 +136,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-extra"
             >
-              Monday, November 21, 2016, GMT
+              Monday, November 21, 2016, UTC
             </div>
             <div
               aria-hidden="true"

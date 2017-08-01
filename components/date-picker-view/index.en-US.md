@@ -1,14 +1,10 @@
 ---
 category: Components
 type: Data Entry
-title: DatePicker
+title: DatePickerView
 ---
 
-Used to select a date or time.
-
-### Rules
-- A maximum of five independent rollers are shown, each of which represents a different value.
-
+DatePickerView's functions like DatePicker, but it is rendered directly in the area instead of the pop-up window.
 
 ## API
 
@@ -26,9 +22,3 @@ Properties | Descrition | Type | Default
 | disabled   | 是否不可用      | Boolean |    false  |
 | onChange  | change handler | (date: Object): void |  -  |
 | onValueChange | fire when picker col change | (vals: any, index: number) => void | - |
-| format  | format the selected value | `(value: Date) => date string` / `format string`(corresponding mode under the format are: `YYYY-MM-DD` or `HH:mm` or `YYYY-MM-DD HH:mm`) | - |
-| title  | title | string/React.ReactElement |  -  |
-| extra   | DatePicker's children is best to `List.Item`, if not, need to be a custom component (the `onClick`/`extra` props need to be handled in the component) | String  |  `请选择`  |
-| disabled   | set disabled  | Boolean |    false  |
-| prefixCls (`WEB only`) |  prefix class  | string | `am-picker` |
-| className (`WEB only`) |  样式类名 | string | - |

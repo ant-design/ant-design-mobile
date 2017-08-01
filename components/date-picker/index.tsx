@@ -38,6 +38,7 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
         prefixCls={props.prefixCls}
         defaultDate={value || getDefaultDate(this.props)}
         use12Hours={props.use12Hours}
+        onValueChange={props.onValueChange}
       />
     );
 

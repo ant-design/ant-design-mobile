@@ -22,6 +22,7 @@ timeline: true
 - **Feature**
 
   - `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
+  - 新增`DatePickerView`组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
 
 - **Break Change**
 
