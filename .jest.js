@@ -28,7 +28,8 @@ module.exports = {
   testRegex: libDir === 'dist' ? 'demo\\.test\\.js$' : '.*\\.test\\.js$',
   collectCoverageFrom: [
     'components/**/*.{ts,tsx}',
-    '!components/*/style/index.native.tsx',
+    '!components/**/*.native.{ts,tsx}',
+    '!components/*/style/*.{ts,tsx}',
   ],
   transformIgnorePatterns,
   testEnvironment: 'jsdom',

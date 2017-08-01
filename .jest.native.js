@@ -38,9 +38,7 @@ module.exports = {
   testRegex: libDir === 'dist' ? 'demo\\.test\\.native\\.js$' : '.*\\.test\\.native\\.js$',
   collectCoverageFrom: [
     'components/**/*.native.{ts,tsx}',
-    '!components/**/demo/*.{ts,tsx}',
-    '!components/**/*.{ts,tsx}',
-    '!components/*/style/index.native.tsx',
+    '!components/*/style/*.{ts,tsx}',
   ],
   transformIgnorePatterns: [
     `node_modules/(?!(${transformPackages.join('|')})/)`,
