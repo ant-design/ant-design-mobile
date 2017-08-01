@@ -2,23 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
-import { formatFn, getProps, getDefaultDate } from './utils';
+import { formatFn, getDefaultDate } from './utils';
 import tsPropsType from './PropsType';
-import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
+import { getComponentLocale } from '../_util/getLocale';
 
-function getDefaultProps() {
-  return {
+export default class DatePicker extends React.Component<tsPropsType, any> {
+  static defaultProps = {
+    mode: 'datetime',
+    extra: '请选择',
     prefixCls: 'am-picker',
     pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
     minuteStep: 1,
     use12Hours: false,
-    ...getProps(),
   };
-}
-
-export default class DatePicker extends React.Component<tsPropsType, any> {
-  static defaultProps = getDefaultProps();
 
   static contextTypes = {
     antLocale: PropTypes.object,
@@ -26,20 +23,9 @@ export default class DatePicker extends React.Component<tsPropsType, any> {
 
   render() {
     const { props, context } = this;
-    const { children, value, defaultDate, extra, popupPrefixCls } = props;
-
+    const { children, value, extra, popupPrefixCls } = props;
     const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
-    const localeCode = getLocaleCode(context);
     const { okText, dismissText, DatePickerLocale } = locale;
-
-    if (localeCode) {
-      if (value) {
-        value.locale(localeCode);
-      }
-      if (defaultDate) {
-        defaultDate.locale(localeCode);
-      }
-    }
 
     const dataPicker = (
       <RCDatePicker

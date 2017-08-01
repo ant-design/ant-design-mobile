@@ -3,28 +3,25 @@ import React from 'react';
 interface DatePickerProps {
   defaultDate?: any;
   value?: any;
-  onChange?: (x: any) => void;
-  format?: (x: any) => void;
-  cols?: number;
   mode?: string;
-  extra?: string;
-  children?: any;
   minDate?: any;
   maxDate?: any;
+  onChange?: (x: any) => void;
+  format?: (x: any) => void;
   locale?: any;
-  disabled?: boolean;
   minuteStep?: number;
-  /** rn only */
-  triggerTypes?: string;
-  styles?: any;
-  /** web only */
-  prefixCls?: string;
-  className?: string;
-  pickerPrefixCls?: string;
-  popupPrefixCls?: string;
+  use12Hours?: boolean; // web only
+  disabled?: boolean;
+  extra?: string;
+  children?: any;
+  triggerTypes?: string; // rn only
+  styles?: any; // rn only
+  prefixCls?: string; // web only
+  className?: string; // web only
+  pickerPrefixCls?: string; // web only
+  popupPrefixCls?: string; // web only
   dismissText?: string | React.ReactElement<any>; // React.ReactElement only for web
   okText?: string | React.ReactElement<any>; // React.ReactElement only for web
-  use12Hours?: boolean;
 }
 
 export default DatePickerProps;

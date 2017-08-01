@@ -21,6 +21,7 @@ Properties | Descrition | Type | Default
 | minDate   | minimum date | Date  |  -  |
 | maxDate   | maximum date | Date  |  -  |
 | use12Hours (`WEB only`) | 12 hours display mode | Boolean | false |
+| minuteStep |   The amount of time, in minutes, between each minute item.    | Number | 1 |
 | format  | format the selected value | `(value: Date) => date string` / `format string`(only support one of the three formats in the `value` attribute's value) | - |
 | onChange  | change handler | (date: Object): void |  -  |
 | locale   | international, can override the configuration of the global `[LocaleProvider](https://mobile.ant.design/components/locale-provider)` | Object: {DatePickerLocale: {year, month, day, hour, minute}, okText, dismissText} |  -  |
@@ -29,6 +30,5 @@ Properties | Descrition | Type | Default
 | disabled   | set disabled  | Boolean |    false  |
 | prefixCls (`WEB only`) |  prefix class  | string | `am-picker` |
 | className (`WEB only`) |  样式类名 | string | - |
-| minuteStep |   The amount of time, in minutes, between each minute item.    | Number | 1 |
 
 More reference: https://github.com/react-component/m-date-picker

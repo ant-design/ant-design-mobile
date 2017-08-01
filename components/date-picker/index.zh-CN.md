@@ -22,6 +22,7 @@ subtitle: 日期选择
 | minDate   | 最小可选日期 | Date  |  -  |
 | maxDate   | 最大可选日期 | Date  |  -  |
 | use12Hours (`WEB only`) | 12小时制 | Boolean | false |
+| minuteStep |  分钟数递增步长设置   | Number | 1 |
 | format  | 格式化选中的值 | `(value: Date) => date string` / `format string`(仅支持在`value`属性值里边的三种格式中的一种) | - |
 | onChange   | 时间发生变化的回调函数  | (date: Object): void |  无  |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置 | Object: {DatePickerLocale: {year, month, day, hour, minute}, okText, dismissText } |  无 |
@@ -30,6 +31,5 @@ subtitle: 日期选择
 | disabled   | 是否不可用      | Boolean |    false  |
 | prefixCls (`WEB only`) |  class前缀 | string | `am-picker` |
 | className (`WEB only`) |  样式类名 | string | - |
-| minuteStep |   The amount of time, in minutes, between each minute item.    | Number | 1 |
 
 更多参考：https://github.com/react-component/m-date-picker

@@ -3,11 +3,10 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import PickerStyle, { IPickerStyle } from '../picker/style/index.native';
-import { formatFn, getProps as getDefaultProps, getDefaultDate } from './utils';
+import { formatFn, getDefaultDate } from './utils';
 import tsPropsType from './PropsType';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
-import { getComponentLocale, getLocaleCode } from '../_util/getLocale';
-import zh_CN from './locale/zh_CN';
+import { getComponentLocale } from '../_util/getLocale';
 
 export interface IDatePickerNativeProps extends tsPropsType {
   styles?: IPickerStyle;
@@ -17,10 +16,11 @@ const PickerStyles = StyleSheet.create<any>(PickerStyle);
 
 export default class DatePicker extends React.Component<IDatePickerNativeProps, any> {
   static defaultProps = {
+    mode: 'datetime',
+    extra: '请选择',
     triggerType: 'onClick',
     styles: PickerStyles,
     minuteStep: 1,
-    ...getDefaultProps(),
   };
 
   static contextTypes = {
@@ -29,22 +29,10 @@ export default class DatePicker extends React.Component<IDatePickerNativeProps, 
 
   render() {
     const { props, context } = this;
-    const { children, extra, value, defaultDate, styles } = props;
-    const extraProps = {
-      extra: value ? formatFn(this, value) : extra,
-    };
-    const locale = getComponentLocale(props, context, 'DatePicker', () => zh_CN);
-    const localeCode = getLocaleCode(context);
+    const { children, extra, value, styles } = props;
+    const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
     const { okText, dismissText, DatePickerLocale } = locale;
 
-    if (localeCode) {
-      if (value) {
-        value.locale(localeCode);
-      }
-      if (defaultDate) {
-        defaultDate.locale(localeCode);
-      }
-    }
     const dataPicker = (
       <RCDatePicker
         minuteStep={props.minuteStep}
@@ -67,7 +55,7 @@ export default class DatePicker extends React.Component<IDatePickerNativeProps, 
         {...newProps}
         date={value || getDefaultDate(this.props)}
       >
-        {React.cloneElement(children, extraProps)}
+        {children && React.cloneElement(children, { extra: value ? formatFn(this, value) : extra })}
       </PopupDatePicker>
     );
   }

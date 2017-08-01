@@ -28,16 +28,6 @@ export function formatFn(instance, value) {
   return formatIt(value, formatsEnum[instance.props.mode]);
 }
 
-export function getProps() {
-  return {
-    mode: 'datetime',
-    extra: '请选择',
-    onChange() {
-    },
-    title: '',
-  };
-}
-
 export function getDefaultDate(props) {
   const { defaultDate, minDate, maxDate } = props;
   if (defaultDate) {
