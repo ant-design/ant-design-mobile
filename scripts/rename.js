@@ -11,9 +11,8 @@ function changeFileName(filepath){
           return;
         }
         if(stats.isFile()) {
-            console.log(filepath);
-            if (filepath.includes('change .web.tsx to .tsx')) {
-              fs.unlinkSync(filepath);
+            if (filepath.includes('PropsType.native.tsx')) {
+              fs.rename(filepath, filepath.replace('.native.tsx', '.tsx'));
             }
         } else if(stats.isDirectory()) {
             renameFilesInDir(filepath);
