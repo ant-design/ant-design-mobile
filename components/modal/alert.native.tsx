@@ -1,6 +1,6 @@
 import React from 'react';
 import topView from 'rn-topview';
-import AlertContainer from './AlertContainer';
+import AlertContainer from './AlertContainer.native';
 
 export default function a(title, content, actions = [{ text: '确定' }]) {
   const onAnimationEnd = (visible) => {

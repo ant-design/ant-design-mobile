@@ -1,8 +1,8 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { View, Text, Image, ImageURISource, StyleSheet } from 'react-native';
-import ResultStyle, { IResultStyle } from './style';
-import Button from '../button';
+import ResultStyle, { IResultStyle } from './style/index.native';
+import Button from '../button/index.native';
 import ResultProps from './PropsType';
 
 export interface IResultNativeProps extends ResultProps {

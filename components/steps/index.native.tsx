@@ -1,8 +1,8 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import RNStepsItem from './StepsItem';
+import RNStepsItem from './StepsItem.native';
 import { View, StyleSheet } from 'react-native';
-import StepStyle, { IStepsStyle } from './style';
+import StepStyle, { IStepsStyle } from './style/index.native';
 
 export interface StepsProps {
   direction?: 'vertical' | 'horizon';

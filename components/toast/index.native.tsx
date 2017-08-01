@@ -1,6 +1,6 @@
 import React from 'react';
 import topView from 'rn-topview';
-import ToastContainer from './ToastContainer';
+import ToastContainer from './ToastContainer.native';
 
 function notice(content, type, duration = 3, onClose, mask = true) {
   topView.remove();

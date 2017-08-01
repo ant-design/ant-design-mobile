@@ -5,7 +5,7 @@ import {
   ActivityIndicator,
   StyleSheet,
 } from 'react-native';
-import indicatorStyle, { IActivityIndicatorStyle } from './style';
+import indicatorStyle, { IActivityIndicatorStyle } from './style/index.native';
 import PropTypes from './PropsType';
 
 export interface IActivityIndicatorNativeProps extends PropTypes {

@@ -1,6 +1,6 @@
 import React from 'react';
 import topView from 'rn-topview';
-import PromptContainer from './PromptContainer';
+import PromptContainer from './PromptContainer.native';
 
 export default function prompt(
   title, message, callbackOrActions, type = 'default', defaultValue = '', placeholders = ['', ''],

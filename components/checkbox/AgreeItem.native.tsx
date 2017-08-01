@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback, Text, StyleSheet } from 'react-native';
-import Checkbox from './Checkbox';
+import Checkbox from './Checkbox.native';
 import { AgreeItemPropsType } from './PropsType';
 import AgreeItemstyle, { ICheckboxStyle } from './style/index.native';
 

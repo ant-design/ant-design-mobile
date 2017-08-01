@@ -56,7 +56,8 @@ if (process.env.RUN_ENV === 'DEMO') {
     mountNode: true,
     AlipayJSBridge: true,
     $: true,
-    dd: true
+    dd: true,
+    process: true
   };
 
   Object.assign(eslintrc.rules, {

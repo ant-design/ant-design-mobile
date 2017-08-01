@@ -7,7 +7,7 @@ import {
   Animated,
   StyleSheet,
 } from 'react-native';
-import ToastContainerStyle, { IToastStyle } from './style/';
+import ToastContainerStyle, { IToastStyle } from './style/index.native';
 
 export interface ToastProps {
   content: string;

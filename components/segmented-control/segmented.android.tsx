@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import SegmentedControlProps from './PropsType';
-import AndroidStyle, { ISegmentControlStyle } from './style/';
+import AndroidStyle, { ISegmentControlStyle } from './style/index.native';
 
 export interface ISegmentControlNativeProps extends SegmentedControlProps {
   styles?: ISegmentControlStyle;

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import AbstractPicker, { getDefaultProps } from './AbstractPicker';
-import pickerStyle, { IPickerStyle } from './style';
+import pickerStyle, { IPickerStyle } from './style/index.native';
 import tsPropsType from './PropsType';
 
 export interface IPickerNativeProps extends tsPropsType {

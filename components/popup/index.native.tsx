@@ -1,6 +1,6 @@
 import React from 'react';
 import topView from 'rn-topview';
-import PopupContainer from './PopupContainer';
+import PopupContainer from './PopupContainer.native';
 
 let popupInstance;
 

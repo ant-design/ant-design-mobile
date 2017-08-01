@@ -1,7 +1,7 @@
-import Modal from './Modal';
-import alert from './alert';
-import prompt from './prompt';
-import operation from './operation';
+import Modal from './Modal.native';
+import alert from './alert.native';
+import prompt from './prompt.native';
+import operation from './operation.native';
 
 Modal.alert = alert;
 Modal.operation = operation;

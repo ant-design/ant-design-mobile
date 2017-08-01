@@ -64,9 +64,10 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
-    "@types/react": "^15.0.38",
+    "@types/node": "^8.0.17",
+    "@types/react": "^15.6.0",
     "@types/react-dom": "^15.5.1",
-    "@types/react-native": "^0.46.2",
+    "@types/react-native": "^0.46.9",
     "antd": "2.x",
     "antd-mobile-demo-data": "^0.1.1",
     "antd-tools": "^1.7.0",

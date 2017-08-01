@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
-import styles, { vars as variables, IActionSheetStyle } from './style';
+import styles, { vars as variables, IActionSheetStyle } from './style/index.native';
 import Modal from 'rc-dialog/lib/Modal';
 
 export interface IActionSheetNativeProps {

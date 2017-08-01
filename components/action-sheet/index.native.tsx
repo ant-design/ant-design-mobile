@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActionSheetIOS, Platform } from 'react-native';
 import topView from 'rn-topview';
-import ActionSheetAndroidContainer from './AndroidContainer';
+import ActionSheetAndroidContainer from './AndroidContainer.native';
 
 let ActionSheet = ActionSheetIOS as any;
 

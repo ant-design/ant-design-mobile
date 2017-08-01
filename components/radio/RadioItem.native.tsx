@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Radio from './Radio';
-import List from '../list';
+import Radio from './Radio.native';
+import List from '../list/index.native';
 import { RadioItemProps } from './PropsType';
 import RadioItemStyle, { IRadioStyle } from './style/index.native';
 
