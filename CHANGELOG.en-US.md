@@ -33,8 +33,15 @@ timeline: true
   - Progress: `wrapStyle` has been replaced by `style` and  `style` has been replaced by `barStyle` property.
   - The `style` property now can custom style, eg: tintColor for switch
   - `Flex` remove redundancy api of Flex, just keep `align: enum{start, center, end}`。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
-  - `Theme` 更改，删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`； 将`@searchbar-font-size`重命名为 `@search-bar-font-size`。
   - `DatePicker`组件去除 moment.js 依赖，相应地`value`,`minDate`,`maxDate`,`format`,`onChange`数据类型变为`Date`对象。[#1217](https://github.com/ant-design/ant-design-mobile/issues/1217)
+
+- **Theme**
+  - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；
+  - `@searchbar-font-size`重命名为 `@search-bar-font-size`。
+
+- **Enhancement**
+  - 不再需要配置 `webpack.resolve`
+  - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
 
 ## 1.6.0
 
