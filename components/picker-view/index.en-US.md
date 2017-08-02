@@ -20,3 +20,4 @@ Properties | Descrition | Type | Default
 | prefixCls (`Web Only`)   | prefix class        | string |  am-picker  |
 | pickerPrefixCls (`Web Only`)   | picker prefix class        | string |  am-picker-col  |
 | styles  (`Web Only`)  | additional style        | Object |  {}  |
+| cascade  | whether is cascade mode | Boolean | true |

@@ -31,3 +31,4 @@ Properties | Descrition | Type | Default
 | title  | title | String | - |
 | extra  | Picker's children is best to `List.Item`, if not, need to be a custom component (the `onClick`/`extra` props need to be handled in the component) | String |  `请选择`  |
 | disabled  | set disabled | Boolean | false |
+| cascade  | whether is cascade mode | Boolean | true |

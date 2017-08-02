@@ -1,6 +1,8 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import Cascader from 'rmc-cascader/lib/Cascader';
-import MultiPicker from 'rmc-picker/lib/MultiPicker';
+import RMCCascader from 'rmc-cascader/lib/Cascader';
+import RMCMultiPicker from 'rmc-picker/lib/MultiPicker';
+import RMCPicker from 'rmc-picker/lib/Picker';
 
 function getDefaultProps() {
   return {
@@ -29,12 +31,28 @@ export interface IPickerView {
 export default class PickerView extends React.Component<IPickerView, any> {
   static defaultProps = getDefaultProps();
 
+  getCol = () => {
+    const { data, pickerPrefixCls } = this.props;
+    return data.map((col, index) => {
+      return (
+        <RMCPicker key={index} prefixCls={pickerPrefixCls}>
+          {col.map(item => {
+            return (
+              <RMCPicker.Item key={item.value} value={item.value}>
+                {item.label}
+              </RMCPicker.Item>
+            );
+          })}
+        </RMCPicker>
+      );
+    });
+  }
   render() {
     const { props } = this;
     let picker;
     if (props.cascade) {
       picker = (
-        <Cascader
+        <RMCCascader
           prefixCls={props.prefixCls}
           pickerPrefixCls={props.pickerPrefixCls}
           data={props.data}
@@ -46,15 +64,14 @@ export default class PickerView extends React.Component<IPickerView, any> {
       );
     } else {
       picker = (
-        <MultiPicker
+        <RMCMultiPicker
           prefixCls={props.prefixCls}
           selectedValue={props.value}
           onValueChange={props.onChange}
-          pickerPrefixCls={props.pickerPrefixCls}
           indicatorStyle={props.indicatorStyle}
         >
-          {props.data.map(children => { return { props: { children } }; })}
-        </MultiPicker>
+          {this.getCol()}
+        </RMCMultiPicker>
       );
     }
     return picker;

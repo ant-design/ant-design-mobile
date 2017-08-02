@@ -32,3 +32,5 @@ subtitle: 选择器
 | title  | 大标题 | String | - |
 | extra  | Picker children 建议是 `List.Item`, 如果不是，需要是自定义组件(组件内需处理`onClick`/`extra`属性) | String |  `请选择`  |
 | disabled  | 是否不可用 | Boolean | false |
+| cascade  | 是否联动 | Boolean | true |
+

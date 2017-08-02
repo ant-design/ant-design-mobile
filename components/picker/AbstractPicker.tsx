@@ -1,7 +1,9 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import PopupCascader from 'rmc-cascader/lib/Popup';
-import Cascader from 'rmc-cascader/lib/Cascader';
-import MultiPicker from 'rmc-picker/lib/MultiPicker';
+import RMCPopupCascader from 'rmc-cascader/lib/Popup';
+import RMCCascader from 'rmc-cascader/lib/Cascader';
+import RMCMultiPicker from 'rmc-picker/lib/MultiPicker';
+import RMCPicker from 'rmc-picker/lib/Picker';
 import treeFilter from 'array-tree-filter';
 import tsPropsType from './PropsType';
 
@@ -44,31 +46,50 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
       }));
   }
 
+  getPickerCol = () => {
+    const { data, pickerPrefixCls } = this.props;
+
+    return data.map((col, index) => {
+      return (
+        <RMCPicker key={index} prefixCls={pickerPrefixCls}>
+          {col.map(item => {
+            return (
+              <RMCPicker.Item key={item.value} value={item.value}>
+                {item.label}
+              </RMCPicker.Item>
+            );
+          })}
+        </RMCPicker>
+      );
+    });
+  }
   render() {
-    const { props } = this;
-    const { children, value = [], extra, okText, itemStyle, dismissText, popupPrefixCls, cascade } = props;
+    const {
+      children, value = [], extra, okText, itemStyle, dismissText, popupPrefixCls,
+      cascade, prefixCls, pickerPrefixCls, data, cols, onPickerChange, ...restProps,
+    } = this.props;
+
     let cascader;
     let popupMoreProps = {};
     if (cascade) {
       cascader = (
-        <Cascader
-          prefixCls={props.prefixCls}
-          pickerPrefixCls={props.pickerPrefixCls}
-          data={props.data}
-          cols={props.cols}
-          onChange={props.onPickerChange}
+        <RMCCascader
+          prefixCls={prefixCls}
+          pickerPrefixCls={pickerPrefixCls}
+          data={data}
+          cols={cols}
+          onChange={onPickerChange}
           pickerItemStyle={itemStyle}
         />
       );
     } else {
       cascader = (
-        <MultiPicker
-          prefixCls={props.prefixCls}
-          pickerPrefixCls={props.pickerPrefixCls}
+        <RMCMultiPicker
+          prefixCls={prefixCls}
           pickerItemStyle={itemStyle}
         >
-          {props.data.map(d => { return { props: { children: d } }; })}
-        </MultiPicker>
+          {this.getPickerCol()}
+        </RMCMultiPicker>
       );
       popupMoreProps = {
         pickerValueProp: 'selectedValue',
@@ -76,10 +97,10 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
       };
     }
     return (
-      <PopupCascader
+      <RMCPopupCascader
         cascader={cascader}
         {...this.popupProps}
-        {...props}
+        {...restProps}
         prefixCls={popupPrefixCls}
         value={value}
         dismissText={dismissText}
@@ -87,7 +108,7 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
         {...popupMoreProps}
       >
         {React.cloneElement(children, { extra: this.getSel() || extra })}
-      </PopupCascader>
+      </RMCPopupCascader>
     );
   }
 }
