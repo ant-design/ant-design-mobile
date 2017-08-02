@@ -38,6 +38,6 @@ const scenes = {
 
 const App = StackNavigator(scenes);
 
-AppRegistry.registerComponent('kitchen-sink', () => Home);
+AppRegistry.registerComponent('kitchen-sink', () => App);
 
 export default App;
