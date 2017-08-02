@@ -31,7 +31,7 @@ subtitle: 动作面板
 
 `callback`函数支持返回 Promise (`web only`)
 
-#### static showShareActionSheetWithOptions(options: Object, callback: Function)
+#### static showShareActionSheetWithOptions(options: Object, callback: Function) `WEB only`
 
 显示分享 action sheet，`options`对象必须包含以下的一个或者多个：
 
@@ -46,4 +46,19 @@ subtitle: 动作面板
 
 `callback`函数支持返回 Promise (`web only`)
 
-#### static close() - (web、android only) programmatically close.
+#### static showShareActionSheetWithOptions(options: Object, failureCallback: Function, successCallback: Function)
+
+`React-Native only, react-native@version >= 0.39`
+
+显示分享 action sheet，`options`对象必须包含以下的一个或者多个：
+
+- **options:**
+  - message(`string`): 顶部标题下的简要消息
+  - title(`string`): 顶部标题
+  - url(`string`): 分享的 url `iOS only`
+  - excludedActivityTypes(`array`): 指定在actionsheet中不显示的活动 `iOS only`
+- **Callback**: (`iOS only`, see [react-native/share](https://github.com/facebook/react-native/blob/master/Libraries/Share/Share.js#L80))
+  - failureCallback(error): 分享失败调用；
+  - successCallback(completed, method)：分享成功调用;
+
+#### static close() - (web, android only) programmatically close.

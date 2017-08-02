@@ -6,16 +6,12 @@ import Modal from 'rc-dialog/lib/Modal';
 export interface IActionSheetNativeProps {
   onAnimationEnd?: (visible: boolean) => void;
   visible?: boolean;
-  share?: boolean;
   config?: any;
   callback?: (index: number) => void;
   styles?: IActionSheetStyle;
 }
 
 class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
-  static defaultProps = {
-    share: false,
-  };
   constructor(props) {
     super(props);
     this.state = {
@@ -34,18 +30,18 @@ class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
   }
 
   render() {
-    const { config, share, onAnimationEnd } = this.props;
+    const { config, onAnimationEnd } = this.props;
     const {
-      title, message, url, options, destructiveButtonIndex, cancelButtonIndex, excludedActivityTypes,
+      title, message, options, destructiveButtonIndex, cancelButtonIndex,
     } = config;
-    const titleMsg = share ? (
-      url && <View style={styles.title} key="0"><Text>{url}</Text></View>
-    ) : (
-      title && <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View>
+
+    const titleMsg = title && (
+      <View style={styles.title} key="0">
+        <Text style={styles.titleText}>{title}</Text>
+      </View>
     );
-    const content = share ? (
-      excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)
-    ) : (
+
+    const content = (
       options as Array<string>).map((item, index) => (
         <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : undefined]}>
           <TouchableHighlight
