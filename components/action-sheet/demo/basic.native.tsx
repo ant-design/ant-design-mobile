@@ -44,7 +44,7 @@ export default class Test extends React.Component<any, any> {
   showShareActionSheet = () => {
     const opts: any = {
       message: 'Message to go with the shared url',
-      title: 'Share Actionsheet'
+      title: 'Share Actionsheet',
     };
 
     if (Platform.OS === 'ios') {
@@ -53,7 +53,7 @@ export default class Test extends React.Component<any, any> {
       opts.excludedActivityTypes = [
         'com.apple.UIKit.activity.PostToTwitter',
       ];
-    };
+    }
 
     ActionSheet.showShareActionSheetWithOptions(
       opts,
@@ -66,7 +66,7 @@ export default class Test extends React.Component<any, any> {
           text = '您没有分享';
         }
         this.setState({ text });
-      }
+      },
     );
   }
 }

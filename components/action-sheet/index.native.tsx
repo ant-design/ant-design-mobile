@@ -49,7 +49,8 @@ export default {
     if (config.tintColor) {
       options.tintColor = config.tintColor;
     }
-    // promise is not called in Android, https://github.com/facebook/react-native/blob/master/Libraries/Share/Share.js#L80
+    // promise is not called in Android
+    // https://github.com/facebook/react-native/blob/master/Libraries/Share/Share.js#L80
     Share.share(content, options).then((result: any) => {
       if (result.action === Share.sharedAction) { // completed successCallback(completed, method)
          if (successCallback) {
