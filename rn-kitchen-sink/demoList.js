@@ -138,6 +138,12 @@ module.exports = {
       module: require('../components/date-picker/demo/basic.native'),
     },
     {
+      title: 'DatePickerView', // 必须
+      description: '日期选择视图',
+      icon: 'https://os.alipayobjects.com/rmsportal/IQtMSWmYwLEuqln.png',
+      module: require('../components/date-picker-view/demo/basic.native'),
+    },
+    {
       title: 'ImagePicker',
       description: '图片选择',
       icon: 'https://os.alipayobjects.com/rmsportal/NDsSvklLUeodsHK.png',
