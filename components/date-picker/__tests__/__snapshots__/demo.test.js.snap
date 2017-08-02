@@ -19,90 +19,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              日期(CST)
-            </div>
-            <div
-              class="am-list-extra"
-            >
-              可选,小于结束日期
-            </div>
-            <div
-              aria-hidden="true"
-              class="am-list-arrow am-list-arrow-horizontal"
-            />
-          </div>
-          <div
-            class="am-list-ripple"
-            style="display:none;"
-          />
-        </div>
-      </div>
-      <div>
-        <div
-          class="am-list-item am-list-item-middle"
-        >
-          <div
-            class="am-list-line"
-          >
-            <div
-              class="am-list-content"
-            >
-              时间(local time)
-            </div>
-            <div
-              class="am-list-extra"
-            >
-              请选择
-            </div>
-            <div
-              aria-hidden="true"
-              class="am-list-arrow am-list-arrow-horizontal"
-            />
-          </div>
-          <div
-            class="am-list-ripple"
-            style="display:none;"
-          />
-        </div>
-      </div>
-      <div>
-        <div
-          class="am-list-item am-list-item-middle"
-        >
-          <div
-            class="am-list-line"
-          >
-            <div
-              class="am-list-content"
-            >
-              时间(CST)，限定上下限
-            </div>
-            <div
-              class="am-list-extra"
-            >
-              00:00
-            </div>
-            <div
-              aria-hidden="true"
-              class="am-list-arrow am-list-arrow-horizontal"
-            />
-          </div>
-          <div
-            class="am-list-ripple"
-            style="display:none;"
-          />
-        </div>
-      </div>
-      <div>
-        <div
-          class="am-list-item am-list-item-middle"
-        >
-          <div
-            class="am-list-line"
-          >
-            <div
-              class="am-list-content"
-            >
               日期+时间
             </div>
             <div
@@ -131,12 +47,96 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
+              日期
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              2016-11-22
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              时间
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              00:00
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              时间，限定上下限
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              00:00
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
               UK time
             </div>
             <div
               class="am-list-extra"
             >
-              Monday, November 21, 2016, GMT
+              GMT Time: 16:00
             </div>
             <div
               aria-hidden="true"
@@ -159,7 +159,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             class="am-list-content"
           >
             <div>
-              自定义控制显示/隐藏的元素
+              条件选择(不能选15分钟)
             </div>
           </div>
           <div
@@ -179,11 +179,114 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           <span
             style="float:right;color:#888;"
           >
-            请选择(可选)
+            请选择
           </span>
         </div>
       </div>
     </div>
   </div>
 </div>
+`;
+
+exports[`renders ./components/date-picker/demo/form.md correctly 1`] = `
+<form>
+  <div
+    class="am-list date-picker-list"
+    style="background-color:white;"
+  >
+    <div
+      class="am-list-header"
+    >
+      Form Validation, 
+    </div>
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          输入时间
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <input
+            placeholder="must be the format of YYYY-MM-DD"
+            type="text"
+            value="2016-11-21"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="am-list-item am-list-item-middle"
+        >
+          <div
+            class="am-list-line"
+          >
+            <div
+              class="am-list-content"
+            >
+              日期
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              2016-11-22 00:00
+            </div>
+            <div
+              aria-hidden="true"
+              class="am-list-arrow am-list-arrow-horizontal"
+            />
+          </div>
+          <div
+            class="am-list-ripple"
+            style="display:none;"
+          />
+        </div>
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            <a
+              aria-disabled="false"
+              class="am-button am-button-primary am-button-small am-button-inline"
+              role="button"
+            >
+              <span>
+                Submit
+              </span>
+            </a>
+            <a
+              aria-disabled="false"
+              class="am-button am-button-small am-button-inline"
+              role="button"
+              style="margin-left:0.05rem;"
+            >
+              <span>
+                重 置
+              </span>
+            </a>
+          </div>
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+    </div>
+    <div
+      class="am-list-footer"
+    />
+  </div>
+</form>
 `;

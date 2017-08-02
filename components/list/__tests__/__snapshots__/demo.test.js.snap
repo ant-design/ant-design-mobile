@@ -753,7 +753,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
           >
             <a
               aria-disabled="false"
-              class="am-button am-button-primary am-button-inline"
+              class="am-button am-button-primary am-button-small am-button-inline"
               role="button"
             >
               <span>
@@ -762,9 +762,9 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             </a>
             <a
               aria-disabled="false"
-              class="am-button am-button-inline"
+              class="am-button am-button-small am-button-inline"
               role="button"
-              style="margin-left:5px;"
+              style="margin-left:0.05rem;"
             >
               <span>
                 Reset

@@ -5,22 +5,26 @@ title:
   en-US: Basic
 ---
 
-日期时间选择示例 ([rc-form 文档](https://github.com/react-component/form))
-
 ````jsx
 
 import { DatePicker, List } from 'antd-mobile';
-import { createForm } from 'rc-form';
 import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
-const maxDate = new Date(nowTimeStamp + 10000);
-const minDate = new Date(nowTimeStamp - 10000);
+const maxDate = new Date(nowTimeStamp + 1e7);
+const minDate = new Date(nowTimeStamp - 1e7);
 
 const gmtNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
 
-const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC', timeZoneName: 'short' };
+function formatDate(date) {
+  /* eslint no-confusing-arrow: 0 */
+  const pad = n => n < 10 ? `0${n}` : n;
+  const dateStr = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+  const timeStr = `${pad(date.getHours())}:${pad(date.getMinutes())}`;
+  return `${dateStr} ${timeStr}`;
+}
+
 // 如果不是使用 List.Item 作为 children
 const CustomChildren = props => (
   <div
@@ -35,83 +39,58 @@ const CustomChildren = props => (
 class Test extends React.Component {
   state = {
     date: now,
+    gmtDate: gmtNow,
     dpValue: null,
     visible: false,
   }
   onChange = (date) => {
     // console.log('onChange', date);
-    this.setState({
-      date,
-    });
+    this.setState({ date });
+  }
+  onConditionSelect = (date) => {
+    if (date.getMinutes() === 15) {
+      alert('15 is invalid');
+      return;
+    }
+    this.setState({ dpValue: date, visible: false });
   }
   render() {
-    const { getFieldProps } = this.props.form;
     return (<div>
-      <List
-        className="date-picker-list"
-        style={{ backgroundColor: 'white' }}
-      >
-        <DatePicker
-          mode="date"
-          title="选择日期"
-          extra="可选,小于结束日期"
-          {...getFieldProps('date1', {
-
-          })}
-          minDate={minDate}
-          maxDate={maxDate}
-        >
-          <List.Item arrow="horizontal">日期(CST)</List.Item>
-        </DatePicker>
-        <DatePicker mode="time" {...getFieldProps('time1')} minuteStep={5}>
-          <List.Item arrow="horizontal">时间(local time)</List.Item>
-        </DatePicker>
-        <DatePicker
-          mode="time"
-          {...getFieldProps('time', {
-            initialValue: now,
-          })}
-          minDate={minDate}
-          maxDate={maxDate}
-        >
-          <List.Item arrow="horizontal">时间(CST)，限定上下限</List.Item>
-        </DatePicker>
-        <DatePicker className="forss"
-          mode="datetime"
-          onChange={this.onChange}
-          value={this.state.date}
-        >
+      <List className="date-picker-list" style={{ backgroundColor: 'white' }}>
+        <DatePicker value={this.state.date} onChange={this.onChange}>
           <List.Item arrow="horizontal">日期+时间</List.Item>
         </DatePicker>
+        <DatePicker mode="date" title="选择日期" extra="可选" value={this.state.date} onChange={this.onChange}>
+          <List.Item arrow="horizontal">日期</List.Item>
+        </DatePicker>
+        <DatePicker mode="time" minuteStep={5} use12Hours value={this.state.date} onChange={this.onChange}>
+          <List.Item arrow="horizontal">时间</List.Item>
+        </DatePicker>
+        <DatePicker mode="time" minDate={minDate} maxDate={maxDate} value={this.state.date} onChange={this.onChange}>
+          <List.Item arrow="horizontal">时间，限定上下限</List.Item>
+        </DatePicker>
         <DatePicker
           mode="time"
-          format={val => val.toLocaleString('en-US', options)}
-          okText="OK"
-          dismissText="Cancel"
           locale={enUs}
-          {...getFieldProps('customformat', {
-            initialValue: gmtNow,
-          })}
+          format={val => `GMT Time: ${formatDate(val).split(' ')[1]}`}
+          value={this.state.gmtDate}
+          onChange={date => this.setState({ gmtDate: date })}
         >
           <List.Item arrow="horizontal">UK time</List.Item>
         </DatePicker>
-        <List.Item extra={this.state.dpValue && this.state.dpValue.toLocaleString('en-US', options)}>
-          <div onClick={() => this.setState({ visible: true })}>自定义控制显示/隐藏的元素</div>
+
+        <List.Item extra={this.state.dpValue && formatDate(this.state.dpValue)}>
+          <div onClick={() => this.setState({ visible: true })}>条件选择(不能选15分钟)</div>
         </List.Item>
         <DatePicker
           visible={this.state.visible}
-          title={<span onClick={() => this.setState({ visible: false })}>点击可以关闭</span>}
-          extra="请选择(可选)"
-          onOk={() => console.log('onOk', this.state.dpValue)}
-          onDismiss={() => console.log('onDismiss')}
           value={this.state.dpValue}
-          onChange={v => this.setState({ dpValue: v, visible: false })}
+          onOk={this.onConditionSelect}
+          onDismiss={() => this.setState({ visible: false })}
         />
         <DatePicker
-          use12Hours
           format="HH:mm"
           title="选择时间"
-          extra="请选择(可选)"
           value={this.state.dpValue}
           onChange={v => this.setState({ dpValue: v })}
         >
@@ -122,9 +101,7 @@ class Test extends React.Component {
   }
 }
 
-const TestWrapper = createForm()(Test);
-
-ReactDOM.render(<TestWrapper />, mountNode);
+ReactDOM.render(<Test />, mountNode);
 ````
 ````css
 .date-picker-list .am-list-item .am-list-line .am-list-extra {
