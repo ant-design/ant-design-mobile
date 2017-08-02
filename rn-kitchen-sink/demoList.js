@@ -135,7 +135,7 @@ module.exports = {
       title: 'DatePicker', // 必须
       description: '日期选择',
       icon: 'https://os.alipayobjects.com/rmsportal/IQtMSWmYwLEuqln.png',
-      module: require('../components/date-picker/demo/popup'),
+      module: require('../components/date-picker/demo/basic.native'),
     },
     {
       title: 'ImagePicker',
