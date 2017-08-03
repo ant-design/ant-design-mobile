@@ -7,6 +7,7 @@ title:
 
 ````jsx
 import { DatePickerView } from 'antd-mobile';
+import enUs from 'antd-mobile/lib/date-picker-view/locale/en_US';
 
 class DatePickerViewExample extends React.Component {
   state = {
@@ -29,6 +30,7 @@ class DatePickerViewExample extends React.Component {
       />
       <div className="sub-title">结束时间</div>
       <DatePickerView
+        locale={enUs}
         value={this.state.value}
         onChange={this.onChange}
         onValueChange={this.onValueChange}
