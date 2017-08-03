@@ -131,12 +131,12 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              UK time
+              utc time
             </div>
             <div
               class="am-list-extra"
             >
-              GMT Time: 16:00
+              UTC Time: 16:00
             </div>
             <div
               aria-hidden="true"
@@ -216,7 +216,7 @@ exports[`renders ./components/date-picker/demo/form.md correctly 1`] = `
           <input
             placeholder="must be the format of YYYY-MM-DD"
             type="text"
-            value="2016-11-21"
+            value="2016-11-22"
           />
         </div>
       </div>

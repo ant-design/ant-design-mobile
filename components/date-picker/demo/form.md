@@ -14,11 +14,13 @@ import { createForm } from 'rc-form';
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
+const utcOffset = new Date(now.getTime() - (now.getTimezoneOffset() * 60000));
+// console.log(now, utcOffset, now.toISOString(), utcOffset.toISOString());
 
 class Test extends React.Component {
   state = {
     dpValue: now,
-    idt: now.toISOString().slice(0, 10),
+    idt: utcOffset.toISOString().slice(0, 10),
   }
   onSubmit = () => {
     this.props.form.validateFields({ force: true }, (error) => {

@@ -15,7 +15,8 @@ const now = new Date(nowTimeStamp);
 const maxDate = new Date(nowTimeStamp + 1e7);
 const minDate = new Date(nowTimeStamp - 1e7);
 
-const gmtNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+// GMT is not currently observed in the UK. So use UTC now.
+const utcNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
 
 function formatDate(date) {
   /* eslint no-confusing-arrow: 0 */
@@ -39,7 +40,7 @@ const CustomChildren = props => (
 class Test extends React.Component {
   state = {
     date: now,
-    gmtDate: gmtNow,
+    utcDate: utcNow,
     dpValue: null,
     visible: false,
   }
@@ -72,11 +73,11 @@ class Test extends React.Component {
         <DatePicker
           mode="time"
           locale={enUs}
-          format={val => `GMT Time: ${formatDate(val).split(' ')[1]}`}
-          value={this.state.gmtDate}
-          onChange={date => this.setState({ gmtDate: date })}
+          format={val => `UTC Time: ${formatDate(val).split(' ')[1]}`}
+          value={this.state.utcDate}
+          onChange={date => this.setState({ utcDate: date })}
         >
-          <List.Item arrow="horizontal">UK time</List.Item>
+          <List.Item arrow="horizontal">utc time</List.Item>
         </DatePicker>
 
         <List.Item extra={this.state.dpValue && formatDate(this.state.dpValue)}>
