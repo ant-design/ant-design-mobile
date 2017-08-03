@@ -42,31 +42,32 @@ export default class Test extends React.Component<any, any> {
     });
   }
   showShareActionSheet = () => {
-    const opts = {
-      url: 'https://www.alipay.com/',
-      message: 'message to go with the shared url',
-      excludedActivityTypes: [
-        <Button onClick={() => ActionSheet.close()} key="type1">close ActionSheet</Button>,
-      ] as any[],
-      subject: (null as any),
+    const opts: any = {
+      message: 'Message to go with the shared url',
+      title: 'Share Actionsheet',
     };
+
     if (Platform.OS === 'ios') {
-      opts.subject = 'a subject to go in the email heading';
+      opts.url = 'https://www.alipay.com/';
+      opts.tintColor = '#ff0000';
       opts.excludedActivityTypes = [
         'com.apple.UIKit.activity.PostToTwitter',
       ];
     }
-    ActionSheet.showShareActionSheetWithOptions(opts,
-    (error) => alert(error),
-    (success, method) => {
-      let text;
-      if (success) {
-        text = `通过 ${method} 分享`;
-      } else {
-        text = '您没有分享';
-      }
-      this.setState({ text });
-    });
+
+    ActionSheet.showShareActionSheetWithOptions(
+      opts,
+      (error) => alert(error),
+      (success, method) => {
+        let text;
+        if (success) {
+          text = `通过 ${method} 分享`;
+        } else {
+          text = '您没有分享';
+        }
+        this.setState({ text });
+      },
+    );
   }
 }
 
