@@ -58,7 +58,7 @@
     "react-native-scrollable-tab-view": "^0.7.2",
     "rmc-cascader": "^4.3.2",
     "rmc-date-picker": "^6.0.0-alpha.1",
-    "rmc-list-view": "^0.8.0",
+    "rmc-list-view": "^0.8.4",
     "rmc-nuka-carousel": "^2.2.0",
     "rmc-picker": "^4.0.1",
     "rn-topview": "~0.1.0",
@@ -66,7 +66,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.0.0",
-    "@types/react-dom": "^15.5.1",
+    "@types/react-dom": "15.5.1",
     "@types/react-native": "^0.46.9",
     "antd": "2.x",
     "antd-mobile-demo-data": "^0.1.1",
