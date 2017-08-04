@@ -27,6 +27,7 @@ class Test extends React.Component {
       if (!error) {
         console.log(this.props.form.getFieldsValue());
       } else {
+        console.log(error);
         alert('Validation failed');
       }
     });
@@ -36,17 +37,17 @@ class Test extends React.Component {
     setTimeout(() => console.log(this.state), 0);
   }
   validateIdp = (rule, date, callback) => {
-    console.log('onIdtChange', date);
     if (isNaN(Date.parse(date))) {
       callback(new Error('Invalid Date'));
     } else {
       const cDate = new Date(date);
-      const newDate = this.state.dpValue;
+      const newDate = new Date(+this.state.dpValue);
       newDate.setFullYear(cDate.getFullYear());
       newDate.setMonth(cDate.getMonth());
       newDate.setDate(cDate.getDate());
       // this.setState({ dpValue: newDate });
-      this.props.form.setFieldsValue({ dp: newDate });
+      setTimeout(() => this.props.form.setFieldsValue({ dp: newDate }), 10);
+      callback();
     }
   }
   validateDatePicker = (rule, date, callback) => {
