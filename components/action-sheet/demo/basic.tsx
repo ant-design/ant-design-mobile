@@ -46,7 +46,7 @@ export default class Test extends React.Component<any, any> {
       url: 'https://www.alipay.com/',
       message: 'message to go with the shared url',
       excludedActivityTypes: [
-        <Button onClick={() => ActionSheet.close()}>close ActionSheet</Button>,
+        <Button key="0" onClick={() => ActionSheet.close()}>close ActionSheet</Button>,
       ] as any[],
       subject: (null as any),
     };

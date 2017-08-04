@@ -47,6 +47,7 @@ class App extends React.Component {
     this.state = {
       dataSource: dataSource.cloneWithRows(this.initData),
       refreshing: false,
+      height: document.documentElement.clientHeight,
     };
   }
   // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
@@ -60,6 +61,33 @@ class App extends React.Component {
   componentDidMount() {
     this.manuallyRefresh = true;
     setTimeout(() => this.setState({ refreshing: true }), 10);
+
+    // Set the appropriate height
+    setTimeout(() => this.setState({
+      height: this.state.height - ReactDOM.findDOMNode(this.refs.lv).offsetTop,
+    }), 0);
+
+    // handle https://github.com/ant-design/ant-design-mobile/issues/1588
+    this.refs.lv.getInnerViewNode().addEventListener('touchstart', this.ts = (e) => {
+      this.tsPageY = e.touches[0].pageY;
+    });
+    this.refs.lv.getInnerViewNode().addEventListener('touchmove', this.tm = (e) => {
+      this.tmPageY = e.touches[0].pageY;
+      if (this.tmPageY > this.tsPageY && this.st <= 0 && document.body.scrollTop > 0) {
+        console.log('start pull to refresh');
+        this.domScroller.options.preventDefaultOnTouchMove = false;
+      } else {
+        this.domScroller.options.preventDefaultOnTouchMove = undefined;
+      }
+    });
+  }
+  componentWillUnmount() {
+    this.refs.lv.getInnerViewNode().removeEventListener('touchstart', this.ts);
+    this.refs.lv.getInnerViewNode().removeEventListener('touchmove', this.tm);
+  }
+  onScroll = (e) => {
+    this.st = e.scroller.getValues().top;
+    this.domScroller = e;
   }
   onRefresh = () => {
     console.log('onRefresh');
@@ -115,6 +143,7 @@ class App extends React.Component {
     };
     return (
       <ListView
+        ref="lv"
         dataSource={this.state.dataSource}
         renderRow={row}
         renderSeparator={separator}
@@ -123,7 +152,7 @@ class App extends React.Component {
         scrollRenderAheadDistance={200}
         scrollEventThrottle={20}
         style={{
-          height: document.documentElement.clientHeight,
+          height: this.state.height,
           border: '1px solid #ddd',
           margin: '0.1rem 0',
         }}
@@ -132,6 +161,7 @@ class App extends React.Component {
           refreshing={this.state.refreshing}
           onRefresh={this.onRefresh}
         />}
+        onScroll={this.onScroll}
       />
     );
   }

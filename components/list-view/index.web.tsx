@@ -13,6 +13,7 @@ export default class ListView extends React.Component<tsPropsType, any> {
   static IndexedList = IndexedList;
 
   scrollTo = (...args) => (this.refs.listview as any).scrollTo(...args);
+  getInnerViewNode = () => (this.refs.listview as any).getInnerViewNode();
 
   render() {
     const { restProps, extraProps } = handleProps(this.props, false);
