@@ -3,6 +3,7 @@ import variables from '../../style/themes/default.native';
 
 export interface INoticeBarStyle {
   notice: ViewStyle;
+  container: ViewStyle;
   content: TextStyle;
   left6: ViewStyle;
   left15: ViewStyle;
@@ -18,11 +19,13 @@ export default {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  content: {
+  container: {
     flex: 1,
+    marginRight: variables.h_spacing_lg,
+  },
+  content: {
     fontSize: variables.font_size_subhead,
     color: variables.brand_warning,
-    marginRight: variables.h_spacing_lg,
   },
   left6: {
     marginLeft: variables.h_spacing_sm,
