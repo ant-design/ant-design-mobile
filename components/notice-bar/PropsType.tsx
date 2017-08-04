@@ -4,11 +4,11 @@ interface NoticeBarPropsType {
   mode?: 'closable' | 'link';
   onClick?: () => void;
   icon?: React.ReactNode;
+  marqueeProps?: {};
   style?: {};
   /* web only */
   className?: string;
   prefixCls?: string;
-  marqueeProps?: {};
   /* rn only */
   styles?: any;
 }

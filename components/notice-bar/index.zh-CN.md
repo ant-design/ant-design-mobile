@@ -19,4 +19,4 @@ subtitle: 通告栏
 | mode    | 提示类型，可选`closable`,`link`   | String |  ''  |
 | icon    |  notice 前的图标  |  React.Element | `<Icon type={require('./trips.svg')} size="xxs" />`|
 | onClick    | 点击关闭或者操作区域的回调函数        | (): void |   |
-| marqueeProps (`web only`) | marquee 参数       | Object | `{loop: false, leading: 500, trailing: 800, fps: 40, style: {}}`  |
+| marqueeProps | marquee 参数       | Object | `{loop: false, leading: 500, trailing: 800, fps: 40, style: {}}`  |

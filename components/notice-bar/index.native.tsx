@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
 import NoticeStyle, { INoticeBarStyle } from './style/index.native';
+import Marquee from './Marquee.native';
 import NoticeBarProps from './PropsType';
 
 export interface INoticeNativeProps extends NoticeBarProps {
@@ -42,7 +43,7 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
   }
 
   render() {
-    const { children, mode, icon, style } = this.props;
+    const { children, mode, icon, style, marqueeProps } = this.props;
     const styles = this.props.styles!;
 
     let operationDom: any = null;
@@ -58,16 +59,30 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
       );
     }
 
-    const iconDom = icon && React.isValidElement(icon) ? <View style={[styles.left15]}>{icon}</View> : null;
+    const iconDom = icon && React.isValidElement(icon) ? <View style={styles.left15}>{icon}</View> : null;
+
+    let marquee: any = {
+      loop: false,
+      leading: 500,
+      trailing: 800,
+      fps: 40,
+      style: styles.content,
+      ...marqueeProps,
+    };
+
     const main = (
       <View style={[styles.notice, style]}>
         {iconDom}
-        <Text style={[styles.content, icon ? styles.left6 : styles.left15]}>{children}</Text>
+        <View style={[styles.container, icon ? styles.left6 : styles.left15]}>
+          <Marquee text={children} {...marquee} />
+        </View>
         {operationDom}
       </View>
     );
-    return this.state.show ? mode === 'closable' ? main : (<TouchableWithoutFeedback onPress={this.onClick}>
+    return this.state.show ? mode === 'closable' ? main : (
+      <TouchableWithoutFeedback onPress={this.onClick}>
         {main}
-      </TouchableWithoutFeedback>) : null;
+      </TouchableWithoutFeedback>
+    ) : null;
   }
 }
