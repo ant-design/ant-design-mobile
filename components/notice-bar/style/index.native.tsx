@@ -22,6 +22,7 @@ export default {
   container: {
     flex: 1,
     marginRight: variables.h_spacing_lg,
+    overflow: 'hidden',
   },
   content: {
     fontSize: variables.font_size_subhead,
@@ -38,6 +39,7 @@ export default {
     fontSize: 18,
     marginRight: variables.h_spacing_lg,
     fontWeight: '200',
+    textAlign: 'left',
   },
   link: {
     transform: [{ rotate: '225deg' }],
@@ -45,5 +47,6 @@ export default {
     fontSize: variables.font_size_icontext,
     fontWeight: '500',
     marginRight: variables.h_spacing_lg,
+    textAlign: 'left',
   },
 };

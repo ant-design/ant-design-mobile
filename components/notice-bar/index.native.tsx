@@ -49,9 +49,7 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
     let operationDom: any = null;
     if (mode === 'closable') {
       operationDom = (
-        <TouchableWithoutFeedback onPress={this.onClick}>
-          <View><Text style={[styles.close]}>×</Text></View>
-        </TouchableWithoutFeedback>
+        <Text onPress={this.onClick} style={[styles.close]}>×</Text>
       );
     } else if (mode === 'link') {
       operationDom = (
@@ -59,9 +57,9 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
       );
     }
 
-    const iconDom = icon && React.isValidElement(icon) ? <View style={[styles.left15]}>{icon}</View> : null;
+    const iconDom = icon && React.isValidElement(icon) ? <View style={styles.left15}>{icon}</View> : null;
 
-    let marquee = {
+    let marquee: any = {
       loop: false,
       leading: 500,
       trailing: 800,
@@ -79,8 +77,10 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
         {operationDom}
       </View>
     );
-    return this.state.show ? mode === 'closable' ? main : (<TouchableWithoutFeedback onPress={this.onClick}>
+    return this.state.show ? mode === 'closable' ? main : (
+      <TouchableWithoutFeedback onPress={this.onClick}>
         {main}
-      </TouchableWithoutFeedback>) : null;
+      </TouchableWithoutFeedback>
+    ) : null;
   }
 }

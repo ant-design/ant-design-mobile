@@ -30,11 +30,9 @@ exports[`NoticeBar renders correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "marginLeft": 15,
-        },
-      ]
+      Object {
+        "marginLeft": 15,
+      }
     }
   >
     <Image
@@ -51,17 +49,13 @@ exports[`NoticeBar renders correctly 1`] = `
       }
     />
   </View>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+  <View
     style={
       Array [
         Object {
-          "color": "#f4333c",
           "flex": 1,
-          "fontSize": 15,
           "marginRight": 15,
+          "overflow": "hidden",
         },
         Object {
           "marginLeft": 5,
@@ -69,7 +63,68 @@ exports[`NoticeBar renders correctly 1`] = `
       ]
     }
   >
-    foo
-  </Text>
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "left": 0,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          onLayout={[Function]}
+          style={
+            Object {
+              "color": "#f4333c",
+              "fontSize": 15,
+            }
+          }
+        >
+          f
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          onLayout={[Function]}
+          style={
+            Object {
+              "color": "#f4333c",
+              "fontSize": 15,
+            }
+          }
+        >
+          o
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          onLayout={[Function]}
+          style={
+            Object {
+              "color": "#f4333c",
+              "fontSize": 15,
+            }
+          }
+        >
+          o
+        </Text>
+      </View>
+    </View>
+  </View>
 </View>
 `;

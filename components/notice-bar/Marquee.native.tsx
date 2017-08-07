@@ -95,12 +95,13 @@ const Marquee = createReactClass<MarqueeProp, any>({
 
   render() {
     const { style, text } = this.props;
+
     const textChildren = text.split('').map((t, i) => (
       <Text key={i} onLayout={(e) => this.onLayout(e, i)} style={style}>{t}</Text>
     ));
 
     return (
-      <View style={{ flexDirection: 'row' }} onLayout={this.onLayoutContainer}>
+      <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }} onLayout={this.onLayoutContainer}>
         <Animated.View style={{ flexDirection: 'row', left: this.state.left }}>
           {textChildren}
         </Animated.View>
