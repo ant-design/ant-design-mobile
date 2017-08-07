@@ -49,7 +49,9 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
     let operationDom: any = null;
     if (mode === 'closable') {
       operationDom = (
-        <Text onPress={this.onClick} style={[styles.close]}>×</Text>
+        <TouchableWithoutFeedback onPress={this.onClick}>
+           <View><Text style={[styles.close]}>×</Text></View>
+        </TouchableWithoutFeedback>
       );
     } else if (mode === 'link') {
       operationDom = (
