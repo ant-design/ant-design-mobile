@@ -24,6 +24,7 @@ export default {
     height: variables.list_item_height,
     backgroundColor: 'transparent',
     fontSize: variables.input_font_size,
+    color: variables.color_text_base,
   },
   extra: {
     marginLeft: variables.h_spacing_sm,
