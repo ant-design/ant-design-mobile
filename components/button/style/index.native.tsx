@@ -17,8 +17,8 @@ export default {
     borderColor: variables.ghost_button_color,
   },
   warningHighlight: {
-    backgroundColor: variables.brand_warning,
-    borderColor: variables.brand_warning,
+    backgroundColor: variables.warning_button_fill_tap,
+    borderColor: variables.warning_button_fill,
   },
   wrapperStyle: {
     alignItems: 'center',
@@ -49,12 +49,21 @@ export default {
     borderColor: variables.ghost_button_color,
   },
   warningRaw: {
-    backgroundColor: variables.fill_base,
-    borderColor: variables.brand_warning,
+    backgroundColor: variables.warning_button_fill,
+    borderColor: variables.warning_button_fill,
   },
-  disabledRaw: {
+  defaultDisabledRaw: {
     backgroundColor: variables.fill_disabled,
     borderColor: variables.fill_disabled,
+  },
+  primaryDisabledRaw: {
+    opacity: 0.4,
+  },
+  ghostDisabledRaw: {
+    borderColor: `${variables.ghost_button_color}66`, // alpha 40%  https://codepen.io/chriscoyier/pen/XjbzAW
+  },
+  warningDisabledRaw: {
+    opacity: 0.4,
   },
   defaultHighlightText: {
     color: variables.color_text_base,
@@ -84,10 +93,19 @@ export default {
     color: variables.ghost_button_color,
   },
   warningRawText: {
-    color: variables.brand_warning,
+    color: variables.color_text_base_inverse,
   },
-  disabledRawText: {
-    color: variables.color_text_disabled,
+  defaultDisabledRawText: {
+    color: `${variables.color_text_base}4D`, // alpha 30%  https://codepen.io/chriscoyier/pen/XjbzAW
+  },
+  primaryDisabledRawText: {
+    color: `${variables.color_text_base_inverse}99`, // alpha 60%  https://codepen.io/chriscoyier/pen/XjbzAW
+  },
+  ghostDisabledRawText: {
+    color: `${variables.ghost_button_color}99`, // alpha 60%  https://codepen.io/chriscoyier/pen/XjbzAW
+  },
+  warningDisabledRawText: {
+    color: `${variables.color_text_base_inverse}99`, // alpha 60%  https://codepen.io/chriscoyier/pen/XjbzAW
   },
   indicator: {
     marginRight: variables.h_spacing_md,

@@ -77,7 +77,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     const textStyle = [
       _styles[`${size}RawText`],
       _styles[`${type}RawText`],
-      disabled && _styles.disabledRawText,
+      disabled && _styles[`${type}DisabledRawText`],
       this.state.pressIn && _styles[`${type}HighlightText`],
     ];
 
@@ -85,7 +85,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       _styles.wrapperStyle,
       _styles[`${size}Raw`],
       _styles[`${type}Raw`],
-      disabled && _styles.disabledRaw,
+      disabled && _styles[`${type}DisabledRaw`],
       this.state.pressIn && activeStyle && _styles[`${type}Highlight`],
       activeStyle && this.state.touchIt && activeStyle,
       style,

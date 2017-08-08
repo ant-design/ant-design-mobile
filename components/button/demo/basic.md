@@ -8,42 +8,36 @@ title:
 button
 
 ````jsx
-import { Button, Flex, WingBlank } from 'antd-mobile';
+import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 /* eslint global-require: 0 */
 const ButtonExample = () => (
   <WingBlank>
-    <div className="btn-container">
-      <div>
-        <Button className="btn" type="primary">primary button</Button>
-        <Button className="btn" disabled onClick={e => console.log(e)}>
-          disabled button
-        </Button>
-        <Button className="btn" loading>loading button</Button>
-        <Button className="btn" icon="check-circle-o">with icon</Button>
-        <Button className="btn" icon={require('./reload.svg')}>
-          with local icon
-        </Button>
+    <Button>default</Button><WhiteSpace />
+    <Button disabled>default disabled</Button><WhiteSpace />
 
-        <div style={{ height: '0.16rem' }} />
-        {/* <Button className="btn" activeStyle={false}>无点击反馈</Button> */}
-        {/* <Button className="btn" activeStyle={{ backgroundColor: 'red' }}>自定义点击反馈 style</Button> */}
+    <Button type="primary">primary</Button><WhiteSpace />
+    <Button type="primary" disabled>primary disabled</Button><WhiteSpace />
 
-        <p style={{ margin: '30px 0 18px 0', color: '#999' }}>inline / small</p>
-        <Flex style={{ marginBottom: '0.16rem' }}>
-          <Button type="primary" inline style={{ marginRight: '0.08rem' }}>inline</Button>
-          <Button type="ghost" inline size="small" style={{ marginRight: '0.08rem' }}>inline small</Button>
-          <Button type="primary" inline size="small">inline small</Button>
-        </Flex>
-      </div>
-    </div>
+    <Button type="warning">warning</Button><WhiteSpace />
+    <Button type="warning" disabled>warning disabled</Button><WhiteSpace />
+
+    <Button loading>loading button</Button><WhiteSpace />
+    <Button icon="check-circle-o">with icon</Button><WhiteSpace />
+    <Button icon={require('./reload.svg')}>with local icon</Button><WhiteSpace />
+
+    {/* <Button activeStyle={false}>无点击反馈</Button><WhiteSpace /> */}
+    {/* <Button activeStyle={{ backgroundColor: 'red' }}>custom feedback style</Button><WhiteSpace /> */}
+
+    <WhiteSpace />
+    <Button type="primary" inline style={{ marginRight: '0.08rem' }}>inline primary</Button>
+    <Button type="ghost" inline style={{ marginRight: '0.08rem' }}>inline ghost</Button>
+
+    <WhiteSpace />
+    <Button type="primary" inline size="small" style={{ marginRight: '0.08rem' }}>primary</Button>
+    <Button type="ghost" inline size="small" style={{ marginRight: '0.08rem' }}>ghost</Button>
+    <Button type="ghost" inline size="small" disabled>ghost disabled</Button>
   </WingBlank>
 );
 ReactDOM.render(<ButtonExample />, mountNode);
-````
-
-````css
-.btn-container .btn {
-  margin: 0.16rem 0;
-}
 ````

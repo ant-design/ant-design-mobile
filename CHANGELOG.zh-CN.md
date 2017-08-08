@@ -23,6 +23,7 @@ timeline: true
 
   - `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
   - 新增`DatePickerView`组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
+  - Button 组件分别对应各个 type 新增各自的 disabled 状态样式
 
 - **Break Change**
   - `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
@@ -34,6 +35,7 @@ timeline: true
   - `Flex` 清理冗余API, 只保留 `align: enum{start, center, end}`。 [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
   - `DatePicker`组件去除 moment.js 依赖，相应地`value`,`minDate`,`maxDate`,`format`,`onChange`数据类型变为`Date`对象。[#1217](https://github.com/ant-design/ant-design-mobile/issues/1217)
   - `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现，相关参数见 [showShareActionSheetWithOptions 文档](https://mobile.ant.design/components/action-sheet/#static-showShareActionSheetWithOptions(options:-Object,-failureCallback:-Function,-successCallback:-Function))
+  - **[React Native]** Button 组件 style 里`disabledRaw`/`disabledRawText`修改为`defaultDisabledRaw`/`defaultDisabledRawText`
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

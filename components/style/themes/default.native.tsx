@@ -5,25 +5,27 @@ export default {
   // 支付宝钱包默认主题
   // https://github.com/ant_design/ant_design_mobile/wiki/设计变量表及命名规范
 
-  // 色彩
-  // ---
+  // 色彩, NOTE: must use `#000000` instead of `#000`
+  // https://facebook.github.io/react-native/docs/colors.html
+  // 8-digit-hex to 4-digit hex https://css-tricks.com/8-digit-hex-codes/
+  // https://www.chromestatus.com/feature/5685348285808640 chrome will support `#RGBA`
   // 文字色
-  color_text_base: '#000',                  // 基本
-  color_text_base_inverse: '#fff',          // 基本 _ 反色
+  color_text_base: '#000000',                  // 基本
+  color_text_base_inverse: '#ffffff',          // 基本 _ 反色
   color_text_secondary: '#a4a9b0',          // 辅助色
-  color_text_placeholder: '#bbb',           // 文本框提示
-  color_text_disabled: '#bbb',              // 失效
-  color_text_caption: '#888',               // 辅助描述
-  color_text_paragraph: '#333',             // 段落
+  color_text_placeholder: '#bbbbbb',           // 文本框提示
+  color_text_disabled: '#bbbbbb',              // 失效
+  color_text_caption: '#888888',               // 辅助描述
+  color_text_paragraph: '#333333',             // 段落
   color_link: brandPrimary,                 // 链接
 
   // 背景色
-  fill_base: '#fff',                           // 组件默认背景
+  fill_base: '#ffffff',                           // 组件默认背景
   fill_body: '#f5f5f9',                        // 页面背景
-  fill_tap: '#ddd',                            // 组件默认背景 _ 按下
-  fill_disabled: '#ddd',                       // 通用失效背景
+  fill_tap: '#dddddd',                            // 组件默认背景 _ 按下
+  fill_disabled: '#dddddd',                       // 通用失效背景
   fill_mask: 'rgba(0, 0, 0, .4)',              // 遮罩背景
-  color_icon_base: '#ccc',                     // 许多小图标的背景，比如一些小圆点，加减号
+  color_icon_base: '#cccccc',                     // 许多小图标的背景，比如一些小圆点，加减号
   fill_grey: '#f7f7f7',
 
   // 透明度
@@ -39,7 +41,7 @@ export default {
   brand_wait: '#108ee9',
 
   // 边框色
-  border_color_base: '#ddd',
+  border_color_base: '#dddddd',
 
   // 字体尺寸
   // ---
@@ -115,7 +117,10 @@ export default {
   ghost_button_color: brandPrimary,    // 同时应用于背景、文字颜色、边框色
   ghost_button_fill_tap: brandPrimaryTap,
 
-  link_button_fill_tap: '#ddd',
+  warning_button_fill: '#e94f4f',
+  warning_button_fill_tap: '#f4333c',
+
+  link_button_fill_tap: '#dddddd',
   link_button_font_size: 16,
 
   // modal
@@ -131,7 +136,7 @@ export default {
   // input
   input_label_width: 17,       // InputItem、TextareaItem 文字长度基础值
   input_font_size: 17,
-  input_color_icon: '#ccc',
+  input_color_icon: '#cccccc',
   input_color_icon_tap: brandPrimary,
 
   // tabs

@@ -28,6 +28,10 @@
   &&-active {
     background-color: @fill-tap;
   }
+  &&-disabled {
+    color: fade(@color-text-base, 30%);
+    opacity: 0.6;
+  }
 
   &-primary {
     color: @color-text-base-inverse;
@@ -36,6 +40,10 @@
     // &:active, // uc browser not work normal
     &.@{buttonPrefixCls}-active {
       background-color: @primary-button-fill-tap;
+    }
+    &.@{buttonPrefixCls}-disabled {
+      color: fade(@color-text-base-inverse, 60%);
+      opacity: 0.4;
     }
   }
 
@@ -47,7 +55,35 @@
     &.@{buttonPrefixCls}-active {
       color: @color-text-base-inverse;
       background-color: @ghost-button-fill-tap;
-      border: @border-width-sm solid @ghost-button-color;
+    }
+    &.@{buttonPrefixCls}-disabled {
+      color: fade(@ghost-button-color, 60%);
+      border-color: fade(@ghost-button-color, 40%);
+      opacity: 1; // override default opacity: 0.6
+    }
+  }
+
+  &-warning {
+    color: @color-text-base-inverse;
+    background-color: @warning-button-fill;
+    // &:active, // uc browser not work normal
+    &.@{buttonPrefixCls}-active {
+      background-color: @warning-button-fill-tap;
+    }
+    &.@{buttonPrefixCls}-disabled {
+      color: fade(@color-text-base-inverse, 60%);
+      opacity: 0.4;
+    }
+  }
+
+  &,
+  &-primary,
+  &-ghost,
+  &-warning {
+    &.@{buttonPrefixCls}-across {
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
     }
   }
 
@@ -62,28 +98,6 @@
     line-height: @button-height-sm;
     padding: 0 @h-spacing-lg;
     border-radius: @radius-md;
-  }
-
-  &-warning {
-    color: #f86e21;
-    background-color: @fill-base;
-  }
-
-  &,
-  &-primary,
-  &-ghost,
-  &-warning {
-    &.@{buttonPrefixCls}-across {
-      border-radius: 0;
-      border-left: 0;
-      border-right: 0;
-    }
-
-    &.@{buttonPrefixCls}-disabled {
-      color: @color-text-disabled;
-      background-color: @fill-disabled;
-      border: 0;
-    }
   }
 
   &-icon {
