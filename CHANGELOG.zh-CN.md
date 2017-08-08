@@ -36,6 +36,7 @@ timeline: true
   - `DatePicker`组件去除 moment.js 依赖，相应地`value`,`minDate`,`maxDate`,`format`,`onChange`数据类型变为`Date`对象。[#1217](https://github.com/ant-design/ant-design-mobile/issues/1217)
   - `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现，相关参数见 [showShareActionSheetWithOptions 文档](https://mobile.ant.design/components/action-sheet/#static-showShareActionSheetWithOptions(options:-Object,-failureCallback:-Function,-successCallback:-Function))
   - **[React Native]** Button 组件 style 里`disabledRaw`/`disabledRawText`修改为`defaultDisabledRaw`/`defaultDisabledRawText`
+  - Result: `buttonClick` 更改为 `onButtonClick`
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

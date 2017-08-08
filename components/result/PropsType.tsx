@@ -8,7 +8,7 @@ interface ResultProps {
   message?: React.ReactNode;
   buttonText?: string;
   buttonType?: 'primary' | 'ghost';
-  buttonClick?: () => void;
+  onButtonClick?: () => void;
   /** below web only */
   prefixCls?: string;
   className?: string;

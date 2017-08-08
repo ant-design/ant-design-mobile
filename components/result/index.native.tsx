@@ -19,7 +19,7 @@ export default class Result extends React.Component<IResultNativeProps, any> {
   };
 
   render() {
-    const { style, img, imgUrl, title, message, buttonText, buttonClick, buttonType } = this.props;
+    const { style, img, imgUrl, title, message, buttonText, onButtonClick, buttonType } = this.props;
     const styles = this.props.styles!;
 
     let imgContent: any = null;
@@ -41,7 +41,7 @@ export default class Result extends React.Component<IResultNativeProps, any> {
         {message ? <View style={styles.message}>{typeof message === 'string' ?
           <Text style={styles.messageText}>{message}</Text> : message}</View> : null}
         {buttonText ? <View style={styles.buttonWrap}>
-          <Button style={styles.button} type={buttonType} onClick={buttonClick}>{buttonText}</Button>
+          <Button style={styles.button} type={buttonType} onClick={onButtonClick}>{buttonText}</Button>
         </View> : null}
       </View>
     );

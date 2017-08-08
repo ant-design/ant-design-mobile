@@ -8,7 +8,7 @@ export default class Result extends React.Component<ResultProps, any> {
   static defaultProps = {
     prefixCls: 'am-result',
     buttonType: '',
-    buttonClick: () => {},
+    onButtonClick: () => {},
   };
 
   render() {
@@ -20,7 +20,7 @@ export default class Result extends React.Component<ResultProps, any> {
       title,
       message,
       buttonText,
-      buttonClick,
+      onButtonClick,
       buttonType,
       style,
     } = this.props;
@@ -42,7 +42,7 @@ export default class Result extends React.Component<ResultProps, any> {
         {title ? <div className={`${prefixCls}-title`}>{title}</div> : null}
         {message ? <div className={`${prefixCls}-message`}>{message}</div> : null}
         {buttonText ? <div className={`${prefixCls}-button`}>
-          <Button type={buttonType} onClick={buttonClick}>{buttonText}</Button>
+          <Button type={buttonType} onClick={onButtonClick}>{buttonText}</Button>
         </div> : null}
       </div>
     );
