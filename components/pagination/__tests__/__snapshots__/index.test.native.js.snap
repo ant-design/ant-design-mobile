@@ -94,8 +94,8 @@ exports[`Pagination renders correctly 1`] = `
                 "paddingRight": 15,
               },
               Object {
-                "backgroundColor": "#fff",
-                "borderColor": "#ddd",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#dddddd",
               },
               false,
               false,
@@ -124,7 +124,7 @@ exports[`Pagination renders correctly 1`] = `
                   "fontSize": 18,
                 },
                 Object {
-                  "color": "#000",
+                  "color": "#000000",
                 },
                 false,
                 false,
@@ -191,7 +191,7 @@ exports[`Pagination renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#000",
+                "color": "#000000",
                 "fontSize": 18,
               },
             ]
@@ -258,8 +258,8 @@ exports[`Pagination renders correctly 1`] = `
                 "paddingRight": 15,
               },
               Object {
-                "backgroundColor": "#fff",
-                "borderColor": "#ddd",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#dddddd",
               },
               false,
               false,
@@ -288,7 +288,7 @@ exports[`Pagination renders correctly 1`] = `
                   "fontSize": 18,
                 },
                 Object {
-                  "color": "#000",
+                  "color": "#000000",
                 },
                 false,
                 false,

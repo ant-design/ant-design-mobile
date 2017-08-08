@@ -6,7 +6,7 @@ exports[`Progress renders correctly 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#ddd",
+        "backgroundColor": "#dddddd",
         "flex": 1,
       },
       Object {

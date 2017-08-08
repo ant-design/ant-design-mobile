@@ -36,10 +36,10 @@ exports[`SearchBar renders correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "#fff",
-            "borderColor": "#ddd",
+            "borderColor": "#dddddd",
             "borderRadius": 5,
             "borderWidth": 0.5,
-            "color": "#000",
+            "color": "#000000",
             "flex": 1,
             "fontSize": 14,
             "height": 28,
@@ -63,7 +63,7 @@ exports[`SearchBar renders correctly 1`] = `
         "height": 15,
         "left": 16,
         "position": "absolute",
-        "tintColor": "#ccc",
+        "tintColor": "#cccccc",
         "top": 14.5,
         "width": 15,
       }

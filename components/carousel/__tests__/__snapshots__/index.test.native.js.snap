@@ -52,7 +52,7 @@ exports[`Carousel.RN renders correctly 1`] = `
           "backgroundColor": "#888",
         },
         "pointStyle": Object {
-          "backgroundColor": "#ccc",
+          "backgroundColor": "#cccccc",
           "borderRadius": 8,
           "height": 8,
           "width": 8,
@@ -105,7 +105,7 @@ exports[`Carousel.RN renders correctly 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#ccc",
+              "backgroundColor": "#cccccc",
               "borderRadius": 8,
               "height": 8,
               "width": 8,

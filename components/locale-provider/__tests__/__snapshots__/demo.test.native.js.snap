@@ -71,7 +71,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
               "fontSize": 18,
             },
             Object {
-              "color": "#fff",
+              "color": "#ffffff",
             },
             false,
             false,
@@ -186,12 +186,12 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                     "paddingRight": 15,
                   },
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#dddddd",
                   },
                   Object {
-                    "backgroundColor": "#ddd",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#dddddd",
+                    "borderColor": "#dddddd",
                   },
                   false,
                   false,
@@ -219,10 +219,10 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                       "fontSize": 18,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                     },
                     Object {
-                      "color": "#bbb",
+                      "color": "#0000004D",
                     },
                     false,
                   ]
@@ -288,7 +288,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
               style={
                 Array [
                   Object {
-                    "color": "#000",
+                    "color": "#000000",
                     "fontSize": 18,
                   },
                 ]
@@ -355,8 +355,8 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                     "paddingRight": 15,
                   },
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#dddddd",
                   },
                   false,
                   false,
@@ -385,7 +385,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                       "fontSize": 18,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                     },
                     false,
                     false,
@@ -419,8 +419,8 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
       <View
         style={
           Object {
-            "backgroundColor": "#fff",
-            "borderTopColor": "#ddd",
+            "backgroundColor": "#ffffff",
+            "borderTopColor": "#dddddd",
             "borderTopWidth": 0.5,
           }
         }
@@ -459,7 +459,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                 Array [
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "#fff",
+                    "backgroundColor": "#ffffff",
                     "flexDirection": "row",
                     "flexGrow": 1,
                     "paddingLeft": 15,
@@ -473,7 +473,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                   Array [
                     Object {
                       "alignItems": "center",
-                      "borderBottomColor": "#ddd",
+                      "borderBottomColor": "#dddddd",
                       "borderBottomWidth": 0.5,
                       "flex": 1,
                       "flexDirection": "row",
@@ -505,7 +505,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                     style={
                       Array [
                         Object {
-                          "color": "#000",
+                          "color": "#000000",
                           "fontSize": 17,
                           "lineHeight": 19,
                           "textAlignVertical": "center",
@@ -534,7 +534,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                     style={
                       Array [
                         Object {
-                          "color": "#888",
+                          "color": "#888888",
                           "fontSize": 17,
                           "lineHeight": 19,
                           "textAlign": "right",
@@ -565,8 +565,8 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
           style={
             Array [
               Object {
-                "backgroundColor": "#fff",
-                "borderBottomColor": "#ddd",
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#dddddd",
                 "borderBottomWidth": 0.5,
                 "bottom": 0,
                 "height": 1,

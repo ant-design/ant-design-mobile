@@ -245,7 +245,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             style={
               Array [
                 Object {
-                  "color": "#000",
+                  "color": "#000000",
                   "fontSize": 14,
                   "marginLeft": 8,
                 },
@@ -572,8 +572,8 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
               "paddingRight": 15,
             },
             Object {
-              "backgroundColor": "#fff",
-              "borderColor": "#ddd",
+              "backgroundColor": "#ffffff",
+              "borderColor": "#dddddd",
             },
             false,
             false,
@@ -602,7 +602,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
                 "fontSize": 18,
               },
               Object {
-                "color": "#000",
+                "color": "#000000",
               },
               false,
               false,

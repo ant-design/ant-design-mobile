@@ -127,8 +127,8 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#fff",
-          "borderTopColor": "#ddd",
+          "backgroundColor": "#ffffff",
+          "borderTopColor": "#dddddd",
           "borderTopWidth": 0.5,
         }
       }
@@ -176,7 +176,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#fff",
+                "backgroundColor": "#ffffff",
                 "flexDirection": "row",
                 "flexGrow": 1,
                 "paddingLeft": 15,
@@ -190,7 +190,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
-                  "borderBottomColor": "#ddd",
+                  "borderBottomColor": "#dddddd",
                   "borderBottomWidth": 0.5,
                   "flex": 1,
                   "flexDirection": "row",
@@ -222,7 +222,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                       "fontSize": 17,
                     },
                     Object {},
@@ -302,7 +302,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#fff",
+                "backgroundColor": "#ffffff",
                 "flexDirection": "row",
                 "flexGrow": 1,
                 "paddingLeft": 15,
@@ -316,7 +316,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
-                  "borderBottomColor": "#ddd",
+                  "borderBottomColor": "#dddddd",
                   "borderBottomWidth": 0.5,
                   "flex": 1,
                   "flexDirection": "row",
@@ -348,7 +348,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                       "fontSize": 17,
                     },
                     Object {},
@@ -428,7 +428,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#fff",
+                "backgroundColor": "#ffffff",
                 "flexDirection": "row",
                 "flexGrow": 1,
                 "paddingLeft": 15,
@@ -442,7 +442,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
-                  "borderBottomColor": "#ddd",
+                  "borderBottomColor": "#dddddd",
                   "borderBottomWidth": 0.5,
                   "flex": 1,
                   "flexDirection": "row",
@@ -474,11 +474,11 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                       "fontSize": 17,
                     },
                     Object {
-                      "color": "#bbb",
+                      "color": "#bbbbbb",
                     },
                   ]
                 }
@@ -556,7 +556,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#fff",
+                "backgroundColor": "#ffffff",
                 "flexDirection": "row",
                 "flexGrow": 1,
                 "paddingLeft": 15,
@@ -570,7 +570,7 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
-                  "borderBottomColor": "#ddd",
+                  "borderBottomColor": "#dddddd",
                   "borderBottomWidth": 0.5,
                   "flex": 1,
                   "flexDirection": "row",
@@ -602,11 +602,11 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                       "fontSize": 17,
                     },
                     Object {
-                      "color": "#bbb",
+                      "color": "#bbbbbb",
                     },
                   ]
                 }
@@ -657,8 +657,8 @@ exports[`renders ./components/radio/demo/basic.native.tsx correctly 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#ddd",
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#dddddd",
               "borderBottomWidth": 0.5,
               "bottom": 0,
               "height": 1,

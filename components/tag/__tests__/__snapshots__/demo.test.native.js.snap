@@ -46,8 +46,8 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
           },
           Object {},
           Object {
-            "backgroundColor": "#fff",
-            "borderColor": "#ddd",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
           },
         ]
       }
@@ -65,7 +65,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
             },
             Object {},
             Object {
-              "color": "#888",
+              "color": "#888888",
             },
           ]
         }
@@ -123,7 +123,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
           },
           Object {},
           Object {
-            "backgroundColor": "#fff",
+            "backgroundColor": "#ffffff",
             "borderColor": "#108ee9",
           },
         ]
@@ -200,7 +200,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
           },
           Object {},
           Object {
-            "backgroundColor": "#ddd",
+            "backgroundColor": "#dddddd",
             "borderWidth": 0,
           },
         ]
@@ -219,7 +219,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
             },
             Object {},
             Object {
-              "color": "#bbb",
+              "color": "#bbbbbb",
             },
           ]
         }
@@ -277,8 +277,8 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
           },
           Object {},
           Object {
-            "backgroundColor": "#fff",
-            "borderColor": "#ddd",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
           },
         ]
       }
@@ -296,7 +296,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
             },
             Object {},
             Object {
-              "color": "#888",
+              "color": "#888888",
             },
           ]
         }
@@ -354,8 +354,8 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
           },
           Object {},
           Object {
-            "backgroundColor": "#fff",
-            "borderColor": "#ddd",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
           },
         ]
       }
@@ -373,7 +373,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
             },
             Object {},
             Object {
-              "color": "#888",
+              "color": "#888888",
             },
           ]
         }
@@ -398,7 +398,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "#bbb",
+            "backgroundColor": "#bbbbbb",
             "position": "absolute",
           },
           Object {
@@ -420,7 +420,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#fff",
+              "color": "#ffffff",
               "fontSize": 20,
               "lineHeight": 18,
               "textAlign": "center",
@@ -484,8 +484,8 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
             "paddingVertical": 1.5,
           },
           Object {
-            "backgroundColor": "#fff",
-            "borderColor": "#ddd",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
           },
         ]
       }
@@ -505,7 +505,7 @@ exports[`renders ./components/tag/demo/basic.native.tsx correctly 1`] = `
               "fontSize": 10,
             },
             Object {
-              "color": "#888",
+              "color": "#888888",
             },
           ]
         }

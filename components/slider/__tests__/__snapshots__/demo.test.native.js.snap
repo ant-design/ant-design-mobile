@@ -14,7 +14,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
       <RCTSlider
         disabled={false}
         enabled={true}
-        maximumTrackTintColor="#ddd"
+        maximumTrackTintColor="#dddddd"
         maximumValue={1}
         minimumTrackTintColor="#108ee9"
         minimumValue={0}
@@ -54,7 +54,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
       <RCTSlider
         disabled={false}
         enabled={true}
-        maximumTrackTintColor="#ddd"
+        maximumTrackTintColor="#dddddd"
         maximumValue={1}
         minimumTrackTintColor="#108ee9"
         minimumValue={0}
@@ -95,7 +95,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
       <RCTSlider
         disabled={false}
         enabled={true}
-        maximumTrackTintColor="#ddd"
+        maximumTrackTintColor="#dddddd"
         maximumValue={1}
         minimumTrackTintColor="#108ee9"
         minimumValue={0}
@@ -135,7 +135,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
       <RCTSlider
         disabled={false}
         enabled={true}
-        maximumTrackTintColor="#ddd"
+        maximumTrackTintColor="#dddddd"
         maximumValue={1}
         minimumTrackTintColor="#108ee9"
         minimumValue={0}
@@ -175,7 +175,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
       <RCTSlider
         disabled={true}
         enabled={false}
-        maximumTrackTintColor="#ddd"
+        maximumTrackTintColor="#dddddd"
         maximumValue={1}
         minimumTrackTintColor="#108ee9"
         minimumValue={0}
@@ -216,7 +216,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
       <RCTSlider
         disabled={false}
         enabled={true}
-        maximumTrackTintColor="#ddd"
+        maximumTrackTintColor="#dddddd"
         maximumValue={1}
         minimumTrackTintColor="#108ee9"
         minimumValue={0}
@@ -257,7 +257,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
       <RCTSlider
         disabled={false}
         enabled={true}
-        maximumTrackTintColor="#ddd"
+        maximumTrackTintColor="#dddddd"
         maximumValue={1}
         minimumTrackTintColor="#108ee9"
         minimumValue={0}

@@ -6,8 +6,8 @@ exports[`Result renders correctly 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "backgroundColor": "#fff",
-        "borderBottomColor": "#ddd",
+        "backgroundColor": "#ffffff",
+        "borderBottomColor": "#dddddd",
         "paddingVertical": 21,
       },
       undefined,
@@ -49,7 +49,7 @@ exports[`Result renders correctly 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "color": "#000",
+          "color": "#000000",
           "fontSize": 21,
         }
       }
@@ -71,7 +71,7 @@ exports[`Result renders correctly 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "color": "#888",
+          "color": "#888888",
           "fontSize": 16,
         }
       }

@@ -144,8 +144,8 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                     "paddingRight": 5,
                   },
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#dddddd",
                   },
                   false,
                   false,
@@ -174,7 +174,7 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                     },
                     false,
                     false,
@@ -245,8 +245,8 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                     "paddingRight": 5,
                   },
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#dddddd",
                   },
                   false,
                   false,
@@ -275,7 +275,7 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                     },
                     false,
                     false,
@@ -346,8 +346,8 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                     "paddingRight": 5,
                   },
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#dddddd",
                   },
                   false,
                   false,
@@ -376,7 +376,7 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                     },
                     false,
                     false,
@@ -509,8 +509,8 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                     "paddingRight": 5,
                   },
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#dddddd",
                   },
                   false,
                   false,
@@ -539,7 +539,7 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                     },
                     false,
                     false,
@@ -609,8 +609,8 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                     "paddingRight": 5,
                   },
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#dddddd",
                   },
                   false,
                   false,
@@ -639,7 +639,7 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                     },
                     false,
                     false,
@@ -709,8 +709,8 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                     "paddingRight": 5,
                   },
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderColor": "#ddd",
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#dddddd",
                   },
                   false,
                   false,
@@ -739,7 +739,7 @@ exports[`renders ./components/flex/demo/basic.native.tsx correctly 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#000",
+                      "color": "#000000",
                     },
                     false,
                     false,

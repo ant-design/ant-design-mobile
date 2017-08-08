@@ -87,7 +87,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           style={
             Object {
               "backgroundColor": "transparent",
-              "color": "#fff",
+              "color": "#ffffff",
               "fontSize": 20,
               "fontWeight": "300",
               "height": 20,
@@ -169,7 +169,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           style={
             Object {
               "backgroundColor": "transparent",
-              "color": "#fff",
+              "color": "#ffffff",
               "fontSize": 20,
               "fontWeight": "300",
               "height": 20,
@@ -251,7 +251,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           style={
             Object {
               "backgroundColor": "transparent",
-              "color": "#fff",
+              "color": "#ffffff",
               "fontSize": 20,
               "fontWeight": "300",
               "height": 20,
@@ -333,7 +333,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           style={
             Object {
               "backgroundColor": "transparent",
-              "color": "#fff",
+              "color": "#ffffff",
               "fontSize": 20,
               "fontWeight": "300",
               "height": 20,
@@ -415,7 +415,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           style={
             Object {
               "backgroundColor": "transparent",
-              "color": "#fff",
+              "color": "#ffffff",
               "fontSize": 20,
               "fontWeight": "300",
               "height": 20,
@@ -497,7 +497,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           style={
             Object {
               "backgroundColor": "transparent",
-              "color": "#fff",
+              "color": "#ffffff",
               "fontSize": 20,
               "fontWeight": "300",
               "height": 20,
@@ -540,8 +540,8 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
             "justifyContent": "center",
           },
           Object {
-            "backgroundColor": "#fff",
-            "borderColor": "#ddd",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
           },
         ]
       }
@@ -555,7 +555,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           Array [
             Object {
               "backgroundColor": "transparent",
-              "color": "#888",
+              "color": "#888888",
               "fontSize": 64,
               "fontWeight": "100",
             },
@@ -615,8 +615,8 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
             "justifyContent": "center",
           },
           Object {
-            "backgroundColor": "#fff",
-            "borderColor": "#ddd",
+            "backgroundColor": "#ffffff",
+            "borderColor": "#dddddd",
           },
         ]
       }
@@ -630,7 +630,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           Array [
             Object {
               "backgroundColor": "transparent",
-              "color": "#888",
+              "color": "#888888",
               "fontSize": 64,
               "fontWeight": "100",
             },

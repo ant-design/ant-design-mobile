@@ -39,8 +39,8 @@ exports[`Tag renders correctly 1`] = `
         },
         Object {},
         Object {
-          "backgroundColor": "#fff",
-          "borderColor": "#ddd",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#dddddd",
         },
       ]
     }
@@ -58,7 +58,7 @@ exports[`Tag renders correctly 1`] = `
           },
           Object {},
           Object {
-            "color": "#888",
+            "color": "#888888",
           },
         ]
       }

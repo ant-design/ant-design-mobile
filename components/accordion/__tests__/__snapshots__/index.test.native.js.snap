@@ -6,7 +6,7 @@ exports[`Accordion renders correctly 1`] = `
     Array [
       undefined,
       Object {
-        "borderTopColor": "#ddd",
+        "borderTopColor": "#dddddd",
         "borderTopWidth": 0.5,
       },
     ]
@@ -45,7 +45,7 @@ exports[`Accordion renders correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#ddd",
+                "borderBottomColor": "#dddddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "paddingLeft": 15,
@@ -71,7 +71,7 @@ exports[`Accordion renders correctly 1`] = `
               ellipsizeMode="tail"
               style={
                 Object {
-                  "color": "#000",
+                  "color": "#000000",
                   "fontSize": 17,
                 }
               }
@@ -121,7 +121,7 @@ exports[`Accordion renders correctly 1`] = `
           <View
             style={
               Object {
-                "borderBottomColor": "#ddd",
+                "borderBottomColor": "#dddddd",
                 "borderBottomWidth": 0.5,
                 "paddingHorizontal": 8,
                 "paddingVertical": 9,
@@ -134,7 +134,7 @@ exports[`Accordion renders correctly 1`] = `
               ellipsizeMode="tail"
               style={
                 Object {
-                  "color": "#333",
+                  "color": "#333333",
                   "fontSize": 15,
                 }
               }
@@ -177,7 +177,7 @@ exports[`Accordion renders correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#ddd",
+                "borderBottomColor": "#dddddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "paddingLeft": 15,
@@ -203,7 +203,7 @@ exports[`Accordion renders correctly 1`] = `
               ellipsizeMode="tail"
               style={
                 Object {
-                  "color": "#000",
+                  "color": "#000000",
                   "fontSize": 17,
                 }
               }
@@ -253,7 +253,7 @@ exports[`Accordion renders correctly 1`] = `
           <View
             style={
               Object {
-                "borderBottomColor": "#ddd",
+                "borderBottomColor": "#dddddd",
                 "borderBottomWidth": 0.5,
                 "paddingHorizontal": 8,
                 "paddingVertical": 9,
@@ -266,7 +266,7 @@ exports[`Accordion renders correctly 1`] = `
               ellipsizeMode="tail"
               style={
                 Object {
-                  "color": "#333",
+                  "color": "#333333",
                   "fontSize": 15,
                 }
               }
