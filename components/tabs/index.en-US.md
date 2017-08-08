@@ -27,14 +27,14 @@ Properties | Descrition | Type | Default
 | onTabClick       | Callback when tab is clicked                      | (key: string): void | 无            |
 | animated |  Whether to change tabs with animation,    |  boolean   |    `true`    |
 | swipeable | Whether to switch tabs with swipe gestrue in the content   |  boolean   |    `true`    |
-| hammerOptions(`Web Only`) |  The options of [pan](http://hammerjs.github.io/recognizer-pan/) and [swipe](http://hammerjs.github.io/recognizer-swipe/) gestrue in [hammerjs](http://hammerjs.github.io/) can be customized if `swipeable` is `true`    |  object   |    {}   |
 | tabBarPosition |    Position of tabs. Options: top and bottom       |  string    |    `top`        |
-| destroyInactiveTabPane | Whether to destroy the inactive tabPane (for optimization) |  boolean    |    false   |
 | underlineColor(`react-native only`) |   Underline color of `Tabs`    |  string    |    `#ddd`        |
 | activeUnderlineColor(`react-native only`) | Underline color of active tabPane   |  string    |    `#108ee9`        |
 | textColor(`react-native only`) |  color of text      |  string    |    `#000`        |
 | activeTextColor(`react-native only`) | color of text for active tabPanel       |  string    |    `#108ee9`        |
-| barStyle(`react-native only`) |   style for tab's bar       |  object    |    `{}`        |
+| barStyle (`react-native only`) |   style for tab's bar       |  object    |    `{}`        |
+| destroyInactiveTabPane (`Web Only`) | Whether to destroy the inactive tabPane (for optimization) |  boolean    |    false   |
+| hammerOptions(`Web Only`) |  The options of [pan](http://hammerjs.github.io/recognizer-pan/) and [swipe](http://hammerjs.github.io/recognizer-swipe/) gestrue in [hammerjs](http://hammerjs.github.io/) can be customized if `swipeable` is `true`    |  object   |    {}   |
 | prefixCls(`web only`) |  prefix className    |  string    |    `am-tabs`        |
 | className(`web only`) |  className  for `Tabs`    |  string    |    无        |
 | pageSize(`web only`) |  The number of tab panes in the visible area, it can be seen as one page     |  number    |    5       |

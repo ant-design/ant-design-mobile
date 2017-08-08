@@ -3,7 +3,7 @@ const libDir = process.env.LIB_DIR;
 const transformPackages = [
   'react-native',
   'react-native-menu',
-  'react-native-scrollable-tab-view',
+  'react-native-tab-view',
   'react-native-collapsible',
   'react-native-swipeout',
   'react-native-camera-roll-picker',

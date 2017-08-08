@@ -1,23 +1,35 @@
 import variables from '../../style/themes/default.native';
 
 export default {
-  text: {
-    fontSize: variables.tabs_font_size_heading,
-  },
-  tab: {
-    paddingBottom: 0,
+  bar: {
+    backgroundColor: variables.fill_base,
+    shadowRadius: 0,
+    shadowOpacity: 0,
+    elevation: 0,
   },
   barTop: {
-    height: variables.tabs_height,
-    borderTopWidth: 0,
     borderBottomWidth: 1,
+    borderBottomColor: variables.border_color_base,
   },
   barBottom: {
-    height: variables.tabs_height,
     borderTopWidth: 1,
-    borderBottomWidth: 0,
+    borderTopColor: variables.border_color_base,
+  },
+  tab: {
+    height: variables.tabs_height,
+    padding: 0,
+  },
+  tabText: {
+    fontSize: variables.tabs_font_size_heading,
+  },
+  inactiveTabText: {
+    color: variables.color_text_base,
+  },
+  activeTabText: {
+    color: variables.tabs_color,
   },
   underline: {
     height: 2,
+    backgroundColor: variables.tabs_color,
   },
 };
