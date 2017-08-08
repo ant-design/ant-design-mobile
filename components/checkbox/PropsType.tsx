@@ -22,9 +22,11 @@ export interface CheckboxItemProps extends CheckboxProps {
   onClick?: () => any;
   checkboxStyle?: any; // rn only
   checkboxProps?: Object;
+  prefixCls?: string;
 }
 
 export interface AgreeItemPropsType extends CheckboxProps {
   children?: any;
   checkboxStyle?: any; // rn only
+  prefixCls?: string;
 }
