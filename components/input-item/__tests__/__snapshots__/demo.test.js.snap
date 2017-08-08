@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
+exports[`renders ./components/input-item/demo/basic.tsx correctly 1`] = `
 <RCTScrollView
   automaticallyAdjustContentInsets={false}
   showsHorizontalScrollIndicator={false}
@@ -23,7 +23,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "backgroundColor": "#f5f5f9",
-              "color": "#888888",
+              "color": "#888",
               "fontSize": 14,
               "paddingBottom": 9,
               "paddingLeft": 15,
@@ -38,8 +38,8 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#dddddd",
+            "backgroundColor": "#fff",
+            "borderTopColor": "#ddd",
             "borderTopWidth": 0.5,
           }
         }
@@ -49,7 +49,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -72,7 +72,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -102,7 +102,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -139,7 +139,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#888888",
+                    "color": "#888",
                     "fontSize": 15,
                     "marginLeft": 5,
                   },
@@ -192,7 +192,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -215,7 +215,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -245,7 +245,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -287,7 +287,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -319,7 +319,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -337,7 +337,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -360,7 +360,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -391,7 +391,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -408,7 +408,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -431,7 +431,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -461,7 +461,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -504,7 +504,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#ffffff",
+                  "backgroundColor": "#fff",
                   "flexDirection": "row",
                   "flexGrow": 1,
                   "paddingLeft": 15,
@@ -518,7 +518,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
                 Array [
                   Object {
                     "alignItems": "center",
-                    "borderBottomColor": "#dddddd",
+                    "borderBottomColor": "#ddd",
                     "borderBottomWidth": 0.5,
                     "flex": 1,
                     "flexDirection": "row",
@@ -605,7 +605,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
                             "fontSize": 18,
                           },
                           Object {
-                            "color": "#ffffff",
+                            "color": "#fff",
                           },
                           false,
                           false,
@@ -624,8 +624,8 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": "#ffffff",
-                "borderBottomColor": "#dddddd",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "bottom": 0,
                 "height": 1,
@@ -649,7 +649,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "backgroundColor": "#f5f5f9",
-              "color": "#888888",
+              "color": "#888",
               "fontSize": 14,
               "paddingBottom": 9,
               "paddingLeft": 15,
@@ -664,8 +664,8 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#dddddd",
+            "backgroundColor": "#fff",
+            "borderTopColor": "#ddd",
             "borderTopWidth": 0.5,
           }
         }
@@ -675,7 +675,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -698,7 +698,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -727,7 +727,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -745,7 +745,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -768,7 +768,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -797,7 +797,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -815,7 +815,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -838,7 +838,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -867,7 +867,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -884,8 +884,8 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": "#ffffff",
-                "borderBottomColor": "#dddddd",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "bottom": 0,
                 "height": 1,
@@ -909,7 +909,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "backgroundColor": "#f5f5f9",
-              "color": "#888888",
+              "color": "#888",
               "fontSize": 14,
               "paddingBottom": 9,
               "paddingLeft": 15,
@@ -924,8 +924,8 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#dddddd",
+            "backgroundColor": "#fff",
+            "borderTopColor": "#ddd",
             "borderTopWidth": 0.5,
           }
         }
@@ -935,7 +935,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -958,7 +958,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -987,7 +987,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -1041,7 +1041,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -1064,7 +1064,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -1093,7 +1093,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -1111,7 +1111,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -1134,7 +1134,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -1163,7 +1163,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -1181,7 +1181,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -1204,7 +1204,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -1233,7 +1233,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -1251,7 +1251,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "borderBottomColor": "#dddddd",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "flexDirection": "row",
                 "height": 44.5,
@@ -1274,7 +1274,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#000",
                   "fontSize": 17,
                   "marginRight": 5,
                   "textAlignVertical": "center",
@@ -1303,7 +1303,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               Array [
                 Object {
                   "backgroundColor": "transparent",
-                  "color": "#000000",
+                  "color": "#000",
                   "flex": 1,
                   "fontSize": 17,
                   "height": 44,
@@ -1320,8 +1320,8 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
           style={
             Array [
               Object {
-                "backgroundColor": "#ffffff",
-                "borderBottomColor": "#dddddd",
+                "backgroundColor": "#fff",
+                "borderBottomColor": "#ddd",
                 "borderBottomWidth": 0.5,
                 "bottom": 0,
                 "height": 1,

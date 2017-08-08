@@ -27,7 +27,9 @@ exports[`renders ./components/swipe-action/demo/basic.tsx correctly 1`] = `
               "backgroundColor": "#dbddde",
               "overflow": "hidden",
             },
-            undefined,
+            Object {
+              "backgroundColor": "transparent",
+            },
           ]
         }
       >
