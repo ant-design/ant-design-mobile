@@ -107,10 +107,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       width: variables.font_size_heading * labelNumber * 1.05,
     };
 
-    const inputStyle = {
-      color: error ? '#f50' : variables.color_text_base,
-    };
-
     const extraStyle = {
       width: typeof extra === 'string' && (extra as string).length > 0 ?
       (extra as string).length * variables.font_size_heading : 0,
@@ -149,7 +145,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           underlineColorAndroid="transparent"
           {...restProps}
           {...valueProps}
-          style={[styles.input, inputStyle]}
+          style={[styles.input, error ? { color: '#f50' } : null]}
           keyboardType={keyboardType}
           onChange={(event) => this.onChange(event.nativeEvent.text)}
           secureTextEntry={type === 'password'}
