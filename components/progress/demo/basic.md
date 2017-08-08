@@ -33,7 +33,7 @@ class MyProgress extends React.Component {
       <div className="progress-container">
         <Progress percent={30} position="fixed" />
         <div style={{ height: 36 }} />
-        <Progress percent={40} position="normal" unfilled="hide" appearTransition />
+        <Progress percent={40} position="normal" unfilled={false} appearTransition />
         <div className="show-info">
           <div className="progress"><Progress percent={percent} position="normal" /></div>
           <div aria-hidden="true">{percent}%</div>
