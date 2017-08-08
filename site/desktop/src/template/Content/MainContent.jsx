@@ -10,9 +10,32 @@ import * as utils from '../../../../utils';
 
 const SubMenu = Menu.SubMenu;
 
+function getModuleData(props) {
+  const pathname = props.location.pathname;
+  const moduleName = /^\/?components/.test(pathname) ?
+    'components' : pathname.split('/').filter(item => item).slice(0, 2).join('/');
+  const moduleData = moduleName === 'components' || moduleName === 'docs/react' ||
+    moduleName === 'changelog' || moduleName === 'changelog-cn' ?
+    [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
+    props.picked[moduleName];
+  const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
+  return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
+}
+
+function getActiveMenuItem(props) {
+  const children = props.params.children;
+  return (children && children.replace('-cn', '')) ||
+    props.location.pathname.replace(/(^\/|-cn$)/g, '');
+}
+
 export default class MainContent extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { openKeys: this.getSideBarOpenKeys(props) || [] };
   }
 
   componentDidMount() {
@@ -37,14 +60,26 @@ export default class MainContent extends React.Component {
     clearTimeout(this.timer);
   }
 
+  getSideBarOpenKeys(nextProps) {
+    const pathname = nextProps.location.pathname;
+    const prevModule = this.currentModule;
+    this.currentModule = pathname.replace(/^\//).split('/')[1] || 'components';
+    if (this.currentModule === 'react') {
+      this.currentModule = 'components';
+    }
+    const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
+    if (prevModule !== this.currentModule) {
+      const moduleData = getModuleData(nextProps);
+      const shouldOpenKeys = Object.keys(utils.getMenuItems(moduleData, locale));
+      return shouldOpenKeys;
+    }
+    return '';
+  }
+
   shouldComponentUpdate(nextProps) {
     const pathname = this.props.location.pathname;
     return pathname !== nextProps.location.pathname ||
       /^\/components\//i.test(pathname);
-  }
-
-  getActiveMenuItem(props) {
-    return props.params.children || props.location.pathname;
   }
 
   fileNameToPath(filename) {
@@ -164,13 +199,22 @@ export default class MainContent extends React.Component {
     return { prev, next };
   }
 
+  handleMenuOpenChange = (openKeys) => {
+    this.setState({ openKeys });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const openKeys = this.getSideBarOpenKeys(nextProps);
+    if (openKeys) {
+      this.setState({ openKeys });
+    }
+  }
   render() {
     const props = this.props;
-    const activeMenuItem = this.getActiveMenuItem(props);
+    const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
-    const moduleData = this.getModuleData();
     const localizedPageData = props.localizedPageData;
     const demos = props.demos;
 
@@ -184,8 +228,9 @@ export default class MainContent extends React.Component {
             <Menu
               className="aside-container"
               mode="inline"
-              openKeys={Object.keys(utils.getMenuItems(moduleData))}
+              openKeys={this.state.openKeys}
               selectedKeys={[activeMenuItem]}
+              onOpenChange={this.handleMenuOpenChange}
             >
               {menuItems}
             </Menu>
