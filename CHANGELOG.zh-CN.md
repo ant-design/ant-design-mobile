@@ -30,7 +30,7 @@ timeline: true
   -  `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
   - `ImagePicker` ref 由 string 改成 function. ([#1487](https://github.com/ant-design/ant-design-mobile/pull/1487)
   - TextareaItem、SearchBar、InputItem 将 `style` 属性传至 input(web) / TextInput(rn) 元素，方便自定义样式;
-  - Progress: `wrapStyle` 改为 `style`, 原来的 `style` 将改成 `barStyle`;
+  - Progress: `wrapStyle` 改为 `style`, 原来的 `style` 将改成 `barStyle`，`unfilled` 更改为 boolean 值;
   - Switch 对 `style` 属性直接针对 switch 样式自身，方便定义样式；
   - `Flex` 清理冗余API, 只保留 `align: enum{start, center, end}`。 [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
   - `DatePicker`组件去除 moment.js 依赖，相应地`value`,`minDate`,`maxDate`,`format`,`onChange`数据类型变为`Date`对象。[#1217](https://github.com/ant-design/ant-design-mobile/issues/1217)

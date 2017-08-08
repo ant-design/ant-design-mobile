@@ -7,7 +7,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
     prefixCls: 'am-progress',
     percent: 0,
     position: 'fixed',
-    unfilled: 'show',
+    unfilled: true,
     appearTransition: false,
   };
   noAppearTransition: any;
@@ -33,7 +33,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
       [className as string]: className,
       [`${prefixCls}-outer`]: true,
       [`${prefixCls}-fixed-outer`]: position === 'fixed',
-      [`${prefixCls}-hide-outer`]: unfilled === 'hide',
+      [`${prefixCls}-hide-outer`]: !unfilled,
     });
 
     return (

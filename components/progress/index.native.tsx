@@ -9,7 +9,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
   static defaultProps = {
     percent: 0,
     position: 'normal',
-    unfilled: 'show',
+    unfilled: true,
     appearTransition: false,
     styles: ProgressStyles,
   };
@@ -76,7 +76,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
     const outerStyle = [
       styles.progressOuter,
       position === 'fixed' ? { position: 'absolute', top: 0 } : null,
-      unfilled === 'hide' ? { backgroundColor: 'transparent' } : null,
+      !unfilled ? { backgroundColor: 'transparent' } : null,
       style,
     ];
 

@@ -1,7 +1,7 @@
 interface ProgressProps {
   percent?: number;
   position?: 'fixed' | 'normal';
-  unfilled?: 'show' | 'hide';
+  unfilled?: boolean;
   style?: any;
   barStyle?: any;
   /** rn only */

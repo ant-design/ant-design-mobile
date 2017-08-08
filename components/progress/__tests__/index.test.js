@@ -14,7 +14,7 @@ describe('Progress', () => {
 
   it('renders unfilled correctly', () => {
     const wrapper = mount(
-      <Progress percent={40} position="normal" unfilled="hide" appearTransition />,
+      <Progress percent={40} position="normal" unfilled={false} appearTransition />,
     );
     expect(wrapper.find('.am-progress-hide-outer')).toHaveLength(1);
   });
