@@ -39,6 +39,7 @@
     border: @border-width-sm solid @primary-button-fill;
     // &:active, // uc browser not work normal
     &.@{buttonPrefixCls}-active {
+      color: fade(@color-text-base-inverse, 30%);
       background-color: @primary-button-fill-tap;
     }
     &.@{buttonPrefixCls}-disabled {
@@ -53,12 +54,13 @@
     border: @border-width-sm solid @ghost-button-color;
     // &:active, // uc browser not work normal
     &.@{buttonPrefixCls}-active {
-      color: @color-text-base-inverse;
-      background-color: @ghost-button-fill-tap;
+      color: @ghost-button-fill-tap;
+      background-color: transparent;
+      border-color: @ghost-button-fill-tap;
     }
     &.@{buttonPrefixCls}-disabled {
-      color: fade(@ghost-button-color, 60%);
-      border-color: fade(@ghost-button-color, 40%);
+      color: fade(@color-text-base, 10%);
+      border-color: fade(@color-text-base, 10%);
       opacity: 1; // override default opacity: 0.6
     }
   }
@@ -68,6 +70,7 @@
     background-color: @warning-button-fill;
     // &:active, // uc browser not work normal
     &.@{buttonPrefixCls}-active {
+      color: fade(@color-text-base-inverse, 30%);
       background-color: @warning-button-fill-tap;
     }
     &.@{buttonPrefixCls}-disabled {

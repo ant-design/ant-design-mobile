@@ -13,8 +13,8 @@ export default {
     borderColor: variables.primary_button_fill,
   },
   ghostHighlight: {
-    backgroundColor: variables.ghost_button_fill_tap,
-    borderColor: variables.ghost_button_color,
+    backgroundColor: 'transparent',
+    borderColor: variables.ghost_button_fill_tap,
   },
   warningHighlight: {
     backgroundColor: variables.warning_button_fill_tap,
@@ -60,7 +60,7 @@ export default {
     opacity: 0.4,
   },
   ghostDisabledRaw: {
-    borderColor: `${variables.ghost_button_color}66`, // alpha 40%  https://codepen.io/chriscoyier/pen/XjbzAW
+    borderColor: `${variables.color_text_base}1A`, // alpha 10%  https://codepen.io/chriscoyier/pen/XjbzAW
   },
   warningDisabledRaw: {
     opacity: 0.4,
@@ -69,13 +69,13 @@ export default {
     color: variables.color_text_base,
   },
   primaryHighlightText: {
-    color: variables.color_text_base_inverse,
+    color: `${variables.color_text_base_inverse}4D`, // alpha 30%  https://codepen.io/chriscoyier/pen/XjbzAW
   },
   ghostHighlightText: {
-    color: variables.color_text_base_inverse,
+    color: variables.ghost_button_fill_tap,
   },
   warningHighlightText: {
-    color: variables.color_text_base_inverse,
+    color: `${variables.color_text_base_inverse}4D`, // alpha 30%  https://codepen.io/chriscoyier/pen/XjbzAW
   },
   largeRawText: {
     fontSize: variables.button_font_size,
@@ -102,7 +102,7 @@ export default {
     color: `${variables.color_text_base_inverse}99`, // alpha 60%  https://codepen.io/chriscoyier/pen/XjbzAW
   },
   ghostDisabledRawText: {
-    color: `${variables.ghost_button_color}99`, // alpha 60%  https://codepen.io/chriscoyier/pen/XjbzAW
+    color: `${variables.color_text_base}1A`, // alpha 10%  https://codepen.io/chriscoyier/pen/XjbzAW
   },
   warningDisabledRawText: {
     color: `${variables.color_text_base_inverse}99`, // alpha 60%  https://codepen.io/chriscoyier/pen/XjbzAW
