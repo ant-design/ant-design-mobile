@@ -72,15 +72,15 @@ ReactDOM.render(<BadgeDemo />, mountNode);
 
 ````css
 .corner-badge {
-  height: 100px;
-  width: 400px;
+  height: 1rem;
+  width: 4rem;
 }
 .special-badge .am-list-line {
   padding-right: 0;
 }
 .special-badge .am-list-line .am-list-extra {
   padding: 0;
-  height: 100%;
+  height: 0.88rem;
 }
 .special-badge .am-badge {
   transform: rotate(45deg);
