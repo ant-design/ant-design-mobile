@@ -15,7 +15,8 @@ export default class NoticeBarExample extends React.Component<any, any> {
     return (
       <View style={{ marginTop: 10 }}>
         <WhiteSpace size="lg" />
-        <NoticeBar onClick={() => alert('click')}>
+        {/* marqueeProps.style only support text style props*/}
+        <NoticeBar onClick={() => alert('click')} marqueeProps={{ loop: true, style: { fontSize: 12, color: 'red' } }}>
           Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.
         </NoticeBar>
         <WhiteSpace size="lg" />
