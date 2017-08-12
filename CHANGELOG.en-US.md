@@ -47,6 +47,19 @@ timeline: true
 - **Enhancement**
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
+## 1.6.1
+
+`2017-08-12`
+
+- **Bug Fix**
+  - 修复 `TextareaItem` 输入表情符号计数不正确的bug ([#1670](https://github.com/ant-design/ant-design-mobile/pull/1670))
+  - 修复 `SwipeAction` 只设置 left 或者 right 时，相反一边还可以滑动的问题；([#1655](https://github.com/ant-design/ant-design-mobile/issues/1655))
+  - 修复 `RN InputItem` 自定义样式 color 不生效（被强制覆盖）的问题; ([#1471](https://github.com/ant-design/ant-design-mobile/issues/1471))
+  - 修复 `Toast[mask=false]` 时跟随页面滚动问题；([#1642](https://github.com/ant-design/ant-design-mobile/issues/1642))
+  - 修复 `ListView` 存在body滚动条的时候，无法实现滚动到顶部在下拉刷新; ([#1588](https://github.com/ant-design/ant-design-mobile/issues/1588))
+- **Improve && Enhancement**
+  - 网站导航栏高亮 ([#1534](https://github.com/ant-design/ant-design-mobile/issues/1534))
+
 
 ## 1.6.0
 
