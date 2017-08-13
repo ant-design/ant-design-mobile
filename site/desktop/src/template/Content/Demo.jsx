@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { FormattedMessage } from 'react-intl';
 import { Button, Modal, Radio, Tooltip, Icon } from 'antd';
+import { ping, head } from '../../../../utils';
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -16,6 +17,7 @@ export default class Demo extends React.Component {
     lang: 'es6',
     copied: false,
     sourceCode: '',
+    showRiddleButton: false,
   };
 
   saveAnchor = (anchor) => {
@@ -28,6 +30,14 @@ export default class Demo extends React.Component {
       this.anchor.click();
     }
     this.componentWillReceiveProps(this.props);
+
+    this.pingTimer = ping((status) => {
+      if (status !== 'timeout' && status !== 'error') {
+        this.setState({
+          showRiddleButton: true,
+        });
+      }
+    });
   }
 
   handleCodeExapnd = () => {
@@ -36,7 +46,7 @@ export default class Demo extends React.Component {
   }
 
   handleClick = (e) => {
-    const { togglePreview, index, currentIndex } = this.props;
+    const { togglePreview, index, currentIndex, meta } = this.props;
 
     if (index !== currentIndex && e.target.className !== 'collapse anticon anticon-circle-o-right' &&
       e.target.className !== 'fullscreen anticon anticon-arrow-salt') {
@@ -44,9 +54,12 @@ export default class Demo extends React.Component {
         index,
       });
     }
+
+    location.hash = meta.id;
   }
 
-  viewFullscreen = () => {
+  viewFullscreen = (e) => {
+    e.stopPropagation();
     this.setState({
       fullscreen: true,
     });
@@ -79,28 +92,79 @@ export default class Demo extends React.Component {
     this.setState({ lang: e.target.value });
   }
   /* eslint-disable react/jsx-indent */
-  renderDemoCode(highlightedCode, inModal) {
-    const props = this.props;
-    const lang = this.state.lang;
+  renderDemoCode = (highlightedCode, inModal) => {
+    const {
+      meta,
+      style,
+    } = this.props;
+    const { lang, sourceCode } = this.state;
+    const locale = this.context.intl.locale;
+    const localizedTitle = meta.title[locale] || meta.title;
+    const prefillStyle = `@import 'antd-mobile/dist/antd-mobile.min.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+
+    const codepenPrefillConfig = {
+      title: `${localizedTitle} - Ant Design Mobile Demo`,
+      html: `<div id="container" style="padding: 24px"></div>
+              <script>
+                var mountNode = document.getElementById('container');
+              </script>`,
+      js: sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd-mobile';/, 'const { $1 } = window["antd-mobile"];'),
+      css: prefillStyle,
+      editors: '001',
+      css_external: 'https://unpkg.com/antd-mobile/dist/antd-mobile.min.css',
+      js_external: [
+        'react/dist/react.js',
+        'react-dom/dist/react-dom.js',
+        'moment/min/moment-with-locales.js',
+        'antd-mobile/dist/antd-mobile.min.js',
+      ]
+        .map(url => `https://unpkg.com/${url}`)
+        .concat(['https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js'])
+        .join(';'),
+      js_pre_processor: 'typescript',
+      head,
+    };
+    const riddlePrefillConfig = {
+      title: `${localizedTitle} - Ant Design Mobile Demo`,
+      js: sourceCode,
+      css: prefillStyle,
+    };
     return Array.isArray(highlightedCode) ? (
       <div className="highlight">
-        <CopyToClipboard
-          text={this.state.sourceCode}
-          onCopy={this.handleCodeCopied}
-        >
-          <Tooltip
-            title={<FormattedMessage id={`app.demo.${this.state.copied ? 'copied' : 'copy'}`} />}
-            visible={this.state.copyTooltipVisible}
-            onVisibleChange={this.onCopyTooltipVisibleChange}
+        <div className="code-box-actions">
+          {this.state.showRiddleButton ? (
+            <form action="//riddle.alibaba-inc.com/riddles/define" method="POST" target="_blank">
+              <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
+              <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
+                <input type="submit" value="Create New Riddle with Prefilled Data" className="code-box-riddle" />
+              </Tooltip>
+            </form>
+          ) : null}
+          <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+            <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+            <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+              <input type="submit" value="Create New Pen with Prefilled Data" className="code-box-codepen" />
+            </Tooltip>
+          </form>
+          <CopyToClipboard
+            text={this.state.sourceCode}
+            onCopy={this.handleCodeCopied}
           >
-            <span
-              className="code-box-code-copy"
+            <Tooltip
+              title={<FormattedMessage id={`app.demo.${this.state.copied ? 'copied' : 'copy'}`} />}
+              visible={this.state.copyTooltipVisible}
+              onVisibleChange={this.onCopyTooltipVisibleChange}
             >
-              <Icon type={(this.state.copied && this.state.copyTooltipVisible) ? 'check' : 'copy'} />
-            </span>
-          </Tooltip>
-        </CopyToClipboard>
-        {props.utils.toReactComponent(highlightedCode)}
+              <span
+                className="code-box-code-copy"
+                onClick={e => e.stopPropagation()}
+              >
+                <Icon type={(this.state.copied && this.state.copyTooltipVisible) ? 'check' : 'copy'} />
+              </span>
+            </Tooltip>
+          </CopyToClipboard>
+        </div>
+        {this.props.utils.toReactComponent(highlightedCode)}
       </div>
     ) : (
       <div className="highlight">

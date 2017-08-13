@@ -43,26 +43,43 @@
   position: relative;
   margin: 0 0 16Px;
   transition: all 0.5s ease;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 10Px rgba(0, 0, 0, .15);
+    position: relative;
+    z-index: 10;
+    background: #fff;
+    transform: scale(1.001);
+  }
 
   &-preview {
     border: none;
   }
 
-  &-code-copy {
+  &-actions {
     position: absolute;
+    top: 16px;
+    right: 60px;
+    text-align: right;
+    > i,
+    > form {
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+
+  &-code-copy {
     opacity: 0;
-    top: 52Px;
-    right: 16Px;
     transition: all .24s;
     z-index: 1000;
     cursor: pointer;
     .anticon {
       font-size: 14Px;
       font-weight: bold;
-      border: 1Px solid #ededed;
       padding: 8Px;
-      border-radius: 16Px;
       background-color: rgba(256, 256, 256, 0.6);
+      width: 20px;
+      height: 20px;
     }
     &:hover {
       color: @primary-color;
@@ -75,8 +92,34 @@
     }
   }
 
-  .highlight-wrapper:hover &-code-copy {
-    opacity: 1;
+  &-codepen {
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/bsyXYJlnerAkEMGKtTpa.svg") center / 14px no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s;
+    border: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  &-riddle {
+    background: transparent url("https://zos.alipayobjects.com/rmsportal/WpXYyalbBFqfZEV.svg") center / 14px no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s;
+    border: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  .highlight-wrapper:hover &-code-copy,
+  .highlight-wrapper:hover &-codepen,
+  .highlight-wrapper:hover &-riddle {
+    opacity: .66;
   }
 }
 
@@ -225,13 +268,6 @@
 
 .code-box pre code {
   border: none;
-  background: #fff;
-}
-
-.code-box:hover {
-  box-shadow: 0 0 6Px rgba(0, 0, 0, .15);
-  position: relative;
-  z-index: 10;
   background: #fff;
 }
 

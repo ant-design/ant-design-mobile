@@ -1,4 +1,5 @@
 import React from 'react';
+import { Affix } from 'antd';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
@@ -185,30 +186,38 @@ export default class ComponentDoc extends React.Component {
             <div style={{ width: '100%', float: 'left' }}>
               {leftChildren}
             </div>
-            <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
-              <div id="aside-demo" className="aside-demo">
-                <div style={{ width: '377Px', height: '620Px' }}>
-                  <div className="demo-preview-wrapper">
-                    <div className="demo-preview-header">
-                      <div className="demo-preview-statbar">
-                        <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+            <Affix>
+              <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
+                <div id="aside-demo" className="aside-demo">
+                  <div style={{ width: '377Px', height: '620Px' }}>
+                    <div className="demo-preview-wrapper">
+                      <div className="demo-preview-header">
+                        <div className="demo-preview-statbar">
+                          <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                        </div>
+                        <div style={{ height: '40Px' }}>
+                          <div className="url-box">{iframeUrl}</div>
+                        </div>
                       </div>
-                      <div style={{ height: '40Px' }}>
-                        <div className="url-box">{iframeUrl}</div>
-                      </div>
+                      <section className="code-box-demo code-box-demo-preview">
+                        <iframe id="demoFrame"
+                          name="demoFrame"
+                          title="antd-mobile"
+                          style={{
+                            width: '377Px',
+                            height: '548Px',
+                            border: '1Px solid #F7F7F7',
+                            borderTop: 'none',
+                            boxShadow: '0 2Px 4Px #ebebeb',
+                          }}
+                          src={iframeUrl}
+                        />
+                      </section>
                     </div>
-                    <section className="code-box-demo code-box-demo-preview">
-                      <iframe id="demoFrame"
-                        name="demoFrame"
-                        title="antd-mobile"
-                        style={{ width: '377Px', height: '548Px', border: '1Px solid #F7F7F7', borderTop: 'none', boxShadow: '0 2Px 4Px #ebebeb' }}
-                        src={iframeUrl}
-                      />
-                    </section>
                   </div>
                 </div>
               </div>
-            </div>
+            </Affix>
           </div>
 
           {

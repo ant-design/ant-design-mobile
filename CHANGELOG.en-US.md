@@ -47,6 +47,14 @@ timeline: true
 - **Enhancement**
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
+
+## 1.6.2
+
+`2017-08-13`
+
+- **Improve && Enhancement**
+  - `Tabs` support `data-*` attribute ([#1648](https://github.com/ant-design/ant-design-mobile/issues/1648))
+
 ## 1.6.1
 
 `2017-08-12`
