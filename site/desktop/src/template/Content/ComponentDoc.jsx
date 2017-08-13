@@ -1,4 +1,5 @@
 import React from 'react';
+import { Affix } from 'antd';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
@@ -6,7 +7,6 @@ import { FormattedMessage } from 'react-intl';
 import Icon from 'antd/lib/icon';
 import Popover from 'antd/lib/popover';
 import QRCode from 'qrcode.react';
-import { StickyContainer, Sticky } from 'react-sticky';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 
@@ -98,31 +98,6 @@ export default class ComponentDoc extends React.Component {
   componentDidMount() {
     this.initExpandAll();
   }
-  getStickyContent = iframeUrl => ({
-    style,
-    // the following are also available but unused in this example
-    // isSticky,
-    // wasSticky,
-    // distanceFromTop,
-    // distanceFromBottom,
-    // calculatedHeight
-  }) => (
-    <section className="code-box-demo code-box-demo-preview">
-      <iframe id="demoFrame"
-        name="demoFrame"
-        title="antd-mobile"
-        style={{
-          width: '377Px',
-          height: '548Px',
-          border: '1Px solid #F7F7F7',
-          borderTop: 'none',
-          boxShadow: '0 2Px 4Px #ebebeb',
-          ...style,
-        }}
-        src={iframeUrl}
-      />
-    </section>
-  );
 
   render() {
     const props = this.props;
@@ -178,7 +153,7 @@ export default class ComponentDoc extends React.Component {
     const search = this.context.intl.locale === 'zh-CN' ? '?lang=zh-CN' : '?lang=en-US';
     const iframeUrl = `${protocol}//${host}/${mainPath}/${path}${search}${hash}`;
 
-    return (<StickyContainer>
+    return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
           <section className="markdown">
@@ -211,25 +186,38 @@ export default class ComponentDoc extends React.Component {
             <div style={{ width: '100%', float: 'left' }}>
               {leftChildren}
             </div>
-            <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
-              <div id="aside-demo" className="aside-demo">
-                <div style={{ width: '377Px', height: '620Px' }}>
-                  <div className="demo-preview-wrapper">
-                    <div className="demo-preview-header">
-                      <div className="demo-preview-statbar">
-                        <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+            <Affix>
+              <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
+                <div id="aside-demo" className="aside-demo">
+                  <div style={{ width: '377Px', height: '620Px' }}>
+                    <div className="demo-preview-wrapper">
+                      <div className="demo-preview-header">
+                        <div className="demo-preview-statbar">
+                          <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                        </div>
+                        <div style={{ height: '40Px' }}>
+                          <div className="url-box">{iframeUrl}</div>
+                        </div>
                       </div>
-                      <div style={{ height: '40Px' }}>
-                        <div className="url-box">{iframeUrl}</div>
-                      </div>
+                      <section className="code-box-demo code-box-demo-preview">
+                        <iframe id="demoFrame"
+                          name="demoFrame"
+                          title="antd-mobile"
+                          style={{
+                            width: '377Px',
+                            height: '548Px',
+                            border: '1Px solid #F7F7F7',
+                            borderTop: 'none',
+                            boxShadow: '0 2Px 4Px #ebebeb',
+                          }}
+                          src={iframeUrl}
+                        />
+                      </section>
                     </div>
-                    <Sticky>
-                      {this.getStickyContent(iframeUrl)}
-                    </Sticky>
                   </div>
                 </div>
               </div>
-            </div>
+            </Affix>
           </div>
 
           {
@@ -242,6 +230,6 @@ export default class ComponentDoc extends React.Component {
           }
         </article>
       </DocumentTitle>
-    </StickyContainer>);
+    );
   }
 }
