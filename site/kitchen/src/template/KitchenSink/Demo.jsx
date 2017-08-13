@@ -24,6 +24,7 @@ import { getQuery } from '../../../../utils';
 
   return { localizedPageData: await pageDataPromise, locale };
 })
+
 export default class Demo extends React.Component {
   goToPage = (name, index) => () => {
     location.hash = `${name}-demo-${index}`;

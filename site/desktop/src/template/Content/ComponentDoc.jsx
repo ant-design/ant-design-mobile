@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import Icon from 'antd/lib/icon';
 import Popover from 'antd/lib/popover';
 import QRCode from 'qrcode.react';
+import { StickyContainer, Sticky } from 'react-sticky';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 
@@ -97,6 +98,31 @@ export default class ComponentDoc extends React.Component {
   componentDidMount() {
     this.initExpandAll();
   }
+  getStickyContent = iframeUrl => ({
+    style,
+    // the following are also available but unused in this example
+    // isSticky,
+    // wasSticky,
+    // distanceFromTop,
+    // distanceFromBottom,
+    // calculatedHeight
+  }) => (
+    <section className="code-box-demo code-box-demo-preview">
+      <iframe id="demoFrame"
+        name="demoFrame"
+        title="antd-mobile"
+        style={{
+          width: '377Px',
+          height: '548Px',
+          border: '1Px solid #F7F7F7',
+          borderTop: 'none',
+          boxShadow: '0 2Px 4Px #ebebeb',
+          ...style,
+        }}
+        src={iframeUrl}
+      />
+    </section>
+  );
 
   render() {
     const props = this.props;
@@ -152,7 +178,7 @@ export default class ComponentDoc extends React.Component {
     const search = this.context.intl.locale === 'zh-CN' ? '?lang=zh-CN' : '?lang=en-US';
     const iframeUrl = `${protocol}//${host}/${mainPath}/${path}${search}${hash}`;
 
-    return (
+    return (<StickyContainer>
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
           <section className="markdown">
@@ -197,14 +223,9 @@ export default class ComponentDoc extends React.Component {
                         <div className="url-box">{iframeUrl}</div>
                       </div>
                     </div>
-                    <section className="code-box-demo code-box-demo-preview">
-                      <iframe id="demoFrame"
-                        name="demoFrame"
-                        title="antd-mobile"
-                        style={{ width: '377Px', height: '548Px', border: '1Px solid #F7F7F7', borderTop: 'none', boxShadow: '0 2Px 4Px #ebebeb' }}
-                        src={iframeUrl}
-                      />
-                    </section>
+                    <Sticky>
+                      {this.getStickyContent(iframeUrl)}
+                    </Sticky>
                   </div>
                 </div>
               </div>
@@ -221,6 +242,6 @@ export default class ComponentDoc extends React.Component {
           }
         </article>
       </DocumentTitle>
-    );
+    </StickyContainer>);
   }
 }

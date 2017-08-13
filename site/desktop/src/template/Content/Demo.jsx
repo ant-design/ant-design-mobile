@@ -36,7 +36,7 @@ export default class Demo extends React.Component {
   }
 
   handleClick = (e) => {
-    const { togglePreview, index, currentIndex } = this.props;
+    const { togglePreview, index, currentIndex, meta } = this.props;
 
     if (index !== currentIndex && e.target.className !== 'collapse anticon anticon-circle-o-right' &&
       e.target.className !== 'fullscreen anticon anticon-arrow-salt') {
@@ -44,6 +44,8 @@ export default class Demo extends React.Component {
         index,
       });
     }
+
+    location.hash = meta.id;
   }
 
   viewFullscreen = () => {

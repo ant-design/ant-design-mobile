@@ -43,6 +43,14 @@
   position: relative;
   margin: 0 0 16Px;
   transition: all 0.5s ease;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 10Px rgba(0, 0, 0, .15);
+    position: relative;
+    z-index: 10;
+    background: #fff;
+    transform: scale(1.001);
+  }
 
   &-preview {
     border: none;
@@ -225,13 +233,6 @@
 
 .code-box pre code {
   border: none;
-  background: #fff;
-}
-
-.code-box:hover {
-  box-shadow: 0 0 6Px rgba(0, 0, 0, .15);
-  position: relative;
-  z-index: 10;
   background: #fff;
 }
 
