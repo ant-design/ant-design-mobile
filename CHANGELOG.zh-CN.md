@@ -14,6 +14,13 @@ timeline: true
 
 ---
 
+## 1.6.2
+
+`2017-08-13`
+
+- **Improve && Enhancement**
+  - `Tabs` 支持 `data-*` 属性 ([#1648](https://github.com/ant-design/ant-design-mobile/issues/1648))
+
 ## 1.6.1
 
 `2017-08-12`
