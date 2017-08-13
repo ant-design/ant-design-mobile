@@ -25,5 +25,7 @@ module.exports = {
     'app.ComponentDoc.Modal.return': 'Close',
     'app.demo.copy': 'Copy',
     'app.demo.copied': 'Copied!',
+    'app.demo.codepen': 'Open in CodePen',
+    'app.demo.riddle': 'Open in Riddle',
   },
 };

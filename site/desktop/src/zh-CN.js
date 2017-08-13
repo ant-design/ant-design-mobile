@@ -25,5 +25,7 @@ module.exports = {
     'app.ComponentDoc.Modal.return': '返 回',
     'app.demo.copy': '复制代码',
     'app.demo.copied': '复制成功',
+    'app.demo.codepen': '在 CodePen 中打开',
+    'app.demo.riddle': '在 Riddle 中打开',
   },
 };
