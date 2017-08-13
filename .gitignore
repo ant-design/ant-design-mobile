@@ -47,3 +47,7 @@ npm-debug.log*
 coverage
 /es/
 package-lock.json
+*.web.js
+*.web.jsx
+*.web.tsx
+*.web.ts

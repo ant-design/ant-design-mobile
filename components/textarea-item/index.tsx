@@ -203,13 +203,17 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       [`${prefixCls}-label-7`]: labelNumber === 7,
     });
     const characterLength = countSymbols(value);
+    const lengthCtrlProps: any = {};
+    if (count > 0) {
+      lengthCtrlProps.maxLength = (count - characterLength) + (value ? value.length : 0);
+    }
     return (
       <div className={wrapCls}>
         {title && <div className={labelCls}>{title}</div>}
         <div className={`${prefixCls}-control`}>
           <textarea
             ref="textarea"
-            maxLength={count}
+            {...lengthCtrlProps}
             {...otherProps}
             {...valueProps}
             onChange={this.onChange}
