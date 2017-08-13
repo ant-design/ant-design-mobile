@@ -97,8 +97,23 @@ export default class ComponentDoc extends React.Component {
 
   componentDidMount() {
     this.initExpandAll();
+    document.addEventListener('scroll', this.handleScroll, false);
   }
-
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll, false);
+  }
+  handleScroll = () => {
+    const top = document.getElementById('api').getBoundingClientRect().top;
+    let hideMobile = false;
+    if (top <= 600) {
+      hideMobile = true;
+    }
+    if (hideMobile !== this.state.hideMobile) {
+      this.setState({
+        hideMobile,
+      });
+    }
+  }
   render() {
     const props = this.props;
     const { doc, location } = props;
@@ -187,7 +202,7 @@ export default class ComponentDoc extends React.Component {
               {leftChildren}
             </div>
             <Affix>
-              <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px' }}>
+              <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px', visibility: this.state.hideMobile ? 'hidden' : 'visible' }}>
                 <div id="aside-demo" className="aside-demo">
                   <div style={{ width: '377Px', height: '620Px' }}>
                     <div className="demo-preview-wrapper">
