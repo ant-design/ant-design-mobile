@@ -148,7 +148,7 @@
  * @radius: border radius
  */
 .hairline(@color, @direction) when (@direction = 'top') {
-  border-top: 1px solid @color;
+  border-top: 1PX solid @color;
 
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
@@ -162,8 +162,8 @@
         left: 0;
         top: 0;
         width: 100%;
-        height: 1px;
-        border-top: 1px solid @color;
+        height: 1PX;
+        border-top: 1PX solid @color;
         transform-origin: 0 0;
         transform: scaleY(0.5);
 
@@ -175,7 +175,7 @@
   }
 }
 .hairline(@color, @direction) when (@direction = 'right') {
-  border-right: 1px solid @color;
+  border-right: 1PX solid @color;
 
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
@@ -188,9 +188,9 @@
         position: absolute;
         right: 0;
         top: 0;
-        width: 1px;
+        width: 1PX;
         height: 100%;
-        border-right: 1px solid @color;
+        border-right: 1PX solid @color;
         transform-origin: 0 0;
         transform: scaleX(0.5);
 
@@ -202,7 +202,7 @@
   }
 }
 .hairline(@color, @direction) when (@direction = 'bottom') {
-  border-bottom: 1px solid @color;
+  border-bottom: 1PX solid @color;
 
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
@@ -216,8 +216,8 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        height: 1px;
-        border-bottom: 1px solid @color;
+        height: 1PX;
+        border-bottom: 1PX solid @color;
         transform-origin: 0 0;
         transform: scaleY(0.5);
 
@@ -229,7 +229,7 @@
   }
 }
 .hairline(@color, @direction) when (@direction = 'left') {
-  border-left: 1px solid @color;
+  border-left: 1PX solid @color;
 
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
@@ -242,9 +242,9 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: 1px;
+        width: 1PX;
         height: 100%;
-        border-left: 1px solid @color;
+        border-left: 1PX solid @color;
         transform-origin: 0 0;
         transform: scaleX(0.5);
 
@@ -256,7 +256,7 @@
   }
 }
 .hairline(@color, @radius: 0) when (@radius = 0) or (ispixel(@radius)) or (ispercentage(@radius)) {
-  border: 1px solid @color;
+  border: 1PX solid @color;
   border-radius: @radius;
 
   html:not([data-scale]) & {
@@ -272,7 +272,7 @@
         top: 0;
         width: 200%;
         height: 200%;
-        border: 1px solid @color;
+        border: 1PX solid @color;
         border-radius: @radius * 2;
         box-sizing: border-box;
         transform-origin: 0 0;
