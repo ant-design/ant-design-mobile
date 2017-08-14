@@ -1,5 +1,4 @@
 import React from 'react';
-import { Affix } from 'antd';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
@@ -8,7 +7,9 @@ import Icon from 'antd/lib/icon';
 import Popover from 'antd/lib/popover';
 import QRCode from 'qrcode.react';
 import { getChildren } from 'jsonml.js/lib/utils';
+import throttleByAnimationFrame from 'antd/lib/_util/throttleByAnimationFrame';
 import Demo from './Demo';
+
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
@@ -24,7 +25,10 @@ export default class ComponentDoc extends React.Component {
       // 收起展开代码的存储数组
       codeExpandList: [],
       toggle: false,
+      position: 'relative',
+      top: 0,
     };
+    this.handleScroll = this.getScrollHandle();
   }
 
   getIndex(props) {
@@ -98,22 +102,39 @@ export default class ComponentDoc extends React.Component {
   componentDidMount() {
     this.initExpandAll();
     document.addEventListener('scroll', this.handleScroll, false);
+    setTimeout(this.handleScroll, 0);
   }
   componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll, false);
   }
-  handleScroll = () => {
-    const top = document.getElementById('api').getBoundingClientRect().top;
-    let hideMobile = false;
-    if (top <= 600) {
-      hideMobile = true;
+
+  getScrollHandle = () => throttleByAnimationFrame(() => {
+    let position = 'relative';
+    let top = 0;
+
+    const apiTop = document.getElementById('api').getBoundingClientRect().top;
+    const demoTop = document.getElementById('demo-code').getBoundingClientRect().top;
+
+    if (demoTop <= 0) {
+      if (apiTop >= 600) {
+        // 固定在屏幕顶部
+        position = 'fixed';
+        top = 0;
+      } else if (apiTop >= 0) {
+        // 逐渐离开屏幕
+        position = 'fixed';
+        top = apiTop - 600;
+      }
     }
-    if (hideMobile !== this.state.hideMobile) {
+
+    if ((typeof top === 'number' && top !== this.state.top) || position !== this.state.position) {
       this.setState({
-        hideMobile,
+        position,
+        top,
       });
     }
-  }
+  });
+
   render() {
     const props = this.props;
     const { doc, location } = props;
@@ -168,6 +189,27 @@ export default class ComponentDoc extends React.Component {
     const search = this.context.intl.locale === 'zh-CN' ? '?lang=zh-CN' : '?lang=en-US';
     const iframeUrl = `${protocol}//${host}/${mainPath}/${path}${search}${hash}`;
 
+    const { position, top } = this.state;
+    let posStyle = {};
+    if (position === 'relative') {
+      posStyle = {
+        position,
+        float: 'right',
+        marginRight: '-405Px',
+      };
+    } else {
+      posStyle = {
+        position,
+        top,
+        right: '9.5%',
+      };
+    }
+    const mobileWrapperStyle = {
+      width: 405,
+      minHeight: 300,
+      padding: '0 0 0 30Px',
+      ...posStyle,
+    };
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
@@ -201,38 +243,36 @@ export default class ComponentDoc extends React.Component {
             <div style={{ width: '100%', float: 'left' }}>
               {leftChildren}
             </div>
-            <Affix>
-              <div style={{ width: 405, padding: '0 0 0 30Px', positon: 'relative', float: 'right', minHeight: 300, marginRight: '-405Px', visibility: this.state.hideMobile ? 'hidden' : 'visible' }}>
-                <div id="aside-demo" className="aside-demo">
-                  <div style={{ width: '377Px', height: '620Px' }}>
-                    <div className="demo-preview-wrapper">
-                      <div className="demo-preview-header">
-                        <div className="demo-preview-statbar">
-                          <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
-                        </div>
-                        <div style={{ height: '40Px' }}>
-                          <div className="url-box">{iframeUrl}</div>
-                        </div>
+            <div style={mobileWrapperStyle}>
+              <div id="aside-demo" className="aside-demo">
+                <div style={{ width: '377Px', height: '620Px' }}>
+                  <div className="demo-preview-wrapper">
+                    <div className="demo-preview-header">
+                      <div className="demo-preview-statbar">
+                        <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
                       </div>
-                      <section className="code-box-demo code-box-demo-preview">
-                        <iframe id="demoFrame"
-                          name="demoFrame"
-                          title="antd-mobile"
-                          style={{
-                            width: '377Px',
-                            height: '548Px',
-                            border: '1Px solid #F7F7F7',
-                            borderTop: 'none',
-                            boxShadow: '0 2Px 4Px #ebebeb',
-                          }}
-                          src={iframeUrl}
-                        />
-                      </section>
+                      <div style={{ height: '40Px' }}>
+                        <div className="url-box">{iframeUrl}</div>
+                      </div>
                     </div>
+                    <section className="code-box-demo code-box-demo-preview">
+                      <iframe id="demoFrame"
+                        name="demoFrame"
+                        title="antd-mobile"
+                        style={{
+                          width: '377Px',
+                          height: '548Px',
+                          border: '1Px solid #F7F7F7',
+                          borderTop: 'none',
+                          boxShadow: '0 2Px 4Px #ebebeb',
+                        }}
+                        src={iframeUrl}
+                      />
+                    </section>
                   </div>
                 </div>
               </div>
-            </Affix>
+            </div>
           </div>
 
           {
