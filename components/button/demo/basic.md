@@ -35,6 +35,8 @@ const ButtonExample = () => (
 
     <WhiteSpace />
     <Button type="primary" inline size="small" style={{ marginRight: '0.08rem' }}>primary</Button>
+    <Button type="primary" inline size="small" disabled>primary disabled</Button>
+    <WhiteSpace />
     <Button type="ghost" inline size="small" style={{ marginRight: '0.08rem' }}>ghost</Button>
     <Button type="ghost" inline size="small" disabled>ghost disabled</Button>
   </WingBlank>
