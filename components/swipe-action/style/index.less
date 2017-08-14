@@ -10,6 +10,7 @@
   &-content {
     position: relative;
     z-index: 10;
+    background-color: #fff;
   }
 
   &-cover {
@@ -17,6 +18,7 @@
     z-index: 11;
     background: transparent;
     height: 100%;
+    width: 100%;
     top: 0;
     display: none;
   }
@@ -30,7 +32,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
+    z-index: 9;
     display: flex;
     overflow: hidden;
     white-space: nowrap;
@@ -38,12 +40,10 @@
 
     &-left {
       left: 0;
-      width: 0;
     }
 
     &-right {
       right: 0;
-      width: 0;
     }
   }
 
@@ -55,9 +55,9 @@
     position: relative;
     overflow: hidden;
     z-index: 99;
+  }
 
-    &-text {
-      padding: 0 @h-spacing-sm;
-    }
+  &-text {
+    padding: 0 @h-spacing-md;
   }
 }
