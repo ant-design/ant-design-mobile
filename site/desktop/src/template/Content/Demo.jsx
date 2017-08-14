@@ -40,11 +40,6 @@ export default class Demo extends React.Component {
     });
   }
 
-  handleCodeExapnd = () => {
-    const { handleCodeExpandList, index, codeExpand } = this.props;
-    handleCodeExpandList(index, !codeExpand);
-  }
-
   handleClick = (e) => {
     const { togglePreview, index, currentIndex, meta } = this.props;
 
@@ -198,14 +193,12 @@ export default class Demo extends React.Component {
       highlightedCode,
       highlightedStyle,
       className,
-      codeExpand,
       utils,
     } = props;
 
     const codeBoxClass = classNames({
       'code-box': true,
       [className]: className,
-      expand: codeExpand,
     });
 
     const locale = this.context.intl.locale;
@@ -248,21 +241,12 @@ export default class Demo extends React.Component {
             </a>
           </div>
           {introChildren}
-
           <span
-            className="collapse anticon anticon-circle-o-right"
-            onClick={this.handleCodeExapnd}
+            className="fullscreen anticon anticon-arrow-salt"
+            onClick={this.viewFullscreen}
             unselectable="none"
           />
-
-          {codeExpand && (
-            <span
-              className="fullscreen anticon anticon-arrow-salt"
-              onClick={this.viewFullscreen}
-              unselectable="none"
-            />
-          )}
-          {codeExpand && !Array.isArray(highlightedCode) && (
+          {!Array.isArray(highlightedCode) && (
             <Radio.Group
               value={state.lang}
               onChange={this.handleProgrammingLangChange}
@@ -274,7 +258,7 @@ export default class Demo extends React.Component {
         </section>
 
         <section
-          className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
+          className="highlight-wrapper"
           key="code"
         >
           {this.renderDemoCode(highlightedCode, false)}
