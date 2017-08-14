@@ -13,7 +13,7 @@ function fixControlledValue(value) {
   return value;
 }
 
-const regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+const regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]|\n/g;
 
 function countSymbols(text = '') {
   return text.replace(regexAstralSymbols, '_').length;
