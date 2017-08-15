@@ -27,7 +27,7 @@ timeline: true
 - **Break Change**
 
   - `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
-  -  `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
+  - `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
   - `ImagePicker` ref 由 string 改成 function. ([#1487](https://github.com/ant-design/ant-design-mobile/pull/1487)
   - In order to custom style conveniently， the `style` property of `TextareaItem`、`SearchBar` and `InputItem` is passed
     to `input`(for web) or `TextInput`(for react native) element;
@@ -39,6 +39,7 @@ timeline: true
   - `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现，相关参数见 [showShareActionSheetWithOptions 文档](https://mobile.ant.design/components/action-sheet/#static-showShareActionSheetWithOptions(options:-Object,-failureCallback:-Function,-successCallback:-Function))
   - **[React Native]** Button 组件 style 里`disabledRaw`/`disabledRawText`修改为`defaultDisabledRaw`/`defaultDisabledRawText`
   - Result: `buttonClick` 更改为 `onButtonClick`
+  - 去除`Table`组件
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

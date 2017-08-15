@@ -174,9 +174,6 @@ export default {
   tag_height: 25,
   tag_small_height: 15,
 
-  // table
-  table_title_height: 30,
-
   // picker
   option_height: 42,            // picker 标题的高度
 

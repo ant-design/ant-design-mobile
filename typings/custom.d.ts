@@ -32,8 +32,6 @@ declare module 'nuka-carousel';
 
 declare module 'rc-tabs*';
 
-declare module 'rc-table';
-
 declare module 'rn-topview';
 
 declare module 'rc-notification';

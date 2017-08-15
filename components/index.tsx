@@ -55,7 +55,6 @@ export { default as Steps } from './steps/index';
 export { default as SwipeAction } from './swipe-action/index';
 export { default as Switch } from './switch/index';
 export { default as TabBar } from './tab-bar/index';
-export { default as Table } from './table/index';
 export { default as Tabs } from './tabs/index';
 export { default as Tag } from './tag/index';
 export { default as Text } from './text/index';
