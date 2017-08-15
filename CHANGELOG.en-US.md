@@ -13,6 +13,15 @@ timeline: true
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+## 1.6.3
+
+`2017-08-15`
+
+- **Bug fix**
+  - Fix `TextareaItem` calculate new line charater length。 ([#1265](https://github.com/ant-design/ant-design-mobile/issues/1265))
+
+- **Improve && Enhancement**
+  - `SwipeAction` ignore swipe vertical; ；Remove event binding when disabled; auto adjust swipe button width。 ([#1595](https://github.com/ant-design/ant-design-mobile/issues/1595))
 
 ## 1.6.2
 

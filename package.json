@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -91,7 +91,7 @@
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-markdown": "~1.0.0-beta.6",
+    "eslint-plugin-markdown": "latest",
     "eslint-plugin-react": "^7.1.0",
     "eslint-tinker": "^0.4.1",
     "glob": "^7.1.1",

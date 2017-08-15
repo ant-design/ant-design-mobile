@@ -14,6 +14,18 @@ timeline: true
 
 ---
 
+
+
+## 1.6.3
+
+`2017-08-15`
+
+- **Bug fix**
+  - 修复 `TextareaItem` 不正确处理换行符长度的问题。 ([#1265](https://github.com/ant-design/ant-design-mobile/issues/1265))
+
+- **Improve && Enhancement**
+  - `SwipeAction` 防止竖滑误触发；禁用时性能优化；滑块宽度自适应。 ([#1595](https://github.com/ant-design/ant-design-mobile/issues/1595))
+
 ## 1.6.2
 
 `2017-08-13`
