@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-alpha.5",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -46,7 +46,7 @@
     "rc-notification": "~2.0.0",
     "rc-slider": "~8.2.0",
     "rc-steps": "~2.5.1",
-    "rc-swipeout": "~1.4.0",
+    "rc-swipeout": "~1.4.2",
     "rc-table": "~5.4.0",
     "rc-tabs": "~9.1.0",
     "rc-tooltip": "~3.4.3",
