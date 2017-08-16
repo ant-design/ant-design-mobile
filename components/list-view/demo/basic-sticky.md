@@ -139,7 +139,7 @@ class Demo extends React.Component {
             <img style={{ height: '1.28rem', marginRight: '0.3rem' }} src={obj.img} alt="icon" />
             <div className="row-text">
               <div style={{ marginBottom: '0.16rem', fontWeight: 'bold' }}>{obj.des}</div>
-              <div><span style={{ fontSize: '0.6rem', color: '#FF6E27' }}>35</span>¥</div>
+              <div><span style={{ fontSize: '0.6rem', color: '#FF6E27' }}>35</span>¥ {rowID}</div>
             </div>
           </div>
         </div>
