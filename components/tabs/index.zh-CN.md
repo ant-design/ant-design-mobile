@@ -27,14 +27,14 @@ subtitle: 标签页
 | onTabClick       | tab 被点击的回调                      | (key: string): void | 无            |
 | animated |  是否动画    |  boolean   |    `true`    |
 | swipeable |  是否可以滑动 tab 内容进行切换    |  boolean   |    `true`    |
-| hammerOptions(`Web Only`) |  开启`swipeable`的时候可以对 [hammerjs](http://hammerjs.github.io/) 的 [pan](http://hammerjs.github.io/recognizer-pan/) 和 [swipe](http://hammerjs.github.io/recognizer-swipe/) 两种手势进行参数配置    |  object   |    {}   |
 | tabBarPosition |    tab 位置 top/bottom        |  string    |    `top`        |
-| destroyInactiveTabPane | 是否销毁掉不活动的 tabPane (优化使用) |  boolean    |    false   |
 | underlineColor(`react-native only`) |   线条颜色       |  string    |    `#ddd`        |
 | activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |
 | textColor(`react-native only`) |   文字颜色       |  string    |    `#000`        |
 | activeTextColor(`react-native only`) |   选中文字颜色       |  string    |    `#108ee9`        |
 | barStyle(`react-native only`) |   tabs bar  样式       |  object    |    `{}`        |
+| destroyInactiveTabPane (`web only`) | 是否销毁掉不活动的 tabPane (优化使用) |  boolean    |    false   |
+| hammerOptions(`Web Only`) |  开启`swipeable`的时候可以对 [hammerjs](http://hammerjs.github.io/) 的 [pan](http://hammerjs.github.io/recognizer-pan/) 和 [swipe](http://hammerjs.github.io/recognizer-swipe/) 两种手势进行参数配置    |  object   |    {}   |  
 | prefixCls(`web only`) |  className 前缀      |  string    |    `am-tabs`        |
 | className(`web only`) |   额外的 className      |  string    |    无        |
 | pageSize(`web only`) |  可视区显示的 tab 数量，可以看做一页     |  number    |    5       |
