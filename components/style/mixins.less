@@ -35,10 +35,15 @@
 }
 // For right and bottom
 .hairline-remove-right-bottom {
-  border-bottom: 0;
+  html:not([data-scale]) & {
+    &:after {
+      display: none;
+    }
+  }
 
-  &:after {
-    display: none;
+  html[data-scale] & {
+    border-right: 0;
+    border-bottom: 0;
   }
 }
 
@@ -49,8 +54,15 @@
 }
 // For left and top
 .hairline-remove-left-top {
-  &:before {
-    display: none;
+  html:not([data-scale]) & {
+    &:before {
+      display: none;
+    }
+  }
+
+  html[data-scale] & {
+    border-left: 0;
+    border-top: 0;
   }
 }
 
@@ -134,4 +146,151 @@
   background: @end;
   background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end)); /* Saf4+, Chrome */
   background-image: linear-gradient(@start, @end);
+}
+
+/**
+ * @color: line color
+ * @direction: line direction
+ * @radius: border radius
+ */
+.hairline(@color, @direction) when (@direction = 'top') {
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      position: relative;
+      transform: translateZ(0);
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 1PX;
+        border-top: 1PX solid @color;
+        transform-origin: 0 0;
+        transform: scaleY(0.5);
+        @media (min-resolution: 3dppx) {
+          transform: scaleY(0.33);
+        }
+      }
+    }
+  }
+
+  html[data-scale] & {
+    border-top: 1PX solid @color;
+  }
+}
+
+.hairline(@color, @direction) when (@direction = 'right') {
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      position: relative;
+      transform: translateZ(0);
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1PX;
+        height: 100%;
+        border-right: 1PX solid @color;
+        transform-origin: 0 0;
+        transform: scaleX(0.5);
+        @media (min-resolution: 3dppx) {
+          transform: scaleX(0.33);
+        }
+      }
+    }
+  }
+
+  html[data-scale] & {
+    border-right: 1PX solid @color;
+  }
+}
+
+.hairline(@color, @direction) when (@direction = 'bottom') {
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      position: relative;
+      transform: translateZ(0);
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1PX;
+        border-bottom: 1PX solid @color;
+        transform-origin: 0 0;
+        transform: scaleY(0.5);
+        @media (min-resolution: 3dppx) {
+          transform: scaleY(0.33);
+        }
+      }
+    }
+  }
+
+  html[data-scale] & {
+    border-bottom: 1PX solid @color;
+  }
+}
+
+.hairline(@color, @direction) when (@direction = 'left') {
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      position: relative;
+      transform: translateZ(0);
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1PX;
+        height: 100%;
+        border-left: 1PX solid @color;
+        transform-origin: 0 0;
+        transform: scaleX(0.5);
+        @media (min-resolution: 3dppx) {
+          transform: scaleX(0.33);
+        }
+      }
+    }
+  }
+
+  html[data-scale] & {
+    border-left: 1PX solid @color;
+  }
+}
+
+.hairline(@color, @radius: 0) when (@radius = 0) or (ispixel(@radius)) or (ispercentage(@radius)) {
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      position: relative;
+      border-radius: @radius;
+      transform: translateZ(0);
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200%;
+        height: 200%;
+        border: 1PX solid @color;
+        border-radius: @radius * 2;
+        box-sizing: border-box;
+        transform-origin: 0 0;
+        transform: scale(0.5);
+        @media (min-resolution: 3dppx) {
+          width: 300%;
+          height: 300%;
+          border-radius: @radius * 3;
+          transform: scale(0.33);
+        }
+      }
+    }
+  }
+
+  html[data-scale] & {
+    border: 1PX solid @color;
+    border-radius: @radius;
+  }
 }
