@@ -29,9 +29,9 @@
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>com.mybank.ios.RNPlayground</string>
+				<string>com.mybank.ios.phone.test</string>
 				<key>bundle-version</key>
-				<string>1.0.0</string>
+				<string>1.6.3</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>title</key>
