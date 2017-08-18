@@ -22,7 +22,7 @@ subtitle: 下拉刷新
 - onRefresh (function, required) - 刷新回调函数
 - refreshing (boolean, false) - 是否显示刷新状态
 
-如何自己设置`icon`/`loading`，参考https://github.com/ant-design/ant-design-mobile/blob/master/components/refresh-control/index.web.tsx#L11
+如何自己设置`icon`/`loading`，参考 https://github.com/ant-design/ant-design-mobile/blob/1.x/components/refresh-control/index.web.tsx#L10
 
 ## API (react-native)
 见 https://facebook.github.io/react-native/docs/refreshcontrol.html#props

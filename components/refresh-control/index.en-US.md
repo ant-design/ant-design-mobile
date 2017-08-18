@@ -21,7 +21,7 @@ Instantly reload the content by triggering.
 - onRefresh (function, required) - Called when the view starts refreshing.
 - refreshing (boolean, false) - Whether the view should be indicating an active refresh.
 
-How to set `icon`/`loading` yourself? See https://github.com/ant-design/ant-design-mobile/blob/master/components/refresh-control/index.web.tsx#L11
+How to set `icon`/`loading` yourself? See https://github.com/ant-design/ant-design-mobile/blob/1.x/components/refresh-control/index.web.tsx#L10
 
 ## API (react-native)
 See https://facebook.github.io/react-native/docs/refreshcontrol.html#props
