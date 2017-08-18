@@ -22,19 +22,12 @@
   &-body {
     position: relative;
     background-color: @fill-base;
-    .hairline-top(@border-color-base);
-    // 注意：如果元素的 overflow 有 scroll 出现，其伪元素 绝对定位 显示将出错，例如 bottom: 0
-    &:after {
-      display: block;
-      position: absolute;
-      content: '';
-      width: 100%;
-      border-bottom: @border-width-sm solid @border-color-base;
-    }
+    .hairline(@border-color-base, 'top');
+    .hairline(@border-color-base, 'bottom');
 
     div:not(:last-child) {
       .@{listPrefixCls}-line {
-        .hairline-bottom(@border-color-base);
+        .hairline(@border-color-base, 'bottom');
       }
     }
   }
@@ -141,8 +134,6 @@
     padding-right: @h-spacing-lg;
     min-height: @list-item-height;
     overflow: hidden;
-
-    // .hairline-bottom(@border-color-base);
 
     /* list左侧主内容*/
     .@{listPrefixCls}-content {

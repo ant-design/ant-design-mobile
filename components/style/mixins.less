@@ -155,6 +155,9 @@
  */
 .hairline(@color, @direction) when (@direction = 'top') {
   html:not([data-scale]) & {
+    @media (max-resolution: 1dppx) {
+      border-top: 1PX solid @color;
+    }
     @media (min-resolution: 2dppx) {
       position: relative;
       transform: translateZ(0);
@@ -162,7 +165,7 @@
         content: '';
         position: absolute;
         left: 0;
-        top: 0;
+        top: -1PX;
         width: 100%;
         height: 1PX;
         border-top: 1PX solid @color;
@@ -209,6 +212,9 @@
 
 .hairline(@color, @direction) when (@direction = 'bottom') {
   html:not([data-scale]) & {
+    @media (max-resolution: 1dppx) {
+      border-bottom: 1PX solid @color;
+    }
     @media (min-resolution: 2dppx) {
       position: relative;
       transform: translateZ(0);
@@ -216,7 +222,7 @@
         content: '';
         position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: -1PX;
         width: 100%;
         height: 1PX;
         border-bottom: 1PX solid @color;
