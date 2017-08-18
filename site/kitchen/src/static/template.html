@@ -26,6 +26,9 @@
           dpr = 1;
         }
         var scale = 1 / dpr;
+        if (scale < 1) {
+          doc.documentElement.setAttribute('data-scale', scale);
+        }
 
         var metaEl = doc.querySelector('meta[name="viewport"]');
         if (!metaEl) {
