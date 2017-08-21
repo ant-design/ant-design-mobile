@@ -1,5 +1,4 @@
 const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
-const pxtorem = require('postcss-pxtorem');
 const Visualizer = require('webpack-visualizer-plugin');
 const configSvg = require('./svg.config');
 const pkg = require('./package.json');
@@ -13,10 +12,6 @@ module.exports = function (webpackConfig) {
     webpackConfig = [webpackConfig, webpackConfig];
   }
   webpackConfig.forEach((config, index) => {
-    config.postcss.push(pxtorem({
-      rootValue: 100,
-      propWhiteList: [],
-    }));
     configSvg(config);
     if (index === 0) {
       config.plugins.push(new Visualizer({

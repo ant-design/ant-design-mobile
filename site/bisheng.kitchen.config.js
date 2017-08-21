@@ -1,5 +1,4 @@
 const path = require('path');
-const pxtorem = require('postcss-pxtorem');
 const commonConfig = require('./bisheng.common.config');
 
 module.exports = Object.assign({}, commonConfig, {
@@ -53,13 +52,6 @@ module.exports = Object.assign({}, commonConfig, {
   },
   webpackConfig(config) {
     config = commonConfig.webpackConfig(config);
-
-    config.postcss.push(pxtorem({
-      rootValue: 100,
-      propWhiteList: [],
-      // selectorBlackList: [/^html$/, /^\.ant-/, /^\.github-/, /^\.gh-/], // does't exist these class now.
-    }));
-
     return config;
   },
 });
