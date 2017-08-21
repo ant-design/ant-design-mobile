@@ -7,9 +7,11 @@
       if (!window.Intl) {
         document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js">' + '<' + '/script>');
       }
+      if(/noScale=true/.test(window.location.search)) {
+        window.__noAntdMobileScale = true;
+      }
     </script>
     <script>
-      window.__noAntdMobileScale = true;
       (function (baseFontSize, fontscale) {
         var _baseFontSize = baseFontSize || 100;
         var _fontscale = fontscale || 1;
@@ -21,7 +23,7 @@
         var isUCHd = UCversion && parseInt(UCversion[1].split('.').join(''), 10) >= 80;
         var isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
         var dpr = win.devicePixelRatio || 1;
-        if (__noAntdMobileScale || (!isIos && !(matches && matches[1] > 534) && !isUCHd)) {
+        if (window.__noAntdMobileScale || (!isIos && !(matches && matches[1] > 534) && !isUCHd)) {
           // 如果非iOS, 非Android4.3以上, 非UC内核, 就不执行高清, dpr设为1;
           dpr = 1;
         }
