@@ -67,7 +67,7 @@ ReactDOM.render(
 ````css
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````

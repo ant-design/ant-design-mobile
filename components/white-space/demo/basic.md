@@ -17,8 +17,8 @@ const PlaceHolder = props => (
       backgroundColor: '#ebebef',
       color: '#bbb',
       textAlign: 'center',
-      height: '0.6rem',
-      lineHeight: '0.6rem',
+      height: '30px',
+      lineHeight: '30px',
       width: '100%',
     }}
     {...props}

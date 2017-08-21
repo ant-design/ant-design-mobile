@@ -79,15 +79,15 @@ ReactDOM.render(<App />, mountNode);
 
 ````css
 .demo-preview-item .am-slider-wrapper {
-  margin-bottom: 0.3rem;
+  margin-bottom: 15px;
 }
 .demo-preview-item .am-slider-example {
   overflow: hidden;
 }
 .am-wingblank.am-wingblank-lg {
-  margin-bottom: 0.6rem;
+  margin-bottom: 30px;
 }
 .demo-preview-item .am-slider-wrapper:last-child {
-  margin-bottom: 0.2rem;
+  margin-bottom: 10px;
 }
 ````

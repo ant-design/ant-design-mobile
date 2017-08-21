@@ -62,7 +62,7 @@ class Demo extends React.Component {
   }
 
   render() {
-    return (<div style={{ paddingTop: '0.88rem', position: 'relative' }}>
+    return (<div style={{ paddingTop: '44px', position: 'relative' }}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
         <SearchBar
           value={this.state.inputValue}

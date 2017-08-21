@@ -36,9 +36,9 @@ const GridExample = () => (
     <Grid data={data1}
       columnNum={3}
       renderItem={dataItem => (
-        <div style={{ padding: '0.25rem' }}>
-          <img src={dataItem.icon} style={{ width: '1.5rem', height: '1.5rem' }} alt="icon" />
-          <div style={{ color: '#888', fontSize: '0.28rem', marginTop: '0.24rem' }}>
+        <div style={{ padding: '12.5px' }}>
+          <img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="icon" />
+          <div style={{ color: '#888', fontSize: '14px', marginTop: '12px' }}>
             <span>我是标题..</span>
           </div>
         </div>
@@ -56,7 +56,7 @@ ReactDOM.render(<GridExample />, mountNode);
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
-  padding: 0.3rem 0 0.18rem 0.3rem;
+  font-size: 14px;
+  padding: 15px 0 9px 15px;
 }
 ````

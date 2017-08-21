@@ -52,19 +52,19 @@ ReactDOM.render(
 .stepsExample .timeline.am-steps.am-steps-small
 .am-steps-item.am-steps-custom
 .am-steps-head-inner > .am-steps-icon {
-  width: 0.16rem;
-  height: 0.16rem;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #d9dff1;
 }
 .stepsExample .timeline.am-steps.am-steps-small .am-steps-tail {
-  top: 0.06rem;
-  padding: 0 0.16rem;
+  top: 3px;
+  padding: 0 8px;
   background-color: transparent;
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````

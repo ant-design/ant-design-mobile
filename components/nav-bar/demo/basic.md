@@ -14,7 +14,7 @@ ReactDOM.render(
       mode="light"
       onLeftClick={() => console.log('onLeftClick')}
       rightContent={[
-        <Icon key="0" type="search" style={{ marginRight: '0.32rem' }} />,
+        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
         <Icon key="1" type="ellipsis" />,
       ]}
     >NavBar</NavBar>
@@ -22,7 +22,7 @@ ReactDOM.render(
       mode="dark"
       onLeftClick={() => console.log('onLeftClick')}
       rightContent={[
-        <Icon key="0" type="search" style={{ marginRight: '0.32rem' }} />,
+        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
         <Icon key="1" type="ellipsis" />,
       ]}
     >NavBar</NavBar>

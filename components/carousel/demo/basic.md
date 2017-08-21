@@ -109,13 +109,13 @@ ReactDOM.render(<App />, mountNode);
   vertical-align: top;
 }
 .my-carousel .v-item {
-  height: 0.72rem;
-  line-height: 0.72rem;
-  padding-left: 0.2rem;
+  height: 36px;
+  line-height: 36px;
+  padding-left: 10px;
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````

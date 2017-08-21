@@ -9,7 +9,7 @@ examples with List / Flex
 import { Button, List } from 'antd-mobile';
 
 const ComplexButtonDemo = () => (
-  <List style={{ margin: '0.1rem 0', backgroundColor: 'white' }}>
+  <List style={{ margin: '5px 0', backgroundColor: 'white' }}>
     <List.Item
       extra={<Button type="ghost" size="small" inline>small</Button>}
       multipleLine

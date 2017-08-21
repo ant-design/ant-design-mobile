@@ -21,7 +21,7 @@ function handleTabClick(key) {
 }
 const makeTabPane = key => (
   <TabPane tab={`Option${key}`} key={key}>
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '5rem', backgroundColor: '#fff' }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
       {`content of option${key}`}
     </div>
   </TabPane>

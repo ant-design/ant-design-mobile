@@ -58,8 +58,8 @@ class App extends React.Component {
           >
             <div style={{
               height: '100%',
-              padding: '0 0.3rem',
-              marginRight: '-0.3rem',
+              padding: '0 15px',
+              marginRight: '-15px',
               display: 'flex',
               alignItems: 'center',
             }}

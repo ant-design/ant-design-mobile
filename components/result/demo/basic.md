@@ -51,15 +51,15 @@ ReactDOM.render(<ResultExample />, mountNode);
 
 ````css
 .sub-title {
-  margin-left: 0.3rem;
+  margin-left: 15px;
 }
 .result-example .icon {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 60px;
+  height: 60px;
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````

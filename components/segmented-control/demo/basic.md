@@ -31,7 +31,7 @@ class SegmentedControlExample extends React.Component {
         <SegmentedControl
           values={['切换一', '切换二', '切换三']}
           tintColor={'#ff0000'}
-          style={{ height: '0.8rem', width: '5rem' }}
+          style={{ height: '40px', width: '250px' }}
         />
 
         <p className="sub-title">onChange/onValueChange</p>
@@ -49,11 +49,11 @@ ReactDOM.render(<SegmentedControlExample />, mountNode);
 ````
 ````css
 .sc-example {
-  padding-bottom: 0.26rem;
+  padding-bottom: 13px;
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````
