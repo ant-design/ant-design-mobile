@@ -41,10 +41,4 @@ ReactDOM.render(<AccordionExmple />, mountNode);
 .my-accordion .pad .am-accordion-content-box {
   padding: 0.2rem;
 }
-.my-accordion .my-list .am-list-body {
-  border-top: 0;
-}
-.my-accordion .my-list .am-list-body:after {
-  border-bottom: 0;
-}
 ````

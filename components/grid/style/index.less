@@ -77,7 +77,7 @@
   &.@{gridPrefixCls}-line {
     .@{flexPrefixCls} {
       position: relative;
-      .hairline-bottom(@border-color-base);
+      .hairline(@border-color-base, 'bottom');
 
       &:last-child {
         .hairline-remove-right-bottom();
@@ -85,7 +85,7 @@
 
       .@{flexPrefixCls}-item {
         position: relative;
-        .hairline-right(@border-color-base);
+        .hairline(@border-color-base, 'right');
 
         &:last-child {
           .hairline-remove-right-bottom();

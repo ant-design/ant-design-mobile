@@ -1,38 +1,5 @@
 @import "./themes/default";
 
-.hairline-top(@color:@border-color-base, @width: @border-width-sm) {
-  border-top: @width solid @color;
-}
-
-.hairline-bottom(@color:@border-color-base, @left:0, @width: @border-width-sm) {
-  // 注意：如果元素的 overflow 有 scroll 出现，其伪元素 绝对定位 显示将出错，例如 bottom: 0
-  &:after {
-    display: block;
-    position: absolute;
-    content: '';
-    left: @left;
-    bottom: 0;
-    right: auto;
-    top: auto;
-    width: 100%;
-    border-bottom: @width solid @color;
-  }
-}
-
-.hairline-right(@color:@border-color-base) {
-  &:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    left: auto;
-    bottom: auto;
-    width: @border-width-sm;
-    height: 100%;
-    background-color: @color;
-    display: block;
-  }
-}
 // For right and bottom
 .hairline-remove-right-bottom {
   border-right: 0;
@@ -45,11 +12,6 @@
   }
 }
 
-.hairline-remove-right-bottom-bak {
-  &:after {
-    display: none;
-  }
-}
 // For left and top
 .hairline-remove-left-top {
   border-left: 0;
