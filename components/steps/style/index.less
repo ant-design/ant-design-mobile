@@ -4,8 +4,8 @@
 @stepsPrefixCls: am-steps;
 @errorTailCls: error-tail;
 @ellipsisItem: ellipsis-item;
-@defaultIconSize: 44px;
-@smallIconSize: 36px;
+@defaultIconSize: 22px;
+@smallIconSize: 18px;
 
 .@{stepsPrefixCls} {
   font-size: 0;
@@ -44,8 +44,8 @@
       .@{stepsPrefixCls}-head-inner {
         border-color: @brand-primary;
         background-color: @brand-primary;
-        width: 44px;
-        height: 44px;
+        width: 22px;
+        height: 22px;
         border-radius: @radius-circle;
         border: 0;
 
@@ -149,15 +149,15 @@
       .@{stepsPrefixCls}-head-inner {
         > .@{stepsPrefixCls}-icon {
           font-size: @font-size-subhead;
-          line-height: 40px;
-          width: 40px;
-          height: 40px;
-          border: 4px solid @color-text-placeholder;
+          line-height: 20px;
+          width: 20px;
+          height: 20px;
+          border: 2px solid @color-text-placeholder;
           border-radius: @radius-circle;
 
           .am-icon {
-            width: 36px;
-            height: 36px;
+            width: 18px;
+            height: 18px;
           }
         }
       }
@@ -178,19 +178,19 @@
   &-head-inner {
     display: block;
     box-sizing: border-box;
-    border: 4px solid @color-text-placeholder;
-    width: 48px;
-    height: 48px;
-    line-height: 48px;
+    border: 2px solid @color-text-placeholder;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
     text-align: center;
-    border-radius: 48px;
-    font-size: 28px;
-    margin-right: 16px;
+    border-radius: 24px;
+    font-size: 14px;
+    margin-right: 8px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 
     > .@{stepsPrefixCls}-icon {
       line-height: @line-height-base;
-      top: -1.5px;
+      top: -1.2.5px;
       color: @brand-primary;
       position: relative;
     }
@@ -198,10 +198,10 @@
 
   &-title {
     font-size: @font-size-caption;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     font-weight: bold;
     display: inline-block;
-    padding-right: 10px;
+    padding-right: 5px;
   }
 
   &-item:last-child {
@@ -222,13 +222,13 @@
     position: absolute;
     left: 0;
     width: 100%;
-    top: 20px;
+    top: 10px;
 
     > i {
       display: inline-block;
       vertical-align: top;
       background: @border-color-base;
-      height: 4px;
+      height: 2px;
       width: 100%;
       position: relative;
 
@@ -260,11 +260,11 @@
     }
 
     .@{stepsPrefixCls}-tail {
-      padding: 0 8px;
+      padding: 0 4px;
 
       > i {
-        height: 1px;
-        border-radius: 1px;
+        height: 1PX;
+        border-radius: 1PX;
         width: 100%;
       }
     }
@@ -289,8 +289,8 @@
       background-color: @fill-base;
 
       .am-icon {
-        width: 36px;
-        height: 36px;
+        width: 18px;
+        height: 18px;
       }
     }
   }
@@ -298,18 +298,18 @@
   &&-small .@{ellipsisItem}&-item&-status-wait&-custom &-head-inner {
     > .@{stepsPrefixCls}-icon {
       .am-icon {
-        width: 24px;
-        height: 24px;
+        width: 12px;
+        height: 12px;
       }
     }
   }
 
   &&-small &-item&-status-wait&-custom &-head-inner {
     > .@{stepsPrefixCls}-icon {
-      font-size: 20px;
-      width: 28px;
-      height: 28px;
-      line-height: 28px;
+      font-size: 10px;
+      width: 14px;
+      height: 14px;
+      line-height: 14px;
     }
   }
 
@@ -329,15 +329,15 @@
 
   .@{stepsPrefixCls}-tail {
     position: absolute;
-    left: 22px;
+    left: 11px;
     height: 100%;
-    width: 4px;
+    width: 2px;
     padding: 0;
     background-color: @border-color-base;
 
     > i {
       height: 100%;
-      width: 4px;
+      width: 2px;
 
       &:after {
         height: 0;
@@ -361,7 +361,7 @@
   }
 
   .@{stepsPrefixCls}-main {
-    min-height: 140px;
+    min-height: 70px;
     overflow: hidden;
     display: block;
 
@@ -371,7 +371,7 @@
   }
 
   .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
-    width: 4px;
+    width: 2px;
     height: 55%;
   }
 }
@@ -379,9 +379,9 @@
 .@{stepsPrefixCls}-vertical.@{stepsPrefixCls}-small {
   .@{stepsPrefixCls}-tail {
     position: absolute;
-    left: 16px;
+    left: 8px;
     padding: 0;
-    width: 2px;
+    width: 1px;
 
     > i {
       height: 100%;
@@ -390,7 +390,7 @@
 
   .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
     height: 50%;
-    width: 2px;
+    width: 1px;
   }
 
   .@{stepsPrefixCls}-item .@{stepsPrefixCls}-head-inner {
@@ -404,17 +404,17 @@
   }
 
   .@{stepsPrefixCls}-description {
-    max-width: 150px;
+    max-width: 75px;
   }
 
   &.@{stepsPrefixCls}-small .@{stepsPrefixCls}-tail {
-    top: 16px;
+    top: 8px;
   }
 }
 
 .@{stepsPrefixCls}-label-vertical {
   .@{stepsPrefixCls}-tail {
-    left: 60px;
+    left: 30px;
     right: 0;
     width: auto;
     background-color: @border-color-base;
