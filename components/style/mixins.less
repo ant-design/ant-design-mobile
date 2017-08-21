@@ -35,15 +35,13 @@
 }
 // For right and bottom
 .hairline-remove-right-bottom {
+  border-right: 0;
+  border-bottom: 0;
+
   html:not([data-scale]) & {
     &:after {
       display: none;
     }
-  }
-
-  html[data-scale] & {
-    border-right: 0;
-    border-bottom: 0;
   }
 }
 
@@ -54,15 +52,13 @@
 }
 // For left and top
 .hairline-remove-left-top {
+  border-left: 0;
+  border-top: 0;
+
   html:not([data-scale]) & {
     &:before {
       display: none;
     }
-  }
-
-  html[data-scale] & {
-    border-left: 0;
-    border-top: 0;
   }
 }
 
@@ -148,125 +144,128 @@
   background-image: linear-gradient(@start, @end);
 }
 
-/**
- * @color: line color
- * @direction: line direction
- * @radius: border radius
- */
 .hairline(@color, @direction) when (@direction = 'top') {
+  border-top: 1PX solid @color;
+
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
       position: relative;
+      border-top: none;
       transform: translateZ(0);
+
       &::before {
         content: '';
         position: absolute;
         left: 0;
-        top: 0;
+        top: -1PX;
         width: 100%;
         height: 1PX;
         border-top: 1PX solid @color;
         transform-origin: 0 0;
         transform: scaleY(0.5);
+
         @media (min-resolution: 3dppx) {
           transform: scaleY(0.33);
         }
       }
     }
   }
-
-  html[data-scale] & {
-    border-top: 1PX solid @color;
-  }
 }
 
 .hairline(@color, @direction) when (@direction = 'right') {
+  border-right: 1PX solid @color;
+
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
       position: relative;
+      border-right: none;
       transform: translateZ(0);
+
       &::after {
         content: '';
         position: absolute;
-        right: 0;
+        right: -1PX;
         top: 0;
         width: 1PX;
         height: 100%;
         border-right: 1PX solid @color;
         transform-origin: 0 0;
         transform: scaleX(0.5);
+
         @media (min-resolution: 3dppx) {
           transform: scaleX(0.33);
         }
       }
     }
   }
-
-  html[data-scale] & {
-    border-right: 1PX solid @color;
-  }
 }
 
 .hairline(@color, @direction) when (@direction = 'bottom') {
+  border-bottom: 1PX solid @color;
+
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
       position: relative;
+      border-bottom: none;
       transform: translateZ(0);
+
       &::after {
         content: '';
         position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: -1PX;
         width: 100%;
         height: 1PX;
         border-bottom: 1PX solid @color;
         transform-origin: 0 0;
         transform: scaleY(0.5);
+
         @media (min-resolution: 3dppx) {
           transform: scaleY(0.33);
         }
       }
     }
   }
-
-  html[data-scale] & {
-    border-bottom: 1PX solid @color;
-  }
 }
 
 .hairline(@color, @direction) when (@direction = 'left') {
+  border-left: 1PX solid @color;
+
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
       position: relative;
+      border-left: none;
       transform: translateZ(0);
+
       &::before {
         content: '';
         position: absolute;
-        left: 0;
+        left: -1PX;
         top: 0;
         width: 1PX;
         height: 100%;
         border-left: 1PX solid @color;
         transform-origin: 0 0;
         transform: scaleX(0.5);
+
         @media (min-resolution: 3dppx) {
           transform: scaleX(0.33);
         }
       }
     }
   }
-
-  html[data-scale] & {
-    border-left: 1PX solid @color;
-  }
 }
 
 .hairline(@color, @radius: 0) when (@radius = 0) or (ispixel(@radius)) or (ispercentage(@radius)) {
+  border: 1PX solid @color;
+  border-radius: @radius;
+
   html:not([data-scale]) & {
     @media (min-resolution: 2dppx) {
       position: relative;
-      border-radius: @radius;
+      border: none;
       transform: translateZ(0);
+
       &::before {
         content: '';
         position: absolute;
@@ -279,6 +278,7 @@
         box-sizing: border-box;
         transform-origin: 0 0;
         transform: scale(0.5);
+
         @media (min-resolution: 3dppx) {
           width: 300%;
           height: 300%;
@@ -287,10 +287,5 @@
         }
       }
     }
-  }
-
-  html[data-scale] & {
-    border: 1PX solid @color;
-    border-radius: @radius;
   }
 }
