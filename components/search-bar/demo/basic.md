@@ -23,7 +23,7 @@ class SearchBarExample extends React.Component {
   render() {
     return (<div>
       <WingBlank><div className="sub-title">普通</div></WingBlank>
-      <SearchBar placeholder="搜索" />
+      <SearchBar placeholder="搜索" maxLength={8} />
       <WhiteSpace />
       <WingBlank><div className="sub-title">自动获取光标，支付宝客户端有效</div></WingBlank>
       <SearchBar placeholder="自动获取光标，支付宝客户端有效" autoFocus />

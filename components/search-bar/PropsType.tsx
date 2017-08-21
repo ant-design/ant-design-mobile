@@ -20,6 +20,7 @@ export interface SearchBarProps {
   prefixCls?: string;
   className?: string;
   onClear?: Function;
+  maxLength?: number;
 }
 
 export interface SearchBarState {
