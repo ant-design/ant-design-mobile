@@ -174,7 +174,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   render() {
     const {
       prefixCls, showCancelButton, disabled, placeholder,
-      cancelText, className, style,
+      cancelText, className, style, maxLength,
     } = this.props;
 
     const { value, focus } = this.state;
@@ -221,6 +221,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
             onBlur={this.onBlur}
             ref="searchInput"
             style={style}
+            maxLength={maxLength}
             {...getDataAttr(this.props)}
           />
           <a onClick={this.onClear} className={clearCls} />
