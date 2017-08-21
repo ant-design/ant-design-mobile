@@ -2,7 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const rootPath = '/Users/jiangkai/github/ant-design-mobile/components';
+const rootPath = '/Users/jiangkai/github/ant-design-mobile/site/kitchen';
 
 function rewrite(value) {
   return value.replace(/(\d+)px/ig, (match, p1) => {
