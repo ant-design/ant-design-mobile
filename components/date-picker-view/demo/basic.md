@@ -43,6 +43,6 @@ ReactDOM.render(<DatePickerViewExample />, mountNode);
 ````
 ````css
 .sub-title {
-  margin: 0.16rem;
+  margin: 8px;
 }
 ````

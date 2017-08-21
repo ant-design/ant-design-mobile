@@ -30,14 +30,14 @@ const ButtonExample = () => (
     {/* <Button activeStyle={{ backgroundColor: 'red' }}>custom feedback style</Button><WhiteSpace /> */}
 
     <WhiteSpace />
-    <Button type="primary" inline style={{ marginRight: '0.08rem' }}>inline primary</Button>
-    <Button type="ghost" inline style={{ marginRight: '0.08rem' }}>inline ghost</Button>
+    <Button type="primary" inline style={{ marginRight: '4px' }}>inline primary</Button>
+    <Button type="ghost" inline style={{ marginRight: '4px' }}>inline ghost</Button>
 
     <WhiteSpace />
-    <Button type="primary" inline size="small" style={{ marginRight: '0.08rem' }}>primary</Button>
+    <Button type="primary" inline size="small" style={{ marginRight: '4px' }}>primary</Button>
     <Button type="primary" inline size="small" disabled>primary disabled</Button>
     <WhiteSpace />
-    <Button type="ghost" inline size="small" style={{ marginRight: '0.08rem' }}>ghost</Button>
+    <Button type="ghost" inline size="small" style={{ marginRight: '4px' }}>ghost</Button>
     <Button type="ghost" inline size="small" disabled>ghost disabled</Button>
   </WingBlank>
 );

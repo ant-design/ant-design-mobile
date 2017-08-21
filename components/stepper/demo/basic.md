@@ -31,7 +31,7 @@ class Demo extends React.Component {
           wrap
           extra={
             <Stepper
-              style={{ width: '100%', minWidth: '2rem' }}
+              style={{ width: '100%', minWidth: '100px' }}
               showNumber
               max={10}
               min={1}
@@ -45,7 +45,7 @@ class Demo extends React.Component {
           wrap
           extra={
             <Stepper
-              style={{ width: '100%', minWidth: '2rem' }}
+              style={{ width: '100%', minWidth: '100px' }}
               showNumber
               max={10}
               min={1}
@@ -58,7 +58,7 @@ class Demo extends React.Component {
         </List.Item>
         <List.Item extra={
           <Stepper
-            style={{ width: '100%', minWidth: '2rem' }}
+            style={{ width: '100%', minWidth: '100px' }}
             showNumber
             max={10}
             min={1}

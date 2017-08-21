@@ -49,15 +49,15 @@ class TabBarExample extends React.Component {
           title="生活"
           key="生活"
           icon={<div style={{
-            width: '0.44rem',
-            height: '0.44rem',
-            background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  0.42rem 0.42rem no-repeat' }}
+            width: '22px',
+            height: '22px',
+            background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
           />
           }
           selectedIcon={<div style={{
-            width: '0.44rem',
-            height: '0.44rem',
-            background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  0.42rem 0.42rem no-repeat' }}
+            width: '22px',
+            height: '22px',
+            background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
           />
           }
           selected={this.state.selectedTab === 'blueTab'}
@@ -90,16 +90,16 @@ class TabBarExample extends React.Component {
         <TabBar.Item
           icon={
             <div style={{
-              width: '0.44rem',
-              height: '0.44rem',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  0.42rem 0.42rem no-repeat' }}
+              width: '22px',
+              height: '22px',
+              background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }}
             />
           }
           selectedIcon={
             <div style={{
-              width: '0.44rem',
-              height: '0.44rem',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  0.42rem 0.42rem no-repeat' }}
+              width: '22px',
+              height: '22px',
+              background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
             />
           }
           title="朋友"
@@ -142,7 +142,7 @@ ReactDOM.render(<TabBarExample />, mountNode);
   flex-direction: column;
 }
 #tab-bar .demoName {
-  height: 0.8rem;
+  height: 40px;
 }
 #tab-bar .demo-preview-item,
 #tab-bar .demo-preview-item .am-tab-bar {

@@ -75,7 +75,7 @@ ReactDOM.render(<SearchBarExample />, mountNode);
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: .1400px;
   padding: 30px 0 18px 0;
 }
 ```

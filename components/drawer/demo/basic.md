@@ -71,7 +71,7 @@ ReactDOM.render(<App1 />, mountNode);
   -webkit-overflow-scrolling: touch;
 }
 .my-drawer .am-drawer-sidebar .am-list {
-  width: 6rem;
+  width: 300px;
   padding: 0;
 }
 ````

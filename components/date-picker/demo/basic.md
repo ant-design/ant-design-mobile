@@ -30,7 +30,7 @@ function formatDate(date) {
 const CustomChildren = props => (
   <div
     onClick={props.onClick}
-    style={{ backgroundColor: '#fff', height: '0.9rem', lineHeight: '0.9rem', padding: '0 0.3rem' }}
+    style={{ backgroundColor: '#fff', height: '45px', lineHeight: '45px', padding: '0 15px' }}
   >
     {props.children}
     <span style={{ float: 'right', color: '#888' }}>{props.extra}</span>

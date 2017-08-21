@@ -16,8 +16,8 @@ const PlaceHolder = props => (
       backgroundColor: '#ebebef',
       color: '#bbb',
       textAlign: 'center',
-      height: '0.6rem',
-      lineHeight: '0.6rem',
+      height: '30px',
+      lineHeight: '30px',
       width: '100%',
     }}
     {...props}
@@ -25,7 +25,7 @@ const PlaceHolder = props => (
 );
 
 const WingBlankExample = () => (
-  <div style={{ padding: '0.3rem 0' }}>
+  <div style={{ padding: '15px 0' }}>
     <WingBlank><PlaceHolder /></WingBlank>
 
     <WhiteSpace size="lg" />

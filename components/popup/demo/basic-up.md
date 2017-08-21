@@ -48,9 +48,9 @@ class Test extends React.Component {
           <List.Item key={index}>{i}</List.Item>
         ))}
       </List>
-      <ul style={{ padding: '0.18rem 0.3rem', listStyle: 'none' }}>
+      <ul style={{ padding: '9px 15px', listStyle: 'none' }}>
         <li>投资说明投资说明...</li>
-        <li style={{ marginTop: '0.18rem' }}>
+        <li style={{ marginTop: '9px' }}>
           <Button type="primary" onClick={() => this.onClose('cancel')}>买入</Button>
         </li>
       </ul>
@@ -61,7 +61,7 @@ class Test extends React.Component {
     Popup.hide();
   };
   render() {
-    return (<div style={{ padding: '0.3rem' }}>
+    return (<div style={{ padding: '15px' }}>
       <Button onClick={this.onClick}>显示</Button>
     </div>);
   }
@@ -71,7 +71,7 @@ ReactDOM.render(<Test />, mountNode);
 ````
 ````css
 .popup-list .am-list-body {
-  height: 4.2rem;
+  height: 210px;
   overflow: auto;
 }
 ````

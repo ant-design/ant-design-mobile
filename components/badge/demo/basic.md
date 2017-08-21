@@ -20,7 +20,7 @@ const BadgeDemo = () => (
   <List>
     <List.Item extra="Extra content" arrow="horizontal">
       <Badge dot>
-        <span style={{ width: '0.52rem', height: '0.52rem', background: '#ddd', display: 'inline-block' }} />
+        <span style={{ width: '26px', height: '26px', background: '#ddd', display: 'inline-block' }} />
       </Badge>
       <span style={{ marginLeft: 12 }}>Dot Badge</span>
     </List.Item>
@@ -51,12 +51,12 @@ const BadgeDemo = () => (
     </List.Item>
     <List.Item>
       Customize
-      <Badge text="券" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#f19736', borderRadius: 2 }} />
-      <Badge text="NEW" style={{ marginLeft: 12, padding: '0 0.06rem', backgroundColor: '#21b68a', borderRadius: 2 }} />
+      <Badge text="券" style={{ marginLeft: 12, padding: '0 3px', backgroundColor: '#f19736', borderRadius: 2 }} />
+      <Badge text="NEW" style={{ marginLeft: 12, padding: '0 3px', backgroundColor: '#21b68a', borderRadius: 2 }} />
       <Badge text="自动缴费"
         style={{
           marginLeft: 12,
-          padding: '0 0.06rem',
+          padding: '0 3px',
           backgroundColor: '#fff',
           borderRadius: 2,
           color: '#f19736',
@@ -72,24 +72,24 @@ ReactDOM.render(<BadgeDemo />, mountNode);
 
 ````css
 .corner-badge {
-  height: 1rem;
-  width: 4rem;
+  height: 50px;
+  width: 200px;
 }
 .special-badge .am-list-line {
   padding-right: 0;
 }
 .special-badge .am-list-line .am-list-extra {
   padding: 0;
-  height: 0.88rem;
+  height: 44px;
 }
 .special-badge .am-badge {
   transform: rotate(45deg);
   transform-origin: right bottom;
   right: 0;
-  top: 0.26rem;
-  width: 1rem;
+  top: 13px;
+  width: 50px;
 }
 .special-badge .am-badge-text {
-  border-radius: 0.02rem;
+  border-radius: 1px;
 }
 ````

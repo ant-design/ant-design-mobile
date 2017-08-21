@@ -49,12 +49,12 @@ ReactDOM.render(<MyProgress />, mountNode);
 
 ````css
 .show-info {
-  margin-top: 0.36rem;
+  margin-top: 18px;
   display: flex;
   align-items: center;
 }
 .show-info .progress {
-  margin-right: 0.1rem;
+  margin-right: 5px;
   width: 100%;
 }
 ````

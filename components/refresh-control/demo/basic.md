@@ -124,17 +124,17 @@ class App extends React.Component {
       return (
         <div key={rowID}
           style={{
-            padding: '0.08rem 0.16rem',
+            padding: '4px 8px',
             backgroundColor: 'white',
           }}
         >
-          <h3 style={{ padding: 2, marginBottom: '0.08rem', borderBottom: '1px solid #F6F6F6' }}>
+          <h3 style={{ padding: 2, marginBottom: '4px', borderBottom: '1px solid #F6F6F6' }}>
             {obj.title}
           </h3>
           <div style={{ display: '-webkit-box', display: 'flex' }}>
-            <img style={{ height: '1.28rem', marginRight: '0.08rem' }} src={obj.img} alt="icon" />
+            <img style={{ height: '64px', marginRight: '4px' }} src={obj.img} alt="icon" />
             <div style={{ display: 'inline-block' }}>
-              <div style={{ margin: '0.1rem 0 0.2rem 0' }}>{obj.des}-{rowData}</div>
+              <div style={{ margin: '5px 0 10px 0' }}>{obj.des}-{rowData}</div>
               <div><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</div>
             </div>
           </div>
@@ -154,7 +154,7 @@ class App extends React.Component {
         style={{
           height: this.state.height,
           border: '1px solid #ddd',
-          margin: '0.1rem 0',
+          margin: '5px 0',
         }}
         scrollerOptions={{ scrollbars: true }}
         refreshControl={<RefreshControl

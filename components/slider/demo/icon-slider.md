@@ -61,16 +61,16 @@ ReactDOM.render(
 ````css
 .iconWrapper {
   position: relative;
-  padding: 0 0.62rem;
+  padding: 0 31px;
 }
 
 .iconWrapper .am-icon {
   position: absolute;
-  top: -0.22rem;
-  width: 0.44rem;
-  height: 0.44rem;
+  top: -11px;
+  width: 22px;
+  height: 22px;
   line-height: 1;
-  font-size: 0.44rem;
+  font-size: 22px;
   color: #000;
 }
 

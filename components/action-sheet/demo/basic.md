@@ -89,13 +89,13 @@ class Test extends React.Component {
   }
   render() {
     return (<div className="actionSheetContainer">
-      <div style={{ margin: '0.15rem 0' }}>
+      <div style={{ margin: '7.5px 0' }}>
         <Button onClick={this.showActionSheet}>默认状态</Button>
       </div>
-      <div style={{ margin: '0.15rem 0' }}>
+      <div style={{ margin: '7.5px 0' }}>
         <Button onClick={this.showShareActionSheet}>分享功能</Button>
       </div>
-      <div style={{ margin: '0.15rem 0' }}>
+      <div style={{ margin: '7.5px 0' }}>
         <Button onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能</Button>
       </div>
     </div>);
@@ -107,10 +107,10 @@ ReactDOM.render(<Test />, mountNode);
 
 ````css
 .actionSheetContainer {
-  margin: 0 0.3rem;
+  margin: 0 15px;
 }
 
 .my-action-sheet .am-action-sheet-share-list-item-icon img {
-  width: 0.72rem;
+  width: 36px;
 }
 ````

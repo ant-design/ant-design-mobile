@@ -145,11 +145,11 @@ class Demo extends React.Component {
       return (
         <div key={rowID} className="row">
           <div className="row-title">{obj.title}</div>
-          <div style={{ display: '-webkit-box', display: 'flex', padding: '0.3rem 0' }}>
-            <img style={{ height: '1.28rem', marginRight: '0.3rem' }} src={obj.img} alt="icon" />
+          <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
+            <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="icon" />
             <div className="row-text">
-              <div style={{ marginBottom: '0.16rem', fontWeight: 'bold' }}>{obj.des}</div>
-              <div><span style={{ fontSize: '0.6rem', color: '#FF6E27' }}>35</span>¥ {rowID}</div>
+              <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
+              <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {rowID}</div>
             </div>
           </div>
         </div>
@@ -174,7 +174,7 @@ class Demo extends React.Component {
           height: document.documentElement.clientHeight * 3 / 4,
           overflow: 'auto',
           border: '1px solid #ddd',
-          margin: '0.1rem 0',
+          margin: '5px 0',
         }}
         pageSize={4}
         onScroll={() => { console.log('scroll'); }}
@@ -191,19 +191,19 @@ ReactDOM.render(<Demo />, mountNode);
 ````
 ````css
 .row {
-  padding: 0 0.3rem;
+  padding: 0 15px;
   background-color: white;
 }
 .row-title {
-  height: 1rem;
-  line-height: 1rem;
+  height: 50px;
+  line-height: 50px;
   color: #888;
-  font-size: 0.36rem;
+  font-size: 18px;
   border-bottom: 1px solid #F6F6F6;
 }
 .row-text {
   display: inline-block;
-  font-size: 0.32rem;
+  font-size: 16px;
   line-height: 1;
 }
 ````

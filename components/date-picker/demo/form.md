@@ -89,7 +89,7 @@ class Test extends React.Component {
         </DatePicker>
         <List.Item>
           <Button type="primary" size="small" inline onClick={this.onSubmit}>Submit</Button>
-          <Button size="small" inline style={{ marginLeft: '0.05rem' }} onClick={this.onReset}>重置</Button>
+          <Button size="small" inline style={{ marginLeft: '2.5px' }} onClick={this.onReset}>重置</Button>
         </List.Item>
       </List>
     </form>);

@@ -66,11 +66,11 @@ class BasicInput extends React.Component {
         <Item
           extra={<Switch {...getFieldProps('1', { initialValue: true, valuePropName: 'checked' })} />}
         >Confirm Infomation</Item>
-        <Item><div style={{ position: 'relative', top: '-0.14rem' }}><RangeWithTooltip defaultValue={[20, 80]} /></div></Item>
-        <Item extra={<Stepper style={{ width: '100%', minWidth: '2rem' }} showNumber size="small" defaultValue={20} />}>Number of Subscribers</Item>
+        <Item><div style={{ position: 'relative', top: '-7px' }}><RangeWithTooltip defaultValue={[20, 80]} /></div></Item>
+        <Item extra={<Stepper style={{ width: '100%', minWidth: '100px' }} showNumber size="small" defaultValue={20} />}>Number of Subscribers</Item>
         <Item>
           <Button type="primary" size="small" inline onClick={this.onSubmit}>Submit</Button>
-          <Button size="small" inline style={{ marginLeft: '0.05rem' }} onClick={this.onReset}>Reset</Button>
+          <Button size="small" inline style={{ marginLeft: '2.5px' }} onClick={this.onReset}>Reset</Button>
         </Item>
       </List>
     </form>);
