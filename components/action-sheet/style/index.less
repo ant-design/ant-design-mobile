@@ -43,9 +43,7 @@
       height: @actionsheet-item-height;
       line-height: @actionsheet-item-height;
       box-sizing: border-box;
-      .hairline-top(@border-color-base);
-      // border-top: @border-width-sm solid @border-color-base;
-      // &:active {
+      .hairline(@border-color-base, 'top');
       &&-active {
         background-color: @fill-tap;
       }
@@ -62,8 +60,8 @@
         width: 100%;
         height: @v-spacing-sm;
         background-color: #e7e7ed;
-        .hairline-top(@border-color-base);
-        .hairline-bottom(@border-color-base);
+        .hairline(@border-color-base, 'top');
+        .hairline(@border-color-base, 'bottom');
       }
     }
 
@@ -76,7 +74,7 @@
     &-list {
       display: flex;
       position: relative;
-      .hairline-top(@border-color-base);
+      .hairline(@border-color-base, 'top');
 
       padding: @v-spacing-xl 0 @v-spacing-xl @h-spacing-lg;
       overflow-y: scroll;
@@ -117,10 +115,9 @@
       color: @color-text-base;
       font-size: @button-font-size;
       position: relative;
-      .hairline-top(@border-color-base);
+      .hairline(@border-color-base, 'top');
       box-sizing: border-box;
 
-      // &:active {
       &&-active {
         background-color: @fill-tap;
       }

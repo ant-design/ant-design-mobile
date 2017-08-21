@@ -5,7 +5,7 @@
 
 .@{accordionPrefixCls} {
   position: relative;
-  .hairline-top(@border-color-base);
+  .hairline(@border-color-base, 'top');
 
   &-anim-active {
     transition: all .2s ease-out;
@@ -23,7 +23,7 @@
       overflow: hidden;
       padding-left: @h-spacing-lg;
       padding-right: 2 * @h-spacing-lg;
-      .hairline-bottom(@border-color-base);
+      .hairline(@border-color-base, 'bottom');
       .ellipsis();
 
       i {
@@ -56,7 +56,12 @@
         font-size: @font-size-subhead;
         color: @color-text-paragraph;
         position: relative;
-        .hairline-bottom(@border-color-base);
+        .hairline(@border-color-base, 'bottom');
+
+        .am-list-body {
+          border-top: 0;
+          border-bottom: 0;
+        }
       }
 
       &.@{accordionPrefixCls}-content-inactive {

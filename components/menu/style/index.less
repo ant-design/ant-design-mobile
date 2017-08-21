@@ -70,7 +70,6 @@
             .hairline-remove-right-bottom();
 
             .@{listPrefixCls}-line {
-              // .hairline-bottom(@border-color-base);
               .@{listPrefixCls}-extra {
                 flex: 0;
               }
@@ -99,11 +98,11 @@
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
             .@{listPrefixCls}-line {
-              .hairline-bottom(@border-color-base);
+              .hairline(@border-color-base, 'bottom');
             }
 
             &:last-child {
-              .hairline-bottom(@border-color-base);
+              .hairline(@border-color-base, 'bottom');
 
               .@{listPrefixCls}-line {
                 .hairline-remove-right-bottom();
