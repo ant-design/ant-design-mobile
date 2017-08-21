@@ -84,8 +84,8 @@ class App extends React.Component {
           autoplayInterval={300}
           resetAutoplay={false}
         >
-          {['ring', 'ruby', 'iPhone', 'iPod', 'sorry', 'tourism', 'coke', 'ticket', 'note'].map(it => (
-            <div className="v-item">{it}</div>
+          {['ring', 'ruby', 'iPhone', 'iPod', 'sorry', 'tourism', 'coke', 'ticket', 'note'].map(type => (
+            <div className="v-item" key={type}>{type}</div>
           ))}
         </Carousel>
       </WingBlank>

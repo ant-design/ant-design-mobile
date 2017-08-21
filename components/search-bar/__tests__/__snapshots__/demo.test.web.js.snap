@@ -37,6 +37,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
       </div>
       <input
         class="am-search-value"
+        maxlength="8"
         placeholder="搜索"
         type="search"
         value=""
