@@ -56,7 +56,7 @@ ReactDOM.render(<GridExample />, mountNode);
 }
 .sub-title {
   color: #888;
-  font-size: .1400px;
+  font-size: 14px;
   padding: 15px 0 9px 15px;
 }
 ````
