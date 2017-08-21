@@ -20,12 +20,12 @@
 .@{stepperPrefixCls} {
   position: relative;
   margin: 0;
-  padding: 4px 0;
+  padding: 2px 0;
   display: inline-block;
   box-sizing: content-box;
-  width: 126px;
-  height: 70px;
-  line-height: 70px;
+  width: 63px;
+  height: 35px;
+  line-height: 35px;
   font-size: @font-size-base;
   vertical-align: middle;
   overflow: hidden;
@@ -33,15 +33,15 @@
   &-handler-wrap {
     position: absolute;
     width: 100%;
-    font-size: 48px;
+    font-size: 24px;
   }
 
   &-handler,
   &-handler-up-inner,
   &-handler-down-inner {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
   }
 
   &-handler {
@@ -75,23 +75,23 @@
     .iconfont-mixin();
 
     user-select: none;
-    right: 4px;
+    right: 2px;
     color: @color-text-base;
   }
 
   &-input-wrap {
     display: none;
     width: 100%;
-    height: 60px;
-    line-height: 60px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
     overflow: hidden;
   }
 
   &-input {
     display: none;
-    width: 120px;
-    font-size: 32px;
+    width: 60px;
+    font-size: 16px;
     color: @color-text-base;
     text-align: center;
     border: 0;
@@ -106,7 +106,7 @@
   }
 
   &.showNumber {
-    width: 276px;
+    width: 138px;
 
     .@{stepperPrefixCls}-input-wrap {
       display: inline-block;
@@ -128,7 +128,7 @@
     }
 
     .@{stepperPrefixCls}-handler-down-disabled {
-      right: -2px;
+      right: -1px;
     }
   }
 

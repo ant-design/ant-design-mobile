@@ -2,58 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
     <title>支付宝移动组件库</title>
     <script>
       if (!window.Intl) {
         document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js">' + '<' + '/script>');
-      }
-      if(/noScale=true/.test(window.location.search)) {
-        window.__noAntdMobileScale = true;
-      }
-    </script>
-    <script>
-      (function (baseFontSize, fontscale) {
-        var _baseFontSize = baseFontSize || 100;
-        var _fontscale = fontscale || 1;
-        var win = window;
-        var doc = win.document;
-        var ua = navigator.userAgent;
-        var matches = ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
-        var UCversion = ua.match(/U3\/((\d+|\.){5,})/i);
-        var isUCHd = UCversion && parseInt(UCversion[1].split('.').join(''), 10) >= 80;
-        var isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
-        var dpr = win.devicePixelRatio || 1;
-        if (window.__noAntdMobileScale || (!isIos && !(matches && matches[1] > 534) && !isUCHd)) {
-          // 如果非iOS, 非Android4.3以上, 非UC内核, 就不执行高清, dpr设为1;
-          dpr = 1;
-        }
-        var scale = 1 / dpr;
-        if (scale < 1) {
-          doc.documentElement.setAttribute('data-scale', scale);
-        }
-
-        var metaEl = doc.querySelector('meta[name="viewport"]');
-        if (!metaEl) {
-          metaEl = doc.createElement('meta');
-          metaEl.setAttribute('name', 'viewport');
-          doc.head.appendChild(metaEl);
-        }
-        metaEl.setAttribute('content', 'width=device-width,user-scalable=no,initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale);
-        doc.documentElement.style.fontSize = _baseFontSize / 2 * dpr * _fontscale + 'px';
-      })();
-      if(!window.Promise) {
-        document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
-      }
-      // Enable Google Analytics
-      if (!location.port) {
-        /* eslint-disable */
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-72788897-2', 'auto');
-        ga('send', 'pageview');
-        /* eslint-enable */
       }
     </script>
     <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" type="image/x-icon">

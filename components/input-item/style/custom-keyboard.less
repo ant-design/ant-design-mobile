@@ -11,8 +11,8 @@
     .ellipsis();
 
     .fake-input-container {
-      height: 60px;
-      line-height: 60px;
+      height: 30px;
+      line-height: 30px;
       position: relative;
 
       .fake-input {
@@ -21,11 +21,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        margin-right: 10px;
+        margin-right: 5px;
         text-decoration: rtl;
         text-align: right;
         color: #000;
-        font-size: 34px;
+        font-size: 17px;
 
         &.fake-input-disabled {
           color: @color-text-disabled;
@@ -40,7 +40,7 @@
             right: 0;
             top: 10%;
             height: 80%;
-            border-right: 3px solid @keyboard-confirm-color;
+            border-right: 1.5px solid @keyboard-confirm-color;
             animation: keyboard-cursor infinite 1s step-start;
           }
         }
@@ -61,14 +61,14 @@
 
 .@{keyboardPrefixCls}-wrapper {
   &.@{keyboardPrefixCls}-wrapper-hide {
-    bottom: -1000px;
+    bottom: -500px;
   }
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
-  height: 400px;
+  height: 200px;
   z-index: 10000;
   font-family: 'PingFang SC';
   background-color: #f6f6f7;
@@ -81,7 +81,7 @@
     padding: 0;
     margin: 0;
     border-collapse: collapse;
-    border-top: 1Px solid #ccc;
+    border-top: 1PX solid #ccc;
 
     tr {
       width: 100%;
@@ -92,11 +92,11 @@
         width: 25%;
         padding: 0;
         margin: 0;
-        height: 100px;
+        height: 50px;
         text-align: center;
-        border-left: 1Px solid #ccc;
-        border-bottom: 1Px solid #ccc;
-        font-size: 51px;
+        border-left: 1PX solid #ccc;
+        border-bottom: 1PX solid #ccc;
+        font-size: 25.5px;
         color: #2a2b2c;
         position: relative;
 
@@ -106,7 +106,7 @@
 
         &.keyboard-confirm {
           color: #fff;
-          font-size: 42px;
+          font-size: 21px;
           background-color: @keyboard-confirm-color;
 
           &.@{keyboardPrefixCls}-item-active {
@@ -121,14 +121,14 @@
 
         &.keyboard-delete {
           .encoded-svg-background('input_item_kb_backspace');
-          background-size: 51px 37px;
+          background-size: 25.5px 18.5px;
           background-position: 50% 50%;
           background-repeat: no-repeat;
         }
 
         &.keyboard-hide {
           .encoded-svg-background('input_item_kb_hide');
-          background-size: 65px 47px;
+          background-size: 32.5px 23.5px;
           background-position: 50% 50%;
           background-repeat: no-repeat;
         }

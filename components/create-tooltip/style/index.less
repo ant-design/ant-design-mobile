@@ -5,15 +5,15 @@
 // tooltip
 @tooltip-color: @color-text-base-inverse;
 @tooltip-bg: @fill-mask;
-@tooltip-arrow-width: 8px;
+@tooltip-arrow-width: 4px;
 @tooltip-distance: @tooltip-arrow-width + @v-spacing-sm;
 @tooltip-arrow-color: @tooltip-bg;
 
 .@{sliderPrefixCls}-tooltip,
 .rc-slider-tooltip {
   position: absolute;
-  left: -9999px;
-  top: -9999px;
+  left: -4999.5px;
+  top: -4999.5px;
   z-index: 4;
   visibility: visible;
   box-sizing: border-box;
@@ -27,9 +27,9 @@
   }
 
   &-inner {
-    padding: 12px 4px;
-    min-width: 48px;
-    height: 32px;
+    padding: 6px 2px;
+    min-width: 24px;
+    height: 16px;
     font-size: @font-size-subhead;
     line-height: @line-height-base;
     color: @tooltip-color;
@@ -37,7 +37,7 @@
     text-decoration: none;
     background-color: @tooltip-bg;
     border-radius: @radius-xs;
-    // box-shadow: 0 0 4px #d9d9d9;
+    // box-shadow: 0 0 2px #d9d9d9;
   }
 
   &-arrow {
