@@ -10,6 +10,7 @@ module.exports = (config, includeDemo) => {
   if (includeDemo) {
     svgDirs = svgDirs.concat([
       path.resolve(__dirname, 'components/steps/demo/'),
+      path.resolve(__dirname, 'components/button/demo/'),
       path.resolve(__dirname, 'components/icon/demo/'),
       path.resolve(__dirname, 'components/popover/demo/'),
       path.resolve(__dirname, 'components/action-sheet/demo/'),
