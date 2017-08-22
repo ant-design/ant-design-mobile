@@ -20,7 +20,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
             class="am-badge"
           >
             <span
-              style="width:0.52rem;height:0.52rem;background:#ddd;display:inline-block;"
+              style="width:26px;height:26px;background:#ddd;display:inline-block;"
             />
             <sup
               class="am-badge-dot"
@@ -270,7 +270,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;padding:0 0.06rem;background-color:#f19736;border-radius:2px;"
+              style="margin-left:12px;padding:0 3px;background-color:#f19736;border-radius:2px;"
             >
               券
             </sup>
@@ -280,7 +280,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;padding:0 0.06rem;background-color:#21b68a;border-radius:2px;"
+              style="margin-left:12px;padding:0 3px;background-color:#21b68a;border-radius:2px;"
             >
               NEW
             </sup>
@@ -290,7 +290,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;padding:0 0.06rem;background-color:#fff;border-radius:2px;color:#f19736;border:1px solid #f19736;"
+              style="margin-left:12px;padding:0 3px;background-color:#fff;border-radius:2px;color:#f19736;border:1px solid #f19736;"
             >
               自动缴费
             </sup>

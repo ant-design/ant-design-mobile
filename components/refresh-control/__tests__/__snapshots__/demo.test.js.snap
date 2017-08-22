@@ -3,7 +3,7 @@
 exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
 <div
   class="am-list-view-scrollview"
-  style="position:relative;overflow:hidden;flex:1;height:0;border:1px solid #ddd;margin:0.1rem 0;"
+  style="position:relative;overflow:hidden;flex:1;height:0;border:1px solid #ddd;margin:5px 0;"
 >
   <div
     class="am-list-view-scrollview-content am-list"
@@ -49,10 +49,10 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
         class="list-view-section-body"
       >
         <div
-          style="padding:0.08rem 0.16rem;background-color:white;"
+          style="padding:4px 8px;background-color:white;"
         >
           <h3
-            style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
+            style="padding:2px;margin-bottom:4px;border-bottom:1px solid #F6F6F6;"
           >
             Eat the week
           </h3>
@@ -62,13 +62,13 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <img
               alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png"
-              style="height:1.28rem;margin-right:0.08rem;"
+              style="height:64px;margin-right:4px;"
             />
             <div
               style="display:inline-block;"
             >
               <div
-                style="margin:0.1rem 0 0.2rem 0;"
+                style="margin:5px 0 10px 0;"
               >
                 不是所有的兼职汪都需要风吹日晒-r0
               </div>
@@ -87,10 +87,10 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
         />
         <div
-          style="padding:0.08rem 0.16rem;background-color:white;"
+          style="padding:4px 8px;background-color:white;"
         >
           <h3
-            style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
+            style="padding:2px;margin-bottom:4px;border-bottom:1px solid #F6F6F6;"
           >
             McDonald's invites you
           </h3>
@@ -100,13 +100,13 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <img
               alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png"
-              style="height:1.28rem;margin-right:0.08rem;"
+              style="height:64px;margin-right:4px;"
             />
             <div
               style="display:inline-block;"
             >
               <div
-                style="margin:0.1rem 0 0.2rem 0;"
+                style="margin:5px 0 10px 0;"
               >
                 不是所有的兼职汪都需要风吹日晒-r1
               </div>
@@ -125,10 +125,10 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
         />
         <div
-          style="padding:0.08rem 0.16rem;background-color:white;"
+          style="padding:4px 8px;background-color:white;"
         >
           <h3
-            style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
+            style="padding:2px;margin-bottom:4px;border-bottom:1px solid #F6F6F6;"
           >
             Meet hotel
           </h3>
@@ -138,13 +138,13 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <img
               alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png"
-              style="height:1.28rem;margin-right:0.08rem;"
+              style="height:64px;margin-right:4px;"
             />
             <div
               style="display:inline-block;"
             >
               <div
-                style="margin:0.1rem 0 0.2rem 0;"
+                style="margin:5px 0 10px 0;"
               >
                 不是所有的兼职汪都需要风吹日晒-r2
               </div>
@@ -163,10 +163,10 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
         />
         <div
-          style="padding:0.08rem 0.16rem;background-color:white;"
+          style="padding:4px 8px;background-color:white;"
         >
           <h3
-            style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
+            style="padding:2px;margin-bottom:4px;border-bottom:1px solid #F6F6F6;"
           >
             Eat the week
           </h3>
@@ -176,13 +176,13 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <img
               alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png"
-              style="height:1.28rem;margin-right:0.08rem;"
+              style="height:64px;margin-right:4px;"
             />
             <div
               style="display:inline-block;"
             >
               <div
-                style="margin:0.1rem 0 0.2rem 0;"
+                style="margin:5px 0 10px 0;"
               >
                 不是所有的兼职汪都需要风吹日晒-r3
               </div>
@@ -201,10 +201,10 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
         />
         <div
-          style="padding:0.08rem 0.16rem;background-color:white;"
+          style="padding:4px 8px;background-color:white;"
         >
           <h3
-            style="padding:2px;margin-bottom:0.08rem;border-bottom:1px solid #F6F6F6;"
+            style="padding:2px;margin-bottom:4px;border-bottom:1px solid #F6F6F6;"
           >
             McDonald's invites you
           </h3>
@@ -214,13 +214,13 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
             <img
               alt="icon"
               src="https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png"
-              style="height:1.28rem;margin-right:0.08rem;"
+              style="height:64px;margin-right:4px;"
             />
             <div
               style="display:inline-block;"
             >
               <div
-                style="margin:0.1rem 0 0.2rem 0;"
+                style="margin:5px 0 10px 0;"
               >
                 不是所有的兼职汪都需要风吹日晒-r4
               </div>

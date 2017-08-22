@@ -6,7 +6,7 @@ exports[`renders ./components/list-view/demo/basic.md correctly 1`] = `
 >
   <div
     class="fortest am-list-view-scrollview"
-    style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1;height:0;border:1px solid #ddd;margin:0.1rem 0;"
+    style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1;height:0;border:1px solid #ddd;margin:5px 0;"
   >
     <div
       class="am-list-view-scrollview-content am-list"
@@ -618,7 +618,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
 
 exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
 <div
-  style="padding-top:0.88rem;position:relative;"
+  style="padding-top:44px;position:relative;"
 >
   <div
     style="position:absolute;top:0;left:0;right:0;"

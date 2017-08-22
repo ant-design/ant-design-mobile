@@ -2,13 +2,13 @@
 
 exports[`renders ./components/wing-blank/demo/basic.md correctly 1`] = `
 <div
-  style="padding:0.3rem 0;"
+  style="padding:15px 0;"
 >
   <div
     class="am-wingblank am-wingblank-lg"
   >
     <div
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Block
     </div>
@@ -20,7 +20,7 @@ exports[`renders ./components/wing-blank/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-md"
   >
     <div
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Block
     </div>
@@ -32,7 +32,7 @@ exports[`renders ./components/wing-blank/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-sm"
   >
     <div
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Block
     </div>

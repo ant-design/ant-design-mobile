@@ -37,7 +37,7 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
     >
       <svg
         class="am-icon am-icon-search am-icon-md"
-        style="margin-right:0.32rem;"
+        style="margin-right:16px;"
       >
         <use
           xlink:href="#search"
@@ -87,7 +87,7 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
     >
       <svg
         class="am-icon am-icon-search am-icon-md"
-        style="margin-right:0.32rem;"
+        style="margin-right:16px;"
       >
         <use
           xlink:href="#search"

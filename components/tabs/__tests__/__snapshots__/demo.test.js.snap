@@ -78,7 +78,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         role="tabpanel"
       >
         <div
-          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
+          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff;"
         >
           Content of Second Tab
         </div>
@@ -284,7 +284,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
         role="tabpanel"
       >
         <div
-          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
+          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff;"
         >
           content of option8
         </div>
@@ -372,7 +372,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
         role="tabpanel"
       >
         <div
-          style="display:flex;align-items:center;justify-content:center;height:5rem;background-color:#fff;"
+          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff;"
         >
           Content of Third Tab
         </div>

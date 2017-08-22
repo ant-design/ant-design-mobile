@@ -33,7 +33,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-notice-bar-marquee"
-          style="position:relative;right:0;white-space:nowrap;display:inline-block;padding:0 0.15rem;"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block;padding:0 7.5px;"
         >
           Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day. 
         </div>

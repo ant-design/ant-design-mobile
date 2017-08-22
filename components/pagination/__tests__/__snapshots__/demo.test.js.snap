@@ -196,7 +196,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   </p>
   <div
     class="am-pagination"
-    style="margin-bottom:0.32rem;"
+    style="margin-bottom:16px;"
   >
     <div
       class="am-pagination-wrap"

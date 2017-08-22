@@ -1005,15 +1005,15 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           class="am-grid-item-content"
         >
           <div
-            style="padding:0.25rem;"
+            style="padding:12.5px;"
           >
             <img
               alt="icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
+              style="width:75px;height:75px;"
             />
             <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
+              style="color:#888;font-size:14px;margin-top:12px;"
             >
               <span>
                 我是标题..
@@ -1030,15 +1030,15 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           class="am-grid-item-content"
         >
           <div
-            style="padding:0.25rem;"
+            style="padding:12.5px;"
           >
             <img
               alt="icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
+              style="width:75px;height:75px;"
             />
             <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
+              style="color:#888;font-size:14px;margin-top:12px;"
             >
               <span>
                 我是标题..
@@ -1055,94 +1055,15 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           class="am-grid-item-content"
         >
           <div
-            style="padding:0.25rem;"
+            style="padding:12.5px;"
           >
             <img
               alt="icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
+              style="width:75px;height:75px;"
             />
             <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
-            >
-              <span>
-                我是标题..
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
-    >
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            style="padding:0.25rem;"
-          >
-            <img
-              alt="icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
-            />
-            <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
-            >
-              <span>
-                我是标题..
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            style="padding:0.25rem;"
-          >
-            <img
-              alt="icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
-            />
-            <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
-            >
-              <span>
-                我是标题..
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            style="padding:0.25rem;"
-          >
-            <img
-              alt="icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
-            />
-            <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
+              style="color:#888;font-size:14px;margin-top:12px;"
             >
               <span>
                 我是标题..
@@ -1163,15 +1084,15 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           class="am-grid-item-content"
         >
           <div
-            style="padding:0.25rem;"
+            style="padding:12.5px;"
           >
             <img
               alt="icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
+              style="width:75px;height:75px;"
             />
             <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
+              style="color:#888;font-size:14px;margin-top:12px;"
             >
               <span>
                 我是标题..
@@ -1188,15 +1109,15 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           class="am-grid-item-content"
         >
           <div
-            style="padding:0.25rem;"
+            style="padding:12.5px;"
           >
             <img
               alt="icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
+              style="width:75px;height:75px;"
             />
             <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
+              style="color:#888;font-size:14px;margin-top:12px;"
             >
               <span>
                 我是标题..
@@ -1213,15 +1134,94 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           class="am-grid-item-content"
         >
           <div
-            style="padding:0.25rem;"
+            style="padding:12.5px;"
           >
             <img
               alt="icon"
               src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
-              style="width:1.5rem;height:1.5rem;"
+              style="width:75px;height:75px;"
             />
             <div
-              style="color:#888;font-size:0.28rem;margin-top:0.24rem;"
+              style="color:#888;font-size:14px;margin-top:12px;"
+            >
+              <span>
+                我是标题..
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+    >
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            style="padding:12.5px;"
+          >
+            <img
+              alt="icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
+              style="width:75px;height:75px;"
+            />
+            <div
+              style="color:#888;font-size:14px;margin-top:12px;"
+            >
+              <span>
+                我是标题..
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            style="padding:12.5px;"
+          >
+            <img
+              alt="icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
+              style="width:75px;height:75px;"
+            />
+            <div
+              style="color:#888;font-size:14px;margin-top:12px;"
+            >
+              <span>
+                我是标题..
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            style="padding:12.5px;"
+          >
+            <img
+              alt="icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/WXoqXTHrSnRcUwEaQgXJ.png"
+              style="width:75px;height:75px;"
+            />
+            <div
+              style="color:#888;font-size:14px;margin-top:12px;"
             >
               <span>
                 我是标题..

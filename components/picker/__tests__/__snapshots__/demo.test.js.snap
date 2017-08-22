@@ -126,10 +126,10 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
       </div>
       <div>
         <div
-          style="background-color:#fff;padding:0 0.3rem;"
+          style="background-color:#fff;padding:0 15px;"
         >
           <div
-            style="display:flex;height:0.9rem;line-height:0.9rem;"
+            style="display:flex;height:45px;line-height:45px;"
           >
             <div
               style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"

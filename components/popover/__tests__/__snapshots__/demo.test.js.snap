@@ -22,7 +22,7 @@ exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
       class="am-navbar-right"
     >
       <div
-        style="height:100%;padding:0 0.3rem;margin-right:-0.3rem;display:flex;align-items:center;"
+        style="height:100%;padding:0 15px;margin-right:-15px;display:flex;align-items:center;"
       >
         <svg
           class="am-icon am-icon-ellipsis am-icon-md"

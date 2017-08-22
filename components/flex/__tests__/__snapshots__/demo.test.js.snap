@@ -16,7 +16,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
       >
         Item
       </div>
@@ -25,41 +25,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
-      >
-        Item
-      </div>
-    </div>
-  </div>
-  <div
-    class="am-whitespace am-whitespace-lg"
-  />
-  <div
-    class="am-flexbox am-flexbox-align-center"
-  >
-    <div
-      class="am-flexbox-item"
-    >
-      <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
-      >
-        Item
-      </div>
-    </div>
-    <div
-      class="am-flexbox-item"
-    >
-      <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
-      >
-        Item
-      </div>
-    </div>
-    <div
-      class="am-flexbox-item"
-    >
-      <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
       >
         Item
       </div>
@@ -75,7 +41,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
       >
         Item
       </div>
@@ -84,7 +50,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
       >
         Item
       </div>
@@ -93,7 +59,23 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
+      >
+        Item
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-flexbox am-flexbox-align-center"
+  >
+    <div
+      class="am-flexbox-item"
+    >
+      <div
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
       >
         Item
       </div>
@@ -102,7 +84,25 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
+      >
+        Item
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item"
+    >
+      <div
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
+      >
+        Item
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item"
+    >
+      <div
+        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
       >
         Item
       </div>
@@ -121,43 +121,43 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   >
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
@@ -175,19 +175,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   >
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
@@ -200,19 +200,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   >
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
@@ -225,19 +225,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   >
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
@@ -250,19 +250,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   >
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline small"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
@@ -275,19 +275,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   >
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline small"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
@@ -300,19 +300,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   >
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline small"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>
     <div
       class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:0.6rem;line-height:0.6rem;width:100%;"
+      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%;"
     >
       Item
     </div>

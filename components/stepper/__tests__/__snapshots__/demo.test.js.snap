@@ -28,7 +28,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-stepper showNumber"
-            style="width:100%;min-width:2rem;"
+            style="width:100%;min-width:100px;"
           >
             <div
               class="am-stepper-handler-wrap"
@@ -104,7 +104,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-stepper showNumber"
-            style="width:100%;min-width:2rem;"
+            style="width:100%;min-width:100px;"
           >
             <div
               class="am-stepper-handler-wrap"
@@ -180,7 +180,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-stepper showNumber am-stepper-disabled"
-            style="width:100%;min-width:2rem;"
+            style="width:100%;min-width:100px;"
           >
             <div
               class="am-stepper-handler-wrap"

@@ -73,7 +73,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           >
              
             <div
-              style="width:0.44rem;height:0.44rem;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  0.42rem 0.42rem no-repeat;"
+              style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat;"
             />
              
             <sup
@@ -146,7 +146,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
             class="am-tab-bar-tab-badge tab-dot am-badge"
           >
             <div
-              style="width:0.44rem;height:0.44rem;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  0.42rem 0.42rem no-repeat;"
+              style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat;"
             />
             <sup
               class="am-badge-dot"

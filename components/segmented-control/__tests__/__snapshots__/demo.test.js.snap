@@ -126,7 +126,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
   <div
     class="am-segment"
     role="tablist"
-    style="height:0.8rem;width:5rem;"
+    style="height:40px;width:250px;"
   >
     <div
       aria-disabled="false"

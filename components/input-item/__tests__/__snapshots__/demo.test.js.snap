@@ -255,7 +255,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-label am-input-label-5"
         >
           <div
-            style="background-image:url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png);background-size:cover;height:0.44rem;width:0.44rem;"
+            style="background-image:url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png);background-size:cover;height:22px;width:22px;"
           />
         </div>
         <div

@@ -372,11 +372,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-flexbox am-flexbox-align-center"
-    style="padding:0.3rem;"
+    style="padding:15px;"
   >
     <div
       class="am-flexbox-item"
-      style="padding:0.3rem 0;color:#888;flex:none;"
+      style="padding:15px 0;color:#888;flex:none;"
     >
       Radio Demo(Customized style)
     </div>

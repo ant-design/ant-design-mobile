@@ -618,7 +618,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             class="am-list-content"
           >
             <div
-              style="position:relative;top:-0.14rem;"
+              style="position:relative;top:-7px;"
             >
               <div
                 class="am-slider-wrapper"
@@ -683,7 +683,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
           >
             <div
               class="am-stepper showNumber"
-              style="width:100%;min-width:2rem;"
+              style="width:100%;min-width:100px;"
             >
               <div
                 class="am-stepper-handler-wrap"
@@ -765,7 +765,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
               aria-disabled="false"
               class="am-button am-button-small am-button-inline"
               role="button"
-              style="margin-left:0.05rem;"
+              style="margin-left:2.5px;"
             >
               <span>
                 Reset
