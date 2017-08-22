@@ -109,8 +109,6 @@ export default {
   button_height_sm: 23,
   button_font_size_sm: 12,
 
-  across_button_height: 50,
-
   primary_button_fill: brandPrimary,
   primary_button_fill_tap: '#0e80d2',
 
