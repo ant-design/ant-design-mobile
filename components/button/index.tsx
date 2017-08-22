@@ -30,7 +30,6 @@ class Button extends React.Component<ButtonProps, any> {
     prefixCls: 'am-button',
     size: 'large',
     inline: false,
-    across: false,
     disabled: false,
     loading: false,
     activeStyle: {},
@@ -38,7 +37,7 @@ class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const {
-      children, className, prefixCls, type, size, inline, across,
+      children, className, prefixCls, type, size, inline,
       disabled, icon, loading, activeStyle, activeClassName, onClick,
       delayPressIn, delayPressOut, ...restProps,
     } = this.props;
@@ -51,7 +50,6 @@ class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-warning`]: type === 'warning',
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-inline`]: inline,
-      [`${prefixCls}-across`]: across,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-loading`]: loading,
     };

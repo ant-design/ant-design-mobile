@@ -21,7 +21,6 @@ Properties | Descrition | Type | Default
 | onClick    | set the handler to handle `click` event | (e: Object): void |  -  |
 | style    | custom style |   Object  | - |
 | inline (`WEB only`)     | whether set as an inline button  | boolean |   false  |
-| across (`WEB only`)     | whether display button across  | boolean |   false  |
 | loading (`WEB only`)	   | whether set loading state  | boolean	 | false |
 | icon (`WEB only`)  | can be set to one type value of the [Icon Component](https://mobile.ant.design/components/icon) or require your local svg image. (Note: It will be overwritten by the `loading` setting) | `string`/`require(./local.svg)` | -  |
 | prefixCls (`WEB only`) |  prefix class | string | `am-button` |

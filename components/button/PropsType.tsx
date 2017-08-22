@@ -15,7 +15,6 @@ export interface ButtonProps {
   className?: string;
   role?: string;
   inline?: boolean;
-  across?: boolean;
   icon?: string;
   activeClassName?: string;
   /* for native */

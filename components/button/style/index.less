@@ -13,7 +13,6 @@
   font-size: @button-font-size;
   height: @button-height;
   line-height: @button-height;
-  border-radius: @radius-md;
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -23,8 +22,9 @@
   // default
   color: @color-text-base;
   background-color: @fill-base;
-  border: @border-width-sm solid @border-color-base;
-  // &:active, // uc browser not work normal
+
+  .hairline(@border-color-base, @radius-md);
+
   &&-active {
     background-color: @fill-tap;
   }
@@ -36,8 +36,8 @@
   &-primary {
     color: @color-text-base-inverse;
     background-color: @primary-button-fill;
-    border: @border-width-sm solid @primary-button-fill;
-    // &:active, // uc browser not work normal
+    .hairline(@primary-button-fill, @radius-md);
+
     &.@{buttonPrefixCls}-active {
       color: fade(@color-text-base-inverse, 30%);
       background-color: @primary-button-fill-tap;
@@ -51,16 +51,16 @@
   &-ghost {
     color: @ghost-button-color;
     background-color: transparent;
-    border: @border-width-sm solid @ghost-button-color;
-    // &:active, // uc browser not work normal
+    .hairline(@ghost-button-color, @radius-md);
+
     &.@{buttonPrefixCls}-active {
       color: @ghost-button-fill-tap;
       background-color: transparent;
-      border-color: @ghost-button-fill-tap;
+      .hairline(@ghost-button-fill-tap, @radius-md);
     }
     &.@{buttonPrefixCls}-disabled {
       color: fade(@color-text-base, 10%);
-      border-color: fade(@color-text-base, 10%);
+      .hairline(fade(@color-text-base, 10%), @radius-md);
       opacity: 1; // override default opacity: 0.6
     }
   }
@@ -68,7 +68,7 @@
   &-warning {
     color: @color-text-base-inverse;
     background-color: @warning-button-fill;
-    // &:active, // uc browser not work normal
+
     &.@{buttonPrefixCls}-active {
       color: fade(@color-text-base-inverse, 30%);
       background-color: @warning-button-fill-tap;
@@ -76,17 +76,6 @@
     &.@{buttonPrefixCls}-disabled {
       color: fade(@color-text-base-inverse, 60%);
       opacity: 0.4;
-    }
-  }
-
-  &,
-  &-primary,
-  &-ghost,
-  &-warning {
-    &.@{buttonPrefixCls}-across {
-      border-radius: 0;
-      border-left: 0;
-      border-right: 0;
     }
   }
 
@@ -100,7 +89,6 @@
     height: @button-height-sm;
     line-height: @button-height-sm;
     padding: 0 @h-spacing-lg;
-    border-radius: @radius-md;
   }
 
   &-icon {
