@@ -30,7 +30,6 @@ class Button extends React.Component<ButtonProps, any> {
     prefixCls: 'am-button',
     size: 'large',
     inline: false,
-    across: false,
     disabled: false,
     loading: false,
     activeStyle: {},

@@ -26,6 +26,9 @@ timeline: true
   - Button 组件分别对应各个 type 新增各自的 disabled 状态样式
 
 - **Break Change**
+
+  - 去除高清方案，antd-mobile 样式都改为以 `375px` 为满屏宽度， `px` 为单位。
+  - `Button` 去除 `across` 模式。
   - `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
   - `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
   - `ImagePicker` ref 由 string 改成 function. ([#1487](https://github.com/ant-design/ant-design-mobile/pull/1487)
