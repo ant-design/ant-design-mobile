@@ -737,7 +737,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     carousel
   </div>
   <div
-    class="am-grid am-grid-line"
+    class="am-grid am-grid-line am-grid-carousel"
   >
     <div
       class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
