@@ -31,14 +31,13 @@
     }
 
     .@{searchPrefixCls}-synthetic-ph {
+      display: block;
       z-index: 1;
       height: @search-bar-input-height;
       line-height: @search-bar-input-height;
-      width: 100%;
-      transition: width .3s;
-      display: block;
       text-align: center;
-
+      padding-left: @h-spacing-lg;
+      width: auto;
       &-icon {
         display: inline-block;
         margin-right: @h-spacing-sm;
@@ -50,16 +49,10 @@
         background-size: @icon-size-xxs auto;
         .encoded-svg-background('search_bar_search');
       }
-
-      &-placeholder {
-        color: @color-text-placeholder;
-        font-size: @searchbar-font-size;
-      }
     }
 
     input[type="search"] {
       z-index: 2;
-      opacity: 0;
       width: 100%;
       text-align: left;
       display: block;
@@ -68,13 +61,13 @@
       font-size: @searchbar-font-size;
       background-color: transparent;
       border: 0;
+      padding-left: @h-spacing-lg + @icon-size-xxs + @h-spacing-sm;
 
       &::placeholder {
-        background: none;
         text-align: left;
-        // color: @color-text-placeholder;
-        color: transparent;
-        // font-size: @input-font-size;
+        height: @search-bar-input-height;
+        color: @color-text-placeholder;
+        font-size: @searchbar-font-size;
       }
 
       &::-webkit-search-cancel-button {
@@ -111,40 +104,15 @@
 
   &-cancel {
     flex: none;
-    opacity: 0;
     padding-left: @h-spacing-md;
     height: @search-bar-height;
     line-height: @search-bar-height;
     font-size: @link-button-font-size;
     color: @brand-primary;
     text-align: right;
-
-    &-anim {
-      transition: margin-right .3s, opacity .3s;
-      transition-delay: .1s;
-    }
-
+    display: none;
     &-show {
-      opacity: 1;
-    }
-  }
-
-  &.@{searchPrefixCls}-start {
-    .@{searchPrefixCls}-input {
-      input[type="search"] {
-        opacity: 1;
-        padding-left: @h-spacing-lg + @icon-size-xxs + @h-spacing-sm;
-
-        &::placeholder {
-          // display: none;
-          color: transparent;
-        }
-      }
-
-      .@{searchPrefixCls}-synthetic-ph {
-        padding-left: @h-spacing-lg;
-        width: auto;
-      }
+      display: block;
     }
   }
 }
