@@ -633,19 +633,9 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
         <div
           class="am-search-synthetic-ph"
         >
-          <span
-            class="am-search-synthetic-ph-container"
-          >
-            <i
-              class="am-search-synthetic-ph-icon"
-            />
-            <span
-              class="am-search-synthetic-ph-placeholder"
-              style="visibility:visible;"
-            >
-              Search
-            </span>
-          </span>
+          <i
+            class="am-search-synthetic-ph-icon"
+          />
         </div>
         <input
           class="am-search-value"
