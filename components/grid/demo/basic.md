@@ -51,9 +51,6 @@ ReactDOM.render(<GridExample />, mountNode);
 ````
 
 ````css
-.am-grid {
-  border: 1px solid #ddd;
-}
 .sub-title {
   color: #888;
   font-size: 14px;
