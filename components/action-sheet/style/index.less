@@ -43,7 +43,7 @@
       height: @actionsheet-item-height;
       line-height: @actionsheet-item-height;
       box-sizing: border-box;
-      .hairline(@border-color-base, 'top');
+      .hairline('top');
       &&-active {
         background-color: @fill-tap;
       }
@@ -60,8 +60,8 @@
         width: 100%;
         height: @v-spacing-sm;
         background-color: #e7e7ed;
-        .hairline(@border-color-base, 'top');
-        .hairline(@border-color-base, 'bottom');
+        .hairline('top');
+        .hairline('bottom');
       }
     }
 
@@ -74,7 +74,7 @@
     &-list {
       display: flex;
       position: relative;
-      .hairline(@border-color-base, 'top');
+      .hairline('top');
 
       padding: @v-spacing-xl 0 @v-spacing-xl @h-spacing-lg;
       overflow-y: scroll;
@@ -115,7 +115,7 @@
       color: @color-text-base;
       font-size: @button-font-size;
       position: relative;
-      .hairline(@border-color-base, 'top');
+      .hairline('top');
       box-sizing: border-box;
 
       &&-active {

@@ -20,7 +20,7 @@
   }
 
   &-button-group-h {
-    border-top: @border-width-sm solid @border-color-base;
+    .hairline('top');
     display: flex;
 
     .@{modalPrefixClass}-button {
@@ -30,7 +30,7 @@
 
       &:first-child {
         color: @color-text-base;
-        border-right: @border-width-sm solid @border-color-base;
+        .hairline('right');
       }
     }
   }
@@ -39,7 +39,7 @@
     .@{modalPrefixClass}-button {
       -webkit-touch-callout: none;
       display: block;
-      border-top: @border-width-sm solid @border-color-base;
+      .hairline('top');
       .button-common();
     }
   }

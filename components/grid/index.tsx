@@ -162,6 +162,7 @@ export default class Grid extends React.Component<GridProps, any> {
         className={classNames({
           [prefixCls as string]: true,
           [`${prefixCls}-line`]: hasLine,
+          [`${prefixCls}-carousel`]: isCarousel,
           [className as string]: className,
         })}
       >

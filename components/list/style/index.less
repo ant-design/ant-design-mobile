@@ -22,12 +22,12 @@
   &-body {
     position: relative;
     background-color: @fill-base;
-    .hairline(@border-color-base, 'top');
-    .hairline(@border-color-base, 'bottom');
+    .hairline('top');
+    .hairline('bottom');
 
     div:not(:last-child) {
       .@{listPrefixCls}-line {
-        .hairline(@border-color-base, 'bottom');
+        .hairline('bottom');
       }
     }
   }

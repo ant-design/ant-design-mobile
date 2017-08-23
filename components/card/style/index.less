@@ -4,9 +4,9 @@
 @alertPrefixCls: am-card;
 
 .@{alertPrefixCls} {
-  .hairline(@border-color-base,  @radius-md);
+  .hairline( @radius-md);
 
-  min-height: 1.92rem;
+  min-height: 96px;
   padding-bottom: @v-spacing-sm;
   display: flex;
   flex-direction: column;
@@ -14,8 +14,8 @@
 
   &&-full {
     border-radius: 0; // clear am-card border style
-    .hairline(@border-color-base, 'top');
-    .hairline(@border-color-base, 'bottom');
+    .hairline('top');
+    .hairline('bottom');
   }
 
   &-header {
@@ -45,11 +45,11 @@
   }
 
   &-body {
-    .hairline(@border-color-base, 'top');
+    .hairline('top');
     padding: @v-spacing-lg @h-spacing-lg @v-spacing-sm;
     font-size: @font-size-subhead;
     color: @color-text-paragraph;
-    min-height: 0.8rem;
+    min-height: 40px;
     flex: 1;
   }
 
