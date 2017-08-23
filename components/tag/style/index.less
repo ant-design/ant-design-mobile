@@ -11,7 +11,6 @@
   padding: 0 @h-spacing-lg;
   height: @tag-height;
   line-height: @tag-height;
-  border-radius: @radius-sm;
   box-sizing: border-box;
 
   &&-small {
@@ -24,19 +23,19 @@
   &-normal {
     background-color: @fill-base;
     color: @color-text-caption;
-    border: @border-width-sm solid @border-color-base;
+    .hairline('all',  @border-color-base, @radius-sm);
   }
 
   &-active {
     background-color: @fill-base;
     color: @tag-color;
-    border: @border-width-sm solid @tag-color;
+    .hairline('all', @tag-color, @radius-sm);
   }
 
   &-disabled {
     color: @color-text-disabled;
     background-color: @fill-disabled;
-    border: @border-width-sm solid @fill-disabled;
+    .hairline('all', @fill-disabled, @radius-sm);
   }
 
   &-close {

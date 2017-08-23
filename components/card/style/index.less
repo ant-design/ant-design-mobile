@@ -1,10 +1,12 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
 
-@alertPrefixCls: am-card;
+@cardPrefixCls: am-card;
 
-.@{alertPrefixCls} {
-  .hairline( @radius-md);
+.@{cardPrefixCls} {
+  &:not(.@{cardPrefixCls}-full) {
+    .hairline('all', @border-color-base, @radius-md);
+  }
 
   min-height: 96px;
   padding-bottom: @v-spacing-sm;
@@ -13,7 +15,7 @@
   background-color: @fill-base;
 
   &&-full {
-    border-radius: 0; // clear am-card border style
+    position: relative;
     .hairline('top');
     .hairline('bottom');
   }

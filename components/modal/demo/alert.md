@@ -27,7 +27,7 @@ const showAlert = () => {
     // 可以调用close方法以在外部close
     console.log('auto close');
     alertInstance.close();
-  }, 2000);
+  }, 500000);
 };
 
 const App = () => (
