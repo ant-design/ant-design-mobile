@@ -54,7 +54,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       }
     }
     if (this.state.focused) {
-      (this.refs as any).searchInput.focus();
+      this.refs.searchInput.focus();
     }
   }
 
