@@ -5,7 +5,7 @@
 
 .@{accordionPrefixCls} {
   position: relative;
-  .hairline(@border-color-base, 'top');
+  .hairline('top');
 
   &-anim-active {
     transition: all .2s ease-out;
@@ -23,7 +23,7 @@
       overflow: hidden;
       padding-left: @h-spacing-lg;
       padding-right: 2 * @h-spacing-lg;
-      .hairline(@border-color-base, 'bottom');
+      .hairline('bottom');
       .ellipsis();
 
       i {
@@ -56,11 +56,10 @@
         font-size: @font-size-subhead;
         color: @color-text-paragraph;
         position: relative;
-        .hairline(@border-color-base, 'bottom');
+        .hairline('bottom');
 
         .am-list-body {
-          border-top: 0;
-          border-bottom: 0;
+          .hairline-remove('top');
         }
       }
 

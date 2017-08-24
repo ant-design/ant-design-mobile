@@ -75,16 +75,31 @@
   }
 
   &.@{gridPrefixCls}-line {
-    .hairline(@border-color-base, 'bottom');
-    .hairline(@border-color-base, 'left');
+    position: relative;
+    &:not(.@{gridPrefixCls}-carousel) {
+      .hairline('top');
+      .hairline('right');
+    }
+
     .@{flexPrefixCls} {
       position: relative;
-      .hairline(@border-color-base, 'top');
+      .hairline('bottom');
 
       .@{flexPrefixCls}-item {
         position: relative;
-        .hairline(@border-color-base, 'right');
+        &:first-child {
+          .hairline('left');
+        }
+        &:not(:last-child) {
+          .hairline('right');
+        }
       }
+    }
+  }
+  &.@{gridPrefixCls}-carousel {
+    .@{gridPrefixCls}-carousel-page {
+      .hairline('top');
+      .hairline('right');
     }
   }
 

@@ -36,7 +36,7 @@ export default function prompt(
   switch (type) {
     case 'login-password':
       inputDom = (
-        <div>
+        <div className={`${prefixCls}-input-container`}>
           <div className={`${prefixCls}-input`}>
             <input
               type="text"
@@ -59,7 +59,7 @@ export default function prompt(
       break;
     case 'secure-text':
       inputDom = (
-        <div>
+        <div className={`${prefixCls}-input-container`}>
           <div className={`${prefixCls}-input`}>
             <input
               type="password"
@@ -76,7 +76,7 @@ export default function prompt(
     case 'default':
     default:
       inputDom = (
-        <div>
+        <div className={`${prefixCls}-input-container`}>
           <div className={`${prefixCls}-input`}>
             <input
               type="text"
@@ -94,7 +94,7 @@ export default function prompt(
   let content = (
     <div>
       <label>
-        {message}
+        <span>{message}</span>
         {inputDom}
       </label>
     </div>

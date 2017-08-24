@@ -60,16 +60,6 @@
     }
   }
 
-  &-handler-up {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  &-handler-down {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
   &-handler-up-inner,
   &-handler-down-inner {
     .iconfont-mixin();
@@ -114,17 +104,6 @@
 
     .@{stepperPrefixCls}-input {
       display: inline-block;
-    }
-
-    .@{stepperPrefixCls}-handler-up {
-      border-top-left-radius: @radius-md;
-      border-bottom-left-radius: @radius-md;
-    }
-
-    .@{stepperPrefixCls}-handler-down {
-      border-top-right-radius: @radius-md;
-      border-bottom-right-radius: @radius-md;
-      border-right: @border-width-md solid @border-color-base;
     }
 
     .@{stepperPrefixCls}-handler-down-disabled {

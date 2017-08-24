@@ -12,7 +12,7 @@
     min-height: @list-item-height;
     padding-left: @h-spacing-lg;
     padding-right: @h-spacing-lg;
-    .hairline(@border-color-base, 'bottom');
+    .hairline('bottom');
 
     &.@{textareaPrefixCls}-item-single-line {
       align-items: center;
@@ -175,7 +175,7 @@
   &-body {
     .@{listPrefixCls}-item {
       &:last-child {
-        .hairline-remove-right-bottom();
+        .hairline-remove('bottom');
       }
     }
   }

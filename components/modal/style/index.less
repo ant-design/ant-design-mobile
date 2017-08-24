@@ -20,7 +20,8 @@
   }
 
   &-button-group-h {
-    border-top: @border-width-sm solid @border-color-base;
+    position: relative;
+    .hairline('top');
     display: flex;
 
     .@{modalPrefixClass}-button {
@@ -30,7 +31,10 @@
 
       &:first-child {
         color: @color-text-base;
-        border-right: @border-width-sm solid @border-color-base;
+      }
+      &:last-child {
+        position: relative;
+        .hairline('left');
       }
     }
   }
@@ -39,7 +43,8 @@
     .@{modalPrefixClass}-button {
       -webkit-touch-callout: none;
       display: block;
-      border-top: @border-width-sm solid @border-color-base;
+      position: relative;
+      .hairline('top');
       .button-common();
     }
   }
@@ -48,33 +53,27 @@
     background-color: @fill-tap;
   }
 
+  &-input-container {
+    margin-top: @v-spacing-md;
+    .hairline('all', @border-color-base, @radius-sm);
+  }
   &-input {
     height: 36px;
     line-height: @line-height-base;
-    border-left: @border-width-sm solid @border-color-base;
-    border-right: @border-width-sm solid @border-color-base;
-    border-bottom: @border-width-sm solid @border-color-base;
 
-    &:first-child {
-      margin-top: @v-spacing-md;
-      border-top: @border-width-sm solid @border-color-base;
-      border-top-left-radius: @radius-sm;
-      border-top-right-radius: @radius-sm;
+    &:nth-child(2) {
+      position: relative;
+      .hairline('top');
     }
-
-    &:last-child {
-      border-bottom-left-radius: @radius-sm;
-      border-bottom-right-radius: @radius-sm;
-    }
-
     input {
+      position: relative;
       border: 0;
       width: 98%;
-      height: 100%;
+      height: 34px;
+      top: 1PX;
       box-sizing: border-box;  // maybe not need it ?
 
       margin: 0;
-      padding: @v-spacing-xs 0;
       &::placeholder {
         font-size: @font-size-base;
         color: #ccc;
@@ -143,7 +142,7 @@
           padding: 0 2 * @v-spacing-sm;
 
           .@{modalPrefixClass}-button {
-            border-top: 0;
+            .hairline-remove('top');
             padding: 0 @h-spacing-lg;
             margin-left: 3px;
             height: 48px;

@@ -63,7 +63,7 @@
       display: flex;
       flex: 1;
       justify-content: center;
-      border-bottom: @border-width-sm solid @border-color-base;
+      .hairline('bottom');
       font-size: @tabs-font-size-heading;
       height: @tabs-height;
       line-height: @tabs-height;
@@ -94,6 +94,7 @@
     bottom: 0;
     height: @tabs-ink-bar-height;
     background-color: @tabs-color;
+    z-index: 20;
 
     &-animated {
       transition: transform .3s @ease-in-out-quint;
@@ -107,8 +108,8 @@
     }
 
     .@{tabs-prefix-cls}-tab {
-      border-top: @border-width-sm solid @border-color-base;
-      border-bottom: 0;
+      .hairline('top');
+      .hairline-remove('bottom');
     }
   }
 

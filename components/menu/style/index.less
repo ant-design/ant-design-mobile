@@ -36,14 +36,14 @@
         .@{listPrefixCls} {
           .@{listPrefixCls}-body {
             background-color: @firstMenuColor;
-            .hairline-remove-right-bottom();
+            .hairline-remove('bottom');
           }
 
           .@{listPrefixCls}-item {
             background-color: @firstMenuColor;
 
             .@{listPrefixCls}-line {
-              .hairline-remove-right-bottom();
+              .hairline-remove('bottom');
 
               .@{listPrefixCls}-content {
                 color: @color-text-base;
@@ -51,7 +51,7 @@
             }
 
             &:last-child {
-              .hairline-remove-right-bottom();
+              .hairline-remove('bottom');
             }
 
             &.@{menuPrefixCls}-selected {
@@ -67,7 +67,7 @@
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
             background-color: @fill-base;
-            .hairline-remove-right-bottom();
+            .hairline-remove('bottom');
 
             .@{listPrefixCls}-line {
               .@{listPrefixCls}-extra {
@@ -98,14 +98,14 @@
         .@{listPrefixCls} {
           .@{listPrefixCls}-item {
             .@{listPrefixCls}-line {
-              .hairline(@border-color-base, 'bottom');
+              .hairline('bottom');
             }
 
             &:last-child {
-              .hairline(@border-color-base, 'bottom');
+              .hairline('bottom');
 
               .@{listPrefixCls}-line {
-                .hairline-remove-right-bottom();
+                .hairline-remove('bottom');
               }
             }
           }

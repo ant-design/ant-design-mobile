@@ -1,21 +1,23 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
 
-@alertPrefixCls: am-card;
+@cardPrefixCls: am-card;
 
-.@{alertPrefixCls} {
-  .hairline(@border-color-base,  @radius-md);
+.@{cardPrefixCls} {
+  &:not(.@{cardPrefixCls}-full) {
+    .hairline('all', @border-color-base, @radius-md);
+  }
 
-  min-height: 1.92rem;
+  min-height: 96px;
   padding-bottom: @v-spacing-sm;
   display: flex;
   flex-direction: column;
   background-color: @fill-base;
 
   &&-full {
-    border-radius: 0; // clear am-card border style
-    .hairline(@border-color-base, 'top');
-    .hairline(@border-color-base, 'bottom');
+    position: relative;
+    .hairline('top');
+    .hairline('bottom');
   }
 
   &-header {
@@ -45,11 +47,11 @@
   }
 
   &-body {
-    .hairline(@border-color-base, 'top');
+    .hairline('top');
     padding: @v-spacing-lg @h-spacing-lg @v-spacing-sm;
     font-size: @font-size-subhead;
     color: @color-text-paragraph;
-    min-height: 0.8rem;
+    min-height: 40px;
     flex: 1;
   }
 
