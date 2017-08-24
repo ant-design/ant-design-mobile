@@ -1,5 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import CustomKeyboard from './CustomKeyboard.web';
 
@@ -17,6 +18,7 @@ class NumberInput extends React.Component<any, any> {
   };
 
   debounceFocusTimeout: any;
+  _container: any;
 
   constructor(props) {
     super(props);
@@ -42,6 +44,11 @@ class NumberInput extends React.Component<any, any> {
       this.onInputFocus(value);
     }
     document.addEventListener('click', this._blurEventListener, false);
+    this.componentDidUpdate();
+  }
+
+  componentDidUpdate() {
+    this.renderCustomKeyboard();
   }
 
   componentWillUnmount() {
@@ -50,6 +57,59 @@ class NumberInput extends React.Component<any, any> {
       clearTimeout(this.debounceFocusTimeout);
       this.debounceFocusTimeout = null;
     }
+    this.removeContainer(this);
+  }
+
+  getComponent = () => {
+    const { value, keyboardPrefixCls, confirmLabel, disabled, editable } = this.props;
+    const { focused } = this.state;
+    const preventKeyboard = disabled || !editable;
+    if (!preventKeyboard) {
+      return (<CustomKeyboard
+        onClick={this.onKeyboardClick}
+        hide={!focused}
+        confirmDisabled={value === ''}
+        preixCls={keyboardPrefixCls}
+        confirmLabel={confirmLabel}
+      />);
+    }
+
+    return <div />;
+  }
+
+  getContainer = () => {
+    let container = document.querySelector(`#${this.props.keyboardPrefixCls}-container`);
+    if (!container) {
+      container = document.createElement('div');
+      container.setAttribute('id', `${this.props.keyboardPrefixCls}-container`);
+      document.body.appendChild(container);
+    }
+
+    return container;
+  }
+
+  removeContainer = (instance) => {
+    let containerDom = document.querySelector(`#${this.props.keyboardPrefixCls}-container`);
+    if (containerDom) {
+      if (instance._container) {
+        const container = instance._container;
+        ReactDOM.unmountComponentAtNode(container);
+        container.parentNode.removeChild(container);
+        instance._container = null;
+      }
+    } else {
+      if (instance._container) {
+        instance._container = null;
+      }
+    }
+  }
+
+  renderCustomKeyboard = () => {
+    if (!this._container) {
+      this._container = this.getContainer();
+    }
+
+    ReactDOM.unstable_renderSubtreeIntoContainer(this, this.getComponent(), this._container);
   }
 
   _blurEventListener = (ev) => {
