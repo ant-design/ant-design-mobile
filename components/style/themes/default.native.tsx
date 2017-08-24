@@ -3,7 +3,7 @@ const brandPrimaryTap = '#1284d6';
 
 export default {
   // 支付宝钱包默认主题
-  // https://github.com/ant_design/ant_design_mobile/wiki/设计变量表及命名规范
+  // https://github.com/ant-design/ant-design-mobile/wiki/设计变量表及命名规范
 
   // 色彩, NOTE: must use `#000000` instead of `#000`
   // https://facebook.github.io/react-native/docs/colors.html
