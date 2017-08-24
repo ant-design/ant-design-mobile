@@ -152,7 +152,7 @@ $ npm run rn-start
 $ npm run ios / android
 ```
 
-demo app 代码地址：https://github.com/ant-design/ant-design-mobile/rn-kitchen-sink
+demo app 代码地址：https://github.com/ant-design/ant-design-mobile/tree/master/rn-kitchen-sink
 
 If you need to add a new component, then modify `rn-kitchen-sink/demoList.js` and `./index.js`.
 
