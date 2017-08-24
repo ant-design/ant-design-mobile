@@ -14,15 +14,17 @@ title:
 Recommended use of [rc-form ](https://github.com/react-component/form) for controlled component.
 
 ````jsx
-import { List, InputItem } from 'antd-mobile';
+import { List, InputItem, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 class H5NumberInputExample extends React.Component {
   state = {
     moneyfocused: false,
+    type: 'money',
   }
   render() {
     const { getFieldProps } = this.props.form;
+    const { type } = this.state;
     return (
       <div>
         <List renderHeader={() => 'Format'}>
@@ -30,11 +32,12 @@ class H5NumberInputExample extends React.Component {
             {...getFieldProps('money', {
               initialValue: '222',
             })}
-            type="money"
+            type={type}
             placeholder="money keyboard"
             clear
             maxLength={10}
             locale={{ confirmLabel: '计算' }}
+            onBlur={value => console.log(value)}
           />
           <InputItem placeholder="22">普通键盘</InputItem>
           <InputItem
@@ -49,7 +52,7 @@ class H5NumberInputExample extends React.Component {
                 return v;
               },
             })}
-            type="money"
+            type={type}
             placeholder="money format"
             onFocus={() => {
               this.setState({
@@ -79,10 +82,19 @@ class H5NumberInputExample extends React.Component {
                 return v;
               },
             })}
-            type="money"
+            type={type}
             placeholder="money format natural"
           >正整数</InputItem>
         </List>
+        <Button
+          onClick={() => {
+            this.setState({
+              type: 'text',
+            });
+          }}
+        >
+          重置为电话类型
+        </Button>
       </div>
     );
   }

@@ -518,90 +518,6 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
             >
               222
             </div>
-            <div
-              class="am-number-keyboard-wrapper am-number-keyboard-wrapper-hide"
-            >
-              <table>
-                <tbody>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      1
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      2
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      3
-                    </td>
-                    <td
-                      class="keyboard-delete am-number-keyboard-item"
-                      rowspan="2"
-                    />
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      4
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      5
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      6
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      7
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      8
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      9
-                    </td>
-                    <td
-                      class="keyboard-confirm am-number-keyboard-item"
-                      rowspan="2"
-                    >
-                      计算
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      .
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      0
-                    </td>
-                    <td
-                      class="keyboard-hide am-number-keyboard-item"
-                    />
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
         <div
@@ -647,90 +563,6 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
             <div
               class="fake-input"
             />
-            <div
-              class="am-number-keyboard-wrapper am-number-keyboard-wrapper-hide"
-            >
-              <table>
-                <tbody>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      1
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      2
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      3
-                    </td>
-                    <td
-                      class="keyboard-delete am-number-keyboard-item"
-                      rowspan="2"
-                    />
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      4
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      5
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      6
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      7
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      8
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      9
-                    </td>
-                    <td
-                      class="keyboard-confirm am-number-keyboard-item am-number-keyboard-item-disabled"
-                      rowspan="2"
-                    >
-                      确定
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      .
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      0
-                    </td>
-                    <td
-                      class="keyboard-hide am-number-keyboard-item"
-                    />
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </div>
@@ -777,94 +609,19 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
             <div
               class="fake-input"
             />
-            <div
-              class="am-number-keyboard-wrapper am-number-keyboard-wrapper-hide"
-            >
-              <table>
-                <tbody>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      1
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      2
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      3
-                    </td>
-                    <td
-                      class="keyboard-delete am-number-keyboard-item"
-                      rowspan="2"
-                    />
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      4
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      5
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      6
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      7
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      8
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      9
-                    </td>
-                    <td
-                      class="keyboard-confirm am-number-keyboard-item am-number-keyboard-item-disabled"
-                      rowspan="2"
-                    >
-                      确定
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      .
-                    </td>
-                    <td
-                      class="am-number-keyboard-item"
-                    >
-                      0
-                    </td>
-                    <td
-                      class="keyboard-hide am-number-keyboard-item"
-                    />
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
+  >
+    <span>
+      重置为电话类型
+    </span>
+  </a>
 </div>
 `;
