@@ -9,6 +9,10 @@ title:
 ````jsx
 import { SwipeAction, List } from 'antd-mobile';
 
+function handleClick(e) {
+  console.log('clicked', e);
+}
+
 const SwipeActionExample = () => (
   <List>
     <SwipeAction
@@ -44,6 +48,7 @@ const SwipeActionExample = () => (
       <List.Item
         extra="More"
         arrow="horizontal"
+        onClick={handleClick}
       >
         Have left and right buttons
       </List.Item>
@@ -81,6 +86,7 @@ const SwipeActionExample = () => (
       <List.Item
         extra="More"
         arrow="horizontal"
+        onClick={handleClick}
       >
         Have left and right buttons
       </List.Item>
