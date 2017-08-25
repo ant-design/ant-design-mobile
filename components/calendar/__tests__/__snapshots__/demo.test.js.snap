@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-list calendar-list"
+    style="background-color:white;"
+  >
+    <div
+      class="am-list-body"
+    >
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            中文 
+            <label
+              class="am-switch right"
+            >
+              <input
+                checked=""
+                class="am-switch-checkbox"
+                name=""
+                type="checkbox"
+                value="on"
+              />
+              <div
+                class="checkbox"
+              />
+            </label>
+          </div>
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            选择日期区间
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            选择日期时间区间
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            选择日期
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            选择日期时间
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            选择日期区间(快捷)
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            选择日期时间区间(快捷)
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            不使用ZScroller(无法向前滚动)
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            水平进入
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-calendar"
+  >
+    <span>
+      <div
+        class="mask animate"
+        style="display:none;"
+      />
+    </span>
+    <span>
+      <div
+        class="content animate"
+        style="display:none;"
+      />
+    </span>
+  </div>
+</div>
+`;
