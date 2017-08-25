@@ -60,6 +60,7 @@
     "rmc-list-view": "^0.8.4",
     "rmc-nuka-carousel": "^2.2.0",
     "rmc-picker": "^4.0.1",
+    "rmc-calendar": "^0.1.0",
     "rn-topview": "~0.1.0",
     "warning": "^3.0.0"
   },
