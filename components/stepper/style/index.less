@@ -3,20 +3,6 @@
 
 @stepperPrefixCls: am-stepper;
 
-.iconfont-mixin() {
-  display: inline-block;
-  font-style: normal;
-  vertical-align: baseline;
-  text-align: center;
-  text-transform: none;
-  text-rendering: auto;
-
-  &:before {
-    display: block;
-    font-family: "anticon" !important;
-  }
-}
-
 .@{stepperPrefixCls} {
   position: relative;
   margin: 0;
@@ -62,7 +48,6 @@
 
   &-handler-up-inner,
   &-handler-down-inner {
-    .iconfont-mixin();
 
     user-select: none;
     right: 2px;
