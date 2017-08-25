@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import CustomKeyboard from './CustomKeyboard.web';
+import { addClass, removeClass } from '../_util/class';
 
 class NumberInput extends React.Component<any, any> {
   static defaultProps = {
@@ -57,7 +58,7 @@ class NumberInput extends React.Component<any, any> {
     const antmCustomKeyboard = (window as any).antmCustomKeyboard;
     if (antmCustomKeyboard.linkedInput === this) {
       antmCustomKeyboard.linkedInput = null;
-      antmCustomKeyboard.antmKeyboard.classList.add(`${this.props.keyboardPrefixCls}-wrapper-hide`);
+      addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
     }
   }
 
@@ -103,7 +104,7 @@ class NumberInput extends React.Component<any, any> {
         const antmCustomKeyboard = (window as any).antmCustomKeyboard;
         if (antmCustomKeyboard.linkedInput === this) {
           antmCustomKeyboard.linkedInput = null;
-          antmCustomKeyboard.antmKeyboard.classList.add(`${this.props.keyboardPrefixCls}-wrapper-hide`);
+          addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
         }
       }, 50);
     }
@@ -116,12 +117,12 @@ class NumberInput extends React.Component<any, any> {
     }, () => {
       const antmCustomKeyboard = (window as any).antmCustomKeyboard;
       antmCustomKeyboard.linkedInput = this;
-      antmCustomKeyboard.antmKeyboard.classList.remove(`${this.props.keyboardPrefixCls}-wrapper-hide`);
+      removeClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
       antmCustomKeyboard.confirmDisabled = (value === '');
       if (value === '') {
-        antmCustomKeyboard.confirmKeyboardItem.classList.add(`${this.props.keyboardPrefixCls}-item-disabled`);
+        addClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
       } else {
-        antmCustomKeyboard.confirmKeyboardItem.classList.remove(`${this.props.keyboardPrefixCls}-item-disabled`);
+        removeClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
       }
     });
   }
@@ -155,9 +156,9 @@ class NumberInput extends React.Component<any, any> {
     const antmCustomKeyboard = (window as any).antmCustomKeyboard;
     antmCustomKeyboard.confirmDisabled = (valueAfterChange === '');
     if (valueAfterChange === '') {
-      antmCustomKeyboard.confirmKeyboardItem.classList.add(`${this.props.keyboardPrefixCls}-item-disabled`);
+      addClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
     } else {
-      antmCustomKeyboard.confirmKeyboardItem.classList.remove(`${this.props.keyboardPrefixCls}-item-disabled`);
+      removeClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
     }
   }
 
