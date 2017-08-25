@@ -117,7 +117,6 @@
     "react-test-renderer": "^15.4.2",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
-    "svg-sprite-loader": "^0.3.1",
     "typescript": "~2.4.0",
     "webpack-visualizer-plugin": "^0.1.11"
   },

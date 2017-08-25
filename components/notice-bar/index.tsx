@@ -8,7 +8,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
   static defaultProps = {
     prefixCls: 'am-notice-bar',
     mode: '',
-    icon: <Icon type={require('./style/assets/trips.svg')} size="xxs" />,
+    icon: <Icon type="voice" size="xxs"/>,
     onClick() {},
   };
 
@@ -69,7 +69,7 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
 
     return this.state.show ? (
       <div className={wrapCls} {...restProps} {...extraProps} role="alert">
-        {icon ? <div className={`${prefixCls}-icon`} aria-hidden="true"> {icon} </div> : null}
+        {icon && <div className={`${prefixCls}-icon`} aria-hidden="true"> {icon} </div>}
         <div className={`${prefixCls}-content`}>
           <Marquee prefixCls={prefixCls} text={children} {...marquee} />
         </div>

@@ -140,7 +140,7 @@ class MenuExample extends React.Component {
           <NavBar
             leftContent="Menu"
             mode="light"
-            iconName={require('./menu.svg')}
+            iconName={<img src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg" className="am-icon am-icon-md" alt="icon" />}
             onLeftClick={this.handleClick}
             className="top-nav-bar"
           >

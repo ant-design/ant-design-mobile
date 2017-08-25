@@ -1,3 +1,5 @@
+@import './util.less';
+
 @svg-bg-img: '';
 
 .encoded-svg-background(@svg) when (@svg = 'image_picker_delete') {
@@ -58,11 +60,4 @@
 .encoded-svg-background(@svg) when (@svg = 'search_bar_clear_active') {
   @svg-bg-img: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><circle cx='14' cy='14' r='14' fill='@{input-color-icon-tap}'/><line stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='8' y1='8' x2='20' y2='20'/><line fill='none' stroke='#ffffff' stroke-width='2' stroke-miterlimit='10' x1='20' y1='8' x2='8' y2='20'/></svg>";
   .encoded-svg-background-i(@svg-bg-img);
-}
-
-// Encoded SVG Background
-.encoded-svg-background-i(@svg) {
-  @url: `encodeURIComponent(@{svg}) `;
-
-  background-image: url("data:image/svg+xml;charset=utf-8,@{url}");
 }
