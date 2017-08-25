@@ -30,7 +30,7 @@ english: Ant Design Mobile of React
 
 - UI 样式高度可配置，拓展性更强，轻松适应各类产品风格
 - 基于 React Native 的 iOS / Android / Web 多平台支持，组件丰富、能全面覆盖各类场景
-- 内置 "组件按需加载" / "Web 页面高清显示" / "SVG Icon" 等优化方案，一体式开发
+- 提供 "组件按需加载" / "Web 页面高清显示" / "SVG Icon" 等优化方案，一体式开发
 - 使用 TypeScript 开发，提供类型定义文件，支持类型及属性智能提示，方便业务开发
 
 ## 适用场景
@@ -39,56 +39,36 @@ english: Ant Design Mobile of React
 - 适合于基于 react / react-native 的多终端应用
 - 适合不同 UI 风格的高度定制需求的应用
 
-## 安装
+## 快速上手
+
+> 在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)。我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) 的写法来提升编码的愉悦感。
+>
+> 确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
+
+### 1. 创建一个项目
+
+自己创建空项目，或者从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web) 拷贝并修改
+
+> 参考更多[官方示例集](https://github.com/ant-design/antd-mobile-samples)
+> 或者你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates)
+
+### 2. 安装
 
 ```bash
 $ npm install antd-mobile --save
 $ npm install babel-plugin-import --save-dev
 ```
 
-## 使用
+> 在生产环境，需要使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 支持按需加载，
+> 配置方法：在`.babelrc`文件里加入
+> `{"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}`
+> (如果在 webpack 里配置请自行探索)
 
-> 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56) 及 [官方示例集](https://github.com/ant-design/antd-mobile-samples)
-
-> Antd-Mobile 如何区分 web 组件和 react-native 组件？请查看 [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)
+### 3. 使用
 
 #### Web 使用方式
 
-> 以下文档都基于 `webpack@1.x` 版本，如果你使用 webpack@2.x 请查看 [#516](https://github.com/ant-design/ant-design-mobile/issues/516#issuecomment-293632772)
-
-- 安装 webpack 相关 loader 依赖 (`必选`)
-
-  ```bash
-  npm i style-loader css-loader less less-loader svg-sprite-loader@0.3.1 --save-dev
-  ```
-
-> `antd-mobile@1.x` 必须使用 `svg-sprite-loader@^0.3.1` , 请看 [相关信息](https://mobile.ant.design/changelog-cn#1.2.0)
-
-- 设置 webpack 的 resolve 来自动区分 web & native 组件加载。（`必选`）
-
-  ```
-  resolve: {
-    modulesDirectories: ['node_modules', path.join(__dirname, '../node_modules')],
-    extensions: ['', '.web.js', '.js', '.json'],
-  },
-  ```
-
-
-- 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 支持按需加载：（`必选`）
-
-  ```js
-  // .babelrc
-  {"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}
-  // or webpack config file
-  webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
-  ```
-
-> 如果你想了解为什么需要配置 babel-plugin-import ,请看 [按需加载](https://ant.design/docs/react/getting-started-cn#按需加载)
-
-- Antd-Mobile 所有图标都是用 `svg`，需要配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), 配置方案见 [Icon 文档](https://mobile.ant.design/components/icon) （`必选`）
-
-- 入口页面（ html 或 模板）必需高清方案 & polyfill 相关设置：（`必选`）
-    - 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
+- 入口页面（ html 或 模板）必需的 polyfill 相关设置：
     - 引入 [FastClick](https://github.com/ftlabs/fastclick) (关联 [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
     - 引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)，示例代码如：
         ```js
@@ -100,13 +80,13 @@ $ npm install babel-plugin-import --save-dev
 组件使用实例：
 
 ```jsx
-// Auto import js and css modularly, parsed by babel-plugin-import
 import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
-> 服务端渲染问题：请参考[此处](https://github.com/ant-design/ant-design-mobile/pull/758)
->
+甜点 (非必须):
+
+> 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
 > 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.zh-CN.md)，
 > 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 >
@@ -114,7 +94,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 
 #### React-Native 使用方式
 
-> 注：`Table`/`Menu`/`NavBar` 组件暂无 React Native 版本；
+> 注：`Menu`/`NavBar` 组件暂无 React Native 版本；
 
 - `.babelrc` 文件添加以下配置
 
@@ -137,8 +117,6 @@ class HelloWorldApp extends Component {
 
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
-
-> 更多常见问题，请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
 
 ## 版本
 
