@@ -10,6 +10,10 @@ exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span
+        aria-hidden="true"
+        class="am-navbar-left-icon"
+      />
+      <span
         class="am-navbar-left-content"
       />
     </div>

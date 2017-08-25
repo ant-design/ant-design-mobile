@@ -11,10 +11,10 @@ exports[`NoticeBar renders correctly 1`] = `
   >
      
     <svg
-      class="am-icon am-icon-trips am-icon-xxs"
+      class="am-icon am-icon-voice am-icon-xxs"
     >
       <use
-        xlink:href="#trips"
+        xlink:href="#voice"
       />
     </svg>
      
