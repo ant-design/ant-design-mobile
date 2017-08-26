@@ -462,13 +462,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -504,13 +502,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -546,13 +542,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -600,13 +594,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -647,13 +639,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -694,13 +684,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -753,13 +741,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -795,13 +781,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -837,13 +821,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -879,13 +861,11 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -1239,13 +1219,11 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -1282,13 +1260,11 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>
@@ -1324,13 +1300,11 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
             <span
               class="am-steps-icon"
             >
-              <svg
-                class="am-icon am-icon-pay-circle am-icon-md"
-              >
-                <use
-                  xlink:href="#pay-circle"
-                />
-              </svg>
+              <img
+                alt="icon"
+                class="am-icon am-icon-md"
+                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              />
             </span>
           </div>
         </div>

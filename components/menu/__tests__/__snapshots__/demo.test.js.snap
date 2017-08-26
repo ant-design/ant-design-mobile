@@ -16,13 +16,11 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
           aria-hidden="true"
           class="am-navbar-left-icon"
         >
-          <svg
-            class="am-icon am-icon-menu am-icon-md"
-          >
-            <use
-              xlink:href="#menu"
-            />
-          </svg>
+          <img
+            alt="icon"
+            class="am-icon am-icon-md"
+            src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg"
+          />
         </span>
         <span
           class="am-navbar-left-content"

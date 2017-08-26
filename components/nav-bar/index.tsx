@@ -28,13 +28,9 @@ export default class NavBar extends React.Component<NavBarProps, any> {
     return (
       <div {...restProps} className={wrapCls}>
         <div className={`${prefixCls}-left`} role="button" onClick={onLeftClick}>
-          {
-            iconName && (
-              <span className={`${prefixCls}-left-icon`} aria-hidden="true">
-                <Icon type={iconName as string}/>
-              </span>
-            )
-          }
+          <span className={`${prefixCls}-left-icon`} aria-hidden="true">
+            {typeof iconName === 'string' ? <Icon type={iconName}/> : iconName}
+          </span>
           <span className={`${prefixCls}-left-content`}>{leftContent}</span>
         </div>
         <div className={`${prefixCls}-title`}>{children}</div>

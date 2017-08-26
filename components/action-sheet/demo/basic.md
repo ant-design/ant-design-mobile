@@ -8,7 +8,7 @@ title:
 
 ````jsx
 /* eslint global-require: 0 */
-import { ActionSheet, Button, Toast, Icon } from 'antd-mobile';
+import { ActionSheet, Button, Toast } from 'antd-mobile';
 
 // fix touch to scroll background page on iOS
 // https://github.com/ant-design/ant-design-mobile/issues/307
@@ -21,15 +21,16 @@ if (isIPhone) {
   };
 }
 
+const customIcon = (src, name) => <img src={src} alt={name} className={name} />;
 const iconList = [
-  { icon: <img src="https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png" alt="icon" />, title: '发送给朋友' },
-  { icon: <img src="https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png" alt="icon" />, title: '新浪微博' },
-  { icon: <img src="https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png" alt="icon" />, title: '生活圈' },
-  { icon: <img src="https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png" alt="icon" />, title: '微信好友' },
-  { icon: <img src="https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png" alt="icon" />, title: 'QQ' },
-  { icon: <Icon type={require('./refresh.svg')} />, title: '刷新' },
-  { icon: <Icon type={require('./link.svg')} />, title: '链接' },
-  { icon: <Icon type={require('./complaints.svg')} />, title: '投诉' },
+  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png', 'img'), title: '发送给朋友' },
+  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png', 'img'), title: '新浪微博' },
+  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png', 'img'), title: '生活圈' },
+  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png', 'img'), title: '微信好友' },
+  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png', 'img'), title: 'QQ' },
+  { icon: customIcon('https://gw.alipayobjects.com/zos/rmsportal/VgOeEwrQxpfxxoxDhhRu.svg', 'icon'), title: '刷新' },
+  { icon: customIcon('https://gw.alipayobjects.com/zos/rmsportal/QcRdiavUOhCmQjvQHVqt.svg', 'icon'), title: '链接' },
+  { icon: customIcon('https://gw.alipayobjects.com/zos/rmsportal/cVeaIFCKBHUjLROxfysg.svg', 'icon'), title: '投诉' },
 ];
 
 class Test extends React.Component {
@@ -110,7 +111,11 @@ ReactDOM.render(<Test />, mountNode);
   margin: 0 15px;
 }
 
-.my-action-sheet .am-action-sheet-share-list-item-icon img {
+.my-action-sheet .am-action-sheet-share-list-item-icon .img {
   width: 36px;
+}
+.my-action-sheet .am-action-sheet-share-list-item-icon .icon {
+  width: 22px;
+  height: 22px;
 }
 ````

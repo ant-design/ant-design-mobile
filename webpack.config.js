@@ -1,6 +1,5 @@
 const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
 const Visualizer = require('webpack-visualizer-plugin');
-const configSvg = require('./svg.config');
 const pkg = require('./package.json');
 
 module.exports = function (webpackConfig) {
@@ -12,7 +11,6 @@ module.exports = function (webpackConfig) {
     webpackConfig = [webpackConfig, webpackConfig];
   }
   webpackConfig.forEach((config, index) => {
-    configSvg(config);
     if (index === 0) {
       config.plugins.push(new Visualizer({
         filename: `../ant-design-analysis/${pkg.name}@${pkg.version}-stats.html`,

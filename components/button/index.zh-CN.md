@@ -23,7 +23,7 @@ subtitle: 按钮
 | style    | 自定义样式 |   Object  | 无 |
 | inline (`WEB only`)     | 是否设置为行内按钮  | boolean |   false  |
 | loading (`WEB only`)	   | 设置按钮载入状态	  | boolean	 | false |
-| icon (`WEB only`)  | 可以是 [Icon](https://mobile.ant.design/components/icon) 组件里内置的某个 icon 的 type 值，也可以是 require 本地 svg 图标 (注意: `loading`设置后此项设置失效) | `string`/`require(./local.svg)` | -  |
+| icon (`WEB only`)  | 可以是 [Icon](https://mobile.ant.design/components/icon) 组件里内置的某个 icon 的 type 值，也可以是任意合法的 ReactElement (注意: `loading`设置后此项设置失效) | ` string`/`React.Element ` | -  |
 | prefixCls (`WEB only`) |  class前缀 | string | `am-button` |
 | className (`WEB only`) |  样式类名 | string | 无 |
 | onPressIn (`RN only`)   | 同 RN TouchableHighlight onPressIn | (e: Object): void |   无  |

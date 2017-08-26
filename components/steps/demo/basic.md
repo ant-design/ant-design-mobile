@@ -8,9 +8,11 @@ title:
 
 ````jsx
 /* eslint global-require: 0 */
-import { Steps, WingBlank, WhiteSpace, Icon } from 'antd-mobile';
+import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const Step = Steps.Step;
+
+const customIcon = <img src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg" className="am-icon am-icon-md" alt="icon" />;
 
 ReactDOM.render(
   <WingBlank size="lg">
@@ -39,26 +41,26 @@ ReactDOM.render(
     <div className="sub-title">Customized status </div>
     <WhiteSpace size="lg" />
     <Steps>
-      <Step status="finish" title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step status="process" title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step status="error" title="Step 3" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step status="finish" title="Step 1" icon={customIcon} />
+      <Step status="process" title="Step 2" icon={customIcon} />
+      <Step status="error" title="Step 3" icon={customIcon} />
     </Steps>
 
     <div className="sub-title">Customized icon </div>
     <WhiteSpace size="lg" />
     <Steps current={1}>
-      <Step title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} description="This is description" />
-      <Step title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} description="This is description" />
-      <Step title="Step 3" icon={<Icon type={require('./pay-circle.svg')} />} description="This is description" />
+      <Step title="Step 1" icon={customIcon} description="This is description" />
+      <Step title="Step 2" icon={customIcon} description="This is description" />
+      <Step title="Step 3" icon={customIcon} description="This is description" />
     </Steps>
 
     <div className="sub-title">Multiple steps </div>
     <WhiteSpace size="lg" />
     <Steps current={1}>
-      <Step title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="Step 3" status="error" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="Step 4" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step title="Step 1" icon={customIcon} />
+      <Step title="Step 2" icon={customIcon} />
+      <Step title="Step 3" status="error" icon={customIcon} />
+      <Step title="Step 4" icon={customIcon} />
     </Steps>
   </WingBlank>
   , mountNode);

@@ -1,16 +1,3 @@
 @import "./themes/default";
 @import "./mixins/hairline.less";
 @import "./mixins/icon.less";
-
-.ellipsis() {
-  width: auto;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.background(@start: #ffffff, @end: #000000) {
-  background: @end;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@end)); /* Saf4+, Chrome */
-  background-image: linear-gradient(@start, @end);
-}

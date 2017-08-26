@@ -305,60 +305,6 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           class="am-grid-item-inner-content column-num-3"
         >
           <svg
-            class="am-icon am-icon-koubei-o am-icon-md"
-          >
-            <use
-              xlink:href="#koubei-o"
-            />
-          </svg>
-          <div
-            class="am-grid-text"
-          >
-            koubei-o
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
-  >
-    <div
-      class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
-    >
-      <div
-        class="am-grid-item-content"
-      >
-        <div
-          class="am-grid-item-inner-content column-num-3"
-        >
-          <svg
-            class="am-icon am-icon-koubei am-icon-md"
-          >
-            <use
-              xlink:href="#koubei"
-            />
-          </svg>
-          <div
-            class="am-grid-text"
-          >
-            koubei
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
-    >
-      <div
-        class="am-grid-item-content"
-      >
-        <div
-          class="am-grid-item-inner-content column-num-3"
-        >
-          <svg
             class="am-icon am-icon-loading am-icon-md"
           >
             <use
@@ -369,31 +315,6 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-grid-text"
           >
             loading
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
-    >
-      <div
-        class="am-grid-item-content"
-      >
-        <div
-          class="am-grid-item-inner-content column-num-3"
-        >
-          <svg
-            class="am-icon am-icon-reload am-icon-md"
-          >
-            <use
-              xlink:href="#reload"
-            />
-          </svg>
-          <div
-            class="am-grid-text"
-          >
-            自定义图标
           </div>
         </div>
       </div>

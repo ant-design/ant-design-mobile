@@ -8,7 +8,7 @@ title:
 text、icon、success、failure、offline、loading
 
 ````jsx
-import { Toast, WhiteSpace, WingBlank, Button, Icon } from 'antd-mobile';
+import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 
 function showToast() {
   Toast.info('This is a toast tips !!!', 1);
@@ -43,7 +43,7 @@ const ToastExample = () => (
     <WhiteSpace />
     <Button onClick={showToastNoMask}>Without mask</Button>
     <WhiteSpace />
-    <Button onClick={() => Toast.info(<Icon type={require('./reload.svg')} />, 1)}>
+    <Button onClick={() => Toast.info(<img src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg" className="am-icon am-icon-md" alt="icon" />, 1)}>
       Cumstom Icon
     </Button>
     <WhiteSpace />

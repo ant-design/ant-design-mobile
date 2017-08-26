@@ -16,13 +16,11 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
     <div
       class="am-result-pic"
     >
-      <svg
-        class="am-icon am-icon-alipay am-icon-md icon"
-      >
-        <use
-          xlink:href="#alipay"
-        />
-      </svg>
+      <img
+        alt="icon"
+        class="icon am-icon am-icon-md"
+        src="https://gw.alipayobjects.com/zos/rmsportal/pdFARIqkrKEGVVEwotFe.svg"
+      />
     </div>
     <div
       class="am-result-title"
@@ -125,13 +123,11 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
     <div
       class="am-result-pic"
     >
-      <svg
-        class="am-icon am-icon-waiting am-icon-md icon"
-      >
-        <use
-          xlink:href="#waiting"
-        />
-      </svg>
+      <img
+        alt="icon"
+        class="icon am-icon am-icon-md"
+        src="https://gw.alipayobjects.com/zos/rmsportal/HWuSTipkjJRfTWekgTUG.svg"
+      />
     </div>
     <div
       class="am-result-title"
@@ -159,13 +155,11 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
     <div
       class="am-result-pic"
     >
-      <svg
-        class="am-icon am-icon-notice am-icon-md icon"
-      >
-        <use
-          xlink:href="#notice"
-        />
-      </svg>
+      <img
+        alt="icon"
+        class="icon am-icon am-icon-md"
+        src="https://gw.alipayobjects.com/zos/rmsportal/GIyMDJnuqmcqPLpHCSkj.svg"
+      />
     </div>
     <div
       class="am-result-title"

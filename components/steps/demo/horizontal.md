@@ -7,7 +7,7 @@ title:
 
 ````jsx
 /* eslint global-require: 0 */
-import { Steps, WingBlank, WhiteSpace, Icon } from 'antd-mobile';
+import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const Step = Steps.Step;
 
@@ -22,6 +22,8 @@ const steps = [{
   description: 'This is description',
 }].map((s, i) => <Step key={i} title={s.title} description={s.description} />);
 
+const customIcon = <img src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg" className="am-icon am-icon-md" alt="icon" />;
+
 ReactDOM.render(
   <WingBlank mode={20} className="stepsExample">
     <div className="sub-title">Horizontal small size</div>
@@ -33,9 +35,9 @@ ReactDOM.render(
     <div className="sub-title">Horizontal customized icon</div>
     <WhiteSpace />
     <Steps direction="horizontal">
-      <Step title="Step 1" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step status="error" title="Step 2" icon={<Icon type={require('./pay-circle.svg')} />} />
-      <Step title="Step 3" icon={<Icon type={require('./pay-circle.svg')} />} />
+      <Step title="Step 1" icon={customIcon} />
+      <Step status="error" title="Step 2" icon={customIcon} />
+      <Step title="Step 3" icon={customIcon} />
     </Steps>
     <div className="sub-title">Horizontal timeline mode</div>
     <WhiteSpace />

@@ -83,7 +83,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="am-icon am-icon-loading am-icon-md"
+      class="am-icon am-icon-loading am-icon-md am-button-icon"
     >
       <use
         xlink:href="#loading"
@@ -103,7 +103,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="am-icon am-icon-check-circle-o am-icon-md"
+      class="am-icon am-icon-check-circle-o am-icon-md am-button-icon"
     >
       <use
         xlink:href="#check-circle-o"
@@ -121,16 +121,13 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     class="am-button am-button-icon"
     role="button"
   >
-    <svg
-      aria-hidden="true"
-      class="am-icon am-icon-reload am-icon-md"
-    >
-      <use
-        xlink:href="#reload"
-      />
-    </svg>
+    <img
+      alt="icon"
+      class="am-icon am-button-icon am-icon-md"
+      src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg"
+    />
     <span>
-      with local icon
+      with custom icon
     </span>
   </a>
   <div

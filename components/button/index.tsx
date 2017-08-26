@@ -68,6 +68,24 @@ class Button extends React.Component<ButtonProps, any> {
     if (delayPressOut) {
       delayProps.delayPressOut = delayPressOut;
     }
+    let iconEl;
+    if (typeof iconType === 'string') {
+      iconEl =
+        <Icon
+          aria-hidden="true"
+          type={iconType}
+          size={size === 'small' ? 'xxs' : 'md'}
+          className={`${prefixCls}-icon`}
+        />;
+    } else if (iconType) {
+      const cls = classNames('am-icon', {
+        [`${prefixCls}-icon`]: true,
+        [size === 'small' ? 'am-icon-xxs' : 'am-icon-md']: true,
+      });
+      iconEl = React.cloneElement(iconType, {
+        className: cls,
+      });
+    }
     // use div, button native is buggy @yiminghe
     return (
       <Touchable
@@ -83,7 +101,7 @@ class Button extends React.Component<ButtonProps, any> {
           onClick={disabled ? undefined : onClick}
           aria-disabled={disabled}
         >
-          {iconType ? <Icon aria-hidden="true" type={iconType} size={size === 'small' ? 'xxs' : 'md'}/> : null}
+          {iconEl}
           {kids}
         </a>
       </Touchable>
