@@ -40,6 +40,7 @@ export default function prompt(
           <div className={`${prefixCls}-input`}>
             <input
               type="text"
+              value={data.text}
               defaultValue={defaultValue}
               ref={input => focusFn(input)}
               onChange={onChange}
@@ -49,6 +50,7 @@ export default function prompt(
           <div className={`${prefixCls}-input`}>
             <input
               type="password"
+              value={data.password}
               defaultValue=""
               onChange={onChange}
               placeholder={placeholders[1]}
@@ -63,6 +65,7 @@ export default function prompt(
           <div className={`${prefixCls}-input`}>
             <input
               type="password"
+              value={data.password}
               defaultValue=""
               ref={input => focusFn(input)}
               onChange={onChange}
@@ -80,6 +83,7 @@ export default function prompt(
           <div className={`${prefixCls}-input`}>
             <input
               type="text"
+              value={data.text}
               defaultValue={defaultValue}
               ref={input => focusFn(input)}
               onChange={onChange}
@@ -111,12 +115,12 @@ export default function prompt(
   }
 
   function getArgs(func) {
-    const text = data.text || '';
+    const text = data.text || defaultValue || '';
     const password = data.password || '';
     if (type === 'login-password') {
       return func(text, password);
     } else if (type === 'secure-text') {
-      return func(password);
+      return func(password || defaultValue);
     }
     return func(text);
   }
