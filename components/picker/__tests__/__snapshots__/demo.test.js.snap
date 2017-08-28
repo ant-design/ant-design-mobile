@@ -144,6 +144,28 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            <div>
+              外部控制 visible
+            </div>
+          </div>
+          <div
+            class="am-list-extra"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
     </div>
   </div>
 </div>
