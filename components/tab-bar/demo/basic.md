@@ -5,7 +5,13 @@ title:
   en-US: 'APP Tab Bar'
 ---
 
+## zh-CN
+
 多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。
+
+## en-US
+
+Used for the content of the page block, control large content of a small range grouping and hidden, plays a role in keeping the interface clean and tidy.
 
 ````jsx
 import { TabBar, Icon } from 'antd-mobile';
