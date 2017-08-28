@@ -74,7 +74,7 @@
     "babel-eslint": "^7.2.3",
     "babel-plugin-import": "^1.2.1",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-react-native": "^2.0.0",
+    "babel-preset-react-native": "^1.0.0",
     "bisheng": "^0.24.0",
     "bisheng-plugin-antd": "^0.15.0",
     "bisheng-plugin-description": "^0.1.1",
