@@ -10,6 +10,7 @@ title:
 ````jsx
 import { Picker, List, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
+import arrayTreeFilter from 'array-tree-filter';
 
 import { district, provinceLite as province } from 'antd-mobile-demo-data';
 
@@ -56,6 +57,7 @@ class Test extends React.Component {
     pickerValue: [],
     asyncValue: [],
     sValue: ['2013', '春'],
+    visible: false,
   };
   onClick = () => {
     setTimeout(() => {
@@ -105,6 +107,14 @@ class Test extends React.Component {
       asyncValue,
     });
   };
+  getSel() {
+    const value = this.state.pickerValue;
+    if (!value) {
+      return '';
+    }
+    const treeChildren = arrayTreeFilter(district, (c, level) => c.value === value[level]);
+    return treeChildren.map(v => v.label).join(',');
+  }
   // setVal() {
   //   this.props.form.setFieldsValue({
   //     district: ['340000', '340800', '340822'],
@@ -148,14 +158,24 @@ class Test extends React.Component {
           <List.Item arrow="horizontal" onClick={this.onClick}>选择地区（多列，异步加载）</List.Item>
         </Picker>
         <Picker
-          data={district}
           title="选择地区"
           extra="请选择(可选)"
+          data={district}
           value={this.state.pickerValue}
           onChange={v => this.setState({ pickerValue: v })}
         >
           <CustomChildren>选择地区（自定义 children）</CustomChildren>
         </Picker>
+        <List.Item extra={this.getSel()}>
+          <div onClick={() => this.setState({ visible: true })}>外部控制 visible</div>
+        </List.Item>
+        <Picker
+          visible={this.state.visible}
+          data={district}
+          value={this.state.pickerValue}
+          onChange={v => this.setState({ pickerValue: v })}
+          onOk={() => this.setState({ visible: false })}
+        />
       </List>
     </div>);
   }
