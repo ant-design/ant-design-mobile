@@ -15,6 +15,10 @@ timeline: true
 ---
 
 
+## 1.6.4
+
+- **Bug fix**
+  - 修复 `SeachBar` 在特定客户端内`onClear`事件触发时无法自动`focus`到搜索栏的问题。([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
 
 ## 1.6.3
 
