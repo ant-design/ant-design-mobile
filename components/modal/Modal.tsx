@@ -121,7 +121,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     // transparent 模式下, 内容默认居中
     const rootStyle = transparent ?
       {
-        width: '270',
+        width: 270,
         height: 'auto',
         ...style,
       } :
