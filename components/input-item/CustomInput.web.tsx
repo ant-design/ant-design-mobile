@@ -55,11 +55,7 @@ class NumberInput extends React.Component<any, any> {
       clearTimeout(this.debounceFocusTimeout);
       this.debounceFocusTimeout = null;
     }
-    const antmCustomKeyboard = (window as any).antmCustomKeyboard;
-    if (antmCustomKeyboard.linkedInput === this) {
-      antmCustomKeyboard.linkedInput = null;
-      addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
-    }
+    this.unLinkInput();
   }
 
   getComponent = () => {
@@ -93,6 +89,14 @@ class NumberInput extends React.Component<any, any> {
     }
   }
 
+  unLinkInput = () => {
+    const antmCustomKeyboard = (window as any).antmCustomKeyboard;
+    if (antmCustomKeyboard.linkedInput === this) {
+      antmCustomKeyboard.linkedInput = null;
+      addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
+    }
+  }
+
   onInputBlur = (value) => {
     const { focused } = this.state;
     if (focused) {
@@ -101,11 +105,7 @@ class NumberInput extends React.Component<any, any> {
       });
       this.props.onBlur(value);
       setTimeout(() => {
-        const antmCustomKeyboard = (window as any).antmCustomKeyboard;
-        if (antmCustomKeyboard.linkedInput === this) {
-          antmCustomKeyboard.linkedInput = null;
-          addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
-        }
+        this.unLinkInput();
       }, 50);
     }
   }
