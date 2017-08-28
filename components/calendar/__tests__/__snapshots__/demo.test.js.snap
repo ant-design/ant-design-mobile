@@ -175,6 +175,27 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
+            大行距
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none;"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
             不使用ZScroller(无法向前滚动)
           </div>
           <div

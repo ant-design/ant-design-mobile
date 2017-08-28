@@ -76,7 +76,6 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 class="am-stepper-input"
                 max="10"
                 min="1"
-                step="1"
                 value="3"
               />
             </div>
@@ -152,7 +151,6 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 class="am-stepper-input"
                 max="10"
                 min="1"
-                step="1"
                 value="2"
               />
             </div>
@@ -229,7 +227,6 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 disabled=""
                 max="10"
                 min="1"
-                step="1"
                 value="3"
               />
             </div>
