@@ -161,8 +161,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onChange) {
       this.props.onChange('');
     }
-    // 加上setTimeout 为了解决Android的兼容性问题。
-    // https://github.com/ant-design/ant-design-mobile/issues/1341
     this.refs.searchInput.focus();
   }
 
