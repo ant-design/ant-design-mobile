@@ -107,7 +107,7 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
         okText={okText}
         {...popupMoreProps}
       >
-        {React.cloneElement(children, { extra: this.getSel() || extra })}
+        {children && React.cloneElement(children, { extra: this.getSel() || extra })}
       </RMCPopupCascader>
     );
   }
