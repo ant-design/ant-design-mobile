@@ -35,5 +35,5 @@ initalMonths|inital months|number| 6|false
 maxDate|max date|Date||false
 minDate|min date|Date||false
 onSelectHasDisableDate|on select has disable date|(date: Date[]) => void||false
-rowSize|行大小|'normal' \| 'xl'||false
+rowSize|row size|'normal' \| 'xl'||false
 defaultTimeValue|default time of timePicker|Date||false
