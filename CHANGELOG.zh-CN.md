@@ -20,6 +20,9 @@ timeline: true
 - **Bug fix**
   - 修复 `SeachBar` 在特定客户端内`onClear`事件触发时无法自动`focus`到搜索栏的问题。([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
 
+- **Improve && Enhancement**
+  - `InputItem` 重构自定义数字键盘，优化代码，保持只有一个自定义金额键盘实例。 ([#1724](https://github.com/ant-design/ant-design-mobile/issues/1724)) 
+
 ## 1.6.3
 
 `2017-08-15`
