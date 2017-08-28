@@ -1,9 +1,7 @@
 const path = require('path');
-const configSvg = require('../svg.config');
 
 module.exports = {
   webpackConfig(config) {
-    configSvg(config, true);
     config.externals = {
       react: 'React',
       'react-dom': 'ReactDOM',
