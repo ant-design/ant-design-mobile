@@ -13,6 +13,10 @@ timeline: true
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+
+- **Bug fix**
+  - Fix `SeachBar` in specific Client when `onClear` event was triggered, the `SearchBar` can't be auto focused. ([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
+
 ## 1.6.3
 
 `2017-08-15`
