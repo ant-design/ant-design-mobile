@@ -30,7 +30,7 @@ english: Ant Design Mobile of React
 
 - The UI is fully Configurable and Scalable, easily adapt to all kinds of product style.
 - Support Web / iOS / Android platform (Based on React Native), has a wealth of components, can fully cover all kinds of scenes.
-- Built-in "Components are loaded on demand" / "Web page HD display" / "SVG Icon" optimization features, integrated development.
+- Provide "Components are loaded on demand" / "Web page HD display" / "SVG Icon" optimization features, integrated development.
 - Use TypeScript to develop, provide type definition files, support type and attribute smart tips for easy business development.
 
 ## Applicable Scenes
@@ -39,54 +39,30 @@ english: Ant Design Mobile of React
 - Multi-terminal applications based on react / react-native.
 - Custom UI-style applications.
 
-## Installation
+## Getting Started
+
+> Before delving into Ant Design React, a good knowledge of [React](http://facebook.github.io/react/) and [ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
+>
+> Make sure that you had installed [Node.js](https://nodejs.org/en/)(> v4.x) correctly.
+
+### 1. Create a New Project
+
+Can be an existing project, or a newly created empty item, but it is recommended to copy and modify it from the official example [scaffolding](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web).
+
+> More official [examples](https://github.com/ant-design/antd-mobile-samples).
+> Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in React ecosystem.
+
+### 2. Installation
 
 ```bash
 $ npm install antd-mobile --save
-$ npm install babel-plugin-import --save-dev
 ```
 
-## Usage
-
-> If you encounter an error, please refer [#56](https://github.com/ant-design/ant-design-mobile/issues/56) and [Samples](https://github.com/ant-design/antd-mobile-samples) first.
-
-> How antd-mobile deal with web & react-native components? Please see [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)
+### 3. Usage
 
 #### Web usage
 
-> The following doc based on `webpack@1.x` version, if you are using webpack@2.x, please see [#516](https://github.com/ant-design/ant-design-mobile/issues/516#issuecomment-293632772)
-
-- install webpack loader deps
-
-  ```bash
-  npm i style-loader css-loader less less-loader svg-sprite-loader@0.3.1 --save-dev
-  ```
-
-> `antd-mobile@1.x` require `svg-sprite-loader@^0.3.1` , see [detail info](https://mobile.ant.design/changelog#1.2.0)
-
-- Set the `resolve` field on webpack configuration file to load web&native components automaticlly.
-
-  ```
-  resolve: {
-    modulesDirectories: ['node_modules', path.join(__dirname, '../node_modules')],
-    extensions: ['', '.web.js', '.js', '.json'],
-  },
-  ```
-
-- Use the [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) to support component to load on demand:
-
-  ```js
-  // .babelrc
-  {"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}
-  // or webpack config file
-  webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
-  ```
-> If you are curious about why we need babel-plugin-import , see [Import on Demand](https://ant.design/docs/react/getting-started#Import-on-Demand)
-
-- all icon of antd-mobile are svg file, so you need to set [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), see [Icon docs](https://mobile.ant.design/components/icon) for details.
-
 - Entry html page Required settings:
-    - since antd-mobile css use `rem`, you need to add viewport scale and html fontSize setting scripts to your html header, see [Antd-Mobile-viewport-setting-wiki](https://github.com/ant-design/ant-design-mobile/wiki/Antd-Mobile-viewport-setting-wiki) for details.
     - Add [FastClick](https://github.com/ftlabs/fastclick) (ref [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
     - Use Promise fallback support (some Android phones do not support Promise), as follows:
         ```js
@@ -98,25 +74,27 @@ $ npm install babel-plugin-import --save-dev
 Example of usage:
 
 ```jsx
-// Auto import js and css modularly, parsed by babel-plugin-import
 import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
-> Other useful resources: [Server-side rendering discussion](https://github.com/ant-design/ant-design-mobile/pull/758) /
-> [Custom theme](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md).
+Note:
+
+> In the production environment (the development environment can not be configured), need to use the [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (`npm install babel-plugin-import --save-dev`) to support component to load on demand. Configuration method: in the `.babelrc` file (can also be placed in the webpack configuration file) to join
 >
+> `{"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}`
+
+Tips:
+
+> You can use [HD settings](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE) /
+>
+> [Custom theme](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md).
 > Your custom UI library based on antd-mobile: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
+
 
 #### React-Native usage
 
-> Note: `Table`/`Menu`/`NavBar` does not have React-Native implementation.
-
-- Edit `.babelrc` as follows:
-
-   ```json
-  {"plugins": [["import", { "libraryName": "antd-mobile" }]]}
-   ```
+> Note: `Menu`/`NavBar` does not have React-Native implementation.
 
 Example of usage:
 
@@ -134,7 +112,8 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
-> More common questions, please see [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki).
+Note: In the production environment, similar to Web usage, you need to install [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) and in the `.babelrc` file to join `{"plugins": [["import", { "libraryName": "antd-mobile" }]]}`
+
 
 ## Version
 

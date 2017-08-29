@@ -55,7 +55,7 @@ To create a production build, use npm run build.
 
 ## 使用 antd-mobile
 
-[见此使用示例](/docs/react/introduce#使用)，要点概括如下：
+[见此使用示例](/docs/react/introduce#快速上手)，要点概括如下：
 
 - `npm install antd-mobile babel-plugin-import --save` 安装依赖
 - `babel-plugin-import` 是用来按需加载脚本和样式，编辑 `.roadhogrc `，使 `babel-plugin-import` 插件生效。[参考文档](https://github.com/sorrycc/roadhog#extrababelplugins)

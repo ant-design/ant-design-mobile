@@ -47,7 +47,7 @@ english: Ant Design Mobile of React
 
 ### 1. 创建一个项目
 
-自己创建空项目，或者从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web) 拷贝并修改
+可以是已有项目、或者是新创建的空项目，但更推荐从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web) 脚手架里拷贝并修改
 
 > 参考更多[官方示例集](https://github.com/ant-design/antd-mobile-samples)
 > 或者你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates)
@@ -56,13 +56,7 @@ english: Ant Design Mobile of React
 
 ```bash
 $ npm install antd-mobile --save
-$ npm install babel-plugin-import --save-dev
 ```
-
-> 在生产环境，需要使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 支持按需加载，
-> 配置方法：在`.babelrc`文件里加入
-> `{"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}`
-> (如果在 webpack 里配置请自行探索)
 
 ### 3. 使用
 
@@ -84,23 +78,23 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
+注意：
+
+> 在生产环境中 (开发环境可以不配置)，需要使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (`npm install babel-plugin-import --save-dev`) 支持按需加载，配置方法：在`.babelrc`文件里(也可以放在 webpack 配置文件)加入
+>
+> `{"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}`
+
 甜点 (非必须):
 
 > 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
+>
 > 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.zh-CN.md)，
 > 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
->
 
 
 #### React-Native 使用方式
 
-> 注：`Menu`/`NavBar` 组件暂无 React Native 版本；
-
-- `.babelrc` 文件添加以下配置
-
-   ```json
-  {"plugins": [["import", { "libraryName": "antd-mobile" }]]}
-   ```
+> 注：`Menu`/`NavBar` 组件暂无 React Native 版本
 
 组件使用实例：
 
@@ -117,6 +111,9 @@ class HelloWorldApp extends Component {
 
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
+
+注意：在生产环境，与 Web 使用方式类似，需要安装 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 并在 `.babelrc` 文件里加入`{"plugins": [["import", { "libraryName": "antd-mobile" }]]}`
+
 
 ## 版本
 
