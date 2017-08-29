@@ -47,3 +47,14 @@ class Test extends React.Component {
 
 ReactDOM.render(<Test />, mountNode);
 ````
+
+````css
+.am-checkbox-agree .am-checkbox-agree-label a {
+  color: #108ee9;
+  transition: color .3s ease;
+}
+.am-checkbox-agree .am-checkbox-agree-label a:active,
+.am-checkbox-agree .am-checkbox-agree-label a:hover {
+    color: #1284d6;
+}
+````
