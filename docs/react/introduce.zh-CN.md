@@ -39,14 +39,27 @@ english: Ant Design Mobile of React
 - 适合于基于 react / react-native 的多终端应用
 - 适合不同 UI 风格的高度定制需求的应用
 
-## 安装
+## 快速上手
+
+> 在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)。我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) 的写法来提升编码的愉悦感。
+>
+> 确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
+
+### 1. 创建一个项目
+
+可以是已有项目、或者是新创建的空项目，但更推荐从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web) 脚手架里拷贝并修改
+
+> 参考更多[官方示例集](https://github.com/ant-design/antd-mobile-samples)
+> 或者你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates)
+
+### 2. 安装
 
 ```bash
 $ npm install antd-mobile --save
 $ npm install babel-plugin-import --save-dev
 ```
 
-## 使用
+### 3. 使用
 
 > 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56) 及 [官方示例集](https://github.com/ant-design/antd-mobile-samples)
 
@@ -72,7 +85,6 @@ $ npm install babel-plugin-import --save-dev
     extensions: ['', '.web.js', '.js', '.json'],
   },
   ```
-
 
 - 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 支持按需加载：（`必选`）
 
@@ -109,8 +121,6 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 >
 > 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.zh-CN.md)，
 > 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
->
-
 
 #### React-Native 使用方式
 

@@ -39,14 +39,27 @@ english: Ant Design Mobile of React
 - Multi-terminal applications based on react / react-native.
 - Custom UI-style applications.
 
-## Installation
+## Getting Started
+
+> Before delving into Ant Design React, a good knowledge of [React](http://facebook.github.io/react/) and [ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
+>
+> Make sure that you had installed [Node.js](https://nodejs.org/en/)(> v4.x) correctly.
+
+### 1. Create a New Project
+
+Can be an existing project, or a newly created empty item, but it is recommended to copy and modify it from the official example [scaffolding](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web).
+
+> More official [examples](https://github.com/ant-design/antd-mobile-samples).
+> Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in React ecosystem.
+
+### 2. Installation
 
 ```bash
 $ npm install antd-mobile --save
 $ npm install babel-plugin-import --save-dev
 ```
 
-## Usage
+### 3. Usage
 
 > If you encounter an error, please refer [#56](https://github.com/ant-design/ant-design-mobile/issues/56) and [Samples](https://github.com/ant-design/antd-mobile-samples) first.
 
@@ -81,6 +94,7 @@ $ npm install babel-plugin-import --save-dev
   // or webpack config file
   webpackConfig.babel.plugins.push(['import', { libraryName: 'antd-mobile', style: 'css' }]);
   ```
+
 > If you are curious about why we need babel-plugin-import , see [Import on Demand](https://ant.design/docs/react/getting-started#Import-on-Demand)
 
 - all icon of antd-mobile are svg file, so you need to set [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), see [Icon docs](https://mobile.ant.design/components/icon) for details.
