@@ -13,12 +13,26 @@ timeline: true
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+## 1.6.4
+`2017-08-29`
 
 - **Bug fix**
   - Fix `SeachBar` in specific Client when `onClear` event was triggered, the `SearchBar` can't be auto focused. ([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
+  - Fix `ListView` `scrollerOptions` undefined. ([#16](https://github.com/react-component/m-list-view/pull/16))
+  - Fix `SwipeAction`  [touchabled feedback conflict with swipe gesture](https://github.com/react-component/swipeout/commit/b9b373bf4d378c5c98730b5ce96953050c29dbe2)。
+  - Fix `Stepper` icon can not custom icon color。([#1694](https://github.com/ant-design/ant-design-mobile/issues/1694))
+  - Fix React Native `ImagePicker` throw error in react 16. ([#1707](https://github.com/ant-design/ant-design-mobile/issues/1707))
+  - Fix ` SwipeAction` z-index conflict with `InputItem`. ([#1720](https://github.com/ant-design/ant-design-mobile/issues/1720))
 
 - **Improve && Enhancement**
-  - `InputItem` Refactor Custom Input, make sure there is only one MoneyKeyboard。 ([#1724](https://github.com/ant-design/ant-design-mobile/issues/1724)) 
+  - `InputItem` Refactor Custom Input, make sure there is only one MoneyKeyboard。 ([#1724](https://github.com/ant-design/ant-design-mobile/issues/1724))
+  -  upgrade `rmc-picker` to v4。([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593))
+  - `SearchBar` [support MaxLength](https://github.com/ant-design/ant-design-mobile/commit/cb674f77d8e6495a081c06c65b71f23a04c32954)。
+  - `InputItem[type=money]` refactor to use global standalone instance。([#1763](https://github.com/ant-design/ant-design-mobile/pull/1736))
+  - `SearchBar` refactor to clear not blur。([#1731](https://github.com/ant-design/ant-design-mobile/pull/1731))
+  - `Picker` support visiable in controlled mode。([900f691](https://github.com/ant-design/ant-design-mobile/commit/900f6910bdd2b42fa97bac142671bf5089abc0a3))
+
+
 
 ## 1.6.3
 

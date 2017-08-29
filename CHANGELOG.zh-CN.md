@@ -16,12 +16,23 @@ timeline: true
 
 
 ## 1.6.4
+`2017-08-29`
 
 - **Bug fix**
-  - 修复 `SeachBar` 在特定客户端内`onClear`事件触发时无法自动`focus`到搜索栏的问题。([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
+  - 修复 `SeachBar` 在特定客户端内`onClear`事件触发时无法自动 `focus` 到搜索栏的问题。([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
+  - 修复 `ListView` 空保护 bug ([#16](https://github.com/react-component/m-list-view/pull/16))
+  - 修复` SwipeAction`  [触摸反馈与滑动冲突的问题](https://github.com/react-component/swipeout/commit/b9b373bf4d378c5c98730b5ce96953050c29dbe2)。
+  - 修复 `Stepper` icon 不支持自定义颜色。([#1694](https://github.com/ant-design/ant-design-mobile/issues/1694))
+  - 修复 RN `ImagePicker` 不兼容 react 16 error. ([#1707](https://github.com/ant-design/ant-design-mobile/issues/1707))
+  - 修复` SwipeAction` 与 `InputItem` z-index 冲突的问题。([#1720](https://github.com/ant-design/ant-design-mobile/issues/1720))
 
 - **Improve && Enhancement**
-  - `InputItem` 重构自定义数字键盘，优化代码，保持只有一个自定义金额键盘实例。 ([#1724](https://github.com/ant-design/ant-design-mobile/issues/1724)) 
+  - `InputItem` 重构自定义数字键盘，优化代码，保持只有一个自定义金额键盘实例。 ([#1724](https://github.com/ant-design/ant-design-mobile/issues/1724))
+  - 统一升级 `rmc-picker` 到 v4。([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593))
+  - `SearchBar` [支持 MaxLength](https://github.com/ant-design/ant-design-mobile/commit/cb674f77d8e6495a081c06c65b71f23a04c32954)。
+  - `InputItem[type=money]` 虚拟数字键盘重构，全局独立复用。([#1763](https://github.com/ant-design/ant-design-mobile/pull/1736))
+  - `SearchBar` 清除交互体验优化。([#1731](https://github.com/ant-design/ant-design-mobile/pull/1731))
+  - `Picker` 显示支持受控模式。([900f691](https://github.com/ant-design/ant-design-mobile/commit/900f6910bdd2b42fa97bac142671bf5089abc0a3))
 
 ## 1.6.3
 
