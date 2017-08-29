@@ -1,5 +1,6 @@
 const path = require('path');
 const configSvg = require('../svg.config');
+const pkg = require('../package.json');
 
 module.exports = {
   webpackConfig(config) {
@@ -38,5 +39,6 @@ module.exports = {
   },
   htmlTemplateExtraData: {
     isDev: process.env.NODE_ENV === 'development',
+    reactVersion: pkg.devDependencies.react.replace(/~|\^/, ''),
   },
 };

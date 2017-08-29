@@ -56,9 +56,9 @@
   <body>
     <div id="react-content"></div>
     {% if isDev %}
-    <script src="https://as.alipayobjects.com/g/component/??react/15.3.2/react.js,react/15.3.2/react-dom.js"></script>
+    <script src="https://as.alipayobjects.com/g/component/??react/{{ reactVersion }}/react.js,react/{{ reactVersion }}/react-dom.js"></script>
     {% else %}
-    <script src="https://as.alipayobjects.com/g/component/??react/15.3.2/react.min.js,react/15.3.2/react-dom.min.js"></script>
+    <script src="https://as.alipayobjects.com/g/component/??react/{{ reactVersion }}/react.min.js,react/{{ reactVersion }}/react-dom.min.js"></script>
     {% endif %}
 
     <!-- react-router@3.0.1 -->
