@@ -23,7 +23,7 @@ class NumberInput extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      focused: false,
+      focused: props.focused || false,
     };
   }
 
