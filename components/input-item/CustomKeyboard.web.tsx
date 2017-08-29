@@ -10,7 +10,7 @@ export class KeyboardItem extends React.Component<any, any> {
   };
 
   render () {
-    const { prefixCls, onClick, className, disabled, children, ...restProps } = this.props;
+    const { prefixCls, onClick, className, disabled, children, tdRef, ...restProps } = this.props;
     let value = children;
     if (className === 'keyboard-delete') {
       value = 'delete';
@@ -26,7 +26,7 @@ export class KeyboardItem extends React.Component<any, any> {
     };
     return (<Touchable activeClassName={`${prefixCls}-item-active`}>
       <td
-        ref={this.props.tdRef}
+        ref={tdRef}
         onClick={(e) => { onClick(e, value); }}
         className={classNames(wrapCls)}
         {...restProps}
