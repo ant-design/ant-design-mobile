@@ -36,4 +36,7 @@ module.exports = {
     ]);
     return config;
   },
+  htmlTemplateExtraData: {
+    isDev: process.env.NODE_ENV === 'development',
+  },
 };
