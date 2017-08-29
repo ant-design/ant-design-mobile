@@ -15,6 +15,14 @@ timeline: true
 ---
 
 
+## 1.6.5
+`2017-08-29`
+
+- **Bug Fix**
+  - 修复 `SeachBar` cancel 无法自动 blur 的问题。([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
+  - 修复 `InputItem` unkown props warning。([#1754](https://github.com/ant-design/ant-design-mobile/issues/1754))
+  - 修复 `InputItem[type='money']` `focused` api 在初始化时不生效的问题。([#1758](https://github.com/ant-design/ant-design-mobile/issues/1758))
+
 ## 1.6.4
 `2017-08-29`
 

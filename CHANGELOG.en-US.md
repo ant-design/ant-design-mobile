@@ -13,6 +13,15 @@ timeline: true
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+
+## 1.6.5
+`2017-08-29`
+
+- **Bug Fix**
+  - Fix `SeachBar` cancel can not blur. ([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
+  - Fix `InputItem` unkown props warning。([#1754](https://github.com/ant-design/ant-design-mobile/issues/1754))
+  - Fix `InputItem[type='money']` `focused` do not work when init. ([#1758](https://github.com/ant-design/ant-design-mobile/issues/1758))
+
 ## 1.6.4
 `2017-08-29`
 
