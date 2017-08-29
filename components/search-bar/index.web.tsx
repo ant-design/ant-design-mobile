@@ -148,9 +148,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.props.onBlur();
     }
   }
-
   onClear = () => {
-    this.blurFromOnClear = true;
+    this.doClear();
+  }
+  doClear = (blurFromOnClear = true) => {
+    this.blurFromOnClear = blurFromOnClear;
 
     if (!('value' in this.props)) {
       this.setState({ value: '' });
@@ -161,14 +163,16 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onChange) {
       this.props.onChange('');
     }
-    this.refs.searchInput.focus();
+    if (blurFromOnClear) {
+      this.refs.searchInput.focus();
+    }
   }
 
   onCancel = () => {
     if (this.props.onCancel) {
       this.props.onCancel(this.state.value);
     } else {
-      this.onClear();
+      this.doClear(false);
     }
   }
 
