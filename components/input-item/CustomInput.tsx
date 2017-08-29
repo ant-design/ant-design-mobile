@@ -1,7 +1,9 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import CustomKeyboard from './CustomKeyboard';
+import { addClass, removeClass } from '../_util/class';
 
 class NumberInput extends React.Component<any, any> {
   static defaultProps = {
@@ -21,7 +23,7 @@ class NumberInput extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      focused: false,
+      focused: props.focused || false,
     };
   }
 
@@ -37,6 +39,9 @@ class NumberInput extends React.Component<any, any> {
   }
 
   componentDidMount() {
+    if (!(window as any).antmCustomKeyboard) {
+      this.renderCustomKeyboard();
+    }
     const { autoFocus, focused, value, disabled, editable } = this.props;
     if ((autoFocus || focused) && !disabled && editable ) {
       this.onInputFocus(value);
@@ -50,12 +55,45 @@ class NumberInput extends React.Component<any, any> {
       clearTimeout(this.debounceFocusTimeout);
       this.debounceFocusTimeout = null;
     }
+    this.unLinkInput();
+  }
+
+  getComponent = () => {
+    const { keyboardPrefixCls, confirmLabel } = this.props;
+
+    return (<CustomKeyboard
+      onClick={this.onKeyboardClick}
+      preixCls={keyboardPrefixCls}
+      confirmLabel={confirmLabel}
+    />);
+  }
+
+  renderCustomKeyboard = () => {
+    let container = document.querySelector(`#${this.props.keyboardPrefixCls}-container`);
+    if (!container) {
+      container = document.createElement('div');
+      container.setAttribute('id', `${this.props.keyboardPrefixCls}-container`);
+      document.body.appendChild(container);
+      (window as any).antmCustomKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
+        this,
+        this.getComponent(),
+        container,
+      );
+    }
   }
 
   _blurEventListener = (ev) => {
     const { value } = this.props;
     if (ev.target !== this.refs['input-container']) {
       this.onInputBlur(value);
+    }
+  }
+
+  unLinkInput = () => {
+    const antmCustomKeyboard = (window as any).antmCustomKeyboard;
+    if (antmCustomKeyboard.linkedInput === this) {
+      antmCustomKeyboard.linkedInput = null;
+      addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
     }
   }
 
@@ -66,34 +104,61 @@ class NumberInput extends React.Component<any, any> {
         focused: false,
       });
       this.props.onBlur(value);
+      setTimeout(() => {
+        this.unLinkInput();
+      }, 50);
     }
   }
 
   onInputFocus = (value) => {
+    this.props.onFocus(value);
     this.setState({
       focused: true,
+    }, () => {
+      const antmCustomKeyboard = (window as any).antmCustomKeyboard;
+      antmCustomKeyboard.linkedInput = this;
+      removeClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
+      antmCustomKeyboard.confirmDisabled = (value === '');
+      if (value === '') {
+        addClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
+      } else {
+        removeClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
+      }
     });
-    this.props.onFocus(value);
   }
 
   onKeyboardClick = (KeyboardItemValue) => {
     let { value, onChange, maxLength } = this.props;
+    let valueAfterChange;
     // 删除键
     if (KeyboardItemValue === 'delete') {
-      onChange({ target: { value: value.substring(0, value.length - 1) } });
+      valueAfterChange = value.substring(0, value.length - 1);
+      onChange({ target: { value: valueAfterChange } });
     // 确认键
     } else if (KeyboardItemValue === 'confirm') {
-      onChange({ target: { value: value } });
+      valueAfterChange = value;
+      onChange({ target: { value: valueAfterChange } });
       this.onInputBlur(value);
     // 收起键
     } else if (KeyboardItemValue === 'hide') {
-      this.onInputBlur(value);
+      valueAfterChange = value;
+      this.onInputBlur(valueAfterChange);
     } else {
       if (maxLength !== undefined && +maxLength >= 0 && (value + KeyboardItemValue).length > maxLength) {
-        onChange({ target: { value: (value + KeyboardItemValue).substr(0, maxLength) } });
+        valueAfterChange = (value + KeyboardItemValue).substr(0, maxLength);
+        onChange({ target: { value: valueAfterChange } });
       } else {
-        onChange({ target: { value: (value + KeyboardItemValue) } });
+        valueAfterChange = (value + KeyboardItemValue);
+        onChange({ target: { value: valueAfterChange } });
       }
+    }
+
+    const antmCustomKeyboard = (window as any).antmCustomKeyboard;
+    antmCustomKeyboard.confirmDisabled = (valueAfterChange === '');
+    if (valueAfterChange === '') {
+      addClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
+    } else {
+      removeClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
     }
   }
 
@@ -106,7 +171,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   render() {
-    const { placeholder, value, keyboardPrefixCls, disabled, editable, confirmLabel, style } = this.props;
+    const { placeholder, value, disabled, editable } = this.props;
     const { focused } = this.state;
     const preventKeyboard = disabled || !editable;
     const fakeInputCls = classNames({
@@ -119,20 +184,10 @@ class NumberInput extends React.Component<any, any> {
       <div
         className={fakeInputCls}
         ref="input-container"
-        style={style}
         onClick={preventKeyboard ? () => {} : this.onFakeInputClick}
       >
         {value}
       </div>
-      {!preventKeyboard &&
-        <CustomKeyboard
-          onClick={this.onKeyboardClick}
-          hide={!focused}
-          confirmDisabled={value === ''}
-          preixCls={keyboardPrefixCls}
-          confirmLabel={confirmLabel}
-        />
-      }
     </div>);
   }
 }

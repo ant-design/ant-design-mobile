@@ -10,7 +10,7 @@ export class KeyboardItem extends React.Component<any, any> {
   };
 
   render () {
-    const { prefixCls, onClick, className, disabled, children, ...restProps } = this.props;
+    const { prefixCls, onClick, className, disabled, children, tdRef, ...restProps } = this.props;
     let value = children;
     if (className === 'keyboard-delete') {
       value = 'delete';
@@ -19,13 +19,20 @@ export class KeyboardItem extends React.Component<any, any> {
     } else if (className === 'keyboard-confirm') {
       value = 'confirm';
     }
+
     const wrapCls = {
       [className as string]: className,
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-disabled`]: disabled,
     };
     return (<Touchable activeClassName={`${prefixCls}-item-active`}>
-      <td onClick={(e) => { onClick(e, value); }} className={classNames(wrapCls)} {...restProps}>{children}</td>
+      <td
+        ref={tdRef}
+        onClick={(e) => { onClick(e, value); }}
+        className={classNames(wrapCls)}
+        {...restProps}
+      >
+        {children}
+      </td>
     </Touchable>);
   }
 }
@@ -33,51 +40,60 @@ export class KeyboardItem extends React.Component<any, any> {
 class CustomKeyboard extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'am-number-keyboard',
-    onClick: () => {},
-    confirmDisabled: false,
   };
+
+  linkedInput: any;
+  antmKeyboard: any;
+  confirmDisabled: boolean;
+  confirmKeyboardItem: any;
+
   onKeyboardClick = (e, value) => {
     e.nativeEvent.stopImmediatePropagation();
-    const { confirmDisabled } = this.props;
-    if (value === 'confirm' && confirmDisabled) {
+    if (value === 'confirm' && this.confirmDisabled) {
       return null;
     } else {
-      this.props.onClick(value);
+      if (this.linkedInput) {
+        this.linkedInput.onKeyboardClick(value);
+      }
     }
   }
 
-  renderKetboardItem = (item, index) => {
+  renderKeyboardItem = (item, index) => {
     return (<KeyboardItem onClick={this.onKeyboardClick} key={`item-${item}-${index}`}>{item}</KeyboardItem>);
   }
   render() {
-    const { prefixCls, confirmDisabled, hide, confirmLabel } = this.props;
+    const { prefixCls, confirmLabel } = this.props;
+
     const wrapperCls = classNames({
       [`${prefixCls}-wrapper`]: true,
-      [`${prefixCls}-wrapper-hide`]: hide,
+      [`${prefixCls}-wrapper-hide`]: true,
     });
-    return (<div className={wrapperCls}>
+    return (<div
+      className={wrapperCls}
+      ref={el => this.antmKeyboard = el}
+    >
       <table>
         <tbody>
           <tr>
-            {['1', '2', '3'].map((item, index) => { return this.renderKetboardItem(item, index); })}
+            {['1', '2', '3'].map((item, index) => { return this.renderKeyboardItem(item, index); })}
             <KeyboardItem className="keyboard-delete" rowSpan={2} onClick={this.onKeyboardClick} />
           </tr>
           <tr>
-            {['4', '5', '6'].map((item, index) => { return this.renderKetboardItem(item, index); })}
+            {['4', '5', '6'].map((item, index) => { return this.renderKeyboardItem(item, index); })}
           </tr>
           <tr>
-            {['7', '8', '9'].map((item, index) => { return this.renderKetboardItem(item, index); })}
+            {['7', '8', '9'].map((item, index) => { return this.renderKeyboardItem(item, index); })}
             <KeyboardItem
               className="keyboard-confirm"
-              disabled={confirmDisabled}
               rowSpan={2}
               onClick={this.onKeyboardClick}
+              tdRef={el => this.confirmKeyboardItem = el}
             >
               {confirmLabel}
             </KeyboardItem>
           </tr>
           <tr>
-            {['.', '0'].map((item, index) => { return this.renderKetboardItem(item, index); })}
+            {['.', '0'].map((item, index) => { return this.renderKeyboardItem(item, index); })}
             <KeyboardItem className="keyboard-hide" onClick={this.onKeyboardClick} />
           </tr>
         </tbody>

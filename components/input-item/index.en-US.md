@@ -16,6 +16,8 @@ A foundational component for inputting text into the app via a keyboard.
 
 Support WEB, React-Native.
 
+**`InputItem` must wrapped by a [List](https://mobile.ant.design/components/list)**
+
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | type    | the type of `InputItem` which is one of `bankCard`, `phone`(which the maxLength is 11 and setting will be ignored), `password`, `number`, （ antd-mobile will try to open the number keyboard, but web browser can not open number keyboard with decimal support we suggest one need decimal number support use text input and onChange to custom it.）, `money`(with decimal,`Web Only`),   `text`  | String |  `text`  |
