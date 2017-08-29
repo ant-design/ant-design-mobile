@@ -9,6 +9,8 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   rightBtnInitMarginleft: any;
   firstFocus: any;
   scrollIntoViewTimeout: any;
+  blurFromOnClear: any;
+  onBlurTimeout: any;
 
   constructor(props) {
     super(props);
@@ -31,7 +33,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     const initBtn = window.getComputedStyle(this.refs.rightBtn);
     this.rightBtnInitMarginleft = initBtn['margin-left'];
     if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
-      (this.refs as any).searchInput.focus();
+      this.refs.searchInput.focus();
     }
     this.componentDidUpdate();
   }
@@ -52,7 +54,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       }
     }
     if (this.state.focused) {
-      (this.refs as any).searchInput.focus();
+      this.refs.searchInput.focus();
     }
   }
 
@@ -74,6 +76,10 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       clearTimeout(this.scrollIntoViewTimeout);
       this.scrollIntoViewTimeout = null;
     }
+    if (this.onBlurTimeout) {
+      clearTimeout(this.onBlurTimeout);
+      this.onBlurTimeout = null;
+    }
   }
 
   onSubmit = (e) => {
@@ -81,7 +87,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onSubmit) {
       this.props.onSubmit(this.state.value);
     }
-    (this.refs as any).searchInput.blur();
+    this.refs.searchInput.blur();
   }
 
   onChange = (e) => {
@@ -125,11 +131,14 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
 
   onBlur = () => {
-    setTimeout(() => {
-      this.setState({
-        focus: false,
-      });
-    }, 0);
+    this.onBlurTimeout = setTimeout(() => {
+      if (!this.blurFromOnClear) {
+        this.setState({
+          focus: false,
+        });
+      }
+      this.blurFromOnClear = false;
+    }, 50);
     if (!('focused' in this.props)) {
       this.setState({
         focused: false,
@@ -139,8 +148,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.props.onBlur();
     }
   }
-
   onClear = () => {
+    this.doClear();
+  }
+  doClear = (blurFromOnClear = true) => {
+    this.blurFromOnClear = blurFromOnClear;
+
     if (!('value' in this.props)) {
       this.setState({ value: '' });
     }
@@ -150,16 +163,8 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onChange) {
       this.props.onChange('');
     }
-    // 加上setTimeout 为了解决Android的兼容性问题。
-    // https://github.com/ant-design/ant-design-mobile/issues/1341
-    // 只有支付宝系客户端才完美支持
-    const ua = navigator.userAgent;
-    if (ua.indexOf('AlipayClient') > 0 && (ua.match(/Android/i) || ua.indexOf('AliApp(AM') < 0)) {
-      // 口碑掌柜iOS 只有5.2以上版本才支持
-      setTimeout(() => {
-        (this.refs as any).searchInput.focus();
-        this.componentDidUpdate();
-      }, 300);
+    if (blurFromOnClear) {
+      this.refs.searchInput.focus();
     }
   }
 
@@ -167,7 +172,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onCancel) {
       this.props.onCancel(this.state.value);
     } else {
-      this.onClear();
+      this.doClear(false);
     }
   }
 
@@ -197,7 +202,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     });
 
     return (
-      <form onSubmit={this.onSubmit} className={wrapCls} ref="searchInputContainer" action="#">
+      <form onSubmit={this.onSubmit} className={wrapCls} style={style} ref="searchInputContainer" action="#">
         <div className={`${prefixCls}-input`}>
           <div className={`${prefixCls}-synthetic-ph`} ref="syntheticPh">
             <span className={`${prefixCls}-synthetic-ph-container`} ref="syntheticPhContainer">
@@ -220,7 +225,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             ref="searchInput"
-            style={style}
             maxLength={maxLength}
             {...getDataAttr(this.props)}
           />

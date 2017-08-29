@@ -50,6 +50,42 @@ timeline: true
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
 
+## 1.6.5
+`2017-08-29`
+
+- **Bug Fix**
+  - 修复 `SeachBar` cancel 无法自动 blur 的问题。([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
+  - 修复 `InputItem` unkown props warning。([#1754](https://github.com/ant-design/ant-design-mobile/issues/1754))
+  - 修复 `InputItem[type='money']` `focused` api 在初始化时不生效的问题。([#1758](https://github.com/ant-design/ant-design-mobile/issues/1758))
+
+## 1.6.4
+`2017-08-29`
+
+- **Bug Fix**
+  - 修复 `SeachBar` 在特定客户端内`onClear`事件触发时无法自动 `focus` 到搜索栏的问题。([#1721](https://github.com/ant-design/ant-design-mobile/issues/1721))
+  - 修复 `ListView` 空保护 bug ([#16](https://github.com/react-component/m-list-view/pull/16))
+  - 修复` SwipeAction`  [触摸反馈与滑动冲突的问题](https://github.com/react-component/swipeout/commit/b9b373bf4d378c5c98730b5ce96953050c29dbe2)。
+  - 修复 `Stepper` icon 不支持自定义颜色。([#1694](https://github.com/ant-design/ant-design-mobile/issues/1694))
+  - 修复 RN `ImagePicker` 不兼容 react 16 error. ([#1707](https://github.com/ant-design/ant-design-mobile/issues/1707))
+  - 修复` SwipeAction` 与 `InputItem` z-index 冲突的问题。([#1720](https://github.com/ant-design/ant-design-mobile/issues/1720))
+
+- **Improve && Enhancement**
+  - 统一升级 `rmc-picker` 到 v4。([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593))
+  - `SearchBar` [支持 MaxLength](https://github.com/ant-design/ant-design-mobile/commit/cb674f77d8e6495a081c06c65b71f23a04c32954)。
+  - `InputItem[type=money]` 虚拟数字键盘重构，全局独立复用。([#1724](https://github.com/ant-design/ant-design-mobile/issues/1724))
+  - `SearchBar` 清除交互体验优化。([#1731](https://github.com/ant-design/ant-design-mobile/pull/1731))
+  - `Picker` 显示支持受控模式。([900f691](https://github.com/ant-design/ant-design-mobile/commit/900f6910bdd2b42fa97bac142671bf5089abc0a3))
+
+## 1.6.3
+
+`2017-08-15`
+
+- **Bug Fix**
+  - 修复 `TextareaItem` 不正确处理换行符长度的问题。 ([#1265](https://github.com/ant-design/ant-design-mobile/issues/1265))
+
+- **Improve && Enhancement**
+  - `SwipeAction` 防止竖滑误触发；禁用时性能优化；滑块宽度自适应。 ([#1595](https://github.com/ant-design/ant-design-mobile/issues/1595))
+
 ## 1.6.2
 
 `2017-08-13`
