@@ -6,96 +6,331 @@ exports[`Menu level 1 renders correctly 1`] = `
   style="height:0px;"
 >
   <div
-    class="am-flexbox am-flexbox-align-top"
+    style="height:0px;"
   >
     <div
-      aria-hidden="false"
-      class="am-flexbox-item"
-      role="tabpanel"
-      style="height:0px;"
+      class="am-flexbox am-flexbox-align-top"
     >
       <div
-        class="am-list am-sub-menu"
-        style="padding-top:0;"
+        aria-hidden="false"
+        class="am-flexbox-item"
+        role="tabpanel"
+        style="height:0px;"
       >
         <div
-          class="am-list-body"
+          class="am-list am-sub-menu"
+          style="padding-top:0;"
         >
           <div
-            class="am-radio-item am-list-item am-list-item-middle"
+            class="am-list-body"
           >
             <div
-              class="am-list-line"
+              class="am-radio-item am-list-item am-list-item-middle"
             >
               <div
-                class="am-list-content"
+                class="am-list-line"
               >
-                Item1
+                <div
+                  class="am-list-content"
+                >
+                  Item1
+                </div>
+                <div
+                  class="am-list-extra"
+                >
+                  <label
+                    class="am-radio-wrapper"
+                  >
+                    <span
+                      class="am-radio"
+                    >
+                      <input
+                        class="am-radio-input"
+                        type="radio"
+                      />
+                      <span
+                        class="am-radio-inner"
+                      />
+                    </span>
+                  </label>
+                </div>
               </div>
               <div
-                class="am-list-extra"
-              >
-                <label
-                  class="am-radio-wrapper"
-                >
-                  <span
-                    class="am-radio"
-                  >
-                    <input
-                      class="am-radio-input"
-                      type="radio"
-                    />
-                    <span
-                      class="am-radio-inner"
-                    />
-                  </span>
-                </label>
-              </div>
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
-              class="am-list-ripple"
-              style="display:none;"
-            />
-          </div>
-          <div
-            class="am-radio-item am-list-item am-list-item-middle"
-          >
-            <div
-              class="am-list-line"
+              class="am-radio-item am-list-item am-list-item-middle"
             >
               <div
-                class="am-list-content"
+                class="am-list-line"
               >
-                Item2
+                <div
+                  class="am-list-content"
+                >
+                  Item2
+                </div>
+                <div
+                  class="am-list-extra"
+                >
+                  <label
+                    class="am-radio-wrapper"
+                  >
+                    <span
+                      class="am-radio"
+                    >
+                      <input
+                        class="am-radio-input"
+                        type="radio"
+                      />
+                      <span
+                        class="am-radio-inner"
+                      />
+                    </span>
+                  </label>
+                </div>
               </div>
               <div
-                class="am-list-extra"
-              >
-                <label
-                  class="am-radio-wrapper"
-                >
-                  <span
-                    class="am-radio"
-                  >
-                    <input
-                      class="am-radio-input"
-                      type="radio"
-                    />
-                    <span
-                      class="am-radio-inner"
-                    />
-                  </span>
-                </label>
-              </div>
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
-            <div
-              class="am-list-ripple"
-              style="display:none;"
-            />
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Menu mult select menu level 1 renders correctly 1`] = `
+<div
+  class="am-menu"
+  style="height:0px;"
+>
+  <div
+    style="height:NaNpx;"
+  >
+    <div
+      class="am-flexbox am-flexbox-align-top"
+    >
+      <div
+        aria-hidden="false"
+        class="am-flexbox-item"
+        role="tabpanel"
+        style="height:NaNpx;"
+      >
+        <div
+          class="am-list am-sub-menu"
+          style="padding-top:0;"
+        >
+          <div
+            class="am-list-body"
+          >
+            <div
+              class="am-radio-item am-list-item am-list-item-middle"
+            >
+              <div
+                class="am-list-line"
+              >
+                <div
+                  class="am-list-content"
+                >
+                  Item1
+                </div>
+                <div
+                  class="am-list-extra"
+                >
+                  <label
+                    class="am-checkbox-wrapper"
+                  >
+                    <span
+                      class="am-checkbox"
+                    >
+                      <input
+                        class="am-checkbox-input"
+                        type="checkbox"
+                      />
+                      <span
+                        class="am-checkbox-inner"
+                      />
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
+            </div>
+            <div
+              class="am-radio-item am-list-item am-list-item-middle"
+            >
+              <div
+                class="am-list-line"
+              >
+                <div
+                  class="am-list-content"
+                >
+                  Item2
+                </div>
+                <div
+                  class="am-list-extra"
+                >
+                  <label
+                    class="am-checkbox-wrapper"
+                  >
+                    <span
+                      class="am-checkbox"
+                    >
+                      <input
+                        class="am-checkbox-input"
+                        type="checkbox"
+                      />
+                      <span
+                        class="am-checkbox-inner"
+                      />
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-mult-select-btns"
+  >
+    <a
+      aria-disabled="false"
+      class="am-mult-select-btns-btn am-button am-button-inline"
+      role="button"
+    >
+      <span>
+        取 消
+      </span>
+    </a>
+    <a
+      aria-disabled="false"
+      class="am-mult-select-btns-btn am-button am-button-primary am-button-inline"
+      role="button"
+    >
+      <span>
+        确 定
+      </span>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Menu mult select menu renders correctly 1`] = `
+<div
+  class="am-menu"
+  style="height:0px;"
+>
+  <div
+    style="height:NaNpx;"
+  >
+    <div
+      class="am-flexbox am-flexbox-align-top"
+    >
+      <div
+        class="am-flexbox-item"
+        style="height:NaNpx;"
+      >
+        <div
+          class="am-list"
+          role="tablist"
+        >
+          <div
+            class="am-list-body"
+          >
+            <div
+              aria-selected="true"
+              class="am-menu-selected am-list-item am-list-item-middle"
+              role="tab"
+            >
+              <div
+                class="am-list-line"
+              >
+                <div
+                  class="am-list-content"
+                >
+                  Item1
+                </div>
+              </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
+            </div>
+            <div
+              aria-selected="false"
+              class="am-list-item am-list-item-middle"
+              role="tab"
+            >
+              <div
+                class="am-list-line"
+              >
+                <div
+                  class="am-list-content"
+                >
+                  Item2
+                </div>
+              </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-hidden="false"
+        class="am-flexbox-item"
+        role="tabpanel"
+        style="height:NaNpx;"
+      >
+        <div
+          class="am-list am-sub-menu"
+          style="padding-top:0;"
+        >
+          <div
+            class="am-list-body"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-mult-select-btns"
+  >
+    <a
+      aria-disabled="false"
+      class="am-mult-select-btns-btn am-button am-button-inline"
+      role="button"
+    >
+      <span>
+        取 消
+      </span>
+    </a>
+    <a
+      aria-disabled="false"
+      class="am-mult-select-btns-btn am-button am-button-primary am-button-inline"
+      role="button"
+    >
+      <span>
+        确 定
+      </span>
+    </a>
   </div>
 </div>
 `;
@@ -106,73 +341,77 @@ exports[`Menu renders correctly 1`] = `
   style="height:0px;"
 >
   <div
-    class="am-flexbox am-flexbox-align-top"
+    style="height:0px;"
   >
     <div
-      class="am-flexbox-item"
-      style="height:0px;"
+      class="am-flexbox am-flexbox-align-top"
     >
       <div
-        class="am-list"
-        role="tablist"
+        class="am-flexbox-item"
+        style="height:0px;"
       >
         <div
-          class="am-list-body"
+          class="am-list"
+          role="tablist"
         >
           <div
-            aria-selected="true"
-            class="am-menu-selected am-list-item am-list-item-middle"
-            role="tab"
+            class="am-list-body"
           >
             <div
-              class="am-list-line"
+              aria-selected="true"
+              class="am-menu-selected am-list-item am-list-item-middle"
+              role="tab"
             >
               <div
-                class="am-list-content"
+                class="am-list-line"
               >
-                Item1
+                <div
+                  class="am-list-content"
+                >
+                  Item1
+                </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
             <div
-              class="am-list-ripple"
-              style="display:none;"
-            />
-          </div>
-          <div
-            aria-selected="false"
-            class="am-list-item am-list-item-middle"
-            role="tab"
-          >
-            <div
-              class="am-list-line"
+              aria-selected="false"
+              class="am-list-item am-list-item-middle"
+              role="tab"
             >
               <div
-                class="am-list-content"
+                class="am-list-line"
               >
-                Item2
+                <div
+                  class="am-list-content"
+                >
+                  Item2
+                </div>
               </div>
+              <div
+                class="am-list-ripple"
+                style="display:none;"
+              />
             </div>
-            <div
-              class="am-list-ripple"
-              style="display:none;"
-            />
           </div>
         </div>
       </div>
-    </div>
-    <div
-      aria-hidden="false"
-      class="am-flexbox-item"
-      role="tabpanel"
-      style="height:0px;"
-    >
       <div
-        class="am-list am-sub-menu"
-        style="padding-top:0;"
+        aria-hidden="false"
+        class="am-flexbox-item"
+        role="tabpanel"
+        style="height:0px;"
       >
         <div
-          class="am-list-body"
-        />
+          class="am-list am-sub-menu"
+          style="padding-top:0;"
+        >
+          <div
+            class="am-list-body"
+          />
+        </div>
       </div>
     </div>
   </div>

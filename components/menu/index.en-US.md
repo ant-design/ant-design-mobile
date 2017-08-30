@@ -22,3 +22,4 @@ Properties | Descrition | Type | Default
 | value    |  Selected value of `Menu`, it's a array which includes first and second level's `value`. | Array | [] |
 | onChange    | Callback called when menu item is selected.  | (item: Object): void  |  |
 | height    |   Height of `Menu`.  | number  | `document.documentElement.clientHeight / 2` |
+| multSelect    |  support multiple selection  | boolean  | false |
