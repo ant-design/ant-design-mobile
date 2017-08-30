@@ -20,6 +20,9 @@ export interface MenuProps {
   defaultValue?: Array<string>;
   value?: Array<string>;
   onChange?: Function;
+  onOk?: Function;
+  onCancel?: Function;
   level?: 1 | 2;
   height?: number;
+  multSelect?: boolean;
 }

@@ -33,7 +33,136 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
       <div
         class="am-navbar-title"
       >
-        Here is title
+        Basic menu
+      </div>
+      <div
+        class="am-navbar-right"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/menu/demo/multselect.md correctly 1`] = `
+<div
+  class=""
+>
+  <div>
+    <div
+      class="mult-top-nav-bar am-navbar am-navbar-light"
+    >
+      <div
+        class="am-navbar-left"
+        role="button"
+      >
+        <span
+          aria-hidden="true"
+          class="am-navbar-left-icon"
+        >
+          <svg
+            class="am-icon am-icon-menu am-icon-md"
+          >
+            <use
+              xlink:href="#menu"
+            />
+          </svg>
+        </span>
+        <span
+          class="am-navbar-left-content"
+        >
+          Menu
+        </span>
+      </div>
+      <div
+        class="am-navbar-title"
+      >
+        Multselect menu
+      </div>
+      <div
+        class="am-navbar-right"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/menu/demo/singleMult.md correctly 1`] = `
+<div
+  class=""
+>
+  <div>
+    <div
+      class="single-mult-top-nav-bar am-navbar am-navbar-light"
+    >
+      <div
+        class="am-navbar-left"
+        role="button"
+      >
+        <span
+          aria-hidden="true"
+          class="am-navbar-left-icon"
+        >
+          <svg
+            class="am-icon am-icon-menu am-icon-md"
+          >
+            <use
+              xlink:href="#menu"
+            />
+          </svg>
+        </span>
+        <span
+          class="am-navbar-left-content"
+        >
+          Menu
+        </span>
+      </div>
+      <div
+        class="am-navbar-title"
+      >
+        Single Mult menu
+      </div>
+      <div
+        class="am-navbar-right"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/menu/demo/singleSelect.md correctly 1`] = `
+<div
+  class=""
+>
+  <div>
+    <div
+      class="single-top-nav-bar am-navbar am-navbar-light"
+    >
+      <div
+        class="am-navbar-left"
+        role="button"
+      >
+        <span
+          aria-hidden="true"
+          class="am-navbar-left-icon"
+        >
+          <svg
+            class="am-icon am-icon-menu am-icon-md"
+          >
+            <use
+              xlink:href="#menu"
+            />
+          </svg>
+        </span>
+        <span
+          class="am-navbar-left-content"
+        >
+          Menu
+        </span>
+      </div>
+      <div
+        class="am-navbar-title"
+      >
+        OneLevel menu
       </div>
       <div
         class="am-navbar-right"
