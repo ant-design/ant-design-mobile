@@ -50,7 +50,7 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
     const { data, pickerPrefixCls } = this.props;
     return data.map((col, index) => {
       return (
-        <RMCPicker key={index} prefixCls={pickerPrefixCls}>
+        <RMCPicker key={index} prefixCls={pickerPrefixCls} style={{ flex: 1 }}>
           {col.map(item => {
             return (
               <RMCPicker.Item key={item.value} value={item.value}>
@@ -83,6 +83,7 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
     } else {
       cascader = (
         <RMCMultiPicker
+          style={{ flexDirection: 'row', alignItems: 'center' }}
           prefixCls={prefixCls}
           pickerItemStyle={itemStyle}
         >
