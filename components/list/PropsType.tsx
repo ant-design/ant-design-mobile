@@ -68,7 +68,7 @@ export interface BriefProps {
 
   role?: string;
   /* for native */
-  styles: {
+  styles?: {
     Brief: {},
     BriefText: {},
   };
