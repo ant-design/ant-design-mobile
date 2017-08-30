@@ -5,7 +5,7 @@
 
 // Build a entry less file to dist/antd-mobile.less
 var fs = require('fs');
-var path = require('path');
+var path = require('path').posix;
 
 if(fs.existsSync(path.join(__dirname,'../dist'))) {
   console.log('Building a entry less file to dist/antd-mobile.less');
