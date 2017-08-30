@@ -60,7 +60,7 @@ $ npm install antd-mobile --save
 
 ### 3. Usage
 
-#### Web usage
+### Web usage
 
 - Entry html page Required settings:
     - Add [FastClick](https://github.com/ftlabs/fastclick) (ref [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
@@ -78,13 +78,41 @@ import { Button } from 'antd-mobile';
 ReactDOM.render(<Button>Start</Button>, mountNode);
 ```
 
-Note:
+And import stylesheets manually:
 
-> In the production environment (the development environment can not be configured), need to use the [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (`npm install babel-plugin-import --save-dev`) to support component to load on demand. Configuration method: in the `.babelrc` file (can also be placed in the webpack configuration file) to join
->
-> `{"plugins": [["import", { "style": "css", "libraryName": "antd-mobile" }]]}`
+```jsx
+import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
+```
 
-Tips:
+#### Use modularized antd-mobile
+
+- Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
+
+   ```js
+   // .babelrc or babel-loader option
+   {
+     "plugins": [
+       ["import", { libraryName: "antd-mobile", style: "css" }] // `style: true` for less
+     ]
+   }
+   ```
+
+   This allows you to import components from antd-mobile without having to manually import the corresponding stylesheet. The babel plugin will automatically import stylesheets.
+
+   ```jsx
+   // import js and css modularly, parsed by babel-plugin-import
+   import { DatePicker } from 'antd-mobile';
+   ```
+
+- Manually import
+
+   ```jsx
+   import DatePicker from 'antd-mobile/lib/date-picker';  // for js
+   import 'antd-mobile/lib/date-picker/style/css';        // for css
+   // import 'antd-mobile/lib/date-picker/style';         // that will import less
+   ```
+
+#### More enhanced (optional):
 
 > You can use [HD settings](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE) /
 >
@@ -92,7 +120,7 @@ Tips:
 > Your custom UI library based on antd-mobile: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
 
-#### React-Native usage
+### React-Native usage
 
 > Note: `Menu`/`NavBar` does not have React-Native implementation.
 
@@ -112,7 +140,30 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
-Note: In the production environment, similar to Web usage, you need to install [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) and in the `.babelrc` file to join `{"plugins": [["import", { "libraryName": "antd-mobile" }]]}`
+#### Use modularized antd-mobile
+
+- Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
+
+   ```js
+   // .babelrc or babel-loader option
+   {
+     "plugins": [
+       ["import", { libraryName: "antd-mobile" }] // The difference with the Web platform is that you do not need to set the style
+     ]
+   }
+   ```
+
+   This allows you to import components from antd-mobile without having to manually import the corresponding stylesheet. The babel plugin will automatically import stylesheets.
+
+   ```jsx
+   import { DatePicker } from 'antd-mobile';
+   ```
+
+- Manually import
+
+   ```jsx
+   import DatePicker from 'antd-mobile/lib/date-picker';  // for js
+   ```
 
 
 ## Version
