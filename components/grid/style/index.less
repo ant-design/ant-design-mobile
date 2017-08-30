@@ -14,12 +14,11 @@
 
       &.@{gridPrefixCls}-item {
         position: relative;
+      }
 
-        &:active {
+      &.@{gridPrefixCls}-item-active {
+        .@{gridPrefixCls}-item-content {
           background-color: @fill-tap;
-        }
-        &.@{gridPrefixCls}-null-item:active {
-         background-color: @fill-base;
         }
       }
 

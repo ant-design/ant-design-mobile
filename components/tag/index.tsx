@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import TagProps from './PropsType';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
+import TouchFeedback from '../_util/touchFeedback';
 
 export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
@@ -69,9 +70,11 @@ export default class Tag extends React.Component<TagProps, any> {
     });
 
     const closableDom = closable && !disabled && !small ? (
-      <div className={`${prefixCls}-close`} role="button" onClick={this.onTagClose} aria-label="remove tag">
-        <Icon type="cross-circle" size="xs" aria-hidden="true" />
-      </div>
+      <TouchFeedback activeClassName={`${prefixCls}-close-active`}>
+        <div className={`${prefixCls}-close`} role="button" onClick={this.onTagClose} aria-label="remove tag">
+          <Icon type="cross-circle" size="xs" aria-hidden="true" />
+        </div>
+      </TouchFeedback>
     ) : null;
 
     return !this.state.closed ? (

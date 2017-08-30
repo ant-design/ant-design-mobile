@@ -1,9 +1,9 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classNames from 'classnames';
-import Touchable from 'rc-touchable';
 import { ListItemProps, BriefProps } from './PropsType';
 import omit from 'omit.js';
+import TouchFeedback from '../_util/touchFeedback';
 
 export class Brief extends React.Component<BriefProps, any> {
   render() {
@@ -82,7 +82,7 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     const {
       prefixCls, className, activeStyle, error, align, wrap, disabled,
-      children, multipleLine, thumb, extra, arrow, onClick, onLongPress, ...restProps} = this.props;
+      children, multipleLine, thumb, extra, arrow, onClick, ...restProps} = this.props;
 
     const { coverRippleStyle, RippleClicked } = this.state;
     const wrapCls = {
@@ -131,14 +131,13 @@ class ListItem extends React.Component<ListItemProps, any> {
     </div>;
 
     return (
-      <Touchable
-        disabled={disabled || (!onClick && !onLongPress)}
+      <TouchFeedback
+        disabled={disabled || !onClick}
         activeStyle={activeStyle}
         activeClassName={`${prefixCls}-item-active`}
-        onLongPress={onLongPress}
       >
         {content}
-      </Touchable>
+      </TouchFeedback>
     );
   }
 }

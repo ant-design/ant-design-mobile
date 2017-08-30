@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
+import TouchFeedback from '../_util/touchFeedback';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static defaultProps = defaultProps;
@@ -228,7 +229,9 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
             maxLength={maxLength}
             {...getDataAttr(this.props)}
           />
-          <a onClick={this.onClear} className={clearCls} />
+          <TouchFeedback activeClassName={`${prefixCls}-clear-active`}>
+            <a onClick={this.onClear} className={clearCls} />
+          </TouchFeedback>
         </div>
         <div className={cancelCls} onClick={this.onCancel} ref="rightBtn">
           {cancelText}

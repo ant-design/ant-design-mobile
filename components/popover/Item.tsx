@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Touchable from 'rc-touchable';
+import TouchFeedback from '../_util/touchFeedback';
 
 export default class Item extends React.Component<any, any> {
   static defaultProps = {
@@ -12,11 +12,11 @@ export default class Item extends React.Component<any, any> {
   render() {
 
     const { children, className, prefixCls, icon, disabled, firstItem, activeStyle, ...restProps } = this.props;
-    const cls = {
+    const cls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled,
-    };
+    });
 
     let activeClass = `${prefixCls}-item-active `;
     if (firstItem) {
@@ -24,14 +24,14 @@ export default class Item extends React.Component<any, any> {
     }
 
     return (
-      <Touchable disabled={disabled} activeClassName={activeClass} activeStyle={activeStyle} >
-        <div className={classNames(cls)} {...restProps}>
+      <TouchFeedback disabled={disabled} activeClassName={activeClass} activeStyle={activeStyle} >
+        <div className={cls} {...restProps}>
           <div className={`${prefixCls}-item-container`}>
             {icon ? <span className={`${prefixCls}-item-icon`} aria-hidden="true">{icon}</span> : null}
             <span className={`${prefixCls}-item-content`}>{children}</span>
           </div>
         </div>
-      </Touchable>
+      </TouchFeedback>
     );
   }
 }

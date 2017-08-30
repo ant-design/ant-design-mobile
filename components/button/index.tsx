@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { ButtonProps } from './PropsType';
-import Touchable from 'rc-touchable';
+import TouchFeedback from '../_util/touchFeedback';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -61,13 +61,6 @@ class Button extends React.Component<ButtonProps, any> {
       wrapCls[`${prefixCls}-icon`] = true;
     }
 
-    const delayProps: any = {};
-    if (delayPressIn) {
-      delayProps.delayPressIn = delayPressIn;
-    }
-    if (delayPressOut) {
-      delayProps.delayPressOut = delayPressOut;
-    }
     let iconEl;
     if (typeof iconType === 'string') {
       iconEl =
@@ -88,11 +81,10 @@ class Button extends React.Component<ButtonProps, any> {
     }
     // use div, button native is buggy @yiminghe
     return (
-      <Touchable
+      <TouchFeedback
         activeClassName={activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
         disabled={disabled}
         activeStyle={activeStyle}
-        {...delayProps}
       >
         <a
           role="button"
@@ -104,7 +96,7 @@ class Button extends React.Component<ButtonProps, any> {
           {iconEl}
           {kids}
         </a>
-      </Touchable>
+      </TouchFeedback>
     );
   }
 }

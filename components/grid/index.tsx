@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Flex from '../flex';
 import Carousel from '../carousel';
 import { DataItem, GridProps } from './PropsType';
+import TouchFeedback from '../_util/touchFeedback';
 
 export default class Grid extends React.Component<GridProps, any> {
   static defaultProps = {
@@ -88,14 +89,15 @@ export default class Grid extends React.Component<GridProps, any> {
         if (dataIndex < dataLength) {
           const el = data && data[dataIndex];
           itemEl = (
-            <Flex.Item
-              key={`griditem-${dataIndex}`}
-              className={`${prefixCls}-item`}
-              onClick={() => onClick && onClick(el, dataIndex)}
-              style={colStyle}
-            >
-              {this.renderItem(el, dataIndex, columnNum, renderItem)}
-            </Flex.Item>
+            <TouchFeedback key={`griditem-${dataIndex}`} activeClassName={`${prefixCls}-item-active`}>
+              <Flex.Item
+                className={`${prefixCls}-item`}
+                onClick={() => onClick && onClick(el, dataIndex)}
+                style={colStyle}
+              >
+                {this.renderItem(el, dataIndex, columnNum, renderItem)}
+              </Flex.Item>
+            </TouchFeedback>
           );
         } else {
           itemEl = (
