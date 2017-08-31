@@ -12,8 +12,10 @@ export default class ListView extends React.Component<tsPropsType, any> {
   static DataSource = MListView.DataSource;
   static IndexedList = IndexedList;
 
-  scrollTo = (...args) => (this.refs.listview as any).scrollTo(...args);
-  getInnerViewNode = () => (this.refs.listview as any).getInnerViewNode();
+  listview: any;
+
+  scrollTo = (...args) => this.listview.scrollTo(...args);
+  getInnerViewNode = () => this.listview.getInnerViewNode();
 
   render() {
     const { restProps, extraProps } = handleProps(this.props, false);
@@ -21,6 +23,6 @@ export default class ListView extends React.Component<tsPropsType, any> {
     if (refreshControl) {
       useZscroller = true;
     }
-    return <MListView ref="listview" {...restProps} {...extraProps} useZscroller={useZscroller} />;
+    return <MListView ref={el => this.listview = el} {...restProps} {...extraProps} useZscroller={useZscroller} />;
   }
 }

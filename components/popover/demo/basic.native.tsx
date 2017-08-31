@@ -42,7 +42,6 @@ export default class PopoverExample extends React.Component<any, any> {
       </View>
       <View style={styles.menuContainer}>
         <Popover
-          ref="mc"
           name="m"
           style={{ backgroundColor: '#eee' }}
           overlay={overlay}
