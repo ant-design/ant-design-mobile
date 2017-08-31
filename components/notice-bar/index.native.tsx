@@ -1,11 +1,21 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Image,
+  StyleSheet,
+  ViewStyle,
+  StyleProp,
+} from 'react-native';
 import NoticeStyle, { INoticeBarStyle } from './style/index.native';
-import Marquee from './Marquee.native';
+import Marquee, { MarqueeProp } from './Marquee.native';
 import NoticeBarProps from './PropsType';
 
 export interface INoticeNativeProps extends NoticeBarProps {
   styles?: INoticeBarStyle;
+  marqueeProps?: MarqueeProp;
+  style?: StyleProp<ViewStyle>;
 }
 
 const NoticeStyles = StyleSheet.create<any>(NoticeStyle);
@@ -61,20 +71,11 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
 
     const iconDom = icon && React.isValidElement(icon) ? <View style={styles.left15}>{icon}</View> : null;
 
-    let marquee: any = {
-      loop: false,
-      leading: 500,
-      trailing: 800,
-      fps: 40,
-      style: styles.content,
-      ...marqueeProps,
-    };
-
     const main = (
       <View style={[styles.notice, style]}>
         {iconDom}
         <View style={[styles.container, icon ? styles.left6 : styles.left15]}>
-          <Marquee text={children} {...marquee} />
+          <Marquee style={styles.content} text={children} {...marqueeProps} />
         </View>
         {operationDom}
       </View>

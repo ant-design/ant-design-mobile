@@ -2,9 +2,16 @@ import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import NoticeBarProps from './PropsType';
-import Marquee from './Marquee';
+import Marquee, { MarqueeProp } from './Marquee';
 
-export default class NoticeBar extends React.Component<NoticeBarProps, any> {
+export interface INoticeWebProps extends NoticeBarProps {
+  marqueeProps?: MarqueeProp;
+  className?: string;
+  prefixCls?: string;
+  style?: {};
+}
+
+export default class NoticeBar extends React.Component<INoticeWebProps, any> {
   static defaultProps = {
     prefixCls: 'am-notice-bar',
     mode: '',
@@ -58,20 +65,11 @@ export default class NoticeBar extends React.Component<NoticeBarProps, any> {
       [className as string]: !!className,
     });
 
-    let marquee = {
-      loop: false,
-      leading: 500,
-      trailing: 800,
-      fps: 40,
-      style: {},
-      ...marqueeProps,
-    };
-
     return this.state.show ? (
       <div className={wrapCls} {...restProps} {...extraProps} role="alert">
         {icon && <div className={`${prefixCls}-icon`} aria-hidden="true"> {icon} </div>}
         <div className={`${prefixCls}-content`}>
-          <Marquee prefixCls={prefixCls} text={children} {...marquee} />
+          <Marquee prefixCls={prefixCls} text={children} style={{}} {...marqueeProps} />
         </div>
         {operationDom}
       </div>
