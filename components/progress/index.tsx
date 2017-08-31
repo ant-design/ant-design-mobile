@@ -10,15 +10,17 @@ export default class Progress extends React.Component<ProgressProps, any> {
     unfilled: true,
     appearTransition: false,
   };
-  noAppearTransition: any;
-  bar: any;
+
+  barRef: any;
+  private noAppearTransition: any;
+
   componentWillReceiveProps() {
     this.noAppearTransition = true;
   }
   componentDidMount() {
     if (this.props.appearTransition) {
       setTimeout(() => {
-        this.bar.style.width = `${this.props.percent}%`;
+        this.barRef.style.width = `${this.props.percent}%`;
       }, 10);
     }
   }
@@ -45,7 +47,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
         aria-valuemin="0"
         aria-valuemax="100"
       >
-        <div ref={el => this.bar = el} className={`${prefixCls}-bar`} style={{ ...barStyle, ...percentStyle }} />
+        <div ref={el => this.barRef = el} className={`${prefixCls}-bar`} style={{ ...barStyle, ...percentStyle }} />
       </div>
     );
   }

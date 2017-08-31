@@ -55,7 +55,7 @@ class Carousel extends React.Component<CarouselProps, any> {
     dotActiveStyle: {},
   };
 
-  scrollview: any;
+  private scrollviewRef: any;
   private autoplayTimer;
   private androidScrollEndTimer;
   private scrollEndTimter;
@@ -90,7 +90,7 @@ class Carousel extends React.Component<CarouselProps, any> {
       const index = this.state.selectedIndex + (this.props.infinite ? 1 : 0);
       setTimeout(() => {
         const x = this.state.width * index;
-        this.scrollview.scrollTo({ x, y: 0 }, false);
+        this.scrollviewRef.scrollTo({ x, y: 0 }, false);
       }, 10);
     }
   }
@@ -209,7 +209,7 @@ class Carousel extends React.Component<CarouselProps, any> {
     let x = diff * state.width;
     let y = 0;
 
-    this.scrollview.scrollTo({ x, y });
+    this.scrollviewRef.scrollTo({ x, y });
 
     this.setState({
       isScrolling: true,
@@ -236,7 +236,7 @@ class Carousel extends React.Component<CarouselProps, any> {
       };
       return (
         <ScrollView
-          ref={el => this.scrollview = el}
+          ref={el => this.scrollviewRef = el}
           {...this.props}
           horizontal
           pagingEnabled
@@ -281,7 +281,7 @@ class Carousel extends React.Component<CarouselProps, any> {
       offset: { x: offsetX, y: 0 },
     }, () => {
       if (Platform.OS === 'android') {
-        this.scrollview.scrollTo({ y: 0, x: offsetX }, false);
+        this.scrollviewRef.scrollTo({ y: 0, x: offsetX }, false);
       }
     });
   }

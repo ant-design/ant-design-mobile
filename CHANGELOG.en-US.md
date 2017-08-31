@@ -43,6 +43,7 @@ timeline: true
   - Result: `buttonClick` 更改为 `onButtonClick`
   - 去除`Table`组件
   - `Modal`、`List.Item`、`Switch` use `ios` style by default, which means we will not detect UA and change the component style; [#1371](https://github.com/ant-design/ant-design-mobile/issues/1371)
+  - use ref func to replace ref string [#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

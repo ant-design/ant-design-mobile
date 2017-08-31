@@ -17,6 +17,8 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
     styles: SearchBarStyles,
   };
 
+  inputRef: any;
+
   constructor(props) {
     super(props);
     let value;
@@ -95,6 +97,7 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
             onChangeText={this.onChangeText}
             style={[styles.input, style]}
             editable={!disabled}
+            ref={el => this.inputRef = el}
             onSubmitEditing={this.onSubmit}
             clearButtonMode="always"
             underlineColorAndroid="transparent"
