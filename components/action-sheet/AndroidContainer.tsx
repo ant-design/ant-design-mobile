@@ -39,9 +39,9 @@ class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
       title, message, url, options, destructiveButtonIndex, cancelButtonIndex, excludedActivityTypes,
     } = config;
     const titleMsg = share ? (
-      url && <View style={styles.title} key="0"><Text>{url}</Text></View>
+      !!url && <View style={styles.title} key="0"><Text>{url}</Text></View>
     ) : (
-      title && <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View>
+      !!title && <View style={styles.title} key="0"><Text style={styles.titleText}>{title}</Text></View>
     );
     const content = share ? (
       excludedActivityTypes.map((item, index) => <View key={index}>{item}</View>)
@@ -75,7 +75,7 @@ class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
         >
           <View>
             {titleMsg}
-            {message && <View style={styles.message} key="1"><Text>{message}</Text></View>}
+            {!!message && <View style={styles.message} key="1"><Text>{message}</Text></View>}
             <View>{content}</View>
           </View>
         </Modal>
