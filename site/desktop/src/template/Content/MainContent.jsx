@@ -54,12 +54,6 @@ export default class MainContent extends React.Component {
     return '';
   }
 
-  shouldComponentUpdate(nextProps) {
-    const pathname = this.props.location.pathname;
-    return pathname !== nextProps.location.pathname ||
-      /^\/components\//i.test(pathname);
-  }
-
   fileNameToPath(filename) {
     const snippets = filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
     return snippets[snippets.length - 1];
@@ -183,7 +177,7 @@ export default class MainContent extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const openKeys = this.getSideBarOpenKeys(nextProps);
-    if (openKeys) {
+    if (openKeys && openKeys !== this.state.openKeys) {
       this.setState({ openKeys });
     }
   }
@@ -195,7 +189,6 @@ export default class MainContent extends React.Component {
 
     const localizedPageData = props.localizedPageData;
     const demos = props.demos;
-
     const DemoEl = demos ?
       (<ComponentDoc {...props} doc={localizedPageData} demos={demos} />) :
       <Article {...props} content={localizedPageData} />;
