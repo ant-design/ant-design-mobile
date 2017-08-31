@@ -5,11 +5,6 @@ import Touchable from 'rc-touchable';
 import { ModalProps, ModalComponent } from './PropsType';
 import omit from 'omit.js';
 
-function checkIfAndroid(platform) {
-  return platform === 'android' ||
-      (platform === 'cross' && typeof window !== 'undefined' && !!navigator.userAgent.match(/Android/i));
-}
-
 export default class Modal extends ModalComponent<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
@@ -21,16 +16,9 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     footer: [],
     closable: false,
     operation: false,
-    platform: 'cross',
+    platform: 'ios',
   };
-  constructor(props) {
-    super(props);
-    this.state = {
-      // in ssr, just set isAndroid false
-      // since modal normally won't show at first render, componentDidMount will do double check
-      isAndroid: checkIfAndroid(props.platform),
-    };
-  }
+
   isInModal(e) {
     if (!/\biPhone\b|\biPod\b/i.test(navigator.userAgent)) {
       return;
@@ -80,14 +68,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       </Touchable>
     );
   }
-  componentDidMount() {
-    const isAndroid = checkIfAndroid(this.props.platform);
-    if (isAndroid !== this.state.isAndroid) {
-      this.setState({
-        isAndroid,
-      });
-    }
-  }
+
   render() {
     const {
       prefixCls,
@@ -100,14 +81,13 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       footer = [],
       closable,
       operation,
+      platform,
     } = this.props;
-
-    const { isAndroid } = this.state;
 
     const wrapCls = classNames({
       [className as string]: !!className,
       [`${prefixCls}-transparent`]: transparent,
-      [`${prefixCls}-android`]: isAndroid,
+      [`${prefixCls}-android`]: platform === 'android',
     });
 
     let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
@@ -133,7 +113,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
 
     const restProps = omit(this.props, [
       'prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
-      'style', 'footer', 'touchFeedback', 'wrapProps',
+      'style', 'footer', 'touchFeedback', 'wrapProps', 'platform',
     ]);
     const wrapProps = { onTouchStart: e => this.isInModal(e) };
 

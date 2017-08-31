@@ -37,7 +37,7 @@ export interface ListItemProps {
   role?: string;
   activeStyle?: React.CSSProperties;
   error?: boolean;
-  platform?: 'android' | 'ios' | 'cross';
+  platform?: 'android' | 'ios';
 
   /* for native */
   styles?: {
