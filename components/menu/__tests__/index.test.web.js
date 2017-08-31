@@ -37,10 +37,12 @@ describe('Menu', () => {
   });
 
   it('fires change event when item is selected', () => {
+    jest.useFakeTimers();
     const handleChange = jest.fn();
     const wrapper = mount(<Menu data={data} onChange={handleChange} />);
     wrapper.find('.am-list-item').at(1).simulate('click');
     wrapper.find('.am-list-item').at(3).find('.am-radio-input').simulate('change');
+    jest.runAllTimers();
     expect(handleChange).toBeCalledWith(['2', '22']);
   });
 
@@ -56,9 +58,11 @@ describe('Menu', () => {
     });
 
     it('fires change event when item is selected', () => {
+      jest.useFakeTimers();
       const handleChange = jest.fn();
       const wrapper = mount(<Menu data={data} level="1" onChange={handleChange} />);
       wrapper.find('.am-list-item').at(1).find('.am-radio-input').simulate('change');
+      jest.runAllTimers();
       expect(handleChange).toBeCalledWith(['2']);
     });
   });
@@ -77,11 +81,13 @@ describe('Menu', () => {
     });
 
     it('fires change event when item is selected', () => {
+      jest.useFakeTimers();
       const handleChange = jest.fn();
       const wrapper = mount(<Menu data={data} multSelect onChange={handleChange} />);
       wrapper.find('.am-list-item').at(1).simulate('click');
       wrapper.find('.am-list-item').at(2).find('.am-checkbox-input').simulate('change');
       wrapper.find('.am-list-item').at(3).find('.am-checkbox-input').simulate('change');
+      jest.runAllTimers();
       expect(handleChange).toHaveBeenLastCalledWith(['2', '21', '22']);
     });
   });
@@ -99,10 +105,12 @@ describe('Menu', () => {
     });
 
     it('fires change event when item is selected', () => {
+      jest.useFakeTimers();
       const handleChange = jest.fn();
       const wrapper = mount(<Menu data={data} multSelect level="1" onChange={handleChange} />);
       wrapper.find('.am-list-item').at(0).find('.am-checkbox-input').simulate('change');
       wrapper.find('.am-list-item').at(1).find('.am-checkbox-input').simulate('change');
+      jest.runAllTimers();
       expect(handleChange).toHaveBeenLastCalledWith(['1', '2']);
     });
 
