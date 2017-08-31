@@ -2,20 +2,16 @@
 category: Components
 type: Data Display
 title: Icon
-subtitle: 图标
 ---
 
+## Naming Conventions
 
+Each icon has its own semantic naming，the naming rules are as follows:
 
-## 图标的命名规范
+- The solid and line icons have same name，we use `-o` to distinguish it. eg: `question-circle` (solid icon), `question-circle-o` (line icon)
+- Sequence in naming: `[icon name]-[shape(optional)]-[`-o` or not]-[direction(optional)]`。
 
-我们为每个图标赋予了语义化的命名，命名规则如下:
-
-- 实心和描线图标保持同名，用 `-o` 来区分，比如 `question-circle`(实心) 和 `question-circle-o`(描线)；
-
-- 命名顺序：`[icon名]-[形状可选]-[描线与否]-[方向可选]`。
-
-## 如何使用 (WEB 版)
+## How to Use (WEB)
 
 
 ```html
@@ -23,28 +19,28 @@ subtitle: 图标
 ```
 
 
-## 如何使用 (RN 版)
+## How to Use (React-Native)
 
-> RN 版本由于 Icon 无法做纯 UI，需要 native 支持
+> You need to use custom font(`anticon.ttf`) for RN
 
-- 下载 `https://at.alicdn.com/t/font_r5u29ls31bgldi.ttf` 重命名为 `anticon.ttf`
-- 打开 iOS 项目 `info.plist` 文件，添加 `Fonts provided by application`，指定一个 item 的值为 `anticon.ttf`， 将 `anticon.ttf` 拖进项目；
-- Android 项目将 `anticon.ttf` 放在 `android/app/src/main/assets/fonts/` 目录下;
+- Download`https://at.alicdn.com/t/font_r5u29ls31bgldi.ttf` and rename to `anticon.ttf`
+- Open `info.plist` file in your xcode project, add `Fonts provided by application` property with one item and value `anticon.ttf`, then drag `anticon.ttf` to your xcode project.
+- In Android project, you need place `anticon.ttf` in the `android/app/src/main/assets/fonts/` folder;
 
-使用方式：
+example：
 
 ```html
-内置的几个图标： <Icon type="check" size="md" color="red" />
-自定义图标：<Icon type={'\ue601'} size={55} /> (具体参看 demo)
+built-in icon： <Icon type="check" size="md" color="red" />
+customized icon：<Icon type={'\ue601'} size={55} /> (具体参看 demo)
 ```
-> 注： 自定义图标需要先查找对应图标的 unicode 字符，可以去 ant.design 官网用 chrome 调试工具查看对应图标的值
+> Note: You can find some unicode charactors in [https://ant.design/components/icon/](https://ant.design/components/icon/) by using Chrome Developer Tool to inspect icons.
 
 ## API
 
-适用平台：WEB、React-Native
+Support：WEB、React-Native
 
-| 属性        | 说明           | 类型            | 默认值       |
+| Properties        | Description           | Type            | Default       |
 |------------|----------------|----------------|--------------|
-| type    |   内置 icon 名称 (`web`) 或 unicode (`RN`)    | String   |
-| size    |   图标大小    | 'xxs'/'xs'/'sm'/'md'/'lg' (`RN/WEB`)/ number(`RN Only`)  | `md` |
-| color(`RN Only`) | 图标颜色  | Color | '#000' |
+| type    |   string name of built-in icon for `WEB` or unicode string for `RN`    | String   |
+| size    |   icon size     | 'xxs'/'xs'/'sm'/'md'/'lg' (`RN/WEB`)/ number(`RN Only`)  | `md` |
+| color(`RN Only`) | icon color  | Color | '#000' |

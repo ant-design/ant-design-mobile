@@ -14,7 +14,7 @@ We divided the design area into a number of aliquots in horizontal and vertical.
 
 Support WEB, React-Native.
 
-Properties | Descrition | Type | Default
+Properties | Description | Type | Default
 -----------|------------|------|--------
 | data    |    data record array to be rendered     | `Array<{icon, text}>`  | [] |
 | onClick    |   Handler to be called when the user taps the grid   | (el: Object, index: number): void  | - |
@@ -24,4 +24,4 @@ Properties | Descrition | Type | Default
 | carouselMaxRow    |   the max number of rows to be showed each page of the Carousel   | number  | `2` |
 | renderItem    |   custom function to create each grid item   | (el, index) => React.Node  | - |
 
-When `isCarousel = true`, the APIs of [carousel](https://mobile.ant.design/components/carousel) also can be delivered. 
+When `isCarousel = true`, the APIs of [carousel](https://mobile.ant.design/components/carousel) also can be delivered.
