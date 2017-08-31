@@ -4,9 +4,11 @@ module.exports = {
   locale: 'en-US',
   data: appLocaleData,
   messages: {
+    'app.header.search': 'Search...',
     'app.header.menu.home': 'Home',
     'app.header.menu.components': 'Components',
     'app.header.menu.design': 'Specification',
+    'app.header.menu.pc': 'Desktop',
     'app.header.lang': '中文',
     'app.home.slogan': 'Mobile Design Specification',
     'app.home.centerSlogan': 'Mobile Design Specification & FrontEnd Framework',

@@ -2,71 +2,45 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
-import enquire from 'enquire.js';
-import debounce from 'lodash.debounce';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Button } from 'antd';
-import { version as packageVersions } from 'antd-mobile/package.json';
+import { Select, Menu, Row, Col, Icon, Button, AutoComplete, Input, Popover } from 'antd';
+import { version as antdVersion } from 'antd-mobile/package.json';
 import * as utils from '../../../../utils';
 
-const Option = Select.Option;
+const Option = AutoComplete.Option;
+const searchEngine = 'Google';
+const searchLink = 'https://www.google.com/#q=site:mobile.ant.design+';
 
 export default class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
     intl: PropTypes.object.isRequired,
   }
-
-  constructor(props) {
-    super(props);
-
-    this.onScroll = debounce(() => {
-      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-      const clientHeight = document.documentElement.clientHeight;
-
-      if (scrollTop >= 2 * clientHeight) {
-        this.setState({ isFirstFrame: false });
-      } else {
-        this.setState({ isFirstFrame: true });
-      }
-    }, 100);
-
-    this.onDocumentClick = (e) => {
-      if (document.querySelector('#header .nav').contains(e.target)) {
-        return;
-      }
-      this.setState({
-        menuVisible: false,
-      });
-    };
-
-    this.state = {
-      menuVisible: false,
-      menuMode: 'horizontal',
-      isFirstFrame: true,
-    };
-  }
+  state = {
+    inputValue: '',
+    menuVisible: false,
+    menuMode: 'horizontal',
+  };
 
   componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
-
-    document.addEventListener('click', this.onDocumentClick);
-    document.addEventListener('touchstart', this.onDocumentClick);
-
-    enquire.register('only screen and (min-width: 320Px) and (max-width: 767Px)', {
-      match: () => {
-        this.setState({ menuMode: 'inline' });
-      },
-      unmatch: () => {
-        this.setState({ menuMode: 'horizontal' });
-      },
+    this.context.router.listen(this.handleHideMenu);
+    const searchInput = this.searchInput;
+    /* eslint-disable global-require */
+    require('enquire.js')
+      .register('only screen and (min-width: 0) and (max-width: 992px)', {
+        match: () => {
+          this.setState({ menuMode: 'inline' });
+        },
+        unmatch: () => {
+          this.setState({ menuMode: 'horizontal' });
+        },
+      });
+    document.addEventListener('keyup', (event) => {
+      if (event.keyCode === 83 && event.target === document.body) {
+        searchInput.focus();
+      }
     });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
-    document.removeEventListener('click', this.onDocumentClick);
-    document.removeEventListener('touchstart', this.onDocumentClick);
+    /* eslint-enable global-require */
   }
 
   handleMenuIconClick = (e) => {
@@ -78,14 +52,28 @@ export default class Header extends React.Component {
   }
 
   handleSearch = (value) => {
-    this.context.router.push({
-      pathname: this.context.intl.locale === 'zh-CN' ? `${value}-cn` : value,
+    if (value === searchEngine) {
+      window.location.href = `${searchLink}${this.state.inputValue}`;
+      return;
+    }
+    const { intl, router } = this.context;
+    this.setState({
+      inputValue: '',
+    }, () => {
+      router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
+      this.searchInput.blur();
     });
   }
-
-  handleSelectFilter = (value, option) => (
-    option.props['data-label'].indexOf(value.toLowerCase()) > -1
-  )
+  handleInputChange = (value) => {
+    this.setState({
+      inputValue: value,
+    });
+  }
+  handleSelectFilter = (value, option) => {
+    const optionValue = option.props['data-label'];
+    return optionValue === searchEngine ||
+      optionValue.indexOf(value.toLowerCase()) > -1;
+  }
 
   handleLangChange = () => {
     const pathname = this.props.location.pathname;
@@ -101,17 +89,24 @@ export default class Header extends React.Component {
       utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
     );
   }
-
+  handleVersionChange = (url) => {
+    const currentUrl = window.location.href;
+    const currentPathname = window.location.pathname;
+    window.location.href = currentUrl.replace(window.location.origin, url)
+      .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
+  }
   render() {
-    const { location, picked, themeConfig } = this.props;
-    const { siteTitle } = themeConfig;
-    const docVersions = { ...themeConfig.docVersions, [packageVersions]: packageVersions };
+    const { inputValue, menuMode, menuVisible } = this.state;
+    const { location, picked, isFirstScreen, themeConfig } = this.props;
+    const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
+    const versionOptions = Object.keys(docVersions)
+      .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
     const components = picked.components;
-    const module = location.pathname.split('/').slice(0, -1).join('/');
+    const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
 
-    if (activeMenuItem === 'components' || activeMenuItem === 'docs/react' || location.pathname === 'changelog') {
-      activeMenuItem = 'components';
+    if (activeMenuItem === 'components' || location.pathname === 'changelog') {
+      activeMenuItem = 'docs/react';
     }
 
     const locale = this.context.intl.locale;
@@ -130,90 +125,92 @@ export default class Header extends React.Component {
           </Option>
         );
       });
-
+    options.push((
+      <Option key="searchEngine" value={searchEngine} data-label={searchEngine}>
+        <FormattedMessage id="app.header.search" />
+      </Option>
+    ));
     const headerClassName = classNames({
       clearfix: true,
-      'home-nav-white': !this.state.isFirstFrame,
+      'home-nav-white': !isFirstScreen,
     });
 
-    const docOptions = Object.keys(docVersions).map(version => (
-      <Option value={docVersions[version]} key={version}>{version}</Option>
-    ));
+    const menu = [
+      <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
+        <FormattedMessage id="app.header.lang" />
+      </Button>,
+      <Select
+        key="version"
+        className="version"
+        size="small"
+        dropdownMatchSelectWidth={false}
+        defaultValue={antdVersion}
+        onChange={this.handleVersionChange}
+        getPopupContainer={trigger => trigger.parentNode}
+      >
+        {versionOptions}
+      </Select>,
+      <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
+        <Menu.Item key="home">
+          <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+            <FormattedMessage id="app.header.menu.home" />
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="docs/react">
+          <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+            <FormattedMessage id="app.header.menu.components" />
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="pc">
+          <a href="//ant.design">
+            <FormattedMessage id="app.header.menu.pc" />
+          </a>
+        </Menu.Item>
+      </Menu>,
+    ];
 
+    const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search Components...';
     return (
       <header id="header" className={headerClassName}>
+        {menuMode === 'inline' && <Popover
+          overlayClassName="popover-menu"
+          placement="bottomRight"
+          content={menu}
+          trigger="click"
+          visible={menuVisible}
+          arrowPointAtCenter
+          onVisibleChange={this.onMenuVisibleChange}
+        >
+          <Icon
+            className="nav-phone-icon"
+            type="menu"
+            onClick={this.handleShowMenu}
+          />
+        </Popover>}
         <Row>
-          <Col lg={5} md={6} sm={7} xs={24}>
-            <Icon
-              className="nav-phone-icon"
-              onClick={this.handleMenuIconClick}
-              type="menu"
-            />
+          <Col lg={4} md={5} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" />
-              <span>{siteTitle}</span>
+              <span>{themeConfig.siteTitle}</span>
             </Link>
           </Col>
-          <Col className={`nav ${this.state.menuVisible ? 'nav-show' : ''}`}
-            lg={19}
-            md={18}
-            sm={17}
-            xs={0}
-            style={{ display: 'block' }}
-          >
+          <Col lg={20} md={19} sm={0} xs={0}>
             <div id="search-box">
-              <Select
-                mode="combobox"
+              <AutoComplete
+                dataSource={options}
+                value={inputValue}
                 dropdownClassName="component-select"
-                placeholder={locale === 'zh-CN' ? '搜索组件...' : 'Search Components...'}
-                value={undefined}
-                optionFilterProp="data-label"
+                placeholder={searchPlaceholder}
                 optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}
+                onSearch={this.handleInputChange}
+                getPopupContainer={trigger => trigger.parentNode}
               >
-                {options}
-              </Select>
+                <Input ref={ref => this.searchInput = ref} />
+              </AutoComplete>
             </div>
-
-            <div style={{ float: 'right', margin: '29Px 0 0 10Px' }}>
-              <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
-                <FormattedMessage id="app.header.lang" />
-              </Button>
-            </div>
-
-            <div style={{ float: 'right', margin: '29Px 0 0 10Px' }}>
-              <Select
-                size="small"
-                dropdownMatchSelectWidth={false}
-                defaultValue={packageVersions}
-                onChange={(url) => { window.location.href = url; }}
-              >
-                {docOptions}
-              </Select>
-            </div>
-
-            <Menu mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
-              <Menu.Item key="home">
-                <Link to={utils.getLocalizedPathname('/', isZhCN)}>
-                  <FormattedMessage id="app.header.menu.home" />
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="docs/react">
-                <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-                  <FormattedMessage id="app.header.menu.components" />
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="design">
-                <a href="http://design.alipay.com/design/mobile/easy" target="_blank" rel="noopener noreferrer">
-                  <FormattedMessage id="app.header.menu.design" />
-                  <Icon
-                    style={{ marginLeft: 6, verticalAlign: 3 }}
-                    type="export"
-                  />
-                </a>
-              </Menu.Item>
-            </Menu>
+            {menuMode === 'horizontal' && menu}
           </Col>
         </Row>
       </header>

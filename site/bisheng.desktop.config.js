@@ -43,9 +43,9 @@ module.exports = Object.assign({}, commonConfig, {
       Other: '其他',
     },
     docVersions: {
-      '0.7.x': 'http://07x.mobile.ant.design/',
-      '0.8.x': 'http://08x.mobile.ant.design/',
-      '0.9.x': 'http://09x.mobile.ant.design/',
+      '0.7.x': 'http://07x.mobile.ant.design',
+      '0.8.x': 'http://08x.mobile.ant.design',
+      '0.9.x': 'http://09x.mobile.ant.design',
     },
     siteTitle: 'ANT DESIGN MOBILE',
   },
