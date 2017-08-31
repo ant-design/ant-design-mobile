@@ -16,13 +16,13 @@ export default class DatePickerViewExample extends React.Component {
   }
   render() {
     return (<View>
-      <Text style={{ margin: 16 }}>开始时间</Text>
+      <Text style={{ margin: 16 }}>Start DateTime</Text>
       <DatePickerView
         value={this.state.value}
         onChange={this.onChange}
         onValueChange={this.onValueChange}
       />
-      <Text style={{ margin: 16 }}>结束时间</Text>
+      <Text style={{ margin: 16 }}>End DateTime</Text>
       <DatePickerView
         value={this.state.value}
         onChange={this.onChange}

@@ -62,7 +62,7 @@ class Test extends React.Component {
   };
   render() {
     return (<div style={{ padding: '15px' }}>
-      <Button onClick={this.onClick}>显示</Button>
+      <Button onClick={this.onClick}>Show</Button>
     </div>);
   }
 }

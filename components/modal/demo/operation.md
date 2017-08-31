@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 操作弹窗
   en-US: operation
 ---
@@ -25,7 +25,7 @@ const App = () => (
       { text: '标为未读', onPress: () => console.log('标为未读被点击了') },
       { text: '置顶聊天', onPress: () => console.log('置顶聊天被点击了') },
     ])}
-    >操作按钮</Button>
+    >Operation</Button>
     <WhiteSpace size="lg" />
   </WingBlank>
 );

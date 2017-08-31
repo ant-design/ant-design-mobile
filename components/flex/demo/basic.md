@@ -33,7 +33,7 @@ const PlaceHolder = props => (
 
 const FlexExample = () => (
   <div className="flex-container">
-    <div className="sub-title">基本</div>
+    <div className="sub-title">Basic</div>
     <Flex>
       <Flex.Item><PlaceHolder /></Flex.Item>
       <Flex.Item><PlaceHolder /></Flex.Item>
@@ -53,7 +53,7 @@ const FlexExample = () => (
     </Flex>
     <WhiteSpace size="lg" />
 
-    <div className="sub-title">wrap 换行</div>
+    <div className="sub-title">wrap</div>
     <Flex wrap="wrap">
       <PlaceHolder className="inline" />
       <PlaceHolder className="inline" />
@@ -65,7 +65,7 @@ const FlexExample = () => (
     </Flex>
     <WhiteSpace size="lg" />
 
-    <div className="sub-title">轴对齐方式</div>
+    <div className="sub-title">Align</div>
     <Flex justify="center">
       <PlaceHolder className="inline" />
       <PlaceHolder className="inline" />

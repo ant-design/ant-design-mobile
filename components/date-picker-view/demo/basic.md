@@ -22,13 +22,13 @@ class DatePickerViewExample extends React.Component {
   };
   render() {
     return (<div>
-      <div className="sub-title">开始时间</div>
+      <div className="sub-title">Start DateTime</div>
       <DatePickerView
         value={this.state.value}
         onChange={this.onChange}
         onValueChange={this.onValueChange}
       />
-      <div className="sub-title">结束时间</div>
+      <div className="sub-title">End DateTime</div>
       <DatePickerView
         locale={enUs}
         value={this.state.value}

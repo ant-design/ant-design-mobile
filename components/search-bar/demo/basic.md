@@ -22,13 +22,13 @@ class SearchBarExample extends React.Component {
   };
   render() {
     return (<div>
-      <WingBlank><div className="sub-title">普通</div></WingBlank>
-      <SearchBar placeholder="搜索" maxLength={8} />
+      <WingBlank><div className="sub-title">Normal</div></WingBlank>
+      <SearchBar placeholder="Search" maxLength={8} />
       <WhiteSpace />
-      <WingBlank><div className="sub-title">自动获取光标，支付宝客户端有效</div></WingBlank>
+      <WingBlank><div className="sub-title">AutoFocus in Alipay client</div></WingBlank>
       <SearchBar placeholder="自动获取光标，支付宝客户端有效" autoFocus />
       <WhiteSpace />
-      <WingBlank><div className="sub-title">手动获取获取光标</div></WingBlank>
+      <WingBlank><div className="sub-title">Focus by operation</div></WingBlank>
       <SearchBar
         placeholder="手动获取获取光标"
         focused={this.state.focused}
@@ -47,13 +47,13 @@ class SearchBarExample extends React.Component {
             });
           }}
           type="primary"
-        >点击获取光标</Button>
+        >Click to Focus</Button>
       </WingBlank>
       <WhiteSpace />
-      <WingBlank><div className="sub-title">显示取消按钮</div></WingBlank>
+      <WingBlank><div className="sub-title">Show Cancel Button</div></WingBlank>
       <SearchBar
         value={this.state.value}
-        placeholder="搜索"
+        placeholder="Search"
         onSubmit={value => console.log(value, 'onSubmit')}
         onClear={value => console.log(value, 'onClear')}
         onFocus={() => console.log('onFocus')}

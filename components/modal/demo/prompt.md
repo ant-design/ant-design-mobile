@@ -21,11 +21,11 @@ const prompt = Modal.prompt;
 const App = () => (
   <WingBlank size="lg">
     <WhiteSpace size="lg" />
-    <Button onClick={() => prompt('输入名字', '这是名字的 message',
+    <Button onClick={() => prompt('input name', 'please input your name',
       [
-        { text: '取消' },
+        { text: 'Cancel' },
         {
-          text: '提交',
+          text: 'Submit',
           onPress: value => new Promise((resolve) => {
             Toast.info('onPress promise', 1);
             setTimeout(() => {
@@ -34,47 +34,47 @@ const App = () => (
             }, 1000);
           }),
         },
-      ], 'default', null, ['请输入你的名字'])}
-    >按钮 Promise</Button>
+      ], 'default', null, ['input your name'])}
+    >Promise</Button>
 
     <WhiteSpace size="lg" />
-    <Button onClick={() => prompt('默认值', '默认值 defaultValue 类型', [
-      { text: '取消' },
-      { text: '提交', onPress: value => console.log(`输入的内容:${value}`) },
+    <Button onClick={() => prompt('defaultValue', 'defaultValue for prompt', [
+      { text: 'Cancel' },
+      { text: 'Submit', onPress: value => console.log(`输入的内容:${value}`) },
     ], 'plain-text', '100')}
-    >输入框默认值 </Button>
+    >defaultValue</Button>
 
     <WhiteSpace size="lg" />
     <Button onClick={() => prompt(
-      '输入密码',
-      '这是密码message,可以不要',
+      'Password',
+      'Password Message',
       password => console.log(`password: ${password}`),
       'secure-text',
     )}
-    >输入框密码形式 </Button>
+    >secure-text</Button>
 
     <WhiteSpace size="lg" />
     <Button onClick={() => prompt(
-      '输入密码',
-      '这是密码message,可以不要',
+      'Password',
+      'You can custom buttons',
       [
         { text: '取消' },
         { text: '提交', onPress: password => console.log(`密码为:${password}`) },
       ],
       'secure-text',
     )}
-    >自定义按钮形式 </Button>
+    >Custom buttons</Button>
 
     <WhiteSpace size="lg" />
     <Button onClick={() => prompt(
-      '登录',
-      '输入用户名和密码',
+      'Login',
+      'Please input login information',
       (login, password) => console.log(`login: ${login}, password: ${password}`),
       'login-password',
       null,
-      ['请输入用户名', '请输入密码'],
+      ['Please input name', 'Please input password'],
     )}
-    >输入框登录形式 </Button>
+    >login-password</Button>
 
     <WhiteSpace size="lg" />
   </WingBlank>

@@ -18,19 +18,19 @@ export default class BasicTabsExample extends React.Component <any, any> {
     return (
       <View style={{ flex: 1, paddingTop: 20 }}>
         <Tabs defaultActiveKey="1" onChange={onChange} onTabClick={onTabClick}>
-          <TabPane tab="选项卡一" key="1">
+          <TabPane tab="Tab1" key="1">
             <View style={{ alignItems: 'center', justifyContent: 'center', height: 100 }}>
-               <Text>选项卡一内容</Text>
+               <Text>Content of Tab1</Text>
             </View>
           </TabPane>
-          <TabPane tab="选项卡二" key="2">
+          <TabPane tab="Tab2" key="2">
             <View style={{ alignItems: 'center', justifyContent: 'center', height: 100 }}>
-               <Text>选项卡二内容</Text>
+               <Text>Content of Tab2</Text>
             </View>
           </TabPane>
-          <TabPane tab="选项卡三" key="3">
+          <TabPane tab="Tab3" key="3">
             <View style={{ alignItems: 'center', justifyContent: 'center', height: 100 }}>
-               <Text>选项卡三内容</Text>
+               <Text>Content of Tab3</Text>
             </View>
           </TabPane>
         </Tabs>

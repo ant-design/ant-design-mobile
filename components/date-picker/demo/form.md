@@ -5,7 +5,14 @@ title:
   en-US: With form validation
 ---
 
-日期时间选择示例 ([rc-form 文档](https://github.com/react-component/form))
+## zh-CN
+
+日期时间选择示例， ([rc-form](https://github.com/react-component/form))
+
+## en-US
+
+Examples for `DatePicker`, ([rc-form](https://github.com/react-component/form))
+
 
 ````jsx
 
@@ -75,7 +82,7 @@ class Test extends React.Component {
               { validator: this.validateIdp },
             ],
           })}
-        >输入时间</InputItem>
+        >Input Date</InputItem>
         <DatePicker
           {...getFieldProps('dp', {
             initialValue: this.state.dpValue,
@@ -85,11 +92,11 @@ class Test extends React.Component {
             ],
           })}
         >
-          <List.Item arrow="horizontal">日期</List.Item>
+          <List.Item arrow="horizontal">Date</List.Item>
         </DatePicker>
         <List.Item>
           <Button type="primary" size="small" inline onClick={this.onSubmit}>Submit</Button>
-          <Button size="small" inline style={{ marginLeft: '2.5px' }} onClick={this.onReset}>重置</Button>
+          <Button size="small" inline style={{ marginLeft: '2.5px' }} onClick={this.onReset}>Reset</Button>
         </List.Item>
       </List>
     </form>);

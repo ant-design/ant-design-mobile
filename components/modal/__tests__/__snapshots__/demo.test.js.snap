@@ -13,7 +13,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-       自定义按钮 
+      Customized buttons
     </span>
   </a>
   <div
@@ -25,7 +25,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-      确认对话框
+      Confirm
     </span>
   </a>
   <div
@@ -37,7 +37,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-      弹出多个按钮 
+      More than two buttons
     </span>
   </a>
   <div
@@ -49,7 +49,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-      按钮 Promise
+      Promise
     </span>
   </a>
   <div
@@ -72,7 +72,7 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-        Modal 对话框 (自动检测平台)
+        Auto Platform
       </span>
     </a>
   </div>
@@ -88,7 +88,7 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-         Modal 对话框 （Android）
+         Android UI 
       </span>
     </a>
   </div>
@@ -104,7 +104,7 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-         Modal 对话框 （iOS）
+         iOS UI
       </span>
     </a>
   </div>
@@ -127,7 +127,7 @@ exports[`renders ./components/modal/demo/operation.md correctly 1`] = `
     role="button"
   >
     <span>
-      操作按钮
+      Operation
     </span>
   </a>
   <div
@@ -149,7 +149,7 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
     role="button"
   >
     <span>
-      按钮 Promise
+      Promise
     </span>
   </a>
   <div
@@ -161,7 +161,7 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
     role="button"
   >
     <span>
-      输入框默认值 
+      defaultValue
     </span>
   </a>
   <div
@@ -173,7 +173,7 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
     role="button"
   >
     <span>
-      输入框密码形式 
+      secure-text
     </span>
   </a>
   <div
@@ -185,7 +185,7 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
     role="button"
   >
     <span>
-      自定义按钮形式 
+      Custom buttons
     </span>
   </a>
   <div
@@ -197,7 +197,7 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
     role="button"
   >
     <span>
-      输入框登录形式 
+      login-password
     </span>
   </a>
   <div

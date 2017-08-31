@@ -19,7 +19,7 @@ import { Modal, Button, WhiteSpace, WingBlank, Toast } from 'antd-mobile';
 const alert = Modal.alert;
 
 const showAlert = () => {
-  const alertInstance = alert('删除', '确定删除么???', [
+  const alertInstance = alert('Delete', 'Are you sure???', [
     { text: 'Cancel', onPress: () => console.log('cancel'), style: 'default' },
     { text: 'OK', onPress: () => console.log('ok') },
   ]);
@@ -33,36 +33,36 @@ const showAlert = () => {
 const App = () => (
   <WingBlank size="lg">
     <WhiteSpace size="lg" />
-    <Button onClick={showAlert}> 自定义按钮 </Button>
+    <Button onClick={showAlert}>Customized buttons</Button>
 
     <WhiteSpace size="lg" />
-    <Button onClick={() => alert('删除', '确定删除么???', [
-      { text: '取消', onPress: () => console.log('cancel') },
-      { text: '确定', onPress: () => console.log('ok') },
+    <Button onClick={() => alert('Delete', 'Are you sure???', [
+      { text: 'Cancel', onPress: () => console.log('cancel') },
+      { text: 'Ok', onPress: () => console.log('ok') },
     ])}
-    >确认对话框</Button>
+    >Confirm</Button>
 
     <WhiteSpace size="lg" />
-    <Button onClick={() => alert('多个按钮情况', <div>这里有好多个按钮, 你试试</div>, [
-      { text: '按钮一', onPress: () => console.log('第0个按钮被点击了') },
-      { text: '按钮二', onPress: () => console.log('第1个按钮被点击了') },
-      { text: '按钮三', onPress: () => console.log('第2个按钮被点击了') },
+    <Button onClick={() => alert('Much Buttons', <div>More than two buttons</div>, [
+      { text: 'Button1', onPress: () => console.log('第0个按钮被点击了') },
+      { text: 'Button2', onPress: () => console.log('第1个按钮被点击了') },
+      { text: 'Button3', onPress: () => console.log('第2个按钮被点击了') },
     ])}
-    >弹出多个按钮 </Button>
+    >More than two buttons</Button>
 
     <WhiteSpace size="lg" />
 
-    <Button onClick={() => alert('删除', '确定删除么???', [
-      { text: '取消', onPress: () => console.log('cancel') },
+    <Button onClick={() => alert('Delete', 'Are you sure???', [
+      { text: 'Cancel', onPress: () => console.log('cancel') },
       {
-        text: '确定',
+        text: 'Ok',
         onPress: () => new Promise((resolve) => {
           Toast.info('onPress Promise', 1);
           setTimeout(resolve, 1000);
         }),
       },
     ])}
-    >按钮 Promise</Button>
+    >Promise</Button>
 
     <WhiteSpace size="lg" />
   </WingBlank>

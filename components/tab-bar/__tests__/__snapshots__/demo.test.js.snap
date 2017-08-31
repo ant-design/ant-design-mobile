@@ -25,12 +25,12 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         <div
           style="padding-top:60px;"
         >
-          你已点击“口碑” tab， 当前展示“口碑”信息
+          clicked “Koubei” tab， show “Koubei” information
         </div>
         <a
           style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
         >
-          点击切换 tab-bar 显示/隐藏
+          click to show/hide tab-bar
         </a>
       </div>
     </div>
@@ -87,7 +87,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           class="am-tab-bar-tab-title"
           style="color:#949494;"
         >
-          生活
+          Life
         </p>
       </div>
     </div>
@@ -127,7 +127,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           class="am-tab-bar-tab-title"
           style="color:#33A3F4;"
         >
-          口碑
+          Koubei
         </p>
       </div>
     </div>
@@ -157,7 +157,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           class="am-tab-bar-tab-title"
           style="color:#949494;"
         >
-          朋友
+          Friend
         </p>
       </div>
     </div>
@@ -173,7 +173,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           style="color:#949494;"
         >
           <img
-            alt="我的"
+            alt="My"
             class="am-tab-bar-tab-image"
             src="https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg"
           />
@@ -182,7 +182,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           class="am-tab-bar-tab-title"
           style="color:#949494;"
         >
-          我的
+          My
         </p>
       </div>
     </div>

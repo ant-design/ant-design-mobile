@@ -34,7 +34,7 @@ exports[`renders ./components/tab-bar/demo/basic.native.tsx correctly 1`] = `
         undefined,
       ]
     }
-    title="生活"
+    title="Life"
   >
     <View />
   </RCTTabBarItem>
@@ -56,7 +56,7 @@ exports[`renders ./components/tab-bar/demo/basic.native.tsx correctly 1`] = `
         undefined,
       ]
     }
-    title="口碑"
+    title="Koubei"
   >
     <View
       style={
@@ -96,7 +96,7 @@ exports[`renders ./components/tab-bar/demo/basic.native.tsx correctly 1`] = `
             onFocus={[Function]}
             onSubmit={[Function]}
             onSubmitEditing={[Function]}
-            placeholder="搜索"
+            placeholder="Search"
             prefixCls="am-search"
             style={
               Array [
@@ -171,7 +171,7 @@ exports[`renders ./components/tab-bar/demo/basic.native.tsx correctly 1`] = `
           }
         }
       >
-        口碑 Tab
+        Koubei Tab
       </Text>
     </View>
   </RCTTabBarItem>
@@ -192,7 +192,7 @@ exports[`renders ./components/tab-bar/demo/basic.native.tsx correctly 1`] = `
         undefined,
       ]
     }
-    title="朋友"
+    title="Friend"
   >
     <View />
   </RCTTabBarItem>
@@ -213,7 +213,7 @@ exports[`renders ./components/tab-bar/demo/basic.native.tsx correctly 1`] = `
         undefined,
       ]
     }
-    title="我的"
+    title="My"
   >
     <View />
   </RCTTabBarItem>

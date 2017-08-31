@@ -23,7 +23,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换一
+      Segment1
     </div>
     <div
       aria-disabled="false"
@@ -35,7 +35,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换二
+      Segment2
     </div>
   </div>
   <p
@@ -57,7 +57,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换一
+      Segment1
     </div>
     <div
       aria-disabled="true"
@@ -69,7 +69,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换二
+      Segment2
     </div>
   </div>
   <p
@@ -91,7 +91,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换一
+      Segment1
     </div>
     <div
       aria-disabled="false"
@@ -103,7 +103,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换二
+      Segment2
     </div>
     <div
       aria-disabled="false"
@@ -115,7 +115,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换三
+      Segment3
     </div>
   </div>
   <p
@@ -138,7 +138,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换一
+      Segment1
     </div>
     <div
       aria-disabled="false"
@@ -150,7 +150,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换二
+      Segment2
     </div>
     <div
       aria-disabled="false"
@@ -162,7 +162,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换三
+      Segment3
     </div>
   </div>
   <p
@@ -184,7 +184,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换一
+      Segment1
     </div>
     <div
       aria-disabled="false"
@@ -196,7 +196,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换二
+      Segment2
     </div>
     <div
       aria-disabled="false"
@@ -208,7 +208,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      切换三
+      Segment3
     </div>
   </div>
 </div>

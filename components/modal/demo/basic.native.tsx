@@ -38,8 +38,8 @@ export default class BasicModalExample extends React.Component<any, any> {
 
   onButtonClick = () => {
     Modal.alert(
-      '标题',
-     'alert 内容内容',
+      'Title',
+     'alert content',
       [
         { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
         { text: 'OK', onPress: () => console.log('ok') },
@@ -56,19 +56,19 @@ export default class BasicModalExample extends React.Component<any, any> {
 
   onButtonClick3 = () => {
     Modal.prompt(
-      '登录',
-      '输入用户名和密码',
+      'Login',
+      'Pleas input login information',
       (login, password) => console.log(`login: ${login}, password: ${password}`),
       'login-password',
       null,
-      ['请输入用户名', '请输入密码'],
+      ['Please input name', 'Please input password'],
     );
   }
 
   onButtonClick4 = () => {
     Modal.prompt(
-      '输入密码',
-      '这是密码message,可以不要',
+      'Input password',
+      'password message',
       password => console.log(`password: ${password}`),
       'secure-text',
       'defaultValue',
@@ -77,12 +77,12 @@ export default class BasicModalExample extends React.Component<any, any> {
 
   onButtonClick5 = () => {
     Modal.prompt(
-      '输入姓名',
-      '这是姓名message,可以不要',
+      'Name',
+      'name message',
       password => console.log(`password: ${password}`),
       'default',
       null,
-      ['请输入姓名'],
+      ['please input name'],
     );
   }
   render() {
@@ -93,19 +93,19 @@ export default class BasicModalExample extends React.Component<any, any> {
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
         <WingBlank>
-          <Button onClick={this.showModal}>显示对话框</Button>
+          <Button onClick={this.showModal}>showModal</Button>
           <WhiteSpace />
-          <Button onClick={this.showModal2}>显示全屏对话框</Button>
+          <Button onClick={this.showModal2}>transparent:false</Button>
           <WhiteSpace />
-          <Button onClick={this.onButtonClick}>显示 Modal.alert</Button>
+          <Button onClick={this.onButtonClick}>Modal.alert</Button>
           <WhiteSpace />
-          <Button onClick={this.onButtonClick2}>显示 Modal.opertation</Button>
+          <Button onClick={this.onButtonClick2}>Modal.opertation</Button>
           <WhiteSpace />
-          <Button onClick={this.onButtonClick5}>显示 Modal.prompt (default)</Button>
+          <Button onClick={this.onButtonClick5}>Modal.prompt (default)</Button>
           <WhiteSpace />
-          <Button onClick={this.onButtonClick3}>显示 Modal.prompt (login-password)</Button>
+          <Button onClick={this.onButtonClick3}>Modal.prompt (login-password)</Button>
           <WhiteSpace />
-          <Button onClick={this.onButtonClick4}>显示 Modal.prompt (secure-text)</Button>
+          <Button onClick={this.onButtonClick4}>Modal.prompt (secure-text)</Button>
         </WingBlank>
         <Modal
           transparent={false}
@@ -114,13 +114,13 @@ export default class BasicModalExample extends React.Component<any, any> {
           onClose={this.onClose2}
         >
           <View style={{ paddingVertical: 220 }}>
-            <Text style={{ textAlign: 'center' }}>这是内容...</Text>
-            <Text style={{ textAlign: 'center' }}>这是内容...</Text>
+            <Text style={{ textAlign: 'center' }}>Content...</Text>
+            <Text style={{ textAlign: 'center' }}>Content...</Text>
           </View>
           <Button type="primary" inline onClick={this.onClose2}>close modal</Button>
         </Modal>
         <Modal
-          title="测试"
+          title="Title"
           transparent
           onClose={this.onClose}
           maskClosable
@@ -129,8 +129,8 @@ export default class BasicModalExample extends React.Component<any, any> {
           footer={footerButtons}
         >
           <View style={{ paddingVertical: 20 }}>
-            <Text style={{ textAlign: 'center' }}>这是内容...</Text>
-            <Text style={{ textAlign: 'center' }}>这是内容...</Text>
+            <Text style={{ textAlign: 'center' }}>Content...</Text>
+            <Text style={{ textAlign: 'center' }}>Content...</Text>
           </View>
           <Button type="primary" inline onClick={this.onClose}>close modal</Button>
         </Modal>

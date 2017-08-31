@@ -59,16 +59,16 @@ class Test extends React.Component {
     return (<div>
       <List className="date-picker-list" style={{ backgroundColor: 'white' }}>
         <DatePicker value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">日期+时间</List.Item>
+          <List.Item arrow="horizontal">Date + Time</List.Item>
         </DatePicker>
-        <DatePicker mode="date" title="选择日期" extra="可选" value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">日期</List.Item>
+        <DatePicker mode="date" title="Select Date" extra="Optional" value={this.state.date} onChange={this.onChange}>
+          <List.Item arrow="horizontal">Date</List.Item>
         </DatePicker>
         <DatePicker mode="time" minuteStep={5} use12Hours value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">时间</List.Item>
+          <List.Item arrow="horizontal">Time</List.Item>
         </DatePicker>
         <DatePicker mode="time" minDate={minDate} maxDate={maxDate} value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">时间，限定上下限</List.Item>
+          <List.Item arrow="horizontal">Limited time</List.Item>
         </DatePicker>
         <DatePicker
           mode="time"
@@ -77,11 +77,11 @@ class Test extends React.Component {
           value={this.state.utcDate}
           onChange={date => this.setState({ utcDate: date })}
         >
-          <List.Item arrow="horizontal">utc time</List.Item>
+          <List.Item arrow="horizontal">UTC time</List.Item>
         </DatePicker>
 
         <List.Item extra={this.state.dpValue && formatDate(this.state.dpValue)}>
-          <div onClick={() => this.setState({ visible: true })}>条件选择(不能选15分钟)</div>
+          <div onClick={() => this.setState({ visible: true })}>Condition(cannot select fifteenth minute)</div>
         </List.Item>
         <DatePicker
           visible={this.state.visible}
@@ -91,11 +91,11 @@ class Test extends React.Component {
         />
         <DatePicker
           format="HH:mm"
-          title="选择时间"
+          title="Select Time"
           value={this.state.dpValue}
           onChange={v => this.setState({ dpValue: v })}
         >
-          <CustomChildren>时间选择(自定义 children)</CustomChildren>
+          <CustomChildren>With customized children</CustomChildren>
         </DatePicker>
       </List>
     </div>);

@@ -54,7 +54,7 @@ const Test = () => {
   // },
   return (
     <div style={{ padding: '15px' }}>
-      <Button onClick={onClick}>显示</Button>
+      <Button onClick={onClick}>Show</Button>
     </div>
   );
 };

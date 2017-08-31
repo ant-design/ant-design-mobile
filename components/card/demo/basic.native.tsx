@@ -16,7 +16,7 @@ export default class BasicCardExample extends React.Component<any, any> {
             />
             <Card.Body>
               <View style={{ height: 42 }}>
-                <Text style={{ marginLeft: 16 }}>这是卡片内容</Text>
+                <Text style={{ marginLeft: 16 }}>Card Content</Text>
               </View>
             </Card.Body>
             <Card.Footer content="footer content" extra="footer extra content" />
@@ -32,7 +32,7 @@ export default class BasicCardExample extends React.Component<any, any> {
           />
           <Card.Body>
             <View style={{ height: 42 }}>
-              <Text style={{ marginLeft: 16 }}>这是卡片内容</Text>
+              <Text style={{ marginLeft: 16 }}>Card Content</Text>
             </View>
           </Card.Body>
           <Card.Footer content="footer content" extra="footer extra content" />

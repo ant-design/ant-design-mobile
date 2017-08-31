@@ -13,7 +13,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-        默认状态
+        showActionSheet
       </span>
     </a>
   </div>
@@ -26,7 +26,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-        分享功能
+        showShareActionSheet
       </span>
     </a>
   </div>
@@ -39,7 +39,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-        带多行按钮的分享功能
+        showShareActionSheetMulpitleLine
       </span>
     </a>
   </div>

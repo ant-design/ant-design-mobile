@@ -127,14 +127,14 @@ class Test extends React.Component {
       <List style={{ backgroundColor: 'white' }} className="picker-list">
         <Picker extra="请选择(可选)"
           data={district}
-          title="选择地区"
+          title="Areas"
           {...getFieldProps('district', {
             initialValue: ['340000', '341500', '341502'],
           })}
           onOk={e => console.log('ok', e)}
           onDismiss={e => console.log('dismiss', e)}
         >
-          <List.Item arrow="horizontal">选择地区（多列，联动）</List.Item>
+          <List.Item arrow="horizontal">Multiple & Cascader</List.Item>
         </Picker>
         <Picker
           data={seasons}
@@ -144,10 +144,10 @@ class Test extends React.Component {
           value={this.state.sValue}
           onChange={v => this.setState({ sValue: v })}
         >
-          <List.Item arrow="horizontal">选择季节（多列，不联动）</List.Item>
+          <List.Item arrow="horizontal">Multiple</List.Item>
         </Picker>
         <Picker data={district} cols={1} {...getFieldProps('district3')} className="forss">
-          <List.Item arrow="horizontal">选择地区（单列）</List.Item>
+          <List.Item arrow="horizontal">Single</List.Item>
         </Picker>
         <Picker
           data={this.state.data}
@@ -155,7 +155,7 @@ class Test extends React.Component {
           value={this.state.asyncValue}
           onPickerChange={this.onPickerChange}
         >
-          <List.Item arrow="horizontal" onClick={this.onClick}>选择地区（多列，异步加载）</List.Item>
+          <List.Item arrow="horizontal" onClick={this.onClick}>Multiple & Async</List.Item>
         </Picker>
         <Picker
           title="选择地区"
@@ -164,18 +164,19 @@ class Test extends React.Component {
           value={this.state.pickerValue}
           onChange={v => this.setState({ pickerValue: v })}
         >
-          <CustomChildren>选择地区（自定义 children）</CustomChildren>
+          <CustomChildren>Customized Children</CustomChildren>
         </Picker>
-        <List.Item extra={this.getSel()}>
-          <div onClick={() => this.setState({ visible: true })}>外部控制 visible</div>
-        </List.Item>
         <Picker
           visible={this.state.visible}
           data={district}
           value={this.state.pickerValue}
           onChange={v => this.setState({ pickerValue: v })}
           onOk={() => this.setState({ visible: false })}
-        />
+        >
+          <List.Item extra={this.getSel()}>
+            <div onClick={() => this.setState({ visible: true })}>Visible state</div>
+          </List.Item>
+        </Picker>
       </List>
     </div>);
   }

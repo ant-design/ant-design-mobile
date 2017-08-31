@@ -28,7 +28,7 @@ class TabBarExample extends React.Component {
   renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-        <div style={{ paddingTop: 60 }}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
+        <div style={{ paddingTop: 60 }}>clicked “{pageText}” tab， show “{pageText}” information</div>
         <a style={{ display: 'block', marginTop: 40, marginBottom: 600, color: '#108ee9' }}
           onClick={(e) => {
             e.preventDefault();
@@ -37,7 +37,7 @@ class TabBarExample extends React.Component {
             });
           }}
         >
-          点击切换 tab-bar 显示/隐藏
+          click to show/hide tab-bar
         </a>
       </div>
     );
@@ -52,8 +52,8 @@ class TabBarExample extends React.Component {
         hidden={this.state.hidden}
       >
         <TabBar.Item
-          title="生活"
-          key="生活"
+          title="Life"
+          key="Life"
           icon={<div style={{
             width: '22px',
             height: '22px',
@@ -75,13 +75,13 @@ class TabBarExample extends React.Component {
           }}
           data-seed="logId"
         >
-          {this.renderContent('生活')}
+          {this.renderContent('Life')}
         </TabBar.Item>
         <TabBar.Item
           icon={<Icon type="koubei-o" size="md" />}
           selectedIcon={<Icon type="koubei" size="md" />}
-          title="口碑"
-          key="口碑"
+          title="Koubei"
+          key="Koubei"
           badge={'new'}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => {
@@ -91,7 +91,7 @@ class TabBarExample extends React.Component {
           }}
           data-seed="logId1"
         >
-          {this.renderContent('口碑')}
+          {this.renderContent('Koubei')}
         </TabBar.Item>
         <TabBar.Item
           icon={
@@ -108,8 +108,8 @@ class TabBarExample extends React.Component {
               background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
             />
           }
-          title="朋友"
-          key="朋友"
+          title="Friend"
+          key="Friend"
           dot
           selected={this.state.selectedTab === 'greenTab'}
           onPress={() => {
@@ -118,13 +118,13 @@ class TabBarExample extends React.Component {
             });
           }}
         >
-          {this.renderContent('朋友')}
+          {this.renderContent('Friend')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
           selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-          title="我的"
-          key="我的"
+          title="My"
+          key="my"
           selected={this.state.selectedTab === 'yellowTab'}
           onPress={() => {
             this.setState({
@@ -132,7 +132,7 @@ class TabBarExample extends React.Component {
             });
           }}
         >
-          {this.renderContent('我的')}
+          {this.renderContent('My')}
         </TabBar.Item>
       </TabBar>
     );

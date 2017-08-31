@@ -31,8 +31,8 @@ exports[`renders ./components/segmented-control/demo/basic.native.tsx correctly 
     tintColor="#108ee9"
     values={
       Array [
-        "切换一",
-        "切换二",
+        "Segment1",
+        "Segment2",
       ]
     }
   />
@@ -71,9 +71,9 @@ exports[`renders ./components/segmented-control/demo/basic.native.tsx correctly 
     tintColor="#ff0000"
     values={
       Array [
-        "切换一",
-        "切换二",
-        "切换三",
+        "Segment1",
+        "Segment2",
+        "Segment3",
       ]
     }
   />
@@ -109,9 +109,9 @@ exports[`renders ./components/segmented-control/demo/basic.native.tsx correctly 
     tintColor="#108ee9"
     values={
       Array [
-        "切换一",
-        "切换二",
-        "切换三",
+        "Segment1",
+        "Segment2",
+        "Segment3",
       ]
     }
   />
@@ -148,9 +148,9 @@ exports[`renders ./components/segmented-control/demo/basic.native.tsx correctly 
     tintColor="#108ee9"
     values={
       Array [
-        "切换一",
-        "切换二",
-        "切换三",
+        "Segment1",
+        "Segment2",
+        "Segment3",
       ]
     }
   />

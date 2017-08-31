@@ -17,13 +17,13 @@ export default class BasicTagExample extends React.Component<any, any> {
       <View style={{ paddingTop: 60, paddingHorizontal: 20 }}>
         <Text>Disabled</Text>
         <SegmentedControl
-          values={['切换一', '切换二']}
+          values={['Segment1', 'Segment2']}
           disabled
         />
         <WhiteSpace size="lg" />
         <Text>TintColor and Style</Text>
         <SegmentedControl
-          values={['切换一', '切换二', '切换三']}
+          values={['Segment1', 'Segment2', 'Segment3']}
           tintColor={'#ff0000'}
           style={{ height: 40, width: 280 }}
         />
@@ -31,12 +31,12 @@ export default class BasicTagExample extends React.Component<any, any> {
         <Text>SelectedIndex</Text>
         <SegmentedControl
           selectedIndex={1}
-          values={['切换一', '切换二', '切换三']}
+          values={['Segment1', 'Segment2', 'Segment3']}
         />
         <WhiteSpace size="lg" />
         <Text>onChange/onValueChange</Text>
         <SegmentedControl
-          values={['切换一', '切换二', '切换三']}
+          values={['Segment1', 'Segment2', 'Segment3']}
           onChange={this.onChange}
           onValueChange={this.onValueChange}
         />

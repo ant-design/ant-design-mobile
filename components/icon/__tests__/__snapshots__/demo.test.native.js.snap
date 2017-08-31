@@ -1278,7 +1278,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             }
           }
         >
-          自定义图标
+          Customized
         </Text>
       </View>
     </View>
