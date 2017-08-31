@@ -14,7 +14,7 @@ export default class Stepper extends React.Component<StepProps, any> {
     useTouch: true,
   };
 
-  inputNumber: any;
+  stepperRef: any;
 
   render() {
     const { className, showNumber, ...restProps } = this.props;
@@ -28,7 +28,7 @@ export default class Stepper extends React.Component<StepProps, any> {
         upHandler={<Icon type="plus" size="xxs" />}
         downHandler={<Icon type="minus" size="xxs" />}
         {...restProps}
-        ref={el => this.inputNumber = el}
+        ref={el => this.stepperRef = el}
         className={stepperClass}
       />
     );

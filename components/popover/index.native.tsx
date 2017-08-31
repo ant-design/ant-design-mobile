@@ -8,7 +8,7 @@ export default class Popover extends React.Component<tsPropsType, any> {
   };
 
   static Item = MenuOption;
-  menuContext: any;
+  menuContextRef: any;
 
   render() {
     const {
@@ -20,7 +20,7 @@ export default class Popover extends React.Component<tsPropsType, any> {
       renderOptionsContainer: renderOverlayComponent,
     };
     return (
-      <MenuContext ref={el => this.menuContext = el} style={contextStyle}>
+      <MenuContext ref={el => this.menuContextRef = el} style={contextStyle}>
         <Menu name={name} onSelect={onSelect} style={style}>
           <MenuTrigger disabled={disabled} style={triggerStyle}>
             {children}

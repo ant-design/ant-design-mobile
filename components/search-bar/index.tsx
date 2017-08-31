@@ -10,11 +10,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   scrollIntoViewTimeout: any;
   blurFromOnClear: any;
   onBlurTimeout: any;
-  rightBtn: any;
-  searchInput: any;
-  syntheticPhContainer: any;
-  syntheticPh: any;
-  searchInputContainer: any;
+  inputRef: any;
+  private rightBtnRef: any;
+  private syntheticPhContainerRef: any;
+  private syntheticPhRef: any;
+  private inputContainerRef: any;
 
   constructor(props) {
     super(props);
@@ -34,31 +34,31 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
 
   componentDidMount() {
-    const initBtn = window.getComputedStyle(this.rightBtn);
+    const initBtn = window.getComputedStyle(this.rightBtnRef);
     this.rightBtnInitMarginleft = initBtn['margin-left'];
     if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
-      this.searchInput.focus();
+      this.inputRef.focus();
     }
     this.componentDidUpdate();
   }
   componentDidUpdate() {
     // 检测是否包含名为 ${this.props.prefixCls}-start 样式，生成动画
     // offsetWidth 某些时候是向上取整，某些时候是向下取整，不能用
-    const realWidth = this.syntheticPhContainer.getBoundingClientRect().width; // 包含小数
-    if (this.searchInputContainer.className.indexOf(`${this.props.prefixCls}-start`) > -1) {
-      this.syntheticPh.style.width = `${Math.ceil(realWidth)}px`;
+    const realWidth = this.syntheticPhContainerRef.getBoundingClientRect().width; // 包含小数
+    if (this.inputContainerRef.className.indexOf(`${this.props.prefixCls}-start`) > -1) {
+      this.syntheticPhRef.style.width = `${Math.ceil(realWidth)}px`;
       if (!this.props.showCancelButton) {
-        this.rightBtn.style.marginRight = 0;
+        this.rightBtnRef.style.marginRight = 0;
       }
     } else {
-      this.syntheticPh.style.width = '100%';
+      this.syntheticPhRef.style.width = '100%';
       if (!this.props.showCancelButton) {
-        this.rightBtn.style.marginRight =
-          `-${this.rightBtn.offsetWidth + parseInt(this.rightBtnInitMarginleft, 10)}px`;
+        this.rightBtnRef.style.marginRight =
+          `-${this.rightBtnRef.offsetWidth + parseInt(this.rightBtnInitMarginleft, 10)}px`;
       }
     }
     if (this.state.focused) {
-      this.searchInput.focus();
+      this.inputRef.focus();
     }
   }
 
@@ -91,7 +91,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     if (this.props.onSubmit) {
       this.props.onSubmit(this.state.value);
     }
-    this.searchInput.blur();
+    this.inputRef.blur();
   }
 
   onChange = (e) => {
@@ -168,7 +168,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.props.onChange('');
     }
     if (blurFromOnClear) {
-      this.searchInput.focus();
+      this.inputRef.focus();
     }
   }
 
@@ -210,12 +210,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         onSubmit={this.onSubmit}
         className={wrapCls}
         style={style}
-        ref={el => this.searchInputContainer = el}
+        ref={el => this.inputContainerRef = el}
         action="#"
       >
         <div className={`${prefixCls}-input`}>
-          <div className={`${prefixCls}-synthetic-ph`} ref={el => this.syntheticPh = el}>
-            <span className={`${prefixCls}-synthetic-ph-container`} ref={el => this.syntheticPhContainer = el}>
+          <div className={`${prefixCls}-synthetic-ph`} ref={el => this.syntheticPhRef = el}>
+            <span className={`${prefixCls}-synthetic-ph-container`} ref={el => this.syntheticPhContainerRef = el}>
               <i className={`${prefixCls}-synthetic-ph-icon`}/>
               <span
                 className={`${prefixCls}-synthetic-ph-placeholder`}
@@ -234,13 +234,13 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
             onChange={this.onChange}
             onFocus={this.onFocus}
             onBlur={this.onBlur}
-            ref={el => this.searchInput = el}
+            ref={el => this.inputRef = el}
             maxLength={maxLength}
             {...getDataAttr(this.props)}
           />
           <a onClick={this.onClear} className={clearCls} />
         </div>
-        <div className={cancelCls} onClick={this.onCancel} ref={el => this.rightBtn = el}>
+        <div className={cancelCls} onClick={this.onCancel} ref={el => this.rightBtnRef = el}>
           {cancelText}
         </div>
       </form>

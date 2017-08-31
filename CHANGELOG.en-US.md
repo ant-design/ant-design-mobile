@@ -42,6 +42,7 @@ timeline: true
   - **[React Native]** Button 组件 style 里`disabledRaw`/`disabledRawText`修改为`defaultDisabledRaw`/`defaultDisabledRawText`
   - Result: `buttonClick` 更改为 `onButtonClick`
   - 去除`Table`组件
+  - use ref func to replace ref string [#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

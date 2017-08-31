@@ -24,7 +24,7 @@ export default class Steps extends React.Component<StepsProps, any> {
     current: 0,
   };
   stepRefs: any;
-  rcSteps: any;
+  stepsRef: any;
 
   componentDidMount() {
     this.componentDidUpdate();
@@ -69,6 +69,6 @@ export default class Steps extends React.Component<StepsProps, any> {
       icon = typeof icon === 'string' ? <Icon type={icon} /> : icon;
       return React.cloneElement(item, { icon, className, ref: c => this.stepRefs[index] = c });
     });
-    return <RcSteps ref={el => this.rcSteps = el} {...this.props}>{newChildren}</RcSteps>;
+    return <RcSteps ref={el => this.stepsRef = el} {...this.props}>{newChildren}</RcSteps>;
   }
 }
