@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 const touchSupported = typeof window !== 'undefined' && 'ontouchstart' in window;
 
@@ -34,45 +35,34 @@ export default class TouchFeedback extends React.Component<TouchProps, TouchStat
     }
   }
 
-  setTouchFeedbackState(active) {
+  triggerEvent(type, isActive, ev) {
+    const eventType = `on${type}`;
+    if (this.props[eventType]) {
+      this.props[eventType](ev);
+    }
     this.setState({
-      active,
+      active: isActive,
     });
   }
 
   onTouchStart = (e) => {
-    if (this.props.onTouchStart) {
-      this.props.onTouchStart(e);
-    }
-    this.setTouchFeedbackState(true);
+    this.triggerEvent('TouchStart', true, e);
   }
 
   onTouchEnd = (e) => {
-    if (this.props.onTouchEnd) {
-      this.props.onTouchEnd(e);
-    }
-    this.setTouchFeedbackState(false);
+    this.triggerEvent('TouchEnd', false, e);
   }
 
   onTouchCancel = (e) => {
-    if (this.props.onTouchCancel) {
-      this.props.onTouchCancel(e);
-    }
-    this.setTouchFeedbackState(false);
+    this.triggerEvent('TouchCancel', false, e);
   }
 
   onMouseDown = (e) => {
-    if (this.props.onTouchStart) {
-      this.props.onTouchStart(e);
-    }
-    this.setTouchFeedbackState(true);
+    this.triggerEvent('TouchStart', true, e);
   }
 
   onMouseUp = (e) => {
-    if (this.props.onTouchEnd) {
-      this.props.onTouchEnd(e);
-    }
-    this.setTouchFeedbackState(false);
+    this.triggerEvent('TouchEnd', false, e);
   }
 
   render() {
@@ -101,15 +91,13 @@ export default class TouchFeedback extends React.Component<TouchProps, TouchStat
         };
       }
 
-      if (activeClassName) {
-        if (className) {
-          className += ` ${activeClassName}`;
-        } else {
-          className = activeClassName;
-        }
-      }
+      const cls = classNames({
+        [className as string]: !!className,
+        [activeClassName as string]: !!activeClassName,
+      });
+
       return React.cloneElement(child, {
-        className,
+        className: cls,
         style,
         ...events,
       });
