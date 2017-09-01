@@ -24,8 +24,8 @@ export class Brief extends React.Component<BriefProps, any> {
       };
     }
     return (
-      <View style={[styles.Brief]}>
-        <Text style={[styles.BriefText, style]} {...numberOfLines}>{children}</Text>
+      <View style={[styles!.Brief]}>
+        <Text style={[styles!.BriefText, style]} {...numberOfLines}>{children}</Text>
       </View>
     );
   }

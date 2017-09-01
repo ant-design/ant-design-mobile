@@ -10,7 +10,7 @@ exports[`renders ./components/popup/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
-      显 示
+      Show
     </span>
   </a>
 </div>
@@ -26,7 +26,7 @@ exports[`renders ./components/popup/demo/basic-up.md correctly 1`] = `
     role="button"
   >
     <span>
-      显 示
+      Show
     </span>
   </a>
 </div>

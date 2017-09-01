@@ -7,6 +7,8 @@ export interface TextInputProps extends TextInputProperties {
 }
 
 class Input extends React.Component<TextInputProps, any> {
+  inputRef: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -24,20 +26,20 @@ class Input extends React.Component<TextInputProps, any> {
 
   componentDidMount() {
     if (this.props.autoFocus || this.props.focused) {
-      (this.refs as any).input.focus();
+      this.inputRef.focus();
     }
   }
 
   componentDidUpdate() {
     if (this.props.focused) {
-      (this.refs as any).input.focus();
+      this.inputRef.focus();
     }
   }
 
   render() {
     return (
       <TextInput
-        ref="input"
+        ref={el => this.inputRef = el}
         underlineColorAndroid="transparent"
         {...this.props}
       />

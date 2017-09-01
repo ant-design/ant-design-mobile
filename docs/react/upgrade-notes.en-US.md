@@ -7,7 +7,9 @@ Here list some of main incompatible changes and recommended changes in the upgra
 
 ## 1.x => 2.x
 
-- `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+- The start index has been changed to `1` for `current` properties of `Pagination`. （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+- The start index has been changed to `1` for `current` properties of `Pagination`.
+- `string ref` has been replaced with `function ref`，you can get refs form properties of component, eg: `this.refs.input.refs.input` (old) will be replaced with `this.input.input` (new), get the ref name by setting `ref={el => console.log(el)}` to component；[#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
 
 ## 0.9.x => 1.0
 

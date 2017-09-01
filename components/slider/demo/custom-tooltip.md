@@ -44,7 +44,7 @@ class App extends React.Component {
       <div className="am-slider-example">
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider 自定义 ToolTip</p>
+          <p className="title">Slider with Customized ToolTip</p>
           <SliderWithCustomTooltip defaultValue={26} min={0} max={30} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
         <WhiteSpace size="lg" />

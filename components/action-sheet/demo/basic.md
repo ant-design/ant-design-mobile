@@ -43,13 +43,13 @@ class Test extends React.Component {
     };
   }
   showActionSheet = () => {
-    const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
+    const BUTTONS = ['Operation1', 'Operation2', 'Operation2', 'Delete', 'Cancel'];
     ActionSheet.showActionSheetWithOptions({
       options: BUTTONS,
       cancelButtonIndex: BUTTONS.length - 1,
       destructiveButtonIndex: BUTTONS.length - 2,
-      // title: '标题',
-      message: '我是描述我是描述',
+      // title: 'title',
+      message: 'I am description, description, description',
       maskClosable: true,
       'data-seed': 'logId',
       wrapProps,
@@ -63,15 +63,15 @@ class Test extends React.Component {
     icons.length = 4;
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
-      // title: '标题',
-      message: '我是描述我是描述',
+      // title: 'title',
+      message: 'I am description, description, description',
       className: 'my-action-sheet',
     },
     (buttonIndex) => {
       this.setState({ clicked1: buttonIndex > -1 ? icons[buttonIndex].title : 'cancel' });
       // also support Promise
       return new Promise((resolve) => {
-        Toast.info('1000ms 后关闭');
+        Toast.info('closed after 1000ms');
         setTimeout(resolve, 1000);
       });
     });
@@ -80,8 +80,8 @@ class Test extends React.Component {
     const icons = [[...iconList], [iconList[5], iconList[6], iconList[7]]];
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
-      // title: '标题',
-      message: '我是描述我是描述',
+      // title: 'title',
+      message: 'I am description, description, description',
       className: 'my-action-sheet',
     },
     (buttonIndex, rowIndex) => {
@@ -91,13 +91,13 @@ class Test extends React.Component {
   render() {
     return (<div className="actionSheetContainer">
       <div style={{ margin: '7.5px 0' }}>
-        <Button onClick={this.showActionSheet}>默认状态</Button>
+        <Button onClick={this.showActionSheet}>showActionSheet</Button>
       </div>
       <div style={{ margin: '7.5px 0' }}>
-        <Button onClick={this.showShareActionSheet}>分享功能</Button>
+        <Button onClick={this.showShareActionSheet}>showShareActionSheet</Button>
       </div>
       <div style={{ margin: '7.5px 0' }}>
-        <Button onClick={this.showShareActionSheetMulpitleLine}>带多行按钮的分享功能</Button>
+        <Button onClick={this.showShareActionSheetMulpitleLine}>showShareActionSheetMulpitleLine</Button>
       </div>
     </div>);
   }

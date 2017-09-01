@@ -121,8 +121,9 @@ class Test extends React.Component {
           onConfirm={this.onConfirm}
           onSelectHasDisableDate={this.onSelectHasDisableDate}
           getDateExtra={this.getDateExtra}
-          minDate={new Date(+new Date() - 5184000000)}
-          maxDate={new Date(+new Date() + 31536000000)}
+          defaultDate={now}
+          minDate={new Date(+now - 5184000000)}
+          maxDate={new Date(+now + 31536000000)}
         />
       </div>
     );

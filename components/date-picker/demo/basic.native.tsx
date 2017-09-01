@@ -33,7 +33,7 @@ export default class PopupExample extends React.Component<any, any> {
           format={val => val.fromNow()}
         >
           <List.Item arrow="horizontal">
-            选择时间
+            Select Date
           </List.Item>
         </DatePicker>
       </List>

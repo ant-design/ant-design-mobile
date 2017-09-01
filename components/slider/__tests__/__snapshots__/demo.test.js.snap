@@ -186,7 +186,7 @@ exports[`renders ./components/slider/demo/custom-tooltip.md correctly 1`] = `
     <p
       class="title"
     >
-      Slider 自定义 ToolTip
+      Slider with Customized ToolTip
     </p>
     <div
       class="am-slider-wrapper"

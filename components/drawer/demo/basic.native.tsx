@@ -26,9 +26,9 @@ export default class DrawerExample extends React.Component<any, any> {
             multipleLine
           >
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Text>分类 - {index}</Text>
+              <Text>Categories - {index}</Text>
               <Button type="primary" size="small" onClick={() => this.drawer.closeDrawer()}>
-                关闭 drawer
+                close drawer
               </Button>
             </View>
           </List.Item>
@@ -36,7 +36,7 @@ export default class DrawerExample extends React.Component<any, any> {
       }
       return (
         <List.Item key={index} thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png">
-          <Text>分类 - {index}</Text>
+          <Text>Categories - {index}</Text>
         </List.Item>
       );
     });
@@ -58,7 +58,7 @@ export default class DrawerExample extends React.Component<any, any> {
         drawerBackgroundColor="#ccc"
       >
         <View style={{ flex: 1, marginTop: 114, padding: 8 }}>
-          <Button onClick={() => this.drawer && this.drawer.openDrawer()}>打开 drawer</Button>
+          <Button onClick={() => this.drawer && this.drawer.openDrawer()}>Open drawer</Button>
           <WhiteSpace />
         </View>
       </Drawer>

@@ -42,8 +42,9 @@ class InputItem extends React.Component<InputItemProps, any> {
     antLocale: PropTypes.object,
   };
 
-  debounceTimeout: any;
-  scrollIntoViewTimeout: any;
+  inputRef: any;
+  private debounceTimeout: any;
+  private scrollIntoViewTimeout: any;
 
   constructor(props) {
     super(props);
@@ -241,6 +242,7 @@ class InputItem extends React.Component<InputItemProps, any> {
           {type === 'money' ? (
             <CustomInput
               type={type}
+              ref={el => this.inputRef = el}
               maxLength={maxLength}
               placeholder={placeholder}
               onChange={this.onInputChange}
@@ -261,6 +263,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               {...otherProps}
               {...valueProps}
               {...classNameProps}
+              ref={el => this.inputRef = el}
               style={style}
               type={inputType}
               maxLength={maxLength}

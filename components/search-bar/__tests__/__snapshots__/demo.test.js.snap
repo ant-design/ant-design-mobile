@@ -8,7 +8,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     <div
       class="sub-title"
     >
-      普通
+      Normal
     </div>
   </div>
   <form
@@ -31,14 +31,14 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
             class="am-search-synthetic-ph-placeholder"
             style="visibility:visible;"
           >
-            搜索
+            Search
           </span>
         </span>
       </div>
       <input
         class="am-search-value"
         maxlength="8"
-        placeholder="搜索"
+        placeholder="Search"
         type="search"
         value=""
       />
@@ -61,7 +61,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     <div
       class="sub-title"
     >
-      自动获取光标，支付宝客户端有效
+      AutoFocus in Alipay client
     </div>
   </div>
   <form
@@ -113,7 +113,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     <div
       class="sub-title"
     >
-      手动获取获取光标
+      Focus by operation
     </div>
   </div>
   <form
@@ -168,7 +168,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-        点击获取光标
+        Click to Focus
       </span>
     </a>
   </div>
@@ -181,7 +181,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     <div
       class="sub-title"
     >
-      显示取消按钮
+      Show Cancel Button
     </div>
   </div>
   <form
@@ -204,13 +204,13 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
             class="am-search-synthetic-ph-placeholder"
             style="visibility:hidden;"
           >
-            搜索
+            Search
           </span>
         </span>
       </div>
       <input
         class="am-search-value"
-        placeholder="搜索"
+        placeholder="Search"
         type="search"
         value="美食"
       />

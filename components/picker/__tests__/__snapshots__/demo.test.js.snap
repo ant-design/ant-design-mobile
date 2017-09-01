@@ -22,7 +22,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              选择地区（多列，联动）
+              Multiple & Cascader
             </div>
             <div
               class="am-list-extra"
@@ -50,7 +50,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              选择季节（多列，不联动）
+              Multiple
             </div>
             <div
               class="am-list-extra"
@@ -78,7 +78,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              选择地区（单列）
+              Single
             </div>
             <div
               class="am-list-extra"
@@ -106,7 +106,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              选择地区（多列，异步加载）
+              Multiple & Async
             </div>
             <div
               class="am-list-extra"
@@ -134,7 +134,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
             >
-              选择地区（自定义 children）
+              Customized Children
             </div>
             <div
               style="text-align:right;color:#888;"
@@ -144,27 +144,31 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="am-list-item am-list-item-middle"
-      >
+      <div>
         <div
-          class="am-list-line"
+          class="am-list-item am-list-item-middle"
         >
           <div
-            class="am-list-content"
+            class="am-list-line"
           >
-            <div>
-              外部控制 visible
+            <div
+              class="am-list-content"
+            >
+              <div>
+                Visible state
+              </div>
+            </div>
+            <div
+              class="am-list-extra"
+            >
+              请选择
             </div>
           </div>
           <div
-            class="am-list-extra"
+            class="am-list-ripple"
+            style="display:none;"
           />
         </div>
-        <div
-          class="am-list-ripple"
-          style="display:none;"
-        />
       </div>
     </div>
   </div>

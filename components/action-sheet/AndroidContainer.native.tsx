@@ -35,7 +35,7 @@ class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
       title, message, options, destructiveButtonIndex, cancelButtonIndex,
     } = config;
 
-    const titleMsg = title && (
+    const titleMsg = !!title && (
       <View style={styles.title} key="0">
         <Text style={styles.titleText}>{title}</Text>
       </View>
@@ -71,7 +71,7 @@ class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
         >
           <View>
             {titleMsg}
-            {message && <View style={styles.message} key="1"><Text>{message}</Text></View>}
+            {!!message && <View style={styles.message} key="1"><Text>{message}</Text></View>}
             <View>{content}</View>
           </View>
         </Modal>

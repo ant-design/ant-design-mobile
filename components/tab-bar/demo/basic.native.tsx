@@ -14,7 +14,7 @@ export default class BasicTabBarExample extends React.Component <any, any> {
     return (
       <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
         <SearchBar
-          placeholder="搜索"
+          placeholder="Search"
           showCancelButton
         />
         <Text style={{ margin: 50 }}>{pageText}</Text>
@@ -36,41 +36,41 @@ export default class BasicTabBarExample extends React.Component <any, any> {
         barTintColor="#ccc"
       >
         <TabBar.Item
-          title="生活"
+          title="Life"
           icon={require('./alipay.png')}
           selectedIcon={require('./alipay_sel.png')}
           selected={this.state.selectedTab === 'blueTab'}
           onPress={() => this.onChangeTab('blueTab')}
         >
-          {this.renderContent('生活 Tab')}
+          {this.renderContent('Life Tab')}
         </TabBar.Item>
         <TabBar.Item
           icon={require('./koubei.png')}
           selectedIcon={require('./koubei_sel.png')}
-          title="口碑"
+          title="Koubei"
           badge={2}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => this.onChangeTab('redTab')}
         >
-          {this.renderContent('口碑 Tab')}
+          {this.renderContent('Koubei Tab')}
         </TabBar.Item>
         <TabBar.Item
           icon={require('./friend.png')}
           selectedIcon={require('./friend_sel.png')}
-          title="朋友"
+          title="Friend"
           selected={this.state.selectedTab === 'greenTab'}
           onPress={() => this.onChangeTab('greenTab')}
         >
-          {this.renderContent('朋友 Tab')}
+          {this.renderContent('Friend Tab')}
         </TabBar.Item>
         <TabBar.Item
           icon={require('./busi.png')}
           selectedIcon={require('./busi_sel.png')}
-          title="我的"
+          title="My"
           selected={this.state.selectedTab === 'yellowTab'}
           onPress={() => this.onChangeTab('yellowTab')}
         >
-          {this.renderContent('我的 Tab')}
+          {this.renderContent('My Tab')}
         </TabBar.Item>
       </TabBar>
     );

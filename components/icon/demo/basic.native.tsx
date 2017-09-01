@@ -15,7 +15,7 @@ export default class IConDemo extends React.Component<any, any> {
       text: item,
     })).concat([{
       icon: (<Icon type={'\ue601'} size={55} color="red" />),
-      text: '自定义图标',
+      text: 'Customized',
     }]);
     return (
       <Grid data={data} columnNum={3} hasLine={false} />

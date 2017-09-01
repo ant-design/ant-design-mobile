@@ -64,7 +64,7 @@ const Marquee = createReactClass<MarqueeProp, any>({
     };
     return (
       <div className={`${prefixCls}-marquee-wrap ${className}`} style={{ overflow: 'hidden' }} role="marquee">
-        <div ref="text" className={`${prefixCls}-marquee`} style={style}>{text} </div>
+        <div ref={el => this.textRef = el} className={`${prefixCls}-marquee`} style={style}>{text} </div>
       </div>
     );
   },
@@ -112,10 +112,10 @@ const Marquee = createReactClass<MarqueeProp, any>({
 
   _measureText() {
     const container = ReactDOM.findDOMNode(this);
-    const node = ReactDOM.findDOMNode(this.refs.text);
+    const node: any = this.textRef;
     if (container && node) {
       const containerWidth = (container as any).offsetWidth;
-      const textWidth = (node as any).offsetWidth;
+      const textWidth = node.offsetWidth;
       const overflowWidth = textWidth - containerWidth;
       if (overflowWidth !== this.state.overflowWidth) {
         this.setState({

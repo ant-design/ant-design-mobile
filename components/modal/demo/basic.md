@@ -43,51 +43,51 @@ class App extends React.Component {
       <div>
         <WhiteSpace />
         <WingBlank>
-          <Button onClick={this.showModal('modal1')}>Modal 对话框 (自动检测平台)</Button>
+          <Button onClick={this.showModal('modal1')}>Auto Platform</Button>
         </WingBlank>
         <WhiteSpace />
         <Modal
-          title="这是 title"
+          title="title"
           transparent
           maskClosable={false}
           visible={this.state.modal1}
           onClose={this.onClose('modal1')}
-          footer={[{ text: '确定', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
+          footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
         >
-          这是内容...<br />
-          这是内容...<br />
+          Content...<br />
+          Content...<br />
         </Modal>
         <WingBlank>
-          <Button onClick={this.showModal('modal2')}> Modal 对话框 （Android）</Button>
+          <Button onClick={this.showModal('modal2')}> Android UI </Button>
         </WingBlank>
         <WhiteSpace />
         <Modal
-          title="这是 title"
+          title="Title"
           transparent
           maskClosable={false}
           visible={this.state.modal2}
           onClose={this.onClose('modal2')}
-          footer={[{ text: '确定', onPress: () => { console.log('ok'); this.onClose('modal2')(); } }]}
+          footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal2')(); } }]}
           platform="android"
         >
-          这是内容...<br />
-          这是内容...<br />
+          Content...<br />
+          Content...<br />
         </Modal>
         <WingBlank>
-          <Button onClick={this.showModal('modal3')}> Modal 对话框 （iOS）</Button>
+          <Button onClick={this.showModal('modal3')}> iOS UI</Button>
         </WingBlank>
         <WhiteSpace />
         <Modal
-          title="这是 title"
+          title="title"
           transparent
           maskClosable={false}
           visible={this.state.modal3}
           onClose={this.onClose('modal3')}
-          footer={[{ text: '确定', onPress: () => { console.log('ok'); this.onClose('modal3')(); } }]}
+          footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal3')(); } }]}
           platform="ios"
         >
-          这是内容...<br />
-          这是内容...<br />
+          Content...<br />
+          Content...<br />
         </Modal>
       </div>
     );

@@ -14,13 +14,13 @@ export default class Test extends React.Component<any, any> {
     return (
       <View style={{ marginTop: 30 }}>
         <View style={[{ padding: 8 }]}>
-          <Button onClick={this.showActionSheet}>默认状态操作列表</Button>
+          <Button onClick={this.showActionSheet}>showActionSheet</Button>
         </View>
         <Text style={[{ padding: 8 }]}>
-          点击过的按钮: {this.state.clicked}
+          clicked button: {this.state.clicked}
         </Text>
         <View style={[{ padding: 8 }]}>
-          <Button onClick={this.showShareActionSheet}>带分享功能的操作列表</Button>
+          <Button onClick={this.showShareActionSheet}>showShareActionSheet</Button>
         </View>
         <Text style={[{ padding: 8 }]}>
           {this.state.text}
@@ -29,10 +29,10 @@ export default class Test extends React.Component<any, any> {
     );
   }
   showActionSheet = () => {
-    const BUTTONS = ['操作一', '操作二', '操作三', '删除', '取消'];
+    const BUTTONS = ['Operation1', 'Operation2', 'Operation3', 'Delete', 'Cancel'];
     ActionSheet.showActionSheetWithOptions({
-      title: '标题',
-      message: '我是描述我是描述',
+      title: 'Title',
+      message: 'Description',
       options: BUTTONS,
       cancelButtonIndex: 4,
       destructiveButtonIndex: 3,
@@ -61,9 +61,9 @@ export default class Test extends React.Component<any, any> {
       (success, method) => {
         let text;
         if (success) {
-          text = `通过 ${method} 分享`;
+          text = `Shared with ${method}`;
         } else {
-          text = '您没有分享';
+          text = 'Did not share';
         }
         this.setState({ text });
       },

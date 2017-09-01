@@ -15,9 +15,6 @@
 		932268C51DEEC0FC0095E0B5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932268C41DEEC0FC0095E0B5 /* HomeViewController.m */; };
 		932268FA1DEEC3530095E0B5 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932268E61DEEC3470095E0B5 /* libRCTAnimation.a */; };
 		933D0F7C1DEEC5E2007FB649 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932268C21DEEC0BC0095E0B5 /* libCodePush.a */; };
-		9341E52C1F4538DB006DB29F /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 9341E5291F4538DB006DB29F /* assets */; };
-		9341E52D1F4538DB006DB29F /* index.ios.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9341E52A1F4538DB006DB29F /* index.ios.bundle */; };
-		9341E52E1F4538DB006DB29F /* index.ios.bundle.meta in Resources */ = {isa = PBXBuildFile; fileRef = 9341E52B1F4538DB006DB29F /* index.ios.bundle.meta */; };
 		9356BB551DEEBD5E00E00E20 /* RNAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9356BB541DEEBD5E00E00E20 /* RNAppInfo.m */; };
 		9356BB5B1DEEBD6500E00E20 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9356BB581DEEBD6500E00E20 /* ResultViewController.m */; };
 		9356BB5C1DEEBD6500E00E20 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9356BB5A1DEEBD6500E00E20 /* ScanViewController.m */; };
@@ -240,9 +237,6 @@
 		932268BD1DEEC0BC0095E0B5 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		932268C41DEEC0FC0095E0B5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = "antd-mobile/HomeViewController.m"; sourceTree = "<group>"; };
 		932268DE1DEEC3470095E0B5 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		9341E5291F4538DB006DB29F /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = bundle/assets; sourceTree = "<group>"; };
-		9341E52A1F4538DB006DB29F /* index.ios.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = index.ios.bundle; path = bundle/index.ios.bundle; sourceTree = "<group>"; };
-		9341E52B1F4538DB006DB29F /* index.ios.bundle.meta */ = {isa = PBXFileReference; lastKnownFileType = file; name = index.ios.bundle.meta; path = bundle/index.ios.bundle.meta; sourceTree = "<group>"; };
 		9356BACB1DEEBBC800E00E20 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		9356BAD41DEEBBDA00E00E20 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
 		9356BADA1DEEBBE500E00E20 /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -333,9 +327,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				9341E5291F4538DB006DB29F /* assets */,
-				9341E52A1F4538DB006DB29F /* index.ios.bundle */,
-				9341E52B1F4538DB006DB29F /* index.ios.bundle.meta */,
 				93A3E9DE1E559595008622D3 /* iconfont.ttf */,
 				9356BB531DEEBD5E00E00E20 /* RNAppInfo.h */,
 				9356BB541DEEBD5E00E00E20 /* RNAppInfo.m */,
@@ -787,11 +778,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				9341E52C1F4538DB006DB29F /* assets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				93A3E9DF1E559595008622D3 /* iconfont.ttf in Resources */,
-				9341E52D1F4538DB006DB29F /* index.ios.bundle in Resources */,
-				9341E52E1F4538DB006DB29F /* index.ios.bundle.meta in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

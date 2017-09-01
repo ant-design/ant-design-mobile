@@ -32,7 +32,7 @@ subtitle: 对话框
 | transparent | 是否弹窗模式       | Boolean   |  false |
 | animationType (`rn only`) | 可选: 'slide-down/up'(transparent 模式下) / 'fade' / 'slide'(仅非 tranparent) | String |   fade |
 | style (`web only`) |  样式    | Object | 透明模式下: {width: '286px', height: 'cross'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
-| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `cross`， 即组件会自动检测设备 UA 应用不同平台的样式    | String | `'cross'`|
+| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
 
 ### Modal.alert(title, message, actions?)
 

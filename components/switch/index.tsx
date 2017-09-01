@@ -9,7 +9,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     checked: false,
     disabled: false,
     onChange() {},
-    platform: 'cross',
+    platform: 'ios',
     onClick() {},
   };
 
@@ -34,12 +34,10 @@ export default class Switch extends React.Component<SwitchProps, any> {
 
   render() {
     let { prefixCls, name, checked, disabled, className, platform, color, ...restProps } = this.props;
-    const isAndroid = platform === 'android' ||
-      (platform === 'cross' && typeof navigator !== 'undefined' && !!navigator.userAgent.match(/Android/i));
     const wrapCls = classNames({
       [`${prefixCls}`]: true,
       [className as string]: className,
-      [`${prefixCls}-android`]: isAndroid,
+      [`${prefixCls}-android`]: platform === 'android',
     });
 
     const fackInputCls = classNames({

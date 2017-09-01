@@ -20,7 +20,7 @@ class ListItem extends React.Component<ListItemProps, any> {
     error: false,
     multipleLine: false,
     wrap: false,
-    platform: 'cross',
+    platform: 'ios',
   };
 
   static Brief = Brief;
@@ -43,7 +43,7 @@ class ListItem extends React.Component<ListItemProps, any> {
 
   onClick = (ev) => {
     const { onClick, platform } = this.props;
-    const isAndroid = platform === 'android' || (platform === 'cross' && !!navigator.userAgent.match(/Android/i));
+    const isAndroid = platform === 'android';
     if (!!onClick && isAndroid) {
       if (this.debounceTimeout) {
         clearTimeout(this.debounceTimeout);

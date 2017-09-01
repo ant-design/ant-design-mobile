@@ -44,10 +44,10 @@ class App extends React.Component {
             overlayStyle={{ color: 'currentColor' }}
             visible={this.state.visible}
             overlay={[
-              (<Item key="4" value="scan" icon={customIcon('https://gw.alipayobjects.com/zos/rmsportal/tOtXhkIWzwotgGSeptou.svg')} data-seed="logId">扫一扫</Item>),
-              (<Item key="5" value="special" icon={customIcon('https://gw.alipayobjects.com/zos/rmsportal/PKAgAqZWJVNwKsAJSmXd.svg')} style={{ whiteSpace: 'nowrap' }}>我的二维码</Item>),
+              (<Item key="4" value="scan" icon={customIcon('https://gw.alipayobjects.com/zos/rmsportal/tOtXhkIWzwotgGSeptou.svg')} data-seed="logId">Scan</Item>),
+              (<Item key="5" value="special" icon={customIcon('https://gw.alipayobjects.com/zos/rmsportal/PKAgAqZWJVNwKsAJSmXd.svg')} style={{ whiteSpace: 'nowrap' }}>My Qrcode</Item>),
               (<Item key="6" value="button ct" icon={customIcon('https://gw.alipayobjects.com/zos/rmsportal/uQIYTFeRrjPELImDRrPt.svg')}>
-                <span style={{ marginRight: 5 }}>帮助</span>
+                <span style={{ marginRight: 5 }}>Help</span>
               </Item>),
             ]}
             align={{

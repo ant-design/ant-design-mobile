@@ -90,7 +90,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
             ]
           }
         >
-          显示对话框
+          showModal
         </Text>
       </View>
     </View>
@@ -174,7 +174,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
             ]
           }
         >
-          显示全屏对话框
+          transparent:false
         </Text>
       </View>
     </View>
@@ -258,7 +258,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
             ]
           }
         >
-          显示 Modal.alert
+          Modal.alert
         </Text>
       </View>
     </View>
@@ -342,7 +342,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
             ]
           }
         >
-          显示 Modal.opertation
+          Modal.opertation
         </Text>
       </View>
     </View>
@@ -426,7 +426,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
             ]
           }
         >
-          显示 Modal.prompt (default)
+          Modal.prompt (default)
         </Text>
       </View>
     </View>
@@ -510,7 +510,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
             ]
           }
         >
-          显示 Modal.prompt (login-password)
+          Modal.prompt (login-password)
         </Text>
       </View>
     </View>
@@ -594,7 +594,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
             ]
           }
         >
-          显示 Modal.prompt (secure-text)
+          Modal.prompt (secure-text)
         </Text>
       </View>
     </View>
@@ -632,7 +632,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
               }
             }
           >
-            这是内容...
+            Content...
           </Text>
           <Text
             accessible={true}
@@ -644,7 +644,7 @@ exports[`renders ./components/modal/demo/basic.native.tsx correctly 1`] = `
               }
             }
           >
-            这是内容...
+            Content...
           </Text>
         </View>
         <View

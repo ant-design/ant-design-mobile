@@ -39,7 +39,7 @@ const GridExample = () => (
         <div style={{ padding: '12.5px' }}>
           <img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="icon" />
           <div style={{ color: '#888', fontSize: '14px', marginTop: '12px' }}>
-            <span>我是标题..</span>
+            <span>I am title..</span>
           </div>
         </div>
       )}
