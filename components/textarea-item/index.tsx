@@ -42,8 +42,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     labelNumber: 5,
   };
 
-  debounceTimeout: any;
-  scrollIntoViewTimeout: any;
+  textareaRef: any;
+  private debounceTimeout: any;
+  private scrollIntoViewTimeout: any;
 
   constructor(props) {
     super(props);
@@ -56,18 +57,18 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   componentDidMount() {
     this.componentDidUpdate();
     if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
-      (this.refs as any).textarea.focus();
+      this.textareaRef.focus();
     }
   }
 
   componentDidUpdate() {
     if (this.props.autoHeight) {
-      const textareaDom = (this.refs as any).textarea;
+      const textareaDom = this.textareaRef;
       textareaDom.style.height = ''; // 字数减少时能自动减小高度
       textareaDom.style.height = `${textareaDom.scrollHeight}px`;
     }
     if (this.state.focused) {
-      (this.refs as any).textarea.focus();
+      this.textareaRef.focus();
     }
   }
 
@@ -212,7 +213,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
         {title && <div className={labelCls}>{title}</div>}
         <div className={`${prefixCls}-control`}>
           <textarea
-            ref="textarea"
+            ref={el => this.textareaRef = el}
             {...lengthCtrlProps}
             {...otherProps}
             {...valueProps}

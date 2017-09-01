@@ -8,6 +8,7 @@ title: 升级指南
 ## 1.x => 2.x
 
 - `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
+- string ref 已经被替换为 func ref，原来通过在组件上设置的 ref，比如(this.refs.input.refs.input)，可以用过组件属性来获取 (this.input.input), 具体实例名可以通过 `ref={el => console.log(el)}` 查看；[#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
 
 ## 0.9.x => 1.0
 

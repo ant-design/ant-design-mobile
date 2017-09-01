@@ -19,6 +19,7 @@ class NumberInput extends React.Component<any, any> {
   };
 
   debounceFocusTimeout: any;
+  inputRef: any;
 
   constructor(props) {
     super(props);
@@ -84,7 +85,7 @@ class NumberInput extends React.Component<any, any> {
 
   _blurEventListener = (ev) => {
     const { value } = this.props;
-    if (ev.target !== this.refs['input-container']) {
+    if (ev.target !== this.inputRef) {
       this.onInputBlur(value);
     }
   }
@@ -183,7 +184,7 @@ class NumberInput extends React.Component<any, any> {
       {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
       <div
         className={fakeInputCls}
-        ref="input-container"
+        ref={el => this.inputRef = el}
         onClick={preventKeyboard ? () => {} : this.onFakeInputClick}
       >
         {value}

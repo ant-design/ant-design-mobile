@@ -6,6 +6,8 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 class Input extends React.Component<InputProps, any> {
+  inputRef: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -23,13 +25,13 @@ class Input extends React.Component<InputProps, any> {
 
   componentDidMount() {
     if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
-      (this.refs as any).input.focus();
+      this.inputRef.focus();
     }
   }
 
   componentDidUpdate() {
     if (this.state.focused) {
-      (this.refs as any).input.focus();
+      this.inputRef.focus();
     }
   }
 
@@ -61,7 +63,7 @@ class Input extends React.Component<InputProps, any> {
   render() {
     const otherProps = omit(this.props, ['onBlur', 'onFocus', 'focused', 'autoFocus']);
     return (
-      <input ref="input" onBlur={this.onInputBlur} onFocus={this.onInputFocus} {...otherProps} />
+      <input ref={el => this.inputRef = el}  onBlur={this.onInputBlur} onFocus={this.onInputFocus} {...otherProps} />
     );
   }
 }

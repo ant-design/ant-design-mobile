@@ -6,7 +6,10 @@ export default class Popover extends React.Component<tsPropsType, any> {
   static defaultProps = {
     onSelect: () => {},
   };
+
   static Item = MenuOption;
+  menuContextRef: any;
+
   render() {
     const {
       children, onSelect, overlay, disabled, contextStyle,
@@ -17,7 +20,7 @@ export default class Popover extends React.Component<tsPropsType, any> {
       renderOptionsContainer: renderOverlayComponent,
     };
     return (
-      <MenuContext ref="menuContext" style={contextStyle}>
+      <MenuContext ref={el => this.menuContextRef = el} style={contextStyle}>
         <Menu name={name} onSelect={onSelect} style={style}>
           <MenuTrigger disabled={disabled} style={triggerStyle}>
             {children}
