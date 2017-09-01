@@ -82,26 +82,20 @@ exports[`Accordion renders correctly 1`] = `
           <View
             style={
               Object {
-                "height": 15,
-                "width": 15,
+                "height": 12,
+                "width": 12,
               }
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Image
+              source={1}
               style={
                 Object {
-                  "color": "#000",
-                  "flexDirection": "row",
-                  "fontFamily": "anticon",
-                  "fontSize": 15,
+                  "height": 12,
+                  "width": 12,
                 }
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -214,26 +208,20 @@ exports[`Accordion renders correctly 1`] = `
           <View
             style={
               Object {
-                "height": 15,
-                "width": 15,
+                "height": 12,
+                "width": 12,
               }
             }
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Image
+              source={1}
               style={
                 Object {
-                  "color": "#000",
-                  "flexDirection": "row",
-                  "fontFamily": "anticon",
-                  "fontSize": 15,
+                  "height": 12,
+                  "width": 12,
                 }
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
