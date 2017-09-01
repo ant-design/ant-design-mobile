@@ -77,8 +77,7 @@ class Demo extends React.Component {
 
   componentDidMount() {
     // you can scroll to the specified position
-    // setTimeout(() => this.refs.lv.refs.listview.scrollTo(0, 200), 800); // also work
-    // setTimeout(() => this.refs.lv.scrollTo(0, 200), 800); // recommend usage
+    // setTimeout(() => this.lv.scrollTo(0, 120), 800);
 
     // simulate initial Ajax
     setTimeout(() => {
@@ -147,7 +146,7 @@ class Demo extends React.Component {
     };
 
     return (
-      <ListView ref="lv"
+      <ListView ref={el => this.lv = el}
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
         renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
