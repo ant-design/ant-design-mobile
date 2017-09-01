@@ -62,7 +62,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
 
     return (
       <Touchable activeClassName={`${prefixCls}-button-active`} key={i}>
-        <a className={`${prefixCls}-button`} role="button" style={buttonStyle} href="#" onClick={onClickFn}>
+        <a className={`${prefixCls}-button`} role="button" style={buttonStyle} onClick={onClickFn}>
           {button.text || `Button`}
         </a>
       </Touchable>
