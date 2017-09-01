@@ -27,8 +27,8 @@ export default StyleSheet.create<any>({
     borderBottomColor: variables.border_color_base,
   },
   arrow: {
-    width: 15,
-    height: 15,
+    width: 12,
+    height: 12,
   },
   headerWrap: {
     flex: 1,

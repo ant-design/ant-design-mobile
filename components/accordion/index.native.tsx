@@ -1,10 +1,9 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import RNAccordion from 'react-native-collapsible/Accordion';
 import AccordionStyle, { IAccordionStyle } from './style/index.native';
 import AccordionProps from './PropsType';
-import Icon from '../icon/index.native';
 
 export interface AccordionPanelProps {
   key?: string;
@@ -40,7 +39,10 @@ class Accordion extends React.Component<IAccordionNativeProps, any> {
           )
         }
         <View style={styles.arrow}>
-          <Icon type={isActive ? 'up' : 'down'} size={15} color="#000" />
+          <Image
+            source={isActive ? require('./style/assets/up.png') : require('./style/assets/down.png')}
+            style={styles.arrow}
+          />
         </View>
       </View>
     );
