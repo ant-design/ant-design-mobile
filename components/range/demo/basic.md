@@ -57,6 +57,7 @@ const App = () => {
           disabled
         />
       </WingBlank>
+      <WhiteSpace size="lg" />
       <WingBlank size="lg">
         <p className="title">Range with Customized Style</p>
         <Range

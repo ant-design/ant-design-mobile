@@ -38,6 +38,7 @@ class App extends React.Component {
           <p className="title">Disabled Slider</p>
           <Slider defaultValue={26} min={0} max={30} disabled onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
+        <WhiteSpace size="lg" />
         <WingBlank size="lg">
           <p className="title">Slider With Customized Color</p>
           <Slider

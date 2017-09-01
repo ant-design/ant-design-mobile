@@ -46,7 +46,6 @@ class SearchBarExample extends React.Component {
               focused: true,
             });
           }}
-          type="primary"
         >点击获取光标</Button>
       </WingBlank>
       <WhiteSpace />

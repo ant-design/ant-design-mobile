@@ -126,10 +126,10 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
       </div>
       <div>
         <div
-          style="background-color:#fff;padding:0 0.3rem;"
+          style="background-color:#fff;padding-left:0.3rem;"
         >
           <div
-            style="display:flex;height:0.9rem;line-height:0.9rem;"
+            style="display:flex;height:0.9rem;line-height:0.9rem;border-bottom:1PX solid #ddd;"
           >
             <div
               style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
@@ -137,7 +137,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
               选择地区（自定义 children）
             </div>
             <div
-              style="text-align:right;color:#888;"
+              style="text-align:right;color:#888;margin-right:0.3rem;"
             >
               请选择(可选)
             </div>

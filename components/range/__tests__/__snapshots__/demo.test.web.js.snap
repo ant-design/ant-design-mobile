@@ -158,6 +158,9 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
     class="am-wingblank am-wingblank-lg"
   >
     <p
