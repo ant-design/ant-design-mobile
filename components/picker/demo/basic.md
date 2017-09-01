@@ -18,11 +18,11 @@ import { district, provinceLite as province } from 'antd-mobile-demo-data';
 const CustomChildren = props => (
   <div
     onClick={props.onClick}
-    style={{ backgroundColor: '#fff', padding: '0 15px' }}
+    style={{ backgroundColor: '#fff', paddingLeft: 15 }}
   >
-    <div style={{ display: 'flex', height: '45px', lineHeight: '45px' }}>
+    <div style={{ display: 'flex', height: '45px', lineHeight: '45px', borderBottom: '1PX solid #ddd' }}>
       <div style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{props.children}</div>
-      <div style={{ textAlign: 'right', color: '#888' }}>{props.extra}</div>
+      <div style={{ textAlign: 'right', color: '#888', marginRight: 15 }}>{props.extra}</div>
     </div>
   </div>
 );

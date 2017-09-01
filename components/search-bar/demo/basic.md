@@ -46,7 +46,6 @@ class SearchBarExample extends React.Component {
               focused: true,
             });
           }}
-          type="primary"
         >Click to Focus</Button>
       </WingBlank>
       <WhiteSpace />

@@ -38,7 +38,7 @@ class MyProgress extends React.Component {
           <div className="progress"><Progress percent={percent} position="normal" /></div>
           <div aria-hidden="true">{percent}%</div>
         </div>
-        <Button inline style={{ marginTop: 20 }} onClick={this.add}>(+-)10</Button>
+        <Button inline style={{ marginTop: 20, marginLeft: 30 }} onClick={this.add}>(+-)10</Button>
       </div>
     );
   }

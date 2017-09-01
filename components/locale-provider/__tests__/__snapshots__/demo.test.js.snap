@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
-<div>
+<div
+  class="am-wingblank am-wingblank-lg"
+>
   <a
     aria-disabled="false"
     class="am-button am-button-primary"

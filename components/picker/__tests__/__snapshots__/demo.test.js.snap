@@ -126,10 +126,10 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
       </div>
       <div>
         <div
-          style="background-color:#fff;padding:0 15px;"
+          style="background-color:#fff;padding-left:15px;"
         >
           <div
-            style="display:flex;height:45px;line-height:45px;"
+            style="display:flex;height:45px;line-height:45px;border-bottom:1PX solid #ddd;"
           >
             <div
               style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
@@ -137,7 +137,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
               Customized Children
             </div>
             <div
-              style="text-align:right;color:#888;"
+              style="text-align:right;color:#888;margin-right:15px;"
             >
               请选择(可选)
             </div>

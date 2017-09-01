@@ -8,7 +8,7 @@ title:
 Wrap your app with `LocaleProvider`, and apply the corresponding language package.
 
 ````jsx
-import { Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button, InputItem } from 'antd-mobile';
+import { Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button, InputItem, WingBlank } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
 
 const maxDate = new Date(2018, 11, 3, 22, 0);
@@ -53,13 +53,13 @@ class App extends React.Component {
   render() {
     const locale = this.state.isEnglish ? enUS : undefined;
     return (
-      <div>
+      <WingBlank>
         <Button type="primary" onClick={this.handleClick}>{this.state.isEnglish ? 'change to chinese' : '切换到英文'}</Button>
         <WhiteSpace />
         <LocaleProvider locale={locale}>
           <Page />
         </LocaleProvider>
-      </div>
+      </WingBlank>
     );
   }
 }

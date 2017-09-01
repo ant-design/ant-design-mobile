@@ -60,7 +60,7 @@ exports[`renders ./components/progress/demo/basic.md correctly 1`] = `
     aria-disabled="false"
     class="am-button am-button-inline"
     role="button"
-    style="margin-top:20px;"
+    style="margin-top:20px;margin-left:30px;"
   >
     <span>
       (+-)10

@@ -73,9 +73,6 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="am-whitespace am-whitespace-md"
-  />
-  <div
     class="am-list"
   >
     <div
@@ -165,9 +162,6 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="am-whitespace am-whitespace-md"
-  />
-  <div
     class="am-list"
   >
     <div
@@ -197,9 +191,6 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  />
   <div
     class="am-list"
   >
@@ -235,9 +226,6 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="am-whitespace am-whitespace-md"
-  />
-  <div
     class="am-list"
   >
     <div
@@ -263,9 +251,6 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  />
   <div
     class="am-list"
   >
@@ -302,9 +287,6 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  />
   <div
     class="am-list"
   >
