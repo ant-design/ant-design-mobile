@@ -124,18 +124,18 @@ class App extends React.Component {
       return (
         <div key={rowID}
           style={{
-            padding: '4px 8px',
+            padding: '0 15px',
             backgroundColor: 'white',
           }}
         >
-          <h3 style={{ padding: 2, marginBottom: '4px', borderBottom: '1px solid #F6F6F6' }}>
+          <div style={{ height: '50px', lineHeight: '50px', color: '#888', fontSize: '18px', borderBottom: '1px solid #ddd' }}>
             {obj.title}
-          </h3>
-          <div style={{ display: '-webkit-box', display: 'flex' }}>
-            <img style={{ height: '64px', marginRight: '4px' }} src={obj.img} alt="icon" />
+          </div>
+          <div style={{ display: '-webkit-box', display: 'flex', padding: '15px' }}>
+            <img style={{ height: '63px', width: '63px', marginRight: '15px' }} src={obj.img} alt="icon" />
             <div style={{ display: 'inline-block' }}>
-              <div style={{ margin: '5px 0 10px 0' }}>{obj.des}-{rowData}</div>
-              <div><span style={{ fontSize: '1.6em', color: '#FF6E27' }}>35</span>元/任务</div>
+              <div style={{ marginBottom: '8px', color: '#000', fontSize: '16px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '250px' }}>{obj.des}-{rowData}</div>
+              <div style={{ fontSize: '16px' }}><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span> 元/任务</div>
             </div>
           </div>
         </div>
