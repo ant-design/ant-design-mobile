@@ -42,6 +42,7 @@ timeline: true
   - **[React Native]** Button 组件 style 里`disabledRaw`/`disabledRawText`修改为`defaultDisabledRaw`/`defaultDisabledRawText`
   - Result: `buttonClick` 更改为 `onButtonClick`
   - 去除`Table`组件
+  - remove `onLongPress` property of `List`
   - `Modal`、`List.Item`、`Switch` use `ios` style by default, which means we will not detect UA and change the component style; [#1371](https://github.com/ant-design/ant-design-mobile/issues/1371)
   - use ref func to replace ref string [#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Touchable from 'rc-touchable';
+import TouchFeedback from '../_util/touchFeedback';
 
 export class KeyboardItem extends React.Component<any, any> {
   static defaultProps = {
@@ -24,7 +24,7 @@ export class KeyboardItem extends React.Component<any, any> {
       [className as string]: className,
       [`${prefixCls}-item`]: true,
     };
-    return (<Touchable activeClassName={`${prefixCls}-item-active`}>
+    return (<TouchFeedback activeClassName={`${prefixCls}-item-active`}>
       <td
         ref={tdRef}
         onClick={(e) => { onClick(e, value); }}
@@ -33,7 +33,7 @@ export class KeyboardItem extends React.Component<any, any> {
       >
         {children}
       </td>
-    </Touchable>);
+    </TouchFeedback>);
   }
 }
 

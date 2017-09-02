@@ -5,7 +5,7 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
-import Touchable from 'rc-touchable';
+import TouchFeedback from '../_util/touchFeedback';
 
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
@@ -73,19 +73,19 @@ function createActionSheet(flag, config, callback) {
               role: 'button',
             };
             let bItem = (
-              <Touchable key={index} activeClassName={`${prefixCls}-button-list-item-active`}>
+              <TouchFeedback key={index} activeClassName={`${prefixCls}-button-list-item-active`}>
                 <div {...itemProps}>{item}</div>
-              </Touchable>
+              </TouchFeedback>
             );
             if (cancelButtonIndex === index || destructiveButtonIndex === index) {
               bItem = (
-                <Touchable key={index} activeClassName={`${prefixCls}-button-list-item-active`}>
+                <TouchFeedback key={index} activeClassName={`${prefixCls}-button-list-item-active`}>
                   <div {...itemProps}>
                     {item}
                     {cancelButtonIndex === index ?
                     <span className={`${prefixCls}-cancel-button-mask`} /> : null}
                   </div>
-                </Touchable>
+                </TouchFeedback>
               );
             }
             return bItem;
@@ -116,11 +116,11 @@ function createActionSheet(flag, config, callback) {
                 {options.map((item, index) => createList(item, index))}
             </div>
           )}
-          <Touchable activeClassName={`${prefixCls}-share-cancel-button-active`}>
+          <TouchFeedback activeClassName={`${prefixCls}-share-cancel-button-active`}>
             <div className={`${prefixCls}-share-cancel-button`} role="button" onClick={() => cb(-1)}>
               {cancelButtonText}
             </div>
-          </Touchable>
+          </TouchFeedback>
         </div>
       </div>);
       break;

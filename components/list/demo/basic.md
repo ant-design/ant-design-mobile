@@ -16,13 +16,11 @@ class ListExample extends React.Component {
   state = {
     disabled: false,
   }
-  handleLongPress = (e) => {
-    console.log('longpress toggled', e);
-  }
+
   render() {
     return (<div>
       <List renderHeader={() => 'Basic Style'} className="my-list">
-        <Item extra={'extra content'} onLongPress={this.handleLongPress}>Title</Item>
+        <Item extra={'extra content'}>Title</Item>
       </List>
       <List renderHeader={() => 'Subtitle'} className="my-list">
         <Item arrow="horizontal" multipleLine>

@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import TextareaItemProps from './PropsType';
 import omit from 'omit.js';
+import TouchFeedback from '../_util/touchFeedback';
 
 function noop() {}
 
@@ -225,7 +226,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
           />
         </div>
         {clear && editable && value && characterLength > 0 &&
-          <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
+          <TouchFeedback activeClassName={`${prefixCls}-clear-active`}>
+            <div className={`${prefixCls}-clear`} onClick={this.clearInput} onTouchStart={this.clearInput} />
+          </TouchFeedback>
         }
         {error && <div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />}
         {count > 0 && rows > 1 &&

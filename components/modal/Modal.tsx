@@ -1,9 +1,9 @@
 import React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
-import Touchable from 'rc-touchable';
 import { ModalProps, ModalComponent } from './PropsType';
 import omit from 'omit.js';
+import TouchFeedback from '../_util/touchFeedback';
 
 export default class Modal extends ModalComponent<ModalProps, any> {
   static defaultProps = {
@@ -61,11 +61,11 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     };
 
     return (
-      <Touchable activeClassName={`${prefixCls}-button-active`} key={i}>
+      <TouchFeedback activeClassName={`${prefixCls}-button-active`} key={i}>
         <a className={`${prefixCls}-button`} role="button" style={buttonStyle} onClick={onClickFn}>
           {button.text || `Button`}
         </a>
-      </Touchable>
+      </TouchFeedback>
     );
   }
 

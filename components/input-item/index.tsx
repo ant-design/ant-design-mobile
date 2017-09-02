@@ -7,6 +7,7 @@ import InputItemProps from './PropsType';
 import Input from './Input';
 import CustomInput from './CustomInput';
 import { getComponentLocale } from '../_util/getLocale';
+import TouchFeedback from '../_util/touchFeedback';
 
 function noop() { }
 
@@ -277,10 +278,9 @@ class InputItem extends React.Component<InputItemProps, any> {
           )}
         </div>
         {clear && editable && !disabled && (value && value.length > 0) ?
-          <div
-            className={`${prefixCls}-clear`}
-            onClick={this.clearInput}
-          />
+          <TouchFeedback activeClassName={`${prefixCls}-clear-active`}>
+            <div className={`${prefixCls}-clear`} onClick={this.clearInput} />
+          </TouchFeedback>
           : null}
         {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
         {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}

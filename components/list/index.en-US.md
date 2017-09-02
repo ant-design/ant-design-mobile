@@ -31,7 +31,6 @@ Properties | Descrition | Type | Default
 | arrow      | arrow direction, options: `horizontal`,`up`,`down`, `empty`; `empty` option may hide the dom  | String |     |
 | align    |    vertical alignment of `Flex` child elements，options: `top`,`middle`,`bottom`  | String   | `middle` |
 | onClick    | callback is called when  list is clicked | (): void |    |
-| onLongPress  | callback is called when  list is long pressed | (): void |    |
 | error(`web only`)    | Whether to display error style(the color of text on the right side may change to orange) | Boolean  | `false`  |
 | multipleLine    | multiple line | Boolean  | `false`  |
 | wrap    | Whether to wrap long texts, otherwise it will be hidden by default. | Boolean  | `false`  |

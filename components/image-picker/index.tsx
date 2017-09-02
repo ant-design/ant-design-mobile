@@ -5,7 +5,7 @@ import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
 import { ImagePickerPropTypes } from './PropsType';
-import Touchable from 'rc-touchable';
+import TouchFeedback from '../_util/touchFeedback';
 
 const Item = Flex.Item;
 function noop() { }
@@ -172,8 +172,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     });
 
     const selectEl = (
-      <Touchable activeClassName={`${prefixCls}-upload-btn-active`} key="select">
-        <Item>
+      <Item>
+        <TouchFeedback activeClassName={`${prefixCls}-upload-btn-active`} key="select">
           <div
             className={`${prefixCls}-item ${prefixCls}-upload-btn`}
             onClick={onAddImageClick}
@@ -187,8 +187,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
               onChange={() => { this.onFileChange(); }}
             />
           </div>
-        </Item>
-      </Touchable>
+        </TouchFeedback>
+      </Item>
     );
 
     let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;

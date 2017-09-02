@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import Touchable from 'rc-touchable';
 import SegmentedControlProps from './PropsType';
+import TouchFeedback from '../_util/touchFeedback';
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {
@@ -64,7 +64,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     };
 
     return (
-      <Touchable
+      <TouchFeedback
         key={idx}
         disabled={disabled}
         activeClassName={`${prefixCls}-item-active`}
@@ -80,7 +80,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
           <div className={`${prefixCls}-item-inner`} />
           {value}
         </div>
-      </Touchable>
+      </TouchFeedback>
     );
   }
 
