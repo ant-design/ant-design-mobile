@@ -24,7 +24,7 @@ const data = [
   },
 ];
 
-class MultMenuExample extends React.Component {
+class MultiMenuExample extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {
@@ -61,7 +61,7 @@ class MultMenuExample extends React.Component {
     const { initData, show } = this.state;
     const menuEl = (
       <Menu
-        className="single-mult-foo-menu"
+        className="single-multi-foo-menu"
         data={initData}
         value={['1']}
         level={1}
@@ -69,7 +69,7 @@ class MultMenuExample extends React.Component {
         onOk={this.onOk}
         onCancel={this.onCancel}
         height={document.documentElement.clientHeight * 0.6}
-        multSelect
+        multiSelect
       />
     );
     const loadingEl = (
@@ -78,16 +78,16 @@ class MultMenuExample extends React.Component {
       </div>
     );
     return (
-      <div className={show ? 'single-mult-menu-active' : ''}>
+      <div className={show ? 'single-multi-menu-active' : ''}>
         <div>
           <NavBar
             leftContent="Menu"
             mode="light"
             iconName={require('./menu.svg')}
             onLeftClick={this.handleClick}
-            className="single-mult-top-nav-bar"
+            className="single-multi-top-nav-bar"
           >
-            Single Mult menu
+            Single Multi menu
           </NavBar>
         </div>
         {show ? initData ? menuEl : loadingEl : null}
@@ -96,16 +96,16 @@ class MultMenuExample extends React.Component {
   }
 }
 
-ReactDOM.render(<MultMenuExample />, mountNode);
+ReactDOM.render(<MultiMenuExample />, mountNode);
 ````
 
 ```css
-.single-mult-foo-menu {
+.single-multi-foo-menu {
   position: absolute;
   z-index: 70 !important;
   width: 100%;
 }
-.single-mult-top-nav-bar {
+.single-multi-top-nav-bar {
   position: relative;
   z-index: 70 !important;
   background-color: #008AE6;
@@ -114,7 +114,7 @@ ReactDOM.render(<MultMenuExample />, mountNode);
 .am-navbar-title {
   color: #FFF!important;
 }
-.single-mult-menu-active:after {
+.single-multi-menu-active:after {
   content: ' ';
   position: absolute;
   top: 0;

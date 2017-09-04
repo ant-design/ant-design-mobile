@@ -24,4 +24,4 @@ subtitle: 菜单
 | onOk    |  多选状态下确认按钮回调  | (value: Object): void  |  |
 | onCancel    |   多选状态下取消按钮回调  | (): void  |  |
 | height    |   筛选组件的高度   | number  | `document.documentElement.clientHeight / 2` |
-| multSelect    |   是否支持菜单多选  | boolean  | false |
+| multiSelect    |   是否支持菜单多选  | boolean  | false |

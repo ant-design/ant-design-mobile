@@ -104,7 +104,7 @@ exports[`Menu level 1 renders correctly 1`] = `
 </div>
 `;
 
-exports[`Menu mult select menu level 1 renders correctly 1`] = `
+exports[`Menu multi select menu level 1 renders correctly 1`] = `
 <div
   class="am-menu"
   style="height:0px;"
@@ -206,11 +206,11 @@ exports[`Menu mult select menu level 1 renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="am-mult-select-btns"
+    class="am-multi-select-btns"
   >
     <a
       aria-disabled="false"
-      class="am-mult-select-btns-btn am-button am-button-inline"
+      class="am-multi-select-btns-btn am-button am-button-inline"
       role="button"
     >
       <span>
@@ -219,7 +219,7 @@ exports[`Menu mult select menu level 1 renders correctly 1`] = `
     </a>
     <a
       aria-disabled="false"
-      class="am-mult-select-btns-btn am-button am-button-primary am-button-inline"
+      class="am-multi-select-btns-btn am-button am-button-primary am-button-inline"
       role="button"
     >
       <span>
@@ -230,7 +230,7 @@ exports[`Menu mult select menu level 1 renders correctly 1`] = `
 </div>
 `;
 
-exports[`Menu mult select menu renders correctly 1`] = `
+exports[`Menu multi select menu renders correctly 1`] = `
 <div
   class="am-menu"
   style="height:0px;"
@@ -311,11 +311,11 @@ exports[`Menu mult select menu renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="am-mult-select-btns"
+    class="am-multi-select-btns"
   >
     <a
       aria-disabled="false"
-      class="am-mult-select-btns-btn am-button am-button-inline"
+      class="am-multi-select-btns-btn am-button am-button-inline"
       role="button"
     >
       <span>
@@ -324,7 +324,7 @@ exports[`Menu mult select menu renders correctly 1`] = `
     </a>
     <a
       aria-disabled="false"
-      class="am-mult-select-btns-btn am-button am-button-primary am-button-inline"
+      class="am-multi-select-btns-btn am-button am-button-primary am-button-inline"
       role="button"
     >
       <span>

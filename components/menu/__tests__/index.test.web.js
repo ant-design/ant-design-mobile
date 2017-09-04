@@ -67,14 +67,14 @@ describe('Menu', () => {
     });
   });
 
-  describe('mult select menu', () => {
+  describe('multi select menu', () => {
     it('renders correctly', () => {
-      const wrapper = render(<Menu data={data} multSelect />);
+      const wrapper = render(<Menu data={data} multiSelect />);
       expect(renderToJson(wrapper)).toMatchSnapshot();
     });
 
     it('controll by value', () => {
-      const wrapper = mount(<Menu data={data} multSelect value={['2', '21', '22']} />);
+      const wrapper = mount(<Menu data={data} multiSelect value={['2', '21', '22']} />);
       expect(wrapper.find('.am-list-item').at(1).hasClass('am-menu-selected')).toBe(true);
       expect(wrapper.find('.am-list-item').at(2).hasClass('am-sub-menu-item-selected')).toBe(true);
       expect(wrapper.find('.am-list-item').at(3).hasClass('am-sub-menu-item-selected')).toBe(true);
@@ -83,7 +83,7 @@ describe('Menu', () => {
     it('fires change event when item is selected', () => {
       jest.useFakeTimers();
       const handleChange = jest.fn();
-      const wrapper = mount(<Menu data={data} multSelect onChange={handleChange} />);
+      const wrapper = mount(<Menu data={data} multiSelect onChange={handleChange} />);
       wrapper.find('.am-list-item').at(1).simulate('click');
       wrapper.find('.am-list-item').at(2).find('.am-checkbox-input').simulate('change');
       wrapper.find('.am-list-item').at(3).find('.am-checkbox-input').simulate('change');
@@ -92,14 +92,14 @@ describe('Menu', () => {
     });
   });
 
-  describe('mult select menu level 1', () => {
+  describe('multi select menu level 1', () => {
     it('renders correctly', () => {
-      const wrapper = render(<Menu data={data} multSelect level="1" />);
+      const wrapper = render(<Menu data={data} multiSelect level="1" />);
       expect(renderToJson(wrapper)).toMatchSnapshot();
     });
 
     it('controll by value', () => {
-      const wrapper = mount(<Menu data={data} multSelect level="1" value={['1', '2']} />);
+      const wrapper = mount(<Menu data={data} multiSelect level="1" value={['1', '2']} />);
       expect(wrapper.find('.am-list-item').at(0).hasClass('am-sub-menu-item-selected')).toBe(true);
       expect(wrapper.find('.am-list-item').at(1).hasClass('am-sub-menu-item-selected')).toBe(true);
     });
@@ -107,7 +107,7 @@ describe('Menu', () => {
     it('fires change event when item is selected', () => {
       jest.useFakeTimers();
       const handleChange = jest.fn();
-      const wrapper = mount(<Menu data={data} multSelect level="1" onChange={handleChange} />);
+      const wrapper = mount(<Menu data={data} multiSelect level="1" onChange={handleChange} />);
       wrapper.find('.am-list-item').at(0).find('.am-checkbox-input').simulate('change');
       wrapper.find('.am-list-item').at(1).find('.am-checkbox-input').simulate('change');
       jest.runAllTimers();
@@ -116,15 +116,15 @@ describe('Menu', () => {
 
     it('fires onOk event when ok btn is clicked', () => {
       const onOk = jest.fn();
-      const wrapper = mount(<Menu data={data} multSelect value={['1', '2']} level="1" onOk={onOk} />);
-      wrapper.find('.am-mult-select-btns-btn').at(1).simulate('click');
+      const wrapper = mount(<Menu data={data} multiSelect value={['1', '2']} level="1" onOk={onOk} />);
+      wrapper.find('.am-multi-select-btns-btn').at(1).simulate('click');
       expect(onOk).toBeCalledWith(['1', '2']);
     });
 
     it('fires onCancel event when cancel btn is clicked', () => {
       const onCancel = jest.fn();
-      const wrapper = mount(<Menu data={data} multSelect value={['1', '2']} level="1" onCancel={onCancel} />);
-      wrapper.find('.am-mult-select-btns-btn').at(0).simulate('click');
+      const wrapper = mount(<Menu data={data} multiSelect value={['1', '2']} level="1" onCancel={onCancel} />);
+      wrapper.find('.am-multi-select-btns-btn').at(0).simulate('click');
       expect(onCancel).toHaveBeenCalled();
     });
   });

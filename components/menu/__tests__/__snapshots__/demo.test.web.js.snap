@@ -49,7 +49,7 @@ exports[`renders ./components/menu/demo/multselect.md correctly 1`] = `
 >
   <div>
     <div
-      class="mult-top-nav-bar am-navbar am-navbar-light"
+      class="multi-top-nav-bar am-navbar am-navbar-light"
     >
       <div
         class="am-navbar-left"
@@ -76,7 +76,7 @@ exports[`renders ./components/menu/demo/multselect.md correctly 1`] = `
       <div
         class="am-navbar-title"
       >
-        Multselect menu
+        Multi select menu
       </div>
       <div
         class="am-navbar-right"
@@ -92,7 +92,7 @@ exports[`renders ./components/menu/demo/singleMult.md correctly 1`] = `
 >
   <div>
     <div
-      class="single-mult-top-nav-bar am-navbar am-navbar-light"
+      class="single-multi-top-nav-bar am-navbar am-navbar-light"
     >
       <div
         class="am-navbar-left"
@@ -119,7 +119,7 @@ exports[`renders ./components/menu/demo/singleMult.md correctly 1`] = `
       <div
         class="am-navbar-title"
       >
-        Single Mult menu
+        Single Multi menu
       </div>
       <div
         class="am-navbar-right"

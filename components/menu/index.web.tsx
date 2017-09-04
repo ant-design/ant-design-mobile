@@ -17,7 +17,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     onChange: () => {},
     onOk: () => {},
     onCancel: () => {},
-    multSelect: false,
+    multiSelect: false,
   };
 
   constructor(props) {
@@ -73,9 +73,9 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
 
   onClickSubMenuItem = (dataItem) => {
-    const { level, onChange, multSelect } = this.props;
+    const { level, onChange, multiSelect } = this.props;
     let rtn;
-    if (multSelect) {
+    if (multiSelect) {
       const { value, firstLevelSelectValue } = this.state;
       if (value && value.length > 0) {
         if (level === 2 && value[0] !== firstLevelSelectValue) {  // 在二级菜单情况下，首级菜单重新选择，则重置数组
@@ -104,7 +104,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
 
   render() {
-    const { className, style, height, data = [], prefixCls, level, multSelect } = this.props;
+    const { className, style, height, data = [], prefixCls, level, multiSelect } = this.props;
     const { firstLevelSelectValue, value } = this.state;
     let subMenuData = data; // menu only has one level as init
 
@@ -138,7 +138,7 @@ export default class Menu extends React.Component<MenuProps, any> {
 
     const menuHeight = Math.round(height || document.documentElement.clientHeight / 2);
     const ListHeight = menuHeight -
-      (multSelect ?
+      (multiSelect ?
       parseInt(document.getElementsByTagName('html')[0].style.fontSize as string, 10)
       : 0);
 
@@ -184,16 +184,16 @@ export default class Menu extends React.Component<MenuProps, any> {
               selItem={subSelInitItem}
               onSel={this.onClickSubMenuItem}
               showSelect={showSelect}
-              multSelect={multSelect}
+              multiSelect={multiSelect}
             />
           </Flex.Item>
         </Flex>
       </div>
-      {multSelect &&
-        (<div className="am-mult-select-btns">
+      {multiSelect &&
+        (<div className="am-multi-select-btns">
           <Button
             inline
-            className="am-mult-select-btns-btn"
+            className="am-multi-select-btns-btn"
             onClick={this.onMenuCancel}
           >
             取消
@@ -201,7 +201,7 @@ export default class Menu extends React.Component<MenuProps, any> {
           <Button
             inline
             type="primary"
-            className="am-mult-select-btns-btn"
+            className="am-multi-select-btns-btn"
             onClick={this.onMenuOk}
           >
             确定

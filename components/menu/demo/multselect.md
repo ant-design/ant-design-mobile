@@ -79,7 +79,7 @@ const data = [
   },
 ];
 
-class MultMenuExample extends React.Component {
+class MultiMenuExample extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {
@@ -116,14 +116,14 @@ class MultMenuExample extends React.Component {
     const { initData, show } = this.state;
     const menuEl = (
       <Menu
-        className="mult-foo-menu"
+        className="multi-foo-menu"
         data={initData}
         value={['1', '3']}
         onChange={this.onChange}
         onOk={this.onOk}
         onCancel={this.onCancel}
         height={document.documentElement.clientHeight * 0.6}
-        multSelect
+        multiSelect
       />
     );
     const loadingEl = (
@@ -132,16 +132,16 @@ class MultMenuExample extends React.Component {
       </div>
     );
     return (
-      <div className={show ? 'mult-menu-active' : ''}>
+      <div className={show ? 'multi-menu-active' : ''}>
         <div>
           <NavBar
             leftContent="Menu"
             mode="light"
             iconName={require('./menu.svg')}
             onLeftClick={this.handleClick}
-            className="mult-top-nav-bar"
+            className="multi-top-nav-bar"
           >
-            Multselect menu
+            Multi select menu
           </NavBar>
         </div>
         {show ? initData ? menuEl : loadingEl : null}
@@ -150,16 +150,16 @@ class MultMenuExample extends React.Component {
   }
 }
 
-ReactDOM.render(<MultMenuExample />, mountNode);
+ReactDOM.render(<MultiMenuExample />, mountNode);
 ````
 
 ```css
-.mult-foo-menu {
+.multi-foo-menu {
   position: absolute;
   z-index: 80 !important;
   width: 100%;
 }
-.mult-top-nav-bar {
+.multi-top-nav-bar {
   position: relative;
   z-index: 80 !important;
   background-color: #008AE6;
@@ -168,7 +168,7 @@ ReactDOM.render(<MultMenuExample />, mountNode);
 .am-navbar-title {
   color: #FFF!important;
 }
-.mult-menu-active:after {
+.multi-menu-active:after {
   content: ' ';
   position: absolute;
   top: 0;

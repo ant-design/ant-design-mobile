@@ -12,7 +12,7 @@ export default function SubMenu(props) {
     }
   };
 
-  const { subMenuPrefixCls, radioPrefixCls, subMenuData, showSelect, selItem, multSelect } = props;
+  const { subMenuPrefixCls, radioPrefixCls, subMenuData, showSelect, selItem, multiSelect } = props;
   const selected = dataItem => (showSelect && (selItem.length > 0 && selItem.indexOf(dataItem.value) !== -1));
 
   return(
@@ -25,7 +25,7 @@ export default function SubMenu(props) {
             [`${subMenuPrefixCls}-item-disabled`]: dataItem.disabled,
           })}
           key={idx}
-          extra={!multSelect ? (<Radio
+          extra={!multiSelect ? (<Radio
             checked={selected(dataItem)}
             disabled={dataItem.disabled}
             onChange={() => onClick(dataItem)}

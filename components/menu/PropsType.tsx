@@ -24,5 +24,5 @@ export interface MenuProps {
   onCancel?: Function;
   level?: 1 | 2;
   height?: number;
-  multSelect?: boolean;
+  multiSelect?: boolean;
 }
