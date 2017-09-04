@@ -44,6 +44,7 @@ timeline: true
   - 移除 List 组件的 `onLongPress` 属性
   - `Modal`、`List.Item`、`Switch` 将默认采用 ios 样式，不再根据 UA 进行自动探测; [#1371](https://github.com/ant-design/ant-design-mobile/issues/1371)
   - 用 ref function 替换 ref string [#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
+  - `InputItem`, `TextareaItem` 去除 `focused`, `autoFocus` api, 此需求用 `focus()` 实例方法代替。
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

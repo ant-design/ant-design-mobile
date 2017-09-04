@@ -36,8 +36,13 @@ subtitle: 多行输入
 | labelNumber  | 定宽枚举值：`num * @input-label-width: 34px`，可用`2-7`之间的数字，一般(不能保证全部)能对应显示出相应个数的中文文字(不考虑英文字符) | number | `5` |
 | name (`Web Only`)    | textarea 的 name       | String |   -  |
 | prefixListCls (`Web Only`)    |   列表 className 前缀      | String |  `am-list`  |
-| autoFocus (`Web Only`)   | 页面初始化时Textarea自动获取光标,每个页面只有一个Textarea的autpFocus会生效。（不保证所有浏览器都生效） | bool | false  |
-| focused (`Web Only`)   | 页面运行过程中,Textarea获取光标,当Textarea获取光标（`focused`更新为true）后，需要在`onFocus`或者`onBlur`时再次将该属性设置为false。 | bool | false  |
 | title (`Web Only`)    | 文案说明        | String/node |  '' |
 
 > 更多属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
+
+
+## TextareaItem methods
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| focus (`Web Only`)    | 强制获得焦点  | - |  -  |

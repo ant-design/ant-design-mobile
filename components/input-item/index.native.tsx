@@ -36,7 +36,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     textAlign: 'left',
     last: false,
     styles: InputItemStyles,
-    focused: false,
   };
 
   onChange = (text) => {
