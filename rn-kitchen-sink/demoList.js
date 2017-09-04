@@ -159,7 +159,13 @@ module.exports = {
       title: 'Picker',
       description: '选择器',
       icon: 'https://os.alipayobjects.com/rmsportal/STBLvEutBwPySbL.png',
-      module: require('../components/picker/demo/popup'),
+      module: require('../components/picker/demo/popup.native'),
+    },
+    {
+      title: 'PickerView',
+      description: '选择器视图',
+      icon: 'https://os.alipayobjects.com/rmsportal/STBLvEutBwPySbL.png',
+      module: require('../components/picker-view/demo/basic.native'),
     },
     {
       title: 'Progress',

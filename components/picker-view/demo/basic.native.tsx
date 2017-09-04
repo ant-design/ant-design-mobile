@@ -1,12 +1,5 @@
----
-order: 0
-title:
-  zh-CN: 选择器
-  en-US: 'Picker View'
----
-
-````jsx
 import { PickerView } from 'antd-mobile';
+import React from 'react';
 
 const seasons = [
   [
@@ -30,12 +23,12 @@ const seasons = [
     },
   ],
 ];
-class PickerViewExample extends React.Component {
+
+export default class PickerViewExample extends React.Component {
   state = {
     value: null,
   };
   onChange = (value) => {
-    console.log(value);
     this.setState({
       value,
     });
@@ -51,6 +44,3 @@ class PickerViewExample extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<PickerViewExample />, mountNode);
-````
