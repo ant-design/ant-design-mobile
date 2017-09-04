@@ -31,7 +31,16 @@ const data = [
 ];
 let index = data.length - 1;
 
+const NUM_ROWS = 20;
 let pageIndex = 0;
+
+function genData(pIndex = 0) {
+  const dataArr = [];
+  for (let i = 0; i < NUM_ROWS; i++) {
+    dataArr.push(`row - ${(pIndex * NUM_ROWS) + i}`);
+  }
+  return dataArr;
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -40,16 +49,13 @@ class App extends React.Component {
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
 
-    this.initData = [];
-    for (let i = 0; i < 20; i++) {
-      this.initData.push(`r${i}`);
-    }
     this.state = {
-      dataSource: dataSource.cloneWithRows(this.initData),
-      refreshing: false,
+      dataSource,
+      refreshing: true,
       height: document.documentElement.clientHeight,
     };
   }
+
   // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
   // componentWillReceiveProps(nextProps) {
   //   if (nextProps.dataSource !== this.props.dataSource) {
@@ -58,20 +64,18 @@ class App extends React.Component {
   //     });
   //   }
   // }
-  componentDidMount() {
-    this.manuallyRefresh = true;
-    setTimeout(() => this.setState({ refreshing: true }), 10);
 
+  componentDidMount() {
     // Set the appropriate height
     setTimeout(() => this.setState({
-      height: this.state.height - ReactDOM.findDOMNode(this.refs.lv).offsetTop,
+      height: this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop,
     }), 0);
 
     // handle https://github.com/ant-design/ant-design-mobile/issues/1588
-    this.refs.lv.getInnerViewNode().addEventListener('touchstart', this.ts = (e) => {
+    this.lv.getInnerViewNode().addEventListener('touchstart', this.ts = (e) => {
       this.tsPageY = e.touches[0].pageY;
     });
-    this.refs.lv.getInnerViewNode().addEventListener('touchmove', this.tm = (e) => {
+    this.lv.getInnerViewNode().addEventListener('touchmove', this.tm = (e) => {
       this.tmPageY = e.touches[0].pageY;
       if (this.tmPageY > this.tsPageY && this.st <= 0 && document.body.scrollTop > 0) {
         console.log('start pull to refresh');
@@ -81,14 +85,17 @@ class App extends React.Component {
       }
     });
   }
+
   componentWillUnmount() {
-    this.refs.lv.getInnerViewNode().removeEventListener('touchstart', this.ts);
-    this.refs.lv.getInnerViewNode().removeEventListener('touchmove', this.tm);
+    this.lv.getInnerViewNode().removeEventListener('touchstart', this.ts);
+    this.lv.getInnerViewNode().removeEventListener('touchmove', this.tm);
   }
+
   onScroll = (e) => {
     this.st = e.scroller.getValues().top;
     this.domScroller = e;
-  }
+  };
+
   onRefresh = () => {
     console.log('onRefresh');
     if (!this.manuallyRefresh) {
@@ -96,14 +103,34 @@ class App extends React.Component {
     } else {
       this.manuallyRefresh = false;
     }
+
+    // simulate initial Ajax
     setTimeout(() => {
-      this.initData = [`ref${pageIndex++}`, ...this.initData];
+      this.rData = genData();
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(this.initData),
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
         refreshing: false,
+      });
+    }, 600);
+  };
+
+  onEndReached = (event) => {
+    // load new data
+    // hasMore: from backend data, indicates whether it is the last page, here is false
+    if (this.state.isLoading && !this.state.hasMore) {
+      return;
+    }
+    console.log('reach end', event);
+    this.setState({ isLoading: true });
+    setTimeout(() => {
+      this.rData = [...this.rData, ...genData(++pageIndex)];
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
+        isLoading: false,
       });
     }, 1000);
   };
+
   render() {
     const separator = (sectionID, rowID) => (
       <div
@@ -135,7 +162,7 @@ class App extends React.Component {
             <img style={{ height: '63px', width: '63px', marginRight: '15px' }} src={obj.img} alt="icon" />
             <div style={{ display: 'inline-block' }}>
               <div style={{ marginBottom: '8px', color: '#000', fontSize: '16px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '250px' }}>{obj.des}-{rowData}</div>
-              <div style={{ fontSize: '16px' }}><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span> 元/任务</div>
+              <div style={{ fontSize: '16px' }}><span style={{ fontSize: '30px', color: '#FF6E27' }}>{rowID}</span> 元/任务</div>
             </div>
           </div>
         </div>
@@ -143,14 +170,16 @@ class App extends React.Component {
     };
     return (
       <ListView
-        ref="lv"
+        ref={el => this.lv = el}
         dataSource={this.state.dataSource}
+        renderHeader={() => <span>Pull to refresh</span>}
+        renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
+          {this.state.isLoading ? 'Loading...' : 'Loaded'}
+        </div>)}
         renderRow={row}
         renderSeparator={separator}
         initialListSize={5}
         pageSize={5}
-        scrollRenderAheadDistance={200}
-        scrollEventThrottle={20}
         style={{
           height: this.state.height,
           border: '1px solid #ddd',
@@ -162,6 +191,10 @@ class App extends React.Component {
           onRefresh={this.onRefresh}
         />}
         onScroll={this.onScroll}
+        scrollRenderAheadDistance={200}
+        scrollEventThrottle={20}
+        onEndReached={this.onEndReached}
+        onEndReachedThreshold={10}
       />
     );
   }

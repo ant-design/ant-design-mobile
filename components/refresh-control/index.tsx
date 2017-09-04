@@ -2,8 +2,6 @@ import React from 'react';
 import ListView from 'rmc-list-view';
 import Icon from '../icon';
 
-const dpr = typeof window !== 'undefined' && (window as any).devicePixelRatio || 2;
-
 ListView.RefreshControl.defaultProps = {
   ...ListView.RefreshControl.defaultProps,
   prefixCls: 'am-refresh-control',
@@ -17,7 +15,7 @@ ListView.RefreshControl.defaultProps = {
   ],
   loading: <Icon type="loading" />,
   refreshing: false,
-  distanceToRefresh: 50 / 2 * dpr,
+  distanceToRefresh: 25,
 };
 
 export default ListView.RefreshControl;
