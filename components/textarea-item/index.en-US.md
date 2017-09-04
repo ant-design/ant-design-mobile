@@ -35,8 +35,12 @@ Properties | Descrition | Type | Default
 | labelNumber  | number of label text, valid value is 2 to 7 | number | `5` |
 | name (`Web Only`)    | the name of textarea      | String |   -  |
 | prefixListCls (`Web Only`)    |   the class name prefix of list      | String |  `am-list`  |
-| autoFocus (`Web Only`)   | whether to focus the textarea on `componentDidMount`, each page has only one `TextareaItem` can be auto focused.（Note: It is no guarantee that all browsers are supported） | bool | false  |
-| focused (`Web Only`)   | whether the `InputItem` has been focused on `componentDidMount`, you need to change this property on `onFocus` or `onBlur` callback | bool | false  |
 | title (`Web Only`)    | the description of textarea        | String/node |  '' |
 
 > More available react-native `TextareaItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
+
+## TextareaItem methods
+
+Property | Description | Type | Default
+----|-----|------|------
+| focus (`Web Only`)    | Force focus back onto the input node  | - |  -  |

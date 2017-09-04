@@ -18,9 +18,9 @@ import { List, TextareaItem } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 class TextareaItemExample extends React.Component {
-  state = {
-    focused: false,
-  };
+  componentDidMount() {
+    this.autoFocusInst.focus();
+  }
   render() {
     const { getFieldProps } = this.props.form;
     return (
@@ -30,7 +30,7 @@ class TextareaItemExample extends React.Component {
             title="标题"
             placeholder="auto focus in Alipay client"
             data-seed="logId"
-            autoFocus
+            ref={el => this.autoFocusInst = el}
             autoHeight
           />
           <TextareaItem
@@ -38,21 +38,12 @@ class TextareaItemExample extends React.Component {
             placeholder="click the button below to focus"
             data-seed="logId"
             autoHeight
-            focused={this.state.focused}
-            onFocus={() => {
-              this.setState({
-                focused: false,
-              });
-            }}
+            ref={el => this.customFocusInst = el}
           />
           <List.Item>
             <div
               style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
-              onClick={() => {
-                this.setState({
-                  focused: true,
-                });
-              }}
+              onClick={() => this.customFocusInst.focus()}
             >
               click to focus
             </div>

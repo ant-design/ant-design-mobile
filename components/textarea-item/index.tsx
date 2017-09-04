@@ -22,7 +22,6 @@ function countSymbols(text = '') {
 
 export interface TextareaItemState {
   focus?: boolean;
-  focused?: boolean;
 }
 
 export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
@@ -44,40 +43,22 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   };
 
   textareaRef: any;
+
+  state = {
+    focus: false,
+  };
+
   private debounceTimeout: any;
   private scrollIntoViewTimeout: any;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      focus: false,
-      focused: props.focused || false,
-    };
+  focus = () => {
+    this.textareaRef.focus();
   }
-
-  componentDidMount() {
-    this.componentDidUpdate();
-    if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
-      this.textareaRef.focus();
-    }
-  }
-
   componentDidUpdate() {
     if (this.props.autoHeight) {
       const textareaDom = this.textareaRef;
       textareaDom.style.height = ''; // 字数减少时能自动减小高度
       textareaDom.style.height = `${textareaDom.scrollHeight}px`;
-    }
-    if (this.state.focused) {
-      this.textareaRef.focus();
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if ('focused' in nextProps) {
-      this.setState({
-        focused: nextProps.focused,
-      });
     }
   }
 
@@ -109,11 +90,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
         focus: false,
       });
     }, 100);
-    if (!('focused' in this.props)) {
-      this.setState({
-        focused: false,
-      });
-    }
+    this.setState({
+      focus: false,
+    });
     const value = e.target.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
@@ -125,12 +104,6 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
       clearTimeout(this.debounceTimeout);
       this.debounceTimeout = null;
     }
-    if (!('focused' in this.props)) {
-      this.setState({
-        focused: true,
-      });
-    }
-
     this.setState({
       focus: true,
     });
@@ -170,7 +143,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
     const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
       'clear', 'children', 'error', 'className', 'count', 'labelNumber', 'title', 'onErrorClick',
-      'autoHeight', 'autoFocus', 'focused', 'placeholderTextColor',
+      'autoHeight', 'placeholderTextColor',
     ]);
 
     let valueProps;
