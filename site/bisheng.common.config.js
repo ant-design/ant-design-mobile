@@ -47,8 +47,8 @@ module.exports = {
   htmlTemplateExtraData: {
     isDev: process.env.NODE_ENV === 'development',
     reactVersion: pkg.devDependencies.react.replace(/~|\^/, ''),
-    preactVersion: pkg.devDependencies.preact.replace(/~|\^/, '').split('.')[0],
-    preactCompatVersion: pkg.devDependencies['preact-compat'].replace(/~|\^/, '').split('.')[0],
+    preactVersion: pkg.devDependencies.preact.replace(/~|\^/, ''),
+    preactCompatVersion: pkg.devDependencies['preact-compat'].replace(/~|\^/, ''),
     useReact,
   },
 };

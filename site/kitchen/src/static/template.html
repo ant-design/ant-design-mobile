@@ -14,13 +14,13 @@
   </head>
   <body>
     <div id="react-content"></div>
-    <script src="https://unpkg.com/prop-types@15.5.10/prop-types.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.5.10/prop-types.min.js"></script>
     {% if isDev %}
       {% if useReact %}
         <script src="https://as.alipayobjects.com/g/component/??react/{{ reactVersion }}/react.js,react/{{ reactVersion }}/react-dom.js"></script>
       {% else %}
-        <script src="https://unpkg.com/preact@{{preactVersion}}/dist/preact.js"></script>
-        <script src="https://unpkg.com/preact-compat@{{preactCompatVersion}}/dist/preact-compat.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact/{{preactVersion}}/preact.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact-compat/{{preactCompatVersion}}/preact-compat.js"></script>
         <script>
           var React = preactCompat;
           var ReactDOM = preactCompat;
@@ -30,8 +30,8 @@
       {% if useReact %}
         <script src="https://as.alipayobjects.com/g/component/??react/{{ reactVersion }}/react.min.js,react/{{ reactVersion }}/react-dom.min.js"></script>
       {% else %}
-        <script src="https://unpkg.com/preact@{{preactVersion}}/dist/preact.min.js"></script>
-        <script src="https://unpkg.com/preact-compat@{{preactCompatVersion}}/dist/preact-compat.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact/{{preactVersion}}/preact.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact-compat/{{preactCompatVersion}}/preact-compat.min.js"></script>
         <script>
           var React = preactCompat;
           var ReactDOM = preactCompat;
