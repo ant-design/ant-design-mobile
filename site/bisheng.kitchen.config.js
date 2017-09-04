@@ -52,6 +52,22 @@ module.exports = Object.assign({}, commonConfig, {
   },
   webpackConfig(config) {
     config = commonConfig.webpackConfig(config);
+    config.externals = {
+      react: 'preactCompat',
+      'react-dom': 'preactCompat',
+      'react-router': 'ReactRouter',
+      'prop-types': 'PropTypes',
+      history: 'History',
+      'babel-polyfill': 'this', // hack babel-polyfill has no exports
+    };
+    config.resolve.alias = {
+      'antd-mobile/lib': path.join(process.cwd(), 'components'),
+      'antd-mobile': process.cwd(),
+      site: path.join(process.cwd(), 'site'),
+      react: 'preact-compat',
+      'react-dom': 'preact-compat',
+      'create-react-class': 'preact-compat/lib/create-react-class',
+    };
     return config;
   },
 });

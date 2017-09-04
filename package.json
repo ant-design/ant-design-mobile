@@ -101,6 +101,8 @@
     "lodash.debounce": "^4.0.6",
     "mockdate": "^2.0.1",
     "pre-commit": "1.x",
+    "preact": "^8.2.5",
+    "preact-compat": "^3.17.0",
     "qrcode.react": "^0.7.1",
     "rc-form": "1.x",
     "react": "^15.0.0",
