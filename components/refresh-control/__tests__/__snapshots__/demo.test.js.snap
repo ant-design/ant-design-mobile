@@ -10,7 +10,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
     style="position:absolute;min-width:100%;"
   >
     <div
-      class="am-refresh-control-ptr"
+      class="am-refresh-control-ptr am-refresh-control-loading"
     >
       <div
         class="am-refresh-control-ptr-icon"
@@ -43,211 +43,22 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
       </div>
     </div>
     <div
+      class="am-list-header"
+    >
+      <span>
+        Pull to refresh
+      </span>
+    </div>
+    <div
       class="am-list-body"
+    />
+    <div
+      class="am-list-footer"
     >
       <div
-        class="list-view-section-body"
+        style="padding:30px;text-align:center;"
       >
-        <div
-          style="padding:0 15px;background-color:white;"
-        >
-          <div
-            style="height:50px;line-height:50px;color:#888;font-size:18px;border-bottom:1px solid #ddd;"
-          >
-            Eat the week
-          </div>
-          <div
-            style="display:flex;padding:15px;"
-          >
-            <img
-              alt="icon"
-              src="https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png"
-              style="height:63px;width:63px;margin-right:15px;"
-            />
-            <div
-              style="display:inline-block;"
-            >
-              <div
-                style="margin-bottom:8px;color:#000;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:250px;"
-              >
-                不是所有的兼职汪都需要风吹日晒-r0
-              </div>
-              <div
-                style="font-size:16px;"
-              >
-                <span
-                  style="font-size:30px;color:#FF6E27;"
-                >
-                  35
-                </span>
-                 元/任务
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
-        />
-        <div
-          style="padding:0 15px;background-color:white;"
-        >
-          <div
-            style="height:50px;line-height:50px;color:#888;font-size:18px;border-bottom:1px solid #ddd;"
-          >
-            McDonald's invites you
-          </div>
-          <div
-            style="display:flex;padding:15px;"
-          >
-            <img
-              alt="icon"
-              src="https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png"
-              style="height:63px;width:63px;margin-right:15px;"
-            />
-            <div
-              style="display:inline-block;"
-            >
-              <div
-                style="margin-bottom:8px;color:#000;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:250px;"
-              >
-                不是所有的兼职汪都需要风吹日晒-r1
-              </div>
-              <div
-                style="font-size:16px;"
-              >
-                <span
-                  style="font-size:30px;color:#FF6E27;"
-                >
-                  35
-                </span>
-                 元/任务
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
-        />
-        <div
-          style="padding:0 15px;background-color:white;"
-        >
-          <div
-            style="height:50px;line-height:50px;color:#888;font-size:18px;border-bottom:1px solid #ddd;"
-          >
-            Meet hotel
-          </div>
-          <div
-            style="display:flex;padding:15px;"
-          >
-            <img
-              alt="icon"
-              src="https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png"
-              style="height:63px;width:63px;margin-right:15px;"
-            />
-            <div
-              style="display:inline-block;"
-            >
-              <div
-                style="margin-bottom:8px;color:#000;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:250px;"
-              >
-                不是所有的兼职汪都需要风吹日晒-r2
-              </div>
-              <div
-                style="font-size:16px;"
-              >
-                <span
-                  style="font-size:30px;color:#FF6E27;"
-                >
-                  35
-                </span>
-                 元/任务
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
-        />
-        <div
-          style="padding:0 15px;background-color:white;"
-        >
-          <div
-            style="height:50px;line-height:50px;color:#888;font-size:18px;border-bottom:1px solid #ddd;"
-          >
-            Eat the week
-          </div>
-          <div
-            style="display:flex;padding:15px;"
-          >
-            <img
-              alt="icon"
-              src="https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png"
-              style="height:63px;width:63px;margin-right:15px;"
-            />
-            <div
-              style="display:inline-block;"
-            >
-              <div
-                style="margin-bottom:8px;color:#000;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:250px;"
-              >
-                不是所有的兼职汪都需要风吹日晒-r3
-              </div>
-              <div
-                style="font-size:16px;"
-              >
-                <span
-                  style="font-size:30px;color:#FF6E27;"
-                >
-                  35
-                </span>
-                 元/任务
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
-        />
-        <div
-          style="padding:0 15px;background-color:white;"
-        >
-          <div
-            style="height:50px;line-height:50px;color:#888;font-size:18px;border-bottom:1px solid #ddd;"
-          >
-            McDonald's invites you
-          </div>
-          <div
-            style="display:flex;padding:15px;"
-          >
-            <img
-              alt="icon"
-              src="https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png"
-              style="height:63px;width:63px;margin-right:15px;"
-            />
-            <div
-              style="display:inline-block;"
-            >
-              <div
-                style="margin-bottom:8px;color:#000;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:250px;"
-              >
-                不是所有的兼职汪都需要风吹日晒-r4
-              </div>
-              <div
-                style="font-size:16px;"
-              >
-                <span
-                  style="font-size:30px;color:#FF6E27;"
-                >
-                  35
-                </span>
-                 元/任务
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="background-color:#F5F5F9;height:8px;border-top:1px solid #ECECED;border-bottom:1px solid #ECECED;"
-        />
+        Loaded
       </div>
     </div>
   </div>

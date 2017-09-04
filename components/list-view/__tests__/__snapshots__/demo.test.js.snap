@@ -34,7 +34,7 @@ exports[`renders ./components/list-view/demo/basic.md correctly 1`] = `
         <div
           style="padding:30px;text-align:center;"
         >
-          Loaded
+          Loading...
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@ exports[`renders ./components/list-view/demo/basic-body.md correctly 1`] = `
     <div
       style="padding:30px;text-align:center;"
     >
-      Loaded
+      Loading...
     </div>
   </div>
 </div>
@@ -92,7 +92,7 @@ exports[`renders ./components/list-view/demo/basic-sticky.md correctly 1`] = `
     <div
       style="padding:30px;text-align:center;"
     >
-      Loaded
+      Loading...
     </div>
   </div>
 </div>
