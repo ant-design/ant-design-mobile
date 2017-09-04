@@ -25,6 +25,15 @@ let index = data.length - 1;
 const NUM_ROWS = 20;
 let pageIndex = 0;
 
+function genData(pIndex = 0) {
+  const dataBlob = {};
+  for (let i = 0; i < NUM_ROWS; i++) {
+    const ii = (pIndex * NUM_ROWS) + i;
+    dataBlob[`${ii}`] = `row - ${ii}`;
+  }
+  return dataBlob;
+}
+
 export default class BasicRowDemo extends React.Component<any, any> {
   private rData;
   constructor(props) {
@@ -32,31 +41,34 @@ export default class BasicRowDemo extends React.Component<any, any> {
     const dataSource = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
-    this.rData = {};
+
     this.state = {
-      dataSource: dataSource.cloneWithRows(this.genData()),
-      isLoading: false,
+      dataSource,
+      isLoading: true,
     };
   }
 
-  genData = (pIndex = 0) => {
-    const dataBlob = {};
-    for (let i = 0; i < NUM_ROWS; i++) {
-      const ii = (pIndex * NUM_ROWS) + i;
-      dataBlob[`${ii}`] = `row - ${ii}`;
-    }
-    return dataBlob;
+  componentDidMount() {
+    // simulate initial Ajax
+    setTimeout(() => {
+      this.rData = genData();
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
+        isLoading: false,
+      });
+    }, 600);
   }
 
   onEndReached = (_event) => {
     // load new data
+    // hasMore: from backend data, indicates whether it is the last page, here is false
+    if (this.state.isLoading && !this.state.hasMore) {
+      return;
+    }
     // console.log('reach end', event);
     this.setState({ isLoading: true });
     setTimeout(() => {
-      this.rData = {
-        ...this.rData,
-        ...this.genData(++pageIndex),
-      };
+      this.rData = { ...this.rData, ...genData(++pageIndex) };
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,

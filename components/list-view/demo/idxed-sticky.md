@@ -14,6 +14,23 @@ import { ListView, List, SearchBar } from 'antd-mobile';
 
 const { Item } = List;
 
+function genData(ds, province) {
+  const dataBlob = {};
+  const sectionIDs = [];
+  const rowIDs = [];
+  Object.keys(province).forEach((item, index) => {
+    sectionIDs.push(item);
+    dataBlob[item] = item;
+    rowIDs[index] = [];
+
+    province[item].forEach((jj) => {
+      rowIDs[index].push(jj.value);
+      dataBlob[jj.value] = jj.label;
+    });
+  });
+  return ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs);
+}
+
 class Demo extends React.Component {
   constructor(props) {
     super(props);
@@ -27,27 +44,21 @@ class Demo extends React.Component {
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
     });
 
-    this.createDs = (ds, province) => {
-      const dataBlob = {};
-      const sectionIDs = [];
-      const rowIDs = [];
-      Object.keys(province).forEach((item, index) => {
-        sectionIDs.push(item);
-        dataBlob[item] = item;
-        rowIDs[index] = [];
-
-        province[item].forEach((jj) => {
-          rowIDs[index].push(jj.value);
-          dataBlob[jj.value] = jj.label;
-        });
-      });
-      return ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs);
-    };
     this.state = {
       inputValue: '',
-      dataSource: this.createDs(dataSource, provinceData),
-      headerPressCount: 0,
+      dataSource,
+      isLoading: true,
     };
+  }
+
+  componentDidMount() {
+    // simulate initial Ajax
+    setTimeout(() => {
+      this.setState({
+        dataSource: genData(this.state.dataSource, provinceData),
+        isLoading: false,
+      });
+    }, 600);
   }
 
   onSearch = (val) => {
@@ -57,7 +68,7 @@ class Demo extends React.Component {
     });
     this.setState({
       inputValue: val,
-      dataSource: this.createDs(this.state.dataSource, pd),
+      dataSource: genData(this.state.dataSource, pd),
     });
   }
 

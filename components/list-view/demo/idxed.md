@@ -10,10 +10,27 @@ Index List
 
 ````jsx
 /* eslint no-mixed-operators: 0 */
-import { province } from 'antd-mobile-demo-data';
+import { province as provinceData } from 'antd-mobile-demo-data';
 import { ListView, List } from 'antd-mobile';
 
 const { Item } = List;
+
+function genData(ds, province) {
+  const dataBlob = {};
+  const sectionIDs = [];
+  const rowIDs = [];
+  Object.keys(province).forEach((item, index) => {
+    sectionIDs.push(item);
+    dataBlob[item] = item;
+    rowIDs[index] = [];
+
+    province[item].forEach((jj) => {
+      rowIDs[index].push(jj.value);
+      dataBlob[jj.value] = jj.label;
+    });
+  });
+  return ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs);
+}
 
 class Demo extends React.Component {
   constructor(props) {
@@ -28,23 +45,20 @@ class Demo extends React.Component {
       sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
     });
 
-    const dataBlob = {};
-    const sectionIDs = [];
-    const rowIDs = [];
-    Object.keys(province).forEach((item, index) => {
-      sectionIDs.push(item);
-      dataBlob[item] = item;
-      rowIDs[index] = [];
-
-      province[item].forEach((jj) => {
-        rowIDs[index].push(jj.value);
-        dataBlob[jj.value] = jj.label;
-      });
-    });
     this.state = {
-      dataSource: dataSource.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
-      headerPressCount: 0,
+      dataSource,
+      isLoading: true,
     };
+  }
+
+  componentDidMount() {
+    // simulate initial Ajax
+    setTimeout(() => {
+      this.setState({
+        dataSource: genData(this.state.dataSource, provinceData),
+        isLoading: false,
+      });
+    }, 600);
   }
 
   render() {

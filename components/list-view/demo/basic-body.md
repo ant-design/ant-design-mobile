@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 'body 容器'
-  en-US: 'use `<body>`  container'
+  en-US: 'use `<body>` container'
 ---
 
 use html `body` as a scroll container.
@@ -33,6 +33,15 @@ let index = data.length - 1;
 const NUM_ROWS = 20;
 let pageIndex = 0;
 
+function genData(pIndex = 0) {
+  const dataBlob = {};
+  for (let i = 0; i < NUM_ROWS; i++) {
+    const ii = (pIndex * NUM_ROWS) + i;
+    dataBlob[`${ii}`] = `row - ${ii}`;
+  }
+  return dataBlob;
+}
+
 class Demo extends React.Component {
   constructor(props) {
     super(props);
@@ -40,17 +49,8 @@ class Demo extends React.Component {
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
 
-    this.genData = (pIndex = 0) => {
-      const dataBlob = {};
-      for (let i = 0; i < NUM_ROWS; i++) {
-        const ii = (pIndex * NUM_ROWS) + i;
-        dataBlob[`${ii}`] = `row - ${ii}`;
-      }
-      return dataBlob;
-    };
-
     this.state = {
-      dataSource: dataSource.cloneWithRows({}),
+      dataSource,
       isLoading: true,
     };
   }
@@ -61,7 +61,7 @@ class Demo extends React.Component {
 
     // simulate initial Ajax
     setTimeout(() => {
-      this.rData = this.genData();
+      this.rData = genData();
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,
@@ -87,7 +87,7 @@ class Demo extends React.Component {
     console.log('reach end', event);
     this.setState({ isLoading: true });
     setTimeout(() => {
-      this.rData = { ...this.rData, ...this.genData(++pageIndex) };
+      this.rData = { ...this.rData, ...genData(++pageIndex) };
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,
@@ -125,7 +125,8 @@ class Demo extends React.Component {
       );
     };
     return (
-      <ListView ref={el => this.lv = el}
+      <ListView
+        ref={el => this.lv = el}
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
         renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
