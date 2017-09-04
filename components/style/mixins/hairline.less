@@ -8,7 +8,7 @@
   position: absolute;
   background-color: @color;
   display: block;
-  z-index: 10;
+  z-index: 1;
   top: @top;
   right: @right;
   bottom: @bottom;
@@ -129,12 +129,12 @@
         pointer-events: none;
         z-index: -1;
 
-        @media (min-resolution: 3dppx) {
-          width: 300%;
-          height: 300%;
-          border-radius: @radius * 3;
-          transform: scale(0.33);
-        }
+        // @media (min-resolution: 3dppx) {
+        //   width: 300%;
+        //   height: 300%;
+        //   border-radius: @radius * 3;
+        //   transform: scale(0.33);
+        // }
       }
     }
   }

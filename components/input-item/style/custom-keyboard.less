@@ -81,7 +81,7 @@
     padding: 0;
     margin: 0;
     border-collapse: collapse;
-    border-top: 1PX solid #ccc;
+    .hairline('top');
 
     tr {
       width: 100%;
@@ -94,8 +94,10 @@
         margin: 0;
         height: 50px;
         text-align: center;
-        border-left: 1PX solid #ccc;
-        border-bottom: 1PX solid #ccc;
+        &:not(.keyboard-confirm) {
+          .hairline('left');
+          .hairline('bottom');
+        }
         font-size: 25.5px;
         color: #2a2b2c;
         position: relative;
@@ -108,7 +110,7 @@
           color: #fff;
           font-size: 21px;
           background-color: @keyboard-confirm-color;
-
+          .hairline('bottom');
           &.@{keyboardPrefixCls}-item-active {
             background-color: @keyboard-confirm-tap-color;
           }
