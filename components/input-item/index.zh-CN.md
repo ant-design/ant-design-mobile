@@ -39,12 +39,15 @@ subtitle: 文本输入
 | extra       | 右边注释   | string or node |  ''  |
 | onExtraClick      | extra 点击事件触发的回调函数 | (e: Object): void |  无  |
 | labelNumber  | 标签的文字个数，可用`2-7`之间的数字 | number | `5` |
-| autoFocus   | 页面初始化时Input自动获取光标,每个页面只有一个Input的autpFocus会生效。（不保证所有浏览器都生效） | bool | false  |
-| focused   | 页面运行过程中,Input获取光标,当Input获取光标（`focused`更新为true）后，需要在`onFocus`或者`onBlur`时再次将该属性设置为false。 | bool | false  |
 | updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
 | prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
 | name (`web only`)   | input 的 name        | String |  无  |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置, 当`type`为`money`，可以自定义确认按钮的文案。 | Object: { confirmLabel } |  无 |
 
-
 > 更多 react-native `InputItem` 属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
+
+## InputItem methods
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| focus    | 强制获得焦点  | - |  -  |
