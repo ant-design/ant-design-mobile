@@ -1,23 +1,18 @@
 const path = require('path');
+const pkg = require('../package.json');
+
+const useReact = process.env.DEMO_ENV === 'react';
 
 module.exports = {
   webpackConfig(config) {
-    // config.externals = {
-    //   react: 'preactCompat',
-    //   'react-dom': 'preactCompat',
-    //   'react-router': 'ReactRouter',
-    //   'prop-types': 'PropTypes',
-    //   history: 'History',
-    //   'babel-polyfill': 'this', // hack babel-polyfill has no exports
-    // };
-
-    // rc-trigger 在 preact 下有 bug， desktop 版本先不改
+    // rc-trigger 在 preact 下有 bug
     config.externals = {
-      react: 'React',
-      'react-dom': 'ReactDOM',
+      react: useReact ? 'React' : 'preactCompat',
+      'react-dom': useReact ? 'ReactDOM' : 'preactCompat',
       'react-router': 'ReactRouter',
       history: 'History',
       'babel-polyfill': 'this', // hack babel-polyfill has no exports
+      'prop-types': 'PropTypes',
     };
 
     config.resolve.alias = {
@@ -26,14 +21,13 @@ module.exports = {
       site: path.join(process.cwd(), 'site'),
     };
 
-    // config.resolve.alias = {
-    //   'antd-mobile/lib': path.join(process.cwd(), 'components'),
-    //   'antd-mobile': process.cwd(),
-    //   site: path.join(process.cwd(), 'site'),
-    //   react: 'preact-compat',
-    //   'react-dom': 'preact-compat',
-    //   'create-react-class': 'preact-compat/lib/create-react-class',
-    // };
+    if (!useReact) {
+      config.resolve.alias = Object.assign(config.resolve.alias, {
+        react: 'preact-compat',
+        'react-dom': 'preact-compat',
+        'create-react-class': 'preact-compat/lib/create-react-class',
+      });
+    }
 
     config.babel.plugins.push([
       'babel-plugin-transform-runtime',
@@ -49,5 +43,12 @@ module.exports = {
       },
     ]);
     return config;
+  },
+  htmlTemplateExtraData: {
+    isDev: process.env.NODE_ENV === 'development',
+    reactVersion: pkg.devDependencies.react.replace(/~|\^/, ''),
+    preactVersion: pkg.devDependencies.preact.replace(/~|\^/, '').split('.')[0],
+    preactCompatVersion: pkg.devDependencies['preact-compat'].replace(/~|\^/, '').split('.')[0],
+    useReact,
   },
 };
