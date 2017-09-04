@@ -6,6 +6,7 @@ import CustomKeyboard from './CustomKeyboard';
 import { addClass, removeClass } from '../_util/class';
 
 class NumberInput extends React.Component<any, any> {
+
   static defaultProps = {
     onChange: () => {},
     onFocus: () => {},
@@ -18,44 +19,24 @@ class NumberInput extends React.Component<any, any> {
     keyboardPrefixCls: 'am-number-keyboard',
   };
 
-  debounceFocusTimeout: any;
-  inputRef: any;
+  state = {
+    focus: false,
+  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      focused: props.focused || false,
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if ('focused' in nextProps && nextProps.focused !== this.state.focused) {
-      this.debounceFocusTimeout = setTimeout(() => {
-        const { disabled, editable } = this.props;
-        if (nextProps.focused && !disabled && editable) {
-          this.onInputFocus(this.props.value);
-        }
-      }, 10);
-    }
-  }
+  private inputRef: any;
 
   componentDidMount() {
     if (!(window as any).antmCustomKeyboard) {
       this.renderCustomKeyboard();
     }
-    const { autoFocus, focused, value, disabled, editable } = this.props;
-    if ((autoFocus || focused) && !disabled && editable ) {
-      this.onInputFocus(value);
-    }
-    document.addEventListener('click', this._blurEventListener, false);
   }
-
+  addBlurListener = () => {
+    document.addEventListener('click', this.doBlur, false);
+  }
+  removeBlurListen = () => {
+    document.removeEventListener('click', this.doBlur, false);
+  }
   componentWillUnmount() {
-    document.removeEventListener('click', this._blurEventListener, false);
-    if (this.debounceFocusTimeout) {
-      clearTimeout(this.debounceFocusTimeout);
-      this.debounceFocusTimeout = null;
-    }
     this.unLinkInput();
   }
 
@@ -83,7 +64,7 @@ class NumberInput extends React.Component<any, any> {
     }
   }
 
-  _blurEventListener = (ev) => {
+  doBlur = (ev) => {
     const { value } = this.props;
     if (ev.target !== this.inputRef) {
       this.onInputBlur(value);
@@ -95,14 +76,15 @@ class NumberInput extends React.Component<any, any> {
     if (antmCustomKeyboard.linkedInput === this) {
       antmCustomKeyboard.linkedInput = null;
       addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
+      this.removeBlurListen();
     }
   }
 
   onInputBlur = (value) => {
-    const { focused } = this.state;
-    if (focused) {
+    const { focus } = this.state;
+    if (focus) {
       this.setState({
-        focused: false,
+        focus: false,
       });
       this.props.onBlur(value);
       setTimeout(() => {
@@ -111,10 +93,11 @@ class NumberInput extends React.Component<any, any> {
     }
   }
 
-  onInputFocus = (value) => {
+  onInputFocus = () => {
+    const { value } = this.props;
     this.props.onFocus(value);
     this.setState({
-      focused: true,
+      focus: true,
     }, () => {
       const antmCustomKeyboard = (window as any).antmCustomKeyboard;
       antmCustomKeyboard.linkedInput = this;
@@ -164,20 +147,26 @@ class NumberInput extends React.Component<any, any> {
   }
 
   onFakeInputClick = () => {
-    const { value } = this.props;
-    const { focused } = this.state;
-    if (!focused) {
-      this.onInputFocus(value);
-    }
+    this.focus();
   }
-
+  focus = () => {
+    // this focus may invocked by users page button click, so this click may trigger blurEventListener at the same time
+    this.removeBlurListen();
+    const { focus } = this.state;
+    if (!focus) {
+      this.onInputFocus();
+    }
+    setTimeout(() => {
+      this.addBlurListener();
+    }, 50);
+  }
   render() {
     const { placeholder, value, disabled, editable } = this.props;
-    const { focused } = this.state;
+    const { focus } = this.state;
     const preventKeyboard = disabled || !editable;
     const fakeInputCls = classNames({
       [`fake-input`]: true,
-      [`focus`]: focused,
+      [`focus`]: focus,
       [`fake-input-disabled`]: disabled,
     });
     return (<div className="fake-input-container">

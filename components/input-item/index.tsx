@@ -156,8 +156,12 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (this.props.onChange) {
       this.props.onChange('');
     }
+    this.focus();
   }
 
+  focus = () => {
+    this.inputRef.focus();
+  }
   render() {
     const {
       prefixCls, prefixListCls, type, value, defaultValue,
@@ -251,8 +255,6 @@ class InputItem extends React.Component<InputItemProps, any> {
               disabled={disabled}
               editable={editable}
               value={fixControlledValue(value)}
-              {...(this.props.focused !== undefined ? { focused: this.props.focused } : {})}
-              {...(this.props.autoFocus !== undefined ? { autoFocus: this.props.autoFocus } : {})}
               prefixCls={prefixCls}
               style={style}
               confirmLabel={confirmLabel}

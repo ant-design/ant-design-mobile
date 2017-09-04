@@ -19,7 +19,6 @@ import { createForm } from 'rc-form';
 
 class H5NumberInputExample extends React.Component {
   state = {
-    moneyfocused: false,
     type: 'money',
   }
   render() {
@@ -54,21 +53,13 @@ class H5NumberInputExample extends React.Component {
             })}
             type={type}
             placeholder="money format"
-            onFocus={() => {
-              this.setState({
-                moneyfocused: false,
-              });
-            }}
-            focused={this.state.moneyfocused}
+            ref={el => this.customFocusInst = el}
+            clear
           >数字键盘</InputItem>
           <List.Item>
             <div
               style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
-              onClick={() => {
-                this.setState({
-                  moneyfocused: true,
-                });
-              }}
+              onClick={() => this.customFocusInst.focus()}
             >
               click to focus
             </div>
@@ -84,6 +75,7 @@ class H5NumberInputExample extends React.Component {
             })}
             type={type}
             placeholder="money format natural"
+            clear
           >正整数</InputItem>
         </List>
         <Button

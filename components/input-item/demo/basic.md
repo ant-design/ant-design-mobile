@@ -18,9 +18,11 @@ import { List, InputItem, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 class BasicInputExample extends React.Component {
-  state = {
-    focused: false,
-    focused1: false,
+  componentDidMount() {
+    // this.autoFocusInst.focus();
+  }
+  handleClick = () => {
+    this.customFocusInst.focus();
   }
   render() {
     const { getFieldProps } = this.props.form;
@@ -30,33 +32,25 @@ class BasicInputExample extends React.Component {
           <InputItem
             {...getFieldProps('autofocus')}
             clear
-            placeholder="auto focus in Alipay client"
-            autoFocus
+            placeholder="auto focus"
+            ref={el => this.autoFocusInst = el}
           >标题</InputItem>
           <InputItem
             {...getFieldProps('focus')}
             clear
             placeholder="click the button below to focus"
-            focused={this.state.focused}
-            onFocus={() => {
-              this.setState({
-                focused: false,
-              });
-            }}
+            ref={el => this.customFocusInst = el}
           >标题</InputItem>
           <List.Item>
             <div
               style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
-              onClick={() => {
-                this.setState({
-                  focused: true,
-                });
-              }}
+              onClick={this.handleClick}
             >
               click to focus
             </div>
           </List.Item>
         </List>
+
         <List renderHeader={() => 'Whether is controlled'}>
           <InputItem
             {...getFieldProps('control')}
@@ -67,18 +61,16 @@ class BasicInputExample extends React.Component {
             data-seed="logId"
           >非受控组件</InputItem>
         </List>
+
         <WhiteSpace />
+
         <List renderHeader={() => 'click label to focus input'}>
           <InputItem
             placeholder="click label to focus input"
-            focused={this.state.focused1}
-            onFocus={() => {
-              this.setState({
-                focused1: false,
-              });
-            }}
-          ><div onClick={() => this.setState({ focused1: true })}>标题</div></InputItem>
+            ref={el => this.labelFocusInst = el}
+          ><div onClick={() => this.labelFocusInst.focus()}>标题</div></InputItem>
         </List>
+
         <List renderHeader={() => 'Show clear icon'}>
           <InputItem
             {...getFieldProps('inputclear')}
@@ -86,7 +78,9 @@ class BasicInputExample extends React.Component {
             placeholder="displayed clear icon while typing"
           >标题</InputItem>
         </List>
+
         <WhiteSpace />
+
         <List renderHeader={() => 'Number of words for title'}>
           <InputItem
             {...getFieldProps('label8')}
@@ -94,7 +88,9 @@ class BasicInputExample extends React.Component {
             labelNumber={5}
           >标题过长超过默认的5个字</InputItem>
         </List>
+
         <WhiteSpace />
+
         <List renderHeader={() => 'Custom title（text / image / empty)'}>
           <InputItem
             {...getFieldProps('input3')}
@@ -107,7 +103,9 @@ class BasicInputExample extends React.Component {
             <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
           </InputItem>
         </List>
+
         <WhiteSpace />
+
         <List renderHeader={() => 'Customize the extra content in the right'}>
           <InputItem
             {...getFieldProps('preice')}
@@ -115,6 +113,7 @@ class BasicInputExample extends React.Component {
             extra="¥"
           >价格</InputItem>
         </List>
+
         <WhiteSpace />
         <List renderHeader={() => 'Format'}>
           <InputItem
@@ -139,7 +138,9 @@ class BasicInputExample extends React.Component {
             placeholder="click to show number keyboard"
           >数字键盘</InputItem>
         </List>
+
         <WhiteSpace />
+
         <List renderHeader={() => 'Not editable / Disabled'}>
           <InputItem
             value="Not editable"

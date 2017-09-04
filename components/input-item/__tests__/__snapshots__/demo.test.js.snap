@@ -25,7 +25,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="auto focus in Alipay client"
+            placeholder="auto focus"
             type="text"
             value=""
           />

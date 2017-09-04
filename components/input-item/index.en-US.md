@@ -36,11 +36,15 @@ Properties | Descrition | Type | Default
 | extra       | the right content of `InputItem`   | string or node |  ''  |
 | onExtraClick      | callback that is called when the extra content is clicked | (e: Object): void |  |
 | labelNumber  | number of label text, valid value is 2 to 7 | number | `5` |
-| autoFocus   | whether to focus the input on `componentDidMount`, each page has only one `Input` can be auto focused.（Note: It is no guarantee that all browsers are supported） | bool | false  |
-| focused   | whether the `InputItem` has been focused on `componentDidMount`, you need to change this property on `onFocus` or `onBlur` callback | bool | false  |
 | updatePlaceholder (`web only`) | whether to replace the placeholder with cleared content | bool | false|
 | prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |
 | name (`web only`)   | the name of input       | String |   |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |  无 |
 
 > More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
+
+## InputItem methods
+
+Property | Description | Type | Default
+----|-----|------|------
+| focus    | Force focus back onto the input node  | - |  -  |
