@@ -26,7 +26,15 @@
   & .@{swipeout-prefix-cls}-actions {
     transition: all 250ms;
   }
-
+  &-swiping {
+    & .@{swipeout-prefix-cls}-content,
+    & .@{swipeout-prefix-cls}-actions {
+      transition: none;
+    }
+    .am-list-item-active {
+      background-color: #FFF;
+    }
+  }
   &-actions {
     position: absolute;
     top: 0;

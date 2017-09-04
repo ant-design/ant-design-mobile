@@ -44,6 +44,7 @@ const SwipeActionExample = () => (
       <List.Item
         extra="More"
         arrow="horizontal"
+        onClick={e => console.log(e)}
       >
         Have left and right buttons
       </List.Item>
@@ -69,6 +70,7 @@ const SwipeActionExample = () => (
       <List.Item
         extra="More"
         arrow="horizontal"
+        onClick={e => console.log(e)}
       >
         Only left buttons
       </List.Item>
@@ -94,6 +96,7 @@ const SwipeActionExample = () => (
       <List.Item
         extra="More"
         arrow="horizontal"
+        onClick={e => console.log(e)}
       >
         Only right buttons
       </List.Item>
@@ -119,6 +122,7 @@ const SwipeActionExample = () => (
       <List.Item
         extra="More"
         arrow="horizontal"
+        onClick={e => console.log(e)}
       >
         Different button width
       </List.Item>
