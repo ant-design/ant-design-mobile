@@ -114,7 +114,7 @@
       border: none;
       transform: translateZ(0);
 
-      &::after {
+      &::before {
         content: '';
         position: absolute;
         left: 0;
@@ -164,6 +164,13 @@
 .hairline-remove(@position) when (@position = 'bottom') {
   border-bottom: 0;
   &:after {
+    display: none !important;
+  }
+}
+
+.hairline-remove(@position) when (@position = 'all') {
+  border: 0;
+  &:before {
     display: none !important;
   }
 }

@@ -72,22 +72,6 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-        Auto Platform
-      </span>
-    </a>
-  </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  />
-  <div
-    class="am-wingblank am-wingblank-lg"
-  >
-    <a
-      aria-disabled="false"
-      class="am-button"
-      role="button"
-    >
-      <span>
          Android UI 
       </span>
     </a>

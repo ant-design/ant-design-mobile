@@ -101,13 +101,13 @@
         text-align: left;
         padding: 0 24px @v-spacing-lg;
 
-        .@{modalPrefixClass}-input {
-          border-left: 0;
-          border-right: 0;
-          border-radius: 0;
-
-          &:first-child {
-            border-top: 0;
+        .@{modalPrefixClass}-input-container {
+          .hairline-remove('all');
+          .hairline('bottom');
+          .@{modalPrefixClass}-input {
+            &:first-child {
+              .hairline-remove('top');
+            }
           }
         }
       }
@@ -117,7 +117,7 @@
 
         .@{modalPrefixClass}-button-group-h {
           overflow: hidden;
-          border-top: 0;
+          .hairline-remove('top');
           justify-content: flex-end;
           padding: 0 2 * @v-spacing-sm;
 
@@ -129,13 +129,15 @@
             box-sizing: border-box;
 
             &:first-child {
-              border-right: 0;
               color: #777;
+            }
+            &:last-child {
+              .hairline-remove('left');
             }
           }
         }
 
-        .@{modalPrefixClass}-button-group-v {
+        .@{modalPrefixClass}-button-group-v.@{modalPrefixClass}-button-group-normal {
           display: flex;
           justify-content: flex-end;
           overflow: hidden;
@@ -149,6 +151,28 @@
             box-sizing: border-box;
           }
         }
+        .@{modalPrefixClass}-button-group-operation {
+          .@{modalPrefixClass}-button {
+            text-align: start;
+            padding-left: 15px;
+          }
+        }
+      }
+    }
+  }
+  &&-operation {
+    .@{modalPrefixClass}-content {
+      border-radius: @radius-lg;
+      height: auto;
+      padding-top: 0;
+
+      .@{modalPrefixClass}-body {
+        padding: 0!important;
+      }
+
+      .@{modalPrefixClass}-button {
+        color: @color-text-base;
+        text-align: center;
       }
     }
   }

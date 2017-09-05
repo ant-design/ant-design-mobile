@@ -93,7 +93,11 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
     let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
 
-    const btnGroupClass = `${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`;
+    const btnGroupClass = classNames({
+      [`${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`]: true,
+      [`${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`]: true,
+    });
+
     const footerDom = footer.length ? <div className={btnGroupClass} role="group">
       {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
     </div> : null;

@@ -43,21 +43,6 @@ class App extends React.Component {
       <div>
         <WhiteSpace />
         <WingBlank>
-          <Button onClick={this.showModal('modal1')}>Auto Platform</Button>
-        </WingBlank>
-        <WhiteSpace />
-        <Modal
-          title="title"
-          transparent
-          maskClosable={false}
-          visible={this.state.modal1}
-          onClose={this.onClose('modal1')}
-          footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
-        >
-          Content...<br />
-          Content...<br />
-        </Modal>
-        <WingBlank>
           <Button onClick={this.showModal('modal2')}> Android UI </Button>
         </WingBlank>
         <WhiteSpace />
