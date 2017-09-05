@@ -14,32 +14,17 @@
   </head>
   <body>
     <div id="react-content"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.5.10/prop-types.min.js"></script>
     {% if isDev %}
-      {% if useReact %}
-        <script src="https://as.alipayobjects.com/g/component/??react/{{ reactVersion }}/react.js,react/{{ reactVersion }}/react-dom.js"></script>
-      {% else %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact/{{preactVersion}}/preact.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact-compat/{{preactCompatVersion}}/preact-compat.js"></script>
-        <script>
-          var React = preactCompat;
-          var ReactDOM = preactCompat;
-        </script>
-      {% endif %}
     {% else %}
       {% if useReact %}
-        <script src="https://as.alipayobjects.com/g/component/??react/{{ reactVersion }}/react.min.js,react/{{ reactVersion }}/react-dom.min.js"></script>
+        <script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.min.js,react/15.6.1/react-dom.min.js"></script>
       {% else %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact/{{preactVersion}}/preact.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact-compat/{{preactCompatVersion}}/preact-compat.min.js"></script>
-        <script>
-          var React = preactCompat;
-          var ReactDOM = preactCompat;
-        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact/8.2.5/preact.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/preact-compat/3.17.0/preact-compat.min.js"></script>
       {% endif %}
+      <!-- react-router@3.0.5 -->
+      <script src="https://gw.alipayobjects.com/os/rmsportal/cazbJtoQZXZDNurlPtJd.js"></script>
     {% endif %}
-    <!-- react-router@3.0.1 -->
-    <script src="https://os.alipayobjects.com/rmsportal/cKhWVRQekamWvdBwZcGT.js"></script>
     <!-- history@3.2.1 -->
     <script src="https://os.alipayobjects.com/rmsportal/VnttsLkEQmyLDBBluBQq.js"></script>
     <!-- babel-polyfill@6.20.0 -->

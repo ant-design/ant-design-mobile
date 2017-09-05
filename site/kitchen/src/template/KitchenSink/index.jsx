@@ -5,7 +5,9 @@ import { addLocaleData, IntlProvider, FormattedMessage } from 'react-intl';
 import '../../static/style';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
-import { getQuery } from '../../../../utils';
+import { getQuery, injectPreactDevtool } from '../../../../utils';
+
+injectPreactDevtool();
 
 const sort = (a, b) => {
   if (a > b) {

@@ -93,6 +93,14 @@ export function getQuery(key) {
   return val && val[1];
 }
 
+export function injectPreactDevtool() {
+  /* eslint-disable no-undef,global-require, no-console */
+  if (PREACT_DEVTOOLS) {
+    console.log('inject preact devtools');
+    require('preact/devtools');
+  }
+}
+
 export const head =
 `<script>
   (function (baseFontSize, fontscale) {

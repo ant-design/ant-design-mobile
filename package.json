@@ -37,7 +37,6 @@
     "create-react-class": "^15.5.2",
     "normalize.css": "^7.0.0",
     "omit.js": "~1.0.0",
-    "prop-types": "^15.5.8",
     "rc-checkbox": "~2.0.0",
     "rc-collapse": "~1.7.0",
     "rc-dialog": "~6.5.7",
