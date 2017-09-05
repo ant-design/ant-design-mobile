@@ -136,7 +136,7 @@
           }
         }
 
-        .@{modalPrefixClass}-button-group-v {
+        .@{modalPrefixClass}-button-group-v.@{modalPrefixClass}-button-group-normal {
           display: flex;
           justify-content: flex-end;
           overflow: hidden;
@@ -150,6 +150,28 @@
             box-sizing: border-box;
           }
         }
+        .@{modalPrefixClass}-button-group-operation {
+          .@{modalPrefixClass}-button {
+            text-align: start;
+            padding-left: 30px;
+          }
+        }
+      }
+    }
+  }
+  &&-operation {
+    .@{modalPrefixClass}-content {
+      border-radius: @radius-lg;
+      height: auto;
+      padding-top: 0;
+
+      .@{modalPrefixClass}-body {
+        padding: 0!important;
+      }
+
+      .@{modalPrefixClass}-button {
+        color: @color-text-base;
+        text-align: center;
       }
     }
   }
