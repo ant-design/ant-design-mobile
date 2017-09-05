@@ -360,7 +360,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
             <p
               style="padding:20px;margin:0;text-align:center;"
             >
-              Content of 1st Tab
+              Content of 1st Tab 100
             </p>
             <div
               class="row"
@@ -3873,7 +3873,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
             <p
               style="padding:20px;margin:0;text-align:center;"
             >
-              Content of 2nd Tab
+              Content of 2nd Tab 5
             </p>
             <div
               class="row"

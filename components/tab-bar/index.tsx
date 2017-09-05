@@ -32,8 +32,9 @@ class AntTabBar extends React.Component<TabBarProps, any> {
     const barCls = hidden ? `${prefixCls}-bar-hidden` : `${prefixCls}-bar`;
     const tabsData = this.getTabs();
 
-    const content = tabsData.map(cProps => {
+    const content = tabsData.map((cProps, index) => {
       return <Tab
+        key={index}
         prefixCls={`${this.props.prefixCls}-tab`}
         badge={cProps.badge}
         dot={cProps.dot}
