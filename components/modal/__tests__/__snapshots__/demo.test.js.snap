@@ -59,39 +59,30 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
 `;
 
 exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
-<div>
+<div
+  class="am-wingblank am-wingblank-lg"
+>
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
+  >
+    <span>
+      basic
+    </span>
+  </a>
   <div
     class="am-whitespace am-whitespace-md"
   />
-  <div
-    class="am-wingblank am-wingblank-lg"
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
   >
-    <a
-      aria-disabled="false"
-      class="am-button"
-      role="button"
-    >
-      <span>
-         Android UI 
-      </span>
-    </a>
-  </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  />
-  <div
-    class="am-wingblank am-wingblank-lg"
-  >
-    <a
-      aria-disabled="false"
-      class="am-button"
-      role="button"
-    >
-      <span>
-         iOS UI
-      </span>
-    </a>
-  </div>
+    <span>
+      popup
+    </span>
+  </a>
   <div
     class="am-whitespace am-whitespace-md"
   />
