@@ -82,12 +82,6 @@ module.exports = {
       module: require('../components/popover/demo/basic.native'),
     },
     {
-      title: 'Popup', // 必须
-      description: '弹出层',
-      icon: 'https://zos.alipayobjects.com/rmsportal/gfWmRfZNzMyVUss.png',
-      module: require('../components/popup/demo/basic.native'), // 必须
-    },
-    {
       title: 'Result', // 必须
       description: '结果页',
       icon: 'https://os.alipayobjects.com/rmsportal/nREwETegxvDndJZ.png',

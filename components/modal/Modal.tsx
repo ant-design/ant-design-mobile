@@ -2,14 +2,14 @@ import React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import { ModalProps, ModalComponent } from './PropsType';
-import omit from 'omit.js';
 import TouchFeedback from '../_util/touchFeedback';
 
 export default class Modal extends ModalComponent<ModalProps, any> {
   static defaultProps = {
     prefixCls: 'am-modal',
-    // transparent change to transparent by yiminghe
     transparent: false,
+    popup: false,
+    animationType: 'slide-down',
     animated: true,
     style: {},
     onShow() {},
@@ -70,68 +70,70 @@ export default class Modal extends ModalComponent<ModalProps, any> {
   }
 
   render() {
-    const {
-      prefixCls,
-      className,
-      transparent,
-      animated,
-      transitionName,
-      maskTransitionName,
-      style,
-      footer = [],
-      closable,
-      operation,
-      platform,
+    let {
+      prefixCls, className, wrapClassName, transitionName, maskTransitionName, style, platform,
+      footer = [], operation, animated, transparent, popup, animationType, ...restProps,
     } = this.props;
-
-    const wrapCls = classNames({
-      [className as string]: !!className,
-      [`${prefixCls}-transparent`]: transparent,
-      [`${prefixCls}-android`]: platform === 'android',
-    });
-
-    let anim = transitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
-    let maskAnim = maskTransitionName || (animated ? (transparent ? 'am-fade' : 'am-slide-up') : null);
 
     const btnGroupClass = classNames({
       [`${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`]: true,
       [`${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`]: true,
     });
-
     const footerDom = footer.length ? <div className={btnGroupClass} role="group">
       {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
     </div> : null;
 
-    // transparent 模式下, 内容默认居中
-    const rootStyle = transparent ?
-      {
-        width: 270,
-        height: 'auto',
-        ...style,
-      } :
-      {
-        width: '100%',
-        height: '100%',
-        ...style,
-      };
+    // popup 模式自动禁止 transparent
+    if (popup) {
+      transparent = false;
+    }
 
-    const restProps = omit(this.props, [
-      'prefixCls', 'className', 'transparent', 'animated', 'transitionName', 'maskTransitionName',
-      'style', 'footer', 'touchFeedback', 'wrapProps', 'platform',
-    ]);
-    const wrapProps = { onTouchStart: e => this.isInModal(e) };
+    let transName;
+    let maskTransName;
+    if (animated) {
+      if (transparent) {
+        transName = maskTransName = 'am-fade';
+      } else {
+        transName = maskTransName = 'am-slide-up';
+      }
+      if (popup) {
+        transName = animationType === 'slide-up' ? 'am-slide-up' : 'am-slide-down';
+        maskTransName = 'am-fade';
+      }
+    }
+
+    if (transparent) {
+      // transparent 模式下, 内容默认居中
+      style = { width: 270, height: 'auto', ...style };
+    } else {
+      if (!popup) {
+        style = { width: '100%', height: '100%', ...style };
+      }
+    }
+
+    const wrapCls = classNames({
+      [wrapClassName as string]: !!wrapClassName,
+      [`${prefixCls}-wrap-popup`]: popup,
+    });
+    const cls = classNames({
+      [className as string]: !!className,
+      [`${prefixCls}-transparent`]: transparent,
+      [`${prefixCls}-popup`]: popup,
+      [`${prefixCls}-popup-${animationType}`]: popup && animationType,
+      [`${prefixCls}-android`]: platform === 'android',
+    });
 
     return (
       <Dialog
-        prefixCls={prefixCls}
-        className={wrapCls}
-        transitionName={anim}
-        maskTransitionName={maskAnim}
-        style={rootStyle}
-        footer={footerDom}
-        wrapProps={wrapProps}
-        closable={closable}
         {...restProps}
+        prefixCls={prefixCls}
+        className={cls}
+        wrapClassName={wrapCls}
+        transitionName={transitionName || transName}
+        maskTransitionName={maskTransitionName || maskTransName}
+        style={style}
+        footer={footerDom}
+        wrapProps={{ onTouchStart: e => this.isInModal(e) }}
       />
     );
   }

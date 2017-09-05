@@ -4,6 +4,7 @@ import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 export interface IModalStyle {
   container: ViewStyle;
   wrap: ViewStyle;
+  popupContainer: ViewStyle;
   innerContainer: ViewStyle;
   footer: ViewStyle;
   header: TextStyle;
@@ -29,6 +30,14 @@ export default {
     justifyContent: 'center',
     alignItems: 'center',
   },
+  popupContainer: {},
+  popupSlideUp: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  popupSlideDown: {},
   innerContainer: {
     borderRadius: variables.radius_md,
     width: 286,

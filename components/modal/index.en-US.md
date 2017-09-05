@@ -20,15 +20,16 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| prefixCls (web only)      | Class name prefix of elements |    String   | `am-modal`      |
 | visible      | Determine whether a modal dialog is visible or not | Boolean          | false           |
-| onClose      | Callback for clicking close icon x or mask        | (): void   | - |
-| title (only transparent)       | title           | React.Element    | -           |
 | closable    | Determine whether a close (x) button is visible or not | Boolean    | `false`       |
-| maskClosable (only transparent) | Determine whether to close the modal dialog when clicked mask of it | Boolean   | true       |
-| footer  (only not transparent)     | footer content       |  Array [{text, onPress}]    | [] |
+| maskClosable | Determine whether to close the modal dialog when clicked mask of it (only transparent) | Boolean   | true       |
+| onClose      | Callback for clicking close icon x or mask        | (): void   | - |
 | transparent | transparent mode or full screen mode       | Boolean   |  false |
-| animationType (`rn only`) | Options: 'slide-down/up'(only transparent) / 'fade' / 'slide'(only not tranparent) | String |   fade |
+| popup | popup mode       | Boolean   |  false |
+| animationType | Options: 'slide-down/up'(only transparent / `web version`) / 'fade' / 'slide'(only not tranparent) | String |   fade |
+| title       | title (only transparent)         | React.Element    | -           |
+| footer     | footer content (only not transparent)       |  Array [{text, onPress}]    | [] |
+| prefixCls (`web only`)      | Class name prefix of elements |    String   | `am-modal`      |
 | style (`web only`) |  style    | Object | transparent: {width: '286px', height: 'cross'}, <br />not transparent:  {width: '100%', height: '100%'} (web)|
 | platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios` | String | `'ios'`|
 

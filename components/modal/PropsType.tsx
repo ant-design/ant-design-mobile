@@ -7,8 +7,8 @@ export interface ModalProps {
   closable?: boolean;
   footer?: Array<{}>;
   onClose?: () => void;
-  /** react native only **/
   transparent?: boolean;
+  popup?: boolean;
   style?: {};
   animated?: boolean;
   bodyStyle?: {};

@@ -14,7 +14,7 @@ title:
 Basic Modal.
 
 ````jsx
-import { Modal, Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Modal, List, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,12 +22,9 @@ class App extends React.Component {
     this.state = {
       modal1: false,
       modal2: false,
-      modal3: false,
     };
   }
   showModal = key => (e) => {
-    // 现象：如果弹出的弹框上的 x 按钮的位置、和手指点击 button 时所在的位置「重叠」起来，
-    // 会触发 x 按钮的点击事件而导致关闭弹框 (注：弹框上的取消/确定等按钮遇到同样情况也会如此)
     e.preventDefault(); // 修复 Android 上点击穿透
     this.setState({
       [key]: true,
@@ -40,44 +37,49 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
-        <WhiteSpace />
-        <WingBlank>
-          <Button onClick={this.showModal('modal2')}> Android UI </Button>
-        </WingBlank>
+      <WingBlank>
+        <Button onClick={this.showModal('modal1')}>basic</Button>
         <WhiteSpace />
         <Modal
+          visible={this.state.modal1}
+          transparent
+          maskClosable={false}
+          onClose={this.onClose('modal1')}
           title="Title"
-          transparent
-          maskClosable={false}
-          visible={this.state.modal2}
-          onClose={this.onClose('modal2')}
-          footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal2')(); } }]}
-          platform="android"
+          footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
         >
           Content...<br />
           Content...<br />
         </Modal>
-        <WingBlank>
-          <Button onClick={this.showModal('modal3')}> iOS UI</Button>
-        </WingBlank>
+
+        <Button onClick={this.showModal('modal2')}>popup</Button>
         <WhiteSpace />
         <Modal
-          title="title"
+          visible={this.state.modal2}
+          popup
           transparent
           maskClosable={false}
-          visible={this.state.modal3}
-          onClose={this.onClose('modal3')}
-          footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal3')(); } }]}
-          platform="ios"
+          animationType="slide-up"
         >
-          Content...<br />
-          Content...<br />
+          <List renderHeader={() => <div>委托买入</div>} className="popup-list">
+            {['股票名称', '股票代码', '买入价格'].map((i, index) => (
+              <List.Item key={index}>{i}</List.Item>
+            ))}
+            <List.Item>
+              <Button type="primary" onClick={this.onClose('modal2')}>买入</Button>
+            </List.Item>
+          </List>
         </Modal>
-      </div>
+      </WingBlank>
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
+````
+````css
+.popup-list .am-list-body {
+  height: 210px;
+  overflow: auto;
+}
 ````

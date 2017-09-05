@@ -30,6 +30,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    &-popup {
+      display: block;
+    }
+  }
+
+  &-popup {
+    position: fixed;
+    left: 0;
+    width: 100%;
+
+    &-slide-down {
+      top: 0;
+    }
+
+    &-slide-up {
+      bottom: 0;
+    }
   }
 
   &&-transparent {

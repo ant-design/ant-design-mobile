@@ -34,6 +34,7 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
     },
     footer: [],
     transparent: false,
+    popup: false,
     animateAppear: true,
     styles: modalStyles,
     operation: false,
@@ -57,9 +58,9 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
   }
 
   render() {
-    const {
+    let {
       title, closable, footer, children, style, animateAppear, maskClosable,
-      transparent, visible, onClose, bodyStyle, onAnimationEnd, operation,
+      popup, transparent, visible, onClose, bodyStyle, onAnimationEnd, operation,
     } = this.props;
 
     const styles = this.props.styles!;
@@ -145,6 +146,30 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
               {footerDom}
               {closableDom}
             </View>
+          </RCModal>
+        </View>
+      );
+    }
+    if (popup) {
+      let aType = 'SlideDown';
+      if (animType === 'slide-up') {
+        animType = 'slide-up';
+        aType = 'SlideUp';
+      } else {
+        animType = 'slide-down';
+      }
+      return (
+        <View style={styles.container}>
+          <RCModal
+            onClose={onClose}
+            animationType={animType}
+            style={[styles.popupContainer, styles[`popup${aType}`], style]}
+            visible={visible}
+            onAnimationEnd={onAnimationEnd}
+            animateAppear={animateAppear}
+            maskClosable={maskClosable}
+          >
+            <View ref={this.saveRoot} style={bodyStyle}>{children}</View>
           </RCModal>
         </View>
       );

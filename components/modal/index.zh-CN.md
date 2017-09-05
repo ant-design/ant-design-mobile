@@ -22,15 +22,16 @@ subtitle: 对话框
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| prefixCls (web only)      | 样式类名前缀 |    String   | `am-modal`      |
-| visible      | 对话框是否可见 | Boolean          | false           |
-| onClose      | 点击 x 或 mask 回调       | (): void   | 无 |
-| title (only transparent)       | 标题           | React.Element    | 无           |
+| visible     | 对话框是否可见 | Boolean          | false           |
 | closable    | 是否显示关闭按钮 | Boolean    | `false`        |
-| maskClosable (only transparent) | 点击蒙层是否允许关闭 | Boolean   | true       |
-| footer  (only not transparent)     | 底部内容       |  Array [{text, onPress}]    | [] |
-| transparent | 是否弹窗模式       | Boolean   |  false |
-| animationType (`rn only`) | 可选: 'slide-down/up'(transparent 模式下) / 'fade' / 'slide'(仅非 tranparent) | String |   fade |
+| maskClosable | 点击蒙层是否允许关闭 (only transparent) | Boolean   | true       |
+| onClose     | 点击 x 或 mask 回调       | (): void   | 无 |
+| transparent | 是否背景透明       | Boolean   |  false |
+| popup | 是否弹窗模式       | Boolean   |  false |
+| animationType | 可选: 'slide-down/up'(transparent 模式下 / `web version`) / 'fade' / 'slide'(仅非 tranparent) | String |   fade |
+| title       | 标题 (only transparent)   | React.Element    | 无           |
+| footer     | 底部内容 (only not transparent)     |  Array [{text, onPress}]    | [] |
+| prefixCls (`web only`)    | 样式类名前缀 |    String   | `am-modal`      |
 | style (`web only`) |  样式    | Object | 透明模式下: {width: '286px', height: 'cross'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
 | platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
 

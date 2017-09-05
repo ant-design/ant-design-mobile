@@ -8,25 +8,20 @@ export default class BasicModalExample extends React.Component<any, any> {
     super(props);
     this.state = {
       visible: false,
+      visible1: false,
       visible2: false,
     };
-  }
-
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  }
-
-  showModal2 = () => {
-    this.setState({
-      visible2: true,
-    });
   }
 
   onClose = () => {
     this.setState({
       visible: false,
+    });
+  }
+
+  onClose1 = () => {
+    this.setState({
+      visible1: false,
     });
   }
 
@@ -93,9 +88,11 @@ export default class BasicModalExample extends React.Component<any, any> {
     return (
       <View style={{ paddingTop: 30, marginTop: 64 }}>
         <WingBlank>
-          <Button onClick={this.showModal}>showModal</Button>
+          <Button onClick={() => this.setState({ visible: true })}>showModal</Button>
           <WhiteSpace />
-          <Button onClick={this.showModal2}>transparent:false</Button>
+          <Button onClick={() => this.setState({ visible1: true })}>transparent:false</Button>
+          <WhiteSpace />
+          <Button onClick={() => this.setState({ visible2: true })}>popup</Button>
           <WhiteSpace />
           <Button onClick={this.onButtonClick}>Modal.alert</Button>
           <WhiteSpace />
@@ -107,18 +104,6 @@ export default class BasicModalExample extends React.Component<any, any> {
           <WhiteSpace />
           <Button onClick={this.onButtonClick4}>Modal.prompt (secure-text)</Button>
         </WingBlank>
-        <Modal
-          transparent={false}
-          visible={this.state.visible2}
-          animationType="slide-up"
-          onClose={this.onClose2}
-        >
-          <View style={{ paddingVertical: 220 }}>
-            <Text style={{ textAlign: 'center' }}>Content...</Text>
-            <Text style={{ textAlign: 'center' }}>Content...</Text>
-          </View>
-          <Button type="primary" inline onClick={this.onClose2}>close modal</Button>
-        </Modal>
         <Modal
           title="Title"
           transparent
@@ -133,6 +118,30 @@ export default class BasicModalExample extends React.Component<any, any> {
             <Text style={{ textAlign: 'center' }}>Content...</Text>
           </View>
           <Button type="primary" inline onClick={this.onClose}>close modal</Button>
+        </Modal>
+        <Modal
+          transparent={false}
+          visible={this.state.visible1}
+          animationType="slide-up"
+          onClose={this.onClose1}
+        >
+          <View style={{ paddingVertical: 220 }}>
+            <Text style={{ textAlign: 'center' }}>Content...</Text>
+            <Text style={{ textAlign: 'center' }}>Content...</Text>
+          </View>
+          <Button type="primary" inline onClick={this.onClose1}>close modal</Button>
+        </Modal>
+        <Modal
+          popup
+          visible={this.state.visible2}
+          animationType="slide-up"
+          onClose={this.onClose2}
+        >
+          <View style={{ paddingVertical: 20, paddingHorizontal: 20 }}>
+            <Text style={{ textAlign: 'center' }}>Content...</Text>
+            <Text style={{ textAlign: 'center' }}>Content...</Text>
+          </View>
+          <Button type="primary" inline onClick={this.onClose2}>close modal</Button>
         </Modal>
       </View>
     );

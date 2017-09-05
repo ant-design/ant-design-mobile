@@ -20,7 +20,6 @@ export { default as NoticeBar } from './notice-bar/index.native';
 export { default as Pagination } from './pagination/index.native';
 export { default as Picker } from './picker/index.native';
 export { default as Popover } from './popover/index.native';
-export { default as Popup } from './popup/index.native';
 export { default as Progress } from './progress/index.native';
 export { default as Radio } from './radio/index.native';
 export { default as RefreshControl } from './refresh-control/index.native';
