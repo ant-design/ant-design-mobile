@@ -57,11 +57,7 @@ module.exports = {
       },
     ]);
 
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        PREACT_DEVTOOLS: isDev && !useReact,
-      }),
-    );
+    config.plugins.push(new webpack.DefinePlugin({ PREACT_DEVTOOLS: isDev && !useReact }));
     return config;
   },
   htmlTemplateExtraData: {
