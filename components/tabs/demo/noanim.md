@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 无动画
   en-US: 'No animation'
@@ -10,34 +10,25 @@ Switch tabs without animation
 ````jsx
 import { Tabs, WhiteSpace } from 'antd-mobile';
 
-const TabPane = Tabs.TabPane;
-
-function callback(key) {
-  console.log('onChange', key);
-}
-function handleTabClick(key) {
-  console.log('onTabClick', key);
-}
+const tabs = [
+  { title: 'First Tab' },
+  { title: 'Second Tab' },
+  { title: 'Third Tab' },
+];
 
 const TabExample = () => (
   <div>
     <WhiteSpace />
-    <Tabs defaultActiveKey="3" animated={false} onChange={callback} onTabClick={handleTabClick}>
-      <TabPane tab="First tab" key="1">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-           Content of First Tab
-        </div>
-      </TabPane>
-      <TabPane tab="Second Tab" key="2">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-           Content of Second Tab
-        </div>
-      </TabPane>
-      <TabPane tab="Third Tab" key="3">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-           Content of Third Tab
-        </div>
-      </TabPane>
+    <Tabs tabs={tabs} initialPage={2} animated={false} useOnPan={false}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+        Content of First Tab
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+        Content of Second Tab
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+        Content of Third Tab
+      </div>
     </Tabs>
     <WhiteSpace />
   </div>

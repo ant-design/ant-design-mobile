@@ -1,56 +1,32 @@
 import React from 'react';
-import RcTabs, { TabPane } from 'rc-tabs';
+import { Tabs as RMCTabs, DefaultTabBar as RMCDefaultTabBar, TabBarPropsType } from 'rmc-tabs';
 import TabsProps from './PropsType';
-import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
-import TabContent from 'rc-tabs/lib/TabContent';
-import InkTabBar from 'rc-tabs/lib/InkTabBar';
-import SwipeableInkTabBar from 'rc-tabs/lib/SwipeableInkTabBar';
 
-export default class Tabs extends React.Component<TabsProps, any> {
-  static TabPane = TabPane;
+export class DefaultTabBar extends RMCDefaultTabBar {
+  static defaultProps = {
+    ...RMCDefaultTabBar.defaultProps,
+    prefixCls: 'am-tabs-default-bar',
+  } as TabBarPropsType;
+}
+
+export default class Tabs extends React.PureComponent<TabsProps, {}> {
+
+  public static DefaultTabBar = DefaultTabBar;
 
   static defaultProps = {
-      prefixCls: 'am-tabs',
-      animated: true,
-      swipeable: true,
-      tabBarPosition: 'top',
-      hammerOptions: {},
-      tabBarhammerOptions: {},
-      pageSize: 5,
-      speed: 10,
-      onChange() {},
-      onTabClick() {},
+    prefixCls: 'am-tabs',
   };
 
-  renderTabBar = () => {
-    const { children, animated, speed, pageSize, tabBarhammerOptions, onTabClick } = this.props;
-    if (children.length > (pageSize as number)) {
-      return (
-        <SwipeableInkTabBar
-          onTabClick={onTabClick}
-          speed={speed}
-          pageSize={pageSize}
-          hammerOptions={tabBarhammerOptions}
-        />
-      );
-    }
-    return <InkTabBar inkBarAnimated={animated} onTabClick={onTabClick} />;
-  }
-
-  renderTabContent = () => {
-    const { animated, swipeable, hammerOptions } = this.props;
-    return swipeable ? (
-      <SwipeableTabContent animated={animated} hammerOptions={hammerOptions} />
-    ) : (
-      <TabContent animated={animated} />
-    );
+  renderTabBar = (props: any) => {
+    const { renderTab } = this.props;
+    return <DefaultTabBar  {...props} renderTab={renderTab} />;
   }
 
   render() {
+
     return (
-      <RcTabs
+      <RMCTabs
         renderTabBar={this.renderTabBar}
-        renderTabContent={this.renderTabContent}
         {...this.props}
       />
     );

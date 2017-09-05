@@ -24,6 +24,7 @@ timeline: true
   - `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
   - 新增`DatePickerView`组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - Button 组件分别对应各个 type 新增各自的 disabled 状态样式
+  - 新增`Calendar`组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
 
 - **Break Change**
 
@@ -45,6 +46,7 @@ timeline: true
   - `Modal`、`List.Item`、`Switch` 将默认采用 ios 样式，不再根据 UA 进行自动探测; [#1371](https://github.com/ant-design/ant-design-mobile/issues/1371)
   - 用 ref function 替换 ref string [#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
   - `InputItem`, `TextareaItem` 去除 `focused`, `autoFocus` api, 此需求用 `focus()` 实例方法代替。
+  - 重构`Tabs`组件，底层重写，api全面更新
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

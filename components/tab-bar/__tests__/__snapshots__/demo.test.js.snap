@@ -2,188 +2,179 @@
 
 exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
 <div
-  class="am-tab-bar am-tab-bar-bottom"
+  class="am-tab-bar"
 >
   <div
-    class="am-tab-bar-content am-tab-bar-content-no-animated"
+    class="am-tabs am-tabs-bottom"
   >
     <div
-      aria-hidden="true"
-      class="am-tab-bar-tabpane am-tab-bar-tabpane-inactive"
-      role="tabpanel"
-    >
-      正在加载
-    </div>
-    <div
-      aria-hidden="false"
-      class="am-tab-bar-tabpane am-tab-bar-tabpane-active"
-      role="tabpanel"
+      class="am-tabs-content-wrap"
+      style="touch-action:pan-x pan-y;transform:translate3d(-100%, 0px, 0px);-webkit-transform:translate3d(-100%, 0px, 0px);-moz-transform:translate3d(-100%, 0px, 0px);"
     >
       <div
-        style="background-color:white;height:100%;text-align:center;"
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
       >
         <div
-          style="padding-top:60px;"
+          style="background-color:white;height:100%;text-align:center;"
         >
-          clicked “Koubei” tab， show “Koubei” information
-        </div>
-        <a
-          style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
-        >
-          click to show/hide tab-bar
-        </a>
-      </div>
-    </div>
-    <div
-      aria-hidden="true"
-      class="am-tab-bar-tabpane am-tab-bar-tabpane-inactive"
-      role="tabpanel"
-    >
-      正在加载
-    </div>
-    <div
-      aria-hidden="true"
-      class="am-tab-bar-tabpane am-tab-bar-tabpane-inactive"
-      role="tabpanel"
-    >
-      正在加载
-    </div>
-  </div>
-  <div
-    class="am-tab-bar-bar"
-    role="tablist"
-    style="background-color:white;"
-    tabindex="0"
-  >
-    <div
-      aria-disabled="false"
-      aria-selected="false"
-      class=" am-tab-bar-tab"
-      role="tab"
-    >
-      <div
-        data-seed="logId"
-      >
-        <div
-          class="am-tab-bar-tab-icon"
-          style="color:#949494;"
-        >
-          <span
-            class="am-tab-bar-tab-badge tab-badge am-badge"
+          <div
+            style="padding-top:60px;"
           >
-             
-            <div
-              style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat;"
-            />
-             
-            <sup
-              class="am-badge-text"
-            >
-              1
-            </sup>
-          </span>
+            clicked “Life” tab， show “Life” information
+          </div>
+          <a
+            style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+          >
+            click to show/hide tab-bar
+          </a>
         </div>
-        <p
-          class="am-tab-bar-tab-title"
-          style="color:#949494;"
-        >
-          Life
-        </p>
       </div>
-    </div>
-    <div
-      aria-disabled="false"
-      aria-selected="true"
-      class="am-tab-bar-tab-active am-tab-bar-tab"
-      role="tab"
-    >
       <div
-        data-seed="logId1"
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
       >
         <div
-          class="am-tab-bar-tab-icon"
-          style="color:#33A3F4;"
+          style="background-color:white;height:100%;text-align:center;"
         >
-          <span
-            class="am-tab-bar-tab-badge tab-badge am-badge"
+          <div
+            style="padding-top:60px;"
           >
-             
-            <svg
-              class="am-icon am-icon-koubei am-icon-md"
+            clicked “Koubei” tab， show “Koubei” information
+          </div>
+          <a
+            style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+          >
+            click to show/hide tab-bar
+          </a>
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="background-color:white;height:100%;text-align:center;"
+        >
+          <div
+            style="padding-top:60px;"
+          >
+            clicked “Friend” tab， show “Friend” information
+          </div>
+          <a
+            style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+          >
+            click to show/hide tab-bar
+          </a>
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+    </div>
+    <div
+      class="am-tabs-tab-bar-wrap"
+    >
+      <div
+        class="am-tab-bar-bar"
+        style="background-color:white;"
+      >
+        <div
+          data-seed="logId"
+        >
+          <div
+            class="am-tab-bar-tab-icon"
+            style="color:#949494;"
+          >
+            <span
+              class="am-tab-bar-tab-badge tab-badge am-badge"
             >
-              <use
-                xlink:href="#koubei"
+               
+              <div
+                style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat;"
               />
-            </svg>
-             
-            <sup
-              class="am-badge-text"
-            >
-              new
-            </sup>
-          </span>
-        </div>
-        <p
-          class="am-tab-bar-tab-title"
-          style="color:#33A3F4;"
-        >
-          Koubei
-        </p>
-      </div>
-    </div>
-    <div
-      aria-disabled="false"
-      aria-selected="false"
-      class=" am-tab-bar-tab"
-      role="tab"
-    >
-      <div>
-        <div
-          class="am-tab-bar-tab-icon"
-          style="color:#949494;"
-        >
-          <span
-            class="am-tab-bar-tab-badge tab-dot am-badge"
+               
+              <sup
+                class="am-badge-text"
+              >
+                1
+              </sup>
+            </span>
+          </div>
+          <p
+            class="am-tab-bar-tab-title"
+            style="color:#949494;"
           >
-            <div
-              style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat;"
-            />
-            <sup
-              class="am-badge-dot"
-            />
-          </span>
+            Life
+          </p>
         </div>
-        <p
-          class="am-tab-bar-tab-title"
-          style="color:#949494;"
-        >
-          Friend
-        </p>
-      </div>
-    </div>
-    <div
-      aria-disabled="false"
-      aria-selected="false"
-      class=" am-tab-bar-tab"
-      role="tab"
-    >
-      <div>
         <div
-          class="am-tab-bar-tab-icon"
-          style="color:#949494;"
+          data-seed="logId1"
         >
-          <img
-            alt="My"
-            class="am-tab-bar-tab-image"
-            src="https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg"
-          />
+          <div
+            class="am-tab-bar-tab-icon"
+            style="color:#33A3F4;"
+          >
+            <span
+              class="am-tab-bar-tab-badge tab-badge am-badge"
+            >
+               
+              <div
+                style="width:22px;height:22px;background:url(https://gw.alipayobjects.com/zos/rmsportal/ZGXnYElJHBJjuiWLIlNe.svg) center center /  21px 21px no-repeat;"
+              />
+               
+              <sup
+                class="am-badge-text"
+              >
+                new
+              </sup>
+            </span>
+          </div>
+          <p
+            class="am-tab-bar-tab-title"
+            style="color:#33A3F4;"
+          >
+            Koubei
+          </p>
         </div>
-        <p
-          class="am-tab-bar-tab-title"
-          style="color:#949494;"
-        >
-          My
-        </p>
+        <div>
+          <div
+            class="am-tab-bar-tab-icon"
+            style="color:#949494;"
+          >
+            <span
+              class="am-tab-bar-tab-badge tab-dot am-badge"
+            >
+              <div
+                style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat;"
+              />
+              <sup
+                class="am-badge-dot"
+              />
+            </span>
+          </div>
+          <p
+            class="am-tab-bar-tab-title"
+            style="color:#949494;"
+          >
+            Friend
+          </p>
+        </div>
+        <div>
+          <div
+            class="am-tab-bar-tab-icon"
+            style="color:#949494;"
+          >
+            <img
+              alt="My"
+              class="am-tab-bar-tab-image"
+              src="https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg"
+            />
+          </div>
+          <p
+            class="am-tab-bar-tab-title"
+            style="color:#949494;"
+          >
+            My
+          </p>
+        </div>
       </div>
     </div>
   </div>

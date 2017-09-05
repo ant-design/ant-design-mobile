@@ -1,16 +1,10 @@
 import React from 'react';
-import Tabs, { TabPane } from 'rc-tabs';
-import warning from 'warning';
+import Tabs from '../tabs';
 import Tab from './Tab';
-import TabContent from 'rc-tabs/lib/TabContent';
-import TabBar from 'rc-tabs/lib/TabBar';
 import getDataAttr from '../_util/getDataAttr';
 import { TabBarProps, TabBarItemProps } from './PropsType';
 
 export class Item extends React.Component<TabBarItemProps, any> {
-  render() {
-    return null;
-  }
 }
 
 class AntTabBar extends React.Component<TabBarProps, any> {
@@ -25,42 +19,21 @@ class AntTabBar extends React.Component<TabBarProps, any> {
 
   public static Item = Item;
 
-  onChange = key => {
-    React.Children.forEach(this.props.children, (c: any) => {
-      if (c.key === key && c.props.onPress) {
-        c.props.onPress();
-      }
+  getTabs = () => {
+    return React.Children.map(this.props.children, (c: any) => {
+      return {
+        ...c.props as TabBarItemProps,
+      };
     });
   }
 
   renderTabBar = () => {
-    const { barTintColor, hidden, prefixCls } = this.props;
-    const barCls = hidden ? `${prefixCls}-bar-hidden` : '';
-    return <TabBar className={barCls} style={{ backgroundColor: barTintColor }}/>;
-  }
+    const { barTintColor, hidden, prefixCls, tintColor, unselectedTintColor } = this.props;
+    const barCls = hidden ? `${prefixCls}-bar-hidden` : `${prefixCls}-bar`;
+    const tabsData = this.getTabs();
 
-  renderTabContent = () => {
-    return <TabContent animated={false} />;
-  }
-
-  render() {
-    let activeKey;
-    const children: any[] = [];
-    const _allKeys: any[] = [];
-    React.Children.forEach(this.props.children, (c: any) => {
-      const hasKey = !!c.key;
-      const isUnique = _allKeys.indexOf(c.key) === -1;
-      warning(hasKey && isUnique, 'TabBar.Item must have a unique key!');
-      _allKeys.push(c.key);
-      if (c.props.selected) {
-        activeKey = c.key;
-      }
-      children.push(c);
-    });
-    const { tintColor, unselectedTintColor } = this.props;
-    const panels = children.map((c: any) => {
-      const cProps = c.props;
-      const tab = (<Tab
+    const content = tabsData.map(cProps => {
+      return <Tab
         prefixCls={`${this.props.prefixCls}-tab`}
         badge={cProps.badge}
         dot={cProps.dot}
@@ -71,27 +44,32 @@ class AntTabBar extends React.Component<TabBarProps, any> {
         tintColor={tintColor}
         unselectedTintColor={unselectedTintColor}
         dataAttrs={getDataAttr(cProps)}
-      />);
-      return (
-        <TabPane
-          placeholder={this.props.placeholder}
-          tab={tab}
-          key={c.key}
-        >
-          {cProps.children}
-        </TabPane>);
+        onClick={() => cProps.onPress && cProps.onPress()}
+      />;
     });
+    return <div className={barCls} style={{ backgroundColor: barTintColor }}>
+      {content}
+    </div>;
+  }
+
+  render() {
+    const { children } = this.props;
+    const tabs = this.getTabs();
+    const activeIndex = tabs.findIndex(t => !!t.selected);
+
     return (
-      <Tabs
-        renderTabBar={this.renderTabBar}
-        renderTabContent={this.renderTabContent}
-        tabBarPosition="bottom"
-        prefixCls={this.props.prefixCls}
-        activeKey={activeKey}
-        onChange={this.onChange}
-      >
-        {panels}
-      </Tabs>
+      <div className={this.props.prefixCls}>
+        <Tabs
+          tabs={tabs}
+          renderTabBar={this.renderTabBar}
+          tabBarPosition="bottom"
+          page={activeIndex < 0 ? undefined : activeIndex}
+          animated={false}
+          swipeable={false}
+        >
+          {children.map(c => c.props && c.props.children || null)}
+        </Tabs>
+      </div>
     );
   }
 }

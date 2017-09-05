@@ -14,7 +14,7 @@ title:
 Used for the content of the page block, control large content of a small range grouping and hidden, plays a role in keeping the interface clean and tidy.
 
 ````jsx
-import { TabBar, Icon } from 'antd-mobile';
+import { TabBar } from 'antd-mobile';
 
 class TabBarExample extends React.Component {
   constructor(props) {
@@ -78,8 +78,20 @@ class TabBarExample extends React.Component {
           {this.renderContent('Life')}
         </TabBar.Item>
         <TabBar.Item
-          icon={<Icon type="koubei-o" size="md" />}
-          selectedIcon={<Icon type="koubei" size="md" />}
+          icon={
+            <div style={{
+              width: '22px',
+              height: '22px',
+              background: 'url(https://gw.alipayobjects.com/zos/rmsportal/LIrTcIGtEmwqZsQnTtFa.svg) center center /  21px 21px no-repeat' }}
+            />
+          }
+          selectedIcon={
+            <div style={{
+              width: '22px',
+              height: '22px',
+              background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ZGXnYElJHBJjuiWLIlNe.svg) center center /  21px 21px no-repeat' }}
+            />
+          }
           title="Koubei"
           key="Koubei"
           badge={'new'}

@@ -19,31 +19,33 @@ subtitle: 标签页
 
 ### Tabs
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
-| activeKey        | 当前激活 tab 面板的 key                      | String   | 无            |
-| defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板    |
-| onChange         | 切换面板的回调                        | (key: string): void | 无            |
-| onTabClick       | tab 被点击的回调                      | (key: string): void | 无            |
-| animated |  是否动画    |  boolean   |    `true`    |
-| swipeable |  是否可以滑动 tab 内容进行切换    |  boolean   |    `true`    |
-| tabBarPosition |    tab 位置 top/bottom        |  string    |    `top`        |
-| underlineColor(`react-native only`) |   线条颜色       |  string    |    `#ddd`        |
-| activeUnderlineColor(`react-native only`) |   选中线条颜色       |  string    |    `#108ee9`        |
-| textColor(`react-native only`) |   文字颜色       |  string    |    `#000`        |
-| activeTextColor(`react-native only`) |   选中文字颜色       |  string    |    `#108ee9`        |
-| barStyle(`react-native only`) |   tabs bar  样式       |  object    |    `{}`        |
-| destroyInactiveTabPane (`web only`) | 是否销毁掉不活动的 tabPane (优化使用) |  boolean    |    false   |
-| hammerOptions(`Web Only`) |  开启`swipeable`的时候可以对 [hammerjs](http://hammerjs.github.io/) 的 [pan](http://hammerjs.github.io/recognizer-pan/) 和 [swipe](http://hammerjs.github.io/recognizer-swipe/) 两种手势进行参数配置    |  object   |    {}   |  
-| prefixCls(`web only`) |  className 前缀      |  string    |    `am-tabs`        |
-| className(`web only`) |   额外的 className      |  string    |    无        |
-| pageSize(`web only`) |  可视区显示的 tab 数量，可以看做一页     |  number    |    5       |
-| speed(`web only`) |   多页模式下，TabBar 滑动的速度      |  Number: 1 ~ 10    |    8        |
-| tabBarhammerOptions(`web only`) |   同hammerOptions，对 TabBar 的滑动手势进行配置      |  Obejct    |    {}        |
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+prefixCls|样式前缀 (`web only`)|string| am-tabs|false
+tabs|tab数据|Models.TabData[]||true
+tabBarPosition|TabBar位置 top: 上, bottom: 下|'top' \| 'bottom' | top|false
+renderTabBar|替换TabBar|(props: TabBarPropsType) => React.ReactNode||false
+initalPage|初始化Tab, index or key|number \| string||false
+page|当前Tab, index or key|number \| string||false
+swipeable|是否可以滑动内容切换|boolean| true|false
+useOnPan|使用跟手滚动|boolean| true|false
+prerenderingSiblingsNumber|预加载两侧Tab数量|number| 1|false
+animated|是否开启切换动画|boolean| true|false
+onChangeTab|tab变化时触发|(index: number, tabData: Models.TabData) => void||false
+tabBarUnderlineStyle|tabBar下划线样式|React.CSSProperties||false
+tabBarBackgroundColor|tabBar背景色|string||false
+tabBarActiveTextColor|tabBar激活Tab文字颜色|string||false
+tabBarInactiveTextColor|tabBar非激活Tab文字颜色|string||false
+tabBarTextStyle|tabBar文字样式|React.CSSProperties||false
+renderTab|替换TabBar的Tab|(tab: Models.TabData) => React.ReactNode||false
 
-### Tabs.TabPane
+### Tabs.DefaultTabBar
 
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
-| key  | 对应 activeKey   | String                  | 无     |
-| tab  | 选项卡头显示文字 | React.Element or String | 无     |
+属性 | 说明 | 类型 | 默认值 | 必选
+----|-----|------|------|------
+goToTab|跳转Tab|(index: number) => boolean||true
+tabs|tab数据|Models.TabData[]||true
+activeTab|当前激活Tab索引|number||true
+animated|是否使用动画|boolean||true
+prefixCls |样式前缀 (`web only`)|string| am-tabs-default-bar|false
+page |Tab分页尺寸|number| 5|false

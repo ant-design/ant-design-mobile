@@ -11,32 +11,49 @@ Basic Usage.
 ````jsx
 import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
 
-const TabPane = Tabs.TabPane;
+const tabs = [
+  { title: <Badge text={'3'}>First Tab</Badge> },
+  { title: <Badge text={'今日(20)'}>Second Tab</Badge> },
+  { title: <Badge dot>Third Tab</Badge> },
+];
 
-function callback(key) {
-  console.log('onChange', key);
-}
-function handleTabClick(key) {
-  console.log('onTabClick', key);
-}
+const tabs2 = [
+  { title: 'First Tab', sub: '1' },
+  { title: 'Second Tab', sub: '2' },
+  { title: 'Third Tab', sub: '3' },
+];
+
 const TabExample = () => (
   <div>
-    <Tabs defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
-      <TabPane tab={<Badge text={'3'}>First Tab</Badge>} key="1">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-          Content of First Tab
-        </div>
-      </TabPane>
-      <TabPane tab={<Badge text={'今日(20)'}>Second Tab</Badge>} key="2">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-          Content of Second Tab
-        </div>
-      </TabPane>
-      <TabPane tab={<Badge dot>Third Tab</Badge>} key="3">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-          Content of Third Tab
-        </div>
-      </TabPane>
+    <Tabs tabs={tabs}
+      initialPage={1}
+      onChangeTab={(index, tabData) => { console.log(index, tabData); }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+        Content of First Tab
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+        Content of Second Tab
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+        Content of Third Tab
+      </div>
+    </Tabs>
+    <WhiteSpace />
+    <Tabs tabs={tabs2}
+      initialPage={1}
+      tabBarPosition="bottom"
+      renderTab={tab => <span>{tab.title}-{tab.sub}</span>}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+        Content of First Tab
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+        Content of Second Tab
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+        Content of Third Tab
+      </div>
     </Tabs>
     <WhiteSpace />
   </div>
