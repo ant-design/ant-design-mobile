@@ -24,5 +24,6 @@ subtitle: 宫格
 | isCarousel    |   是否跑马灯,     | boolean  | `false` |
 | carouselMaxRow    |   如果是跑马灯, 一页跑马灯需要展示的行数   | number  | `2` |
 | renderItem    |   自定义每个 grid 条目的创建函数   | (el, index) => React.Node  | - |
+| square (`Web Only`)    |   每个格子是否固定为正方形   | boolean | true |
 
 `isCarousel = true` 模式时，还可以传递 [carousel](https://mobile.ant.design/components/carousel) 相关的 API。

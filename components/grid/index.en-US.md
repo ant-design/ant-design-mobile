@@ -23,5 +23,6 @@ Properties | Description | Type | Default
 | isCarousel    |   whether to be played as a Carousel    | boolean  | `false` |
 | carouselMaxRow    |   the max number of rows to be showed each page of the Carousel   | number  | `2` |
 | renderItem    |   custom function to create each grid item   | (el, index) => React.Node  | - |
+| square (`Web Only`)   |   whether each item restrict to a square   | boolean | true |
 
 When `isCarousel = true`, the APIs of [carousel](https://mobile.ant.design/components/carousel) also can be delivered.

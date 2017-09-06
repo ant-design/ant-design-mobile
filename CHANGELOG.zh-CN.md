@@ -25,6 +25,7 @@ timeline: true
   - 新增`DatePickerView`组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - Button 组件分别对应各个 type 新增各自的 disabled 状态样式
   - 新增`Calendar`组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
+  - `Grid` 新增 `square` api, 支持高度自适应模式。
 
 - **Break Change**
 
@@ -48,6 +49,7 @@ timeline: true
   - `InputItem`, `TextareaItem` 去除 `focused`, `autoFocus` api, 此需求用 `focus()` 实例方法代替。
   - 重构`Tabs`组件，底层重写，api全面更新
   - 去除`Popup`组件，给`Modal`组件新增`popup`属性，相应地 Modal 组件中原`animationType`属性开始支持 web 版本、用以标识 popup 弹出动画的类型 [#1125](https://github.com/ant-design/ant-design-mobile/issues/1125)
+
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

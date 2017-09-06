@@ -5,23 +5,23 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    basic usage， columnNum=3 
+     always square grid item 
   </div>
   <div
-    class="am-grid am-grid-line"
+    class="am-grid am-grid-square am-grid-line"
   >
     <div
       class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
     >
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -37,13 +37,13 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -59,13 +59,13 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -79,19 +79,15 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
-    >
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -105,15 +101,19 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+    >
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -129,13 +129,13 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -149,19 +149,15 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
-    >
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -177,13 +173,13 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -197,15 +193,19 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+    >
       <div
         class="am-flexbox-item am-grid-item"
-        style="width:33.333333333333336%;"
+        style="width:25%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content column-num-3"
+            class="am-grid-item-inner-content column-num-4"
           >
             <img
               class="am-grid-icon"
@@ -219,15 +219,27 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-flexbox-item am-grid-item am-grid-null-item"
+        style="width:25%;"
+      />
+      <div
+        class="am-flexbox-item am-grid-item am-grid-null-item"
+        style="width:25%;"
+      />
+      <div
+        class="am-flexbox-item am-grid-item am-grid-null-item"
+        style="width:25%;"
+      />
     </div>
   </div>
   <div
     class="sub-title"
   >
-    basic usage， columnNum=3 
+     grid item adjust accroiding to img size 
   </div>
   <div
-    class="am-grid am-grid-line"
+    class="am-grid am-grid-line not-square-grid"
   >
     <div
       class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
@@ -441,37 +453,232 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
       <div
         class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content"
-          />
-        </div>
-      </div>
+      />
       <div
         class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content"
-          />
-        </div>
-      </div>
+      />
       <div
         class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
+      />
+    </div>
+  </div>
+  <div
+    class="sub-title"
+  >
+    columnNum=3 
+  </div>
+  <div
+    class="am-grid am-grid-square am-grid-line"
+  >
+    <div
+      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+    >
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
       >
         <div
           class="am-grid-item-content"
         >
           <div
-            class="am-grid-item-inner-content"
-          />
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name0
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name1
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name2
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+    >
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name3
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name4
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name5
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+    >
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name6
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name7
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-flexbox-item am-grid-item"
+        style="width:33.333333333333336%;"
+      >
+        <div
+          class="am-grid-item-content"
+        >
+          <div
+            class="am-grid-item-inner-content column-num-3"
+          >
+            <img
+              class="am-grid-icon"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+            />
+            <div
+              class="am-grid-text"
+            >
+              name8
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -482,7 +689,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     no border
   </div>
   <div
-    class="am-grid"
+    class="am-grid am-grid-square"
   >
     <div
       class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
@@ -696,39 +903,15 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
       <div
         class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content"
-          />
-        </div>
-      </div>
+      />
       <div
         class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content"
-          />
-        </div>
-      </div>
+      />
       <div
         class="am-flexbox-item am-grid-item am-grid-null-item"
         style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content"
-          />
-        </div>
-      </div>
+      />
     </div>
   </div>
   <div
@@ -737,251 +920,299 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     carousel
   </div>
   <div
-    class="am-grid am-grid-line am-grid-carousel"
+    class="am-grid am-grid-square am-grid-line am-grid-carousel"
   >
     <div
-      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+      class="slider am-carousel"
+      style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
     >
       <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
+        class="slider-frame"
+        style="position:relative;display:block;overflow:hidden;height:auto;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box;"
       >
-        <div
-          class="am-grid-item-content"
+        <ul
+          class="slider-list"
+          style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:0;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box;"
         >
-          <div
-            class="am-grid-item-inner-content column-num-4"
+          <li
+            class="slider-slide"
+            style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
           >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
             <div
-              class="am-grid-text"
+              class="am-grid-carousel-page"
             >
-              name0
+              <div
+                class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+              >
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name0
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name1
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name2
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name3
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+              >
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name4
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name5
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name6
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name7
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
+          </li>
+          <li
+            class="slider-slide"
+            style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
           >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
             <div
-              class="am-grid-text"
+              class="am-grid-carousel-page"
             >
-              name1
+              <div
+                class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+              >
+                <div
+                  class="am-flexbox-item am-grid-item"
+                  style="width:25%;"
+                >
+                  <div
+                    class="am-grid-item-content"
+                  >
+                    <div
+                      class="am-grid-item-inner-content column-num-4"
+                    >
+                      <img
+                        class="am-grid-icon"
+                        src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
+                      />
+                      <div
+                        class="am-grid-text"
+                      >
+                        name8
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="am-flexbox-item am-grid-item am-grid-null-item"
+                  style="width:25%;"
+                />
+                <div
+                  class="am-flexbox-item am-grid-item am-grid-null-item"
+                  style="width:25%;"
+                />
+                <div
+                  class="am-flexbox-item am-grid-item am-grid-null-item"
+                  style="width:25%;"
+                />
+              </div>
+              <div
+                class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
+              >
+                <div
+                  class="am-flexbox-item am-grid-item am-grid-null-item"
+                  style="width:25%;"
+                />
+                <div
+                  class="am-flexbox-item am-grid-item am-grid-null-item"
+                  style="width:25%;"
+                />
+                <div
+                  class="am-flexbox-item am-grid-item am-grid-null-item"
+                  style="width:25%;"
+                />
+                <div
+                  class="am-flexbox-item am-grid-item am-grid-null-item"
+                  style="width:25%;"
+                />
+              </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
       <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
+        class="slider-decorator-0"
+        style="position:absolute;bottom:0;width:100%;text-align:center;"
       >
         <div
-          class="am-grid-item-content"
+          class="am-carousel-wrap"
         >
           <div
-            class="am-grid-item-inner-content column-num-4"
+            class="am-carousel-wrap-dot am-carousel-wrap-dot-active"
           >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              name2
-            </div>
+            <span />
           </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
           <div
-            class="am-grid-item-inner-content column-num-4"
+            class="am-carousel-wrap-dot"
           >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              name3
-            </div>
+            <span />
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
-    >
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              name4
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              name5
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              name6
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              name7
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
-    >
-      <div
-        class="am-flexbox-item am-grid-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content column-num-4"
-          >
-            <img
-              class="am-grid-icon"
-              src="https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png"
-            />
-            <div
-              class="am-grid-text"
-            >
-              name8
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item am-grid-null-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content"
-          />
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item am-grid-null-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content"
-          />
-        </div>
-      </div>
-      <div
-        class="am-flexbox-item am-grid-item am-grid-null-item"
-        style="width:25%;"
-      >
-        <div
-          class="am-grid-item-content"
-        >
-          <div
-            class="am-grid-item-inner-content"
-          />
         </div>
       </div>
     </div>
@@ -992,7 +1223,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     custom content
   </div>
   <div
-    class="am-grid am-grid-line"
+    class="am-grid am-grid-square am-grid-line"
   >
     <div
       class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"

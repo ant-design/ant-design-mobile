@@ -14,6 +14,7 @@ export default class Grid extends React.Component<GridProps, any> {
     columnNum: 4,
     carouselMaxRow: 2,
     prefixCls: 'am-grid',
+    square: true,
   };
   state = {
     initialSlideWidth: 0, // only used in carousel model
@@ -54,7 +55,7 @@ export default class Grid extends React.Component<GridProps, any> {
           <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
             {
               React.isValidElement(icon) ? icon : (
-                <img className={`${prefixCls}-icon`} src={icon} />
+                <img className={`${prefixCls}-icon`} src={icon}/>
               )
             }
             <div className={`${prefixCls}-text`}>{text}</div>
@@ -105,11 +106,7 @@ export default class Grid extends React.Component<GridProps, any> {
               key={`griditem-${dataIndex}`}
               className={`${prefixCls}-item ${prefixCls}-null-item`}
               style={colStyle}
-            >
-              <div className={`${prefixCls}-item-content`}>
-                <div className={`${prefixCls}-item-inner-content`} />
-              </div>
-            </Flex.Item>
+            />
           );
         }
         rowArr.push(itemEl);
@@ -119,7 +116,7 @@ export default class Grid extends React.Component<GridProps, any> {
     return rowsArr;
   }
   render() {
-    const { prefixCls, className, data, hasLine, isCarousel, ...restProps } = this.props;
+    const { prefixCls, className, data, hasLine, isCarousel, square, ...restProps } = this.props;
     let { columnNum, carouselMaxRow, onClick, renderItem, ...restPropsForCarousel } = restProps;
 
     const { initialSlideWidth } = this.state;
@@ -129,16 +126,19 @@ export default class Grid extends React.Component<GridProps, any> {
 
     const dataLength = data && data.length || 0;
 
-    let rowCount;
-    let pageCount = 1;
+    let rowCount = Math.ceil(dataLength / columnNum);
 
     let rowsArr;
     let renderEl;
-
-    if (isCarousel && initialSlideWidth > 0) {
-      // carousel mode && not server render. because carousel dependes on document
-      pageCount = Math.ceil(dataLength / (columnNum * carouselMaxRow));
-      rowCount = pageCount  * carouselMaxRow;
+    if (isCarousel) {
+      if (initialSlideWidth < 0) {
+        // carousel  server render. because carousel dependes on document
+        return null;
+      }
+      if (rowCount % carouselMaxRow !== 0) {
+        rowCount = rowCount + carouselMaxRow - rowCount % carouselMaxRow;
+      }
+      const pageCount = Math.ceil(rowCount / carouselMaxRow);
       rowsArr = this.getRows(rowCount, dataLength);
       let carouselProps = {};
       if (pageCount <= 1) {
@@ -154,19 +154,18 @@ export default class Grid extends React.Component<GridProps, any> {
         </Carousel>
       );
     } else {
-      rowCount = Math.ceil(dataLength / columnNum);
       rowsArr = this.getRows(rowCount, dataLength);
       renderEl = rowsArr;
     }
-
+    const cls = classNames(prefixCls, {
+      [`${prefixCls}-square`]: square,
+      [`${prefixCls}-line`]: hasLine,
+      [`${prefixCls}-carousel`]: isCarousel,
+      [className as string]: className,
+    });
     return (
       <div
-        className={classNames({
-          [prefixCls as string]: true,
-          [`${prefixCls}-line`]: hasLine,
-          [`${prefixCls}-carousel`]: isCarousel,
-          [className as string]: className,
-        })}
+        className={cls}
       >
         {renderEl}
       </div>
