@@ -19,32 +19,33 @@ Support WEB, React-Native.
 
 ### Tabs
 
-Properties | Descrition | Type | Default | Optional
+Properties | Descrition | Type | Default | Required
 -----------|------------|------|--------|--------
-prefixCls|prefix class (web only)|string| rmc-tabs|false
-tabs|tabs data|Models.TabData[]||true
-tabBarPosition|TabBar's position|'top' \| 'bottom' | top |false
-renderTabBar|replace the TabBar|(props: TabBarPropsType) => React.ReactNode||false
-initalPage|the tab when inital, index or key|number \| string||false
-page|current tab, index or key|number \| string||false
-swipeable|Whether to switch tabs with swipe gestrue in the content|boolean| true|false
-prerenderingSiblingsNumber|pre-render nearby # sibling, Infinity === render all the siblings, default to 0 === render current page.|number| 1|false
-animated|Whether to change tabs with animation|boolean| true|false
-onChangeTab|Callback when tab will switch|(index: number, tabData: Models.TabData) => void||false
-tabBarUnderlineStyle|style of the default tab bar's underline.|React.CSSProperties||false
-tabBarBackgroundColor|color of the default tab bar's background|string||false
-tabBarActiveTextColor|color of the default tab bar's text when active|string||false
-tabBarInactiveTextColor|color of the default tab bar's text when inactive|string||false
-tabBarTextStyle|additional styles to the tab bar's text.|React.CSSProperties||false
-renderTab|render for replace the tab of tabbar. |(tab: Models.TabData) => React.ReactNode||false
+prefixCls | prefix class (`web only`) | string |  rmc-tabs | false
+tabs | tabs data | Models.TabData[] |  | true
+tabBarPosition | TabBar's position top, bottom | 'top' \| 'bottom' |  top | false
+renderTabBar | replace the TabBar | ((props: TabBarPropsType) => React.ReactNode) \| false |  | false
+initialPage | the tab when inital, index or key | number \| string |  | false
+page | current tab, index or key | number \| string |  | false
+swipeable | Whether to switch tabs with swipe gestrue in the content | boolean |  true | false
+useOnPan | use hand scroll | boolean |  true | false
+prerenderingSiblingsNumber  | pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page. | number | 1 | false
+animated | Whether to change tabs with animation | boolean |  true | false
+onChangeTab | Callback when tab is switched | (index: number, tabData: Models.TabData) => void |  | false
+tabBarUnderlineStyle | style of the default tab bar's underline | React.CSSProperties \| any |  | false
+tabBarBackgroundColor | color of the default tab bar's background | string |  | false
+tabBarActiveTextColor | color of the default tab bar's text when active | string |  | false
+tabBarInactiveTextColor | color of the default tab bar's text when inactive | string |  | false
+tabBarTextStyle | tional styles to the tab bar's text | React.CSSProperties \| any |  | false
+renderTab | render for replace the tab of tabbar | (tab: Models.TabData) => React.ReactNode | | false
 
-### Tabs.TabPane
+### Tabs.DefaultTabBar
 
-Properties | Descrition | Type | Default
------------|------------|------|--------
-goToTab|call this for go to Tab|(index: number) => boolean||true
-tabs|tabs data|Models.TabData[]||true
-activeTab|current tab|number||true
-animated|Whether to change tabs with animation|boolean||true
-prefixCls |prefix class (`web only`)|string| am-tabs-default-bar|false
-page |the size for the tab of tabbar|number| 5|false
+Properties | Descrition | Type | Default | Required
+-----------|------------|------|--------|--------
+goToTab | call this for go to Tab | (index: number) => boolean | | true
+tabs | tabs data | Models.TabData[] | | true
+activeTab | current tab | number | | true
+animated | Whether to change tabs with animation | boolean | | true
+prefixCls | prefix class (`web only`) | string | am-tabs-default-bar | false
+page | the size for the tab of tabbar | number | 5 | false

@@ -13,7 +13,7 @@ Used to select a date range.
 
 Support WEB.
 
-Properties | Descrition | Type | Default | Optional
+Properties | Descrition | Type | Default | Required
 -----------|------------|------|--------|--------
 enterDirection|enter direction |'horizontal' \| 'vertical'| vertical|false
 locale|locale|Models.Locale||false

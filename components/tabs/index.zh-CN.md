@@ -21,31 +21,31 @@ subtitle: 标签页
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-prefixCls|样式前缀 (`web only`)|string| am-tabs|false
-tabs|tab数据|Models.TabData[]||true
-tabBarPosition|TabBar位置 top: 上, bottom: 下|'top' \| 'bottom' | top|false
-renderTabBar|替换TabBar|(props: TabBarPropsType) => React.ReactNode||false
-initalPage|初始化Tab, index or key|number \| string||false
-page|当前Tab, index or key|number \| string||false
-swipeable|是否可以滑动内容切换|boolean| true|false
-useOnPan|使用跟手滚动|boolean| true|false
-prerenderingSiblingsNumber|预加载两侧Tab数量|number| 1|false
-animated|是否开启切换动画|boolean| true|false
-onChangeTab|tab变化时触发|(index: number, tabData: Models.TabData) => void||false
-tabBarUnderlineStyle|tabBar下划线样式|React.CSSProperties||false
-tabBarBackgroundColor|tabBar背景色|string||false
-tabBarActiveTextColor|tabBar激活Tab文字颜色|string||false
-tabBarInactiveTextColor|tabBar非激活Tab文字颜色|string||false
-tabBarTextStyle|tabBar文字样式|React.CSSProperties||false
-renderTab|替换TabBar的Tab|(tab: Models.TabData) => React.ReactNode||false
+prefixCls  | 样式前缀(`web only`) | string |  rmc-tabs | false
+tabs | tab数据 | Models.TabData[] |  | true
+tabBarPosition  | TabBar位置 top: 上, bottom: 下 | 'top' \| 'bottom' |  top | false
+renderTabBar  | 替换TabBar | ((props: TabBarPropsType) => React.ReactNode) \| false |  | false
+initialPage  | 初始化Tab, index or key | number \| string |  | false
+page  | 当前Tab, index or key | number \| string |  | false
+swipeable  | 是否可以滑动内容切换 | boolean |  true | false
+useOnPan  | 使用跟手滚动 | boolean |  true | false
+prerenderingSiblingsNumber  | 预加载两侧Tab数量 | number |  1 | false
+animated  | 是否开启切换动画 | boolean |  true | false
+onChangeTab  | tab变化时触发 | (index: number, tabData: Models.TabData) => void |  | false
+tabBarUnderlineStyle  | tabBar下划线样式 | React.CSSProperties \| any |  | false
+tabBarBackgroundColor  | tabBar背景色 | string |  | false
+tabBarActiveTextColor  | tabBar激活Tab文字颜色 | string |  | false
+tabBarInactiveTextColor  | tabBar非激活Tab文字颜色 | string |  | false
+tabBarTextStyle  | tabBar文字样式 | React.CSSProperties \| any |  | false
+renderTab | 替换TabBar的Tab | (tab: Models.TabData) => React.ReactNode | | false
 
 ### Tabs.DefaultTabBar
 
 属性 | 说明 | 类型 | 默认值 | 必选
 ----|-----|------|------|------
-goToTab|跳转Tab|(index: number) => boolean||true
-tabs|tab数据|Models.TabData[]||true
-activeTab|当前激活Tab索引|number||true
-animated|是否使用动画|boolean||true
-prefixCls |样式前缀 (`web only`)|string| am-tabs-default-bar|false
-page |Tab分页尺寸|number| 5|false
+goToTab | 跳转Tab | (index: number) => boolean | | true
+tabs|tab数据 | Models.TabData[] | | true
+activeTab | 当前激活Tab索引 | number | | true
+animated | 是否使用动画 | boolean | | true
+prefixCls | 样式前缀 (`web only`) | string | am-tabs-default-bar|false
+page | Tab分页尺寸 | number | 5 | false
