@@ -279,7 +279,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
         class="am-tabs-tab-bar-wrap"
       >
         <div
-          class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-nextpage"
+          class="am-tabs-default-bar am-tabs-default-bar-animated"
           style="background-color:#fff;"
         >
           <div
@@ -345,6 +345,9 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
               style="width:20%;left:0%;"
             />
           </div>
+          <div
+            class="am-tabs-default-bar-nextpage"
+          />
         </div>
       </div>
       <div
