@@ -46,7 +46,7 @@
     "rc-slider": "~8.2.0",
     "rc-steps": "~2.5.1",
     "rc-swipeout": "~2.0.0",
-    "rmc-tabs": "^0.5.4",
+    "rmc-tabs": "^1.0.0",
     "rc-tooltip": "~3.4.3",
     "react-native-camera-roll-picker": "~1.2.0",
     "react-native-collapsible": "^0.8.0",

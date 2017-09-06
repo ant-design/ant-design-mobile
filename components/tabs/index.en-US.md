@@ -31,7 +31,8 @@ swipeable | Whether to switch tabs with swipe gestrue in the content | boolean |
 useOnPan | use hand scroll | boolean |  true | false
 prerenderingSiblingsNumber  | pre-render nearby # sibling, Infinity: render all the siblings, 0: render current page. | number | 1 | false
 animated | Whether to change tabs with animation | boolean |  true | false
-onChangeTab | Callback when tab is switched | (index: number, tabData: Models.TabData) => void |  | false
+onChange | Callback when tab is switched | (tab: Models.TabData, index: number) => void |  | false
+onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | false
 tabBarUnderlineStyle | style of the default tab bar's underline | React.CSSProperties \| any |  | false
 tabBarBackgroundColor | color of the default tab bar's background | string |  | false
 tabBarActiveTextColor | color of the default tab bar's text when active | string |  | false
@@ -48,4 +49,6 @@ tabs | tabs data | Models.TabData[] | | true
 activeTab | current tab | number | | true
 animated | Whether to change tabs with animation | boolean | | true
 prefixCls | prefix class (`web only`) | string | am-tabs-default-bar | false
+renderTab | render for replace the tab of tabbar | (tab: Models.TabData) => React.ReactNode | | false
 page | the size for the tab of tabbar | number | 5 | false
+onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | false
