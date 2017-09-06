@@ -106,11 +106,7 @@ export default class Grid extends React.Component<GridProps, any> {
               key={`griditem-${dataIndex}`}
               className={`${prefixCls}-item ${prefixCls}-null-item`}
               style={colStyle}
-            >
-              <div className={`${prefixCls}-item-content`}>
-                <div className={`${prefixCls}-item-inner-content`} />
-              </div>
-            </Flex.Item>
+            />
           );
         }
         rowArr.push(itemEl);
@@ -130,16 +126,16 @@ export default class Grid extends React.Component<GridProps, any> {
 
     const dataLength = data && data.length || 0;
 
-    let rowCount;
-    let pageCount = 1;
+    let rowCount = Math.ceil(dataLength / columnNum);
 
     let rowsArr;
     let renderEl;
-
-    if (isCarousel && initialSlideWidth > 0) {
-      // carousel mode && not server render. because carousel dependes on document
-      pageCount = Math.ceil(dataLength / (columnNum * carouselMaxRow));
-      rowCount = pageCount  * carouselMaxRow;
+    if (isCarousel) {
+      if (initialSlideWidth < 0) {
+        // carousel  server render. because carousel dependes on document
+        return null;
+      }
+      const pageCount = Math.ceil(rowCount / carouselMaxRow);
       rowsArr = this.getRows(rowCount, dataLength);
       let carouselProps = {};
       if (pageCount <= 1) {
@@ -155,7 +151,6 @@ export default class Grid extends React.Component<GridProps, any> {
         </Carousel>
       );
     } else {
-      rowCount = Math.ceil(dataLength / columnNum);
       rowsArr = this.getRows(rowCount, dataLength);
       renderEl = rowsArr;
     }
