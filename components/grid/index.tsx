@@ -14,7 +14,7 @@ export default class Grid extends React.Component<GridProps, any> {
     columnNum: 4,
     carouselMaxRow: 2,
     prefixCls: 'am-grid',
-    square: false,
+    square: true,
   };
   state = {
     initialSlideWidth: 0, // only used in carousel model
@@ -55,7 +55,7 @@ export default class Grid extends React.Component<GridProps, any> {
           <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
             {
               React.isValidElement(icon) ? icon : (
-                <img className={`${prefixCls}-icon`} src={icon} />
+                <img className={`${prefixCls}-icon`} src={icon}/>
               )
             }
             <div className={`${prefixCls}-text`}>{text}</div>
@@ -134,6 +134,9 @@ export default class Grid extends React.Component<GridProps, any> {
       if (initialSlideWidth < 0) {
         // carousel  server render. because carousel dependes on document
         return null;
+      }
+      if (rowCount % carouselMaxRow !== 0) {
+        rowCount = rowCount + carouselMaxRow - rowCount % carouselMaxRow;
       }
       const pageCount = Math.ceil(rowCount / carouselMaxRow);
       rowsArr = this.getRows(rowCount, dataLength);

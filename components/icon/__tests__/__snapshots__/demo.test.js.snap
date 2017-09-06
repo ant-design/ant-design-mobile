@@ -2,7 +2,7 @@
 
 exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
 <div
-  class="am-grid"
+  class="am-grid am-grid-square"
 >
   <div
     class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
@@ -325,7 +325,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/icon/demo/size.md correctly 1`] = `
 <div
-  class="am-grid"
+  class="am-grid am-grid-square"
 >
   <div
     class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"
