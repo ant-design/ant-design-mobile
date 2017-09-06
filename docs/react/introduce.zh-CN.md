@@ -47,7 +47,7 @@ english: Ant Design Mobile of React
 
 ### 1. 创建一个项目
 
-可以是已有项目、或者是新创建的空项目，但更推荐从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web) 脚手架里拷贝并修改
+可以是已有项目、或者是新创建的空项目，但更推荐从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/1.x/rn-web) 脚手架里拷贝并修改
 
 > 参考更多[官方示例集](https://github.com/ant-design/antd-mobile-samples)
 > 或者你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates)
@@ -120,7 +120,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 > 服务端渲染问题：请参考[此处](https://github.com/ant-design/ant-design-mobile/pull/758)
 >
 > 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.zh-CN.md)，
-> 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
+> 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/1.x/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/1.x/web-custom-ui-pro)
 
 #### React-Native 使用方式
 

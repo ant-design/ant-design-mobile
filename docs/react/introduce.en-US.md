@@ -47,7 +47,7 @@ english: Ant Design Mobile of React
 
 ### 1. Create a New Project
 
-Can be an existing project, or a newly created empty item, but it is recommended to copy and modify it from the official example [scaffolding](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web).
+Can be an existing project, or a newly created empty item, but it is recommended to copy and modify it from the official example [scaffolding](https://github.com/ant-design/antd-mobile-samples/tree/1.x/rn-web).
 
 > More official [examples](https://github.com/ant-design/antd-mobile-samples).
 > Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in React ecosystem.
@@ -120,7 +120,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 > Other useful resources: [Server-side rendering discussion](https://github.com/ant-design/ant-design-mobile/pull/758) /
 > [Custom theme](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md).
 >
-> Your custom UI library based on antd-mobile: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
+> Your custom UI library based on antd-mobile: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/1.x/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/1.x/web-custom-ui-pro)
 
 #### React-Native usage
 
