@@ -51,17 +51,13 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 ```
 
-在浏览器里打开 http://localhost:8989 ，你会看到 dva 的欢迎界面。
+在浏览器里打开 http://localhost:8000 ，你会看到 dva 的欢迎界面。
 
 ## 使用 antd-mobile
 
-[见此使用示例](/docs/react/introduce#快速上手)，要点概括如下：
+[见此使用示例](/docs/react/introduce#快速上手)
 
-- `npm install antd-mobile babel-plugin-import --save` 安装依赖
-- `babel-plugin-import` 是用来按需加载脚本和样式，编辑 `.roadhogrc `，使 `babel-plugin-import` 插件生效。[参考文档](https://github.com/sorrycc/roadhog#extrababelplugins)
-- [高清方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)，让页面显示效果更加细腻
-- 配置 `svg-sprite-loader` 以支持 Icon 组件使用。[文档链接](https://github.com/sorrycc/roadhog#svgspriteloaderdirs) （roadhog >= 0.6.0-beta1）
-
+注意：**`.babelrc`文件失效，相应配置转移到`.roadhogrc`文件中，[参考文档](https://github.com/sorrycc/roadhog#extrababelplugins)**
 
 ## 接下来：
 

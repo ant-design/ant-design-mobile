@@ -47,7 +47,7 @@ english: Ant Design Mobile of React
 
 ### 1. Create a New Project
 
-Can be an existing project, or a newly created empty item, but it is recommended to copy and modify it from the official example [scaffolding](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web).
+Can be an existing project, or a newly created empty project with [dva](https://github.com/dvajs/dva) / create-react(-native)-app, you can also copy and modify from the official example [scaffolding](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web).
 
 > More official [examples](https://github.com/ant-design/antd-mobile-samples).
 > Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in React ecosystem.
@@ -62,14 +62,33 @@ $ npm install antd-mobile --save
 
 ### Web usage
 
-- Entry html page Required settings:
-    - Add [FastClick](https://github.com/ftlabs/fastclick) (ref [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
-    - Use Promise fallback support (some Android phones do not support Promise), as follows:
-        ```js
-        if(!window.Promise) {
-          document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
-        }
-        ```
+Entry html page settings:
+
+> Add [FastClick](https://github.com/ftlabs/fastclick) and set the html `meta` (more ref [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
+>
+> Use Promise fallback support (some Android phones do not support Promise)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- set `maximum-scale` for some compatibility issues -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <script>
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+      }, false);
+    }
+    if(!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    }
+  </script>
+</head>
+<body></body>
+</html>
+```
 
 Example of usage:
 
@@ -92,7 +111,7 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
    // .babelrc or babel-loader option
    {
      "plugins": [
-       ["import", { libraryName: "antd-mobile", style: "css" }] // `style: true` for less
+       ["import", { "libraryName": "antd-mobile", "style": "css" }] // `style: true` for less
      ]
    }
    ```
@@ -164,6 +183,10 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
    ```jsx
    import DatePicker from 'antd-mobile/lib/date-picker';  // for js
    ```
+
+#### More enhanced (optional):
+
+> [Custom theme](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
 
 
 ## Version

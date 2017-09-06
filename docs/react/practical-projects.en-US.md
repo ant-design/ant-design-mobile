@@ -55,13 +55,9 @@ Open http://localhost:8000 in your browser, you will see dva welcome page.
 
 ## Integrate antd-mobile
 
-[See here for details](/docs/react/introduce#Getting-Started), the process is summarized as follows:
+[See here for details](/docs/react/introduce#Getting-Started)
 
-- `npm install antd-mobile babel-plugin-import --save` install dependency.
-- `babel-plugin-import` is used to load scripts and styles on demand, edit` .roadhogrc `so that the` babel-plugin-import` plugin takes effect. [see here for details](https://github.com/sorrycc/roadhog#extrababelplugins)
-- [HD program settings](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)
-- Configure `svg-sprite-loader` to support the use of the Icon component. [see here for details](https://github.com/sorrycc/roadhog#svgspriteloaderdirs) （roadhog >= 0.6.0-beta1）
-
+Note: **`.babelrc` file is invalid and the configuration is transferred to the` .roadhogrc` file, [see here for details](https://github.com/sorrycc/roadhog#extrababelplugins)**
 
 ## Next:
 

@@ -47,7 +47,7 @@ english: Ant Design Mobile of React
 
 ### 1. 创建一个项目
 
-可以是已有项目、或者是新创建的空项目，但更推荐从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web) 脚手架里拷贝并修改
+可以是已有项目，或者是使用 [dva](https://github.com/dvajs/dva) / create-react(-native)-app 新创建的空项目，你也可以从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-web) 脚手架里拷贝并修改
 
 > 参考更多[官方示例集](https://github.com/ant-design/antd-mobile-samples)
 > 或者你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates)
@@ -62,14 +62,33 @@ $ npm install antd-mobile --save
 
 ### Web 使用方式
 
-- 入口页面（ html 或 模板）必需的 polyfill 相关设置：
-    - 引入 [FastClick](https://github.com/ftlabs/fastclick) (关联 [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
-    - 引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)，示例代码如：
-        ```js
-        if(!window.Promise) {
-          document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
-        }
-        ```
+入口页面 (html 或 模板) 相关设置：
+
+> 引入 [FastClick](https://github.com/ftlabs/fastclick) 并且设置 html `meta` (更多参考 [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
+>
+> 引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- set `maximum-scale` for some compatibility issues -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <script>
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+      }, false);
+    }
+    if(!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    }
+  </script>
+</head>
+<body></body>
+</html>
+```
 
 组件使用实例：
 
@@ -168,6 +187,10 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
    ```jsx
    import DatePicker from 'antd-mobile/lib/date-picker';  // 加载 JS
    ```
+
+#### 更多增强 (非必须):
+
+> [自定义主题](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
 
 
 ## 版本
