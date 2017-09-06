@@ -42,7 +42,6 @@ export default class BasicTabsExample extends React.Component<any, any> {
       { title: '9th Tab' },
     ];
     const style = {
-      display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       height: 150,
