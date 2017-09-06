@@ -5,11 +5,45 @@ title: Upgrade
 
 Here list some of main incompatible changes and recommended changes in the upgrade. See [Changelog](/changelog) for all changes.
 
-## 1.x => 2.x
+## 1.x => 2.0
 
-- The start index has been changed to `1` for `current` properties of `Pagination`. （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
-- The start index has been changed to `1` for `current` properties of `Pagination`.
-- `string ref` has been replaced with `function ref`，you can get refs form properties of component, eg: `this.refs.input.refs.input` (old) will be replaced with `this.input.input` (new), get the ref name by setting `ref={el => console.log(el)}` to component；[#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
+Very pleased to inform you, `antd-mobile@2.0` after half a year iteration, has entered a relatively stable beta version of the state. Relative to 1.x, `antd-mobile@2.0` is faster, more lightweight, easier to get started. welcome to start using!
+
+### 2.x Major changes overview
+
+- "Web page HD display" / "SVG Icon" optimization features, Changed from "built-in" to "external", significantly reducing the complexity of getting started.
+- Remove `moment.js` /` hammer.js` and other heavyweight dependencies dependencies.
+- Delete the not commonly used `Table` component and merge the `Popup` component into the `Modal`.
+- Refactor `Tabs` / `Modal` components to reduce size and optimize functionality.
+- Add the `Calendar` / `DatePickerView` components to meet more business scenario requirements.
+
+### 2.x Breaking changes
+
+#### HD program
+
+In 1.x, we use the [HD program script](https://gw.alipayobjects.com/os/rmsportal/dVgyohpfmDMFFeDasFns.js) and the [pxtorem](https://github.com/cuth/postcss-pxtorem) tool, Use the physical pixels width of the iPhone6 as a benchmark (`750px`), use `rem` to make the page scale scaling, finally to the page display high-definition effects.
+
+In 2.0, we changed the "HD" scheme from "built-in" to "external", return to the most popular way, that is, all the defaults are changed to the logical pixels width of iPhone6 `375px` (ideal viewport width). And the default is no longer provided `rem` unit usage example.
+
+#### svg icon
+
+In 2.0, if you do not want to use svg as an icon, you no longer need to configure [svg-sprite-loader] (https://github.com/kisenka/svg-sprite-loader) dependency.
+
+#### DatePicker
+
+#### Tabs
+
+#### Popup
+
+#### Others
+
+- Each component's `ref` changed from `string` to `function` (e.g. `input` component: `this.refs.input` => `this.input`)
+
+
+### 2.x Bug fixes
+
+### 2.x Other improvements
+
 
 ## 0.9.x => 1.0
 

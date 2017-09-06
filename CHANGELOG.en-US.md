@@ -20,35 +20,16 @@ timeline: true
 
 - **Feature**
 
-  - `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
-  - 新增`DatePickerView`组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
-  - Button 组件分别对应各个 type 新增各自的 disabled 状态样式
+  - [Web] `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
+  - [Web] `Button` 组件分别对应各个 type 新增各自的 disabled 状态样式
+  - 新增 `DatePickerView` 组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
+  - 新增 `Calendar` 组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
   - `Grid` 新增 `square` api, 支持高度自适应模式。
 
 - **Break Change**
 
-  - 去除高清方案，antd-mobile 样式都改为以 `375px` 为满屏宽度， `px` 为单位。
-  - `Button` 去除 `across` 模式。
-  - `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
-  - `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
-  - `ImagePicker` ref 由 string 改成 function. ([#1487](https://github.com/ant-design/ant-design-mobile/pull/1487)
-  - In order to custom style conveniently， the `style` property of `TextareaItem`、`SearchBar` and `InputItem` is passed
-    to `input`(for web) or `TextInput`(for react native) element;
-  - Progress: `wrapStyle` has been replaced with `style` and  `style` has been replaced with `barStyle` property and `unfilled` has been
-    changed to boolean value;
-  - The `style` property now can custom style, eg: tintColor for switch
-  - `Flex` remove redundancy api of Flex, just keep `align: enum{start, center, end}`。[#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
-  - `DatePicker`组件去除 moment.js 依赖，相应地`value`,`minDate`,`maxDate`,`format`,`onChange`数据类型变为`Date`对象。[#1217](https://github.com/ant-design/ant-design-mobile/issues/1217)
-  - `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现，相关参数见 [showShareActionSheetWithOptions 文档](https://mobile.ant.design/components/action-sheet/#static-showShareActionSheetWithOptions(options:-Object,-failureCallback:-Function,-successCallback:-Function))
-  - **[React Native]** Button 组件 style 里`disabledRaw`/`disabledRawText`修改为`defaultDisabledRaw`/`defaultDisabledRawText`
-  - Result: `buttonClick` 更改为 `onButtonClick`
-  - 去除`Table`组件
-  - remove `onLongPress` property of `List`
-  - `Modal`、`List.Item`、`Switch` use `ios` style by default, which means we will not detect UA and change the component style; [#1371](https://github.com/ant-design/ant-design-mobile/issues/1371)
-  - use ref func to replace ref string [#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
-  - `InputItem`, `TextareaItem` drop `focused`, `autoFocus` supported, use `focus()` instace method.
-  - 去除`Popup`组件，给`Modal`组件新增`popup`属性，相应地 Modal 组件中原`animationType`属性开始支持 web 版本、用以标识 popup 弹出动画的类型 [#1125](https://github.com/ant-design/ant-design-mobile/issues/1125)
-
+  - [Web] "Web page HD display" / "SVG Icon" optimization features, Changed from "built-in" to "external".
+  - [Web] remove `across` mode of `Button`.
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

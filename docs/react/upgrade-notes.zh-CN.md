@@ -5,10 +5,45 @@ title: 升级指南
 
 此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [Changelog](/changelog)。
 
-## 1.x => 2.x
+## 1.x => 2.0
 
-- `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
-- string ref 已经被替换为 func ref，原来通过在组件上设置的 ref，比如(this.refs.input.refs.input)，可以用过组件属性来获取 (this.input.input), 具体实例名可以通过 `ref={el => console.log(el)}` 查看；[#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
+很高兴的通知各位，`antd-mobile@2.0` 经过半年迭代，已经进入比较稳定的 beta 版本状态。相对于 1.x，`antd-mobile@2.0` 更快、更轻量、更容易上手。欢迎大家开始使用！
+
+### 2.x 主要变化概览
+
+- "Web 页面高清显示" / "SVG Icon" 等优化方案，从“内置”改为“外置”，显著降低上手使用的复杂度。
+- 去除 `moment.js` / `hammer.js` 等重量级底层依赖依赖。
+- 删除不常用的 `Table` 组件，把 `Popup` 组件合并到 `Modal` 组件中。
+- 重构 `Tabs` / `Modal` 组件，以减小体积、优化功能。
+- 新增 `Calendar` / `DatePickerView` 组件，满足更多业务场景需求。
+
+### 2.x 不兼容改动
+
+#### 高清方案
+
+在 1.x 中，我们使用 [高清方案脚本](https://gw.alipayobjects.com/os/rmsportal/dVgyohpfmDMFFeDasFns.js) 和 [pxtorem](https://github.com/cuth/postcss-pxtorem) 工具，使用 iPhone6 的物理像素宽度 `750px` 作为基准，并且使用 `rem` 来使页面等比缩放，最终达到页面高清显示的细腻效果。
+
+在 2.0 中，我们把“高清”方案从“内置”改为“外置”，默认回归到最大众化的方式，即所有样式默认都改为以 iPhone6 的逻辑像素宽度 `375px`(ideal viewport width) 为基准，默认不再提供 `rem` 单位用法示例。
+
+#### svg icon
+
+在 2.0 中，用户如果不想使用 svg 作为 icon ，就不再需要配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 依赖。
+
+#### DatePicker
+
+#### Tabs
+
+#### Popup
+
+#### Others
+
+- 各个组件的 `ref` 从 `string` 修改为 `function` (比如 `input` 组件 `this.refs.input` => `this.input`)
+
+
+### 2.x Bug 修复
+
+### 2.x 其他改进
+
 
 ## 0.9.x => 1.0
 
