@@ -14,6 +14,7 @@ export default class Grid extends React.Component<GridProps, any> {
     columnNum: 4,
     carouselMaxRow: 2,
     prefixCls: 'am-grid',
+    square: false,
   };
   state = {
     initialSlideWidth: 0, // only used in carousel model
@@ -119,7 +120,7 @@ export default class Grid extends React.Component<GridProps, any> {
     return rowsArr;
   }
   render() {
-    const { prefixCls, className, data, hasLine, isCarousel, ...restProps } = this.props;
+    const { prefixCls, className, data, hasLine, isCarousel, square, ...restProps } = this.props;
     let { columnNum, carouselMaxRow, onClick, renderItem, ...restPropsForCarousel } = restProps;
 
     const { initialSlideWidth } = this.state;
@@ -158,15 +159,15 @@ export default class Grid extends React.Component<GridProps, any> {
       rowsArr = this.getRows(rowCount, dataLength);
       renderEl = rowsArr;
     }
-
+    const cls = classNames(prefixCls, {
+      [`${prefixCls}-square`]: square,
+      [`${prefixCls}-line`]: hasLine,
+      [`${prefixCls}-carousel`]: isCarousel,
+      [className as string]: className,
+    });
     return (
       <div
-        className={classNames({
-          [prefixCls as string]: true,
-          [`${prefixCls}-line`]: hasLine,
-          [`${prefixCls}-carousel`]: isCarousel,
-          [className as string]: className,
-        })}
+        className={cls}
       >
         {renderEl}
       </div>

@@ -23,6 +23,9 @@ const GridExample = () => (
     <div className="sub-title">basic usage， columnNum=3 </div>
     <Grid data={data} columnNum={3} />
 
+    <div className="sub-title">basic usage， columnNum=3, always be square when screen size change </div>
+    <Grid data={data} columnNum={3} square />
+
     <div className="sub-title">basic usage， columnNum=3 </div>
     <Grid data={data} />
 
