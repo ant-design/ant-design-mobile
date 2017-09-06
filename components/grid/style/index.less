@@ -35,8 +35,7 @@
           align-items: center;
 
           .@{gridPrefixCls}-icon {
-            width: 28px;
-            height: 28px;
+            max-width: 100%;
           }
 
           .@{gridPrefixCls}-text {
@@ -116,6 +115,11 @@
       }
       .@{gridPrefixCls}-item-inner-content {
         height: 100%;
+        .@{gridPrefixCls}-icon {
+          margin-top: @v-spacing-md;
+          width: 28%;
+          height: 28%;
+        }
       }
     }
   }
