@@ -18,11 +18,13 @@ subtitle: 下拉刷新
 
 - icon (any) - 刷新指示icon, 包含 `pull` and `release` 状态
 - loading (any) - 加载指示器
-- distanceToRefresh (number, default: 50 / 2 * (window.devicePixelRatio || 2)) - 刷新距离
+- distanceToRefresh (number, default: `25px`) - 刷新距离
 - onRefresh (function, required) - 刷新回调函数
 - refreshing (boolean, false) - 是否显示刷新状态
 
 如何自己设置`icon`/`loading`，参考https://github.com/ant-design/ant-design-mobile/blob/master/components/refresh-control/index.web.tsx#L11
+
+如果页面使用了对 viewport 进行缩放的高清适配方案，请自行对 distanceToRefresh 进行调整, 例如对 antd-mobile@1.x 高清方案，可设置 `distanceToRefresh = window.devicePixelRatio * 25`
 
 ## API (react-native)
 见 https://facebook.github.io/react-native/docs/refreshcontrol.html#props

@@ -25,12 +25,12 @@ Properties | Descrition | Type | Default
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it (only transparent) | Boolean   | true       |
 | onClose      | Callback for clicking close icon x or mask        | (): void   | - |
 | transparent | transparent mode or full screen mode       | Boolean   |  false |
-| popup | popup mode       | Boolean   |  false |
+| popup | popup mode, transparent will not work when in popup mode | Boolean   |  false |
 | animationType | Options: 'slide-down/up'(only transparent / `web version`) / 'fade' / 'slide'(only not tranparent) | String |   fade |
 | title       | title (only transparent)         | React.Element    | -           |
 | footer     | footer content (only not transparent)       |  Array [{text, onPress}]    | [] |
 | prefixCls (`web only`)      | Class name prefix of elements |    String   | `am-modal`      |
-| style (`web only`) |  style    | Object | transparent: {width: '286px', height: 'cross'}, <br />not transparent:  {width: '100%', height: '100%'} (web)|
+| style (`web only`) |  style    | Object | {} |
 | platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios` | String | `'ios'`|
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )

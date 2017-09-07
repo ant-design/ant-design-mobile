@@ -102,15 +102,6 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       }
     }
 
-    if (transparent) {
-      // transparent 模式下, 内容默认居中
-      style = { width: 270, height: 'auto', ...style };
-    } else {
-      if (!popup) {
-        style = { width: '100%', height: '100%', ...style };
-      }
-    }
-
     const wrapCls = classNames({
       [wrapClassName as string]: !!wrapClassName,
       [`${prefixCls}-wrap-popup`]: popup,
