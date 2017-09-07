@@ -4,7 +4,6 @@ import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } fr
 import variables from '../style/themes/default.native';
 import TextAreaItemProps from './PropsType';
 import TextAreaItemStyle, { ITextareaItemStyle } from './style/index.native';
-import omit from 'omit.js';
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -71,13 +70,9 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
   }
 
   render() {
+    const { rows, error, clear, count, autoHeight, last, onErrorClick, styles, style, ...restProps } = this.props;
+    const { value, defaultValue } = restProps;
     const { inputCount } = this.state;
-    const {
-      value, defaultValue, error, clear, autoHeight, last, onErrorClick, style,
-    } = this.props;
-    const styles = this.props.styles!;
-    const rows = this.props.rows as number;
-    const count = this.props.count as number;
 
     let valueProps;
     if ('value' in this.props) {
@@ -99,32 +94,30 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
       paddingRight: error ? 2 * variables.h_spacing_lg : 0,
     };
 
-    const maxLength = count > 0 ? count : undefined;
-    const restProps = omit(this.props, [
-      'rows', 'error', 'clear', 'count', 'autoHeight', 'last', 'onErrorClick', 'styles', 'style',
-    ]);
+    const maxLength = count! > 0 ? count : undefined;
+
     return (
-      <View style={[styles.container, containerStyle, { position: 'relative' }]}>
+      <View style={[styles!.container, containerStyle, { position: 'relative' }]}>
         <TextInput
           clearButtonMode={clear ? 'while-editing' : 'never'}
           underlineColorAndroid="transparent"
-          style={[styles.input, textareaStyle, { height: Math.max(45, this.state.height) }, style]}
+          style={[styles!.input, textareaStyle, { height: Math.max(45, this.state.height) }, style]}
           {...restProps}
           {...valueProps}
           onChange={(event) => this.onChange(event)}
-          multiline={rows > 1 || autoHeight}
+          multiline={rows! > 1 || autoHeight}
           numberOfLines={rows}
           maxLength={maxLength}
         />
         {error ? <TouchableWithoutFeedback onPress={onErrorClick}>
-          <View style={[styles.errorIcon]}>
+          <View style={[styles!.errorIcon]}>
             <Image
               source={require('../style/images/error.png')}
               style={{ width: variables.icon_size_xs, height: variables.icon_size_xs }}
             />
           </View>
         </TouchableWithoutFeedback> : null}
-        {rows > 1 && count > 0 ? <View style={[styles.count]}>
+        {rows! > 1 && count! > 0 ? <View style={[styles!.count]}>
           <Text>
             {inputCount} / {count}
           </Text>

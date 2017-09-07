@@ -1,9 +1,8 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import Checkbox from './Checkbox';
 import { AgreeItemPropsType } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
-import omit from 'omit.js';
 
 export default class AgreeItem extends React.Component<AgreeItemPropsType, any> {
   static defaultProps = {
@@ -11,14 +10,12 @@ export default class AgreeItem extends React.Component<AgreeItemPropsType, any> 
   };
 
   render() {
-    const { prefixCls, style, className } = this.props;
-    const wrapCls = classNames({
-      [`${prefixCls}-agree`]: true,
-      [className as string]: className,
-    });
+    const { style, ...restProps } = this.props;
+    const { prefixCls, className } = restProps;
+    const wrapCls = classnames(`${prefixCls}-agree`, className);
 
-    return (<div {...getDataAttr(this.props)} className={wrapCls} style={style}>
-      <Checkbox {...omit(this.props, ['style'])} className={`${prefixCls}-agree-label`} />
+    return (<div {...getDataAttr(restProps)} className={wrapCls} style={style}>
+      <Checkbox {...restProps} className={`${prefixCls}-agree-label`} />
     </div>);
   }
 }

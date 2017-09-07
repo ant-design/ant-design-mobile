@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { CardFooterProps } from './PropsType';
 
 export default class CardFooter extends React.Component <CardFooterProps, any> {
@@ -9,10 +9,7 @@ export default class CardFooter extends React.Component <CardFooterProps, any> {
 
   render() {
     const { prefixCls, content, className, extra, ...restProps } = this.props;
-    const wrapCls = classNames({
-      [`${prefixCls}-footer`]: true,
-      [className as string]: className,
-    });
+    const wrapCls = classnames(`${prefixCls}-footer`, className);
 
     return (
       <div className={wrapCls} {...restProps}>

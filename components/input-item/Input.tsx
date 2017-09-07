@@ -1,5 +1,4 @@
 import React from 'react';
-import omit from 'omit.js';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   focused?: boolean;
@@ -27,9 +26,9 @@ class Input extends React.Component<InputProps, any> {
   }
 
   render() {
-    const otherProps = omit(this.props, ['onBlur', 'onFocus']);
+    const { onBlur, onFocus, ...restProps } = this.props;
     return (
-      <input ref={el => this.inputRef = el}  onBlur={this.onInputBlur} onFocus={this.onInputFocus} {...otherProps} />
+      <input ref={el => this.inputRef = el} onBlur={this.onInputBlur} onFocus={this.onInputFocus} {...restProps} />
     );
   }
 }

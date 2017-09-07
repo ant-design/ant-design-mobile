@@ -14,7 +14,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
       class="am-list-body"
     >
       <div
-        class="am-checkbox-item am-list-item am-list-item-middle"
+        class="am-list-item am-checkbox-item am-list-item-middle"
       >
         <div
           class="am-list-thumb"
@@ -50,7 +50,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
         />
       </div>
       <div
-        class="am-checkbox-item am-list-item am-list-item-middle"
+        class="am-list-item am-checkbox-item am-list-item-middle"
       >
         <div
           class="am-list-thumb"
@@ -86,7 +86,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
         />
       </div>
       <div
-        class="am-checkbox-item am-list-item am-list-item-middle"
+        class="am-list-item am-checkbox-item am-list-item-middle"
       >
         <div
           class="am-list-thumb"
@@ -122,7 +122,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
         />
       </div>
       <div
-        class="am-checkbox-item am-checkbox-item-disabled am-list-item am-list-item-middle"
+        class="am-list-item am-checkbox-item am-checkbox-item-disabled am-list-item-middle"
         data-seed="logId"
       >
         <div
@@ -178,7 +178,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
         data-seed="logId"
       >
         <label
-          class="am-checkbox-agree-label am-checkbox-wrapper"
+          class="am-checkbox-wrapper am-checkbox-agree-label"
         >
           <span
             class="am-checkbox"

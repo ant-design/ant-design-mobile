@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import Icon from '../icon';
 import NavBarProps from './PropsType';
 
@@ -19,11 +19,7 @@ export default class NavBar extends React.Component<NavBarProps, any> {
       ...restProps,
     } = this.props;
 
-    const wrapCls = classNames({
-      [className as string]: className,
-      [prefixCls as string]: true,
-      [`${prefixCls}-${mode}`]: true,
-    });
+    const wrapCls = classnames(prefixCls, `${prefixCls}-${mode}`, className);
 
     return (
       <div {...restProps} className={wrapCls}>

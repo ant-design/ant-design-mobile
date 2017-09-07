@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TouchFeedback from 'rmc-feedback';
 
 export class KeyboardItem extends React.Component<any, any> {
@@ -20,15 +20,12 @@ export class KeyboardItem extends React.Component<any, any> {
       value = 'confirm';
     }
 
-    const wrapCls = {
-      [className as string]: className,
-      [`${prefixCls}-item`]: true,
-    };
+    const wrapCls = classnames(`${prefixCls}-item`, className);
     return (<TouchFeedback activeClassName={`${prefixCls}-item-active`}>
       <td
         ref={tdRef}
         onClick={(e) => { onClick(e, value); }}
-        className={classNames(wrapCls)}
+        className={wrapCls}
         {...restProps}
       >
         {children}
@@ -64,10 +61,8 @@ class CustomKeyboard extends React.Component<any, any> {
   render() {
     const { prefixCls, confirmLabel } = this.props;
 
-    const wrapperCls = classNames({
-      [`${prefixCls}-wrapper`]: true,
-      [`${prefixCls}-wrapper-hide`]: true,
-    });
+    const wrapperCls = classnames(`${prefixCls}-wrapper`, `${prefixCls}-wrapper-hide`);
+
     return (<div
       className={wrapperCls}
       ref={el => this.antmKeyboard = el}

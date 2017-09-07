@@ -10,7 +10,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
     normal
   </div>
   <div
-    class="slider my-carousel am-carousel"
+    class="slider am-carousel my-carousel"
     style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
   >
     <div
@@ -99,7 +99,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
     vertical
   </div>
   <div
-    class="slider my-carousel am-carousel am-carousel-vertical"
+    class="slider am-carousel my-carousel am-carousel-vertical"
     style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
   >
     <div
@@ -152,7 +152,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
     lottery
   </div>
   <div
-    class="slider my-carousel am-carousel am-carousel-vertical"
+    class="slider am-carousel my-carousel am-carousel-vertical"
     style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
   >
     <div

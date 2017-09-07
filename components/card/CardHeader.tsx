@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { CardHeaderProps } from './PropsType';
 
 export default class CardHeader extends React.Component <CardHeaderProps, any> {
@@ -10,10 +10,7 @@ export default class CardHeader extends React.Component <CardHeaderProps, any> {
 
   render() {
     const { prefixCls, className, title, thumb, thumbStyle, extra, ...restProps } = this.props;
-    const wrapCls = classNames({
-      [`${prefixCls}-header`]: true,
-      [className as string]: className,
-    });
+    const wrapCls = classnames(`${prefixCls}-header`, className);
 
     return (
       <div className={wrapCls} {...restProps}>

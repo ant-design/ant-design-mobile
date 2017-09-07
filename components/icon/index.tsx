@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import loadSprite from './loadSprite';
 
 export interface IconPropType {
@@ -19,11 +19,7 @@ export default class Icon extends React.Component<IconPropType, any> {
   }
   render() {
     const { type, className, style, size, ...restProps } = this.props;
-    const iconClassName = classNames('am-icon', {
-      [`am-icon-${type}`]: true,
-      [`am-icon-${size}`]: true,
-      [className as string]: !!className,
-    });
+    const iconClassName = classnames('am-icon', `am-icon-${type}`, `am-icon-${size}`, className);
     return (
       <svg className={iconClassName} style={style} {...restProps}>
         <use xlinkHref={`#${type}`} />

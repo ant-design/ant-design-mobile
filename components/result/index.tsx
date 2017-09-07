@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import Button from '../button';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import ResultProps from './PropsType';
 
 export default class Result extends React.Component<ResultProps, any> {
@@ -24,10 +24,7 @@ export default class Result extends React.Component<ResultProps, any> {
       buttonType,
       style,
     } = this.props;
-    const wrapCls = classNames({
-      [`${prefixCls}`]: true,
-      [className as string]: className,
-    });
+    const wrapCls = classnames(prefixCls, className);
 
     let imgContent: any = null;
     if (img) {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { TabBarIOS } from 'react-native';
 import { TabBarProps } from './PropsType';
-import omit from 'omit.js';
 
 class TabBar extends React.Component<TabBarProps, any> {
   static defaultProps = {
@@ -13,8 +12,8 @@ class TabBar extends React.Component<TabBarProps, any> {
   static Item: any;
 
   render() {
-    const { barTintColor, tintColor, unselectedTintColor } = this.props;
-    const restProps = omit(this.props, ['barTintColor', 'tintColor', 'unselectedTintColor']);
+    const { barTintColor, tintColor, unselectedTintColor, ...restProps } = this.props;
+
     return (
       <TabBarIOS
         barTintColor={barTintColor}

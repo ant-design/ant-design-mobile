@@ -1,8 +1,7 @@
 import React from 'react';
 import RcCheckbox from 'rc-checkbox';
 import { RadioProps } from './PropsType';
-import omit from 'omit.js';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 export default class Radio extends React.Component<RadioProps, any> {
   static RadioItem: any;
@@ -13,14 +12,17 @@ export default class Radio extends React.Component<RadioProps, any> {
   };
 
   render() {
-    const { prefixCls, className, style, children } = this.props;
-    const wrapCls = classNames({
-      [className as string]: !!className,
-      [`${prefixCls}-wrapper`]: true,
-    });
+    const { className, style, ...restProps } = this.props;
+    const { prefixCls, children } = restProps;
+    const wrapCls = classnames(`${prefixCls}-wrapper`, className);
+    if ('class' in restProps) {
+      // Todo https://github.com/developit/preact-compat/issues/422
+      /* tslint:disable:no-string-literal */
+      delete restProps['class'];
+    }
     const mark = (
       <label className={wrapCls} style={style}>
-        <RcCheckbox {...omit(this.props, ['className', 'style'])} type="radio" />
+        <RcCheckbox {...restProps} type="radio" />
         {children}
       </label>
     );

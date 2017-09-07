@@ -90,7 +90,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
             style="color:#949494;"
           >
             <span
-              class="am-tab-bar-tab-badge tab-badge am-badge"
+              class="am-badge am-tab-bar-tab-badge tab-badge"
             >
                
               <div
@@ -119,7 +119,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
             style="color:#33A3F4;"
           >
             <span
-              class="am-tab-bar-tab-badge tab-badge am-badge"
+              class="am-badge am-tab-bar-tab-badge tab-badge"
             >
                
               <div
@@ -146,7 +146,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
             style="color:#949494;"
           >
             <span
-              class="am-tab-bar-tab-badge tab-dot am-badge"
+              class="am-badge am-tab-bar-tab-badge tab-dot"
             >
               <div
                 style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat;"

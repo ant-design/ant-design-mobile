@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import Icon from '../icon';
 import NoticeBarProps from './PropsType';
 import Marquee, { MarqueeProp } from './Marquee';
@@ -60,10 +60,7 @@ export default class NoticeBar extends React.Component<INoticeWebProps, any> {
       extraProps.onClick = onClick;
     }
 
-    const wrapCls = classNames({
-      [prefixCls as string]: true,
-      [className as string]: !!className,
-    });
+    const wrapCls = classnames(prefixCls, className);
 
     return this.state.show ? (
       <div className={wrapCls} {...restProps} {...extraProps} role="alert">

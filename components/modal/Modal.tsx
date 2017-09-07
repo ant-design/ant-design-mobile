@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from 'rmc-dialog';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { ModalProps, ModalComponent } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
 
@@ -75,10 +75,10 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       footer = [], operation, animated, transparent, popup, animationType, ...restProps,
     } = this.props;
 
-    const btnGroupClass = classNames({
-      [`${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`]: true,
-      [`${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`]: true,
-    });
+    const btnGroupClass = classnames(
+      `${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`,
+      `${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`,
+    );
     const footerDom = footer.length ? <div className={btnGroupClass} role="group">
       {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
     </div> : null;
@@ -102,12 +102,10 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       }
     }
 
-    const wrapCls = classNames({
-      [wrapClassName as string]: !!wrapClassName,
+    const wrapCls = classnames(wrapClassName, {
       [`${prefixCls}-wrap-popup`]: popup,
     });
-    const cls = classNames({
-      [className as string]: !!className,
+    const cls = classnames(className, {
       [`${prefixCls}-transparent`]: transparent,
       [`${prefixCls}-popup`]: popup,
       [`${prefixCls}-popup-${animationType}`]: popup && animationType,

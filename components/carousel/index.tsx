@@ -1,9 +1,7 @@
 import React from 'react';
-import createReactClass from 'create-react-class';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import ReactCarousel from 'rmc-nuka-carousel';
 import CarouselProps from './PropsType';
-import omit from 'omit.js';
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
@@ -38,10 +36,11 @@ export default class Carousel extends React.Component<CarouselProps, any> {
 
   render() {
     const {
-      className, prefixCls, dotStyle, dotActiveStyle, infinite,
-      selectedIndex, beforeChange, dots, vertical,
+      infinite, selectedIndex, beforeChange, afterChange, dots, ...restProps,
     } = this.props;
-    const restProps = omit(this.props, ['infinite', 'selectedIndex', 'beforeChange', 'afterChange', 'dots']);
+
+    const { prefixCls, dotActiveStyle, dotStyle, className, vertical } = restProps;
+
     const newProps = {
       ...restProps,
       wrapAround: infinite,
@@ -50,42 +49,37 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     };
 
     let Decorators: any[] = [];
-    const current = this.state.selectedIndex;
+    const { selectedIndex: current } = this.state;
+
     if (dots) {
       Decorators = [{
-        component: createReactClass({
-          render() {
-            const { slideCount, slidesToScroll } = this.props;
-            const arr: number[] = [];
-            for (let i = 0; i < slideCount; i += slidesToScroll) {
-              arr.push(i);
-            }
-            const dotDom = arr.map(function(index) {
-              const dotCls = classNames({
-                [`${prefixCls}-wrap-dot`]: true,
-                [`${prefixCls}-wrap-dot-active`]: index === current,
-              });
-              const _dotStyle = index === current ? dotActiveStyle : dotStyle;
-              return (
-                <div className={dotCls} key={index}>
-                  <span style={_dotStyle} />
-                </div>
-              );
+        component: ({ slideCount, slidesToScroll }) => {
+          const arr: number[] = [];
+          for (let i = 0; i < slideCount; i += slidesToScroll) {
+            arr.push(i);
+          }
+          const dotDom = arr.map(index => {
+            const dotCls = classnames(`${prefixCls}-wrap-dot`, {
+              [`${prefixCls}-wrap-dot-active`]: index === current,
             });
+            const _dotStyle = index === current ? dotActiveStyle : dotStyle;
             return (
-              <div className={`${prefixCls}-wrap`}>
-                {dotDom}
+              <div className={dotCls} key={index}>
+                <span style={_dotStyle} />
               </div>
             );
-          },
-        }),
+          });
+          return (
+            <div className={`${prefixCls}-wrap`}>
+              {dotDom}
+            </div>
+          );
+        },
         position: 'BottomCenter',
       }];
     }
 
-    const wrapCls = classNames({
-      [className as string]: className,
-      [prefixCls as string]: true,
+    const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-vertical`]: vertical,
     });
 

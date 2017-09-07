@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import Button from '../button';
 import Flex from '../flex';
 import PaginationProps from './PropsType';
@@ -83,8 +83,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
         arr.push(
           <div
             key={`dot-${i}`}
-            className={classNames({
-              [`${prefixCls}-wrap-dot`]: true,
+            className={classnames(`${prefixCls}-wrap-dot`, {
               [`${prefixCls}-wrap-dot-active`]: (i + 1) === current,
             })}
           >
@@ -94,10 +93,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
       }
       markup = <div className={`${prefixCls}-wrap`}>{arr}</div>;
     }
-    const cls = classNames({
-      [prefixCls as string]: true,
-      [className as string]: !!className,
-    });
+    const cls = classnames(prefixCls, className);
     return (
       <div
         className={cls}

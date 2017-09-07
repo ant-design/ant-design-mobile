@@ -1,6 +1,6 @@
 /* tslint:disable:no-bitwise */
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
@@ -140,10 +140,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
        selectable, onAddImageClick } = this.props;
     const imgItemList: any[] = [];
 
-    const wrapCls = classNames({
-      [`${prefixCls}`]: true,
-      [className as string]: className,
-    });
+    const wrapCls = classnames(`${prefixCls}`, className);
 
     files.forEach((image: any, index: number) => {
       const imgStyle = {

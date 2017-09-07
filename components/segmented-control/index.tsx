@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import SegmentedControlProps from './PropsType';
 import TouchFeedback from 'rmc-feedback';
 
@@ -52,8 +52,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   renderSegmentItem(idx, value, selected) {
     const { prefixCls, disabled, tintColor } = this.props;
 
-    const itemCls = classNames({
-      [`${prefixCls}-item`]: true,
+    const itemCls = classnames(`${prefixCls}-item`, {
       [`${prefixCls}-item-selected`]: selected,
     });
 
@@ -87,9 +86,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   render() {
     const { className, prefixCls, style, disabled, values = [] } = this.props;
 
-    const wrapCls = classNames({
-      [className as string]: !!className,
-      [`${prefixCls}`]: true,
+    const wrapCls = classnames(className, prefixCls, {
       [`${prefixCls}-disabled`]: disabled,
     });
 

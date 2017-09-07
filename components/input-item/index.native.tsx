@@ -5,7 +5,6 @@ import Input from './Input.native';
 import variables from '../style/themes/default.native';
 import InputItemProps from './PropsType';
 import InputItemStyle from './style/index.native';
-import omit from 'omit.js';
 
 const noop: any = () => {};
 
@@ -85,10 +84,11 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   render() {
     const {
-      value, defaultValue, type, style, clear, children, error, extra,
-      last, onExtraClick = noop, onErrorClick = noop, styles,
+      type, clear, children, error, extra, labelNumber, last,
+      onExtraClick, onErrorClick, styles, ...restProps,
     } = this.props;
-    const labelNumber = this.props.labelNumber as number;
+    const { value, defaultValue, style } = restProps;
+
     let valueProps;
     if ('value' in this.props) {
       valueProps = {
@@ -105,7 +105,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     };
 
     const textStyle = {
-      width: variables.font_size_heading * labelNumber * 1.05,
+      width: variables.font_size_heading * (labelNumber as number) * 1.05,
     };
 
     const extraStyle = {
@@ -113,10 +113,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       (extra as string).length * variables.font_size_heading : 0,
     };
 
-    const restProps = omit(this.props, [
-      'type', 'clear', 'children', 'error', 'extra', 'labelNumber', 'last',
-      'onExtraClick', 'onErrorClick', 'styles',
-    ]);
     const keyboardTypeArray = ['default', 'email-address',
       'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation',
       'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search'];

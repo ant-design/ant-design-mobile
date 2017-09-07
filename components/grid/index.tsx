@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import Flex from '../flex';
 import Carousel from '../carousel';
 import { DataItem, GridProps } from './PropsType';
@@ -157,11 +157,10 @@ export default class Grid extends React.Component<GridProps, any> {
       rowsArr = this.getRows(rowCount, dataLength);
       renderEl = rowsArr;
     }
-    const cls = classNames(prefixCls, {
+    const cls = classnames(prefixCls, className, {
       [`${prefixCls}-square`]: square,
       [`${prefixCls}-line`]: hasLine,
       [`${prefixCls}-carousel`]: isCarousel,
-      [className as string]: className,
     });
     return (
       <div

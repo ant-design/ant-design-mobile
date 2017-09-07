@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import CardHeader from './CardHeader';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';
@@ -17,10 +17,8 @@ export default class Card extends React.Component <CardProps, any> {
 
   render() {
     const { prefixCls, full, className, ...resetProps } = this.props;
-    const wrapCls = classNames({
-      [prefixCls as string]: true,
+    const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-full`]: full,
-      [className as string]: className,
     });
 
     return (

@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import CustomKeyboard from './CustomKeyboard';
 import { addClass, removeClass } from '../_util/class';
 
@@ -164,10 +164,9 @@ class NumberInput extends React.Component<any, any> {
     const { placeholder, value, disabled, editable } = this.props;
     const { focus } = this.state;
     const preventKeyboard = disabled || !editable;
-    const fakeInputCls = classNames({
-      [`fake-input`]: true,
-      [`focus`]: focus,
-      [`fake-input-disabled`]: disabled,
+    const fakeInputCls = classnames(`fake-input`, {
+      focus,
+      'fake-input-disabled': disabled,
     });
     return (<div className="fake-input-container">
       {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
