@@ -25,9 +25,37 @@ In 1.x, we use the [HD program script](https://gw.alipayobjects.com/os/rmsportal
 
 In 2.0, we changed the "HD" scheme from "built-in" to "external", return to the most popular way, that is, all the defaults are changed to the logical pixels width of iPhone6 `375px` (ideal viewport width). And the default is no longer provided `rem` unit usage example.
 
+How to upgrade?
+
+1. make sure add a `data-scale` attibute in your `html` tag, eg: `<html data-scale="true"></html>`, or you can do it through js, eg: `document.documentElement.setAttribute('data-scale', true);`.
+
+2.Follow [Customize Theme Doc](https://ant.design/docs/react/customize-theme)  to modify antd-mobile theme variable `@hd` to be `@hd: '2px'`.
+
 #### svg icon
 
-In 2.0, if you do not want to use svg as an icon, you no longer need to configure [svg-sprite-loader] (https://github.com/kisenka/svg-sprite-loader) dependency.
+In 2.0, `Icon.props.type` no longer support require a locale svg file，only can accept a  `string` which represent icon name.
+
+1. If you previously use Icon like this way： `<Icon type="loading" />`, no need to do any change. ( As for how many icon names are supported, see [Icon Doc](http://beta.mobile.ant.design/components/icon))。
+
+2.  If you previously use Icon like this way： `<Icon type={require('../foo.svg')} />`. Suggest you follow below solution:
+
+```jsx
+// your previously code
+import { Icon } from 'antd-mobile';
+
+<Icon type={require('./foo.svg)'} />
+
+// need to modify to like below way
+const AntdMobileOldIcon = ({ type, className = '', size = 'md', ...restProps }) => (
+    <svg
+      className={`am-icon am-icon-${type.substr(1)} am-icon-${size} ${className}`}
+      {...restProps}
+    >
+      <use xlinkHref={type} />
+    </svg>
+);
+<AntdMobileOldIcon type={require('./foo.svg)'} />
+```
 
 #### DatePicker
 

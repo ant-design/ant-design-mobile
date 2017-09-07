@@ -25,9 +25,40 @@ title: 升级指南
 
 在 2.0 中，我们把“高清”方案从“内置”改为“外置”，默认回归到最大众化的方式，即所有样式默认都改为以 iPhone6 的逻辑像素宽度 `375px`(ideal viewport width) 为基准，默认不再提供 `rem` 单位用法示例。
 
+如何升级？
+
+1. 确保在你页面的 html 标签上加上 `data-scale` 属性， 如 `<html data-scale="true"></html>`, 或者通过 js 动态添加 `document.documentElement.setAttribute('data-scale', true);`。
+
+2. 参照 [自定义主题文档](https://ant.design/docs/react/customize-theme-cn)  将 antd-mobile 提供的单位变量 `@hd` 赋值为 `@hd: '2px'`。
+
+
 #### svg icon
 
-在 2.0 中，用户如果不想使用 svg 作为 icon ，就不再需要配置 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 依赖。
+在 2.0 中 `Icon.props.type` 不再支持传入 require 的本地 svg 文件，只支持传入 `string` 形式的 Icon 名称。
+
+如何升级？
+
+1. 对于原有代码中 `<Icon type="loading" />` 此类传入字符串的 icon 名称的使用场景，无需任务修改，仍然支持 (具体支持哪些 icon name, 请查阅 [文档](http://beta.mobile.ant.design/components/icon-cn))。
+
+2. 对于原有代码有 `<Icon type={require('../foo.svg')} />` 如何升级 ？ 建议用一个自定义的 `AntdMobileOldIcon` 组件替换 antd-mobile `Icon`, 可直接 copy 如下的代码：
+
+```jsx
+// 原来的使用方式
+import { Icon } from 'antd-mobile';
+
+<Icon type={require('./foo.svg)'} />
+
+// 修改成
+const AntdMobileOldIcon = ({ type, className = '', size = 'md', ...restProps }) => (
+    <svg
+      className={`am-icon am-icon-${type.substr(1)} am-icon-${size} ${className}`}
+      {...restProps}
+    >
+      <use xlinkHref={type} />
+    </svg>
+);
+<AntdMobileOldIcon type={require('./foo.svg)'} />
+```
 
 #### DatePicker
 
