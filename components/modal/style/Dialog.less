@@ -54,7 +54,7 @@
   }
 
   &&-transparent {
-    width: 270px;
+    width: 270 * @hd;
     .@{modalPrefixClass}-content {
       border-radius: @radius-lg;
       height: auto;
@@ -101,8 +101,8 @@
 
     &-x {
       display: inline-block;
-      width: 15px;
-      height: 15px;
+      width: 15 * @hd;
+      height: 15 * @hd;
       background-repeat: no-repeat;
       background-size: cover;
       .encoded-svg-background('modal_delete');

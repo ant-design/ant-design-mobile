@@ -10,8 +10,8 @@
 
   &-spinner {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 20 * @hd;
+    height: 20 * @hd;
     .encoded-svg-background('loading');
 
     background-position: 50%;
@@ -46,7 +46,7 @@
     .@{activityIndicatorPrefixCls}-toast {
       display: inline-block;
       position: relative;
-      top: 4px;
+      top: 4 * @hd;
     }
   }
 
@@ -61,12 +61,12 @@
     color: @color-text-base-inverse;
     background-color: @toast-fill;
     font-size: @font-size-subhead;
-    line-height: 20px;
+    line-height: 20 * @hd;
   }
 
   &-spinner-lg {
-    width: 32px;
-    height: 32px;
+    width: 32 * @hd;
+    height: 32 * @hd;
   }
 
   @keyframes spinner-anime {

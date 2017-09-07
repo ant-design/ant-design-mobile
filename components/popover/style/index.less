@@ -10,7 +10,7 @@
   color: @color-text-base;
   background-color: @fill-base;
   border-radius: @radius-sm;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.21);
+  box-shadow: 0 0 2 * @hd rgba(0, 0, 0, 0.21);
   overflow: hidden; // for popover item active background color not overflow
 }
 
@@ -21,7 +21,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 39px;
+    height: 39 * @hd;
     box-sizing: border-box;
     padding: 0 @h-spacing-md;
   }

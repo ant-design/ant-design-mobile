@@ -12,9 +12,9 @@
   align-self: center;
 
   .checkbox {
-    width: 51px;
-    height: 31px;
-    border-radius: 31px;
+    width: 51 * @hd;
+    height: 31 * @hd;
+    border-radius: 31 * @hd;
     box-sizing: border-box;
     background: #e5e5e5;
     z-index: 0;
@@ -29,11 +29,11 @@
     &:before {
       content: ' ';
       position: absolute;
-      left: 1.5px;
-      top: 1.5px;
-      width: 48px;
-      height: 28px;
-      border-radius: 28px;
+      left: 1.5 * @hd;
+      top: 1.5 * @hd;
+      width: 48 * @hd;
+      height: 28 * @hd;
+      border-radius: 28 * @hd;
       box-sizing: border-box;
       background: @fill-base;
       z-index: 1;
@@ -43,17 +43,17 @@
 
     &:after {
       content: ' ';
-      height: 28px;
-      width: 28px;
-      border-radius: 28px;
+      height: 28 * @hd;
+      width: 28 * @hd;
+      border-radius: 28 * @hd;
       background: @fill-base;
       position: absolute;
       z-index: 2;
-      left: 1.5px;
-      top: 1.5px;
+      left: 1.5 * @hd;
+      top: 1.5 * @hd;
       transform: translateX(0);
       transition: all 200ms;
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.21);
+      box-shadow: 2 * @hd 2 * @hd 4 * @hd rgba(0, 0, 0, 0.21);
     }
 
     &.checkbox-disabled {
@@ -81,7 +81,7 @@
         }
 
         &:after {
-          transform: translateX(20px);
+          transform: translateX(20 * @hd);
         }
       }
     }
@@ -95,8 +95,8 @@
 
   &&-android {
     .checkbox {
-      width: 72px;
-      height: 23px;
+      width: 72 * @hd;
+      height: 23 * @hd;
       border-radius: @radius-sm;
       background: #a7aaa6;
 
@@ -105,12 +105,12 @@
       }
 
       &:after {
-        width: 35px;
-        height: 21px;
+        width: 35 * @hd;
+        height: 21 * @hd;
         border-radius: @radius-xs;
         box-shadow: none;
-        left: 1px;
-        top: 1px;
+        left: 1PX;
+        top: 1PX;
       }
     }
 
@@ -124,7 +124,7 @@
           }
 
           &:after {
-            transform: translateX(35px);
+            transform: translateX(35 * @hd);
           }
         }
       }

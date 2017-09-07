@@ -56,17 +56,17 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    margin: -15px auto auto -30px;
-    width: 60px;
-    height: 30px;
+    margin: -15 * @hd auto auto -30 * @hd;
+    width: 60 * @hd;
+    height: 30 * @hd;
     background: transparent;
     opacity: 0.7;
     color: #0af;
-    font-size: 20px;
-    border-radius: 30px;
+    font-size: 20 * @hd;
+    border-radius: 30 * @hd;
     z-index: 1999;
     text-align: center;
-    line-height: 30px;
+    line-height: 30 * @hd;
 
     &-hide {
       display: none;
@@ -78,9 +78,9 @@
   &-scrollbar-y {
     position: absolute;
     z-index: 9999;
-    width: 3.5px;
-    bottom: 1px;
-    top: 1px;
+    width: 3.5 * @hd;
+    bottom: 1PX;
+    top: 1PX;
     right: 1PX;
     overflow: hidden;
     transform: translateZ(0);
@@ -93,7 +93,7 @@
     box-sizing: border-box;
     position: absolute;
     border: @border-width-sm solid rgba(255, 255, 255, 0.901961);
-    border-radius: 1.5px;
+    border-radius: 1.5 * @hd;
     width: 100%;
     display: block;
     background: rgba(0, 0, 0, 0.498039);
@@ -102,9 +102,9 @@
   &-scrollbar-x {
     position: absolute;
     z-index: 9999;
-    height: 3.5px;
-    left: 1px;
-    right: 1px;
+    height: 3.5 * @hd;
+    left: 1PX;
+    right: 1PX;
     bottom: 1PX;
     overflow: hidden;
     transform: translateZ(0);
@@ -117,7 +117,7 @@
     box-sizing: border-box;
     position: absolute;
     border: @border-width-sm solid rgba(255, 255, 255, 0.901961);
-    border-radius: 1.5px;
+    border-radius: 1.5 * @hd;
     height: 100%;
     display: block;
     background: rgba(0, 0, 0, 0.498039);

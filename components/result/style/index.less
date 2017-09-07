@@ -7,22 +7,22 @@
   position: relative;
   text-align: center;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 30 * @hd;
   padding-bottom: @v-spacing-xl;
   background-color: @fill-base;
   .hairline('bottom');
 
   & &-pic {
-    width: 60px;
-    height: 60px;
+    width: 60 * @hd;
+    height: 60 * @hd;
     margin: 0 auto;
-    line-height: 60px;
-    background-size: 60px 60px;
+    line-height: 60 * @hd;
+    background-size: 60 * @hd 60 * @hd;
   }
 
   & &-title,
   & &-message {
-    font-size: 21px;
+    font-size: 21 * @hd;
     color: @color-text-base;
     padding-left: @h-spacing-lg;
     padding-right: @h-spacing-lg;

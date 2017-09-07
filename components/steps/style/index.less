@@ -4,8 +4,8 @@
 @stepsPrefixCls: am-steps;
 @errorTailCls: error-tail;
 @ellipsisItem: ellipsis-item;
-@defaultIconSize: 22px;
-@smallIconSize: 18px;
+@defaultIconSize: 22 * @hd;
+@smallIconSize: 18 * @hd;
 
 .@{stepsPrefixCls} {
   font-size: 0;
@@ -44,8 +44,8 @@
       .@{stepsPrefixCls}-head-inner {
         border-color: @brand-primary;
         background-color: @brand-primary;
-        width: 22px;
-        height: 22px;
+        width: 22 * @hd;
+        height: 22 * @hd;
         border-radius: @radius-circle;
         border: 0;
 
@@ -149,15 +149,15 @@
       .@{stepsPrefixCls}-head-inner {
         > .@{stepsPrefixCls}-icon {
           font-size: @font-size-subhead;
-          line-height: 20px;
-          width: 20px;
-          height: 20px;
-          border: 2px solid @color-text-placeholder;
+          line-height: 20 * @hd;
+          width: 20 * @hd;
+          height: 20 * @hd;
+          border: 2 * @hd solid @color-text-placeholder;
           border-radius: @radius-circle;
 
           .am-icon {
-            width: 18px;
-            height: 18px;
+            width: 18 * @hd;
+            height: 18 * @hd;
           }
         }
       }
@@ -178,19 +178,19 @@
   &-head-inner {
     display: block;
     box-sizing: border-box;
-    border: 2px solid @color-text-placeholder;
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
+    border: 2 * @hd solid @color-text-placeholder;
+    width: 24 * @hd;
+    height: 24 * @hd;
+    line-height: 24 * @hd;
     text-align: center;
-    border-radius: 24px;
-    font-size: 14px;
-    margin-right: 8px;
+    border-radius: 24 * @hd;
+    font-size: 14 * @hd;
+    margin-right: 8 * @hd;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 
     > .@{stepsPrefixCls}-icon {
       line-height: @line-height-base;
-      top: -1.2.5px;
+      top: -1.2.5 * @hd;
       color: @brand-primary;
       position: relative;
     }
@@ -198,10 +198,10 @@
 
   &-title {
     font-size: @font-size-caption;
-    margin-bottom: 2px;
+    margin-bottom: 2 * @hd;
     font-weight: bold;
     display: inline-block;
-    padding-right: 5px;
+    padding-right: 5 * @hd;
   }
 
   &-item:last-child {
@@ -222,13 +222,13 @@
     position: absolute;
     left: 0;
     width: 100%;
-    top: 10px;
+    top: 10 * @hd;
 
     > i {
       display: inline-block;
       vertical-align: top;
       background: @border-color-base;
-      height: 2px;
+      height: 2 * @hd;
       width: 100%;
       position: relative;
 
@@ -260,7 +260,7 @@
     }
 
     .@{stepsPrefixCls}-tail {
-      padding: 0 4px;
+      padding: 0 4 * @hd;
 
       > i {
         height: 1PX;
@@ -289,8 +289,8 @@
       background-color: @fill-base;
 
       .am-icon {
-        width: 18px;
-        height: 18px;
+        width: 18 * @hd;
+        height: 18 * @hd;
       }
     }
   }
@@ -298,18 +298,18 @@
   &&-small .@{ellipsisItem}&-item&-status-wait&-custom &-head-inner {
     > .@{stepsPrefixCls}-icon {
       .am-icon {
-        width: 12px;
-        height: 12px;
+        width: 12 * @hd;
+        height: 12 * @hd;
       }
     }
   }
 
   &&-small &-item&-status-wait&-custom &-head-inner {
     > .@{stepsPrefixCls}-icon {
-      font-size: 10px;
-      width: 14px;
-      height: 14px;
-      line-height: 14px;
+      font-size: 10 * @hd;
+      width: 14 * @hd;
+      height: 14 * @hd;
+      line-height: 14 * @hd;
     }
   }
 
@@ -329,15 +329,15 @@
 
   .@{stepsPrefixCls}-tail {
     position: absolute;
-    left: 11px;
+    left: 11 * @hd;
     height: 100%;
-    width: 2px;
+    width: 2 * @hd;
     padding: 0;
     background-color: @border-color-base;
 
     > i {
       height: 100%;
-      width: 2px;
+      width: 2 * @hd;
 
       &:after {
         height: 0;
@@ -361,7 +361,7 @@
   }
 
   .@{stepsPrefixCls}-main {
-    min-height: 70px;
+    min-height: 70 * @hd;
     overflow: hidden;
     display: block;
 
@@ -371,7 +371,7 @@
   }
 
   .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
-    width: 2px;
+    width: 2 * @hd;
     height: 55%;
   }
 }
@@ -379,9 +379,9 @@
 .@{stepsPrefixCls}-vertical.@{stepsPrefixCls}-small {
   .@{stepsPrefixCls}-tail {
     position: absolute;
-    left: 8px;
+    left: 8 * @hd;
     padding: 0;
-    width: 1px;
+    width: 1PX;
 
     > i {
       height: 100%;
@@ -390,7 +390,7 @@
 
   .@{stepsPrefixCls}-item.@{stepsPrefixCls}-status-process .@{stepsPrefixCls}-tail > i {
     height: 50%;
-    width: 1px;
+    width: 1PX;
   }
 
   .@{stepsPrefixCls}-item .@{stepsPrefixCls}-head-inner {
@@ -404,17 +404,17 @@
   }
 
   .@{stepsPrefixCls}-description {
-    max-width: 75px;
+    max-width: 75 * @hd;
   }
 
   &.@{stepsPrefixCls}-small .@{stepsPrefixCls}-tail {
-    top: 8px;
+    top: 8 * @hd;
   }
 }
 
 .@{stepsPrefixCls}-label-vertical {
   .@{stepsPrefixCls}-tail {
-    left: 30px;
+    left: 30 * @hd;
     right: 0;
     width: auto;
     background-color: @border-color-base;
