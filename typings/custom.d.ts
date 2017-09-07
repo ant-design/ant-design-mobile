@@ -18,8 +18,6 @@ declare module 'classnames';
 
 declare module 'rmc-feedback';
 
-declare module 'omit.js';
-
 declare module 'rc-input-number*';
 
 declare module 'css-vendor';
