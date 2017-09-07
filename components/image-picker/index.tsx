@@ -172,8 +172,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     });
 
     const selectEl = (
-      <Item>
-        <TouchFeedback activeClassName={`${prefixCls}-upload-btn-active`} key="select">
+      <Item key="select">
+        <TouchFeedback activeClassName={`${prefixCls}-upload-btn-active`}>
           <div
             className={`${prefixCls}-item ${prefixCls}-upload-btn`}
             onClick={onAddImageClick}
