@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "2.0.0-alpha.10",
+  "version": "2.0.0-alpha.11",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -143,6 +143,7 @@
     "watch-tsc": "antd-tools run watch-tsc",
     "clean": "antd-tools run clean",
     "start": "cross-env NODE_ENV=development concurrently \"DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js --no-livereload\" \"DEMO_ENV=preact bisheng start -c ./site/bisheng.kitchen.config.js --no-livereload\"",
+    "start-x": "cross-env NODE_ENV=production concurrently \"DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js --no-livereload\" \"DEMO_ENV=preact bisheng start -c ./site/bisheng.kitchen.config.js --no-livereload\"",
     "site": "cross-env NODE_ENV=production concurrently \"DEMO_ENV=react bisheng build -c ./site/bisheng.desktop.config.js\" \"DEMO_ENV=preact bisheng build -c ./site/bisheng.kitchen.config.js\" && node scripts/copy-app-res",
     "analysis": "npm run dist && node ./scripts/analysis",
     "deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
