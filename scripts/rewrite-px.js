@@ -2,7 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const rootPath = '/Users/jiangkai/github/ant-design-mobile/components';
+const rootPath = path.resolve('../components/')
 
 function rewrite(value) {
   return value.replace(/(\d+(\.\d+)?)px/ig, (match, p1, p2) => {
