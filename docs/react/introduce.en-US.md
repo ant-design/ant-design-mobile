@@ -49,7 +49,7 @@ english: Ant Design Mobile of React
 
 Can be an existing project, or a newly created empty item, but it is recommended to copy and modify it from the official example [scaffolding](https://github.com/ant-design/antd-mobile-samples/tree/1.x/rn-web).
 
-> More official [examples](https://github.com/ant-design/antd-mobile-samples).
+> More official [examples](https://github.com/ant-design/antd-mobile-samples/tree/1.x).
 > Also, you can use any [scaffold](https://github.com/enaqx/awesome-react#boilerplates) available in React ecosystem.
 
 ### 2. Installation
@@ -61,7 +61,7 @@ $ npm install babel-plugin-import --save-dev
 
 ### 3. Usage
 
-> If you encounter an error, please refer [#56](https://github.com/ant-design/ant-design-mobile/issues/56) and [Samples](https://github.com/ant-design/antd-mobile-samples) first.
+> If you encounter an error, please refer [#56](https://github.com/ant-design/ant-design-mobile/issues/56) and [Samples](https://github.com/ant-design/antd-mobile-samples/tree/1.x) first.
 
 > `antd-mobile@1.x`'s `web` component filename ends with `.web.tsx`, `react-native`'s ends with `.tsx`, very few cross platform components just ends with `.tsx`. (the `.tsx` file will be compiled to `.js` by typescript)
 

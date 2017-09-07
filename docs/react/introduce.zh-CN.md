@@ -49,7 +49,8 @@ english: Ant Design Mobile of React
 
 可以是已有项目、或者是新创建的空项目，但更推荐从 [官方示例](https://github.com/ant-design/antd-mobile-samples/tree/1.x/rn-web) 脚手架里拷贝并修改
 
-> 参考更多[官方示例集](https://github.com/ant-design/antd-mobile-samples)
+> 参考更多 [官方示例集](https://github.com/ant-design/antd-mobile-samples/tree/1.x)
+>
 > 或者你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates)
 
 ### 2. 安装
@@ -61,7 +62,7 @@ $ npm install babel-plugin-import --save-dev
 
 ### 3. 使用
 
-> 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56) 及 [官方示例集](https://github.com/ant-design/antd-mobile-samples)
+> 遇到报错，请先参考 [示例脚手架](https://github.com/ant-design/ant-design-mobile/issues/56) 及 [官方示例集](https://github.com/ant-design/antd-mobile-samples/tree/1.x)
 
 > `antd-mobile@1.x` 的 `web` 版的组件文件名以 `.web.tsx` 结尾，`react-native` 版本的以 `.tsx` 结尾，很少一部分的跨平台组件文件名以 `.tsx` 结尾。 (`.tsx`文件会被 typescript 编译为`.js`文件)
 
