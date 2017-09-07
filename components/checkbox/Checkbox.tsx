@@ -18,9 +18,10 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       [className as string]: !!className,
       [`${prefixCls}-wrapper`]: true,
     });
+    // Todo: wait for https://github.com/developit/preact-compat/issues/422, then we can remove class below
     const mark = (
       <label className={wrapCls} style={style}>
-        <RcCheckbox {...omit(this.props, ['className', 'style'])} />
+        <RcCheckbox {...omit(this.props, ['className', 'style', 'class'])} />
         {children}
       </label>
     );
