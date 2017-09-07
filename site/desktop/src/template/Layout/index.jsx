@@ -1,4 +1,5 @@
 import React, { cloneElement } from 'react';
+import { Alert } from 'antd';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
@@ -63,6 +64,7 @@ export default class Layout extends React.Component {
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <div className="page-wrapper">
+          <Alert message={<a href="http://beta.mobile.ant.design/">The first Ant Design Mobile 2.0 beta is here!</a>} type="info" showIcon={false} banner closable />
           <Header {...restProps} isFirstScreen={isFirstScreen} />
           {cloneElement(children, { onEnterChange: this.onEnterChange })}
           <Footer {...restProps} />
