@@ -58,7 +58,7 @@
     .hairline('all', @border-color-base, @radius-sm);
   }
   &-input {
-    height: 36px;
+    height: 36 * @hd;
     line-height: @line-height-base;
 
     &:nth-child(2) {
@@ -69,7 +69,7 @@
       position: relative;
       border: 0;
       width: 98%;
-      height: 34px;
+      height: 34 * @hd;
       top: 1PX;
       box-sizing: border-box;  // maybe not need it ?
 
@@ -87,11 +87,11 @@
       border-radius: 0;
 
       .@{modalPrefixClass}-header {
-        padding: @v-spacing-md 24px 12px;
+        padding: @v-spacing-md 24 * @hd 12 * @hd;
 
         .@{modalPrefixClass}-title {
           text-align: left;
-          font-size: 21px;
+          font-size: 21 * @hd;
           color: @color-text-base;
         }
       }
@@ -99,7 +99,7 @@
       .@{modalPrefixClass}-body {
         color: @color-text-base;
         text-align: left;
-        padding: 0 24px @v-spacing-lg;
+        padding: 0 24 * @hd @v-spacing-lg;
 
         .@{modalPrefixClass}-input-container {
           .hairline-remove('all');
@@ -123,9 +123,9 @@
 
           .@{modalPrefixClass}-button {
             flex: initial;
-            margin-left: 3px;
+            margin-left: 3 * @hd;
             padding: 0 @h-spacing-lg;
-            height: 48px;
+            height: 48 * @hd;
             box-sizing: border-box;
 
             &:first-child {
@@ -146,15 +146,15 @@
           .@{modalPrefixClass}-button {
             .hairline-remove('top');
             padding: 0 @h-spacing-lg;
-            margin-left: 3px;
-            height: 48px;
+            margin-left: 3 * @hd;
+            height: 48 * @hd;
             box-sizing: border-box;
           }
         }
         .@{modalPrefixClass}-button-group-operation {
           .@{modalPrefixClass}-button {
             text-align: start;
-            padding-left: 15px;
+            padding-left: 15 * @hd;
           }
         }
       }

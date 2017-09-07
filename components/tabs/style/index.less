@@ -15,7 +15,7 @@
     position: absolute;
     top: 0;
     display: block;
-    width: 59px;
+    width: 59 * @hd;
     height: 100%;
     content: ' ';
     z-index: @tabs-pagination-zindex;
@@ -110,11 +110,11 @@
 
         .@{badge-prefix-cls} {
             .@{badge-prefix-cls}-text {
-                top: -13px;
-                transform: translateX(-5px);
+                top: -13 * @hd;
+                transform: translateX(-5 * @hd);
             }
             .@{badge-prefix-cls}-dot {
-                top: -6px;
+                top: -6 * @hd;
                 transform: translateX(0);
             }
         }
@@ -127,7 +127,7 @@
     &-underline {
         position: absolute;
         bottom: 0;
-        border: 1px @tabs-color solid;
+        border: 1PX @tabs-color solid;
     }
 
     &-animated &-content {

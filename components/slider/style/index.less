@@ -15,24 +15,24 @@
     position: absolute;
     width: 100%;
     background-color: @border-color-base;
-    height: 2px;
+    height: 2 * @hd;
     box-sizing: border-box;
   }
 
   &-track {
     position: absolute;
     left: 0;
-    height: 2px;
+    height: 2 * @hd;
     border-radius: @radius-xs;
     background-color: @brand-primary;
   }
 
   &-handle {
     position: absolute;
-    margin-left: -12px;
-    margin-top: -12px;
-    width: 22px;
-    height: 22px;
+    margin-left: -12 * @hd;
+    margin-top: -12 * @hd;
+    width: 22 * @hd;
+    height: 22 * @hd;
     cursor: pointer;
     border-radius: @radius-circle;
     border: @border-width-lg solid @brand-primary;
@@ -46,7 +46,7 @@
 
   &-mark {
     position: absolute;
-    top: 20px;
+    top: 20 * @hd;
     left: 0;
     width: 100%;
     font-size: @font-size-caption-sm;
@@ -68,16 +68,16 @@
   &-step {
     position: absolute;
     width: 100%;
-    height: 4px;
+    height: 4 * @hd;
     background: transparent;
   }
 
   &-dot {
     position: absolute;
-    bottom: -5px;
-    margin-left: -4px;
-    width: 12px;
-    height: 12px;
+    bottom: -5 * @hd;
+    margin-left: -4 * @hd;
+    width: 12 * @hd;
+    height: 12 * @hd;
     border: @border-width-lg solid @border-color-base;
     background-color: @fill-base;
     cursor: pointer;
@@ -85,11 +85,11 @@
     vertical-align: middle;
 
     &:first-child {
-      margin-left: -4px;
+      margin-left: -4 * @hd;
     }
 
     &:last-child {
-      margin-left: -4px;
+      margin-left: -4 * @hd;
     }
 
     &-active {
@@ -101,7 +101,7 @@
     opacity: @opacity-disabled;
 
     .@{sliderPrefixCls}-track {
-      height: 2px;
+      height: 2 * @hd;
     }
 
     .@{sliderPrefixCls}-handle,

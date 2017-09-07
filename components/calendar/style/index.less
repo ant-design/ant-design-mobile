@@ -117,7 +117,7 @@
   }
 
   .header {
-    margin: 5px;
+    margin: 5 * @hd;
     display: flex;
     flex-shrink: 0;
     align-items: center;
@@ -134,10 +134,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 8px;
-      height: 24px;
-      left: 5px;
-      top: 5px;
+      padding: 0 8 * @hd;
+      height: 24 * @hd;
+      left: 5 * @hd;
+      top: 5 * @hd;
       color: #068EEF;
     }
 
@@ -146,17 +146,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 8px;
-      height: 24px;
-      right: 5px;
-      top: 5px;
+      padding: 0 8 * @hd;
+      height: 24 * @hd;
+      right: 5 * @hd;
+      top: 5 * @hd;
       color: #068EEF;
-      font-size: 14px;
+      font-size: 14 * @hd;
     }
   }
 
   .timePicker {
-    border-top: 1px #ccc solid;
+    border-top: 1PX #ccc solid;
   }
 }
 
@@ -165,11 +165,11 @@
   background: #fff;
   display: flex;
   flex-shrink: 0;
-  padding: 0 2px;
+  padding: 0 2 * @hd;
   border-bottom: @border-width-sm @border-color-base solid;
 
   .cell {
-    height: 24px;
+    height: 24 * @hd;
     display: flex;
     width: 100/7%;
     justify-content: center;
@@ -205,8 +205,8 @@
     align-items: flex-end;
     left: 0;
     right: 0;
-    padding: 10px 0;
-    top: -40px;
+    padding: 10 * @hd 0;
+    top: -40 * @hd;
     color: #bbb;
   }
 }
@@ -238,7 +238,7 @@
 
   .button {
     text-align: center;
-    width: 80px;
+    width: 80 * @hd;
     margin: 0 0 0 auto;
     padding: @h-spacing-md 0;
     border-radius: @radius-md;
@@ -269,7 +269,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 44px;
+    height: 44 * @hd;
     font-size: @font-size-caption;
     border-top: @border-width-sm @border-color-base solid;
     border-bottom: @border-width-sm @border-color-base solid;
@@ -288,7 +288,7 @@
   .row {
     display: flex;
     align-items: baseline;
-    @cell-size: 35px;
+    @cell-size: 35 * @hd;
 
     .cell {
       display: flex;
@@ -303,7 +303,7 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        margin-bottom: 2px;
+        margin-bottom: 2 * @hd;
 
         .date {
           display: flex;
@@ -367,7 +367,7 @@
       .info {
         height: @font-size-icontext + 5;
         width: 100%;
-        padding: 0 5px;
+        padding: 0 5 * @hd;
         font-size: @font-size-icontext;
         color: @color-text-caption;
         white-space: nowrap;
@@ -398,7 +398,7 @@
   flex-shrink: 0;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 30 * @hd;
   border-top: @border-color-base @border-width-sm solid;
   height: @option-height;
 

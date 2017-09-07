@@ -21,7 +21,7 @@
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-    padding: 2px 0;
+    padding: 2 * @hd 0;
 
     &.@{inputPrefixCls}-label-2 {
       width: 2 * @input-label-width;
@@ -57,7 +57,7 @@
       font-size: @font-size-heading;
       appearance: none;
       width: 100%;
-      padding: 2px 0;
+      padding: 2 * @hd 0;
       border: 0;
       background-color: transparent;
       line-height: @line-height-base;
@@ -88,7 +88,7 @@
     .encoded-svg-background('input_item_delete');
 
     background-size: @icon-size-sm auto;
-    background-position: 2px 2px;
+    background-position: 2 * @hd 2 * @hd;
 
     &-active {
       background-color: @input-color-icon-tap;

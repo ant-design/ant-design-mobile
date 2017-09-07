@@ -2,14 +2,17 @@
 const path = require('path');
 const fs = require('fs');
 
-const rootPath = '/Users/jiangkai/github/ant-design-mobile/components';
+const rootPath = path.resolve('../components/')
 
 function rewrite(value) {
-  return value.replace(/(\d+(\.\d+)?)rem/ig, (match, p1, p2) => {
+  return value.replace(/(\d+(\.\d+)?)px/ig, (match, p1, p2) => {
     const oldValue = Number(p1);
-    let newValue = parseInt(oldValue * 100, 10) / 2;
-    newValue = `${newValue}px`;
-    console.log(match, newValue);
+    let newValue;
+    if (oldValue === 1) {
+      newValue  = `${oldValue}PX`;
+    } else {
+      newValue = `${oldValue} * @hd`;
+    }
     return newValue;
   });
 }
@@ -21,7 +24,7 @@ function halvePx(filepath) {
       return;
     }
     if (stats.isFile()) {
-      if (path.extname(filepath) === '.md') {
+      if (path.extname(filepath) === '.less') {
         // console.log('start to handle', filepath);
         const content = fs.readFileSync(filepath, {
           encoding: 'utf8',

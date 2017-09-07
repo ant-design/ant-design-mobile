@@ -67,7 +67,7 @@
       align-items: flex-start;
 
       .@{listPrefixCls}-arrow {
-        margin-top: 2px;
+        margin-top: 2 * @hd;
       }
     }
   }
@@ -144,8 +144,8 @@
       text-align: left;
       .ellipsis();
 
-      padding-top: 7px;
-      padding-bottom: 7px;
+      padding-top: 7 * @hd;
+      padding-bottom: 7 * @hd;
     }
 
     /* list右补充内容*/
@@ -157,8 +157,8 @@
       text-align: right;
       .ellipsis();
 
-      padding-top: 7px;
-      padding-bottom: 7px;
+      padding-top: 7 * @hd;
+      padding-bottom: 7 * @hd;
     }
 
     .@{listPrefixCls}-title {
@@ -203,7 +203,7 @@
     }
 
     &-multiple {
-      padding: 12.5px @h-spacing-lg 12.5px 0;
+      padding: 12.5 * @hd @h-spacing-lg 12.5 * @hd 0;
 
       .@{listPrefixCls}-content {
         padding-top: 0;
