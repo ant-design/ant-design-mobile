@@ -103,7 +103,7 @@ class Marquee extends React.PureComponent<MarqueeProp, any> {
 
     return (
       <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }} onLayout={this.onLayoutContainer}>
-        <Animated.View style={{ flexDirection: 'row', transform: [{ translateX: this.state.left }], width: maxWidth }}>
+        <Animated.View style={{ flexDirection: 'row', left: this.state.left, width: maxWidth }}>
           {textChildren}
         </Animated.View>
       </View>
