@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Flex from '../flex';
 import Carousel from '../carousel';
 import { DataItem, GridProps } from './PropsType';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 export default class Grid extends React.Component<GridProps, any> {
   static defaultProps = {

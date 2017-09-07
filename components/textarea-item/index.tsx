@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import TextareaItemProps from './PropsType';
 import omit from 'omit.js';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 function noop() {}
 

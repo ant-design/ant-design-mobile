@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 import { ButtonProps } from './PropsType';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);

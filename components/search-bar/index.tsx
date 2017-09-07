@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static defaultProps = defaultProps;

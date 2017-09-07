@@ -5,7 +5,7 @@ import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
 import { ImagePickerPropTypes } from './PropsType';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 const Item = Flex.Item;
 function noop() { }

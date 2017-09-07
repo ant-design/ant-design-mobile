@@ -5,7 +5,7 @@ import Dialog from 'rmc-dialog';
 import classNames from 'classnames';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 const NORMAL = 'NORMAL';
 const SHARE = 'SHARE';
