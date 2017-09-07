@@ -25,7 +25,7 @@ class Home extends React.Component {
 
     const receiveMessage = (event) => {
       if (event) {
-        this.setState({ loading: Math.max(this.state.loading, 90) });
+        this.setState({ loading: Math.max(this.state.loading, 70) });
       }
     };
     window.addEventListener('message', receiveMessage, false);
@@ -43,9 +43,9 @@ class Home extends React.Component {
   }
 
   loading() {
-    const speed = this.state.loading < 60 ? 10 : 5;
+    const speed = this.state.loading < 60 ? 30 : 20;
     setTimeout(() => {
-      if (this.state.loading !== 89) {
+      if (this.state.loading !== 69) {
         this.setState({
           loading: this.state.loading + 1,
         });
