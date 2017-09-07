@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import SegmentedControlProps from './PropsType';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {

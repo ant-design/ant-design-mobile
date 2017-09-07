@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from 'rmc-dialog';
 import classNames from 'classnames';
 import { ModalProps, ModalComponent } from './PropsType';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 export default class Modal extends ModalComponent<ModalProps, any> {
   static defaultProps = {

@@ -7,7 +7,7 @@ import InputItemProps from './PropsType';
 import Input from './Input';
 import CustomInput from './CustomInput';
 import { getComponentLocale } from '../_util/getLocale';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 function noop() { }
 

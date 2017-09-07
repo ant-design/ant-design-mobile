@@ -16,7 +16,7 @@ declare module 'rc-steps';
 
 declare module 'classnames';
 
-declare module 'object-assign';
+declare module 'rmc-feedback';
 
 declare module 'omit.js';
 
@@ -46,7 +46,7 @@ declare module 'react-native-drawer-layout';
 
 declare module 'rc-drawer';
 
-declare module 'rc-dialog';
+declare module 'rmc-dialog';
 
 declare module 'react-native-menu';
 

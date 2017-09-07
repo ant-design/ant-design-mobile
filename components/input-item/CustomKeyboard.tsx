@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 export class KeyboardItem extends React.Component<any, any> {
   static defaultProps = {

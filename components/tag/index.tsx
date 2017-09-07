@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import TagProps from './PropsType';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
-import TouchFeedback from '../_util/touchFeedback';
+import TouchFeedback from 'rmc-feedback';
 
 export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {

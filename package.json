@@ -33,7 +33,7 @@
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "babel-runtime": "6.x",
-    "classnames": "~2.2.1",
+    "classnames": "^2.2.1",
     "create-react-class": "^15.5.2",
     "normalize.css": "^7.0.0",
     "omit.js": "~1.0.0",
@@ -45,7 +45,6 @@
     "rc-slider": "~8.2.0",
     "rc-steps": "~2.5.1",
     "rc-swipeout": "~2.0.0",
-    "rmc-tabs": "^1.0.0",
     "rc-tooltip": "~3.4.3",
     "react-native-camera-roll-picker": "~1.2.0",
     "react-native-collapsible": "^0.8.0",
@@ -55,9 +54,11 @@
     "rmc-cascader": "^5.0.0-alpha.0",
     "rmc-date-picker": "^6.0.0-alpha.6",
     "rmc-dialog": "^0.0.1-alpha.3",
+    "rmc-feedback": "^0.0.2",
     "rmc-list-view": "^0.8.4",
     "rmc-nuka-carousel": "^2.2.0",
     "rmc-picker": "^5.0.0-alpha.0",
+    "rmc-tabs": "^1.0.0",
     "rn-topview": "~0.1.0",
     "warning": "^3.0.0"
   },
