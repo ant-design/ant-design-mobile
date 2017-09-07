@@ -37,14 +37,3 @@ Properties | Descrition | Type | Default
 | handleStyle(`web`)    |  Array[Object]    |    | style of handle，will be applied to mutli handle follow the array elemetns order |
 | trackStyle(`web`)    | Array[Object]     |    | style of track，will be applied to mutli track follow the array elemetns order |
 | railStyle(`web`)    |  Object     |   | style of slider base style, which means the area that not been selected |
-
-## ToolTip(Web Only)
-
-> Note: In order to be used on demand, `Slider` has been split into `Slider`, `Range` and `creatToolTip` in version 1.0.x, eg: use `Slider` with `tooltip` like this:
-
-````jsx
-import { Range, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
-
-const RangeWithTooltip = createTooltip(Range); // High Order Component
-<RangeWithTooltip defaultValue={[4, 16]} min={0} max={30} />
-````
