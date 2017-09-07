@@ -1,75 +1,70 @@
 import React from 'react';
-import { Text, View, Animated, Easing } from 'react-native';
-import createReactClass from 'create-react-class';
+import { Text, View, Animated, Easing, ViewStyle } from 'react-native';
 
 export interface MarqueeProp {
-  text: string;
+  text: React.ReactNode;
   loop?: boolean;
   leading?: number;
   trailing?: number;
   className?: string;
   fps?: number;
+  style?: ViewStyle;
+  maxWidth?: number;
 }
 
-function until (test, iterator, callback) {
-  if (!test()) {
-    iterator((err) => {
-      if (err) {
-        return callback(err);
-      }
-      until(test, iterator, callback);
-    });
-  } else {
-    callback();
-  }
-}
+class Marquee extends React.PureComponent<MarqueeProp, any> {
+  static defaultProps = {
+    text: '',
+    loop: false,
+    leading: 500,
+    trailing: 800,
+    fps: 40,
+    maxWidth: 1000,
+  };
 
-const Marquee = createReactClass<MarqueeProp, any>({
-  getDefaultProps() {
-    return {
-      text: '',
-      loop: false,
-      leading: 500,
-      trailing: 800,
-      fps: 40,
-    };
-  },
+  texts: any;
+  twidth = 0;
+  width = 0;
 
-  getInitialState () {
+  constructor(props) {
+    super(props);
+
     this.texts = {};
-    return {
+    this.state = {
       left: new Animated.Value(0),
     };
-  },
+  }
 
-  onLayout(e, i) {
-    this.texts[i] = e.nativeEvent.layout.width;
-    const textList = this.props.text.split('');
-    const textkeys = Object.keys(this.texts);
-    if (textkeys.length === textList.length) {
-      this.twidth = textkeys.reduce((prev, curKey) => prev + this.texts[curKey], 0);
-      this.texts = {};
-      if (this.twidth > this.width) {
-        until(
-          () => this.width > 0,
-          (cb) => setTimeout(cb, 10),
-          () => this.startMove(),
-        );
-      }
+  onLayout = (e) => {
+    if (this.twidth) {
+      return;
     }
-  },
 
-  onLayoutContainer(e) {
+    this.twidth = e.nativeEvent.layout.width;
+    // onLayout may be earlier than onLayoutContainer on android, can not be sure width < twidth at that time.
+    this.tryStart();
+  }
+
+  tryStart() {
+    if (this.twidth > this.width && this.width) {
+      this.startMove();
+    }
+  }
+
+  onLayoutContainer = (e) => {
     if (!this.width) {
       this.width = e.nativeEvent.layout.width;
       this.setState({
         left: new Animated.Value(0),
+      }, () => {
+        this.tryStart();
       });
     }
-  },
+  }
 
-  startMove() {
-    const SPPED = 1 / this.props.fps * 1000;
+  startMove = () => {
+    const { fps = 40, loop } = this.props;
+    const SPPED = 1 / fps * 1000;
     const { width, twidth, props } = this;
     Animated.timing(this.state.left, {
       toValue: -twidth + width,
@@ -77,13 +72,13 @@ const Marquee = createReactClass<MarqueeProp, any>({
       easing: Easing.linear,
       delay: props.leading,
     }).start(() => {
-      if (this.props.loop) {
+      if (loop) {
         this.moveToHeader();
       }
     });
-  },
+  }
 
-  moveToHeader() {
+  moveToHeader = () => {
     Animated.timing(this.state.left, {
       toValue: 0,
       duration: 0,
@@ -91,23 +86,29 @@ const Marquee = createReactClass<MarqueeProp, any>({
     }).start(() => {
       this.startMove();
     });
-  },
+  }
 
   render() {
-    const { style, text } = this.props;
+    const { style, text, maxWidth } = this.props;
 
-    const textChildren = text.split('').map((t, i) => (
-      <Text key={i} onLayout={(e) => this.onLayout(e, i)} style={style}>{t}</Text>
-    ));
+    const textChildren =
+      <Text
+        onLayout={this.onLayout}
+        numberOfLines={1}
+        ellipsizeMode="tail"
+        style={style}
+      >
+        {text}
+      </Text>;
 
     return (
       <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }} onLayout={this.onLayoutContainer}>
-        <Animated.View style={{ flexDirection: 'row', left: this.state.left }}>
+        <Animated.View style={{ flexDirection: 'row', left: this.state.left, width: maxWidth }}>
           {textChildren}
         </Animated.View>
       </View>
     );
-  },
-});
+  }
+}
 
 export default Marquee;

@@ -77,7 +77,12 @@ exports[`NoticeBar renders correctly 1`] = `
         style={
           Object {
             "flexDirection": "row",
-            "left": 0,
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+            ],
+            "width": 1000,
           }
         }
       >
@@ -85,6 +90,7 @@ exports[`NoticeBar renders correctly 1`] = `
           accessible={true}
           allowFontScaling={true}
           ellipsizeMode="tail"
+          numberOfLines={1}
           onLayout={[Function]}
           style={
             Object {
@@ -93,35 +99,7 @@ exports[`NoticeBar renders correctly 1`] = `
             }
           }
         >
-          f
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          onLayout={[Function]}
-          style={
-            Object {
-              "color": "#f4333c",
-              "fontSize": 15,
-            }
-          }
-        >
-          o
-        </Text>
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          onLayout={[Function]}
-          style={
-            Object {
-              "color": "#f4333c",
-              "fontSize": 15,
-            }
-          }
-        >
-          o
+          foo
         </Text>
       </View>
     </View>
