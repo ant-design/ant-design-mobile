@@ -27,13 +27,14 @@ function formatDate(date) {
 }
 
 // 如果不是使用 List.Item 作为 children
-const CustomChildren = props => (
+// 组件内需处理 onClick/extra 属性
+const CustomChildren = ({ extra, onClick, children }) => (
   <div
-    onClick={props.onClick}
+    onClick={onClick}
     style={{ backgroundColor: '#fff', height: '45px', lineHeight: '45px', padding: '0 15px' }}
   >
-    {props.children}
-    <span style={{ float: 'right', color: '#888' }}>{props.extra}</span>
+    {children}
+    <span style={{ float: 'right', color: '#888' }}>{extra}</span>
   </div>
 );
 
@@ -42,10 +43,10 @@ class Test extends React.Component {
     date: now,
     utcDate: utcNow,
     dpValue: null,
+    customChildValue: null,
     visible: false,
   }
   onChange = (date) => {
-    // console.log('onChange', date);
     this.setState({ date });
   }
   onConditionSelect = (date) => {
@@ -90,10 +91,12 @@ class Test extends React.Component {
           onDismiss={() => this.setState({ visible: false })}
         />
         <DatePicker
+          mode="time"
           format="HH:mm"
           title="Select Time"
-          value={this.state.dpValue}
-          onChange={v => this.setState({ dpValue: v })}
+          value={this.state.customChildValue}
+          onChange={v => this.setState({ customChildValue: v })}
+          extra="click to choose"
         >
           <CustomChildren>With customized children</CustomChildren>
         </DatePicker>
@@ -104,6 +107,7 @@ class Test extends React.Component {
 
 ReactDOM.render(<Test />, mountNode);
 ````
+
 ````css
 .date-picker-list .am-list-item .am-list-line .am-list-extra {
   flex-basis: initial;

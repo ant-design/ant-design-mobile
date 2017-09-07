@@ -28,7 +28,9 @@ Properties | Descrition | Type | Default
 | onValueChange | fire when picker col change | (vals: any, index: number) => void | - |
 | format  | format the selected value | `(value: Date) => date string` / `format string`(corresponding mode under the format are: `YYYY-MM-DD` or `HH:mm` or `YYYY-MM-DD HH:mm`) | - |
 | title  | title | string/React.ReactElement |  -  |
-| extra   | DatePicker's children is best to `List.Item`, if not, need to be a custom component (the `onClick`/`extra` props need to be handled in the component) | String  |  `请选择`  |
+| extra   | the display text | String  |  `请选择`  |
 | disabled   | set disabled  | Boolean |    false  |
 | prefixCls (`WEB only`) |  prefix class  | string | `am-picker` |
 | className (`WEB only`) |  className | string | - |
+
+Tip： We suggest DatePicker's children to be `List.Item`, if not, you need to be a custom component which accept and handle `onClick` / `extra` / `chidlren` props, see [demo](https://mobile.ant.design/components/date-picker)
