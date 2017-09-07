@@ -31,6 +31,7 @@ timeline: true
 
   - [Web] "Web page HD display" / "SVG Icon" optimization features, Changed from "built-in" to "external".
   - [Web] remove `across` mode of `Button`.
+  - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
 - **Theme**
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；

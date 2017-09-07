@@ -44,7 +44,7 @@ timeline: true
   - [RN] `Button` 组件 style 里`disabledRaw`/`disabledRawText` 修改为`defaultDisabledRaw` / `defaultDisabledRawText`
   - `Result` 组件的 `buttonClick` 更改为 `onButtonClick`
   - 去除 `Table` 组件
-  - 移除 `List` 组件的 `onLongPress` 属性
+  - 去除 `List` 组件的 `onLongPress` 属性
   - `Modal`、`List.Item`、`Switch` 将默认采用 ios 样式，不再根据 UA 进行自动探测; [#1371](https://github.com/ant-design/ant-design-mobile/issues/1371)
   - `InputItem`, `TextareaItem` 去除 `focused`,`autoFocus` APIs, 此需求用 `focus()` 实例方法代替。
   - 重构 `Tabs` 组件，底层重写， APIs 全面更新
@@ -54,9 +54,10 @@ timeline: true
   - 重构`Tabs`组件，底层重写，api全面更新
   - 去除`Popup`组件，给`Modal`组件新增`popup`属性，相应地 Modal 组件中原`animationType`属性开始支持 web 版本、用以标识 popup 弹出动画的类型 [#1125](https://github.com/ant-design/ant-design-mobile/issues/1125)
   - 去除 `createTooltip` 组件，如果你需要 range/slider 带 tooltip 功能，你可以用 [react-component/slider/createSliderWithTooltip](https://github.com/react-component/slider/blob/master/src/createSliderWithTooltip.jsx) 实现
-
+  - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
 - **Theme**
+
   - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；
   - `@searchbar-font-size` 重命名为 `@search-bar-font-size`。
 
