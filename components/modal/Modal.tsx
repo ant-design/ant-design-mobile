@@ -102,8 +102,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       }
     }
 
-    const wrapCls = classnames({
-      [wrapClassName as string]: !!wrapClassName,
+    const wrapCls = classnames(wrapClassName, {
       [`${prefixCls}-wrap-popup`]: popup,
     });
     const cls = classnames(className, {
