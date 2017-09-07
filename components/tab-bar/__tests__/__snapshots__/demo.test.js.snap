@@ -14,55 +14,61 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
       >
-        <div
-          style="background-color:white;height:100%;text-align:center;"
-        >
+        <div>
           <div
-            style="padding-top:60px;"
+            style="background-color:white;height:100%;text-align:center;"
           >
-            clicked “Life” tab， show “Life” information
+            <div
+              style="padding-top:60px;"
+            >
+              clicked “Life” tab， show “Life” information
+            </div>
+            <a
+              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+            >
+              click to show/hide tab-bar
+            </a>
           </div>
-          <a
-            style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
-          >
-            click to show/hide tab-bar
-          </a>
         </div>
       </div>
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
       >
-        <div
-          style="background-color:white;height:100%;text-align:center;"
-        >
+        <div>
           <div
-            style="padding-top:60px;"
+            style="background-color:white;height:100%;text-align:center;"
           >
-            clicked “Koubei” tab， show “Koubei” information
+            <div
+              style="padding-top:60px;"
+            >
+              clicked “Koubei” tab， show “Koubei” information
+            </div>
+            <a
+              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+            >
+              click to show/hide tab-bar
+            </a>
           </div>
-          <a
-            style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
-          >
-            click to show/hide tab-bar
-          </a>
         </div>
       </div>
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
       >
-        <div
-          style="background-color:white;height:100%;text-align:center;"
-        >
+        <div>
           <div
-            style="padding-top:60px;"
+            style="background-color:white;height:100%;text-align:center;"
           >
-            clicked “Friend” tab， show “Friend” information
+            <div
+              style="padding-top:60px;"
+            >
+              clicked “Friend” tab， show “Friend” information
+            </div>
+            <a
+              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+            >
+              click to show/hide tab-bar
+            </a>
           </div>
-          <a
-            style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
-          >
-            click to show/hide tab-bar
-          </a>
         </div>
       </div>
       <div
