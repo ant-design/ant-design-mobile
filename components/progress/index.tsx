@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import ProgressProps from './PropsType';
 
 export default class Progress extends React.Component<ProgressProps, any> {
@@ -31,9 +31,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
       height: 0,
     };
 
-    const wrapCls = classNames({
-      [className as string]: className,
-      [`${prefixCls}-outer`]: true,
+    const wrapCls = classnames(`${prefixCls}-outer`, className, {
       [`${prefixCls}-fixed-outer`]: position === 'fixed',
       [`${prefixCls}-hide-outer`]: !unfilled,
     });

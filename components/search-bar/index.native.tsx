@@ -3,10 +3,11 @@ import React from 'react';
 import { View, TextInput, Text, Image, StyleSheet } from 'react-native';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 import SearchBarStyle, { ISearchBarStyle } from './style/index.native';
-import omit from 'omit.js';
 
 export interface ISearchBarNativeProps extends SearchBarProps {
   styles: ISearchBarStyle;
+  onChangeText?: Function;
+  onSubmitEditing?: Function;
 }
 
 const SearchBarStyles = StyleSheet.create<any>(SearchBarStyle);
@@ -83,12 +84,15 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
     }
   }
   render() {
-    const { showCancelButton, cancelText, disabled, styles, style } = this.props;
-    const restProps = omit(this.props, [
-      'showCancelButton', 'cancelText', 'styles', 'value', 'onChangeText', 'onChange', 'onSubmitEditing', 'disabled',
-    ]);
+    const {
+      showCancelButton, cancelText, styles, value: propsValue,
+      onChangeText, onChange, onSubmitEditing, disabled,
+      ...restProps,
+    } = this.props;
+    const { style } = restProps;
     const { value, focus } = this.state;
     const _showCancelButton = showCancelButton || focus;
+
     return (
       <View style={styles.wrapper}>
         <View style={styles.inputWrapper}>

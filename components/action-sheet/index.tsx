@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rmc-dialog';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
 import TouchFeedback from 'rmc-feedback';
@@ -62,13 +62,11 @@ function createActionSheet(flag, config, callback) {
         {titleMsg}
         <div className={`${prefixCls}-button-list`} role="group">
           {options.map((item, index) => {
-            const cls = {
-              [`${prefixCls}-button-list-item`]: true,
-              [`${prefixCls}-destructive-button`]: destructiveButtonIndex === index,
-              [`${prefixCls}-cancel-button`]: cancelButtonIndex === index,
-            };
             const itemProps = {
-              className: classNames(cls),
+              className: classnames(`${prefixCls}-button-list-item`, {
+                [`${prefixCls}-destructive-button`]: destructiveButtonIndex === index,
+                [`${prefixCls}-cancel-button`]: cancelButtonIndex === index,
+              }),
               onClick: () => cb(index),
               role: 'button',
             };
@@ -128,10 +126,7 @@ function createActionSheet(flag, config, callback) {
       break;
   }
 
-  const rootCls = classNames({
-    [className as string]: !!className,
-    [`${prefixCls}-${mode}`]: true,
-  });
+  const rootCls = classnames(`${prefixCls}-${mode}`, className);
 
   ReactDOM.render(
     <Dialog

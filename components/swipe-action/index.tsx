@@ -1,6 +1,6 @@
 import React from 'react';
 import Swipeout from 'rc-swipeout';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import SwipeActionProps from './PropsType';
 
 class SwipeAction extends React.Component<SwipeActionProps, any> {
@@ -19,10 +19,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     const {
       className, style, prefixCls, left = [], right = [], autoClose, disabled, onOpen, onClose, children,
     } = this.props;
-    const wrapClass = classNames({
-      [`${prefixCls}`]: 1,
-      [className as string]: !!className,
-    });
+    const wrapClass = classnames(prefixCls, className);
 
     return (left.length || right.length) ? (
       <div style={style} className={className}>

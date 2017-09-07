@@ -1,8 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import omit from 'omit.js';
+import classnames from 'classnames';
 import InputItemProps from './PropsType';
 import Input from './Input';
 import CustomInput from './CustomInput';
@@ -164,33 +163,26 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
   render() {
     const {
-      prefixCls, prefixListCls, type, value, defaultValue,
-      name, editable, disabled, style, clear, children,
-      error, className, extra, labelNumber, maxLength,
+      prefixCls, prefixListCls, editable, style,
+      clear, children, error, className, extra, labelNumber, onExtraClick, onErrorClick,
+      updatePlaceholder, type, locale, ...restProps,
     } = this.props;
+    const { value, defaultValue, name, disabled, maxLength } = restProps;
 
-    // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
-    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
-      'clear', 'children', 'error', 'className', 'extra', 'labelNumber', 'onExtraClick', 'onErrorClick',
-      'updatePlaceholder', 'placeholderTextColor', 'type', 'locale',
-    ]);
-    const locale = getComponentLocale(this.props, this.context, 'InputItem', () => require('./locale/zh_CN'));
+    const _locale = getComponentLocale(this.props, this.context, 'InputItem', () => require('./locale/zh_CN'));
 
-    const { confirmLabel } = locale;
+    const { confirmLabel } = _locale;
 
     const { placeholder, focus } = this.state;
-    const wrapCls = classNames({
-      [`${prefixListCls}-item`]: true,
-      [`${prefixCls}-item`]: true,
+
+    const wrapCls = classnames(`${prefixListCls}-item`, `${prefixCls}-item`, className, {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
       [`${prefixCls}-android`]: focus,
-      [className as string]: className,
     });
 
-    const labelCls = classNames({
-      [`${prefixCls}-label`]: true,
+    const labelCls = classnames(`${prefixCls}-label`, {
       [`${prefixCls}-label-2`]: labelNumber === 2,
       [`${prefixCls}-label-3`]: labelNumber === 3,
       [`${prefixCls}-label-4`]: labelNumber === 4,
@@ -199,9 +191,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       [`${prefixCls}-label-7`]: labelNumber === 7,
     });
 
-    const controlCls = classNames({
-      [`${prefixCls}-control`]: true,
-    });
+    const controlCls = `${prefixCls}-control`;
 
     let inputType: any = 'text';
     if (type === 'bankCard' || type === 'phone') {
@@ -262,7 +252,7 @@ class InputItem extends React.Component<InputItemProps, any> {
           ) : (
             <Input
               {...patternProps}
-              {...otherProps}
+              {...restProps}
               {...valueProps}
               {...classNameProps}
               ref={el => this.inputRef = el}

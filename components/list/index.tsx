@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import Item from './ListItem';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { ListProps } from './PropsType';
 
 export default class List extends React.Component<ListProps, any> {
@@ -13,10 +13,7 @@ export default class List extends React.Component<ListProps, any> {
 
   render() {
     let { prefixCls, children, className, style, renderHeader, renderFooter, ...restProps } = this.props;
-    const wrapCls = classNames({
-      [prefixCls as string]: true,
-      [className as string]: className,
-    });
+    const wrapCls = classnames(prefixCls, className);
 
     return (
       <div className={wrapCls} style={style} {...restProps}>

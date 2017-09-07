@@ -15,7 +15,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     >
       <div
         checked=""
-        class="am-radio-item am-list-item am-list-item-middle"
+        class="am-list-item am-radio-item am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -52,7 +52,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
         />
       </div>
       <div
-        class="am-radio-item am-list-item am-list-item-middle"
+        class="am-list-item am-radio-item am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -100,7 +100,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     >
       <div
         checked=""
-        class="am-radio-item am-list-item am-list-item-middle"
+        class="am-list-item am-radio-item am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -142,7 +142,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
         />
       </div>
       <div
-        class="am-radio-item am-list-item am-list-item-middle"
+        class="am-list-item am-radio-item am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -197,7 +197,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     >
       <div
         checked=""
-        class="am-radio-item am-radio-item-disabled am-list-item am-list-item-middle"
+        class="am-list-item am-radio-item am-radio-item-disabled am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -235,7 +235,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
         />
       </div>
       <div
-        class="am-radio-item am-radio-item-disabled am-list-item am-list-item-middle"
+        class="am-list-item am-radio-item am-radio-item-disabled am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -284,7 +284,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     >
       <div
         checked=""
-        class="am-radio-item am-radio-item-disabled am-list-item am-list-item-middle"
+        class="am-list-item am-radio-item am-radio-item-disabled am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -327,7 +327,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
         />
       </div>
       <div
-        class="am-radio-item am-radio-item-disabled am-list-item am-list-item-middle"
+        class="am-list-item am-radio-item am-radio-item-disabled am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -384,7 +384,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <label
-        class="my-radio am-radio-wrapper"
+        class="am-radio-wrapper my-radio"
       >
         <span
           class="am-radio"

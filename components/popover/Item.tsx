@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TouchFeedback from 'rmc-feedback';
 
 export default class Item extends React.Component<any, any> {
@@ -12,9 +12,8 @@ export default class Item extends React.Component<any, any> {
   render() {
 
     const { children, className, prefixCls, icon, disabled, firstItem, activeStyle, ...restProps } = this.props;
-    const cls = classNames({
+    const cls = classnames(`${prefixCls}-item`, {
       [className as string]: !!className,
-      [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-disabled`]: disabled,
     });
 

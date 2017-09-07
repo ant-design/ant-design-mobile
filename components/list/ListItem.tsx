@@ -1,8 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { ListItemProps, BriefProps } from './PropsType';
-import omit from 'omit.js';
 import TouchFeedback from 'rmc-feedback';
 
 export class Brief extends React.Component<BriefProps, any> {
@@ -82,42 +81,39 @@ class ListItem extends React.Component<ListItemProps, any> {
 
     const {
       prefixCls, className, activeStyle, error, align, wrap, disabled,
-      children, multipleLine, thumb, extra, arrow, onClick, ...restProps} = this.props;
-
+      children, multipleLine, thumb, extra, arrow, onClick, ...restProps,
+    } = this.props;
+    const { platform, ...otherProps } = restProps;
     const { coverRippleStyle, RippleClicked } = this.state;
-    const wrapCls = {
-      [className as string]: className,
-      [`${prefixCls}-item`]: true,
+
+    const wrapCls = classnames(`${prefixCls}-item`, className, {
       [`${prefixCls}-item-disabled`]: disabled,
       [`${prefixCls}-item-error`]: error,
       [`${prefixCls}-item-top`]: align === 'top',
       [`${prefixCls}-item-middle`]: align === 'middle',
       [`${prefixCls}-item-bottom`]: align === 'bottom',
-    };
+    });
 
-    const rippleCls = classNames({
-      [`${prefixCls}-ripple`]: true,
+    const rippleCls = classnames(`${prefixCls}-ripple`, {
       [`${prefixCls}-ripple-animate`]: RippleClicked,
     });
 
-    const lineCls = classNames({
-      [`${prefixCls}-line`]: true,
+    const lineCls = classnames(`${prefixCls}-line`, {
       [`${prefixCls}-line-multiple`]: multipleLine,
       [`${prefixCls}-line-wrap`]: wrap,
     });
 
-    const arrowCls = classNames({
-      [`${prefixCls}-arrow`]: true,
+    const arrowCls = classnames(`${prefixCls}-arrow`, {
       [`${prefixCls}-arrow-horizontal`]: arrow === 'horizontal',
       [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
     const content = <div
-      {...omit(restProps, ['platform'])}
+      {...otherProps}
       onClick={(ev) => {
         this.onClick(ev);
       }}
-      className={classNames(wrapCls)}
+      className={(wrapCls)}
     >
       {thumb ? <div className={`${prefixCls}-thumb`}>
         {typeof thumb === 'string' ? <img src={thumb} /> : thumb}

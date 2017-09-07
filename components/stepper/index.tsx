@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import RcInputNumber from 'rc-input-number';
 import StepProps from './PropsType';
 import Icon from '../icon';
@@ -18,8 +18,7 @@ export default class Stepper extends React.Component<StepProps, any> {
 
   render() {
     const { className, showNumber, ...restProps } = this.props;
-    const stepperClass = classNames({
-      [className as string]: !!className,
+    const stepperClass = classnames(className, {
       ['showNumber']: !!showNumber,
     });
 

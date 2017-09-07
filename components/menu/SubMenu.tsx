@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import List from '../list';
 import Radio from '../radio/Radio';
 
@@ -18,8 +18,7 @@ export default function SubMenu(props) {
     <List style={{ paddingTop: 0 }} className={subMenuPrefixCls}>
       {subMenuData.map((dataItem, idx) => (
         <List.Item
-          className={classNames({
-            [`${radioPrefixCls}-item`]: true,
+          className={classnames(`${radioPrefixCls}-item`, {
             [`${subMenuPrefixCls}-item-selected`]: selected(dataItem),
             [`${subMenuPrefixCls}-item-disabled`]: dataItem.disabled,
           })}

@@ -1,9 +1,8 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import List from '../list';
 import Radio from './Radio';
 import { RadioItemProps } from './PropsType';
-import omit from 'omit.js';
 
 const ListItem = List.Item;
 function noop() { }
@@ -12,25 +11,20 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   static defaultProps = {
     prefixCls: 'am-radio',
     listPrefixCls: 'am-list',
+    radioProps: {},
   };
 
   render() {
-    const {
-      prefixCls, listPrefixCls, className, children, disabled, radioProps = {},
-    } = this.props;
-
-    const wrapCls = classNames({
-      [`${prefixCls}-item`]: true,
+    const { listPrefixCls, onChange,  disabled, radioProps, onClick, ...otherProps } = this.props;
+    const { prefixCls, className, children } = otherProps;
+    const wrapCls = classnames(`${prefixCls}-item`, className, {
       [`${prefixCls}-item-disabled`]: disabled === true,
-      [className as string]: className,
     });
 
     // Note: if not omit `onChange`, it will trigger twice on check listitem
-    const otherProps = omit(this.props, ['listPrefixCls', 'onChange', 'disabled', 'radioProps']);
-    if (disabled) {
-      delete otherProps.onClick;
-    } else {
-      otherProps.onClick = otherProps.onClick || noop;
+
+    if (!disabled) {
+      (otherProps as any).onClick = onClick || noop;
     }
 
     const extraProps: any = {};

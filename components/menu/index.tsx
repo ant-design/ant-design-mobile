@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import List from '../list';
 import Flex from '../flex';
 import SubMenu from './SubMenu';
@@ -98,10 +98,7 @@ export default class Menu extends React.Component<MenuProps, any> {
 
     return (
       <div
-        className={classNames({
-          [prefixCls as string]: true,
-          [className as string]: !!className,
-        })}
+        className={classnames(prefixCls, className)}
         style={{
           ...style,
           ...heightStyle,

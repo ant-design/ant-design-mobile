@@ -1,8 +1,7 @@
 import React from 'react';
 import RcCheckbox from 'rc-checkbox';
 import { CheckboxProps } from './PropsType';
-import omit from 'omit.js';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {
   static CheckboxItem: any;
@@ -13,15 +12,18 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
   };
 
   render() {
-    const { prefixCls, className, style, children } = this.props;
-    const wrapCls = classNames({
-      [className as string]: !!className,
-      [`${prefixCls}-wrapper`]: true,
-    });
+    const { className, style, ...restProps } = this.props;
+    const { prefixCls, children } = restProps;
+
+    const wrapCls = classnames(`${prefixCls}-wrapper`, className);
     // Todo: wait for https://github.com/developit/preact-compat/issues/422, then we can remove class below
+    if ('class' in restProps) {
+      /* tslint:disable:no-string-literal */
+      delete restProps['class'];
+    }
     const mark = (
       <label className={wrapCls} style={style}>
-        <RcCheckbox {...omit(this.props, ['className', 'style', 'class'])} />
+        <RcCheckbox {...restProps} />
         {children}
       </label>
     );

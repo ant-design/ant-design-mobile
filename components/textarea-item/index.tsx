@@ -1,8 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TextareaItemProps from './PropsType';
-import omit from 'omit.js';
 import TouchFeedback from 'rmc-feedback';
 
 function noop() {}
@@ -134,17 +133,12 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   }
 
   render() {
-    let {
-      prefixCls, prefixListCls, style, title, value, defaultValue, clear,
-      editable, disabled, error, className, labelNumber, autoHeight,
+    const {
+      prefixCls, prefixListCls, editable, style,
+      clear, children, error, className, count, labelNumber,
+      title, onErrorClick, autoHeight, ...otherProps,
     } = this.props;
-    const count = this.props.count as number;
-    const rows = this.props.rows as number;
-    // note: remove `placeholderTextColor` prop for rn TextInput supports placeholderTextColor
-    const otherProps = omit(this.props, ['prefixCls', 'prefixListCls', 'editable', 'style',
-      'clear', 'children', 'error', 'className', 'count', 'labelNumber', 'title', 'onErrorClick',
-      'autoHeight', 'placeholderTextColor',
-    ]);
+    const { value, defaultValue, disabled } = otherProps;
 
     let valueProps;
     if ('value' in this.props) {
@@ -158,18 +152,14 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     }
 
     const { focus } = this.state;
-    const wrapCls = classNames({
-      [`${prefixListCls}-item`]: true,
-      [`${prefixCls}-item`]: true,
+    const wrapCls = classnames(className, `${prefixListCls}-item`, `${prefixCls}-item`, {
       [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-item-single-line`]: rows === 1 && !autoHeight,
+      [`${prefixCls}-item-single-line`]: this.props.rows === 1 && !autoHeight,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
-      [className as string]: className,
     });
 
-    const labelCls = classNames({
-      [`${prefixCls}-label`]: true,
+    const labelCls = classnames(`${prefixCls}-label`, {
       [`${prefixCls}-label-2`]: labelNumber === 2,
       [`${prefixCls}-label-3`]: labelNumber === 3,
       [`${prefixCls}-label-4`]: labelNumber === 4,
@@ -179,8 +169,8 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     });
     const characterLength = countSymbols(value);
     const lengthCtrlProps: any = {};
-    if (count > 0) {
-      lengthCtrlProps.maxLength = (count - characterLength) + (value ? value.length : 0);
+    if (count! > 0) {
+      lengthCtrlProps.maxLength = (count! - characterLength) + (value ? value.length : 0);
     }
     return (
       <div className={wrapCls}>
@@ -204,7 +194,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
           </TouchFeedback>
         }
         {error && <div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />}
-        {count > 0 && rows > 1 &&
+        {count! > 0 && this.props.rows! > 1 &&
           <span className={`${prefixCls}-count`}><span>{value ? characterLength : 0}</span>/{count}</span>
         }
       </div>

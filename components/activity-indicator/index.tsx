@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import ActivityIndicatorProps from './PropsType';
 
 export default class ActivityIndicator extends React.Component<ActivityIndicatorProps, any> {
@@ -14,15 +14,12 @@ export default class ActivityIndicator extends React.Component<ActivityIndicator
 
   render() {
     const { prefixCls, className, animating, toast, size, text } = this.props;
-    const wrapClass = classNames({
-      [`${prefixCls}`]: true,
+    const wrapClass = classnames(prefixCls, className, {
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
-      [className as string]: !!className,
       [`${prefixCls}-toast`]: !!toast,
     });
-    const spinnerClass = classNames({
-      [`${prefixCls}-spinner`]: true,
+    const spinnerClass = classnames(`${prefixCls}-spinner`, {
       [`${prefixCls}-spinner-lg`]: !!toast || size === 'large',
     });
     if (animating) {

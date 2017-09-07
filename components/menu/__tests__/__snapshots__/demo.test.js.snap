@@ -6,7 +6,7 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
 >
   <div>
     <div
-      class="top-nav-bar am-navbar am-navbar-light"
+      class="am-navbar am-navbar-light top-nav-bar"
     >
       <div
         class="am-navbar-left"

@@ -144,8 +144,8 @@ export default class BasicDemo extends React.Component<any, any> {
         dataSource={this.state.dataSource}
         renderHeader={() => <Text style={[{ padding: 8 }]}>header</Text>}
         renderFooter={() => <Text style={[{ padding: 30, textAlign: 'center' }]}> {loadingTxt} </Text>}
-        renderSectionHeader={sectionData => (
-          <Text style={[{ padding: 10, backgroundColor: 'rgba(255,255,255,0.8)' }]}>
+        renderSectionHeader={(sectionData, sectionID) => (
+          <Text style={[{ padding: 10, backgroundColor: 'rgba(255,255,255,0.8)' }]} key={sectionID}>
             {`Task ${sectionData.split(' ')[1]}`}
           </Text>
         )}

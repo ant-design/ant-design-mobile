@@ -119,7 +119,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       />
     </div>
     <div
-      class="special-badge am-list-item am-list-item-middle"
+      class="am-list-item special-badge am-list-item-middle"
     >
       <div
         class="am-list-line"

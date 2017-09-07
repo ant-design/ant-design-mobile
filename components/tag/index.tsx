@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import TagProps from './PropsType';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
@@ -59,9 +59,7 @@ export default class Tag extends React.Component<TagProps, any> {
 
   render() {
     const { children, className, prefixCls, disabled, closable, small, style } = this.props;
-    const wrapCls = classNames({
-      [className as string]: !!className,
-      [`${prefixCls}`]: true,
+    const wrapCls = classnames(className, prefixCls, {
       [`${prefixCls}-normal`]: !disabled && ( !this.state.selected || small || closable ),
       [`${prefixCls}-small`]: small,
       [`${prefixCls}-active`]: this.state.selected && !disabled && !small && !closable,

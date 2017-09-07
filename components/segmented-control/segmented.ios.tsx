@@ -1,7 +1,6 @@
 import React from 'react';
 import { SegmentedControlIOS } from 'react-native';
 import SegmentedControlProps from './PropsType';
-import omit from 'omit.js';
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {
@@ -10,8 +9,8 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
   };
 
   render() {
-    const { tintColor, selectedIndex, disabled } = this.props;
-    const restProps = omit(this.props, ['tintColor', 'disabled', 'selectedIndex']);
+    const { tintColor, disabled, selectedIndex, ...restProps } = this.props;
+
     return (
       <SegmentedControlIOS
         tintColor={tintColor}

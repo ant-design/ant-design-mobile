@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import Icon from '../icon';
 import { ButtonProps } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
@@ -42,9 +42,8 @@ class Button extends React.Component<ButtonProps, any> {
       delayPressIn, delayPressOut, ...restProps,
     } = this.props;
 
-    const wrapCls = {
-      [className as string]: className,
-      [prefixCls as string]: true,
+    const iconType = loading ? 'loading' : icon;
+    const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-ghost`]: type === 'ghost',
       [`${prefixCls}-warning`]: type === 'warning',
@@ -52,14 +51,10 @@ class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-loading`]: loading,
-    };
+      [`${prefixCls}-icon`]: iconType,
+    });
 
-    const iconType = loading ? 'loading' : icon;
     const kids = React.Children.map(children, insertSpace);
-
-    if (iconType) {
-      wrapCls[`${prefixCls}-icon`] = true;
-    }
 
     let iconEl;
     if (typeof iconType === 'string') {
@@ -71,10 +66,7 @@ class Button extends React.Component<ButtonProps, any> {
           className={`${prefixCls}-icon`}
         />;
     } else if (iconType) {
-      const cls = classNames('am-icon', {
-        [`${prefixCls}-icon`]: true,
-        [size === 'small' ? 'am-icon-xxs' : 'am-icon-md']: true,
-      });
+      const cls = classnames('am-icon', `${prefixCls}-icon`, size === 'small' ? 'am-icon-xxs' : 'am-icon-md');
       iconEl = React.cloneElement(iconType, {
         className: cls,
       });
@@ -88,7 +80,7 @@ class Button extends React.Component<ButtonProps, any> {
       >
         <a
           role="button"
-          className={classNames(wrapCls)}
+          className={wrapCls}
           {...restProps}
           onClick={disabled ? undefined : onClick}
           aria-disabled={disabled}

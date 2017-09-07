@@ -239,7 +239,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
      grid item adjust accroiding to img size 
   </div>
   <div
-    class="am-grid am-grid-line not-square-grid"
+    class="am-grid not-square-grid am-grid-line"
   >
     <div
       class="am-flexbox am-flexbox-justify-center am-flexbox-align-stretch"

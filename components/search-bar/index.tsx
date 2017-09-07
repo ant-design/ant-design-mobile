@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
 import TouchFeedback from 'rmc-feedback';
@@ -189,19 +189,15 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
     const { value, focus } = this.state;
 
-    const wrapCls = classNames({
-      [`${prefixCls}`]: true,
+    const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-start`]: focus || value && value.length > 0,
-      [className as string]: className,
     });
 
-    const clearCls = classNames({
-      [`${prefixCls}-clear`]: true,
+    const clearCls = classnames(`${prefixCls}-clear`, {
       [`${prefixCls}-clear-show`]: focus && value && value.length > 0,
     });
 
-    const cancelCls = classNames({
-      [`${prefixCls}-cancel`]: true,
+    const cancelCls = classnames(`${prefixCls}-cancel`, {
       [`${prefixCls}-cancel-show`]: showCancelButton || focus || value && value.length > 0,
       [`${prefixCls}-cancel-anim`]: this.firstFocus,
     });

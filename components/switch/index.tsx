@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import SwitchProps from './PropsType';
 
 export default class Switch extends React.Component<SwitchProps, any> {
@@ -34,14 +34,11 @@ export default class Switch extends React.Component<SwitchProps, any> {
 
   render() {
     let { prefixCls, name, checked, disabled, className, platform, color, ...restProps } = this.props;
-    const wrapCls = classNames({
-      [`${prefixCls}`]: true,
-      [className as string]: className,
+    const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-android`]: platform === 'android',
     });
 
-    const fackInputCls = classNames({
-      [`checkbox`]: true,
+    const fackInputCls = classnames('checkbox', {
       [`checkbox-disabled`]: disabled,
     });
 

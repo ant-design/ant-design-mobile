@@ -22,7 +22,7 @@ exports[`Menu level 1 renders correctly 1`] = `
           class="am-list-body"
         >
           <div
-            class="am-radio-item am-list-item am-list-item-middle"
+            class="am-list-item am-radio-item am-list-item-middle"
           >
             <div
               class="am-list-line"
@@ -58,7 +58,7 @@ exports[`Menu level 1 renders correctly 1`] = `
             />
           </div>
           <div
-            class="am-radio-item am-list-item am-list-item-middle"
+            class="am-list-item am-radio-item am-list-item-middle"
           >
             <div
               class="am-list-line"
@@ -121,7 +121,7 @@ exports[`Menu renders correctly 1`] = `
         >
           <div
             aria-selected="true"
-            class="am-menu-selected am-list-item am-list-item-middle"
+            class="am-list-item am-menu-selected am-list-item-middle"
             role="tab"
           >
             <div

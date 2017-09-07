@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import ReactCarousel from 'rmc-nuka-carousel';
 import CarouselProps from './PropsType';
 
@@ -59,7 +59,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
             arr.push(i);
           }
           const dotDom = arr.map(index => {
-            const dotCls = classNames(`${prefixCls}-wrap-dot`, {
+            const dotCls = classnames(`${prefixCls}-wrap-dot`, {
               [`${prefixCls}-wrap-dot-active`]: index === current,
             });
             const _dotStyle = index === current ? dotActiveStyle : dotStyle;
@@ -79,9 +79,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       }];
     }
 
-    const wrapCls = classNames({
-      [className as string]: className,
-      [prefixCls as string]: true,
+    const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-vertical`]: vertical,
     });
 
