@@ -164,7 +164,8 @@ class NumberInput extends React.Component<any, any> {
     const { placeholder, value, disabled, editable } = this.props;
     const { focus } = this.state;
     const preventKeyboard = disabled || !editable;
-    const fakeInputCls = classnames(`fake-input`, focus, {
+    const fakeInputCls = classnames(`fake-input`, {
+      focus,
       'fake-input-disabled': disabled,
     });
     return (<div className="fake-input-container">
