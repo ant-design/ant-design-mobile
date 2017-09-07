@@ -1,5 +1,9 @@
 .@{modalPrefixClass} {
   position: relative;
+  &:not(.@{modalPrefixClass}-transparent):not(.@{modalPrefixClass}-popup) {
+    width: 100%;
+    height: 100%;
+  }
 
   &-mask {
     position: fixed;
@@ -50,6 +54,7 @@
   }
 
   &&-transparent {
+    width: 270px;
     .@{modalPrefixClass}-content {
       border-radius: @radius-lg;
       height: auto;

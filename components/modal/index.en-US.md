@@ -25,7 +25,7 @@ Properties | Descrition | Type | Default
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it (only transparent) | Boolean   | true       |
 | onClose      | Callback for clicking close icon x or mask        | (): void   | - |
 | transparent | transparent mode or full screen mode       | Boolean   |  false |
-| popup | popup mode       | Boolean   |  false |
+| popup | popup mode, transparent will not work when in popup mode | Boolean   |  false |
 | animationType | Options: 'slide-down/up'(only transparent / `web version`) / 'fade' / 'slide'(only not tranparent) | String |   fade |
 | title       | title (only transparent)         | React.Element    | -           |
 | footer     | footer content (only not transparent)       |  Array [{text, onPress}]    | [] |

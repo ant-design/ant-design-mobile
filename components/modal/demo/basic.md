@@ -57,7 +57,6 @@ class App extends React.Component {
         <Modal
           visible={this.state.modal2}
           popup
-          transparent
           maskClosable={false}
           animationType="slide-up"
         >
