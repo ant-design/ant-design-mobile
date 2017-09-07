@@ -29,14 +29,14 @@ const data = [
   },
 ];
 
-for (let i = 0; i < 97; i++) {
+for (let i = 0; i < 47; i++) {
   const item = data[i % 3];
   data.push({ ...item });
 }
 
 function renderContent(tab) {
   return (<div style={{ backgroundColor: '#fff' }}>
-    <p style={{ padding: 20, margin: 0, textAlign: 'center' }}>Content of {tab.title} {tab.max || 100}</p>
+    <p style={{ padding: 20, margin: 0, textAlign: 'center' }}>Content of {tab.title} {tab.max || data.length}</p>
     {data.map((obj, i) => {
       if (tab.max && i > tab.max) return null;
       return (<div key={i} className="row">
