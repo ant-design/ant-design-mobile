@@ -5,6 +5,9 @@ import getDataAttr from '../_util/getDataAttr';
 import { TabBarProps, TabBarItemProps } from './PropsType';
 
 export class Item extends React.Component<TabBarItemProps, any> {
+  render() {
+    return <div>{this.props.children}</div>;
+  }
 }
 
 class AntTabBar extends React.Component<TabBarProps, any> {
@@ -68,7 +71,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
           animated={false}
           swipeable={false}
         >
-          {children.map(c => c.props && c.props.children || null)}
+          {children}
         </Tabs>
       </div>
     );
