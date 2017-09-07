@@ -2,7 +2,11 @@ import React, { Children, cloneElement } from 'react';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Timeline from 'antd/lib/timeline';
+import Tabs from 'antd/lib/tabs';
+
 import * as utils from '../../../../utils';
+
+const TabPane = Tabs.TabPane;
 
 export default class Article extends React.Component {
   componentDidMount() {
@@ -20,7 +24,35 @@ export default class Article extends React.Component {
       }
     });
   }
-  getArticle(article) {
+  tryToRenderIntroducePageTab = (article) => {
+    if (location.href.indexOf('introduce') === -1) {
+      return article;
+    }
+    const allChildren = [].slice.call(article.props.children);
+
+    const webIndex = allChildren.findIndex(item => item.type === 'h3' && item.props.id.includes('Web'));
+    const RnIndex = allChildren.findIndex(item => item.type === 'h3' && item.props.id.includes('React-Native'));
+    const endIndex = allChildren.findIndex((item, index) => item.type === 'h2' && index > RnIndex);
+
+    const newChildren = allChildren.slice(0, webIndex);
+    const webContent = allChildren.slice(webIndex, RnIndex);
+    const rnContent = allChildren.slice(RnIndex, endIndex);
+    const otherContent = allChildren.slice(endIndex, allChildren.length);
+
+    const IntroTabs = (
+      <Tabs defaultActiveKey="1" key="tabs">
+        <TabPane tab={allChildren[webIndex].props.id.replace(/-/g, ' ')} key="1">{webContent}</TabPane>
+        <TabPane tab={allChildren[RnIndex].props.id.replace(/-/g, ' ')} key="2">{rnContent}</TabPane>
+      </Tabs>
+    );
+    newChildren.push(IntroTabs);
+    newChildren.push(otherContent);
+    article = React.cloneElement(article, {}, newChildren);
+    return article;
+  }
+  getArticle = (article) => {
+    // Todo: right now just hack it, wait move to bisheng-plugin-antd
+    article = this.tryToRenderIntroducePageTab(article);
     const { content } = this.props;
     const { meta } = content;
     if (!meta.timeline) {
