@@ -32,7 +32,7 @@ subtitle: 对话框
 | title       | 标题 (only transparent)   | React.Element    | 无           |
 | footer     | 底部内容 (only not transparent)     |  Array [{text, onPress}]    | [] |
 | prefixCls (`web only`)    | 样式类名前缀 |    String   | `am-modal`      |
-| style (`web only`) |  样式    | Object | 透明模式下: {width: '270px', height: 'cross'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
+| style (`web only`) |  样式    | Object | {} |
 | platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
 
 ### Modal.alert(title, message, actions?, platform?)

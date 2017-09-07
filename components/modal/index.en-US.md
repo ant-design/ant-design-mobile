@@ -30,7 +30,7 @@ Properties | Descrition | Type | Default
 | title       | title (only transparent)         | React.Element    | -           |
 | footer     | footer content (only not transparent)       |  Array [{text, onPress}]    | [] |
 | prefixCls (`web only`)      | Class name prefix of elements |    String   | `am-modal`      |
-| style (`web only`) |  style    | Object | transparent: {width: '286px', height: 'cross'}, <br />not transparent:  {width: '100%', height: '100%'} (web)|
+| style (`web only`) |  style    | Object | {} |
 | platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios` | String | `'ios'`|
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
