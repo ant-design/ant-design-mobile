@@ -63,7 +63,7 @@ $ npm install babel-plugin-import --save-dev
 
 > If you encounter an error, please refer [#56](https://github.com/ant-design/ant-design-mobile/issues/56) and [Samples](https://github.com/ant-design/antd-mobile-samples) first.
 
-> How antd-mobile deal with web & react-native components? Please see [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)
+> `antd-mobile@1.x`'s `web` component filename ends with `.web.tsx`, `react-native`'s ends with `.tsx`, very few cross platform components just ends with `.tsx`. (the `.tsx` file will be compiled to `.js` by typescript)
 
 #### Web usage
 
@@ -100,7 +100,7 @@ $ npm install babel-plugin-import --save-dev
 - all icon of antd-mobile are svg file, so you need to set [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader), see [Icon docs](https://mobile.ant.design/components/icon) for details.
 
 - Entry html page Required settings:
-    - since antd-mobile css use `rem`, you need to add viewport scale and html fontSize setting scripts to your html header, see [Antd-Mobile-viewport-setting-wiki](https://github.com/ant-design/ant-design-mobile/wiki/Antd-Mobile-viewport-setting-wiki) for details.
+    - since antd-mobile css use `rem`, you need to add viewport scale and html fontSize setting scripts to your html header, see [HD wiki](https://github.com/ant-design/ant-design-mobile/wiki/HD) for details.
     - Add [FastClick](https://github.com/ftlabs/fastclick) (ref [#576](https://github.com/ant-design/ant-design-mobile/issues/576))
     - Use Promise fallback support (some Android phones do not support Promise), as follows:
         ```js
