@@ -1,26 +1,60 @@
+.page-wrapper {
+  background: linear-gradient(135deg, #06304B, #071826);
+}
+
+.home-page-header {
+  background: transparent !important;
+}
 
 .home-main {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
   margin-top: -26Px;
   padding: 70Px 0;
-  background-color: #F8F8FB;
-  background-image: url('https://zos.alipayobjects.com/rmsportal/casYcIzdKMnTUsvBLlnn.png');
-  background-repeat: no-repeat;
-  background-position: 0 100%;
 }
 
 .home-iframe {
   box-shadow: 0 0 10px #888;
-  margin-right: 75Px;
+  padding: 33px 23px 15px;
+  border-radius: 47.5px;
+
+  .demo-preview-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hold {
+    width: 75.5px;
+    height: 9px;
+    border-radius: 49px;
+    border: rgba(255, 255, 255, 0.2) .5px solid;
+    background: rgba(220, 220, 220, .2);
+    margin-bottom: 23px;
+  }
+
+  .oval {
+    width: 67.78px;
+    height: 67.78px;
+    border-radius: 67.78px;
+    border: 5px #34353A solid;
+    margin-top: 20px;
+  }
 }
+
 .banner-text-wrapper {
+  margin-top: 157px;
   width: 550Px;
+  color: #fff;
+  font-size: 28px;
+  margin-left: 75Px;
 }
+
 .banner-text-wrapper h2 {
-  font-size: 40Px;
+  font-size: 32px;
   word-break: break-word;
   font-weight: normal;
   font-family: 'PingFang SC';
@@ -28,29 +62,39 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-bottom: 12px;
+  color: #fff;
 }
-.banner-text-wrapper .start-button-wrap {
-  margin-top: 36Px;
-}
+
 .banner-text-wrapper .qr {
   margin-top: 40Px;
-  width: 151Px;
+  width: 139Px;
+}
+
+.banner-text-wrapper .qr-tip {
+  font-size: 14px;
 }
 
 .start-button-wrap a {
-  color: #108EE9;
-  font-size: 18Px;
-  padding: 13Px 45Px 14Px;
-  border: 1Px solid #108EE9;
+  color: #fff;
+  font-size: 16Px;
+  padding: 10Px 30Px;
+  border: 1Px solid #fff;
   border-radius: 6Px;
   &:hover {
-    box-shadow: 0 0 10Px #108EE9;
+    box-shadow: 0 0 10Px #fff;
   }
 }
+
+.op-area {
+  margin-top: 36Px;
+  display: flex;
+  align-items: center;
+}
+
 .github-btn {
   display: inline-block;
   margin-left: 10Px;
-  vertical-align: -5Px;
+  margin-top: 5px;
 }
 
 .down {
@@ -61,4 +105,109 @@
   left: 50%;
   margin-left: -7Px;
   animation: upDownMove 1.2s ease-in-out infinite;
+}
+
+.demo-preview-wrapper .code-box-demo {
+  position: relative;
+}
+
+.home-main {
+  .welcome-icon {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 30px;
+      margin: 0 30px;
+    }
+  }
+
+  .phone {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #041928;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 78px 0 0;
+  }
+
+  .title {
+    font-family: 'Courier New, Courier, monospace';
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+  }
+
+  .prg {
+    color: #F06F6F;
+    font-size: 18px;
+  }
+
+  .feat {
+    color: #108EE9;
+    font-size: 14px;
+  }
+
+  .title + .prg {
+    margin-top: 60px;
+  }
+
+  .prg + .prg {
+    margin-top: 15px;
+  }
+
+  .prg + .feat {
+    margin-top: 100px;
+  }
+
+  .feat + .feat {
+    margin-top: 15px;
+  }
+}
+
+.home-main {
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes content {
+    0% {
+      opacity: 0;
+      transform: translate3d(50%, 0, 0);
+    }
+    to {
+       opacity: 1;
+       transform: translateZ(0);
+    }
+  }
+
+  .fade-in {
+    animation-name: fadeIn;
+    animation-delay: .1s;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+  }
+
+  .content-in {
+      animation-name: content;
+      animation-duration: .5s;
+      animation-fill-mode: both;
+      animation-delay: .1s;
+  }
+
+  @keyframes phone {
+    0% { transform: translate3d(50%, 0, 0); }
+    to { transform: translateZ(0); }
+  }
+
+  .move-left {
+      animation-name: phone;
+      animation-duration: .5s;
+      animation-fill-mode: both;
+  }
 }

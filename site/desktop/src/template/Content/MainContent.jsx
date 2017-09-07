@@ -193,44 +193,46 @@ export default class MainContent extends React.Component {
       (<ComponentDoc {...props} doc={localizedPageData} demos={demos} />) :
       <Article {...props} content={localizedPageData} />;
     return (
-      <div className="main-wrapper">
-        <Row>
-          <Col lg={5} md={6} sm={24} xs={24}>
-            <Menu
-              className="aside-container"
-              mode="inline"
-              openKeys={this.state.openKeys}
-              selectedKeys={[activeMenuItem]}
-              onOpenChange={this.handleMenuOpenChange}
+      <div className="main-layout">
+        <div className="main-wrapper">
+          <Row>
+            <Col lg={5} md={6} sm={24} xs={24}>
+              <Menu
+                className="aside-container"
+                mode="inline"
+                openKeys={this.state.openKeys}
+                selectedKeys={[activeMenuItem]}
+                onOpenChange={this.handleMenuOpenChange}
+              >
+                {menuItems}
+              </Menu>
+            </Col>
+            <Col lg={19} md={18} sm={24} xs={24} className="main-container">
+              {DemoEl}
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              lg={{ span: 19, offset: 5 }}
+              md={{ span: 18, offset: 6 }}
+              sm={24}
+              xs={24}
             >
-              {menuItems}
-            </Menu>
-          </Col>
-          <Col lg={19} md={18} sm={24} xs={24} className="main-container">
-            {DemoEl}
-          </Col>
-        </Row>
-        <Row>
-          <Col
-            lg={{ span: 19, offset: 5 }}
-            md={{ span: 18, offset: 6 }}
-            sm={24}
-            xs={24}
-          >
-            <section className="prev-next-nav">
-              {
-                prev ?
-                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
-                  null
-              }
-              {
-                next ?
-                  React.cloneElement(next.props.children, { className: 'next-page' }) :
-                  null
-              }
-            </section>
-          </Col>
-        </Row>
+              <section className="prev-next-nav">
+                {
+                  prev ?
+                    React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                    null
+                }
+                {
+                  next ?
+                    React.cloneElement(next.props.children, { className: 'next-page' }) :
+                    null
+                }
+              </section>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }

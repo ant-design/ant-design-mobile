@@ -32,6 +32,12 @@ export default class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (window.parent && window.parent.postMessage) {
+      window.parent.postMessage('kitchen_loaded', '/');
+    }
+  }
+
   onOpenChange = () => {
     this.setState({ open: !this.state.open });
   }
@@ -114,8 +120,7 @@ export default class App extends React.Component {
                               arrow="horizontal"
                               key={`${j.filename}-${cate}`}
                               onClick={() => location.href = `${rootPath}/${paths[1]}${this.addSearch()}#${
-                                paths[1] + config.hashSpliter + j.order
-                              }`}
+                                paths[1] + config.hashSpliter + j.order}`}
                             >
                               {`${item.title} ${appLocale.locale === 'zh-CN' ? item.subtitle : ''}-${j.title[appLocale.locale]}`}
                             </List.Item>

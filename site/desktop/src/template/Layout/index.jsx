@@ -64,7 +64,7 @@ export default class Layout extends React.Component {
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <div className="page-wrapper">
           <Header {...restProps} isFirstScreen={isFirstScreen} />
-          {cloneElement(children, { onEnterChange: this.onEnterChange })}
+          {cloneElement(children, { isFirstScreen, onEnterChange: this.onEnterChange })}
           <Footer {...restProps} />
         </div>
       </IntlProvider>

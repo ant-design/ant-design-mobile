@@ -133,6 +133,7 @@ export default class Header extends React.Component {
     const headerClassName = classNames({
       clearfix: true,
       'home-nav-white': !isFirstScreen,
+      'home-page-header': activeMenuItem === 'home',
     });
 
     const menu = [
