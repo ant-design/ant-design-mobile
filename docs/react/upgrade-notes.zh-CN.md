@@ -38,7 +38,7 @@ title: 升级指南
 
 如何升级？
 
-1. 对于原有代码中 `<Icon type="loading" />` 此类传入字符串的 icon 名称的使用场景，无需任务修改，仍然支持 (具体支持哪些 icon name, 请查阅 [文档](http://beta.mobile.ant.design/components/icon-cn))。
+1. 对于原有代码中 `<Icon type="loading" />` 此类传入字符串的 icon 名称的使用场景，无需任何修改，仍然支持 (具体支持哪些 icon name, 请查阅 [文档](http://beta.mobile.ant.design/components/icon-cn))。
 
 2. 对于原有代码有 `<Icon type={require('../foo.svg')} />` 如何升级 ？ 建议用一个自定义的 `AntdMobileOldIcon` 组件替换 antd-mobile `Icon`, 可直接 copy 如下的代码：
 
@@ -143,7 +143,7 @@ const tabs = [
 
 #### Others
 
-- 删除 `Table` 组件
+- 删除 `Table` 组件，可以自行使用 [rc-table](https://github.com/react-component/table) 包装。
 - 各个组件的 `ref` 从 `string` 修改为 `function` (比如 `input` 组件 `this.refs.input` => `this.input`)
 - 部分 Web 版本组件原来会根据 UA 对 iOS 或 Android 平台应用不同的样式，现在修改为默认应用 iOS 平台样式。
 - `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` 等组件的 细节样式 或 API 都有部分微调
