@@ -35,17 +35,18 @@ subtitle: 对话框
 | style (`web only`) |  样式    | Object | 透明模式下: {width: '286px', height: 'cross'}, <br />非透明模式:  {width: '100%', height: '100%'} (web)|
 | platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
 
-### Modal.alert(title, message, actions?)
+### Modal.alert(title, message, actions?, platform?)
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | title        | 标题                      | String 或 React.Element   | 无            |
 | message      | 提示信息                  | String 或 React.Element    | 无    |
 | actions         | 按钮组, [{text, onPress, style}]       | Array | 无            |
+| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
 
-`Modal.alert(title, message, actions?).close()` 可以在外部关闭 Alert
+`Modal.alert(title, message, actions?, platform?).close()` 可以在外部关闭 Alert
 
-### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?)
+### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?)
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
@@ -55,14 +56,16 @@ subtitle: 对话框
 | type       | prompt 的样式   | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue       | 默认值(input 为 password 类型不支持)   | String |   -  |
 | placeholders       | ['', '']  | String[] |   -  |
+| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
 
 
-Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?).close()` 可以在外部关闭 prompt
+`Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?).close()` 可以在外部关闭 prompt`
 
-### Modal.operation(actions?)
+### Modal.operation(actions?, platform?)
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | actions         | 按钮组, [{text, onPress, style}]       | Array | 无            |
+| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
 
-Modal.operation(actions?).close()` 可以在外部关闭 operation
+`Modal.operation(actions?, platform?).close()` 可以在外部关闭 operation`

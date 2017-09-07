@@ -22,6 +22,7 @@ timeline: true
 
   - [Web] `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
   - [Web] `Button` 组件分别对应各个 type 新增各自的 disabled 状态样式
+  - [Web] `Modal.alert / Modal.prompt / Modal.opeartion` 新增可选参数 `platform`, 支持切换不同平台样式。
   - 新增 `DatePickerView` 组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - 新增 `Calendar` 组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
   - `Grid` 新增 `square` api, 支持高度自适应模式。

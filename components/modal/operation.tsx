@@ -1,11 +1,12 @@
-/* tslint:disable:no-unused-variable */
 import React from 'react';
-/* tslint:enable:no-unused-variable */
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
+import { Action } from './PropsType';
 
-export default function a(...args) {
-  const actions = args[0] || [{ text: '确定' }];
+export default function operation(
+  actions = [{ text: '确定' }],
+  platform = 'ios',
+) {
 
   const prefixCls = 'am-modal';
   let div: any = document.createElement('div');
@@ -18,7 +19,7 @@ export default function a(...args) {
     }
   }
 
-  const footer = actions.map((button) => {
+  const footer = actions.map((button: Action) => {
     const orginPress = button.onPress || function() {};
     button.onPress = () => {
       const res = orginPress();
@@ -46,6 +47,7 @@ export default function a(...args) {
       footer={footer}
       maskTransitionName="am-fade"
       className="am-modal-operation"
+      platform={platform}
     /> , div,
   );
 

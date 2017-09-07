@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom';
 import Modal from './Modal';
 
 export default function prompt(
-  title, message, callbackOrActions, type = 'default', defaultValue = '', placeholders = ['', ''],
+  title, message, callbackOrActions,
+  type = 'default', defaultValue = '', placeholders = ['', ''],
+  platform = 'ios',
 ) {
   if (!callbackOrActions) {
     // console.log('Must specify callbackOrActions');
@@ -170,6 +172,7 @@ export default function prompt(
       transitionName="am-zoom"
       footer={footer}
       maskTransitionName="am-fade"
+      platform={platform}
     >
       <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
     </Modal>, div,
