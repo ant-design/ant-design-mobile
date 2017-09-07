@@ -7,7 +7,7 @@ title: 升级指南
 
 ## 1.x => 2.0
 
-很高兴的通知各位，`antd-mobile@2.0` 经过半年迭代，已经进入比较稳定的 beta 版本状态。相对于 1.x，`antd-mobile@2.0` 更快、更轻量、更容易上手。欢迎大家开始使用！
+很高兴的通知各位，`antd-mobile@2.0` 已经进入比较稳定的 beta 版本状态。相对于 1.x，`antd-mobile@2.0` 更快、更轻量、更容易上手。欢迎大家开始使用！
 
 ### 2.x 主要变化概览
 
@@ -31,18 +31,93 @@ title: 升级指南
 
 #### DatePicker
 
+去除 moment.js 依赖，相应地 `value` / `minDate` / `maxDate` / `format` / `onChange` 这些属性的数据类型，从 `moment` 对象变为 `Date` 对象。另外 moment 对象上有 format 等自定义方法，但 Date 对象上没有相应方法、需要自行实现。
+
+升级示例：
+
+  ```diff
+  <DatePicker
+  -  minDate={moment([2015, 8, 15, 10, 30, 0])}
+  +  minDate={new Date(2015, 8, 15, 10, 30, 0)}
+  -  maxDate={moment([2018, 1, 1, 23, 49, 59])}
+  +  maxDate={new Date(2018, 1, 1, 23, 49, 59)}
+  >
+    <List.Item arrow="horizontal">日期</List.Item>
+  </DatePicker>
+  ```
+
 #### Tabs
+
+旧版：
+
+```jsx
+<Tabs defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
+  <TabPane tab={<Badge text={'3'}>First Tab</Badge>} key="1">
+    <div>Content of First Tab</div>
+  </TabPane>
+  <TabPane tab={<Badge text={'今日(20)'}>Second Tab</Badge>} key="2">
+    <div>Content of Second Tab</div>
+  </TabPane>
+  <TabPane tab={<Badge dot>Third Tab</Badge>} key="3">
+    <div>Content of Third Tab</div>
+  </TabPane>
+</Tabs>
+```
+
+新版变化：
+
+- 每个 tab 的元数据由 `tabs=[{ key: string, title: Node, ... }, ...]` 属性传入
+- `defaultActiveKey` => `initialPage`、`activeKey` => `page`，支持字符串形式的 key 或者数字索引
+- 去掉 `TabPane` 元素, Tabs 的 children 根据 key 或索引顺序与 `tabs` 数据对应
+- 支持单内容节点、函数内容节点
+- 添加 `renderTab` / `renderTabBar` API 来支持更灵活的自定义内容
+
+```jsx
+const tabs = [
+  { title: <Badge text={'3'}>First Tab</Badge>, sub: 'subcontent' },
+  { title: <Badge text={'今日(20)'}>Second Tab</Badge>, sub: 'subcontent' },
+  { title: <Badge dot>Third Tab</Badge>, sub: 'subcontent' },
+];
+
+<Tabs tabs={tabs} initialPage={1}
+  onChange={(tab, index) => { console.log(index, tab); }}
+  renderTab={tab => <span>{tab.title}-{tab.sub}</span>}
+  renderTabBar={(props) => <Tabs.DefaultTabBar {...props} />}
+>
+  <div>Content of First Tab</div>
+  <div>Content of Second Tab</div>
+  <div>Content of Third Tab</div>
+</Tabs>
+```
 
 #### Popup
 
+由于 Popup 组件的底层依赖和大量样式都与 Modal 组件相同，并且 `Popup.show()` 的 API 调用方法在数据更新时遇到困难，因此我们删除了 Popup 组件，并且在 Modal 组件上增加 `popup` 属性、来实现 Popup 组件的功能。
+
+使用 Modal 组件实现 Popup 的示例：
+
+```diff
+- Popup.show(<div>Content</div>, { animationType: 'slide-up', maskClosable: false });
+- Popup.hide();
+
++ <Modal
++   popup
++   visible={this.state.vsible}
++   animationType="slide-up"
++   maskClosable={false}
++ >
++   Content
++ </Modal>
+```
+
 #### Others
 
+- 删除 `Table` 组件
 - 各个组件的 `ref` 从 `string` 修改为 `function` (比如 `input` 组件 `this.refs.input` => `this.input`)
+- 部分 Web 版本组件原来会根据 UA 对 iOS 或 Android 平台应用不同的样式，现在修改为默认应用 iOS 平台样式。
+- `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` 等组件的 细节样式 或 API 都有部分微调
 
-
-### 2.x Bug 修复
-
-### 2.x 其他改进
+更细节的信息，请查看 chang log
 
 
 ## 0.9.x => 1.0

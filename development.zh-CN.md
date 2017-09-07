@@ -223,8 +223,3 @@ $ npm run test:web -- components/button/__tests__/index.test.web.js -t 'pressIn'
 1. 运行测试 `node --debug-brk ./node_modules/.bin/jest -i -c .jest.json -i components/button/__tests/index.test.js` (web 组件用 .jest.web.json);
 1. 运行 `node-inspector`；
 1. 打开 `http://127.0.0.1:8080/?port=5858`，第一次会断点到 jest 的代码里，点继续运行，等一会后会到我们断点的地方。
-
-
-### How antd mobile deal with web and react native code ?
-
-see [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)
