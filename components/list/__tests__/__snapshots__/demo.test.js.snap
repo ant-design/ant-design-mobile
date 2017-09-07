@@ -618,7 +618,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             class="am-list-content"
           >
             <div
-              style="position:relative;top:-7px;"
+              style="padding:7px;"
             >
               <div
                 class="am-slider-wrapper"

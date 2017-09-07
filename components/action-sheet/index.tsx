@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Dialog from 'rc-dialog';
+import Dialog from 'rmc-dialog';
 import classNames from 'classnames';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';

@@ -5,14 +5,11 @@ title:
   en-US: Basic
 ---
 
-Basic slider. When `disabled` is `true`, the slider will not be interactable, you can use `createTooltip` to encapsulate
-to simulate tooltip.
+Basic slider. When `disabled` is `true`, the slider will not be interactable
 
 ````jsx
 /* eslint arrow-body-style: 0 */
-import { Slider, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
-
-const SliderWithTooltip = createTooltip(Slider);
+import { Slider, WingBlank, WhiteSpace } from 'antd-mobile';
 
 class App extends React.Component {
   log = (name) => {
@@ -27,11 +24,6 @@ class App extends React.Component {
         <WingBlank size="lg">
           <p className="title">Slider</p>
           <Slider defaultValue={26} min={0} max={30} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <p className="title">Slider with ToolTip</p>
-          <SliderWithTooltip defaultValue={26} min={0} max={30} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">

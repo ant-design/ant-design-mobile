@@ -8,11 +8,10 @@ title:
 Form Collection. (Use [rc-form](https://github.com/react-component/form) to validate form fields)
 
 ````jsx
-import { List, InputItem, Switch, Stepper, Range, Button, createTooltip } from 'antd-mobile';
+import { List, InputItem, Switch, Stepper, Range, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 const Item = List.Item;
-const RangeWithTooltip = createTooltip(Range);
 
 class BasicInput extends React.Component {
   state = {
@@ -66,7 +65,7 @@ class BasicInput extends React.Component {
         <Item
           extra={<Switch {...getFieldProps('1', { initialValue: true, valuePropName: 'checked' })} />}
         >Confirm Infomation</Item>
-        <Item><div style={{ position: 'relative', top: '-7px' }}><RangeWithTooltip defaultValue={[20, 80]} /></div></Item>
+        <Item><div style={{ padding: 7 }}><Range defaultValue={[20, 80]} /></div></Item>
         <Item extra={<Stepper style={{ width: '100%', minWidth: '100px' }} showNumber size="small" defaultValue={20} />}>Number of Subscribers</Item>
         <Item>
           <Button type="primary" size="small" inline onClick={this.onSubmit}>Submit</Button>

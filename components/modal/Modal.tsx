@@ -1,5 +1,5 @@
 import React from 'react';
-import Dialog from 'rc-dialog';
+import Dialog from 'rmc-dialog';
 import classNames from 'classnames';
 import { ModalProps, ModalComponent } from './PropsType';
 import TouchFeedback from '../_util/touchFeedback';

@@ -6,15 +6,12 @@ title:
 ---
 
 
-Silder with range. When `disabled` is `true`, the slider will not be interactable, you can use `createTooltip` to encapsulate
-to simulate tooltip.
-
+Silder with range. When `disabled` is `true`, the slider will not be interactable
 
 ````jsx
 /* eslint arrow-body-style: 0 */
-import { Range, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
+import { Range, WingBlank, WhiteSpace } from 'antd-mobile';
 
-const RangeWithTooltip = createTooltip(Range);
 const App = () => {
   const log = (name) => {
     return (value) => {
@@ -27,17 +24,6 @@ const App = () => {
       <WingBlank size="lg">
         <p className="title">Basic Range</p>
         <Range
-          min={0}
-          max={20}
-          defaultValue={[3, 10]}
-          onChange={log('change')}
-          onAfterChange={log('afterChange')}
-        />
-      </WingBlank>
-      <WhiteSpace size="lg" />
-      <WingBlank size="lg">
-        <p className="title">Range with Tooltip</p>
-        <RangeWithTooltip
           min={0}
           max={20}
           defaultValue={[3, 10]}
