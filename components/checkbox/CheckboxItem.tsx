@@ -17,7 +17,9 @@ export default class CheckboxItem extends React.Component<CheckboxItemProps, any
   render() {
     const { listPrefixCls, onChange, disabled, checkboxProps, onClick, ...restProps } = this.props;
     const { prefixCls, className, children } = restProps;
-    const wrapCls = classnames(`${prefixCls}-item`, className);
+    const wrapCls = classnames(`${prefixCls}-item`, className, {
+      [`${prefixCls}-item-disabled`]: disabled === true,
+    });
 
     // Note: if not omit `onChange`, it will trigger twice on check listitem
     if (!disabled) {
