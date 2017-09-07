@@ -7,7 +7,7 @@ Here list some of main incompatible changes and recommended changes in the upgra
 
 ## 1.x => 2.0
 
-Very pleased to inform you, `antd-mobile@2.0` after half a year iteration, has entered a relatively stable beta version of the state. Relative to 1.x, `antd-mobile@2.0` is faster, more lightweight, easier to get started. welcome to start using!
+Very pleased to inform you, `antd-mobile@2.0` has entered a relatively stable beta version of the state. Relative to 1.x, `antd-mobile@2.0` is faster, more lightweight, easier to get started. welcome to start using!
 
 ### 2.x Major changes overview
 
@@ -38,11 +38,6 @@ In 2.0, if you do not want to use svg as an icon, you no longer need to configur
 #### Others
 
 - Each component's `ref` changed from `string` to `function` (e.g. `input` component: `this.refs.input` => `this.input`)
-
-
-### 2.x Bug fixes
-
-### 2.x Other improvements
 
 
 ## 0.9.x => 1.0

@@ -55,8 +55,8 @@ class App extends React.Component {
         <Button onClick={this.showModal('modal2')}>popup</Button>
         <WhiteSpace />
         <Modal
-          visible={this.state.modal2}
           popup
+          visible={this.state.modal2}
           maskClosable={false}
           animationType="slide-up"
         >

@@ -23,38 +23,37 @@ timeline: true
 
   - [Web] `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
   - [Web] `Button` 组件分别对应各个 type 新增各自的 disabled 状态样式
-  - [Web] `Modal.alert / Modal.prompt / Modal.opeartion` 新增可选参数 `platform`, 支持切换不同平台样式。
-  - 新增 `DatePickerView` 组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
-  - 新增 `Calendar` 组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
-  - `Grid` 新增 `square` api, 支持高度自适应模式。
+  - [Web] `Grid` 新增 `square` api, 支持高度自适应模式
+  - [Web] `Modal.alert / Modal.prompt / Modal.opeartion` 新增可选参数 `platform`
+  - [Web/RN] 新增 `DatePickerView` 组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
+  - [Web/RN] 新增 `Calendar` 组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
 
 - **Break Change**
 
-  - [Web] "高清方案" / "SVG Icon" 从“内置”改为“外置”。
-  - [Web] `Button` 去除 `across` 模式。
-  - 用 ref function 替换 ref string [#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
-  - `pagination` 组件 `current` 属性改成从 `1` 开始索引 （[#1009](https://github.com/ant-design/ant-design-mobile/issues/1009)）
-  - [Web] `Slider` 去除默认的 margin & padding. ([5c9744a](https://github.com/ant-design/ant-design-mobile/commit/5c9744aa8025a8fdfe4ec8f5bca5e108245f7bcd))
-  - `TextareaItem` / `SearchBar` / `InputItem` 将 `style` 属性传至 input(web) / TextInput(rn) 元素，方便自定义样式
-  - `Progress`: `wrapStyle` 改为 `style`, 原来的 `style` 将改成 `barStyle`，`unfilled` 更改为 boolean 值
-  - `Switch` 对 `style` 属性直接针对 switch 样式自身，方便定义样式
-  - `Flex` 清理冗余 APIs, 只保留 `align: enum{start, center, end}` [#1532](https://github.com/ant-design/ant-design-mobile/issues/1532)
-  - `DatePicker`组件去除 moment.js 依赖，相应地`value`,`minDate`,`maxDate`,`format`,`onChange`数据类型变为`Date`对象。[#1217](https://github.com/ant-design/ant-design-mobile/issues/1217)
+  - [Web] "高清方案" / "SVG Icon" 从“内置”改为“外置”
+  - [Web] `Button` 组件去除 `across` 模式
+  - [Web] `Modal`、`List.Item`、`Switch` 默认采用 iOS 样式，不再根据 UA 进行自动探测 ([#1371](https://github.com/ant-design/ant-design-mobile/issues/1371))
+  - [Web/RN] 各个组件的 `ref` 从 `string` 修改为 `function` ([#1354](https://github.com/ant-design/ant-design-mobile/issues/1354))
+  - [Web/RN] 重构 `Tabs` 组件，底层重写，**APIs 大量更改**
+  - [Web/RN] 去除 `Popup` 组件，给 `Modal` 组件新增 `popup` 属性，相应地 Modal 组件中原 `animationType` 属性开始支持 web 版本、用以标识 popup 弹出动画的类型 [#1125](https://github.com/ant-design/ant-design-mobile/issues/1125)
+  - [Web/RN] `InputItem` / `TextareaItem` 组件
+      - 将 `style` 属性传至 input(web) / TextInput(rn)
+      - 去除 `focused` / `autoFocus` 属性 (用 `focus()` 实例方法实现同样效果)
+  - [Web/RN] `DatePicker` 组件去除 moment.js 依赖
+      - 相应地 `value` / `minDate` / `maxDate` / `format` / `onChange` 数据类型变为`Date`对象
+  - [Web/RN] `pagination` 组件 `current` 属性改成从 `1` 开始索引
+  - [Web/RN] `Progress` 组件
+      - `wrapStyle` 改为 `style`, 原来的 `style` 改为 `barStyle`
+      - `unfilled` 属性值更改为 boolean 值
+  - [Web/RN] 移除 `List` 组件的 `onLongPress` 属性
+  - [Web/RN] `Result` 组件的 `buttonClick` 更改为 `onButtonClick`
+  - [Web/RN] 删除 `Table` 组件
+  - [Web] 去除 `createTooltip` 组件，如果你需要 range/slider 带 tooltip 功能，你可以用 [react-component/slider/createSliderWithTooltip](https://github.com/react-component/slider/blob/master/src/createSliderWithTooltip.jsx) 实现
+  - [Web] `Switch` 组件的 `style` 属性设置，从外围元素改为内层元素上
+  - [Web] `Slider` 去除默认的 margin & padding 样式
+  - [Web] `Flex` 清理冗余 `align` 属性值 top / middle / bottom
   - [RN] `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现
-  - [RN] `Button` 组件 style 里`disabledRaw`/`disabledRawText` 修改为`defaultDisabledRaw` / `defaultDisabledRawText`
-  - `Result` 组件的 `buttonClick` 更改为 `onButtonClick`
-  - 去除 `Table` 组件
-  - 去除 `List` 组件的 `onLongPress` 属性
-  - `Modal`、`List.Item`、`Switch` 将默认采用 ios 样式，不再根据 UA 进行自动探测; [#1371](https://github.com/ant-design/ant-design-mobile/issues/1371)
-  - `InputItem`, `TextareaItem` 去除 `focused`,`autoFocus` APIs, 此需求用 `focus()` 实例方法代替。
-  - 重构 `Tabs` 组件，底层重写， APIs 全面更新
-  - 去除 `Popup` 组件，给 `Modal` 组件新增 `popup` 属性，相应地 Modal 组件中原 `animationType` 属性开始支持 web 版本、用以标识 popup 弹出动画的类型 [#1125](https://github.com/ant-design/ant-design-mobile/issues/1125)
-  - 用 ref function 替换 ref string [#1354](https://github.com/ant-design/ant-design-mobile/issues/1354)
-  - `InputItem`, `TextareaItem` 去除 `focused`, `autoFocus` api, 此需求用 `focus()` 实例方法代替。
-  - 重构`Tabs`组件，底层重写，api全面更新
-  - 去除`Popup`组件，给`Modal`组件新增`popup`属性，相应地 Modal 组件中原`animationType`属性开始支持 web 版本、用以标识 popup 弹出动画的类型 [#1125](https://github.com/ant-design/ant-design-mobile/issues/1125)
-  - 去除 `createTooltip` 组件，如果你需要 range/slider 带 tooltip 功能，你可以用 [react-component/slider/createSliderWithTooltip](https://github.com/react-component/slider/blob/master/src/createSliderWithTooltip.jsx) 实现
-  - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+  - [RN] `Button` 组件 style 里 `disabledRaw` / `disabledRawText` 修改为 `defaultDisabledRaw` / `defaultDisabledRawText`
 
 - **Theme**
 
@@ -64,6 +63,7 @@ timeline: true
 - **Enhancement**
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
+  - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
 ## 1.6.5
 `2017-08-29`
