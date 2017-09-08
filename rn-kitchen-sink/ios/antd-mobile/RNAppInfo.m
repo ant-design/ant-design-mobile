@@ -7,9 +7,9 @@
 //
 
 #import "RNAppInfo.h"
-#import "RCTBridge.h"
 
 @implementation RNAppInfo
+
 RCT_EXPORT_MODULE();
 
 - (NSDictionary *)constantsToExport
