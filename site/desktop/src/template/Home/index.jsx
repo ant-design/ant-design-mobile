@@ -7,6 +7,10 @@ import 'react-github-button/assets/style.css';
 import * as utils from '../../../../utils';
 
 class Home extends React.Component {
+  POINT = 60;
+  startTime = +new Date();
+  moreTime = false;
+
   constructor(props) {
     super(props);
     const pathname = props.location.pathname;
@@ -25,7 +29,7 @@ class Home extends React.Component {
 
     const receiveMessage = (event) => {
       if (event) {
-        this.setState({ loading: Math.max(this.state.loading, 70) });
+        this.setState({ loading: Math.max(this.state.loading, this.POINT) });
       }
     };
     window.addEventListener('message', receiveMessage, false);
@@ -43,9 +47,18 @@ class Home extends React.Component {
   }
 
   loading() {
-    const speed = this.state.loading < 60 ? 30 : 20;
+    this.moreTime = this.moreTime || +new Date() > this.startTime + 2000;
+    let speed = 100;
+    if (this.state.loading >= this.POINT) {
+      if (this.moreTime) {
+        speed = 10;
+      } else {
+        speed = 70;
+      }
+    }
+
     setTimeout(() => {
-      if (this.state.loading !== 69) {
+      if (this.state.loading !== this.POINT - 1) {
         this.setState({
           loading: this.state.loading + 1,
         });
@@ -61,7 +74,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const { isZhCN, welcome } = this.state;
+    const { isZhCN, welcome, loading } = this.state;
 
     let iframeUrl = location.port ? 'http://localhost:8002/' : `${location.origin}/kitchen-sink/`;
     if (isZhCN) {
@@ -75,6 +88,12 @@ class Home extends React.Component {
       iframeCls += ' move-left';
     } else {
       iframeCls += ' fade-in';
+    }
+
+    const count = Math.floor(loading / 10);
+    let prg = '';
+    for (let i = 0; i < 10; i += 1) {
+      prg += i < count ? '=' : '-';
     }
 
     return (
@@ -92,27 +111,32 @@ class Home extends React.Component {
             </div>
           }
           <div className={iframeCls}>
-            <div style={{ width: '424Px', height: '810Px' }}>
+            <div style={{ width: '424Px', height: '810Px', position: 'relative' }}>
+              <div className="holo" />
               <div className="demo-preview-wrapper">
                 <div className="hold" />
-                <section className="code-box-demo code-box-demo-preview">
+                <section className="code-box-demo code-box-demo-preview"
+                  style={{
+                    background: welcome ? '#041928' : '#F5F5F9',
+                  }}
+                >
                   <iframe
                     id="demoFrame"
                     title="antd-mobile"
                     name="demoFrame"
-                    style={{ width: '424Px', height: '662Px', border: '1Px solid #F7F7F7', borderTop: 'none', borderRadius: 10 }}
+                    style={{ width: '424Px', height: '662Px' }}
                     src={iframeUrl}
                   />
 
                   {
                     welcome &&
                     <div className="phone"
-                      style={{ width: '424Px', height: '662Px', border: '1Px solid #F7F7F7', borderTop: 'none', borderRadius: 10 }}
+                      style={{ width: '424Px', height: '662Px' }}
                     >
                       <div className="title">AntDesign Mobile</div>
                       <div className="title">V2.0</div>
                       <div className="prg">loading</div>
-                      <div className="prg">[==========]</div>
+                      <div className="prg">[{prg}]</div>
                       <div className="prg">{this.state.loading}%</div>
                       <div className="feat">{'/* Faster */'}</div>
                       <div className="feat">{'/* easy to use */'}</div>
@@ -158,7 +182,7 @@ class Home extends React.Component {
             </div>
           }
         </div>
-      </DocumentTitle>
+      </DocumentTitle >
     );
   }
 }
