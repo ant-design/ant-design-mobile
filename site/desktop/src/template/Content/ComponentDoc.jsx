@@ -90,6 +90,11 @@ export default class ComponentDoc extends React.Component {
     if (this.state.inMultiDemoMode) {
       this.bindScroll();
     }
+
+    setTimeout(() => {
+      const linkTo = this.props.location.hash.replace('#', '');
+      document.getElementById(linkTo).scrollIntoView();
+    }, 500);
   }
   componentWillUnmount() {
     this.cleanScroll();
