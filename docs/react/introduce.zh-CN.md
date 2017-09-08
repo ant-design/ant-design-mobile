@@ -32,11 +32,12 @@ english: Ant Design Mobile of React
 - 基于 React Native 的 iOS / Android / Web 多平台支持，组件丰富、能全面覆盖各类场景
 - 提供 "组件按需加载" / "Web 页面高清显示" / "SVG Icon" 等优化方案，一体式开发
 - 使用 TypeScript 开发，提供类型定义文件，支持类型及属性智能提示，方便业务开发
+- 全面兼容 react / preact；
 
 ## 适用场景
 
 - 适合于中大型产品应用
-- 适合于基于 react / react-native 的多终端应用
+- 适合于基于 react / preact / react-native 的多终端应用
 - 适合不同 UI 风格的高度定制需求的应用
 
 ## 快速上手

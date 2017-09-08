@@ -32,11 +32,12 @@ english: Ant Design Mobile of React
 - Support Web / iOS / Android platform (Based on React Native), has a wealth of components, can fully cover all kinds of scenes.
 - Provide "Components are loaded on demand" / "Web page HD display" / "SVG Icon" optimization features, integrated development.
 - Use TypeScript to develop, provide type definition files, support type and attribute smart tips for easy business development.
+- Fully compatible with react / preact.
 
 ## Applicable Scenes
 
 - Medium-sized and large-scale applications.
-- Multi-terminal applications based on react / react-native.
+- Multi-terminal applications based on react / preact / react-native.
 - Custom UI-style applications.
 
 ## Getting Started
