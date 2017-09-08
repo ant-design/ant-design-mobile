@@ -94,11 +94,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "flexDirection": "row",
-              "transform": Array [
-                Object {
-                  "translateX": 0,
-                },
-              ],
+              "left": 0,
               "width": 1000,
             }
           }
@@ -195,11 +191,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "flexDirection": "row",
-              "transform": Array [
-                Object {
-                  "translateX": 0,
-                },
-              ],
+              "left": 0,
               "width": 1000,
             }
           }
@@ -331,11 +323,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "flexDirection": "row",
-              "transform": Array [
-                Object {
-                  "translateX": 0,
-                },
-              ],
+              "left": 0,
               "width": 1000,
             }
           }
@@ -480,11 +468,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "flexDirection": "row",
-              "transform": Array [
-                Object {
-                  "translateX": 0,
-                },
-              ],
+              "left": 0,
               "width": 1000,
             }
           }
@@ -617,11 +601,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "flexDirection": "row",
-              "transform": Array [
-                Object {
-                  "translateX": 0,
-                },
-              ],
+              "left": 0,
               "width": 1000,
             }
           }
@@ -720,11 +700,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
           style={
             Object {
               "flexDirection": "row",
-              "transform": Array [
-                Object {
-                  "translateX": 0,
-                },
-              ],
+              "left": 0,
               "width": 1000,
             }
           }
