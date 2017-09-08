@@ -15,6 +15,7 @@ interface Props {
   /** below web only */
   className?: string;
   prefixCls?: string;
+  swipeSpeed?: number;
   /** below rn only */
   bounces?: boolean;
   onScrollBeginDrag?: Function;
