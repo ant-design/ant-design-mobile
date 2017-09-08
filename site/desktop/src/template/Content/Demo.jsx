@@ -95,7 +95,7 @@ export default class Demo extends React.Component {
     const { lang, sourceCode } = this.state;
     const locale = this.context.intl.locale;
     const localizedTitle = meta.title[locale] || meta.title;
-    const prefillStyle = `@import 'antd-mobile/dist/antd-mobile.min.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const prefillStyle = `@import 'antd-mobile@next/dist/antd-mobile.min.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
 
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Mobile Demo`,
@@ -106,12 +106,12 @@ export default class Demo extends React.Component {
       js: sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd-mobile';/, 'const { $1 } = window["antd-mobile"];'),
       css: prefillStyle,
       editors: '001',
-      css_external: 'https://unpkg.com/antd-mobile/dist/antd-mobile.min.css',
+      css_external: 'https://unpkg.com/antd-mobile@next/dist/antd-mobile.min.css',
       js_external: [
         'react/dist/react.js',
         'react-dom/dist/react-dom.js',
         'moment/min/moment-with-locales.js',
-        'antd-mobile/dist/antd-mobile.min.js',
+        'antd-mobile@next/dist/antd-mobile.min.js',
       ]
         .map(url => `https://unpkg.com/${url}`)
         .concat(['https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js'])
@@ -121,8 +121,8 @@ export default class Demo extends React.Component {
     };
     const riddlePrefillConfig = {
       title: `${localizedTitle} - Ant Design Mobile Demo`,
-      js: sourceCode,
-      css: prefillStyle,
+      js: sourceCode.replace('from \'antd-mobile\'', 'from \'antd-mobile@next\''),
+      css: prefillStyle.replace('\'antd-mobile/', '\'antd-mobile@next/'),
     };
     return Array.isArray(highlightedCode) ? (
       <div className="highlight">
