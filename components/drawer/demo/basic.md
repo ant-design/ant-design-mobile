@@ -44,7 +44,7 @@ class App1 extends React.Component {
       <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>Basic</NavBar>
       <Drawer
         className="my-drawer"
-        style={{ minHeight: document.documentElement.clientHeight - 200 }}
+        style={{ minHeight: document.documentElement.clientHeight }}
         enableDragHandle
         contentStyle={{ color: '#A6A6A6', textAlign: 'center', paddingTop: 42 }}
         sidebar={sidebar}

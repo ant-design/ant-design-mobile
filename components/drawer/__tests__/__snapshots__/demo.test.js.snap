@@ -36,7 +36,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="my-drawer am-drawer am-drawer-left am-drawer-open"
-    style="min-height:-200px;"
+    style="min-height:0;"
   >
     <div
       class="am-drawer-sidebar"
@@ -584,7 +584,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
   </div>
   <div
     class="my-drawer am-drawer am-drawer-left"
-    style="min-height:-200px;"
+    style="min-height:0;"
   >
     <div
       class="am-drawer-sidebar"
