@@ -1,5 +1,4 @@
 import React from 'react';
-import createReactClass from 'create-react-class';
 import { StyleSheet, View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { RefreshControl } from 'antd-mobile';
 
@@ -37,22 +36,21 @@ class Row extends React.Component<any, any> {
   }
 }
 
-export default createReactClass({
-  getInitialState() {
-    return {
-      isRefreshing: false,
-      loaded: 0,
-      rowData: Array.from(new Array(20)).map(
-        (_val, i) => ({ text: 'Initial row ' + i, clicks: 0 })),
-    };
-  },
+export default class RefreshDemo extends React.Component<any, any> {
+  state = {
+    isRefreshing: false,
+    loaded: 0,
+    rowData: Array.from(new Array(20)).map(
+      (_val, i) => ({ text: 'Initial row ' + i, clicks: 0 }),
+    ),
+  };
 
-  onClick(row) {
+  onClick = (row) => {
     row.clicks++;
     this.setState({
       rowData: this.state.rowData,
     });
-  },
+  }
 
   render() {
     const rows = this.state.rowData.map((row, ii) => {
@@ -78,9 +76,9 @@ export default createReactClass({
         {rows}
       </ScrollView>
     );
-  },
+  }
 
-  onRefresh() {
+  onRefresh = () => {
     this.setState({ isRefreshing: true });
     setTimeout(() => {
       // prepend 10 items
@@ -97,8 +95,5 @@ export default createReactClass({
         rowData: rowData,
       });
     }, 1000);
-  },
-});
-
-export const title = 'RefreshControl';
-export const description = 'RefreshControl example';
+  }
+}

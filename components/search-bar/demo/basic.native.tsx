@@ -1,20 +1,20 @@
 import React from 'react';
-import createReactClass from 'create-react-class';
 import { View, Alert } from 'react-native';
 import { SearchBar } from 'antd-mobile';
 
-export default createReactClass({
-  getInitialState() {
-    return {
-      value: '美食',
-    };
-  },
-  onChange(value) {
+export default class SearchBarDemo extends React.Component<any, any> {
+  state = {
+    value: '美食',
+  };
+
+  onChange = (value) => {
     this.setState({ value });
-  },
-  clear() {
+  }
+
+  clear = () => {
     this.setState({ value: '' });
-  },
+  }
+
   render() {
     return (
       <View style={{ marginTop: 30 }}>
@@ -32,5 +32,5 @@ export default createReactClass({
         />
       </View>
     );
-  },
-});
+  }
+}

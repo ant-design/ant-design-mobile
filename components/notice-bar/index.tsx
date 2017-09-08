@@ -2,10 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import Icon from '../icon';
 import NoticeBarProps from './PropsType';
-import Marquee, { MarqueeProp } from './Marquee';
+import Marquee, { IMarqueeProps } from './Marquee';
 
 export interface INoticeWebProps extends NoticeBarProps {
-  marqueeProps?: MarqueeProp;
+  marqueeProps?: IMarqueeProps;
   className?: string;
   prefixCls?: string;
   style?: {};
@@ -66,7 +66,7 @@ export default class NoticeBar extends React.Component<INoticeWebProps, any> {
       <div className={wrapCls} {...restProps} {...extraProps} role="alert">
         {icon && <div className={`${prefixCls}-icon`} aria-hidden="true"> {icon} </div>}
         <div className={`${prefixCls}-content`}>
-          <Marquee prefixCls={prefixCls} text={children} style={{}} {...marqueeProps} />
+          <Marquee prefixCls={prefixCls} text={children as string} {...marqueeProps} />
         </div>
         {operationDom}
       </div>

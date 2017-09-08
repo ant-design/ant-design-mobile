@@ -5,10 +5,9 @@
 */
 
 import React from 'react';
-import createReactClass from 'create-react-class';
 import ReactDOM from 'react-dom';
 
-export interface MarqueeProp {
+export interface IMarqueeProps {
   prefixCls?: string;
   text: string;
   loop?: boolean;
@@ -16,42 +15,42 @@ export interface MarqueeProp {
   trailing?: number;
   className?: string;
   fps?: number;
+  style?: any;
 }
 
-const Marquee = createReactClass<MarqueeProp, any>({
-  getDefaultProps() {
-    return {
-      text: '',
-      loop: false,
-      leading: 500,
-      trailing: 800,
-      fps: 40,
-      className: '',
-    };
-  },
+export default class Marquee extends React.Component<IMarqueeProps, any> {
+  static defaultProps = {
+    text: '',
+    loop: false,
+    leading: 500,
+    trailing: 800,
+    fps: 40,
+    className: '',
+  };
 
-  getInitialState() {
-    return {
-      animatedWidth: 0,
-      overflowWidth: 0,
-    };
-  },
+  state = {
+    animatedWidth: 0,
+    overflowWidth: 0,
+  };
+
+  textRef: any;
+  private _marqueeTimer: any;
 
   componentDidMount() {
     this._measureText();
     this._startAnimation();
-  },
+  }
 
   componentDidUpdate() {
     this._measureText();
     if (!this._marqueeTimer) {
       this._startAnimation();
     }
-  },
+  }
 
   componentWillUnmount() {
     clearTimeout(this._marqueeTimer);
-  },
+  }
 
   render() {
     const { prefixCls, className, text } = this.props;
@@ -67,11 +66,14 @@ const Marquee = createReactClass<MarqueeProp, any>({
         <div ref={el => this.textRef = el} className={`${prefixCls}-marquee`} style={style}>{text} </div>
       </div>
     );
-  },
+  }
 
   _startAnimation() {
-    clearTimeout(this._marqueeTimer);
-    const TIMEOUT = 1 / this.props.fps * 1000;
+    if (this._marqueeTimer) {
+      clearTimeout(this._marqueeTimer);
+    }
+    let fps = this.props.fps;
+    const TIMEOUT = 1 / fps! * 1000;
     const isLeading = this.state.animatedWidth === 0;
     const timeout = isLeading ? this.props.leading : TIMEOUT;
 
@@ -108,7 +110,7 @@ const Marquee = createReactClass<MarqueeProp, any>({
     if (this.state.overflowWidth !== 0) {
       this._marqueeTimer = setTimeout(animate, timeout);
     }
-  },
+  }
 
   _measureText() {
     const container = ReactDOM.findDOMNode(this);
@@ -123,7 +125,5 @@ const Marquee = createReactClass<MarqueeProp, any>({
         });
       }
     }
-  },
-});
-
-export default Marquee;
+  }
+}
