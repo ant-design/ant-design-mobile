@@ -35,4 +35,4 @@ subtitle: 手风琴
 | key  | 对应 activeKey   | String          | 无     |
 | header | 面板头内容 | React.Element or String | 无     |
 
-注意: RN Accordion 依赖 Icon，使用时需添加对应的 iconfont 字体; 目前暂不支持嵌套使用
+注意: 目前暂不支持嵌套使用

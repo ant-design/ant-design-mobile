@@ -34,4 +34,4 @@ Properties | Descrition | Type | Default
 | key  | corresponding activeKey   | String   | -   |
 | header | header content of Panel | React.Element or String | -   |
 
-Note: RN Accordion Depends on the Icon component, and need to add the corresponding iconfont; currently do not support nested use.
+Note: Currently does not support nested use for RN.
