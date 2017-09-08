@@ -191,7 +191,7 @@ export default class Header extends React.Component {
         <Row>
           <Col lg={4} md={5} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img alt="logo" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" />
+              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/gVVuJGzAwEoRVZACzntE.png" />
               <span>{themeConfig.siteTitle}</span>
             </Link>
           </Col>

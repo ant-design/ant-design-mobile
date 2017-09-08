@@ -142,7 +142,7 @@ class Home extends React.Component {
               {this.props.intl.formatMessage({ id: 'app.home.centerSubSlogan' })}
               <div className="op-area">
                 <div className="start-button-wrap" key="button">
-                  <Link to="/docs/react/introduce">
+                  <Link to={`/docs/react/introduce${isZhCN ? '-cn' : ''}`}>
                     {this.props.intl.formatMessage({ id: 'app.home.centerStart' })}
                   </Link>
                 </div>
