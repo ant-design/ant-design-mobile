@@ -56,7 +56,7 @@ Can be an existing project, or a newly created empty project with [dva](https://
 ### 2. Installation
 
 ```bash
-$ npm install antd-mobile --save
+$ npm install antd-mobile@next --save
 ```
 
 ### 3. Usage
