@@ -9,10 +9,6 @@ const reactExternals = {
   'react-dom': 'ReactDOM',
   'react-router': 'ReactRouter',
 };
-const preactExternals = {
-  react: 'preactCompat',
-  'react-dom': 'preactCompat',
-};
 
 const preactAlias = {
   react: 'preact-compat',
@@ -20,7 +16,7 @@ const preactAlias = {
   'create-react-class': 'preact-compat/lib/create-react-class',
 };
 
-const prodExternals = useReact ? reactExternals : preactExternals;
+const prodExternals = useReact ? reactExternals : {};
 
 module.exports = {
   webpackConfig(config) {
