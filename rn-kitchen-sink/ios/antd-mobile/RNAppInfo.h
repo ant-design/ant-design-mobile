@@ -6,9 +6,9 @@
 //  Copyright © 2016年 Facebook. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "RCTBridgeModule.h"
-#import "RCTLog.h"
+#import <React/RCTBridgeModule.h>
 
 @interface RNAppInfo : NSObject <RCTBridgeModule>
 @end
