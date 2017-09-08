@@ -110,6 +110,7 @@ class App extends React.Component {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         refreshing: false,
+        showFinishTxt: true,
       });
     }, 600);
   };
@@ -130,6 +131,21 @@ class App extends React.Component {
       });
     }, 1000);
   };
+
+  scrollingComplete = () => {
+    this.setState({ showFinishTxt: false });
+  }
+
+  renderCustomIcon() {
+    return [
+      <div className="am-refresh-control-pull">
+        <span>{this.state.showFinishTxt ? '数据加载完成' : '下拉可以刷新'}</span>
+      </div>,
+      <div className="am-refresh-control-release">
+        <span>松开立即刷新</span>
+      </div>,
+    ];
+  }
 
   render() {
     const separator = (sectionID, rowID) => (
@@ -185,10 +201,11 @@ class App extends React.Component {
           border: '1px solid #ddd',
           margin: '5px 0',
         }}
-        scrollerOptions={{ scrollbars: true }}
+        scrollerOptions={{ scrollbars: true, scrollingComplete: this.scrollingComplete }}
         refreshControl={<RefreshControl
           refreshing={this.state.refreshing}
           onRefresh={this.onRefresh}
+          icon={this.renderCustomIcon()}
         />}
         onScroll={this.onScroll}
         scrollRenderAheadDistance={200}
@@ -201,4 +218,9 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
+````
+````css
+.am-refresh-control-deactive .am-refresh-control-ptr-icon {
+  display: block;
+}
 ````
