@@ -100,7 +100,7 @@ class Home extends React.Component {
       <DocumentTitle title={`Ant Design Mobile - ${this.props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
         <div className="home-main">
           {
-            welcome &&
+            false &&
             <div className="welcome-icon fade-in">
               <img src="https://gw.alipayobjects.com/zos/rmsportal/aKoUQpToTfJVKGFQdmFd.png" alt="" />
               <img src="https://gw.alipayobjects.com/zos/rmsportal/vWsYHYMWcdjmpIagCokB.png" alt="" />
@@ -134,7 +134,7 @@ class Home extends React.Component {
                       style={{ width: '424Px', height: '662Px' }}
                     >
                       <div className="title">Ant Design Mobile</div>
-                      <div className="title">V2.0 <span style={{ fontSize: 20 }}>Beta</span></div>
+                      <div className="title">2.0 <span style={{ fontSize: 20 }}>Beta</span></div>
                       <div className="prg">loading</div>
                       <div className="prg">[{prg}]</div>
                       <div className="prg">{this.state.loading}%</div>
@@ -149,7 +149,7 @@ class Home extends React.Component {
             </div>
           </div>
           {
-            welcome &&
+            false &&
             <div className="welcome-icon fade-in">
               <img src="https://gw.alipayobjects.com/zos/rmsportal/agaKKXVNzwIVZMttqJbz.png" alt="" />
               <img src="https://gw.alipayobjects.com/zos/rmsportal/AgPJWjTZZEcLxPYWFWZV.png" alt="" />

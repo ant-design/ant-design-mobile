@@ -189,13 +189,13 @@ export default class Header extends React.Component {
           />
         </Popover>}
         <Row>
-          <Col lg={4} md={5} sm={24} xs={24}>
+          <Col lg={5} md={6} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/gVVuJGzAwEoRVZACzntE.png" />
+              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/cEhTdQeQZOaAoHqReZlo.svg" />
               <span>{themeConfig.siteTitle}</span>
             </Link>
           </Col>
-          <Col lg={20} md={19} sm={0} xs={0}>
+          <Col lg={19} md={18} sm={0} xs={0}>
             <div id="search-box">
               <AutoComplete
                 dataSource={options}

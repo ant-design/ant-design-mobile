@@ -11,7 +11,7 @@ module.exports = {
     'app.header.menu.pc': '桌面版',
     'app.header.lang': 'EN',
     'app.home.slogan': '移动端设计规范',
-    'app.home.centerSlogan': 'Ant Design Mobile V2.0 Beta 上线啦！',
+    'app.home.centerSlogan': 'Ant Design Mobile 2.0 Beta 上线啦！',
     'app.home.centerSubSlogan': '更轻量、更快速、更易用',
     'app.home.centerStart': '了解更多',
     'app.home.qrtip': '扫描二维码手机可预览',
