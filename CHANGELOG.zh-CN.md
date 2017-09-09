@@ -14,6 +14,17 @@ timeline: true
 
 ---
 
+## 1.6.6
+`2017-09-09`
+
+- **Bug Fix**
+
+  - Fix `Modal.operation` android 下面多操作选项样式问题 ([#1791](https://github.com/ant-design/ant-design-mobile/issues/1791)) 
+  - Fix RN `Accordion` 必须依赖 Icon 组件的问题 ([#1784](https://github.com/ant-design/ant-design-mobile/issues/1784))
+  - Fix `Modal` 按钮默认的 `href="#"` 导致 react-router 跳转到 '/' ([#1780](https://github.com/ant-design/ant-design-mobile/issues/1780))
+  - Fix RN `ActionSheet` 空 title / message 报错([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767)
+  - Fix RN `Picker、PickerView` 布局错误 ([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767))
+
 
 ### 2.0.0
 

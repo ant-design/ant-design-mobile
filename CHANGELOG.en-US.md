@@ -41,6 +41,17 @@ timeline: true
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
 
+## 1.6.6
+`2017-09-09`
+
+- **Bug Fix**
+
+  - Fix `Modal.operation` style of multiple options for android ([#1791](https://github.com/ant-design/ant-design-mobile/issues/1791))
+  - Fix RN `Accordion` must depend on `Icon` component ([#1784](https://github.com/ant-design/ant-design-mobile/issues/1784))
+  - Fix `Modal` with `href="#"` cousing react-router to jump to '/' ([#1780](https://github.com/ant-design/ant-design-mobile/issues/1780))
+  - Fix RN `ActionSheet` with empty `title / message` casusing error ([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767)
+  - Fix RN `Picker、PickerView` vertical layout error ([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767))
+
 ## 1.6.5
 `2017-08-29`
 
