@@ -21,6 +21,7 @@ subtitle: 走马灯
 | afterChange  | 切换面板后的回调函数     | (current: number): void  | 无
 | dotStyle  | 指示点样式    | Object  | 无
 | dotActiveStyle  | 当前激活的指示点样式     | Object  | 无
+| swipeSpeed  (`web only`)     | 滑动灵敏度     |  number | 5
 | easing (`web only`) | 动画效果 | String   | linear |
 | beforeChange  (`web only`)     | 切换面板前的回调函数     | (from: number, to: number): void | 无
 | onScrollBeginDrag (`rn only`) | 见 react-native scrollView onScrollBeginDrag | (): void | 无 |

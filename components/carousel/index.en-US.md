@@ -21,6 +21,7 @@ Properties | Descrition | Type | Default
 | dotActiveStyle  | style of active dot     | Object  |
 | easing (`web only`) | animation timing function | String   | linear |
 | beforeChange  (`web only`)     | callback to be called before a slide is changed     | (from: number, to: number): void |
+| swipeSpeed  (`web only`)     | configure the swipe sensitivity     |  number | 5
 | onScrollBeginDrag (`rn only`) | as same as react-native scrollView `onScrollBeginDrag` | (): void |  |
 | bounces (`rn only`) | as same as react-native scrollView `bounces`       |   Boolean      | true |
 | pagination (`rn only`) | A generator function which could be used to customized pagination. | (props) => React.ReactNode  | |
