@@ -14,17 +14,6 @@ timeline: true
 
 ---
 
-## 1.6.6
-`2017-09-09`
-
-- **Bug Fix**
-
-  - Fix `Modal.operation` android 下面多操作选项样式问题 ([#1791](https://github.com/ant-design/ant-design-mobile/issues/1791)) 
-  - Fix RN `Accordion` 必须依赖 Icon 组件的问题 ([#1784](https://github.com/ant-design/ant-design-mobile/issues/1784))
-  - Fix `Modal` 按钮默认的 `href="#"` 导致 react-router 跳转到 '/' ([#1780](https://github.com/ant-design/ant-design-mobile/issues/1780))
-  - Fix RN `ActionSheet` 空 title / message 报错([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767)
-  - Fix RN `Picker、PickerView` 布局错误 ([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767))
-
 
 ### 2.0.0
 
@@ -62,7 +51,7 @@ timeline: true
   - [Web] 去除 `createTooltip` 组件，如果你需要 range/slider 带 tooltip 功能，你可以用 [react-component/slider/createSliderWithTooltip](https://github.com/react-component/slider/blob/master/src/createSliderWithTooltip.jsx) 实现
   - [Web] `Switch` 组件的 `style` 属性设置，从外围元素改为内层元素上
   - [Web] `Slider` 去除默认的 margin & padding 样式
-  - [Web] `Flex` 清理冗余 `align` 属性值 top / middle / bottom
+  - [Web] `Flex` 清理冗余 `align` 属性值 `top / middle / bottom`
   - [RN] `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现
   - [RN] `Button` 组件 style 里 `disabledRaw` / `disabledRawText` 修改为 `defaultDisabledRaw` / `defaultDisabledRawText`
 
@@ -75,6 +64,17 @@ timeline: true
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+
+## 1.6.6
+`2017-09-09`
+
+- **Bug Fix**
+
+  - Fix `Modal.operation` android 下面多操作选项样式问题 ([#1791](https://github.com/ant-design/ant-design-mobile/issues/1791))
+  - Fix RN `Accordion` 必须依赖 Icon 组件的问题 ([#1784](https://github.com/ant-design/ant-design-mobile/issues/1784))
+  - Fix `Modal` 按钮默认的 `href="#"` 导致 react-router 跳转到 '/' ([#1780](https://github.com/ant-design/ant-design-mobile/issues/1780))
+  - Fix RN `ActionSheet` 空 title / message 报错([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767)
+  - Fix RN `Picker、PickerView` 布局错误 ([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767))
 
 ## 1.6.5
 `2017-08-29`

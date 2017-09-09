@@ -20,26 +20,49 @@ timeline: true
 
 - **Feature**
 
-  - [Web] `DatePicker`新增 API `use12Hours`, 支持 12 小时制 ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
-  - [Web] `Button` 组件分别对应各个 type 新增各自的 disabled 状态样式
-  - [Web] `Modal.alert / Modal.prompt / Modal.opeartion` 新增可选参数 `platform`, 支持切换不同平台样式。
-  - 新增 `DatePickerView` 组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
-  - 新增 `Calendar` 组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
-  - `Grid` 新增 `square` api, 支持高度自适应模式。
+  - [Web] `DatePicker` Add `use12Hours`, support 12-hour am/pm format  ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
+  - [Web] `Button` Support `disabled` style for diffrent `type`.
+  - [Web] `Modal.alert / Modal.prompt / Modal.opeartion` add optional `platform` api, support switch between android and ios design.
+  - Add `DatePickerView` ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
+  - Add `Calendar` ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
+  - `Grid` add `square` api, support both square mode and auto height mode.
 
 - **Break Change**
 
   - [Web] "Web page HD display" / "SVG Icon" optimization features, Changed from "built-in" to "external".
   - [Web] remove `across` mode of `Button`.
-  - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+  - remove global `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+  - [Web/RN] all component's `ref` switch from `string` to `function` ([#1354](https://github.com/ant-design/ant-design-mobile/issues/1354))
+  - [Web/RN] Rewrite `Tabs`，**Redesigned all api**
+  - [Web/RN] Remove `Popup`，Add `popup` api for `Modal`,  Modal `animationType` support web, to custom popup animation style [#1125](https://github.com/ant-design/ant-design-mobile/issues/1125)
+  - [Web/RN] `InputItem` / `TextareaItem`
+      - pass `style` to input(web) / TextInput(rn)
+      - remove `focused` / `autoFocus`  (use `focus()` instance method)
+  - [Web/RN] `DatePicker` remove moment.js
+      -  `value` / `minDate` / `maxDate` / `format` / `onChange` change to pure`Date` Object
+  - [Web/RN] `pagination` api `current` change to start with `1`.
+  - [Web/RN] `Progress`
+      - `wrapStyle` change to `style`, original `style` change to`barStyle`
+      - `unfilled` change to `boolean` type
+  - [Web/RN] remove `List` api `onLongPress`
+  - [Web/RN] `Result` api `buttonClick` renamed to `onButtonClick`
+  - [Web/RN] remove `Table`
+  - [Web] remove `createTooltip`，which can use  [react-component/slider/createSliderWithTooltip](https://github.com/react-component/slider/blob/master/src/createSliderWithTooltip.jsx) replace
+  - [Web] `Switch` api `style` change to applied with inner element
+  - [Web] `Slider` remove default margin & padding style
+  - [Web] `Flex` remove redundancy `align` value `top / middle / bottom`
+  - [RN] `ActionSheet.showShareActionSheetWithOptions` rewrite with react native `Share`
+  - [RN] `Button` api `style` attribute `disabledRaw` / `disabledRawText` rename to `defaultDisabledRaw` / `defaultDisabledRawText`
 
 - **Theme**
-  - 删除 `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；
-  - `@searchbar-font-size`重命名为 `@search-bar-font-size`。
+
+  - Delete `@fill-overlay-inverse`, `@color-shadow`, `@brand-hot`, `@font-size-display-sm`, `@font-size-display-md`, `@font-size-display-xl`, `@font-size-display-lg`,`@font-family-code`, `@font-family-base`；
+  - `@searchbar-font-size` rename to `@search-bar-font-size`。
 
 - **Enhancement**
-  - 不再需要配置 `webpack.resolve`
-  - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
+  - no need of `webpack.resolve`
+  - `rmc-picker` upgrade，dom structure simplify ([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
+  - remove global `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
 ## 1.6.6
 `2017-09-09`
