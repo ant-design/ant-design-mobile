@@ -148,7 +148,7 @@ const tabs = [
 - 部分 Web 版本组件原来会根据 UA 对 iOS 或 Android 平台应用不同的样式，现在修改为默认应用 iOS 平台样式。
 - `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` 等组件的 细节样式 或 API 都有部分微调
 
-更细节的信息，请查看 chang log
+更细节的信息，请查看 change logs
 
 
 ## 0.9.x => 1.0
