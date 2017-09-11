@@ -11,6 +11,11 @@ const TabPane = Tabs.TabPane;
 export default class Article extends React.Component {
   componentDidMount() {
     this.componentDidUpdate();
+
+    setTimeout(() => {
+      const linkTo = this.props.location.hash.replace('#', '');
+      document.getElementById(linkTo).scrollIntoView();
+    }, 500);
   }
   componentDidUpdate() {
     const links = document.querySelectorAll('.outside-link.internal');
