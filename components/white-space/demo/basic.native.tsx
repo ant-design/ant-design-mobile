@@ -4,10 +4,10 @@ import { View, Text } from 'react-native';
 
 const PlaceHolder = (props) => (
   <View
-    style={{ backgroundColor: '#ebebef', height: 30 }}
+    style={{ backgroundColor: '#fff', height: 30, alignItems: 'center', justifyContent: 'center' }}
     {...props}
   >
-    <Text style={{ color: '#bbb', textAlign: 'center', lineHeight: 30 }}>Block</Text>
+    <Text style={{ color: '#bbb' }}>Block</Text>
   </View>
 );
 
