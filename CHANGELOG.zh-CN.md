@@ -13,6 +13,14 @@ timeline: true
 * 大版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+`2017-09-11`
+
+- **Bug Fix**
+
+  - Fix `Carousel` `swipeSpeed` ts 属性未定义. ([#1824](https://github.com/ant-design/ant-design-mobile/issues/1824))
+  - Fix `TabBar` 在 android 平台 item 只有一个时报错. ([#1827](https://github.com/ant-design/ant-design-mobile/issues/1827))
+  - Fix RN `PickerView` 垂直布局问题 ([#1795](https://github.com/ant-design/ant-design-mobile/issues/1795))
+
 
 ## 1.6.6
 `2017-09-09`
