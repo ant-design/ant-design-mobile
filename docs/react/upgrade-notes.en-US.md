@@ -46,7 +46,7 @@ import { Icon } from 'antd-mobile';
 <Icon type={require('./foo.svg)'} />
 
 // need to modify to like below way
-const AntdMobileOldIcon = ({ type, className = '', size = 'md', ...restProps }) => (
+const CustomIcon = ({ type, className = '', size = 'md', ...restProps }) => (
     <svg
       className={`am-icon am-icon-${type.substr(1)} am-icon-${size} ${className}`}
       {...restProps}
@@ -54,7 +54,7 @@ const AntdMobileOldIcon = ({ type, className = '', size = 'md', ...restProps }) 
       <use xlinkHref={type} />
     </svg>
 );
-<AntdMobileOldIcon type={require('./foo.svg)'} />
+<CustomIcon type={require('./foo.svg)'} />
 ```
 
 #### DatePicker
