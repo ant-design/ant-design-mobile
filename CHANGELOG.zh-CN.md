@@ -14,7 +14,6 @@ timeline: true
 
 ---
 
-
 ### 2.0.0
 
 `2017-xx-xx`
@@ -64,6 +63,16 @@ timeline: true
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+
+## 1.6.7
+`2017-09-11`
+
+- **Bug Fix**
+
+  - Fix `Carousel` `swipeSpeed` ts 属性未定义. ([#1824](https://github.com/ant-design/ant-design-mobile/issues/1824))
+  - Fix `TabBar` 在 android 平台 item 只有一个时报错. ([#1827](https://github.com/ant-design/ant-design-mobile/issues/1827))
+  - Fix RN `PickerView` 垂直布局问题 ([#1795](https://github.com/ant-design/ant-design-mobile/issues/1795))
+
 
 ## 1.6.6
 `2017-09-09`

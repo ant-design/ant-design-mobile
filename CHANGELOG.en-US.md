@@ -13,7 +13,6 @@ timeline: true
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
-
 ### 2.0.0
 
 `2017-xx-xx`
@@ -63,6 +62,15 @@ timeline: true
   - no need of `webpack.resolve`
   - `rmc-picker` upgrade，dom structure simplify ([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - remove global `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+
+## 1.6.7
+`2017-09-11`
+
+- **Bug Fix**
+
+  - Fix `Carousel` on `swipeSpeed` ts lost. ([#1824](https://github.com/ant-design/ant-design-mobile/issues/1824))
+  - Fix `TabBar` crash on android when item size is one. ([#1827](https://github.com/ant-design/ant-design-mobile/issues/1827))
+  - Fix RN `PickerView` vertical layout error ([#1795](https://github.com/ant-design/ant-design-mobile/issues/1795))
 
 ## 1.6.6
 `2017-09-09`
