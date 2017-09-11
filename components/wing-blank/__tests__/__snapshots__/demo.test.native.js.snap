@@ -26,8 +26,10 @@ exports[`renders ./components/wing-blank/demo/basic.native.tsx correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#ebebef",
+          "alignItems": "center",
+          "backgroundColor": "#fff",
           "height": 30,
+          "justifyContent": "center",
         }
       }
     >
@@ -38,8 +40,6 @@ exports[`renders ./components/wing-blank/demo/basic.native.tsx correctly 1`] = `
         style={
           Object {
             "color": "#bbb",
-            "lineHeight": 30,
-            "textAlign": "center",
           }
         }
       >
@@ -71,8 +71,10 @@ exports[`renders ./components/wing-blank/demo/basic.native.tsx correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#ebebef",
+          "alignItems": "center",
+          "backgroundColor": "#fff",
           "height": 30,
+          "justifyContent": "center",
         }
       }
     >
@@ -83,8 +85,6 @@ exports[`renders ./components/wing-blank/demo/basic.native.tsx correctly 1`] = `
         style={
           Object {
             "color": "#bbb",
-            "lineHeight": 30,
-            "textAlign": "center",
           }
         }
       >
@@ -116,8 +116,10 @@ exports[`renders ./components/wing-blank/demo/basic.native.tsx correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "#ebebef",
+          "alignItems": "center",
+          "backgroundColor": "#fff",
           "height": 30,
+          "justifyContent": "center",
         }
       }
     >
@@ -128,8 +130,6 @@ exports[`renders ./components/wing-blank/demo/basic.native.tsx correctly 1`] = `
         style={
           Object {
             "color": "#bbb",
-            "lineHeight": 30,
-            "textAlign": "center",
           }
         }
       >

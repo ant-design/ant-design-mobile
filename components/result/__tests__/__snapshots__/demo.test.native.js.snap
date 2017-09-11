@@ -136,11 +136,7 @@ exports[`renders ./components/result/demo/basic.native.tsx correctly 1`] = `
         }
       >
         <Image
-          source={
-            Object {
-              "uri": "alipay@3x",
-            }
-          }
+          source={1}
           style={
             Object {
               "height": 60,
@@ -228,11 +224,7 @@ exports[`renders ./components/result/demo/basic.native.tsx correctly 1`] = `
         }
       >
         <Image
-          source={
-            Object {
-              "uri": "alipay@3x",
-            }
-          }
+          source={1}
           style={
             Object {
               "height": 60,
@@ -314,11 +306,7 @@ exports[`renders ./components/result/demo/basic.native.tsx correctly 1`] = `
         }
       >
         <Image
-          source={
-            Object {
-              "uri": "alipay@3x",
-            }
-          }
+          source={1}
           style={
             Object {
               "height": 60,
