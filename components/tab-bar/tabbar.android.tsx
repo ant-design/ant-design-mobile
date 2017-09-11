@@ -25,13 +25,13 @@ class TabBar extends React.Component <ITabBarNativeProps, any> {
     const styles = this.props.styles!;
     // ios 规则： selected 为多个则只选中最后一个， selected 为 0 个则选中第一个;
     let selectedIndex = 0;
-    children.forEach((child, idx) => {
+    [].concat(children).forEach((child: any, idx) => {
       if (child.props.selected) {
         selectedIndex = idx;
       }
     });
     const newChildren: any[] = [];
-    React.Children.forEach(children, (child: any, idx) => {
+    React.Children.map(children, (child: any, idx) => {
       if (content) {
         newChildren.push(
           <View
