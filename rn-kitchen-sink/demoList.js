@@ -156,6 +156,12 @@ module.exports = {
       module: require('../components/picker/demo/popup'),
     },
     {
+      title: 'PickerView',
+      description: '选择器',
+      icon: 'https://os.alipayobjects.com/rmsportal/STBLvEutBwPySbL.png',
+      module: require('../components/picker-view/demo/basic'),
+    },
+    {
       title: 'Progress',
       description: '进度条',
       icon: 'https://os.alipayobjects.com/rmsportal/ihijukOXDlqXvPS.png',

@@ -35,7 +35,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
     const { data, pickerPrefixCls } = this.props;
     return data.map((col, index) => {
       return (
-        <RMCPicker key={index} prefixCls={pickerPrefixCls}>
+        <RMCPicker key={index} prefixCls={pickerPrefixCls} style={{ flex: 1 }}>
           {col.map(item => {
             return (
               <RMCPicker.Item key={item.value} value={item.value}>
@@ -70,6 +70,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
           onValueChange={props.onChange}
           pickerPrefixCls={props.pickerPrefixCls}
           indicatorStyle={props.indicatorStyle}
+          style={{ flexDirection: 'row' }}
         >
           {this.getCol()}
         </RMCMultiPicker>
