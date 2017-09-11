@@ -30,7 +30,7 @@ export default class PopupExample extends React.Component<any, any> {
           minDate={this.date1MinDate || (this.date1MinDate = new Date(2015, 7, 6))}
           maxDate={this.date1MaxDate || (this.date1MaxDate = new Date(2016, 11, 3))}
           onChange={this.onChange}
-          format={val => val.fromNow()}
+          format="YYYY-MM-DD"
         >
           <List.Item arrow="horizontal">
             Select Date
