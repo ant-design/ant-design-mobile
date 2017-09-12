@@ -1,8 +1,8 @@
 import React from 'react';
 import RcDrawer from 'rc-drawer';
-import tsPropsType from './PropsType';
+import { DrawerWebProps } from './PropsType';
 
-export default class Drawer extends React.Component<tsPropsType, any> {
+export default class Drawer extends React.Component<DrawerWebProps, any> {
   static defaultProps = {
     prefixCls: 'am-drawer',
     enableDragHandle: false,

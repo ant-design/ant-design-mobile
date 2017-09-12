@@ -1,9 +1,9 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import DrawerLayout from 'react-native-drawer-layout';
-import tsPropsType from './PropsType';
+import { DrawerNativeProps } from './PropsType';
 
-export default class Drawer extends React.Component<tsPropsType, any> {
+export default class Drawer extends React.Component<DrawerNativeProps, any> {
   static defaultProps = {
     position: 'left',
     open: false,
