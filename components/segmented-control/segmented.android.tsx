@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
+import setNormalizedColorAlpha from 'react-native/Libraries/StyleSheet/setNormalizedColorAlpha';
+import normalizeColor from 'react-native/Libraries/StyleSheet/normalizeColor';
 import SegmentedControlProps from './PropsType';
 import AndroidStyle, { ISegmentControlStyle } from './style/';
 
@@ -68,14 +70,23 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
         borderColor: tintColor,
       }];
 
+      const underlayColor = idx === selectedIndex ? tintColor : setNormalizedColorAlpha(
+        normalizeColor(tintColor), 0.3,
+      );
+
       return (
-        <TouchableWithoutFeedback key={idx} onPress={(e?: any) => this.onPress(e, idx, value)}>
-          <View style={itemStyle} >
-            <Text style={[styles.itemText, { color: idx === selectedIndex ? '#fff' : tintColor }]}>
-              {value}
-            </Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <TouchableHighlight
+          key={idx}
+          disabled={disabled}
+          onPress={(e?: any) => this.onPress(e, idx, value)}
+          underlayColor={underlayColor}
+          style={itemStyle}
+          activeOpacity={1}
+        >
+          <Text style={[styles.itemText, { color: idx === selectedIndex ? '#fff' : tintColor }]}>
+            {value}
+          </Text>
+        </TouchableHighlight>
       );
     });
 

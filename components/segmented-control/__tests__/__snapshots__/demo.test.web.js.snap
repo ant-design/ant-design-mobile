@@ -137,6 +137,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
+        style="background-color:#ff0000;"
       />
       切换一
     </div>
@@ -149,6 +150,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
+        style="background-color:#ff0000;"
       />
       切换二
     </div>
@@ -161,6 +163,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
+        style="background-color:#ff0000;"
       />
       切换三
     </div>

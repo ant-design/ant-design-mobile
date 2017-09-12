@@ -63,6 +63,10 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
       borderColor: tintColor,
     };
 
+    const activeInnerStyle: any = tintColor ? {
+      backgroundColor: tintColor,
+    } : {};
+
     return (
       <Touchable
         key={idx}
@@ -77,7 +81,7 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
           aria-disabled={disabled}
           onClick={disabled ? undefined : (e) => this.onClick(e, idx, value)}
         >
-          <div className={`${prefixCls}-item-inner`} />
+          <div className={`${prefixCls}-item-inner`} style={activeInnerStyle} />
           {value}
         </div>
       </Touchable>
