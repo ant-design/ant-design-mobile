@@ -59,7 +59,12 @@ class AntTabBar extends React.Component<TabBarProps, any> {
   render() {
     const { children } = this.props;
     const tabs = this.getTabs();
-    const activeIndex = tabs.findIndex(t => !!t.selected);
+    let activeIndex = 0;
+    tabs.forEach((tab, index) => {
+      if (tab.selected) {
+        activeIndex = index;
+      }
+    });
 
     return (
       <div className={this.props.prefixCls}>
