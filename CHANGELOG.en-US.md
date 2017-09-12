@@ -2,9 +2,11 @@
 order: 3
 title: Change Log
 timeline: true
+toc: false
 ---
 
 `antd-mobile` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
+
 
 #### Release Schedule
 
