@@ -1,4 +1,4 @@
-import { ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle, StyleSheet } from 'react-native';
 import variables from '../../style/themes/default.native';
 
 export interface ISegmentControlStyle {
@@ -12,15 +12,15 @@ export default {
   segment: {
     flexDirection: 'row',
     overflow: 'hidden',
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: variables.brand_primary,
     borderRadius: variables.radius_md,
   },
   item: {
     flex: 1,
     paddingVertical: variables.h_spacing_sm,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
+    borderLeftWidth: StyleSheet.hairlineWidth,
+    borderRightWidth: StyleSheet.hairlineWidth,
     borderStyle: 'solid',
     alignItems: 'center',
     justifyContent: 'center',

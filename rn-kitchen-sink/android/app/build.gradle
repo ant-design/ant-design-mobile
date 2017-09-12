@@ -69,6 +69,8 @@ project.ext.react = [
   entryFile: file("../../index.android.js")
 ]
 
+project.ext.nodeModulesPath = "../../../node_modules";
+
 apply from: "../../../node_modules/react-native/react.gradle"
 apply from: "../../../node_modules/react-native-code-push/android/codepush.gradle"
 
