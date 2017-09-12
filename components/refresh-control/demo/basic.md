@@ -112,6 +112,9 @@ class App extends React.Component {
         refreshing: false,
         showFinishTxt: true,
       });
+      if (this.domScroller) {
+        this.domScroller.scroller.options.animationDuration = 500;
+      }
     }, 600);
   };
 
@@ -133,15 +136,17 @@ class App extends React.Component {
   };
 
   scrollingComplete = () => {
-    this.setState({ showFinishTxt: false });
+    if (this.st >= 0) {
+      this.setState({ showFinishTxt: false });
+    }
   }
 
   renderCustomIcon() {
     return [
-      <div className="am-refresh-control-pull">
-        <span>{this.state.showFinishTxt ? '数据加载完成' : '下拉可以刷新'}</span>
+      <div key="0" className="am-refresh-control-pull">
+        <span>{this.state.showFinishTxt ? '刷新完毕' : '下拉可以刷新'}</span>
       </div>,
-      <div className="am-refresh-control-release">
+      <div key="1" className="am-refresh-control-release">
         <span>松开立即刷新</span>
       </div>,
     ];
