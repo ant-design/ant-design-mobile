@@ -15,7 +15,7 @@ const data = [
     label: 'Food',
     children: [
       {
-        label: 'All Foods',
+        label: 'American Foods',
         value: '1',
         disabled: false,
       },
@@ -118,7 +118,7 @@ class MultiMenuExample extends React.Component {
       <Menu
         className="multi-foo-menu"
         data={initData}
-        value={['1', '3']}
+        value={['1', ['3', '4']]}
         onChange={this.onChange}
         onOk={this.onOk}
         onCancel={this.onCancel}

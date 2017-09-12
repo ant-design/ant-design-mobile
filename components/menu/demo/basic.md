@@ -15,7 +15,7 @@ const data = [
     label: 'Food',
     children: [
       {
-        label: 'All Foods',
+        label: 'American Foods',
         value: '1',
         disabled: false,
       },

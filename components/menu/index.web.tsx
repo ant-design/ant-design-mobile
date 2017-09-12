@@ -12,6 +12,8 @@ export default class Menu extends React.Component<MenuProps, any> {
     prefixCls: 'am-menu',
     subMenuPrefixCls: 'am-sub-menu',
     radioPrefixCls: 'am-radio',
+    multiSelectMenuBtnsCls: 'am-multi-select-btns',
+    MenuSelectContanerPrefixCls: 'am-menu-select-container',
     data: [],
     level: 2,
     onChange: () => {},
@@ -72,39 +74,52 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
   }
 
-  onClickSubMenuItem = (dataItem) => {
-    const { level, onChange, multiSelect } = this.props;
-    let rtn;
+  getSelectValue = (dataItem) => {
+    const { level, multiSelect } = this.props;
     if (multiSelect) {
       const { value, firstLevelSelectValue } = this.state;
       if (value && value.length > 0) {
-        if (level === 2 && value[0] !== firstLevelSelectValue) {  // 在二级菜单情况下，首级菜单重新选择，则重置数组
-          rtn = [firstLevelSelectValue, dataItem.value];
-        } else {  // 菜单为一级，或者二级菜单首级选项没有变化的情况，做增减操作
-          const existIndex = value.indexOf(dataItem.value);
-          if (existIndex === -1) {  // 添加选项
-            value.push(dataItem.value);
-          } else { // 删除选项
-            value.splice(existIndex, 1);
+        if (level === 2 && value[0] !== firstLevelSelectValue) {
+          /* if level is 2, when first level is reselect, reset submenu array */
+          return [firstLevelSelectValue, [dataItem.value]];
+        } else {
+          /* if level is 1, or first level isn't changed when level is 2, just do add or delete for submenu array  */
+          const chosenValues = (level === 2) ? value[1] : value;
+          const existIndex = chosenValues.indexOf(dataItem.value);
+          if (existIndex === -1) {
+            chosenValues.push(dataItem.value);
+          } else {
+            chosenValues.splice(existIndex, 1);
           }
-          rtn = value;
+          return value;
         }
-      } else { // 之前不存在value,初始化value
-        rtn = (level === 2) ? [firstLevelSelectValue, dataItem.value] : rtn = [dataItem.value];
+      } else {
+        /* if value is not exist before, init value */
+        return (level === 2) ? [firstLevelSelectValue, dataItem.value] : [dataItem.value];
       }
-    } else {  // 单选菜单
-      rtn = (level === 2) ? [this.state.firstLevelSelectValue, dataItem.value] : [dataItem.value];
     }
-    this.setState({ value: rtn });
+
+    return (level === 2) ? [this.state.firstLevelSelectValue, dataItem.value] : [dataItem.value];
+  }
+
+  onClickSubMenuItem = (dataItem) => {
+    const { onChange } = this.props;
+    const value = this.getSelectValue(dataItem);
+    this.setState({ value });
     setTimeout(() => {
+      // if onChange will close the menu, set a little time to show its selection state.
       if (onChange) {
-        onChange(rtn);
+        onChange(value);
       }
     }, 300);
   }
 
   render() {
-    const { className, style, height, data = [], prefixCls, level, multiSelect } = this.props;
+    const {
+      className, height, data = [],
+      prefixCls, level, multiSelect,
+      multiSelectMenuBtnsCls, MenuSelectContanerPrefixCls,
+    } = this.props;
     const { firstLevelSelectValue, value } = this.state;
     let subMenuData = data; // menu only has one level as init
 
@@ -122,8 +137,12 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
 
     let subValue = value && (value.length > 0) && [...value] || [];
-    if (level === 2) { // 二级菜单，需要删除一级的value
+    if (level === 2) {
       subValue.shift();
+      if (multiSelect) {
+        /* example: [[1,2,3]] -> [1,2,3] */
+        subValue = subValue[0];
+      }
     }
 
     const parentValue = (value && (value.length > 1) && level === 2) ? value[0] : null;
@@ -137,13 +156,8 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
 
     const menuHeight = Math.round(height || document.documentElement.clientHeight / 2);
-    const ListHeight = menuHeight -
-      (multiSelect ?
-      parseInt(document.getElementsByTagName('html')[0].style.fontSize as string, 10)
-      : 0);
-
     return (
-      <div
+      <Flex
         className={classNames({
           [prefixCls as string]: true,
           [className as string]: !!className,
@@ -151,16 +165,17 @@ export default class Menu extends React.Component<MenuProps, any> {
         style={{
           height: `${menuHeight}px`,
         }}
+        direction="column"
+        align="stretch"
       >
-      <div
-        style={{
-          ...style,
-          height: `${ListHeight}px`,
-        }}
-      >
-        <Flex align="top">
+        <Flex
+          align="top"
+          className={classNames({
+            [MenuSelectContanerPrefixCls as string]: multiSelect,
+          })}
+        >
           {level === 2 &&
-            <Flex.Item style={{ height: `${ListHeight}px` }}>
+            <Flex.Item>
               <List role="tablist">
                 {data.map((dataItem, index) => (
                   <List.Item
@@ -176,7 +191,13 @@ export default class Menu extends React.Component<MenuProps, any> {
               </List>
             </Flex.Item>
           }
-          <Flex.Item role="tabpanel" aria-hidden="false" style={{ height: `${ListHeight}px` }}>
+          <Flex.Item
+            role="tabpanel"
+            aria-hidden="false"
+            className={classNames({
+              [`${MenuSelectContanerPrefixCls}-submenu`]: multiSelect,
+            })}
+          >
             <SubMenu
               subMenuPrefixCls={this.props.subMenuPrefixCls}
               radioPrefixCls={this.props.radioPrefixCls}
@@ -188,12 +209,17 @@ export default class Menu extends React.Component<MenuProps, any> {
             />
           </Flex.Item>
         </Flex>
-      </div>
-      {multiSelect &&
-        (<div className="am-multi-select-btns">
+        {multiSelect &&
+        (<div
+          className={classNames({
+            [multiSelectMenuBtnsCls as string]: true,
+          })}
+        >
           <Button
             inline
-            className="am-multi-select-btns-btn"
+            className={classNames({
+              [`${multiSelectMenuBtnsCls}-btn`]: true,
+            })}
             onClick={this.onMenuCancel}
           >
             取消
@@ -201,13 +227,15 @@ export default class Menu extends React.Component<MenuProps, any> {
           <Button
             inline
             type="primary"
-            className="am-multi-select-btns-btn"
+            className={classNames({
+              [`${multiSelectMenuBtnsCls}-btn`]: true,
+            })}
             onClick={this.onMenuOk}
           >
             确定
           </Button>
         </div>)}
-      </div>
+      </Flex>
     );
   }
 }

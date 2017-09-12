@@ -14,6 +14,8 @@ export interface MenuProps {
   prefixCls?: string;
   subMenuPrefixCls?: string;
   radioPrefixCls?: string;
+  multiSelectMenuBtnsCls?: string;
+  MenuSelectContanerPrefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
   data?: Array<DataItem>;

@@ -67,7 +67,7 @@ describe('Menu', () => {
     });
   });
 
-  describe('multi select menu', () => {
+  describe('multiple select menu', () => {
     it('renders correctly', () => {
       const wrapper = render(<Menu data={data} multiSelect />);
       expect(renderToJson(wrapper)).toMatchSnapshot();
@@ -92,7 +92,7 @@ describe('Menu', () => {
     });
   });
 
-  describe('multi select menu level 1', () => {
+  describe('multiple select menu level 1', () => {
     it('renders correctly', () => {
       const wrapper = render(<Menu data={data} multiSelect level="1" />);
       expect(renderToJson(wrapper)).toMatchSnapshot();

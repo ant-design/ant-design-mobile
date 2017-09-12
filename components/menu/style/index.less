@@ -3,6 +3,7 @@
 
 @menuPrefixCls: am-menu;
 @subMenuPrefixCls: am-sub-menu;
+@MenuSelectContanerPrefixCls: am-menu-select-container;
 @multiSelectMenuBtnsCls: am-multi-select-btns;
 @flexPrefixCls: am-flexbox;
 @listPrefixCls: am-list;
@@ -12,12 +13,17 @@
 .@{menuPrefixCls} {
   background-color: @fill-body;
 
+  .@{MenuSelectContanerPrefixCls} {
+    flex-grow: 2;
+
+    .@{MenuSelectContanerPrefixCls}-submenu {
+      align-self: stretch;
+    }
+  }
+
   .@{multiSelectMenuBtnsCls} {
-    position: absolute;
-    bottom: 0;
     height: 100px;
     width: 100%;
-    z-index: 2;
 
     .@{multiSelectMenuBtnsCls}-btn {
       width: 50%;
