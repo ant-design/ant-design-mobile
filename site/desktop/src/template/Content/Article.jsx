@@ -14,7 +14,9 @@ export default class Article extends React.Component {
 
     setTimeout(() => {
       const linkTo = this.props.location.hash.replace('#', '');
-      document.getElementById(linkTo).scrollIntoView();
+      if (linkTo) {
+        document.getElementById(linkTo).scrollIntoView();
+      }
     }, 500);
   }
   componentDidUpdate() {
