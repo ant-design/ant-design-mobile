@@ -74,7 +74,7 @@ describe('Menu', () => {
     });
 
     it('controll by value', () => {
-      const wrapper = mount(<Menu data={data} multiSelect value={['2', '21', '22']} />);
+      const wrapper = mount(<Menu data={data} multiSelect value={['2', ['21', '22']]} />);
       expect(wrapper.find('.am-list-item').at(1).hasClass('am-menu-selected')).toBe(true);
       expect(wrapper.find('.am-list-item').at(2).hasClass('am-sub-menu-item-selected')).toBe(true);
       expect(wrapper.find('.am-list-item').at(3).hasClass('am-sub-menu-item-selected')).toBe(true);
@@ -88,7 +88,7 @@ describe('Menu', () => {
       wrapper.find('.am-list-item').at(2).find('.am-checkbox-input').simulate('change');
       wrapper.find('.am-list-item').at(3).find('.am-checkbox-input').simulate('change');
       jest.runAllTimers();
-      expect(handleChange).toHaveBeenLastCalledWith(['2', '21', '22']);
+      expect(handleChange).toHaveBeenLastCalledWith(['2', ['21', '22']]);
     });
   });
 

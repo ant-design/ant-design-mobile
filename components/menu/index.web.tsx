@@ -95,7 +95,7 @@ export default class Menu extends React.Component<MenuProps, any> {
         }
       } else {
         /* if value is not exist before, init value */
-        return (level === 2) ? [firstLevelSelectValue, dataItem.value] : [dataItem.value];
+        return (level === 2) ? [firstLevelSelectValue, [dataItem.value]] : [dataItem.value];
       }
     }
 
@@ -137,7 +137,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
 
     let subValue = value && (value.length > 0) && [...value] || [];
-    if (level === 2) {
+    if (level === 2 && subValue.length > 1) {
       subValue.shift();
       if (multiSelect) {
         /* example: [[1,2,3]] -> [1,2,3] */
@@ -171,7 +171,7 @@ export default class Menu extends React.Component<MenuProps, any> {
         <Flex
           align="top"
           className={classNames({
-            [MenuSelectContanerPrefixCls as string]: multiSelect,
+            [MenuSelectContanerPrefixCls as string]: true,
           })}
         >
           {level === 2 &&
@@ -195,7 +195,7 @@ export default class Menu extends React.Component<MenuProps, any> {
             role="tabpanel"
             aria-hidden="false"
             className={classNames({
-              [`${MenuSelectContanerPrefixCls}-submenu`]: multiSelect,
+              [`${MenuSelectContanerPrefixCls}-submenu`]: true,
             })}
           >
             <SubMenu

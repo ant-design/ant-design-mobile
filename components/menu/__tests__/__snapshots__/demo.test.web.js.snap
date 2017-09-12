@@ -43,7 +43,7 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/menu/demo/multselect.md correctly 1`] = `
+exports[`renders ./components/menu/demo/multiSelect.md correctly 1`] = `
 <div
   class=""
 >
@@ -86,7 +86,7 @@ exports[`renders ./components/menu/demo/multselect.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/menu/demo/singleMult.md correctly 1`] = `
+exports[`renders ./components/menu/demo/singleMulti.md correctly 1`] = `
 <div
   class=""
 >
