@@ -27,7 +27,6 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
     super(props);
     this.state = {
       selectedIndex: props.selectedIndex,
-      active: false,
     };
   }
 
