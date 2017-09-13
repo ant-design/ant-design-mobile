@@ -15,13 +15,16 @@ Instantly reload the content by triggering.
 
 > Note: RefreshControl will automatically use the ListView's `useZscroller` setting (see ListView code), so you need to set a fixed height for the ListView.
 
-- icon (any) - the indicator icon, contains `pull` and` release` status
-- loading (any) - loading indicator.
-- distanceToRefresh (number, default: 50 / 2 * (window.devicePixelRatio || 2)) - distance to refresh.
-- onRefresh (function, required) - Called when the view starts refreshing.
-- refreshing (boolean, false) - Whether the view should be indicating an active refresh.
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
+| icon | refresh indicator, include `pull` and `release` state | react node | - |
+| loading | loading indicator | react node | - |
+| distanceToRefresh | distance to refresh | number | `25px` |
+| onRefresh | required, Called when the view starts refreshing. | () => void | - |
+| refreshing | Whether the view should be indicating an active refresh | bool | false |
 
-How to set `icon`/`loading` yourself? See https://github.com/ant-design/ant-design-mobile/blob/master/components/refresh-control/index.web.tsx#L11
+
+How to set `icon`/`loading` yourself? See https://github.com/ant-design/ant-design-mobile/blob/master/components/refresh-control/index.tsx#L8
 
 ## API (react-native)
 See https://facebook.github.io/react-native/docs/refreshcontrol.html#props

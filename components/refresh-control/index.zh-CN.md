@@ -16,13 +16,16 @@ subtitle: 下拉刷新
 
 > 注意: RefreshControl 会自动使用 ListView 的`useZscroller`(参考 ListView 代码)，所以需要给 ListView 设置固定的高度
 
-- icon (any) - 刷新指示icon, 包含 `pull` and `release` 状态
-- loading (any) - 加载指示器
-- distanceToRefresh (number, default: `25px`) - 刷新距离
-- onRefresh (function, required) - 刷新回调函数
-- refreshing (boolean, false) - 是否显示刷新状态
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| icon | 刷新指示icon, 包含 `pull` and `release` 状态 | react node | - |
+| loading | 加载指示器 | react node | - |
+| distanceToRefresh | 刷新距离 | number | `25px` |
+| onRefresh | required, 刷新回调函数 | () => void | - |
+| refreshing | 是否显示刷新状态 | bool | false |
 
-如何自己设置`icon`/`loading`，参考https://github.com/ant-design/ant-design-mobile/blob/master/components/refresh-control/index.web.tsx#L11
+
+如何自己设置`icon`/`loading`，参考https://github.com/ant-design/ant-design-mobile/blob/master/components/refresh-control/index.tsx#L8
 
 如果页面使用了对 viewport 进行缩放的高清适配方案，请自行对 distanceToRefresh 进行调整, 例如对 antd-mobile@1.x 高清方案，可设置 `distanceToRefresh = window.devicePixelRatio * 25`
 
