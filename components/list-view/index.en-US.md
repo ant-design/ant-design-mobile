@@ -9,47 +9,62 @@ It is suitable for displaying the long list data type of the same kind, and has 
 
 ## API
 
-Support WEB, React-Native.
+Support WEB, React-Native(`DEPRECATED`).
 
-- React-Native version use [React Native ListView](https://facebook.github.io/react-native/docs/listview.html#content) directly.
-- WEB version use [React Native ListView(v0.26)](http://facebook.github.io/react-native/releases/0.26/docs/listview.html)'s  API, but there are some differences that are listed below
-
-#### The APIs of React-Native-ListView that are not supported on the web platform:
-> In general, the "platform-specific" API is not supported, e.g. `android`endFillColor、`iOS`alwaysBounceHorizontal.
-
-- onChangeVisibleRows
-- stickyHeaderIndices
-- the APIs of [ScrollView](https://facebook.github.io/react-native/docs/scrollview.html#props) that are not supported:
-    - keyboardDismissMode
-    - keyboardShouldPersistTaps
-    - onContentSizeChange (can use `onLayout` instead)
-    - removeClippedSubviews
-    - scrollEnabled
-    - showsHorizontalScrollIndicator (can use `css style` instead)
-    - showsVerticalScrollIndicator (can use `css style` instead)
-- the APIs of [View](https://facebook.github.io/react-native/docs/view.html#props): only do not fully support `onLayout`
+Note: **React Native [ListView](https://facebook.github.io/react-native/docs/listview.html#content) has been marked with `DEPRECATED` now.** Because we import `ListView` from 'react-native' directly inside, so we will also discard it.
 
 
-#### Added APIs on the WEB platform
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
+| dataSource | An instance of [ListView.DataSource](http://facebook.github.io/react-native/releases/0.26/docs/listviewdatasource.html) to use | ListViewDataSource | - |
+| initialListSize | How many rows to render on initial component mount. | number | - |
+| onEndReached | Called when all rows have been rendered and the list has been scrolled to within `onEndReachedThreshold` of the bottom. | (event?) => {} | - |
+| onEndReachedThreshold | Threshold in pixels (virtual, not physical) for calling `onEndReached`. | number | 1000 |
+| pageSize | Number of rows to render per event loop. | number | 1 |
+| renderHeader / renderFooter | The header and footer are always rendered (if these props are provided) on every render pass. If they are expensive to re-render, wrap them in StaticContainer or other mechanism as appropriate. Footer is always at the bottom of the list, and header at the top, on every render pass. | () => renderable | - |
+| renderRow | Takes a data entry from the data source and its ids and should return a renderable component to be rendered as the row. By default the data is exactly what was put into the data source, but it's also possible to provide custom extractors. ListView can be notified when a row is being highlighted by calling highlightRow function. | (rowData, sectionID, rowID, highlightRow) => renderable | - |
+| renderScrollComponent | A function that returns the scrollable component in which the list rows are rendered. Defaults to returning a ScrollView with the given props. (if you set `renderScrollComponent`,
+you need to write your own scroll logic like `ScrollView` component(see `/examples/MyScroller.js`)) | (props) => renderable | - |
+| renderSectionHeader | If provided, a header is rendered for this section. | (sectionData, sectionID) => renderable | - |
+| renderSeparator | If provided, a renderable component to be rendered as the separator below each row but not the last row if there is a section header below. Take a sectionID and rowID of the row above and whether its adjacent row is highlighted. | (sectionID, rowID, adjacentRowHighlighted) => renderable | - |
+| scrollRenderAheadDistance | How early to start rendering rows before they come on screen, in pixels. | number | 1000 |
+| contentContainerStyle | These styles will be applied to the scroll view content container which wraps all of the child views. | Object | - |
+| horizontal | When true, the scroll view's children are arranged horizontally in a row instead of vertically in a column. | bool | false |
+| onContentSizeChange | Called when scrollable content view of the ScrollView changes. | (contentWidth, contentHeight) => {} | - |
+| onScroll | Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop. | e => {} | - |
+| scrollEventThrottle | This controls how often the scroll event will be fired while scrolling | number | 50 |
+| refreshControl | A [RefreshControl](https://mobile.ant.design/components/refresh-control/) component, used to provide pull-to-refresh functionality for the ScrollView. | element | - |
+| onLayout | Invoked on mount and layout changes with | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |
+| ---- |
+| renderBodyComponent (`web only`) | render listview body wrapper component | () => renderable | - |
+| renderSectionBodyWrapper (`web only`) | render listview section body wrapper component | (sectionID) => renderable | - |
+| useBodyScroll (`web only`) | use html `body`'s scroll | bool | false |
+| useZscroller (`web only`) | use [zscroller](https://github.com/yiminghe/zscroller) to simulate the implementation of rolling containers(can be used for some poor Android machine) (`useBodyScroll` and `stickyHeader` settings are automatically ignored), and can support RefreshControl well | bool | false |
+| scrollerOptions (`web only`) | [zscroller options](https://github.com/yiminghe/zscroller#options) | Object | - |
+| stickyHeader (`web only`) | if set it, automatically enable `useBodyScroll` and you can also set `stickyProps` / `stickyContainerProps` (see [react-sticky](https://github.com/captivationsoftware/react-sticky)) | bool | false |
 
-- useBodyScroll (boolean, false) - use html `body` as a scroll container.
-- stickyHeader (boolean, false) - sticky block header to the top of the page (Note: will automatically use html `body` as a scroll container).
-    - After enabling it, you can also set `stickyProps / stickyContainerProps` (see [react-sticky](https://github.com/captivationsoftware/react-sticky) for details)
-- renderBodyComponent (function, () => React.Element) - custom body package component.
-- renderSectionBodyWrapper (function, (sectionID: any) => React.Element) - render a custom block wrapper component.
-- useZscroller (boolean, false) - use [zscroller](https://github.com/yiminghe/zscroller) to simulate the implementation of rolling containers (can be used for some poor Android machine)
-    - Note: After enabling, the `useBodyScroll` and` stickyHeader` settings are automatically ignored.
-- scrollerOptions - see [zscroller options](https://github.com/yiminghe/zscroller#options) for details.
+
+### Methods
+
+- getMetrics() - Exports some data, e.g. for perf investigations or analytics.
+- scrollTo(...args) - Scrolls to a given x, y offset(not support smooth animation).
 
 
-### New `ListView.IndexedList` component on the WEB platform
+## ListView.IndexedList
+
+Support WEB.
 
 This component is often used in the "Contacts" / "city list" scenes, support for index navigation.
 
+> You can use almost all APIs on the ListView, except for `useZscroller`
+>
 > Note: Only two-step rendering is supported, so that the first screen priority display can be achieved, but if the list data volume is too large, the overall performance will still be affected.
 
-- quickSearchBarTop (object{value:string, label:string}, value/label default is '#') - top button of navigation bar.
-- quickSearchBarStyle (object) - quickSearchBar's style.
-- onQuickSearch (function, (sectionID: any, topId?:any) => void) - fire on clicking navigation bar.
-- delayTime (number) - default 100ms, delay rendering time setting (for the first screen optimization, the initial rendering of the number of `initialListSize` data, after which time rendering the remaining data items, ie `totalRowCount - initialListSize`).
-- delayActivityIndicator (react node) - the loading indicator for delayed rendering.
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
+| quickSearchBarTop | top button object of navigation bar | object{value:string, label:string} | `{ value: '#', label: '#' }` |
+| quickSearchBarStyle |  quickSearchBar's style | object | - |
+| onQuickSearch | fire on clicking navigation bar. | (sectionID: any, topId?:any) => void | - |
+| showQuickSearchIndicator | whether show quick search indicator | bool | false |
+| delayTime | delay rendering time setting (for the first screen optimization, the initial rendering of the number of `initialListSize` data, after which time rendering the remaining data items, ie `totalRowCount - initialListSize`) | number |`100ms` |
+| delayActivityIndicator | the loading indicator for delayed rendering. | react node | - |
