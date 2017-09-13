@@ -77,6 +77,13 @@ class H5NumberInputExample extends React.Component {
             placeholder="money format natural"
             clear
           >正整数</InputItem>
+          <InputItem
+            {...getFieldProps('money4')}
+            type={type}
+            placeholder="start from left"
+            clear
+            moneyKeyboardAlign="left"
+          >光标在左</InputItem>
         </List>
         <Button
           onClick={() => {

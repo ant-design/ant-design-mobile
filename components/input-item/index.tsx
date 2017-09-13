@@ -35,6 +35,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     onErrorClick: noop,
     labelNumber: 5,
     updatePlaceholder: false,
+    moneyKeyboardAlign: 'right',
   };
 
   static contextTypes = {
@@ -165,7 +166,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     const {
       prefixCls, prefixListCls, editable, style,
       clear, children, error, className, extra, labelNumber, onExtraClick, onErrorClick,
-      updatePlaceholder, type, locale, ...restProps,
+      updatePlaceholder, type, locale, moneyKeyboardAlign, ...restProps,
     } = this.props;
     const { value, defaultValue, name, disabled, maxLength } = restProps;
 
@@ -248,6 +249,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               prefixCls={prefixCls}
               style={style}
               confirmLabel={confirmLabel}
+              moneyKeyboardAlign={moneyKeyboardAlign}
             />
           ) : (
             <Input

@@ -55,6 +55,17 @@
         color: @color-text-placeholder;
         text-align: right;
       }
+      &-left {
+        .fake-input {
+          text-align: left;
+          &.focus:after {
+            position: relative;
+          }
+        }
+        .fake-input-placeholder {
+          text-align: left;
+        }
+      }
     }
   }
 }
