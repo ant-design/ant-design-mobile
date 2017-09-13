@@ -1,5 +1,12 @@
 import React from 'react';
-import { Text, View, Animated, Easing, ViewStyle } from 'react-native';
+import {
+  Text,
+  View,
+  Animated,
+  Easing,
+  StyleProp,
+  TextStyle,
+} from 'react-native';
 
 export interface MarqueeProp {
   text: React.ReactNode;
@@ -8,7 +15,7 @@ export interface MarqueeProp {
   trailing?: number;
   className?: string;
   fps?: number;
-  style?: ViewStyle;
+  style?: StyleProp<TextStyle>;
   maxWidth?: number;
 }
 
