@@ -7,6 +7,7 @@ interface InputItemProps {
   /** web only */
   prefixListCls?: string;
   /** web only */
+  onClick?: Function;
   className?: string;
   type?: 'text'|'bankCard'|'phone'|'password'|'number'|'idcard'|'digit'|'money';
   editable?: boolean;
