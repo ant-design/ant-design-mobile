@@ -11,6 +11,7 @@ interface TextAreaItemProps {
   title?: React.ReactNode;
   maxLength?: number;
   /** web only */
+  onClick?: Function;
   name?: string;
   value?: string;
   defaultValue?: string;
