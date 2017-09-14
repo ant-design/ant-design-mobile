@@ -5,7 +5,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
   class="am-tab-bar"
 >
   <div
-    class="am-tabs am-tabs-bottom"
+    class="am-tabs am-tabs-horizontal am-tabs-bottom"
   >
     <div
       class="am-tabs-content-wrap"
