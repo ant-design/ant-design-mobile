@@ -103,7 +103,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
   class="am-indexed-list-container"
 >
   <div
-    class="fortest am-indexed-list am-list-view-scrollview"
+    class="am-indexed-list fortest am-list-view-scrollview"
     style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1;height:0;"
   >
     <div
@@ -194,7 +194,7 @@ exports[`renders ./components/list-view/demo/idxed-sticky.md correctly 1`] = `
     class="am-indexed-list-container"
   >
     <div
-      class="am-list am-indexed-list am-list-view-scrollview"
+      class="am-indexed-list am-list am-list-view-scrollview"
     >
       <div
         class="am-list-header"
