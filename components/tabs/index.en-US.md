@@ -23,7 +23,7 @@ Properties | Descrition | Type | Default | Required
 -----------|------------|------|--------|--------
 prefixCls | prefix class (`web only`) | string |  rmc-tabs | false
 tabs | tabs data | Models.TabData[] |  | true
-tabBarPosition | TabBar's position top, bottom | 'top' \| 'bottom' |  top | false
+tabBarPosition | TabBar's position | 'top' \| 'bottom' \| 'left' \| 'right' |  top | false
 renderTabBar | replace the TabBar | ((props: TabBarPropsType) => React.ReactNode) \| false |  | false
 initialPage | the tab when inital, index or key | number \| string |  | false
 page | current tab, index or key | number \| string |  | false
@@ -33,6 +33,10 @@ prerenderingSiblingsNumber  | pre-render nearby # sibling, Infinity: render all 
 animated | Whether to change tabs with animation | boolean |  true | false
 onChange | Callback when tab is switched | (tab: Models.TabData, index: number) => void |  | false
 onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | false
+destroyInactiveTab | destroy inactive tab | boolean |  false | false
+distanceToChangeTab | distance to change tab, width ratio | number |  0.3 | false
+usePaged | use paged | boolean |  true | false
+tabDirection | tab paging direction | 'horizontal' \| 'vertical' |  horizontal | false
 tabBarUnderlineStyle | style of the default tab bar's underline | React.CSSProperties \| any |  | false
 tabBarBackgroundColor | color of the default tab bar's background | string |  | false
 tabBarActiveTextColor | color of the default tab bar's text when active | string |  | false
@@ -44,7 +48,7 @@ renderTab | render for replace the tab of tabbar | (tab: Models.TabData) => Reac
 
 Properties | Descrition | Type | Default | Required
 -----------|------------|------|--------|--------
-goToTab | call this for go to Tab | (index: number) => boolean | | true
+goToTab | call this function to switch Tab | (index: number) => boolean | | true
 tabs | tabs data | Models.TabData[] | | true
 activeTab | current tab | number | | true
 animated | Whether to change tabs with animation | boolean | | true

@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 9
 title:
   zh-CN: '超出界面宽度，多于5个标签'
   en-US: 'overflow, more than 5 tabs'

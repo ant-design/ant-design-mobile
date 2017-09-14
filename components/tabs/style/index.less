@@ -11,132 +11,229 @@
 @page-show-color: rgba(255, 255, 255, 1);
 
 .common-pagination() {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    display: block;
-    width: 59 * @hd;
-    height: 100%;
-    content: ' ';
-    z-index: @tabs-pagination-zindex;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 59 * @hd;
+  height: 100%;
+  content: ' ';
+  z-index: @tabs-pagination-zindex;
 }
 
 .@{tabs-prefix-cls} {
+  box-sizing: border-box;
+  * {
     box-sizing: border-box;
-    * {
-        box-sizing: border-box;
-    }
+  }
 
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  &-content-wrap {
     display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    height: 100%;
     width: 100%;
 
-    &-content-wrap {
-        display: flex;
-
-        &-animated {
-            transition: transform @effect-duration @easing-in-out;
-            will-change: transform;
-        }
+    &-animated {
+      transition: transform @effect-duration @easing-in-out;
+      will-change: transform;
     }
+  }
 
-    &-pane-wrap {
-        width: 100%;
-        flex-shrink: 0;
-        overflow-y: auto;
-    }
+  &-pane-wrap {
+    width: 100%;
+    flex-shrink: 0;
+    overflow-y: auto;
+  }
 
-    &-pane-wrap-active {
+  &-tab-bar-wrap {
+    flex-shrink: 0;
+  }
+
+  .@{tabs-default-bar-prefix-cls}-top {
+    .hairline('bottom');
+  }
+
+  .@{tabs-default-bar-prefix-cls}-bottom {
+    .hairline('top');
+  }
+
+  .@{tabs-default-bar-prefix-cls}-left {
+    .hairline('right');
+  }
+
+  .@{tabs-default-bar-prefix-cls}-right {
+    .hairline('left');
+  }
+
+  &-horizontal {
+    .@{tabs-prefix-cls} {
+      &-content-wrap {
+        flex-direction: row;
+      }
+
+      &-pane-wrap-active {
         height: auto;
-    }
+      }
 
-    &-pane-wrap-inactive {
+      &-pane-wrap-inactive {
         height: 0;
         overflow: visible;
+      }
     }
+  }
 
-    &-tab-bar-wrap {
-        flex-shrink: 0;
-    }
+  &-vertical {
+    height: 100%;
 
-    &-top .@{tabs-default-bar-prefix-cls} {
-        .hairline('bottom');
-    }
+    .@{tabs-prefix-cls} {
+      &-content-wrap {
+        flex-direction: column;
+      }
 
-    &-bottom .@{tabs-default-bar-prefix-cls} {
-        .hairline('top');
+      &-pane-wrap {
+        height: 100%;
+      }
+
+      &-pane-wrap-active {
+        overflow: auto;
+      }
+
+      &-pane-wrap-inactive {
+        overflow: hidden;
+      }
     }
+  }
+
+  &-top,
+  &-bottom {
+    flex-direction: column;
+  }
+
+  &-left,
+  &-right {
+    flex-direction: row;
+  }
 }
 
 .@{tabs-default-bar-prefix-cls} {
-    position: relative;
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: @tabs-pagination-zindex;
+
+  &-tab {
     display: flex;
     flex-shrink: 0;
-    flex-direction: row;
-    width: 100%;
-    overflow: visible;
-    z-index: @tabs-pagination-zindex;
+    justify-content: center;
+    align-items: center;
+    font-size: @tabs-font-size-heading;
+    height: @tabs-height;
+    line-height: @tabs-height;
 
-    &-content {
+    .@{badge-prefix-cls} {
+      .@{badge-prefix-cls}-text {
+        top: -13 * @hd;
+        transform: translateX(-5 * @hd);
+      }
+      .@{badge-prefix-cls}-dot {
+        top: -6 * @hd;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &-tab-active {
+    color: @tabs-color;
+  }
+
+  &-underline {
+    position: absolute;
+    border: 1px @tabs-color solid;
+  }
+
+  &-animated &-content {
+    transition: transform @effect-duration @easing-in-out;
+    will-change: transform;
+  }
+
+  &-animated &-underline {
+    transition: top @effect-duration @easing-in-out, left @effect-duration @easing-in-out, color @effect-duration @easing-in-out, width @effect-duration @easing-in-out;
+    will-change: top, left, width, color;
+  }
+
+  &-top,
+  &-bottom {
+    flex-direction: row;
+
+    .@{tabs-default-bar-prefix-cls} {
+      &-content {
         display: flex;
         width: 100%;
-    }
+        flex-direction: row;
+      }
 
-    &-prevpage {
+      &-prevpage {
         .common-pagination();
 
         left: 0;
         background: linear-gradient(to right, @page-show-color, @page-hide-color);
-    }
+      }
 
-    &-nextpage {
+      &-nextpage {
         .common-pagination();
 
         right: 0;
         background: linear-gradient(to right, @page-hide-color, @page-show-color);
-    }
+      }
 
-    &-tab {
-        display: flex;
-        flex-shrink: 0;
-        justify-content: center;
-        align-items: center;
-        font-size: @tabs-font-size-heading;
-        height: @tabs-height;
-        line-height: @tabs-height;
+      &-tab {
+        padding: 8px 0;
+      }
 
-        .@{badge-prefix-cls} {
-            .@{badge-prefix-cls}-text {
-                top: -13 * @hd;
-                transform: translateX(-5 * @hd);
-            }
-            .@{badge-prefix-cls}-dot {
-                top: -6 * @hd;
-                transform: translateX(0);
-            }
-        }
-    }
-
-    &-tab-active {
-        color: @tabs-color;
-    }
-
-    &-underline {
-        position: absolute;
+      &-underline {
         bottom: 0;
-        border: 1PX @tabs-color solid;
+      }
     }
+  }
 
-    &-animated &-content {
-        transition: transform @effect-duration @easing-in-out;
-        will-change: transform;
-    }
+  &-left,
+  &-right {
+    flex-direction: column;
 
-    &-animated &-underline {
-        transition: left @effect-duration @easing-in-out, color @effect-duration @easing-in-out, width @effect-duration @easing-in-out;
-        will-change: left, width, color;
+    .@{tabs-default-bar-prefix-cls} {
+      &-content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+      }
+
+      &-tab {
+        padding: 0 8px;
+      }
     }
+  }
+
+  &-left {
+    .@{tabs-default-bar-prefix-cls} {
+      &-underline {
+        right: 0;
+      }
+    }
+  }
+
+  &-right {
+    .@{tabs-default-bar-prefix-cls} {
+      &-underline {
+        left: 0;
+      }
+    }
+  }
 }

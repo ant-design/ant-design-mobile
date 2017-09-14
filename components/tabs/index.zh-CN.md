@@ -23,7 +23,7 @@ subtitle: 标签页
 ----|-----|------|------|------
 prefixCls  | 样式前缀(`web only`) | string |  rmc-tabs | false
 tabs | tab数据 | Models.TabData[] |  | true
-tabBarPosition  | TabBar位置 top: 上, bottom: 下 | 'top' \| 'bottom' |  top | false
+tabBarPosition  | TabBar位置 | 'top' \| 'bottom' \| 'left' \| 'right' |  top | false
 renderTabBar  | 替换TabBar | ((props: TabBarPropsType) => React.ReactNode) \| false |  | false
 initialPage  | 初始化Tab, index or key | number \| string |  | false
 page  | 当前Tab, index or key | number \| string |  | false
@@ -33,6 +33,10 @@ prerenderingSiblingsNumber  | 预加载两侧Tab数量 | number |  1 | false
 animated  | 是否开启切换动画 | boolean |  true | false
 onChange  | tab变化时触发 | (tab: Models.TabData, index: number) => void |  | false
 onTabClick  | tab 被点击的回调 | (tab: Models.TabData, index: number) => void |  | false
+destroyInactiveTab | 销毁超出范围Tab | boolean |  false | false
+distanceToChangeTab | 滑动切换阈值(宽度比例) | number |  0.3 | false
+usePaged | 是否启用分页模式 | boolean |  true | false
+tabDirection | Tab方向 | 'horizontal' \| 'vertical' |  horizontal | false
 tabBarUnderlineStyle  | tabBar下划线样式 | React.CSSProperties \| any |  | false
 tabBarBackgroundColor  | tabBar背景色 | string |  | false
 tabBarActiveTextColor  | tabBar激活Tab文字颜色 | string |  | false

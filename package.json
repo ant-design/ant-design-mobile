@@ -56,7 +56,7 @@
     "rmc-list-view": "^0.8.4",
     "rmc-nuka-carousel": "^2.2.0",
     "rmc-picker": "^5.0.0-alpha.2",
-    "rmc-tabs": "^1.1.0",
+    "rmc-tabs": "~1.2.0",
     "rn-topview": "~0.1.0",
     "warning": "^3.0.0"
   },
