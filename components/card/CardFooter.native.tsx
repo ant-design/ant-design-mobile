@@ -1,6 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { CardFooterProps } from './PropsType';
+import { CardFooterProps as BasePropsType } from './PropsType';
+
+export interface CardFooterProps extends BasePropsType {
+  styles?: any;
+}
 
 export default class CardFooter extends React.Component<CardFooterProps, any> {
   static defaultProps = {
@@ -13,14 +17,14 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
     const contentDom = React.isValidElement(content) ? (
       <View style={{ flex: 1 }}>{content}</View>
     ) : (
-      <Text style={styles.footerContent}>{content}</Text>
-    );
+        <Text style={styles.footerContent}>{content}</Text>
+      );
 
     const extraDom = React.isValidElement(extra) ? (
       <View style={{ flex: 1 }}>{extra}</View>
     ) : (
-      <Text style={[styles.footerExtra]}>{extra}</Text>
-    );
+        <Text style={[styles.footerExtra]}>{extra}</Text>
+      );
 
     return (
       <View style={[styles.footerWrap, style]} {...restProps}>

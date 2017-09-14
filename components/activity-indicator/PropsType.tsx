@@ -5,9 +5,6 @@ interface ActivityIndicatorPropTypes {
   size?: 'large' | 'small';
   text?: string;
   styles?: any;
-  /** web only */
-  prefixCls?: string;
-  className?: string;
 }
 
 export default ActivityIndicatorPropTypes;

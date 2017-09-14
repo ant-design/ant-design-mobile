@@ -1,8 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
-import { CardHeaderProps } from './PropsType';
+import { CardHeaderProps as BasePropsType } from './PropsType';
 
-export default class CardHeader extends React.Component <CardHeaderProps, any> {
+export interface CardHeaderProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
+
+export default class CardHeader extends React.Component<CardHeaderProps, any> {
   static defaultProps = {
     prefixCls: 'am-card',
     thumbStyle: {},

@@ -1,11 +1,6 @@
 export interface CardProps {
   full?: boolean;
-  className?: string;
   style?: {};
-  /** web only */
-  prefixCls?: string;
-  /** rn only */
-  styles?: any;
 }
 
 export interface CardHeaderProps {
@@ -13,22 +8,12 @@ export interface CardHeaderProps {
   thumb?: string;
   extra?: any;
   thumbStyle?: {};
-  className?: string;
   style?: any;
-  /** web only */
-  prefixCls?: string;
-  /** rn only */
-  styles?: any;
 }
 
 export interface CardBodyProps {
   children?: any;
-  className?: string;
   style?: {};
-  /** web only */
-  prefixCls?: string;
-  /** rn only */
-  styles?: any;
 }
 
 export interface CardFooterProps {
@@ -36,8 +21,4 @@ export interface CardFooterProps {
   extra?: any;
   className?: string;
   style?: {};
-  /** web only */
-  prefixCls?: string;
-  /** rn only */
-  styles?: any;
 }

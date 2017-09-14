@@ -1,6 +1,12 @@
 import React from 'react';
 import RcCollapse, { Panel } from 'rc-collapse';
-import AccordionProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface AccordionProps extends BasePropsType {
+  className?: string;
+  prefixCls?: string;
+  openAnimation?: any;
+}
 
 export default class Accordion extends React.Component<AccordionProps, any> {
   static Panel = Panel;

@@ -1,7 +1,11 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { CardHeaderProps } from './PropsType';
+import { CardHeaderProps as BasePropsType } from './PropsType';
+
+export interface CardHeaderProps extends BasePropsType {
+  styles?: any;
+}
 
 export default class CardHeader extends React.Component<CardHeaderProps, any> {
   static defaultProps = {
@@ -15,14 +19,14 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
     const titleDom = React.isValidElement(title) ? (
       <View style={{ flex: 1 }}>{title}</View>
     ) : (
-      <Text style={styles.headerContent}>{title}</Text>
-    );
+        <Text style={styles.headerContent}>{title}</Text>
+      );
 
     const extraDom = React.isValidElement(extra) ? (
       <View style={{ flex: 1 }}>{extra}</View>
     ) : (
-      <Text style={[styles.headerExtra]}>{extra}</Text>
-    );
+        <Text style={[styles.headerExtra]}>{extra}</Text>
+      );
 
     return (
       <View style={[styles.headerWrap, style]} {...restProps}>
