@@ -148,7 +148,7 @@ class HelloWorldApp extends Component {
 
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
-
+> react-native 组件可以通过查看该仓库说明来自定义主题和单个组件样式: [custom react-native component style](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui) 
 > 更多常见问题，请查看 [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki)
 
 ## 版本

@@ -148,6 +148,7 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
+> You can custom theme and single component by: [custom react-native component style](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)  
 > More common questions, please see [wiki pages](https://github.com/ant-design/ant-design-mobile/wiki).
 
 ## Version
