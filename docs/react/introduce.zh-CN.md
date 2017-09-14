@@ -189,7 +189,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 #### 更多增强 (非必须):
 
-> [自定义主题](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
+> [自定义 RN 主题和单个组件样式](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
 
 
 ## 版本
