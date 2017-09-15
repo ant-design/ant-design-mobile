@@ -612,6 +612,31 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-item am-input-item"
+      >
+        <div
+          class="am-input-label am-input-label-5"
+        >
+          光标在左
+        </div>
+        <div
+          class="am-input-control"
+        >
+          <div
+            class="fake-input-container fake-input-container-left"
+          >
+            <div
+              class="fake-input-placeholder"
+            >
+              start from left
+            </div>
+            <div
+              class="fake-input"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <a
