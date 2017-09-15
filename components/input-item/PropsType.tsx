@@ -2,6 +2,8 @@ import React from 'react';
 
 interface InputItemProps {
   style?: any;
+  /** web only */
+  moneyKeyboardAlign?: string;
   onClick?: Function;
   type?: 'text' | 'bankCard' | 'phone' | 'password' | 'number' | 'idcard' | 'digit' | 'money';
   editable?: boolean;

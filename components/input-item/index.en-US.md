@@ -39,6 +39,7 @@ Properties | Descrition | Type | Default
 | updatePlaceholder (`web only`) | whether to replace the placeholder with cleared content | bool | false|
 | prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |
 | name (`web only`)   | the name of input       | String |   |
+| moneyKeyboardAlign (`web only`)   | text align direction, only `type='money'` support this api， could be `'left'`, `'right'`       | String |  'right'  |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |  无 |
 
 > More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)

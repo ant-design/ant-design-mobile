@@ -161,14 +161,17 @@ class NumberInput extends React.Component<any, any> {
     }, 50);
   }
   render() {
-    const { placeholder, value, disabled, editable } = this.props;
+    const { placeholder, value, disabled, editable, moneyKeyboardAlign } = this.props;
     const { focus } = this.state;
     const preventKeyboard = disabled || !editable;
     const fakeInputCls = classnames(`fake-input`, {
       focus,
       'fake-input-disabled': disabled,
     });
-    return (<div className="fake-input-container">
+    const fakeInputContainerCls = classnames('fake-input-container', {
+      'fake-input-container-left': moneyKeyboardAlign === 'left',
+    });
+    return (<div className={fakeInputContainerCls}>
       {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
       <div
         className={fakeInputCls}

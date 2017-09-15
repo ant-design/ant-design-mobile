@@ -42,6 +42,7 @@ subtitle: 文本输入
 | updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
 | prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
 | name (`web only`)   | input 的 name        | String |  无  |
+| moneyKeyboardAlign (`web only`)   | 文字排版起始方向, 只有 `type='money'` 支持， 可选为 `'left'`, `'right'`       | String |  'right'  |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置, 当`type`为`money`，可以自定义确认按钮的文案。 | Object: { confirmLabel } |  无 |
 
 > 更多 react-native `InputItem` 属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
