@@ -1,9 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
-import TagProps from './PropsType';
+import BasePropsType from './PropsType';
 import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
 import TouchFeedback from 'rmc-feedback';
+
+export interface TagProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
 export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
@@ -12,9 +17,9 @@ export default class Tag extends React.Component<TagProps, any> {
     selected: false,
     closable: false,
     small: false,
-    onChange() {},
-    onClose() {},
-    afterClose() {},
+    onChange() { },
+    onClose() { },
+    afterClose() { },
   };
 
   constructor(props) {
@@ -60,7 +65,7 @@ export default class Tag extends React.Component<TagProps, any> {
   render() {
     const { children, className, prefixCls, disabled, closable, small, style } = this.props;
     const wrapCls = classnames(className, prefixCls, {
-      [`${prefixCls}-normal`]: !disabled && ( !this.state.selected || small || closable ),
+      [`${prefixCls}-normal`]: !disabled && (!this.state.selected || small || closable),
       [`${prefixCls}-small`]: small,
       [`${prefixCls}-active`]: this.state.selected && !disabled && !small && !closable,
       [`${prefixCls}-disabled`]: disabled,

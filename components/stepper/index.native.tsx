@@ -1,8 +1,12 @@
 import React from 'react';
 import RcInputNumber from 'rc-input-number/lib';
-import StepProps from './PropsType';
+import BasePropsType from './PropsType';
 import styles from 'rc-input-number/lib/styles';
 import { Platform } from 'react-native';
+
+export interface StepProps extends BasePropsType {
+  styles?: typeof styles;
+}
 
 export default class Stepper extends React.Component<StepProps, any> {
   static defaultProps = {

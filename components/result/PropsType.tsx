@@ -9,11 +9,6 @@ interface ResultProps {
   buttonText?: string;
   buttonType?: 'primary' | 'ghost';
   onButtonClick?: () => void;
-  /** below web only */
-  prefixCls?: string;
-  className?: string;
-  /** below rn only */
-  styles?: any;
 }
 
 export default ResultProps;

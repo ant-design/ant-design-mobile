@@ -13,6 +13,7 @@ function fixControlledValue(value) {
 }
 
 export interface ITextareaItemNativeProps extends TextAreaItemProps {
+  keyboardType?: string;
   styles?: ITextareaItemStyle;
 }
 

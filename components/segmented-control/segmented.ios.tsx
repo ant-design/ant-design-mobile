@@ -1,6 +1,10 @@
 import React from 'react';
 import { SegmentedControlIOS } from 'react-native';
-import SegmentedControlProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface SegmentedControlProps extends BasePropsType {
+  styles?: any;
+}
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {

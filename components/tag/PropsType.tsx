@@ -6,12 +6,7 @@ interface TagProps {
   onChange?: (selected: boolean) => void;
   onClose?: () => void;
   afterClose?: () => void;
-  style?: {};
-  /** web only */
-  prefixCls?: string;
-  className?: string;
-  /** rn only */
-  styles?: any;
+  style?: any;
 }
 
 export default TagProps;

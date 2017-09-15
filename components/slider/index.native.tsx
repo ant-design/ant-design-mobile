@@ -1,12 +1,17 @@
 import React from 'react';
 import { View, Slider } from 'react-native';
-import SliderProps from './PropsType';
+import BasePropsType from './PropsType';
 import SliderStyle from './style/index.native';
+
+export interface SliderProps extends BasePropsType {
+  maximumTrackTintColor?: string;
+  minimumTrackTintColor?: string;
+}
 
 export default class SliderAntm extends React.Component<SliderProps, any> {
   static defaultProps = {
-    onChange() {},
-    onAfterChange() {},
+    onChange() { },
+    onAfterChange() { },
     defaultValue: 0,
     disabled: false,
     maximumTrackTintColor: SliderStyle.maximum.color,

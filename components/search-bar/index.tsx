@@ -1,8 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
-import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
+import { SearchBarProps as BasePropsType, SearchBarState, defaultProps } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
 import TouchFeedback from 'rmc-feedback';
+
+export interface SearchBarProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
 export default class SearchBar extends React.Component<SearchBarProps, SearchBarState> {
   static defaultProps = defaultProps;
@@ -213,7 +218,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
         <div className={`${prefixCls}-input`}>
           <div className={`${prefixCls}-synthetic-ph`} ref={el => this.syntheticPhRef = el}>
             <span className={`${prefixCls}-synthetic-ph-container`} ref={el => this.syntheticPhContainerRef = el}>
-              <i className={`${prefixCls}-synthetic-ph-icon`}/>
+              <i className={`${prefixCls}-synthetic-ph-icon`} />
               <span
                 className={`${prefixCls}-synthetic-ph-placeholder`}
                 style={{ visibility: placeholder && !value ? 'visible' : 'hidden' }}

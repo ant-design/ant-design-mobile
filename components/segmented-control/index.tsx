@@ -1,7 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
-import SegmentedControlProps from './PropsType';
+import BasePropsType from './PropsType';
 import TouchFeedback from 'rmc-feedback';
+
+export interface SegmentedControlProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
 export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
   static defaultProps = {
@@ -9,8 +14,8 @@ export default class SegmentedControl extends React.Component<SegmentedControlPr
     selectedIndex: 0,
     disabled: false,
     values: [],
-    onChange() {},
-    onValueChange() {},
+    onChange() { },
+    onValueChange() { },
     style: {},
     tintColor: '',
   };

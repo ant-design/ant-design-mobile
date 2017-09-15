@@ -1,7 +1,12 @@
 import React from 'react';
 import Swipeout from 'rc-swipeout';
 import classnames from 'classnames';
-import SwipeActionProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface SwipeActionProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
 class SwipeAction extends React.Component<SwipeActionProps, any> {
   static defaultProps = {
@@ -11,8 +16,8 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     disabled: false,
     left: [],
     right: [],
-    onOpen() {},
-    onClose() {},
+    onOpen() { },
+    onClose() { },
   };
 
   render() {
@@ -36,8 +41,8 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
         </Swipeout>
       </div>
     ) : (
-      <div style={style} className={wrapClass}>{children}</div>
-    );
+        <div style={style} className={wrapClass}>{children}</div>
+      );
   }
 }
 

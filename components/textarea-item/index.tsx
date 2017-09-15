@@ -1,10 +1,17 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classnames from 'classnames';
-import TextareaItemProps from './PropsType';
+import BasePropsType from './PropsType';
 import TouchFeedback from 'rmc-feedback';
 
-function noop() {}
+export interface TextareaItemProps extends BasePropsType {
+  prefixCls?: string;
+  prefixListCls?: string;
+  className?: string;
+  onClick?: Function;
+}
+
+function noop() { }
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {

@@ -2,13 +2,18 @@
 import React from 'react';
 import Button from '../button';
 import classnames from 'classnames';
-import ResultProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface ResultProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
 export default class Result extends React.Component<ResultProps, any> {
   static defaultProps = {
     prefixCls: 'am-result',
     buttonType: '',
-    onButtonClick: () => {},
+    onButtonClick: () => { },
   };
 
   render() {
