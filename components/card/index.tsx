@@ -3,9 +3,14 @@ import classnames from 'classnames';
 import CardHeader from './CardHeader';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';
-import { CardProps } from './PropsType';
+import { CardProps as BasePropsType } from './PropsType';
 
-export default class Card extends React.Component <CardProps, any> {
+export interface CardProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
+
+export default class Card extends React.Component<CardProps, any> {
   static defaultProps = {
     prefixCls: 'am-card',
     full: false,

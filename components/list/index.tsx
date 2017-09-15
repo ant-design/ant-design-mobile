@@ -2,7 +2,13 @@
 import React from 'react';
 import Item from './ListItem';
 import classnames from 'classnames';
-import { ListProps } from './PropsType';
+import { ListProps as BasePropsType } from './PropsType';
+
+export interface ListProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+}
 
 export default class List extends React.Component<ListProps, any> {
   static Item = Item;

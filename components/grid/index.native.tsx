@@ -1,10 +1,14 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { Image, Text, Dimensions, View, StyleSheet } from 'react-native';
-import Flex from '../flex';
+import Flex from '../flex/index.native';
 import Carousel from '../carousel';
 import GridStyle from './style';
-import { DataItem, GridProps } from './PropsType';
+import { DataItem, GridProps as BasePropsType } from './PropsType';
+
+export interface GridProps extends BasePropsType {
+  styles?: any;
+}
 
 const GridStyles = StyleSheet.create<any>(GridStyle);
 
@@ -26,7 +30,7 @@ export default class Grid extends React.Component<GridProps, any> {
   }
 
   render() {
-    const { data, hasLine, isCarousel, onClick = () => {}, styles } = this.props;
+    const { data, hasLine, isCarousel, onClick = () => { }, styles } = this.props;
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/11640
     const columnNum = this.props.columnNum as number;
     const carouselMaxRow = this.props.carouselMaxRow as number;
@@ -36,7 +40,7 @@ export default class Grid extends React.Component<GridProps, any> {
     const renderItem = this.props.renderItem || ((dataItem: DataItem, index: number) => (
       <Flex direction="column" justify="center" style={{ flex: 1 }} onPress={() => onClick(dataItem, index)}>
         {React.isValidElement(dataItem.icon) ?
-        dataItem.icon : (<Image source={{ uri: dataItem.icon }} style={styles.icon} />)}
+          dataItem.icon : (<Image source={{ uri: dataItem.icon }} style={styles.icon} />)}
         <Text style={styles.text}>{dataItem.text}</Text>
       </Flex>
     ));

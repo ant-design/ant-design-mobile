@@ -1,6 +1,14 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
-import { FlexItemProps } from './PropsType';
+import { FlexItemProps as BasePropsType } from './PropsType';
+
+export interface FlexItemProps extends BasePropsType {
+  flex?: number;
+  onPress?: (e?: any) => void;
+  onLongPress?: any;
+  onPressIn?: any;
+  onPressOut?: any;
+}
 
 export default class FlexItem extends React.Component<FlexItemProps, any> {
   static defaultProps = {

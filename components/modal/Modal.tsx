@@ -1,8 +1,16 @@
 import React from 'react';
 import Dialog from 'rmc-dialog';
 import classnames from 'classnames';
-import { ModalProps, ModalComponent } from './PropsType';
+import { ModalProps as BasePropsType, ModalComponent } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
+
+export interface ModalProps extends BasePropsType {
+  prefixCls?: string;
+  transitionName?: string;
+  maskTransitionName?: string;
+  className?: string;
+  wrapClassName?: string;
+}
 
 export default class Modal extends ModalComponent<ModalProps, any> {
   static defaultProps = {
@@ -12,7 +20,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     animationType: 'slide-down',
     animated: true,
     style: {},
-    onShow() {},
+    onShow() { },
     footer: [],
     closable: false,
     operation: false,
@@ -26,8 +34,8 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     // fix touch to scroll background page on iOS
     const prefixCls = this.props.prefixCls;
     const pNode = (node => {
-      while ( node.parentNode && node.parentNode !== document.body ) {
-        if ( node.classList.contains(prefixCls)) {
+      while (node.parentNode && node.parentNode !== document.body) {
+        if (node.classList.contains(prefixCls)) {
           return node;
         }
         node = node.parentNode;
@@ -53,7 +61,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       }
     }
 
-    const onClickFn = function(e) {
+    const onClickFn = function (e) {
       e.preventDefault();
       if (button.onPress) {
         button.onPress();

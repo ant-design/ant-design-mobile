@@ -1,4 +1,6 @@
 /* eslint arrow-body-style: 0 */
+/* eslint no-console:0 */
+
 import React from 'react';
 import { List, Icon } from 'antd-mobile';
 import { addLocaleData, IntlProvider, FormattedMessage } from 'react-intl';

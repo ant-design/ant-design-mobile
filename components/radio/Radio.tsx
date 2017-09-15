@@ -1,7 +1,13 @@
 import React from 'react';
 import RcCheckbox from 'rc-checkbox';
-import { RadioProps } from './PropsType';
+import { RadioProps as BasePropsType } from './PropsType';
 import classnames from 'classnames';
+
+export interface RadioProps extends BasePropsType {
+  prefixCls?: string;
+  listPrefixCls?: string;
+  className?: string;
+}
 
 export default class Radio extends React.Component<RadioProps, any> {
   static RadioItem: any;

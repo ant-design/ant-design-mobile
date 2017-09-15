@@ -2,7 +2,14 @@
 import React from 'react';
 import { TouchableHighlight, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import buttonStyle from './style/index.native';
-import { ButtonProps } from './PropsType';
+import { ButtonProps as BasePropsType } from './PropsType';
+
+export interface ButtonProps extends BasePropsType {
+  onPressIn?: (x?: any) => void;
+  onPressOut?: (x?: any) => void;
+  onShowUnderlay?: (x?: any) => void;
+  onHideUnderlay?: (x?: any) => void;
+}
 
 const buttonStyles = StyleSheet.create<any>(buttonStyle);
 
@@ -68,11 +75,11 @@ export default class Button extends React.Component<ButtonProps, any> {
     const _styles = styles!;
 
     ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
-     'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
-       if (restProps.hasOwnProperty(prop)) {
-         delete restProps[prop];
-       }
-     });
+      'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
+        if (restProps.hasOwnProperty(prop)) {
+          delete restProps[prop];
+        }
+      });
 
     const textStyle = [
       _styles[`${size}RawText`],

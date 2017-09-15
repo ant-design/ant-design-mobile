@@ -1,7 +1,7 @@
 /* eslint react/no-danger: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { WhiteSpace, Button, WingBlank } from 'antd-mobile';
+import { WhiteSpace, Button, WingBlank, NoticeBar } from 'antd-mobile';
 import collect from 'bisheng/collect';
 import { getQuery } from '../../../../utils';
 
@@ -70,7 +70,7 @@ export default class Demo extends React.Component {
         <div>
           <WhiteSpace />
           <WingBlank>
-            <Button onClick={this.goToPage(name, index)}>{ item.meta.title[locale === 'en-US' ? 'en-US' : 'zh-CN']}</Button>
+            <Button onClick={this.goToPage(name, index)}>{item.meta.title[locale === 'en-US' ? 'en-US' : 'zh-CN']}</Button>
           </WingBlank>
         </div>
       ));
@@ -86,8 +86,11 @@ export default class Demo extends React.Component {
     // document.documentElement.clientHeight to
     // remove height of toolbars, address bars and navigation (android)
     const style = {};
+    let touchNoticeText = '';
     if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
       style.minHeight = document.documentElement.clientHeight;
+    } else if (/(tabs|swipe-action)/i.test(window.location.hash.toLowerCase())) {
+      touchNoticeText = locale === 'en-US' ? 'This component only support Touch Events, USE mobile mode open this page please.' : '该组件只支持Touch事件，请使用移动模式/设备打开此页。';
     }
 
     const isLocalMode = window.location.port;
@@ -103,7 +106,11 @@ export default class Demo extends React.Component {
               null : <span className="ch">{demoMeta.subtitle}</span>
           }
         </div>
-        { demoContent }
+        {
+          touchNoticeText &&
+          <NoticeBar mode="closable" marqueeProps={{ loop: true }} icon={null}>{touchNoticeText}</NoticeBar>
+        }
+        {demoContent}
       </div>
     );
   }

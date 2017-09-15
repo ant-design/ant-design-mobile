@@ -8,11 +8,6 @@ export interface RangeProps {
   max?: number;
   step?: number;
   disabled?: boolean;
-  /* web only */
-  prefixCls?: string;
-  handleStyle?: React.CSSProperties[];
-  trackStyle?: React.CSSProperties[];
-  railStyle?: React.CSSProperties;
 }
 
 export default RangeProps;

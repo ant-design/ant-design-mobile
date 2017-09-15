@@ -4,19 +4,14 @@ import { IPopupPickerProps } from 'rmc-picker/lib/PopupPickerTypes';
 interface Props extends IPopupPickerProps {
   data: any;
   cascade?: boolean;
-  value?: Array<string|number>;
+  value?: Array<string | number>;
   format?: (values) => void;
   cols?: number;
   extra?: string;
   children?: any;
   onChange?: (date?: CascaderValue) => void;
   itemStyle?: any;
-  /** web only */
-  pickerPrefixCls?: string;
-  popupPrefixCls?: string;
   onPickerChange?: (value: CascaderValue) => void;
-  /**rn only**/
-  styles?: any;
 }
 
 export default Props;

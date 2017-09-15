@@ -3,18 +3,18 @@
 exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
 <div>
   <div
-    class="am-tabs am-tabs-top"
+    class="am-tabs am-tabs-horizontal am-tabs-top"
   >
     <div
       class="am-tabs-tab-bar-wrap"
     >
       <div
-        class="am-tabs-default-bar am-tabs-default-bar-animated"
+        class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
         style="background-color:#fff;"
       >
         <div
           class="am-tabs-default-bar-content"
-          style="touch-action:pan-x pan-y;"
+          style="touch-action:pan-y;"
         >
           <div
             class="am-tabs-default-bar-tab"
@@ -103,7 +103,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     class="am-whitespace am-whitespace-md"
   />
   <div
-    class="am-tabs am-tabs-bottom"
+    class="am-tabs am-tabs-horizontal am-tabs-bottom"
   >
     <div
       class="am-tabs-content-wrap am-tabs-content-wrap-animated"
@@ -141,12 +141,12 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       class="am-tabs-tab-bar-wrap"
     >
       <div
-        class="am-tabs-default-bar am-tabs-default-bar-animated"
+        class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-bottom"
         style="background-color:#fff;"
       >
         <div
           class="am-tabs-default-bar-content"
-          style="touch-action:pan-x pan-y;"
+          style="touch-action:pan-y;"
         >
           <div
             class="am-tabs-default-bar-tab"
@@ -195,18 +195,18 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
     style="height:200px;"
   >
     <div
-      class="am-tabs am-tabs-top"
+      class="am-tabs am-tabs-horizontal am-tabs-top"
     >
       <div
         class="am-tabs-tab-bar-wrap"
       >
         <div
-          class="am-tabs-default-bar am-tabs-default-bar-animated"
+          class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
           style="background-color:#fff;"
         >
           <div
             class="am-tabs-default-bar-content"
-            style="touch-action:pan-x pan-y;"
+            style="touch-action:pan-y;"
           >
             <div
               class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
@@ -273,18 +273,18 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
     style="height:400px;"
   >
     <div
-      class="am-tabs am-tabs-top"
+      class="am-tabs am-tabs-horizontal am-tabs-top"
     >
       <div
         class="am-tabs-tab-bar-wrap"
       >
         <div
-          class="am-tabs-default-bar am-tabs-default-bar-animated"
+          class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
           style="background-color:#fff;"
         >
           <div
             class="am-tabs-default-bar-content"
-            style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
+            style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
           >
             <div
               class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
@@ -2373,18 +2373,18 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
     class="am-whitespace am-whitespace-md"
   />
   <div
-    class="am-tabs am-tabs-top"
+    class="am-tabs am-tabs-horizontal am-tabs-top"
   >
     <div
       class="am-tabs-tab-bar-wrap"
     >
       <div
-        class="am-tabs-default-bar"
+        class="am-tabs-default-bar am-tabs-default-bar-top"
         style="background-color:#fff;"
       >
         <div
           class="am-tabs-default-bar-content"
-          style="touch-action:pan-x pan-y;"
+          style="touch-action:pan-y;"
         >
           <div
             class="am-tabs-default-bar-tab"
@@ -2451,7 +2451,7 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
   />
   <div>
     <div
-      class="am-tabs am-tabs-top"
+      class="am-tabs am-tabs-horizontal am-tabs-top"
     >
       <div
         class="am-tabs-tab-bar-wrap"
@@ -2465,12 +2465,12 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
             style="transform:translateZ(0);z-index:1;"
           >
             <div
-              class="am-tabs-default-bar am-tabs-default-bar-animated"
+              class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
               style="background-color:#fff;"
             >
               <div
                 class="am-tabs-default-bar-content"
-                style="touch-action:pan-x pan-y;"
+                style="touch-action:pan-y;"
               >
                 <div
                   class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
@@ -2524,6 +2524,88 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
         />
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
+<div
+  style="height:200px;"
+>
+  <div
+    class="am-tabs am-tabs-vertical am-tabs-left"
+  >
+    <div
+      class="am-tabs-tab-bar-wrap"
+    >
+      <div
+        class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-left"
+        style="background-color:#fff;"
+      >
+        <div
+          class="am-tabs-default-bar-content"
+          style="touch-action:pan-x;"
+        >
+          <div
+            class="am-tabs-default-bar-tab"
+            style="height:33.333333333333336%;"
+          >
+            First
+          </div>
+          <div
+            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            style="height:33.333333333333336%;"
+          >
+            Second
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="height:33.333333333333336%;"
+          >
+            Third
+          </div>
+          <div
+            class="am-tabs-default-bar-underline"
+            style="height:33.333333333333336%;top:33.333333333333336%;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+      style="touch-action:pan-x;transform:translate3d(0px, -100%, 0px);-webkit-transform:translate3d(0px, -100%, 0px);-moz-transform:translate3d(0px, -100%, 0px);"
+    >
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:200px;background-color:#fff;"
+        >
+          Content of First Tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:200px;background-color:#fff;"
+        >
+          Content of Second Tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:200px;background-color:#fff;"
+        >
+          Content of Third Tab
+        </div>
       </div>
     </div>
   </div>

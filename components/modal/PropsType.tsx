@@ -15,13 +15,6 @@ export interface ModalProps {
   animationType?: any;
   onAnimationEnd?: (visible: boolean) => void;
   animateAppear?: boolean;
-  styles?: any;
-  /** web only */
-  prefixCls?: string;
-  transitionName?: string;
-  maskTransitionName?: string;
-  className?: string;
-  wrapClassName?: string;
   touchFeedback?: boolean;
   wrapProps?: {};
   operation?: boolean;

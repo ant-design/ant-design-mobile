@@ -140,7 +140,7 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 
 ### React-Native usage
 
-> Note: `Menu`/`NavBar` does not have React-Native implementation.
+> Note: `Menu`/`NavBar`/`Range` does not have React-Native implementation.
 
 Example of usage:
 
@@ -185,7 +185,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 #### More enhanced (optional):
 
-> [Custom theme](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
+> [Custom theme and single component style](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
 
 
 ## Version

@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, ViewStyle, StyleSheet } from 'react-native';
 import Item from './ListItem';
-import { ListProps } from './PropsType';
+import { ListProps as BasePropsType } from './PropsType';
 import listStyle from './style/index.native';
+
+export interface ListProps extends BasePropsType {
+  styles?: typeof listStyle;
+}
 
 const listStyles = StyleSheet.create<any>(listStyle);
 
@@ -42,7 +46,7 @@ export default class List extends React.Component<ListProps, any> {
       {headerDom}
       <View style={_styles.Body}>
         {children}
-        <View style={[_styles.BodyBottomLine as ViewStyle]}/>
+        <View style={[_styles.BodyBottomLine as ViewStyle]} />
       </View>
       {footerDom}
     </View>);

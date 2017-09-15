@@ -1,6 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
-import { CardBodyProps } from './PropsType';
+import { CardBodyProps as BasePropsType } from './PropsType';
+
+export interface CardBodyProps extends BasePropsType {
+  styles?: any;
+}
 
 export default class CardBody extends React.Component<CardBodyProps, any> {
   static defaultProps = {

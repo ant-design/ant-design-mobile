@@ -1,6 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
-import BadgeProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface BadgeProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+  hot?: boolean;
+}
 
 export default class Badge extends React.Component<BadgeProps, any> {
   static defaultProps = {

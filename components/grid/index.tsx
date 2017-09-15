@@ -3,8 +3,14 @@ import React from 'react';
 import classnames from 'classnames';
 import Flex from '../flex';
 import Carousel from '../carousel';
-import { DataItem, GridProps } from './PropsType';
+import { DataItem, GridProps as BasePropsType } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
+
+export interface GridProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+  square?: boolean;
+}
 
 export default class Grid extends React.Component<GridProps, any> {
   static defaultProps = {
@@ -55,7 +61,7 @@ export default class Grid extends React.Component<GridProps, any> {
           <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
             {
               React.isValidElement(icon) ? icon : (
-                <img className={`${prefixCls}-icon`} src={icon}/>
+                <img className={`${prefixCls}-icon`} src={icon} />
               )
             }
             <div className={`${prefixCls}-text`}>{text}</div>

@@ -1,6 +1,13 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback } from 'react-native';
-import { FlexProps } from './PropsType';
+import { FlexProps as BasePropsType } from './PropsType';
+
+export interface FlexProps extends BasePropsType {
+  onPress?: (e?: any) => void;
+  onLongPress?: any;
+  onPressIn?: any;
+  onPressOut?: any;
+}
 
 export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;

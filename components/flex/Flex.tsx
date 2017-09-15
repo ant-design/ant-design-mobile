@@ -1,6 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
-import { FlexProps } from './PropsType';
+import { FlexProps as BasePropsType } from './PropsType';
+
+export interface FlexProps extends BasePropsType {
+  alignContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'stretch';
+  onClick?: () => void;
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+}
 
 export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;

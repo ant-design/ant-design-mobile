@@ -9,8 +9,6 @@ interface Props {
   overlayStyle?: any;
   contextStyle?: any;
   children?: any;
-  /** web only */
-  prefixCls?: string;
 }
 
 export default Props;

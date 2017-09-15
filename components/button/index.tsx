@@ -1,8 +1,17 @@
 import React from 'react';
 import classnames from 'classnames';
 import Icon from '../icon';
-import { ButtonProps } from './PropsType';
+import { ButtonProps as BasePropsType } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
+
+export interface ButtonProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+  inline?: boolean;
+  icon?: string;
+  activeClassName?: string;
+}
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
