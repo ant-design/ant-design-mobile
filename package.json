@@ -54,7 +54,7 @@
     "rmc-dialog": "^0.0.1-alpha.4",
     "rmc-feedback": "^1.0.0",
     "rmc-list-view": "^0.8.4",
-    "rmc-nuka-carousel": "^2.2.0",
+    "rmc-nuka-carousel": "^3.0.0-alpha.1",
     "rmc-picker": "^5.0.0-alpha.2",
     "rmc-tabs": "~1.2.0",
     "rn-topview": "~0.1.0",
