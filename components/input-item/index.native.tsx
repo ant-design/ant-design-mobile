@@ -3,10 +3,14 @@ import React from 'react';
 import { View, Image, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import Input from './Input.native';
 import variables from '../style/themes/default.native';
-import InputItemProps from './PropsType';
+import BasePropsType from './PropsType';
 import InputItemStyle from './style/index.native';
 
-const noop: any = () => {};
+export interface InputItemProps extends BasePropsType {
+  last?: boolean;
+}
+
+const noop: any = () => { };
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -110,7 +114,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
     const extraStyle = {
       width: typeof extra === 'string' && (extra as string).length > 0 ?
-      (extra as string).length * variables.font_size_heading : 0,
+        (extra as string).length * variables.font_size_heading : 0,
     };
 
     const keyboardTypeArray = ['default', 'email-address',
@@ -134,7 +138,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         {
           children ? (
             typeof children === 'string' ? <Text style={[styles.text, textStyle]}>{children}</Text> :
-            <View style={textStyle}>{children}</View>
+              <View style={textStyle}>{children}</View>
           ) : null
         }
         <Input

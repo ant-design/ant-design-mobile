@@ -7,6 +7,11 @@ import RMCPicker from 'rmc-picker/lib/Picker';
 import treeFilter from 'array-tree-filter';
 import tsPropsType from './PropsType';
 
+export interface PickerPropsType extends tsPropsType {
+  pickerPrefixCls?: string;
+  popupPrefixCls?: string;
+}
+
 export function getDefaultProps() {
   const defaultFormat = (values) => {
     return values.join(',');
@@ -26,7 +31,7 @@ export function getDefaultProps() {
   };
 }
 
-export default abstract class AbstractPicker extends React.Component<tsPropsType, any> {
+export default abstract class AbstractPicker extends React.Component<PickerPropsType, any> {
   protected abstract popupProps: {};
 
   getSel = () => {
@@ -42,8 +47,8 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
       });
     }
     return this.props.format && this.props.format(treeChildren.map((v) => {
-        return v.label;
-      }));
+      return v.label;
+    }));
   }
 
   getPickerCol = () => {

@@ -1,5 +1,5 @@
-import Flex from './Flex';
-import FlexItem from './FlexItem';
+import Flex from './Flex.native';
+import FlexItem from './FlexItem.native';
 
 Flex.Item = FlexItem;
 

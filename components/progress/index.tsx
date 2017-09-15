@@ -1,6 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-import ProgressProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface ProgressProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
 export default class Progress extends React.Component<ProgressProps, any> {
   static defaultProps = {

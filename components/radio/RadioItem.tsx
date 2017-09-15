@@ -2,7 +2,13 @@ import React from 'react';
 import classnames from 'classnames';
 import List from '../list';
 import Radio from './Radio';
-import { RadioItemProps } from './PropsType';
+import { RadioItemProps as BasePropsType } from './PropsType';
+
+export interface RadioItemProps extends BasePropsType {
+  prefixCls?: string;
+  listPrefixCls?: string;
+  className?: string;
+}
 
 const ListItem = List.Item;
 function noop() { }
@@ -15,7 +21,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
   };
 
   render() {
-    const { listPrefixCls, onChange,  disabled, radioProps, onClick, ...otherProps } = this.props;
+    const { listPrefixCls, onChange, disabled, radioProps, onClick, ...otherProps } = this.props;
     const { prefixCls, className, children } = otherProps;
     const wrapCls = classnames(`${prefixCls}-item`, className, {
       [`${prefixCls}-item-disabled`]: disabled === true,

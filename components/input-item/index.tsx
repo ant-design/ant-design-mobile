@@ -2,11 +2,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import InputItemProps from './PropsType';
+import BasePropsType from './PropsType';
 import Input from './Input';
 import CustomInput from './CustomInput';
 import { getComponentLocale } from '../_util/getLocale';
 import TouchFeedback from 'rmc-feedback';
+
+export interface InputItemProps extends BasePropsType {
+  prefixCls?: string;
+  prefixListCls?: string;
+  className?: string;
+}
 
 function noop() { }
 
@@ -250,24 +256,24 @@ class InputItem extends React.Component<InputItemProps, any> {
               confirmLabel={confirmLabel}
             />
           ) : (
-            <Input
-              {...patternProps}
-              {...restProps}
-              {...valueProps}
-              {...classNameProps}
-              ref={el => this.inputRef = el}
-              style={style}
-              type={inputType}
-              maxLength={maxLength}
-              name={name}
-              placeholder={placeholder}
-              onChange={this.onInputChange}
-              onFocus={this.onInputFocus}
-              onBlur={this.onInputBlur}
-              readOnly={!editable}
-              disabled={disabled}
-            />
-          )}
+              <Input
+                {...patternProps}
+                {...restProps}
+                {...valueProps}
+                {...classNameProps}
+                ref={el => this.inputRef = el}
+                style={style}
+                type={inputType}
+                maxLength={maxLength}
+                name={name}
+                placeholder={placeholder}
+                onChange={this.onInputChange}
+                onFocus={this.onInputFocus}
+                onBlur={this.onInputBlur}
+                readOnly={!editable}
+                disabled={disabled}
+              />
+            )}
         </div>
         {clear && editable && !disabled && (value && value.length > 0) ?
           <TouchFeedback activeClassName={`${prefixCls}-clear-active`}>

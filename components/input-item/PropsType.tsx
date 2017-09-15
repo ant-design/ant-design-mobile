@@ -2,14 +2,8 @@ import React from 'react';
 
 interface InputItemProps {
   style?: any;
-  /** web only */
-  prefixCls?: string;
-  /** web only */
-  prefixListCls?: string;
-  /** web only */
   onClick?: Function;
-  className?: string;
-  type?: 'text'|'bankCard'|'phone'|'password'|'number'|'idcard'|'digit'|'money';
+  type?: 'text' | 'bankCard' | 'phone' | 'password' | 'number' | 'idcard' | 'digit' | 'money';
   editable?: boolean;
   disabled?: boolean;
   name?: string;
@@ -27,12 +21,10 @@ interface InputItemProps {
   error?: boolean;
   onErrorClick?: (e?) => void;
   onErrorPress?: Function;
-  size?: 'large'|'small';
+  size?: 'large' | 'small';
   labelNumber?: number;
-  labelPosition?: 'left'|'top';
-  textAlign?: 'left'|'center';
-  /** rn only */
-  last?: boolean;
+  labelPosition?: 'left' | 'top';
+  textAlign?: 'left' | 'center';
   children?: any;
   updatePlaceholder?: boolean;
   styles?: any;

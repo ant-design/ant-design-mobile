@@ -1,8 +1,20 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import classnames from 'classnames';
-import { ListItemProps, BriefProps } from './PropsType';
+import { ListItemProps as ListItemBasePropsType, BriefProps as BriefBasePropsType } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
+
+export interface ListItemProps extends ListItemBasePropsType {
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+}
+
+export interface BriefProps extends BriefBasePropsType {
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+}
 
 export class Brief extends React.Component<BriefProps, any> {
   render() {

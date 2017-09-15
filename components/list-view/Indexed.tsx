@@ -4,7 +4,15 @@ import tsPropsType from './PropsType';
 import handleProps from './handleProps';
 const IndexedList = MListView.IndexedList;
 
-export default class MIndexedList extends React.Component<tsPropsType, any> {
+export interface ListViewPropsType extends tsPropsType {
+  onQuickSearch?: Function;
+  quickSearchBarStyle?: React.CSSProperties;
+  quickSearchBarTop?: Object;
+  delayTime?: number;
+  delayActivityIndicator?: any;
+}
+
+export default class MIndexedList extends React.Component<ListViewPropsType, any> {
   static defaultProps = {
     prefixCls: 'am-indexed-list',
     listPrefixCls: 'am-list',

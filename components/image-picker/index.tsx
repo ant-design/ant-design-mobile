@@ -4,8 +4,13 @@ import classnames from 'classnames';
 import WingBlank from '../wing-blank';
 import Flex from '../flex';
 import Toast from '../toast';
-import { ImagePickerPropTypes } from './PropsType';
+import { ImagePickerPropTypes as BasePropsType } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
+
+export interface ImagePickerPropTypes extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
 const Item = Flex.Item;
 function noop() { }
@@ -137,7 +142,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
 
   render() {
     const { prefixCls, style, className, files = [],
-       selectable, onAddImageClick } = this.props;
+      selectable, onAddImageClick } = this.props;
     const imgItemList: any[] = [];
 
     const wrapCls = classnames(`${prefixCls}`, className);
@@ -194,7 +199,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       const blankCount = 4 - length % 4;
       let fillBlankEl: Array<any> = [];
       for (let i = 0; i < blankCount; i++) {
-        fillBlankEl.push(<Item key={`blank-${i}`}/>);
+        fillBlankEl.push(<Item key={`blank-${i}`} />);
       }
       allEl = allEl.concat(fillBlankEl);
     }

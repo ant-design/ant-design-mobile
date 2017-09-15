@@ -1,7 +1,12 @@
 import React from 'react';
 import { View, Animated, Dimensions, StyleSheet } from 'react-native';
 import ProgressStyle from './style/index.native';
-import ProgressProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface ProgressProps extends BasePropsType {
+  wrapWidth?: number;
+  styles?: any;
+}
 
 const ProgressStyles = StyleSheet.create<any>(ProgressStyle);
 
