@@ -23,8 +23,7 @@ Properties | Descrition | Type | Default
 | pageSize | Number of rows to render per event loop. | number | 1 |
 | renderHeader / renderFooter | The header and footer are always rendered (if these props are provided) on every render pass. If they are expensive to re-render, wrap them in StaticContainer or other mechanism as appropriate. Footer is always at the bottom of the list, and header at the top, on every render pass. | () => renderable | - |
 | renderRow | Takes a data entry from the data source and its ids and should return a renderable component to be rendered as the row. By default the data is exactly what was put into the data source, but it's also possible to provide custom extractors. ListView can be notified when a row is being highlighted by calling highlightRow function. | (rowData, sectionID, rowID, highlightRow) => renderable | - |
-| renderScrollComponent | A function that returns the scrollable component in which the list rows are rendered. Defaults to returning a ScrollView with the given props. (if you set `renderScrollComponent`,
-you need to write your own scroll logic like `ScrollView` component(see `/examples/MyScroller.js`)) | (props) => renderable | - |
+| renderScrollComponent | A function that returns the scrollable component in which the list rows are rendered. Defaults to returning a ScrollView with the given props. | (props) => renderable | - |
 | renderSectionHeader | If provided, a header is rendered for this section. | (sectionData, sectionID) => renderable | - |
 | renderSeparator | If provided, a renderable component to be rendered as the separator below each row but not the last row if there is a section header below. Take a sectionID and rowID of the row above and whether its adjacent row is highlighted. | (sectionID, rowID, adjacentRowHighlighted) => renderable | - |
 | scrollRenderAheadDistance | How early to start rendering rows before they come on screen, in pixels. | number | 1000 |
