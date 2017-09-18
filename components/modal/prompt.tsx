@@ -40,23 +40,27 @@ export default function prompt(
       inputDom = (
         <div className={`${prefixCls}-input-container`}>
           <div className={`${prefixCls}-input`}>
-            <input
-              type="text"
-              value={data.text}
-              defaultValue={defaultValue}
-              ref={input => focusFn(input)}
-              onChange={onChange}
-              placeholder={placeholders[0]}
-            />
+            <label>
+              <input
+                type="text"
+                value={data.text}
+                defaultValue={defaultValue}
+                ref={input => focusFn(input)}
+                onChange={onChange}
+                placeholder={placeholders[0]}
+              />
+            </label>
           </div>
           <div className={`${prefixCls}-input`}>
-            <input
-              type="password"
-              value={data.password}
-              defaultValue=""
-              onChange={onChange}
-              placeholder={placeholders[1]}
-            />
+            <label>
+              <input
+                type="password"
+                value={data.password}
+                defaultValue=""
+                onChange={onChange}
+                placeholder={placeholders[1]}
+              />
+            </label>
           </div>
         </div>
       );
@@ -65,14 +69,16 @@ export default function prompt(
       inputDom = (
         <div className={`${prefixCls}-input-container`}>
           <div className={`${prefixCls}-input`}>
-            <input
-              type="password"
-              value={data.password}
-              defaultValue=""
-              ref={input => focusFn(input)}
-              onChange={onChange}
-              placeholder={placeholders[0]}
-            />
+            <label>
+              <input
+                type="password"
+                value={data.password}
+                defaultValue=""
+                ref={input => focusFn(input)}
+                onChange={onChange}
+                placeholder={placeholders[0]}
+              />
+            </label>
           </div>
         </div>
       );
@@ -83,14 +89,16 @@ export default function prompt(
       inputDom = (
         <div className={`${prefixCls}-input-container`}>
           <div className={`${prefixCls}-input`}>
-            <input
-              type="text"
-              value={data.text}
-              defaultValue={defaultValue}
-              ref={input => focusFn(input)}
-              onChange={onChange}
-              placeholder={placeholders[0]}
-            />
+            <label>
+              <input
+                type="text"
+                value={data.text}
+                defaultValue={defaultValue}
+                ref={input => focusFn(input)}
+                onChange={onChange}
+                placeholder={placeholders[0]}
+              />
+            </label>
           </div>
         </div>
       );
@@ -99,10 +107,8 @@ export default function prompt(
 
   let content = (
     <div>
-      <label>
-        <span>{message}</span>
-        {inputDom}
-      </label>
+      {message}
+      {inputDom}
     </div>
   );
 
