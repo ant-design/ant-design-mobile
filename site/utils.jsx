@@ -1,4 +1,4 @@
-/* eslint-disable no-useless-escape */
+/* eslint no-useless-escape: 0 */
 export function getMenuItems(moduleData, locale) {
   const menuMeta = moduleData.map(item => item.meta);
   const menuItems = {};
@@ -94,7 +94,7 @@ export function getQuery(key) {
 }
 
 export const head =
-`<script>
+  `<script>
   (function (baseFontSize, fontscale) {
     var _baseFontSize = baseFontSize || 100;
     var _fontscale = fontscale || 1;

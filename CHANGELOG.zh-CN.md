@@ -15,6 +15,15 @@ toc: false
 
 ---
 
+## 1.6.8
+`2017-09-18`
+
+- **Bug Fix**
+
+  - Fix `segmented-control` 激活状态样式. ([#1832](https://github.com/ant-design/ant-design-mobile/issues/1832))
+  - Fix `InputItem` `TextareaItem` [类型定义](https://github.com/ant-design/ant-design-mobile/commit/5fd21d1539f19fe80fd415716d349d82c1a77408).
+  - Fix `swipe-action` [样式问题](https://github.com/ant-design/ant-design-mobile/commit/ab2297c64fcde0766b502b96349bc8824cbd8bff).
+
 ## 1.6.7
 `2017-09-11`
 
@@ -30,7 +39,7 @@ toc: false
 
 - **Bug Fix**
 
-  - Fix `Modal.operation` android 下面多操作选项样式问题 ([#1791](https://github.com/ant-design/ant-design-mobile/issues/1791)) 
+  - Fix `Modal.operation` android 下面多操作选项样式问题 ([#1791](https://github.com/ant-design/ant-design-mobile/issues/1791))
   - Fix RN `Accordion` 必须依赖 Icon 组件的问题 ([#1784](https://github.com/ant-design/ant-design-mobile/issues/1784))
   - Fix `Modal` 按钮默认的 `href="#"` 导致 react-router 跳转到 '/' ([#1780](https://github.com/ant-design/ant-design-mobile/issues/1780))
   - Fix RN `ActionSheet` 空 title / message 报错([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767)

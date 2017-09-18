@@ -15,6 +15,16 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+
+## 1.6.8
+`2017-09-18`
+
+- **Bug Fix**
+
+  - Fix `segmented-control`  without active style. ([#1832](https://github.com/ant-design/ant-design-mobile/issues/1832))
+  - Fix `InputItem` `TextareaItem` [onClick tsd](https://github.com/ant-design/ant-design-mobile/commit/5fd21d1539f19fe80fd415716d349d82c1a77408).
+  - Fix `swipe-action` [button height overflow](https://github.com/ant-design/ant-design-mobile/commit/ab2297c64fcde0766b502b96349bc8824cbd8bff).
+
 ## 1.6.7
 `2017-09-11`
 
@@ -30,7 +40,7 @@ toc: false
 
 - **Bug Fix**
 
-  - Fix `Modal.operation` style of multiple options for android ([#1791](https://github.com/ant-design/ant-design-mobile/issues/1791)) 
+  - Fix `Modal.operation` style of multiple options for android ([#1791](https://github.com/ant-design/ant-design-mobile/issues/1791))
   - Fix RN `Accordion` must depend on `Icon` component ([#1784](https://github.com/ant-design/ant-design-mobile/issues/1784))
   - Fix `Modal` with `href="#"` cousing react-router to jump to '/' ([#1780](https://github.com/ant-design/ant-design-mobile/issues/1780))
   - Fix RN `ActionSheet` with empty `title / message` casusing error ([#1767](https://github.com/ant-design/ant-design-mobile/issues/1767)
