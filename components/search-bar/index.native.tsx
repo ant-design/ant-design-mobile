@@ -5,7 +5,7 @@ import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
 import SearchBarStyle, { ISearchBarStyle } from './style/index.native';
 
 export interface ISearchBarNativeProps extends SearchBarProps {
-  styles: ISearchBarStyle;
+  styles?: Partial<ISearchBarStyle>;
   onChangeText?: Function;
   onSubmitEditing?: Function;
 }
@@ -85,21 +85,22 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
   }
   render() {
     const {
-      showCancelButton, cancelText, styles, value: propsValue,
+      showCancelButton, cancelText, styles = {}, value: propsValue,
       onChangeText, onChange, onSubmitEditing, disabled,
       ...restProps,
     } = this.props;
     const { style } = restProps;
     const { value, focus } = this.state;
     const _showCancelButton = showCancelButton || focus;
+    const _styles: ISearchBarStyle =  { ...SearchBarStyles, ...styles };
 
     return (
-      <View style={styles.wrapper}>
-        <View style={styles.inputWrapper}>
+      <View style={_styles.wrapper}>
+        <View style={_styles.inputWrapper}>
           <TextInput
             value={value}
             onChangeText={this.onChangeText}
-            style={[styles.input, style]}
+            style={[_styles.input, style]}
             editable={!disabled}
             ref={el => this.inputRef = el}
             onSubmitEditing={this.onSubmit}
@@ -112,13 +113,13 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
         </View>
         <Image
           source={require('../style/images/search.png')}
-          style={styles.search}
+          style={_styles.search}
           resizeMode="stretch"
         />
         {
           _showCancelButton &&
-            <View style={styles.cancelTextContainer}>
-              <Text style={styles.cancelText} onPress={this.onCancel}>
+            <View style={_styles.cancelTextContainer}>
+              <Text style={_styles.cancelText} onPress={this.onCancel}>
                 {cancelText}
               </Text>
             </View>
