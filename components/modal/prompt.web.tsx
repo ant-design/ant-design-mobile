@@ -30,7 +30,7 @@ export default function prompt(
       if (input) {
         input.focus();
       }
-    }, 500);
+    }, 50);
   };
 
   switch (type) {
