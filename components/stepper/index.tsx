@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import RcInputNumber from 'rc-input-number';
+import RMCInputNumber from 'rmc-input-number';
 import BasePropsType from './PropsType';
 import Icon from '../icon';
 
@@ -29,7 +29,7 @@ export default class Stepper extends React.Component<StepProps, any> {
     });
 
     return (
-      <RcInputNumber
+      <RMCInputNumber
         upHandler={<Icon type="plus" size="xxs" />}
         downHandler={<Icon type="minus" size="xxs" />}
         {...restProps}

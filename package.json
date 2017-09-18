@@ -38,7 +38,7 @@
     "rc-checkbox": "~2.0.0",
     "rc-collapse": "~1.7.0",
     "rc-drawer": "~0.4.9",
-    "rc-input-number": "^4.0.0-alpha.0",
+    "rmc-input-number": "^0.1.5",
     "rc-notification": "~2.0.0",
     "rc-slider": "~8.2.0",
     "rc-steps": "~2.5.1",

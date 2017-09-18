@@ -1,7 +1,7 @@
 import React from 'react';
-import RcInputNumber from 'rc-input-number/lib';
+import RMCInputNumber from 'rmc-input-number/lib/index.ios';
 import BasePropsType from './PropsType';
-import styles from 'rc-input-number/lib/styles';
+import styles from 'rmc-input-number/lib/styles';
 import { Platform } from 'react-native';
 
 export interface StepProps extends BasePropsType {
@@ -15,7 +15,7 @@ export default class Stepper extends React.Component<StepProps, any> {
     disabled: false,
     styles,
     inputStyle: {},
-  };
+  } as StepProps;
 
   render() {
     const inputAndroidStyle = Platform.OS === 'android' ? {
@@ -29,7 +29,7 @@ export default class Stepper extends React.Component<StepProps, any> {
       ...inputStyle,
     };
     return (
-      <RcInputNumber {...restProps} inputStyle={_inputStyle} />
+      <RMCInputNumber {...restProps} inputStyle={_inputStyle} />
     );
   }
 }
