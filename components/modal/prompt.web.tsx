@@ -30,7 +30,7 @@ export default function prompt(
       if (input) {
         input.focus();
       }
-    }, 50);
+    }, 500);
   };
 
   switch (type) {
@@ -38,29 +38,33 @@ export default function prompt(
       inputDom = (
         <div>
           <div className={`${prefixCls}-input`}>
-            <input
-              type="text"
-              defaultValue={defaultValue}
-              ref={input => focusFn(input)}
-              onChange={onChange}
-              placeholder={placeholders[0]}
-            />
+            <label>
+              <input
+                type="text"
+                defaultValue={defaultValue}
+                ref={input => focusFn(input)}
+                onChange={onChange}
+                placeholder={placeholders[0]}
+              />
+            </label>
           </div>
           <div className={`${prefixCls}-input`}>
-            <input
-              type="password"
-              defaultValue=""
-              onChange={onChange}
-              placeholder={placeholders[1]}
-            />
+            <label>
+              <input
+                type="password"
+                defaultValue=""
+                onChange={onChange}
+                placeholder={placeholders[1]}
+              />
+            </label>
           </div>
         </div>
       );
       break;
     case 'secure-text':
       inputDom = (
-        <div>
-          <div className={`${prefixCls}-input`}>
+        <div className={`${prefixCls}-input`}>
+          <label>
             <input
               type="password"
               defaultValue=""
@@ -68,7 +72,7 @@ export default function prompt(
               onChange={onChange}
               placeholder={placeholders[0]}
             />
-          </div>
+          </label>
         </div>
       );
       break;
@@ -76,8 +80,8 @@ export default function prompt(
     case 'default':
     default:
       inputDom = (
-        <div>
-          <div className={`${prefixCls}-input`}>
+        <div className={`${prefixCls}-input`}>
+          <label>
             <input
               type="text"
               defaultValue={defaultValue}
@@ -85,7 +89,7 @@ export default function prompt(
               onChange={onChange}
               placeholder={placeholders[0]}
             />
-          </div>
+          </label>
         </div>
       );
       break;
@@ -93,10 +97,8 @@ export default function prompt(
 
   let content = (
     <div>
-      <label>
-        {message}
-        {inputDom}
-      </label>
+      {message}
+      {inputDom}
     </div>
   );
 
