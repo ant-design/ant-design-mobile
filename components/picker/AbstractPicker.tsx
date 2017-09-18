@@ -52,10 +52,10 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
   }
 
   getPickerCol = () => {
-    const { data, pickerPrefixCls } = this.props;
+    const { data, pickerPrefixCls, itemStyle } = this.props;
     return data.map((col, index) => {
       return (
-        <RMCPicker key={index} prefixCls={pickerPrefixCls} style={{ flex: 1 }}>
+        <RMCPicker key={index} prefixCls={pickerPrefixCls} style={{ flex: 1 }} itemStyle={itemStyle}>
           {col.map(item => {
             return (
               <RMCPicker.Item key={item.value} value={item.value}>
@@ -69,7 +69,7 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
   }
   render() {
     const {
-      children, value = [], extra, okText, itemStyle, dismissText, popupPrefixCls,
+      children, value = [], extra, okText, dismissText, popupPrefixCls,
       cascade, prefixCls, pickerPrefixCls, data, cols, onPickerChange, ...restProps,
     } = this.props;
 
@@ -83,7 +83,6 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
           data={data}
           cols={cols}
           onChange={onPickerChange}
-          pickerItemStyle={itemStyle}
         />
       );
     } else {
@@ -91,7 +90,6 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
         <RMCMultiPicker
           style={{ flexDirection: 'row', alignItems: 'center' }}
           prefixCls={prefixCls}
-          pickerItemStyle={itemStyle}
         >
           {this.getPickerCol()}
         </RMCMultiPicker>

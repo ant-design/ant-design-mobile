@@ -1,4 +1,4 @@
-/* eslint-disable no-useless-escape */
+/* eslint no-useless-escape: 0 */
 export function getMenuItems(moduleData, locale) {
   const menuMeta = moduleData.map(item => item.meta);
   const menuItems = {};
