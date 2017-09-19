@@ -1,14 +1,24 @@
 interface Props {
   onSelect?: (node: any, index?: number) => void;
-  renderOverlayComponent?: (values) => any;
   overlay: any;
   disabled?: boolean;
-  name?: string;
+  children?: any;
+  /** rn only */
   style?: any;
   triggerStyle?: any;
   overlayStyle?: any;
   contextStyle?: any;
-  children?: any;
+  renderOverlayComponent?: (values) => any;
+  name?: string;
+  openMenu?: Function;
+  closeMenu?: Function;
+  toggleMenu?: Function;
+  /** web only */
+  prefixCls?: string;
+  visible?: boolean;
+  onVisibleChange?: Function;
+  placement?: 'left' | 'right' | 'top' | 'bottom' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+  mask?: boolean;
 }
 
 export default Props;
