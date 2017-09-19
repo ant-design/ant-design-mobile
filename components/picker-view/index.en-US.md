@@ -19,4 +19,5 @@ Properties | Descrition | Type | Default
 | onChange | selected callback function, can use [rc-form](https://github.com/react-component/form) | (val): void | - |
 | prefixCls (`Web Only`)   | prefix class        | string |  am-picker  |
 | pickerPrefixCls (`Web Only`)   | picker prefix class        | string |  am-picker-col  |
-| styles  (`Web Only`)  | additional style        | Object |  {}  |
+| itemStyle | style to apply to each of the item labels  |   Object   | -  |
+| indicatorStyle  | style of indicator | Object | - |

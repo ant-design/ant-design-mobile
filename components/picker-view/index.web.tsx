@@ -23,19 +23,25 @@ export interface IPickerView {
   cascade?: boolean;
   value?: any[];
   data?: any;
-  styles?: any;
   onChange?: (value?) => void;
   indicatorStyle?: any;
+  itemStyle?: any;
 }
 
 export default class PickerView extends React.Component<IPickerView, any> {
   static defaultProps = getDefaultProps();
 
   getCol = () => {
-    const { data, pickerPrefixCls } = this.props;
+    const { data, pickerPrefixCls, indicatorStyle, itemStyle } = this.props;
     return data.map((col, index) => {
       return (
-        <RMCPicker key={index} prefixCls={pickerPrefixCls} style={{ flex: 1 }}>
+        <RMCPicker
+          key={index}
+          prefixCls={pickerPrefixCls}
+          style={{ flex: 1 }}
+          indicatorStyle={indicatorStyle}
+          itemStyle={itemStyle}
+        >
           {col.map(item => {
             return (
               <RMCPicker.Item key={item.value} value={item.value}>
@@ -60,6 +66,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
           onChange={props.onChange}
           cols={props.cols}
           indicatorStyle={props.indicatorStyle}
+          pickerItemStyle={props.itemStyle}
         />
       );
     } else {

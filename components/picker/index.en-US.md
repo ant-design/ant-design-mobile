@@ -23,6 +23,7 @@ Properties | Descrition | Type | Default
 | onChange | selected callback function, can use [rc-form](https://github.com/react-component/form) | (val): void | - |
 | onPickerChange | trigger on each column of selected data is changed  | (val): void | - |
 | itemStyle | style to apply to each of the item labels | Object | -|
+| indicatorStyle  | style of indicator | Object | - |
 | children| usually `List.Item` | Object |  `List.Item`  |
 | okText  | ok text | String |  `确定`  |
 | dismissText  | dismiss text | String |  `取消`  |

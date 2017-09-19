@@ -20,4 +20,5 @@ PickerView 的功能类似于 Picker ，但它是直接渲染在区域中，而�
 | onChange | 选中后的回调，可使用[rc-form](https://github.com/react-component/form) | (val): void | - |
 | prefixCls (`Web Only`)   | prefix class        | string |  am-picker  |
 | pickerPrefixCls (`Web Only`)   | picker prefix class        | string |  am-picker-col  |
-| styles  (`Web Only`)  | 附加的样式       | Object |  {}  |
+| itemStyle | 每列样式  |   Object   | -  |
+| indicatorStyle  | indicator 样式 | Object | - |
