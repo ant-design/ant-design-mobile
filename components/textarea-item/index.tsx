@@ -60,8 +60,9 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   focus = () => {
     this.textareaRef.focus();
   }
+
   componentDidUpdate() {
-    if (this.props.autoHeight) {
+    if (this.props.autoHeight && this.state.focus) {
       const textareaDom = this.textareaRef;
       textareaDom.style.height = ''; // 字数减少时能自动减小高度
       textareaDom.style.height = `${textareaDom.scrollHeight}px`;
