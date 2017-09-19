@@ -22,3 +22,5 @@ PickerView 的功能类似于 Picker ，但它是直接渲染在区域中，而�
 | pickerPrefixCls (`Web Only`)   | picker prefix class        | string |  am-picker-col  |
 | styles  (`Web Only`)  | 附加的样式       | Object |  {}  |
 | cascade  | 是否联动 | Boolean | true |
+| itemStyle | 每列样式  |   Object   | -  |
+| indicatorStyle  | indicator 样式 | Object | - |

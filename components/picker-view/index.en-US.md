@@ -21,3 +21,5 @@ Properties | Descrition | Type | Default
 | pickerPrefixCls (`Web Only`)   | picker prefix class        | string |  am-picker-col  |
 | styles  (`Web Only`)  | additional style        | Object |  {}  |
 | cascade  | whether is cascade mode | Boolean | true |
+| itemStyle | style to apply to each of the item labels  |   Object   | -  |
+| indicatorStyle  | style of indicator | Object | - |

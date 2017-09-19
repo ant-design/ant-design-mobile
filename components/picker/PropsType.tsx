@@ -11,6 +11,7 @@ interface Props extends IPopupPickerProps {
   children?: any;
   onChange?: (date?: CascaderValue) => void;
   itemStyle?: any;
+  indicatorStyle?: any;
   onPickerChange?: (value: CascaderValue) => void;
 }
 
