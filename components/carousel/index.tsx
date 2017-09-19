@@ -10,7 +10,6 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     arrows: false,
     autoplay: false,
     infinite: false,
-    edgeEasing: 'linear',
     cellAlign: 'center',
     selectedIndex: 0,
     dotStyle: {},

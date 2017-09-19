@@ -6,7 +6,7 @@ interface Props {
   autoplay?: boolean;
   autoplayInterval?: number;
   infinite?: boolean;
-  easing?: string;
+  easing?: Function;
   beforeChange?: (from: number, to: number) => void;
   afterChange?: (current: number) => void;
   style?: any;

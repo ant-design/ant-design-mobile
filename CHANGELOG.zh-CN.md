@@ -51,6 +51,7 @@ toc: false
   - [Web] 去除 `createTooltip` 组件，如果你需要 range/slider 带 tooltip 功能，你可以用 [react-component/slider/createSliderWithTooltip](https://github.com/react-component/slider/blob/master/src/createSliderWithTooltip.jsx) 实现
   - [Web] `Switch` 组件的 `style` 属性设置，从外围元素改为内层元素上
   - [Web] `Slider` 去除默认的 margin & padding 样式
+  - [Web] `Carousel` 的 `easing` 属性类型从 string 改为 Function
   - [Web] `Flex` 清理冗余 `align` 属性值 `top / middle / bottom`
   - [RN] `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现
   - [RN] `Button` 组件 style 里 `disabledRaw` / `disabledRawText` 修改为 `defaultDisabledRaw` / `defaultDisabledRawText`

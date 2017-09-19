@@ -51,6 +51,7 @@ toc: false
   - [Web] remove `createTooltip`，which can use  [react-component/slider/createSliderWithTooltip](https://github.com/react-component/slider/blob/master/src/createSliderWithTooltip.jsx) replace
   - [Web] `Switch` api `style` change to applied with inner element
   - [Web] `Slider` remove default margin & padding style
+  - [Web] `Carousel`'s `easing` prop type changed from string to Function
   - [Web] `Flex` remove redundancy `align` value `top / middle / bottom`
   - [RN] `ActionSheet.showShareActionSheetWithOptions` rewrite with react native `Share`
   - [RN] `Button` api `style` attribute `disabledRaw` / `disabledRawText` rename to `defaultDisabledRaw` / `defaultDisabledRawText`
