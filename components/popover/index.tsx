@@ -1,5 +1,5 @@
 import React from 'react';
-import Tooltip from 'rc-tooltip';
+import Tooltip from 'rmc-tooltip';
 import Item from './Item';
 import tsPropsType from './PropsType';
 
