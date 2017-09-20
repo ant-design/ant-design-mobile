@@ -9,7 +9,8 @@ There are at most 5 tab panes in the visible area, click on the both sides of `T
 
 
 ````jsx
-import { Tabs, WhiteSpace } from 'antd-mobile';
+import { Tabs, WhiteSpace, ListView } from 'antd-mobile';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const data = [
   {
@@ -28,54 +29,137 @@ const data = [
     des: '不是所有的兼职汪都需要风吹日晒',
   },
 ];
+let index = data.length - 1;
 
-for (let i = 0; i < 47; i++) {
-  const item = data[i % 3];
-  data.push({ ...item });
+const NUM_ROWS = 20;
+let pageIndex = 0;
+
+function genData(pIndex = 0) {
+  const dataBlob = {};
+  for (let i = 0; i < NUM_ROWS; i++) {
+    const ii = (pIndex * NUM_ROWS) + i;
+    dataBlob[`${ii}`] = `row - ${ii}`;
+  }
+  return dataBlob;
 }
 
-function renderContent(tab) {
-  return (<div style={{ backgroundColor: '#fff' }}>
-    <p style={{ padding: 20, margin: 0, textAlign: 'center' }}>Content of {tab.title} {tab.max || data.length}</p>
-    {data.map((obj, i) => {
-      if (tab.max && i > tab.max) return null;
-      return (<div key={i} className="row">
-        <div className="row-title">{obj.title}</div>
-        <div style={{ display: 'flex', padding: '15px 0' }}>
-          <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="icon" />
-          <div className="row-text">
-            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
-            <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {i}</div>
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (row1, row2) => row1 !== row2,
+    });
+
+    this.state = {
+      dataSource,
+      isLoading: true,
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.rData = genData();
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
+        isLoading: false,
+      });
+    }, 600);
+  }
+
+  onEndReached = (event) => {
+    if (this.state.isLoading && !this.state.hasMore) {
+      return;
+    }
+    console.log('reach end', event);
+    this.setState({ isLoading: true });
+    setTimeout(() => {
+      this.rData = { ...this.rData, ...genData(++pageIndex) };
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(this.rData),
+        isLoading: false,
+      });
+    }, 1000);
+  }
+
+
+  renderTabBar(props) {
+    return (<Sticky style={{ zIndex: 1 }}>
+      <Tabs.DefaultTabBar {...props} />
+    </Sticky>);
+  }
+
+  render() {
+    const separator = (sectionID, rowID) => (
+      <div key={`${sectionID}-${rowID}`}
+        style={{
+          backgroundColor: '#F5F5F9',
+          height: 8,
+          borderTop: '1px solid #ECECED',
+          borderBottom: '1px solid #ECECED',
+        }}
+      />
+    );
+    const row = (rowData, sectionID, rowID) => {
+      if (index < 0) {
+        index = data.length - 1;
+      }
+      const obj = data[index--];
+      return (
+        <div key={rowID} className="row">
+          <div className="row-title">{obj.title}</div>
+          <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
+            <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="icon" />
+            <div className="row-text">
+              <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
+              <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>{rowID}</span>¥</div>
+            </div>
           </div>
         </div>
-      </div>);
-    })}
-  </div>);
+      );
+    };
+
+    const tabs = [
+      { title: '1st Tab' },
+      { title: '2nd Tab' },
+      { title: '3rd Tab' },
+      { title: '4th Tab' },
+      { title: '5th Tab' },
+      { title: '6th Tab' },
+      { title: '7th Tab' },
+      { title: '8th Tab' },
+      { title: '9th Tab' },
+    ];
+
+    return (
+      <StickyContainer>
+        <Tabs tabs={tabs}
+         renderTabBar={this.renderTabBar}
+        >
+          <ListView
+            ref={el => this.lv = el}
+            dataSource={this.state.dataSource}
+            renderHeader={() => <span>header</span>}
+            renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
+              {this.state.isLoading ? 'Loading...' : 'Loaded'}
+            </div>)}
+            renderRow={row}
+            renderSeparator={separator}
+            className="am-list"
+            pageSize={4}
+            useBodyScroll
+            onScroll={() => { console.log('scroll'); }}
+            scrollRenderAheadDistance={100}
+            scrollEventThrottle={32}
+            onEndReached={this.onEndReached}
+            onEndReachedThreshold={10}
+          />
+        </Tabs>
+      </StickyContainer>
+    );
+  }
 }
 
-const TabExample = () => (
-  <div>
-    <WhiteSpace />
-    <div style={{ height: 400 }}>
-      <Tabs tabs={[
-        { title: '1st Tab' },
-        { title: '2nd Tab', max: 5 },
-        { title: '3rd Tab', max: 20 },
-        { title: '4th Tab', max: 20 },
-        { title: '5th Tab', max: 5 },
-        { title: '6th Tab', max: 5 },
-        { title: '7th Tab', max: 5 },
-        { title: '8th Tab', max: 5 },
-        { title: '9th Tab', max: 5 },
-      ]}
-      >
-        {renderContent}
-      </Tabs>
-    </div>
-  </div>
-);
-
-ReactDOM.render(<TabExample />, mountNode);
+ReactDOM.render(<Demo />, mountNode);
 ````
 ````css
 .row {
