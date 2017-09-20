@@ -107,7 +107,7 @@ class Demo extends React.Component {
       return (
         <div key={rowID} className="row">
           <div className="row-title">{obj.title}</div>
-          <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
+          <div style={{ display: 'flex', padding: '15px 0' }}>
             <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="icon" />
             <div className="row-text">
               <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
@@ -131,30 +131,33 @@ class Demo extends React.Component {
     ];
 
     return (
-      <StickyContainer>
-        <Tabs tabs={tabs}
-         renderTabBar={this.renderTabBar}
-        >
-          <ListView
-            ref={el => this.lv = el}
-            dataSource={this.state.dataSource}
-            renderHeader={() => <span>header</span>}
-            renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-              {this.state.isLoading ? 'Loading...' : 'Loaded'}
-            </div>)}
-            renderRow={row}
-            renderSeparator={separator}
-            className="am-list"
-            pageSize={4}
-            useBodyScroll
-            onScroll={() => { console.log('scroll'); }}
-            scrollRenderAheadDistance={100}
-            scrollEventThrottle={32}
-            onEndReached={this.onEndReached}
-            onEndReachedThreshold={10}
-          />
-        </Tabs>
-      </StickyContainer>
+      <div>
+        <WhiteSpace />
+        <StickyContainer>
+          <Tabs tabs={tabs}
+            renderTabBar={this.renderTabBar}
+          >
+            <ListView
+              ref={el => this.lv = el}
+              dataSource={this.state.dataSource}
+              renderHeader={() => <span>header</span>}
+              renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
+                {this.state.isLoading ? 'Loading...' : 'Loaded'}
+              </div>)}
+              renderRow={row}
+              renderSeparator={separator}
+              className="am-list"
+              pageSize={4}
+              useBodyScroll
+              onScroll={() => { console.log('scroll'); }}
+              scrollRenderAheadDistance={100}
+              scrollEventThrottle={32}
+              onEndReached={this.onEndReached}
+              onEndReachedThreshold={10}
+            />
+          </Tabs>
+        </StickyContainer>
+      </div>
     );
   }
 }
