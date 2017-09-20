@@ -119,7 +119,7 @@ export default class App extends React.Component {
           <div className="am-demo-bd">
             {
               Object.keys(lists)
-                .sort((a, b) => sort(config.categoryOrder[a], config.categoryOrder[b]))
+                .sort((a, b) => config.categoryOrder.indexOf(a) - config.categoryOrder.indexOf(b))
                 .map((cate, index) => (lists[cate].length ? (
                   <List
                     key={`${cate}-${index}`}

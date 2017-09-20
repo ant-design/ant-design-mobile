@@ -99,11 +99,10 @@ export default class MainContent extends React.Component {
   }
 
   generateSubMenuItems(obj) {
-    const { themeConfig } = this.props;
-    const { categoryOrder } = themeConfig;
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
-      .sort((a, b) => categoryOrder[a] - categoryOrder[b])
+      .sort((a, b) =>
+        this.props.themeConfig.categoryOrder.indexOf(a) - this.props.themeConfig.categoryOrder.indexOf(b))
       .map((type, index) => {
         const groupItems = obj[type].sort((a, b) => (
           (a.title || a.english).charCodeAt(0) - (b.title || b.english).charCodeAt(0)
@@ -134,7 +133,8 @@ export default class MainContent extends React.Component {
     const menuItems = utils.getMenuItems(moduleData);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
-      .sort((a, b) => this.props.themeConfig.categoryOrder[a] - this.props.themeConfig.categoryOrder[b])
+      .sort((a, b) =>
+        this.props.themeConfig.categoryOrder.indexOf(a) - this.props.themeConfig.categoryOrder.indexOf(b))
       .map((category) => {
         const subMenuItems = this.generateSubMenuItems(menuItems[category]);
         return (
