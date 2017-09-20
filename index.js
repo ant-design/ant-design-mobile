@@ -6,4 +6,5 @@ req.keys().forEach((mod) => {
   req(mod);
 });
 
+// build for `dist/antd-mobile.js`
 module.exports = require('./components/index');
