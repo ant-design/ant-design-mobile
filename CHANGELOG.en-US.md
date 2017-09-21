@@ -24,9 +24,10 @@ toc: false
   - [Web] `DatePicker` Add `use12Hours`, support 12-hour am/pm format  ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
   - [Web] `Button` Support `disabled` style for diffrent `type`.
   - [Web] `Modal.alert / Modal.prompt / Modal.opeartion` add optional `platform` api, support switch between android and ios design.
+  - [Web]`Grid` add `square` api, support both square mode and auto height mode.
+  - [Web] `Grid` add `activeClassName`, `activeStyle` api, support custom touch feedback style
   - Add `DatePickerView` ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - Add `Calendar` ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
-  - `Grid` add `square` api, support both square mode and auto height mode.
 
 - **Break Change**
 

@@ -24,5 +24,7 @@ Properties | Description | Type | Default
 | carouselMaxRow    |   the max number of rows to be showed each page of the Carousel   | number  | `2` |
 | renderItem    |   custom function to create each grid item   | (el, index) => React.Node  | - |
 | square (`Web Only`)   |   whether each item restrict to a square   | boolean | true |
+| activeStyle(`Web Only`) | the feedback's custom style (set to false to disable click feedback) | {}/false | {} |
+| activeClassName(`Web Only`)  | the feedback's custom class name | string |  |
 
 When `isCarousel = true`, the APIs of [carousel](https://mobile.ant.design/components/carousel) also can be delivered.
