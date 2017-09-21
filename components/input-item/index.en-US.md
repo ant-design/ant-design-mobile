@@ -44,6 +44,8 @@ Properties | Descrition | Type | Default
 
 > More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
 
+> Note: `InputItem` does not support negative number if `type` is text, you can use `type=text` to do that.
+
 ## InputItem methods
 
 Property | Description | Type | Default

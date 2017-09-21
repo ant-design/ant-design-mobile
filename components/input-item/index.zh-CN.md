@@ -47,6 +47,8 @@ subtitle: 文本输入
 
 > 更多 react-native `InputItem` 属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
 
+> 注意: `InputItem` 当 `type=number` 时不支持输入负号, 你可以利用 `type=text` 来自己实现。
+
 ## InputItem methods
 
 Property | Description | Type | Default
