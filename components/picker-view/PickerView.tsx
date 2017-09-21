@@ -25,6 +25,7 @@ export interface IPickerView {
   data?: any;
   styles?: any;
   onChange?: (value?) => void;
+  onScrollChange?: (value?) => void;
   indicatorStyle?: any;
   itemStyle?: any;
 }
@@ -65,6 +66,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
           data={props.data}
           value={props.value}
           onChange={props.onChange}
+          onScrollChange={props.onScrollChange}
           cols={props.cols}
           indicatorStyle={props.indicatorStyle}
           pickerItemStyle={props.itemStyle}
@@ -76,6 +78,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
           prefixCls={props.prefixCls}
           selectedValue={props.value}
           onValueChange={props.onChange}
+          onScrollChange={props.onScrollChange}
           style={{ flexDirection: 'row' }}
         >
           {this.getCol()}

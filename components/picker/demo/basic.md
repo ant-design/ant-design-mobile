@@ -143,6 +143,7 @@ class Test extends React.Component {
           extra="请选择(可选)"
           value={this.state.sValue}
           onChange={v => this.setState({ sValue: v })}
+          onOk={v => this.setState({ sValue: v })}
         >
           <List.Item arrow="horizontal">Multiple</List.Item>
         </Picker>
@@ -154,6 +155,7 @@ class Test extends React.Component {
           cols={this.state.cols}
           value={this.state.asyncValue}
           onPickerChange={this.onPickerChange}
+          onOk={v => console.log(v)}
         >
           <List.Item arrow="horizontal" onClick={this.onClick}>Multiple & Async</List.Item>
         </Picker>
@@ -163,6 +165,7 @@ class Test extends React.Component {
           data={district}
           value={this.state.pickerValue}
           onChange={v => this.setState({ pickerValue: v })}
+          onOk={v => this.setState({ pickerValue: v })}
         >
           <CustomChildren>Customized Children</CustomChildren>
         </Picker>

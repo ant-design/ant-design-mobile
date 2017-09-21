@@ -54,7 +54,7 @@
     "rmc-input-number": "^0.1.5",
     "rmc-list-view": "^0.8.4",
     "rmc-nuka-carousel": "^3.0.0-alpha.1",
-    "rmc-picker": "~5.0.0-alpha.5",
+    "rmc-picker": "~5.0.0-alpha.6",
     "rmc-tabs": "~1.2.0",
     "rmc-tooltip": "~1.0.0",
     "rn-topview": "~0.1.0",

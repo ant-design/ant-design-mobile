@@ -33,6 +33,7 @@ export function getDefaultProps() {
 
 export default abstract class AbstractPicker extends React.Component<PickerPropsType, any> {
   protected abstract popupProps: {};
+  private scrollValue: any;
 
   getSel = () => {
     const value = this.props.value || [];
@@ -73,10 +74,31 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
       );
     });
   }
+
+  onOk = (v: any) => {
+    if (this.scrollValue !== undefined) {
+      v = this.scrollValue;
+    }
+    if (this.props.onChange) {
+      this.props.onChange(v);
+    }
+    if (this.props.onOk) {
+      this.props.onOk(v);
+    }
+  }
+
+  setScrollValue = (v: any) => {
+    this.scrollValue = v;
+  }
+
+  fixOnOk = (cascader: any) => {
+    cascader.onOk = this.onOk;
+  }
+
   render() {
     const {
       children, value = [], extra, okText, dismissText, popupPrefixCls, itemStyle, indicatorStyle,
-      cascade, prefixCls, pickerPrefixCls, data, cols, onPickerChange, ...restProps,
+      cascade, prefixCls, pickerPrefixCls, data, cols, onPickerChange, onOk, ...restProps,
     } = this.props;
 
     let cascader;
@@ -89,6 +111,7 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
           data={data}
           cols={cols}
           onChange={onPickerChange}
+          onScrollChange={this.setScrollValue}
           pickerItemStyle={itemStyle}
           indicatorStyle={indicatorStyle}
         />
@@ -98,6 +121,7 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
         <RMCMultiPicker
           style={{ flexDirection: 'row', alignItems: 'center' }}
           prefixCls={prefixCls}
+          onScrollChange={this.setScrollValue}
         >
           {this.getPickerCol()}
         </RMCMultiPicker>
@@ -117,6 +141,7 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
         dismissText={dismissText}
         okText={okText}
         {...popupMoreProps}
+        ref={this.fixOnOk}
       >
         {children && React.cloneElement(children, { extra: this.getSel() || extra })}
       </RMCPopupCascader>
