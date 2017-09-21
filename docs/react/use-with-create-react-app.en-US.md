@@ -36,9 +36,61 @@ $ yarn start
 
 ## Integrate antd-mobile
 
-[See here for details](/docs/react/introduce#Getting-Started)
 
-> generate the customized configration boilerplate: `yarn run eject`
+- **Basic run：**
+
+  Settings entry html page（`web only`），see [Entry html page settings](/docs/react/introduce#Web-usage)
+
+  > Note：you need to run `yarn run eject` before customzing configurations for, more ref  [antd-mobile-samples/create-react-app](https://github.com/ant-design/antd-mobile-samples/tree/1.x/create-react-app)
+
+- **Use modularized antd-mobile：**
+
+  1. Import [react-app-rewired](https://github.com/timarney/react-app-rewired) and modify the `scripts` field in package.json.
+
+    ```bash
+    $ yarn add react-app-rewired --dev
+    ```
+
+    ```diff
+    /* package.json */
+    "scripts": {
+    -   "start": "react-scripts start",
+    +   "start": "react-app-rewired start",
+    -   "build": "react-scripts build",
+    +   "build": "react-app-rewired build",
+    -   "test": "react-scripts test --env=jsdom",
+    +   "test": "react-app-rewired test --env=jsdom",
+    }
+    ```
+
+  2. Then create a `config-overrides.js` at root directory of your project for futher overriding.
+
+    ```js
+    module.exports = function override(config, env) {
+      // do stuff with the webpack config...
+      return config;
+    };
+    ```
+
+  3. Use babel-plugin-import, [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand（[How does it work?](https://ant.design/docs/react/getting-started#Import-on-Demand)），We are now trying to install it and modify config-overrides.js.
+
+    ```bash
+    yarn add babel-plugin-import --dev
+    ```
+
+    ```diff
+    + const { injectBabelPlugin } = require('react-app-rewired');
+      module.exports = function override(config, env) {
+    +   config = injectBabelPlugin(['import', { libraryName: 'antd', style: 'css' }], config);
+        return config;
+      };
+    ```
+  4. change importation like below:
+
+    ```diff
+    - import Button from 'antd/lib/button';
+    + import { Button } from 'antd';
+    ```
 
 ## Complete example
 
