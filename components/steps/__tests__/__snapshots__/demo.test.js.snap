@@ -13,140 +13,107 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     class="am-whitespace am-whitespace-md"
   />
   <div
-    class="am-steps am-steps-small am-steps-vertical am-steps-hidden"
+    class="am-steps am-steps-vertical am-steps-small"
   >
     <div
-      class="am-steps-item am-steps-status-finish am-steps-custom"
+      class="am-steps-item am-steps-item-finish am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-check-circle-o am-icon-xs"
+          >
+            <use
+              xlink:href="#check-circle-o"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-check-circle-o am-icon-md"
-              >
-                <use
-                  xlink:href="#check-circle-o"
-                />
-              </svg>
-            </span>
-          </div>
+          Finished
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Finished
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-process"
+      class="am-steps-item am-steps-item-process"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          2
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              2
-            </span>
-          </div>
+          In Progress
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            In Progress
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-ellipsis am-icon-xs"
+          >
+            <use
+              xlink:href="#ellipsis"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-ellipsis am-icon-md"
-              >
-                <use
-                  xlink:href="#ellipsis"
-                />
-              </svg>
-            </span>
-          </div>
+          Waiting
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Waiting
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
@@ -160,125 +127,92 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     class="am-whitespace am-whitespace-md"
   />
   <div
-    class="am-steps am-steps-small am-steps-vertical am-steps-hidden"
+    class="am-steps am-steps-vertical am-steps-small"
   >
     <div
-      class="am-steps-item am-steps-status-finish am-steps-custom"
+      class="am-steps-item am-steps-item-finish am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-check-circle-o am-icon-xs"
+          >
+            <use
+              xlink:href="#check-circle-o"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-check-circle-o am-icon-md"
-              >
-                <use
-                  xlink:href="#check-circle-o"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Finished
-          </div>
+          Finished
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-process"
+      class="am-steps-item am-steps-item-process"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          2
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              2
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            In Progress
-          </div>
+          In Progress
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-ellipsis am-icon-xs"
+          >
+            <use
+              xlink:href="#ellipsis"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-ellipsis am-icon-md"
-              >
-                <use
-                  xlink:href="#ellipsis"
-                />
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Waiting
-          </div>
+          Waiting
         </div>
       </div>
     </div>
@@ -292,140 +226,107 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     class="am-whitespace am-whitespace-lg"
   />
   <div
-    class="am-steps am-steps-vertical am-steps-hidden"
+    class="am-steps am-steps-vertical"
   >
     <div
-      class="am-steps-item am-steps-status-process error-tail"
+      class="am-steps-item am-steps-item-process error-tail"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          1
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              1
-            </span>
-          </div>
+          Finished
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Finished
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-error am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-item-error ellipsis-item am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-cross-circle-o am-icon-md"
+          >
+            <use
+              xlink:href="#cross-circle-o"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-cross-circle-o am-icon-md"
-              >
-                <use
-                  xlink:href="#cross-circle-o"
-                />
-              </svg>
-            </span>
-          </div>
+          Error
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Error
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-ellipsis am-icon-md"
+          >
+            <use
+              xlink:href="#ellipsis"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-ellipsis am-icon-md"
-              >
-                <use
-                  xlink:href="#ellipsis"
-                />
-              </svg>
-            </span>
-          </div>
+          Waiting
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Waiting
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
@@ -439,167 +340,134 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     class="am-whitespace am-whitespace-lg"
   />
   <div
-    class="am-steps am-steps-vertical am-steps-hidden"
+    class="am-steps am-steps-vertical"
   >
     <div
-      class="am-steps-item am-steps-status-finish am-steps-custom"
+      class="am-steps-item am-steps-item-finish am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 1
-          </div>
+          Step 1
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-process am-steps-custom error-tail"
+      class="am-steps-item am-steps-item-process error-tail am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 2
-          </div>
+          Step 2
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-error am-steps-custom"
+      class="am-steps-item am-steps-item-error am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 3
-          </div>
+          Step 3
         </div>
       </div>
     </div>
@@ -613,182 +481,149 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     class="am-whitespace am-whitespace-lg"
   />
   <div
-    class="am-steps am-steps-vertical am-steps-hidden"
+    class="am-steps am-steps-vertical"
   >
     <div
-      class="am-steps-item am-steps-status-finish am-steps-custom"
+      class="am-steps-item am-steps-item-finish am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
+          Step 1
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Step 1
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-process am-steps-custom"
+      class="am-steps-item am-steps-item-process am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
+          Step 2
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Step 2
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-wait am-steps-custom"
+      class="am-steps-item am-steps-item-wait am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
+          Step 3
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Step 3
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
@@ -802,221 +637,177 @@ exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
     class="am-whitespace am-whitespace-lg"
   />
   <div
-    class="am-steps am-steps-vertical am-steps-hidden"
+    class="am-steps am-steps-vertical"
   >
     <div
-      class="am-steps-item am-steps-status-finish am-steps-custom"
+      class="am-steps-item am-steps-item-finish am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 1
-          </div>
+          Step 1
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-process am-steps-custom error-tail"
+      class="am-steps-item am-steps-item-process error-tail am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 2
-          </div>
+          Step 2
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-error am-steps-custom"
+      class="am-steps-item am-steps-item-error am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 3
-          </div>
+          Step 3
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-wait am-steps-custom"
+      class="am-steps-item am-steps-item-wait am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-md"
-                viewbox="0 0 42 42"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill-rule="evenodd"
-                  stroke="transparent"
-                  stroke-width="4"
-                >
-                  <path
-                    d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-                  />
-                  <path
-                    d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                    fill="#FFF"
-                  />
-                </g>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 4
-          </div>
+          Step 4
         </div>
       </div>
     </div>
@@ -1037,142 +828,107 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     class="am-whitespace am-whitespace-md"
   />
   <div
-    class="am-steps am-steps-small am-steps-horizontal am-steps-label-vertical am-steps-hidden"
+    class="am-steps am-steps-horizontal am-steps-small am-steps-label-vertical"
   >
     <div
-      class="am-steps-item am-steps-status-finish am-steps-custom"
-      style="margin-right:-1px;"
+      class="am-steps-item am-steps-item-finish am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:1px;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-check-circle-o am-icon-xs"
+          >
+            <use
+              xlink:href="#check-circle-o"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-check-circle-o am-icon-md"
-              >
-                <use
-                  xlink:href="#check-circle-o"
-                />
-              </svg>
-            </span>
-          </div>
+          Finished
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Finished
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-process"
-      style="margin-right:-1px;"
+      class="am-steps-item am-steps-item-process"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:1px;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          2
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              2
-            </span>
-          </div>
+          In Progress
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            In Progress
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-ellipsis am-icon-xs"
+          >
+            <use
+              xlink:href="#ellipsis"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-ellipsis am-icon-md"
-              >
-                <use
-                  xlink:href="#ellipsis"
-                />
-              </svg>
-            </span>
-          </div>
+          Waiting
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Waiting
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
@@ -1186,142 +942,107 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     class="am-whitespace am-whitespace-md"
   />
   <div
-    class="am-steps am-steps-horizontal am-steps-label-vertical am-steps-hidden"
+    class="am-steps am-steps-horizontal am-steps-label-vertical"
   >
     <div
-      class="am-steps-item am-steps-status-finish am-steps-custom"
-      style="margin-right:-1px;"
+      class="am-steps-item am-steps-item-finish am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:1px;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-check-circle-o am-icon-md"
+          >
+            <use
+              xlink:href="#check-circle-o"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-check-circle-o am-icon-md"
-              >
-                <use
-                  xlink:href="#check-circle-o"
-                />
-              </svg>
-            </span>
-          </div>
+          Finished
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Finished
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-process"
-      style="margin-right:-1px;"
+      class="am-steps-item am-steps-item-process"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:1px;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          2
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              2
-            </span>
-          </div>
+          In Progress
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            In Progress
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-wait am-steps-custom ellipsis-item"
+      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-ellipsis am-icon-md"
+          >
+            <use
+              xlink:href="#ellipsis"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <svg
-                class="am-icon am-icon-ellipsis am-icon-md"
-              >
-                <use
-                  xlink:href="#ellipsis"
-                />
-              </svg>
-            </span>
-          </div>
+          Waiting
         </div>
         <div
-          class="am-steps-main"
+          class="am-steps-item-description"
         >
-          <div
-            class="am-steps-title"
-          >
-            Waiting
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            This is description
-          </div>
+          This is description
         </div>
       </div>
     </div>
@@ -1335,270 +1056,134 @@ exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
     class="am-whitespace am-whitespace-md"
   />
   <div
-    class="am-steps am-steps-horizontal am-steps-label-vertical am-steps-hidden"
+    class="am-steps am-steps-horizontal am-steps-label-vertical"
   >
     <div
-      class="am-steps-item am-steps-status-process am-steps-custom error-tail"
-      style="margin-right:-1px;"
+      class="am-steps-item am-steps-item-process error-tail am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:1px;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <img
-                alt="icon"
-                class="am-icon am-icon-md"
-                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
-              />
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 1
-          </div>
+          Step 1
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-error am-steps-custom"
-      style="margin-right:-1px;"
+      class="am-steps-item am-steps-item-error am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:1px;"
+        class="am-steps-item-tail"
+      />
+      <div
+        class="am-steps-item-icon"
       >
-        <i />
+        <span
+          class="am-steps-icon"
+        >
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
+            >
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              />
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <img
-                alt="icon"
-                class="am-icon am-icon-md"
-                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
-              />
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 2
-          </div>
+          Step 2
         </div>
       </div>
     </div>
     <div
-      class="am-steps-item am-steps-status-wait am-steps-custom"
+      class="am-steps-item am-steps-item-wait am-steps-item-custom"
     >
       <div
-        class="am-steps-tail"
-        style="padding-right:0;"
-      >
-        <i />
-      </div>
+        class="am-steps-item-tail"
+      />
       <div
-        class="am-steps-step"
+        class="am-steps-item-icon"
       >
-        <div
-          class="am-steps-head"
+        <span
+          class="am-steps-icon"
         >
-          <div
-            class="am-steps-head-inner"
+          <svg
+            class="am-icon am-icon-md"
+            viewbox="0 0 42 42"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <span
-              class="am-steps-icon"
+            <g
+              fill-rule="evenodd"
+              stroke="transparent"
+              stroke-width="4"
             >
-              <img
-                alt="icon"
-                class="am-icon am-icon-md"
-                src="https://gw.alipayobjects.com/zos/rmsportal/hsDpIpVTdVdhfvcLseyy.svg"
+              <path
+                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
               />
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Step 3
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="sub-title"
-  >
-    Horizontal timeline mode
-  </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  />
-  <div
-    class="am-steps am-steps-small am-steps-horizontal am-steps-label-vertical am-steps-hidden timeline"
-  >
-    <div
-      class="am-steps-item am-steps-status-wait am-steps-custom"
-      style="margin-right:-1px;"
-    >
-      <div
-        class="am-steps-tail"
-        style="padding-right:1px;"
-      >
-        <i />
-      </div>
-      <div
-        class="am-steps-step"
-      >
-        <div
-          class="am-steps-head"
-        >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <span
-                class="fake-icon"
+              <path
+                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
+                fill="#FFF"
               />
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Now
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            Buy
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-status-wait am-steps-custom"
-      style="margin-right:-1px;"
-    >
-      <div
-        class="am-steps-tail"
-        style="padding-right:1px;"
-      >
-        <i />
+            </g>
+          </svg>
+        </span>
       </div>
       <div
-        class="am-steps-step"
+        class="am-steps-item-content"
       >
         <div
-          class="am-steps-head"
+          class="am-steps-item-title"
         >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <span
-                class="fake-icon"
-              />
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Nov. 3rd
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            Buy success
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-status-wait am-steps-custom"
-    >
-      <div
-        class="am-steps-tail"
-        style="padding-right:0;"
-      >
-        <i />
-      </div>
-      <div
-        class="am-steps-step"
-      >
-        <div
-          class="am-steps-head"
-        >
-          <div
-            class="am-steps-head-inner"
-          >
-            <span
-              class="am-steps-icon"
-            >
-              <span
-                class="fake-icon"
-              />
-            </span>
-          </div>
-        </div>
-        <div
-          class="am-steps-main"
-        >
-          <div
-            class="am-steps-title"
-          >
-            Nov. 4th
-          </div>
-          <div
-            class="am-steps-description"
-          >
-            Profit arrival
-          </div>
+          Step 3
         </div>
       </div>
     </div>

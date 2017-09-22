@@ -1,0 +1,50 @@
+@import 'variables';
+
+.@{stepsPrefixCls}-small {
+  .@{stepsPrefixCls}-item-icon {
+    width: @smallIconSize;
+    height: @smallIconSize;
+    line-height: @smallIconSize;
+    text-align: center;
+    border-radius: @smallIconSize;
+    font-size: @font-size-base;
+    margin-right: @h-spacing-md;
+    > .@{stepsPrefixCls}-icon {
+      font-size: @font-size-caption-sm;
+      transform: scale(.75);
+      top: -2 * @hd;
+    }
+  }
+  .@{stepsPrefixCls}-item-content {
+    margin-top: 0;
+  }
+  .@{stepsPrefixCls}-item-title {
+    font-size: @font-size-caption;
+    margin-bottom: @v-spacing-xs;
+    color: @color-text-base;
+    font-weight: bold;
+  }
+  .@{stepsPrefixCls}-item-description {
+    font-size: @font-size-caption-sm;
+    color: @color-text-placeholder;
+  }
+  .@{stepsPrefixCls}-item-tail {
+    top: 8 * @hd;
+    padding: 0 8 * @hd;
+    &:after {
+      height: 1 * @hd;
+      border-radius: 1 * @hd;
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  .@{stepsPrefixCls}-item-custom .@{stepsPrefixCls}-item-icon {
+    background: none;
+    > .@{stepsPrefixCls}-icon {
+      font-size: @smallIconSize;
+      top: -2 * @hd;
+      transform: none;
+    }
+  }
+}

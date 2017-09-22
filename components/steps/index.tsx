@@ -1,5 +1,5 @@
 import React from 'react';
-import RcSteps from 'rc-steps';
+import RcSteps from 'rmc-steps';
 import Icon from '../icon';
 
 export interface StepsProps {
@@ -42,7 +42,7 @@ export default class Steps extends React.Component<StepsProps, any> {
   }
   render() {
     this.stepRefs = [];
-    const { children, status } = this.props;
+    const { children, status, size  } = this.props;
     const current = this.props.current as number;
     // flattern the array at first https://github.com/ant-design/ant-design-mobile/issues/934
     let newChildren: Array<any> = React.Children.map(children, item => item);
@@ -66,7 +66,9 @@ export default class Steps extends React.Component<StepsProps, any> {
           icon = 'cross-circle-o';
         }
       }
-      icon = typeof icon === 'string' ? <Icon type={icon} /> : icon;
+      icon = typeof icon === 'string' ? (
+        <Icon type={icon} size={size === 'small' ? (status === 'wait' ? 'xxs' : 'xs') : 'md'} />
+      ) : icon;
       return React.cloneElement(item, { icon, className, ref: c => this.stepRefs[index] = c });
     });
     return <RcSteps ref={el => this.stepsRef = el} {...this.props}>{newChildren}</RcSteps>;

@@ -33,6 +33,7 @@ subtitle: 步骤条
 |----------|------------------------------------------|-------------|-------|
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |
 | size | 尺寸，支持设置小尺寸`small` | string | - |
+| status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |
 | direction | step 样式( RN 目前只支持 vertical )   |  Enum { 'vertical', 'horizontal' } | `vertical`  |
 
 ### Steps.Step
