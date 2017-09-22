@@ -138,7 +138,8 @@ class App extends React.Component {
   };
 
   scrollingComplete = () => {
-    if (this.scrollerTop >= 0) {
+    // In general, this.scrollerTop should be 0 at the end, but it may be -0.000051 in chrome61.
+    if (this.scrollerTop >= -1) {
       this.setState({ showFinishTxt: false });
     }
   }
