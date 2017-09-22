@@ -80,7 +80,7 @@ ListView 有三种类型的滚动容器：
 3. 使用 [zscroller](https://github.com/yiminghe/zscroller) 的模拟滚动容器
     - 设置`useZscroller`后生效，然后可以设置`scrollerOptions` (需要手动给 ListView 设置高度)
 
------
+<br />
 
 对 dataSource 对象变化时的处理方式是什么？何时调用 onEndReached 方法？
 
@@ -91,6 +91,6 @@ ListView 在 componentWillReceiveProps 里会监听 dataSource 对象的变化�
 
 onEndReached 为什么会不停调用？[520#issuecomment-263510596](https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596)
 
------
+<br />
 
 其他问题：[#633](https://github.com/ant-design/ant-design-mobile/issues/633) [#573](https://github.com/ant-design/ant-design-mobile/issues/573) [#541](https://github.com/ant-design/ant-design-mobile/issues/541)
