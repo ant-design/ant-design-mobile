@@ -38,9 +38,12 @@ title: 升级指南
 
 如何升级？
 
+分如下两种情况，如果只需要支持下面第 1 种使用场景，可以删除掉原有的 `svg-sprite-loader` 相关配置。
+如果还想继续支持下面第 2 种使用场景，请仍然保留 1.x 中 svg 相关的配置不变。
+
 1. 对于原有代码中 `<Icon type="loading" />` 此类传入字符串的 icon 名称的使用场景，无需任何修改，仍然支持 (具体支持哪些 icon name, 请查阅 [文档](http://beta.mobile.ant.design/components/icon-cn))。
 
-2. 对于原有代码有 `<Icon type={require('../foo.svg')} />` 如何升级 ？ 建议用一个自定义的 `AntdMobileOldIcon` 组件替换 antd-mobile `Icon`, 可直接 copy 如下的代码：
+2. 对于原有代码有 `<Icon type={require('../foo.svg')} />` 如何升级 ？ 建议用一个自定义的 `CustomIcon` 组件替换 antd-mobile `Icon`, 可直接 copy 如下的代码：
 
 ```jsx
 // 原来的使用方式

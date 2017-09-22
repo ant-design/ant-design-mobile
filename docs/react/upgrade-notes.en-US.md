@@ -35,6 +35,10 @@ How to upgrade?
 
 In 2.0, `Icon.props.type` no longer support require a locale svg file，only can accept a  `string` which represent icon name.
 
+How to upgrade?
+
+See the following two examples, if you only need case 1, you are fine to delete all `svg-sprite-loader` relative staff. If you still need support case 2, please leave the original configuration unchanged.
+
 1. If you previously use Icon like this way： `<Icon type="loading" />`, no need to do any change. ( As for how many icon names are supported, see [Icon Doc](http://beta.mobile.ant.design/components/icon))。
 
 2.  If you previously use Icon like this way： `<Icon type={require('../foo.svg')} />`. Suggest you follow below solution:
