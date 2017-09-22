@@ -41,7 +41,7 @@ subtitle: 长列表
 | useBodyScroll (`web only`) | 使用 html 的 `body` 作为滚动容器 | bool | false |
 | useZscroller (`web only`) | 使用 [zscroller](https://github.com/yiminghe/zscroller) 来模拟实现滚动容器 (可用于一些低端 Android 机上)，注意：开启后`useBodyScroll`和`stickyHeader`设置会自动被忽略 | bool | false |
 | scrollerOptions (`web only`) | [zscroller options](https://github.com/yiminghe/zscroller#options) | Object | - |
-| stickyHeader (`web only`) | 固定区块标题到页面顶部 (注意: 设置后会自动使用 html 的 `body` 作为滚动容器)，启用后还可以设置 `stickyProps / stickyContainerProps` (详见 [react-sticky](https://github.com/captivationsoftware/react-sticky)) | bool | false |
+| stickyHeader (`web only`) | 固定区块标题到页面顶部 (注意: 设置后会自动开启`useBodyScroll`)，启用后还可以设置 `stickyProps / stickyContainerProps` (详见 [react-sticky](https://github.com/captivationsoftware/react-sticky)) | bool | false |
 
 ### 方法
 
@@ -69,7 +69,18 @@ subtitle: 长列表
 | delayActivityIndicator | 延迟渲染的 loading 指示器 | react node | - |
 
 
-## 常见问题与实现原理
+## 提示
+
+ListView 有三种类型的滚动容器：
+
+1. 局部 div 容器
+    - 默认，注意：**需要手动给 ListView 设置高度**
+2. html 的 body 容器
+    - 设置`useBodyScroll`或`stickyHeader`后生效 (不需要设置高度)
+3. 使用 [zscroller](https://github.com/yiminghe/zscroller) 的模拟滚动容器
+    - 设置`useZscroller`后生效，然后可以设置`scrollerOptions` (需要手动给 ListView 设置高度)
+
+-----
 
 对 dataSource 对象变化时的处理方式是什么？何时调用 onEndReached 方法？
 
@@ -79,5 +90,7 @@ ListView 在 componentWillReceiveProps 里会监听 dataSource 对象的变化�
 即已经渲染的数据与 dataSource 里已有的数据项个数相同，所以 ListView 认为应该再调用 onEndReached 方法。
 
 onEndReached 为什么会不停调用？[520#issuecomment-263510596](https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596)
+
+-----
 
 其他问题：[#633](https://github.com/ant-design/ant-design-mobile/issues/633) [#573](https://github.com/ant-design/ant-design-mobile/issues/573) [#541](https://github.com/ant-design/ant-design-mobile/issues/541)

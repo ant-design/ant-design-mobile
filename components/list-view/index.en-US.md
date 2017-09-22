@@ -11,7 +11,7 @@ It is suitable for displaying the long list data type of the same kind, and has 
 
 Support WEB, React-Native(`DEPRECATED`).
 
-Note: **React Native [ListView](https://facebook.github.io/react-native/docs/listview.html#content) has been marked with `DEPRECATED` now.** Because we import `ListView` from 'react-native' directly inside, so we will also discard it.
+Note: **React Native [ListView](https://facebook.github.io/react-native/docs/listview.html#content) has been marked with `DEPRECATED` now.** Because we import `ListView` from 'react-native' directly inside, so we will also do not recommend using RN version's ListView.
 
 
 Properties | Descrition | Type | Default
@@ -67,3 +67,15 @@ Properties | Descrition | Type | Default
 | showQuickSearchIndicator | whether show quick search indicator | bool | false |
 | delayTime | delay rendering time setting (for the first screen optimization, the initial rendering of the number of `initialListSize` data, after which time rendering the remaining data items, ie `totalRowCount - initialListSize`) | number |`100ms` |
 | delayActivityIndicator | the loading indicator for delayed rendering. | react node | - |
+
+
+## Tips
+
+ListView has three types of scroll containers:
+
+1. Partial div container
+    - default, note: **need to manually set the height of the ListView**
+2. html body container
+    - set `useBodyScroll` or `stickyHeader` to take effect (do not need to set height)
+3. Use [zscroller](https://github.com/yiminghe/zscroller) to simulate the rolling container
+    - set `useZscroller` to take effect, then you can set `scrollerOptions` (need to manually set the height of the ListView)
