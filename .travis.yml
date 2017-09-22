@@ -8,6 +8,9 @@ language: node_js
 notifications:
   email:
   - hust2012jiangkai@gmail.com
+  - hualei5280@gmail.com
+  - zhang740@qq.com
+  - rjmuqiang@gmail.com
 
 node_js:
   - "6"
