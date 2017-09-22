@@ -48,20 +48,19 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     };
 
     let Decorators: any[] = [];
-    const { selectedIndex: current } = this.state;
 
     if (dots) {
       Decorators = [{
-        component: ({ slideCount, slidesToScroll }) => {
+        component: ({ slideCount, slidesToScroll, currentSlide }) => {
           const arr: number[] = [];
           for (let i = 0; i < slideCount; i += slidesToScroll) {
             arr.push(i);
           }
           const dotDom = arr.map(index => {
             const dotCls = classnames(`${prefixCls}-wrap-dot`, {
-              [`${prefixCls}-wrap-dot-active`]: index === current,
+              [`${prefixCls}-wrap-dot-active`]: index === currentSlide,
             });
-            const _dotStyle = index === current ? dotActiveStyle : dotStyle;
+            const _dotStyle = index === currentSlide ? dotActiveStyle : dotStyle;
             return (
               <div className={dotCls} key={index}>
                 <span style={_dotStyle} />
