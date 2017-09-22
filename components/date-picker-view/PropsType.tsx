@@ -6,6 +6,7 @@ interface DatePickerProps {
   maxDate?: any;
   onChange?: (x: any) => void;
   onValueChange?: (vals: any, index: number) => void;
+  onScrollChange?: (newValue: any, vals: any, index: number) => void;
   locale?: any;
   minuteStep?: number;
   use12Hours?: boolean; // web only

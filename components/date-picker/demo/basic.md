@@ -47,7 +47,11 @@ class Test extends React.Component {
     visible: false,
   }
   onChange = (date) => {
+    console.log('onChange', date);
     this.setState({ date });
+  }
+  onOk = (date) => {
+    console.log('onOk', date);
   }
   onConditionSelect = (date) => {
     if (date.getMinutes() === 15) {

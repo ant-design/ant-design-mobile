@@ -46,6 +46,7 @@ export default class DatePickerView extends React.Component<tsPropsType, any> {
         date={props.value || getDefaultDate(this.props)}
         onDateChange={props.onChange}
         onValueChange={props.onValueChange}
+        onScrollChange={props.onScrollChange}
       />
     );
   }

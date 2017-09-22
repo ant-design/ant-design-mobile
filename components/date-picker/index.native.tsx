@@ -10,6 +10,7 @@ import { getComponentLocale } from '../_util/getLocale';
 
 export interface IDatePickerNativeProps extends tsPropsType {
   styles?: IPickerStyle;
+  triggerTypes?: string;
 }
 
 const PickerStyles = StyleSheet.create<any>(PickerStyle);
