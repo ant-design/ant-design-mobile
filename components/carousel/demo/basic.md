@@ -15,7 +15,7 @@ import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
 class App extends React.Component {
   state = {
     data: ['', '', ''],
-    initialHeight: 200,
+    initialHeight: 176,
   }
   componentDidMount() {
     // simulate img loading
@@ -42,8 +42,8 @@ class App extends React.Component {
           {this.state.data.map(ii => (
             <a href="http://www.baidu.com" key={ii} style={hProp}>
               <img
-                src={`https://zos.alipayobjects.com/rmsportal/${ii || 'QcWDkUhvYIVEcvtosxMF'}.png`}
-                alt="icon"
+                src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`}
+                alt=""
                 onLoad={() => {
                   // fire window resize event to change height
                   window.dispatchEvent(new Event('resize'));
@@ -97,7 +97,6 @@ ReactDOM.render(<App />, mountNode);
 ````
 ````css
 .my-carousel {
-  background: #fff;
 }
 .my-carousel a {
   display: inline-block;
