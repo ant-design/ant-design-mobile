@@ -27,11 +27,11 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         >
           <a
             href="http://www.baidu.com"
-            style="height:200px;"
+            style="height:176px;"
           >
             <img
-              alt="icon"
-              src="https://zos.alipayobjects.com/rmsportal/QcWDkUhvYIVEcvtosxMF.png"
+              alt=""
+              src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>
         </li>
@@ -41,11 +41,11 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         >
           <a
             href="http://www.baidu.com"
-            style="height:200px;"
+            style="height:176px;"
           >
             <img
-              alt="icon"
-              src="https://zos.alipayobjects.com/rmsportal/QcWDkUhvYIVEcvtosxMF.png"
+              alt=""
+              src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>
         </li>
@@ -55,11 +55,11 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         >
           <a
             href="http://www.baidu.com"
-            style="height:200px;"
+            style="height:176px;"
           >
             <img
-              alt="icon"
-              src="https://zos.alipayobjects.com/rmsportal/QcWDkUhvYIVEcvtosxMF.png"
+              alt=""
+              src="https://zos.alipayobjects.com/rmsportal/.png"
             />
           </a>
         </li>
