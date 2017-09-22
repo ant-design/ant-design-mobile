@@ -75,9 +75,11 @@ class App extends React.Component {
     this.lv.getInnerViewNode().addEventListener('touchstart', this.ts = (e) => {
       this.tsPageY = e.touches[0].pageY;
     });
+    // In chrome61 `document.body.scrollTop` is invalid
+    const scrollNode = document.scrollingElement ? document.scrollingElement : document.body;
     this.lv.getInnerViewNode().addEventListener('touchmove', this.tm = (e) => {
       this.tmPageY = e.touches[0].pageY;
-      if (this.tmPageY > this.tsPageY && this.st <= 0 && document.body.scrollTop > 0) {
+      if (this.tmPageY > this.tsPageY && this.scrollerTop <= 0 && scrollNode.scrollTop > 0) {
         console.log('start pull to refresh');
         this.domScroller.options.preventDefaultOnTouchMove = false;
       } else {
@@ -92,7 +94,7 @@ class App extends React.Component {
   }
 
   onScroll = (e) => {
-    this.st = e.scroller.getValues().top;
+    this.scrollerTop = e.scroller.getValues().top;
     this.domScroller = e;
   };
 
@@ -136,7 +138,7 @@ class App extends React.Component {
   };
 
   scrollingComplete = () => {
-    if (this.st >= 0) {
+    if (this.scrollerTop >= 0) {
       this.setState({ showFinishTxt: false });
     }
   }
