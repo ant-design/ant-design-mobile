@@ -1,4 +1,5 @@
 import React from 'react';
+import { StickyContainer, Sticky } from 'react-sticky';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
@@ -9,20 +10,6 @@ import classnames from 'classnames';
 import { getChildren } from 'jsonml.js/lib/utils';
 import throttleByAnimationFrame from 'antd/lib/_util/throttleByAnimationFrame';
 import Demo from './Demo';
-
-function getFixedMode(demoEl, inFixedDemoMode) {
-  const { top: demoTop, bottom: demoBottom } = demoEl.getBoundingClientRect();
-  if (inFixedDemoMode) {
-    if (demoTop > 0 || demoBottom < 600) {
-      return false;
-    }
-    return true;
-  }
-  if (demoTop < 0 && demoBottom > 600) {
-    return true;
-  }
-  return false;
-}
 
 function getDemos(props) {
   return Object.keys(props.demos)
@@ -65,12 +52,6 @@ export default class ComponentDoc extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     const inMultiDemoMode = getDemos(nextProps).length >= 2;
-    if (!inMultiDemoMode && this.state.inMultiDemoMode) {
-      this.cleanScroll();
-    }
-    if (inMultiDemoMode && !this.state.inFixedDemoMode) {
-      this.bindScroll();
-    }
     this.setState({
       currentIndex: 0,
       toggle: false,
@@ -87,35 +68,12 @@ export default class ComponentDoc extends React.Component {
   }
 
   componentDidMount() {
-    if (this.state.inMultiDemoMode) {
-      this.bindScroll();
-    }
-
     setTimeout(() => {
       const linkTo = this.props.location.hash.replace('#', '');
       if (linkTo) {
         document.getElementById(linkTo).scrollIntoView();
       }
     }, 500);
-  }
-  componentWillUnmount() {
-    this.cleanScroll();
-  }
-  doScroll = () => {
-    const demoEl = document.getElementById('demo-code');
-
-    const inFixedDemoMode = getFixedMode(demoEl, this.state.inFixedDemoMode);
-
-    if (this.state.inFixedDemoMode !== inFixedDemoMode) {
-      this.setState({ inFixedDemoMode });
-    }
-  }
-  bindScroll = () => {
-    document.addEventListener('scroll', this.handleScroll, false);
-    setTimeout(this.handleScroll, 0);
-  }
-  cleanScroll = () => {
-    document.removeEventListener('scroll', this.handleScroll, false);
   }
   render() {
     const props = this.props;
@@ -191,41 +149,46 @@ export default class ComponentDoc extends React.Component {
             </section>
           </section>
 
-          <div id="demo-code" className={codeContainerCls}>
-            <div style={{ width: '100%', float: 'left' }}>
-              {leftChildren}
-            </div>
-            <div className="mobile-wrapper">
-              <div id="aside-demo" className="aside-demo">
-                <div style={{ width: '377Px', height: '620Px' }}>
-                  <div className="demo-preview-wrapper">
-                    <div className="demo-preview-header">
-                      <div className="demo-preview-statbar">
-                        <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
-                      </div>
-                      <div style={{ height: '40Px' }}>
-                        <div className="url-box">{iframeUrl}</div>
+          <StickyContainer>
+            <div id="demo-code" className={codeContainerCls} style={{ minHeight: 620 }}>
+              <div style={{ width: '100%', float: 'left' }}>
+                {leftChildren}
+              </div>
+              <Sticky style={{ pointerEvents: 'none' }}>
+                <div className="mobile-wrapper" style={{ pointerEvents: 'auto' }}>
+                  <div id="aside-demo" className="aside-demo">
+                    <div style={{ width: '377Px', height: '620Px' }}>
+                      <div className="demo-preview-wrapper">
+                        <div className="demo-preview-header">
+                          <div className="demo-preview-statbar">
+                            <img width="350Px" alt="presentation" style={{ margin: '0 2Px' }} src="https://os.alipayobjects.com/rmsportal/VfVHYcSUxreetec.png" />
+                          </div>
+                          <div style={{ height: '40Px' }}>
+                            <div className="url-box">{iframeUrl}</div>
+                          </div>
+                        </div>
+                        <section className="code-box-demo code-box-demo-preview">
+                          <iframe id="demoFrame"
+                            name="demoFrame"
+                            title="antd-mobile"
+                            style={{
+                              width: '377Px',
+                              height: '548Px',
+                              border: '1Px solid #F7F7F7',
+                              borderTop: 'none',
+                              boxShadow: '0 2Px 4Px #ebebeb',
+                            }}
+                            src={iframeUrl}
+                          />
+                        </section>
                       </div>
                     </div>
-                    <section className="code-box-demo code-box-demo-preview">
-                      <iframe id="demoFrame"
-                        name="demoFrame"
-                        title="antd-mobile"
-                        style={{
-                          width: '377Px',
-                          height: '548Px',
-                          border: '1Px solid #F7F7F7',
-                          borderTop: 'none',
-                          boxShadow: '0 2Px 4Px #ebebeb',
-                        }}
-                        src={iframeUrl}
-                      />
-                    </section>
                   </div>
                 </div>
-              </div>
+              </Sticky>
             </div>
-          </div>
+          </StickyContainer>
+
 
           {
             props.utils.toReactComponent(
