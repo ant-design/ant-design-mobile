@@ -37,10 +37,7 @@ const versionList = {};
 const antdMobileInfo = require(`${antdMobileRoot}/package.json`);
 versionList[antdMobileInfo.name] = antdMobileInfo.version;
 
-debug(
-  `\nantd-mobile: ${antdMobileInfo.version}\n`,
-  'dependencies:',
-);
+debug(`\nantd-mobile: ${antdMobileInfo.version}\n`, 'dependencies:');
 
 Object.keys(antdMobileInfo.dependencies)
   .filter(depName => depName.indexOf('rc-') === 0 || depName.indexOf('rmc-') === 0)
@@ -60,9 +57,7 @@ if (fs.existsSync(targetDir)) {
   debug('[antd-mobile-update-tip] Not found lib/_util dir.');
 }
 
-debug(
-  '------------------------------------\n',
-);
+debug('------------------------------------\n');
 
 function getProjectRoot() {
   const cwd = process.cwd();
