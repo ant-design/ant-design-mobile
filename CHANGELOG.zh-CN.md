@@ -67,6 +67,28 @@ toc: false
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
+## 1.6.9
+`2017-09-25`
+
+- **Bug Fix**
+
+  - Fix `Modal.prompt` 聚焦延迟. ([#1857](https://github.com/ant-design/ant-design-mobile/issues/1857))
+  - Fix `TextareaItem` 当 `autoHeight` 属性为 true，且输入很多文字时，切换 active 元素导致页面滚动. ([#1858](https://github.com/ant-design/ant-design-mobile/issues/1858))
+  - Fix `Popvoer` ts 属性定义错误.
+
+- **Improve && Enhancement**
+
+  - Add `indicatorStyle` 和 `itemStyle` 属性用于 `Picker/PickerView`. ([#1856](https://github.com/ant-design/ant-design-mobile/issues/1856))
+
+## 1.6.8
+`2017-09-18`
+
+- **Bug Fix**
+
+  - Fix `segmented-control` 激活状态样式. ([#1832](https://github.com/ant-design/ant-design-mobile/issues/1832))
+  - Fix `InputItem` `TextareaItem` [类型定义](https://github.com/ant-design/ant-design-mobile/commit/5fd21d1539f19fe80fd415716d349d82c1a77408).
+  - Fix `swipe-action` [样式问题](https://github.com/ant-design/ant-design-mobile/commit/ab2297c64fcde0766b502b96349bc8824cbd8bff).
+
 ## 1.6.7
 `2017-09-11`
 

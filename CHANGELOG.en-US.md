@@ -67,6 +67,29 @@ toc: false
   - `rmc-picker` upgrade，dom structure simplify ([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - remove global `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
+
+## 1.6.9
+`2017-09-25`
+
+- **Bug Fix**
+
+  - Fix `Modal.prompt` focus delay. ([#1857](https://github.com/ant-design/ant-design-mobile/issues/1857))
+  - Fix `TextareaItem` with `autoHeight` and much texts causing page scrolling. ([#1858](https://github.com/ant-design/ant-design-mobile/issues/1858))
+  - Fix `Popvoer` ts definition.
+
+- **Improve && Enhancement**
+
+  - Add `indicatorStyle` and `itemStyle` for `Picker/PickerView`. ([#1856](https://github.com/ant-design/ant-design-mobile/issues/1856))
+
+## 1.6.8
+`2017-09-18`
+
+- **Bug Fix**
+
+  - Fix `segmented-control`  without active style. ([#1832](https://github.com/ant-design/ant-design-mobile/issues/1832))
+  - Fix `InputItem` `TextareaItem` [onClick tsd](https://github.com/ant-design/ant-design-mobile/commit/5fd21d1539f19fe80fd415716d349d82c1a77408).
+  - Fix `swipe-action` [button height overflow](https://github.com/ant-design/ant-design-mobile/commit/ab2297c64fcde0766b502b96349bc8824cbd8bff).
+
 ## 1.6.7
 `2017-09-11`
 
