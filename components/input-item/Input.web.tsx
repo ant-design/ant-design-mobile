@@ -58,6 +58,10 @@ class Input extends React.Component<InputProps, any> {
     }
   }
 
+  focus = () => {
+    (this.refs.input as any).focus();
+  }
+
   render() {
     const otherProps = omit(this.props, ['onBlur', 'onFocus', 'focused', 'autoFocus']);
     return (

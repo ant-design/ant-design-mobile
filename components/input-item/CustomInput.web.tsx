@@ -170,6 +170,14 @@ class NumberInput extends React.Component<any, any> {
     }
   }
 
+  focus = () => {
+    document.removeEventListener('click', this._blurEventListener, false);
+    this.onFakeInputClick();
+    setTimeout(() => {
+      document.addEventListener('click', this._blurEventListener, false);
+    }, 50);
+  }
+
   render() {
     const { placeholder, value, disabled, editable } = this.props;
     const { focused } = this.state;

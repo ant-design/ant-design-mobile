@@ -159,7 +159,7 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   focus = () => {
-    (this.refs.inputWrap as any).refs.input.focus();
+    (this.refs.input as any).focus();
   }
 
   render() {
@@ -246,6 +246,7 @@ class InputItem extends React.Component<InputItemProps, any> {
           {type === 'money' ? (
             <CustomInput
               type={type}
+              ref="input"
               maxLength={maxLength}
               placeholder={placeholder}
               onChange={this.onInputChange}
@@ -265,7 +266,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               {...otherProps}
               {...valueProps}
               {...classNameProps}
-              ref="inputWrap"
+              ref="input"
               type={inputType}
               maxLength={maxLength}
               name={name}
