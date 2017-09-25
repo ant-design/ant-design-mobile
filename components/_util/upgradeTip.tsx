@@ -1,6 +1,6 @@
 if (process.env.NODE_ENV === 'development') {
   const localVersion = require('./version.json');
-  if (!localVersion._disable) {
+  if (!localVersion._disable && fetch) {
     const server = 'http://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com';
     fetch(`${server}/filesync/prod/z/fengdie/antd-mobile-upgrade-tip/upgrade-tip-h5data.json`)
       .then(data => data.json())
