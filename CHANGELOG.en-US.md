@@ -67,6 +67,12 @@ toc: false
   - `rmc-picker` upgrade，dom structure simplify ([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - remove global `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
+## 1.6.10
+`2017-09-25`
+
+- **Bug Fix**
+
+  - Fix `InputItem` can't be focused when click clear icon.
 
 ## 1.6.9
 `2017-09-25`

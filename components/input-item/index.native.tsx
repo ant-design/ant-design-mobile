@@ -41,6 +41,8 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     styles: InputItemStyles,
   };
 
+  inputRef: any;
+
   onChange = (text) => {
     const { onChange, type } = this.props;
     const maxLength = this.props.maxLength as number;
@@ -144,6 +146,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         <Input
           clearButtonMode={clear ? 'while-editing' : 'never'}
           underlineColorAndroid="transparent"
+          ref={el => this.inputRef = el}
           {...restProps}
           {...valueProps}
           style={[styles.input, error ? { color: '#f50' } : null]}
