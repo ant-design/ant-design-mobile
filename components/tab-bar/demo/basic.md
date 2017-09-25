@@ -82,14 +82,14 @@ class TabBarExample extends React.Component {
             <div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://gw.alipayobjects.com/zos/rmsportal/LIrTcIGtEmwqZsQnTtFa.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat' }}
             />
           }
           selectedIcon={
             <div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ZGXnYElJHBJjuiWLIlNe.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }}
             />
           }
           title="Koubei"
