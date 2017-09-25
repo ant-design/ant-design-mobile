@@ -16,6 +16,19 @@ toc: false
 
 ---
 
+## 1.6.9
+`2017-09-25`
+
+- **Bug Fix**
+
+  - Fix `Modal.prompt` focus delay. ([#1857](https://github.com/ant-design/ant-design-mobile/issues/1857))
+  - Fix `TextareaItem` with `autoHeight` and much texts causing page scrolling. ([#1858](https://github.com/ant-design/ant-design-mobile/issues/1858))
+  - Fix `Popvoer` ts definition.
+
+- **Improve && Enhancement**
+
+  - Add `indicatorStyle` and `itemStyle` for `Picker/PickerView`. ([#1856](https://github.com/ant-design/ant-design-mobile/issues/1856))
+
 ## 1.6.8
 `2017-09-18`
 

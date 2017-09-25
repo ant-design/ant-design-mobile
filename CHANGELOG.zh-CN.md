@@ -15,6 +15,19 @@ toc: false
 
 ---
 
+## 1.6.9
+`2017-09-25`
+
+- **Bug Fix**
+
+  - Fix `Modal.prompt` 聚焦延迟. ([#1857](https://github.com/ant-design/ant-design-mobile/issues/1857))
+  - Fix `TextareaItem` 当 `autoHeight` 属性为 true，且输入很多文字时，切换 active 元素导致页面滚动. ([#1858](https://github.com/ant-design/ant-design-mobile/issues/1858))
+  - Fix `Popvoer` ts 属性定义错误.
+
+- **Improve && Enhancement**
+
+  - Add `indicatorStyle` 和 `itemStyle` 属性用于 `Picker/PickerView`. ([#1856](https://github.com/ant-design/ant-design-mobile/issues/1856))
+
 ## 1.6.8
 `2017-09-18`
 
