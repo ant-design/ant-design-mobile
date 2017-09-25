@@ -15,6 +15,14 @@ toc: false
 
 ---
 
+## 1.6.10
+`2017-09-25`
+
+- **Bug Fix**
+
+  - Fix `InputItem` 不能 focus 在点击 clear icon 后.
+
+
 ## 1.6.9
 `2017-09-25`
 

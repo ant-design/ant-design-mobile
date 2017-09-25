@@ -145,6 +145,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           underlineColorAndroid="transparent"
           {...restProps}
           {...valueProps}
+          ref="inputWrap"
           style={[styles.input, error ? { color: '#f50' } : null]}
           keyboardType={keyboardType}
           onChange={(event) => this.onChange(event.nativeEvent.text)}

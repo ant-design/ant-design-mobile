@@ -154,6 +154,12 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (this.props.onChange) {
       this.props.onChange('');
     }
+
+    this.focus();
+  }
+
+  focus = () => {
+    (this.refs.inputWrap as any).refs.input.focus();
   }
 
   render() {
@@ -259,6 +265,7 @@ class InputItem extends React.Component<InputItemProps, any> {
               {...otherProps}
               {...valueProps}
               {...classNameProps}
+              ref="inputWrap"
               type={inputType}
               maxLength={maxLength}
               name={name}
