@@ -8,7 +8,9 @@ title:
 Wrap your app with `LocaleProvider`, and apply the corresponding language package.
 
 ````jsx
-import { Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button, InputItem, WingBlank } from 'antd-mobile';
+import {
+  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, InputItem, WingBlank, SegmentedControl,
+} from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
 
 const maxDate = new Date(2018, 11, 3, 22, 0);
@@ -44,17 +46,23 @@ class App extends React.Component {
       isEnglish: true,
     };
   }
-  handleClick = (e) => {
-    e.preventDefault();
+
+  onChange = (e) => {
+    const index = e.nativeEvent.selectedSegmentIndex;
     this.setState({
-      isEnglish: !this.state.isEnglish,
+      isEnglish: index === 0,
     });
   }
+
   render() {
     const locale = this.state.isEnglish ? enUS : undefined;
     return (
       <WingBlank>
-        <Button type="primary" onClick={this.handleClick}>{this.state.isEnglish ? 'change to chinese' : '切换到英文'}</Button>
+        <SegmentedControl
+          values={['切换到英文', 'change to chinese']}
+          selectedIndex={this.state.isEnglish ? 0 : 1}
+          onChange={this.onChange}
+        />
         <WhiteSpace />
         <LocaleProvider locale={locale}>
           <Page />

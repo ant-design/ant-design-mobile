@@ -17,7 +17,7 @@ exports[`renders ./components/progress/demo/basic.md correctly 1`] = `
     />
   </div>
   <div
-    style="height:36px;"
+    style="height:18px;"
   />
   <div
     aria-valuemax="100"

@@ -25,9 +25,6 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
           />
         </div>
       </div>
-      <div
-        class="am-whitespace am-whitespace-xl"
-      />
       <p
         class="sub-title"
       >
@@ -50,9 +47,6 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
           </span>
         </div>
       </div>
-      <div
-        class="am-whitespace am-whitespace-xl"
-      />
       <p
         class="sub-title"
       >

@@ -35,14 +35,12 @@ class App extends React.Component {
             <div className="loading-example">
               <ActivityIndicator animating />
             </div>
-            <WhiteSpace size="xl" />
             <p className="sub-title">icon with text</p>
             <div className="loading-example">
               <ActivityIndicator
                 text="Loading..."
               />
             </div>
-            <WhiteSpace size="xl" />
             <p className="sub-title">icon with large size and customized text style</p>
             <div className="loading-example">
               <div className="align">
