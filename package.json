@@ -25,7 +25,8 @@
   "files": [
     "dist",
     "lib",
-    "es"
+    "es",
+    "scripts/update-tip.js"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -138,7 +139,7 @@
     "test:all": "./scripts/test-all.sh",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' > AUTHORS.txt",
     "dist": "BABEL_ENV=dist antd-tools run dist",
-    "compile": "BABEL_ENV=dist antd-tools run compile",
+    "compile": "BABEL_ENV=dist antd-tools run compile && npm run add-tip",
     "watch-tsc": "antd-tools run watch-tsc",
     "clean": "antd-tools run clean",
     "start": "cross-env NODE_ENV=development concurrently \"DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js --no-livereload\" \"DEMO_ENV=preact bisheng start -c ./site/bisheng.kitchen.config.js --no-livereload\"",
@@ -160,7 +161,9 @@
     "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
     "tsc": "antd-tools run tsc",
-    "hd": "node scripts/rewrite-px.js"
+    "hd": "node scripts/rewrite-px.js",
+    "add-tip": "node scripts/add-tip.js",
+    "postinstall": "node scripts/update-tip.js"
   },
   "lint-staged": {
     "components/**/*.tsx": [
