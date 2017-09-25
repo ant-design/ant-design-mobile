@@ -162,6 +162,10 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
+   ```bash
+   yarn add babel-plugin-import --dev
+   ```
+
    ```js
    // .babelrc or babel-loader option
    {
