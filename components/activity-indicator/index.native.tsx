@@ -10,6 +10,7 @@ import PropTypes from './PropsType';
 
 export interface IActivityIndicatorNativeProps extends PropTypes {
   styles?: IActivityIndicatorStyle;
+  color?: string;
 }
 
 const indicatorStyles = StyleSheet.create<any>(indicatorStyle);
