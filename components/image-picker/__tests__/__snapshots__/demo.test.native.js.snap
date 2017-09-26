@@ -32,31 +32,55 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "height": 80,
-              "width": 80,
-            },
-            Object {
-              "borderRadius": 3,
-              "overflow": "hidden",
-            },
-          ]
-        }
-      />
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 80,
+                "width": 80,
+              },
+              Object {
+                "borderRadius": 3,
+                "overflow": "hidden",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -71,6 +95,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
             "borderRadius": 8,
             "height": 16,
             "justifyContent": "center",
+            "opacity": 1,
             "overflow": "hidden",
             "position": "absolute",
             "right": 4,
@@ -79,6 +104,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <Text
           accessible={true}
@@ -114,31 +140,55 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "height": 80,
-              "width": 80,
-            },
-            Object {
-              "borderRadius": 3,
-              "overflow": "hidden",
-            },
-          ]
-        }
-      />
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 80,
+                "width": 80,
+              },
+              Object {
+                "borderRadius": 3,
+                "overflow": "hidden",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -153,6 +203,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
             "borderRadius": 8,
             "height": 16,
             "justifyContent": "center",
+            "opacity": 1,
             "overflow": "hidden",
             "position": "absolute",
             "right": 4,
@@ -161,6 +212,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <Text
           accessible={true}
@@ -196,31 +248,55 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "height": 80,
-              "width": 80,
-            },
-            Object {
-              "borderRadius": 3,
-              "overflow": "hidden",
-            },
-          ]
-        }
-      />
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 80,
+                "width": 80,
+              },
+              Object {
+                "borderRadius": 3,
+                "overflow": "hidden",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -235,6 +311,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
             "borderRadius": 8,
             "height": 16,
             "justifyContent": "center",
+            "opacity": 1,
             "overflow": "hidden",
             "position": "absolute",
             "right": 4,
@@ -243,6 +320,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <Text
           accessible={true}
@@ -278,31 +356,55 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "height": 80,
-              "width": 80,
-            },
-            Object {
-              "borderRadius": 3,
-              "overflow": "hidden",
-            },
-          ]
-        }
-      />
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 80,
+                "width": 80,
+              },
+              Object {
+                "borderRadius": 3,
+                "overflow": "hidden",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -317,6 +419,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
             "borderRadius": 8,
             "height": 16,
             "justifyContent": "center",
+            "opacity": 1,
             "overflow": "hidden",
             "position": "absolute",
             "right": 4,
@@ -325,6 +428,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <Text
           accessible={true}
@@ -360,31 +464,55 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "height": 80,
-              "width": 80,
-            },
-            Object {
-              "borderRadius": 3,
-              "overflow": "hidden",
-            },
-          ]
-        }
-      />
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 80,
+                "width": 80,
+              },
+              Object {
+                "borderRadius": 3,
+                "overflow": "hidden",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -399,6 +527,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
             "borderRadius": 8,
             "height": 16,
             "justifyContent": "center",
+            "opacity": 1,
             "overflow": "hidden",
             "position": "absolute",
             "right": 4,
@@ -407,6 +536,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <Text
           accessible={true}
@@ -442,31 +572,55 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "height": 80,
-              "width": 80,
-            },
-            Object {
-              "borderRadius": 3,
-              "overflow": "hidden",
-            },
-          ]
-        }
-      />
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        isTVSelectable={true}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Image
+          source={
+            Object {
+              "uri": "https://zos.alipayobjects.com/rmsportal/WCxfiPKoDDHwLBM.png",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "height": 80,
+                "width": 80,
+              },
+              Object {
+                "borderRadius": 3,
+                "overflow": "hidden",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        isTVSelectable={true}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -481,6 +635,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
             "borderRadius": 8,
             "height": 16,
             "justifyContent": "center",
+            "opacity": 1,
             "overflow": "hidden",
             "position": "absolute",
             "right": 4,
@@ -489,6 +644,7 @@ exports[`renders ./components/image-picker/demo/basic.native.tsx correctly 1`] =
           }
         }
         testID={undefined}
+        tvParallaxProperties={undefined}
       >
         <Text
           accessible={true}

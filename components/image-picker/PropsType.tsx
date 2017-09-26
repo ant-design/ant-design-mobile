@@ -8,8 +8,3 @@ export interface ImagePickerPropTypes {
   onAddImageClick?: () => void;
   selectable?: boolean;
 }
-
-export interface ImageRollProps {
-  onCancel: () => void;
-  onSelected: (imgObj: {}) => void;
-}

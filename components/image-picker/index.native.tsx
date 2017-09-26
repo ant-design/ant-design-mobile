@@ -1,13 +1,11 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import {
   View,
   Text,
   Image,
-  // CameraRoll,
   TouchableWithoutFeedback,
-  // Platform,
-  // ImagePickerIOS,
-  // ActionSheetIOS,
+  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 import { ImagePickerPropTypes } from './PropsType';
@@ -25,6 +23,7 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     styles: imagePickerStyles,
     onChange() {},
     files: [],
+    selectable: true,
   };
 
   plusText: any;
@@ -51,46 +50,14 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     });
   }
 
-  // TODO 先统一采用 CameraRoll 形式，注释代码勿删
-  // openPickerDialog(type) {
-  //   ImagePickerIOS[type]({}, (imageUrl) => {
-  //     // 由于性能问题，不能在这里转换 base64， 需要利用 native 模块;
-  //     // 这里回调 assets-library, 交给业务自己实现转换 base64
-  //     // https://github.com/facebook/react-native/issues/201
-  //     console.log(imageUrl)
-  //     this.addImage({url: imageUrl});
-  //   }, error => {
-  //     if (error) {
-  //       console.warn(error.message || `{type} error`);
-  //       return;
-  //     }
-  //   });
-  // }
-
   showPicker = () => {
-    // if (Platform.OS === "ios") {
-    //   ImagePickerIOS.canUseCamera(canUse => {
-    //     if (canUse) {
-    //       ActionSheetIOS.showActionSheetWithOptions({
-    //         options: ['Take Photo', 'Photo Libray', 'Cancel'],
-    //         cancelButtonIndex: 2,
-    //       }, (btnIndex) => {
-    //         if (btnIndex == 0) {
-    //           this.openPickerDialog('openCameraDialog');
-    //           ImagePickerIOS.openCameraDialog({})
-    //         } else if (btnIndex == 1) {
-    //           this.openPickerDialog('openSelectDialog');
-    //         }
-    //       });
-    //     } else {
-    //       this.openPickerDialog('openSelectDialog');
-    //     }
-    //   });
-    // } else {
+    if (this.props.onAddImageClick) {
+      this.props.onAddImageClick();
+      return;
+    }
     this.setState({
       visible: true,
     });
-    // }
   }
 
   addImage(imageObj) {
@@ -124,20 +91,26 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     });
   }
 
+  onImageClick(index) {
+    if (this.props.onImageClick) {
+      this.props.onImageClick(index, this.props.files);
+    }
+  }
+
   render() {
-    const { files = [] } = this.props;
+    const { files = [], selectable } = this.props;
     const styles = this.props.styles!;
     const filesView = files.map((item: any, index) => (
       <View key={index} style={[styles.item, styles.size]}>
-        <Image
-          source={{ uri: item.url }}
-          style={[styles.size, styles.image]}
-        />
-        <TouchableWithoutFeedback onPress={() => this.removeImage(index)}>
-          <View style={styles.closeWrap}>
-            <Text style={styles.closeText}>×</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <TouchableOpacity onPress={() => this.onImageClick(index)} activeOpacity={0.6}>
+          <Image
+            source={{ uri: item.url }}
+            style={[styles.size, styles.image]}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.removeImage(index)} style={styles.closeWrap} activeOpacity={0.6}>
+          <Text style={styles.closeText}>×</Text>
+        </TouchableOpacity>
       </View>
     ));
 
@@ -150,18 +123,22 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     return (
       <View style={styles.container}>
         {filesView}
-        <TouchableWithoutFeedback
-          onPress={this.showPicker}
-          onPressIn={this.onPressIn}
-          onPressOut={this.onPressOut}
-        >
-          <View
-            ref={conponent => this.plusWrap = conponent}
-            style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
-          >
-            <Text style={[styles.plusText]}>+</Text>
-          </View>
-        </TouchableWithoutFeedback>
+        {
+          selectable && (
+            <TouchableWithoutFeedback
+              onPress={this.showPicker}
+              onPressIn={this.onPressIn}
+              onPressOut={this.onPressOut}
+            >
+              <View
+                ref={conponent => this.plusWrap = conponent}
+                style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
+              >
+                <Text style={[styles.plusText]}>+</Text>
+              </View>
+            </TouchableWithoutFeedback>
+          )
+        }
         {this.state.visible ? imageRollEl : null}
       </View>
     );
