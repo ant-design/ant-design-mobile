@@ -1,7 +1,7 @@
 # antd-mobile theme config
 You can config theme with antd-mobile, includes colors radius border etc.
 
-![](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
+![](https://gw.alipayobjects.com/zos/rmsportal/pinkfuSuBGRhJFugFdmO.png)
 
 ## style variables
 
@@ -32,7 +32,7 @@ In practice, just choose one way from `package.theme` and `less`.
         ]
     }
    ```
-1. Then，add the 'theme' in `package.json`.me.js"`, [the default style variable](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+1. Then，add the 'theme' in `package.json` file, [the default style variable](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
     ```
     {
         ...
