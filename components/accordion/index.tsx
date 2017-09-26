@@ -6,6 +6,7 @@ export interface AccordionProps extends BasePropsType {
   className?: string;
   prefixCls?: string;
   openAnimation?: any;
+  accordion?: boolean;
 }
 
 export default class Accordion extends React.Component<AccordionProps, any> {
