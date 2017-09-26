@@ -65,6 +65,7 @@
     "@types/react": "~16.0.2",
     "@types/react-dom": "15.5.1",
     "@types/react-native": "^0.47.2",
+    "@types/classnames":"^2.2.3",
     "antd": "2.x",
     "antd-mobile-demo-data": "^0.1.1",
     "antd-tools": "^2.0.0",

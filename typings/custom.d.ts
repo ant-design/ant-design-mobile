@@ -6,37 +6,17 @@ declare module 'rmc-list-view';
 
 declare module 'rc-collapse';
 
-declare module 'rc-tooltip';
-
 declare module 'rc-checkbox';
-
-declare module 'rc-animate';
-
-declare module 'rc-steps';
-
-declare module 'classnames';
 
 declare module 'rmc-feedback';
 
-declare module 'rc-input-number*';
-
-declare module 'css-vendor';
-
 declare module 'rc-slider';
-
-declare module 'rc-swipeout*';
-
-declare module 'nuka-carousel';
-
-declare module 'rc-tabs*';
 
 declare module 'rn-topview';
 
 declare module 'rc-notification';
 
 declare module 'react-native-camera-roll-picker';
-
-declare module 'react-mixin';
 
 declare module 'array-tree-filter';
 
@@ -47,10 +27,6 @@ declare module 'rc-drawer';
 declare module 'rmc-dialog';
 
 declare module 'react-native-menu';
-
-declare module 'rmc-pull-to-refresh';
-
-declare module 'react-native-scrollable-tab-view';
 
 declare module 'react-native-collapsible/Accordion';
 
