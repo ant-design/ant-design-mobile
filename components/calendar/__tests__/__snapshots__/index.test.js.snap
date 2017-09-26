@@ -21,7 +21,13 @@ exports[`Calendar renders correctly 1`] = `
         <span
           class="left"
         >
-          X
+          <svg
+            class="am-icon am-icon-cross am-icon-md"
+          >
+            <use
+              xlink:href="#cross"
+            />
+          </svg>
         </span>
         <span
           class="title"
