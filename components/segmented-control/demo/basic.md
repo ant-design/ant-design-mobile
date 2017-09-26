@@ -55,5 +55,6 @@ ReactDOM.render(<SegmentedControlExample />, mountNode);
   color: #888;
   font-size: 14px;
   padding: 30px 0 18px 0;
+    margin: 0;
 }
 ````

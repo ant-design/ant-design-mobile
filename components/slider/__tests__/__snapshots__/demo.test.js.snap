@@ -11,7 +11,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-lg"
   >
     <p
-      class="title"
+      class="sub-title"
     >
       Slider
     </p>
@@ -53,7 +53,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-lg"
   >
     <p
-      class="title"
+      class="sub-title"
     >
       Disabled Slider
     </p>
@@ -95,7 +95,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-lg"
   >
     <p
-      class="title"
+      class="sub-title"
     >
       Slider With Customized Color
     </p>

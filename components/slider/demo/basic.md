@@ -22,17 +22,17 @@ class App extends React.Component {
       <div className="am-slider-example">
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider</p>
+          <p className="sub-title">Slider</p>
           <Slider defaultValue={26} min={0} max={30} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Disabled Slider</p>
+          <p className="sub-title">Disabled Slider</p>
           <Slider defaultValue={26} min={0} max={30} disabled onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider With Customized Color</p>
+          <p className="sub-title">Slider With Customized Color</p>
           <Slider
             defaultValue={26}
             min={0}
@@ -75,5 +75,11 @@ ReactDOM.render(<App />, mountNode);
 }
 .demo-preview-item .am-slider-wrapper:last-child {
   margin-bottom: 10px;
+}
+.sub-title {
+  color: #888;
+  font-size: 14px;
+  padding: 30px 0 18px 0;
+  margin: 0;
 }
 ````

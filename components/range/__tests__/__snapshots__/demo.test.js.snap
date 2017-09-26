@@ -11,7 +11,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-lg"
   >
     <p
-      class="title"
+      class="sub-title"
     >
       Basic Range
     </p>
@@ -62,7 +62,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-lg"
   >
     <p
-      class="title"
+      class="sub-title"
     >
       Disabled Range
     </p>
@@ -113,7 +113,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     class="am-wingblank am-wingblank-lg"
   >
     <p
-      class="title"
+      class="sub-title"
     >
       Range with Customized Style
     </p>
