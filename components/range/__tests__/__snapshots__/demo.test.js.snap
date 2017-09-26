@@ -20,6 +20,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-slider"
+        style="margin-left:30px;margin-right:30px;"
       >
         <div
           class="am-slider-rail"
@@ -71,6 +72,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-slider am-slider-disabled"
+        style="margin-left:30px;margin-right:30px;"
       >
         <div
           class="am-slider-rail"
@@ -122,6 +124,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-slider"
+        style="margin-left:30px;margin-right:30px;"
       >
         <div
           class="am-slider-rail"

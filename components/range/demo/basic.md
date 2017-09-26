@@ -24,6 +24,7 @@ const App = () => {
       <WingBlank size="lg">
         <p className="sub-title">Basic Range</p>
         <Range
+          style={{ marginLeft: 30, marginRight: 30 }}
           min={0}
           max={20}
           defaultValue={[3, 10]}
@@ -35,6 +36,7 @@ const App = () => {
       <WingBlank size="lg">
         <p className="sub-title">Disabled Range</p>
         <Range
+          style={{ marginLeft: 30, marginRight: 30 }}
           min={0}
           max={20}
           defaultValue={[3, 10]}
@@ -47,6 +49,7 @@ const App = () => {
       <WingBlank size="lg">
         <p className="sub-title">Range with Customized Style</p>
         <Range
+          style={{ marginLeft: 30, marginRight: 30 }}
           min={0}
           max={20}
           defaultValue={[3, 10]}

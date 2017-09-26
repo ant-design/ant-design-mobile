@@ -23,17 +23,33 @@ class App extends React.Component {
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
           <p className="sub-title">Slider</p>
-          <Slider defaultValue={26} min={0} max={30} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
+          <Slider
+            style={{ marginLeft: 30, marginRight: 30 }}
+            defaultValue={26}
+            min={0}
+            max={30}
+            onChange={this.log('change')}
+            onAfterChange={this.log('afterChange')}
+          />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
           <p className="sub-title">Disabled Slider</p>
-          <Slider defaultValue={26} min={0} max={30} disabled onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
+          <Slider
+            style={{ marginLeft: 30, marginRight: 30 }}
+            defaultValue={26}
+            min={0}
+            max={30}
+            disabled
+            onChange={this.log('change')}
+            onAfterChange={this.log('afterChange')}
+          />
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
           <p className="sub-title">Slider With Customized Color</p>
           <Slider
+            style={{ marginLeft: 30, marginRight: 30 }}
             defaultValue={26}
             min={0}
             max={30}
