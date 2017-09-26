@@ -67,7 +67,7 @@ toc: false
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
-## 1.6.10
+## 1.6.10/1.6.11
 `2017-09-25`
 
 - **Bug Fix**
