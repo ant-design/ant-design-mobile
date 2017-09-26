@@ -20,7 +20,7 @@ const CustomChildren = props => (
     onClick={props.onClick}
     style={{ backgroundColor: '#fff', paddingLeft: 15 }}
   >
-    <div style={{ display: 'flex', height: '45px', lineHeight: '45px', borderBottom: '1PX solid #ddd' }}>
+    <div className="test" style={{ display: 'flex', height: '45px', lineHeight: '45px' }}>
       <div style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{props.children}</div>
       <div style={{ textAlign: 'right', color: '#888', marginRight: 15 }}>{props.extra}</div>
     </div>
@@ -192,5 +192,35 @@ ReactDOM.render(<TestWrapper />, mountNode);
 ````css
 .picker-list .am-list-item .am-list-line .am-list-extra {
   flex-basis: initial;
+}
+.test {
+  position: relative;
+  border-bottom: 1PX solid #ddd;
+}
+
+@media(-webkit-min-device-pixel-ratio: 2) and (-webkit-min-device-pixel-ratio: 3), (min-resolution: 2dppx) and (min-resolution: 3dppx) {
+  .test {
+    border-bottom: 0;
+  }
+
+  .test::after {
+    content: '';
+    position: absolute;
+    background-color: #ddd;
+    display: block;
+    z-index: 1;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1PX;
+    -webkit-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+  }
 }
 ````
