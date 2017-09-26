@@ -195,11 +195,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     const { value, focus } = this.state;
 
     const wrapCls = classnames(prefixCls, className, {
-      [`${prefixCls}-start`]: focus || value && value.length > 0,
+      [`${prefixCls}-start`]: !!(focus || value && value.length > 0),
     });
 
     const clearCls = classnames(`${prefixCls}-clear`, {
-      [`${prefixCls}-clear-show`]: focus && value && value.length > 0,
+      [`${prefixCls}-clear-show`]: !!(focus && value && value.length > 0),
     });
 
     const cancelCls = classnames(`${prefixCls}-cancel`, {

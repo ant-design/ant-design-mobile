@@ -60,7 +60,7 @@ class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-inline`]: inline,
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-icon`]: iconType,
+      [`${prefixCls}-icon`]: !!iconType,
     });
 
     const kids = React.Children.map(children, insertSpace);
