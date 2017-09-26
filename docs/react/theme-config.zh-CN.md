@@ -1,13 +1,13 @@
 # antd-mobile 主题定制
 antd-mobile 设计规范上支持一定程度的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于主色、圆角、边框和部分组件的视觉定制。
 
-![](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
+![](https://gw.alipayobjects.com/zos/rmsportal/pinkfuSuBGRhJFugFdmO.png)
 
 ## 样式变量
 
 antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定义了一系列全局/组件的样式变量，你可以根据需求进行相应调整。
 
-- [默认样式变量](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+- [默认样式变量](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less)
 
 ## 定制方式
 
