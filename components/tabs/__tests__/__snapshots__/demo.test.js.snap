@@ -269,177 +269,136 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
   <div
     class="am-whitespace am-whitespace-md"
   />
-  <div>
+  <div
+    class="am-tabs am-tabs-horizontal am-tabs-top"
+  >
     <div
-      class="am-tabs am-tabs-horizontal am-tabs-top"
+      class="am-tabs-tab-bar-wrap"
     >
       <div
-        class="am-tabs-tab-bar-wrap"
+        class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+        style="background-color:#fff;"
       >
-        <div>
+        <div
+          class="am-tabs-default-bar-content"
+          style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
+        >
           <div
-            style="padding-bottom:0;"
+            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            style="width:20%;"
+          >
+            1st Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%;"
+          >
+            2nd Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%;"
+          >
+            3rd Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%;"
+          >
+            4th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%;"
+          >
+            5th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%;"
+          >
+            6th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%;"
+          >
+            7th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%;"
+          >
+            8th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%;"
+          >
+            9th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-underline"
+            style="width:20%;left:0%;"
           />
-          <div
-            class=""
-            style="transform:translateZ(0);z-index:1;"
-          >
-            <div
-              class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
-              style="background-color:#fff;"
-            >
-              <div
-                class="am-tabs-default-bar-content"
-                style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
-              >
-                <div
-                  class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
-                  style="width:20%;"
-                >
-                  1st Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-tab"
-                  style="width:20%;"
-                >
-                  2nd Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-tab"
-                  style="width:20%;"
-                >
-                  3rd Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-tab"
-                  style="width:20%;"
-                >
-                  4th Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-tab"
-                  style="width:20%;"
-                >
-                  5th Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-tab"
-                  style="width:20%;"
-                >
-                  6th Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-tab"
-                  style="width:20%;"
-                >
-                  7th Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-tab"
-                  style="width:20%;"
-                >
-                  8th Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-tab"
-                  style="width:20%;"
-                >
-                  9th Tab
-                </div>
-                <div
-                  class="am-tabs-default-bar-underline"
-                  style="width:20%;left:0%;"
-                />
-              </div>
-              <div
-                class="am-tabs-default-bar-nextpage"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-        style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
-      >
-        <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
-        >
-          <div
-            class="am-list am-list-view-scrollview"
-          >
-            <div
-              class="am-list-header"
-            >
-              <span>
-                header
-              </span>
-            </div>
-            <div
-              class="am-list-body"
-            />
-            <div
-              class="am-list-footer"
-            >
-              <div
-                style="padding:30px;text-align:center;"
-              >
-                Loading...
-              </div>
-            </div>
-          </div>
         </div>
         <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        >
-          <div
-            class="am-list am-list-view-scrollview"
-          >
-            <div
-              class="am-list-header"
-            >
-              <span>
-                header
-              </span>
-            </div>
-            <div
-              class="am-list-body"
-            />
-            <div
-              class="am-list-footer"
-            >
-              <div
-                style="padding:30px;text-align:center;"
-              >
-                Loading...
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        />
-        <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        />
-        <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        />
-        <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        />
-        <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        />
-        <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        />
-        <div
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          class="am-tabs-default-bar-nextpage"
         />
       </div>
     </div>
+    <div
+      class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+      style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px);"
+    >
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff;"
+        >
+          <p>
+            Content of 1st Tab
+          </p>
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff;"
+        >
+          <p>
+            Content of 2nd Tab
+          </p>
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+    </div>
   </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
 </div>
 `;
 
