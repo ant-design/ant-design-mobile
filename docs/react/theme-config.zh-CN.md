@@ -20,21 +20,18 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
 
     ```
     npm install --save-dev babel-plugin-import less less-loder
-   ```
-1. 其次，在你项目中的`.bablrc`文件中需要有以下配置
+    ```
+1. 其次，在你项目中的 babel plugin 配置中需要有以下配置
 
     ```
-    {
-        ...
         "plugins": [
             ["import", {"libraryName": "antd-mobile", "style": true}],
             ...
-        ]
-    }
-   ```
+        ]
+    ```
 1. 再次，在 `package.json` 文件中添加一个 theme 字段，（当然你也可以配置一个js文件 `"theme": "./theme.js"`，有兴趣的同学自行探索）里面将包含所有我们想要修改的主题样式。[全部主题样式参考这里](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less)
     ```
-    {
+    {  
         ...
         "theme": {
             "brand-primary": "red",
@@ -43,7 +40,7 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
         },
         ...
     }
-   ```
+    ```
 
 1. 最后，在你的 webpack （建议版本3.0+） 配置文件里，添加如下配置，之后运行你的 `npm start`，看到惊喜了吗？
     ```
@@ -78,12 +75,12 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
     }
    ```
 ---
-另外，**[高清方案](https://github.com/ant-design/ant-design-mobile/wiki/HD)在 antd-mobile2.0 中并不是必须的**，如果你想在 antd-mobile2.0 中使用高清方案，需要对其做下适配处理，操作很简单，在前面主题配置的第三步中，在 theme 字段中修改hd变量为 0.02rem 即可。
+另外，**[高清方案](https://github.com/ant-design/ant-design-mobile/wiki/HD)在 antd-mobile2.0 中并不是必须的**，如果使用 `antd-mobile@1.x` 高清方案，则需要做下适配处理，操作很简单，在前面主题配置的第三步中，在 theme 字段中修改`hd`变量为 2px 即可。
 ```
   {
       ...
       "theme": {
-          "hd": "0.02rem",
+          "hd": "2px",
           "brand-primary": "red",
           "color-text-base":  "#333",
           ...
@@ -91,7 +88,6 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
       ...
   }
   ```
-后话：如果你对为什么要把 hd 改为 0.02rem 感到好奇，可以查看[这篇博客](http://www.jianshu.com/p/985d26b40199)，此文中笔者对高清源码稍作修改，使该方案能灵活适用于百度地图这类特殊场景。
 
 ### 2) less
 
