@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Result renders correctly 1`] = `
+exports[`Result match snapshot 1`] = `
 <div
   class="am-result"
   role="alert"

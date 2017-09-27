@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination renders correctly 1`] = `
+exports[`Pagination match snapshot 1`] = `
 <div
   class="am-pagination"
 >

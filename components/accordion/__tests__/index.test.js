@@ -4,7 +4,7 @@ import { renderToJson } from 'enzyme-to-json';
 import Accordion from '../index';
 
 describe('Accordion', () => {
-  it('renders correctly', () => {
+  it('match snapshot', () => {
     const wrapper = render(
       <Accordion>
         <Accordion.Panel header="标题一">
@@ -16,6 +16,19 @@ describe('Accordion', () => {
       </Accordion>,
     );
     expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('renders correctly', () => {
+    const wrapper = mount(
+      <Accordion>
+        <Accordion.Panel header="标题一">
+          内容一
+        </Accordion.Panel>
+        <Accordion.Panel header="标题二">
+          内容二
+        </Accordion.Panel>
+      </Accordion>,
+    );
     expect(wrapper.find('.am-accordion')).toHaveLength(1);
   });
 

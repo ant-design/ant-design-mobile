@@ -1,14 +1,20 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render, mount, shallow } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 import Pagination from '../index';
 
 describe('Pagination', () => {
-  it('renders correctly', () => {
+  it('match snapshot', () => {
     const wrapper = render(
       <Pagination total={5} current={3} />,
     );
     expect(renderToJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('renders correctly', () => {
+    const wrapper = shallow(
+      <Pagination total={5} current={3} />,
+    );
     expect(wrapper.find('.am-pagination')).toHaveLength(1);
   });
 
