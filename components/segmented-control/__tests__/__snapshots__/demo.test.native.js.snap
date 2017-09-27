@@ -12,6 +12,7 @@ exports[`renders ./components/segmented-control/demo/basic.native.tsx correctly 
   <Text
     accessible={true}
     allowFontScaling={true}
+    disabled={false}
     ellipsizeMode="tail"
   >
     Disabled
@@ -49,6 +50,7 @@ exports[`renders ./components/segmented-control/demo/basic.native.tsx correctly 
   <Text
     accessible={true}
     allowFontScaling={true}
+    disabled={false}
     ellipsizeMode="tail"
   >
     TintColor and Style
@@ -90,6 +92,7 @@ exports[`renders ./components/segmented-control/demo/basic.native.tsx correctly 
   <Text
     accessible={true}
     allowFontScaling={true}
+    disabled={false}
     ellipsizeMode="tail"
   >
     SelectedIndex
@@ -128,6 +131,7 @@ exports[`renders ./components/segmented-control/demo/basic.native.tsx correctly 
   <Text
     accessible={true}
     allowFontScaling={true}
+    disabled={false}
     ellipsizeMode="tail"
   >
     onChange/onValueChange

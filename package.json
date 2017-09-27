@@ -62,10 +62,10 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.3",
     "@types/react": "~16.0.2",
     "@types/react-dom": "15.5.1",
     "@types/react-native": "^0.47.2",
-    "@types/classnames": "^2.2.3",
     "antd": "2.x",
     "antd-mobile-demo-data": "^0.1.1",
     "antd-tools": "^2.0.0",
@@ -113,7 +113,7 @@
     "react-intl": "^2.2.3",
     "react-native": "~0.48.4",
     "react-native-code-push": "^5.1.1-beta",
-    "react-native-mock": "^0.3.1",
+    "react-native-mocker": "^0.0.10",
     "react-navigation": "^1.0.0-beta.12",
     "react-test-renderer": "^16.0.0",
     "stylelint": "^8.0.0",

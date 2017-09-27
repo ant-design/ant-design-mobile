@@ -30,6 +30,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
           hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
+          nativeID={undefined}
           onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -76,6 +77,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
+                disabled={false}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -108,6 +110,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
           </View>
         </View>
         <View
+          collapsable={undefined}
           pointerEvents="none"
           style={
             Object {
@@ -117,6 +120,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
           }
         >
           <View
+            collapsable={undefined}
             onLayout={[Function]}
             style={Object {}}
           >
@@ -140,6 +144,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
                   hasTVPreferredFocus={undefined}
                   hitSlop={undefined}
                   isTVSelectable={true}
+                  nativeID={undefined}
                   onLayout={undefined}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -204,6 +209,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
                         <Text
                           accessible={true}
                           allowFontScaling={true}
+                          disabled={false}
                           ellipsizeMode="tail"
                           numberOfLines={1}
                           style={
@@ -231,6 +237,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
                   hasTVPreferredFocus={undefined}
                   hitSlop={undefined}
                   isTVSelectable={true}
+                  nativeID={undefined}
                   onLayout={undefined}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -295,6 +302,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
                         <Text
                           accessible={true}
                           allowFontScaling={true}
+                          disabled={false}
                           ellipsizeMode="tail"
                           numberOfLines={1}
                           style={
@@ -322,6 +330,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
                   hasTVPreferredFocus={undefined}
                   hitSlop={undefined}
                   isTVSelectable={true}
+                  nativeID={undefined}
                   onLayout={undefined}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -386,6 +395,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
                         <Text
                           accessible={true}
                           allowFontScaling={true}
+                          disabled={false}
                           ellipsizeMode="tail"
                           numberOfLines={1}
                           style={
@@ -435,6 +445,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
           hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
+          nativeID={undefined}
           onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -481,6 +492,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
+                disabled={false}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -513,6 +525,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
           </View>
         </View>
         <View
+          collapsable={undefined}
           pointerEvents="none"
           style={
             Object {
@@ -522,6 +535,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
           }
         >
           <View
+            collapsable={undefined}
             onLayout={[Function]}
             style={Object {}}
           >
@@ -538,6 +552,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
+                disabled={false}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -561,6 +576,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
           hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
+          nativeID={undefined}
           onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -607,6 +623,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
+                disabled={false}
                 ellipsizeMode="tail"
                 style={
                   Object {
@@ -639,10 +656,12 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
           </View>
         </View>
         <View
+          collapsable={undefined}
           pointerEvents="auto"
           style={false}
         >
           <View
+            collapsable={undefined}
             onLayout={[Function]}
             style={Object {}}
           >
@@ -659,6 +678,7 @@ exports[`renders ./components/accordion/demo/basic.native.tsx correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
+                disabled={false}
                 ellipsizeMode="tail"
                 style={
                   Object {

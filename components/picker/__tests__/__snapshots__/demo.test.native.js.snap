@@ -31,6 +31,7 @@ exports[`renders ./components/picker/demo/popup.native.tsx correctly 1`] = `
           hasTVPreferredFocus={undefined}
           hitSlop={undefined}
           isTVSelectable={true}
+          nativeID={undefined}
           onLayout={undefined}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -96,6 +97,7 @@ exports[`renders ./components/picker/demo/popup.native.tsx correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
+                  disabled={false}
                   ellipsizeMode="tail"
                   numberOfLines={1}
                   style={
@@ -125,6 +127,7 @@ exports[`renders ./components/picker/demo/popup.native.tsx correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
+                  disabled={false}
                   ellipsizeMode="tail"
                   numberOfLines={1}
                   style={

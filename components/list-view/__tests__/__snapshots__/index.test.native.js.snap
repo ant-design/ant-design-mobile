@@ -14,6 +14,7 @@ exports[`ListView renders correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       row 1
@@ -21,6 +22,7 @@ exports[`ListView renders correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       row 2

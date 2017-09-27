@@ -22,6 +22,7 @@ exports[`Drawer renders correctly 1`] = `
   }
 >
   <View
+    collapsable={undefined}
     style={
       Object {
         "flex": 1,
@@ -32,6 +33,7 @@ exports[`Drawer renders correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       Main
@@ -42,7 +44,9 @@ exports[`Drawer renders correctly 1`] = `
     accessibilityLabel={undefined}
     accessibilityTraits={undefined}
     accessible={true}
+    collapsable={undefined}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -67,6 +71,7 @@ exports[`Drawer renders correctly 1`] = `
   />
   <View
     accessibilityViewIsModal={false}
+    collapsable={undefined}
     style={
       Object {
         "backgroundColor": undefined,
@@ -88,6 +93,7 @@ exports[`Drawer renders correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       Text

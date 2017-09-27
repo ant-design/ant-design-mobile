@@ -1,4 +1,9 @@
 // https://github.com/facebook/jest/issues/2208#issuecomment-264733133
+const Enzyme = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
+
+Enzyme.configure({ adapter: new Adapter() });
+
 jest.mock('Linking', () => ({
   addEventListener: jest.fn(),
   removeEventListener: jest.fn(),
@@ -56,4 +61,4 @@ jest.mock('UIManager', () => ({
 global.cancelAnimationFrame = jest.fn();
 global.requestAnimationFrame = jest.fn();
 
-require('react-native-mock/mock');
+require('react-native-mocker/mock');

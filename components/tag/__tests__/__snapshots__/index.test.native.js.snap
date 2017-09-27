@@ -20,6 +20,7 @@ exports[`Tag renders correctly 1`] = `
     accessibilityTraits={undefined}
     accessible={true}
     hitSlop={undefined}
+    nativeID={undefined}
     onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -49,6 +50,7 @@ exports[`Tag renders correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
       style={
         Array [

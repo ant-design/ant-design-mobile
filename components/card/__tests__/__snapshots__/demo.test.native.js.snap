@@ -81,6 +81,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
           <Text
             accessible={true}
             allowFontScaling={true}
+            disabled={false}
             ellipsizeMode="tail"
             style={
               Object {
@@ -96,6 +97,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
           style={
             Array [
@@ -135,6 +137,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
           <Text
             accessible={true}
             allowFontScaling={true}
+            disabled={false}
             ellipsizeMode="tail"
             style={
               Object {
@@ -160,6 +163,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
           style={
             Object {
@@ -174,6 +178,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
           style={
             Array [
@@ -266,6 +271,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
           style={
             Object {
@@ -281,6 +287,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
         style={
           Array [
@@ -320,6 +327,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
           style={
             Object {
@@ -345,6 +353,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
         style={
           Object {
@@ -359,6 +368,7 @@ exports[`renders ./components/card/demo/basic.native.tsx correctly 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
         style={
           Array [

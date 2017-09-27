@@ -28,6 +28,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
         hasTVPreferredFocus={undefined}
         hitSlop={undefined}
         isTVSelectable={true}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -92,6 +93,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
+                disabled={false}
                 ellipsizeMode="tail"
                 numberOfLines={1}
                 style={
@@ -127,6 +129,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 accessibilityTraits="button"
                 accessible={true}
                 hitSlop={undefined}
+                nativeID={undefined}
                 onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -153,6 +156,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
+                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -198,6 +202,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 accessibilityTraits="button"
                 accessible={true}
                 hitSlop={undefined}
+                nativeID={undefined}
                 onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -224,6 +229,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
+                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -252,6 +258,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
         hasTVPreferredFocus={undefined}
         hitSlop={undefined}
         isTVSelectable={true}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -316,6 +323,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
+                disabled={false}
                 ellipsizeMode="tail"
                 numberOfLines={1}
                 style={
@@ -351,6 +359,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 accessibilityTraits="disabled"
                 accessible={true}
                 hitSlop={undefined}
+                nativeID={undefined}
                 onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -380,6 +389,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
+                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -427,6 +437,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 accessibilityTraits="button"
                 accessible={true}
                 hitSlop={undefined}
+                nativeID={undefined}
                 onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -453,6 +464,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
+                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -481,6 +493,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
         hasTVPreferredFocus={undefined}
         hitSlop={undefined}
         isTVSelectable={true}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -545,6 +558,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
+                disabled={false}
                 ellipsizeMode="tail"
                 numberOfLines={1}
                 style={
@@ -580,6 +594,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 accessibilityTraits="disabled"
                 accessible={true}
                 hitSlop={undefined}
+                nativeID={undefined}
                 onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -609,6 +624,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
+                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -658,6 +674,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 accessibilityTraits="disabled"
                 accessible={true}
                 hitSlop={undefined}
+                nativeID={undefined}
                 onLayout={undefined}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -687,6 +704,7 @@ exports[`renders ./components/stepper/demo/basic.native.tsx correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={true}
+                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [

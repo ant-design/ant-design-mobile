@@ -6,6 +6,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       Default settings
@@ -46,6 +47,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       Initial value: 0.5
@@ -86,6 +88,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       min: 0, max: 1, current Value: 
@@ -127,6 +130,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       step: 0.25
@@ -167,6 +171,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       disabled
@@ -207,6 +212,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       onChange value: 
@@ -248,6 +254,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       onAfterChange value: 
@@ -289,6 +296,7 @@ exports[`renders ./components/slider/demo/basic.native.tsx correctly 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       custom color: 

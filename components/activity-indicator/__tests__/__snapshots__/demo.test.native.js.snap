@@ -27,6 +27,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -53,6 +54,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -73,6 +75,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
         >
           Icon without text
@@ -84,6 +87,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -149,6 +153,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -175,6 +180,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -195,6 +201,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
         >
           Icon with text
@@ -206,6 +213,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -241,6 +249,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
           <Text
             accessible={true}
             allowFontScaling={true}
+            disabled={false}
             ellipsizeMode="tail"
             style={
               Array [
@@ -287,6 +296,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -313,6 +323,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -333,6 +344,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
         >
           Dark Background
@@ -344,6 +356,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -423,6 +436,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
       accessibilityTraits={undefined}
       accessible={true}
       hitSlop={undefined}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -449,6 +463,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -469,6 +484,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
         >
           Large Size
@@ -480,6 +496,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         accessibilityTraits={undefined}
         accessible={true}
         hitSlop={undefined}
+        nativeID={undefined}
         onLayout={undefined}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -547,6 +564,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
       hasTVPreferredFocus={undefined}
       hitSlop={undefined}
       isTVSelectable={true}
+      nativeID={undefined}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -595,6 +613,7 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         <Text
           accessible={true}
           allowFontScaling={true}
+          disabled={false}
           ellipsizeMode="tail"
           style={
             Array [

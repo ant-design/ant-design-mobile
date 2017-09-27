@@ -65,6 +65,7 @@ exports[`renders ./components/badge/demo/basic.native.tsx correctly 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
+              disabled={false}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -136,6 +137,7 @@ exports[`renders ./components/badge/demo/basic.native.tsx correctly 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
+              disabled={false}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -207,6 +209,7 @@ exports[`renders ./components/badge/demo/basic.native.tsx correctly 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
+              disabled={false}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -278,6 +281,7 @@ exports[`renders ./components/badge/demo/basic.native.tsx correctly 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
+              disabled={false}
               ellipsizeMode="tail"
               style={
                 Array [
@@ -406,6 +410,7 @@ exports[`renders ./components/badge/demo/basic.native.tsx correctly 1`] = `
             <Text
               accessible={true}
               allowFontScaling={true}
+              disabled={false}
               ellipsizeMode="tail"
               style={
                 Array [
