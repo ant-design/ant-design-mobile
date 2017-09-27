@@ -24,11 +24,15 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
 1. 其次，在你项目中的 babel plugin 配置中需要有以下配置
 
     ```
-    "plugins": [
-        ["import", {"libraryName": "antd-mobile", "style": true}],
+    {
         ...
-    ]
-    ```
+        "plugins": [
+            ["import", {"libraryName": "antd-mobile", "style": true}],
+            ...
+        ]
+    }
+   ```
+    
 1. 再次，在 `package.json` 文件中添加一个 theme 字段，（当然你也可以配置一个js文件 `"theme": "./theme.js"`，有兴趣的同学自行探索）里面将包含所有我们想要修改的主题样式。[全部主题样式参考这里](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less)
 
     ```
