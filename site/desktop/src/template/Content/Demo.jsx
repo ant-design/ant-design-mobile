@@ -108,8 +108,8 @@ export default class Demo extends React.Component {
       editors: '001',
       css_external: 'https://unpkg.com/antd-mobile@next/dist/antd-mobile.min.css',
       js_external: [
-        'react/dist/react.js',
-        'react-dom/dist/react-dom.js',
+        'react@15/dist/react.js',
+        'react-dom@15/dist/react-dom.js',
         'moment/min/moment-with-locales.js',
         'antd-mobile@next/dist/antd-mobile.min.js',
       ]
