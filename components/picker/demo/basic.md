@@ -175,6 +175,7 @@ class Test extends React.Component {
           value={this.state.pickerValue}
           onChange={v => this.setState({ pickerValue: v })}
           onOk={() => this.setState({ visible: false })}
+          onDismiss={() => this.setState({ visible: false })}
         />
       </List>
     </div>);
