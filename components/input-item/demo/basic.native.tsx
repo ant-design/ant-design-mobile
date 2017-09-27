@@ -3,6 +3,8 @@ import React from 'react';
 import { ScrollView, Text } from 'react-native';
 import { InputItem, List, Button } from 'antd-mobile';
 
+declare var jest: any;
+
 export default class BasicInputItemExample extends React.Component<any, any> {
   constructor(props) {
     super(props);
@@ -77,7 +79,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             defaultValue="xx"
             clear
             placeholder="自动获取光标"
-            autoFocus
+            autoFocus={/* TODO: https://github.com/facebook/jest/issues/3707  */typeof(jest) === 'undefined'}
           >
             标题
           </InputItem>

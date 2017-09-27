@@ -6,7 +6,13 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports":true,
-    "target": "es6"
+    "target": "es6",
+    "types": [
+      "classnames",
+      "react",
+      "react-dom",
+      "react-native"
+    ]
   },
   "exclude": [
     "node_modules",
