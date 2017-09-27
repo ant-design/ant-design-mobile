@@ -1,6 +1,7 @@
 interface Props {
   onSelect?: (node: any, index?: number) => void;
   overlay: any;
+  align?: any;
   disabled?: boolean;
   children?: any;
   /** rn only */
