@@ -14,7 +14,7 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
 我们使用 [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-modify-variables) 的方式来覆盖变量。
 在具体工程实践中，有 `package.theme` 和 `less` 两种方案，选择一种即可。
 
-### 1) theme 属性（强烈推荐）
+### 1) theme 属性
 ###### 总共四步：
 1. 首先，你的项目里需要安装依赖 `babel-plugin-import less less-loder` 。(当然，`style-loader css-loader`这些最基础的样式依赖肯定也是要有的)
 
